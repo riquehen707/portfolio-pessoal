@@ -2,13 +2,7 @@
 import { Suspense } from "react";
 import { Column, Heading, Meta, Schema, Text, Line } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
-import NextDynamic from "next/dynamic"; // ✅ alias para evitar conflito com `export const dynamic`
-
-// Carrega a grade de projetos de forma adiada para melhorar TTFB
-const Projects = NextDynamic(
-  () => import("@/components/work/Projects").then((m) => m.Projects),
-  { loading: () => <ProjectsSkeleton /> } // ❗não use ssr:false em Server Components
-);
+import { Projects } from "@/components/work/Projects"; // ✅ import direto (Server Component)
 
 // ISR + renderização estática estável
 export const revalidate = 60;
