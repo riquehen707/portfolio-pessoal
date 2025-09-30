@@ -15,22 +15,31 @@ import {
   RevealFx,
   SpacingToken,
 } from "@once-ui-system/core";
-import { Footer, Header, RouteGuard, Providers } from "@/components";
-import { baseURL as baseFromConfig, effects, fonts, style, dataStyle, home } from "@/resources";
 
-// --- Helpers robustos para URL e caminhos
+import { Footer, Header, RouteGuard, Providers } from "@/components";
+import {
+  baseURL as baseFromConfig,
+  effects,
+  fonts,
+  style,
+  dataStyle,
+  home,
+} from "@/resources";
+
+// =======================================================
+// Helpers robustos para URL e caminhos/base
+// =======================================================
 function resolveBaseURL(): URL {
   // prioridade: env → config → fallback dev
   const raw = (process.env.NEXT_PUBLIC_SITE_URL ?? baseFromConfig ?? "").trim();
   const fallbackDev = "http://localhost:3000";
   try {
-    // aceita sem barra no final; adiciona se necessário para new URL funcionar melhor em joins
     const normalized = raw || fallbackDev;
     return new URL(normalized);
   } catch {
     throw new Error(
       `baseURL inválida: "${raw}". Defina NEXT_PUBLIC_SITE_URL (ex: https://seu-dominio.com) ` +
-      `ou exporte um baseURL absoluto em '@/resources/once-ui.config'.`
+        `ou exporte um baseURL absoluto em '@/resources/once-ui.config'.`
     );
   }
 }
@@ -43,31 +52,66 @@ function ensureLeadingSlash(path?: string): string | undefined {
 function toAbsoluteOrPath(base: URL, maybePath?: string): string | undefined {
   if (!maybePath) return undefined;
   try {
-    // Se for absoluta, new URL passa; se for relativa, monta em cima da base
-    return new URL(maybePath, base).toString();
+    return new URL(maybePath, base).toString(); // trata absoluta/relativa
   } catch {
-    // Último recurso: garante pelo menos um path relativo válido
     return ensureLeadingSlash(maybePath);
   }
 }
 
+// =======================================================
+// Google Search Console token
+// =======================================================
+const GOOGLE_SITE_VERIFICATION =
+  "LQzYGuvWyFJ-oWweMatvNPeFAQwOIMT2q8Q1pbX27Zw";
+
+// =======================================================
+// generateMetadata: integra Once UI + Next Metadata
+// =======================================================
 export async function generateMetadata() {
   const metadataBase = resolveBaseURL();
 
-  // Normaliza valores que o Meta.generate pode usar por baixo dos panos
-  const path = ensureLeadingSlash(home.path); // ex: "/"
-  const image = toAbsoluteOrPath(metadataBase, home.image); // aceita "/og.png" ou absoluta
+  // Caso você já utilize o objeto "home" do Once UI, podemos mesclar,
+  // mas vamos forçar título/descrição aqui conforme pedido.
+  const siteTitle = "Henrique Studio";
+  const siteDescription = "Descrição e tudo";
 
-  return Meta.generate({
-    title: home.title,
-    description: home.description,
-    baseURL: metadataBase.toString(), // string absoluta para Once UI
-    metadataBase,                     // também informa ao Next 13–15
+  const path = ensureLeadingSlash(home?.path ?? "/");
+  const image = toAbsoluteOrPath(metadataBase, home?.image ?? "/og.png");
+
+  // Meta.generate retorna um objeto compatível com Metadata;
+  // em seguida mesclamos verificações e ajustes do Next.
+  const onceMeta = Meta.generate({
+    title: siteTitle,
+    description: siteDescription,
+    baseURL: metadataBase.toString(),
+    metadataBase,
     path,
     image,
   });
+
+  return {
+    ...onceMeta,
+    applicationName: siteTitle,
+    // Força um template de título útil para páginas internas
+    title: {
+      default: siteTitle,
+      template: `%s · ${siteTitle}`,
+    },
+    description: siteDescription,
+    metadataBase,
+    alternates: {
+      canonical: new URL(path || "/", metadataBase).toString(),
+    },
+    verification: {
+      google: GOOGLE_SITE_VERIFICATION,
+    },
+    // Opcional: ícones, themeColor etc. podem ser adicionados aqui
+  };
 }
 
+// =======================================================
+// RootLayout
+// =======================================================
 export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -81,10 +125,18 @@ export default async function RootLayout({
         fonts.heading.variable,
         fonts.body.variable,
         fonts.label.variable,
-        fonts.code.variable,
+        fonts.code.variable
       )}
     >
       <head>
+        {/* Redundância intencional: além do metadata.verification acima,
+            também deixamos a meta explícita aqui.
+            Isso ajuda em caches/variações e facilita inspeção manual */}
+        <meta
+          name="google-site-verification"
+          content={GOOGLE_SITE_VERIFICATION}
+        />
+
         <script
           id="theme-init"
           dangerouslySetInnerHTML={{
@@ -92,7 +144,6 @@ export default async function RootLayout({
               (function() {
                 try {
                   const root = document.documentElement;
-                  const defaultTheme = 'system';
                   const config = ${JSON.stringify({
                     brand: style.brand,
                     accent: style.accent,
@@ -105,24 +156,26 @@ export default async function RootLayout({
                     scaling: style.scaling,
                     "viz-style": dataStyle.variant,
                   })};
+
                   Object.entries(config).forEach(([key, value]) => {
                     root.setAttribute('data-' + key, value);
                   });
+
                   const resolveTheme = (themeValue) => {
                     if (!themeValue || themeValue === 'system') {
                       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
                     }
                     return themeValue;
                   };
+
                   const savedTheme = localStorage.getItem('data-theme');
                   const resolvedTheme = resolveTheme(savedTheme);
                   root.setAttribute('data-theme', resolvedTheme);
+
                   const styleKeys = Object.keys(config);
                   styleKeys.forEach(key => {
                     const value = localStorage.getItem('data-' + key);
-                    if (value) {
-                      root.setAttribute('data-' + key, value);
-                    }
+                    if (value) root.setAttribute('data-' + key, value);
                   });
                 } catch (e) {
                   console.error('Failed to initialize theme:', e);
@@ -133,6 +186,7 @@ export default async function RootLayout({
           }}
         />
       </head>
+
       <Providers>
         <Column
           as="body"
@@ -185,13 +239,16 @@ export default async function RootLayout({
               }}
             />
           </RevealFx>
+
           <Flex fillWidth minHeight="16" s={{ hide: true }} />
           <Header />
+
           <Flex zIndex={0} fillWidth padding="l" horizontal="center" flex={1}>
             <Flex horizontal="center" fillWidth minHeight="0">
               <RouteGuard>{children}</RouteGuard>
             </Flex>
           </Flex>
+
           <Footer />
         </Column>
       </Providers>
