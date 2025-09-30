@@ -3,25 +3,18 @@ import { Suspense } from "react";
 import { Column, Heading, Meta, Schema, Text } from "@once-ui-system/core";
 
 import { Posts } from "@/components/blog/Posts";
-// import MailchimpClient from "@/components/blog/MailChimpClient"; // ✅ client wrapper
 import { baseURL, blog, person } from "@/resources";
 
-// ⬇️ NOVOS
 import { BlogPillars } from "@/components/blog/BlogPillars";
 import { PILLARS } from "@/utils/pillars";
 
-// ====== Configs de seção ======
 const FEATURED_RANGE: [number, number] = [1, 1];
 const RECENTS_RANGE: [number, number] = [2, 3];
 const EARLIER_RANGE: number[] = [4];
 
-// Revalidação estática — atualiza a cada 60s
 export const revalidate = 60;
-
-// Força renderização estática incremental
 export const dynamic = "force-static";
 
-// ====== Auxiliares ======
 function SectionHeading({
   children,
   as = "h2",
@@ -47,8 +40,6 @@ function PostsSkeleton() {
   );
 }
 
-// ====== SEO / OpenGraph ======
-// Dica: gerar metadados dinâmicos conforme o pilar melhora CTR e relevância.
 export async function generateMetadata({
   searchParams,
 }: {
@@ -70,7 +61,6 @@ export async function generateMetadata({
   });
 }
 
-// ====== Página ======
 export default function BlogPage({
   searchParams,
 }: {
@@ -98,13 +88,10 @@ export default function BlogPage({
         }}
       />
 
-      {/* Título da página (mostra o pilar quando filtrado) */}
       <SectionHeading as="h1">{pageTitle}</SectionHeading>
 
-      {/* Menu de Pilares + destaque do atual */}
       <BlogPillars currentPillar={current} />
 
-      {/* Texto auxiliar opcional quando há filtro */}
       {pillar && (
         <Text onBackground="neutral-weak">
           Exibindo posts do pilar <strong>{pillar.label}</strong>.{" "}
@@ -112,30 +99,19 @@ export default function BlogPage({
         </Text>
       )}
 
-      {/* Destaque */}
       <Suspense fallback={<PostsSkeleton />}>
-        {/* Quando quiser filtrar: troque por <Posts filter={{ pillar: current }} ... /> */}
         <Posts range={FEATURED_RANGE} thumbnail />
       </Suspense>
 
-      {/* Recentes */}
       <Suspense fallback={<PostsSkeleton />}>
-        {/* Idem comentário acima sobre filtro */}
         <Posts range={RECENTS_RANGE} columns="2" thumbnail direction="column" />
       </Suspense>
 
-      {/* Newsletter (Client Component com no-SSR) */}
-      <Suspense fallback={<div style={{ height: 120 }} />}>
-        <MailchimpClient marginBottom="l" />
-      </Suspense>
-
-      {/* Anteriores */}
       <SectionHeading as="h2" marginTop="l">
         Posts anteriores
       </SectionHeading>
 
       <Suspense fallback={<PostsSkeleton />}>
-        {/* Idem comentário sobre filtro */}
         <Posts range={EARLIER_RANGE} columns="2" />
       </Suspense>
     </Column>
