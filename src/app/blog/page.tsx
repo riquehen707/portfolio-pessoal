@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { Column, Heading, Meta, Schema, Text } from "@once-ui-system/core";
 
 import { Posts } from "@/components/blog/Posts";
-import MailchimpClient from "@/components/blog/MailChimpClient"; // ✅ client wrapper
+//import MailchimpClient from "@/components/blog/MailChimpClient"; // ✅ client wrapper
 import { baseURL, blog, person } from "@/resources";
 
 // ⬇️ NOVOS
