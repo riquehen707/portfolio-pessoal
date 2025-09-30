@@ -1,136 +1,205 @@
+// src/app/work/[slug]/page.tsx
 import { notFound } from "next/navigation";
-import { getPosts } from "@/utils/utils";
+import { Metadata } from "next";
 import {
   Meta,
   Schema,
   AvatarGroup,
-  Button,
   Column,
-  Flex,
   Heading,
   Media,
   Text,
   SmartLink,
   Row,
-  Avatar,
   Line,
 } from "@once-ui-system/core";
+
+import { getPosts } from "@/utils/utils";
 import { baseURL, about, person, work } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
 import { ScrollToHash, CustomMDX } from "@/components";
-import { Metadata } from "next";
 import { Projects } from "@/components/work/Projects";
+
+// ISR estável
+export const revalidate = 60;
+export const dynamic = "force-static";
+
+// Helpers
+function normalizeSlug(slugParam: string | string[] | undefined): string {
+  if (!slugParam) return "";
+  return Array.isArray(slugParam) ? slugParam.join("/") : slugParam;
+}
+
+// Absolutiza (para SEO/OG/Schema)
+function toAbs(pathOrUrl?: string): string | undefined {
+  if (!pathOrUrl) return undefined;
+  try {
+    return new URL(pathOrUrl, baseURL).toString();
+  } catch {
+    return pathOrUrl;
+  }
+}
+
+// Força caminho local (para next/image em Media/Avatar/AvatarGroup)
+function toLocal(src?: string): string | undefined {
+  if (!src) return undefined;
+  try {
+    const u = new URL(src, baseURL);
+    return u.pathname + u.search; // ex.: "/images/xxx.jpg"
+  } catch {
+    return src; // já é relativo
+  }
+}
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "work", "projects"]);
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+  return posts.map((p) => ({ slug: p.slug }));
 }
 
+// SEO por projeto
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string | string[] }>;
+  params: { slug: string | string[] };
 }): Promise<Metadata> {
-  const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug)
-    ? routeParams.slug.join("/")
-    : routeParams.slug || "";
-
+  const slugPath = normalizeSlug(params.slug);
   const posts = getPosts(["src", "app", "work", "projects"]);
-  let post = posts.find((post) => post.slug === slugPath);
-
+  const post = posts.find((p) => p.slug === slugPath);
   if (!post) return {};
 
+  const title = post.metadata.title;
+  const description = post.metadata.summary;
+  const image = post.metadata.image || `/api/og/generate?title=${encodeURIComponent(title)}`;
+  const path = `${work.path}/${post.slug}`;
+
   return Meta.generate({
-    title: post.metadata.title,
-    description: post.metadata.summary,
-    baseURL: baseURL,
-    image: post.metadata.image || `/api/og/generate?title=${post.metadata.title}`,
-    path: `${work.path}/${post.slug}`,
+    title,
+    description,
+    baseURL,
+    image: toAbs(image), // ✅ absoluto para OG
+    path,
   });
 }
 
-export default async function Project({
+export default function ProjectPage({
   params,
 }: {
-  params: Promise<{ slug: string | string[] }>;
+  params: { slug: string | string[] };
 }) {
-  const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug)
-    ? routeParams.slug.join("/")
-    : routeParams.slug || "";
+  const slugPath = normalizeSlug(params.slug);
+  const post = getPosts(["src", "app", "work", "projects"]).find((p) => p.slug === slugPath);
 
-  let post = getPosts(["src", "app", "work", "projects"]).find((post) => post.slug === slugPath);
+  if (!post) notFound();
 
-  if (!post) {
-    notFound();
-  }
+  const datePublished = post.metadata.publishedAt ?? undefined;
+  const dateModified = post.metadata.updatedAt ?? post.metadata.publishedAt ?? undefined;
 
-  const avatars =
-    post.metadata.team?.map((person) => ({
-      src: person.avatar,
-    })) || [];
+  // Equipe (avatar local p/ evitar host não permitido)
+  const team = Array.isArray(post.metadata.team) ? post.metadata.team : [];
+  const avatars = team
+    .map((m: any) => ({ src: toLocal(m?.avatar) }))
+    .filter((a) => Boolean(a.src));
+
+  // Capa (usa local no componente visual)
+  const cover =
+    post.metadata.image ||
+    (Array.isArray(post.metadata.images) && post.metadata.images.length > 0 ? post.metadata.images[0] : undefined);
+
+  const ogImage = toAbs(
+    cover || `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`
+  );
+  const canonicalPath = `${work.path}/${post.slug}`;
 
   return (
-    <Column as="section" maxWidth="m" horizontal="center" gap="l">
+    <Column as="section" maxWidth="m" horizontal="center" gap="l" paddingTop="24">
+      {/* Para página de projeto, "article" é ok (se o Schema aceitar "CreativeWork", pode trocar) */}
       <Schema
-        as="blogPosting"
+        as="article"
         baseURL={baseURL}
-        path={`${work.path}/${post.slug}`}
+        path={canonicalPath}
         title={post.metadata.title}
         description={post.metadata.summary}
-        datePublished={post.metadata.publishedAt}
-        dateModified={post.metadata.publishedAt}
-        image={
-          post.metadata.image || `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`
-        }
+        datePublished={datePublished}
+        dateModified={dateModified}
+        image={ogImage} // ✅ absoluto
         author={{
           name: person.name,
-          url: `${baseURL}${about.path}`,
-          image: `${baseURL}${person.avatar}`,
+          url: toAbs(about.path)!,
+          image: toAbs(person.avatar)!,
         }}
       />
-      <Column maxWidth="s" gap="16" horizontal="center" align="center">
-        <SmartLink href="/work">
-          <Text variant="label-strong-m">Projects</Text>
+
+      {/* Breadcrumb + título */}
+      <Column maxWidth="s" gap="12" horizontal="center" align="center">
+        <SmartLink href="/work" underline="hover">
+          <Text variant="label-strong-m">Projetos</Text>
         </SmartLink>
-        <Text variant="body-default-xs" onBackground="neutral-weak" marginBottom="12">
-          {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
-        </Text>
-        <Heading variant="display-strong-m">{post.metadata.title}</Heading>
-      </Column>
-      <Row marginBottom="32" horizontal="center">
-        <Row gap="16" vertical="center">
-          {post.metadata.team && <AvatarGroup reverse avatars={avatars} size="s" />}
-          <Text variant="label-default-m" onBackground="brand-weak">
-            {post.metadata.team?.map((member, idx) => (
-              <span key={idx}>
-                {idx > 0 && (
-                  <Text as="span" onBackground="neutral-weak">
-                    ,{" "}
-                  </Text>
-                )}
-                <SmartLink href={member.linkedIn}>{member.name}</SmartLink>
-              </span>
-            ))}
+
+        {datePublished && (
+          <Text variant="body-default-xs" onBackground="neutral-weak">
+            {formatDate(datePublished)}
           </Text>
+        )}
+
+        <Heading variant="display-strong-m" align="center">
+          {post.metadata.title}
+        </Heading>
+      </Column>
+
+      {/* Equipe (se houver) */}
+      {avatars.length > 0 && (
+        <Row marginBottom="24" horizontal="center">
+          <Row gap="12" vertical="center" wrap>
+            <AvatarGroup reverse avatars={avatars} size="s" />
+            <Text variant="label-default-m" onBackground="brand-weak">
+              {team.map((member: any, idx: number) => (
+                <span key={idx}>
+                  {idx > 0 && (
+                    <Text as="span" onBackground="neutral-weak">
+                      {", "}
+                    </Text>
+                  )}
+                  {member?.linkedIn ? (
+                    <SmartLink href={member.linkedIn}>{member?.name || "Integrante"}</SmartLink>
+                  ) : (
+                    <Text as="span">{member?.name || "Integrante"}</Text>
+                  )}
+                </span>
+              ))}
+            </Text>
+          </Row>
         </Row>
-      </Row>
-      {post.metadata.images.length > 0 && (
-        <Media priority aspectRatio="16 / 9" radius="m" alt="image" src={post.metadata.images[0]} />
       )}
-      <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
+
+      {/* Capa (opcional) */}
+      {cover && (
+        <Media
+          priority
+          aspectRatio="16/9"
+          radius="l"
+          alt={post.metadata.title}
+          src={toLocal(cover)} // ✅ local para next/image
+          sizes="(min-width: 1024px) 960px, 100vw"
+          border="neutral-alpha-weak"
+          marginTop="4"
+          marginBottom="8"
+        />
+      )}
+
+      {/* Conteúdo */}
+      <Column as="article" maxWidth="s" style={{ margin: "auto" }}>
         <CustomMDX source={post.content} />
       </Column>
-      <Column fillWidth gap="40" horizontal="center" marginTop="40">
+
+      {/* Relacionados */}
+      <Column fillWidth gap="32" horizontal="center" marginTop="40">
         <Line maxWidth="40" />
-        <Heading as="h2" variant="heading-strong-xl" marginBottom="24">
-          Related projects
+        <Heading as="h2" variant="heading-strong-xl" marginBottom="12" align="center">
+          Projetos relacionados
         </Heading>
         <Projects exclude={[post.slug]} range={[2]} />
       </Column>
+
       <ScrollToHash />
     </Column>
   );

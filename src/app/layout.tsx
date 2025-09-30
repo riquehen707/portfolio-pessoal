@@ -1,3 +1,5 @@
+// src/app/layout.tsx
+
 import "@once-ui-system/core/css/styles.css";
 import "@once-ui-system/core/css/tokens.css";
 import "@/resources/custom.css";
@@ -14,28 +16,66 @@ import {
   SpacingToken,
 } from "@once-ui-system/core";
 import { Footer, Header, RouteGuard, Providers } from "@/components";
-import { baseURL, effects, fonts, style, dataStyle, home } from "@/resources";
+import { baseURL as baseFromConfig, effects, fonts, style, dataStyle, home } from "@/resources";
+
+// --- Helpers robustos para URL e caminhos
+function resolveBaseURL(): URL {
+  // prioridade: env → config → fallback dev
+  const raw = (process.env.NEXT_PUBLIC_SITE_URL ?? baseFromConfig ?? "").trim();
+  const fallbackDev = "http://localhost:3000";
+  try {
+    // aceita sem barra no final; adiciona se necessário para new URL funcionar melhor em joins
+    const normalized = raw || fallbackDev;
+    return new URL(normalized);
+  } catch {
+    throw new Error(
+      `baseURL inválida: "${raw}". Defina NEXT_PUBLIC_SITE_URL (ex: https://seu-dominio.com) ` +
+      `ou exporte um baseURL absoluto em '@/resources/once-ui.config'.`
+    );
+  }
+}
+
+function ensureLeadingSlash(path?: string): string | undefined {
+  if (!path) return path;
+  return path.startsWith("/") ? path : `/${path}`;
+}
+
+function toAbsoluteOrPath(base: URL, maybePath?: string): string | undefined {
+  if (!maybePath) return undefined;
+  try {
+    // Se for absoluta, new URL passa; se for relativa, monta em cima da base
+    return new URL(maybePath, base).toString();
+  } catch {
+    // Último recurso: garante pelo menos um path relativo válido
+    return ensureLeadingSlash(maybePath);
+  }
+}
 
 export async function generateMetadata() {
+  const metadataBase = resolveBaseURL();
+
+  // Normaliza valores que o Meta.generate pode usar por baixo dos panos
+  const path = ensureLeadingSlash(home.path); // ex: "/"
+  const image = toAbsoluteOrPath(metadataBase, home.image); // aceita "/og.png" ou absoluta
+
   return Meta.generate({
     title: home.title,
     description: home.description,
-    baseURL: baseURL,
-    path: home.path,
-    image: home.image,
+    baseURL: metadataBase.toString(), // string absoluta para Once UI
+    metadataBase,                     // também informa ao Next 13–15
+    path,
+    image,
   });
 }
 
 export default async function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <Flex
       suppressHydrationWarning
       as="html"
-      lang="en"
+      lang="pt-BR"
       fillWidth
       className={classNames(
         fonts.heading.variable,
@@ -53,8 +93,6 @@ export default async function RootLayout({
                 try {
                   const root = document.documentElement;
                   const defaultTheme = 'system';
-                  
-                  // Set defaults from config
                   const config = ${JSON.stringify({
                     brand: style.brand,
                     accent: style.accent,
@@ -67,26 +105,18 @@ export default async function RootLayout({
                     scaling: style.scaling,
                     "viz-style": dataStyle.variant,
                   })};
-                  
-                  // Apply default values
                   Object.entries(config).forEach(([key, value]) => {
                     root.setAttribute('data-' + key, value);
                   });
-                  
-                  // Resolve theme
                   const resolveTheme = (themeValue) => {
                     if (!themeValue || themeValue === 'system') {
                       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
                     }
                     return themeValue;
                   };
-                  
-                  // Apply saved theme
                   const savedTheme = localStorage.getItem('data-theme');
                   const resolvedTheme = resolveTheme(savedTheme);
                   root.setAttribute('data-theme', resolvedTheme);
-                  
-                  // Apply any saved style overrides
                   const styleKeys = Object.keys(config);
                   styleKeys.forEach(key => {
                     const value = localStorage.getItem('data-' + key);

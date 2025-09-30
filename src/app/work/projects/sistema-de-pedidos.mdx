@@ -1,0 +1,79 @@
+---
+title: "Cardápio Digital com Pedidos via WhatsApp"
+date: "2025-09-21"
+tag: "E-commerce"                  # ✅ tag principal de destaque
+tags: ["Next.js", "Zustand", "WhatsApp", "Mobile", "UX"]  # ✅ tags secundárias
+cover: "/images/projects/cardapio-digital-cover.png"
+---
+
+import { Column, Heading, Text, Media, SmartLink } from "@once-ui-system/core"
+
+<Column gap="xl">
+
+  <Heading as="h1">Visão Geral</Heading>
+  <Text>
+    Desenvolvi para o restaurante 
+    <SmartLink href="https://instagram.com/acarajosi" target="_blank">@acarajosi</SmartLink> 
+    um **sistema de cardápio digital** que permite ao cliente fazer pedidos de forma rápida pelo **WhatsApp** ou pelo **Instagram**.  
+    A solução elimina a troca manual de mensagens e garante um atendimento ágil e organizado, mesmo em horários de grande movimento.
+  </Text>
+
+  <Heading as="h1">Contexto</Heading>
+  <Text>
+    O restaurante Acarajosi precisava de um processo de pedidos mais eficiente.  
+    Pedidos feitos por mensagens manuais no WhatsApp e Instagram geravam filas virtuais, erros de comunicação e aumento no tempo de preparo.
+  </Text>
+
+  <Heading as="h1">Problemas Identificados</Heading>
+  <ul>
+    <li><strong>Atendimento Lento</strong> — pedidos manuais tomavam tempo da equipe e criavam gargalos.</li>
+    <li><strong>Erros de Comunicação</strong> — detalhes como recheios e quantidades eram facilmente perdidos ou anotados de forma incorreta.</li>
+    <li><strong>Ausência de Catálogo Digital</strong> — clientes não tinham visualização clara dos produtos, preços e opções de personalização.</li>
+  </ul>
+
+  <Heading as="h1">Objetivos do Projeto</Heading>
+  <ul>
+    <li><strong>Automatizar Pedidos</strong> — transformar o cardápio em um sistema online que gera uma mensagem pronta no WhatsApp.</li>
+    <li><strong>Melhorar a Experiência do Cliente</strong> — navegação simples, com fotos e personalização de recheios.</li>
+    <li><strong>Reduzir Erros</strong> — envio automático de um resumo detalhado dos itens para a cozinha.</li>
+  </ul>
+
+  <Heading as="h1">Solução Desenvolvida</Heading>
+  <ul>
+    <li><strong>Cardápio Digital Responsivo</strong> — interface web em <strong>Next.js</strong>, acessível em qualquer dispositivo móvel.</li>
+    <li><strong>Carrinho Inteligente</strong> — desenvolvido com <strong>Zustand</strong> para agrupar produtos iguais e permitir edição direta.</li>
+    <li><strong>Mensagem Automática no WhatsApp</strong> — ao finalizar, o sistema gera uma mensagem formatada com todos os pedidos, quantidades e opções de recheio.</li>
+    <li><strong>Integração com Instagram</strong> — link direto no perfil <SmartLink href="https://instagram.com/acarajosi" target="_blank">@acarajosi</SmartLink>, permitindo que o cliente conclua o pedido sem sair da rede social.</li>
+    <li><strong>Gestão de Taxa de Entrega</strong> — cálculo automático com base na distância do cliente usando coordenadas fixas do restaurante.</li>
+    <li><strong>Painel Administrativo</strong> — interface para cadastrar produtos, preços e promoções, com exportação de pedidos para análise posterior.</li>
+  </ul>
+
+  <Heading as="h1">Resultados</Heading>
+  <ul>
+    <li>Tempo médio de atendimento reduzido em mais de 50%.</li>
+    <li>Pedidos chegam à cozinha organizados e agrupados, minimizando erros.</li>
+    <li>Clientes conseguem finalizar o pedido em poucos cliques, aumentando a taxa de conversão.</li>
+  </ul>
+
+  <Heading as="h1">Tecnologias Utilizadas</Heading>
+  <Text>
+    <strong>Front-end:</strong> Next.js 14, React, TailwindCSS.  
+    <strong>Gerenciamento de Estado:</strong> Zustand com persistência local.  
+    <strong>Integração:</strong> API do WhatsApp e Google Maps para cálculo de distância.  
+    <strong>Hospedagem:</strong> Vercel para entrega rápida e gratuita.
+  </Text>
+
+  <Heading as="h1">Aprendizados</Heading>
+  <Text>
+    Este projeto reforçou meu conhecimento em <strong>e-commerce rápido</strong> e 
+    <strong>integração de APIs de mensagem</strong>.  
+    Aprimorei técnicas de <strong>UX para mobile</strong> e a criação de sistemas que funcionam com apenas um clique a partir de redes sociais.
+  </Text>
+
+  <Media
+    src="/images/projects/cardapio-digital-preview.png"
+    alt="Interface do Cardápio Digital"
+    radius="m"
+  />
+
+</Column>

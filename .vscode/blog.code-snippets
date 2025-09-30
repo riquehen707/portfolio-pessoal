@@ -1,0 +1,41 @@
+{
+  "Blog MDX completo": {
+    "prefix": ["blogmdx", "postmdx"],
+    "description": "Template completo de post MDX com front-matter e seções",
+    "body": [
+      "---",
+      "title: \"$1\"",
+      "summary: \"$2\"",
+      "publishedAt: \"${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}\"",
+      "updatedAt: \"${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}\"",
+      "image: \"/images/blog/${3:cover}.jpg\"",
+      "tag: \"${4:Magic Portfolio}\"",
+      "tags: [${5:\"next.js\", \"seo\"}]",
+      "team:",
+      "  - name: \"Henrique Reis\"",
+      "    url: \"/about\"",
+      "    avatar: \"/images/avatar-henrique.jpg\"",
+      "draft: ${6:false}",
+      "---",
+      "",
+      "# $1",
+      "",
+      "> $7",
+      "",
+      "## Introdução",
+      "",
+      "$8",
+      "",
+      "![Legenda](/images/blog/${9:minha-imagem-01}.jpg)",
+      "",
+      "## Seções bem definidas",
+      "- ${10:Ponto 1}",
+      "- ${11:Ponto 2}",
+      "- ${12:Ponto 3}",
+      "",
+      "## Conclusão",
+      "- ${13:Resumo final}",
+      "- ${14:Próximos passos}"
+    ]
+  }
+}

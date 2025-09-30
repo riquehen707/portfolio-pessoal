@@ -1,3 +1,5 @@
+// src/app/page.tsx
+
 import {
   Heading,
   Text,
@@ -10,11 +12,13 @@ import {
   Schema,
   Meta,
   Line,
+  Media,
 } from "@once-ui-system/core";
 import { home, about, person, baseURL, routes } from "@/resources";
 import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
+// import { BlogPillars } from "@/components/blog/BlogPillars"; // fica pra depois
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -42,6 +46,8 @@ export default function Home() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
+
+      {/* Hero */}
       <Column fillWidth horizontal="center" gap="m">
         <Column maxWidth="s" horizontal="center" align="center">
           {home.featured.display && (
@@ -65,16 +71,19 @@ export default function Home() {
               </Badge>
             </RevealFx>
           )}
+
           <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16">
             <Heading wrap="balance" variant="display-strong-l">
               {home.headline}
             </Heading>
           </RevealFx>
+
           <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
               {home.subline}
             </Text>
           </RevealFx>
+
           <RevealFx paddingTop="12" delay={0.4} horizontal="center" paddingLeft="12">
             <Button
               id="about"
@@ -100,30 +109,94 @@ export default function Home() {
           </RevealFx>
         </Column>
       </Column>
+
+      {/* Projeto em destaque */}
       <RevealFx translateY="16" delay={0.6}>
         <Projects range={[1, 1]} />
       </RevealFx>
+
+      {/* Seção Blog — com slot de imagem e layout responsivo */}
       {routes["/blog"] && (
-        <Column fillWidth gap="24" marginBottom="l">
+        <Column fillWidth gap="16" marginBottom="xl">
+          {/* linha decorativa */}
           <Row fillWidth paddingRight="64">
-            <Line maxWidth={48} />
+            <Line maxWidth={56} />
           </Row>
-          <Row fillWidth gap="24" marginTop="40" s={{ direction: "column" }}>
-            <Row flex={1} paddingLeft="l" paddingTop="24">
-              <Heading as="h2" variant="display-strong-xs" wrap="balance">
-                Latest from the blog
-              </Heading>
+
+          {/* Card container */}
+          <Column
+            fillWidth
+            paddingX="24"
+            paddingY="24"
+            radius="l"
+            background="surface-weak"
+            s={{ paddingX: "16", paddingY: "20" }}
+          >
+            {/* Header em duas colunas: texto à esquerda, imagem à direita */}
+            <Row
+              fillWidth
+              gap="24"
+              vertical="center"
+              s={{
+                direction: "column",
+              }}
+            >
+              {/* Coluna de texto */}
+              <Column
+                flex={2}
+                gap="12"
+                s={{
+                  align: "start",
+                }}
+              >
+                <Heading as="h2" variant="display-strong-s" wrap="balance">
+                  Últimos artigos do Blog
+                </Heading>
+
+                <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
+                  Aqui você encontra uma mistura de artigos profissionais e pessoais — opiniões,
+                  análises, resenhas e visões próprias. O blog é constantemente atualizado para
+                  manter variedade e qualidade em cada leitura.
+                </Text>
+
+                <Row gap="10" paddingTop="8" s={{ horizontal: "start" }}>
+                  <Button href="/blog" variant="primary" size="m" arrowIcon>
+                    Ver todos os artigos
+                  </Button>
+                </Row>
+              </Column>
+
+              {/* Coluna de imagem destacada (slot/placeholder) */}
+              <Column flex={3} s={{ fillWidth: true }}>
+                <Media
+                  // substitua por uma imagem real do post em destaque quando tiver:
+                  // ex: image={latestPost.cover}
+                  image={`/api/og/generate?title=${encodeURIComponent("Artigos do Blog")}`}
+                  ratio="16:9"
+                  radius="l"
+                  alt="Destaque do blog"
+                  loading="lazy"
+                />
+              </Column>
             </Row>
-            <Row flex={3} paddingX="20">
-              <Posts range={[1, 2]} columns="2" />
-            </Row>
-          </Row>
+
+            {/* Grade de posts */}
+            <Column paddingTop="20">
+              <Posts range={[1, 6]} columns="3" />
+            </Column>
+          </Column>
+
+          {/* linha inferior */}
           <Row fillWidth paddingLeft="64" horizontal="end">
-            <Line maxWidth={48} />
+            <Line maxWidth={56} />
           </Row>
         </Column>
       )}
+
+      {/* Mais projetos */}
       <Projects range={[2]} />
+
+      {/* Newsletter */}
       <Mailchimp />
     </Column>
   );

@@ -12,6 +12,9 @@ import {
   HiOutlineDocument,
   HiOutlineGlobeAsiaAustralia,
   HiOutlineRocketLaunch,
+  HiChevronRight,        // ✅ add
+  HiLockClosed,          // ✅ add
+  HiPaperAirplane,       // ✅ add (para "send")
 } from "react-icons/hi2";
 
 import {
@@ -29,7 +32,20 @@ import {
   SiSupabase,
 } from "react-icons/si";
 
-import { FaDiscord, FaGithub, FaLinkedin, FaX, FaThreads, FaXTwitter, FaFacebook, FaPinterest, FaWhatsapp, FaReddit, FaTelegram, } from "react-icons/fa6";
+import {
+  FaDiscord,
+  FaGithub,
+  FaLinkedin,
+  FaX,
+  FaThreads,
+  FaXTwitter,
+  FaFacebook,
+  FaPinterest,
+  FaWhatsapp,
+  FaReddit,
+  FaTelegram,
+  FaInstagram,          // ✅ add
+} from "react-icons/fa6";
 
 export const iconLibrary: Record<string, IconType> = {
   arrowUpRight: HiArrowUpRight,
@@ -52,6 +68,7 @@ export const iconLibrary: Record<string, IconType> = {
   twitter: FaXTwitter,
   threads: FaThreads,
   arrowUpRightFromSquare: HiArrowTopRightOnSquare,
+  external: HiArrowTopRightOnSquare,  // ✅ alias útil
   document: HiOutlineDocument,
   rocket: HiOutlineRocketLaunch,
   javascript: SiJavascript,
@@ -63,6 +80,10 @@ export const iconLibrary: Record<string, IconType> = {
   whatsapp: FaWhatsapp,
   reddit: FaReddit,
   telegram: FaTelegram,
+  instagram: FaInstagram,            // ✅ agora existe
+  chevronRight: HiChevronRight,      // ✅ usado na /about
+  lock: HiLockClosed,                // ✅ usado no login
+  send: HiPaperAirplane,             // ✅ usado em CTA/DM
 };
 
 export type IconLibrary = typeof iconLibrary;

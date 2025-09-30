@@ -1,55 +1,148 @@
+// src/app/api/rss/route.ts
+import { NextResponse } from "next/server";
 import { getPosts } from "@/utils/utils";
 import { baseURL, blog, person } from "@/resources";
-import { NextResponse } from "next/server";
+
+export const dynamic = "force-static";
+export const revalidate = 600; // 10 min
+
+function xmlEscape(s: string = ""): string {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
+function ensureAbsolute(url: string | undefined | null): string | undefined {
+  if (!url) return undefined;
+  try {
+    // já é absoluta?
+    new URL(url);
+    return url;
+  } catch {
+    // torna absoluta em relação ao baseURL
+    try {
+      return new URL(url, baseURL).toString();
+    } catch {
+      return undefined;
+    }
+  }
+}
+
+function imageMimeType(url?: string): string | undefined {
+  if (!url) return;
+  const u = url.split("?")[0].toLowerCase();
+  if (u.endsWith(".jpg") || u.endsWith(".jpeg")) return "image/jpeg";
+  if (u.endsWith(".png")) return "image/png";
+  if (u.endsWith(".webp")) return "image/webp";
+  if (u.endsWith(".gif")) return "image/gif";
+  if (u.endsWith(".svg")) return "image/svg+xml";
+  return "image/jpeg";
+}
 
 export async function GET() {
-  const posts = getPosts(["src", "app", "blog", "posts"]);
+  const all = getPosts(["src", "app", "blog", "posts"]);
 
-  // Sort posts by date (newest first)
-  const sortedPosts = posts.sort((a, b) => {
-    return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
-  });
+  // filtra posts sem data e ordena do mais novo para o mais antigo
+  const posts = all
+    .filter((p) => !!p?.metadata?.publishedAt)
+    .sort((a, b) => {
+      const da = new Date(a.metadata.publishedAt).getTime() || 0;
+      const db = new Date(b.metadata.publishedAt).getTime() || 0;
+      return db - da;
+    });
 
-  // Generate RSS XML
-  const rssXml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>${blog.title}</title>
-    <link>${baseURL}/blog</link>
-    <description>${blog.description}</description>
-    <language>en</language>
-    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-    <atom:link href="${baseURL}/api/rss" rel="self" type="application/rss+xml" />
-    <managingEditor>${person.email || "noreply@example.com"} (${person.name})</managingEditor>
-    <webMaster>${person.email || "noreply@example.com"} (${person.name})</webMaster>
-    <image>
-      <url>${baseURL}${person.avatar || "/images/avatar.jpg"}</url>
-      <title>${blog.title}</title>
-      <link>${baseURL}/blog</link>
-    </image>
-    ${sortedPosts
-      .map(
-        (post) => `
+  const feedLink = `${baseURL}/blog`;
+  const selfLink = `${baseURL}/api/rss`;
+
+  const lastBuildDate =
+    posts.length > 0
+      ? new Date(posts[0].metadata.publishedAt).toUTCString()
+      : new Date().toUTCString();
+
+  // monta itens
+  const itemsXml = posts
+    .map((post) => {
+      const itemUrl = `${baseURL}/blog/${post.slug}`;
+      const guid = itemUrl;
+      const title = xmlEscape(post.metadata.title || "Sem título");
+      const summary = post.metadata.summary || "";
+      const pubDate = new Date(post.metadata.publishedAt).toUTCString();
+
+      // imagem do post (absoluta) e tipo
+      const rawImg = post.metadata.image || "";
+      const absImg = ensureAbsolute(rawImg);
+      const enclosureType = imageMimeType(absImg);
+
+      // categoria (se houver)
+      const category =
+        post.metadata.tag ? `<category>${xmlEscape(post.metadata.tag)}</category>` : "";
+
+      const enclosure =
+        absImg && enclosureType
+          ? `<enclosure url="${xmlEscape(absImg)}" type="${xmlEscape(enclosureType)}" />`
+          : "";
+
+      // autor
+      const authorEmail = person.email || "noreply@example.com";
+      const author = `${authorEmail} (${person.name})`;
+
+      return `
     <item>
-      <title>${post.metadata.title}</title>
-      <link>${baseURL}/blog/${post.slug}</link>
-      <guid>${baseURL}/blog/${post.slug}</guid>
-      <pubDate>${new Date(post.metadata.publishedAt).toUTCString()}</pubDate>
-      <description><![CDATA[${post.metadata.summary}]]></description>
-      ${post.metadata.image ? `<enclosure url="${baseURL}${post.metadata.image}" type="image/jpeg" />` : ""}
-      ${post.metadata.tag ? `<category>${post.metadata.tag}</category>` : ""}
-      <author>${person.email || "noreply@example.com"} (${person.name})</author>
-    </item>`,
-      )
-      .join("")}
-  </channel>
-</rss>`;
+      <title>${title}</title>
+      <link>${xmlEscape(itemUrl)}</link>
+      <guid isPermaLink="true">${xmlEscape(guid)}</guid>
+      <pubDate>${pubDate}</pubDate>
+      <description><![CDATA[${summary}]]></description>
+      ${category}
+      ${enclosure}
+      <author>${xmlEscape(author)}</author>
+    </item>`;
+    })
+    .join("");
 
-  // Return the RSS XML with the appropriate content type
-  return new NextResponse(rssXml, {
+  const channelImageUrl = ensureAbsolute(person.avatar || "/images/avatar.jpg")!;
+  const channelTitle = xmlEscape(blog.title);
+  const channelDesc = xmlEscape(blog.description);
+
+  const rss = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>${channelTitle}</title>
+    <link>${xmlEscape(feedLink)}</link>
+    <description>${channelDesc}</description>
+    <language>pt-BR</language>
+    <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+    <ttl>60</ttl>
+    <lastBuildDate>${lastBuildDate}</lastBuildDate>
+    <atom:link href="${xmlEscape(selfLink)}" rel="self" type="application/rss+xml" />
+    <managingEditor>${xmlEscape(person.email || "noreply@example.com")} (${xmlEscape(
+    person.name
+  )})</managingEditor>
+    <webMaster>${xmlEscape(person.email || "noreply@example.com")} (${xmlEscape(
+    person.name
+  )})</webMaster>
+    <image>
+      <url>${xmlEscape(channelImageUrl)}</url>
+      <title>${channelTitle}</title>
+      <link>${xmlEscape(feedLink)}</link>
+    </image>
+    ${itemsXml}
+  </channel>
+</rss>`.trim();
+
+  // ETag simples (hash rápida)
+  const etag = `"${Buffer.from(rss).toString("base64url").slice(0, 27)}"`;
+
+  return new NextResponse(rss, {
+    status: 200,
     headers: {
-      "Content-Type": "application/xml",
+      "Content-Type": "application/rss+xml; charset=utf-8",
       "Cache-Control": "public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400",
+      ETag: etag,
     },
   });
 }

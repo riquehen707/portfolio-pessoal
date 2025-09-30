@@ -2,194 +2,161 @@ import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/
 import { Line, Logo, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Selene",
-  lastName: "Yu",
-  name: `Selene Yu`,
-  role: "Design Engineer",
-  avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  firstName: "Henrique",
+  lastName: "Reis",
+  name: `Henrique Reis`,
+  role: "Desenvolvedor & Estrategista de Negócios",
+  avatar: "/images/avatar-henrique.jpg", // ajuste o caminho da sua foto
+  email: "oi@henriquereis.dev",
+  location: "America/Bahia", // IANA timezone (Salvador/BA)
+  languages: ["Português"],
 };
 
 const newsletter: Newsletter = {
-  display: true,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
-  description: <>My weekly newsletter about creativity and engineering</>,
+  display: false, // mantenha desativado por enquanto
+  title: <>Assine a newsletter de {person.firstName}</>,
+  description: <>Notas semanais sobre produtos, dados e estratégia.</>,
 };
 
 const social: Social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system",
+    link: "https://github.com/riquehen707", // ajuste se necessário
   },
   {
-    name: "LinkedIn",
-    icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    name: "Instagram",
+    icon: "instagram",
+    link: "https://www.instagram.com/riquehen", // opcional
   },
   {
-    name: "Threads",
-    icon: "threads",
-    link: "https://www.threads.com/@once_ui",
-  },
-  {
-    name: "Email",
-    icon: "email",
-    link: `mailto:${person.email}`,
+    name: "WhatsApp",
+    icon: "whatsapp", // garanta que exista em /once-ui/icons.ts
+    link: "https://wa.me/5575983675164",
   },
 ];
 
 const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
-  label: "Home",
-  title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  label: "Início",
+  title: `Portfólio de ${person.name}`,
+  description: `Projetos e estudos de ${person.role}.`,
+  headline: <>Henrique Reis | Estúdio</>,
   featured: {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
+        <strong className="ml-4">E-commerce | Loja Kitsu</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          Featured work
+          Projeto em destaque
         </Text>
       </Row>
     ),
-    href: "/work/building-once-ui-a-customizable-design-system",
+    href: "/work/loja-kitsune",
   },
   subline: (
     <>
-      I'm Selene, a design engineer at{" "}
-      <Logo
-        dark
-        icon="/trademarks/wordmark-dark.svg"
-        style={{ display: "inline-flex", top: "0.25em", marginLeft: "-0.25em" }}
-      />
-      , where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      Meu nome é {person.firstName}, sou um estudante autônomo e desenvolvo soluções web práticas,
+      unindo produto, dados e marketing para criar negócios sustentáveis.
+      <br /> No tempo livre, transformo ideias em projetos mensuráveis.
     </>
   ),
 };
 
 const about: About = {
   path: "/about",
-  label: "About",
-  title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  label: "Sobre",
+  title: `Sobre – ${person.name}`,
+  description: `Conheça ${person.name}, ${person.role} em ${person.location}.`,
   tableOfContent: {
     display: true,
-    subItems: false,
+    subItems: true,
   },
   avatar: {
     display: true,
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "https://cal.com/henriquereis",
   },
   intro: {
     display: true,
-    title: "Introduction",
+    title: "Introdução",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        {person.firstName} cria soluções de negócios baseadas em dados,
+        unindo desenvolvimento web, análise e estratégia. Foco em sistemas
+        simples que geram resultado: do cardápio digital com WhatsApp
+        ao painel financeiro com previsões e estrutura de custos.
       </>
     ),
   },
   work: {
-    display: true, // set to false to hide this section
-    title: "Work Experience",
+    display: true,
+    title: "Experiência",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Estúdio de Desenvolvimento e Marketing",
+        timeframe: "2023 — Presente",
+        role: "Fundador • Dev & Estratégia",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Sistema financeiro web (Python + Streamlit) com previsões,
+            estrutura de custos, curva ABC e relatórios exportáveis.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Cardápio digital em Next.js com pedidos via WhatsApp,
+            personalização de itens e cálculo inteligente de entrega.
           </>,
         ],
         images: [
-          // optional: leave the array empty if you don't want to display images
           {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
+            src: "/images/projects/financas/cover-01.jpg",
+            alt: "Sistema financeiro",
             width: 16,
             height: 9,
           },
         ],
-      },
-      {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
-        achievements: [
-          <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
-          </>,
-          <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
-          </>,
-        ],
-        images: [],
       },
     ],
   },
   studies: {
-    display: true, // set to false to hide this section
-    title: "Studies",
+    display: true,
+    title: "Estudos",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "Autodidata (produto, dados e estratégia)",
+        description: <>Anúncios (Meta), análise de dados, UX/SEO e gestão.</>,
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Pesquisas atuais",
+        description: <>
+          Arquitetura das redes sociais, vieses cognitivos, curva ABC e
+          modelagem adaptativa de fluxo de caixa.
+        </>,
       },
     ],
   },
   technical: {
-    display: true, // set to false to hide this section
-    title: "Technical skills",
+    display: true,
+    title: "Habilidades técnicas",
     skills: [
       {
-        title: "Figma",
+        title: "Python & Streamlit",
         description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
+          <>Dashboards financeiros com previsões, relatórios e análises (ABC, sazonalidade, cenários).</>
         ),
         tags: [
-          {
-            name: "Figma",
-            icon: "figma",
-          },
+          { name: "Python", icon: "python" },
+          { name: "Streamlit", icon: "streamlit" },
+          { name: "Pandas", icon: "pandas" },
         ],
-        // optional: leave the array empty if you don't want to display images
         images: [
           {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
+            src: "/images/projects/financas/cover-02.jpg",
+            alt: "Dashboard financeiro",
             width: 16,
             height: 9,
           },
@@ -198,32 +165,34 @@ const about: About = {
       {
         title: "Next.js",
         description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
+          <>Apps completos com Next.js + Once UI, integração com WhatsApp e cálculo de entrega.</>
         ),
         tags: [
-          {
-            name: "JavaScript",
-            icon: "javascript",
-          },
-          {
-            name: "Next.js",
-            icon: "nextjs",
-          },
-          {
-            name: "Supabase",
-            icon: "supabase",
-          },
+          { name: "JavaScript", icon: "javascript" },
+          { name: "Next.js", icon: "nextjs" },
+          { name: "Vercel", icon: "vercel" },
         ],
-        // optional: leave the array empty if you don't want to display images
         images: [
           {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
+            src: "/images/projects/cardapio/cover-01.jpg",
+            alt: "Cardápio digital",
             width: 16,
             height: 9,
           },
         ],
-      },  
+      },
+      {
+        title: "Dados & Estratégia",
+        description: (
+          <>KPIs, projeções, estrutura de custos e decisões orientadas por dados.</>
+        ),
+        tags: [
+          { name: "Analytics", icon: "chart" },
+          { name: "SEO", icon: "seo" },
+          { name: "Meta Ads", icon: "meta" },
+        ],
+        images: [],
+      },
     ],
   },
 };
@@ -231,69 +200,33 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Writing about design and tech...",
-  description: `Read what ${person.name} has been up to recently`,
-  // Create new blog posts by adding a new .mdx file to app/blog/posts
-  // All posts will be listed on the /blog route
+  title: "Textos sobre produto, dados e negócios",
+  description: `Últimos textos de ${person.name}.`,
+  // crie novos posts adicionando .mdx em app/blog/posts
 };
 
 const work: Work = {
   path: "/work",
-  label: "Work",
-  title: `Projects – ${person.name}`,
-  description: `Design and dev projects by ${person.name}`,
-  // Create new project pages by adding a new .mdx file to app/blog/posts
-  // All projects will be listed on the /home and /work routes
+  label: "Projetos",
+  title: `Projetos – ${person.name}`,
+  description: `Design, desenvolvimento e dados por ${person.name}.`,
+  // crie novos projetos adicionando .mdx em app/work/posts
 };
 
 const gallery: Gallery = {
   path: "/gallery",
-  label: "Gallery",
-  title: `Photo gallery – ${person.name}`,
-  description: `A photo collection by ${person.name}`,
-  // Images by https://lorant.one
-  // These are placeholder images, replace with your own
+  label: "Galeria",
+  title: `Galeria – ${person.name}`,
+  description: `Coleção de fotos e capturas de ${person.name}.`,
   images: [
-    {
-      src: "/images/gallery/horizontal-1.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-4.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/horizontal-3.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-1.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/vertical-2.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/horizontal-2.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/horizontal-4.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-3.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
+    { src: "/images/gallery/horizontal-1.jpg", alt: "Imagem", orientation: "horizontal" },
+    { src: "/images/gallery/vertical-4.jpg", alt: "Imagem", orientation: "vertical" },
+    { src: "/images/gallery/horizontal-3.jpg", alt: "Imagem", orientation: "horizontal" },
+    { src: "/images/gallery/vertical-1.jpg", alt: "Imagem", orientation: "vertical" },
+    { src: "/images/gallery/vertical-2.jpg", alt: "Imagem", orientation: "vertical" },
+    { src: "/images/gallery/horizontal-2.jpg", alt: "Imagem", orientation: "horizontal" },
+    { src: "/images/gallery/horizontal-4.jpg", alt: "Imagem", orientation: "horizontal" },
+    { src: "/images/gallery/vertical-3.jpg", alt: "Imagem", orientation: "vertical" },
   ],
 };
 

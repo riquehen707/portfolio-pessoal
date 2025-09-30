@@ -1,32 +1,46 @@
+// src/app/api/authenticate/route.ts
+
 import { NextRequest, NextResponse } from "next/server";
-import * as cookie from "cookie";
+import { serialize } from "cookie";
 
 export async function POST(request: NextRequest) {
-  const body = await request.json();
-  const { password } = body;
-  const correctPassword = process.env.PAGE_ACCESS_PASSWORD;
+  try {
+    const { password } = await request.json();
+    const correctPassword = process.env.PAGE_ACCESS_PASSWORD;
 
-  if (!correctPassword) {
-    console.error("PAGE_ACCESS_PASSWORD environment variable is not set");
-    return NextResponse.json({ message: "Internal server error" }, { status: 500 });
-  }
+    if (!correctPassword) {
+      console.error("PAGE_ACCESS_PASSWORD environment variable is not set");
+      return NextResponse.json(
+        { message: "Erro interno do servidor" },
+        { status: 500 },
+      );
+    }
 
-  if (password === correctPassword) {
-    const response = NextResponse.json({ success: true }, { status: 200 });
+    if (password !== correctPassword) {
+      return NextResponse.json(
+        { message: "Senha incorreta" },
+        { status: 401 },
+      );
+    }
 
-    response.headers.set(
-      "Set-Cookie",
-      cookie.serialize("authToken", "authenticated", {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        maxAge: 60 * 60,
-        sameSite: "strict",
-        path: "/",
-      }),
-    );
+    // Cria cookie de autenticação
+    const cookieValue = serialize("authToken", "authenticated", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      maxAge: 60 * 60, // 1h
+      sameSite: "strict",
+      path: "/",
+    });
+
+    const response = NextResponse.json({ success: true });
+    response.headers.set("Set-Cookie", cookieValue);
 
     return response;
-  } else {
-    return NextResponse.json({ message: "Incorrect password" }, { status: 401 });
+  } catch (error) {
+    console.error("Erro ao autenticar:", error);
+    return NextResponse.json(
+      { message: "Erro interno do servidor" },
+      { status: 500 },
+    );
   }
 }

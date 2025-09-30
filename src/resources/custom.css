@@ -1,54 +1,232 @@
-/* :root {
-  /*
-  /* Example setup for custom colors */
-/* Generate at: https://once-ui.com/customize */
-/*
-  --scheme-brand-100: #08002f;
-  --scheme-brand-200:  #04025c;
-  --scheme-brand-300:  #1f398e;
-  --scheme-brand-400:  #3856ae;
-  --scheme-brand-500:  #5071cc;
-  --scheme-brand-600:  #6f94f1;
-  --scheme-brand-700:  #8db3ff;
-  --scheme-brand-800:  #b2dbff;
-  --scheme-brand-900:  #bfe8ff;
-  --scheme-brand-1000: #ccf6ff;
-  --scheme-brand-1100: #d2fcff;
-  --scheme-brand-1200: #d2fcff;
-  --scheme-brand-600-10: rgba(111,148,241,0.1);
-  --scheme-brand-600-30: rgba(111,148,241,0.3);
-  --scheme-brand-600-50: rgba(111,148,241,0.5);
+/* ==========================================================================
+   ONCE UI – Custom Theme & MDX Enhancements
+   Arquivo: src/resources/custom.css
+   --------------------------------------------------------------------------
+   - Cores de marca (brand/accent/neutral)
+   - Ajustes de tipografia e links
+   - Estilos para MDX (footnotes, hover-notes, tabelas, blockquotes)
+   - Badges, linhas, imagens responsivas
+   -------------------------------------------------------------------------- */
 
-  --scheme-accent-100:  #030b10;
-  --scheme-accent-200:  #0d181d;
-  --scheme-accent-300:  #364248;
-  --scheme-accent-400:  #505d64;
-  --scheme-accent-500:  #69777e;
-  --scheme-accent-600:  #8a989f;
-  --scheme-accent-700:  #a8b7bf;
-  --scheme-accent-800:  #c8d7df;
-  --scheme-accent-900:  #d5e4ec;
-  --scheme-accent-1000: #e2f1f9;
-  --scheme-accent-1100: #e9f8ff;
-  --scheme-accent-1200: #efffff;
-  --scheme-accent-600-10: rgba(138,152,159,0.1);
-  --scheme-accent-600-30: rgba(138,152,159,0.3);
-  --scheme-accent-600-50: rgba(138,152,159,0.5);
+/* ============== 1) Paleta base (light) =================================== */
+:root {
+  /* --- Brand (primária) --- */
+  --scheme-brand-100:  #0b1026;
+  --scheme-brand-200:  #111a3f;
+  --scheme-brand-300:  #17235a;
+  --scheme-brand-400:  #1f2f78;
+  --scheme-brand-500:  #2a3c98;  /* cor principal de ação */
+  --scheme-brand-600:  #3f55c0;
+  --scheme-brand-700:  #5e75e0;
+  --scheme-brand-800:  #8aa2ff;
+  --scheme-brand-900:  #b7c4ff;
+  --scheme-brand-1000: #d6e0ff;
+  --scheme-brand-1100: #e7efff;
+  --scheme-brand-1200: #f2f6ff;
 
-  --scheme-neutral-100:  #020b10;
-  --scheme-neutral-200:  #0b181d;
-  --scheme-neutral-300:  #344248;
-  --scheme-neutral-400:  #4f5d64;
-  --scheme-neutral-500:  #68777e;
-  --scheme-neutral-600:  #89989f;
-  --scheme-neutral-700:  #a7b7be;
-  --scheme-neutral-800:  #c7d7df;
-  --scheme-neutral-900:  #d4e4ec;
-  --scheme-neutral-1000: #e1f2f9;
-  --scheme-neutral-1100: #e7f8ff;
-  --scheme-neutral-1200: #eeffff;
-  --scheme-neutral-600-10: rgba(137,152,159,0.1);
-  --scheme-neutral-600-30: rgba(137,152,159,0.3);
-  --scheme-neutral-600-50: rgba(137,152,159,0.5);
-  /*
-}*/
+  --scheme-brand-600-10: rgba(63,85,192,0.10);
+  --scheme-brand-600-30: rgba(63,85,192,0.30);
+  --scheme-brand-600-50: rgba(63,85,192,0.50);
+
+  /* --- Accent (secundária, UI utilitária) --- */
+  --scheme-accent-100:  #0a0f12;
+  --scheme-accent-200:  #131c21;
+  --scheme-accent-300:  #2e3a41;
+  --scheme-accent-400:  #47545c;
+  --scheme-accent-500:  #5f6f78;
+  --scheme-accent-600:  #7f8e97;
+  --scheme-accent-700:  #9aaab3;
+  --scheme-accent-800:  #bbc8d1;
+  --scheme-accent-900:  #d2dfe7;
+  --scheme-accent-1000: #e6f0f6;
+  --scheme-accent-1100: #eff7fc;
+  --scheme-accent-1200: #f6fcff;
+
+  --scheme-accent-600-10: rgba(127,142,151,0.10);
+  --scheme-accent-600-30: rgba(127,142,151,0.30);
+  --scheme-accent-600-50: rgba(127,142,151,0.50);
+
+  /* --- Neutral (texto/superfície) --- */
+  --scheme-neutral-100:  #07090b;
+  --scheme-neutral-200:  #0f1619;
+  --scheme-neutral-300:  #2d3941;
+  --scheme-neutral-400:  #46545d;
+  --scheme-neutral-500:  #5f6f79;
+  --scheme-neutral-600:  #7f8f99;
+  --scheme-neutral-700:  #9eafb9;
+  --scheme-neutral-800:  #becfd9;
+  --scheme-neutral-900:  #d6e6ef;
+  --scheme-neutral-1000: #e8f3f9;
+  --scheme-neutral-1100: #f2f9fd;
+  --scheme-neutral-1200: #f9feff;
+
+  --scheme-neutral-600-10: rgba(127,143,153,0.10);
+  --scheme-neutral-600-30: rgba(127,143,153,0.30);
+  --scheme-neutral-600-50: rgba(127,143,153,0.50);
+
+  /* Cores utilitárias globais (opcional, caso use) */
+  --border-color: rgba(127,143,153,0.25);
+  --text-color:   rgba(255,255,255,0.92);
+  --focus-ring:   color-mix(in oklab, var(--scheme-brand-700), white 12%);
+}
+
+/* ============== 2) Ajuste automático para dark mode ===================== */
+/* O Once-UI já seta data-theme no <html>. Aqui só finamos contrastes. */
+html[data-theme="dark"] {
+  /* Ajuste leves para fundos/linhas em dark */
+  --border-color: rgba(255,255,255,0.12);
+  --text-color:   rgba(255,255,255,0.92);
+}
+
+/* ============== 3) Tipografia e links =================================== */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Links padrão (fora dos componentes Once-UI) */
+a {
+  text-decoration: none;
+  color: var(--scheme-brand-700);
+}
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Headings com “balance” visual quando não usar Heading wrap=balance */
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+/* ============== 4) MDX: footnotes (remark-footnotes) ==================== */
+.footnotes {
+  margin-top: 24px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.95em;
+}
+.footnotes ol {
+  padding-left: 1.25rem;
+  margin: 0.5rem 0 0 0;
+}
+.footnotes li { margin: 0.25rem 0; }
+.footnotes a[href^="#fnref"] { text-decoration: none; }
+sup a { text-decoration: none; }
+
+/* ============== 5) MDX: HoverNote (tooltip simples) ==================== */
+.hover-note {
+  position: relative;
+  cursor: help;
+  border-bottom: 1px dotted currentColor;
+}
+.hover-note__bubble {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  bottom: 125%;
+  transform: translateY(-4px);
+  white-space: normal;
+  min-width: 220px;
+  max-width: 320px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 0.9em;
+  line-height: 1.4;
+  background: var(--layer-2, rgba(255,255,255,0.06));
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .15s ease, visibility .15s ease, transform .15s ease;
+  z-index: 30;
+}
+.hover-note:hover .hover-note__bubble,
+.hover-note:focus-within .hover-note__bubble {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-6px);
+}
+
+/* ============== 6) MDX: tabelas simples/responsivas ===================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  border-bottom: 1px solid var(--border-color);
+  padding: 8px 10px;
+}
+th { text-align: left; font-weight: 600; }
+
+/* Zebra opcional */
+tbody tr:nth-child(odd) {
+  background: color-mix(in oklab, var(--scheme-accent-1100), transparent 85%);
+}
+
+/* ============== 7) Blockquote “cartão” (combina com Once-UI) =========== */
+blockquote,
+.row-quote {
+  margin: 16px 0;
+  padding: 16px;
+  border-left: 4px solid var(--scheme-accent-700);
+  border-radius: 12px;
+  background: color-mix(in oklab, var(--scheme-accent-1100), transparent 86%);
+}
+
+/* ============== 8) Code blocks (quando fora do <CodeBlock/> do Once) ==== */
+pre {
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 14px;
+  overflow-x: auto;
+  background: color-mix(in oklab, var(--scheme-neutral-1100), transparent 80%);
+}
+
+/* ============== 9) Badges (toques de contraste) ======================== */
+a[data-active="true"],
+.badge[data-active="true"] {
+  outline: 2px solid var(--scheme-brand-700);
+  outline-offset: 1px;
+}
+
+/* ============== 10) Imagens responsivas (fallback geral) =============== */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* ============== 11) “Lines” decorativas mais suaves ==================== */
+hr,
+.ui-line {
+  border: none;
+  height: 1px;
+  background: var(--border-color);
+  opacity: .8;
+}
+
+/* ============== 12) Foco geral acessível =============================== */
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+/* ============== 13) Ajustes finos opcionais ============================ */
+/* Textos secundários levemente mais suaves */
+[data-on-background="neutral-weak"],
+.onBackground-neutral-weak {
+  color: color-mix(in oklab, var(--text-color), transparent 25%);
+}
+
+/* Diminuir sublinhado agressivo em links dentro de headings */
+h1 a, h2 a, h3 a { text-decoration-thickness: .06em; }
+
+/* Ajuste de gaps padrão entre cards (se necessário) */
+.grid > * + * { margin-top: var(--gap, 0); }
+
+/* ==========================================================================
+   FIM
+   ========================================================================== */

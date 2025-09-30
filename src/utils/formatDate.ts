@@ -1,36 +1,25 @@
+// src/utils/formatDate.ts
 export function formatDate(date: string, includeRelative = false) {
-  const currentDate = new Date();
+  const now = new Date();
+  if (!date.includes("T")) date = `${date}T00:00:00`;
+  const target = new Date(date);
 
-  if (!date.includes("T")) {
-    date = `${date}T00:00:00`;
-  }
+  const diffMs = now.getTime() - target.getTime();
+  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+  const diffMonths =
+    now.getMonth() - target.getMonth() + (now.getFullYear() - target.getFullYear()) * 12;
+  const diffYears = Math.floor(diffMonths / 12);
 
-  const targetDate = new Date(date);
-  const yearsAgo = currentDate.getFullYear() - targetDate.getFullYear();
-  const monthsAgo = currentDate.getMonth() - targetDate.getMonth();
-  const daysAgo = currentDate.getDate() - targetDate.getDate();
+  let relative = "Hoje";
+  if (diffYears > 0)       relative = `${diffYears} ano${diffYears > 1 ? "s" : ""} atrás`;
+  else if (diffMonths > 0) relative = `${diffMonths} mês${diffMonths > 1 ? "es" : ""} atrás`;
+  else if (diffDays > 0)   relative = `${diffDays} dia${diffDays > 1 ? "s" : ""} atrás`;
 
-  let formattedDate = "";
-
-  if (yearsAgo > 0) {
-    formattedDate = `${yearsAgo}y ago`;
-  } else if (monthsAgo > 0) {
-    formattedDate = `${monthsAgo}mo ago`;
-  } else if (daysAgo > 0) {
-    formattedDate = `${daysAgo}d ago`;
-  } else {
-    formattedDate = "Today";
-  }
-
-  const fullDate = targetDate.toLocaleString("en-us", {
-    month: "long",
+  const fullDate = target.toLocaleDateString("pt-BR", {
     day: "numeric",
+    month: "long",
     year: "numeric",
   });
 
-  if (!includeRelative) {
-    return fullDate;
-  }
-
-  return `${fullDate} (${formattedDate})`;
+  return includeRelative ? `${fullDate} (${relative})` : fullDate;
 }

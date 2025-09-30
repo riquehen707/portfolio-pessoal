@@ -1,0 +1,109 @@
+---
+title: "Sistema de Análise e Gestão Financeira"
+date: "2025-09-21"
+tags: ["Python", "Finance", "Data Analysis", "Streamlit"]
+cover: "/images/projects/analise-financeira-cover.png"
+---
+
+import { Column, Heading, Text, Media } from "@once-ui-system/core"
+
+<Column gap="xl">
+
+  <Heading as="h1">Visão Geral</Heading>
+  <Text>
+    Desenvolvi um sistema completo de análise e gestão financeira em **Python**, projetado para micro e pequenas empresas que precisam entender sua saúde financeira de forma simples e integrada.  
+    O objetivo foi criar uma solução **acessível, offline e de instalação única**, que qualquer gestor possa usar sem experiência técnica ou setor financeiro dedicado.
+  </Text>
+
+  <Heading as="h1">Contexto</Heading>
+  <Text>
+    Durante a gestão do meu próprio restaurante, percebi a dificuldade em ter uma visão consolidada de custos, faturamento e estoque.  
+    Ferramentas de mercado eram caras, complexas ou exigiam o uso de vários softwares diferentes, tornando o acompanhamento lento e pouco prático.
+  </Text>
+
+  <Heading as="h1">Problemas Identificados</Heading>
+  <ul>
+    <li>
+      <strong>Fragmentação de Ferramentas</strong> — uso de sistemas separados para estoque, caixa e relatórios, gerando inconsistências e perda de tempo.
+    </li>
+    <li>
+      <strong>Complexidade e Custo</strong> — soluções de mercado caras e que exigem treinamento ou equipe financeira especializada.
+    </li>
+    <li>
+      <strong>Falta de Projeções Confiáveis</strong> — dificuldade em prever cenários de lucro ou prejuízo para tomada de decisão.
+    </li>
+    <li>
+      <strong>Controle de Estoque Limitado</strong> — desperdício e dificuldade em calcular reposição ideal ou liquidez.
+    </li>
+    <li>
+      <strong>Relatórios Demorados</strong> — extração de dados para contabilidade e parceiros de forma manual e suscetível a erros.
+    </li>
+  </ul>
+
+  <Heading as="h1">Objetivos do Projeto</Heading>
+  <ul>
+    <li><strong>Unificação</strong> — criar um único sistema que integre caixa, estoque, estimativas e relatórios.</li>
+    <li><strong>Acessibilidade</strong> — permitir uso por qualquer pessoa, sem formação em finanças ou TI.</li>
+    <li><strong>Automação</strong> — gerar previsões de faturamento e lucro com cenários pessimista/otimista em tempo real.</li>
+    <li><strong>Visualização Intuitiva</strong> — dashboards interativos e exportação em PDF/CSV.</li>
+    <li><strong>Sustentabilidade</strong> — ajudar na identificação de oportunidades de investimento e prevenção de prejuízos.</li>
+  </ul>
+
+  <Heading as="h1">Soluções Desenvolvidas</Heading>
+  <ul>
+    <li>
+      <strong>Estimativas Financeiras Inteligentes</strong> — registra custos mínimos e máximos, substituindo automaticamente pelas médias reais conforme os dados são inseridos.
+    </li>
+    <li>
+      <strong>Controle de Caixa</strong> — entradas, saídas e retiradas diárias com categorias personalizáveis.
+    </li>
+    <li>
+      <strong>Gestão de Estoque</strong> — registro de compras por caixa, cálculo de liquidez, ROI e curva ABC automática para insumos e produtos.
+    </li>
+    <li>
+      <strong>Previsões e Zonas de Risco</strong> — gráficos com cenários pessimista/otimista e áreas que indicam déficit, equilíbrio ou crescimento sustentável.
+    </li>
+    <li>
+      <strong>Relatórios Completos</strong> — exportação em PDF e CSV para análise externa e contabilidade.
+    </li>
+    <li>
+      <strong>Interface Amigável</strong> — desenvolvido em Streamlit, empacotado em executável com <em>one-click</em> para o usuário final.
+    </li>
+    <li>
+      <strong>Arquitetura Modular</strong> — separação em módulos de cálculo, interface e dados, facilitando novas funções como gestão de funcionários e simulações de empréstimos.
+    </li>
+  </ul>
+
+  <Heading as="h1">Resultados e Benefícios</Heading>
+  <Text>
+    O sistema permitiu:
+  </Text>
+  <ul>
+    <li>Redução de desperdícios e melhor reposição de estoque.</li>
+    <li>Decisões de compra e investimento baseadas em dados em tempo real.</li>
+    <li>Economia de horas semanais na geração de relatórios e previsões.</li>
+    <li>Uso local e offline, com instalação simples — basta um clique no executável.</li>
+  </ul>
+
+  <Heading as="h1">Tecnologias</Heading>
+  <Text>
+    <strong>Back-end:</strong> Python 3.x, Pandas, Plotly.  
+    <strong>Interface:</strong> Streamlit (empacotado em executável com PyInstaller e PyWebview).  
+    <strong>Armazenamento:</strong> JSON/SQLite para persistência leve e offline.
+  </Text>
+
+  <Heading as="h1">Aprendizados</Heading>
+  <Text>
+    Este projeto reforçou minha experiência em <strong>modelagem financeira</strong>, 
+    <strong>arquitetura modular em Python</strong> e na criação de 
+    <strong>interfaces acessíveis para não técnicos</strong>.  
+    Também aprimorei práticas de visualização de dados e otimização de desempenho em dashboards interativos.
+  </Text>
+
+  <Media
+    src="/images/projects/analise-financeira-dashboard.png"
+    alt="Dashboard do Sistema de Análise e Gestão Financeira"
+    radius="m"
+  />
+
+</Column>
