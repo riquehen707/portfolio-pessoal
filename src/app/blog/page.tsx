@@ -3,12 +3,12 @@ import { Suspense } from "react";
 import { Column, Heading, Meta, Schema, Text } from "@once-ui-system/core";
 
 import { Posts } from "@/components/blog/Posts";
+// import MailchimpClient from "@/components/blog/MailChimpClient"; // ✅ client wrapper
 import { baseURL, blog, person } from "@/resources";
 
 // ⬇️ NOVOS
 import { BlogPillars } from "@/components/blog/BlogPillars";
 import { PILLARS } from "@/utils/pillars";
-import SubscribeForm from "@/components/SubscribeForm";
 
 // ====== Configs de seção ======
 const FEATURED_RANGE: [number, number] = [1, 1];
@@ -124,12 +124,9 @@ export default function BlogPage({
         <Posts range={RECENTS_RANGE} columns="2" thumbnail direction="column" />
       </Suspense>
 
-      {/* Newsletter (Client Component) */}
-      <SectionHeading as="h2" marginTop="l">
-        Assine a newsletter
-      </SectionHeading>
+      {/* Newsletter (Client Component com no-SSR) */}
       <Suspense fallback={<div style={{ height: 120 }} />}>
-        <SubscribeForm />
+        <MailchimpClient marginBottom="l" />
       </Suspense>
 
       {/* Anteriores */}
