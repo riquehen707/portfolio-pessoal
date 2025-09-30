@@ -1,28 +1,39 @@
-// src/app/admin/posts/[slug]/page.tsx
-import { notFound } from "next/navigation";
-import { getPosts } from "@/utils/utils";
-import EditGitPostClient from "./EditGitPostClient";
+import * as React from "react";
 
-export default function EditGitPostPage({ params }: { params: { slug: string } }) {
-  const posts = getPosts(["src","app","blog","posts"]);
-  const post = posts.find((p:any) => p.slug === params.slug);
-  if (!post) notFound();
+// Se você tem funções utilitárias para buscar posts, importe aqui.
+// Exemplo (ajuste para o que você já usa):
+// import { getPostBySlug } from "@/utils/posts";
 
-  // frontmatter pode ter tag (string) ou tags (string[])
-  const tags = Array.isArray(post.metadata.tags)
-    ? post.metadata.tags
-    : post.metadata.tag ? [post.metadata.tag] : [];
+type PageProps = {
+  params: { slug: string };
+};
+
+// Página dinâmica para edição/visualização de post pelo slug
+export default async function Page({ params }: PageProps) {
+  const { slug } = params;
+
+  // Aqui você pode buscar dados do post pelo slug:
+  // const post = await getPostBySlug(slug);
 
   return (
-    <EditGitPostClient
-      slug={post.slug}
-      title={post.metadata.title || ""}
-      summary={post.metadata.summary || ""}
-      image={post.metadata.image || ""}
-      tags={tags}
-      categories={post.metadata.categories || []}
-      content={post.content || ""}
-      publishedAt={post.metadata.publishedAt || ""}
-    />
+    <main style={{ padding: "2rem" }}>
+      <h1>Admin / Editar Post</h1>
+      <p>
+        Slug atual: <strong>{slug}</strong>
+      </p>
+
+      {/* Renderize os dados do post aqui */}
+      {/* {post ? <PostEditor post={post} /> : <p>Post não encontrado.</p>} */}
+    </main>
   );
+}
+
+// (Opcional) Pré-geração de rotas estáticas
+// Se você quiser usar SSG/ISR para páginas admin:
+export async function generateStaticParams() {
+  // Normalmente retornaria todos os slugs existentes
+  // const slugs = await getAllSlugs();
+  // return slugs.map((slug) => ({ slug }));
+
+  return [];
 }

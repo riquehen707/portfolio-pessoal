@@ -1,65 +1,77 @@
-// src/app/admin/posts/[slug]/EditGitPostClient.tsx
 "use client";
 
-import { useState } from "react";
-import { Column, Row, Text, Button, TextInput, TextArea } from "@once-ui-system/core";
+import * as React from "react";
+import { Button, Flex, Text } from "@once-ui-system/core"; // mantenha só o que existe no core
 
-export default function EditGitPostClient(props: {
-  slug: string;
-  title: string;
-  summary: string;
-  image: string;
-  tags: string[];
-  categories: string[];
-  content: string;
-  publishedAt?: string;
-}) {
-  const [form, setForm] = useState({
-    title: props.title,
-    summary: props.summary,
-    image: props.image,
-    tags: props.tags.join(", "),
-    categories: props.categories.join(", "),
-    content: props.content,
-  });
-  const update = (k: string, v: string) => setForm((s) => ({ ...s, [k]: v }));
+type Props = {
+  initialTitle?: string;
+  initialContent?: string;
+  onSave?: (data: { title: string; content: string }) => Promise<void> | void;
+};
 
-  const submit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const body = {
-      slug: props.slug,
-      title: form.title,
-      summary: form.summary || undefined,
-      image: form.image || undefined,
-      tags: form.tags.split(",").map((t) => t.trim()).filter(Boolean),
-      categories: form.categories.split(",").map((t) => t.trim()).filter(Boolean),
-      content: form.content,
-      publishedAt: props.publishedAt || undefined,
-      commitMessage: `chore(blog): edit ${props.slug}`,
-    };
-    const res = await fetch("/api/admin/posts/commit", {
-      method: "POST",
-      headers: {"Content-Type":"application/json"},
-      body: JSON.stringify(body),
-    });
-    if (res.ok) window.location.href = "/admin/posts";
-    else alert("Erro ao salvar");
+export default function EditGitPostClient({
+  initialTitle = "",
+  initialContent = "",
+  onSave,
+}: Props) {
+  const [title, setTitle] = React.useState(initialTitle);
+  const [content, setContent] = React.useState(initialContent);
+  const [loading, setLoading] = React.useState(false);
+
+  const handleSave = async () => {
+    try {
+      setLoading(true);
+      await onSave?.({ title, content });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <Column maxWidth="l" gap="12">
-      <Text variant="heading-strong-l">Editar: {props.slug}</Text>
-      <form onSubmit={submit}>
-        <Column gap="12">
-          <TextInput placeholder="Título" value={form.title} onChange={(e:any)=>update("title", e.target.value)} />
-          <TextInput placeholder="Resumo" value={form.summary} onChange={(e:any)=>update("summary", e.target.value)} />
-          <TextInput placeholder="Imagem (/images/... ou URL)" value={form.image} onChange={(e:any)=>update("image", e.target.value)} />
-          <TextInput placeholder="Tags (separadas por vírgula)" value={form.tags} onChange={(e:any)=>update("tags", e.target.value)} />
-          <TextInput placeholder="Categorias (separadas por vírgula)" value={form.categories} onChange={(e:any)=>update("categories", e.target.value)} />
-          <TextArea rows={18} value={form.content} onChange={(e:any)=>update("content", e.target.value)} />
-          <Row><Button type="submit">Salvar alterações</Button></Row>
-        </Column>
-      </form>
-    </Column>
+    <Flex direction="column" gap="m" fillWidth>
+      <div>
+        <Text as="label" size="s" style={{ display: "block", marginBottom: 6 }}>
+          Título
+        </Text>
+        <input
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Título do post"
+          style={{
+            width: "100%",
+            padding: "0.75rem",
+            borderRadius: 10,
+            border: "1px solid var(--neutral-alpha-weak)",
+            background: "var(--surface-background)",
+            color: "var(--neutral-on-surface-strong)",
+          }}
+        />
+      </div>
+
+      <div>
+        <Text as="label" size="s" style={{ display: "block", marginBottom: 6 }}>
+          Conteúdo (MDX)
+        </Text>
+        <textarea
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          placeholder="Conteúdo em MDX…"
+          rows={14}
+          style={{
+            width: "100%",
+            padding: "0.75rem",
+            borderRadius: 10,
+            border: "1px solid var(--neutral-alpha-weak)",
+            background: "var(--surface-background)",
+            color: "var(--neutral-on-surface-strong)",
+            lineHeight: 1.5,
+          }}
+        />
+      </div>
+
+      <Button onClick={handleSave} disabled={loading} emphasis="highlight">
+        {loading ? "Salvando…" : "Salvar alterações"}
+      </Button>
+    </Flex>
   );
 }

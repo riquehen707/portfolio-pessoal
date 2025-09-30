@@ -17,7 +17,7 @@
     "plugins": [{ "name": "next" }],
     "paths": {
       "@/*": ["./src/*"],
-      "@/mdx-components": ["./src/mdx-components.ts"]  // ✅ novo
+      "@/mdx-components": ["src/mdx-components.tsx"]  // ✅ novo
     },
     "target": "ES2017"
   },
