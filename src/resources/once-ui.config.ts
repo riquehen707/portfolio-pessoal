@@ -1,3 +1,4 @@
+// src/resources/once-ui.config.ts
 import {
   DataStyleConfig,
   DisplayConfig,
@@ -13,9 +14,19 @@ import {
 } from "@/types";
 import { home } from "./index";
 
-// IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL: string = "https://demo.magic-portfolio.com";
+// =====================================================
+// BASE URL
+// Lê do env (Vercel -> Project Settings -> Environment Variables)
+// e cai em https://henrique.dog como padrão.
+// =====================================================
+const baseURL: string =
+  (process.env.NEXT_PUBLIC_SITE_URL?.trim() as string) ||
+  "https://henrique.dog";
 
+// =====================================================
+// ROTAS LIBERADAS (raízes). Subrotas passam
+// se o RouteGuard usar checagem por prefixo.
+// =====================================================
 const routes: RoutesConfig = {
   "/": true,
   "/about": true,
@@ -24,19 +35,25 @@ const routes: RoutesConfig = {
   "/gallery": true,
 };
 
+// Mostra localização/hora/troca de tema no Header (Once UI)
 const display: DisplayConfig = {
   location: true,
   time: true,
   themeSwitcher: true,
 };
 
-// Enable password protection on selected routes
-// Set password in the .env file, refer to .env.example
+// =====================================================
+// ROTAS PROTEGIDAS POR SENHA (opcional)
+// Use prefixo: se marcar "/work/segredo": true,
+// todas as subrotas de /work/segredo/** ficarão protegidas.
+// =====================================================
 const protectedRoutes: ProtectedRoutesConfig = {
-  "/work/automate-design-handovers-with-a-figma-to-code-pipeline": true,
+  // "/work/automate-design-handovers-with-a-figma-to-code-pipeline": true,
 };
 
-// Import and set font for each variant
+// =====================================================
+// FONTES (Google)
+// =====================================================
 import { Geist } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
 
@@ -45,19 +62,16 @@ const heading = Geist({
   subsets: ["latin"],
   display: "swap",
 });
-
 const body = Geist({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
 });
-
 const label = Geist({
   variable: "--font-label",
   subsets: ["latin"],
   display: "swap",
 });
-
 const code = Geist_Mono({
   variable: "--font-code",
   subsets: ["latin"],
@@ -65,13 +79,15 @@ const code = Geist_Mono({
 });
 
 const fonts: FontsConfig = {
-  heading: heading,
-  body: body,
-  label: label,
-  code: code,
+  heading,
+  body,
+  label,
+  code,
 };
 
-// default customization applied to the HTML in the main layout.tsx
+// =====================================================
+// ESTILO GLOBAL (Once UI)
+// =====================================================
 const style: StyleConfig = {
   theme: "system", // dark | light | system
   neutral: "gray", // sand | gray | slate | custom
@@ -88,10 +104,8 @@ const style: StyleConfig = {
 const dataStyle: DataStyleConfig = {
   variant: "gradient", // flat | gradient | outline
   mode: "categorical", // categorical | divergent | sequential
-  height: 24, // default chart height
-  axis: {
-    stroke: "var(--neutral-alpha-weak)",
-  },
+  height: 24,
+  axis: { stroke: "var(--neutral-alpha-weak)" },
   tick: {
     fill: "var(--neutral-on-background-weak)",
     fontSize: 11,
@@ -100,12 +114,7 @@ const dataStyle: DataStyleConfig = {
 };
 
 const effects: EffectsConfig = {
-  mask: {
-    cursor: false,
-    x: 50,
-    y: 0,
-    radius: 100,
-  },
+  mask: { cursor: false, x: 50, y: 0, radius: 100 },
   gradient: {
     display: false,
     opacity: 100,
@@ -117,12 +126,7 @@ const effects: EffectsConfig = {
     colorStart: "accent-background-strong",
     colorEnd: "page-background",
   },
-  dots: {
-    display: true,
-    opacity: 40,
-    size: "2",
-    color: "brand-background-strong",
-  },
+  dots: { display: true, opacity: 40, size: "2", color: "brand-background-strong" },
   grid: {
     display: false,
     opacity: 100,
@@ -140,15 +144,13 @@ const effects: EffectsConfig = {
   },
 };
 
+// =====================================================
+// MAILCHIMP (opcional) — não interfere se você não usar
+// =====================================================
 const mailchimp: MailchimpConfig = {
   action: "https://url/subscribe/post?parameters",
   effects: {
-    mask: {
-      cursor: true,
-      x: 50,
-      y: 0,
-      radius: 100,
-    },
+    mask: { cursor: true, x: 50, y: 0, radius: 100 },
     gradient: {
       display: true,
       opacity: 90,
@@ -160,12 +162,7 @@ const mailchimp: MailchimpConfig = {
       colorStart: "accent-background-strong",
       colorEnd: "static-transparent",
     },
-    dots: {
-      display: true,
-      opacity: 20,
-      size: "2",
-      color: "brand-on-background-weak",
-    },
+    dots: { display: true, opacity: 20, size: "2", color: "brand-on-background-weak" },
     grid: {
       display: false,
       opacity: 100,
@@ -176,31 +173,32 @@ const mailchimp: MailchimpConfig = {
     lines: {
       display: false,
       opacity: 100,
-      color: "neutral-alpha-medium",
       size: "16",
       thickness: 1,
       angle: 90,
+      color: "neutral-alpha-medium",
     },
   },
 };
 
-// default schema data
+// =====================================================
+// SCHEMA / SOCIAL
+// =====================================================
 const schema: SchemaConfig = {
   logo: "",
   type: "Organization",
-  name: "Once UI",
+  name: "Henrique Studio",
   description: home.description,
-  email: "lorant@once-ui.com",
+  email: "contato@henrique.dog", // ajuste se tiver outro e-mail
 };
 
-// social links
 const sameAs: SameAsConfig = {
-  threads: "https://www.threads.com/@once_ui",
-  linkedin: "https://www.linkedin.com/company/once-ui/",
-  discord: "https://discord.com/invite/5EyAQ4eNdS",
+  // Preencha quando quiser
+  threads: "",
+  linkedin: "",
+  discord: "",
 };
 
-// social sharing configuration for blog posts
 const socialSharing: SocialSharingConfig = {
   display: true,
   platforms: {
