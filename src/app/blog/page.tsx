@@ -1,40 +1,16 @@
 // src/app/blog/page.tsx
 import { Suspense } from "react";
-import { Column, Heading, Meta, Schema, Text } from "@once-ui-system/core";
-
+import { Column, Heading, Schema, Text } from "@once-ui-system/core";
 import { Posts } from "@/components/blog/Posts";
 import { baseURL, blog, person } from "@/resources";
-import { PILLARS } from "@/utils/pillars";
 
 const FEATURED_RANGE: [number, number] = [1, 1];
 const RECENTS_RANGE: [number, number] = [2, 3];
 const EARLIER_RANGE: number[] = [4];
 
+// Mantém a página estática com revalidação
 export const revalidate = 60;
 export const dynamic = "force-static";
-
-// 🔎 LOG também durante geração de metadata (server-side)
-export async function generateMetadata({
-  searchParams,
-}: {
-  searchParams: { pillar?: string };
-}) {
-  console.log("[/blog] generateMetadata searchParams:", searchParams);
-  const current = searchParams?.pillar;
-  const pillar = PILLARS.find((p) => p.slug === current);
-  const title = pillar ? `${pillar.label} · ${blog.title}` : blog.title;
-  const description = pillar
-    ? `Artigos do pilar ${pillar.label}. ${blog.description}`
-    : blog.description;
-
-  return Meta.generate({
-    title,
-    description,
-    baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent(title)}`,
-    path: blog.path,
-  });
-}
 
 function SectionHeading({
   children,
@@ -61,22 +37,13 @@ function PostsSkeleton() {
   );
 }
 
-export default function BlogPage({
-  searchParams,
-}: {
-  searchParams: { pillar?: string };
-}) {
-  console.log("[/blog] component render. searchParams:", searchParams);
-  const current = searchParams?.pillar;
-  const pillar = PILLARS.find((p) => p.slug === current);
-
-  const pageTitle = pillar ? pillar.label : blog.title;
+export default function BlogPage() {
+  const pageTitle = blog.title;
   const ogImage = `/api/og/generate?title=${encodeURIComponent(pageTitle)}`;
-
-  console.log("[/blog] pageTitle:", pageTitle, "ogImage:", ogImage);
 
   return (
     <Column maxWidth="m" paddingTop="24" gap="24">
+      {/* Schema estático (não interfere no SSG) */}
       <Schema
         as="Blog"
         baseURL={baseURL}
@@ -92,13 +59,6 @@ export default function BlogPage({
       />
 
       <SectionHeading as="h1">{pageTitle}</SectionHeading>
-
-      {pillar && (
-        <Text onBackground="neutral-weak">
-          Exibindo posts do pilar <strong>{pillar.label}</strong>.{" "}
-          <a href="/blog">Ver todos</a>
-        </Text>
-      )}
 
       {/* Destaque */}
       <Suspense fallback={<PostsSkeleton />}>

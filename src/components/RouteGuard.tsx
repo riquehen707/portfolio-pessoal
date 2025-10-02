@@ -1,7 +1,7 @@
 // src/components/RouteGuard.tsx
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import { routes, protectedRoutes } from "@/resources";
 import {
@@ -12,7 +12,6 @@ import {
   Column,
   PasswordInput,
 } from "@once-ui-system/core";
-import NotFound from "@/app/not-found";
 
 type Props = { children: React.ReactNode };
 
@@ -22,36 +21,30 @@ function normalize(path?: string | null): string {
   return noTrail === "" ? "/" : noTrail;
 }
 
-function isAllowed(pathname: string): boolean {
-  const clean = normalize(pathname);
-
-  // 1) Match exato na whitelist
-  if (clean in routes) {
-    return Boolean(routes[clean as keyof typeof routes]);
-  }
-
-  // 2) Qualquer rota base marcada como true libera suas subrotas
-  const hasAllowedPrefix = Object.entries(routes).some(([base, allowed]) => {
+function hasAllowedPrefix(clean: string): boolean {
+  return Object.entries(routes).some(([base, allowed]) => {
     if (!allowed) return false;
     const baseClean = normalize(base);
     if (baseClean === "/") return true; // raiz true => tudo passa
     return clean === baseClean || clean.startsWith(baseClean + "/");
   });
-  if (hasAllowedPrefix) return true;
+}
 
-  // 3) Sem regra explícita: fail-open
-  return true;
+function isAllowed(pathname: string): boolean {
+  const clean = normalize(pathname);
+  if (clean in routes) return Boolean(routes[clean as keyof typeof routes]);
+  // Sem regra explícita: aceita por prefixo; se não houver, fail-open
+  return hasAllowedPrefix(clean) || true;
 }
 
 function needsPassword(pathname: string): boolean {
   const clean = normalize(pathname);
 
-  // 1) Se a rota exata está protegida
   if (clean in protectedRoutes) {
     return Boolean(protectedRoutes[clean as keyof typeof protectedRoutes]);
   }
 
-  // 2) Prefixos protegidos também protegem subrotas
+  // Prefixo protegido protege subrotas
   return Object.entries(protectedRoutes).some(([base, locked]) => {
     if (!locked) return false;
     const baseClean = normalize(base);
@@ -60,34 +53,42 @@ function needsPassword(pathname: string): boolean {
   });
 }
 
+function NotFoundLike() {
+  return (
+    <Column paddingY="128" gap="8" center>
+      <Heading as="h1" variant="heading-strong-xl">404</Heading>
+      <p>Página não encontrada ou bloqueada.</p>
+    </Column>
+  );
+}
+
 export function RouteGuard({ children }: Props) {
+  const enabled =
+    (process.env.NEXT_PUBLIC_ENABLE_ROUTE_GUARD || "").toLowerCase() === "true";
+  // Se o guard estiver desativado por flag → no-op
+  if (!enabled) return <>{children}</>;
+
   const pathname = usePathname();
+  const path = useMemo(() => normalize(pathname), [pathname]);
+
   const [loading, setLoading] = useState(true);
-  const [routeEnabled, setRouteEnabled] = useState<boolean>(true);
-  const [mustPassword, setMustPassword] = useState<boolean>(false);
-  const [authed, setAuthed] = useState<boolean>(false);
+  const [routeEnabled, setRouteEnabled] = useState(true);
+  const [mustPassword, setMustPassword] = useState(false);
+  const [authed, setAuthed] = useState(false);
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | undefined>(undefined);
 
-  // 🔎 LOG: toda troca de pathname
-  console.log("[ROUTEGUARD] pathname(raw):", pathname);
-
   useEffect(() => {
     let cancelled = false;
+
     async function run() {
       setLoading(true);
-      const path = normalize(pathname);
-
-      // 🔎 LOG: normalizado
-      console.log("[ROUTEGUARD] normalized path:", path);
 
       const allowed = isAllowed(path);
-      console.log("[ROUTEGUARD] isAllowed:", allowed, "routes:", routes);
       if (cancelled) return;
       setRouteEnabled(allowed);
 
       if (!allowed) {
-        console.log("[ROUTEGUARD] blocked -> NotFound()");
         setMustPassword(false);
         setAuthed(false);
         setLoading(false);
@@ -95,55 +96,49 @@ export function RouteGuard({ children }: Props) {
       }
 
       const locked = needsPassword(path);
-      console.log("[ROUTEGUARD] needsPassword:", locked, "protectedRoutes:", protectedRoutes);
       if (cancelled) return;
       setMustPassword(locked);
 
       if (!locked) {
-        console.log("[ROUTEGUARD] pass (no password needed)");
         setAuthed(true);
         setLoading(false);
         return;
       }
 
-      // Checa sessão existente
+      // Só consulta a sessão se realmente precisa de senha
       try {
         const res = await fetch("/api/check-auth", { cache: "no-store" });
-        console.log("[ROUTEGUARD] /api/check-auth status:", res.status);
         if (cancelled) return;
         setAuthed(res.ok);
-      } catch (e) {
-        console.log("[ROUTEGUARD] /api/check-auth error:", e);
+      } catch {
         if (cancelled) return;
         setAuthed(false);
       } finally {
         if (!cancelled) setLoading(false);
       }
     }
+
     run();
     return () => {
       cancelled = true;
     };
-  }, [pathname]);
+  }, [path]);
 
   async function handlePasswordSubmit() {
     setError(undefined);
-    console.log("[ROUTEGUARD] authenticate submit");
     try {
       const res = await fetch("/api/authenticate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ password }),
       });
-      console.log("[ROUTEGUARD] /api/authenticate status:", res.status);
       if (res.ok) {
         setAuthed(true);
         setPassword("");
       } else {
         setError("Senha incorreta.");
       }
-    } catch (e) {
-      console.log("[ROUTEGUARD] /api/authenticate error:", e);
+    } catch {
       setError("Falha de rede. Tente novamente.");
     }
   }
@@ -164,8 +159,7 @@ export function RouteGuard({ children }: Props) {
   }
 
   if (!routeEnabled) {
-    // 404 amigável
-    return <NotFound />;
+    return <NotFoundLike />;
   }
 
   if (mustPassword && !authed) {

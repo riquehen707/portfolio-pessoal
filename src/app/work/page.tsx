@@ -1,25 +1,30 @@
 // src/app/work/page.tsx
 import { Suspense } from "react";
-import { Column, Heading, Meta, Schema, Text, Line } from "@once-ui-system/core";
+import { Column, Heading, Schema, Text, Line } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
-import { Projects } from "@/components/work/Projects"; // ✅ import direto (Server Component)
+import { Projects } from "@/components/work/Projects"; // Server Component
 
 // ISR + renderização estática estável
 export const revalidate = 60;
 export const dynamic = "force-static";
 
-// SEO / OpenGraph
+// (Opcional) Metadata estática; se preferir, pode manter o Meta.generate aqui,
+// desde que não use searchParams/headers/cookies.
 export async function generateMetadata() {
-  return Meta.generate({
+  return {
     title: work.title,
     description: work.description,
-    baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent(work.title)}`,
-    path: work.path,
-  });
+    alternates: { canonical: `${baseURL}${work.path}` },
+    openGraph: {
+      title: work.title,
+      description: work.description,
+      url: `${baseURL}${work.path}`,
+      images: [{ url: `/api/og/generate?title=${encodeURIComponent(work.title)}` }],
+    },
+  };
 }
 
-// Skeleton simples — troque por seu componente do design system se tiver
+// Skeleton simples
 function ProjectsSkeleton() {
   return (
     <Column gap="16">
