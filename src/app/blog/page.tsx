@@ -13,6 +13,29 @@ const EARLIER_RANGE: number[] = [4];
 export const revalidate = 60;
 export const dynamic = "force-static";
 
+// 🔎 LOG também durante geração de metadata (server-side)
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: { pillar?: string };
+}) {
+  console.log("[/blog] generateMetadata searchParams:", searchParams);
+  const current = searchParams?.pillar;
+  const pillar = PILLARS.find((p) => p.slug === current);
+  const title = pillar ? `${pillar.label} · ${blog.title}` : blog.title;
+  const description = pillar
+    ? `Artigos do pilar ${pillar.label}. ${blog.description}`
+    : blog.description;
+
+  return Meta.generate({
+    title,
+    description,
+    baseURL,
+    image: `/api/og/generate?title=${encodeURIComponent(title)}`,
+    path: blog.path,
+  });
+}
+
 function SectionHeading({
   children,
   as = "h2",
@@ -38,37 +61,19 @@ function PostsSkeleton() {
   );
 }
 
-export async function generateMetadata({
-  searchParams,
-}: {
-  searchParams: { pillar?: string };
-}) {
-  const current = searchParams?.pillar;
-  const pillar = PILLARS.find((p) => p.slug === current);
-  const title = pillar ? `${pillar.label} · ${blog.title}` : blog.title;
-  const description = pillar
-    ? `Artigos do pilar ${pillar.label}. ${blog.description}`
-    : blog.description;
-
-  return Meta.generate({
-    title,
-    description,
-    baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent(title)}`,
-    path: blog.path,
-  });
-}
-
 export default function BlogPage({
   searchParams,
 }: {
   searchParams: { pillar?: string };
 }) {
+  console.log("[/blog] component render. searchParams:", searchParams);
   const current = searchParams?.pillar;
   const pillar = PILLARS.find((p) => p.slug === current);
 
   const pageTitle = pillar ? pillar.label : blog.title;
   const ogImage = `/api/og/generate?title=${encodeURIComponent(pageTitle)}`;
+
+  console.log("[/blog] pageTitle:", pageTitle, "ogImage:", ogImage);
 
   return (
     <Column maxWidth="m" paddingTop="24" gap="24">

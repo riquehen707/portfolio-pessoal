@@ -39,7 +39,7 @@ function isAllowed(pathname: string): boolean {
   });
   if (hasAllowedPrefix) return true;
 
-  // 3) Sem regra explícita: fail-open (mude para `return false` se quiser bloquear por padrão)
+  // 3) Sem regra explícita: fail-open
   return true;
 }
 
@@ -51,7 +51,7 @@ function needsPassword(pathname: string): boolean {
     return Boolean(protectedRoutes[clean as keyof typeof protectedRoutes]);
   }
 
-  // 2) Qualquer prefixo protegido protege também as subrotas
+  // 2) Prefixos protegidos também protegem subrotas
   return Object.entries(protectedRoutes).some(([base, locked]) => {
     if (!locked) return false;
     const baseClean = normalize(base);
@@ -69,17 +69,25 @@ export function RouteGuard({ children }: Props) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | undefined>(undefined);
 
+  // 🔎 LOG: toda troca de pathname
+  console.log("[ROUTEGUARD] pathname(raw):", pathname);
+
   useEffect(() => {
     let cancelled = false;
     async function run() {
       setLoading(true);
       const path = normalize(pathname);
 
+      // 🔎 LOG: normalizado
+      console.log("[ROUTEGUARD] normalized path:", path);
+
       const allowed = isAllowed(path);
+      console.log("[ROUTEGUARD] isAllowed:", allowed, "routes:", routes);
       if (cancelled) return;
       setRouteEnabled(allowed);
 
       if (!allowed) {
+        console.log("[ROUTEGUARD] blocked -> NotFound()");
         setMustPassword(false);
         setAuthed(false);
         setLoading(false);
@@ -87,10 +95,12 @@ export function RouteGuard({ children }: Props) {
       }
 
       const locked = needsPassword(path);
+      console.log("[ROUTEGUARD] needsPassword:", locked, "protectedRoutes:", protectedRoutes);
       if (cancelled) return;
       setMustPassword(locked);
 
       if (!locked) {
+        console.log("[ROUTEGUARD] pass (no password needed)");
         setAuthed(true);
         setLoading(false);
         return;
@@ -99,9 +109,11 @@ export function RouteGuard({ children }: Props) {
       // Checa sessão existente
       try {
         const res = await fetch("/api/check-auth", { cache: "no-store" });
+        console.log("[ROUTEGUARD] /api/check-auth status:", res.status);
         if (cancelled) return;
         setAuthed(res.ok);
-      } catch {
+      } catch (e) {
+        console.log("[ROUTEGUARD] /api/check-auth error:", e);
         if (cancelled) return;
         setAuthed(false);
       } finally {
@@ -116,19 +128,22 @@ export function RouteGuard({ children }: Props) {
 
   async function handlePasswordSubmit() {
     setError(undefined);
+    console.log("[ROUTEGUARD] authenticate submit");
     try {
       const res = await fetch("/api/authenticate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ password }),
       });
+      console.log("[ROUTEGUARD] /api/authenticate status:", res.status);
       if (res.ok) {
         setAuthed(true);
         setPassword("");
       } else {
         setError("Senha incorreta.");
       }
-    } catch {
+    } catch (e) {
+      console.log("[ROUTEGUARD] /api/authenticate error:", e);
       setError("Falha de rede. Tente novamente.");
     }
   }
@@ -149,7 +164,7 @@ export function RouteGuard({ children }: Props) {
   }
 
   if (!routeEnabled) {
-    // 404 amigável; se preferir bloquear duro, pode usar notFound() do Next
+    // 404 amigável
     return <NotFound />;
   }
 
