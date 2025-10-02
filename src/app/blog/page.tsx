@@ -1,9 +1,14 @@
 // src/app/blog/page.tsx
 import { Suspense } from "react";
-import { Column, Heading, Text } from "@once-ui-system/core";
+import { Column, Heading, Meta, Schema, Text } from "@once-ui-system/core";
+
 import { Posts } from "@/components/blog/Posts";
-import { BlogPillars } from "@/components/blog/BlogPillars";
+import { baseURL, blog, person } from "@/resources";
 import { PILLARS } from "@/utils/pillars";
+
+const FEATURED_RANGE: [number, number] = [1, 1];
+const RECENTS_RANGE: [number, number] = [2, 3];
+const EARLIER_RANGE: number[] = [4];
 
 export const revalidate = 60;
 export const dynamic = "force-static";
@@ -33,20 +38,55 @@ function PostsSkeleton() {
   );
 }
 
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: { pillar?: string };
+}) {
+  const current = searchParams?.pillar;
+  const pillar = PILLARS.find((p) => p.slug === current);
+  const title = pillar ? `${pillar.label} · ${blog.title}` : blog.title;
+  const description = pillar
+    ? `Artigos do pilar ${pillar.label}. ${blog.description}`
+    : blog.description;
+
+  return Meta.generate({
+    title,
+    description,
+    baseURL,
+    image: `/api/og/generate?title=${encodeURIComponent(title)}`,
+    path: blog.path,
+  });
+}
+
 export default function BlogPage({
   searchParams,
 }: {
-  searchParams?: { pillar?: string };
+  searchParams: { pillar?: string };
 }) {
   const current = searchParams?.pillar;
-  const pillar = current ? PILLARS.find((p) => p.slug === current) : undefined;
-  const pageTitle = pillar ? pillar.label : "Blog";
+  const pillar = PILLARS.find((p) => p.slug === current);
+
+  const pageTitle = pillar ? pillar.label : blog.title;
+  const ogImage = `/api/og/generate?title=${encodeURIComponent(pageTitle)}`;
 
   return (
     <Column maxWidth="m" paddingTop="24" gap="24">
-      <SectionHeading as="h1">{pageTitle}</SectionHeading>
+      <Schema
+        as="Blog"
+        baseURL={baseURL}
+        title={pageTitle}
+        description={blog.description}
+        path={blog.path}
+        image={ogImage}
+        author={{
+          name: person.name,
+          url: `${baseURL}/blog`,
+          image: `${baseURL}${person.avatar}`,
+        }}
+      />
 
-      <BlogPillars currentPillar={current} />
+      <SectionHeading as="h1">{pageTitle}</SectionHeading>
 
       {pillar && (
         <Text onBackground="neutral-weak">
@@ -55,20 +95,23 @@ export default function BlogPage({
         </Text>
       )}
 
+      {/* Destaque */}
       <Suspense fallback={<PostsSkeleton />}>
-        <Posts range={[1, 1]} thumbnail />
+        <Posts range={FEATURED_RANGE} thumbnail />
       </Suspense>
 
+      {/* Recentes */}
       <Suspense fallback={<PostsSkeleton />}>
-        <Posts range={[2, 3]} columns="2" thumbnail direction="column" />
+        <Posts range={RECENTS_RANGE} columns="2" thumbnail direction="column" />
       </Suspense>
 
+      {/* Anteriores */}
       <SectionHeading as="h2" marginTop="l">
         Posts anteriores
       </SectionHeading>
 
       <Suspense fallback={<PostsSkeleton />}>
-        <Posts range={[4]} columns="2" />
+        <Posts range={EARLIER_RANGE} columns="2" />
       </Suspense>
     </Column>
   );
