@@ -5,7 +5,7 @@ import { baseURL, about, person, work } from "@/resources";
 import { Projects } from "@/components/work/Projects"; // Server Component
 
 // ISR + renderização estática estável
-export const revalidate = 60;
+export const revalidate = false;
 export const dynamic = "force-static";
 
 // (Opcional) Metadata estática; se preferir, pode manter o Meta.generate aqui,

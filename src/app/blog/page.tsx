@@ -9,7 +9,7 @@ const RECENTS_RANGE: [number, number] = [2, 3];
 const EARLIER_RANGE: number[] = [4];
 
 // Mantém a página estática com revalidação
-export const revalidate = 60;
+export const revalidate = false;
 export const dynamic = "force-static";
 
 function SectionHeading({
