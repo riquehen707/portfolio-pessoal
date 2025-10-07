@@ -1,6 +1,6 @@
 // src/components/blog/Posts.tsx
 import { getPosts } from "@/utils/utils";
-import { Grid } from "@once-ui-system/core";
+import { Column, Grid, Heading, Text } from "@once-ui-system/core";
 import Post from "./Post";
 
 type Direction = "row" | "column";
@@ -34,7 +34,14 @@ export function Posts({
   direction,
 }: PostsProps) {
   // getPosts deve retornar [{ slug, metadata }, ...]
-  let allBlogs = getPosts(["src", "app", "blog", "posts"]) as PostData[];
+  let allBlogs: PostData[] = [];
+  try {
+    // caminho padrão: src/app/blog/posts
+    allBlogs = getPosts(["src", "app", "blog", "posts"]) as PostData[];
+  } catch (e) {
+    // fail-open em produção: não derruba a rota
+    allBlogs = [];
+  }
 
   // Excluir por slug (match exato)
   if (exclude.length) {
@@ -43,8 +50,8 @@ export function Posts({
 
   // Ordena por data (desc) sem mutar a origem
   const sortedBlogs = [...allBlogs].sort((a, b) => {
-    const aTime = new Date(a.metadata.publishedAt).getTime() || 0;
-    const bTime = new Date(b.metadata.publishedAt).getTime() || 0;
+    const aTime = new Date(a.metadata?.publishedAt ?? 0).getTime() || 0;
+    const bTime = new Date(b.metadata?.publishedAt ?? 0).getTime() || 0;
     return bTime - aTime;
   });
 
@@ -53,7 +60,15 @@ export function Posts({
     ? sortedBlogs.slice(range[0] - 1, range.length === 2 ? range[1] : sortedBlogs.length)
     : sortedBlogs;
 
-  if (!displayedBlogs.length) return null;
+  // ESTADO VAZIO: não chamar notFound(); mostrar mensagem
+  if (!displayedBlogs?.length) {
+    return (
+      <Column gap="8" marginBottom="24">
+        <Heading as="h3" variant="heading-strong-l">Sem publicações ainda</Heading>
+        <Text onBackground="neutral-weak">Assim que houver posts, eles aparecem aqui automaticamente.</Text>
+      </Column>
+    );
+  }
 
   return (
     <Grid columns={columns} s={{ columns: 1 }} fillWidth marginBottom="40" gap="16">
@@ -63,7 +78,6 @@ export function Posts({
           post={post}
           thumbnail={thumbnail}
           direction={direction}
-          // Prioriza imagem só no primeiro card desta grade/seção
           priority={thumbnail && idx === 0}
         />
       ))}
