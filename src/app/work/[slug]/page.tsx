@@ -21,7 +21,7 @@ import { ScrollToHash, CustomMDX } from "@/components";
 import { Projects } from "@/components/work/Projects";
 
 // ISR estável
-export const revalidate = 60;
+export const revalidate = false;
 export const dynamic = "force-static";
 
 // Helpers

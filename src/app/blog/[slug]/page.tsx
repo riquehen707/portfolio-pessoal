@@ -32,7 +32,7 @@ import ReadingProgress from "@/components/mdx/ReadingProgress";
 import MetaBar from "@/components/mdx/MetaBar";
 
 // Revalidação incremental e renderização estática
-export const revalidate = 60;
+export const revalidate = false;
 export const dynamic = "force-static";
 
 // Helpers
