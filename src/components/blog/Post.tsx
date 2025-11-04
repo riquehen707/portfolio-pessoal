@@ -1,16 +1,12 @@
 // src/components/blog/Post.tsx
-"use client";
-
-import { memo, useMemo } from "react";
-import { Card, Column, Media, Row, Avatar, Text } from "@once-ui-system/core";
-import { formatDate } from "@/utils/formatDate";
-import { person } from "@/resources";
+import Link from "next/link";
+import { Column, Row, Heading, Text } from "@once-ui-system/core";
 
 type Direction = "row" | "column";
 
 interface PostFrontmatter {
   title: string;
-  publishedAt: string; // ISO string
+  publishedAt: string;
   tag?: string;
   image?: string;
   imageAlt?: string;
@@ -23,77 +19,124 @@ interface PostData {
 
 interface PostProps {
   post: PostData;
-  thumbnail?: boolean;
-  direction?: Direction;
-  /** Define prioridade de carregamento da imagem (use no destaque) */
-  priority?: boolean;
+  thumbnail?: boolean;           // se true, tentamos mostrar imagem (se houver)
+  direction?: Direction;         // layout row | column
+  priority?: boolean;            // pode usar pra <Image priority />
 }
 
-function PostComponent({ post, thumbnail = false, direction, priority = false }: PostProps) {
-  const { slug, metadata } = post || {};
+export default function Post({
+  post,
+  thumbnail = false,
+  direction = "row",
+  priority = false,
+}: PostProps) {
+  const { slug, metadata } = post;
   const { title, publishedAt, tag, image, imageAlt } = metadata || {};
 
-  const titleId = useMemo(() => `post-${slug}-title`, [slug]);
-  const hasImage = Boolean(image && thumbnail);
+  // tem imagem válida?
+  const hasImage = Boolean(image && image.trim() !== "");
+
+  // formata data simples (opcional; ajusta pro formato que vc quiser)
+  const formattedDate = publishedAt
+    ? new Date(publishedAt).toLocaleDateString("pt-BR", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      })
+    : "";
 
   return (
-    <Card
-      as="article"
-      aria-labelledby={titleId}
-      fillWidth
-      key={slug}
+    <Link
       href={`/blog/${slug}`}
-      transition="micro-medium"
-      direction={direction}
-      border="transparent"
-      background="transparent"
-      padding="4"
-      radius="l-4"
-      gap={direction === "column" ? undefined : "24"}
-      s={{ direction: "column" }}
+      style={{
+        textDecoration: "none",
+        color: "inherit",
+      }}
     >
-      {hasImage && (
-        <Media
-          // Carregue com prioridade só em cards de destaque
-          priority={priority}
-          sizes="(max-width: 768px) 100vw, 640px"
-          border="neutral-alpha-weak"
-          cursor="interactive"
-          radius="l"
-          src={image!}
-          alt={imageAlt ?? `Capa de ${title}`}
-          aspectRatio="16 / 9"
-        />
-      )}
+      <Row
+        gap="16"
+        padding="16"
+        borderRadius="16"
+        background="layer-1"
+        border="neutral-alpha-weak"
+        direction={direction}
+        style={{
+          width: "100%",
+          height: "100%",
+        }}
+      >
+        {/* Thumbnail só aparece se:
+            - thumbnail === true E
+            - hasImage === true
+        */}
+        {thumbnail && hasImage && (
+          <div
+            style={{
+              flexShrink: 0,
+              width: direction === "row" ? 160 : "100%",
+              height: direction === "row" ? 96 : 180,
+              borderRadius: 12,
+              backgroundColor: "var(--layer-2)",
+              overflow: "hidden",
+            }}
+          >
+            {/* você pode trocar por next/image se quiser otimização */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={image as string}
+              alt={imageAlt || title}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                display: "block",
+              }}
+              {...(priority ? { loading: "eager" } : { loading: "lazy" })}
+            />
+          </div>
+        )}
 
-      <Row fillWidth>
-        <Column maxWidth={28} paddingY="24" paddingX="l" gap="20" vertical="center">
-          <Row gap="24" vertical="center">
-            <Row vertical="center" gap="16">
-              <Avatar src={person.avatar} size="s" />
-              <Text variant="label-default-s">{person.name}</Text>
-            </Row>
-            {publishedAt && (
-              <Text variant="body-default-xs" onBackground="neutral-weak">
-                {formatDate(publishedAt, false)}
+        {/* Conteúdo textual */}
+        <Column gap="8" flexGrow={1} style={{ minWidth: 0 }}>
+          <Heading
+            as="h3"
+            variant="heading-strong-m"
+            style={{ lineHeight: 1.3, wordWrap: "break-word" }}
+          >
+            {title}
+          </Heading>
+
+          <Row gap="8" wrap>
+            {formattedDate && (
+              <Text
+                variant="label-default-xs"
+                color="text-dimmed"
+                style={{ whiteSpace: "nowrap" }}
+              >
+                {formattedDate}
+              </Text>
+            )}
+
+            {tag && (
+              <Text
+                variant="label-default-xs"
+                color="accent-strong"
+                style={{
+                  background: "var(--accent-alpha-weak)",
+                  borderRadius: 6,
+                  padding: "2px 6px",
+                  maxWidth: "100%",
+                  textOverflow: "ellipsis",
+                  overflow: "hidden",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {tag}
               </Text>
             )}
           </Row>
-
-          <Text id={titleId} variant="heading-strong-l" wrap="balance">
-            {title}
-          </Text>
-
-          {tag && (
-            <Text variant="label-strong-s" onBackground="neutral-weak">
-              {tag}
-            </Text>
-          )}
         </Column>
       </Row>
-    </Card>
+    </Link>
   );
 }
-
-const Post = memo(PostComponent);
-export default Post;
