@@ -56,6 +56,7 @@ const protectedRoutes: ProtectedRoutesConfig = {
 // =====================================================
 import { Geist } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
+import { TRUE } from "sass";
 
 const heading = Geist({
   variable: "--font-heading",
@@ -128,14 +129,14 @@ const effects: EffectsConfig = {
   },
   dots: { display: true, opacity: 40, size: "2", color: "brand-background-strong" },
   grid: {
-    display: false,
+    display: true,
     opacity: 100,
     color: "neutral-alpha-medium",
     width: "0.25rem",
     height: "0.25rem",
   },
   lines: {
-    display: false,
+    display: true,
     opacity: 100,
     color: "neutral-alpha-weak",
     size: "16",
@@ -164,14 +165,14 @@ const mailchimp: MailchimpConfig = {
     },
     dots: { display: true, opacity: 20, size: "2", color: "brand-on-background-weak" },
     grid: {
-      display: false,
+      display: true,
       opacity: 100,
       color: "neutral-alpha-medium",
       width: "0.25rem",
       height: "0.25rem",
     },
     lines: {
-      display: false,
+      display: true,
       opacity: 100,
       size: "16",
       thickness: 1,
