@@ -91,7 +91,7 @@ const fonts: FontsConfig = {
 // =====================================================
 const style: StyleConfig = {
   theme: "system", // dark | light | system
-  neutral: "slate", // sand | gray | slate | custom
+  neutral: "sand", // sand | gray | slate | custom
   brand: "indigo", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
   accent: "magenta", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
   solid: "contrast", // color | contrast
@@ -110,14 +110,14 @@ const dataStyle: DataStyleConfig = {
   tick: {
     fill: "var(--neutral-on-background-weak)",
     fontSize: 11,
-    line: false,
+    line: true,
   },
 };
 
 const effects: EffectsConfig = {
   mask: { cursor: false, x: 50, y: 0, radius: 100 },
   gradient: {
-    display: false,
+    display: true,
     opacity: 100,
     x: 50,
     y: 60,
@@ -130,17 +130,17 @@ const effects: EffectsConfig = {
   dots: { display: true, opacity: 40, size: "2", color: "brand-background-strong" },
   grid: {
     display: true,
-    opacity: 80,
+    opacity: 90,
     color: "neutral-alpha-medium",
-    width: "0.35rem",
-    height: "0.55rem",
+    width: "0.25rem",
+    height: "0.25rem",
   },
   lines: {
     display: true,
-    opacity: 60,
+    opacity: 80,
     color: "neutral-alpha-weak",
-    size: "24",
-    thickness: 1.2,
+    size: "16",
+    thickness: 1,
     angle: 45,
   },
 };
