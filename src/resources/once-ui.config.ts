@@ -91,11 +91,11 @@ const fonts: FontsConfig = {
 // =====================================================
 const style: StyleConfig = {
   theme: "system", // dark | light | system
-  neutral: "gray", // sand | gray | slate | custom
-  brand: "cyan", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
-  accent: "red", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
+  neutral: "slate", // sand | gray | slate | custom
+  brand: "indigo", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
+  accent: "magenta", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
   solid: "contrast", // color | contrast
-  solidStyle: "flat", // flat | plastic
+  solidStyle: "plastic", // flat | plastic
   border: "playful", // rounded | playful | conservative
   surface: "translucent", // filled | translucent
   transition: "all", // all | micro | macro
@@ -130,17 +130,17 @@ const effects: EffectsConfig = {
   dots: { display: true, opacity: 40, size: "2", color: "brand-background-strong" },
   grid: {
     display: true,
-    opacity: 100,
+    opacity: 80,
     color: "neutral-alpha-medium",
-    width: "0.25rem",
-    height: "0.25rem",
+    width: "0.35rem",
+    height: "0.55rem",
   },
   lines: {
     display: true,
-    opacity: 100,
+    opacity: 60,
     color: "neutral-alpha-weak",
-    size: "16",
-    thickness: 1,
+    size: "24",
+    thickness: 1.2,
     angle: 45,
   },
 };
@@ -205,12 +205,12 @@ const socialSharing: SocialSharingConfig = {
   platforms: {
     x: true,
     linkedin: true,
-    facebook: false,
-    pinterest: false,
+    facebook: true,
+    pinterest: true,
     whatsapp: false,
     reddit: false,
     telegram: false,
-    email: true,
+    email: false,
     copyLink: true,
   },
 };
