@@ -9,7 +9,6 @@ import {
   Schema,
   Column,
   Heading,
-  HeadingNav,
   Icon,
   Row,
   Text,
@@ -23,6 +22,8 @@ import {
 import { CustomMDX, ScrollToHash } from "@/components";
 import { Posts } from "@/components/blog/Posts";
 import { ShareSection } from "@/components/blog/ShareSection";
+import ArticleToc from "@/components/blog/ArticleToc";
+import RelatedPosts from "@/components/blog/RelatedPosts"; // ✅ NEW
 
 import { baseURL, about, blog, person } from "@/resources";
 import { getPosts } from "@/utils/utils";
@@ -121,12 +122,12 @@ export default async function BlogPost({
   }
 
   const datePublished =
-    post.metadata.publishedAt ?? post.metadata.date ?? undefined;
+    post.metadata.publishedAt ?? (post.metadata as any).date ?? undefined;
   const dateModified =
     post.metadata.updatedAt ??
-    post.metadata.updated ??
+    (post.metadata as any).updated ??
     post.metadata.publishedAt ??
-    post.metadata.date ??
+    (post.metadata as any).date ??
     undefined;
 
   const pillar: string | undefined = post.metadata?.pillar;
@@ -163,16 +164,28 @@ export default async function BlogPost({
   const canonicalPath = `${blog.path}/${post.slug}`;
   const readTimeMin = readingTimeMinutes(post.content);
 
+  const tags =
+    post.metadata.tags ??
+    (post.metadata.tag ? [post.metadata.tag] : []);
+
+  const keywords = post.metadata.keywords ?? [];
+
   return (
     <>
-      {/* ✅ Progress bar fixa no topo (observa o artigo com id="article-content") */}
+      {/* Progress bar fixa */}
       <ReadingProgress watchId="article-content" />
 
       <Row fillWidth>
         <Row maxWidth={12} m={{ hide: true }} />
         <Row fillWidth horizontal="center">
-          <Column as="section" maxWidth="m" horizontal="center" gap="l" paddingTop="24">
-            {/* Schema para SEO */}
+          <Column
+            as="section"
+            maxWidth="m"
+            horizontal="center"
+            gap="l"
+            paddingTop="24"
+          >
+            {/* Schema.org */}
             <Schema
               as="blogPosting"
               baseURL={baseURL}
@@ -191,19 +204,16 @@ export default async function BlogPost({
               keywords={categories?.join(", ")}
             />
 
-            {/* Cabeçalho editorial (à esquerda) */}
+            {/* Header */}
             <Column maxWidth="s" gap="16">
-              {/* breadcrumb discreto */}
               <SmartLink href="/blog" underline="hover">
                 <Text variant="label-strong-m">← Blog</Text>
               </SmartLink>
 
-              {/* título forte */}
               <Heading variant="display-strong-m">
                 {post.metadata.title}
               </Heading>
 
-              {/* autor */}
               <Row gap="12" vertical="center" wrap>
                 {authors.slice(0, 3).map((a, i) => (
                   <Avatar key={i} size="s" src={a.imageLocal} />
@@ -213,7 +223,6 @@ export default async function BlogPost({
                 </Text>
               </Row>
 
-              {/* datas + tempo de leitura */}
               {(datePublished || dateModified) && (
                 <MetaBar
                   publishedAt={datePublished!}
@@ -222,7 +231,6 @@ export default async function BlogPost({
                 />
               )}
 
-              {/* tags (pilar e categorias) */}
               {(pillar || (categories && categories.length > 0)) && (
                 <Row gap="8" wrap>
                   {pillar && (
@@ -271,20 +279,44 @@ export default async function BlogPost({
               />
             )}
 
-            {/* Conteúdo */}
+            {/* Conteúdo do artigo */}
             <Column as="article" maxWidth="s" id="article-content">
-              <CustomMDX source={post.content} />
+              <CustomMDX
+                source={post.content}
+                glossary={post.metadata.glossary ?? {}}
+              />
             </Column>
 
-            {/* Compartilhar */}
-            <ShareSection title={post.metadata.title} url={`${baseURL}${canonicalPath}`} />
+            {/* ✅ RelatedPosts inteligente */}
+            <RelatedPosts
+              currentSlug={post.slug}
+              pillar={pillar}
+              categories={categories}
+              tags={tags}
+              keywords={keywords}
+              limit={4}
+            />
 
-            {/* Posts recentes */}
+            {/* Compartilhar */}
+            <ShareSection
+              title={post.metadata.title}
+              url={`${baseURL}${canonicalPath}`}
+            />
+
+            {/* Publicações recentes */}
             <Column fillWidth gap="32" horizontal="center" marginTop="40">
               <Line maxWidth="40" />
-              <Heading as="h2" variant="heading-strong-xl" marginBottom="12" align="center">
+
+              {/* ✅ Não usar h2/h3 fora do article-content */}
+              <Heading
+                as="div"
+                variant="heading-strong-xl"
+                marginBottom="12"
+                align="center"
+              >
                 Publicações recentes
               </Heading>
+
               <Suspense fallback={<div style={{ height: 220 }} />}>
                 <Posts
                   exclude={[post.slug]}
@@ -300,7 +332,7 @@ export default async function BlogPost({
           </Column>
         </Row>
 
-        {/* TOC lateral (sticky) */}
+        {/* TOC lateral */}
         <Column
           maxWidth={12}
           paddingLeft="40"
@@ -320,7 +352,9 @@ export default async function BlogPost({
             <Icon name="document" size="xs" />
             Nesta página
           </Row>
-          <HeadingNav fitHeight />
+
+          {/* ✅ TOC inteligente que lê só headings do article */}
+          <ArticleToc containerId="article-content" />
         </Column>
       </Row>
     </>

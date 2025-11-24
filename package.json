@@ -25,7 +25,8 @@
     "recharts": "^3.2.1",
     "remark-gfm": "^4.0.1",
     "sass": "^1.86.3",
-    "transliteration": "^2.3.5"
+    "transliteration": "^2.3.5",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",

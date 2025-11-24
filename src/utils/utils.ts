@@ -1,7 +1,10 @@
 // src/utils/utils.ts
+
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+
+import { PostFrontmatterSchema } from "@/components/blog/postSchema";
 
 type Team = {
   name?: string;
@@ -12,14 +15,44 @@ type Team = {
 
 export type Metadata = {
   title: string;
+
+  // datas
   publishedAt?: string;
+  updatedAt?: string;
+
   summary?: string;
   image?: string;
   images?: string[];
-  tag?: string;          // legado
-  tags?: string[];       // preferível
+
+  tag?: string;      // legado
+  tags?: string[];   // preferível
   categories?: string[];
+
+  // clusters/SEO/editorial
+  pillar?: string;
+  keywords?: string[];
+  canonical?: string;
+  language?: string;
+  status?: "draft" | "published";
+  toc?: boolean;
+  tocDepth?: number;
+  readingTime?: number;
+
+  // ✅ glossário do post (para hover automático)
+  glossary?: Record<string, string>;
+
+  // autor
   team?: Team[];
+
+  // extras editoriais
+  faq?: { q: string; a: string }[];
+  references?: {
+    title: string;
+    author?: string;
+    year?: number;
+    url?: string;
+  }[];
+
   link?: string;
 };
 
@@ -46,28 +79,128 @@ function safeListFiles(dir: string): string[] {
   }
 }
 
-function safeReadFile(filePath: string) {
+function coerceDateToString(d: unknown): string | undefined {
+  if (!d) return undefined;
+  if (typeof d === "string") return d;
+  if (d instanceof Date && !isNaN(+d)) return d.toISOString();
+  // gray-matter às vezes retorna number (timestamp)
+  if (typeof d === "number") {
+    const dt = new Date(d);
+    if (!isNaN(+dt)) return dt.toISOString();
+  }
+  return undefined;
+}
+
+function normalizeStringArray(x: unknown): string[] | undefined {
+  if (!Array.isArray(x)) return undefined;
+  const arr = x.filter(Boolean).map(String);
+  return arr.length ? arr : undefined;
+}
+
+function safeReadFile(filePath: string): BlogFile | null {
   try {
     if (!fs.existsSync(filePath)) return null;
+
     const raw = fs.readFileSync(filePath, "utf-8");
     const { data, content } = matter(raw);
 
-    const metadata: Metadata = {
-      title: data.title ?? "",
-      publishedAt: data.publishedAt ?? data.date ?? undefined,
-      summary: data.summary ?? data.description ?? "",
-      image: data.image ?? undefined,
-      images: Array.isArray(data.images) ? data.images : undefined,
-      tag: typeof data.tag === "string" ? data.tag : undefined,
-      tags: Array.isArray(data.tags) ? data.tags : undefined,
-      categories: Array.isArray(data.categories) ? data.categories : undefined,
-      team: Array.isArray(data.team) ? data.team : undefined,
-      link: data.link ?? undefined,
+    // slug inferido pelo nome do arquivo (fallback)
+    const inferredSlug = path.basename(filePath, path.extname(filePath));
+
+    // junta frontmatter com fallback de slug
+    const fmWithFallback = {
+      ...data,
+      slug: (data as any).slug ?? inferredSlug,
     };
 
-    return { metadata, content };
+    // ====== ZOD VALIDATION ======
+    let parsed: any;
+    try {
+      parsed = PostFrontmatterSchema.parse(fmWithFallback);
+    } catch (err) {
+      console.error(`❌ Frontmatter inválido em: ${filePath}`);
+      console.error(err);
+      // Se você preferir quebrar o build:
+      // throw err;
+      return null; // mantém comportamento: falha silenciosa + log
+    }
+
+    // normaliza datas (compatível com page.tsx)
+    const publishedAt =
+      coerceDateToString(parsed.publishedAt) ??
+      coerceDateToString(parsed.date) ??
+      undefined;
+
+    const updatedAt =
+      coerceDateToString(parsed.updatedAt) ??
+      coerceDateToString(parsed.updated) ??
+      coerceDateToString(parsed.publishedAt) ??
+      coerceDateToString(parsed.date) ??
+      undefined;
+
+    // compatibilidade: summary/description, tag/tags
+    const summary = (parsed.summary ?? parsed.description ?? "").trim();
+
+    const tag = typeof parsed.tag === "string" ? parsed.tag : undefined;
+
+    const tags =
+      normalizeStringArray(parsed.tags) ??
+      (typeof parsed.tag === "string" ? [parsed.tag] : undefined);
+
+    const categories = normalizeStringArray(parsed.categories);
+    const keywords = normalizeStringArray(parsed.keywords);
+    const images = normalizeStringArray(parsed.images);
+    const faq = Array.isArray(parsed.faq) ? parsed.faq : undefined;
+    const references = Array.isArray(parsed.references)
+      ? parsed.references
+      : undefined;
+
+    const metadata: Metadata = {
+      title: parsed.title ?? "",
+
+      publishedAt,
+      updatedAt,
+
+      summary,
+      image: parsed.image ?? undefined,
+      images,
+
+      tag,
+      tags,
+      categories,
+
+      pillar: parsed.pillar ?? undefined,
+      team: Array.isArray(parsed.team) ? parsed.team : undefined,
+
+      keywords,
+      canonical: parsed.canonical ?? undefined,
+      language: parsed.language ?? undefined,
+      status: parsed.status ?? undefined,
+      toc: parsed.toc ?? undefined,
+      tocDepth: parsed.tocDepth ?? undefined,
+      readingTime: parsed.readingTime ?? undefined,
+
+      // ✅ injeta glossary se existir no frontmatter
+      glossary:
+        parsed.glossary && typeof parsed.glossary === "object"
+          ? parsed.glossary
+          : undefined,
+
+      faq,
+      references,
+
+      link: parsed.link ?? undefined,
+    };
+
+    // ✅ respeita slug do frontmatter (se houver), senão usa o inferido
+    const slug: string =
+      typeof parsed.slug === "string" && parsed.slug.trim()
+        ? parsed.slug.trim()
+        : inferredSlug;
+
+    return { slug, metadata, content };
   } catch {
-    return null; // falha silenciosa
+    return null;
   }
 }
 
@@ -79,9 +212,7 @@ function collectFromDir(dir: string): BlogFile[] {
     const full = path.join(dir, file);
     const parsed = safeReadFile(full);
     if (!parsed) continue;
-
-    const slug = path.basename(file, path.extname(file));
-    items.push({ slug, content: parsed.content, metadata: parsed.metadata });
+    items.push(parsed);
   }
 
   // Ordena por data desc (quando existir)

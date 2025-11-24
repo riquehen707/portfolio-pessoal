@@ -1,8 +1,13 @@
 // src/components/mdx.tsx
+
+
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import React, { ReactNode } from "react";
 import { slugify as transliterate } from "transliteration";
 import remarkGfm from "remark-gfm";
+
+// ✅ plugin do seu glossário (já planejado por nós)
+import remarkGlossary from "@/lib/remarkGlossary";
 
 import {
   Heading,
@@ -61,7 +66,10 @@ function getText(node: ReactNode): string {
 
 function slugify(str: string): string {
   const strWithAnd = str.replace(/&/g, " and ");
-  return transliterate(strWithAnd, { lowercase: true, separator: "-" }).replace(/\-+/g, "-");
+  return transliterate(strWithAnd, {
+    lowercase: true,
+    separator: "-",
+  }).replace(/\-+/g, "-");
 }
 
 function isSameOrigin(href: string): boolean {
@@ -124,7 +132,12 @@ function CustomLink({ href, children, nofollow, ...props }: CustomLinkProps) {
   );
 }
 
-function createImage({ alt, src, loading, ...props }: MediaProps & { src: string }) {
+function createImage({
+  alt,
+  src,
+  loading,
+  ...props
+}: MediaProps & { src: string }) {
   if (!src) {
     console.error("Media requires a valid 'src' property.");
     return null;
@@ -152,7 +165,14 @@ function createHeading(as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") {
   }: Omit<React.ComponentProps<typeof HeadingLink>, "as" | "id">) => {
     const slug = slugify(getText(children));
     return (
-      <HeadingLink marginTop="24" marginBottom="12" as={as} id={slug} {...props}>
+      <HeadingLink
+        marginTop="24"
+        marginBottom="12"
+        as={as}
+        id={slug}
+        data-mdx-heading
+        {...props}
+      >
         {children}
       </HeadingLink>
     );
@@ -248,20 +268,31 @@ function BlockQuote({ children }: { children: ReactNode }) {
 function TableWrapper({ children }: { children: ReactNode }) {
   return (
     <div style={{ overflowX: "auto", margin: "12px 0" }}>
-      <table style={{ width: "100%", borderCollapse: "collapse" }}>{children}</table>
+      <table style={{ width: "100%", borderCollapse: "collapse" }}>
+        {children}
+      </table>
     </div>
   );
 }
 function Th(props: React.HTMLAttributes<HTMLTableCellElement>) {
   return (
     <th
-      style={{ textAlign: "left", padding: "8px", borderBottom: "1px solid var(--border-color)" }}
+      style={{
+        textAlign: "left",
+        padding: "8px",
+        borderBottom: "1px solid var(--border-color)",
+      }}
       {...props}
     />
   );
 }
 function Td(props: React.HTMLAttributes<HTMLTableCellElement>) {
-  return <td style={{ padding: "8px", borderBottom: "1px solid var(--layer-2)" }} {...props} />;
+  return (
+    <td
+      style={{ padding: "8px", borderBottom: "1px solid var(--layer-2)" }}
+      {...props}
+    />
+  );
 }
 
 /* ===== Shortcodes para usar dentro do MDX ===== */
@@ -297,7 +328,9 @@ function CategoryBadge({ name }: { name: string }) {
 }
 
 /* ========================== Wrapper seguro para <Meta /> ========================== */
-const MetaMDX = (props: React.ComponentProps<typeof UIMeta>) => <UIMeta {...props} />;
+const MetaMDX = (props: React.ComponentProps<typeof UIMeta>) => (
+  <UIMeta {...props} />
+);
 
 /* ========================== Mapeamento MDX ========================== */
 
@@ -379,9 +412,14 @@ const components = {
 
 type CustomMDXProps = MDXRemoteProps & {
   components?: typeof components;
+
+  // ✅ NOVO: glossário do post atual
+  glossary?: Record<string, string>;
 };
 
 export function CustomMDX(props: CustomMDXProps) {
+  const glossary = props.glossary ?? {};
+
   return (
     <MDXRemote
       {...props}
@@ -390,8 +428,14 @@ export function CustomMDX(props: CustomMDXProps) {
         mdxOptions: {
           ...((props as any)?.options?.mdxOptions || {}),
           remarkPlugins: [
-            ...(((props as any)?.options?.mdxOptions?.remarkPlugins) || []),
-            remarkGfm, // suporte a footnotes GFM
+            // mantém plugins já passados por quem chama
+            ...((props as any)?.options?.mdxOptions?.remarkPlugins || []),
+
+            // ✅ GFM
+            remarkGfm,
+
+            // ✅ seu glossário automático (com fallback seguro)
+            [remarkGlossary, { glossary }],
           ],
         },
       }}

@@ -1,0 +1,77 @@
+---
+# ========= básicos =========
+title: "Título do post"          # obrigatório na prática (utils usa "" se faltar)
+slug: "meu-slug"                # opcional; se não vier, usa nome do arquivo
+
+summary: "Resumo curto do post" # fallback: description
+description: "Resumo alternativo (legado)" # opcional; vira summary se summary faltar
+
+# ========= datas =========
+publishedAt: "2025-11-24"       # string ISO ou data simples; fallback: date
+date: "2025-11-24"              # legado; usado se publishedAt faltar
+
+updatedAt: "2025-11-24"         # fallback: updated -> publishedAt/date
+updated: "2025-11-24"           # legado
+
+# ========= mídia =========
+image: "/images/capa.png"       # imagem principal (string)
+images:                         # galeria (array)
+  - "/images/1.png"
+  - "/images/2.png"
+
+# ========= taxonomia =========
+tags:                           # preferível (array)
+  - "filosofia"
+  - "ética"
+tag: "filosofia"               # legado (string); vira tags=[tag] se tags faltar
+
+categories:
+  - "Filosofia & Sociedade"
+  - "Ética"
+
+# ========= clusters / SEO / editorial =========
+pillar: "Filosofia & Sociedade"  # teu pilar editorial
+keywords:
+  - "ética das virtudes"
+  - "aristóteles"
+  - "virtude moral"
+
+canonical: "https://seusite.com/blog/meu-slug"
+language: "pt-BR"
+
+status: "published"            # "draft" | "published"
+toc: true                      # ativa TOC
+tocDepth: 3                    # profundidade do TOC
+readingTime: 12                # number (minutos)
+
+# ========= glossário =========
+glossary:
+  modernidade líquida: "Conceito de Bauman sobre fluidez social..."
+  eudaimonia: "Florescimento humano em Aristóteles."
+
+# ========= autores =========
+team:
+  - name: "Henrique Reis"
+    role: "Autor"
+    avatar: "/avatars/henrique.png"
+    linkedIn: "https://linkedin.com/in/henriquereis"
+
+# ========= extras editoriais =========
+faq:
+  - q: "O que é virtude?"
+    a: "Virtude é uma disposição estável para agir bem..."
+  - q: "Qual a diferença entre virtudes morais e intelectuais?"
+    a: "As morais regulam caráter e ação; as intelectuais, pensamento."
+
+references:
+  - title: "Ethics - Virtue"
+    author: "Rosalind Hursthouse"
+    year: 2023
+    url: "https://plato.stanford.edu/entries/ethics-virtue/"
+  - title: "Nicomachean Ethics"
+    author: "Aristóteles"
+    year: -350
+
+# ========= outros =========
+link: "https://externo.com/referência-principal"
+---
