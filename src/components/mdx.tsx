@@ -1,6 +1,5 @@
 // src/components/mdx.tsx
 
-
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import React, { ReactNode } from "react";
 import { slugify as transliterate } from "transliteration";
