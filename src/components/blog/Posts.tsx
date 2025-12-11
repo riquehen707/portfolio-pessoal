@@ -2,10 +2,11 @@
 import { getPosts } from "@/utils/utils";
 import { Column, Grid, Heading, Text } from "@once-ui-system/core";
 import Post from "./Post";
+import { BlogFile } from "@/utils/posts";
 
 type Direction = "row" | "column";
 
-interface PostFrontmatter {
+export interface PostFrontmatter {
   title: string;
   publishedAt: string;
   tag?: string;
@@ -13,7 +14,7 @@ interface PostFrontmatter {
   imageAlt?: string;
 }
 
-interface PostData {
+export interface PostData {
   slug: string;
   metadata: PostFrontmatter;
 }
@@ -24,6 +25,7 @@ interface PostsProps {
   thumbnail?: boolean;
   direction?: Direction;
   exclude?: string[];
+  data?: PostData[];
 }
 
 export function Posts({
@@ -32,15 +34,22 @@ export function Posts({
   thumbnail = false,
   exclude = [],
   direction,
+  data,
 }: PostsProps) {
-  // getPosts deve retornar [{ slug, metadata }, ...]
   let allBlogs: PostData[] = [];
-  try {
-    // caminho padrão: src/app/blog/posts
-    allBlogs = getPosts(["src", "app", "blog", "posts"]) as PostData[];
-  } catch (e) {
-    // fail-open em produção: não derruba a rota
-    allBlogs = [];
+
+  if (data && data.length) {
+    allBlogs = data;
+  } else {
+    try {
+      const raw = getPosts(["src", "app", "blog", "posts"]) as BlogFile[];
+      allBlogs = raw.map((post) => ({
+        slug: post.slug,
+        metadata: post.metadata as PostFrontmatter,
+      }));
+    } catch (e) {
+      allBlogs = [];
+    }
   }
 
   // Excluir por slug (match exato)

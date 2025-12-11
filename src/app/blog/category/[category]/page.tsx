@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { Column, Heading } from "@once-ui-system/core";
-import { Posts } from "@/components/blog/Posts";
+import { Posts, PostData, PostFrontmatter } from "@/components/blog/Posts";
 import { getAllCategories, getPostsByCategory } from "@/utils/posts";
 
 export const dynamic = "force-static";
@@ -14,11 +14,15 @@ export default function CategoryPage({ params }: { params: { category: string } 
   const category = decodeURIComponent(params.category);
   const posts = getPostsByCategory(category);
   if (!posts.length) notFound();
+  const formattedPosts: PostData[] = posts.map((post) => ({
+    slug: post.slug,
+    metadata: post.metadata as PostFrontmatter,
+  }));
 
   return (
     <Column maxWidth="m" paddingTop="24" gap="24">
       <Heading as="h1" variant="heading-strong-xl">Categoria: {category}</Heading>
-      <Posts />
+      <Posts columns="2" data={formattedPosts} />
     </Column>
   );
 }

@@ -8,7 +8,10 @@ export {
   blog,
   work,
   gallery,
+  admin,
 } from "./content";
+
+export { servicesPage, services, productsPage, products } from "./services";
 
 export {
   display,

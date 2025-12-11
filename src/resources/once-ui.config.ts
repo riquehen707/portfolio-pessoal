@@ -33,6 +33,8 @@ const routes: RoutesConfig = {
   "/work": true,
   "/blog": true,
   "/gallery": true,
+  "/admin": true,
+  "/servicos": true,
 };
 
 // Mostra localização/hora/troca de tema no Header (Once UI)

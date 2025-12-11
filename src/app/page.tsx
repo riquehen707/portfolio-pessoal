@@ -14,7 +14,7 @@ import {
   Line,
   Media,
 } from "@once-ui-system/core";
-import { home, about, person, baseURL, routes } from "@/resources";
+import { home, about, person, baseURL, routes, services, servicesPage, productsPage } from "@/resources";
 import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
@@ -31,6 +31,7 @@ export async function generateMetadata() {
 }
 
 export default function Home() {
+  const serviceHighlight = services[0];
   return (
     <Column maxWidth="m" gap="xl" paddingY="12" horizontal="center">
       <Schema
@@ -195,6 +196,35 @@ export default function Home() {
 
       {/* Mais projetos */}
       <Projects range={[2]} />
+
+      {/* Serviços e produtos */}
+      <RevealFx delay={0.4} paddingTop="8">
+        <Column
+          fillWidth
+          gap="16"
+          paddingX="24"
+          paddingY="24"
+          radius="l"
+          background="surface-weak"
+          s={{ paddingX: "16", paddingY: "20" }}
+        >
+          <Heading as="h2" variant="display-strong-s">
+            {servicesPage.title}
+          </Heading>
+          <Text onBackground="neutral-weak">{servicesPage.intro.lead}</Text>
+          <Row gap="12" s={{ direction: "column" }}>
+            <Button href={servicesPage.path} variant="primary" size="m" arrowIcon>
+              Explorar serviços
+            </Button>
+            <Button href={productsPage.path} variant="secondary" size="m" arrowIcon>
+              Ver produtos digitais
+            </Button>
+          </Row>
+          <Text onBackground="neutral-weak" variant="body-default-s">
+            {serviceHighlight.hero.budget} · {serviceHighlight.hero.price} · {serviceHighlight.hero.duration}
+          </Text>
+        </Column>
+      </RevealFx>
 
       {/* Newsletter */}
       <Mailchimp />

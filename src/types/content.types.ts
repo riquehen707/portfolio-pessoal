@@ -236,3 +236,64 @@ export interface Gallery extends BasePageConfig {
     orientation: string;
   }>;
 }
+
+export interface AdminPage extends BasePageConfig {
+  sections: Array<{
+    title: string;
+    description: string;
+    items?: string[];
+  }>;
+  technologies: string[];
+}
+
+export interface ServicesPage extends BasePageConfig {
+  intro: {
+    headline: string;
+    lead: string;
+  };
+}
+
+export interface ServiceLanding {
+  slug: string;
+  title: string;
+  badge: string;
+  summary: string;
+  positioning: string;
+  solution: string;
+  pillars: Array<{
+    title: string;
+    detail: string;
+  }>;
+  hero: {
+    highlight: string;
+    description: string;
+    price: string;
+    budget: string;
+    duration: string;
+    ctaLabel: string;
+    ctaHref: string;
+  };
+  idealFor: string;
+  investmentRange: string;
+  deliverables: string[];
+  differentiators: string[];
+  process: string[];
+  outcomes: string[];
+  highlights: Array<{ label: string; value: string }>;
+}
+
+export interface ProductsPage extends BasePageConfig {
+  cta: string;
+  note: string;
+}
+
+export interface ProductItem {
+  slug: string;
+  title: string;
+  summary: string;
+  format: string;
+  price: string;
+  priceLabel: string;
+  deliverables: string[];
+  link: string;
+}
