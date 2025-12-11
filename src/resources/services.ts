@@ -247,5 +247,3 @@ export const products: ProductItem[] = [
     link: "https://henrique.dog/checkout/kit-seo",
   },
 ];
-
-export { servicesPage, services, productsPage, products, ServiceLanding, ProductItem };
