@@ -30,7 +30,15 @@ import {
   SiNextdotjs,
   SiFigma,
   SiSupabase,
+  SiPython,
+  SiPandas,
+  SiStreamlit,
+  SiVercel,
+  SiGoogleanalytics,
 } from "react-icons/si";
+
+import { HiOutlineChartPie } from "react-icons/hi2";
+import { FaMagnifyingGlass, FaMeta } from "react-icons/fa6";
 
 import {
   FaDiscord,
@@ -75,6 +83,14 @@ export const iconLibrary: Record<string, IconType> = {
   nextjs: SiNextdotjs,
   supabase: SiSupabase,
   figma: SiFigma,
+  python: SiPython,
+  pandas: SiPandas,
+  streamlit: SiStreamlit,
+  vercel: SiVercel,
+  chart: HiOutlineChartPie,
+  seo: FaMagnifyingGlass,
+  meta: FaMeta,
+  ga: SiGoogleanalytics,
   facebook: FaFacebook,
   pinterest: FaPinterest,
   whatsapp: FaWhatsapp,
