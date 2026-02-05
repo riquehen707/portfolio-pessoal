@@ -470,7 +470,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
                 <Heading as="h3" variant="heading-strong-m">
                   {layer.title}
                 </Heading>
-                <Column as="ul" gap="6">
+                <Column as="ul" gap="8">
                   {layer.items.map((item) => (
                     <Text as="li" key={`${layer.title}-${item}`} variant="body-default-s">
                       {item}
@@ -494,7 +494,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
             <Heading as="h3" variant="heading-strong-m">
               Formas de pagamento e checkout
             </Heading>
-            <Column as="ul" gap="6">
+            <Column as="ul" gap="8">
               {paymentOptions.map((item) => (
                 <Text as="li" key={item} variant="body-default-s">
                   {item}
@@ -581,7 +581,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
             <Heading as="h3" variant="heading-strong-m">
               O que preciso de você para começar
             </Heading>
-            <Column as="ul" gap="6">
+            <Column as="ul" gap="8">
               {clientInputs.map((item) => (
                 <Text as="li" key={item} variant="body-default-s">
                   {item}
