@@ -355,7 +355,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
                 <Text variant="label-default-s" onBackground="neutral-weak">
                   {variant.timeline}
                 </Text>
-                <Column as="ul" gap="6">
+                <Column as="ul" gap="8">
                   {variant.includes.map((item) => (
                     <Text as="li" key={`${variant.title}-${item}`} variant="body-default-s">
                       {item}
