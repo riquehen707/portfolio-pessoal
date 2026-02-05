@@ -38,15 +38,15 @@ export const services: ServiceLanding[] = [
       highlight: "Entrega completa · Estruturas responsivas e conversão em mente",
       description:
         "Sites e landing pages construídos com Next.js, Once UI e boas práticas de SEO técnico para gerar conversões e autoridade.",
-      price: "Faixa de investimento: R$ 350 a R$ 4.800",
-      budget: "Implementação padrão do projeto inicial",
-      duration: "3 a 6 semanas",
+      price: "Faixa de investimento: R$ 1.500 a R$ 18.000+",
+      budget: "Escopo base + módulos adicionais conforme necessidade",
+      duration: "2 a 10 semanas",
       ctaLabel: "Solicitar proposta",
       ctaHref: "mailto:oi@henriquereis.dev?subject=Websites%20Profissionais",
     },
     idealFor:
       "Profissionais, pequenos negócios, restaurantes, lojas e marcas que precisam de presença digital forte.",
-    investmentRange: "R$ 350 a R$ 4.800",
+    investmentRange: "R$ 1.500 a R$ 18.000+",
     deliverables: [
       "Arquitetura híbrida focada em SEO e performance.",
       "Design responsivo com once-ui e componentes reutilizáveis.",
