@@ -395,7 +395,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
               <Card
                 key={item.title}
                 direction="column"
-                gap="10"
+                gap="12"
                 paddingX="20"
                 paddingY="20"
                 radius="l"
