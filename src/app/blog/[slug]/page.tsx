@@ -12,6 +12,8 @@ import {
   Icon,
   Row,
   Text,
+  Button,
+  Tag,
   SmartLink,
   Avatar,
   Media,
@@ -25,7 +27,7 @@ import { ShareSection } from "@/components/blog/ShareSection";
 import ArticleToc from "@/components/blog/ArticleToc";
 import RelatedPosts from "@/components/blog/RelatedPosts"; // ✅ NEW
 
-import { baseURL, about, blog, person } from "@/resources";
+import { baseURL, about, blog, daily, person, servicesPage } from "@/resources";
 import { getPosts } from "@/utils/utils";
 import { formatDate } from "@/utils/formatDate";
 
@@ -170,6 +172,8 @@ export default async function BlogPost({
     (post.metadata.tag ? [post.metadata.tag] : []);
 
   const keywords = post.metadata.keywords ?? [];
+  const summary = post.metadata.summary;
+  const highlightTags = tags.slice(0, 6);
 
   return (
     <>
@@ -212,6 +216,15 @@ export default async function BlogPost({
               <Heading variant="display-strong-m">
                 {post.metadata.title}
               </Heading>
+
+              <Row gap="8" wrap>
+                <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+                  Artigo longo
+                </Tag>
+                <Tag size="s" background="neutral-alpha-weak">
+                  {readTimeMin} min de leitura
+                </Tag>
+              </Row>
 
               <Row gap="12" vertical="center" wrap>
                 {authors.slice(0, 3).map((a, i) => (
@@ -262,6 +275,40 @@ export default async function BlogPost({
                 </Row>
               )}
             </Column>
+
+            {summary && (
+              <Column
+                fillWidth
+                gap="12"
+                paddingX="24"
+                paddingY="20"
+                radius="l"
+                background="surface"
+                style={{ background: "var(--surface-weak)" }}
+              >
+                <Heading as="h2" variant="heading-strong-s">
+                  Resumo do artigo
+                </Heading>
+                <Text onBackground="neutral-weak">{summary}</Text>
+                {highlightTags.length > 0 && (
+                  <Row gap="8" wrap>
+                    {highlightTags.map((tag) => (
+                      <Tag key={tag} size="s" background="neutral-alpha-weak">
+                        {tag}
+                      </Tag>
+                    ))}
+                  </Row>
+                )}
+                <Row gap="12" wrap>
+                  <Button href={daily.path} variant="secondary" size="s" arrowIcon>
+                    Ver diário aberto
+                  </Button>
+                  <Button href={servicesPage.path} variant="tertiary" size="s" arrowIcon>
+                    Conhecer serviços
+                  </Button>
+                </Row>
+              </Column>
+            )}
 
             {/* Capa */}
             {post.metadata.image && (

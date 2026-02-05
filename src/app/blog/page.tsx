@@ -1,8 +1,10 @@
 ﻿// src/app/blog/page.tsx
 import { Suspense } from "react";
-import { Column, Heading, Schema, Text, Button, Row } from "@once-ui-system/core";
+import { Column, Heading, Schema, Text, Button, Row, Line, Grid, Card, Tag } from "@once-ui-system/core";
 import { Posts } from "@/components/blog/Posts";
-import { baseURL, blog, person } from "@/resources";
+import { baseURL, blog, person, daily, servicesPage } from "@/resources";
+import { getPosts } from "@/utils/utils";
+import { formatDate } from "@/utils/formatDate";
 import { getAllCategories, getAllTags } from "@/utils/posts";
 
 const FEATURED_RANGE: [number, number] = [1, 1];
@@ -41,10 +43,38 @@ function PostsSkeleton() {
 export default function BlogPage() {
   const pageTitle = blog.title;
   const ogImage = `/api/og/generate?title=${encodeURIComponent(pageTitle)}`;
+  const posts = getPosts(["src", "app", "blog", "posts"]);
+  const totalPosts = posts.length;
+  const latestPost = posts[0];
+  const latestLabel = latestPost?.metadata?.publishedAt
+    ? formatDate(latestPost.metadata.publishedAt, true)
+    : null;
   const categories = getAllCategories();
   const tags = getAllTags();
   const featuredCategories = categories.slice(0, 6);
   const featuredTags = tags.slice(0, 12);
+  const editorialTracks = [
+    {
+      title: "Estratégia e posicionamento",
+      description:
+        "Textos que organizam decisões de negócio, diferenciação e posicionamento de marca.",
+    },
+    {
+      title: "Produto e execução",
+      description:
+        "Como transformar visão em experiências digitais: arquitetura, UX e desenvolvimento.",
+    },
+    {
+      title: "Dados, SEO e performance",
+      description:
+        "Métricas, SEO técnico e automações que mantêm crescimento consistente no médio prazo.",
+    },
+  ];
+  const blogHighlights = [
+    { label: "Artigos publicados", value: totalPosts.toString() },
+    { label: "Última atualização", value: latestLabel ?? "Em andamento" },
+    { label: "Formato", value: "Longform e estudos aplicados" },
+  ];
 
   return (
     <Column maxWidth="m" paddingTop="24" gap="24">
@@ -63,7 +93,84 @@ export default function BlogPage() {
         }}
       />
 
-      <SectionHeading as="h1">{pageTitle}</SectionHeading>
+      <Column gap="12">
+        <SectionHeading as="h1">{pageTitle}</SectionHeading>
+        <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
+          {blog.description}
+        </Text>
+        <Row gap="8" wrap>
+          {["Longform", "Frameworks", "Pesquisa aplicada", "Decisões de produto"].map((tag) => (
+            <Tag key={tag} size="s" background="neutral-alpha-weak">
+              {tag}
+            </Tag>
+          ))}
+        </Row>
+        <Row gap="12" wrap>
+          <Button href={daily.path} variant="secondary" size="m" arrowIcon>
+            Ver diário aberto
+          </Button>
+          <Button href={servicesPage.path} variant="tertiary" size="m" arrowIcon>
+            Conhecer serviços
+          </Button>
+        </Row>
+      </Column>
+
+      <Grid columns="3" s={{ columns: 1 }} gap="16">
+        {blogHighlights.map((item) => (
+          <Card
+            key={item.label}
+            direction="column"
+            gap="8"
+            paddingX="20"
+            paddingY="20"
+            radius="l"
+            background="surface"
+            style={{ background: "var(--surface-weak)" }}
+            border="neutral-alpha-weak"
+            fillHeight
+          >
+            <Text variant="label-default-s" onBackground="neutral-weak">
+              {item.label}
+            </Text>
+            <Heading as="h3" variant="heading-strong-l">
+              {item.value}
+            </Heading>
+          </Card>
+        ))}
+      </Grid>
+
+      <Column gap="12">
+        <Heading as="h2" variant="heading-strong-xl">
+          Trilhas de leitura
+        </Heading>
+        <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
+          Use as trilhas para escolher o tema certo e aprofundar nas discussões que mais importam.
+        </Text>
+      </Column>
+
+      <Grid columns="3" s={{ columns: 1 }} gap="16">
+        {editorialTracks.map((track) => (
+          <Card
+            key={track.title}
+            direction="column"
+            gap="12"
+            paddingX="20"
+            paddingY="20"
+            radius="l"
+            background="surface"
+            style={{ background: "var(--surface-weak)" }}
+            border="neutral-alpha-weak"
+            fillHeight
+          >
+            <Heading as="h3" variant="heading-strong-m">
+              {track.title}
+            </Heading>
+            <Text onBackground="neutral-weak">{track.description}</Text>
+          </Card>
+        ))}
+      </Grid>
+
+      <Line maxWidth="40" />
 
       {/* Destaque */}
       <Suspense fallback={<PostsSkeleton />}>
@@ -126,6 +233,15 @@ export default function BlogPage() {
               {tag}
             </Button>
           ))}
+        </Row>
+        <Line maxWidth="40" />
+        <Row gap="12" wrap>
+          <Button href={daily.path} variant="secondary" size="m" arrowIcon>
+            Ver diário aberto
+          </Button>
+          <Button href="/about" variant="tertiary" size="m" arrowIcon>
+            Sobre o estúdio
+          </Button>
         </Row>
       </Column>
     </Column>

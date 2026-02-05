@@ -72,8 +72,9 @@ export async function generateMetadata() {
 
   // Caso você já utilize o objeto "home" do Once UI, podemos mesclar,
   // mas vamos forçar título/descrição aqui conforme pedido.
-  const siteTitle = "Henrique Studio";
-  const siteDescription = "Descrição e tudo";
+  const siteTitle = "Henrique Reis";
+  const siteDescription =
+    "Estúdio de produto e dados com foco em sites de alta conversão, SEO técnico e automações. Portfólio, blog e diário de conteúdo.";
 
   const path = ensureLeadingSlash(home?.path ?? "/");
   const image = toAbsoluteOrPath(metadataBase, home?.image ?? "/og.png");

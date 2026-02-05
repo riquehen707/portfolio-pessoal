@@ -10,6 +10,16 @@ export type Frontmatter = {
   publishedAt?: string;
   updatedAt?: string;
   team?: Array<{ name?: string; url?: string; avatar?: string }>;
+  diary?: {
+    mood?: string;
+    energy?: string;
+    focus?: string;
+    wins?: string[];
+    blockers?: string[];
+    learnings?: string[];
+    metrics?: string[];
+    next?: string[];
+  };
 };
 
 export type BlogFile = {

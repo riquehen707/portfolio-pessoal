@@ -43,9 +43,10 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Início",
-  title: `Portfólio de ${person.name}`,
-  description: `Projetos, serviços e produtos desenvolvidos por ${person.role}.`,
-  headline: <>Henrique Reis | Estúdio</>,
+  title: `Henrique Reis | Portfólio, Blog e Diário`,
+  description:
+    "Portfólio de produto e dados com blog e diário de bordo. Projetos, serviços e insights práticos para crescer com clareza.",
+  headline: <>Produto, dados e conteúdo para negócios que querem crescer.</>,
   featured: {
     display: true,
     title: (
@@ -63,11 +64,12 @@ const home: Home = {
   },
   subline: (
     <>
-      Meu nome é {person.firstName}. Dirijo um estúdio que combina produto, dados e marketing para
-      gerar soluções mensuráveis.
+      Sou {person.firstName}, diretor de um estúdio focado em produto, dados e crescimento. Este é
+      meu portfólio e também meu blog de conteúdo e diário de bordo — análises, bastidores e sistemas
+      que já estão em operação.
       <br />
-      Explore os {servicesPage.label.toLowerCase()} e {productsPage.label.toLowerCase()} digitais
-      desenhados para atrair leads e conversões.
+      Explore {servicesPage.label.toLowerCase()} e {productsPage.label.toLowerCase()} pensados para
+      gerar visibilidade, conversão e resultado.
     </>
   ),
 };
@@ -76,7 +78,7 @@ const about: About = {
   path: "/about",
   label: "Sobre",
   title: `Sobre • ${person.name}`,
-  description: `Conheça ${person.name}, ${person.role} em ${person.location}.`,
+  description: `Conheça ${person.name}, ${person.role}, com foco em produto, dados e conteúdo estratégico.`,
   tableOfContent: {
     display: true,
     subItems: true,
@@ -206,29 +208,33 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Textos sobre produto, dados e negócios",
-  description: `Últimos textos de ${person.name}.`,
+  title: "Blog de Produto, Dados e Estratégia",
+  description:
+    "Artigos longos, frameworks e análises sobre produto, dados, SEO e crescimento sustentável.",
 };
 
 const daily: Blog = {
   path: "/diario",
   label: "Diário",
-  title: "Diário de bordo",
-  description: "Notas curtas, aprendizados diários e bastidores do estúdio.",
+  title: "Diário Aberto",
+  description:
+    "Registro público de atividades, pensamentos e aprendizados diários para acompanhar evolução real.",
 };
 
 const work: Work = {
   path: "/work",
   label: "Projetos",
   title: `Projetos • ${person.name}`,
-  description: `Design, desenvolvimento e dados por ${person.name}.`,
+  description:
+    "Portfólio de projetos em produto, dados, SEO técnico e automação. Estudos de caso e sistemas em operação.",
 };
 
 const gallery: Gallery = {
   path: "/gallery",
   label: "Galeria",
   title: `Galeria • ${person.name}`,
-  description: `Coleção de fotos e capturas de ${person.name}.`,
+  description:
+    "Coleção de referências visuais, bastidores e estudos que inspiram projetos e conteúdo.",
   images: [
     { src: "/images/gallery/horizontal-1.jpg", alt: "Imagem", orientation: "horizontal" },
     { src: "/images/gallery/vertical-4.jpg", alt: "Imagem", orientation: "vertical" },

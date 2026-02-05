@@ -1,8 +1,8 @@
 // /src/app/gallery/page.tsx
 
-import { Flex, Meta, Schema } from "@once-ui-system/core";
+import { Column, Flex, Meta, Schema, Heading, Text, Row, Tag, Button, Line } from "@once-ui-system/core";
 import GalleryView from "@/components/gallery/GalleryView";
-import { baseURL, gallery, person } from "@/resources";
+import { baseURL, gallery, person, work } from "@/resources";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -15,8 +15,9 @@ export async function generateMetadata() {
 }
 
 export default function Gallery() {
+  const galleryTags = ["Bastidores", "Referências visuais", "Processo criativo", "Estudos"];
   return (
-    <Flex maxWidth="l">
+    <Column maxWidth="l" gap="24" paddingTop="24">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -30,7 +31,36 @@ export default function Gallery() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <GalleryView />
-    </Flex>
+
+      <Column gap="12">
+        <Heading as="h1" variant="heading-strong-xl">
+          {gallery.title}
+        </Heading>
+        <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
+          {gallery.description}
+        </Text>
+        <Row gap="8" wrap>
+          {galleryTags.map((tag) => (
+            <Tag key={tag} size="s" background="neutral-alpha-weak">
+              {tag}
+            </Tag>
+          ))}
+        </Row>
+        <Row gap="12" wrap>
+          <Button href={work.path} variant="secondary" size="m" arrowIcon>
+            Ver projetos
+          </Button>
+          <Button href={`mailto:${person.email}`} variant="tertiary" size="m" arrowIcon>
+            Falar comigo
+          </Button>
+        </Row>
+      </Column>
+
+      <Line maxWidth="40" />
+
+      <Flex maxWidth="l">
+        <GalleryView />
+      </Flex>
+    </Column>
   );
 }

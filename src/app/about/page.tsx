@@ -2,6 +2,8 @@ import {
   Avatar,
   Button,
   Column,
+  Card,
+  Grid,
   Heading,
   Icon,
   IconButton,
@@ -12,7 +14,18 @@ import {
   Schema,
   Row,
 } from "@once-ui-system/core";
-import { baseURL, about, person, social } from "@/resources";
+import {
+  baseURL,
+  about,
+  person,
+  social,
+  services,
+  servicesPage,
+  productsPage,
+  blog,
+  daily,
+  work,
+} from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
@@ -50,6 +63,35 @@ export default function About() {
       items: about.technical.skills.map((skill) => skill.title),
     },
   ];
+  const focusCards = services.slice(0, 3).map((service) => ({
+    title: service.title,
+    description: service.summary,
+    badge: service.badge,
+    href: `${servicesPage.path}/${service.slug}`,
+    cta: "Ver serviço",
+  }));
+  const contentCards = [
+    {
+      title: blog.title,
+      description: blog.description,
+      href: blog.path,
+      cta: "Ir para o blog",
+    },
+    {
+      title: daily.title,
+      description: daily.description,
+      href: daily.path,
+      cta: "Ver diário",
+    },
+  ];
+  const principles = [
+    "Clareza estratégica",
+    "Velocidade com qualidade",
+    "Autonomia para o cliente",
+    "Decisões guiadas por dados",
+  ];
+  const calendarLink = about.calendar?.display ? about.calendar.link : `mailto:${person.email}`;
+  const calendarLabel = about.calendar?.display ? "Agendar conversa" : "Enviar e-mail";
   return (
     <Column maxWidth="m">
       <Schema
@@ -202,6 +244,100 @@ export default function About() {
             </Column>
           )}
 
+          <Column className={styles.section} fillWidth gap="m">
+            <Heading as="h2" variant="display-strong-s" marginBottom="m">
+              O que eu faço
+            </Heading>
+            <Text onBackground="neutral-weak">
+              Projetos digitais com foco em resultado: sites que convertem, SEO técnico robusto e
+              automações que economizam tempo e organizam dados.
+            </Text>
+            <Grid columns="3" s={{ columns: 1 }} gap="16">
+              {focusCards.map((card) => (
+                <Card
+                  key={card.title}
+                  direction="column"
+                  gap="12"
+                  paddingX="20"
+                  paddingY="20"
+                  radius="l"
+                  background="surface"
+                  style={{ background: "var(--surface-weak)" }}
+                  border="neutral-alpha-weak"
+                  fillHeight
+                >
+                  <Row gap="8" wrap>
+                    <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+                      {card.badge}
+                    </Tag>
+                  </Row>
+                  <Heading as="h3" variant="heading-strong-m">
+                    {card.title}
+                  </Heading>
+                  <Text onBackground="neutral-weak">{card.description}</Text>
+                  <Button href={card.href} variant="secondary" size="s" arrowIcon>
+                    {card.cta}
+                  </Button>
+                </Card>
+              ))}
+            </Grid>
+          </Column>
+
+          <Column className={styles.section} fillWidth gap="m">
+            <Heading as="h2" variant="display-strong-s" marginBottom="m">
+              Conteúdo e bastidores
+            </Heading>
+            <Text onBackground="neutral-weak">
+              Além do portfólio, compartilho aprendizados no blog e no diário para mostrar processos,
+              decisões e experimentos reais.
+            </Text>
+            <Grid columns="2" s={{ columns: 1 }} gap="16">
+              {contentCards.map((card) => (
+                <Card
+                  key={card.title}
+                  direction="column"
+                  gap="12"
+                  paddingX="20"
+                  paddingY="20"
+                  radius="l"
+                  background="surface"
+                  style={{ background: "var(--surface-weak)" }}
+                  border="neutral-alpha-weak"
+                  fillHeight
+                >
+                  <Heading as="h3" variant="heading-strong-m">
+                    {card.title}
+                  </Heading>
+                  <Text onBackground="neutral-weak">{card.description}</Text>
+                  <Button href={card.href} variant="secondary" size="s" arrowIcon>
+                    {card.cta}
+                  </Button>
+                </Card>
+              ))}
+            </Grid>
+            <Row gap="12" wrap>
+              <Button href={work.path} variant="primary" size="m" arrowIcon>
+                Ver projetos
+              </Button>
+              <Button href={productsPage.path} variant="tertiary" size="m" arrowIcon>
+                Ver produtos digitais
+              </Button>
+            </Row>
+          </Column>
+
+          <Column className={styles.section} fillWidth gap="m">
+            <Heading as="h2" variant="display-strong-s" marginBottom="m">
+              Princípios que guiam o trabalho
+            </Heading>
+            <Row gap="8" wrap>
+              {principles.map((item) => (
+                <Tag key={item} size="m" background="neutral-alpha-weak">
+                  {item}
+                </Tag>
+              ))}
+            </Row>
+          </Column>
+
           {about.work.display && (
             <Column className={styles.section} fillWidth gap="m">
               <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
@@ -335,6 +471,24 @@ export default function About() {
               </Column>
             </Column>
           )}
+
+          <Column className={styles.section} fillWidth gap="m">
+            <Heading as="h2" variant="display-strong-s">
+              Quer conversar sobre seu projeto?
+            </Heading>
+            <Text onBackground="neutral-weak">
+              Se você precisa de um site com performance, SEO técnico ou automações de dados, posso
+              ajudar com diagnóstico e execução.
+            </Text>
+            <Row gap="12" s={{ direction: "column" }}>
+              <Button href={calendarLink} variant="primary" size="m" arrowIcon>
+                {calendarLabel}
+              </Button>
+              <Button href={`mailto:${person.email}`} variant="tertiary" size="m" arrowIcon>
+                Enviar e-mail
+              </Button>
+            </Row>
+          </Column>
         </Column>
       </Row>
     </Column>

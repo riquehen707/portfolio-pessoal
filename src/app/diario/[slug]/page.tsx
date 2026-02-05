@@ -12,6 +12,10 @@ import {
   Icon,
   Row,
   Text,
+  Button,
+  Tag,
+  Grid,
+  Card,
   SmartLink,
   Avatar,
   Media,
@@ -25,7 +29,7 @@ import { ShareSection } from "@/components/blog/ShareSection";
 import ArticleToc from "@/components/blog/ArticleToc";
 import RelatedPosts from "@/components/blog/RelatedPosts";
 
-import { baseURL, about, daily, person } from "@/resources";
+import { baseURL, about, daily, person, blog, servicesPage } from "@/resources";
 import { getPosts } from "@/utils/utils";
 
 import ReadingProgress from "@/components/mdx/ReadingProgress";
@@ -147,6 +151,22 @@ export default async function DiarioPost({
 
   const tags = post.metadata.tags ?? (post.metadata.tag ? [post.metadata.tag] : []);
   const keywords = post.metadata.keywords ?? [];
+  const badgeTopics = Array.from(new Set([...categories, ...tags]));
+  const diary = post.metadata.diary;
+
+  const quickFacts = [
+    { label: "Foco do dia", value: diary?.focus },
+    { label: "Humor", value: diary?.mood },
+    { label: "Energia", value: diary?.energy },
+  ].filter((item) => item.value);
+
+  const detailBlocks = [
+    { label: "Vitórias", items: diary?.wins },
+    { label: "Desafios", items: diary?.blockers },
+    { label: "Aprendizados", items: diary?.learnings },
+    { label: "Métricas", items: diary?.metrics },
+    { label: "Próximos passos", items: diary?.next },
+  ].filter((block) => block.items && block.items.length);
 
   const postsData = posts.map((p) => ({
     slug: p.slug,
@@ -189,6 +209,15 @@ export default async function DiarioPost({
 
               <Heading variant="display-strong-m">{post.metadata.title}</Heading>
 
+              <Row gap="8" wrap>
+                <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+                  Diário aberto
+                </Tag>
+                <Tag size="s" background="neutral-alpha-weak">
+                  {readTimeMin} min de leitura
+                </Tag>
+              </Row>
+
               <Row gap="12" vertical="center" wrap>
                 {authors.slice(0, 3).map((a, i) => (
                   <Avatar key={i} size="s" src={a.imageLocal} />
@@ -206,12 +235,12 @@ export default async function DiarioPost({
                 />
               )}
 
-              {(categories && categories.length > 0) && (
+              {badgeTopics.length > 0 && (
                 <Row gap="8" wrap>
-                  {categories?.map((cat) => (
+                  {badgeTopics.map((topic) => (
                     <Badge
-                      key={cat}
-                      href={`/diario/tag/${encodeURIComponent(cat)}`}
+                      key={topic}
+                      href={`/diario/tag/${encodeURIComponent(topic)}`}
                       background="neutral-alpha-weak"
                       onBackground="neutral-strong"
                       textVariant="label-default-s"
@@ -219,12 +248,86 @@ export default async function DiarioPost({
                       paddingY="8"
                       arrow={false}
                     >
-                      {cat}
+                      {topic}
                     </Badge>
                   ))}
                 </Row>
               )}
             </Column>
+
+            {(post.metadata.summary || quickFacts.length > 0 || detailBlocks.length > 0) && (
+              <Column
+                fillWidth
+                gap="12"
+                paddingX="24"
+                paddingY="20"
+                radius="l"
+                background="surface"
+                style={{ background: "var(--surface-weak)" }}
+              >
+                <Heading as="h2" variant="heading-strong-s">
+                  Registro do dia
+                </Heading>
+                {post.metadata.summary && (
+                  <Text onBackground="neutral-weak">{post.metadata.summary}</Text>
+                )}
+
+                {quickFacts.length > 0 && (
+                  <Grid columns="3" s={{ columns: 1 }} gap="12">
+                    {quickFacts.map((fact) => (
+                      <Card
+                        key={fact.label}
+                        direction="column"
+                        gap="8"
+                        paddingX="16"
+                        paddingY="16"
+                        radius="m"
+                        background="page"
+                        style={{ border: "1px solid var(--neutral-alpha-weak)" }}
+                      >
+                        <Text variant="label-default-s" onBackground="neutral-weak">
+                          {fact.label}
+                        </Text>
+                        <Text variant="heading-default-m">{fact.value}</Text>
+                      </Card>
+                    ))}
+                  </Grid>
+                )}
+
+                {detailBlocks.length > 0 && (
+                  <Grid columns="2" s={{ columns: 1 }} gap="12">
+                    {detailBlocks.map((block) => (
+                      <Column
+                        key={block.label}
+                        padding="16"
+                        radius="m"
+                        background="page"
+                        style={{ border: "1px solid var(--neutral-alpha-weak)" }}
+                        gap="8"
+                      >
+                        <Text variant="label-default-s">{block.label}</Text>
+                        <Column as="ul" gap="8">
+                          {block.items?.map((item, index) => (
+                            <Text as="li" variant="body-default-s" key={`${block.label}-${index}`}>
+                              {item}
+                            </Text>
+                          ))}
+                        </Column>
+                      </Column>
+                    ))}
+                  </Grid>
+                )}
+
+                <Row gap="12" wrap>
+                  <Button href={blog.path} variant="secondary" size="s" arrowIcon>
+                    Ler artigos longos
+                  </Button>
+                  <Button href={servicesPage.path} variant="tertiary" size="s" arrowIcon>
+                    Ver serviços
+                  </Button>
+                </Row>
+              </Column>
+            )}
 
             {post.metadata.image && (
               <Media

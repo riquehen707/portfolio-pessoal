@@ -58,6 +58,20 @@ export const PostFrontmatterSchema = z.object({
 
   // opcional
   readingTime: z.number().min(1).max(120).optional(),
+
+  // diário aberto (opcional)
+  diary: z
+    .object({
+      mood: z.string().optional(),
+      energy: z.string().optional(),
+      focus: z.string().optional(),
+      wins: z.array(z.string()).optional(),
+      blockers: z.array(z.string()).optional(),
+      learnings: z.array(z.string()).optional(),
+      metrics: z.array(z.string()).optional(),
+      next: z.array(z.string()).optional(),
+    })
+    .optional(),
 });
 
 export type PostFrontmatter = z.infer<typeof PostFrontmatterSchema>;

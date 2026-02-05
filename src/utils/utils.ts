@@ -53,6 +53,18 @@ export type Metadata = {
     url?: string;
   }[];
 
+  // diário aberto
+  diary?: {
+    mood?: string;
+    energy?: string;
+    focus?: string;
+    wins?: string[];
+    blockers?: string[];
+    learnings?: string[];
+    metrics?: string[];
+    next?: string[];
+  };
+
   link?: string;
 };
 
@@ -154,6 +166,18 @@ function safeReadFile(filePath: string): BlogFile | null {
     const references = Array.isArray(parsed.references)
       ? parsed.references
       : undefined;
+    const diary = parsed.diary
+      ? {
+          mood: parsed.diary.mood,
+          energy: parsed.diary.energy,
+          focus: parsed.diary.focus,
+          wins: normalizeStringArray(parsed.diary.wins),
+          blockers: normalizeStringArray(parsed.diary.blockers),
+          learnings: normalizeStringArray(parsed.diary.learnings),
+          metrics: normalizeStringArray(parsed.diary.metrics),
+          next: normalizeStringArray(parsed.diary.next),
+        }
+      : undefined;
 
     const metadata: Metadata = {
       title: parsed.title ?? "",
@@ -188,6 +212,7 @@ function safeReadFile(filePath: string): BlogFile | null {
 
       faq,
       references,
+      diary,
 
       link: parsed.link ?? undefined,
     };
