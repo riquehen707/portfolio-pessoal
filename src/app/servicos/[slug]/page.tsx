@@ -33,6 +33,14 @@ export default async function ServiceLandingPage({ params }: PageProps) {
   const service = services.find((item) => item.slug === slug);
   if (!service) notFound();
   const isWebsitesService = service.slug === "websites-profissionais";
+  const heroStats = [
+    { label: "Investimento", value: service.hero.price },
+    { label: "Prazo", value: service.hero.duration },
+    { label: "Modelo", value: service.hero.budget },
+  ];
+  const heroTags = isWebsitesService
+    ? ["UX", "UI", "SEO", "Performance"]
+    : ["Estratégia", "Conversão", "Performance"];
 
   const websiteVariants = [
     {
@@ -40,6 +48,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
       description:
         "Páginas rápidas para campanhas, lançamentos e captação de leads com foco em taxa de conversão.",
       includes: [
+        "Estrutura de UX focada em jornada",
         "Estrutura de copy orientada a oferta",
         "Formulários e integrações básicas",
         "SEO técnico essencial",
@@ -53,6 +62,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
       description:
         "Sites completos para autoridade e presença digital de profissionais, consultorias e pequenos negócios.",
       includes: [
+        "Arquitetura de informação e UX",
         "Arquitetura de páginas e navegação",
         "Design responsivo com foco em clareza",
         "SEO técnico e performance",
@@ -66,6 +76,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
       description:
         "Estrutura de catálogo, checkout e logística com integrações de pagamento e automações.",
       includes: [
+        "UX de compra e jornada de checkout",
         "Catálogo e gestão de produtos",
         "Checkout com múltiplos meios de pagamento",
         "Fluxos de e-mail/WhatsApp e automações",
@@ -79,6 +90,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
       description:
         "Experiência completa com app complementar (PWA ou nativo) para fidelização e recorrência.",
       includes: [
+        "UX omnichannel e recorrência",
         "App com push e área do cliente",
         "Integração com catálogo e pagamentos",
         "Arquitetura escalável para crescimento",
@@ -95,6 +107,12 @@ export default async function ServiceLandingPage({ params }: PageProps) {
       impact: "Base",
       changes: "Máxima performance e SEO; reduz tempo e custo de manutenção.",
       timeline: "Entrega mais rápida",
+    },
+    {
+      title: "Design system / UI library",
+      impact: "Baixo a médio",
+      changes: "Acelera interface com consistência visual e componentes prontos.",
+      timeline: "Prazo +0 a 1 semana",
     },
     {
       title: "CMS headless (ex.: Sanity, Strapi)",
@@ -172,6 +190,35 @@ export default async function ServiceLandingPage({ params }: PageProps) {
       description: "Performance máxima e integrações profundas com dispositivo.",
       impact: "Impacto: alto +",
     },
+  ];
+
+  const designApproaches = [
+    {
+      title: "UX/UI customizado do zero",
+      description:
+        "Pesquisa, wireframes e design exclusivo para o seu posicionamento e objetivos.",
+      impact: "Impacto: alto",
+    },
+    {
+      title: "Design system / UI library",
+      description:
+        "Uso de sistemas como Once UI, shadcn ou outros, com personalização visual.",
+      impact: "Impacto: médio",
+    },
+    {
+      title: "Híbrido (custom + sistema)",
+      description:
+        "Combina componentes prontos com telas-chave desenhadas do zero.",
+      impact: "Impacto: médio a alto",
+    },
+  ];
+
+  const uxDeliverables = [
+    "Mapeamento de jornada e arquitetura de informação",
+    "Wireframes e protótipo navegável",
+    "UI kit, tipografia e regras visuais",
+    "Design responsivo (desktop, tablet e mobile)",
+    "Acessibilidade e consistência visual",
   ];
 
   const budgetFactors = [
@@ -289,32 +336,69 @@ export default async function ServiceLandingPage({ params }: PageProps) {
         }}
       />
 
-      <Column gap="12">
-        <Tag>{service.badge}</Tag>
+      <Card
+        direction="column"
+        gap="16"
+        paddingX="24"
+        paddingY="24"
+        radius="l"
+        background="surface"
+        style={{ background: "var(--surface-weak)" }}
+        border="neutral-alpha-weak"
+      >
+        <Row gap="8" wrap>
+          <Tag>{service.badge}</Tag>
+          {heroTags.map((tag) => (
+            <Tag key={tag} size="s" background="neutral-alpha-weak">
+              {tag}
+            </Tag>
+          ))}
+        </Row>
         <Heading as="h1" variant="heading-strong-xl">
           {service.title}
         </Heading>
         <Text onBackground="neutral-weak">{service.summary}</Text>
         <Text variant="label-default-m">{service.positioning}</Text>
-        <Row gap="20">
-          <Text variant="heading-strong-m">{service.hero.price}</Text>
-          <Text onBackground="neutral-weak">{service.hero.budget}</Text>
-        </Row>
+        <Grid columns="3" s={{ columns: 1 }} gap="12">
+          {heroStats.map((stat) => (
+            <Card
+              key={stat.label}
+              direction="column"
+              gap="8"
+              paddingX="16"
+              paddingY="16"
+              radius="m"
+              background="page"
+              style={{ border: "1px solid var(--neutral-alpha-weak)" }}
+            >
+              <Text variant="label-default-s" onBackground="neutral-weak">
+                {stat.label}
+              </Text>
+              <Text variant="heading-strong-m">{stat.value}</Text>
+            </Card>
+          ))}
+        </Grid>
         <Text variant="label-default-m" onBackground="neutral-weak">
           {service.idealFor}
         </Text>
-        <Row gap="12">
-          <Text variant="label-default-m">{service.hero.duration}</Text>
+        <Row gap="12" wrap>
+          <Text variant="label-default-m">{service.hero.highlight}</Text>
           <Text variant="label-default-m" onBackground="neutral-weak">
-            {service.hero.highlight}
+            {service.hero.duration}
           </Text>
         </Row>
         <Text variant="body-default-s">{service.hero.description}</Text>
-        <Line maxWidth={56} />
-        <Button href={service.hero.ctaHref} variant="primary" size="m" arrowIcon>
-          {service.hero.ctaLabel}
-        </Button>
-      </Column>
+        <Row gap="12" wrap>
+          <Button href={service.hero.ctaHref} variant="primary" size="m" arrowIcon>
+            {service.hero.ctaLabel}
+          </Button>
+          <Button href={`mailto:${person.email}`} variant="tertiary" size="m" arrowIcon>
+            Falar comigo
+          </Button>
+        </Row>
+      </Card>
+
+      <Line maxWidth="40" />
 
       {isWebsitesService && (
         <Column gap="24">
@@ -380,6 +464,8 @@ export default async function ServiceLandingPage({ params }: PageProps) {
             contactEmail={person.email}
           />
 
+          <Line maxWidth="40" />
+
           <Column gap="12">
             <Heading as="h2" variant="heading-strong-s">
               Tecnologias e impacto no orçamento
@@ -417,6 +503,64 @@ export default async function ServiceLandingPage({ params }: PageProps) {
               </Card>
             ))}
           </Grid>
+
+          <Column gap="12">
+            <Heading as="h2" variant="heading-strong-s">
+              UX e experiência visual
+            </Heading>
+            <Text onBackground="neutral-weak">
+              Posso criar um design totalmente exclusivo do zero ou acelerar com um design system
+              (Once UI, shadcn, ou outros). Existem várias possibilidades de UX e UI — a escolha
+              depende do posicionamento, orçamento e prazo.
+            </Text>
+          </Column>
+
+          <Grid columns="3" s={{ columns: 1 }} gap="16">
+            {designApproaches.map((item) => (
+              <Card
+                key={item.title}
+                direction="column"
+                gap="12"
+                paddingX="20"
+                paddingY="20"
+                radius="l"
+                background="surface"
+                style={{ background: "var(--surface-weak)" }}
+                border="neutral-alpha-weak"
+                fillHeight
+              >
+                <Tag size="s" background="neutral-alpha-weak">
+                  {item.impact}
+                </Tag>
+                <Heading as="h3" variant="heading-strong-m">
+                  {item.title}
+                </Heading>
+                <Text onBackground="neutral-weak">{item.description}</Text>
+              </Card>
+            ))}
+          </Grid>
+
+          <Card
+            direction="column"
+            gap="12"
+            paddingX="20"
+            paddingY="20"
+            radius="l"
+            background="surface"
+            style={{ background: "var(--surface-weak)" }}
+            border="neutral-alpha-weak"
+          >
+            <Heading as="h3" variant="heading-strong-m">
+              Entregáveis de UX e UI
+            </Heading>
+            <Column as="ul" gap="8">
+              {uxDeliverables.map((item) => (
+                <Text as="li" key={item} variant="body-default-s">
+                  {item}
+                </Text>
+              ))}
+            </Column>
+          </Card>
 
           <Column gap="12">
             <Heading as="h2" variant="heading-strong-s">

@@ -126,6 +126,9 @@ export function WebsiteEstimator({ ctaHref, ctaLabel, contactEmail }: WebsiteEst
     return { base, min, max, addonsSelected };
   }, [projectType, selected]);
 
+  const selectedLabels = totals.addonsSelected.map((item) => item.label);
+  const hasDiscount = totals.addonsSelected.some((item) => item.range.min < 0);
+
   return (
     <Column gap="16">
       <Row gap="8" vertical="center">
@@ -195,6 +198,29 @@ export function WebsiteEstimator({ ctaHref, ctaLabel, contactEmail }: WebsiteEst
               />
             ))}
           </Column>
+          {selectedLabels.length > 0 ? (
+            <Row gap="8" wrap>
+              {selectedLabels.map((label) => (
+                <Tag key={label} size="s" background="neutral-alpha-weak">
+                  {label}
+                </Tag>
+              ))}
+            </Row>
+          ) : (
+            <Text variant="body-default-s" onBackground="neutral-weak">
+              Selecione módulos para ajustar a estimativa.
+            </Text>
+          )}
+          <Row gap="8" wrap>
+            <Button
+              type="button"
+              variant="tertiary"
+              size="s"
+              onClick={() => setSelected({})}
+            >
+              Limpar seleção
+            </Button>
+          </Row>
         </Column>
       </Grid>
 
@@ -221,6 +247,11 @@ export function WebsiteEstimator({ ctaHref, ctaLabel, contactEmail }: WebsiteEst
           Projetos com reaproveitamento de assets ou necessidades específicas podem receber ajustes e
           descontos.
         </Text>
+        {hasDiscount && (
+          <Text variant="body-default-s" onBackground="neutral-weak">
+            Seleções que reduzem esforço podem gerar descontos.
+          </Text>
+        )}
         <Row gap="12" wrap>
           <Button href={ctaHref} variant="primary" size="m" arrowIcon>
             {ctaLabel}
