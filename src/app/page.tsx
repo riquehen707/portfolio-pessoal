@@ -174,7 +174,7 @@ export default function Home() {
             </Text>
           </RevealFx>
 
-          <RevealFx translateY="6" delay={0.3} fillWidth horizontal="center" paddingBottom="20">
+          <RevealFx translateY={6} delay={0.3} fillWidth horizontal="center" paddingBottom="20">
             <Row gap="8" wrap horizontal="center">
               {focusTags.map((tag) => (
                 <Tag key={tag} size="s" background="neutral-alpha-weak">
