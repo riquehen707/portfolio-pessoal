@@ -433,7 +433,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
               <Card
                 key={model.title}
                 direction="column"
-                gap="10"
+                gap="12"
                 paddingX="20"
                 paddingY="20"
                 radius="l"
@@ -458,7 +458,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
               <Card
                 key={layer.title}
                 direction="column"
-                gap="10"
+                gap="12"
                 paddingX="20"
                 paddingY="20"
                 radius="l"
@@ -517,7 +517,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
               <Card
                 key={option.title}
                 direction="column"
-                gap="10"
+                gap="12"
                 paddingX="20"
                 paddingY="20"
                 radius="l"
@@ -551,7 +551,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
               <Card
                 key={factor.title}
                 direction="column"
-                gap="10"
+                gap="12"
                 paddingX="20"
                 paddingY="20"
                 radius="l"
@@ -628,7 +628,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
               <Card
                 key={item.title}
                 direction="column"
-                gap="10"
+                gap="12"
                 paddingX="20"
                 paddingY="20"
                 radius="l"
