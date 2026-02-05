@@ -51,6 +51,10 @@ function toLocal(src?: string): string | undefined {
   }
 }
 
+type PageProps = {
+  params: Promise<{ slug: string | string[] }>;
+};
+
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "work", "projects"]);
   return posts.map((p) => ({ slug: p.slug }));
@@ -59,16 +63,15 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
 // SEO por projeto
 export async function generateMetadata({
   params,
-}: {
-  params: { slug: string | string[] };
-}): Promise<Metadata> {
-  const slugPath = normalizeSlug(params.slug);
+}: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const slugPath = normalizeSlug(slug);
   const posts = getPosts(["src", "app", "work", "projects"]);
   const post = posts.find((p) => p.slug === slugPath);
   if (!post) return {};
 
   const title = post.metadata.title;
-  const description = post.metadata.summary;
+  const description = post.metadata.summary ?? post.metadata.title;
   const image = post.metadata.image || `/api/og/generate?title=${encodeURIComponent(title)}`;
   const path = `${work.path}/${post.slug}`;
 
@@ -81,12 +84,9 @@ export async function generateMetadata({
   });
 }
 
-export default function ProjectPage({
-  params,
-}: {
-  params: { slug: string | string[] };
-}) {
-  const slugPath = normalizeSlug(params.slug);
+export default async function ProjectPage({ params }: PageProps) {
+  const { slug } = await params;
+  const slugPath = normalizeSlug(slug);
   const post = getPosts(["src", "app", "work", "projects"]).find((p) => p.slug === slugPath);
 
   if (!post) notFound();
@@ -118,7 +118,7 @@ export default function ProjectPage({
         baseURL={baseURL}
         path={canonicalPath}
         title={post.metadata.title}
-        description={post.metadata.summary}
+        description={post.metadata.summary ?? post.metadata.title}
         datePublished={datePublished}
         dateModified={dateModified}
         image={ogImage} // ✅ absoluto
@@ -131,7 +131,7 @@ export default function ProjectPage({
 
       {/* Breadcrumb + título */}
       <Column maxWidth="s" gap="12" horizontal="center" align="center">
-        <SmartLink href="/work" underline="hover">
+        <SmartLink href="/work">
           <Text variant="label-strong-m">Projetos</Text>
         </SmartLink>
 
@@ -178,7 +178,7 @@ export default function ProjectPage({
           aspectRatio="16/9"
           radius="l"
           alt={post.metadata.title}
-          src={toLocal(cover)} // ✅ local para next/image
+          src={toLocal(cover) ?? cover} // ✅ local para next/image
           sizes="(min-width: 1024px) 960px, 100vw"
           border="neutral-alpha-weak"
           marginTop="4"

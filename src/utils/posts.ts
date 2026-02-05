@@ -18,8 +18,8 @@ export type BlogFile = {
   metadata: Frontmatter;
 };
 
-export function getAllPosts(): BlogFile[] {
-  return getPosts(["src", "app", "blog", "posts"]);
+export function getAllPosts(dir: string[] = ["src", "app", "blog", "posts"]): BlogFile[] {
+  return getPosts(dir);
 }
 
 export function resolveTags(m: Frontmatter): string[] {
@@ -40,22 +40,26 @@ export function sortByDateDesc(arr: BlogFile[]) {
   });
 }
 
-export function getAllTags() {
+export function getAllTags(posts?: BlogFile[]) {
+  const list = posts ?? getAllPosts();
   const set = new Set<string>();
-  for (const p of getAllPosts()) resolveTags(p.metadata).forEach((t) => set.add(t));
+  for (const p of list) resolveTags(p.metadata).forEach((t) => set.add(t));
   return Array.from(set).sort();
 }
 
-export function getAllCategories() {
+export function getAllCategories(posts?: BlogFile[]) {
+  const list = posts ?? getAllPosts();
   const set = new Set<string>();
-  for (const p of getAllPosts()) resolveCategories(p.metadata).forEach((c) => set.add(c));
+  for (const p of list) resolveCategories(p.metadata).forEach((c) => set.add(c));
   return Array.from(set).sort();
 }
 
-export function getPostsByTag(tag: string) {
-  return sortByDateDesc(getAllPosts().filter((p) => resolveTags(p.metadata).includes(tag)));
+export function getPostsByTag(tag: string, posts?: BlogFile[]) {
+  const list = posts ?? getAllPosts();
+  return sortByDateDesc(list.filter((p) => resolveTags(p.metadata).includes(tag)));
 }
 
-export function getPostsByCategory(category: string) {
-  return sortByDateDesc(getAllPosts().filter((p) => resolveCategories(p.metadata).includes(category)));
+export function getPostsByCategory(category: string, posts?: BlogFile[]) {
+  const list = posts ?? getAllPosts();
+  return sortByDateDesc(list.filter((p) => resolveCategories(p.metadata).includes(category)));
 }

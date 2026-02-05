@@ -129,10 +129,9 @@ const socialPlatforms: Record<Exclude<SocialKey, "copyLink">, SocialPlatform> = 
 export function ShareSection({ title, url, showSystemShareButton = true }: ShareSectionProps) {
   const { addToast } = useToast();
   const [copied, setCopied] = useState(false);
+  const absoluteUrl = useMemo(() => ensureAbsoluteUrl(url), [url]);
 
   if (!socialSharing?.display) return null;
-
-  const absoluteUrl = useMemo(() => ensureAbsoluteUrl(url), [url]);
 
   const handleCopy = async () => {
     try {

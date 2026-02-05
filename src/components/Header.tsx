@@ -2,10 +2,11 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
 
 import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
 
-import { routes, display, person, about, blog, work, gallery, servicesPage, admin } from "@/resources";
+import { routes, display, person, about, blog, daily, work, gallery, servicesPage, admin, account } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
 
@@ -44,6 +45,9 @@ export default TimeDisplay;
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
+  const { data: session, status } = useSession();
+  const isAuthed = status === "authenticated";
+  const isAdmin = session?.user?.role === "ADMIN";
 
   return (
     <>
@@ -166,6 +170,25 @@ export const Header = () => {
                   </Row>
                 </>
               )}
+              {routes["/diario"] && (
+                <>
+                  <Row s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="document"
+                      href={daily.path}
+                      label={daily.label}
+                      selected={pathname.startsWith("/diario")}
+                    />
+                  </Row>
+                  <Row hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="document"
+                      href={daily.path}
+                      selected={pathname.startsWith("/diario")}
+                    />
+                  </Row>
+                </>
+              )}
               {routes["/gallery"] && (
                 <>
                   <Row s={{ hide: true }}>
@@ -185,7 +208,7 @@ export const Header = () => {
                   </Row>
                 </>
               )}
-              {routes["/admin"] && (
+              {isAdmin && (
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
@@ -200,6 +223,44 @@ export const Header = () => {
                       prefixIcon="document"
                       href={admin.path}
                       selected={pathname.startsWith("/admin")}
+                    />
+                  </Row>
+                </>
+              )}
+              <Line background="neutral-alpha-medium" vert maxHeight="24" />
+              {isAuthed ? (
+                <>
+                  <Row s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="person"
+                      href={account.path}
+                      label={account.label}
+                      selected={pathname.startsWith("/conta")}
+                    />
+                  </Row>
+                  <Row hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="person"
+                      href={account.path}
+                      selected={pathname.startsWith("/conta")}
+                    />
+                  </Row>
+                </>
+              ) : (
+                <>
+                  <Row s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="lock"
+                      href="/auth/login"
+                      label="Entrar"
+                      selected={pathname.startsWith("/auth")}
+                    />
+                  </Row>
+                  <Row hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="lock"
+                      href="/auth/login"
+                      selected={pathname.startsWith("/auth")}
                     />
                   </Row>
                 </>

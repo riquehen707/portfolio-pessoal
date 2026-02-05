@@ -8,6 +8,16 @@
     }
 }
 
+.avatar {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+.section {
+    border-top: 1px solid var(--neutral-alpha-weak);
+    margin-top: var(--static-space-7);
+    padding-top: var(--static-space-7);
+}
+
 @media (max-width: breakpoints.$s) {
     .textAlign {
         text-align: center;
@@ -15,5 +25,10 @@
 
     .blockAlign {
         align-self: center;
+    }
+
+    .section {
+        margin-top: var(--static-space-5);
+        padding-top: var(--static-space-5);
     }
 }

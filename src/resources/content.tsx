@@ -1,4 +1,4 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import { About, AccountPage, AdminPage, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
 import { productsPage, services, servicesPage } from "./services";
 
@@ -210,6 +210,13 @@ const blog: Blog = {
   description: `Últimos textos de ${person.name}.`,
 };
 
+const daily: Blog = {
+  path: "/diario",
+  label: "Diário",
+  title: "Diário de bordo",
+  description: "Notas curtas, aprendizados diários e bastidores do estúdio.",
+};
+
 const work: Work = {
   path: "/work",
   label: "Projetos",
@@ -232,6 +239,13 @@ const gallery: Gallery = {
     { src: "/images/gallery/horizontal-4.jpg", alt: "Imagem", orientation: "horizontal" },
     { src: "/images/gallery/vertical-3.jpg", alt: "Imagem", orientation: "vertical" },
   ],
+};
+
+const account: AccountPage = {
+  path: "/conta",
+  label: "Conta",
+  title: "Minha Conta",
+  description: "Gerencie seu acesso e preferências.",
 };
 
 const admin: AdminPage = {
@@ -309,4 +323,4 @@ const admin: AdminPage = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery, admin };
+export { person, social, newsletter, home, about, blog, daily, work, gallery, admin, account };

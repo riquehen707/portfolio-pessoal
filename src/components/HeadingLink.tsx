@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { JSX } from "react";
 import { Heading, Flex, IconButton, useToast } from "@once-ui-system/core";
@@ -60,10 +60,11 @@ export const HeadingLink: React.FC<HeadingLinkProps> = ({ id, level, children, s
         className={styles.visibility}
         size="s"
         icon="openLink"
-        variant="ghost"
+        variant="tertiary"
         tooltip="Copy"
         tooltipPosition="right"
       />
     </Flex>
   );
 };
+

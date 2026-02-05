@@ -16,7 +16,10 @@ export function Projects({ range, exclude }: ProjectsProps) {
   }
 
   const sortedProjects = allProjects.sort((a, b) => {
-    return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
+    return (
+      new Date(b.metadata.publishedAt ?? 0).getTime() -
+      new Date(a.metadata.publishedAt ?? 0).getTime()
+    );
   });
 
   const displayedProjects = range
@@ -30,11 +33,15 @@ export function Projects({ range, exclude }: ProjectsProps) {
           priority={index < 2}
           key={post.slug}
           href={`/work/${post.slug}`}
-          images={post.metadata.images}
+          images={post.metadata.images ?? []}
           title={post.metadata.title}
-          description={post.metadata.summary}
+          description={post.metadata.summary ?? post.metadata.title}
           content={post.content}
-          avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}
+          avatars={
+            post.metadata.team?.flatMap((member) =>
+              member.avatar ? [{ src: member.avatar }] : []
+            ) ?? []
+          }
           link={post.metadata.link || ""}
         />
       ))}

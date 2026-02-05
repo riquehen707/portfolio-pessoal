@@ -1,5 +1,7 @@
 import { Column, Heading, Schema, Text, Line, Tag, Row } from "@once-ui-system/core";
+import { redirect } from "next/navigation";
 import { admin, baseURL, person } from "@/resources";
+import { auth } from "@/auth";
 
 export async function generateMetadata() {
   return {
@@ -15,7 +17,17 @@ export async function generateMetadata() {
   };
 }
 
-export default function AdminPage() {
+export const dynamic = "force-dynamic";
+
+export default async function AdminPage() {
+  const session = await auth();
+  if (!session?.user) {
+    redirect("/auth/login?next=/admin");
+  }
+  if (session.user.role !== "ADMIN") {
+    redirect("/conta");
+  }
+
   return (
     <Column maxWidth="m" paddingTop="24" gap="24">
       <Schema
@@ -44,8 +56,11 @@ export default function AdminPage() {
         gap="12"
         padding="24"
         radius="l"
-        background="surface-weak"
-        style={{ border: "1px solid var(--neutral-alpha-weak)" }}
+        background="surface"
+        style={{
+          border: "1px solid var(--neutral-alpha-weak)",
+          background: "var(--surface-weak)",
+        }}
       >
         <Heading as="h2" variant="heading-strong-s">
           Camadas da arquitetura
@@ -65,15 +80,22 @@ export default function AdminPage() {
       </Column>
 
       <Column gap="16">
-        {admin.sections.map((section) => (
-          <Column key={section.title} gap="8" padding="24" radius="l" background="surface-weak">
+        {admin.sections.map((section: (typeof admin.sections)[number]) => (
+          <Column
+            key={section.title}
+            gap="8"
+            padding="24"
+            radius="l"
+            background="surface"
+            style={{ background: "var(--surface-weak)" }}
+          >
             <Heading as="h2" variant="heading-strong-s">
               {section.title}
             </Heading>
             <Text onBackground="neutral-weak">{section.description}</Text>
             {section.items && (
               <Column as="ul" gap="4">
-                {section.items.map((item) => (
+                {section.items.map((item: string) => (
                   <Text key={item} as="li" variant="body-default-s">
                     {item}
                   </Text>
@@ -89,8 +111,11 @@ export default function AdminPage() {
         gap="12"
         padding="24"
         radius="l"
-        background="surface-weak"
-        style={{ border: "1px solid var(--neutral-alpha-weak)" }}
+        background="surface"
+        style={{
+          border: "1px solid var(--neutral-alpha-weak)",
+          background: "var(--surface-weak)",
+        }}
       >
         <Heading as="h2" variant="heading-strong-s">
           Tecnologias e operações
@@ -100,7 +125,7 @@ export default function AdminPage() {
           para garantir decisões guiadas por dados reais.
         </Text>
         <Row wrap gap="12">
-          {admin.technologies.map((tech) => (
+          {admin.technologies.map((tech: string) => (
             <Tag key={tech} size="s">
               {tech}
             </Tag>

@@ -38,7 +38,8 @@ export default function CompareCards({
       padding="16"
       radius="l"
       border="neutral-alpha-weak"
-      background="layer-1"
+      background="surface"
+      style={{ background: "var(--layer-1)" }}
       marginTop="16"
       marginBottom="16"
     >
@@ -47,14 +48,15 @@ export default function CompareCards({
           {title}
         </Heading>
 
-        <Grid columns={colCount.toString()} gap="12">
+        <Grid columns={colCount} gap="12">
           {items.map((it, i) => (
             <Card
               key={i}
-              padding="14"
+              padding="16"
               radius="m"
               border="neutral-alpha-medium"
-              background="layer-2"
+              background="surface"
+              style={{ background: "var(--layer-2)" }}
             >
               <Column gap="8">
                 <Column gap="2">
@@ -79,7 +81,7 @@ export default function CompareCards({
                 )}
 
                 {variant === "default" && it.points?.length ? (
-                  <Column gap="6" marginTop="4">
+                  <Column gap="8" marginTop="4">
                     {it.points.map((p, j) => (
                       <Row key={j}>
                         <Text variant="body-default-s" onBackground="neutral-medium">
@@ -93,7 +95,7 @@ export default function CompareCards({
                 {it.tags?.length ? (
                   <>
                     <Line />
-                    <Row gap="6" wrap>
+                    <Row gap="8" wrap>
                       {it.tags.map((t) => (
                         <Badge
                           key={t}

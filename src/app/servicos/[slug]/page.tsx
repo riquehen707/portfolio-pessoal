@@ -3,8 +3,11 @@ import { Column, Heading, Text, Button, Row, Line, Schema, Tag, Grid } from "@on
 
 import { baseURL, person, servicesPage, services } from "@/resources";
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const service = services.find((item) => item.slug === params.slug);
+type PageProps = { params: Promise<{ slug: string }> };
+
+export async function generateMetadata({ params }: PageProps) {
+  const { slug } = await params;
+  const service = services.find((item) => item.slug === slug);
   if (!service) return {};
 
   return {
@@ -24,8 +27,9 @@ export async function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
 }
 
-export default function ServiceLandingPage({ params }: { params: { slug: string } }) {
-  const service = services.find((item) => item.slug === params.slug);
+export default async function ServiceLandingPage({ params }: PageProps) {
+  const { slug } = await params;
+  const service = services.find((item) => item.slug === slug);
   if (!service) notFound();
 
   return (
@@ -145,8 +149,11 @@ export default function ServiceLandingPage({ params }: { params: { slug: string 
               key={pillar.title}
               padding="12"
               radius="m"
-              background="surface-weak"
-              style={{ border: "1px solid var(--neutral-alpha-weak)" }}
+              background="surface"
+              style={{
+                border: "1px solid var(--neutral-alpha-weak)",
+                background: "var(--surface-weak)",
+              }}
             >
               <Text variant="label-default-s">{pillar.title}</Text>
               <Text variant="body-default-s">{pillar.detail}</Text>

@@ -77,7 +77,7 @@ export default function About() {
           <TableOfContents structure={structure} about={about} />
         </Column>
       )}
-      <Row fillWidth s={{ direction: "column"}} horizontal="center">
+      <Row fillWidth s={{ direction: "column" }} horizontal="center" gap="xl">
         {about.avatar.display && (
           <Column
             className={styles.avatar}
@@ -87,11 +87,13 @@ export default function About() {
             s={{ position: "relative", style: { top: "auto" } }}
             xs={{ style: { top: "auto" } }}
             minWidth="160"
-            paddingX="l"
-            paddingBottom="xl"
+            padding="xl"
             gap="m"
             flex={3}
             horizontal="center"
+            background="surface"
+            border="neutral-alpha-weak"
+            radius="l"
           >
             <Avatar src={person.avatar} size="xl" />
             <Row gap="8" vertical="center">
@@ -109,7 +111,7 @@ export default function About() {
             )}
           </Column>
         )}
-        <Column className={styles.blockAlign} flex={9} maxWidth={40}>
+        <Column className={styles.blockAlign} flex={9} maxWidth={40} gap="xl">
           <Column
             id={about.intro.title}
             fillWidth
@@ -201,11 +203,11 @@ export default function About() {
           )}
 
           {about.work.display && (
-            <>
+            <Column className={styles.section} fillWidth gap="m">
               <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
                 {about.work.title}
               </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
+              <Column fillWidth gap="l">
                 {about.work.experiences.map((experience, index) => (
                   <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
                     <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
@@ -256,15 +258,15 @@ export default function About() {
                   </Column>
                 ))}
               </Column>
-            </>
+            </Column>
           )}
 
           {about.studies.display && (
-            <>
+            <Column className={styles.section} fillWidth gap="m">
               <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
                 {about.studies.title}
               </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
+              <Column fillWidth gap="l">
                 {about.studies.institutions.map((institution, index) => (
                   <Column key={`${institution.name}-${index}`} fillWidth gap="4">
                     <Text id={institution.name} variant="heading-strong-l">
@@ -276,11 +278,11 @@ export default function About() {
                   </Column>
                 ))}
               </Column>
-            </>
+            </Column>
           )}
 
           {about.technical.display && (
-            <>
+            <Column className={styles.section} fillWidth gap="m">
               <Heading
                 as="h2"
                 id={about.technical.title}
@@ -331,7 +333,7 @@ export default function About() {
                   </Column>
                 ))}
               </Column>
-            </>
+            </Column>
           )}
         </Column>
       </Row>

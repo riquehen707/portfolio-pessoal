@@ -31,7 +31,7 @@ type TriggerProps = HTMLAttributes<HTMLElement> & {
 };
 
 export function CollapsibleTrigger({ children, className, ...props }: TriggerProps) {
-  const ref = useRef<HTMLSummaryElement | null>(null);
+  const ref = useRef<HTMLElement | null>(null);
   const [open, setOpen] = useState<boolean>(false);
 
   useEffect(() => {

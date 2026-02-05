@@ -26,9 +26,9 @@ const nextConfig = {
     silenceDeprecations: ["legacy-js-api"],
   },
 
-  // ✅ liberar publicação agora (remoção futura recomendada)
-  eslint: { ignoreDuringBuilds: true },
-  typescript: { ignoreBuildErrors: true },
+  // ✅ qualidade em produção
+  eslint: { ignoreDuringBuilds: false },
+  typescript: { ignoreBuildErrors: false },
 };
 
 export default withMDX(nextConfig);

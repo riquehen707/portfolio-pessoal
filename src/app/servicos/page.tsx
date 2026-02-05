@@ -1,5 +1,5 @@
-import { Column, Heading, Text, Button, Row, Line, Schema, Grid, Tag } from "@once-ui-system/core";
-import { baseURL, person, productsPage, services, servicesPage, admin } from "@/resources";
+﻿import { Column, Heading, Text, Button, Row, Line, Schema, Grid, Tag } from "@once-ui-system/core";
+import { baseURL, person, productsPage, services, servicesPage } from "@/resources";
 
 export async function generateMetadata() {
   return {
@@ -58,8 +58,11 @@ export default function ServicesPage() {
         gap="16"
         padding="24"
         radius="l"
-        background="surface-weak"
-        style={{ border: "1px solid var(--neutral-alpha-weak)" }}
+        background="surface"
+        style={{
+          border: "1px solid var(--neutral-alpha-weak)",
+          background: "var(--surface-weak)",
+        }}
       >
         <Heading as="h2" variant="heading-strong-s">
           Oito pilares estratégicos
@@ -83,8 +86,11 @@ export default function ServicesPage() {
             gap="16"
             padding="32"
             radius="l"
-            background="surface-weak"
-            style={{ border: "1px solid var(--neutral-alpha-weak)" }}
+            background="surface"
+            style={{
+              border: "1px solid var(--neutral-alpha-weak)",
+              background: "var(--surface-weak)",
+            }}
           >
             <Tag size="s">{service.badge}</Tag>
             <Heading variant="display-strong-s">{service.title}</Heading>
@@ -120,7 +126,7 @@ export default function ServicesPage() {
               <Button href={`${servicesPage.path}/${service.slug}`} variant="primary" size="m" arrowIcon>
                 Ver landing completa
               </Button>
-              <Button href={`mailto:oi@henriquereis.dev?subject=${encodeURIComponent(service.title)}`} variant="ghost">
+              <Button href={`mailto:oi@henriquereis.dev?subject=${encodeURIComponent(service.title)}`} variant="tertiary">
                 Receber orçamento
               </Button>
             </Row>
@@ -128,7 +134,13 @@ export default function ServicesPage() {
         ))}
       </Grid>
 
-      <Column gap="12" padding="24" radius="l" background="surface-weak">
+      <Column
+        gap="12"
+        padding="24"
+        radius="l"
+        background="surface"
+        style={{ background: "var(--surface-weak)" }}
+      >
         <Heading as="h2" variant="heading-strong-s">
           Categoria Especial — Soluções Prontas / Kits Profissionais
         </Heading>
@@ -140,11 +152,9 @@ export default function ServicesPage() {
           <Button href={productsPage.path} variant="primary" size="m" arrowIcon>
             Ver kits profissionais
           </Button>
-          <Button href={admin.path} variant="secondary" size="m" arrowIcon>
-            Ver plataforma de dados (admin)
-          </Button>
         </Row>
       </Column>
     </Column>
   );
 }
+

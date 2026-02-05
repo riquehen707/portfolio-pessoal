@@ -69,6 +69,10 @@ function readingTimeMinutes(text: string, wpm = 220): number {
   return Math.max(1, Math.round(words / wpm));
 }
 
+type PageProps = {
+  params: Promise<{ slug: string | string[] }>;
+};
+
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "blog", "posts"]);
   return posts.map((p) => ({ slug: p.slug }));
@@ -77,17 +81,16 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
 // ====== SEO / OpenGraph por post ======
 export async function generateMetadata({
   params,
-}: {
-  params: { slug: string | string[] };
-}): Promise<Metadata> {
-  const slugPath = normalizeSlug(params.slug);
+}: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const slugPath = normalizeSlug(slug);
   const posts = getPosts(["src", "app", "blog", "posts"]);
   const post = posts.find((p) => p.slug === slugPath);
 
   if (!post) return {};
 
   const title = post.metadata.title;
-  const description = post.metadata.summary;
+  const description = post.metadata.summary ?? post.metadata.title;
   const image =
     post.metadata.image || `/api/og/generate?title=${encodeURIComponent(title)}`;
   const urlPath = `${blog.path}/${post.slug}`;
@@ -102,17 +105,15 @@ export async function generateMetadata({
     baseURL,
     image: toAbs(image),
     path: urlPath,
-    keywords,
   });
 }
 
 // ====== Página ======
 export default async function BlogPost({
   params,
-}: {
-  params: { slug: string | string[] };
-}) {
-  const slugPath = normalizeSlug(params.slug);
+}: PageProps) {
+  const { slug } = await params;
+  const slugPath = normalizeSlug(slug);
   const post = getPosts(["src", "app", "blog", "posts"]).find(
     (p) => p.slug === slugPath
   );
@@ -191,7 +192,7 @@ export default async function BlogPost({
               baseURL={baseURL}
               path={canonicalPath}
               title={post.metadata.title}
-              description={post.metadata.summary}
+              description={post.metadata.summary ?? post.metadata.title}
               datePublished={datePublished}
               dateModified={dateModified}
               image={ogImage}
@@ -200,13 +201,11 @@ export default async function BlogPost({
                 url: authors[0].url,
                 image: authors[0].imageAbs,
               }}
-              articleSection={pillar}
-              keywords={categories?.join(", ")}
             />
 
             {/* Header */}
             <Column maxWidth="s" gap="16">
-              <SmartLink href="/blog" underline="hover">
+              <SmartLink href="/blog">
                 <Text variant="label-strong-m">← Blog</Text>
               </SmartLink>
 
@@ -240,7 +239,7 @@ export default async function BlogPost({
                       onBackground="brand-strong"
                       textVariant="label-default-s"
                       paddingX="12"
-                      paddingY="6"
+                      paddingY="8"
                       arrow={false}
                     >
                       {pillar}
@@ -254,7 +253,7 @@ export default async function BlogPost({
                       onBackground="neutral-strong"
                       textVariant="label-default-s"
                       paddingX="12"
-                      paddingY="6"
+                      paddingY="8"
                       arrow={false}
                     >
                       {cat}
@@ -267,7 +266,7 @@ export default async function BlogPost({
             {/* Capa */}
             {post.metadata.image && (
               <Media
-                src={toLocal(post.metadata.image)}
+                src={toLocal(post.metadata.image) ?? post.metadata.image}
                 alt={post.metadata.title}
                 aspectRatio="16/9"
                 priority

@@ -47,9 +47,10 @@ export default function ProductShelf({ products }: ProductShelfProps) {
             gap="12"
             padding="20"
             radius="m"
-            background="surface-weak"
+            background="surface"
+            style={{ background: "var(--surface-weak)" }}
           >
-            <Row justify="between" gap="16">
+            <Row horizontal="between" gap="16">
               <div>
                 <Heading as="h3" variant="heading-strong-s">
                   {product.title}
@@ -84,7 +85,13 @@ export default function ProductShelf({ products }: ProductShelfProps) {
         ))}
       </Row>
 
-      <Column gap="8" padding="20" radius="m" background="surface-strong">
+      <Column
+        gap="8"
+        padding="20"
+        radius="m"
+        background="surface"
+        style={{ background: "var(--surface-strong)" }}
+      >
         <Heading as="h3" variant="heading-strong-s">
           Total estimado
         </Heading>

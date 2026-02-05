@@ -246,6 +246,8 @@ export interface AdminPage extends BasePageConfig {
   technologies: string[];
 }
 
+export interface AccountPage extends BasePageConfig {}
+
 export interface ServicesPage extends BasePageConfig {
   intro: {
     headline: string;

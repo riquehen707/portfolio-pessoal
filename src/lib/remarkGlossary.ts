@@ -57,7 +57,7 @@ const remarkGlossary: Plugin<[Options?]> = (options = {}) => {
   });
 
   return (tree: any) => {
-    visit(tree, "text", (node: any, index: number | null, parent: any) => {
+    visit(tree, "text", (node: any, index: number | undefined, parent: any) => {
       if (!parent || typeof index !== "number") return;
       if (!node.value || typeof node.value !== "string") return;
 

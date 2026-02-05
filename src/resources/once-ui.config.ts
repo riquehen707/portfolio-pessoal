@@ -32,8 +32,8 @@ const routes: RoutesConfig = {
   "/about": true,
   "/work": true,
   "/blog": true,
+  "/diario": true,
   "/gallery": true,
-  "/admin": true,
   "/servicos": true,
 };
 
@@ -58,7 +58,6 @@ const protectedRoutes: ProtectedRoutesConfig = {
 // =====================================================
 import { Geist } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
-import { TRUE } from "sass";
 
 const heading = Geist({
   variable: "--font-heading",

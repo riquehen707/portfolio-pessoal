@@ -16,7 +16,7 @@ import {
   SpacingToken,
 } from "@once-ui-system/core";
 
-import { Footer, Header, RouteGuard, Providers } from "@/components";
+import { Footer, Header, Providers } from "@/components";
 import {
   baseURL as baseFromConfig,
   effects,
@@ -84,7 +84,6 @@ export async function generateMetadata() {
     title: siteTitle,
     description: siteDescription,
     baseURL: metadataBase.toString(),
-    metadataBase,
     path,
     image,
   });
@@ -245,7 +244,7 @@ export default async function RootLayout({
 
           <Flex zIndex={0} fillWidth padding="l" horizontal="center" flex={1}>
             <Flex horizontal="center" fillWidth minHeight="0">
-              <RouteGuard>{children}</RouteGuard>
+              {children}
             </Flex>
           </Flex>
 

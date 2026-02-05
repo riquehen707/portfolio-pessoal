@@ -78,7 +78,7 @@ export default function ArticleToc({
 
         return (
           <Row key={it.id} style={{ paddingLeft: indent }}>
-            <SmartLink href={`#${it.id}`} underline="hover">
+            <SmartLink href={`#${it.id}`}>
               <Text
                 variant="label-default-s"
                 onBackground={isActive ? "brand-strong" : "neutral-weak"}

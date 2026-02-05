@@ -12,12 +12,12 @@ import {
   Schema,
   Meta,
   Line,
-  Media,
 } from "@once-ui-system/core";
-import { home, about, person, baseURL, routes, services, servicesPage, productsPage } from "@/resources";
+import { home, about, person, baseURL, routes, services, servicesPage, productsPage, daily, blog } from "@/resources";
 import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
+import { getPosts } from "@/utils/utils";
 // import { BlogPillars } from "@/components/blog/BlogPillars"; // fica pra depois
 
 export async function generateMetadata() {
@@ -32,6 +32,26 @@ export async function generateMetadata() {
 
 export default function Home() {
   const serviceHighlight = services[0];
+  const blogPosts = getPosts(["src", "app", "blog", "posts"]);
+  const blogData = blogPosts.map((post) => ({
+    slug: post.slug,
+    metadata: {
+      title: post.metadata.title,
+      publishedAt: post.metadata.publishedAt || "",
+      tag: post.metadata.tag,
+      image: post.metadata.image,
+    },
+  }));
+  const dailyPosts = getPosts(["src", "app", "diario", "posts"]);
+  const dailyData = dailyPosts.map((post) => ({
+    slug: post.slug,
+    metadata: {
+      title: post.metadata.title,
+      publishedAt: post.metadata.publishedAt || "",
+      tag: post.metadata.tag,
+      image: post.metadata.image,
+    },
+  }));
   return (
     <Column maxWidth="m" gap="xl" paddingY="12" horizontal="center">
       <Schema
@@ -116,78 +136,63 @@ export default function Home() {
         <Projects range={[1, 1]} />
       </RevealFx>
 
-      {/* Seção Blog — com slot de imagem e layout responsivo */}
-      {routes["/blog"] && (
+      {/* Conteúdo: Blog + Diário */}
+      {(routes["/blog"] || routes["/diario"]) && (
         <Column fillWidth gap="16" marginBottom="xl">
-          {/* linha decorativa */}
           <Row fillWidth paddingRight="64">
             <Line maxWidth={56} />
           </Row>
 
-          {/* Card container */}
-          <Column
-            fillWidth
-            paddingX="24"
-            paddingY="24"
-            radius="l"
-            background="surface-weak"
-            s={{ paddingX: "16", paddingY: "20" }}
-          >
-            {/* Header em duas colunas: texto à esquerda, imagem à direita */}
-            <Row
-              fillWidth
-              gap="24"
-              vertical="center"
-              s={{
-                direction: "column",
-              }}
-            >
-              {/* Coluna de texto */}
+          <Row fillWidth gap="16" s={{ direction: "column" }}>
+            {routes["/blog"] && (
               <Column
-                flex={2}
-                gap="12"
-                s={{
-                  align: "start",
-                }}
+                fillWidth
+                paddingX="24"
+                paddingY="24"
+                radius="l"
+                background="surface"
+                style={{ background: "var(--surface-weak)" }}
+                gap="16"
+                s={{ paddingX: "16", paddingY: "20" }}
               >
                 <Heading as="h2" variant="display-strong-s" wrap="balance">
-                  Últimos artigos do Blog
+                  {blog.title}
                 </Heading>
-
                 <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-                  Aqui você encontra uma mistura de artigos profissionais e pessoais — opiniões,
-                  análises, resenhas e visões próprias. O blog é constantemente atualizado para
-                  manter variedade e qualidade em cada leitura.
+                  Ensaios, análises e reflexões mais profundas. Conteúdo pensado para durar.
                 </Text>
-
-                <Row gap="10" paddingTop="8" s={{ horizontal: "start" }}>
-                  <Button href="/blog" variant="primary" size="m" arrowIcon>
-                    Ver todos os artigos
-                  </Button>
-                </Row>
+                <Posts range={[1, 3]} columns="1" thumbnail direction="row" data={blogData} />
+                <Button href={blog.path} variant="primary" size="m" arrowIcon>
+                  Ver todos os artigos
+                </Button>
               </Column>
+            )}
 
-              {/* Coluna de imagem destacada (slot/placeholder) */}
-              <Column flex={3} s={{ fillWidth: true }}>
-                <Media
-                  // substitua por uma imagem real do post em destaque quando tiver:
-                  // ex: image={latestPost.cover}
-                  image={`/api/og/generate?title=${encodeURIComponent("Artigos do Blog")}`}
-                  ratio="16:9"
-                  radius="l"
-                  alt="Destaque do blog"
-                  loading="lazy"
-                />
+            {routes["/diario"] && (
+              <Column
+                fillWidth
+                paddingX="24"
+                paddingY="24"
+                radius="l"
+                background="surface"
+                style={{ background: "var(--surface-weak)" }}
+                gap="16"
+                s={{ paddingX: "16", paddingY: "20" }}
+              >
+                <Heading as="h2" variant="display-strong-s" wrap="balance">
+                  {daily.title}
+                </Heading>
+                <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
+                  Notas rápidas, bastidores e aprendizados do dia a dia.
+                </Text>
+                <Posts range={[1, 3]} columns="1" thumbnail direction="row" data={dailyData} />
+                <Button href={daily.path} variant="secondary" size="m" arrowIcon>
+                  Ver diário
+                </Button>
               </Column>
-            </Row>
+            )}
+          </Row>
 
-            {/* Grade de posts */}
-            <Column paddingTop="20">
-              <Posts range={[1, 6]} columns="3" />
-            </Column>
-          </Column>
-
-          {/* linha inferior */}
           <Row fillWidth paddingLeft="64" horizontal="end">
             <Line maxWidth={56} />
           </Row>
@@ -205,7 +210,8 @@ export default function Home() {
           paddingX="24"
           paddingY="24"
           radius="l"
-          background="surface-weak"
+          background="surface"
+          style={{ background: "var(--surface-weak)" }}
           s={{ paddingX: "16", paddingY: "20" }}
         >
           <Heading as="h2" variant="display-strong-s">

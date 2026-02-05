@@ -21,7 +21,8 @@ export default function ProsCons({
       padding="16"
       radius="l"
       border="neutral-alpha-weak"
-      background="layer-1"
+      background="surface"
+      style={{ background: "var(--layer-1)" }}
       marginTop="16"
       marginBottom="16"
     >
@@ -34,14 +35,14 @@ export default function ProsCons({
           {/* PROS */}
           <Card padding="12" radius="m" background="brand-alpha-weak" border="brand-alpha-medium">
             <Column gap="8">
-              <Row gap="6" vertical="center">
+              <Row gap="8" vertical="center">
                 <Icon name="check" size="xs" />
                 <Text variant="label-strong-s">{prosTitle}</Text>
               </Row>
               {pros.length ? (
                 <List>
                   {pros.map((p, i) => (
-                    <ListItem key={i} marginTop="4" marginBottom="6">
+                    <ListItem key={i} marginTop="4" marginBottom="8">
                       <Text variant="body-default-s" onBackground="brand-strong">
                         {p}
                       </Text>
@@ -59,14 +60,14 @@ export default function ProsCons({
           {/* CONS */}
           <Card padding="12" radius="m" background="neutral-alpha-weak" border="neutral-alpha-medium">
             <Column gap="8">
-              <Row gap="6" vertical="center">
+              <Row gap="8" vertical="center">
                 <Icon name="close" size="xs" />
                 <Text variant="label-strong-s">{consTitle}</Text>
               </Row>
               {cons.length ? (
                 <List>
                   {cons.map((c, i) => (
-                    <ListItem key={i} marginTop="4" marginBottom="6">
+                    <ListItem key={i} marginTop="4" marginBottom="8">
                       <Text variant="body-default-s" onBackground="neutral-strong">
                         {c}
                       </Text>

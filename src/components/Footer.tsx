@@ -1,4 +1,4 @@
-// src/components/layout/Footer.tsx
+﻿// src/components/layout/Footer.tsx
 import { Row, IconButton, SmartLink, Text } from "@once-ui-system/core";
 import { person, social } from "@/resources";
 import styles from "./Footer.module.scss";
@@ -36,6 +36,13 @@ export const Footer = () => {
         </Text>
 
         <Row gap="16">
+          <IconButton
+            href="/rss.xml"
+            icon="document"
+            tooltip="RSS"
+            size="s"
+            variant="tertiary"
+          />
           {social.map(
             (item) =>
               item.link && (
@@ -45,7 +52,7 @@ export const Footer = () => {
                   icon={item.icon}
                   tooltip={item.name}
                   size="s"
-                  variant="ghost"
+                  variant="tertiary"
                 />
               ),
           )}
@@ -56,3 +63,4 @@ export const Footer = () => {
     </Row>
   );
 };
+

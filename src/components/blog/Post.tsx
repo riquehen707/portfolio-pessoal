@@ -56,13 +56,14 @@ export default function Post({
       <Row
         gap="16"
         padding="16"
-        borderRadius="16"
-        background="layer-1"
+        radius="m"
+        background="surface"
         border="neutral-alpha-weak"
         direction={direction}
         style={{
           width: "100%",
           height: "100%",
+          background: "var(--layer-1)",
         }}
       >
         {/* Thumbnail só aparece se:
@@ -97,7 +98,7 @@ export default function Post({
         )}
 
         {/* Conteúdo textual */}
-        <Column gap="8" flexGrow={1} style={{ minWidth: 0 }}>
+        <Column gap="8" style={{ minWidth: 0, flexGrow: 1 }}>
           <Heading
             as="h3"
             variant="heading-strong-m"

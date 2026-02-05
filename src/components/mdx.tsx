@@ -33,6 +33,7 @@ import {
   Meta as UIMeta,
   Badge,
 } from "@once-ui-system/core";
+import type { Language } from "@once-ui-system/core";
 
 // === seus componentes MDX (custom) ===
 import Figure from "@/components/mdx/Figure";
@@ -131,12 +132,7 @@ function CustomLink({ href, children, nofollow, ...props }: CustomLinkProps) {
   );
 }
 
-function createImage({
-  alt,
-  src,
-  loading,
-  ...props
-}: MediaProps & { src: string }) {
+function createImage({ alt, src, ...props }: MediaProps & { src: string }) {
   if (!src) {
     console.error("Media requires a valid 'src' property.");
     return null;
@@ -151,7 +147,6 @@ function createImage({
       sizes="(max-width: 960px) 100vw, 960px"
       alt={alt}
       src={toLocalSrc(src)}
-      loading={loading ?? "lazy"}
       {...props}
     />
   );
@@ -214,11 +209,12 @@ function createCodeBlock(props: any) {
   if (child && child.className) {
     const { className, children, metastring } = child;
     const { language, label } = parseCodeMeta(className, metastring);
+    const typedLanguage = language as Language;
     return (
       <CodeBlock
         marginTop="8"
         marginBottom="16"
-        codes={[{ code: children, language, label }]}
+        codes={[{ code: children, language: typedLanguage, label }]}
         copyButton
       />
     );
@@ -253,8 +249,8 @@ function BlockQuote({ children }: { children: ReactNode }) {
       padding="16"
       radius="m"
       border="neutral-alpha-medium"
-      background="layer-1"
-      style={{ borderLeftWidth: 4, borderLeftStyle: "solid" }}
+      background="surface"
+      style={{ borderLeftWidth: 4, borderLeftStyle: "solid", background: "var(--layer-1)" }}
     >
       <Text variant="body-default-m" onBackground="neutral-medium">
         {children}
@@ -303,7 +299,7 @@ function PillarBadge({ slug, label }: { slug: string; label?: string }) {
       onBackground="brand-strong"
       textVariant="label-default-s"
       paddingX="12"
-      paddingY="6"
+      paddingY="8"
       arrow={false}
     >
       {label ?? slug}
@@ -318,7 +314,7 @@ function CategoryBadge({ name }: { name: string }) {
       onBackground="neutral-strong"
       textVariant="label-default-s"
       paddingX="12"
-      paddingY="6"
+      paddingY="8"
       arrow={false}
     >
       {name}
@@ -327,9 +323,10 @@ function CategoryBadge({ name }: { name: string }) {
 }
 
 /* ========================== Wrapper seguro para <Meta /> ========================== */
-const MetaMDX = (props: React.ComponentProps<typeof UIMeta>) => (
-  <UIMeta {...props} />
-);
+const MetaMDX = (props: any) => {
+  const MetaComp = UIMeta as unknown as React.ComponentType<any>;
+  return <MetaComp {...props} />;
+};
 
 /* ========================== Mapeamento MDX ========================== */
 

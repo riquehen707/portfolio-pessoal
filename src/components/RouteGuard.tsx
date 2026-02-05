@@ -65,8 +65,6 @@ function NotFoundLike() {
 export function RouteGuard({ children }: Props) {
   const enabled =
     (process.env.NEXT_PUBLIC_ENABLE_ROUTE_GUARD || "").toLowerCase() === "true";
-  // Se o guard estiver desativado por flag → no-op
-  if (!enabled) return <>{children}</>;
 
   const pathname = usePathname();
   const path = useMemo(() => normalize(pathname), [pathname]);
@@ -82,6 +80,14 @@ export function RouteGuard({ children }: Props) {
     let cancelled = false;
 
     async function run() {
+      if (!enabled) {
+        setRouteEnabled(true);
+        setMustPassword(false);
+        setAuthed(true);
+        setLoading(false);
+        return;
+      }
+
       setLoading(true);
 
       const allowed = isAllowed(path);
@@ -122,7 +128,7 @@ export function RouteGuard({ children }: Props) {
     return () => {
       cancelled = true;
     };
-  }, [path]);
+  }, [path, enabled]);
 
   async function handlePasswordSubmit() {
     setError(undefined);
@@ -157,6 +163,9 @@ export function RouteGuard({ children }: Props) {
       </Flex>
     );
   }
+
+  // Se o guard estiver desativado por flag → no-op
+  if (!enabled) return <>{children}</>;
 
   if (!routeEnabled) {
     return <NotFoundLike />;

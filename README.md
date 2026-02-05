@@ -38,6 +38,40 @@ src/resources/content.js
 Add a new .mdx file to src/app/blog/posts or src/app/work/projects
 ```
 
+## RSS
+
+- Blog: `/rss.xml`
+- Diário: `/diario/rss.xml`
+
+## Auth (usuários)
+
+Este projeto usa Auth.js (NextAuth) + Prisma.
+
+**1. Configure o banco**
+```
+DATABASE_URL=postgresql://USER:PASSWORD@HOST:5432/DBNAME?schema=public
+```
+
+**2. Gere secret**
+```
+npx auth secret
+```
+
+**2.1 (Opcional) AUTH_URL**
+```
+AUTH_URL=https://seudominio.com
+```
+
+**3. Rodar migrações**
+```
+npm run prisma:migrate
+```
+
+**4. Definir admins**
+```
+ADMIN_EMAILS=admin@exemplo.com,segundo@exemplo.com
+```
+
 Magic Portfolio was built with [Once UI](https://once-ui.com) for [Next.js](https://nextjs.org). It requires Node.js v18.17+.
 
 ## Documentation

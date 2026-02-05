@@ -66,8 +66,14 @@ export default function RelatedPosts({
 
       <Grid columns="2" gap="12">
         {related.map((p) => (
-          <SmartLink key={p.slug} href={`/blog/${p.slug}`} underline="hover">
-            <Card padding="16" radius="l" border="neutral-alpha-weak" background="layer-1">
+          <SmartLink key={p.slug} href={`/blog/${p.slug}`}>
+            <Card
+              padding="16"
+              radius="l"
+              border="neutral-alpha-weak"
+              background="surface"
+              style={{ background: "var(--layer-1)" }}
+            >
               <Column gap="8">
                 <Text variant="label-default-s" onBackground="neutral-weak">
                   {p.metadata.pillar ?? "Blog"}
@@ -84,7 +90,7 @@ export default function RelatedPosts({
                 )}
 
                 {(p.metadata.categories?.length || p.metadata.tags?.length) && (
-                  <Row gap="6" wrap marginTop="4">
+                  <Row gap="8" wrap marginTop="4">
                     {(p.metadata.categories ?? []).slice(0, 2).map((c) => (
                       <Badge
                         key={c}

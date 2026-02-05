@@ -6,13 +6,16 @@ import { getAllCategories, getPostsByCategory } from "@/utils/posts";
 export const dynamic = "force-static";
 export const revalidate = 3600;
 
+type PageProps = { params: Promise<{ category: string }> };
+
 export async function generateStaticParams() {
   return getAllCategories().map((c) => ({ category: c }));
 }
 
-export default function CategoryPage({ params }: { params: { category: string } }) {
-  const category = decodeURIComponent(params.category);
-  const posts = getPostsByCategory(category);
+export default async function CategoryPage({ params }: PageProps) {
+  const { category } = await params;
+  const decoded = decodeURIComponent(category);
+  const posts = getPostsByCategory(decoded);
   if (!posts.length) notFound();
   const formattedPosts: PostData[] = posts.map((post) => ({
     slug: post.slug,
@@ -21,7 +24,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
 
   return (
     <Column maxWidth="m" paddingTop="24" gap="24">
-      <Heading as="h1" variant="heading-strong-xl">Categoria: {category}</Heading>
+      <Heading as="h1" variant="heading-strong-xl">Categoria: {decoded}</Heading>
       <Posts columns="2" data={formattedPosts} />
     </Column>
   );

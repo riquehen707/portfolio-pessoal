@@ -1,4 +1,4 @@
-// src/app/blog/page.tsx
+﻿// src/app/blog/page.tsx
 import { Suspense } from "react";
 import { Column, Heading, Schema, Text, Button, Row } from "@once-ui-system/core";
 import { Posts } from "@/components/blog/Posts";
@@ -7,7 +7,7 @@ import { getAllCategories, getAllTags } from "@/utils/posts";
 
 const FEATURED_RANGE: [number, number] = [1, 1];
 const RECENTS_RANGE: [number, number] = [2, 3];
-const EARLIER_RANGE: number[] = [4];
+const EARLIER_RANGE: [number] = [4];
 
 // Mantém a página estática com revalidação
 export const revalidate = false;
@@ -50,7 +50,7 @@ export default function BlogPage() {
     <Column maxWidth="m" paddingTop="24" gap="24">
       {/* Schema estático (não interfere no SSG) */}
       <Schema
-        as="Blog"
+        as="webPage"
         baseURL={baseURL}
         title={pageTitle}
         description={blog.description}
@@ -88,7 +88,8 @@ export default function BlogPage() {
         fillWidth
         padding="24"
         radius="l"
-        background="surface-weak"
+        background="surface"
+        style={{ background: "var(--surface-weak)" }}
         gap="16"
         s={{ padding: "16" }}
       >
@@ -104,7 +105,7 @@ export default function BlogPage() {
             <Button
               key={category}
               href={`/blog/category/${encodeURIComponent(category)}`}
-              variant="ghost"
+              variant="tertiary"
               size="s"
             >
               {category}
@@ -119,7 +120,7 @@ export default function BlogPage() {
             <Button
               key={tag}
               href={`/blog/tag/${encodeURIComponent(tag)}`}
-              variant="ghost"
+              variant="tertiary"
               size="s"
             >
               {tag}
@@ -130,3 +131,4 @@ export default function BlogPage() {
     </Column>
   );
 }
+
