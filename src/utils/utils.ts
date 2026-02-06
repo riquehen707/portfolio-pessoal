@@ -161,7 +161,10 @@ function safeReadFile(filePath: string): BlogFile | null {
 
     const categories = normalizeStringArray(parsed.categories);
     const keywords = normalizeStringArray(parsed.keywords);
-    const images = normalizeStringArray(parsed.images);
+    const cover = typeof parsed.cover === "string" ? parsed.cover : undefined;
+    const image = typeof parsed.image === "string" ? parsed.image : undefined;
+    const images =
+      normalizeStringArray(parsed.images) ?? (cover ? [cover] : undefined);
     const faq = Array.isArray(parsed.faq) ? parsed.faq : undefined;
     const references = Array.isArray(parsed.references)
       ? parsed.references
@@ -186,7 +189,7 @@ function safeReadFile(filePath: string): BlogFile | null {
       updatedAt,
 
       summary,
-      image: parsed.image ?? undefined,
+      image: image ?? cover ?? undefined,
       images,
 
       tag,

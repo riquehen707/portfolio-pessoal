@@ -54,6 +54,8 @@ export default function Home() {
       title: post.metadata.title,
       publishedAt: post.metadata.publishedAt || "",
       tag: post.metadata.tag,
+      tags: post.metadata.tags,
+      categories: post.metadata.categories,
       image: post.metadata.image,
     },
   }));
@@ -64,6 +66,8 @@ export default function Home() {
       title: post.metadata.title,
       publishedAt: post.metadata.publishedAt || "",
       tag: post.metadata.tag,
+      tags: post.metadata.tags,
+      categories: post.metadata.categories,
       image: post.metadata.image,
     },
   }));

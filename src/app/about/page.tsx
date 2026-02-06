@@ -29,6 +29,7 @@ import {
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
+import { buildOgImage } from "@/utils/og";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -90,6 +91,28 @@ export default function About() {
     "Autonomia para o cliente",
     "Decisões guiadas por dados",
   ];
+  const uxHighlights = [
+    {
+      title: "UX orientada a dados",
+      description:
+        "Mapeio jornadas, metas e métricas para reduzir atrito e aumentar conversão.",
+      tag: "Pesquisa",
+    },
+    {
+      title: "Interface visual com identidade",
+      description:
+        "Hierarquia clara, tipografia consistente e estética alinhada à marca.",
+      tag: "UI",
+    },
+    {
+      title: "Custom ou design system",
+      description:
+        "Posso criar do zero ou acelerar com sistemas como Once UI e outros, conforme prazo e orçamento.",
+      tag: "Sistema",
+    },
+  ];
+  const uxVisualTags = ["Pesquisa UX", "Wireframes", "Prototipagem", "Sistemas de design"];
+  const uxVisual = buildOgImage("UX e UI sob medida", "Pesquisa • UI • Sistemas");
   const calendarLink = about.calendar?.display ? about.calendar.link : `mailto:${person.email}`;
   const calendarLabel = about.calendar?.display ? "Agendar conversa" : "Enviar e-mail";
   return (
@@ -246,6 +269,74 @@ export default function About() {
 
           <Column className={styles.section} fillWidth gap="m">
             <Heading as="h2" variant="display-strong-s" marginBottom="m">
+              UX e experiência visual
+            </Heading>
+            <Text onBackground="neutral-weak">
+              Alinho estratégia, conteúdo e interface para reduzir fricção e aumentar resultado.
+              Posso criar uma UI 100% customizada ou acelerar com sistemas de design quando faz sentido
+              para prazo e orçamento.
+            </Text>
+            <Grid columns="2" s={{ columns: 1 }} gap="16">
+              <Column gap="16">
+                {uxHighlights.map((item) => (
+                  <Card
+                    key={item.title}
+                    direction="column"
+                    gap="12"
+                    paddingX="20"
+                    paddingY="20"
+                    radius="l"
+                    background="surface"
+                    style={{ background: "var(--surface-weak)" }}
+                    border="neutral-alpha-weak"
+                  >
+                    <Row gap="8" wrap>
+                      <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+                        {item.tag}
+                      </Tag>
+                    </Row>
+                    <Heading as="h3" variant="heading-strong-m">
+                      {item.title}
+                    </Heading>
+                    <Text onBackground="neutral-weak">{item.description}</Text>
+                  </Card>
+                ))}
+              </Column>
+              <Card
+                direction="column"
+                gap="12"
+                paddingX="20"
+                paddingY="20"
+                radius="l"
+                background="surface"
+                style={{ background: "var(--surface-weak)" }}
+                border="neutral-alpha-weak"
+              >
+                <Media
+                  src={uxVisual}
+                  alt="Visão geral de UX"
+                  aspectRatio="16/9"
+                  radius="m"
+                  border="neutral-alpha-weak"
+                  sizes="(min-width: 1024px) 480px, 100vw"
+                />
+                <Row gap="8" wrap>
+                  {uxVisualTags.map((tag) => (
+                    <Tag key={tag} size="s" background="neutral-alpha-weak">
+                      {tag}
+                    </Tag>
+                  ))}
+                </Row>
+                <Text variant="body-default-s" onBackground="neutral-weak">
+                  Protótipos, guidelines e variações visuais ajudam a validar a experiência antes
+                  da implementação final.
+                </Text>
+              </Card>
+            </Grid>
+          </Column>
+
+          <Column className={styles.section} fillWidth gap="m">
+            <Heading as="h2" variant="display-strong-s" marginBottom="m">
               O que eu faço
             </Heading>
             <Text onBackground="neutral-weak">
@@ -344,35 +435,47 @@ export default function About() {
                 {about.work.title}
               </Heading>
               <Column fillWidth gap="l">
-                {about.work.experiences.map((experience, index) => (
-                  <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
-                    <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
-                      <Text id={experience.company} variant="heading-strong-l">
-                        {experience.company}
+                {about.work.experiences.map((experience, index) => {
+                  const experienceImages =
+                    experience.images && experience.images.length > 0
+                      ? experience.images
+                      : [
+                          {
+                            src: buildOgImage(experience.company, "Experiência • Projeto"),
+                            alt: `Imagem de ${experience.company}`,
+                            width: 16,
+                            height: 9,
+                          },
+                        ];
+
+                  return (
+                    <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
+                      <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
+                        <Text id={experience.company} variant="heading-strong-l">
+                          {experience.company}
+                        </Text>
+                        <Text variant="heading-default-xs" onBackground="neutral-weak">
+                          {experience.timeframe}
+                        </Text>
+                      </Row>
+                      <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
+                        {experience.role}
                       </Text>
-                      <Text variant="heading-default-xs" onBackground="neutral-weak">
-                        {experience.timeframe}
-                      </Text>
-                    </Row>
-                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
-                      {experience.role}
-                    </Text>
-                    <Column as="ul" gap="16">
-                      {experience.achievements.map(
-                        (achievement: React.ReactNode, index: number) => (
-                          <Text
-                            as="li"
-                            variant="body-default-m"
-                            key={`${experience.company}-${index}`}
-                          >
-                            {achievement}
-                          </Text>
-                        ),
-                      )}
-                    </Column>
-                    {experience.images && experience.images.length > 0 && (
+                      <Column as="ul" gap="16">
+                        {experience.achievements.map(
+                          (achievement: React.ReactNode, index: number) => (
+                            <Text
+                              as="li"
+                              variant="body-default-m"
+                              key={`${experience.company}-${index}`}
+                            >
+                              {achievement}
+                            </Text>
+                          ),
+                        )}
+                      </Column>
                       <Row fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
-                        {experience.images.map((image, index) => (
+                        {experienceImages.map((image, index) => (
                           <Row
                             key={index}
                             border="neutral-medium"
@@ -390,9 +493,9 @@ export default function About() {
                           </Row>
                         ))}
                       </Row>
-                    )}
-                  </Column>
-                ))}
+                    </Column>
+                  );
+                })}
               </Column>
             </Column>
           )}
@@ -428,26 +531,38 @@ export default function About() {
                 {about.technical.title}
               </Heading>
               <Column fillWidth gap="l">
-                {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill}-${index}`} fillWidth gap="4">
-                    <Text id={skill.title} variant="heading-strong-l">
-                      {skill.title}
-                    </Text>
-                    <Text variant="body-default-m" onBackground="neutral-weak">
-                      {skill.description}
-                    </Text>
-                    {skill.tags && skill.tags.length > 0 && (
-                      <Row wrap gap="8" paddingTop="8">
-                        {skill.tags.map((tag, tagIndex) => (
-                          <Tag key={`${skill.title}-${tagIndex}`} size="l" prefixIcon={tag.icon}>
-                            {tag.name}
-                          </Tag>
-                        ))}
-                      </Row>
-                    )}
-                    {skill.images && skill.images.length > 0 && (
+                {about.technical.skills.map((skill, index) => {
+                  const skillImages =
+                    skill.images && skill.images.length > 0
+                      ? skill.images
+                      : [
+                          {
+                            src: buildOgImage(skill.title, "Habilidade • Stack"),
+                            alt: `Imagem de ${skill.title}`,
+                            width: 16,
+                            height: 9,
+                          },
+                        ];
+
+                  return (
+                    <Column key={`${skill.title}-${index}`} fillWidth gap="4">
+                      <Text id={skill.title} variant="heading-strong-l">
+                        {skill.title}
+                      </Text>
+                      <Text variant="body-default-m" onBackground="neutral-weak">
+                        {skill.description}
+                      </Text>
+                      {skill.tags && skill.tags.length > 0 && (
+                        <Row wrap gap="8" paddingTop="8">
+                          {skill.tags.map((tag, tagIndex) => (
+                            <Tag key={`${skill.title}-${tagIndex}`} size="l" prefixIcon={tag.icon}>
+                              {tag.name}
+                            </Tag>
+                          ))}
+                        </Row>
+                      )}
                       <Row fillWidth paddingTop="m" gap="12" wrap>
-                        {skill.images.map((image, index) => (
+                        {skillImages.map((image, index) => (
                           <Row
                             key={index}
                             border="neutral-medium"
@@ -465,9 +580,9 @@ export default function About() {
                           </Row>
                         ))}
                       </Row>
-                    )}
-                  </Column>
-                ))}
+                    </Column>
+                  );
+                })}
               </Column>
             </Column>
           )}

@@ -17,6 +17,7 @@ import {
 import { getPosts } from "@/utils/utils";
 import { baseURL, about, person, work } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
+import { buildOgImage } from "@/utils/og";
 import { ScrollToHash, CustomMDX } from "@/components";
 import { Projects } from "@/components/work/Projects";
 
@@ -72,7 +73,10 @@ export async function generateMetadata({
 
   const title = post.metadata.title;
   const description = post.metadata.summary ?? post.metadata.title;
-  const image = post.metadata.image || `/api/og/generate?title=${encodeURIComponent(title)}`;
+  const image =
+    post.metadata.image ||
+    post.metadata.images?.[0] ||
+    buildOgImage(title, post.metadata.tag ?? post.metadata.tags?.[0] ?? "Projeto");
   const path = `${work.path}/${post.slug}`;
 
   return Meta.generate({
@@ -103,11 +107,10 @@ export default async function ProjectPage({ params }: PageProps) {
   // Capa (usa local no componente visual)
   const cover =
     post.metadata.image ||
-    (Array.isArray(post.metadata.images) && post.metadata.images.length > 0 ? post.metadata.images[0] : undefined);
+    post.metadata.images?.[0] ||
+    buildOgImage(post.metadata.title, post.metadata.tag ?? post.metadata.tags?.[0] ?? "Projeto");
 
-  const ogImage = toAbs(
-    cover || `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`
-  );
+  const ogImage = toAbs(cover);
   const canonicalPath = `${work.path}/${post.slug}`;
 
   return (

@@ -30,6 +30,7 @@ import RelatedPosts from "@/components/blog/RelatedPosts"; // ✅ NEW
 import { baseURL, about, blog, daily, person, servicesPage } from "@/resources";
 import { getPosts } from "@/utils/utils";
 import { formatDate } from "@/utils/formatDate";
+import { buildOgImage } from "@/utils/og";
 
 import ReadingProgress from "@/components/mdx/ReadingProgress";
 import MetaBar from "@/components/mdx/MetaBar";
@@ -59,7 +60,7 @@ function toLocal(src?: string): string | undefined {
   if (!src) return undefined;
   try {
     const u = new URL(src, baseURL);
-    return u.pathname;
+    return u.pathname + u.search;
   } catch {
     return src;
   }
@@ -94,7 +95,11 @@ export async function generateMetadata({
   const title = post.metadata.title;
   const description = post.metadata.summary ?? post.metadata.title;
   const image =
-    post.metadata.image || `/api/og/generate?title=${encodeURIComponent(title)}`;
+    post.metadata.image ||
+    buildOgImage(
+      title,
+      post.metadata.tag ?? post.metadata.tags?.[0] ?? post.metadata.categories?.[0] ?? "Blog"
+    );
   const urlPath = `${blog.path}/${post.slug}`;
 
   const keywords: string[] = Array.isArray(post.metadata?.categories)
@@ -158,11 +163,13 @@ export default async function BlogPost({
           },
         ];
 
-  const ogImage =
-    toAbs(
-      post.metadata.image ||
-        `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`
-    ) || undefined;
+  const coverImage =
+    post.metadata.image ||
+    buildOgImage(
+      post.metadata.title,
+      post.metadata.tag ?? post.metadata.tags?.[0] ?? post.metadata.categories?.[0] ?? "Blog"
+    );
+  const ogImage = toAbs(coverImage) || undefined;
 
   const canonicalPath = `${blog.path}/${post.slug}`;
   const readTimeMin = readingTimeMinutes(post.content);
@@ -311,9 +318,9 @@ export default async function BlogPost({
             )}
 
             {/* Capa */}
-            {post.metadata.image && (
+            {coverImage && (
               <Media
-                src={toLocal(post.metadata.image) ?? post.metadata.image}
+                src={toLocal(coverImage) ?? coverImage}
                 alt={post.metadata.title}
                 aspectRatio="16/9"
                 priority

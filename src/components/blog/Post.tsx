@@ -1,6 +1,7 @@
 // src/components/blog/Post.tsx
 import Link from "next/link";
 import { Column, Row, Heading, Text } from "@once-ui-system/core";
+import { buildOgImage } from "@/utils/og";
 
 type Direction = "row" | "column";
 
@@ -8,6 +9,8 @@ interface PostFrontmatter {
   title: string;
   publishedAt: string;
   tag?: string;
+  tags?: string[];
+  categories?: string[];
   image?: string;
   imageAlt?: string;
 }
@@ -31,10 +34,14 @@ export default function Post({
   priority = false,
 }: PostProps) {
   const { slug, metadata } = post;
-  const { title, publishedAt, tag, image, imageAlt } = metadata || {};
+  const { title, publishedAt, tag, tags, categories, image, imageAlt } = metadata || {};
 
   // tem imagem válida?
   const hasImage = Boolean(image && image.trim() !== "");
+  const displayTag = tag || tags?.[0] || categories?.[0];
+  const fallbackSubtitle = displayTag || "Conteúdo";
+  const fallbackImage = buildOgImage(title, fallbackSubtitle);
+  const displayImage = hasImage ? (image as string) : fallbackImage;
 
   // formata data simples (opcional; ajusta pro formato que vc quiser)
   const formattedDate = publishedAt
@@ -66,11 +73,8 @@ export default function Post({
           background: "var(--layer-1)",
         }}
       >
-        {/* Thumbnail só aparece se:
-            - thumbnail === true E
-            - hasImage === true
-        */}
-        {thumbnail && hasImage && (
+        {/* Thumbnail aparece quando thumbnail === true (usa imagem ou placeholder) */}
+        {thumbnail && displayImage && (
           <div
             style={{
               flexShrink: 0,
@@ -84,7 +88,7 @@ export default function Post({
             {/* você pode trocar por next/image se quiser otimização */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={image as string}
+              src={displayImage}
               alt={imageAlt || title}
               style={{
                 width: "100%",
@@ -118,7 +122,7 @@ export default function Post({
               </Text>
             )}
 
-            {tag && (
+            {displayTag && (
               <Text
                 variant="label-default-xs"
                 color="accent-strong"
@@ -132,7 +136,7 @@ export default function Post({
                   whiteSpace: "nowrap",
                 }}
               >
-                {tag}
+                {displayTag}
               </Text>
             )}
           </Row>

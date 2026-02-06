@@ -10,6 +10,8 @@ export interface PostFrontmatter {
   title: string;
   publishedAt: string;
   tag?: string;
+  tags?: string[];
+  categories?: string[];
   image?: string;
   imageAlt?: string;
 }

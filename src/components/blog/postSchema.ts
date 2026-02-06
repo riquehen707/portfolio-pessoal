@@ -8,6 +8,7 @@ export const PostFrontmatterSchema = z.object({
   // essenciais
   title: z.string().min(3, "title muito curto"),
   summary: z.string().min(10, "summary muito curta"),
+  description: z.string().optional(),
   slug: z.string().min(1, "slug obrigatório"),
 
   // datas (compatível com seu código atual)
@@ -17,9 +18,12 @@ export const PostFrontmatterSchema = z.object({
   updated: z.string().optional(), // compatibilidade
 
   image: z.string().optional(),
+  images: z.array(z.string()).optional(),
+  cover: z.string().optional(),
 
   // clusters/editorial
   pillar: z.string().optional(),
+  tag: z.string().optional(),
   categories: z.array(z.string()).optional(),
   tags: z.array(z.string()).optional(),
 
@@ -58,6 +62,7 @@ export const PostFrontmatterSchema = z.object({
 
   // opcional
   readingTime: z.number().min(1).max(120).optional(),
+  link: z.string().optional(),
 
   // diário aberto (opcional)
   diary: z
