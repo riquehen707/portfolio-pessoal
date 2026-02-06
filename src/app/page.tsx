@@ -33,6 +33,7 @@ import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
 import { getPosts } from "@/utils/utils";
+import styles from "./home.module.scss";
 // import { BlogPillars } from "@/components/blog/BlogPillars"; // fica pra depois
 
 export async function generateMetadata() {
@@ -135,7 +136,7 @@ export default function Home() {
   const calendarLink = about.calendar?.display ? about.calendar.link : about.path;
   const calendarLabel = about.calendar?.display ? "Agendar conversa" : "Conhecer o estúdio";
   return (
-    <Column maxWidth="m" gap="xl" paddingY="12" horizontal="center">
+    <Column className={styles.page} maxWidth="m" gap="xl" paddingY="12" horizontal="center">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -151,7 +152,7 @@ export default function Home() {
       />
 
       {/* Hero */}
-      <Column fillWidth horizontal="center" gap="m">
+      <Column className={styles.heroGlow} fillWidth horizontal="center" gap="m">
         <Column maxWidth="s" horizontal="center" align="center">
           {home.featured.display && (
             <RevealFx
@@ -224,7 +225,17 @@ export default function Home() {
       </Column>
 
       {/* Para contratar */}
-      <Column fillWidth gap="16">
+      <Column
+        className={styles.sectionPanel}
+        fillWidth
+        gap="16"
+        paddingX="24"
+        paddingY="24"
+        radius="l"
+        background="surface"
+        style={{ background: "var(--surface-weak)" }}
+        s={{ paddingX: "16", paddingY: "20" }}
+      >
         <Row gap="8" wrap vertical="center">
           <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
             Para contratar
@@ -233,11 +244,13 @@ export default function Home() {
             Portfólio e serviços
           </Heading>
         </Row>
+        <div className={styles.accentLine} />
         <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
           Uma visão clara do que já está em produção e das ofertas disponíveis para o seu negócio.
         </Text>
         <Grid columns="2" s={{ columns: 1 }} gap="16">
           <Card
+            className={styles.cardTint}
             direction="column"
             gap="12"
             paddingX="24"
@@ -245,7 +258,6 @@ export default function Home() {
             radius="l"
             background="surface"
             style={{ background: "var(--surface-weak)" }}
-            border="neutral-alpha-weak"
             fillHeight
           >
             <Row wrap gap="8">
@@ -264,6 +276,7 @@ export default function Home() {
             </Button>
           </Card>
           <Card
+            className={`${styles.cardTint} ${styles.cardAccent}`}
             direction="column"
             gap="12"
             paddingX="24"
@@ -271,7 +284,6 @@ export default function Home() {
             radius="l"
             background="surface"
             style={{ background: "var(--surface-weak)" }}
-            border="neutral-alpha-weak"
             fillHeight
           >
             <Row wrap gap="8">
@@ -302,6 +314,7 @@ export default function Home() {
 
       {/* Projetos em destaque */}
       <Column fillWidth gap="12">
+        <div className={styles.accentLine} />
         <Heading as="h2" variant="display-strong-s">
           Projetos em destaque
         </Heading>
@@ -388,6 +401,7 @@ export default function Home() {
       {/* Serviços e produtos */}
       <RevealFx delay={0.4} paddingTop="8">
         <Column
+          className={styles.sectionPanel}
           fillWidth
           gap="16"
           paddingX="24"
@@ -400,6 +414,7 @@ export default function Home() {
           <Heading as="h2" variant="display-strong-s">
             {servicesPage.title}
           </Heading>
+          <div className={styles.accentLine} />
           <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
             {servicesPage.description}
           </Text>
@@ -421,6 +436,7 @@ export default function Home() {
       {/* Conteúdo */}
       {(routes["/blog"] || routes["/diario"]) && (
         <Column
+          className={`${styles.sectionPanel} ${styles.contentPanel}`}
           fillWidth
           gap="16"
           paddingX="24"
@@ -436,6 +452,7 @@ export default function Home() {
               Conteúdo editorial
             </Tag>
           </Row>
+          <div className={styles.accentLine} />
           <Heading as="h2" variant="display-strong-s">
             Blog + Diário
           </Heading>
@@ -445,6 +462,7 @@ export default function Home() {
           <Grid columns="2" s={{ columns: 1 }} gap="16">
             {contentEntries.map((item) => (
               <Column
+                className={`${styles.cardTint} ${styles.cardNeutral}`}
                 key={item.title}
                 fillWidth
                 paddingX="24"
@@ -453,7 +471,6 @@ export default function Home() {
                 background="page"
                 style={{ background: "var(--page)" }}
                 gap="16"
-                border="neutral-alpha-weak"
                 s={{ paddingX: "16", paddingY: "20" }}
               >
                 <Row wrap gap="8">
