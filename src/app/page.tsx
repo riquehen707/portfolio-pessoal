@@ -77,33 +77,42 @@ export default function Home() {
     "Automação e dados",
     "Conteúdo estratégico",
   ];
-  const entryPoints = [
+  const portfolioTags = ["Estudos de caso", "UX/UI", "Performance", "SEO técnico"];
+  const servicesTags = ["Websites", "SEO", "Automação"];
+  const portfolioEntry = {
+    title: "Portfólio",
+    description:
+      "Estudos de caso e projetos em produção que conectam estratégia, UX e execução técnica.",
+    href: work.path,
+    cta: "Ver portfólio",
+  };
+  const servicesEntry = {
+    title: "Serviços",
+    description:
+      "Websites profissionais, SEO técnico e automações sob medida para crescer com previsibilidade.",
+    href: servicesPage.path,
+    cta: "Explorar serviços",
+  };
+  const contentEntries = [
     {
-      title: "Portfólio",
+      title: blog.title,
       description:
-        "Estudos de caso, sistemas e websites que conectam estratégia, design e execução técnica.",
-      href: work.path,
-      cta: "Ver projetos",
-      variant: "secondary" as const,
-      tags: ["Web", "Dados", "Automação"],
-    },
-    {
-      title: "Blog",
-      description:
-        "Ensaios e análises profundas sobre produto, dados, marketing e construção de negócios.",
+        "Ensaios longos, frameworks e análises que conectam estratégia e execução.",
       href: blog.path,
-      cta: "Ler blog",
+      cta: "Ver todos os artigos",
       variant: "primary" as const,
-      tags: ["Estratégia", "Pesquisa", "Decisão"],
+      tags: ["Longform", "Estratégia", "Pesquisa"],
+      data: blogData,
     },
     {
-      title: "Diário",
+      title: daily.title,
       description:
-        "Notas rápidas com bastidores, aprendizados diários e experimentos em andamento.",
+        "Bastidores, aprendizados rápidos e experiências em andamento.",
       href: daily.path,
-      cta: "Abrir diário",
+      cta: "Ver diário",
       variant: "secondary" as const,
-      tags: ["Processo", "Bastidores", "Aprendizado"],
+      tags: ["Bastidores", "Processo", "Aprendizado"],
+      data: dailyData,
     },
   ];
   const workflow = [
@@ -214,45 +223,80 @@ export default function Home() {
         </Column>
       </Column>
 
-      {/* Entradas principais */}
+      {/* Para contratar */}
       <Column fillWidth gap="16">
-        <Heading as="h2" variant="display-strong-s">
-          Três frentes do estúdio
-        </Heading>
+        <Row gap="8" wrap vertical="center">
+          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+            Para contratar
+          </Tag>
+          <Heading as="h2" variant="display-strong-s">
+            Portfólio e serviços
+          </Heading>
+        </Row>
         <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-          Portfólio, blog e diário convivem no mesmo lugar para mostrar estratégia aplicada, conteúdo
-          profundo e bastidores do processo.
+          Uma visão clara do que já está em produção e das ofertas disponíveis para o seu negócio.
         </Text>
-        <Grid columns="3" s={{ columns: 1 }} gap="16">
-          {entryPoints.map((item) => (
-            <Card
-              key={item.title}
-              direction="column"
-              gap="12"
-              paddingX="24"
-              paddingY="24"
-              radius="l"
-              background="surface"
-              style={{ background: "var(--surface-weak)" }}
-              border="neutral-alpha-weak"
-              fillHeight
-            >
-              <Heading as="h3" variant="heading-strong-l">
-                {item.title}
-              </Heading>
-              <Text onBackground="neutral-weak">{item.description}</Text>
-              <Row wrap gap="8">
-                {item.tags.map((tag) => (
-                  <Tag key={`${item.title}-${tag}`} size="s" background="neutral-alpha-weak">
-                    {tag}
-                  </Tag>
-                ))}
-              </Row>
-              <Button href={item.href} variant={item.variant} size="s" arrowIcon>
-                {item.cta}
+        <Grid columns="2" s={{ columns: 1 }} gap="16">
+          <Card
+            direction="column"
+            gap="12"
+            paddingX="24"
+            paddingY="24"
+            radius="l"
+            background="surface"
+            style={{ background: "var(--surface-weak)" }}
+            border="neutral-alpha-weak"
+            fillHeight
+          >
+            <Row wrap gap="8">
+              {portfolioTags.map((tag) => (
+                <Tag key={tag} size="s" background="neutral-alpha-weak">
+                  {tag}
+                </Tag>
+              ))}
+            </Row>
+            <Heading as="h3" variant="heading-strong-l">
+              {portfolioEntry.title}
+            </Heading>
+            <Text onBackground="neutral-weak">{portfolioEntry.description}</Text>
+            <Button href={portfolioEntry.href} variant="primary" size="s" arrowIcon>
+              {portfolioEntry.cta}
+            </Button>
+          </Card>
+          <Card
+            direction="column"
+            gap="12"
+            paddingX="24"
+            paddingY="24"
+            radius="l"
+            background="surface"
+            style={{ background: "var(--surface-weak)" }}
+            border="neutral-alpha-weak"
+            fillHeight
+          >
+            <Row wrap gap="8">
+              {servicesTags.map((tag) => (
+                <Tag key={tag} size="s" background="neutral-alpha-weak">
+                  {tag}
+                </Tag>
+              ))}
+            </Row>
+            <Heading as="h3" variant="heading-strong-l">
+              {servicesEntry.title}
+            </Heading>
+            <Text onBackground="neutral-weak">{servicesEntry.description}</Text>
+            <Row gap="12" wrap>
+              <Button href={servicesEntry.href} variant="primary" size="s" arrowIcon>
+                {servicesEntry.cta}
               </Button>
-            </Card>
-          ))}
+              <Button href={calendarLink} variant="secondary" size="s" arrowIcon>
+                {calendarLabel}
+              </Button>
+            </Row>
+            <Text onBackground="neutral-weak" variant="body-default-s">
+              {serviceHighlight.hero.budget} / {serviceHighlight.hero.price} / {serviceHighlight.hero.duration}
+            </Text>
+          </Card>
         </Grid>
       </Column>
 
@@ -264,6 +308,21 @@ export default function Home() {
         <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
           Alguns sistemas e websites recentes que traduzem estratégia em execução real.
         </Text>
+        <Row gap="8" wrap>
+          {portfolioTags.map((tag) => (
+            <Tag key={`portfolio-${tag}`} size="s" background="neutral-alpha-weak">
+              {tag}
+            </Tag>
+          ))}
+        </Row>
+        <Row gap="12" wrap>
+          <Button href={work.path} variant="primary" size="s" arrowIcon>
+            Ver portfólio completo
+          </Button>
+          <Button href={calendarLink} variant="secondary" size="s" arrowIcon>
+            {calendarLabel}
+          </Button>
+        </Row>
       </Column>
 
       {/* Projeto em destaque */}
@@ -304,80 +363,16 @@ export default function Home() {
             </Card>
           ))}
         </Grid>
+        <Row gap="12" wrap>
+          <Button href={calendarLink} variant="primary" size="m" arrowIcon>
+            {calendarLabel}
+          </Button>
+          <Button href={servicesPage.path} variant="secondary" size="m" arrowIcon>
+            Ver serviços
+          </Button>
+        </Row>
       </Column>
 
-      {/* Conteúdo */}
-      {(routes["/blog"] || routes["/diario"]) && (
-        <Column fillWidth gap="16" marginBottom="xl">
-          <Row fillWidth paddingRight="64">
-            <Line maxWidth={56} />
-          </Row>
-
-          <Column gap="8">
-            <Heading as="h2" variant="display-strong-s">
-              Conteúdo para pensar e executar
-            </Heading>
-            <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-              Duas trilhas complementares: o Blog com textos mais densos e o Diário com notas rápidas
-              sobre o que estou testando no dia a dia.
-            </Text>
-          </Column>
-
-          <Row fillWidth gap="16" s={{ direction: "column" }}>
-            {routes["/blog"] && (
-              <Column
-                fillWidth
-                paddingX="24"
-                paddingY="24"
-                radius="l"
-                background="surface"
-                style={{ background: "var(--surface-weak)" }}
-                gap="16"
-                s={{ paddingX: "16", paddingY: "20" }}
-              >
-                <Heading as="h3" variant="heading-strong-l" wrap="balance">
-                  {blog.title}
-                </Heading>
-                <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-                  Ensaios longos, frameworks e análises que conectam estratégia e execução.
-                </Text>
-                <Posts range={[1, 3]} columns="1" thumbnail direction="row" data={blogData} />
-                <Button href={blog.path} variant="primary" size="m" arrowIcon>
-                  Ver todos os artigos
-                </Button>
-              </Column>
-            )}
-
-            {routes["/diario"] && (
-              <Column
-                fillWidth
-                paddingX="24"
-                paddingY="24"
-                radius="l"
-                background="surface"
-                style={{ background: "var(--surface-weak)" }}
-                gap="16"
-                s={{ paddingX: "16", paddingY: "20" }}
-              >
-                <Heading as="h3" variant="heading-strong-l" wrap="balance">
-                  {daily.title}
-                </Heading>
-                <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-                  Bastidores, aprendizados rápidos e experimentos em andamento.
-                </Text>
-                <Posts range={[1, 3]} columns="1" thumbnail direction="row" data={dailyData} />
-                <Button href={daily.path} variant="secondary" size="m" arrowIcon>
-                  Ver diário
-                </Button>
-              </Column>
-            )}
-          </Row>
-
-          <Row fillWidth paddingLeft="64" horizontal="end">
-            <Line maxWidth={56} />
-          </Row>
-        </Column>
-      )}
 
       {/* Mais projetos */}
       <Column fillWidth gap="12">
@@ -418,10 +413,71 @@ export default function Home() {
             </Button>
           </Row>
           <Text onBackground="neutral-weak" variant="body-default-s">
-            {serviceHighlight.hero.budget} · {serviceHighlight.hero.price} · {serviceHighlight.hero.duration}
+            {serviceHighlight.hero.budget} / {serviceHighlight.hero.price} / {serviceHighlight.hero.duration}
           </Text>
         </Column>
       </RevealFx>
+
+      {/* Conteúdo */}
+      {(routes["/blog"] || routes["/diario"]) && (
+        <Column
+          fillWidth
+          gap="16"
+          paddingX="24"
+          paddingY="24"
+          radius="l"
+          background="surface"
+          style={{ background: "var(--surface-weak)" }}
+          marginBottom="xl"
+          s={{ paddingX: "16", paddingY: "20" }}
+        >
+          <Row gap="8" wrap>
+            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+              Conteúdo editorial
+            </Tag>
+          </Row>
+          <Heading as="h2" variant="display-strong-s">
+            Blog + Diário
+          </Heading>
+          <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
+            Conteúdo profundo para reflexão e um diário aberto para acompanhar o processo.
+          </Text>
+          <Grid columns="2" s={{ columns: 1 }} gap="16">
+            {contentEntries.map((item) => (
+              <Column
+                key={item.title}
+                fillWidth
+                paddingX="24"
+                paddingY="24"
+                radius="l"
+                background="page"
+                style={{ background: "var(--page)" }}
+                gap="16"
+                border="neutral-alpha-weak"
+                s={{ paddingX: "16", paddingY: "20" }}
+              >
+                <Row wrap gap="8">
+                  {item.tags.map((tag) => (
+                    <Tag key={`${item.title}-${tag}`} size="s" background="neutral-alpha-weak">
+                      {tag}
+                    </Tag>
+                  ))}
+                </Row>
+                <Heading as="h3" variant="heading-strong-l" wrap="balance">
+                  {item.title}
+                </Heading>
+                <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
+                  {item.description}
+                </Text>
+                <Posts range={[1, 3]} columns="1" thumbnail direction="row" data={item.data} />
+                <Button href={item.href} variant={item.variant} size="m" arrowIcon>
+                  {item.cta}
+                </Button>
+              </Column>
+            ))}
+          </Grid>
+        </Column>
+      )}
 
       {/* CTA final */}
       <Column
