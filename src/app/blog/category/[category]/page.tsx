@@ -25,7 +25,7 @@ export default async function CategoryPage({ params }: PageProps) {
   return (
     <Column maxWidth="m" paddingTop="24" gap="24">
       <Heading as="h1" variant="heading-strong-xl">Categoria: {decoded}</Heading>
-      <Posts columns="2" data={formattedPosts} />
+      <Posts columns="2" thumbnail direction="column" data={formattedPosts} />
     </Column>
   );
 }

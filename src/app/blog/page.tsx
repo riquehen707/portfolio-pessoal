@@ -188,7 +188,7 @@ export default function BlogPage() {
       </SectionHeading>
 
       <Suspense fallback={<PostsSkeleton />}>
-        <Posts range={EARLIER_RANGE} columns="2" />
+        <Posts range={EARLIER_RANGE} columns="2" thumbnail />
       </Suspense>
 
       <Column

@@ -28,7 +28,7 @@ export default async function TagPage({ params }: PageProps) {
       <Heading as="h1" variant="heading-strong-xl">
         Tag: {decoded}
       </Heading>
-      <Posts columns="2" data={formattedPosts} />
+      <Posts columns="2" thumbnail direction="column" data={formattedPosts} />
     </Column>
   );
 }

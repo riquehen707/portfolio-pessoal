@@ -31,7 +31,7 @@ export default async function DiarioTagPage({ params }: PageProps) {
       <Heading as="h1" variant="heading-strong-xl">
         Diário · Tag: {decoded}
       </Heading>
-      <Posts columns="2" data={formattedPosts} />
+      <Posts columns="2" thumbnail direction="column" data={formattedPosts} />
     </Column>
   );
 }

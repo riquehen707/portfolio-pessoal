@@ -1,6 +1,7 @@
 import React from "react";
-import { Column, Grid, Card, Text, Heading, SmartLink, Badge, Row } from "@once-ui-system/core";
+import { Column, Grid, Card, Text, Heading, SmartLink, Badge, Row, Media } from "@once-ui-system/core";
 import { getPosts } from "@/utils/utils";
+import { buildOgImage } from "@/utils/og";
 
 type RelatedPostsProps = {
   currentSlug: string;
@@ -75,6 +76,20 @@ export default function RelatedPosts({
               style={{ background: "var(--layer-1)" }}
             >
               <Column gap="8">
+                <Media
+                  src={
+                    p.metadata.image ||
+                    buildOgImage(
+                      p.metadata.title,
+                      p.metadata.tag ?? p.metadata.tags?.[0] ?? p.metadata.categories?.[0] ?? "Artigo"
+                    )
+                  }
+                  alt={p.metadata.title}
+                  aspectRatio="16/9"
+                  radius="m"
+                  border="neutral-alpha-weak"
+                  sizes="(min-width: 1024px) 420px, 100vw"
+                />
                 <Text variant="label-default-s" onBackground="neutral-weak">
                   {p.metadata.pillar ?? "Blog"}
                 </Text>

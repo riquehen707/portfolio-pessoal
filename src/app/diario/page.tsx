@@ -208,7 +208,7 @@ export default function DiarioPage() {
       </Heading>
 
       <Suspense fallback={<PostsSkeleton />}>
-        <Posts range={EARLIER_RANGE} columns="2" data={data} />
+        <Posts range={EARLIER_RANGE} columns="2" thumbnail data={data} />
       </Suspense>
 
       {featuredTags.length > 0 && (
