@@ -6,6 +6,7 @@ import { baseURL, blog, person, daily, servicesPage } from "@/resources";
 import { getPosts } from "@/utils/utils";
 import { formatDate } from "@/utils/formatDate";
 import { getAllCategories, getAllTags } from "@/utils/posts";
+import styles from "../section.module.scss";
 
 const FEATURED_RANGE: [number, number] = [1, 1];
 const RECENTS_RANGE: [number, number] = [2, 3];
@@ -77,7 +78,7 @@ export default function BlogPage() {
   ];
 
   return (
-    <Column maxWidth="m" paddingTop="24" gap="24">
+    <Column className={styles.page} maxWidth="m" paddingTop="24" gap="24">
       {/* Schema estático (não interfere no SSG) */}
       <Schema
         as="webPage"
@@ -93,8 +94,9 @@ export default function BlogPage() {
         }}
       />
 
-      <Column gap="12">
+      <Column className={styles.heroGlow} gap="12">
         <SectionHeading as="h1">{pageTitle}</SectionHeading>
+        <div className={styles.accentLine} />
         <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
           {blog.description}
         </Text>
@@ -118,6 +120,7 @@ export default function BlogPage() {
       <Grid columns="3" s={{ columns: 1 }} gap="16">
         {blogHighlights.map((item) => (
           <Card
+            className={styles.cardTint}
             key={item.label}
             direction="column"
             gap="8"
@@ -126,7 +129,6 @@ export default function BlogPage() {
             radius="l"
             background="surface"
             style={{ background: "var(--surface-weak)" }}
-            border="neutral-alpha-weak"
             fillHeight
           >
             <Text variant="label-default-s" onBackground="neutral-weak">
@@ -143,6 +145,7 @@ export default function BlogPage() {
         <Heading as="h2" variant="heading-strong-xl">
           Trilhas de leitura
         </Heading>
+        <div className={styles.accentLine} />
         <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
           Use as trilhas para escolher o tema certo e aprofundar nas discussões que mais importam.
         </Text>
@@ -151,6 +154,7 @@ export default function BlogPage() {
       <Grid columns="3" s={{ columns: 1 }} gap="16">
         {editorialTracks.map((track) => (
           <Card
+            className={styles.cardTint}
             key={track.title}
             direction="column"
             gap="12"
@@ -159,7 +163,6 @@ export default function BlogPage() {
             radius="l"
             background="surface"
             style={{ background: "var(--surface-weak)" }}
-            border="neutral-alpha-weak"
             fillHeight
           >
             <Heading as="h3" variant="heading-strong-m">
@@ -192,6 +195,7 @@ export default function BlogPage() {
       </Suspense>
 
       <Column
+        className={`${styles.sectionPanel} ${styles.contentPanel}`}
         fillWidth
         padding="24"
         radius="l"
@@ -203,6 +207,7 @@ export default function BlogPage() {
         <Heading as="h2" variant="heading-strong-s">
           Categorias e temas
         </Heading>
+        <div className={styles.accentLine} />
         <Text onBackground="neutral-weak">
           Cada categoria agrupa posts alinhados com estratégias, cultura e narrativas de produto.
           Use-as para guiar o que você quer estudar hoje.

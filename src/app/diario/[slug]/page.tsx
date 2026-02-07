@@ -93,7 +93,7 @@ export async function generateMetadata({
     post.metadata.image ||
     buildOgImage(
       title,
-      post.metadata.tag ?? post.metadata.tags?.[0] ?? post.metadata.categories?.[0] ?? "DiÃ¡rio"
+      post.metadata.tag ?? post.metadata.tags?.[0] ?? post.metadata.categories?.[0] ?? "Diário"
     );
   const urlPath = `${daily.path}/${post.slug}`;
 
@@ -149,7 +149,7 @@ export default async function DiarioPost({
     post.metadata.image ||
     buildOgImage(
       post.metadata.title,
-      post.metadata.tag ?? post.metadata.tags?.[0] ?? post.metadata.categories?.[0] ?? "DiÃ¡rio"
+      post.metadata.tag ?? post.metadata.tags?.[0] ?? post.metadata.categories?.[0] ?? "Diário"
     );
   const ogImage = toAbs(coverImage) || undefined;
 

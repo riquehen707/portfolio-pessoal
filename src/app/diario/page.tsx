@@ -16,6 +16,7 @@ import { baseURL, daily, person, blog, servicesPage } from "@/resources";
 import { getPosts } from "@/utils/utils";
 import { getAllTags } from "@/utils/posts";
 import { formatDate } from "@/utils/formatDate";
+import styles from "../section.module.scss";
 
 const FEATURED_RANGE: [number, number] = [1, 1];
 const RECENTS_RANGE: [number, number] = [2, 4];
@@ -94,7 +95,7 @@ export default function DiarioPage() {
   ];
 
   return (
-    <Column maxWidth="m" paddingTop="24" gap="24">
+    <Column className={styles.page} maxWidth="m" paddingTop="24" gap="24">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -109,10 +110,11 @@ export default function DiarioPage() {
         }}
       />
 
-      <Column gap="12">
+      <Column className={styles.heroGlow} gap="12">
         <Heading as="h1" variant="heading-strong-xl">
           {pageTitle}
         </Heading>
+        <div className={styles.accentLine} />
         <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
           {daily.description}
         </Text>
@@ -136,6 +138,7 @@ export default function DiarioPage() {
       <Grid columns="3" s={{ columns: 1 }} gap="16">
         {diaryHighlights.map((item) => (
           <Card
+            className={styles.cardTint}
             key={item.label}
             direction="column"
             gap="8"
@@ -144,7 +147,6 @@ export default function DiarioPage() {
             radius="l"
             background="surface"
             style={{ background: "var(--surface-weak)" }}
-            border="neutral-alpha-weak"
             fillHeight
           >
             <Text variant="label-default-s" onBackground="neutral-weak">
@@ -161,6 +163,7 @@ export default function DiarioPage() {
         <Heading as="h2" variant="heading-strong-xl">
           Como funciona este diário
         </Heading>
+        <div className={styles.accentLine} />
         <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
           Um registro aberto do que estou fazendo, pensando e aprendendo. A ideia é documentar o
           processo real, não apenas o resultado final.
@@ -170,6 +173,7 @@ export default function DiarioPage() {
       <Grid columns="2" s={{ columns: 1 }} gap="16">
         {diaryFormat.map((item) => (
           <Card
+            className={styles.cardTint}
             key={item.title}
             direction="column"
             gap="12"
@@ -178,7 +182,6 @@ export default function DiarioPage() {
             radius="l"
             background="surface"
             style={{ background: "var(--surface-weak)" }}
-            border="neutral-alpha-weak"
             fillHeight
           >
             <Heading as="h3" variant="heading-strong-m">
@@ -213,6 +216,7 @@ export default function DiarioPage() {
 
       {featuredTags.length > 0 && (
         <Column
+          className={styles.sectionPanel}
           fillWidth
           padding="24"
           radius="l"
@@ -224,6 +228,7 @@ export default function DiarioPage() {
           <Heading as="h2" variant="heading-strong-s">
             Temas frequentes
           </Heading>
+          <div className={styles.accentLine} />
           <Row wrap gap="8">
             {featuredTags.map((tag) => (
               <Button

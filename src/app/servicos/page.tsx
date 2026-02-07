@@ -11,6 +11,7 @@ import {
   Card,
 } from "@once-ui-system/core";
 import { baseURL, person, productsPage, services, servicesPage } from "@/resources";
+import styles from "../section.module.scss";
 
 export async function generateMetadata() {
   return {
@@ -83,7 +84,7 @@ export default function ServicesPage() {
   );
 
   return (
-    <Column maxWidth="m" paddingTop="24" gap="24">
+    <Column className={styles.page} maxWidth="m" paddingTop="24" gap="24">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -98,10 +99,11 @@ export default function ServicesPage() {
         }}
       />
 
-      <Column gap="12">
+      <Column className={styles.heroGlow} gap="12">
         <Heading as="h1" variant="heading-strong-xl">
           {servicesPage.title}
         </Heading>
+        <div className={styles.accentLine} />
         <Text variant="heading-default-xs" onBackground="neutral-weak">
           {servicesPage.intro.headline}
         </Text>
@@ -114,6 +116,7 @@ export default function ServicesPage() {
       <Grid columns="3" s={{ columns: 1 }} gap="16">
         {serviceFlow.map((step, index) => (
           <Card
+            className={styles.cardTint}
             key={step.title}
             direction="column"
             gap="12"
@@ -122,7 +125,6 @@ export default function ServicesPage() {
             radius="l"
             background="surface"
             style={{ background: "var(--surface-weak)" }}
-            border="neutral-alpha-weak"
             fillHeight
           >
             <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
@@ -137,18 +139,17 @@ export default function ServicesPage() {
       </Grid>
 
       <Column
+        className={styles.sectionPanel}
         gap="16"
         padding="24"
         radius="l"
         background="surface"
-        style={{
-          border: "1px solid var(--neutral-alpha-weak)",
-          background: "var(--surface-weak)",
-        }}
+        style={{ background: "var(--surface-weak)" }}
       >
         <Heading as="h2" variant="heading-strong-s">
           Oito pilares estratégicos
         </Heading>
+        <div className={styles.accentLine} />
         <Text onBackground="neutral-weak">
           Cada serviço usa estes pilares como base para posicionamento, arquitetura e entrega.
         </Text>
@@ -164,18 +165,17 @@ export default function ServicesPage() {
       <Grid columns="1" gap="0">
         {services.map((service) => (
           <Column
+            className={styles.sectionPanel}
             key={service.slug}
             gap="16"
             padding="32"
             radius="l"
             background="surface"
-            style={{
-              border: "1px solid var(--neutral-alpha-weak)",
-              background: "var(--surface-weak)",
-            }}
+            style={{ background: "var(--surface-weak)" }}
           >
             <Tag size="s">{service.badge}</Tag>
             <Heading variant="display-strong-s">{service.title}</Heading>
+            <div className={styles.accentLine} />
             <Text onBackground="neutral-weak">{service.positioning}</Text>
             <Text onBackground="neutral-weak">{service.hero.description}</Text>
             <Row gap="12">
@@ -209,7 +209,7 @@ export default function ServicesPage() {
                 padding="12"
                 radius="m"
                 background="page"
-                style={{ border: "1px solid var(--neutral-alpha-weak)" }}
+                className={styles.cardTint}
                 gap="8"
               >
                 <Text variant="label-default-s">Entregáveis</Text>
@@ -219,7 +219,7 @@ export default function ServicesPage() {
                 padding="12"
                 radius="m"
                 background="page"
-                style={{ border: "1px solid var(--neutral-alpha-weak)" }}
+                className={styles.cardTint}
                 gap="8"
               >
                 <Text variant="label-default-s">Diferenciais</Text>
@@ -229,7 +229,7 @@ export default function ServicesPage() {
                 padding="12"
                 radius="m"
                 background="page"
-                style={{ border: "1px solid var(--neutral-alpha-weak)" }}
+                className={styles.cardTint}
                 gap="8"
               >
                 <Text variant="label-default-s">Resultados esperados</Text>
@@ -247,7 +247,7 @@ export default function ServicesPage() {
                   padding="12"
                   radius="m"
                   background="page"
-                  style={{ border: "1px solid var(--neutral-alpha-weak)" }}
+                  className={styles.cardTint}
                 >
                   <Text variant="label-default-s">{pillar.title}</Text>
                   <Text variant="body-default-s">{pillar.detail}</Text>
@@ -267,6 +267,7 @@ export default function ServicesPage() {
       </Grid>
 
       <Column
+        className={styles.sectionPanel}
         gap="12"
         padding="24"
         radius="l"
@@ -276,6 +277,7 @@ export default function ServicesPage() {
         <Heading as="h2" variant="heading-strong-s">
           Categoria Especial — Soluções Prontas / Kits Profissionais
         </Heading>
+        <div className={styles.accentLine} />
         <Text onBackground="neutral-weak">
           {productsPage.note} {productsPage.cta}
         </Text>
@@ -288,6 +290,7 @@ export default function ServicesPage() {
       </Column>
 
       <Column
+        className={styles.sectionPanel}
         gap="16"
         padding="24"
         radius="l"
@@ -297,6 +300,7 @@ export default function ServicesPage() {
         <Heading as="h2" variant="heading-strong-s">
           Perguntas frequentes
         </Heading>
+        <div className={styles.accentLine} />
         <Column gap="12">
           {faqs.map((faq) => (
             <Column key={faq.question} gap="4">
