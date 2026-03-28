@@ -1,11 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
 
 import { routes, display, person, about, blog, work, servicesPage } from "@/resources";
+import { InteractiveSurface } from "./InteractiveSurface";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
 
@@ -82,111 +84,112 @@ export const Header = () => {
           {display.location && <Row s={{ hide: true }}>{person.location}</Row>}
         </Row>
         <Row fillWidth horizontal="center">
-          <Row
-            className={styles.shell}
-            background="page"
-            border="neutral-alpha-weak"
-            radius="m-4"
-            shadow="l"
-            padding="4"
-            horizontal="center"
-            zIndex={1}
-          >
-            <Row
-              className={styles.nav}
-              gap="4"
-              vertical="center"
-              textVariant="body-default-s"
-              suppressHydrationWarning
-            >
-              {routes["/"] && (
-                <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
-              )}
-              <Line background="neutral-alpha-medium" vert maxHeight="24" />
-              {routes["/about"] && (
-                <>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="person"
-                      href="/about"
-                      label={about.label}
-                      selected={pathname === "/about"}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="person"
-                      href="/about"
-                      selected={pathname === "/about"}
-                    />
-                  </Row>
-                </>
-              )}
-              {routes["/work"] && (
-                <>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="grid"
-                      href="/work"
-                      label={work.label}
-                      selected={pathname.startsWith("/work")}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="grid"
-                      href="/work"
-                      selected={pathname.startsWith("/work")}
-                    />
-                  </Row>
-                </>
-              )}
-              {routes["/servicos"] && (
-                <>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="rocket"
-                      href={servicesPage.path}
-                      label={servicesPage.label}
-                      selected={pathname.startsWith("/servicos")}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="rocket"
-                      href={servicesPage.path}
-                      selected={pathname.startsWith("/servicos")}
-                    />
-                  </Row>
-                </>
-              )}
-              {routes["/blog"] && (
-                <>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="book"
-                      href="/blog"
-                      label={blog.label}
-                      selected={pathname.startsWith("/blog")}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="book"
-                      href="/blog"
-                      selected={pathname.startsWith("/blog")}
-                    />
-                  </Row>
-                </>
-              )}
-              {display.themeSwitcher && (
-                <>
-                  <Line background="neutral-alpha-medium" vert maxHeight="24" />
-                  <ThemeToggle />
-                </>
-              )}
+          <InteractiveSurface className={styles.shell} maxTilt={4}>
+            <Row className={styles.shellInner} padding="4" horizontal="center" vertical="center" zIndex={1}>
+              <Link className={styles.brandLockup} href="/">
+                <span className={styles.brandLead}>Henrique</span>
+                <span className={styles.brandDivider} />
+                <span className={styles.brandCode}>studio</span>
+              </Link>
+
+              <Line className={styles.shellLine} background="neutral-alpha-medium" vert maxHeight="24" />
+
+              <Row
+                className={styles.nav}
+                gap="4"
+                vertical="center"
+                textVariant="body-default-s"
+                suppressHydrationWarning
+              >
+                {routes["/"] && (
+                  <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
+                )}
+                <Line background="neutral-alpha-medium" vert maxHeight="24" />
+                {routes["/about"] && (
+                  <>
+                    <Row s={{ hide: true }}>
+                      <ToggleButton
+                        prefixIcon="person"
+                        href="/about"
+                        label={about.label}
+                        selected={pathname === "/about"}
+                      />
+                    </Row>
+                    <Row hide s={{ hide: false }}>
+                      <ToggleButton
+                        prefixIcon="person"
+                        href="/about"
+                        selected={pathname === "/about"}
+                      />
+                    </Row>
+                  </>
+                )}
+                {routes["/work"] && (
+                  <>
+                    <Row s={{ hide: true }}>
+                      <ToggleButton
+                        prefixIcon="grid"
+                        href="/work"
+                        label={work.label}
+                        selected={pathname.startsWith("/work")}
+                      />
+                    </Row>
+                    <Row hide s={{ hide: false }}>
+                      <ToggleButton
+                        prefixIcon="grid"
+                        href="/work"
+                        selected={pathname.startsWith("/work")}
+                      />
+                    </Row>
+                  </>
+                )}
+                {routes["/servicos"] && (
+                  <>
+                    <Row s={{ hide: true }}>
+                      <ToggleButton
+                        prefixIcon="rocket"
+                        href={servicesPage.path}
+                        label={servicesPage.label}
+                        selected={pathname.startsWith("/servicos")}
+                      />
+                    </Row>
+                    <Row hide s={{ hide: false }}>
+                      <ToggleButton
+                        prefixIcon="rocket"
+                        href={servicesPage.path}
+                        selected={pathname.startsWith("/servicos")}
+                      />
+                    </Row>
+                  </>
+                )}
+                {routes["/blog"] && (
+                  <>
+                    <Row s={{ hide: true }}>
+                      <ToggleButton
+                        prefixIcon="book"
+                        href="/blog"
+                        label={blog.label}
+                        selected={pathname.startsWith("/blog")}
+                      />
+                    </Row>
+                    <Row hide s={{ hide: false }}>
+                      <ToggleButton
+                        prefixIcon="book"
+                        href="/blog"
+                        selected={pathname.startsWith("/blog")}
+                      />
+                    </Row>
+                  </>
+                )}
+                {display.themeSwitcher && (
+                  <>
+                    <Line background="neutral-alpha-medium" vert maxHeight="24" />
+                    <ThemeToggle />
+                  </>
+                )}
+              </Row>
             </Row>
-          </Row>
+          </InteractiveSurface>
         </Row>
         <Flex className={`${styles.meta} ${styles.right}`} fillWidth horizontal="end" vertical="center">
           <Flex

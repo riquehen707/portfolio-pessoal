@@ -26,6 +26,8 @@ import {
 } from "@/resources";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
+import { DecodedText } from "@/components/DecodedText";
+import { InteractiveSurface } from "@/components/InteractiveSurface";
 import { getPosts } from "@/utils/utils";
 
 import styles from "./home.module.scss";
@@ -57,7 +59,7 @@ export default function Home() {
     },
   }));
 
-  const heroTitle = "Sites, produto e automacao para negocios que precisam crescer com clareza.";
+  const heroWords = ["clareza", "performance", "autoridade", "conversao"];
   const heroDescription =
     "Eu desenho, desenvolvo e organizo a camada digital para transformar posicionamento em operacao enxuta, navegacao simples e resultado real.";
 
@@ -127,93 +129,110 @@ export default function Home() {
         }}
       />
 
-      <Column className={styles.heroGlow} fillWidth gap="24">
-        <Grid className={styles.heroLayout} columns="2" s={{ columns: 1 }} gap="24">
-          <Column className={styles.heroMain} gap="16">
-            <Badge
-              background="brand-alpha-weak"
-              paddingX="12"
-              paddingY="4"
-              onBackground="neutral-strong"
-              textVariant="label-default-s"
-              arrow={false}
-              href={servicesPage.path}
-            >
-              Disponivel para novos projetos
-            </Badge>
+      <InteractiveSurface className={styles.heroGlow}>
+        <div aria-hidden="true" className={styles.heroField}>
+          <span className={`${styles.orbit} ${styles.orbitOuter}`} />
+          <span className={`${styles.orbit} ${styles.orbitMiddle}`} />
+          <span className={`${styles.orbit} ${styles.orbitInner}`} />
+          <span className={styles.heroSpark} />
+        </div>
 
-            <Heading wrap="balance" variant="display-strong-l">
-              {heroTitle}
-            </Heading>
+        <Column fillWidth gap="24">
+          <Grid className={styles.heroLayout} columns="2" s={{ columns: 1 }} gap="24">
+            <Column className={styles.heroMain} gap="16">
+              <Badge
+                background="brand-alpha-weak"
+                paddingX="12"
+                paddingY="4"
+                onBackground="neutral-strong"
+                textVariant="label-default-s"
+                arrow={false}
+                href={servicesPage.path}
+              >
+                Disponivel para novos projetos
+              </Badge>
 
-            <Text className={styles.heroCopy} wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
-              {heroDescription}
-            </Text>
+              <Text className={styles.heroCode} variant="label-default-s" onBackground="neutral-weak">
+                Next.js • Vue • SCSS • SEO tecnico
+              </Text>
 
-            <Row className={styles.heroActions} gap="12" wrap>
-              <Button href={work.path} variant="primary" size="m" arrowIcon>
-                Ver portfolio
-              </Button>
-              <Button href={servicesPage.path} variant="secondary" size="m" arrowIcon>
-                Explorar servicos
-              </Button>
-            </Row>
-          </Column>
+              <Heading className={styles.heroTitle} wrap="balance" variant="display-strong-l">
+                <span className={styles.heroTitleTop}>Sites, produto e automacao</span>
+                <span className={styles.heroTitleBottom}>
+                  para negocios que precisam crescer com{" "}
+                  <DecodedText className={styles.decodedWord} words={heroWords} />
+                </span>
+              </Heading>
 
-          <Column
-            className={`${styles.cardTint} ${styles.heroAside}`}
-            gap="16"
-            paddingX="24"
-            paddingY="24"
-            radius="l"
-            background="surface"
-            style={{ background: "var(--surface-weak)" }}
-          >
-            <Text className={styles.priorityMeta} variant="label-default-s" onBackground="neutral-weak">
-              Comece por aqui
-            </Text>
-            <Column className={styles.priorityList} gap="12">
-              {priorityLinks.map((item) => (
-                <Column className={styles.priorityItem} key={item.title} gap="8">
-                  <Text className={styles.priorityMeta} variant="label-default-s" onBackground="neutral-weak">
-                    {item.label}
-                  </Text>
-                  <Heading as="h2" variant="heading-strong-m">
-                    {item.title}
-                  </Heading>
-                  <Text onBackground="neutral-weak" variant="body-default-s">
-                    {item.description}
-                  </Text>
-                  <SmartLink className={styles.inlineLink} suffixIcon="arrowRight" href={item.href}>
-                    {item.cta}
-                  </SmartLink>
-                </Column>
-              ))}
+              <Text className={styles.heroCopy} wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
+                {heroDescription}
+              </Text>
+
+              <Row className={styles.heroActions} gap="12" wrap>
+                <Button href={work.path} variant="primary" size="m" arrowIcon>
+                  Ver portfolio
+                </Button>
+                <Button href={servicesPage.path} variant="secondary" size="m" arrowIcon>
+                  Explorar servicos
+                </Button>
+              </Row>
             </Column>
-          </Column>
-        </Grid>
 
-        <Grid className={styles.signalGrid} columns="3" s={{ columns: 1 }} gap="12">
-          {signals.map((signal) => (
             <Column
-              className={styles.signal}
-              key={signal.label}
-              gap="8"
-              paddingX="20"
-              paddingY="20"
+              className={`${styles.cardTint} ${styles.heroAside}`}
+              gap="16"
+              paddingX="24"
+              paddingY="24"
               radius="l"
               background="surface"
+              style={{ background: "var(--surface-weak)" }}
             >
               <Text className={styles.priorityMeta} variant="label-default-s" onBackground="neutral-weak">
-                {signal.label}
+                Comece por aqui
               </Text>
-              <Heading as="h3" variant="heading-strong-m">
-                {signal.value}
-              </Heading>
+              <Column className={styles.priorityList} gap="12">
+                {priorityLinks.map((item) => (
+                  <Column className={styles.priorityItem} key={item.title} gap="8">
+                    <Text className={styles.priorityMeta} variant="label-default-s" onBackground="neutral-weak">
+                      {item.label}
+                    </Text>
+                    <Heading as="h2" variant="heading-strong-m">
+                      {item.title}
+                    </Heading>
+                    <Text onBackground="neutral-weak" variant="body-default-s">
+                      {item.description}
+                    </Text>
+                    <SmartLink className={styles.inlineLink} suffixIcon="arrowRight" href={item.href}>
+                      {item.cta}
+                    </SmartLink>
+                  </Column>
+                ))}
+              </Column>
             </Column>
-          ))}
-        </Grid>
-      </Column>
+          </Grid>
+
+          <Grid className={styles.signalGrid} columns="3" s={{ columns: 1 }} gap="12">
+            {signals.map((signal) => (
+              <Column
+                className={styles.signal}
+                key={signal.label}
+                gap="8"
+                paddingX="20"
+                paddingY="20"
+                radius="l"
+                background="surface"
+              >
+                <Text className={styles.priorityMeta} variant="label-default-s" onBackground="neutral-weak">
+                  {signal.label}
+                </Text>
+                <Heading as="h3" variant="heading-strong-m">
+                  {signal.value}
+                </Heading>
+              </Column>
+            ))}
+          </Grid>
+        </Column>
+      </InteractiveSurface>
 
       <Column fillWidth gap="16">
         <Row className={styles.sectionHeader} fillWidth horizontal="between" vertical="end" s={{ direction: "column" }}>

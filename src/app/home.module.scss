@@ -31,9 +31,17 @@
 }
 
 .heroGlow {
+  width: 100%;
   padding: clamp(1.6rem, 2.5vw, 2.6rem);
   border-radius: clamp(1.5rem, 2.4vw, 2.4rem);
   background: var(--surface-panel-strong);
+  transform: perspective(1600px) rotateX(var(--rotate-x)) rotateY(var(--rotate-y));
+  transform-style: preserve-3d;
+  transition:
+    transform 240ms ease,
+    box-shadow 240ms ease,
+    border-color 240ms ease;
+  will-change: transform;
 }
 
 .heroGlow::before,
@@ -52,6 +60,7 @@
 .heroGlow::before {
   inset: -18% 38% 42% -10%;
   background:
+    radial-gradient(circle at var(--pointer-x) var(--pointer-y), rgba(255, 255, 255, 0.14), transparent 22%),
     radial-gradient(circle at 18% 38%, rgba(82, 144, 255, 0.34), transparent 54%),
     radial-gradient(circle at 82% 18%, rgba(255, 112, 80, 0.22), transparent 50%);
   filter: blur(42px);
@@ -60,6 +69,7 @@
 .heroGlow::after {
   inset: 0;
   background:
+    radial-gradient(circle at calc(var(--pointer-x) * 0.92) calc(var(--pointer-y) * 0.88), rgba(82, 144, 255, 0.18), transparent 18%),
     linear-gradient(140deg, rgba(255, 255, 255, 0.08), transparent 26%, rgba(255, 255, 255, 0.03) 48%, transparent 100%),
     linear-gradient(180deg, rgba(255, 112, 80, 0.06), transparent 36%, rgba(78, 134, 231, 0.05) 100%),
     repeating-linear-gradient(
@@ -69,6 +79,7 @@
       rgba(255, 255, 255, 0.02) 22px,
       rgba(255, 255, 255, 0.02) 23px
     );
+  animation: heroSurfaceShift 18s ease-in-out infinite alternate;
 }
 
 .heroGlow > *,
@@ -86,6 +97,97 @@
 .heroMain,
 .sectionCopy {
   min-width: 0;
+}
+
+.heroField {
+  position: absolute;
+  top: 50%;
+  right: clamp(-6rem, -5vw, -2rem);
+  width: min(38vw, 24rem);
+  aspect-ratio: 1;
+  transform: translateY(-50%);
+  pointer-events: none;
+  opacity: 0.96;
+}
+
+.orbit,
+.heroSpark {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+}
+
+.orbit {
+  border: 1px solid rgba(196, 215, 243, 0.12);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset,
+    0 0 32px rgba(82, 144, 255, 0.08);
+}
+
+.orbitOuter {
+  animation: orbitSpin 24s linear infinite;
+}
+
+.orbitMiddle {
+  inset: 11%;
+  border-color: rgba(255, 112, 80, 0.18);
+  animation: orbitSpinReverse 18s linear infinite;
+}
+
+.orbitInner {
+  inset: 24%;
+  border-color: rgba(82, 144, 255, 0.2);
+  animation: orbitPulse 9s ease-in-out infinite;
+}
+
+.heroSpark {
+  inset: 17%;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.84) 0, rgba(126, 174, 248, 0.52) 18%, transparent 44%),
+    radial-gradient(circle at 62% 46%, rgba(255, 112, 80, 0.38) 0, transparent 24%);
+  filter: blur(2px);
+  animation: sparkDrift 11s ease-in-out infinite alternate;
+}
+
+.heroCode {
+  width: fit-content;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid rgba(169, 189, 214, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-family: var(--font-code);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.heroTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18em;
+  max-width: 11ch;
+  line-height: 0.94;
+  letter-spacing: -0.055em;
+}
+
+.heroTitleTop,
+.heroTitleBottom {
+  display: block;
+}
+
+.heroTitleBottom {
+  color: color-mix(in oklab, var(--text-color), transparent 8%);
+}
+
+.decodedWord {
+  display: inline-flex;
+  min-width: 10ch;
+  font-family: var(--font-code);
+  letter-spacing: 0.08em;
+  color: color-mix(in oklab, var(--scheme-accent-800), white 14%);
+  text-shadow:
+    0 0 16px rgba(255, 112, 80, 0.18),
+    0 0 28px rgba(82, 144, 255, 0.14);
 }
 
 .heroCopy {
@@ -282,6 +384,60 @@
   opacity: 0.96;
 }
 
+@keyframes heroSurfaceShift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(1.2%, -1.4%, 0);
+  }
+  100% {
+    transform: translate3d(-1.2%, 1%, 0);
+  }
+}
+
+@keyframes orbitSpin {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+  to {
+    transform: rotate(360deg) scale(1.03);
+  }
+}
+
+@keyframes orbitSpinReverse {
+  from {
+    transform: rotate(0deg) scale(0.98);
+  }
+  to {
+    transform: rotate(-360deg) scale(1);
+  }
+}
+
+@keyframes orbitPulse {
+  0%,
+  100% {
+    transform: scale(0.96);
+    opacity: 0.72;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+}
+
+@keyframes sparkDrift {
+  0% {
+    transform: translate3d(-5%, -3%, 0);
+  }
+  50% {
+    transform: translate3d(6%, 4%, 0);
+  }
+  100% {
+    transform: translate3d(-2%, 8%, 0);
+  }
+}
+
 @media (max-width: breakpoints.$s) {
   .page::before {
     width: 100%;
@@ -297,11 +453,35 @@
 
   .heroGlow {
     padding: 1.3rem;
+    transform: none;
   }
 
   .heroCopy,
   .sectionCopy {
     max-width: none;
+  }
+
+  .heroField {
+    top: auto;
+    right: -5rem;
+    bottom: -6rem;
+    width: min(72vw, 18rem);
+    transform: none;
+    opacity: 0.62;
+  }
+
+  .heroCode {
+    max-width: 100%;
+    letter-spacing: 0.14em;
+  }
+
+  .heroTitle {
+    max-width: none;
+    gap: 0.24em;
+  }
+
+  .decodedWord {
+    min-width: 8.5ch;
   }
 
   .sectionHeader {
@@ -311,5 +491,19 @@
   .signalGrid,
   .heroLayout {
     gap: 0.85rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroGlow {
+    transform: none;
+  }
+
+  .heroGlow::after,
+  .orbitOuter,
+  .orbitMiddle,
+  .orbitInner,
+  .heroSpark {
+    animation: none;
   }
 }
