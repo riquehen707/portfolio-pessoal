@@ -1,17 +1,66 @@
-.hover {
-    transition: var(--transition-micro-medium);
-
-    &:hover {
-        transform: translateX(var(--static-space-8));
-
-        .indicator {
-            transform: rotate(0);
-        }
-    }
+.list {
+  position: relative;
+  width: 100%;
+  padding-inline: clamp(0rem, 1vw, 0.5rem);
 }
 
-.indicator {
-    transform: rotate(-90deg);
-    left: -2rem;
-    transition: var(--transition-micro-medium);
+.compactList {
+  padding-inline: 0;
+}
+
+.list::before {
+  content: "";
+  position: absolute;
+  top: 1.75rem;
+  bottom: 2rem;
+  left: 0.35rem;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--page-grid-strong), transparent);
+  opacity: 0.7;
+}
+
+.item {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.item::before {
+  content: "";
+  position: absolute;
+  top: 1.55rem;
+  left: 0;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--scheme-brand-700), var(--scheme-accent-700));
+  box-shadow:
+    0 0 20px rgba(82, 144, 255, 0.24),
+    0 0 18px rgba(255, 112, 80, 0.18);
+}
+
+.compactList::before,
+.compactItem::before {
+  display: none;
+}
+
+.compactItem {
+  padding-left: 0;
+}
+
+@media (max-width: 768px) {
+  .list {
+    padding-inline: 0;
+  }
+
+  .list::before {
+    display: none;
+  }
+
+  .item {
+    padding-left: 0;
+  }
+
+  .item::before {
+    display: none;
+  }
 }

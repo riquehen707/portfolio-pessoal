@@ -1,11 +1,7 @@
-// src/app/page.tsx
-
 import {
   Heading,
   Text,
   Button,
-  Avatar,
-  RevealFx,
   Column,
   Card,
   Grid,
@@ -13,9 +9,10 @@ import {
   Row,
   Schema,
   Meta,
-  Line,
   Tag,
+  SmartLink,
 } from "@once-ui-system/core";
+
 import {
   home,
   about,
@@ -24,23 +21,20 @@ import {
   routes,
   services,
   servicesPage,
-  productsPage,
-  daily,
   blog,
   work,
 } from "@/resources";
-import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
 import { getPosts } from "@/utils/utils";
+
 import styles from "./home.module.scss";
-// import { BlogPillars } from "@/components/blog/BlogPillars"; // fica pra depois
 
 export async function generateMetadata() {
   return Meta.generate({
     title: home.title,
     description: home.description,
-    baseURL: baseURL,
+    baseURL,
     path: home.path,
     image: home.image,
   });
@@ -49,7 +43,9 @@ export async function generateMetadata() {
 export default function Home() {
   const serviceHighlight = services[0];
   const blogPosts = getPosts(["src", "app", "blog", "posts"]);
-  const blogData = blogPosts.map((post) => ({
+  const workPosts = getPosts(["src", "app", "work", "projects"]);
+
+  const featuredArticle = blogPosts.slice(0, 1).map((post) => ({
     slug: post.slug,
     metadata: {
       title: post.metadata.title,
@@ -60,83 +56,63 @@ export default function Home() {
       image: post.metadata.image,
     },
   }));
-  const dailyPosts = getPosts(["src", "app", "diario", "posts"]);
-  const dailyData = dailyPosts.map((post) => ({
-    slug: post.slug,
-    metadata: {
-      title: post.metadata.title,
-      publishedAt: post.metadata.publishedAt || "",
-      tag: post.metadata.tag,
-      tags: post.metadata.tags,
-      categories: post.metadata.categories,
-      image: post.metadata.image,
-    },
-  }));
-  const focusTags = [
-    "Sites de alta conversão",
-    "SEO técnico",
-    "Automação e dados",
-    "Conteúdo estratégico",
-  ];
-  const portfolioTags = ["Estudos de caso", "UX/UI", "Performance", "SEO técnico"];
-  const servicesTags = ["Websites", "SEO", "Automação"];
-  const portfolioEntry = {
-    title: "Portfólio",
-    description:
-      "Estudos de caso e projetos em produção que conectam estratégia, UX e execução técnica.",
-    href: work.path,
-    cta: "Ver portfólio",
-  };
-  const servicesEntry = {
-    title: "Serviços",
-    description:
-      "Websites profissionais, SEO técnico e automações sob medida para crescer com previsibilidade.",
-    href: servicesPage.path,
-    cta: "Explorar serviços",
-  };
-  const contentEntries = [
+
+  const heroTitle = "Sites, produto e automacao para negocios que precisam crescer com clareza.";
+  const heroDescription =
+    "Eu desenho, desenvolvo e organizo a camada digital para transformar posicionamento em operacao enxuta, navegacao simples e resultado real.";
+
+  const priorityLinks = [
     {
-      title: blog.title,
-      description:
-        "Ensaios longos, frameworks e análises que conectam estratégia e execução.",
+      label: "Para contratar",
+      title: "Servicos",
+      description: "Websites, SEO tecnico e automacoes sob medida.",
+      href: servicesPage.path,
+      cta: "Explorar servicos",
+    },
+    {
+      label: "Para validar execucao",
+      title: "Portfolio",
+      description: "Projetos que mostram como estrategia vira entrega.",
+      href: work.path,
+      cta: "Ver portfolio",
+    },
+    {
+      label: "Para entender o metodo",
+      title: "Blog",
+      description: "Artigos para aprofundar produto, dados e decisao.",
       href: blog.path,
-      cta: "Ver todos os artigos",
-      variant: "primary" as const,
-      tags: ["Longform", "Estratégia", "Pesquisa"],
-      data: blogData,
-    },
-    {
-      title: daily.title,
-      description:
-        "Bastidores, aprendizados rápidos e experiências em andamento.",
-      href: daily.path,
-      cta: "Ver diário",
-      variant: "secondary" as const,
-      tags: ["Bastidores", "Processo", "Aprendizado"],
-      data: dailyData,
+      cta: "Ler artigos",
     },
   ];
-  const workflow = [
+
+  const signals = [
     {
-      title: "Diagnóstico e estratégia",
-      description:
-        "Entendimento do contexto, objetivos e métricas. Traduzo isso em um plano claro e executável.",
+      label: "Portfolio",
+      value: `${workPosts.length} projetos publicados`,
     },
     {
-      title: "Construção com foco em resultado",
-      description:
-        "Design, desenvolvimento e SEO técnico alinhados para performance, conversão e clareza.",
+      label: "Servicos",
+      value: `${services.length} frentes principais`,
     },
     {
-      title: "Evolução guiada por dados",
-      description:
-        "Acompanho indicadores e ajustes finos para melhorar conteúdo, automações e resultados.",
+      label: "Conteudo",
+      value: `${blogPosts.length} artigos para consulta`,
     },
   ];
+
+  const focusedServices = services.slice(0, 3).map((service) => ({
+    title: service.title,
+    badge: service.badge,
+    description: service.summary,
+    meta: `${service.hero.duration} | ${service.hero.price}`,
+    href: `${servicesPage.path}/${service.slug}`,
+  }));
+
   const calendarLink = about.calendar?.display ? about.calendar.link : about.path;
-  const calendarLabel = about.calendar?.display ? "Agendar conversa" : "Conhecer o estúdio";
+  const calendarLabel = about.calendar?.display ? "Agendar conversa" : "Conhecer o estudio";
+
   return (
-    <Column className={styles.page} maxWidth="m" gap="xl" paddingY="12" horizontal="center">
+    <Column className={styles.page} maxWidth="m" gap="32" paddingY="12" horizontal="center">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -151,84 +127,119 @@ export default function Home() {
         }}
       />
 
-      {/* Hero */}
-      <Column className={styles.heroGlow} fillWidth horizontal="center" gap="m">
-        <Column maxWidth="s" horizontal="center" align="center">
-          {home.featured.display && (
-            <RevealFx
-              fillWidth
-              horizontal="center"
-              paddingTop="16"
-              paddingBottom="32"
-              paddingLeft="12"
+      <Column className={styles.heroGlow} fillWidth gap="24">
+        <Grid className={styles.heroLayout} columns="2" s={{ columns: 1 }} gap="24">
+          <Column className={styles.heroMain} gap="16">
+            <Badge
+              background="brand-alpha-weak"
+              paddingX="12"
+              paddingY="4"
+              onBackground="neutral-strong"
+              textVariant="label-default-s"
+              arrow={false}
+              href={servicesPage.path}
             >
-              <Badge
-                background="brand-alpha-weak"
-                paddingX="12"
-                paddingY="4"
-                onBackground="neutral-strong"
-                textVariant="label-default-s"
-                arrow={false}
-                href={home.featured.href}
-              >
-                <Row paddingY="2">{home.featured.title}</Row>
-              </Badge>
-            </RevealFx>
-          )}
+              Disponivel para novos projetos
+            </Badge>
 
-          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16">
             <Heading wrap="balance" variant="display-strong-l">
-              {home.headline}
+              {heroTitle}
             </Heading>
-          </RevealFx>
 
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
-              {home.subline}
+            <Text className={styles.heroCopy} wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
+              {heroDescription}
             </Text>
-          </RevealFx>
 
-          <RevealFx translateY={6} delay={0.3} fillWidth horizontal="center" paddingBottom="20">
-            <Row gap="8" wrap horizontal="center">
-              {focusTags.map((tag) => (
-                <Tag key={tag} size="s" background="neutral-alpha-weak">
-                  {tag}
-                </Tag>
-              ))}
+            <Row className={styles.heroActions} gap="12" wrap>
+              <Button href={work.path} variant="primary" size="m" arrowIcon>
+                Ver portfolio
+              </Button>
+              <Button href={servicesPage.path} variant="secondary" size="m" arrowIcon>
+                Explorar servicos
+              </Button>
             </Row>
-          </RevealFx>
+          </Column>
 
-          <RevealFx paddingTop="12" delay={0.4} horizontal="center" paddingLeft="12">
-            <Button
-              id="about"
-              data-border="rounded"
-              href={about.path}
-              variant="secondary"
-              size="m"
-              weight="default"
-              arrowIcon
+          <Column
+            className={`${styles.cardTint} ${styles.heroAside}`}
+            gap="16"
+            paddingX="24"
+            paddingY="24"
+            radius="l"
+            background="surface"
+            style={{ background: "var(--surface-weak)" }}
+          >
+            <Text className={styles.priorityMeta} variant="label-default-s" onBackground="neutral-weak">
+              Comece por aqui
+            </Text>
+            <Column className={styles.priorityList} gap="12">
+              {priorityLinks.map((item) => (
+                <Column className={styles.priorityItem} key={item.title} gap="8">
+                  <Text className={styles.priorityMeta} variant="label-default-s" onBackground="neutral-weak">
+                    {item.label}
+                  </Text>
+                  <Heading as="h2" variant="heading-strong-m">
+                    {item.title}
+                  </Heading>
+                  <Text onBackground="neutral-weak" variant="body-default-s">
+                    {item.description}
+                  </Text>
+                  <SmartLink className={styles.inlineLink} suffixIcon="arrowRight" href={item.href}>
+                    {item.cta}
+                  </SmartLink>
+                </Column>
+              ))}
+            </Column>
+          </Column>
+        </Grid>
+
+        <Grid className={styles.signalGrid} columns="3" s={{ columns: 1 }} gap="12">
+          {signals.map((signal) => (
+            <Column
+              className={styles.signal}
+              key={signal.label}
+              gap="8"
+              paddingX="20"
+              paddingY="20"
+              radius="l"
+              background="surface"
             >
-              <Row gap="8" vertical="center" paddingRight="4">
-                {about.avatar.display && (
-                  <Avatar
-                    marginRight="8"
-                    style={{ marginLeft: "-0.75rem" }}
-                    src={person.avatar}
-                    size="m"
-                  />
-                )}
-                {about.title}
-              </Row>
-            </Button>
-          </RevealFx>
-        </Column>
+              <Text className={styles.priorityMeta} variant="label-default-s" onBackground="neutral-weak">
+                {signal.label}
+              </Text>
+              <Heading as="h3" variant="heading-strong-m">
+                {signal.value}
+              </Heading>
+            </Column>
+          ))}
+        </Grid>
       </Column>
 
-      {/* Para contratar */}
+      <Column fillWidth gap="16">
+        <Row className={styles.sectionHeader} fillWidth horizontal="between" vertical="end" s={{ direction: "column" }}>
+          <Column className={styles.sectionCopy} gap="8">
+            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+              Portfolio
+            </Tag>
+            <Heading as="h2" variant="display-strong-s">
+              Veja primeiro como a execucao acontece na pratica
+            </Heading>
+            <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
+              Um case em destaque para mostrar produto, interface e entrega sem sobrecarregar a navegação.
+            </Text>
+          </Column>
+          <Button href={work.path} variant="secondary" size="s" arrowIcon>
+            Ver todos os projetos
+          </Button>
+        </Row>
+
+        <Projects range={[1, 1]} compact marginBottom="0" paddingX="0" />
+      </Column>
+
       <Column
         className={styles.sectionPanel}
         fillWidth
-        gap="16"
+        gap="20"
         paddingX="24"
         paddingY="24"
         radius="l"
@@ -236,268 +247,96 @@ export default function Home() {
         style={{ background: "var(--surface-weak)" }}
         s={{ paddingX: "16", paddingY: "20" }}
       >
-        <Row gap="8" wrap vertical="center">
-          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            Para contratar
-          </Tag>
-          <Heading as="h2" variant="display-strong-s">
-            Portfólio e serviços
-          </Heading>
-        </Row>
-        <div className={styles.accentLine} />
-        <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-          Uma visão clara do que já está em produção e das ofertas disponíveis para o seu negócio.
-        </Text>
-        <Grid columns="2" s={{ columns: 1 }} gap="16">
-          <Card
-            className={styles.cardTint}
-            direction="column"
-            gap="12"
-            paddingX="24"
-            paddingY="24"
-            radius="l"
-            background="surface"
-            style={{ background: "var(--surface-weak)" }}
-            fillHeight
-          >
-            <Row wrap gap="8">
-              {portfolioTags.map((tag) => (
-                <Tag key={tag} size="s" background="neutral-alpha-weak">
-                  {tag}
-                </Tag>
-              ))}
-            </Row>
-            <Heading as="h3" variant="heading-strong-l">
-              {portfolioEntry.title}
-            </Heading>
-            <Text onBackground="neutral-weak">{portfolioEntry.description}</Text>
-            <Button href={portfolioEntry.href} variant="primary" size="s" arrowIcon>
-              {portfolioEntry.cta}
-            </Button>
-          </Card>
-          <Card
-            className={`${styles.cardTint} ${styles.cardAccent}`}
-            direction="column"
-            gap="12"
-            paddingX="24"
-            paddingY="24"
-            radius="l"
-            background="surface"
-            style={{ background: "var(--surface-weak)" }}
-            fillHeight
-          >
-            <Row wrap gap="8">
-              {servicesTags.map((tag) => (
-                <Tag key={tag} size="s" background="neutral-alpha-weak">
-                  {tag}
-                </Tag>
-              ))}
-            </Row>
-            <Heading as="h3" variant="heading-strong-l">
-              {servicesEntry.title}
-            </Heading>
-            <Text onBackground="neutral-weak">{servicesEntry.description}</Text>
-            <Row gap="12" wrap>
-              <Button href={servicesEntry.href} variant="primary" size="s" arrowIcon>
-                {servicesEntry.cta}
-              </Button>
-              <Button href={calendarLink} variant="secondary" size="s" arrowIcon>
-                {calendarLabel}
-              </Button>
-            </Row>
-            <Text onBackground="neutral-weak" variant="body-default-s">
-              {serviceHighlight.hero.budget} / {serviceHighlight.hero.price} / {serviceHighlight.hero.duration}
-            </Text>
-          </Card>
-        </Grid>
-      </Column>
-
-      {/* Projetos em destaque */}
-      <Column fillWidth gap="12">
-        <div className={styles.accentLine} />
-        <Heading as="h2" variant="display-strong-s">
-          Projetos em destaque
-        </Heading>
-        <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-          Alguns sistemas e websites recentes que traduzem estratégia em execução real.
-        </Text>
-        <Row gap="8" wrap>
-          {portfolioTags.map((tag) => (
-            <Tag key={`portfolio-${tag}`} size="s" background="neutral-alpha-weak">
-              {tag}
+        <Row className={styles.sectionHeader} fillWidth horizontal="between" vertical="end" s={{ direction: "column" }}>
+          <Column className={styles.sectionCopy} gap="8">
+            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+              Servicos
             </Tag>
-          ))}
-        </Row>
-        <Row gap="12" wrap>
-          <Button href={work.path} variant="primary" size="s" arrowIcon>
-            Ver portfólio completo
+            <Heading as="h2" variant="display-strong-s">
+              O que eu entrego hoje
+            </Heading>
+            <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
+              Tres frentes principais para tirar o projeto do papel sem abrir dezenas de caminhos na Home.
+            </Text>
+          </Column>
+          <Button href={servicesPage.path} variant="secondary" size="s" arrowIcon>
+            Abrir servicos
           </Button>
-          <Button href={calendarLink} variant="secondary" size="s" arrowIcon>
-            {calendarLabel}
-          </Button>
         </Row>
-      </Column>
 
-      {/* Projeto em destaque */}
-      <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} />
-      </RevealFx>
-
-      {/* Como trabalho */}
-      <Column fillWidth gap="16">
-        <Heading as="h2" variant="display-strong-s">
-          Como trabalho
-        </Heading>
-        <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-          Um processo simples para entregar clareza, velocidade e resultado sem complicar o
-          essencial.
-        </Text>
         <Grid columns="3" s={{ columns: 1 }} gap="16">
-          {workflow.map((step, index) => (
+          {focusedServices.map((service, index) => (
             <Card
-              key={step.title}
+              className={`${styles.cardTint} ${index === 0 ? styles.cardAccent : ""} ${styles.serviceCard}`}
+              key={service.title}
               direction="column"
               gap="12"
-              paddingX="24"
-              paddingY="24"
+              paddingX="20"
+              paddingY="20"
               radius="l"
               background="surface"
               style={{ background: "var(--surface-weak)" }}
-              border="neutral-alpha-weak"
               fillHeight
             >
-              <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-                Etapa {index + 1}
+              <Tag size="s" background="neutral-alpha-weak">
+                {service.badge}
               </Tag>
               <Heading as="h3" variant="heading-strong-m">
-                {step.title}
+                {service.title}
               </Heading>
-              <Text onBackground="neutral-weak">{step.description}</Text>
+              <Text onBackground="neutral-weak">{service.description}</Text>
+              <Text className={styles.serviceMeta} variant="body-default-s" onBackground="neutral-weak">
+                {service.meta}
+              </Text>
+              <SmartLink className={styles.inlineLink} suffixIcon="arrowRight" href={service.href}>
+                Ver detalhes
+              </SmartLink>
             </Card>
           ))}
         </Grid>
-        <Row gap="12" wrap>
-          <Button href={calendarLink} variant="primary" size="m" arrowIcon>
-            {calendarLabel}
-          </Button>
-          <Button href={servicesPage.path} variant="secondary" size="m" arrowIcon>
-            Ver serviços
-          </Button>
-        </Row>
       </Column>
 
-
-      {/* Mais projetos */}
-      <Column fillWidth gap="12">
-        <Heading as="h2" variant="display-strong-s">
-          Mais projetos e estudos
-        </Heading>
-        <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-          Trabalhos recentes, testes e projetos paralelos que também fazem parte da trajetória.
-        </Text>
-      </Column>
-      <Projects range={[2]} />
-
-      {/* Serviços e produtos */}
-      <RevealFx delay={0.4} paddingTop="8">
-        <Column
-          className={styles.sectionPanel}
-          fillWidth
-          gap="16"
-          paddingX="24"
-          paddingY="24"
-          radius="l"
-          background="surface"
-          style={{ background: "var(--surface-weak)" }}
-          s={{ paddingX: "16", paddingY: "20" }}
-        >
-          <Heading as="h2" variant="display-strong-s">
-            {servicesPage.title}
-          </Heading>
-          <div className={styles.accentLine} />
-          <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-            {servicesPage.description}
-          </Text>
-          <Text onBackground="neutral-weak">{servicesPage.intro.lead}</Text>
-          <Row gap="12" s={{ direction: "column" }}>
-            <Button href={servicesPage.path} variant="primary" size="m" arrowIcon>
-              Explorar serviços
-            </Button>
-            <Button href={productsPage.path} variant="secondary" size="m" arrowIcon>
-              Ver produtos digitais
-            </Button>
-          </Row>
-          <Text onBackground="neutral-weak" variant="body-default-s">
-            {serviceHighlight.hero.budget} / {serviceHighlight.hero.price} / {serviceHighlight.hero.duration}
-          </Text>
-        </Column>
-      </RevealFx>
-
-      {/* Conteúdo */}
-      {(routes["/blog"] || routes["/diario"]) && (
+      {routes["/blog"] && featuredArticle.length > 0 && (
         <Column
           className={`${styles.sectionPanel} ${styles.contentPanel}`}
           fillWidth
-          gap="16"
+          gap="20"
           paddingX="24"
           paddingY="24"
           radius="l"
           background="surface"
           style={{ background: "var(--surface-weak)" }}
-          marginBottom="xl"
           s={{ paddingX: "16", paddingY: "20" }}
         >
-          <Row gap="8" wrap>
-            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-              Conteúdo editorial
-            </Tag>
+          <Row className={styles.sectionHeader} fillWidth horizontal="between" vertical="end" s={{ direction: "column" }}>
+            <Column className={styles.sectionCopy} gap="8">
+              <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+                Artigo recente
+              </Tag>
+              <Heading as="h2" variant="display-strong-s">
+                Se quiser entender meu raciocinio, comece por aqui
+              </Heading>
+              <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
+                Um texto para aprofundar metodo, produto e dados sem transformar a Home em uma lista de posts.
+              </Text>
+            </Column>
+            <Button href={blog.path} variant="secondary" size="s" arrowIcon>
+              Ir para o blog
+            </Button>
           </Row>
-          <div className={styles.accentLine} />
-          <Heading as="h2" variant="display-strong-s">
-            Blog + Diário
-          </Heading>
-          <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-            Conteúdo profundo para reflexão e um diário aberto para acompanhar o processo.
-          </Text>
-          <Grid columns="2" s={{ columns: 1 }} gap="16">
-            {contentEntries.map((item) => (
-              <Column
-                className={`${styles.cardTint} ${styles.cardNeutral}`}
-                key={item.title}
-                fillWidth
-                paddingX="24"
-                paddingY="24"
-                radius="l"
-                background="page"
-                style={{ background: "var(--page)" }}
-                gap="16"
-                s={{ paddingX: "16", paddingY: "20" }}
-              >
-                <Row wrap gap="8">
-                  {item.tags.map((tag) => (
-                    <Tag key={`${item.title}-${tag}`} size="s" background="neutral-alpha-weak">
-                      {tag}
-                    </Tag>
-                  ))}
-                </Row>
-                <Heading as="h3" variant="heading-strong-l" wrap="balance">
-                  {item.title}
-                </Heading>
-                <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-                  {item.description}
-                </Text>
-                <Posts range={[1, 3]} columns="1" thumbnail direction="row" data={item.data} />
-                <Button href={item.href} variant={item.variant} size="m" arrowIcon>
-                  {item.cta}
-                </Button>
-              </Column>
-            ))}
-          </Grid>
+
+          <Posts
+            columns="1"
+            thumbnail
+            direction="row"
+            data={featuredArticle}
+            marginBottom="0"
+          />
         </Column>
       )}
 
-      {/* CTA final */}
       <Column
+        className={`${styles.sectionPanel} ${styles.ctaPanel}`}
         fillWidth
         gap="16"
         paddingX="24"
@@ -507,25 +346,34 @@ export default function Home() {
         style={{ background: "var(--surface-weak)" }}
         s={{ paddingX: "16", paddingY: "20" }}
       >
-        <Heading as="h2" variant="display-strong-s">
-          Vamos conversar sobre o seu projeto?
-        </Heading>
-        <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-          Se você precisa de um site que converte, SEO técnico ou automação de processos, posso ajudar
-          com diagnóstico e execução.
-        </Text>
-        <Row gap="12" s={{ direction: "column" }}>
-          <Button href={calendarLink} variant="primary" size="m" arrowIcon>
-            {calendarLabel}
-          </Button>
-          <Button href={`mailto:${person.email}`} variant="tertiary" size="m" arrowIcon>
-            Enviar e-mail
-          </Button>
-        </Row>
-      </Column>
+        <Row className={styles.sectionHeader} fillWidth horizontal="between" vertical="center" s={{ direction: "column" }}>
+          <Column className={styles.sectionCopy} gap="8">
+            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+              Conversa inicial
+            </Tag>
+            <Heading as="h2" variant="display-strong-s">
+              Tem um projeto em mente?
+            </Heading>
+            <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
+              Se voce precisa de um site claro, SEO tecnico ou automacao aplicada, posso ajudar a organizar
+              o escopo e definir a melhor proxima etapa.
+            </Text>
+          </Column>
 
-      {/* Newsletter */}
-      <Mailchimp />
+          <Row gap="12" wrap s={{ direction: "column" }}>
+            <Button href={calendarLink} variant="primary" size="m" arrowIcon>
+              {calendarLabel}
+            </Button>
+            <Button href={`mailto:${person.email}`} variant="tertiary" size="m" arrowIcon>
+              Enviar e-mail
+            </Button>
+          </Row>
+        </Row>
+
+        <Text onBackground="neutral-weak" variant="body-default-s">
+          {serviceHighlight.hero.price} | {serviceHighlight.hero.duration}
+        </Text>
+      </Column>
     </Column>
   );
 }

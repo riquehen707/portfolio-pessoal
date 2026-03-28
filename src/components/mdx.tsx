@@ -38,6 +38,7 @@ import type { Language } from "@once-ui-system/core";
 // === seus componentes MDX (custom) ===
 import Figure from "@/components/mdx/Figure";
 import Gallery from "@/components/mdx/Gallery";
+import GlossTerm from "@/components/mdx/GlossTerm";
 import { HoverNote } from "@/components/mdx/HoverNote";
 import { Callout } from "@/components/mdx/Callout";
 import { Quote } from "@/components/mdx/Quote";
@@ -373,6 +374,7 @@ const components = {
   // === componentes custom mapeados no MDX ===
   Figure,
   Gallery,
+  GlossTerm,
   HoverNote,
   Callout,
   Quote,

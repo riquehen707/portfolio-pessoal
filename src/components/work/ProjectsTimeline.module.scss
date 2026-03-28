@@ -1,0 +1,135 @@
+.root {
+  position: relative;
+}
+
+.header {
+  align-items: end;
+  gap: 1rem;
+}
+
+.copy {
+  max-width: 42rem;
+}
+
+.controls {
+  gap: 0.75rem;
+}
+
+.control {
+  min-width: 6.75rem;
+}
+
+.viewport {
+  position: relative;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+}
+
+.viewport::-webkit-scrollbar {
+  height: 0.55rem;
+}
+
+.viewport::-webkit-scrollbar-thumb {
+  background: rgba(169, 189, 214, 0.28);
+  border-radius: 999px;
+}
+
+.track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(18rem, 22rem);
+  gap: 1rem;
+  position: relative;
+  padding-block: 0.5rem 1rem;
+}
+
+.track::before {
+  content: "";
+  position: absolute;
+  top: 2.2rem;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--page-grid-strong), transparent);
+  pointer-events: none;
+}
+
+.item {
+  position: relative;
+  padding-top: 1rem;
+  scroll-snap-align: start;
+}
+
+.item::before {
+  content: "";
+  position: absolute;
+  top: 1.65rem;
+  left: 1rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--scheme-brand-700), var(--scheme-accent-700));
+  box-shadow:
+    0 0 20px rgba(82, 144, 255, 0.24),
+    0 0 18px rgba(255, 112, 80, 0.18);
+}
+
+.card {
+  display: block;
+  height: 100%;
+  margin-top: 1.6rem;
+  padding: 1.15rem;
+  border: 1px solid rgba(169, 189, 214, 0.16);
+  border-radius: 1.3rem;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 24%, rgba(255, 255, 255, 0.03) 52%, transparent 100%),
+    var(--surface-panel-soft);
+  box-shadow: var(--metal-shadow-soft);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--metal-border-strong);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 0 24px rgba(82, 144, 255, 0.08);
+}
+
+.year {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.title {
+  line-height: 1.24;
+}
+
+.tags {
+  min-height: 2rem;
+}
+
+@media (max-width: 768px) {
+  .header {
+    align-items: start;
+  }
+
+  .controls {
+    width: 100%;
+  }
+
+  .control {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .track {
+    grid-auto-columns: minmax(16rem, 84vw);
+  }
+}

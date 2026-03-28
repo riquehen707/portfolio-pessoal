@@ -1,7 +1,65 @@
 @use "./breakpoints.scss" as breakpoints;
 
+.footer {
+  position: relative;
+  width: 100%;
+  padding-inline: clamp(0.75rem, 2vw, 1rem);
+}
+
+.inner {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--metal-border);
+  border-radius: 1.35rem;
+  background:
+    linear-gradient(140deg, rgba(255, 255, 255, 0.06), transparent 32%, rgba(255, 255, 255, 0.02) 60%, transparent 100%),
+    var(--surface-panel-soft);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(82, 144, 255, 0.12), transparent 32%),
+    radial-gradient(circle at 88% 0%, rgba(255, 112, 80, 0.12), transparent 28%),
+    repeating-linear-gradient(
+      120deg,
+      transparent 0,
+      transparent 22px,
+      rgba(255, 255, 255, 0.014) 22px,
+      rgba(255, 255, 255, 0.014) 23px
+    );
+  pointer-events: none;
+}
+
+.copy,
+.social {
+  position: relative;
+  z-index: 1;
+}
+
+.copy {
+  max-width: 54ch;
+}
+
+.mobile {
+  text-align: left;
+}
+
 @media (max-width: breakpoints.$s) {
-    .mobile {
-        text-align: center;
-    }
+  .inner {
+    border-radius: 1.2rem;
+  }
+
+  .mobile {
+    text-align: center;
+  }
+
+  .copy {
+    max-width: none;
+  }
 }

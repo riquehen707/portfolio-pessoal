@@ -221,33 +221,6 @@ export interface Blog extends BasePageConfig {}
  */
 export interface Work extends BasePageConfig {}
 
-/**
- * Gallery page configuration.
- * @description Configuration for the Gallery page, including metadata, navigation label, and image list.
- */
-export interface Gallery extends BasePageConfig {
-  /** List of images in the gallery */
-  images: Array<{
-    /** Image source path */
-    src: string;
-    /** Image alt text */
-    alt: string;
-    /** Image orientation (horizontal/vertical) */
-    orientation: string;
-  }>;
-}
-
-export interface AdminPage extends BasePageConfig {
-  sections: Array<{
-    title: string;
-    description: string;
-    items?: string[];
-  }>;
-  technologies: string[];
-}
-
-export interface AccountPage extends BasePageConfig {}
-
 export interface ServicesPage extends BasePageConfig {
   intro: {
     headline: string;
@@ -255,33 +228,40 @@ export interface ServicesPage extends BasePageConfig {
   };
 }
 
+export interface ServiceScope {
+  title: string;
+  summary: string;
+  investment: string;
+  timeline: string;
+  includes: string[];
+}
+
+export interface ServiceFaq {
+  question: string;
+  answer: string;
+}
+
 export interface ServiceLanding {
   slug: string;
   title: string;
   badge: string;
   summary: string;
-  positioning: string;
-  solution: string;
-  pillars: Array<{
-    title: string;
-    detail: string;
-  }>;
   hero: {
     highlight: string;
     description: string;
     price: string;
-    budget: string;
     duration: string;
     ctaLabel: string;
     ctaHref: string;
   };
-  idealFor: string;
-  investmentRange: string;
-  deliverables: string[];
-  differentiators: string[];
+  audience: string;
+  tags: string[];
+  keyPoints: string[];
+  scopes: ServiceScope[];
+  includes: string[];
   process: string[];
-  outcomes: string[];
-  highlights: Array<{ label: string; value: string }>;
+  faq: ServiceFaq[];
+  estimator?: boolean;
 }
 
 export interface ProductsPage extends BasePageConfig {
@@ -289,13 +269,21 @@ export interface ProductsPage extends BasePageConfig {
   note: string;
 }
 
+export type OfferCategory = "package" | "microservice" | "saas";
+
+export type OfferAccess = "free" | "paid" | "freemium";
+
 export interface ProductItem {
   slug: string;
   title: string;
   summary: string;
+  category: OfferCategory;
+  access: OfferAccess;
   format: string;
   price: string;
   priceLabel: string;
-  deliverables: string[];
+  status: string;
+  highlights: string[];
   link: string;
+  ctaLabel: string;
 }

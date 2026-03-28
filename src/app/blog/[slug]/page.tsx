@@ -1,5 +1,3 @@
-// src/app/blog/[slug]/page.tsx
-
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import React, { Suspense } from "react";
@@ -25,27 +23,24 @@ import { CustomMDX, ScrollToHash } from "@/components";
 import { Posts } from "@/components/blog/Posts";
 import { ShareSection } from "@/components/blog/ShareSection";
 import ArticleToc from "@/components/blog/ArticleToc";
-import RelatedPosts from "@/components/blog/RelatedPosts"; // ✅ NEW
+import RelatedPosts from "@/components/blog/RelatedPosts";
 
-import { baseURL, about, blog, daily, person, servicesPage } from "@/resources";
+import { baseURL, about, blog, person, servicesPage, work } from "@/resources";
 import { getPosts } from "@/utils/utils";
-import { formatDate } from "@/utils/formatDate";
 import { buildOgImage } from "@/utils/og";
+import styles from "../../section.module.scss";
 
 import ReadingProgress from "@/components/mdx/ReadingProgress";
 import MetaBar from "@/components/mdx/MetaBar";
 
-// Revalidação incremental e renderização estática
 export const revalidate = false;
 export const dynamic = "force-static";
 
-// Helpers
 function normalizeSlug(slugParam: string | string[] | undefined): string {
   if (!slugParam) return "";
   return Array.isArray(slugParam) ? slugParam.join("/") : slugParam;
 }
 
-// Gera URL absoluta (para SEO/Schema)
 function toAbs(pathOrUrl?: string): string | undefined {
   if (!pathOrUrl) return undefined;
   try {
@@ -55,7 +50,6 @@ function toAbs(pathOrUrl?: string): string | undefined {
   }
 }
 
-// Força caminho local (root-relative) para next/image (Avatar/Media)
 function toLocal(src?: string): string | undefined {
   if (!src) return undefined;
   try {
@@ -66,7 +60,6 @@ function toLocal(src?: string): string | undefined {
   }
 }
 
-// helper simples de tempo de leitura (~220 wpm)
 function readingTimeMinutes(text: string, wpm = 220): number {
   const words = text?.trim()?.split(/\s+/g).length || 0;
   return Math.max(1, Math.round(words / wpm));
@@ -78,17 +71,14 @@ type PageProps = {
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "blog", "posts"]);
-  return posts.map((p) => ({ slug: p.slug }));
+  return posts.map((post) => ({ slug: post.slug }));
 }
 
-// ====== SEO / OpenGraph por post ======
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const slugPath = normalizeSlug(slug);
   const posts = getPosts(["src", "app", "blog", "posts"]);
-  const post = posts.find((p) => p.slug === slugPath);
+  const post = posts.find((item) => item.slug === slugPath);
 
   if (!post) return {};
 
@@ -98,58 +88,47 @@ export async function generateMetadata({
     post.metadata.image ||
     buildOgImage(
       title,
-      post.metadata.tag ?? post.metadata.tags?.[0] ?? post.metadata.categories?.[0] ?? "Blog"
+      post.metadata.tag ?? post.metadata.tags?.[0] ?? post.metadata.categories?.[0] ?? "Blog",
     );
-  const urlPath = `${blog.path}/${post.slug}`;
-
-  const keywords: string[] = Array.isArray(post.metadata?.categories)
-    ? post.metadata.categories
-    : [];
 
   return Meta.generate({
     title,
     description,
     baseURL,
     image: toAbs(image),
-    path: urlPath,
+    path: `${blog.path}/${post.slug}`,
   });
 }
 
-// ====== Página ======
-export default async function BlogPost({
-  params,
-}: PageProps) {
+export default async function BlogPost({ params }: PageProps) {
   const { slug } = await params;
   const slugPath = normalizeSlug(slug);
-  const post = getPosts(["src", "app", "blog", "posts"]).find(
-    (p) => p.slug === slugPath
-  );
+  const post = getPosts(["src", "app", "blog", "posts"]).find((item) => item.slug === slugPath);
 
-  if (!post) {
-    notFound();
-  }
+  if (!post) notFound();
 
-  const datePublished =
-    post.metadata.publishedAt ?? (post.metadata as any).date ?? undefined;
+  const datePublished = post.metadata.publishedAt ?? (post.metadata as { date?: string }).date;
   const dateModified =
     post.metadata.updatedAt ??
-    (post.metadata as any).updated ??
+    (post.metadata as { updated?: string }).updated ??
     post.metadata.publishedAt ??
-    (post.metadata as any).date ??
-    undefined;
+    (post.metadata as { date?: string }).date;
 
-  const pillar: string | undefined = post.metadata?.pillar;
-  const categories: string[] = Array.isArray(post.metadata?.categories)
-    ? post.metadata.categories
-    : [];
+  const pillar = post.metadata.pillar;
+  const categories = Array.isArray(post.metadata.categories) ? post.metadata.categories : [];
+  const tags = post.metadata.tags ?? (post.metadata.tag ? [post.metadata.tag] : []);
+  const keywords = post.metadata.keywords ?? [];
+  const summary = post.metadata.summary;
+  const highlightTags = tags.slice(0, 6);
 
   const authors =
     post.metadata.team && post.metadata.team.length > 0
-      ? post.metadata.team.map((a: any) => {
-          const img = a.avatar || person.avatar;
+      ? post.metadata.team.map((author) => {
+          const img = author.avatar || person.avatar;
+          const authorUrl = (author as { url?: string }).url;
           return {
-            name: a.name || person.name,
-            url: toAbs(a.url || about.path)!,
+            name: author.name || person.name,
+            url: toAbs(authorUrl || about.path)!,
             imageAbs: toAbs(img)!,
             imageLocal: toLocal(img)!,
           };
@@ -167,24 +146,14 @@ export default async function BlogPost({
     post.metadata.image ||
     buildOgImage(
       post.metadata.title,
-      post.metadata.tag ?? post.metadata.tags?.[0] ?? post.metadata.categories?.[0] ?? "Blog"
+      post.metadata.tag ?? post.metadata.tags?.[0] ?? post.metadata.categories?.[0] ?? "Blog",
     );
   const ogImage = toAbs(coverImage) || undefined;
-
   const canonicalPath = `${blog.path}/${post.slug}`;
   const readTimeMin = readingTimeMinutes(post.content);
 
-  const tags =
-    post.metadata.tags ??
-    (post.metadata.tag ? [post.metadata.tag] : []);
-
-  const keywords = post.metadata.keywords ?? [];
-  const summary = post.metadata.summary;
-  const highlightTags = tags.slice(0, 6);
-
   return (
     <>
-      {/* Progress bar fixa */}
       <ReadingProgress watchId="article-content" />
 
       <Row fillWidth>
@@ -192,12 +161,12 @@ export default async function BlogPost({
         <Row fillWidth horizontal="center">
           <Column
             as="section"
+            className={styles.page}
             maxWidth="m"
             horizontal="center"
             gap="l"
             paddingTop="24"
           >
-            {/* Schema.org */}
             <Schema
               as="blogPosting"
               baseURL={baseURL}
@@ -214,15 +183,13 @@ export default async function BlogPost({
               }}
             />
 
-            {/* Header */}
-            <Column maxWidth="s" gap="16">
+            <Column className={styles.heroGlow} maxWidth="s" gap="16">
               <SmartLink href="/blog">
                 <Text variant="label-strong-m">← Blog</Text>
               </SmartLink>
 
-              <Heading variant="display-strong-m">
-                {post.metadata.title}
-              </Heading>
+              <Heading variant="display-strong-m">{post.metadata.title}</Heading>
+              <div className={styles.accentLine} />
 
               <Row gap="8" wrap>
                 <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
@@ -234,11 +201,11 @@ export default async function BlogPost({
               </Row>
 
               <Row gap="12" vertical="center" wrap>
-                {authors.slice(0, 3).map((a, i) => (
-                  <Avatar key={i} size="s" src={a.imageLocal} />
+                {authors.slice(0, 3).map((author, index) => (
+                  <Avatar key={index} size="s" src={author.imageLocal} />
                 ))}
                 <Text variant="label-default-m" onBackground="brand-weak">
-                  {authors.map((a) => a.name).join(", ")}
+                  {authors.map((author) => author.name).join(", ")}
                 </Text>
               </Row>
 
@@ -250,7 +217,7 @@ export default async function BlogPost({
                 />
               )}
 
-              {(pillar || (categories && categories.length > 0)) && (
+              {(pillar || categories.length > 0) && (
                 <Row gap="8" wrap>
                   {pillar && (
                     <Badge
@@ -265,10 +232,10 @@ export default async function BlogPost({
                       {pillar}
                     </Badge>
                   )}
-                  {categories?.map((cat) => (
+                  {categories.map((category) => (
                     <Badge
-                      key={cat}
-                      href={`/blog?tag=${encodeURIComponent(cat)}`}
+                      key={category}
+                      href={`/blog?tag=${encodeURIComponent(category)}`}
                       background="neutral-alpha-weak"
                       onBackground="neutral-strong"
                       textVariant="label-default-s"
@@ -276,7 +243,7 @@ export default async function BlogPost({
                       paddingY="8"
                       arrow={false}
                     >
-                      {cat}
+                      {category}
                     </Badge>
                   ))}
                 </Row>
@@ -285,6 +252,7 @@ export default async function BlogPost({
 
             {summary && (
               <Column
+                className={styles.sectionPanel}
                 fillWidth
                 gap="12"
                 paddingX="24"
@@ -307,17 +275,16 @@ export default async function BlogPost({
                   </Row>
                 )}
                 <Row gap="12" wrap>
-                  <Button href={daily.path} variant="secondary" size="s" arrowIcon>
-                    Ver diário aberto
+                  <Button href={work.path} variant="secondary" size="s" arrowIcon>
+                    Ver projetos
                   </Button>
                   <Button href={servicesPage.path} variant="tertiary" size="s" arrowIcon>
-                    Conhecer serviços
+                    Conhecer servicos
                   </Button>
                 </Row>
               </Column>
             )}
 
-            {/* Capa */}
             {coverImage && (
               <Media
                 src={toLocal(coverImage) ?? coverImage}
@@ -332,15 +299,10 @@ export default async function BlogPost({
               />
             )}
 
-            {/* Conteúdo do artigo */}
             <Column as="article" maxWidth="s" id="article-content">
-              <CustomMDX
-                source={post.content}
-                glossary={post.metadata.glossary ?? {}}
-              />
+              <CustomMDX source={post.content} glossary={post.metadata.glossary ?? {}} />
             </Column>
 
-            {/* ✅ RelatedPosts inteligente */}
             <RelatedPosts
               currentSlug={post.slug}
               pillar={pillar}
@@ -350,25 +312,14 @@ export default async function BlogPost({
               limit={4}
             />
 
-            {/* Compartilhar */}
-            <ShareSection
-              title={post.metadata.title}
-              url={`${baseURL}${canonicalPath}`}
-            />
+            <ShareSection title={post.metadata.title} url={`${baseURL}${canonicalPath}`} />
 
-            {/* Publicações recentes */}
             <Column fillWidth gap="32" horizontal="center" marginTop="40">
               <Line maxWidth="40" />
-
-              {/* ✅ Não usar h2/h3 fora do article-content */}
-              <Heading
-                as="div"
-                variant="heading-strong-xl"
-                marginBottom="12"
-                align="center"
-              >
-                Publicações recentes
+              <Heading as="div" variant="heading-strong-xl" marginBottom="12" align="center">
+                Publicacoes recentes
               </Heading>
+              <div className={styles.accentLine} />
 
               <Suspense fallback={<div style={{ height: 220 }} />}>
                 <Posts
@@ -385,7 +336,6 @@ export default async function BlogPost({
           </Column>
         </Row>
 
-        {/* TOC lateral */}
         <Column
           maxWidth={12}
           paddingLeft="40"
@@ -403,10 +353,9 @@ export default async function BlogPost({
             textVariant="label-default-s"
           >
             <Icon name="document" size="xs" />
-            Nesta página
+            Nesta pagina
           </Row>
 
-          {/* ✅ TOC inteligente que lê só headings do article */}
           <ArticleToc containerId="article-content" />
         </Column>
       </Row>

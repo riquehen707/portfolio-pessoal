@@ -12,6 +12,7 @@ import {
   SmartLink,
   Row,
   Line,
+  Tag,
 } from "@once-ui-system/core";
 
 import { getPosts } from "@/utils/utils";
@@ -20,6 +21,13 @@ import { formatDate } from "@/utils/formatDate";
 import { buildOgImage } from "@/utils/og";
 import { ScrollToHash, CustomMDX } from "@/components";
 import { Projects } from "@/components/work/Projects";
+import styles from "../../section.module.scss";
+
+const kindLabels = {
+  client: "Case de cliente",
+  personal: "Projeto pessoal",
+  study: "Estudo de caso",
+} as const;
 
 // ISR estável
 export const revalidate = false;
@@ -112,9 +120,18 @@ export default async function ProjectPage({ params }: PageProps) {
 
   const ogImage = toAbs(cover);
   const canonicalPath = `${work.path}/${post.slug}`;
+  const kindLabel = post.metadata.kind ? kindLabels[post.metadata.kind] : undefined;
+  const stack = post.metadata.stack ?? post.metadata.tags ?? [];
 
   return (
-    <Column as="section" maxWidth="m" horizontal="center" gap="l" paddingTop="24">
+    <Column
+      as="section"
+      className={styles.page}
+      maxWidth="m"
+      horizontal="center"
+      gap="l"
+      paddingTop="24"
+    >
       {/* Para página de projeto, "article" é ok (se o Schema aceitar "CreativeWork", pode trocar) */}
       <Schema
         as="article"
@@ -133,7 +150,7 @@ export default async function ProjectPage({ params }: PageProps) {
       />
 
       {/* Breadcrumb + título */}
-      <Column maxWidth="s" gap="12" horizontal="center" align="center">
+      <Column className={styles.heroGlow} maxWidth="s" gap="12" horizontal="center" align="center">
         <SmartLink href="/work">
           <Text variant="label-strong-m">Projetos</Text>
         </SmartLink>
@@ -147,6 +164,26 @@ export default async function ProjectPage({ params }: PageProps) {
         <Heading variant="display-strong-m" align="center">
           {post.metadata.title}
         </Heading>
+        <div className={styles.accentLine} />
+        {post.metadata.summary && (
+          <Text align="center" onBackground="neutral-weak" wrap="balance">
+            {post.metadata.summary}
+          </Text>
+        )}
+        {(kindLabel || stack.length > 0) && (
+          <Row gap="8" wrap horizontal="center">
+            {kindLabel && (
+              <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+                {kindLabel}
+              </Tag>
+            )}
+            {stack.slice(0, 5).map((item) => (
+              <Tag key={`${post.slug}-${item}`} size="s" background="neutral-alpha-weak">
+                {item}
+              </Tag>
+            ))}
+          </Row>
+        )}
       </Column>
 
       {/* Equipe (se houver) */}
@@ -200,6 +237,7 @@ export default async function ProjectPage({ params }: PageProps) {
         <Heading as="h2" variant="heading-strong-xl" marginBottom="12" align="center">
           Projetos relacionados
         </Heading>
+        <div className={styles.accentLine} />
         <Projects exclude={[post.slug]} range={[2]} />
       </Column>
 

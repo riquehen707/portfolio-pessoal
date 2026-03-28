@@ -1,17 +1,19 @@
 import {
-  Column,
-  Heading,
-  Text,
   Button,
-  Row,
-  Line,
-  Schema,
-  Grid,
-  Tag,
   Card,
+  Column,
+  Grid,
+  Heading,
+  Row,
+  Schema,
+  Tag,
+  Text,
 } from "@once-ui-system/core";
-import { baseURL, person, productsPage, services, servicesPage } from "@/resources";
-import styles from "../section.module.scss";
+
+import { baseURL, person, products, productsPage, services, servicesPage, work } from "@/resources";
+
+import sectionStyles from "../section.module.scss";
+import styles from "./services.module.scss";
 
 export async function generateMetadata() {
   return {
@@ -27,64 +29,77 @@ export async function generateMetadata() {
   };
 }
 
+const categoryLabels = {
+  package: "Pacotes",
+  microservice: "Micro-servicos",
+  saas: "SaaS",
+} as const;
+
 export default function ServicesPage() {
-  const pillars = [
-    "Visibilidade",
-    "Praticidade",
-    "Economia de Tempo",
-    "Velocidade",
-    "Autoridade",
-    "Profissionalismo",
-    "Conversão",
-    "Credibilidade",
-  ];
-  const serviceFlow = [
+  const offerCounts = {
+    package: products.filter((item) => item.category === "package").length,
+    microservice: products.filter((item) => item.category === "microservice").length,
+    saas: products.filter((item) => item.category === "saas").length,
+  };
+
+  const lanes = [
     {
-      title: "Diagnóstico e direção",
-      description:
-        "Mapeamento rápido do contexto, objetivos e métricas para definir um plano claro e viável.",
+      label: "Camada 1",
+      title: "Servicos sob medida",
+      description: "Projetos maiores, com estrategia, design, implementacao e entrega completa.",
+      meta: `${services.length} frentes principais`,
+      href: servicesPage.path,
+      cta: "Ver servicos",
     },
     {
-      title: "Execução com foco em conversão",
-      description:
-        "Design, desenvolvimento e SEO técnico alinhados para performance e resultados reais.",
+      label: "Camada 2",
+      title: "Pacotes",
+      description: "Escopos mais fechados para sair do zero com menos atrito e mais previsibilidade.",
+      meta: `${offerCounts.package} opcoes`,
+      href: productsPage.path,
+      cta: "Ver pacotes",
     },
     {
-      title: "Entrega e evolução",
-      description:
-        "Documentação, handoff e ajustes finos baseados em dados para manter a operação saudável.",
-    },
-  ];
-  const faqs = [
-    {
-      question: "Consigo começar com um escopo menor?",
-      answer:
-        "Sim. Podemos iniciar com um diagnóstico ou sprint curto e evoluir conforme o aprendizado.",
+      label: "Camada 3",
+      title: "Micro-servicos",
+      description: "Ajustes menores para corrigir, melhorar ou destravar algo pontual.",
+      meta: `${offerCounts.microservice} opcoes`,
+      href: productsPage.path,
+      cta: "Ver micro-servicos",
     },
     {
-      question: "Vocês ajudam com conteúdo e SEO?",
-      answer:
-        "Sim. Os serviços já incluem SEO técnico e recomendações de conteúdo para acelerar resultados.",
-    },
-    {
-      question: "Quanto tempo leva cada projeto?",
-      answer:
-        "Depende do escopo, mas normalmente varia entre 2 e 8 semanas com entregas semanais.",
+      label: "Camada 4",
+      title: "SaaS e ferramentas",
+      description: "Ferramentas proprias, gratuitas, pagas ou em beta, para apoiar execucao e diagnostico.",
+      meta: `${offerCounts.saas} opcoes`,
+      href: productsPage.path,
+      cta: "Ver ferramentas",
     },
   ];
 
-  const renderList = (items: string[], keyPrefix: string) => (
-    <Column as="ul" gap="8">
-      {items.map((item, index) => (
-        <Text as="li" variant="body-default-s" key={`${keyPrefix}-${index}`}>
-          {item}
-        </Text>
-      ))}
-    </Column>
-  );
+  const offerHighlights = [
+    {
+      title: "Pacotes prontos para entrada rapida",
+      description:
+        "Pensados para quem quer resolver um problema comum sem abrir um projeto grande logo de inicio.",
+      meta: `${offerCounts.package} pacotes`,
+    },
+    {
+      title: "Micro-servicos tecnicos",
+      description:
+        "Bom para refino visual, melhorias em SEO tecnico, Core Web Vitals ou integracoes pontuais.",
+      meta: `${offerCounts.microservice} micro-servicos`,
+    },
+    {
+      title: "Ferramentas e SaaS autorais",
+      description:
+        "Inclui itens gratuitos e ofertas em beta para tornar diagnostico, escopo e rotina editorial mais claros.",
+      meta: `${offerCounts.saas} ferramentas`,
+    },
+  ];
 
   return (
-    <Column className={styles.page} maxWidth="m" paddingTop="24" gap="24">
+    <Column className={sectionStyles.page} maxWidth="m" paddingTop="24" gap="24">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -99,226 +114,207 @@ export default function ServicesPage() {
         }}
       />
 
-      <Column className={styles.heroGlow} gap="12">
+      <Column className={sectionStyles.heroGlow} gap="16">
+        <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+          Oferta organizada por camadas
+        </Tag>
         <Heading as="h1" variant="heading-strong-xl">
           {servicesPage.title}
         </Heading>
-        <div className={styles.accentLine} />
+        <div className={sectionStyles.accentLine} />
         <Text variant="heading-default-xs" onBackground="neutral-weak">
           {servicesPage.intro.headline}
         </Text>
-
         <Text variant="body-default-m" onBackground="neutral-weak">
           {servicesPage.intro.lead}
         </Text>
+        <Row className={styles.heroActions} gap="12" wrap>
+          <Button href={productsPage.path} variant="primary" size="m" arrowIcon>
+            Ver pacotes e ferramentas
+          </Button>
+          <Button href={work.path} variant="secondary" size="m" arrowIcon>
+            Ver projetos
+          </Button>
+        </Row>
       </Column>
 
-      <Grid columns="3" s={{ columns: 1 }} gap="16">
-        {serviceFlow.map((step, index) => (
+      <Grid columns="4" s={{ columns: 1 }} gap="16">
+        {lanes.map((lane) => (
           <Card
-            className={styles.cardTint}
-            key={step.title}
+            className={styles.laneCard}
+            key={lane.title}
             direction="column"
             gap="12"
             paddingX="20"
             paddingY="20"
             radius="l"
             background="surface"
-            style={{ background: "var(--surface-weak)" }}
+            border="neutral-alpha-weak"
             fillHeight
           >
-            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-              Etapa {index + 1}
-            </Tag>
+            <Text variant="label-default-s" onBackground="neutral-weak">
+              {lane.label}
+            </Text>
             <Heading as="h2" variant="heading-strong-m">
-              {step.title}
+              {lane.title}
             </Heading>
-            <Text onBackground="neutral-weak">{step.description}</Text>
+            <Text onBackground="neutral-weak">{lane.description}</Text>
+            <Text className={styles.serviceMeta} variant="body-default-s" onBackground="neutral-weak">
+              {lane.meta}
+            </Text>
+            <Button href={lane.href} variant="tertiary" size="s" arrowIcon>
+              {lane.cta}
+            </Button>
           </Card>
         ))}
       </Grid>
 
       <Column
-        className={styles.sectionPanel}
+        className={sectionStyles.sectionPanel}
         gap="16"
         padding="24"
         radius="l"
         background="surface"
         style={{ background: "var(--surface-weak)" }}
       >
-        <Heading as="h2" variant="heading-strong-s">
-          Oito pilares estratégicos
-        </Heading>
-        <div className={styles.accentLine} />
-        <Text onBackground="neutral-weak">
-          Cada serviço usa estes pilares como base para posicionamento, arquitetura e entrega.
-        </Text>
-        <Row wrap gap="8">
-          {pillars.map((pillar) => (
-            <Tag key={pillar} size="s">
-              {pillar}
-            </Tag>
-          ))}
-        </Row>
-      </Column>
+        <Column gap="8">
+          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+            Servicos sob medida
+          </Tag>
+          <Heading as="h2" variant="display-strong-s">
+            Tres frentes principais
+          </Heading>
+          <Text onBackground="neutral-weak">
+            A camada principal ficou mais direta: o que cada servico resolve, para quem serve e qual
+            a faixa inicial de entrada.
+          </Text>
+        </Column>
 
-      <Grid columns="1" gap="0">
-        {services.map((service) => (
-          <Column
-            className={styles.sectionPanel}
-            key={service.slug}
-            gap="16"
-            padding="32"
-            radius="l"
-            background="surface"
-            style={{ background: "var(--surface-weak)" }}
-          >
-            <Tag size="s">{service.badge}</Tag>
-            <Heading variant="display-strong-s">{service.title}</Heading>
-            <div className={styles.accentLine} />
-            <Text onBackground="neutral-weak">{service.positioning}</Text>
-            <Text onBackground="neutral-weak">{service.hero.description}</Text>
-            <Row gap="12">
-              <Text variant="label-default-m">{service.hero.price}</Text>
-              <Text variant="label-default-m" onBackground="neutral-weak">
-                {service.investmentRange}
-              </Text>
-            </Row>
-            <Text variant="body-default-s">{service.summary}</Text>
-            <Text variant="label-default-m">Ideal para: {service.idealFor}</Text>
-            {service.highlights?.length > 0 && (
-              <Row wrap gap="8">
-                {service.highlights.map((highlight, index) => (
-                  <Tag
-                    key={`${service.slug}-highlight-${index}`}
-                    size="s"
-                    background="neutral-alpha-weak"
-                  >
-                    {highlight.label}: {highlight.value}
+        <Grid columns="3" s={{ columns: 1 }} gap="16">
+          {services.map((service) => (
+            <Card
+              className={styles.serviceCard}
+              key={service.slug}
+              direction="column"
+              gap="12"
+              paddingX="20"
+              paddingY="20"
+              radius="l"
+              background="surface"
+              border="neutral-alpha-weak"
+              fillHeight
+            >
+              <Row gap="8" wrap>
+                <Tag size="s">{service.badge}</Tag>
+                {service.tags.slice(0, 2).map((tag) => (
+                  <Tag key={`${service.slug}-${tag}`} size="s" background="neutral-alpha-weak">
+                    {tag}
                   </Tag>
                 ))}
               </Row>
-            )}
-            <Line maxWidth="40" />
-            <Column gap="8">
-              <Text variant="label-default-m">Posicionamento estratégico</Text>
-              <Text variant="body-default-s">{service.solution}</Text>
-            </Column>
-            <Grid columns="3" s={{ columns: 1 }} gap="12">
-              <Column
-                padding="12"
-                radius="m"
-                background="page"
-                className={styles.cardTint}
-                gap="8"
-              >
-                <Text variant="label-default-s">Entregáveis</Text>
-                {renderList(service.deliverables, `${service.slug}-deliverables`)}
-              </Column>
-              <Column
-                padding="12"
-                radius="m"
-                background="page"
-                className={styles.cardTint}
-                gap="8"
-              >
-                <Text variant="label-default-s">Diferenciais</Text>
-                {renderList(service.differentiators, `${service.slug}-differentials`)}
-              </Column>
-              <Column
-                padding="12"
-                radius="m"
-                background="page"
-                className={styles.cardTint}
-                gap="8"
-              >
-                <Text variant="label-default-s">Resultados esperados</Text>
-                {renderList(service.outcomes, `${service.slug}-outcomes`)}
-              </Column>
-            </Grid>
-            <Column gap="8">
-              <Text variant="label-default-m">Como entrego</Text>
-              {renderList(service.process, `${service.slug}-process`)}
-            </Column>
-            <Grid columns="2" s={{ columns: 1 }} gap="12">
-              {service.pillars.map((pillar) => (
-                <Column
-                  key={pillar.title}
-                  padding="12"
-                  radius="m"
-                  background="page"
-                  className={styles.cardTint}
-                >
-                  <Text variant="label-default-s">{pillar.title}</Text>
-                  <Text variant="body-default-s">{pillar.detail}</Text>
-                </Column>
-              ))}
-            </Grid>
-            <Row gap="16" wrap>
-              <Button href={`${servicesPage.path}/${service.slug}`} variant="primary" size="m" arrowIcon>
-                Ver landing completa
+              <Heading as="h3" variant="heading-strong-m">
+                {service.title}
+              </Heading>
+              <Text onBackground="neutral-weak">{service.summary}</Text>
+              <Text className={styles.serviceMeta} variant="body-default-s" onBackground="neutral-weak">
+                {service.hero.price} | {service.hero.duration}
+              </Text>
+              <Button href={`${servicesPage.path}/${service.slug}`} variant="primary" size="s" arrowIcon>
+                Ver landing
               </Button>
-              <Button href={`mailto:oi@henriquereis.dev?subject=${encodeURIComponent(service.title)}`} variant="tertiary">
-                Receber orçamento
-              </Button>
-            </Row>
-          </Column>
-        ))}
-      </Grid>
-
-      <Column
-        className={styles.sectionPanel}
-        gap="12"
-        padding="24"
-        radius="l"
-        background="surface"
-        style={{ background: "var(--surface-weak)" }}
-      >
-        <Heading as="h2" variant="heading-strong-s">
-          Categoria Especial — Soluções Prontas / Kits Profissionais
-        </Heading>
-        <div className={styles.accentLine} />
-        <Text onBackground="neutral-weak">
-          {productsPage.note} {productsPage.cta}
-        </Text>
-        <Text variant="label-default-m">Faixa de valores: R$ 15 a R$ 450</Text>
-        <Row gap="12" wrap>
-          <Button href={productsPage.path} variant="primary" size="m" arrowIcon>
-            Ver kits profissionais
-          </Button>
-        </Row>
+            </Card>
+          ))}
+        </Grid>
       </Column>
 
       <Column
-        className={styles.sectionPanel}
+        className={sectionStyles.sectionPanel}
         gap="16"
         padding="24"
         radius="l"
         background="surface"
         style={{ background: "var(--surface-weak)" }}
       >
-        <Heading as="h2" variant="heading-strong-s">
-          Perguntas frequentes
-        </Heading>
-        <div className={styles.accentLine} />
-        <Column gap="12">
-          {faqs.map((faq) => (
-            <Column key={faq.question} gap="4">
-              <Text variant="label-default-m">{faq.question}</Text>
-              <Text onBackground="neutral-weak">{faq.answer}</Text>
-            </Column>
-          ))}
+        <Column gap="8">
+          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+            Entrada menor
+          </Tag>
+          <Heading as="h2" variant="display-strong-s">
+            Pacotes, micro-servicos e SaaS
+          </Heading>
+          <Text onBackground="neutral-weak">
+            Nem toda demanda precisa nascer como projeto completo. Essa camada facilita a entrada para
+            ajustes pontuais, pacotes fechados e ferramentas proprias.
+          </Text>
         </Column>
-        <Row gap="12" wrap>
-          <Button href={`mailto:${person.email}`} variant="primary" size="m" arrowIcon>
-            Solicitar proposta
+
+        <Grid columns="3" s={{ columns: 1 }} gap="16">
+          {offerHighlights.map((item, index) => (
+            <Card
+              className={styles.statCard}
+              key={item.title}
+              direction="column"
+              gap="12"
+              paddingX="20"
+              paddingY="20"
+              radius="l"
+              background="surface"
+              border="neutral-alpha-weak"
+              fillHeight
+            >
+              <Tag size="s" background="neutral-alpha-weak">
+                {index === 0 ? categoryLabels.package : index === 1 ? categoryLabels.microservice : categoryLabels.saas}
+              </Tag>
+              <Heading as="h3" variant="heading-strong-m">
+                {item.title}
+              </Heading>
+              <Text onBackground="neutral-weak">{item.description}</Text>
+              <Text className={styles.serviceMeta} variant="body-default-s" onBackground="neutral-weak">
+                {item.meta}
+              </Text>
+            </Card>
+          ))}
+        </Grid>
+
+        <Row className={styles.ctaBar} gap="12" wrap>
+          <Button href={productsPage.path} variant="primary" size="m" arrowIcon>
+            Abrir catalogo completo
           </Button>
-          <Button href="/about" variant="secondary" size="m" arrowIcon>
-            Conhecer o estúdio
+          <Button href={`mailto:${person.email}`} variant="tertiary" size="m" arrowIcon>
+            Tirar uma duvida
           </Button>
         </Row>
       </Column>
+
+      <Card
+        className={styles.ctaPanel}
+        direction="column"
+        gap="16"
+        paddingX="24"
+        paddingY="24"
+        radius="l"
+        background="surface"
+        border="neutral-alpha-weak"
+      >
+        <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+          Escolha simples
+        </Tag>
+        <Heading as="h2" variant="display-strong-s">
+          Se ainda nao sabe o formato certo, comece pelo problema
+        </Heading>
+        <Text onBackground="neutral-weak">
+          Se a demanda e estrutural, a entrada costuma ser um servico sob medida. Se o problema e mais
+          pontual ou exploratorio, pacotes, micro-servicos e ferramentas fazem mais sentido.
+        </Text>
+        <Row className={styles.ctaBar} gap="12" wrap>
+          <Button href={`mailto:${person.email}`} variant="primary" size="m" arrowIcon>
+            Conversar sobre o escopo
+          </Button>
+          <Button href={work.path} variant="secondary" size="m" arrowIcon>
+            Ver projetos antes
+          </Button>
+        </Row>
+      </Card>
     </Column>
   );
 }
-

@@ -1,0 +1,44 @@
+.root {
+  position: relative;
+}
+
+.heading {
+  align-items: center;
+}
+
+.panel,
+.summary {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--metal-border);
+  border-radius: 1.4rem;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 24%, rgba(255, 255, 255, 0.03) 52%, transparent 100%),
+    var(--surface-panel);
+  box-shadow: var(--metal-shadow-soft);
+}
+
+.panel::before,
+.summary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 14% 8%, rgba(82, 144, 255, 0.12), transparent 34%),
+    radial-gradient(circle at 86% 0%, rgba(255, 112, 80, 0.12), transparent 28%);
+  pointer-events: none;
+}
+
+.panel > *,
+.summary > * {
+  position: relative;
+  z-index: 1;
+}
+
+.selection {
+  min-height: 2rem;
+}
+
+.summaryValue {
+  letter-spacing: -0.04em;
+}

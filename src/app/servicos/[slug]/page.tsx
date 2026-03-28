@@ -1,8 +1,21 @@
 import { notFound } from "next/navigation";
-import { Column, Heading, Text, Button, Row, Line, Schema, Tag, Grid, Card } from "@once-ui-system/core";
+import {
+  Button,
+  Card,
+  Column,
+  Grid,
+  Heading,
+  Row,
+  Schema,
+  Tag,
+  Text,
+} from "@once-ui-system/core";
 
-import { baseURL, person, servicesPage, services } from "@/resources";
 import { WebsiteEstimator } from "@/components/services/WebsiteEstimator";
+import { baseURL, person, services, servicesPage } from "@/resources";
+
+import sectionStyles from "../../section.module.scss";
+import styles from "../services.module.scss";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -31,297 +44,17 @@ export async function generateStaticParams() {
 export default async function ServiceLandingPage({ params }: PageProps) {
   const { slug } = await params;
   const service = services.find((item) => item.slug === slug);
+
   if (!service) notFound();
-  const isWebsitesService = service.slug === "websites-profissionais";
+
   const heroStats = [
-    { label: "Investimento", value: service.hero.price },
+    { label: "Entrada", value: service.hero.price },
     { label: "Prazo", value: service.hero.duration },
-    { label: "Modelo", value: service.hero.budget },
-  ];
-  const heroTags = isWebsitesService
-    ? ["UX", "UI", "SEO", "Performance"]
-    : ["Estratégia", "Conversão", "Performance"];
-
-  const websiteVariants = [
-    {
-      title: "Landing pages de conversão",
-      description:
-        "Páginas rápidas para campanhas, lançamentos e captação de leads com foco em taxa de conversão.",
-      includes: [
-        "Estrutura de UX focada em jornada",
-        "Estrutura de copy orientada a oferta",
-        "Formulários e integrações básicas",
-        "SEO técnico essencial",
-      ],
-      investment: "Faixa indicativa: a partir de R$ 1.500",
-      budget: "Impacto no orçamento: baixo a médio",
-      timeline: "Prazo típico: 2–4 semanas",
-    },
-    {
-      title: "Sites institucionais para profissionais",
-      description:
-        "Sites completos para autoridade e presença digital de profissionais, consultorias e pequenos negócios.",
-      includes: [
-        "Arquitetura de informação e UX",
-        "Arquitetura de páginas e navegação",
-        "Design responsivo com foco em clareza",
-        "SEO técnico e performance",
-      ],
-      investment: "Faixa indicativa: a partir de R$ 3.500",
-      budget: "Impacto no orçamento: médio",
-      timeline: "Prazo típico: 3–6 semanas",
-    },
-    {
-      title: "E-commerce completo",
-      description:
-        "Estrutura de catálogo, checkout e logística com integrações de pagamento e automações.",
-      includes: [
-        "UX de compra e jornada de checkout",
-        "Catálogo e gestão de produtos",
-        "Checkout com múltiplos meios de pagamento",
-        "Fluxos de e-mail/WhatsApp e automações",
-      ],
-      investment: "Faixa indicativa: a partir de R$ 8.000",
-      budget: "Impacto no orçamento: alto",
-      timeline: "Prazo típico: 6–10 semanas",
-    },
-    {
-      title: "E-commerce + aplicativo",
-      description:
-        "Experiência completa com app complementar (PWA ou nativo) para fidelização e recorrência.",
-      includes: [
-        "UX omnichannel e recorrência",
-        "App com push e área do cliente",
-        "Integração com catálogo e pagamentos",
-        "Arquitetura escalável para crescimento",
-      ],
-      investment: "Faixa indicativa: a partir de R$ 18.000",
-      budget: "Impacto no orçamento: alto +",
-      timeline: "Prazo típico: 8–14 semanas",
-    },
-  ];
-
-  const techMatrix = [
-    {
-      title: "Stack padrão (Next.js + Once UI)",
-      impact: "Base",
-      changes: "Máxima performance e SEO; reduz tempo e custo de manutenção.",
-      timeline: "Entrega mais rápida",
-    },
-    {
-      title: "Design system / UI library",
-      impact: "Baixo a médio",
-      changes: "Acelera interface com consistência visual e componentes prontos.",
-      timeline: "Prazo +0 a 1 semana",
-    },
-    {
-      title: "CMS headless (ex.: Sanity, Strapi)",
-      impact: "Médio",
-      changes: "Adiciona painel editorial e modelagem de conteúdo.",
-      timeline: "Prazo +1 a 2 semanas",
-    },
-    {
-      title: "E-commerce (ex.: Shopify, Nuvemshop)",
-      impact: "Alto",
-      changes: "Checkout, catálogo, estoque e integrações financeiras.",
-      timeline: "Prazo +2 a 4 semanas",
-    },
-    {
-      title: "Pagamentos customizados (ex.: Stripe, Mercado Pago)",
-      impact: "Médio a alto",
-      changes: "Maior flexibilidade no checkout e recorrência.",
-      timeline: "Prazo +1 a 3 semanas",
-    },
-    {
-      title: "PWA / App complementar",
-      impact: "Alto +",
-      changes: "Offline, notificações e experiência mobile avançada.",
-      timeline: "Prazo +4 a 8 semanas",
-    },
-    {
-      title: "Automações e CRM",
-      impact: "Médio",
-      changes: "Follow-ups, cadência de vendas e visão de dados centralizada.",
-      timeline: "Prazo +1 a 2 semanas",
-    },
-  ];
-
-  const commerceModels = [
-    {
-      title: "Plataforma pronta",
-      description:
-        "Shopify, Nuvemshop ou similares. Rápido de lançar e com checkout já validado.",
-      impact: "Impacto: médio",
-    },
-    {
-      title: "Headless commerce",
-      description:
-        "Next.js no front com Shopify ou outra engine no back. Máxima flexibilidade visual.",
-      impact: "Impacto: alto",
-    },
-    {
-      title: "Custom commerce",
-      description:
-        "Stack sob medida para regras complexas, assinaturas ou operações específicas.",
-      impact: "Impacto: alto +",
-    },
-  ];
-
-  const paymentOptions = [
-    "Cartão, PIX, boleto e parcelamento",
-    "Assinaturas e recorrência",
-    "Cupons, descontos e upsell",
-    "Gateways como Mercado Pago, Stripe, Pagar.me, PagSeguro ou Asaas",
-  ];
-
-  const appOptions = [
-    {
-      title: "PWA (web app)",
-      description: "Mais rápido de lançar, funciona como app no celular.",
-      impact: "Impacto: médio",
-    },
-    {
-      title: "App híbrido (React Native/Flutter)",
-      description: "Boa performance e custo menor que apps nativos separados.",
-      impact: "Impacto: alto",
-    },
-    {
-      title: "App nativo (iOS + Android)",
-      description: "Performance máxima e integrações profundas com dispositivo.",
-      impact: "Impacto: alto +",
-    },
-  ];
-
-  const designApproaches = [
-    {
-      title: "UX/UI customizado do zero",
-      description:
-        "Pesquisa, wireframes e design exclusivo para o seu posicionamento e objetivos.",
-      impact: "Impacto: alto",
-    },
-    {
-      title: "Design system / UI library",
-      description:
-        "Uso de sistemas como Once UI, shadcn ou outros, com personalização visual.",
-      impact: "Impacto: médio",
-    },
-    {
-      title: "Híbrido (custom + sistema)",
-      description:
-        "Combina componentes prontos com telas-chave desenhadas do zero.",
-      impact: "Impacto: médio a alto",
-    },
-  ];
-
-  const uxDeliverables = [
-    "Mapeamento de jornada e arquitetura de informação",
-    "Wireframes e protótipo navegável",
-    "UI kit, tipografia e regras visuais",
-    "Design responsivo (desktop, tablet e mobile)",
-    "Acessibilidade e consistência visual",
-  ];
-
-  const budgetFactors = [
-    {
-      title: "Quantidade de páginas e conteúdo",
-      description: "Mais páginas e conteúdo exigem mais design, revisão e QA.",
-    },
-    {
-      title: "Catálogo e variações de produto",
-      description: "E-commerce com variações, kits e combos aumenta o esforço.",
-    },
-    {
-      title: "Integrações externas",
-      description: "ERP, CRM, logística e automações elevam a complexidade.",
-    },
-    {
-      title: "Multilíngue e multiunidade",
-      description: "Sites com vários idiomas ou unidades exigem arquitetura extra.",
-    },
-  ];
-
-  const clientInputs = [
-    "Objetivo principal do site e público-alvo",
-    "Oferta, serviços e diferenciais claros",
-    "Referências visuais (2 a 4 exemplos)",
-    "Conteúdo inicial (textos, imagens, fotos)",
-    "Acesso a domínio e configurações necessárias",
-  ];
-
-  const pricingNotes = [
-    "Valores indicativos podem variar para menos ou mais, conforme escopo e integrações.",
-    "Faixas baseadas em entregas anteriores e benchmark internacional.",
-    "Referência de hora técnica: cerca de US$ 56.",
-  ];
-
-  const commerceLayers = [
-    {
-      title: "Pagamentos e checkout",
-      items: ["Cartão de crédito/débito", "PIX", "Boleto", "Assinaturas", "Cupons e descontos"],
-    },
-    {
-      title: "Operação e logística",
-      items: ["Catálogo", "Estoque", "Frete", "Gestão de pedidos", "Área do cliente"],
-    },
-    {
-      title: "Integrações essenciais",
-      items: ["Gateway de pagamento", "WhatsApp", "E-mail marketing", "Analytics"],
-    },
-  ];
-
-  const supportServices = [
-    {
-      title: "Apoio para venda de produtos específicos",
-      description:
-        "Estruturação de oferta, páginas de produto, copy, diferenciais e suporte de lançamento.",
-    },
-    {
-      title: "Conteúdo e SEO contínuo",
-      description:
-        "Calendário editorial, ajustes de SEO e otimizações de performance ao longo do tempo.",
-    },
-    {
-      title: "Automação comercial",
-      description:
-        "Fluxos de WhatsApp, e-mail e CRM para manter leads aquecidos e reduzir trabalho manual.",
-    },
-    {
-      title: "Manutenção e evolução contínua",
-      description:
-        "Ajustes mensais, melhorias de performance e SEO para manter o site gerando resultado.",
-    },
-  ];
-
-  const webFaqs = [
-    {
-      question: "Preciso já ter domínio e hospedagem?",
-      answer:
-        "Não. Posso orientar a compra de domínio e configurar a hospedagem mais adequada para o projeto.",
-    },
-    {
-      question: "Vocês produzem o conteúdo?",
-      answer:
-        "Posso ajudar com estrutura, revisão e ajustes de copy. A produção completa pode ser contratada à parte.",
-    },
-    {
-      question: "O site já sai pronto para SEO?",
-      answer:
-        "Sim. Entregamos com SEO técnico, estrutura limpa e base preparada para conteúdo.",
-    },
-    {
-      question: "Vocês trabalham com planos recorrentes?",
-      answer:
-        "Sim. A maior parte dos resultados vem do pós-lançamento, com SEO contínuo, manutenção e melhorias.",
-    },
-    {
-      question: "E a manutenção depois do lançamento?",
-      answer:
-        "Posso oferecer planos de manutenção e melhorias contínuas conforme a necessidade.",
-    },
+    { label: "Formato", value: service.scopes[0]?.title ?? "Sob medida" },
   ];
 
   return (
-    <Column maxWidth="m" paddingTop="24" gap="24">
+    <Column className={sectionStyles.page} maxWidth="m" paddingTop="24" gap="24">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -337,39 +70,46 @@ export default async function ServiceLandingPage({ params }: PageProps) {
       />
 
       <Card
+        className={sectionStyles.heroGlow}
         direction="column"
         gap="16"
         paddingX="24"
         paddingY="24"
         radius="l"
         background="surface"
-        style={{ background: "var(--surface-weak)" }}
         border="neutral-alpha-weak"
+        style={{ background: "var(--surface-weak)" }}
       >
         <Row gap="8" wrap>
           <Tag>{service.badge}</Tag>
-          {heroTags.map((tag) => (
-            <Tag key={tag} size="s" background="neutral-alpha-weak">
+          {service.tags.map((tag) => (
+            <Tag key={`${service.slug}-${tag}`} size="s" background="neutral-alpha-weak">
               {tag}
             </Tag>
           ))}
         </Row>
+
         <Heading as="h1" variant="heading-strong-xl">
           {service.title}
         </Heading>
+        <div className={sectionStyles.accentLine} />
         <Text onBackground="neutral-weak">{service.summary}</Text>
-        <Text variant="label-default-m">{service.positioning}</Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          {service.hero.description}
+        </Text>
+
         <Grid columns="3" s={{ columns: 1 }} gap="12">
           {heroStats.map((stat) => (
             <Card
+              className={styles.statCard}
               key={stat.label}
               direction="column"
               gap="8"
               paddingX="16"
               paddingY="16"
               radius="m"
-              background="page"
-              style={{ border: "1px solid var(--neutral-alpha-weak)" }}
+              background="surface"
+              border="neutral-alpha-weak"
             >
               <Text variant="label-default-s" onBackground="neutral-weak">
                 {stat.label}
@@ -378,84 +118,185 @@ export default async function ServiceLandingPage({ params }: PageProps) {
             </Card>
           ))}
         </Grid>
+
         <Text variant="label-default-m" onBackground="neutral-weak">
-          {service.idealFor}
+          Ideal para: {service.audience}
         </Text>
-        <Row gap="12" wrap>
-          <Text variant="label-default-m">{service.hero.highlight}</Text>
-          <Text variant="label-default-m" onBackground="neutral-weak">
-            {service.hero.duration}
-          </Text>
-        </Row>
-        <Text variant="body-default-s">{service.hero.description}</Text>
-        <Row gap="12" wrap>
+
+        <Row className={styles.heroActions} gap="12" wrap>
           <Button href={service.hero.ctaHref} variant="primary" size="m" arrowIcon>
             {service.hero.ctaLabel}
           </Button>
-          <Button href={`mailto:${person.email}`} variant="tertiary" size="m" arrowIcon>
-            Falar comigo
+          <Button href="/work" variant="secondary" size="m" arrowIcon>
+            Ver projetos
           </Button>
         </Row>
       </Card>
 
-      <Line maxWidth="40" />
+      <Column
+        className={sectionStyles.sectionPanel}
+        gap="16"
+        padding="24"
+        radius="l"
+        background="surface"
+        style={{ background: "var(--surface-weak)" }}
+      >
+        <Column gap="8">
+          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+            O que muda
+          </Tag>
+          <Heading as="h2" variant="display-strong-s">
+            Resultados esperados
+          </Heading>
+        </Column>
 
-      {isWebsitesService && (
-        <Column gap="24">
-          <Column gap="12">
-            <Heading as="h2" variant="heading-strong-s">
-              Tipos de projeto e escopo
-            </Heading>
-            <Text onBackground="neutral-weak">
-              Cada formato muda o esforço técnico, o cronograma e o investimento. Abaixo estão as
-              opções mais comuns para websites profissionais.
-            </Text>
-          </Column>
+        <Grid columns="3" s={{ columns: 1 }} gap="16">
+          {service.keyPoints.map((item) => (
+            <Card
+              className={styles.statCard}
+              key={`${service.slug}-${item}`}
+              direction="column"
+              gap="8"
+              paddingX="20"
+              paddingY="20"
+              radius="l"
+              background="surface"
+              border="neutral-alpha-weak"
+              fillHeight
+            >
+              <Text onBackground="neutral-weak">{item}</Text>
+            </Card>
+          ))}
+        </Grid>
+      </Column>
 
-          <Grid columns="2" s={{ columns: 1 }} gap="16">
-            {websiteVariants.map((variant) => (
-              <Card
-                key={variant.title}
-                direction="column"
-                gap="12"
-                paddingX="20"
-                paddingY="20"
-                radius="l"
-                background="surface"
-                style={{ background: "var(--surface-weak)" }}
-                border="neutral-alpha-weak"
-                fillHeight
-              >
-                <Heading as="h3" variant="heading-strong-m">
-                  {variant.title}
-                </Heading>
-                <Text onBackground="neutral-weak">{variant.description}</Text>
-                <Text variant="label-default-s" onBackground="neutral-weak">
-                  {variant.investment}
-                </Text>
-                <Tag size="s" background="neutral-alpha-weak">
-                  {variant.budget}
-                </Tag>
-                <Text variant="label-default-s" onBackground="neutral-weak">
-                  {variant.timeline}
-                </Text>
-                <Column as="ul" gap="8">
-                  {variant.includes.map((item) => (
-                    <Text as="li" key={`${variant.title}-${item}`} variant="body-default-s">
-                      {item}
-                    </Text>
-                  ))}
-                </Column>
-              </Card>
-            ))}
-          </Grid>
+      <Column
+        className={sectionStyles.sectionPanel}
+        gap="16"
+        padding="24"
+        radius="l"
+        background="surface"
+        style={{ background: "var(--surface-weak)" }}
+      >
+        <Column gap="8">
+          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+            Escopos comuns
+          </Tag>
+          <Heading as="h2" variant="display-strong-s">
+            Formatos de entrega
+          </Heading>
+          <Text onBackground="neutral-weak">
+            Cada formato muda profundidade, prazo e investimento. A entrada pode ser pequena e crescer
+            conforme o projeto prova valor.
+          </Text>
+        </Column>
 
-          <Column gap="8">
-            {pricingNotes.map((note) => (
-              <Text key={note} variant="body-default-s" onBackground="neutral-weak">
-                {note}
+        <Grid columns="3" s={{ columns: 1 }} gap="16">
+          {service.scopes.map((scope) => (
+            <Card
+              className={styles.serviceCard}
+              key={`${service.slug}-${scope.title}`}
+              direction="column"
+              gap="12"
+              paddingX="20"
+              paddingY="20"
+              radius="l"
+              background="surface"
+              border="neutral-alpha-weak"
+              fillHeight
+            >
+              <Heading as="h3" variant="heading-strong-m">
+                {scope.title}
+              </Heading>
+              <Text onBackground="neutral-weak">{scope.summary}</Text>
+              <Text className={styles.serviceMeta} variant="body-default-s" onBackground="neutral-weak">
+                {scope.investment} | {scope.timeline}
+              </Text>
+              <Column as="ul" className={styles.list} gap="8">
+                {scope.includes.map((item) => (
+                  <Text as="li" key={`${scope.title}-${item}`} variant="body-default-s">
+                    {item}
+                  </Text>
+                ))}
+              </Column>
+            </Card>
+          ))}
+        </Grid>
+      </Column>
+
+      <Grid columns="2" s={{ columns: 1 }} gap="16">
+        <Card
+          className={styles.serviceCard}
+          direction="column"
+          gap="12"
+          paddingX="20"
+          paddingY="20"
+          radius="l"
+          background="surface"
+          border="neutral-alpha-weak"
+        >
+          <Tag size="s" background="neutral-alpha-weak">
+            O que entra
+          </Tag>
+          <Heading as="h2" variant="heading-strong-m">
+            Escopo base
+          </Heading>
+          <Column as="ul" className={styles.list} gap="8">
+            {service.includes.map((item) => (
+              <Text as="li" key={`${service.slug}-${item}`} variant="body-default-s">
+                {item}
               </Text>
             ))}
+          </Column>
+        </Card>
+
+        <Card
+          className={styles.serviceCard}
+          direction="column"
+          gap="12"
+          paddingX="20"
+          paddingY="20"
+          radius="l"
+          background="surface"
+          border="neutral-alpha-weak"
+        >
+          <Tag size="s" background="neutral-alpha-weak">
+            Como funciona
+          </Tag>
+          <Heading as="h2" variant="heading-strong-m">
+            Processo resumido
+          </Heading>
+          <Column as="ol" className={styles.list} gap="8">
+            {service.process.map((item) => (
+              <Text as="li" key={`${service.slug}-${item}`} variant="body-default-s">
+                {item}
+              </Text>
+            ))}
+          </Column>
+        </Card>
+      </Grid>
+
+      {service.estimator && (
+        <Column
+          className={`${sectionStyles.sectionPanel} ${styles.estimatorAnchor}`}
+          gap="16"
+          id="estimativa-rapida"
+          padding="24"
+          radius="l"
+          background="surface"
+          style={{ background: "var(--surface-weak)" }}
+        >
+          <Column gap="8">
+            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+              Ferramenta gratuita
+            </Tag>
+            <Heading as="h2" variant="display-strong-s">
+              Estimativa rapida de escopo
+            </Heading>
+            <Text onBackground="neutral-weak">
+              O simulador ajuda a enxergar a diferenca entre tipos de projeto e modulos adicionais antes
+              de abrir um briefing completo.
+            </Text>
           </Column>
 
           <WebsiteEstimator
@@ -463,469 +304,75 @@ export default async function ServiceLandingPage({ params }: PageProps) {
             ctaLabel={service.hero.ctaLabel}
             contactEmail={person.email}
           />
-
-          <Line maxWidth="40" />
-
-          <Column gap="12">
-            <Heading as="h2" variant="heading-strong-s">
-              Tecnologias e impacto no orçamento
-            </Heading>
-            <Text onBackground="neutral-weak">
-              A escolha da tecnologia define a complexidade do projeto. Algumas decisões aumentam o
-              investimento, mas destravam operação e escala.
-            </Text>
-          </Column>
-
-          <Grid columns="3" s={{ columns: 1 }} gap="16">
-            {techMatrix.map((item) => (
-              <Card
-                key={item.title}
-                direction="column"
-                gap="12"
-                paddingX="20"
-                paddingY="20"
-                radius="l"
-                background="surface"
-                style={{ background: "var(--surface-weak)" }}
-                border="neutral-alpha-weak"
-                fillHeight
-              >
-                <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-                  Impacto: {item.impact}
-                </Tag>
-                <Heading as="h3" variant="heading-strong-m">
-                  {item.title}
-                </Heading>
-                <Text onBackground="neutral-weak">{item.changes}</Text>
-                <Text variant="label-default-s" onBackground="neutral-weak">
-                  {item.timeline}
-                </Text>
-              </Card>
-            ))}
-          </Grid>
-
-          <Column gap="12">
-            <Heading as="h2" variant="heading-strong-s">
-              UX e experiência visual
-            </Heading>
-            <Text onBackground="neutral-weak">
-              Posso criar um design totalmente exclusivo do zero ou acelerar com um design system
-              (Once UI, shadcn, ou outros). Existem várias possibilidades de UX e UI — a escolha
-              depende do posicionamento, orçamento e prazo.
-            </Text>
-          </Column>
-
-          <Grid columns="3" s={{ columns: 1 }} gap="16">
-            {designApproaches.map((item) => (
-              <Card
-                key={item.title}
-                direction="column"
-                gap="12"
-                paddingX="20"
-                paddingY="20"
-                radius="l"
-                background="surface"
-                style={{ background: "var(--surface-weak)" }}
-                border="neutral-alpha-weak"
-                fillHeight
-              >
-                <Tag size="s" background="neutral-alpha-weak">
-                  {item.impact}
-                </Tag>
-                <Heading as="h3" variant="heading-strong-m">
-                  {item.title}
-                </Heading>
-                <Text onBackground="neutral-weak">{item.description}</Text>
-              </Card>
-            ))}
-          </Grid>
-
-          <Card
-            direction="column"
-            gap="12"
-            paddingX="20"
-            paddingY="20"
-            radius="l"
-            background="surface"
-            style={{ background: "var(--surface-weak)" }}
-            border="neutral-alpha-weak"
-          >
-            <Heading as="h3" variant="heading-strong-m">
-              Entregáveis de UX e UI
-            </Heading>
-            <Column as="ul" gap="8">
-              {uxDeliverables.map((item) => (
-                <Text as="li" key={item} variant="body-default-s">
-                  {item}
-                </Text>
-              ))}
-            </Column>
-          </Card>
-
-          <Column gap="12">
-            <Heading as="h2" variant="heading-strong-s">
-              E-commerce completo e app
-            </Heading>
-            <Text onBackground="neutral-weak">
-              Quando o projeto envolve vendas recorrentes, o escopo inclui checkout, operação e
-              integrações. Aplicativo pode ser PWA ou nativo, conforme o modelo de negócio.
-            </Text>
-          </Column>
-
-          <Grid columns="3" s={{ columns: 1 }} gap="16">
-            {commerceModels.map((model) => (
-              <Card
-                key={model.title}
-                direction="column"
-                gap="12"
-                paddingX="20"
-                paddingY="20"
-                radius="l"
-                background="surface"
-                style={{ background: "var(--surface-weak)" }}
-                border="neutral-alpha-weak"
-                fillHeight
-              >
-                <Heading as="h3" variant="heading-strong-m">
-                  {model.title}
-                </Heading>
-                <Text onBackground="neutral-weak">{model.description}</Text>
-                <Tag size="s" background="neutral-alpha-weak">
-                  {model.impact}
-                </Tag>
-              </Card>
-            ))}
-          </Grid>
-
-          <Grid columns="3" s={{ columns: 1 }} gap="16">
-            {commerceLayers.map((layer) => (
-              <Card
-                key={layer.title}
-                direction="column"
-                gap="12"
-                paddingX="20"
-                paddingY="20"
-                radius="l"
-                background="surface"
-                style={{ background: "var(--surface-weak)" }}
-                border="neutral-alpha-weak"
-                fillHeight
-              >
-                <Heading as="h3" variant="heading-strong-m">
-                  {layer.title}
-                </Heading>
-                <Column as="ul" gap="8">
-                  {layer.items.map((item) => (
-                    <Text as="li" key={`${layer.title}-${item}`} variant="body-default-s">
-                      {item}
-                    </Text>
-                  ))}
-                </Column>
-              </Card>
-            ))}
-          </Grid>
-
-          <Card
-            direction="column"
-            gap="12"
-            paddingX="20"
-            paddingY="20"
-            radius="l"
-            background="surface"
-            style={{ background: "var(--surface-weak)" }}
-            border="neutral-alpha-weak"
-          >
-            <Heading as="h3" variant="heading-strong-m">
-              Formas de pagamento e checkout
-            </Heading>
-            <Column as="ul" gap="8">
-              {paymentOptions.map((item) => (
-                <Text as="li" key={item} variant="body-default-s">
-                  {item}
-                </Text>
-              ))}
-            </Column>
-          </Card>
-
-          <Column gap="12">
-            <Heading as="h2" variant="heading-strong-s">
-              Aplicativo e experiência mobile
-            </Heading>
-            <Text onBackground="neutral-weak">
-              O app pode ser PWA (mais rápido de lançar) ou nativo, dependendo de recursos e orçamento.
-            </Text>
-          </Column>
-
-          <Grid columns="3" s={{ columns: 1 }} gap="16">
-            {appOptions.map((option) => (
-              <Card
-                key={option.title}
-                direction="column"
-                gap="12"
-                paddingX="20"
-                paddingY="20"
-                radius="l"
-                background="surface"
-                style={{ background: "var(--surface-weak)" }}
-                border="neutral-alpha-weak"
-                fillHeight
-              >
-                <Tag size="s" background="neutral-alpha-weak">
-                  {option.impact}
-                </Tag>
-                <Heading as="h3" variant="heading-strong-m">
-                  {option.title}
-                </Heading>
-                <Text onBackground="neutral-weak">{option.description}</Text>
-              </Card>
-            ))}
-          </Grid>
-
-          <Column gap="12">
-            <Heading as="h2" variant="heading-strong-s">
-              O que mais pesa no orçamento
-            </Heading>
-            <Text onBackground="neutral-weak">
-              Estes fatores costumam ampliar esforço de design, desenvolvimento e integrações.
-            </Text>
-          </Column>
-
-          <Grid columns="2" s={{ columns: 1 }} gap="16">
-            {budgetFactors.map((factor) => (
-              <Card
-                key={factor.title}
-                direction="column"
-                gap="12"
-                paddingX="20"
-                paddingY="20"
-                radius="l"
-                background="surface"
-                style={{ background: "var(--surface-weak)" }}
-                border="neutral-alpha-weak"
-                fillHeight
-              >
-                <Heading as="h3" variant="heading-strong-m">
-                  {factor.title}
-                </Heading>
-                <Text onBackground="neutral-weak">{factor.description}</Text>
-              </Card>
-            ))}
-          </Grid>
-
-          <Card
-            direction="column"
-            gap="12"
-            paddingX="20"
-            paddingY="20"
-            radius="l"
-            background="surface"
-            style={{ background: "var(--surface-weak)" }}
-            border="neutral-alpha-weak"
-          >
-            <Heading as="h3" variant="heading-strong-m">
-              O que preciso de você para começar
-            </Heading>
-            <Column as="ul" gap="8">
-              {clientInputs.map((item) => (
-                <Text as="li" key={item} variant="body-default-s">
-                  {item}
-                </Text>
-              ))}
-            </Column>
-          </Card>
-
-          <Card
-            direction="column"
-            gap="12"
-            paddingX="20"
-            paddingY="20"
-            radius="l"
-            background="surface"
-            style={{ background: "var(--surface-weak)" }}
-            border="neutral-alpha-weak"
-          >
-            <Heading as="h3" variant="heading-strong-m">
-              Alinhamento antes de iniciar
-            </Heading>
-            <Text onBackground="neutral-weak">
-              Sempre faço uma reunião inicial para alinhar objetivos, orçamento e prioridades. Isso
-              ajuda a evitar investimentos sem planejamento e garante uma proposta realista.
-            </Text>
-            <Text onBackground="neutral-weak">
-              Resultados mais consistentes costumam vir do pós-lançamento, com SEO contínuo,
-              manutenção e evolução planejada.
-            </Text>
-          </Card>
-
-          <Column gap="12">
-            <Heading as="h2" variant="heading-strong-s">
-              Serviços complementares
-            </Heading>
-            <Text onBackground="neutral-weak">
-              Além do site, posso apoiar vendas e operação com serviços adicionais que aceleram o
-              resultado.
-            </Text>
-          </Column>
-
-          <Grid columns="3" s={{ columns: 1 }} gap="16">
-            {supportServices.map((item) => (
-              <Card
-                key={item.title}
-                direction="column"
-                gap="12"
-                paddingX="20"
-                paddingY="20"
-                radius="l"
-                background="surface"
-                style={{ background: "var(--surface-weak)" }}
-                border="neutral-alpha-weak"
-                fillHeight
-              >
-                <Heading as="h3" variant="heading-strong-m">
-                  {item.title}
-                </Heading>
-                <Text onBackground="neutral-weak">{item.description}</Text>
-              </Card>
-            ))}
-          </Grid>
-
-          <Column gap="12">
-            <Heading as="h2" variant="heading-strong-s">
-              Perguntas frequentes
-            </Heading>
-            <Column gap="12">
-              {webFaqs.map((faq) => (
-                <Card
-                  key={faq.question}
-                  direction="column"
-                  gap="8"
-                  paddingX="20"
-                  paddingY="20"
-                  radius="l"
-                  background="surface"
-                  style={{ background: "var(--surface-weak)" }}
-                  border="neutral-alpha-weak"
-                >
-                  <Text variant="label-default-m">{faq.question}</Text>
-                  <Text onBackground="neutral-weak">{faq.answer}</Text>
-                </Card>
-              ))}
-            </Column>
-          </Column>
-
-          <Row gap="12" wrap>
-            <Button href={service.hero.ctaHref} variant="primary" size="m" arrowIcon>
-              Solicitar proposta
-            </Button>
-            <Button href={`mailto:${person.email}`} variant="tertiary" size="m" arrowIcon>
-              Falar comigo
-            </Button>
-          </Row>
         </Column>
       )}
 
-      {/* Seções */}
-      <Column gap="8">
-        <Heading as="h2" variant="heading-strong-s">
-          Solução em destaque
-        </Heading>
-        <Text variant="body-default-s">{service.solution}</Text>
-        <Text variant="label-default-m">Faixa de investimento: {service.investmentRange}</Text>
-        <Text variant="label-default-m" onBackground="neutral-weak">
-          Principais entregas rápidas: {service.hero.price} · {service.hero.duration}
-        </Text>
-      </Column>
-
-      <Column gap="8">
-        <Heading as="h2" variant="heading-strong-s">
-          O que entregamos
-        </Heading>
-        <Column as="ul" gap="4">
-          {service.deliverables.map((item) => (
-            <Text key={item} as="li" variant="body-default-s">
-              {item}
-            </Text>
-          ))}
+      <Column
+        className={sectionStyles.sectionPanel}
+        gap="16"
+        padding="24"
+        radius="l"
+        background="surface"
+        style={{ background: "var(--surface-weak)" }}
+      >
+        <Column gap="8">
+          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+            Perguntas frequentes
+          </Tag>
+          <Heading as="h2" variant="display-strong-s">
+            O essencial antes de contratar
+          </Heading>
         </Column>
-      </Column>
 
-      <Column gap="8">
-        <Heading as="h2" variant="heading-strong-s">
-          Diferenças que importam
-        </Heading>
-        <Column as="ul" gap="4">
-          {service.differentiators.map((item) => (
-            <Text key={item} as="li" variant="body-default-s">
-              {item}
-            </Text>
-          ))}
-        </Column>
-      </Column>
-
-      <Column gap="8">
-        <Heading as="h2" variant="heading-strong-s">
-          Processo
-        </Heading>
-        <Column as="ol" gap="4">
-          {service.process.map((step) => (
-            <Text key={step} as="li" variant="body-default-s">
-              {step}
-            </Text>
-          ))}
-        </Column>
-      </Column>
-
-      <Column gap="8">
-        <Heading as="h2" variant="heading-strong-s">
-          Resultados esperados
-        </Heading>
-        <Column as="ul" gap="4">
-          {service.outcomes.map((outcome) => (
-            <Text key={outcome} as="li" variant="body-default-s">
-              {outcome}
-            </Text>
-          ))}
-        </Column>
-      </Column>
-
-      <Column gap="8">
-        <Heading as="h2" variant="heading-strong-s">
-          Pilares aplicados
-        </Heading>
-        <Grid columns="2" s={{ columns: 1 }} gap="12">
-          {service.pillars.map((pillar) => (
-            <Column
-              key={pillar.title}
-              padding="12"
-              radius="m"
+        <Column gap="12">
+          {service.faq.map((item) => (
+            <Card
+              className={styles.faqCard}
+              key={`${service.slug}-${item.question}`}
+              direction="column"
+              gap="8"
+              paddingX="20"
+              paddingY="20"
+              radius="l"
               background="surface"
-              style={{
-                border: "1px solid var(--neutral-alpha-weak)",
-                background: "var(--surface-weak)",
-              }}
+              border="neutral-alpha-weak"
             >
-              <Text variant="label-default-s">{pillar.title}</Text>
-              <Text variant="body-default-s">{pillar.detail}</Text>
-            </Column>
+              <Text variant="label-default-m">{item.question}</Text>
+              <Text onBackground="neutral-weak">{item.answer}</Text>
+            </Card>
           ))}
-        </Grid>
-        <Row gap="16" wrap>
-          {service.highlights.map((highlight) => (
-            <Column
-              key={highlight.label}
-              padding="12"
-              background="page"
-              radius="m"
-              style={{ border: "1px solid var(--neutral-alpha-weak)" }}
-            >
-              <Text variant="label-default-s" onBackground="neutral-weak">
-                {highlight.label}
-              </Text>
-              <Text variant="heading-strong-s">{highlight.value}</Text>
-            </Column>
-          ))}
-        </Row>
+        </Column>
       </Column>
+
+      <Card
+        className={styles.ctaPanel}
+        direction="column"
+        gap="16"
+        paddingX="24"
+        paddingY="24"
+        radius="l"
+        background="surface"
+        border="neutral-alpha-weak"
+      >
+        <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+          Proxima etapa
+        </Tag>
+        <Heading as="h2" variant="display-strong-s">
+          Se fizer sentido, eu transformo isso em um escopo claro
+        </Heading>
+        <Text onBackground="neutral-weak">
+          O melhor ponto de partida nao e a lista de funcionalidades, e sim o problema real do negocio.
+          A proposta nasce em cima disso.
+        </Text>
+        <Row className={styles.heroActions} gap="12" wrap>
+          <Button href={service.hero.ctaHref} variant="primary" size="m" arrowIcon>
+            {service.hero.ctaLabel}
+          </Button>
+          <Button href={`mailto:${person.email}`} variant="tertiary" size="m" arrowIcon>
+            Enviar contexto por e-mail
+          </Button>
+        </Row>
+      </Card>
     </Column>
   );
 }

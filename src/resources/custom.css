@@ -1,232 +1,435 @@
-/* ==========================================================================
-   ONCE UI – Custom Theme & MDX Enhancements
-   Arquivo: src/resources/custom.css
-   --------------------------------------------------------------------------
-   - Cores de marca (brand/accent/neutral)
-   - Ajustes de tipografia e links
-   - Estilos para MDX (footnotes, hover-notes, tabelas, blockquotes)
-   - Badges, linhas, imagens responsivas
-   -------------------------------------------------------------------------- */
-
-/* ============== 1) Paleta base (light) =================================== */
 :root {
-  /* --- Brand (primária) --- */
-  --scheme-brand-100:  #0b1026;
-  --scheme-brand-200:  #111a3f;
-  --scheme-brand-300:  #17235a;
-  --scheme-brand-400:  #1f2f78;
-  --scheme-brand-500:  #2a3c98;  /* cor principal de ação */
-  --scheme-brand-600:  #3f55c0;
-  --scheme-brand-700:  #5e75e0;
-  --scheme-brand-800:  #8aa2ff;
-  --scheme-brand-900:  #b7c4ff;
-  --scheme-brand-1000: #d6e0ff;
-  --scheme-brand-1100: #e7efff;
-  --scheme-brand-1200: #f2f6ff;
+  --scheme-brand-100: #060b14;
+  --scheme-brand-200: #0d1526;
+  --scheme-brand-300: #11203b;
+  --scheme-brand-400: #173056;
+  --scheme-brand-500: #23477c;
+  --scheme-brand-600: #3264aa;
+  --scheme-brand-700: #4e86e7;
+  --scheme-brand-800: #7eaef8;
+  --scheme-brand-900: #afcbff;
+  --scheme-brand-1000: #d6e4ff;
+  --scheme-brand-1100: #eaf1ff;
+  --scheme-brand-1200: #f6f9ff;
 
-  --scheme-brand-600-10: rgba(63,85,192,0.10);
-  --scheme-brand-600-30: rgba(63,85,192,0.30);
-  --scheme-brand-600-50: rgba(63,85,192,0.50);
+  --scheme-brand-600-10: rgba(78, 134, 231, 0.1);
+  --scheme-brand-600-30: rgba(78, 134, 231, 0.3);
+  --scheme-brand-600-50: rgba(78, 134, 231, 0.5);
 
-  /* --- Accent (secundária, UI utilitária) --- */
-  --scheme-accent-100:  #0a0f12;
-  --scheme-accent-200:  #131c21;
-  --scheme-accent-300:  #2e3a41;
-  --scheme-accent-400:  #47545c;
-  --scheme-accent-500:  #5f6f78;
-  --scheme-accent-600:  #7f8e97;
-  --scheme-accent-700:  #9aaab3;
-  --scheme-accent-800:  #bbc8d1;
-  --scheme-accent-900:  #d2dfe7;
-  --scheme-accent-1000: #e6f0f6;
-  --scheme-accent-1100: #eff7fc;
-  --scheme-accent-1200: #f6fcff;
+  --scheme-accent-100: #12070a;
+  --scheme-accent-200: #1d0c12;
+  --scheme-accent-300: #351018;
+  --scheme-accent-400: #531522;
+  --scheme-accent-500: #792031;
+  --scheme-accent-600: #ab3248;
+  --scheme-accent-700: #ea5c57;
+  --scheme-accent-800: #ff8b73;
+  --scheme-accent-900: #ffc0b0;
+  --scheme-accent-1000: #ffdcd1;
+  --scheme-accent-1100: #ffede7;
+  --scheme-accent-1200: #fff7f4;
 
-  --scheme-accent-600-10: rgba(127,142,151,0.10);
-  --scheme-accent-600-30: rgba(127,142,151,0.30);
-  --scheme-accent-600-50: rgba(127,142,151,0.50);
+  --scheme-accent-600-10: rgba(234, 92, 87, 0.1);
+  --scheme-accent-600-30: rgba(234, 92, 87, 0.3);
+  --scheme-accent-600-50: rgba(234, 92, 87, 0.5);
 
-  /* --- Neutral (texto/superfície) --- */
-  --scheme-neutral-100:  #07090b;
-  --scheme-neutral-200:  #0f1619;
-  --scheme-neutral-300:  #2d3941;
-  --scheme-neutral-400:  #46545d;
-  --scheme-neutral-500:  #5f6f79;
-  --scheme-neutral-600:  #7f8f99;
-  --scheme-neutral-700:  #9eafb9;
-  --scheme-neutral-800:  #becfd9;
-  --scheme-neutral-900:  #d6e6ef;
-  --scheme-neutral-1000: #e8f3f9;
-  --scheme-neutral-1100: #f2f9fd;
-  --scheme-neutral-1200: #f9feff;
+  --scheme-neutral-100: #050608;
+  --scheme-neutral-200: #0b0d10;
+  --scheme-neutral-300: #15181d;
+  --scheme-neutral-400: #20262d;
+  --scheme-neutral-500: #333c46;
+  --scheme-neutral-600: #4d5a67;
+  --scheme-neutral-700: #69798b;
+  --scheme-neutral-800: #95a5b7;
+  --scheme-neutral-900: #c2cfda;
+  --scheme-neutral-1000: #dde6ef;
+  --scheme-neutral-1100: #edf2f7;
+  --scheme-neutral-1200: #f8fafc;
 
-  --scheme-neutral-600-10: rgba(127,143,153,0.10);
-  --scheme-neutral-600-30: rgba(127,143,153,0.30);
-  --scheme-neutral-600-50: rgba(127,143,153,0.50);
+  --scheme-neutral-600-10: rgba(105, 121, 139, 0.1);
+  --scheme-neutral-600-30: rgba(105, 121, 139, 0.3);
+  --scheme-neutral-600-50: rgba(105, 121, 139, 0.5);
 
-  /* Cores utilitárias globais (opcional, caso use) */
-  --border-color: rgba(127,143,153,0.25);
-  --text-color:   rgba(255,255,255,0.92);
-  --focus-ring:   color-mix(in oklab, var(--scheme-brand-700), white 12%);
+  --border-color: rgba(155, 176, 204, 0.22);
+  --text-color: rgba(243, 247, 250, 0.94);
+  --focus-ring: color-mix(in oklab, var(--scheme-brand-700), white 22%);
+
+  --page-background: #050608;
+  --page-background-strong: #090b10;
+  --page-background-soft: rgba(15, 18, 23, 0.82);
+  --surface-panel: linear-gradient(
+    160deg,
+    rgba(28, 34, 43, 0.92) 0%,
+    rgba(16, 20, 27, 0.95) 55%,
+    rgba(10, 13, 18, 0.98) 100%
+  );
+  --surface-panel-strong: linear-gradient(
+    150deg,
+    rgba(34, 41, 52, 0.96) 0%,
+    rgba(17, 21, 29, 0.98) 55%,
+    rgba(9, 11, 16, 1) 100%
+  );
+  --surface-panel-soft: linear-gradient(
+    180deg,
+    rgba(18, 22, 29, 0.78) 0%,
+    rgba(10, 13, 17, 0.92) 100%
+  );
+  --metal-border: rgba(156, 176, 205, 0.22);
+  --metal-border-strong: rgba(196, 215, 243, 0.34);
+  --metal-highlight: rgba(242, 247, 255, 0.16);
+  --metal-shadow: 0 28px 72px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --metal-shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --heat-glow: rgba(255, 104, 76, 0.22);
+  --heat-glow-strong: rgba(255, 128, 76, 0.38);
+  --cool-glow: rgba(82, 144, 255, 0.24);
+  --grain-opacity: 0.16;
+  --page-grid: rgba(135, 156, 184, 0.08);
+  --page-grid-strong: rgba(197, 214, 239, 0.14);
+  --heat-line: linear-gradient(
+    90deg,
+    rgba(78, 134, 231, 0) 0%,
+    rgba(126, 174, 248, 0.84) 18%,
+    rgba(248, 249, 250, 0.92) 50%,
+    rgba(255, 109, 82, 0.88) 76%,
+    rgba(255, 109, 82, 0) 100%
+  );
 }
 
-/* ============== 2) Ajuste automático para dark mode ===================== */
-/* O Once-UI já seta data-theme no <html>. Aqui só finamos contrastes. */
-html[data-theme="dark"] {
-  /* Ajuste leves para fundos/linhas em dark */
-  --border-color: rgba(255,255,255,0.12);
-  --text-color:   rgba(255,255,255,0.92);
+html[data-theme="light"] {
+  --border-color: rgba(79, 93, 111, 0.18);
+  --text-color: rgba(15, 20, 27, 0.96);
+  --page-background: #e7ebf0;
+  --page-background-strong: #f1f4f7;
+  --page-background-soft: rgba(255, 255, 255, 0.78);
+  --surface-panel: linear-gradient(
+    165deg,
+    rgba(252, 252, 253, 0.94) 0%,
+    rgba(233, 239, 245, 0.98) 48%,
+    rgba(220, 229, 237, 0.98) 100%
+  );
+  --surface-panel-strong: linear-gradient(
+    150deg,
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(236, 241, 247, 0.98) 52%,
+    rgba(223, 232, 240, 1) 100%
+  );
+  --surface-panel-soft: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.74) 0%,
+    rgba(239, 244, 249, 0.94) 100%
+  );
+  --metal-border: rgba(75, 92, 113, 0.18);
+  --metal-border-strong: rgba(61, 78, 101, 0.3);
+  --metal-highlight: rgba(255, 255, 255, 0.62);
+  --metal-shadow: 0 30px 60px rgba(39, 52, 68, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.76);
+  --metal-shadow-soft: 0 16px 30px rgba(39, 52, 68, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  --heat-glow: rgba(255, 106, 71, 0.18);
+  --heat-glow-strong: rgba(255, 106, 71, 0.24);
+  --cool-glow: rgba(78, 134, 231, 0.16);
+  --page-grid: rgba(83, 101, 124, 0.07);
+  --page-grid-strong: rgba(61, 78, 101, 0.14);
 }
 
-/* ============== 3) Tipografia e links =================================== */
+html,
 body {
+  min-height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  color: var(--text-color);
+  background:
+    radial-gradient(circle at 18% 14%, var(--cool-glow) 0%, transparent 28%),
+    radial-gradient(circle at 82% 6%, var(--heat-glow) 0%, transparent 24%),
+    radial-gradient(circle at 70% 24%, rgba(255, 255, 255, 0.05) 0%, transparent 18%),
+    linear-gradient(180deg, var(--page-background-strong) 0%, var(--page-background) 48%, #040507 100%);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Links padrão (fora dos componentes Once-UI) */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+body::before {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08) 0 0.9px, transparent 1.2px),
+    radial-gradient(circle at 72% 66%, rgba(255, 255, 255, 0.07) 0 1px, transparent 1.4px),
+    linear-gradient(125deg, rgba(255, 255, 255, 0.04), transparent 38%, rgba(255, 255, 255, 0.02) 100%);
+  background-size: 10px 10px, 12px 12px, 100% 100%;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: soft-light;
+  animation: grainShift 12s steps(6) infinite;
+}
+
+body::after {
+  inset: -12% -8%;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(78, 134, 231, 0.12) 0%, transparent 22%),
+    radial-gradient(circle at 84% 14%, rgba(255, 114, 76, 0.14) 0%, transparent 28%),
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.06) 0%, transparent 34%);
+  filter: blur(88px);
+  opacity: 0.88;
+  animation: heatDrift 24s ease-in-out infinite alternate;
+}
+
+::selection {
+  background: rgba(255, 109, 82, 0.28);
+  color: inherit;
+}
+
 a {
+  color: color-mix(in oklab, var(--scheme-brand-700), white 10%);
   text-decoration: none;
-  color: var(--scheme-brand-700);
+  transition:
+    color 160ms ease,
+    text-shadow 160ms ease;
 }
+
 a:hover {
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  color: color-mix(in oklab, var(--scheme-brand-800), white 20%);
+  text-shadow: 0 0 22px rgba(78, 134, 231, 0.24);
 }
 
-/* Headings com “balance” visual quando não usar Heading wrap=balance */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   text-wrap: balance;
+  letter-spacing: -0.03em;
 }
 
-/* ============== 4) MDX: footnotes (remark-footnotes) ==================== */
+p,
+li {
+  line-height: 1.72;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1rem;
+}
+
+hr,
+.ui-line {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--page-grid-strong), transparent);
+  opacity: 0.9;
+}
+
+pre {
+  border: 1px solid var(--metal-border);
+  border-radius: 1.1rem;
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  background: var(--surface-panel-soft);
+  box-shadow: var(--metal-shadow-soft);
+}
+
+code {
+  color: color-mix(in oklab, var(--scheme-brand-900), white 12%);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--metal-border);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--metal-shadow-soft);
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.8rem 0.9rem;
+  text-align: left;
+}
+
+th {
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+tbody tr:nth-child(odd) {
+  background: color-mix(in oklab, var(--surface-panel-soft), transparent 10%);
+}
+
+blockquote,
+.row-quote {
+  margin: 1rem 0;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--metal-border);
+  border-left: 4px solid var(--scheme-accent-700);
+  border-radius: 1rem;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 42%),
+    linear-gradient(180deg, rgba(255, 96, 74, 0.08), rgba(82, 144, 255, 0.04));
+  box-shadow: var(--metal-shadow-soft);
+}
+
 .footnotes {
-  margin-top: 24px;
-  padding-top: 12px;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
   border-top: 1px solid var(--border-color);
   font-size: 0.95em;
 }
-.footnotes ol {
-  padding-left: 1.25rem;
-  margin: 0.5rem 0 0 0;
-}
-.footnotes li { margin: 0.25rem 0; }
-.footnotes a[href^="#fnref"] { text-decoration: none; }
-sup a { text-decoration: none; }
 
-/* ============== 5) MDX: HoverNote (tooltip simples) ==================== */
+.footnotes ol {
+  margin: 0.75rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.footnotes li {
+  margin: 0.25rem 0;
+}
+
+.footnotes a[href^="#fnref"],
+sup a {
+  text-decoration: none;
+}
+
 .hover-note {
   position: relative;
   cursor: help;
   border-bottom: 1px dotted currentColor;
 }
+
 .hover-note__bubble {
   pointer-events: none;
   position: absolute;
   left: 0;
   bottom: 125%;
-  transform: translateY(-4px);
-  white-space: normal;
   min-width: 220px;
   max-width: 320px;
-  padding: 8px 10px;
-  border-radius: 8px;
-  font-size: 0.9em;
-  line-height: 1.4;
-  background: var(--layer-2, rgba(255,255,255,0.06));
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--metal-border);
+  border-radius: 0.85rem;
+  background: var(--surface-panel-strong);
   color: var(--text-color);
-  border: 1px solid var(--border-color);
-  box-shadow: 0 8px 24px rgba(255, 255, 0, 0.99);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.32);
   opacity: 0;
   visibility: hidden;
-  transition: opacity .15s ease, visibility .15s ease, transform .15s ease;
+  transform: translateY(-4px);
+  transition:
+    opacity 140ms ease,
+    visibility 140ms ease,
+    transform 140ms ease;
   z-index: 30;
 }
+
 .hover-note:hover .hover-note__bubble,
 .hover-note:focus-within .hover-note__bubble {
   opacity: 1;
   visibility: visible;
-  transform: translateY(-6px);
+  transform: translateY(-8px);
 }
 
-/* ============== 6) MDX: tabelas simples/responsivas ===================== */
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-th, td {
-  border-bottom: 1px solid var(--border-color);
-  padding: 8px 10px;
-}
-th { text-align: left; font-weight: 600; }
-
-/* Zebra opcional */
-tbody tr:nth-child(odd) {
-  background: color-mix(in oklab, var(--scheme-accent-1100), transparent 85%);
-}
-
-/* ============== 7) Blockquote “cartão” (combina com Once-UI) =========== */
-blockquote,
-.row-quote {
-  margin: 16px 0;
-  padding: 16px;
-  border-left: 4px solid var(--scheme-accent-700);
-  border-radius: 12px;
-  background: color-mix(in oklab, var(--scheme-accent-1100), transparent 86%);
-}
-
-/* ============== 8) Code blocks (quando fora do <CodeBlock/> do Once) ==== */
-pre {
-  border: 1px solid var(--border-color);
-  border-radius: 14px;
-  padding: 14px;
-  overflow-x: auto;
-  background: color-mix(in oklab, var(--scheme-neutral-1100), transparent 80%);
-}
-
-/* ============== 9) Badges (toques de contraste) ======================== */
 a[data-active="true"],
 .badge[data-active="true"] {
   outline: 2px solid var(--scheme-brand-700);
-  outline-offset: 1px;
+  outline-offset: 2px;
 }
 
-/* ============== 10) Imagens responsivas (fallback geral) =============== */
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 12px;
-}
-
-/* ============== 11) “Lines” decorativas mais suaves ==================== */
-hr,
-.ui-line {
-  border: none;
-  height: 1px;
-  background: var(--border-color);
-  opacity: .8;
-}
-
-/* ============== 12) Foco geral acessível =============================== */
 :focus-visible {
   outline: 2px solid var(--focus-ring);
   outline-offset: 2px;
-  border-radius: 10px;
+  border-radius: 0.75rem;
 }
 
-/* ============== 13) Ajustes finos opcionais ============================ */
-/* Textos secundários levemente mais suaves */
 [data-on-background="neutral-weak"],
 .onBackground-neutral-weak {
-  color: color-mix(in oklab, var(--text-color), transparent 25%);
+  color: color-mix(in oklab, var(--text-color), transparent 28%);
 }
 
-/* Diminuir sublinhado agressivo em links dentro de headings */
-h1 a, h2 a, h3 a { text-decoration-thickness: .06em; }
+h1 a,
+h2 a,
+h3 a {
+  text-decoration-thickness: 0.06em;
+}
 
-/* Ajuste de gaps padrão entre cards (se necessário) */
-.grid > * + * { margin-top: var(--gap, 0); }
+.grid > * + * {
+  margin-top: var(--gap, 0);
+}
 
-/* ==========================================================================
-   FIM
-   ========================================================================== */
+@keyframes grainShift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  25% {
+    transform: translate3d(-0.35%, 0.55%, 0);
+  }
+  50% {
+    transform: translate3d(0.35%, -0.3%, 0);
+  }
+  75% {
+    transform: translate3d(-0.18%, -0.28%, 0);
+  }
+  100% {
+    transform: translate3d(0.28%, 0.12%, 0);
+  }
+}
+
+@keyframes heatDrift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(1.5%, -1.2%, 0) scale(1.04);
+  }
+  100% {
+    transform: translate3d(-1.2%, 1.2%, 0) scale(1.02);
+  }
+}
+
+@media (max-width: 960px) {
+  body::before {
+    opacity: 0.1;
+  }
+
+  body::after {
+    filter: blur(72px);
+    opacity: 0.66;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    background:
+      radial-gradient(circle at 50% 0%, rgba(78, 134, 231, 0.18) 0%, transparent 34%),
+      radial-gradient(circle at 80% 10%, rgba(255, 104, 76, 0.18) 0%, transparent 28%),
+      linear-gradient(180deg, var(--page-background-strong) 0%, var(--page-background) 55%, #040507 100%);
+  }
+
+  body::before {
+    animation-duration: 16s;
+  }
+
+  .hover-note__bubble {
+    min-width: 180px;
+    max-width: min(280px, 80vw);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

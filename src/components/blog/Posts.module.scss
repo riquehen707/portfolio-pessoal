@@ -1,0 +1,29 @@
+.grid {
+  width: 100%;
+}
+
+.emptyState {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--metal-border);
+  border-radius: 1.35rem;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 26%, rgba(255, 255, 255, 0.03) 54%, transparent 100%),
+    var(--surface-panel-soft);
+  box-shadow: var(--metal-shadow-soft);
+}
+
+.emptyState::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(82, 144, 255, 0.12), transparent 34%),
+    radial-gradient(circle at 82% 0%, rgba(255, 112, 80, 0.12), transparent 30%);
+  pointer-events: none;
+}
+
+.emptyState > * {
+  position: relative;
+  z-index: 1;
+}

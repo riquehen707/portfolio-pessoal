@@ -1,8 +1,7 @@
-﻿// src/app/blog/page.tsx
 import { Suspense } from "react";
 import { Column, Heading, Schema, Text, Button, Row, Line, Grid, Card, Tag } from "@once-ui-system/core";
 import { Posts } from "@/components/blog/Posts";
-import { baseURL, blog, person, daily, servicesPage } from "@/resources";
+import { baseURL, blog, person, servicesPage, work } from "@/resources";
 import { getPosts } from "@/utils/utils";
 import { formatDate } from "@/utils/formatDate";
 import { getAllCategories, getAllTags } from "@/utils/posts";
@@ -12,7 +11,6 @@ const FEATURED_RANGE: [number, number] = [1, 1];
 const RECENTS_RANGE: [number, number] = [2, 3];
 const EARLIER_RANGE: [number] = [4];
 
-// Mantém a página estática com revalidação
 export const revalidate = false;
 export const dynamic = "force-static";
 
@@ -56,30 +54,29 @@ export default function BlogPage() {
   const featuredTags = tags.slice(0, 12);
   const editorialTracks = [
     {
-      title: "Estratégia e posicionamento",
+      title: "Estrategia e posicionamento",
       description:
-        "Textos que organizam decisões de negócio, diferenciação e posicionamento de marca.",
+        "Textos que organizam decisoes de negocio, diferenciacao e posicionamento de marca.",
     },
     {
-      title: "Produto e execução",
+      title: "Produto e execucao",
       description:
-        "Como transformar visão em experiências digitais: arquitetura, UX e desenvolvimento.",
+        "Como transformar visao em experiencias digitais: arquitetura, UX e desenvolvimento.",
     },
     {
       title: "Dados, SEO e performance",
       description:
-        "Métricas, SEO técnico e automações que mantêm crescimento consistente no médio prazo.",
+        "Metricas, SEO tecnico e automacoes que mantem crescimento consistente no medio prazo.",
     },
   ];
   const blogHighlights = [
     { label: "Artigos publicados", value: totalPosts.toString() },
-    { label: "Última atualização", value: latestLabel ?? "Em andamento" },
+    { label: "Ultima atualizacao", value: latestLabel ?? "Em andamento" },
     { label: "Formato", value: "Longform e estudos aplicados" },
   ];
 
   return (
     <Column className={styles.page} maxWidth="m" paddingTop="24" gap="24">
-      {/* Schema estático (não interfere no SSG) */}
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -101,18 +98,18 @@ export default function BlogPage() {
           {blog.description}
         </Text>
         <Row gap="8" wrap>
-          {["Longform", "Frameworks", "Pesquisa aplicada", "Decisões de produto"].map((tag) => (
+          {["Longform", "Frameworks", "Pesquisa aplicada", "Decisoes de produto"].map((tag) => (
             <Tag key={tag} size="s" background="neutral-alpha-weak">
               {tag}
             </Tag>
           ))}
         </Row>
         <Row gap="12" wrap>
-          <Button href={daily.path} variant="secondary" size="m" arrowIcon>
-            Ver diário aberto
+          <Button href={work.path} variant="secondary" size="m" arrowIcon>
+            Ver projetos
           </Button>
           <Button href={servicesPage.path} variant="tertiary" size="m" arrowIcon>
-            Conhecer serviços
+            Conhecer servicos
           </Button>
         </Row>
       </Column>
@@ -147,7 +144,7 @@ export default function BlogPage() {
         </Heading>
         <div className={styles.accentLine} />
         <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-          Use as trilhas para escolher o tema certo e aprofundar nas discussões que mais importam.
+          Use as trilhas para escolher o tema certo e aprofundar nas discussoes que mais importam.
         </Text>
       </Column>
 
@@ -175,17 +172,14 @@ export default function BlogPage() {
 
       <Line maxWidth="40" />
 
-      {/* Destaque */}
       <Suspense fallback={<PostsSkeleton />}>
         <Posts range={FEATURED_RANGE} thumbnail />
       </Suspense>
 
-      {/* Recentes */}
       <Suspense fallback={<PostsSkeleton />}>
         <Posts range={RECENTS_RANGE} columns="2" thumbnail direction="column" />
       </Suspense>
 
-      {/* Anteriores */}
       <SectionHeading as="h2" marginTop="l">
         Posts anteriores
       </SectionHeading>
@@ -209,8 +203,8 @@ export default function BlogPage() {
         </Heading>
         <div className={styles.accentLine} />
         <Text onBackground="neutral-weak">
-          Cada categoria agrupa posts alinhados com estratégias, cultura e narrativas de produto.
-          Use-as para guiar o que você quer estudar hoje.
+          Cada categoria agrupa posts alinhados com estrategia, cultura e narrativas de produto.
+          Use-as para guiar o que voce quer estudar hoje.
         </Text>
         <Row wrap gap="8">
           {featuredCategories.map((category) => (
@@ -241,15 +235,14 @@ export default function BlogPage() {
         </Row>
         <Line maxWidth="40" />
         <Row gap="12" wrap>
-          <Button href={daily.path} variant="secondary" size="m" arrowIcon>
-            Ver diário aberto
+          <Button href={work.path} variant="secondary" size="m" arrowIcon>
+            Ver projetos
           </Button>
           <Button href="/about" variant="tertiary" size="m" arrowIcon>
-            Sobre o estúdio
+            Sobre o estudio
           </Button>
         </Row>
       </Column>
     </Column>
   );
 }
-

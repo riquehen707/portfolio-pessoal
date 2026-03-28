@@ -1,0 +1,74 @@
+@use "../../components/breakpoints.scss" as breakpoints;
+
+.heroActions,
+.heroMeta,
+.statsGrid,
+.splitGrid,
+.ctaBar {
+  width: 100%;
+}
+
+.laneCard,
+.serviceCard,
+.statCard,
+.faqCard,
+.ctaPanel {
+  position: relative;
+  overflow: hidden;
+}
+
+.laneCard::before,
+.serviceCard::before,
+.statCard::before,
+.faqCard::before,
+.ctaPanel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 14% 8%, rgba(82, 144, 255, 0.12), transparent 34%),
+    radial-gradient(circle at 86% 0%, rgba(255, 112, 80, 0.12), transparent 28%);
+  pointer-events: none;
+}
+
+.laneCard > *,
+.serviceCard > *,
+.statCard > *,
+.faqCard > *,
+.ctaPanel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.laneCard,
+.serviceCard,
+.statCard,
+.faqCard,
+.ctaPanel {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 24%, rgba(255, 255, 255, 0.03) 52%, transparent 100%),
+    var(--surface-panel);
+  box-shadow: var(--metal-shadow-soft);
+}
+
+.serviceMeta {
+  letter-spacing: -0.02em;
+}
+
+.list {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.estimatorAnchor {
+  scroll-margin-top: 6rem;
+}
+
+@media (max-width: breakpoints.$s) {
+  .heroActions,
+  .heroMeta,
+  .ctaBar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

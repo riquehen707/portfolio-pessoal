@@ -1,115 +1,64 @@
 # Magic Portfolio
 
-Magic Portfolio is a simple, clean, beginner-friendly portfolio template. It supports an MDX-based content system for projects and blog posts, an about / CV page and a gallery.
-
-View the demo [here](https://demo.magic-portfolio.com).
+Magic Portfolio is a simple portfolio built with Next.js, Once UI and MDX. This version is focused on portfolio, services and blog content only.
 
 ![Magic Portfolio](public/images/og/home.jpg)
 
 ## Getting started
 
 **1. Clone the repository**
-```
+```bash
 git clone https://github.com/once-ui-system/magic-portfolio.git
 ```
 
 **2. Install dependencies**
-```
+```bash
 npm install
 ```
 
-**3. Run dev server**
-```
+**3. Run the dev server**
+```bash
 npm run dev
 ```
 
 **4. Edit config**
-```
-src/resources/once-ui.config.js
+```bash
+src/resources/once-ui.config.ts
 ```
 
 **5. Edit content**
-```
-src/resources/content.js
+```bash
+src/resources/content.tsx
 ```
 
-**6. Create blog posts / projects**
-```
-Add a new .mdx file to src/app/blog/posts or src/app/work/projects
+**6. Add blog posts or projects**
+```bash
+src/app/blog/posts
+src/app/work/projects
 ```
 
 ## RSS
 
 - Blog: `/rss.xml`
-- Diário: `/diario/rss.xml`
-
-## Auth (usuários)
-
-Este projeto usa Auth.js (NextAuth) + Prisma.
-
-**1. Configure o banco**
-```
-DATABASE_URL=postgresql://USER:PASSWORD@HOST:5432/DBNAME?schema=public
-```
-
-**2. Gere secret**
-```
-npx auth secret
-```
-
-**2.1 (Opcional) AUTH_URL**
-```
-AUTH_URL=https://seudominio.com
-```
-
-**3. Rodar migrações**
-```
-npm run prisma:migrate
-```
-
-**4. Definir admins**
-```
-ADMIN_EMAILS=admin@exemplo.com,segundo@exemplo.com
-```
-
-Magic Portfolio was built with [Once UI](https://once-ui.com) for [Next.js](https://nextjs.org). It requires Node.js v18.17+.
-
-## Documentation
-
-Docs available at: [docs.once-ui.com](https://docs.once-ui.com/docs/magic-portfolio/quick-start)
 
 ## Features
 
 ### Once UI
-- All tokens, components & features of [Once UI](https://once-ui.com)
+- All tokens, components and features of [Once UI](https://once-ui.com)
 
 ### SEO
-- Automatic open-graph and X image generation with next/og
-- Automatic schema and metadata generation based on the content file
-
-### Design
-- Responsive layout optimized for all screen sizes
-- Timeless design without heavy animations and motion
-- Endless customization options through [data attributes](https://once-ui.com/docs/theming)
+- Automatic open graph image generation with `next/og`
+- Automatic schema and metadata generation based on content files
+- Sitemap and robots generation with static routes, blog and work entries
 
 ### Content
-- Render sections conditionally based on the content file
-- Enable or disable pages for blog, work, gallery and about / CV
-- Generate and display social links automatically
-- Set up password protection for URLs
+- MDX-based blog posts and project case studies
+- Conditional sections driven by the content files
+- Social links generated from the shared content config
 
-### Localization
-- A localized, earlier version of Magic Portfolio is available with the next-intl library
-- To use localization, switch to the 'i18n' branch
+## Documentation
 
-## Creators
-
-Lorant One: [Threads](https://www.threads.net/@lorant.one) / [LinkedIn](https://www.linkedin.com/in/lorant-one/)
-
-## Get involved
-
-- Join the Design Engineers Club on [Discord](https://discord.com/invite/5EyAQ4eNdS) and share your project with us!
-- Deployed your docs? Share it on the [Once UI Hub](https://once-ui.com/hub) too! We feature our favorite apps on our landing page.
+Docs available at: [docs.once-ui.com](https://docs.once-ui.com/docs/magic-portfolio/quick-start)
 
 ## License
 
@@ -119,7 +68,3 @@ Distributed under the CC BY-NC 4.0 License.
 - You can extend the license to [Dopler CC](https://dopler.app/license) by purchasing a [Once UI Pro](https://once-ui.com/pricing) license.
 
 See `LICENSE.txt` for more information.
-
-## Deploy with Vercel
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fonce-ui-system%2Fmagic-portfolio&project-name=portfolio&repository-name=portfolio&redirect-url=https%3A%2F%2Fgithub.com%2Fonce-ui-system%2Fmagic-portfolio&demo-title=Magic%20Portfolio&demo-description=Showcase%20your%20designers%20or%20developer%20portfolio&demo-url=https%3A%2F%2Fdemo.magic-portfolio.com&demo-image=%2F%2Fraw.githubusercontent.com%2Fonce-ui-system%2Fmagic-portfolio%2Fmain%2Fpublic%2Fimages%2Fog%2Fhome.jpg)

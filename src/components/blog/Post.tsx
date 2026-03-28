@@ -1,7 +1,10 @@
-// src/components/blog/Post.tsx
+import Image from "next/image";
 import Link from "next/link";
 import { Column, Row, Heading, Text } from "@once-ui-system/core";
+
 import { buildOgImage } from "@/utils/og";
+
+import styles from "./Post.module.scss";
 
 type Direction = "row" | "column";
 
@@ -22,9 +25,9 @@ interface PostData {
 
 interface PostProps {
   post: PostData;
-  thumbnail?: boolean;           // se true, tentamos mostrar imagem (se houver)
-  direction?: Direction;         // layout row | column
-  priority?: boolean;            // pode usar pra <Image priority />
+  thumbnail?: boolean;
+  direction?: Direction;
+  priority?: boolean;
 }
 
 export default function Post({
@@ -36,14 +39,12 @@ export default function Post({
   const { slug, metadata } = post;
   const { title, publishedAt, tag, tags, categories, image, imageAlt } = metadata || {};
 
-  // tem imagem válida?
   const hasImage = Boolean(image && image.trim() !== "");
   const displayTag = tag || tags?.[0] || categories?.[0];
-  const fallbackSubtitle = displayTag || "Conteúdo";
+  const fallbackSubtitle = displayTag || "Conteudo";
   const fallbackImage = buildOgImage(title, fallbackSubtitle);
   const displayImage = hasImage ? (image as string) : fallbackImage;
 
-  // formata data simples (opcional; ajusta pro formato que vc quiser)
   const formattedDate = publishedAt
     ? new Date(publishedAt).toLocaleDateString("pt-BR", {
         day: "2-digit",
@@ -53,89 +54,44 @@ export default function Post({
     : "";
 
   return (
-    <Link
-      href={`/blog/${slug}`}
-      style={{
-        textDecoration: "none",
-        color: "inherit",
-      }}
-    >
+    <Link className={styles.link} href={`/blog/${slug}`}>
       <Row
+        className={styles.card}
         gap="16"
         padding="16"
         radius="m"
         background="surface"
         border="neutral-alpha-weak"
         direction={direction}
-        style={{
-          width: "100%",
-          height: "100%",
-          background: "var(--layer-1)",
-        }}
       >
-        {/* Thumbnail aparece quando thumbnail === true (usa imagem ou placeholder) */}
         {thumbnail && displayImage && (
-          <div
-            style={{
-              flexShrink: 0,
-              width: direction === "row" ? 160 : "100%",
-              height: direction === "row" ? 96 : 180,
-              borderRadius: 12,
-              backgroundColor: "var(--layer-2)",
-              overflow: "hidden",
-            }}
-          >
-            {/* você pode trocar por next/image se quiser otimização */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+          <div className={styles.thumb} data-direction={direction}>
+            <Image
+              fill
               src={displayImage}
               alt={imageAlt || title}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                display: "block",
-              }}
+              sizes={direction === "row" ? "160px" : "(max-width: 768px) 100vw, 480px"}
+              unoptimized
+              style={{ objectFit: "cover" }}
               {...(priority ? { loading: "eager" } : { loading: "lazy" })}
             />
           </div>
         )}
 
-        {/* Conteúdo textual */}
-        <Column gap="8" style={{ minWidth: 0, flexGrow: 1 }}>
-          <Heading
-            as="h3"
-            variant="heading-strong-m"
-            style={{ lineHeight: 1.3, wordWrap: "break-word" }}
-          >
+        <Column className={styles.content} gap="8">
+          <Heading className={styles.title} as="h3" variant="heading-strong-m">
             {title}
           </Heading>
 
-          <Row gap="8" wrap>
+          <Row className={styles.meta} gap="8" wrap>
             {formattedDate && (
-              <Text
-                variant="label-default-xs"
-                color="text-dimmed"
-                style={{ whiteSpace: "nowrap" }}
-              >
+              <Text className={styles.date} variant="label-default-xs" color="text-dimmed">
                 {formattedDate}
               </Text>
             )}
 
             {displayTag && (
-              <Text
-                variant="label-default-xs"
-                color="accent-strong"
-                style={{
-                  background: "var(--accent-alpha-weak)",
-                  borderRadius: 6,
-                  padding: "2px 6px",
-                  maxWidth: "100%",
-                  textOverflow: "ellipsis",
-                  overflow: "hidden",
-                  whiteSpace: "nowrap",
-                }}
-              >
+              <Text className={styles.tag} variant="label-default-xs" color="accent-strong">
                 {displayTag}
               </Text>
             )}

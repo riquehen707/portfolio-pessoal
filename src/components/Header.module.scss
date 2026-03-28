@@ -1,21 +1,73 @@
 @use "./breakpoints.scss" as breakpoints;
 
-.mask {
-    pointer-events: none;
-    backdrop-filter: blur(0.5rem);
-    background: linear-gradient(to bottom, var(--page-background), var(--static-transparent));
-    mask-image: linear-gradient(rgba(0,0,0) 25%, rgba(0, 0, 0, 0) 100%);
-    mask-size: 100% 100%;
+.position {
+  top: 0.9rem;
+  padding-inline: clamp(0.3rem, 2vw, 1rem);
+}
+
+.meta {
+  color: color-mix(in oklab, var(--text-color), transparent 34%);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.shell {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--metal-border);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 28%, rgba(255, 255, 255, 0.03) 52%, transparent 100%),
+    var(--surface-panel-soft);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+}
+
+.shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(82, 144, 255, 0.12), transparent 34%),
+    radial-gradient(circle at 82% 12%, rgba(255, 112, 80, 0.12), transparent 32%),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 26px,
+      rgba(255, 255, 255, 0.015) 26px,
+      rgba(255, 255, 255, 0.015) 27px
+    );
+  pointer-events: none;
+}
+
+.nav {
+  position: relative;
+  z-index: 1;
+}
+
+.right {
+  justify-content: flex-end;
+}
+
+.clock {
+  padding-inline: 0.45rem;
 }
 
 @media (max-width: breakpoints.$s) {
-    .position {
-        top: auto;
-        bottom: var(--static-space-24);
-    }
+  .position {
+    top: auto;
+    bottom: 0.9rem;
+    padding-inline: 0.75rem;
+  }
 
-    .mask {
-        transform: rotate(180deg);
-        bottom: 0;
-    }
+  .meta {
+    display: none;
+  }
+
+  .shell {
+    width: 100%;
+    justify-content: center;
+  }
 }

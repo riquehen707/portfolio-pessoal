@@ -1,7 +1,52 @@
 ---
-title: "Sistema de Análise e Gestão Financeira"
-date: "2025-09-21"
-summary: "Dashboard financeiro em Python/Streamlit para acompanhar receitas, despesas e fluxo de caixa."
-tags: ["Python", "Finance", "Data Analysis", "Streamlit"]
-cover: "/images/projects/analise-financeira-cover.png"
+title: "Painel Financeiro e de Operacao"
+slug: "analise-de-dados"
+publishedAt: "2023-11-14"
+summary: "Projeto pessoal para organizar fluxo de caixa, previsao e leitura operacional em um unico painel."
+kind: "personal"
+categories: ["Dados", "Operacao"]
+tags: ["Dashboard", "Financeiro", "Analise de dados", "Automacao"]
+stack: ["Python", "Streamlit", "Pandas"]
 ---
+
+## Visao geral
+
+Este projeto nasceu como uma ferramenta interna para acompanhar receitas, despesas, margem e previsao de caixa em um unico lugar.
+
+O objetivo era sair de planilhas soltas e criar uma leitura mais clara da operacao, com menos trabalho manual e mais apoio para decisao.
+
+## Problema
+
+Os dados financeiros estavam espalhados em arquivos diferentes e isso dificultava:
+
+- entender a situacao real do caixa
+- separar custo fixo de custo variavel
+- visualizar tendencia de curto prazo
+- transformar numero em acao pratica
+
+## Solucao
+
+Desenvolvi um painel em `Python` com `Streamlit` e `Pandas` para consolidar a operacao financeira em uma interface simples.
+
+O sistema foi pensado para:
+
+- importar dados e limpar entradas repetidas
+- destacar categorias de custo
+- comparar periodos
+- gerar previsoes operacionais basicas
+
+## Decisoes tecnicas
+
+Escolhi `Streamlit` porque a prioridade era velocidade de iteracao e leitura clara, nao uma camada de produto publica.
+
+`Pandas` entrou para modelar os dados, preparar series historicas e gerar cortes mais uteis para a rotina.
+
+## Resultado
+
+O projeto se tornou uma base pessoal para acompanhar saude financeira e testar fluxos de analise que depois podem virar dashboards mais robustos para clientes.
+
+## Aprendizados
+
+- um bom dashboard nao depende de excesso de grafico
+- clareza operacional vale mais do que interface carregada
+- automacao simples economiza tempo quando o input de dados e consistente

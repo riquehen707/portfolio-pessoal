@@ -1,14 +1,32 @@
+import type { ComponentProps } from "react";
+
 import { getPosts } from "@/utils/utils";
 import { Column } from "@once-ui-system/core";
 import { ProjectCard } from "@/components";
 import { buildOgImage } from "@/utils/og";
+import styles from "./Projects.module.scss";
+
+const kindLabels = {
+  personal: "Projeto pessoal",
+  study: "Estudo de caso",
+  client: "Case de cliente",
+} as const;
 
 interface ProjectsProps {
   range?: [number, number?];
   exclude?: string[];
+  compact?: boolean;
+  marginBottom?: ComponentProps<typeof Column>["marginBottom"];
+  paddingX?: ComponentProps<typeof Column>["paddingX"];
 }
 
-export function Projects({ range, exclude }: ProjectsProps) {
+export function Projects({
+  range,
+  exclude,
+  compact = false,
+  marginBottom = "40",
+  paddingX = "l",
+}: ProjectsProps) {
   let allProjects = getPosts(["src", "app", "work", "projects"]);
 
   // Exclude by slug (exact match)
@@ -28,7 +46,13 @@ export function Projects({ range, exclude }: ProjectsProps) {
     : sortedProjects;
 
   return (
-    <Column fillWidth gap="xl" marginBottom="40" paddingX="l">
+    <Column
+      className={`${styles.list} ${compact ? styles.compactList : ""}`}
+      fillWidth
+      gap="xl"
+      marginBottom={marginBottom}
+      paddingX={paddingX}
+    >
       {displayedProjects.map((post, index) => {
         const fallbackSubtitle = post.metadata.tag ?? post.metadata.tags?.[0] ?? "Projeto";
         const images =
@@ -39,21 +63,26 @@ export function Projects({ range, exclude }: ProjectsProps) {
               : [buildOgImage(post.metadata.title, fallbackSubtitle)];
 
         return (
-          <ProjectCard
-            priority={index < 2}
-            key={post.slug}
-            href={`/work/${post.slug}`}
-            images={images}
-            title={post.metadata.title}
-            description={post.metadata.summary ?? post.metadata.title}
-            content={post.content}
-            avatars={
-              post.metadata.team?.flatMap((member) =>
-                member.avatar ? [{ src: member.avatar }] : []
-              ) ?? []
-            }
-            link={post.metadata.link || ""}
-          />
+          <div className={`${styles.item} ${compact ? styles.compactItem : ""}`} key={post.slug}>
+            <ProjectCard
+              priority={index < 2}
+              href={`/work/${post.slug}`}
+              images={images}
+              title={post.metadata.title}
+              description={post.metadata.summary ?? post.metadata.title}
+              content={post.content}
+              kind={
+                post.metadata.kind ? kindLabels[post.metadata.kind as keyof typeof kindLabels] : undefined
+              }
+              stack={post.metadata.stack ?? post.metadata.tags ?? []}
+              avatars={
+                post.metadata.team?.flatMap((member) =>
+                  member.avatar ? [{ src: member.avatar }] : []
+                ) ?? []
+              }
+              link={post.metadata.link || ""}
+            />
+          </div>
         );
       })}
     </Column>

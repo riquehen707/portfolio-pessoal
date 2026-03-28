@@ -1,8 +1,12 @@
-// src/components/blog/Posts.tsx
+import type { ComponentProps } from "react";
+
 import { getPosts } from "@/utils/utils";
 import { Column, Grid, Heading, Text } from "@once-ui-system/core";
-import Post from "./Post";
+
 import { BlogFile } from "@/utils/posts";
+
+import Post from "./Post";
+import styles from "./Posts.module.scss";
 
 type Direction = "row" | "column";
 
@@ -28,6 +32,7 @@ interface PostsProps {
   direction?: Direction;
   exclude?: string[];
   data?: PostData[];
+  marginBottom?: ComponentProps<typeof Grid>["marginBottom"];
 }
 
 export function Posts({
@@ -37,6 +42,7 @@ export function Posts({
   exclude = [],
   direction,
   data,
+  marginBottom = "40",
 }: PostsProps) {
   let allBlogs: PostData[] = [];
 
@@ -49,40 +55,47 @@ export function Posts({
         slug: post.slug,
         metadata: post.metadata as PostFrontmatter,
       }));
-    } catch (e) {
+    } catch {
       allBlogs = [];
     }
   }
 
-  // Excluir por slug (match exato)
   if (exclude.length) {
     allBlogs = allBlogs.filter((post) => !exclude.includes(post.slug));
   }
 
-  // Ordena por data (desc) sem mutar a origem
   const sortedBlogs = [...allBlogs].sort((a, b) => {
     const aTime = new Date(a.metadata?.publishedAt ?? 0).getTime() || 0;
     const bTime = new Date(b.metadata?.publishedAt ?? 0).getTime() || 0;
     return bTime - aTime;
   });
 
-  // Recorte pelo range (1-based)
   const displayedBlogs = range
     ? sortedBlogs.slice(range[0] - 1, range.length === 2 ? range[1] : sortedBlogs.length)
     : sortedBlogs;
 
-  // ESTADO VAZIO: não chamar notFound(); mostrar mensagem
-  if (!displayedBlogs?.length) {
+  if (!displayedBlogs.length) {
     return (
-      <Column gap="8" marginBottom="24">
-        <Heading as="h3" variant="heading-strong-l">Sem publicações ainda</Heading>
-        <Text onBackground="neutral-weak">Assim que houver posts, eles aparecem aqui automaticamente.</Text>
+      <Column className={styles.emptyState} gap="8" marginBottom="24" padding="20">
+        <Heading as="h3" variant="heading-strong-l">
+          Sem publicacoes ainda
+        </Heading>
+        <Text onBackground="neutral-weak">
+          Assim que houver posts, eles aparecem aqui automaticamente.
+        </Text>
       </Column>
     );
   }
 
   return (
-    <Grid columns={columns} s={{ columns: 1 }} fillWidth marginBottom="40" gap="16">
+    <Grid
+      className={styles.grid}
+      columns={columns}
+      s={{ columns: 1 }}
+      fillWidth
+      marginBottom={marginBottom}
+      gap="16"
+    >
       {displayedBlogs.map((post, idx) => (
         <Post
           key={post.slug}

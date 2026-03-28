@@ -1,5 +1,3 @@
-// src/app/layout.tsx
-
 import "@once-ui-system/core/css/styles.css";
 import "@once-ui-system/core/css/tokens.css";
 import "@/resources/custom.css";
@@ -26,20 +24,17 @@ import {
   home,
 } from "@/resources";
 
-// =======================================================
-// Helpers robustos para URL e caminhos/base
-// =======================================================
 function resolveBaseURL(): URL {
-  // prioridade: env → config → fallback dev
   const raw = (process.env.NEXT_PUBLIC_SITE_URL ?? baseFromConfig ?? "").trim();
   const fallbackDev = "http://localhost:3000";
+
   try {
     const normalized = raw || fallbackDev;
     return new URL(normalized);
   } catch {
     throw new Error(
-      `baseURL inválida: "${raw}". Defina NEXT_PUBLIC_SITE_URL (ex: https://seu-dominio.com) ` +
-        `ou exporte um baseURL absoluto em '@/resources/once-ui.config'.`
+      `baseURL invalida: "${raw}". Defina NEXT_PUBLIC_SITE_URL (ex: https://seu-dominio.com) ` +
+        `ou exporte um baseURL absoluto em '@/resources/once-ui.config'.`,
     );
   }
 }
@@ -51,36 +46,24 @@ function ensureLeadingSlash(path?: string): string | undefined {
 
 function toAbsoluteOrPath(base: URL, maybePath?: string): string | undefined {
   if (!maybePath) return undefined;
+
   try {
-    return new URL(maybePath, base).toString(); // trata absoluta/relativa
+    return new URL(maybePath, base).toString();
   } catch {
     return ensureLeadingSlash(maybePath);
   }
 }
 
-// =======================================================
-// Google Search Console token
-// =======================================================
-const GOOGLE_SITE_VERIFICATION =
-  "LQzYGuvWyFJ-oWweMatvNPeFAQwOIMT2q8Q1pbX27Zw";
+const GOOGLE_SITE_VERIFICATION = "LQzYGuvWyFJ-oWweMatvNPeFAQwOIMT2q8Q1pbX27Zw";
 
-// =======================================================
-// generateMetadata: integra Once UI + Next Metadata
-// =======================================================
 export async function generateMetadata() {
   const metadataBase = resolveBaseURL();
-
-  // Caso você já utilize o objeto "home" do Once UI, podemos mesclar,
-  // mas vamos forçar título/descrição aqui conforme pedido.
   const siteTitle = "Henrique Reis";
   const siteDescription =
-    "Estúdio de produto e dados com foco em sites de alta conversão, SEO técnico e automações. Portfólio, blog e diário de conteúdo.";
-
+    "Estudio de produto e dados com foco em sites de alta conversao, SEO tecnico e automacoes. Portfolio, servicos e blog.";
   const path = ensureLeadingSlash(home?.path ?? "/");
   const image = toAbsoluteOrPath(metadataBase, home?.image ?? "/og.png");
 
-  // Meta.generate retorna um objeto compatível com Metadata;
-  // em seguida mesclamos verificações e ajustes do Next.
   const onceMeta = Meta.generate({
     title: siteTitle,
     description: siteDescription,
@@ -92,10 +75,9 @@ export async function generateMetadata() {
   return {
     ...onceMeta,
     applicationName: siteTitle,
-    // Força um template de título útil para páginas internas
     title: {
       default: siteTitle,
-      template: `%s · ${siteTitle}`,
+      template: `%s | ${siteTitle}`,
     },
     description: siteDescription,
     metadataBase,
@@ -105,13 +87,9 @@ export async function generateMetadata() {
     verification: {
       google: GOOGLE_SITE_VERIFICATION,
     },
-    // Opcional: ícones, themeColor etc. podem ser adicionados aqui
   };
 }
 
-// =======================================================
-// RootLayout
-// =======================================================
 export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -125,17 +103,11 @@ export default async function RootLayout({
         fonts.heading.variable,
         fonts.body.variable,
         fonts.label.variable,
-        fonts.code.variable
+        fonts.code.variable,
       )}
     >
       <head>
-        {/* Redundância intencional: além do metadata.verification acima,
-            também deixamos a meta explícita aqui.
-            Isso ajuda em caches/variações e facilita inspeção manual */}
-        <meta
-          name="google-site-verification"
-          content={GOOGLE_SITE_VERIFICATION}
-        />
+        <meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
 
         <script
           id="theme-init"
@@ -158,28 +130,27 @@ export default async function RootLayout({
                   })};
 
                   Object.entries(config).forEach(([key, value]) => {
-                    root.setAttribute('data-' + key, value);
+                    root.setAttribute("data-" + key, value);
                   });
 
                   const resolveTheme = (themeValue) => {
-                    if (!themeValue || themeValue === 'system') {
-                      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                    if (!themeValue || themeValue === "system") {
+                      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
                     }
                     return themeValue;
                   };
 
-                  const savedTheme = localStorage.getItem('data-theme');
+                  const savedTheme = localStorage.getItem("data-theme");
                   const resolvedTheme = resolveTheme(savedTheme);
-                  root.setAttribute('data-theme', resolvedTheme);
+                  root.setAttribute("data-theme", resolvedTheme);
 
-                  const styleKeys = Object.keys(config);
-                  styleKeys.forEach(key => {
-                    const value = localStorage.getItem('data-' + key);
-                    if (value) root.setAttribute('data-' + key, value);
+                  Object.keys(config).forEach((key) => {
+                    const value = localStorage.getItem("data-" + key);
+                    if (value) root.setAttribute("data-" + key, value);
                   });
-                } catch (e) {
-                  console.error('Failed to initialize theme:', e);
-                  document.documentElement.setAttribute('data-theme', 'dark');
+                } catch (error) {
+                  console.error("Failed to initialize theme:", error);
+                  document.documentElement.setAttribute("data-theme", "dark");
                 }
               })();
             `,

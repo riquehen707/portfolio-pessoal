@@ -12,9 +12,9 @@ import {
   HiOutlineDocument,
   HiOutlineGlobeAsiaAustralia,
   HiOutlineRocketLaunch,
-  HiChevronRight,        // ✅ add
-  HiLockClosed,          // ✅ add
-  HiPaperAirplane,       // ✅ add (para "send")
+  HiChevronRight,
+  HiPaperAirplane,
+  HiOutlineChartPie,
 } from "react-icons/hi2";
 
 import {
@@ -22,7 +22,6 @@ import {
   PiUserCircleDuotone,
   PiGridFourDuotone,
   PiBookBookmarkDuotone,
-  PiImageDuotone,
 } from "react-icons/pi";
 
 import {
@@ -35,11 +34,12 @@ import {
   SiStreamlit,
   SiVercel,
   SiGoogleanalytics,
+  SiVuedotjs,
+  SiSass,
+  SiShopify,
 } from "react-icons/si";
 
-import { HiOutlineChartPie } from "react-icons/hi2";
 import { FaMagnifyingGlass, FaMeta } from "react-icons/fa6";
-
 import {
   FaDiscord,
   FaGithub,
@@ -52,7 +52,7 @@ import {
   FaWhatsapp,
   FaReddit,
   FaTelegram,
-  FaInstagram,          // ✅ add
+  FaInstagram,
 } from "react-icons/fa6";
 
 export const iconLibrary: Record<string, IconType> = {
@@ -66,7 +66,6 @@ export const iconLibrary: Record<string, IconType> = {
   openLink: HiOutlineLink,
   calendar: HiCalendarDays,
   home: PiHouseDuotone,
-  gallery: PiImageDuotone,
   discord: FaDiscord,
   eye: HiOutlineEye,
   eyeOff: HiOutlineEyeSlash,
@@ -76,7 +75,7 @@ export const iconLibrary: Record<string, IconType> = {
   twitter: FaXTwitter,
   threads: FaThreads,
   arrowUpRightFromSquare: HiArrowTopRightOnSquare,
-  external: HiArrowTopRightOnSquare,  // ✅ alias útil
+  external: HiArrowTopRightOnSquare,
   document: HiOutlineDocument,
   rocket: HiOutlineRocketLaunch,
   javascript: SiJavascript,
@@ -91,15 +90,17 @@ export const iconLibrary: Record<string, IconType> = {
   seo: FaMagnifyingGlass,
   meta: FaMeta,
   ga: SiGoogleanalytics,
+  vue: SiVuedotjs,
+  sass: SiSass,
+  shopify: SiShopify,
   facebook: FaFacebook,
   pinterest: FaPinterest,
   whatsapp: FaWhatsapp,
   reddit: FaReddit,
   telegram: FaTelegram,
-  instagram: FaInstagram,            // ✅ agora existe
-  chevronRight: HiChevronRight,      // ✅ usado na /about
-  lock: HiLockClosed,                // ✅ usado no login
-  send: HiPaperAirplane,             // ✅ usado em CTA/DM
+  instagram: FaInstagram,
+  chevronRight: HiChevronRight,
+  send: HiPaperAirplane,
 };
 
 export type IconLibrary = typeof iconLibrary;

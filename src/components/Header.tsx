@@ -2,11 +2,10 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
 
 import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
 
-import { routes, display, person, about, blog, daily, work, gallery, servicesPage, admin, account } from "@/resources";
+import { routes, display, person, about, blog, work, servicesPage } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
 
@@ -45,9 +44,6 @@ export default TimeDisplay;
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
-  const { data: session, status } = useSession();
-  const isAuthed = status === "authenticated";
-  const isAdmin = session?.user?.role === "ADMIN";
 
   return (
     <>
@@ -76,11 +72,18 @@ export const Header = () => {
           position: "fixed",
         }}
       >
-        <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
+        <Row
+          className={styles.meta}
+          paddingLeft="12"
+          fillWidth
+          vertical="center"
+          textVariant="body-default-s"
+        >
           {display.location && <Row s={{ hide: true }}>{person.location}</Row>}
         </Row>
         <Row fillWidth horizontal="center">
           <Row
+            className={styles.shell}
             background="page"
             border="neutral-alpha-weak"
             radius="m-4"
@@ -89,7 +92,13 @@ export const Header = () => {
             horizontal="center"
             zIndex={1}
           >
-            <Row gap="4" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
+            <Row
+              className={styles.nav}
+              gap="4"
+              vertical="center"
+              textVariant="body-default-s"
+              suppressHydrationWarning
+            >
               {routes["/"] && (
                 <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
               )}
@@ -170,101 +179,6 @@ export const Header = () => {
                   </Row>
                 </>
               )}
-              {routes["/diario"] && (
-                <>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="document"
-                      href={daily.path}
-                      label={daily.label}
-                      selected={pathname.startsWith("/diario")}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="document"
-                      href={daily.path}
-                      selected={pathname.startsWith("/diario")}
-                    />
-                  </Row>
-                </>
-              )}
-              {routes["/gallery"] && (
-                <>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="gallery"
-                      href="/gallery"
-                      label={gallery.label}
-                      selected={pathname.startsWith("/gallery")}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="gallery"
-                      href="/gallery"
-                      selected={pathname.startsWith("/gallery")}
-                    />
-                  </Row>
-                </>
-              )}
-              {isAdmin && (
-                <>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="document"
-                      href={admin.path}
-                      label={admin.label}
-                      selected={pathname.startsWith("/admin")}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="document"
-                      href={admin.path}
-                      selected={pathname.startsWith("/admin")}
-                    />
-                  </Row>
-                </>
-              )}
-              <Line background="neutral-alpha-medium" vert maxHeight="24" />
-              {isAuthed ? (
-                <>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="person"
-                      href={account.path}
-                      label={account.label}
-                      selected={pathname.startsWith("/conta")}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="person"
-                      href={account.path}
-                      selected={pathname.startsWith("/conta")}
-                    />
-                  </Row>
-                </>
-              ) : (
-                <>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="lock"
-                      href="/auth/login"
-                      label="Entrar"
-                      selected={pathname.startsWith("/auth")}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="lock"
-                      href="/auth/login"
-                      selected={pathname.startsWith("/auth")}
-                    />
-                  </Row>
-                </>
-              )}
               {display.themeSwitcher && (
                 <>
                   <Line background="neutral-alpha-medium" vert maxHeight="24" />
@@ -274,8 +188,9 @@ export const Header = () => {
             </Row>
           </Row>
         </Row>
-        <Flex fillWidth horizontal="end" vertical="center">
+        <Flex className={`${styles.meta} ${styles.right}`} fillWidth horizontal="end" vertical="center">
           <Flex
+            className={styles.clock}
             paddingRight="12"
             horizontal="end"
             vertical="center"

@@ -14,6 +14,8 @@ import {
   Button,
 } from "@once-ui-system/core";
 
+import styles from "./WebsiteEstimator.module.scss";
+
 type Range = { min: number; max: number };
 
 type ProjectType = {
@@ -34,26 +36,26 @@ type Addon = {
 const projectTypes: ProjectType[] = [
   {
     id: "landing",
-    label: "Landing page de conversão",
-    description: "Campanhas, lançamentos e captação de leads.",
+    label: "Landing page de conversao",
+    description: "Campanhas, lancamentos e captacao de leads.",
     range: { min: 1500, max: 3500 },
   },
   {
     id: "institutional",
     label: "Site institucional",
-    description: "Presença digital completa para profissionais e empresas.",
+    description: "Presenca digital completa para profissionais e empresas.",
     range: { min: 3500, max: 8000 },
   },
   {
     id: "commerce",
     label: "E-commerce",
-    description: "Catálogo, checkout e integrações essenciais.",
+    description: "Catalogo, checkout e integracoes essenciais.",
     range: { min: 8000, max: 18000 },
   },
   {
     id: "commerce-app",
     label: "E-commerce + app",
-    description: "Operação completa com app complementar.",
+    description: "Operacao completa com app complementar.",
     range: { min: 18000, max: 35000 },
   },
 ];
@@ -61,40 +63,40 @@ const projectTypes: ProjectType[] = [
 const addons: Addon[] = [
   {
     id: "cms",
-    label: "CMS para conteúdo",
-    description: "Painel editorial para publicar e atualizar conteúdo.",
+    label: "CMS para conteudo",
+    description: "Painel editorial para publicar e atualizar conteudo.",
     range: { min: 1000, max: 4000 },
   },
   {
     id: "payments",
     label: "Pagamentos customizados",
-    description: "Checkout avançado e regras específicas.",
+    description: "Checkout avancado e regras especificas.",
     range: { min: 1500, max: 6000 },
   },
   {
     id: "pwa",
     label: "PWA / app",
-    description: "Experiência mobile com notificações.",
+    description: "Experiencia mobile com notificacoes.",
     range: { min: 3000, max: 12000 },
   },
   {
     id: "integrations",
-    label: "Integrações externas",
-    description: "ERP, CRM, logística ou automações.",
+    label: "Integracoes externas",
+    description: "ERP, CRM, logistica ou automacoes.",
     range: { min: 1500, max: 7000 },
   },
   {
     id: "multilingual",
-    label: "Multilíngue",
+    label: "Multilingue",
     description: "Mais de um idioma ou unidade.",
     range: { min: 1200, max: 4500 },
   },
   {
     id: "content-ready",
-    label: "Conteúdo e identidade já prontos",
-    description: "Desconto por reduzir esforço de produção.",
+    label: "Conteudo e identidade ja prontos",
+    description: "Desconto por reduzir esforco de producao.",
     range: { min: -800, max: -2500 },
-    note: "Pode reduzir o orçamento final.",
+    note: "Pode reduzir o orcamento final.",
   },
 ];
 
@@ -130,29 +132,28 @@ export function WebsiteEstimator({ ctaHref, ctaLabel, contactEmail }: WebsiteEst
   const hasDiscount = totals.addonsSelected.some((item) => item.range.min < 0);
 
   return (
-    <Column gap="16">
-      <Row gap="8" vertical="center">
+    <Column className={styles.root} gap="16">
+      <Row className={styles.heading} gap="8" vertical="center">
         <Heading as="h2" variant="heading-strong-s">
-          Estimativa rápida
+          Estimativa rapida
         </Heading>
         <Tag size="s" background="neutral-alpha-weak">
-          ?
+          Simulador
         </Tag>
       </Row>
       <Text onBackground="neutral-weak">
-        Selecione o tipo de projeto e os módulos desejados. Isso gera uma estimativa inicial (não é
-        uma proposta formal).
+        Selecione o tipo de projeto e os modulos desejados. Isso gera uma estimativa inicial e ajuda
+        a enxergar o peso tecnico de cada camada.
       </Text>
 
       <Grid columns="2" s={{ columns: 1 }} gap="16">
         <Column
+          className={styles.panel}
           gap="12"
           paddingX="20"
           paddingY="20"
           radius="l"
           background="surface"
-          style={{ background: "var(--surface-weak)" }}
-          border="neutral-alpha-weak"
         >
           <Heading as="h3" variant="heading-strong-m">
             Tipo de projeto
@@ -173,16 +174,15 @@ export function WebsiteEstimator({ ctaHref, ctaLabel, contactEmail }: WebsiteEst
         </Column>
 
         <Column
+          className={styles.panel}
           gap="12"
           paddingX="20"
           paddingY="20"
           radius="l"
           background="surface"
-          style={{ background: "var(--surface-weak)" }}
-          border="neutral-alpha-weak"
         >
           <Heading as="h3" variant="heading-strong-m">
-            Módulos adicionais
+            Modulos adicionais
           </Heading>
           <Column gap="8">
             {addons.map((item) => (
@@ -192,14 +192,12 @@ export function WebsiteEstimator({ ctaHref, ctaLabel, contactEmail }: WebsiteEst
                 label={item.label}
                 description={item.description}
                 isChecked={Boolean(selected[item.id])}
-                onToggle={() =>
-                  setSelected((prev) => ({ ...prev, [item.id]: !prev[item.id] }))
-                }
+                onToggle={() => setSelected((prev) => ({ ...prev, [item.id]: !prev[item.id] }))}
               />
             ))}
           </Column>
           {selectedLabels.length > 0 ? (
-            <Row gap="8" wrap>
+            <Row className={styles.selection} gap="8" wrap>
               {selectedLabels.map((label) => (
                 <Tag key={label} size="s" background="neutral-alpha-weak">
                   {label}
@@ -208,48 +206,41 @@ export function WebsiteEstimator({ ctaHref, ctaLabel, contactEmail }: WebsiteEst
             </Row>
           ) : (
             <Text variant="body-default-s" onBackground="neutral-weak">
-              Selecione módulos para ajustar a estimativa.
+              Selecione modulos para ajustar a estimativa.
             </Text>
           )}
           <Row gap="8" wrap>
-            <Button
-              type="button"
-              variant="tertiary"
-              size="s"
-              onClick={() => setSelected({})}
-            >
-              Limpar seleção
+            <Button type="button" variant="tertiary" size="s" onClick={() => setSelected({})}>
+              Limpar selecao
             </Button>
           </Row>
         </Column>
       </Grid>
 
       <Card
+        className={styles.summary}
         direction="column"
         gap="12"
         paddingX="20"
         paddingY="20"
         radius="l"
         background="surface"
-        style={{ background: "var(--surface-weak)" }}
-        border="neutral-alpha-weak"
       >
         <Row gap="12" vertical="center" wrap>
           <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
             Estimativa inicial
           </Tag>
-          <Heading as="h3" variant="heading-strong-l">
-            {formatCurrency(totals.min)} — {formatCurrency(totals.max)}
+          <Heading className={styles.summaryValue} as="h3" variant="heading-strong-l">
+            {formatCurrency(totals.min)} - {formatCurrency(totals.max)}
           </Heading>
         </Row>
         <Text onBackground="neutral-weak">
-          Valores podem variar para menos ou mais conforme escopo, integrações e volume de conteúdo.
-          Projetos com reaproveitamento de assets ou necessidades específicas podem receber ajustes e
-          descontos.
+          Valores podem variar para menos ou mais conforme escopo, integracoes e volume de conteudo.
+          Projetos com reaproveitamento de assets ou necessidades especificas podem receber ajustes.
         </Text>
         {hasDiscount && (
           <Text variant="body-default-s" onBackground="neutral-weak">
-            Seleções que reduzem esforço podem gerar descontos.
+            Selecoes que reduzem esforco podem gerar descontos.
           </Text>
         )}
         <Row gap="12" wrap>

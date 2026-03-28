@@ -7,9 +7,16 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <Row as="footer" fillWidth padding="8" horizontal="center" s={{ direction: "column" }}>
+    <Row
+      as="footer"
+      className={styles.footer}
+      fillWidth
+      padding="8"
+      horizontal="center"
+      s={{ direction: "column" }}
+    >
       <Row
-        className={styles.mobile}
+        className={`${styles.inner} ${styles.mobile}`}
         maxWidth="m"
         paddingY="8"
         paddingX="16"
@@ -22,7 +29,7 @@ export const Footer = () => {
           align: "center",
         }}
       >
-        <Text variant="body-default-s" onBackground="neutral-strong">
+        <Text className={styles.copy} variant="body-default-s" onBackground="neutral-strong">
           <Text onBackground="neutral-weak">© {currentYear} /</Text>
           <Text paddingX="4">{person.name}</Text>
           <Text onBackground="neutral-weak">/ Fale comigo no Instagram:{" "}</Text>
@@ -35,7 +42,7 @@ export const Footer = () => {
           </SmartLink>
         </Text>
 
-        <Row gap="16">
+        <Row className={styles.social} gap="16">
           <IconButton
             href="/rss.xml"
             icon="document"
