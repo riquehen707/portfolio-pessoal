@@ -1,23 +1,14 @@
-.link {
-  display: block;
-  width: 100%;
-  color: inherit;
-}
-
 .card {
   position: relative;
-  width: 100%;
-  height: 100%;
   overflow: hidden;
-  border: 1px solid rgba(169, 189, 214, 0.16);
-  background:
-    linear-gradient(140deg, rgba(255, 255, 255, 0.08), transparent 24%, rgba(255, 255, 255, 0.02) 58%, transparent 100%),
-    var(--surface-panel-soft);
-  box-shadow: var(--metal-shadow-soft);
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-panel-soft);
+  box-shadow: var(--shadow-soft);
   transition:
-    transform 220ms ease,
-    border-color 220ms ease,
-    box-shadow 220ms ease;
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
 }
 
 .card::before {
@@ -25,96 +16,58 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 14% 8%, rgba(82, 144, 255, 0.12), transparent 32%),
-    radial-gradient(circle at 88% 0%, rgba(255, 112, 80, 0.12), transparent 28%),
-    repeating-linear-gradient(
-      120deg,
-      transparent 0,
-      transparent 16px,
-      rgba(255, 255, 255, 0.014) 16px,
-      rgba(255, 255, 255, 0.014) 17px
-    );
+    radial-gradient(circle at 14% 0%, var(--brand-glow), transparent 26%),
+    radial-gradient(circle at 88% 0%, var(--accent-glow), transparent 20%);
   pointer-events: none;
-}
-
-.card > * {
-  position: relative;
-  z-index: 1;
 }
 
 .thumb {
   position: relative;
-  flex-shrink: 0;
   overflow: hidden;
-  border: 1px solid rgba(169, 189, 214, 0.14);
-  border-radius: 0.9rem;
-  background:
-    linear-gradient(140deg, rgba(255, 255, 255, 0.08), transparent 36%),
-    var(--surface-panel);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .thumb[data-direction="row"] {
-  width: 160px;
-  height: 96px;
+  width: 168px;
 }
 
 .thumb[data-direction="column"] {
   width: 100%;
-  height: 180px;
-}
-
-.thumb :global(img) {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: saturate(1.05);
 }
 
 .content {
-  min-width: 0;
-  flex-grow: 1;
-}
-
-.title {
-  line-height: 1.28;
-  word-wrap: break-word;
+  position: relative;
+  z-index: 1;
 }
 
 .meta {
-  gap: 0.55rem;
+  row-gap: 0.5rem;
 }
 
-.date {
-  white-space: nowrap;
+.title {
+  line-height: 1.3;
 }
 
 .tag {
-  max-width: 100%;
-  overflow: hidden;
-  padding: 0.18rem 0.45rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  width: fit-content;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .link:hover .card {
-    transform: translateY(-4px);
-    border-color: var(--metal-border-strong);
-    box-shadow:
-      0 20px 40px rgba(0, 0, 0, 0.26),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08),
-      0 0 24px rgba(82, 144, 255, 0.08);
+  .card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-strong);
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: var(--shadow-card);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
   }
 }
 
 @media (max-width: 768px) {
   .thumb[data-direction="row"] {
     width: 100%;
-    height: 160px;
   }
 }

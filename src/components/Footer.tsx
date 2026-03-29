@@ -1,22 +1,18 @@
-import { Row, IconButton, SmartLink, Text } from "@once-ui-system/core";
+import { IconButton, Row, SmartLink, Text } from "@once-ui-system/core";
+
 import { person, social } from "@/resources";
+
 import styles from "./Footer.module.scss";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <Row
-      as="footer"
-      fillWidth
-      padding="8"
-      horizontal="center"
-      s={{ direction: "column" }}
-    >
+    <Row as="footer" className={styles.footer} fillWidth padding="8" horizontal="center" s={{ direction: "column" }}>
       <Row
-        className={styles.mobile}
+        className={`${styles.shell} ${styles.mobile}`}
         maxWidth="m"
-        paddingY="8"
+        paddingY="12"
         paddingX="16"
         gap="16"
         horizontal="between"
@@ -27,15 +23,16 @@ export const Footer = () => {
           align: "center",
         }}
       >
-        <Text variant="body-default-s" onBackground="neutral-strong">
-          <Text onBackground="neutral-weak">© {currentYear} /</Text>
+        <Text className={styles.copy} variant="body-default-s" onBackground="neutral-strong">
+          <Text onBackground="neutral-weak">Copyright {currentYear}</Text>
           <Text paddingX="4">{person.name}</Text>
+          <Text onBackground="neutral-weak">/ front-end, SEO tecnico e automacao</Text>
           <Text onBackground="neutral-weak">
-            / Build your portfolio with{" "}
-            <SmartLink href="https://once-ui.com/products/magic-portfolio">Once UI</SmartLink>
+            {" "}
+            / <SmartLink href={`mailto:${person.email}`}>{person.email}</SmartLink>
           </Text>
         </Text>
-        <Row gap="16">
+        <Row className={styles.social} gap="12">
           {social.map(
             (item) =>
               item.link && (

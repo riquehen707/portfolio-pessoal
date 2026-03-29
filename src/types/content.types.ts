@@ -221,6 +221,8 @@ export interface Blog extends BasePageConfig {}
  */
 export interface Work extends BasePageConfig {}
 
+export interface TechnicalPage extends BasePageConfig {}
+
 export interface ServicesPage extends BasePageConfig {
   intro: {
     headline: string;

@@ -1,21 +1,41 @@
-import {
-  Avatar,
-  Button,
-  Column,
-  Heading,
-  Icon,
-  IconButton,
-  Media,
-  Tag,
-  Text,
-  Meta,
-  Schema,
-  Row,
-} from "@once-ui-system/core";
-import { baseURL, about, person, social } from "@/resources";
-import TableOfContents from "@/components/about/TableOfContents";
+import { Avatar, Button, Column, Grid, Heading, Meta, Row, Schema, SmartLink, Tag, Text } from "@once-ui-system/core";
+
 import styles from "@/components/about/about.module.scss";
-import React from "react";
+import { about, baseURL, person, social, technicalApproach, work } from "@/resources";
+import { getPosts } from "@/utils/utils";
+
+const kindLabels = {
+  personal: "Projeto pessoal",
+  study: "Estudo de caso",
+  client: "Case de cliente",
+} as const;
+
+const problemPoints = [
+  "Organizo a mensagem para a pessoa certa entender rapido o que voce faz.",
+  "Estruturo paginas para gerar conversa, nao apenas visita.",
+  "Conecto pagina, SEO e atendimento para reduzir ruido no caminho ate o contato.",
+];
+
+const audiencePoints = [
+  "Psicologos, terapeutas e profissionais de atendimento.",
+  "Consultores e especialistas que dependem de autoridade e clareza.",
+  "Autonomos e prestadores de servico que querem sair da tentativa e erro no digital.",
+];
+
+const processSteps = [
+  {
+    title: "Pagina clara",
+    description: "Defino oferta, hierarquia e CTA para facilitar a decisao de quem chega.",
+  },
+  {
+    title: "SEO e estrutura",
+    description: "Ajusto conteudo, arquitetura e sinais tecnicos para o site ser encontrado e entendido.",
+  },
+  {
+    title: "Atendimento organizado",
+    description: "Conecto contato, automacoes e rotinas simples para a conversa nao se perder.",
+  },
+];
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -28,31 +48,22 @@ export async function generateMetadata() {
 }
 
 export default function About() {
-  const structure = [
-    {
-      title: about.intro.title,
-      display: about.intro.display,
-      items: [],
-    },
-    {
-      title: about.work.title,
-      display: about.work.display,
-      items: about.work.experiences.map((experience) => experience.company),
-    },
-    {
-      title: about.studies.title,
-      display: about.studies.display,
-      items: about.studies.institutions.map((institution) => institution.name),
-    },
-    {
-      title: about.technical.title,
-      display: about.technical.display,
-      items: about.technical.skills.map((skill) => skill.title),
-    },
-  ];
+  const whatsappLink = social.find((item) => item.name === "WhatsApp")?.link ?? `mailto:${person.email}`;
+  const technicalTags = Array.from(
+    new Set(
+      about.technical.skills.flatMap((skill) => skill.tags?.map((tag) => tag.name) ?? []),
+    ),
+  ).slice(0, 6);
+
+  const proofProjects = getPosts(["src", "app", "work", "projects"])
+    .sort(
+      (a, b) =>
+        new Date(b.metadata.publishedAt ?? 0).getTime() - new Date(a.metadata.publishedAt ?? 0).getTime(),
+    )
+    .slice(0, 3);
 
   return (
-    <Column maxWidth="m">
+    <Column className={styles.page} maxWidth="m" gap="24" paddingTop="24">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -66,260 +77,237 @@ export default function About() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      {about.tableOfContent.display && (
-        <Column
-          left="0"
-          style={{ top: "50%", transform: "translateY(-50%)" }}
-          position="fixed"
-          paddingLeft="24"
-          gap="32"
-          s={{ hide: true }}
-        >
-          <TableOfContents structure={structure} about={about} />
-        </Column>
-      )}
-      <Row fillWidth s={{ direction: "column" }} horizontal="center">
-        {about.avatar.display && (
-          <Column
-            className={styles.avatar}
-            position="sticky"
-            minWidth="160"
-            paddingX="l"
-            paddingBottom="xl"
-            gap="m"
-            flex={3}
-            horizontal="center"
-          >
-            <Avatar src={person.avatar} size="xl" />
-            <Row gap="8" vertical="center">
-              <Icon onBackground="accent-weak" name="globe" />
-              {person.location}
-            </Row>
-            {person.languages && person.languages.length > 0 && (
-              <Row wrap gap="8">
-                {person.languages.map((language, index) => (
-                  <Tag key={index} size="l">
-                    {language}
-                  </Tag>
-                ))}
-              </Row>
-            )}
-          </Column>
-        )}
-        <Column className={styles.blockAlign} flex={9} maxWidth={40}>
-          <Column
-            id={about.intro.title}
-            fillWidth
-            minHeight="160"
-            vertical="center"
-            marginBottom="32"
-          >
-            {about.calendar.display && (
-              <Row
-                fitWidth
-                border="brand-alpha-medium"
-                background="brand-alpha-weak"
-                radius="full"
-                padding="4"
-                gap="8"
-                marginBottom="m"
-                vertical="center"
-                className={styles.blockAlign}
-                style={{
-                  backdropFilter: "blur(var(--static-space-1))",
-                }}
-              >
-                <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
-                <Row paddingX="8">Agendar conversa</Row>
-                <IconButton
-                  href={about.calendar.link}
-                  data-border="rounded"
-                  variant="secondary"
-                  icon="chevronRight"
-                />
-              </Row>
-            )}
-            <Heading className={styles.textAlign} variant="display-strong-xl">
-              {person.name}
+
+      <Column className={styles.hero} fillWidth gap="24" padding="24">
+        <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="20">
+          <Column className={styles.heroMain} gap="16">
+            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+              Sobre o trabalho
+            </Tag>
+            <Heading variant="display-strong-l" wrap="balance">
+              Ajudo prestadores de servico a transformar presenca digital em clientes com mais clareza.
             </Heading>
-            <Text
-              className={styles.textAlign}
-              variant="display-default-xs"
-              onBackground="neutral-weak"
-            >
-              {person.role}
+            <div className={styles.accentLine} />
+            <Text className={styles.lead} variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
+              Crio paginas, estrutura de SEO e organizacao de atendimento para quem precisa vender servicos
+              sem depender de tentativa e erro no digital.
             </Text>
-            {social.length > 0 && (
-              <Row
-                className={styles.blockAlign}
-                paddingTop="20"
-                paddingBottom="8"
-                gap="8"
-                wrap
-                horizontal="center"
-                fitWidth
-                data-border="rounded"
-              >
-                {social.map(
-                  (item) =>
-                    item.link && (
-                      <React.Fragment key={item.name}>
-                        <Row s={{ hide: true }}>
-                          <Button
-                            href={item.link}
-                            prefixIcon={item.icon}
-                            label={item.name}
-                            size="s"
-                            weight="default"
-                            variant="secondary"
-                          />
-                        </Row>
-                        <Row hide s={{ hide: false }}>
-                          <IconButton
-                            size="l"
-                            key={`${item.name}-icon`}
-                            href={item.link}
-                            icon={item.icon}
-                            variant="secondary"
-                          />
-                        </Row>
-                      </React.Fragment>
-                    ),
-                )}
-              </Row>
-            )}
+            <Row className={styles.actions} gap="12" wrap>
+              <Button href={whatsappLink} prefixIcon="whatsapp" size="m" variant="primary">
+                Falar no WhatsApp
+              </Button>
+              <Button href={work.path} size="m" variant="secondary" arrowIcon>
+                Ver projetos
+              </Button>
+            </Row>
+            <SmartLink href={technicalApproach.path} suffixIcon="arrowRight">
+              Ver abordagem tecnica
+            </SmartLink>
           </Column>
 
-          {about.intro.display && (
-            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
-              {about.intro.description}
+          <Column className={styles.heroAside} gap="16">
+            <Row className={styles.profileCard} gap="12" vertical="center">
+              <Avatar src={person.avatar} size="l" />
+              <Column className={styles.profileMeta} gap="2">
+                <Text variant="label-strong-m">{person.name}</Text>
+                <Text variant="body-default-s" onBackground="neutral-weak">
+                  Bahia, Brasil / paginas, SEO tecnico e automacao
+                </Text>
+              </Column>
+            </Row>
+
+            <div className={styles.collage}>
+              <div className={`${styles.collageCard} ${styles.collageWide}`}>
+                <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
+                  O que eu resolvo
+                </Text>
+                <Text variant="heading-strong-m" wrap="balance">
+                  Presenca digital confusa, lenta ou sem direcao comercial.
+                </Text>
+              </div>
+              <div className={styles.collageCard}>
+                <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
+                  Para quem
+                </Text>
+                <Text variant="body-default-m">
+                  Prestadores de servico que precisam converter melhor.
+                </Text>
+              </div>
+              <div className={styles.collageCard}>
+                <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
+                  Como entra a tecnica
+                </Text>
+                <Text variant="body-default-m">
+                  Como suporte para clareza, SEO, velocidade e manutencao.
+                </Text>
+              </div>
+            </div>
+          </Column>
+        </Grid>
+      </Column>
+
+      <Column className={styles.sectionPanel} fillWidth gap="16" padding="24">
+        <Row className={styles.sectionHeader} fillWidth horizontal="between" vertical="end" s={{ direction: "column" }}>
+          <Column className={styles.sectionIntro} gap="8">
+            <Tag size="s" background="neutral-alpha-weak">
+              Direcao
+            </Tag>
+            <Heading as="h2" variant="display-strong-s">
+              O que eu resolvo e para quem
+            </Heading>
+            <Text variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
+              A pagina precisa explicar com rapidez por que vale a pena falar com voce e qual o proximo passo.
+            </Text>
+          </Column>
+        </Row>
+
+        <Grid className={styles.splitGrid} columns="2" s={{ columns: 1 }} gap="16">
+          <Column className={styles.infoCard} gap="12">
+            <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
+              O que eu resolvo
+            </Text>
+            <Heading as="h3" variant="heading-strong-l">
+              Geracao de clientes com mensagem, estrutura e fluxo mais claros.
+            </Heading>
+            <Column as="ul" className={styles.infoList} gap="12">
+              {problemPoints.map((point) => (
+                <Text as="li" key={point} variant="body-default-m" onBackground="neutral-weak">
+                  {point}
+                </Text>
+              ))}
             </Column>
-          )}
+          </Column>
 
-          {about.work.display && (
-            <>
-              <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
-                {about.work.title}
-              </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
-                {about.work.experiences.map((experience, index) => (
-                  <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
-                    <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
-                      <Text id={experience.company} variant="heading-strong-l">
-                        {experience.company}
-                      </Text>
-                      <Text variant="heading-default-xs" onBackground="neutral-weak">
-                        {experience.timeframe}
-                      </Text>
-                    </Row>
-                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
-                      {experience.role}
-                    </Text>
-                    <Column as="ul" gap="16">
-                      {experience.achievements.map((achievement: React.ReactNode, index: number) => (
-                        <Text
-                          as="li"
-                          variant="body-default-m"
-                          key={`${experience.company}-${index}`}
-                        >
-                          {achievement}
-                        </Text>
-                      ))}
-                    </Column>
-                    {experience.images && experience.images.length > 0 && (
-                      <Row fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
-                        {experience.images.map((image, index) => (
-                          <Row
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            minWidth={image.width}
-                            height={image.height}
-                          >
-                            <Media
-                              enlarge
-                              radius="m"
-                              sizes={image.width.toString()}
-                              alt={image.alt}
-                              src={image.src}
-                            />
-                          </Row>
-                        ))}
-                      </Row>
-                    )}
-                  </Column>
-                ))}
-              </Column>
-            </>
-          )}
+          <Column className={styles.infoCard} gap="12">
+            <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
+              Para quem
+            </Text>
+            <Heading as="h3" variant="heading-strong-l">
+              Prestadores de servico que vivem de reputacao, indicacao e relacionamento.
+            </Heading>
+            <Column as="ul" className={styles.infoList} gap="12">
+              {audiencePoints.map((point) => (
+                <Text as="li" key={point} variant="body-default-m" onBackground="neutral-weak">
+                  {point}
+                </Text>
+              ))}
+            </Column>
+          </Column>
+        </Grid>
+      </Column>
 
-          {about.studies.display && (
-            <>
-              <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
-                {about.studies.title}
-              </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
-                {about.studies.institutions.map((institution, index) => (
-                  <Column key={`${institution.name}-${index}`} fillWidth gap="4">
-                    <Text id={institution.name} variant="heading-strong-l">
-                      {institution.name}
-                    </Text>
-                    <Text variant="heading-default-xs" onBackground="neutral-weak">
-                      {institution.description}
-                    </Text>
-                  </Column>
-                ))}
-              </Column>
-            </>
-          )}
+      <Column className={styles.sectionPanel} fillWidth gap="16" padding="24">
+        <Row className={styles.sectionHeader} fillWidth horizontal="between" vertical="end" s={{ direction: "column" }}>
+          <Column className={styles.sectionIntro} gap="8">
+            <Tag size="s" background="neutral-alpha-weak">
+              Como funciona
+            </Tag>
+            <Heading as="h2" variant="display-strong-s">
+              Um processo simples para sair do improviso
+            </Heading>
+            <Text variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
+              O objetivo nao e empilhar recursos. E deixar a base digital clara, encontravel e preparada para contato.
+            </Text>
+          </Column>
+        </Row>
 
-          {about.technical.display && (
-            <>
-              <Heading
-                as="h2"
-                id={about.technical.title}
-                variant="display-strong-s"
-                marginBottom="40"
-              >
-                {about.technical.title}
-              </Heading>
-              <Column fillWidth gap="l">
-                {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill.title}-${index}`} fillWidth gap="4">
-                    <Text id={skill.title} variant="heading-strong-l">
-                      {skill.title}
-                    </Text>
-                    <Text variant="body-default-m" onBackground="neutral-weak">
-                      {skill.description}
-                    </Text>
-                    {skill.images && skill.images.length > 0 && (
-                      <Row fillWidth paddingTop="m" gap="12" wrap>
-                        {skill.images.map((image, index) => (
-                          <Row
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            minWidth={image.width}
-                            height={image.height}
-                          >
-                            <Media
-                              enlarge
-                              radius="m"
-                              sizes={image.width.toString()}
-                              alt={image.alt}
-                              src={image.src}
-                            />
-                          </Row>
-                        ))}
-                      </Row>
-                    )}
-                  </Column>
-                ))}
+        <Grid className={styles.stepGrid} columns="3" s={{ columns: 1 }} gap="16">
+          {processSteps.map((step, index) => (
+            <Column key={step.title} className={styles.stepCard} gap="12">
+              <Text className={styles.stepIndex} variant="label-strong-s">
+                0{index + 1}
+              </Text>
+              <Text variant="heading-strong-m">{step.title}</Text>
+              <Text variant="body-default-m" onBackground="neutral-weak">
+                {step.description}
+              </Text>
+            </Column>
+          ))}
+        </Grid>
+      </Column>
+
+      <Column className={styles.sectionPanel} fillWidth gap="16" padding="24">
+        <Row className={styles.sectionHeader} fillWidth horizontal="between" vertical="end" s={{ direction: "column" }}>
+          <Column className={styles.sectionIntro} gap="8">
+            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+              Prova
+            </Tag>
+            <Heading as="h2" variant="display-strong-s">
+              Alguns projetos para ver como isso aparece na pratica
+            </Heading>
+            <Text variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
+              O portfolio mistura projetos pessoais e estudos de caso para mostrar metodo, execucao e criterio.
+            </Text>
+          </Column>
+          <SmartLink href={work.path} suffixIcon="arrowRight">
+            Ver todos os projetos
+          </SmartLink>
+        </Row>
+
+        <Grid className={styles.proofGrid} columns="3" s={{ columns: 1 }} gap="16">
+          {proofProjects.map((project) => {
+            const tag = project.metadata.tag ?? project.metadata.tags?.[0];
+            const kind =
+              project.metadata.kind &&
+              kindLabels[project.metadata.kind as keyof typeof kindLabels];
+
+            return (
+              <Column key={project.slug} className={styles.proofCard} gap="12">
+                <Row gap="8" wrap>
+                  {kind && (
+                    <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+                      {kind}
+                    </Tag>
+                  )}
+                  {tag && (
+                    <Tag size="s" background="neutral-alpha-weak">
+                      {tag}
+                    </Tag>
+                  )}
+                </Row>
+                <Text variant="heading-strong-m" wrap="balance">
+                  {project.metadata.title}
+                </Text>
+                <Text variant="body-default-m" onBackground="neutral-weak">
+                  {project.metadata.summary ?? project.metadata.title}
+                </Text>
+                <SmartLink href={`/work/${project.slug}`} suffixIcon="arrowRight">
+                  Abrir case
+                </SmartLink>
               </Column>
-            </>
-          )}
-        </Column>
-      </Row>
+            );
+          })}
+        </Grid>
+      </Column>
+
+      <Column className={`${styles.sectionPanel} ${styles.depthPanel}`} fillWidth gap="16" padding="24">
+        <Row className={styles.sectionHeader} fillWidth horizontal="between" vertical="center" s={{ direction: "column" }}>
+          <Column className={styles.sectionIntro} gap="8">
+            <Tag size="s" background="neutral-alpha-weak">
+              Profundidade tecnica
+            </Tag>
+            <Heading as="h2" variant="display-strong-s">
+              A parte tecnica existe para sustentar a leitura principal, nao para competir com ela.
+            </Heading>
+            <Text variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
+              Se quiser entender stack, componentizacao, SCSS modular, SEO tecnico e performance, essa camada fica em uma pagina separada.
+            </Text>
+          </Column>
+
+          <Column className={styles.depthAside} gap="12">
+            <Row className={styles.depthTags} gap="8" wrap>
+              {technicalTags.map((item) => (
+                <Tag key={item} size="s" background="neutral-alpha-weak">
+                  {item}
+                </Tag>
+              ))}
+            </Row>
+            <SmartLink href={technicalApproach.path} suffixIcon="arrowRight">
+              Explorar abordagem tecnica
+            </SmartLink>
+          </Column>
+        </Row>
+      </Column>
     </Column>
   );
 }

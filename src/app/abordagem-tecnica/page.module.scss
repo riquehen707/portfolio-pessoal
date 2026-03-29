@@ -1,4 +1,4 @@
-@use "../breakpoints.scss" as breakpoints;
+@use "../../components/breakpoints.scss" as breakpoints;
 
 .page {
   width: 100%;
@@ -16,53 +16,63 @@
 
 .hero {
   border-radius: 2rem;
-  background: var(--surface-panel-strong);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent),
+    var(--surface-panel-strong);
   box-shadow: var(--shadow-card);
 }
 
 .hero::before,
 .sectionPanel::before,
 .heroAside::before,
-.collageCard::before,
-.infoCard::before,
-.stepCard::before,
-.proofCard::before {
+.pillarCard::before,
+.processCard::before,
+.systemCard::before {
   content: "";
   position: absolute;
   inset: 0;
   background:
     radial-gradient(circle at 14% 0%, var(--brand-glow), transparent 28%),
-    radial-gradient(circle at 88% 0%, var(--accent-glow), transparent 22%);
+    radial-gradient(circle at 88% 0%, var(--accent-glow), transparent 20%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 2.75rem 2.75rem;
+  opacity: 0.22;
   pointer-events: none;
 }
 
 .hero > *,
 .sectionPanel > *,
 .heroAside > *,
-.collageCard > *,
-.infoCard > *,
-.stepCard > *,
-.proofCard > * {
+.pillarCard > *,
+.processCard > *,
+.systemCard > * {
   position: relative;
   z-index: 1;
 }
 
 .heroGrid,
-.splitGrid,
-.stepGrid,
-.proofGrid {
+.pillarsGrid,
+.processGrid {
   align-items: stretch;
 }
 
 .heroMain,
 .heroAside,
-.sectionIntro,
-.profileMeta,
-.depthAside {
+.sectionIntro {
   min-width: 0;
 }
 
-.lead {
+.lead,
+.sectionIntro {
   max-width: 38rem;
 }
 
@@ -77,20 +87,10 @@
   row-gap: 0.75rem;
 }
 
-.heroAside {
-  position: relative;
-  overflow: hidden;
-  padding: 1rem;
-  border: 1px solid var(--border-subtle);
-  border-radius: 1.5rem;
-  background: var(--surface-panel-soft);
-}
-
-.profileCard,
-.collageCard,
-.infoCard,
-.stepCard,
-.proofCard {
+.heroAside,
+.pillarCard,
+.processCard,
+.systemCard {
   position: relative;
   overflow: hidden;
   border: 1px solid var(--border-subtle);
@@ -103,30 +103,26 @@
     background 180ms ease;
 }
 
-.profileCard {
-  padding: 1rem 1.1rem;
-  border-radius: 1.3rem;
-}
-
-.collage {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.collageCard {
-  min-height: 10rem;
+.heroAside {
   padding: 1.1rem;
-  border-radius: 1.3rem;
+  border-radius: 1.45rem;
 }
 
-.collageWide {
-  grid-column: 1 / -1;
-}
-
-.eyebrow {
-  letter-spacing: 0.16em;
+.codeLabel,
+.signalValue,
+.processIndex {
+  font-family: var(--font-code);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.signalList {
+  width: 100%;
+}
+
+.signalRow + .signalRow {
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .sectionHeader {
@@ -134,50 +130,54 @@
   gap: 1rem;
 }
 
-.sectionIntro {
-  max-width: 38rem;
-}
-
-.infoCard,
-.proofCard {
+.pillarCard,
+.processCard {
+  min-height: 15rem;
   padding: 1.25rem;
   border-radius: 1.45rem;
 }
 
-.stepCard {
-  min-height: 13rem;
-  padding: 1.25rem;
-  border-radius: 1.45rem;
+.stackList {
+  padding-left: 1.05rem;
 }
 
-.stepIndex {
+.processIndex {
   width: fit-content;
   padding: 0.35rem 0.55rem;
   border: 1px solid var(--border-subtle);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.03);
-  font-family: var(--font-code);
-  letter-spacing: 0.12em;
 }
 
-.infoList {
-  padding-left: 1.1rem;
+.systemGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 1rem;
 }
 
-.depthPanel {
-  background: var(--surface-panel-soft);
+.systemSubgrid {
+  display: grid;
+  gap: 1rem;
 }
 
-.depthTags {
-  row-gap: 0.5rem;
+.systemCard {
+  height: 100%;
+  padding: 1.2rem;
+  border-radius: 1.45rem;
+}
+
+.systemCardLarge {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  justify-content: center;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .profileCard:hover,
-  .collageCard:hover,
-  .infoCard:hover,
-  .stepCard:hover,
-  .proofCard:hover {
+  .heroAside:hover,
+  .pillarCard:hover,
+  .processCard:hover,
+  .systemCard:hover {
     transform: translateY(-2px);
     border-color: var(--border-strong);
     background: rgba(255, 255, 255, 0.04);
@@ -186,11 +186,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .profileCard,
-  .collageCard,
-  .infoCard,
-  .stepCard,
-  .proofCard {
+  .heroAside,
+  .pillarCard,
+  .processCard,
+  .systemCard {
     transition: none;
   }
 }
@@ -202,28 +201,22 @@
   }
 
   .heroAside,
-  .profileCard,
-  .collageCard,
-  .infoCard,
-  .stepCard,
-  .proofCard {
+  .pillarCard,
+  .processCard,
+  .systemCard {
     border-radius: 1.2rem;
   }
 
-  .collage {
+  .systemGrid {
     grid-template-columns: 1fr;
-  }
-
-  .collageWide {
-    grid-column: auto;
-  }
-
-  .sectionHeader {
-    align-items: flex-start;
   }
 
   .lead,
   .sectionIntro {
     max-width: none;
+  }
+
+  .sectionHeader {
+    align-items: flex-start;
   }
 }

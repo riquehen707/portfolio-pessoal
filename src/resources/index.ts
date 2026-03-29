@@ -5,6 +5,7 @@ export {
   newsletter,
   home,
   about,
+  technicalApproach,
   blog,
   work,
 } from "./content";

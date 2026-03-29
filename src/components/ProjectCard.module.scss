@@ -5,12 +5,14 @@
 .mediaShell {
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--metal-border);
-  border-radius: clamp(1.35rem, 2vw, 2rem);
-  background:
-    linear-gradient(140deg, rgba(255, 255, 255, 0.06), transparent 32%, rgba(255, 255, 255, 0.02) 58%, transparent 100%),
-    var(--surface-panel-soft);
-  box-shadow: var(--metal-shadow);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.7rem;
+  background: var(--surface-panel-soft);
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .mediaShell::before {
@@ -18,46 +20,24 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 14% 10%, rgba(82, 144, 255, 0.14), transparent 36%),
-    radial-gradient(circle at 86% 8%, rgba(255, 112, 80, 0.14), transparent 30%),
-    repeating-linear-gradient(
-      120deg,
-      transparent 0,
-      transparent 18px,
-      rgba(255, 255, 255, 0.018) 18px,
-      rgba(255, 255, 255, 0.018) 19px
-    );
+    radial-gradient(circle at 14% 0%, var(--brand-glow), transparent 28%),
+    radial-gradient(circle at 86% 0%, var(--accent-glow), transparent 20%);
   pointer-events: none;
   z-index: 1;
 }
 
-.mediaShell :global(img) {
-  filter: saturate(1.08) contrast(1.02);
-}
-
 .contentShell {
   position: relative;
-  margin-top: -1.25rem;
-  border: 1px solid rgba(169, 189, 214, 0.16);
-  border-radius: 1.5rem;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 24%, rgba(255, 255, 255, 0.03) 50%, transparent 100%),
-    var(--surface-panel);
-  box-shadow:
-    0 22px 44px rgba(0, 0, 0, 0.26),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(18px);
-}
-
-.contentShell::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background:
-    radial-gradient(circle at 0% 12%, rgba(82, 144, 255, 0.12), transparent 32%),
-    radial-gradient(circle at 100% 0%, rgba(255, 112, 80, 0.12), transparent 26%);
-  pointer-events: none;
+  margin-top: -0.85rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.4rem;
+  background: var(--surface-panel);
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
 }
 
 .contentShell > * {
@@ -80,10 +60,6 @@
 
 .avatars {
   width: fit-content;
-  padding: 0.4rem 0.75rem;
-  border: 1px solid rgba(169, 189, 214, 0.16);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.03);
 }
 
 .description {
@@ -96,27 +72,40 @@
 
 .actionLink {
   width: fit-content;
-  padding-bottom: 0.1rem;
-  border-bottom: 1px solid transparent;
-  color: var(--text-color);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transition:
-    color 180ms ease,
-    border-color 180ms ease,
-    transform 180ms ease;
 }
 
-.actionLink:hover {
-  color: color-mix(in oklab, var(--scheme-brand-800), white 12%);
-  border-color: rgba(196, 215, 243, 0.34);
-  transform: translateX(0.2rem);
+@media (hover: hover) and (pointer: fine) {
+  .root:hover .mediaShell,
+  .root:hover .contentShell {
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-card);
+  }
+
+  .root:hover .mediaShell {
+    transform: translateY(-2px);
+  }
+
+  .root:hover .contentShell {
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.03);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mediaShell,
+  .contentShell {
+    transition: none;
+  }
 }
 
 @media (max-width: 768px) {
+  .mediaShell {
+    border-radius: 1.35rem;
+  }
+
   .contentShell {
-    margin-top: -0.9rem;
-    border-radius: 1.25rem;
+    margin-top: -0.65rem;
+    border-radius: 1.2rem;
   }
 
   .description {

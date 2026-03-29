@@ -1,4 +1,4 @@
-import { About, Blog, Home, Newsletter, Person, Social, Work } from "@/types";
+import { About, Blog, Home, Newsletter, Person, Social, TechnicalPage, Work } from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
 import { productsPage, services, servicesPage } from "./services";
 
@@ -9,8 +9,8 @@ const person: Person = {
   role: "Desenvolvedor front-end, SEO tecnico e automacao",
   avatar: "/images/avatar-henrique.jpg",
   email: "oi@henriquereis.dev",
-  location: "America/Sao_Paulo",
-  languages: ["Portuguese"],
+  location: "America/Bahia",
+  languages: ["Portugues"],
 };
 
 const newsletter: Newsletter = {
@@ -77,7 +77,7 @@ const about: About = {
   path: "/about",
   label: "Sobre",
   title: `Sobre | ${person.name}`,
-  description: `Conheca ${person.name}, com foco em front-end, SEO tecnico, automacao e conteudo estrategico.`,
+  description: `Como ${person.name} organiza paginas, SEO tecnico e automacao para ajudar prestadores de servico a conseguir clientes com mais clareza.`,
   tableOfContent: {
     display: true,
     subItems: true,
@@ -202,6 +202,14 @@ const about: About = {
   },
 };
 
+const technicalApproach: TechnicalPage = {
+  path: "/abordagem-tecnica",
+  label: "Abordagem tecnica",
+  title: `Abordagem tecnica | ${person.name}`,
+  description:
+    "Visao tecnica sobre como estruturo front-end, SEO tecnico, performance, automacao e componentes reutilizaveis sem poluir a experiencia.",
+};
+
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
@@ -218,4 +226,4 @@ const work: Work = {
     "Portfolio com projetos pessoais e estudos de caso em front-end, SEO tecnico, interfaces e automacao.",
 };
 
-export { person, social, newsletter, home, about, blog, work };
+export { person, social, newsletter, home, about, technicalApproach, blog, work };

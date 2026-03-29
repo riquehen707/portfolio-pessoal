@@ -12,6 +12,8 @@ import {
   Text,
 } from "@once-ui-system/core";
 
+import styles from "./ProjectCard.module.scss";
+
 interface ProjectCardProps {
   href: string;
   priority?: boolean;
@@ -36,29 +38,32 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   stack = [],
 }) => {
   return (
-    <Column fillWidth gap="m">
-      <Carousel
-        sizes="(max-width: 960px) 100vw, 960px"
-        items={images.map((image) => ({
-          slide: image,
-          alt: title,
-        }))}
-      />
+    <Column className={styles.root} fillWidth gap="m">
+      <div className={styles.mediaShell}>
+        <Carousel
+          sizes="(max-width: 960px) 100vw, 960px"
+          items={images.map((image) => ({
+            slide: image,
+            alt: title,
+          }))}
+        />
+      </div>
       <Flex
+        className={styles.contentShell}
         s={{ direction: "column" }}
         fillWidth
-        paddingX="s"
-        paddingTop="12"
+        paddingX="20"
+        paddingTop="20"
         paddingBottom="24"
-        gap="l"
+        gap="20"
       >
         {title && (
-          <Flex flex={5}>
+          <Flex className={styles.titleBlock} flex={5}>
             <Column gap="12">
               {(kind || stack.length > 0) && (
                 <Row wrap gap="8">
                   {kind && (
-                    <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+                    <Tag className={styles.kindTag} size="s" background="brand-alpha-weak" onBackground="brand-strong">
                       {kind}
                     </Tag>
                   )}
@@ -69,33 +74,33 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                   ))}
                 </Row>
               )}
-              <Heading as="h2" wrap="balance" variant="heading-strong-xl">
+              <Heading className={styles.title} as="h2" wrap="balance" variant="heading-strong-xl">
                 {title}
               </Heading>
             </Column>
           </Flex>
         )}
         {(avatars?.length > 0 || description?.trim() || href || link) && (
-          <Column flex={7} gap="16">
-            {avatars?.length > 0 && <AvatarGroup avatars={avatars} size="m" reverse />}
+          <Column className={styles.metaBlock} flex={7} gap="16">
+            {avatars?.length > 0 && (
+              <div className={styles.avatars}>
+                <AvatarGroup avatars={avatars} size="m" reverse />
+              </div>
+            )}
             {description?.trim() && (
-              <Text wrap="balance" variant="body-default-s" onBackground="neutral-weak">
+              <Text className={styles.description} wrap="balance" variant="body-default-s" onBackground="neutral-weak">
                 {description}
               </Text>
             )}
-            <Flex gap="24" wrap>
+            <Flex className={styles.actions} gap="20" wrap>
               {href && (
-                <SmartLink suffixIcon="arrowRight" style={{ margin: "0", width: "fit-content" }} href={href}>
-                  <Text variant="body-default-s">Ler estudo de caso</Text>
+                <SmartLink className={styles.actionLink} suffixIcon="arrowRight" href={href}>
+                  Ler estudo de caso
                 </SmartLink>
               )}
               {link && (
-                <SmartLink
-                  suffixIcon="arrowUpRightFromSquare"
-                  style={{ margin: "0", width: "fit-content" }}
-                  href={link}
-                >
-                  <Text variant="body-default-s">Ver projeto</Text>
+                <SmartLink className={styles.actionLink} suffixIcon="arrowUpRightFromSquare" href={link}>
+                  Ver projeto
                 </SmartLink>
               )}
             </Flex>

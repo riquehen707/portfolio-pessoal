@@ -1,6 +1,8 @@
-import { Column, Heading, Meta, Schema } from "@once-ui-system/core";
+import { Column, Heading, Meta, Schema, Tag, Text } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
 import { Projects } from "@/components/work/Projects";
+
+import styles from "../section.module.scss";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -14,7 +16,7 @@ export async function generateMetadata() {
 
 export default function Work() {
   return (
-    <Column maxWidth="m" paddingTop="24">
+    <Column className={styles.page} maxWidth="m" paddingTop="24" gap="24">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -28,10 +30,19 @@ export default function Work() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Heading marginBottom="l" variant="heading-strong-xl" align="center">
-        {work.title}
-      </Heading>
-      <Projects />
+
+      <Column className={styles.heroGlow} gap="16" padding="24">
+        <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+          Portfolio
+        </Tag>
+        <Heading variant="heading-strong-xl">{work.title}</Heading>
+        <div className={styles.accentLine} />
+        <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
+          Projetos pessoais e estudos de caso que mostram minha camada de interface, SEO tecnico e execucao.
+        </Text>
+      </Column>
+
+      <Projects marginBottom="0" />
     </Column>
   );
 }

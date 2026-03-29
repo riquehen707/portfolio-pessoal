@@ -1,252 +1,103 @@
 @use "../components/breakpoints.scss" as breakpoints;
 
 .page {
-  position: relative;
-  isolation: isolate;
   width: 100%;
 }
 
-.page::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto auto 50%;
-  width: min(82vw, 56rem);
-  height: 18rem;
-  transform: translateX(-50%);
-  background:
-    radial-gradient(circle at 22% 30%, rgba(82, 144, 255, 0.18), transparent 42%),
-    radial-gradient(circle at 80% 16%, rgba(255, 112, 80, 0.16), transparent 38%);
-  filter: blur(54px);
-  opacity: 0.8;
-  pointer-events: none;
-}
-
-.heroGlow,
-.sectionPanel {
+.hero {
   position: relative;
+  width: 100%;
   overflow: hidden;
-  border: 1px solid var(--metal-border);
-  box-shadow: var(--metal-shadow);
-  backdrop-filter: blur(20px);
-}
-
-.heroGlow {
-  width: 100%;
-  padding: clamp(2rem, 3vw, 3.1rem);
-  border-radius: clamp(1.7rem, 2.8vw, 2.6rem);
+  border: 1px solid var(--border-subtle);
+  border-radius: 2rem;
   background: var(--surface-panel-strong);
-  transition: box-shadow 220ms ease;
+  box-shadow: var(--shadow-card);
 }
 
-.heroGlow::before,
-.heroGlow::after,
-.sectionPanel::before,
-.sectionPanel::after,
-.cardTint::before,
-.cardTint::after,
-.signal::before,
-.signal::after {
+.hero::before {
   content: "";
   position: absolute;
-  pointer-events: none;
-}
-
-.heroGlow::before {
-  inset: -14% 40% 42% -8%;
-  background:
-    radial-gradient(
-      circle at var(--pointer-x) var(--pointer-y),
-      rgba(255, 255, 255, calc(0.12 * var(--pointer-opacity))) 0%,
-      rgba(93, 135, 194, calc(0.14 * var(--pointer-opacity))) 12%,
-      transparent 28%
-    ),
-    radial-gradient(circle at 18% 38%, rgba(93, 135, 194, 0.2), transparent 52%),
-    radial-gradient(circle at 82% 18%, rgba(196, 107, 84, 0.14), transparent 44%);
-  filter: blur(48px);
-}
-
-.heroGlow::after {
   inset: 0;
   background:
-    radial-gradient(
-      circle at var(--pointer-x) var(--pointer-y),
-      rgba(255, 255, 255, calc(0.08 * var(--pointer-opacity))) 0%,
-      transparent 20%
-    ),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.05), transparent 32%, rgba(255, 255, 255, 0.018) 62%, transparent 100%),
-    linear-gradient(180deg, rgba(196, 107, 84, 0.045), transparent 34%, rgba(93, 135, 194, 0.04) 100%);
-  animation: heroSurfaceShift 24s ease-in-out infinite alternate;
+    radial-gradient(circle at 16% 10%, var(--brand-glow), transparent 30%),
+    radial-gradient(circle at 84% 0%, var(--accent-glow), transparent 22%);
+  pointer-events: none;
 }
 
-.heroGlow > *,
-.sectionPanel > *,
-.cardTint > *,
-.signal > * {
+.hero > *,
+.heroAside > * {
   position: relative;
   z-index: 1;
 }
 
-.heroLayout {
-  align-items: start;
-}
-
-.heroMain,
-.sectionCopy {
-  min-width: 0;
-}
-
-.heroField {
-  position: absolute;
-  top: 48%;
-  right: clamp(-4rem, -3vw, 0rem);
-  width: min(34vw, 22rem);
-  aspect-ratio: 1;
-  transform: translateY(-50%);
-  pointer-events: none;
-  opacity: 0.9;
-}
-
-.glowOrb,
-.glowVeil {
-  position: absolute;
-  border-radius: 999px;
-}
-
-.glowOrb {
-  filter: blur(18px);
-}
-
-.glowOrbPrimary {
-  inset: 2%;
-  background:
-    radial-gradient(circle at 34% 34%, rgba(93, 135, 194, 0.38), transparent 34%),
-    radial-gradient(circle at 68% 58%, rgba(196, 107, 84, 0.3), transparent 28%);
-  animation: orbDriftPrimary 18s ease-in-out infinite alternate;
-}
-
-.glowOrbSecondary {
-  inset: 18%;
-  background:
-    radial-gradient(circle at 62% 34%, rgba(255, 255, 255, 0.2), transparent 22%),
-    radial-gradient(circle at 42% 62%, rgba(93, 135, 194, 0.24), transparent 26%);
-  filter: blur(28px);
-  animation: orbDriftSecondary 16s ease-in-out infinite alternate;
-}
-
-.glowVeil {
-  inset: 10%;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 42%),
-    radial-gradient(circle at 50% 48%, rgba(255, 255, 255, 0.06), transparent 58%);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(10px);
-  animation: veilFloat 14s ease-in-out infinite alternate;
-}
-
-.heroCode {
-  width: fit-content;
-  padding: 0.55rem 0.9rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  font-family: var(--font-code);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
-}
-
-.heroTitle {
-  display: flex;
-  flex-direction: column;
-  gap: 0.22em;
-  max-width: 12ch;
-  line-height: 0.92;
-  letter-spacing: -0.06em;
-}
-
-.heroTitleTop,
-.heroTitleBottom {
-  display: block;
-}
-
-.heroTitleBottom {
-  color: color-mix(in oklab, var(--text-color), transparent 8%);
-}
-
-.decodedWord {
-  display: inline-flex;
-  min-width: 10ch;
-  font-family: var(--font-code);
-  letter-spacing: 0.08em;
-  color: color-mix(in oklab, var(--scheme-accent-800), white 10%);
-  text-shadow: 0 0 14px rgba(196, 107, 84, 0.14);
-}
-
-.heroCopy {
-  max-width: 38ch;
-}
-
-.heroActions {
-  row-gap: 0.6rem;
-}
-
-.heroAside {
-  min-height: 100%;
-}
-
-.priorityList {
-  width: 100%;
-}
-
-.priorityItem + .priorityItem {
-  padding-top: 1.25rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.priorityMeta {
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.inlineLink {
-  width: fit-content;
-  padding-bottom: 0.1rem;
-  border-bottom: 1px solid transparent;
-  color: var(--text-color);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  transition:
-    color 180ms ease,
-    border-color 180ms ease,
-    transform 180ms ease;
-}
-
-.inlineLink:hover {
-  color: color-mix(in oklab, var(--scheme-brand-800), white 12%);
-  border-color: rgba(196, 215, 243, 0.18);
-  transform: translateX(0.18rem);
-}
-
-.signalGrid {
+.heroGrid {
   align-items: stretch;
 }
 
-.signal {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 34%, rgba(255, 255, 255, 0.015) 100%),
-    var(--surface-panel-soft);
-  box-shadow: var(--metal-shadow-soft);
+.heroMain,
+.heroAside,
+.sectionIntro {
+  min-width: 0;
 }
 
-.signal::before {
+.heroMain {
+  max-width: 40rem;
+}
+
+.heroCopy {
+  max-width: 35rem;
+}
+
+.actions {
+  row-gap: 0.75rem;
+}
+
+.heroAside {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.5rem;
+  background: var(--surface-panel-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+.heroAside::before,
+.sectionPanel::before {
+  content: "";
+  position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 12% 0%, rgba(93, 135, 194, 0.08), transparent 36%),
-    radial-gradient(circle at 88% 0%, rgba(196, 107, 84, 0.06), transparent 26%);
+    radial-gradient(circle at 14% 0%, var(--brand-glow), transparent 28%),
+    radial-gradient(circle at 86% 0%, var(--accent-glow), transparent 20%);
+  pointer-events: none;
+}
+
+.eyebrow {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.signalList {
+  width: 100%;
+}
+
+.signalItem + .signalItem {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.section,
+.sectionPanel {
+  width: 100%;
+}
+
+.sectionPanel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.75rem;
+  background: var(--surface-panel);
+  box-shadow: var(--shadow-soft);
 }
 
 .sectionHeader {
@@ -254,221 +105,39 @@
   gap: 1rem;
 }
 
-.sectionCopy {
-  max-width: 42rem;
-}
-
-.sectionPanel {
-  border-radius: 2rem;
-}
-
-.sectionPanel::before {
-  inset: -20% -10% auto;
-  height: 13rem;
-  background:
-    radial-gradient(circle at 16% 16%, rgba(93, 135, 194, 0.12), transparent 42%),
-    radial-gradient(circle at 84% 12%, rgba(196, 107, 84, 0.1), transparent 42%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 64%);
-  filter: blur(36px);
-}
-
-.sectionPanel::after {
-  inset: 0;
-  border-radius: inherit;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.04), transparent 34%, rgba(255, 255, 255, 0.015) 62%, transparent 100%);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
-}
-
-.contentPanel::before {
-  background:
-    radial-gradient(circle at 0% 18%, rgba(196, 107, 84, 0.14), transparent 38%),
-    radial-gradient(circle at 100% 12%, rgba(93, 135, 194, 0.14), transparent 36%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 64%);
-}
-
-.cardTint {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(169, 189, 214, 0.18);
-  background: var(--surface-panel-soft);
-  box-shadow: var(--metal-shadow-soft);
-  transition:
-    transform 220ms ease,
-    border-color 220ms ease,
-    box-shadow 220ms ease;
-}
-
-.cardTint::before {
-  inset: 0;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 24%, rgba(82, 144, 255, 0.06) 58%, transparent 100%),
-    radial-gradient(circle at 12% 0%, rgba(82, 144, 255, 0.16), transparent 40%);
-}
-
-.cardTint::after {
-  inset: 0;
-  border-radius: inherit;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 52%),
-    repeating-linear-gradient(
-      120deg,
-      transparent 0,
-      transparent 16px,
-      rgba(255, 255, 255, 0.018) 16px,
-      rgba(255, 255, 255, 0.018) 17px
-    );
-}
-
-.cardAccent::before {
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 24%, rgba(255, 112, 80, 0.08) 58%, transparent 100%),
-    radial-gradient(circle at 84% 10%, rgba(255, 112, 80, 0.18), transparent 42%);
-}
-
-.cardNeutral::before {
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 24%, rgba(180, 194, 214, 0.06) 58%, transparent 100%),
-    radial-gradient(circle at 18% 8%, rgba(180, 194, 214, 0.14), transparent 42%);
-}
-
-.serviceCard {
-  height: 100%;
-}
-
-.serviceMeta {
-  margin-top: auto;
-}
-
-.ctaPanel::before {
-  background:
-    radial-gradient(circle at 10% 18%, rgba(196, 107, 84, 0.14), transparent 34%),
-    radial-gradient(circle at 90% 0%, rgba(93, 135, 194, 0.12), transparent 32%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 64%);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .cardTint:hover {
-    transform: translateY(-3px);
-    box-shadow:
-      0 22px 42px rgba(0, 0, 0, 0.22),
-      inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  }
+.sectionIntro {
+  max-width: 38rem;
 }
 
 .accentLine {
-  width: clamp(4.5rem, 14vw, 7.5rem);
-  height: 3px;
+  width: 4.5rem;
+  height: 2px;
   border-radius: 999px;
-  background: var(--heat-line);
-  box-shadow:
-    0 0 22px rgba(82, 144, 255, 0.28),
-    0 0 32px rgba(255, 112, 80, 0.18);
-  opacity: 0.96;
-}
-
-@keyframes heroSurfaceShift {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(0.8%, -0.9%, 0);
-  }
-  100% {
-    transform: translate3d(-0.8%, 0.9%, 0);
-  }
-}
-
-@keyframes orbDriftPrimary {
-  0% {
-    transform: translate3d(-4%, -3%, 0) scale(0.98);
-  }
-  50% {
-    transform: translate3d(4%, 3%, 0) scale(1.03);
-  }
-  100% {
-    transform: translate3d(-1%, 7%, 0) scale(1);
-  }
-}
-
-@keyframes orbDriftSecondary {
-  0% {
-    transform: translate3d(4%, -4%, 0);
-  }
-  100% {
-    transform: translate3d(-4%, 4%, 0);
-  }
-}
-
-@keyframes veilFloat {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(2%, -2%, 0);
-  }
+  background: linear-gradient(90deg, var(--scheme-brand-700), var(--scheme-accent-700));
 }
 
 @media (max-width: breakpoints.$s) {
-  .page::before {
-    width: 100%;
-    height: 15rem;
-    transform: translateX(-50%);
-    filter: blur(40px);
-  }
-
-  .heroGlow,
+  .hero,
   .sectionPanel {
     border-radius: 1.5rem;
   }
 
-  .heroGlow {
-    padding: 1.3rem;
-  }
-
-  .heroCopy,
-  .sectionCopy {
-    max-width: none;
-  }
-
-  .heroField {
-    top: auto;
-    right: -5rem;
-    bottom: -6rem;
-    width: min(72vw, 18rem);
-    transform: none;
-    opacity: 0.52;
-  }
-
-  .heroCode {
-    max-width: 100%;
-    letter-spacing: 0.14em;
-  }
-
-  .heroTitle {
-    max-width: none;
-    gap: 0.24em;
-  }
-
-  .decodedWord {
-    min-width: 8.5ch;
+  .heroGrid,
+  .sectionHeader {
+    gap: 1rem;
   }
 
   .sectionHeader {
     align-items: flex-start;
   }
 
-  .signalGrid,
-  .heroLayout {
-    gap: 0.85rem;
+  .heroMain,
+  .heroCopy,
+  .sectionIntro {
+    max-width: none;
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  .heroGlow::after,
-  .glowOrbPrimary,
-  .glowOrbSecondary,
-  .glowVeil {
-    animation: none;
+  .heroAside {
+    padding: 1rem;
   }
 }

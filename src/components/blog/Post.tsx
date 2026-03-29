@@ -4,6 +4,8 @@ import { person } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
 import { buildOgImage } from "@/utils/og";
 
+import styles from "./Post.module.scss";
+
 type Direction = "row" | "column";
 
 interface PostFrontmatter {
@@ -43,6 +45,7 @@ export default function Post({
 
   return (
     <Card
+      className={styles.card}
       fillWidth
       key={slug}
       href={`/blog/${slug}`}
@@ -52,25 +55,27 @@ export default function Post({
       background="transparent"
       padding="4"
       radius="l-4"
-      gap={direction === "column" ? undefined : "24"}
+      gap={direction === "column" ? undefined : "20"}
       s={{ direction: "column" }}
     >
       {thumbnail && (
-        <Media
-          priority={priority}
-          sizes={direction === "row" ? "160px" : "(max-width: 768px) 100vw, 640px"}
-          border="neutral-alpha-weak"
-          cursor="interactive"
-          radius="l"
-          src={displayImage}
-          alt={imageAlt || `Thumbnail de ${title}`}
-          aspectRatio="16 / 9"
-        />
+        <div className={styles.thumb} data-direction={direction}>
+          <Media
+            priority={priority}
+            sizes={direction === "row" ? "160px" : "(max-width: 768px) 100vw, 640px"}
+            border="neutral-alpha-weak"
+            cursor="interactive"
+            radius="l"
+            src={displayImage}
+            alt={imageAlt || `Thumbnail de ${title}`}
+            aspectRatio="16 / 9"
+          />
+        </div>
       )}
       <Row fillWidth>
-        <Column maxWidth={28} paddingY="24" paddingX="l" gap="20" vertical="center">
-          <Row gap="24" vertical="center">
-            <Row vertical="center" gap="16">
+        <Column className={styles.content} maxWidth={28} paddingY="20" paddingX="l" gap="16" vertical="center">
+          <Row className={styles.meta} gap="16" vertical="center" wrap>
+            <Row vertical="center" gap="12">
               <Avatar src={person.avatar} size="s" />
               <Text variant="label-default-s">{person.name}</Text>
             </Row>
@@ -80,11 +85,11 @@ export default function Post({
               </Text>
             )}
           </Row>
-          <Text variant="heading-strong-l" wrap="balance">
+          <Text className={styles.title} variant="heading-strong-l" wrap="balance">
             {title}
           </Text>
           {displayTag && (
-            <Text variant="label-strong-s" onBackground="neutral-weak">
+            <Text className={styles.tag} variant="label-strong-s" onBackground="neutral-weak">
               {displayTag}
             </Text>
           )}

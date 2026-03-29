@@ -1,15 +1,48 @@
+@use "../components/breakpoints.scss" as breakpoints;
+
 .page {
+  position: relative;
   width: 100%;
 }
 
 .heroGlow,
 .sectionPanel {
+  position: relative;
+  overflow: hidden;
   width: 100%;
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.75rem;
+  background: var(--surface-panel);
+  box-shadow: var(--shadow-soft);
+}
+
+.heroGlow::before,
+.sectionPanel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 16% 10%, var(--brand-glow), transparent 30%),
+    radial-gradient(circle at 84% 0%, var(--accent-glow), transparent 20%);
+  pointer-events: none;
+}
+
+.heroGlow > *,
+.sectionPanel > * {
+  position: relative;
+  z-index: 1;
 }
 
 .accentLine {
-  width: 3rem;
-  height: 1px;
+  width: 4.5rem;
+  height: 2px;
   border-radius: 999px;
-  background: var(--neutral-alpha-medium);
+  background: linear-gradient(90deg, var(--scheme-brand-700), var(--scheme-accent-700));
+}
+
+@media (max-width: breakpoints.$s) {
+  .heroGlow,
+  .sectionPanel {
+    border-radius: 1.5rem;
+  }
 }

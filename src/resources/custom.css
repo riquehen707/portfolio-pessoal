@@ -1,9 +1,113 @@
-/* Example setup for custom colors:
-   https://once-ui.com/customize
-*/
+:root {
+  --scheme-brand-100: #07101a;
+  --scheme-brand-200: #0b1523;
+  --scheme-brand-300: #112239;
+  --scheme-brand-400: #173150;
+  --scheme-brand-500: #224977;
+  --scheme-brand-600: #3468a8;
+  --scheme-brand-700: #4f86d1;
+  --scheme-brand-800: #7ca6e1;
+  --scheme-brand-900: #a9c6ef;
+  --scheme-brand-1000: #d4e3f8;
+  --scheme-brand-1100: #eaf1fb;
+  --scheme-brand-1200: #f6f9fd;
+  --scheme-brand-600-10: rgba(52, 104, 168, 0.1);
+  --scheme-brand-600-30: rgba(52, 104, 168, 0.3);
+  --scheme-brand-600-50: rgba(52, 104, 168, 0.5);
+
+  --scheme-accent-100: #180a0a;
+  --scheme-accent-200: #241010;
+  --scheme-accent-300: #3b1817;
+  --scheme-accent-400: #572420;
+  --scheme-accent-500: #7f332d;
+  --scheme-accent-600: #aa453c;
+  --scheme-accent-700: #d55f50;
+  --scheme-accent-800: #ea8a75;
+  --scheme-accent-900: #f4bbad;
+  --scheme-accent-1000: #f9ddd5;
+  --scheme-accent-1100: #fcf0eb;
+  --scheme-accent-1200: #fef8f5;
+  --scheme-accent-600-10: rgba(170, 69, 60, 0.1);
+  --scheme-accent-600-30: rgba(170, 69, 60, 0.3);
+  --scheme-accent-600-50: rgba(170, 69, 60, 0.5);
+
+  --scheme-neutral-100: #050607;
+  --scheme-neutral-200: #0b0d10;
+  --scheme-neutral-300: #13171b;
+  --scheme-neutral-400: #1d242b;
+  --scheme-neutral-500: #2c353e;
+  --scheme-neutral-600: #485463;
+  --scheme-neutral-700: #647283;
+  --scheme-neutral-800: #92a0b0;
+  --scheme-neutral-900: #c0cad4;
+  --scheme-neutral-1000: #dde4eb;
+  --scheme-neutral-1100: #edf2f6;
+  --scheme-neutral-1200: #f8fafc;
+  --scheme-neutral-600-10: rgba(72, 84, 99, 0.1);
+  --scheme-neutral-600-30: rgba(72, 84, 99, 0.3);
+  --scheme-neutral-600-50: rgba(72, 84, 99, 0.5);
+
+  --surface-panel: linear-gradient(180deg, rgba(13, 16, 22, 0.94), rgba(8, 10, 14, 0.98));
+  --surface-panel-soft: linear-gradient(180deg, rgba(17, 21, 29, 0.84), rgba(10, 12, 17, 0.92));
+  --surface-panel-strong: linear-gradient(180deg, rgba(20, 24, 32, 0.96), rgba(9, 11, 16, 1));
+  --border-subtle: rgba(187, 203, 223, 0.12);
+  --border-strong: rgba(187, 203, 223, 0.2);
+  --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.18);
+  --shadow-card: 0 22px 56px rgba(0, 0, 0, 0.24);
+  --brand-glow: rgba(79, 134, 209, 0.18);
+  --accent-glow: rgba(213, 95, 80, 0.14);
+}
+
+html[data-theme="light"] {
+  --surface-panel: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(242, 245, 248, 0.98));
+  --surface-panel-soft: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(244, 247, 250, 0.95));
+  --surface-panel-strong: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(246, 248, 251, 1));
+  --border-subtle: rgba(74, 89, 108, 0.12);
+  --border-strong: rgba(74, 89, 108, 0.18);
+  --shadow-soft: 0 14px 34px rgba(28, 37, 49, 0.08);
+  --shadow-card: 0 20px 46px rgba(28, 37, 49, 0.1);
+  --brand-glow: rgba(79, 134, 209, 0.12);
+  --accent-glow: rgba(213, 95, 80, 0.1);
+}
+
+html,
+body {
+  min-height: 100%;
+}
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at 12% 10%, var(--brand-glow), transparent 24%),
+    radial-gradient(circle at 88% 14%, var(--accent-glow), transparent 22%),
+    linear-gradient(180deg, var(--scheme-neutral-200) 0%, var(--scheme-neutral-100) 100%);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: -0.045em;
+}
+
+p,
+li {
+  line-height: 1.7;
+}
+
+a {
+  transition:
+    color 180ms ease,
+    opacity 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+::selection {
+  background: rgba(79, 134, 209, 0.26);
 }
 
 @media (prefers-reduced-motion: reduce) {
