@@ -9,7 +9,6 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  border: 1px solid var(--border-subtle);
   background: var(--surface-panel);
   box-shadow: var(--shadow-soft);
 }
@@ -23,6 +22,7 @@
 .hero::before,
 .sectionPanel::before,
 .heroAside::before,
+.profileCard::before,
 .collageCard::before,
 .infoCard::before,
 .stepCard::before,
@@ -39,6 +39,7 @@
 .hero > *,
 .sectionPanel > *,
 .heroAside > *,
+.profileCard > *,
 .collageCard > *,
 .infoCard > *,
 .stepCard > *,
@@ -51,7 +52,25 @@
 .splitGrid,
 .stepGrid,
 .proofGrid {
-  align-items: stretch;
+  width: 100%;
+  align-items: start;
+}
+
+.heroGrid {
+  grid-template-columns: minmax(0, 1.3fr) minmax(18rem, 0.7fr);
+  gap: 1.25rem;
+}
+
+.splitGrid {
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+}
+
+.stepGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.proofGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .heroMain,
@@ -62,8 +81,25 @@
   min-width: 0;
 }
 
+.heroMain {
+  max-width: 43rem;
+  padding-right: 1rem;
+}
+
+.heroAside {
+  position: relative;
+  align-self: start;
+  max-width: 24rem;
+  justify-self: end;
+  overflow: hidden;
+  padding: 1.1rem;
+  border-radius: 1.5rem;
+  background: var(--surface-panel-soft);
+  box-shadow: var(--shadow-soft);
+}
+
 .lead {
-  max-width: 38rem;
+  max-width: 39rem;
 }
 
 .accentLine {
@@ -77,15 +113,6 @@
   row-gap: 0.75rem;
 }
 
-.heroAside {
-  position: relative;
-  overflow: hidden;
-  padding: 1rem;
-  border: 1px solid var(--border-subtle);
-  border-radius: 1.5rem;
-  background: var(--surface-panel-soft);
-}
-
 .profileCard,
 .collageCard,
 .infoCard,
@@ -93,35 +120,45 @@
 .proofCard {
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--border-subtle);
   background: rgba(255, 255, 255, 0.02);
   box-shadow: var(--shadow-soft);
   transition:
     transform 180ms ease,
-    border-color 180ms ease,
     box-shadow 180ms ease,
     background 180ms ease;
 }
 
 .profileCard {
-  padding: 1rem 1.1rem;
-  border-radius: 1.3rem;
+  display: grid;
+  grid-template-columns: minmax(4.75rem, 27%) minmax(0, 1fr);
+  align-items: start;
+  min-height: 7.2rem;
+  padding: 1rem 1.05rem 1.1rem;
+  border-radius: 1.35rem;
+}
+
+.avatarWrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 0.15rem;
 }
 
 .collage {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
   gap: 1rem;
 }
 
 .collageCard {
-  min-height: 10rem;
-  padding: 1.1rem;
+  min-height: 8.75rem;
+  padding: 1.05rem 1.1rem;
   border-radius: 1.3rem;
 }
 
 .collageWide {
   grid-column: 1 / -1;
+  min-height: 7.75rem;
 }
 
 .eyebrow {
@@ -135,25 +172,25 @@
 }
 
 .sectionIntro {
-  max-width: 38rem;
+  max-width: 40rem;
 }
 
 .infoCard,
 .proofCard {
-  padding: 1.25rem;
-  border-radius: 1.45rem;
+  padding: 1.4rem;
+  border-radius: 1.5rem;
 }
 
 .stepCard {
-  min-height: 13rem;
-  padding: 1.25rem;
-  border-radius: 1.45rem;
+  min-height: 12.25rem;
+  padding: 1.35rem;
+  border-radius: 1.5rem;
 }
 
 .stepIndex {
   width: fit-content;
   padding: 0.35rem 0.55rem;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--neutral-alpha-medium);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.03);
   font-family: var(--font-code);
@@ -168,6 +205,11 @@
   background: var(--surface-panel-soft);
 }
 
+.depthAside {
+  align-self: start;
+  max-width: 18rem;
+}
+
 .depthTags {
   row-gap: 0.5rem;
 }
@@ -179,7 +221,6 @@
   .stepCard:hover,
   .proofCard:hover {
     transform: translateY(-2px);
-    border-color: var(--border-strong);
     background: rgba(255, 255, 255, 0.04);
     box-shadow: var(--shadow-card);
   }
@@ -192,6 +233,31 @@
   .stepCard,
   .proofCard {
     transition: none;
+  }
+}
+
+@media (max-width: breakpoints.$m) {
+  .heroGrid,
+  .splitGrid,
+  .stepGrid,
+  .proofGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroMain {
+    max-width: none;
+    padding-right: 0;
+  }
+
+  .heroAside {
+    max-width: none;
+    justify-self: stretch;
+  }
+
+  .depthAside,
+  .sectionIntro,
+  .lead {
+    max-width: none;
   }
 }
 
@@ -210,6 +276,10 @@
     border-radius: 1.2rem;
   }
 
+  .profileCard {
+    grid-template-columns: minmax(4.5rem, 24%) minmax(0, 1fr);
+  }
+
   .collage {
     grid-template-columns: 1fr;
   }
@@ -222,8 +292,7 @@
     align-items: flex-start;
   }
 
-  .lead,
-  .sectionIntro {
-    max-width: none;
+  .hero {
+    padding: 0;
   }
 }

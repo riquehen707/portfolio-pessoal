@@ -42,11 +42,11 @@ const featuredService = services[0];
 const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
-  label: "Inicio",
-  title: "Henrique Reis | Portfolio, servicos e blog",
+  label: "Início",
+  title: "Henrique Reis | Portfólio, serviços e blog",
   description:
-    "Portfolio com projetos, servicos e artigos sobre front-end, SEO tecnico, automacao e produto digital.",
-  headline: <>Sites, SEO e sistemas para negocios que precisam crescer com clareza.</>,
+    "Portfólio com projetos, serviços e artigos sobre sites, SEO técnico, automação e presença digital para prestadores de serviço.",
+  headline: <>Sites e páginas para prestadores de serviço que querem transformar presença digital em clientes.</>,
   featured: {
     display: true,
     title: (
@@ -56,7 +56,7 @@ const home: Home = {
         </strong>
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          Servico em destaque
+          Serviço em destaque
         </Text>
       </Row>
     ),
@@ -64,11 +64,12 @@ const home: Home = {
   },
   subline: (
     <>
-      Sou {person.firstName}. Trabalho com Next.js, Vue, SCSS, SEO tecnico e automacoes para sites,
-      lojas virtuais e blogs que precisam ficar mais claros, mais rapidos e mais uteis.
+      Sou {person.firstName}. Estruturo páginas, SEO técnico e automações para profissionais que
+      precisam sair do improviso, transmitir mais confiança e criar um caminho mais claro até o
+      contato.
       <br />
-      Aqui voce encontra meus projetos, artigos e formatos de servico para transformar estrategia em
-      presenca digital bem executada.
+      Aqui você encontra projetos, artigos e formatos de serviço pensados para gerar mais
+      previsibilidade, profissionalismo e consistência na presença digital.
     </>
   ),
 };
@@ -77,7 +78,7 @@ const about: About = {
   path: "/about",
   label: "Sobre",
   title: `Sobre | ${person.name}`,
-  description: `Como ${person.name} organiza paginas, SEO tecnico e automacao para ajudar prestadores de servico a conseguir clientes com mais clareza.`,
+  description: `Como ${person.name} organiza páginas, SEO técnico e atendimento para ajudar prestadores de serviço a gerar contato com mais clareza e profissionalismo.`,
   tableOfContent: {
     display: true,
     subItems: true,
@@ -213,9 +214,9 @@ const technicalApproach: TechnicalPage = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Blog de produto, SEO e estrategia",
+  title: "Ensaios, tecnologia e interesses",
   description:
-    "Artigos, ensaios e estudos aplicados sobre produto, SEO tecnico, conteudo e crescimento digital.",
+    "Um espaço editorial para ensaios, filosofia, cultura, tecnologia, SEO e outros temas que atravessam meu trabalho e meus interesses.",
 };
 
 const work: Work = {

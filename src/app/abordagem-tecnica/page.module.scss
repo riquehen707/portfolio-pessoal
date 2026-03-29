@@ -9,7 +9,6 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  border: 1px solid var(--border-subtle);
   background: var(--surface-panel);
   box-shadow: var(--shadow-soft);
 }
@@ -65,6 +64,10 @@
   align-items: stretch;
 }
 
+.heroGrid {
+  grid-template-columns: minmax(0, 1.18fr) minmax(18rem, 0.82fr);
+}
+
 .heroMain,
 .heroAside,
 .sectionIntro {
@@ -73,7 +76,7 @@
 
 .lead,
 .sectionIntro {
-  max-width: 38rem;
+  max-width: 40rem;
 }
 
 .accentLine {
@@ -93,7 +96,6 @@
 .systemCard {
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--border-subtle);
   background: rgba(255, 255, 255, 0.02);
   box-shadow: var(--shadow-soft);
   transition:
@@ -141,10 +143,14 @@
   padding-left: 1.05rem;
 }
 
+.stackList li::marker {
+  color: var(--scheme-brand-700);
+}
+
 .processIndex {
   width: fit-content;
   padding: 0.35rem 0.55rem;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--neutral-alpha-medium);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.03);
 }
@@ -191,6 +197,12 @@
   .processCard,
   .systemCard {
     transition: none;
+  }
+}
+
+@media (max-width: breakpoints.$m) {
+  .heroGrid {
+    grid-template-columns: 1fr;
   }
 }
 

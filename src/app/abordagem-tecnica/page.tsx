@@ -7,68 +7,68 @@ import styles from "./page.module.scss";
 const pillars = [
   {
     label: "Front-end",
-    title: "Next.js e Vue quando a interface precisa ser clara e facil de manter.",
+    title: "Next.js e Vue quando a interface precisa ser clara e fácil de manter.",
     description:
-      "Uso a stack como ferramenta de organizacao. Priorizo arquitetura simples, componentes reaproveitaveis e telas que nao cansam a leitura.",
-    items: ["Next.js para sites e conteudo", "Vue para painis e fluxos internos", "SCSS modular e estrutura escalavel"],
+      "Uso a stack como ferramenta de organização. Priorizo arquitetura simples, componentes reaproveitáveis e telas que não cansam a leitura.",
+    items: ["Next.js para sites e conteúdo", "Vue para painéis e fluxos internos", "SCSS modular e estrutura escalável"],
   },
   {
-    label: "SEO tecnico",
+    label: "SEO técnico",
     title: "Estrutura para ser encontrado, entendido e indexado do jeito certo.",
     description:
-      "Cuido de arquitetura, metadados, performance e semantica para que lojas, blogs e paginas de servico tenham base tecnica consistente.",
-    items: ["Metadata e schema", "Arquitetura para blog e e-commerce", "Leitura clara para usuario e buscador"],
+      "Cuido de arquitetura, metadados, performance e semântica para que lojas, blogs e páginas de serviço tenham base técnica consistente.",
+    items: ["Metadata e schema", "Arquitetura para blog e e-commerce", "Leitura clara para usuário e buscador"],
   },
   {
     label: "Performance",
-    title: "Velocidade pensada desde o layout, nao apenas no final.",
+    title: "Velocidade pensada desde o layout, não apenas no final.",
     description:
-      "Evito efeitos pesados, hidrato so o necessario e organizo midia, espacamento e componentes para manter a navegacao fluida.",
-    items: ["Menos JS desnecessario", "Layout responsivo com baixo custo visual", "Microinteracoes leves e previsiveis"],
+      "Evito efeitos pesados, hidrato só o necessário e organizo mídia, espaçamento e componentes para manter a navegação fluida.",
+    items: ["Menos JS desnecessário", "Layout responsivo com baixo custo visual", "Microinterações leves e previsíveis"],
   },
   {
-    label: "Automacao",
-    title: "Integracoes e rotinas simples para o atendimento nao depender de improviso.",
+    label: "Automação",
+    title: "Integrações e rotinas simples para o atendimento não depender de improviso.",
     description:
-      "A tecnica tambem entra no pos-clique: formularios, disparos, analytics e pequenas automacoes para acompanhar a conversa comercial.",
-    items: ["WhatsApp, formularios e captura", "Analytics e leitura de comportamento", "Fluxos simples de organizacao"],
+      "A técnica também entra no pós-clique: formulários, disparos, analytics e pequenas automações para acompanhar a conversa comercial.",
+    items: ["WhatsApp, formulários e captura", "Analytics e leitura de comportamento", "Fluxos simples de organização"],
   },
 ];
 
 const process = [
   {
-    title: "Diagnostico",
-    description: "Entendo a oferta, o publico e o que esta travando o contato ou a conversao.",
+    title: "Diagnóstico",
+    description: "Entendo a oferta, o público e o que está travando o contato ou a conversão.",
   },
   {
     title: "Estrutura",
-    description: "Defino hierarquia, CTA, paginas, blocos e pontos de SEO antes de sair construindo.",
+    description: "Defino hierarquia, CTA, páginas, blocos e pontos de SEO antes de sair construindo.",
   },
   {
-    title: "Construcao",
-    description: "Monto componentes, estilos modulares e integracoes sem inflar a interface.",
+    title: "Construção",
+    description: "Monto componentes, estilos modulares e integrações sem inflar a interface.",
   },
   {
     title: "Ajuste fino",
-    description: "Reviso performance, leitura, indexacao e os caminhos reais que levam ao contato.",
+    description: "Reviso performance, leitura, indexação e os caminhos reais que levam ao contato.",
   },
 ];
 
 const systemBlocks = [
   {
-    title: "Componentes reutilizaveis",
+    title: "Componentes reutilizáveis",
     description:
-      "Prefiro uma base consistente de blocos, variacoes e secoes reaproveitaveis para o site crescer sem virar remendo.",
+      "Prefiro uma base consistente de blocos, variações e seções reaproveitáveis para o site crescer sem virar remendo.",
   },
   {
     title: "SCSS modular",
     description:
-      "Organizo estilos por contexto para manter layout, responsividade e manutencao sob controle.",
+      "Organizo estilos por contexto para manter layout, responsividade e manutenção sob controle.",
   },
   {
-    title: "Tecnica a servico da clareza",
+    title: "Técnica a serviço da clareza",
     description:
-      "O usuario precisa entender rapido o que voce faz. A stack aparece como suporte, nao como barulho.",
+      "O usuário precisa entender rápido o que você faz. A stack aparece como suporte, não como barulho.",
   },
 ];
 
@@ -105,15 +105,15 @@ export default function TechnicalApproachPage() {
         <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="20">
           <Column className={styles.heroMain} gap="16">
             <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-              Abordagem tecnica
+              Abordagem técnica
             </Tag>
             <Heading variant="display-strong-l" wrap="balance">
-              A tecnica entra para sustentar clareza, performance e conversao.
+              A técnica entra para sustentar clareza, performance e conversão.
             </Heading>
             <div className={styles.accentLine} />
             <Text className={styles.lead} variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
-              Nao uso stack como vitrine. Organizo front-end, SEO tecnico, performance e automacao para o site
-              ser simples de usar, rapido de navegar e facil de evoluir.
+              Não uso stack como vitrine. Organizo front-end, SEO técnico, performance e automação para o site
+              ser simples de usar, rápido de navegar e fácil de evoluir.
             </Text>
             <Row className={styles.actions} gap="12" wrap>
               <Button href={whatsappLink} prefixIcon="whatsapp" size="m" variant="primary">
@@ -140,21 +140,21 @@ export default function TechnicalApproachPage() {
                 </Text>
               </Row>
               <Row className={styles.signalRow} horizontal="between" gap="16">
-                <Text variant="body-default-m">Conteudo encontravel</Text>
+                <Text variant="body-default-m">Conteúdo encontrável</Text>
                 <Text className={styles.signalValue} variant="label-default-s" onBackground="neutral-weak">
-                  SEO tecnico
+                  SEO técnico
                 </Text>
               </Row>
               <Row className={styles.signalRow} horizontal="between" gap="16">
-                <Text variant="body-default-m">Renderizacao leve</Text>
+                <Text variant="body-default-m">Renderização leve</Text>
                 <Text className={styles.signalValue} variant="label-default-s" onBackground="neutral-weak">
                   Performance
                 </Text>
               </Row>
               <Row className={styles.signalRow} horizontal="between" gap="16">
-                <Text variant="body-default-m">Pos-clique organizado</Text>
+                <Text variant="body-default-m">Pós-clique organizado</Text>
                 <Text className={styles.signalValue} variant="label-default-s" onBackground="neutral-weak">
-                  Automacao
+                  Automação
                 </Text>
               </Row>
             </Column>
@@ -169,10 +169,10 @@ export default function TechnicalApproachPage() {
               Blocos principais
             </Tag>
             <Heading as="h2" variant="display-strong-s">
-              Onde a profundidade tecnica aparece
+              Onde a profundidade técnica aparece
             </Heading>
             <Text variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
-              Cada camada tem um papel claro: melhorar leitura, encontrabilidade, velocidade e manutencao.
+              Cada camada tem um papel claro: melhorar leitura, encontrabilidade, velocidade e manutenção.
             </Text>
           </Column>
         </Row>
@@ -208,10 +208,10 @@ export default function TechnicalApproachPage() {
               Como eu estruturo
             </Tag>
             <Heading as="h2" variant="display-strong-s">
-              Processo tecnico sem excesso de camada
+              Processo técnico sem excesso de camada
             </Heading>
             <Text variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
-              O projeto fica mais previsivel quando arquitetura, conteudo e conversao entram na ordem certa.
+              O projeto fica mais previsível quando arquitetura, conteúdo e conversão entram na ordem certa.
             </Text>
           </Column>
         </Row>
@@ -238,10 +238,10 @@ export default function TechnicalApproachPage() {
               Sistema visual
             </Tag>
             <Heading as="h2" variant="display-strong-s">
-              Componentes, SCSS modular e organizacao visual
+              Componentes, SCSS modular e organização visual
             </Heading>
             <Text variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
-              A tecnica tambem aparece na forma como o layout cresce: secoes reaproveitaveis, grids limpos e pouca friccao.
+              A técnica também aparece na forma como o layout cresce: seções reaproveitáveis, grids limpos e pouca fricção.
             </Text>
           </Column>
         </Row>
@@ -249,13 +249,13 @@ export default function TechnicalApproachPage() {
         <div className={styles.systemGrid}>
           <div className={`${styles.systemCard} ${styles.systemCardLarge}`}>
             <Text className={styles.codeLabel} variant="label-default-s" onBackground="neutral-weak">
-              Base reutilizavel
+              Base reutilizável
             </Text>
             <Heading as="h3" variant="heading-strong-l">
-              Prefiro uma biblioteca pequena de blocos bem resolvidos a uma interface cheia de excecao.
+              Prefiro uma biblioteca pequena de blocos bem resolvidos a uma interface cheia de exceção.
             </Heading>
             <Text variant="body-default-m" onBackground="neutral-weak">
-              Isso ajuda o site a continuar rapido, consistente e mais facil de ajustar quando a oferta ou o conteudo mudam.
+              Isso ajuda o site a continuar rápido, consistente e mais fácil de ajustar quando a oferta ou o conteúdo mudam.
             </Text>
           </div>
 

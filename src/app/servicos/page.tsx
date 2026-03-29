@@ -31,7 +31,7 @@ export async function generateMetadata() {
 
 const categoryLabels = {
   package: "Pacotes",
-  microservice: "Micro-servicos",
+  microservice: "Micro-serviços",
   saas: "SaaS",
 } as const;
 
@@ -44,34 +44,34 @@ export default function ServicesPage() {
 
   const lanes = [
     {
-      label: "Camada 1",
-      title: "Servicos sob medida",
-      description: "Projetos maiores, com estrategia, design, implementacao e entrega completa.",
-      meta: `${services.length} frentes principais`,
+      label: "Sob medida",
+      title: "Projetos completos",
+      description: "Para site, SEO ou automação quando o problema pede diagnóstico, execução e entrega mais ampla.",
+      meta: `${services.length} serviços principais`,
       href: servicesPage.path,
-      cta: "Ver servicos",
+      cta: "Ver serviços",
     },
     {
-      label: "Camada 2",
+      label: "Entrada fechada",
       title: "Pacotes",
-      description: "Escopos mais fechados para sair do zero com menos atrito e mais previsibilidade.",
-      meta: `${offerCounts.package} opcoes`,
+      description: "Escopos mais fechados para resolver algo comum com mais rapidez e previsibilidade.",
+      meta: `${offerCounts.package} opções`,
       href: productsPage.path,
       cta: "Ver pacotes",
     },
     {
-      label: "Camada 3",
-      title: "Micro-servicos",
-      description: "Ajustes menores para corrigir, melhorar ou destravar algo pontual.",
-      meta: `${offerCounts.microservice} opcoes`,
+      label: "Ajuste pontual",
+      title: "Micro-serviços",
+      description: "Entregas menores para corrigir, refinar ou destravar um ponto específico.",
+      meta: `${offerCounts.microservice} opções`,
       href: productsPage.path,
-      cta: "Ver micro-servicos",
+      cta: "Ver micro-serviços",
     },
     {
-      label: "Camada 4",
+      label: "Ferramentas",
       title: "SaaS e ferramentas",
-      description: "Ferramentas proprias, gratuitas, pagas ou em beta, para apoiar execucao e diagnostico.",
-      meta: `${offerCounts.saas} opcoes`,
+      description: "Produtos próprios, gratuitos, pagos ou em beta, para apoiar diagnóstico e execução.",
+      meta: `${offerCounts.saas} opções`,
       href: productsPage.path,
       cta: "Ver ferramentas",
     },
@@ -79,21 +79,21 @@ export default function ServicesPage() {
 
   const offerHighlights = [
     {
-      title: "Pacotes prontos para entrada rapida",
+      title: "Pacotes para entrar sem abrir projeto maior",
       description:
-        "Pensados para quem quer resolver um problema comum sem abrir um projeto grande logo de inicio.",
+        "Bom para quem precisa sair do zero com mais clareza e menos atrito.",
       meta: `${offerCounts.package} pacotes`,
     },
     {
-      title: "Micro-servicos tecnicos",
+      title: "Micro-serviços técnicos",
       description:
-        "Bom para refino visual, melhorias em SEO tecnico, Core Web Vitals ou integracoes pontuais.",
-      meta: `${offerCounts.microservice} micro-servicos`,
+        "Útil para refino visual, SEO técnico, Core Web Vitals ou integrações pontuais.",
+      meta: `${offerCounts.microservice} micro-serviços`,
     },
     {
       title: "Ferramentas e SaaS autorais",
       description:
-        "Inclui itens gratuitos e ofertas em beta para tornar diagnostico, escopo e rotina editorial mais claros.",
+        "Inclui itens gratuitos e ofertas em beta para tornar escopo, diagnóstico e rotina mais claros.",
       meta: `${offerCounts.saas} ferramentas`,
     },
   ];
@@ -116,7 +116,7 @@ export default function ServicesPage() {
 
       <Column className={sectionStyles.heroGlow} gap="16">
         <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-          Oferta organizada por camadas
+          Formatos de serviço
         </Tag>
         <Heading as="h1" variant="heading-strong-xl">
           {servicesPage.title}
@@ -179,14 +179,13 @@ export default function ServicesPage() {
       >
         <Column gap="8">
           <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            Servicos sob medida
+            Serviços sob medida
           </Tag>
           <Heading as="h2" variant="display-strong-s">
             Frentes principais
           </Heading>
           <Text onBackground="neutral-weak">
-            A camada principal ficou mais direta: o que cada servico resolve, para quem serve e qual
-            a faixa inicial de entrada.
+            Cada serviço mostra o problema principal, para quem ele serve e qual é o ponto de entrada.
           </Text>
         </Column>
 
@@ -240,11 +239,10 @@ export default function ServicesPage() {
             Entrada menor
           </Tag>
           <Heading as="h2" variant="display-strong-s">
-            Pacotes, micro-servicos e SaaS
+            Pacotes, micro-serviços e SaaS
           </Heading>
           <Text onBackground="neutral-weak">
-            Nem toda demanda precisa nascer como projeto completo. Essa camada facilita a entrada para
-            ajustes pontuais, pacotes fechados e ferramentas proprias.
+            Nem toda demanda precisa virar projeto completo. Aqui entram ajustes pontuais, pacotes e ferramentas próprias.
           </Text>
         </Column>
 
@@ -278,10 +276,10 @@ export default function ServicesPage() {
 
         <Row className={styles.ctaBar} gap="12" wrap>
           <Button href={productsPage.path} variant="primary" size="m" arrowIcon>
-            Abrir catalogo completo
+            Abrir catálogo completo
           </Button>
           <Button href={`mailto:${person.email}`} variant="tertiary" size="m" arrowIcon>
-            Tirar uma duvida
+            Tirar uma dúvida
           </Button>
         </Row>
       </Column>
@@ -300,11 +298,11 @@ export default function ServicesPage() {
           Escolha simples
         </Tag>
         <Heading as="h2" variant="display-strong-s">
-          Se ainda nao sabe o formato certo, comece pelo problema
+          Se você ainda não sabe o formato certo, comece pelo problema
         </Heading>
         <Text onBackground="neutral-weak">
-          Se a demanda e estrutural, a entrada costuma ser um servico sob medida. Se o problema e mais
-          pontual ou exploratorio, pacotes, micro-servicos e ferramentas fazem mais sentido.
+          Se a demanda é estrutural, a entrada costuma ser um serviço sob medida. Se o problema é
+          pontual, pacote, micro-serviço ou ferramenta fazem mais sentido.
         </Text>
         <Row className={styles.ctaBar} gap="12" wrap>
           <Button href={`mailto:${person.email}`} variant="primary" size="m" arrowIcon>

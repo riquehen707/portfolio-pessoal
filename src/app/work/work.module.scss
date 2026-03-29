@@ -1,0 +1,107 @@
+@use "../../components/breakpoints.scss" as breakpoints;
+
+.page {
+  width: 100%;
+}
+
+.hero,
+.notePanel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 1.75rem;
+  background: var(--surface-panel);
+  box-shadow: var(--shadow-soft);
+}
+
+.hero::before,
+.notePanel::before,
+.noteCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 14% 10%, var(--brand-glow), transparent 28%),
+    radial-gradient(circle at 84% 0%, var(--accent-glow), transparent 20%);
+  pointer-events: none;
+}
+
+.hero > *,
+.notePanel > *,
+.noteCard > * {
+  position: relative;
+  z-index: 1;
+}
+
+.heroGrid,
+.noteGrid {
+  width: 100%;
+  align-items: stretch;
+}
+
+.heroMain,
+.heroAside {
+  min-width: 0;
+}
+
+.heroLead {
+  max-width: 42rem;
+}
+
+.accentLine {
+  width: 4rem;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--scheme-brand-700), var(--scheme-accent-700));
+}
+
+.heroAside {
+  padding: 1.1rem;
+  border-radius: 1.4rem;
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: var(--shadow-soft);
+}
+
+.noteGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.noteCard {
+  position: relative;
+  overflow: hidden;
+  min-height: 11rem;
+  padding: 1.2rem;
+  border-radius: 1.4rem;
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: var(--shadow-soft);
+}
+
+.noteEyebrow {
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media (max-width: breakpoints.$m) {
+  .heroGrid,
+  .noteGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: breakpoints.$s) {
+  .hero,
+  .notePanel {
+    border-radius: 1.45rem;
+  }
+
+  .heroLead {
+    max-width: none;
+  }
+
+  .heroAside,
+  .noteCard {
+    border-radius: 1.2rem;
+  }
+}

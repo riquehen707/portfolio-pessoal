@@ -1,0 +1,120 @@
+@use "../../../components/breakpoints.scss" as breakpoints;
+
+.page {
+  width: 100%;
+}
+
+.hero,
+.metaCard,
+.coverShell,
+.relatedPanel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 1.75rem;
+  background: var(--surface-panel);
+  box-shadow: var(--shadow-soft);
+}
+
+.hero::before,
+.metaCard::before,
+.coverShell::before,
+.relatedPanel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 14% 10%, var(--brand-glow), transparent 28%),
+    radial-gradient(circle at 84% 0%, var(--accent-glow), transparent 20%);
+  pointer-events: none;
+}
+
+.hero > *,
+.metaCard > *,
+.coverShell > *,
+.relatedPanel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.heroGrid {
+  width: 100%;
+  align-items: stretch;
+}
+
+.heroMain,
+.heroAside,
+.articleShell {
+  min-width: 0;
+}
+
+.heroLead {
+  max-width: 42rem;
+}
+
+.accentLine {
+  width: 4rem;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--scheme-brand-700), var(--scheme-accent-700));
+}
+
+.tagRow,
+.stackRow {
+  row-gap: 0.5rem;
+}
+
+.heroAside {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.metaCard {
+  padding: 1.15rem;
+  border-radius: 1.45rem;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.metaCardLabel,
+.authorLabel {
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.authorCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.articleShell {
+  width: 100%;
+}
+
+.article {
+  width: 100%;
+}
+
+.relatedPanel {
+  align-items: flex-start;
+}
+
+@media (max-width: breakpoints.$m) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: breakpoints.$s) {
+  .hero,
+  .metaCard,
+  .coverShell,
+  .relatedPanel {
+    border-radius: 1.45rem;
+  }
+
+  .heroLead {
+    max-width: none;
+  }
+}

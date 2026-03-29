@@ -68,6 +68,8 @@ function safeListFiles(dir: string): string[] {
 
     return fs.readdirSync(dir).filter((file) => {
       const ext = path.extname(file).toLowerCase();
+      const normalized = file.toLowerCase();
+      if (normalized.includes("template")) return false;
       return ext === ".mdx" || ext === ".md";
     });
   } catch {
@@ -176,6 +178,10 @@ function safeReadFile(filePath: string): BlogFile | null {
       diary,
       link: parsed.link ?? undefined,
     };
+
+    if (metadata.status === "draft") {
+      return null;
+    }
 
     const slug = typeof parsed.slug === "string" && parsed.slug.trim() ? parsed.slug.trim() : inferredSlug;
 

@@ -3,13 +3,14 @@ import { Metadata } from "next";
 import {
   AvatarGroup,
   Column,
+  Grid,
   Heading,
-  Line,
   Media,
   Meta,
   Row,
   Schema,
   SmartLink,
+  Tag,
   Text,
 } from "@once-ui-system/core";
 
@@ -19,6 +20,14 @@ import { baseURL, about, person, work } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
 import { buildOgImage } from "@/utils/og";
 import { getPosts } from "@/utils/utils";
+
+import styles from "./page.module.scss";
+
+const kindLabels = {
+  personal: "Projeto pessoal",
+  study: "Estudo de caso",
+  client: "Case de cliente",
+} as const;
 
 type PageProps = {
   params: Promise<{ slug: string | string[] }>;
@@ -91,13 +100,16 @@ export default async function ProjectPage({ params }: PageProps) {
       member.avatar ? [{ src: toLocal(member.avatar) as string }] : [],
     ) || [];
 
-  const cover =
+  const cover = post.metadata.image || post.metadata.images?.[0];
+  const metaImage =
     post.metadata.image ||
     post.metadata.images?.[0] ||
     buildOgImage(post.metadata.title, post.metadata.tag ?? post.metadata.tags?.[0] ?? "Projeto");
+  const stack = post.metadata.stack ?? post.metadata.tags ?? [];
+  const displayKind = post.metadata.kind ? kindLabels[post.metadata.kind] : undefined;
 
   return (
-    <Column as="section" maxWidth="m" horizontal="center" gap="l">
+    <Column className={styles.page} maxWidth="m" paddingTop="24" gap="24">
       <Schema
         as="article"
         baseURL={baseURL}
@@ -106,65 +118,118 @@ export default async function ProjectPage({ params }: PageProps) {
         description={post.metadata.summary ?? post.metadata.title}
         datePublished={post.metadata.publishedAt}
         dateModified={post.metadata.updatedAt ?? post.metadata.publishedAt}
-        image={toAbs(cover)}
+        image={toAbs(metaImage)}
         author={{
           name: person.name,
           url: `${baseURL}${about.path}`,
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Column maxWidth="s" gap="16" horizontal="center" align="center">
-        <SmartLink href="/work">
-          <Text variant="label-strong-m">Projetos</Text>
-        </SmartLink>
-        {post.metadata.publishedAt && (
-          <Text variant="body-default-xs" onBackground="neutral-weak" marginBottom="12">
-            {formatDate(post.metadata.publishedAt)}
-          </Text>
-        )}
-        <Heading variant="display-strong-m">{post.metadata.title}</Heading>
+
+      <Column className={styles.hero} gap="24" padding="24">
+        <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="20">
+          <Column className={styles.heroMain} gap="16">
+            <SmartLink href="/work">
+              Voltar para projetos
+            </SmartLink>
+
+            {(displayKind || stack.length > 0) && (
+              <Row className={styles.tagRow} gap="8" wrap>
+                {displayKind && (
+                  <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+                    {displayKind}
+                  </Tag>
+                )}
+                {stack.slice(0, 4).map((item) => (
+                  <Tag key={`${post.slug}-${item}`} size="s" background="neutral-alpha-weak">
+                    {item}
+                  </Tag>
+                ))}
+              </Row>
+            )}
+
+            <Heading variant="display-strong-m" wrap="balance">
+              {post.metadata.title}
+            </Heading>
+            <div className={styles.accentLine} />
+            {post.metadata.summary && (
+              <Text className={styles.heroLead} onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
+                {post.metadata.summary}
+              </Text>
+            )}
+          </Column>
+
+          <Column className={styles.heroAside} gap="12">
+            <Column className={styles.metaCard} gap="12">
+              <Text className={styles.metaCardLabel} variant="label-default-s" onBackground="neutral-weak">
+                Publicado
+              </Text>
+              <Text variant="heading-strong-s">
+                {post.metadata.publishedAt ? formatDate(post.metadata.publishedAt) : "Sem data definida"}
+              </Text>
+            </Column>
+
+            <Column className={styles.metaCard} gap="12">
+              <Text className={styles.metaCardLabel} variant="label-default-s" onBackground="neutral-weak">
+                Estrutura
+              </Text>
+              <Text variant="body-default-m">
+                {displayKind ?? "Projeto com foco em interface, leitura e organização técnica."}
+              </Text>
+              {stack.length > 0 && (
+                <Row className={styles.stackRow} gap="8" wrap>
+                  {stack.slice(0, 5).map((item) => (
+                    <Tag key={`${post.slug}-meta-${item}`} size="s" background="neutral-alpha-weak">
+                      {item}
+                    </Tag>
+                  ))}
+                </Row>
+              )}
+            </Column>
+
+            {avatars.length > 0 && (
+              <Column className={styles.metaCard} gap="12">
+                <Text className={styles.authorLabel} variant="label-default-s" onBackground="neutral-weak">
+                  Pessoas
+                </Text>
+                <div className={styles.authorCard}>
+                  <AvatarGroup reverse avatars={avatars} size="s" />
+                  <Text variant="body-default-m" onBackground="neutral-weak">
+                    {post.metadata.team?.map((member) => member.name).join(", ")}
+                  </Text>
+                </div>
+              </Column>
+            )}
+          </Column>
+        </Grid>
       </Column>
-      {avatars.length > 0 && (
-        <Row marginBottom="32" horizontal="center">
-          <Row gap="16" vertical="center" wrap>
-            <AvatarGroup reverse avatars={avatars} size="s" />
-            <Text variant="label-default-m" onBackground="brand-weak">
-              {post.metadata.team?.map((member, idx) => (
-                <span key={idx}>
-                  {idx > 0 && (
-                    <Text as="span" onBackground="neutral-weak">
-                      {", "}
-                    </Text>
-                  )}
-                  {member.linkedIn ? (
-                    <SmartLink href={member.linkedIn}>{member.name}</SmartLink>
-                  ) : (
-                    <Text as="span">{member.name}</Text>
-                  )}
-                </span>
-              ))}
-            </Text>
-          </Row>
-        </Row>
-      )}
+
       {cover && (
-        <Media
-          priority
-          aspectRatio="16 / 9"
-          radius="m"
-          alt={post.metadata.title}
-          src={toLocal(cover) ?? cover}
-        />
+        <div className={styles.coverShell}>
+          <Media
+            priority
+            aspectRatio="16 / 9"
+            radius="l"
+            alt={post.metadata.title}
+            src={toLocal(cover) ?? cover}
+          />
+        </div>
       )}
-      <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
-        <CustomMDX source={post.content} />
+
+      <Column className={styles.articleShell} horizontal="center">
+        <Column className={styles.article} style={{ margin: "auto" }} as="article" maxWidth="s">
+          <CustomMDX source={post.content} />
+        </Column>
       </Column>
-      <Column fillWidth gap="40" horizontal="center" marginTop="40">
-        <Line maxWidth="40" />
-        <Heading as="h2" variant="heading-strong-xl" marginBottom="24">
-          Projetos relacionados
+
+      <Column className={styles.relatedPanel} fillWidth gap="20" padding="24">
+        <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+          Mais projetos
+        </Tag>
+        <Heading as="h2" variant="heading-strong-xl">
+          Continue explorando o portfólio
         </Heading>
-        <Projects exclude={[post.slug]} range={[2]} />
+        <Projects exclude={[post.slug]} range={[2]} marginBottom="0" paddingX="0" />
       </Column>
       <ScrollToHash />
     </Column>

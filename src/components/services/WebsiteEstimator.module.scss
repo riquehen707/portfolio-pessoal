@@ -8,7 +8,28 @@
 
 .panel,
 .summary {
-  border: 1px solid var(--neutral-alpha-weak);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--surface-panel-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+.panel::before,
+.summary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 48%),
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.05), transparent 58%);
+  pointer-events: none;
+}
+
+.panel > *,
+.summary > * {
+  position: relative;
+  z-index: 1;
 }
 
 .selection {

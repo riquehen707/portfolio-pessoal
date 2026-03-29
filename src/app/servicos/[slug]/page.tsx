@@ -55,8 +55,8 @@ export default async function ServiceLandingPage({ params }: PageProps) {
   const metaDescription = service.seo?.description ?? service.summary;
 
   const heroStats = [
-    { label: "Entrada", value: service.hero.price },
-    { label: "Prazo", value: service.hero.duration },
+    { label: "Investimento inicial", value: service.hero.price },
+    { label: "Prazo típico", value: service.hero.duration },
     { label: "Formato", value: service.scopes[0]?.title ?? "Sob medida" },
   ];
 
@@ -127,7 +127,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
         </Grid>
 
         <Text variant="label-default-m" onBackground="neutral-weak">
-          Ideal para: {service.audience}
+          Indicado para: {service.audience}
         </Text>
 
         <Row className={styles.heroActions} gap="12" wrap>
@@ -150,10 +150,10 @@ export default async function ServiceLandingPage({ params }: PageProps) {
       >
         <Column gap="8">
           <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            O que muda
+            O que esse serviço resolve
           </Tag>
           <Heading as="h2" variant="display-strong-s">
-            Resultados esperados
+            Ganhos práticos
           </Heading>
         </Column>
 
@@ -193,8 +193,8 @@ export default async function ServiceLandingPage({ params }: PageProps) {
             Formatos de entrega
           </Heading>
           <Text onBackground="neutral-weak">
-            Cada formato muda profundidade, prazo e investimento. A entrada pode ser pequena e crescer
-            conforme o projeto prova valor.
+            Cada formato muda profundidade, prazo e investimento. A entrada pode ser menor e crescer
+            conforme a necessidade real do projeto.
           </Text>
         </Column>
 
@@ -243,10 +243,10 @@ export default async function ServiceLandingPage({ params }: PageProps) {
           border="neutral-alpha-weak"
         >
           <Tag size="s" background="neutral-alpha-weak">
-            O que entra
+            Escopo base
           </Tag>
           <Heading as="h2" variant="heading-strong-m">
-            Escopo base
+            O que está incluído
           </Heading>
           <Column as="ul" className={styles.list} gap="8">
             {service.includes.map((item) => (
@@ -298,11 +298,10 @@ export default async function ServiceLandingPage({ params }: PageProps) {
               Ferramenta gratuita
             </Tag>
             <Heading as="h2" variant="display-strong-s">
-              Estimativa rapida de escopo
+              Estimativa rápida de escopo
             </Heading>
             <Text onBackground="neutral-weak">
-              O simulador ajuda a enxergar a diferenca entre tipos de projeto e modulos adicionais antes
-              de abrir um briefing completo.
+              O simulador ajuda a comparar tipos de projeto e módulos antes de abrir um briefing completo.
             </Text>
           </Column>
 
@@ -362,14 +361,13 @@ export default async function ServiceLandingPage({ params }: PageProps) {
         border="neutral-alpha-weak"
       >
         <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-          Proxima etapa
+          Próxima etapa
         </Tag>
         <Heading as="h2" variant="display-strong-s">
           Se fizer sentido, eu transformo isso em um escopo claro
         </Heading>
         <Text onBackground="neutral-weak">
-          O melhor ponto de partida nao e a lista de funcionalidades, e sim o problema real do negocio.
-          A proposta nasce em cima disso.
+          O melhor ponto de partida não é uma lista grande de funcionalidades. É o problema real do negócio.
         </Text>
         <Row className={styles.heroActions} gap="12" wrap>
           <Button href={service.hero.ctaHref} variant="primary" size="m" arrowIcon>

@@ -22,6 +22,12 @@
   pointer-events: none;
 }
 
+.card[data-coverless="true"] {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015)),
+    var(--surface-panel-soft);
+}
+
 .thumb {
   position: relative;
   overflow: hidden;
@@ -44,6 +50,16 @@
   z-index: 1;
 }
 
+.card[data-coverless="true"] .content::before {
+  content: "";
+  display: block;
+  width: 4rem;
+  height: 2px;
+  margin-bottom: 0.25rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--scheme-brand-700), var(--scheme-accent-700));
+}
+
 .feature .content {
   max-width: none;
 }
@@ -58,6 +74,18 @@
 
 .tag {
   width: fit-content;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.summary {
+  max-width: 38rem;
+  line-height: 1.65;
+}
+
+.feature .summary {
+  max-width: 42rem;
+  font-size: 1rem;
 }
 
 .compact {

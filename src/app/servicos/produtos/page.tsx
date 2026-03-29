@@ -24,15 +24,15 @@ export default function ProductsPage() {
   const stats = [
     {
       label: "Pacotes",
-      value: `${products.filter((item) => item.category === "package").length} opcoes`,
+      value: `${products.filter((item) => item.category === "package").length} opções`,
     },
     {
-      label: "Micro-servicos",
-      value: `${products.filter((item) => item.category === "microservice").length} opcoes`,
+      label: "Micro-serviços",
+      value: `${products.filter((item) => item.category === "microservice").length} opções`,
     },
     {
-      label: "Gratis ou freemium",
-      value: `${products.filter((item) => item.access !== "paid").length} opcoes`,
+      label: "Grátis ou freemium",
+      value: `${products.filter((item) => item.access !== "paid").length} opções`,
     },
   ];
 

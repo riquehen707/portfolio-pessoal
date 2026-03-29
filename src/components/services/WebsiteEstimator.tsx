@@ -36,26 +36,26 @@ type Addon = {
 const projectTypes: ProjectType[] = [
   {
     id: "landing",
-    label: "Landing page de conversao",
-    description: "Campanhas, lancamentos e captacao de leads.",
+    label: "Landing page de conversão",
+    description: "Campanhas, lançamentos e captação de leads.",
     range: { min: 1500, max: 3500 },
   },
   {
     id: "institutional",
     label: "Site institucional",
-    description: "Presenca digital completa para profissionais e empresas.",
+    description: "Presença digital completa para profissionais e empresas.",
     range: { min: 3500, max: 8000 },
   },
   {
     id: "commerce",
     label: "E-commerce",
-    description: "Catalogo, checkout e integracoes essenciais.",
+    description: "Catálogo, checkout e integrações essenciais.",
     range: { min: 8000, max: 18000 },
   },
   {
     id: "commerce-app",
     label: "E-commerce + app",
-    description: "Operacao completa com app complementar.",
+    description: "Operação completa com app complementar.",
     range: { min: 18000, max: 35000 },
   },
 ];
@@ -63,40 +63,40 @@ const projectTypes: ProjectType[] = [
 const addons: Addon[] = [
   {
     id: "cms",
-    label: "CMS para conteudo",
-    description: "Painel editorial para publicar e atualizar conteudo.",
+    label: "CMS para conteúdo",
+    description: "Painel editorial para publicar e atualizar conteúdo.",
     range: { min: 1000, max: 4000 },
   },
   {
     id: "payments",
     label: "Pagamentos customizados",
-    description: "Checkout avancado e regras especificas.",
+    description: "Checkout avançado e regras específicas.",
     range: { min: 1500, max: 6000 },
   },
   {
     id: "pwa",
     label: "PWA / app",
-    description: "Experiencia mobile com notificacoes.",
+    description: "Experiência mobile com notificações.",
     range: { min: 3000, max: 12000 },
   },
   {
     id: "integrations",
-    label: "Integracoes externas",
-    description: "ERP, CRM, logistica ou automacoes.",
+    label: "Integrações externas",
+    description: "ERP, CRM, logística ou automações.",
     range: { min: 1500, max: 7000 },
   },
   {
     id: "multilingual",
-    label: "Multilingue",
+    label: "Multilíngue",
     description: "Mais de um idioma ou unidade.",
     range: { min: 1200, max: 4500 },
   },
   {
     id: "content-ready",
-    label: "Conteudo e identidade ja prontos",
-    description: "Desconto por reduzir esforco de producao.",
+    label: "Conteúdo e identidade já prontos",
+    description: "Desconto por reduzir esforço de produção.",
     range: { min: -800, max: -2500 },
-    note: "Pode reduzir o orcamento final.",
+    note: "Pode reduzir o orçamento final.",
   },
 ];
 
@@ -135,15 +135,14 @@ export function WebsiteEstimator({ ctaHref, ctaLabel, contactEmail }: WebsiteEst
     <Column className={styles.root} gap="16">
       <Row className={styles.heading} gap="8" vertical="center">
         <Heading as="h2" variant="heading-strong-s">
-          Estimativa rapida
+          Estimativa rápida
         </Heading>
         <Tag size="s" background="neutral-alpha-weak">
           Simulador
         </Tag>
       </Row>
       <Text onBackground="neutral-weak">
-        Selecione o tipo de projeto e os modulos desejados. Isso gera uma estimativa inicial e ajuda
-        a enxergar o peso tecnico de cada camada.
+        Selecione o tipo de projeto e os módulos desejados para ter uma faixa inicial de investimento.
       </Text>
 
       <Grid columns="2" s={{ columns: 1 }} gap="16">
@@ -182,7 +181,7 @@ export function WebsiteEstimator({ ctaHref, ctaLabel, contactEmail }: WebsiteEst
           background="surface"
         >
           <Heading as="h3" variant="heading-strong-m">
-            Modulos adicionais
+            Módulos adicionais
           </Heading>
           <Column gap="8">
             {addons.map((item) => (
@@ -206,12 +205,12 @@ export function WebsiteEstimator({ ctaHref, ctaLabel, contactEmail }: WebsiteEst
             </Row>
           ) : (
             <Text variant="body-default-s" onBackground="neutral-weak">
-              Selecione modulos para ajustar a estimativa.
+              Selecione módulos para ajustar a estimativa.
             </Text>
           )}
           <Row gap="8" wrap>
             <Button type="button" variant="tertiary" size="s" onClick={() => setSelected({})}>
-              Limpar selecao
+              Limpar seleção
             </Button>
           </Row>
         </Column>
@@ -235,12 +234,12 @@ export function WebsiteEstimator({ ctaHref, ctaLabel, contactEmail }: WebsiteEst
           </Heading>
         </Row>
         <Text onBackground="neutral-weak">
-          Valores podem variar para menos ou mais conforme escopo, integracoes e volume de conteudo.
-          Projetos com reaproveitamento de assets ou necessidades especificas podem receber ajustes.
+          Os valores variam conforme escopo, integrações e volume de conteúdo. Isso serve como ponto
+          de partida antes do briefing.
         </Text>
         {hasDiscount && (
           <Text variant="body-default-s" onBackground="neutral-weak">
-            Selecoes que reduzem esforco podem gerar descontos.
+            Seleções que reduzem esforço podem gerar desconto.
           </Text>
         )}
         <Row gap="12" wrap>

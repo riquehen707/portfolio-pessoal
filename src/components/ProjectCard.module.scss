@@ -38,6 +38,10 @@
   grid-template-columns: minmax(0, 1fr) minmax(10rem, 14rem);
 }
 
+.card[data-variant="compact"][data-has-media="false"] {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .mediaShell,
 .contentShell {
   position: relative;
@@ -57,6 +61,16 @@
 
 .contentShell {
   padding: 1.25rem;
+}
+
+.card[data-has-media="false"] .contentShell::before {
+  content: "";
+  display: block;
+  width: 4rem;
+  height: 2px;
+  margin-bottom: 0.15rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--scheme-brand-700), var(--scheme-accent-700));
 }
 
 .card[data-variant="feature"] .contentShell {

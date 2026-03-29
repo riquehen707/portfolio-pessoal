@@ -1,7 +1,6 @@
 import type { ComponentProps } from "react";
 
 import { ProjectCard } from "@/components";
-import { buildOgImage } from "@/utils/og";
 import { getPosts } from "@/utils/utils";
 import { Column } from "@once-ui-system/core";
 
@@ -58,13 +57,12 @@ export function Projects({
       paddingX={paddingX}
     >
       {displayedProjects.map((post, index) => {
-        const fallbackSubtitle = post.metadata.tag ?? post.metadata.tags?.[0] ?? "Projeto";
         const images =
           post.metadata.images && post.metadata.images.length > 0
             ? post.metadata.images
             : post.metadata.image
               ? [post.metadata.image]
-              : [buildOgImage(post.metadata.title, fallbackSubtitle)];
+              : [];
 
         return (
           <ProjectCard

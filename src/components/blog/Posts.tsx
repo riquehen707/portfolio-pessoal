@@ -13,6 +13,7 @@ type Direction = "row" | "column";
 export interface PostFrontmatter {
   title: string;
   publishedAt: string;
+  summary?: string;
   tag?: string;
   tags?: string[];
   categories?: string[];
@@ -33,6 +34,7 @@ interface PostsProps {
   featuredFirst?: boolean;
   exclude?: string[];
   data?: PostData[];
+  showSummary?: boolean;
   marginBottom?: ComponentProps<typeof Grid>["marginBottom"];
 }
 
@@ -44,6 +46,7 @@ export function Posts({
   exclude = [],
   direction,
   data,
+  showSummary = false,
   marginBottom = "40",
 }: PostsProps) {
   let allBlogs: PostData[] = [];
@@ -80,7 +83,7 @@ export function Posts({
     return (
       <Column className={styles.emptyState} gap="8" marginBottom="24" padding="20">
         <Heading as="h3" variant="heading-strong-l">
-          Sem publicacoes ainda
+          Sem publicações ainda
         </Heading>
         <Text onBackground="neutral-weak">
           Assim que houver posts, eles aparecem aqui automaticamente.
@@ -94,10 +97,17 @@ export function Posts({
 
     return (
       <Column className={styles.split} marginBottom={marginBottom}>
-        <Post post={featuredPost} thumbnail direction="column" variant="feature" priority />
+        <Post
+          post={featuredPost}
+          thumbnail
+          direction="column"
+          variant="feature"
+          priority
+          showSummary={showSummary}
+        />
         <div className={styles.sideList}>
           {secondaryPosts.map((post) => (
-            <Post key={post.slug} post={post} variant="compact" />
+            <Post key={post.slug} post={post} variant="compact" showSummary={showSummary} />
           ))}
         </div>
       </Column>
@@ -121,6 +131,7 @@ export function Posts({
           direction={direction}
           variant="default"
           priority={thumbnail && idx === 0}
+          showSummary={showSummary}
         />
       ))}
     </Grid>

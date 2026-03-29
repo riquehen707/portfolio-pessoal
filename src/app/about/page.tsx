@@ -11,29 +11,29 @@ const kindLabels = {
 } as const;
 
 const problemPoints = [
-  "Organizo a mensagem para a pessoa certa entender rapido o que voce faz.",
-  "Estruturo paginas para gerar conversa, nao apenas visita.",
-  "Conecto pagina, SEO e atendimento para reduzir ruido no caminho ate o contato.",
+  "Traduzo seu serviço em uma página que explica, com clareza, por que vale a pena entrar em contato.",
+  "Estruturo a jornada para reduzir dúvida, reforçar confiança e facilitar o agendamento.",
+  "Conecto página, SEO e atendimento para gerar mais constância sem depender só de tentativa e erro.",
 ];
 
 const audiencePoints = [
-  "Psicologos, terapeutas e profissionais de atendimento.",
-  "Consultores e especialistas que dependem de autoridade e clareza.",
-  "Autonomos e prestadores de servico que querem sair da tentativa e erro no digital.",
+  "Psicólogas, terapeutas e profissionais que dependem de confiança antes do primeiro contato.",
+  "Consultores e especialistas cujo serviço precisa ser percebido como claro, sério e bem posicionado.",
+  "Autônomos e prestadores de serviço que querem mais previsibilidade sem depender só de indicação.",
 ];
 
 const processSteps = [
   {
-    title: "Pagina clara",
-    description: "Defino oferta, hierarquia e CTA para facilitar a decisao de quem chega.",
+    title: "Oferta clara",
+    description: "Defino mensagem, hierarquia e CTA para a pessoa certa entender rápido o que você faz.",
   },
   {
     title: "SEO e estrutura",
-    description: "Ajusto conteudo, arquitetura e sinais tecnicos para o site ser encontrado e entendido.",
+    description: "Organizo conteúdo, arquitetura e sinais técnicos para o site ser encontrado e bem lido.",
   },
   {
-    title: "Atendimento organizado",
-    description: "Conecto contato, automacoes e rotinas simples para a conversa nao se perder.",
+    title: "Contato sem ruído",
+    description: "Conecto página, WhatsApp ou formulário para o interesse virar conversa com mais facilidade.",
   },
 ];
 
@@ -63,7 +63,7 @@ export default function About() {
     .slice(0, 3);
 
   return (
-    <Column className={styles.page} maxWidth="m" gap="24" paddingTop="24">
+    <Column className={styles.page} maxWidth="m" gap="32" paddingTop="24">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -78,19 +78,19 @@ export default function About() {
         }}
       />
 
-      <Column className={styles.hero} fillWidth gap="24" padding="24">
+      <Column className={styles.hero} fillWidth gap="24" padding="32">
         <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="20">
           <Column className={styles.heroMain} gap="16">
             <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
               Sobre o trabalho
             </Tag>
             <Heading variant="display-strong-l" wrap="balance">
-              Ajudo prestadores de servico a transformar presenca digital em clientes com mais clareza.
+              Ajudo prestadores de serviço a sair da presença digital genérica e construir um caminho mais claro até o contato.
             </Heading>
             <div className={styles.accentLine} />
             <Text className={styles.lead} variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
-              Crio paginas, estrutura de SEO e organizacao de atendimento para quem precisa vender servicos
-              sem depender de tentativa e erro no digital.
+              Meu trabalho é organizar mensagem, páginas e rotina de atendimento para que o seu site
+              não pareça só mais uma vitrine, mas uma presença que transmite confiança e ajuda a gerar conversa.
             </Text>
             <Row className={styles.actions} gap="12" wrap>
               <Button href={whatsappLink} prefixIcon="whatsapp" size="m" variant="primary">
@@ -101,17 +101,19 @@ export default function About() {
               </Button>
             </Row>
             <SmartLink href={technicalApproach.path} suffixIcon="arrowRight">
-              Ver abordagem tecnica
+              Ver abordagem técnica
             </SmartLink>
           </Column>
 
           <Column className={styles.heroAside} gap="16">
-            <Row className={styles.profileCard} gap="12" vertical="center">
-              <Avatar src={person.avatar} size="l" />
+            <Row className={styles.profileCard} gap="16" vertical="start">
+              <div className={styles.avatarWrap}>
+                <Avatar src={person.avatar} size="l" />
+              </div>
               <Column className={styles.profileMeta} gap="2">
                 <Text variant="label-strong-m">{person.name}</Text>
                 <Text variant="body-default-s" onBackground="neutral-weak">
-                  Bahia, Brasil / paginas, SEO tecnico e automacao
+                  Bahia, Brasil / páginas, SEO técnico e automação
                 </Text>
               </Column>
             </Row>
@@ -122,7 +124,7 @@ export default function About() {
                   O que eu resolvo
                 </Text>
                 <Text variant="heading-strong-m" wrap="balance">
-                  Presenca digital confusa, lenta ou sem direcao comercial.
+                  Presença digital confusa, fraca ou sem direção comercial.
                 </Text>
               </div>
               <div className={styles.collageCard}>
@@ -130,15 +132,15 @@ export default function About() {
                   Para quem
                 </Text>
                 <Text variant="body-default-m">
-                  Prestadores de servico que precisam converter melhor.
+                  Profissionais que precisam transmitir mais segurança antes do contato.
                 </Text>
               </div>
               <div className={styles.collageCard}>
                 <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
-                  Como entra a tecnica
+                  Como entra a técnica
                 </Text>
                 <Text variant="body-default-m">
-                  Como suporte para clareza, SEO, velocidade e manutencao.
+                  Como suporte para clareza, SEO, velocidade e manutenção.
                 </Text>
               </div>
             </div>
@@ -150,13 +152,13 @@ export default function About() {
         <Row className={styles.sectionHeader} fillWidth horizontal="between" vertical="end" s={{ direction: "column" }}>
           <Column className={styles.sectionIntro} gap="8">
             <Tag size="s" background="neutral-alpha-weak">
-              Direcao
+              Direção
             </Tag>
             <Heading as="h2" variant="display-strong-s">
               O que eu resolvo e para quem
             </Heading>
             <Text variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
-              A pagina precisa explicar com rapidez por que vale a pena falar com voce e qual o proximo passo.
+              A página precisa explicar, com rapidez, por que vale a pena falar com você e qual é o próximo passo.
             </Text>
           </Column>
         </Row>
@@ -167,7 +169,7 @@ export default function About() {
               O que eu resolvo
             </Text>
             <Heading as="h3" variant="heading-strong-l">
-              Geracao de clientes com mensagem, estrutura e fluxo mais claros.
+              Mais geração de clientes com mensagem, estrutura e fluxo mais claros.
             </Heading>
             <Column as="ul" className={styles.infoList} gap="12">
               {problemPoints.map((point) => (
@@ -183,7 +185,7 @@ export default function About() {
               Para quem
             </Text>
             <Heading as="h3" variant="heading-strong-l">
-              Prestadores de servico que vivem de reputacao, indicacao e relacionamento.
+              Prestadores de serviço que vivem de reputação, indicação e relacionamento.
             </Heading>
             <Column as="ul" className={styles.infoList} gap="12">
               {audiencePoints.map((point) => (
@@ -206,7 +208,7 @@ export default function About() {
               Um processo simples para sair do improviso
             </Heading>
             <Text variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
-              O objetivo nao e empilhar recursos. E deixar a base digital clara, encontravel e preparada para contato.
+              O objetivo não é empilhar recursos. É deixar a base digital clara, encontrável e preparada para contato.
             </Text>
           </Column>
         </Row>
@@ -233,10 +235,10 @@ export default function About() {
               Prova
             </Tag>
             <Heading as="h2" variant="display-strong-s">
-              Alguns projetos para ver como isso aparece na pratica
+              Alguns projetos para ver como isso aparece na prática
             </Heading>
             <Text variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
-              O portfolio mistura projetos pessoais e estudos de caso para mostrar metodo, execucao e criterio.
+              O portfólio mistura projetos pessoais e estudos de caso para mostrar método, execução e critério.
             </Text>
           </Column>
           <SmartLink href={work.path} suffixIcon="arrowRight">
@@ -284,13 +286,13 @@ export default function About() {
         <Row className={styles.sectionHeader} fillWidth horizontal="between" vertical="center" s={{ direction: "column" }}>
           <Column className={styles.sectionIntro} gap="8">
             <Tag size="s" background="neutral-alpha-weak">
-              Profundidade tecnica
+              Profundidade técnica
             </Tag>
             <Heading as="h2" variant="display-strong-s">
-              A parte tecnica existe para sustentar a leitura principal, nao para competir com ela.
+              A parte técnica existe para sustentar a leitura principal, não para competir com ela.
             </Heading>
             <Text variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
-              Se quiser entender stack, componentizacao, SCSS modular, SEO tecnico e performance, essa camada fica em uma pagina separada.
+              Se quiser entender stack, componentização, SCSS modular, SEO técnico e performance, essa camada fica em uma página separada.
             </Text>
           </Column>
 
@@ -303,7 +305,7 @@ export default function About() {
               ))}
             </Row>
             <SmartLink href={technicalApproach.path} suffixIcon="arrowRight">
-              Explorar abordagem tecnica
+              Explorar abordagem técnica
             </SmartLink>
           </Column>
         </Row>

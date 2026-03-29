@@ -44,18 +44,22 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   stack = [],
   variant = "default",
 }) => {
+  const hasMedia = images.length > 0;
+
   return (
     <article className={styles.root} data-variant={variant} data-kind={kindValue ?? "project"}>
-      <div className={styles.card} data-variant={variant}>
-        <div className={styles.mediaShell}>
-          <Carousel
-            sizes={variant === "compact" ? "(max-width: 768px) 100vw, 360px" : "(max-width: 960px) 100vw, 960px"}
-            items={images.map((image) => ({
-              slide: image,
-              alt: title,
-            }))}
-          />
-        </div>
+      <div className={styles.card} data-has-media={hasMedia ? "true" : "false"} data-variant={variant}>
+        {hasMedia && (
+          <div className={styles.mediaShell}>
+            <Carousel
+              sizes={variant === "compact" ? "(max-width: 768px) 100vw, 360px" : "(max-width: 960px) 100vw, 960px"}
+              items={images.map((image) => ({
+                slide: image,
+                alt: title,
+              }))}
+            />
+          </div>
+        )}
 
         <Flex className={styles.contentShell} s={{ direction: "column" }} fillWidth gap="16">
           {title && (

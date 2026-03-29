@@ -179,11 +179,11 @@ function createHeading(as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") {
 function createParagraph({ children }: TextProps) {
   return (
     <Text
-      style={{ lineHeight: "175%" }}
+      style={{ lineHeight: "182%" }}
       variant="body-default-m"
       onBackground="neutral-medium"
       marginTop="8"
-      marginBottom="12"
+      marginBottom="16"
     >
       {children}
     </Text>
@@ -229,7 +229,7 @@ function createList({ children }: { children: ReactNode }) {
 
 function createListItem({ children }: { children: ReactNode }) {
   return (
-    <ListItem marginTop="4" marginBottom="8" style={{ lineHeight: "175%" }}>
+    <ListItem marginTop="4" marginBottom="8" style={{ lineHeight: "180%" }}>
       {children}
     </ListItem>
   );
@@ -237,7 +237,7 @@ function createListItem({ children }: { children: ReactNode }) {
 
 function createHR() {
   return (
-    <Row fillWidth horizontal="center">
+    <Row fillWidth horizontal="center" marginTop="24" marginBottom="24">
       <Line maxWidth="40" />
     </Row>
   );
@@ -247,13 +247,21 @@ function createHR() {
 function BlockQuote({ children }: { children: ReactNode }) {
   return (
     <Row
-      padding="16"
-      radius="m"
-      border="neutral-alpha-medium"
+      padding="20"
+      radius="l"
+      border="neutral-alpha-weak"
       background="surface"
-      style={{ borderLeftWidth: 4, borderLeftStyle: "solid", background: "var(--layer-1)" }}
+      marginTop="12"
+      marginBottom="20"
+      style={{
+        borderLeftWidth: 2,
+        borderLeftStyle: "solid",
+        borderLeftColor: "var(--scheme-brand-700)",
+        background: "var(--surface-panel-soft)",
+        boxShadow: "var(--shadow-soft)",
+      }}
     >
-      <Text variant="body-default-m" onBackground="neutral-medium">
+      <Text variant="body-default-m" onBackground="neutral-medium" style={{ lineHeight: "180%" }}>
         {children}
       </Text>
     </Row>
@@ -263,7 +271,16 @@ function BlockQuote({ children }: { children: ReactNode }) {
 // Tabela responsiva (HTML nativo com wrapper)
 function TableWrapper({ children }: { children: ReactNode }) {
   return (
-    <div style={{ overflowX: "auto", margin: "12px 0" }}>
+    <div
+      style={{
+        overflowX: "auto",
+        margin: "16px 0 24px",
+        border: "1px solid var(--border-subtle)",
+        borderRadius: "1rem",
+        background: "var(--surface-panel-soft)",
+        boxShadow: "var(--shadow-soft)",
+      }}
+    >
       <table style={{ width: "100%", borderCollapse: "collapse" }}>
         {children}
       </table>
@@ -275,8 +292,9 @@ function Th(props: React.HTMLAttributes<HTMLTableCellElement>) {
     <th
       style={{
         textAlign: "left",
-        padding: "8px",
-        borderBottom: "1px solid var(--border-color)",
+        padding: "12px 14px",
+        borderBottom: "1px solid var(--neutral-alpha-medium)",
+        color: "var(--neutral-on-background-strong)",
       }}
       {...props}
     />
@@ -285,7 +303,10 @@ function Th(props: React.HTMLAttributes<HTMLTableCellElement>) {
 function Td(props: React.HTMLAttributes<HTMLTableCellElement>) {
   return (
     <td
-      style={{ padding: "8px", borderBottom: "1px solid var(--layer-2)" }}
+      style={{
+        padding: "12px 14px",
+        borderBottom: "1px solid var(--border-subtle)",
+      }}
       {...props}
     />
   );

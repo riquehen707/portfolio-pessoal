@@ -15,13 +15,13 @@ type FilterKey = OfferCategory | "all";
 
 const categoryLabels: Record<OfferCategory, string> = {
   package: "Pacotes",
-  microservice: "Micro-servicos",
+  microservice: "Micro-serviços",
   saas: "SaaS e ferramentas",
 };
 
 const categoryDescriptions: Record<OfferCategory, string> = {
-  package: "Escopos mais fechados para entrar rapido sem abrir um projeto inteiro.",
-  microservice: "Entregas menores para corrigir, ajustar ou destravar algo pontual.",
+  package: "Escopos fechados para resolver algo comum com mais previsibilidade.",
+  microservice: "Entregas menores para corrigir, ajustar ou destravar um ponto específico.",
   saas: "Ferramentas autorais, gratuitas, pagas ou em beta.",
 };
 

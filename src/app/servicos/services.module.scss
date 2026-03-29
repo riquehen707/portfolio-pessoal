@@ -8,7 +8,59 @@
   width: 100%;
 }
 
+.laneCard,
+.serviceCard,
+.statCard,
+.faqCard,
+.ctaPanel {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(255, 255, 255, 0.05);
+  background: var(--surface-panel-soft);
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.laneCard::before,
+.serviceCard::before,
+.statCard::before,
+.faqCard::before,
+.ctaPanel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 48%),
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.05), transparent 58%);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.laneCard > *,
+.serviceCard > *,
+.statCard > *,
+.faqCard > *,
+.ctaPanel > * {
+  position: relative;
+  z-index: 1;
+}
+
 .serviceMeta {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.list li::marker {
+  color: var(--scheme-brand-700);
+}
+
+.ctaPanel {
   letter-spacing: -0.02em;
 }
 
@@ -17,8 +69,24 @@
   padding-left: 1.1rem;
 }
 
+.ctaPanel {
+  align-items: flex-start;
+}
+
 .estimatorAnchor {
   scroll-margin-top: 6rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .laneCard:hover,
+  .serviceCard:hover,
+  .statCard:hover,
+  .faqCard:hover {
+    transform: translateY(-2px);
+    border-color: rgba(79, 134, 209, 0.18);
+    background: rgba(255, 255, 255, 0.032);
+    box-shadow: var(--shadow-card);
+  }
 }
 
 @media (max-width: breakpoints.$s) {

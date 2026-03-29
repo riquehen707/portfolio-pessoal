@@ -4,13 +4,14 @@ import { Metadata } from "next";
 import {
   Avatar,
   Column,
+  Grid,
   Heading,
-  Line,
   Media,
   Meta,
   Row,
   Schema,
   SmartLink,
+  Tag,
   Text,
 } from "@once-ui-system/core";
 
@@ -19,6 +20,8 @@ import { Posts } from "@/components/blog/Posts";
 import { baseURL, about, blog, person } from "@/resources";
 import { buildOgImage } from "@/utils/og";
 import { getPosts } from "@/utils/utils";
+
+import styles from "./page.module.scss";
 
 type PageProps = {
   params: Promise<{ slug: string | string[] }>;
@@ -109,78 +112,138 @@ export default async function BlogPost({ params }: PageProps) {
           },
         ];
 
-  const coverImage =
+  const metaImage =
     post.metadata.image ||
     buildOgImage(
       post.metadata.title,
       post.metadata.tag ?? post.metadata.tags?.[0] ?? post.metadata.categories?.[0] ?? "Blog",
     );
+  const coverImage = post.metadata.image?.trim() || post.metadata.images?.[0];
+  const categories = post.metadata.categories ?? [];
+  const tags = post.metadata.tags ?? (post.metadata.tag ? [post.metadata.tag] : []);
 
   return (
-    <Row fillWidth>
-      <Row maxWidth={12} m={{ hide: true }} />
-      <Row fillWidth horizontal="center">
-        <Column as="section" maxWidth="m" horizontal="center" gap="l" paddingTop="24">
-          <Schema
-            as="blogPosting"
-            baseURL={baseURL}
-            path={`${blog.path}/${post.slug}`}
-            title={post.metadata.title}
-            description={post.metadata.summary ?? post.metadata.title}
-            datePublished={post.metadata.publishedAt}
-            dateModified={post.metadata.updatedAt ?? post.metadata.publishedAt}
-            image={toAbs(coverImage)}
-            author={{
-              name: authors[0].name,
-              url: authors[0].url,
-              image: authors[0].imageAbs,
-            }}
-          />
-          <Column maxWidth="s" gap="16" horizontal="center" align="center">
-            <SmartLink href="/blog">
-              <Text variant="label-strong-m">Blog</Text>
-            </SmartLink>
-            {post.metadata.publishedAt && (
-              <Text variant="body-default-xs" onBackground="neutral-weak" marginBottom="12">
-                {new Date(post.metadata.publishedAt).toLocaleDateString("pt-BR")}
+    <Column className={styles.page} maxWidth="m" paddingTop="24" gap="24">
+      <Schema
+        as="blogPosting"
+        baseURL={baseURL}
+        path={`${blog.path}/${post.slug}`}
+        title={post.metadata.title}
+        description={post.metadata.summary ?? post.metadata.title}
+        datePublished={post.metadata.publishedAt}
+        dateModified={post.metadata.updatedAt ?? post.metadata.publishedAt}
+        image={toAbs(metaImage)}
+        author={{
+          name: authors[0].name,
+          url: authors[0].url,
+          image: authors[0].imageAbs,
+        }}
+      />
+
+      <Column className={styles.hero} gap="24" padding="24">
+        <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="20">
+          <Column className={styles.heroMain} gap="16">
+            <SmartLink href="/blog">Voltar para o blog</SmartLink>
+
+            {categories.length > 0 && (
+              <Row className={styles.categoryRow} gap="8" wrap>
+                {categories.slice(0, 3).map((category) => (
+                  <Tag key={category} size="s" background="brand-alpha-weak" onBackground="brand-strong">
+                    {category}
+                  </Tag>
+                ))}
+              </Row>
+            )}
+
+            <Heading variant="display-strong-m" wrap="balance">
+              {post.metadata.title}
+            </Heading>
+            <div className={styles.accentLine} />
+            {post.metadata.summary && (
+              <Text className={styles.heroLead} onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
+                {post.metadata.summary}
               </Text>
             )}
-            <Heading variant="display-strong-m">{post.metadata.title}</Heading>
           </Column>
-          <Row marginBottom="32" horizontal="center">
-            <Row gap="16" vertical="center">
-              <Avatar size="s" src={authors[0].imageLocal} />
-              <Text variant="label-default-m" onBackground="brand-weak">
-                {authors[0].name}
+
+          <Column className={styles.heroAside} gap="12">
+            <Column className={styles.metaCard} gap="12">
+              <Text className={styles.metaLabel} variant="label-default-s" onBackground="neutral-weak">
+                Publicado
               </Text>
-            </Row>
-          </Row>
-          {coverImage && (
-            <Media
-              src={toLocal(coverImage) ?? coverImage}
-              alt={post.metadata.title}
-              aspectRatio="16/9"
-              priority
-              sizes="(min-width: 768px) 100vw, 768px"
-              border="neutral-alpha-weak"
-              radius="l"
-              marginTop="12"
-              marginBottom="8"
-            />
-          )}
-          <Column as="article" maxWidth="s">
-            <CustomMDX source={post.content} glossary={post.metadata.glossary ?? {}} />
+              <Text variant="heading-strong-s">
+                {post.metadata.publishedAt
+                  ? new Date(post.metadata.publishedAt).toLocaleDateString("pt-BR")
+                  : "Sem data definida"}
+              </Text>
+            </Column>
+
+            <Column className={styles.metaCard} gap="12">
+              <Text className={styles.metaLabel} variant="label-default-s" onBackground="neutral-weak">
+                Autor
+              </Text>
+              <div className={styles.authorCard}>
+                <Avatar size="s" src={authors[0].imageLocal} />
+                <Text variant="body-default-m">{authors[0].name}</Text>
+              </div>
+            </Column>
+
+            {tags.length > 0 && (
+              <Column className={styles.metaCard} gap="12">
+                <Text className={styles.metaLabel} variant="label-default-s" onBackground="neutral-weak">
+                  Termos
+                </Text>
+                <Row className={styles.tagRow} gap="8" wrap>
+                  {tags.slice(0, 5).map((tag) => (
+                    <Tag key={tag} size="s" background="neutral-alpha-weak">
+                      {tag}
+                    </Tag>
+                  ))}
+                </Row>
+              </Column>
+            )}
           </Column>
-          <Column fillWidth gap="40" horizontal="center" marginTop="40">
-            <Line maxWidth="40" />
-            <Heading as="h2" variant="heading-strong-xl" marginBottom="24">
-              Artigos recentes
-            </Heading>
-            <Posts exclude={[post.slug]} range={[1, 2]} columns="2" thumbnail direction="column" />
-          </Column>
-          <ScrollToHash />
+        </Grid>
+      </Column>
+
+      {coverImage && (
+        <div className={styles.coverShell}>
+          <Media
+            src={toLocal(coverImage) ?? coverImage}
+            alt={post.metadata.title}
+            aspectRatio="16/9"
+            priority
+            sizes="(min-width: 768px) 100vw, 768px"
+            border="neutral-alpha-weak"
+            radius="l"
+          />
+        </div>
+      )}
+
+      <Column className={styles.articleShell} horizontal="center">
+        <Column className={styles.article} as="article" maxWidth="s">
+          <CustomMDX source={post.content} glossary={post.metadata.glossary ?? {}} />
         </Column>
-      </Row>
-    </Row>
+      </Column>
+
+      <Column className={styles.relatedPanel} fillWidth gap="20" padding="24">
+        <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+          Continue lendo
+        </Tag>
+        <Heading as="h2" variant="heading-strong-xl">
+          Mais textos do caderno editorial
+        </Heading>
+        <Posts
+          exclude={[post.slug]}
+          range={[1, 2]}
+          columns="2"
+          thumbnail
+          direction="column"
+          showSummary
+          marginBottom="0"
+        />
+      </Column>
+      <ScrollToHash />
+    </Column>
   );
 }

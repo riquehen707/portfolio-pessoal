@@ -33,16 +33,16 @@ export async function generateMetadata() {
 export default function Home() {
   const heroSignals = [
     {
-      label: "Stack",
-      value: "Next.js, Vue, SCSS e arquitetura de interface.",
+      label: "Para quem",
+      value: "Psicólogas, consultores, autônomos e prestadores de serviço que precisam vender melhor.",
     },
     {
-      label: "Especialidade",
-      value: "SEO tecnico para lojas virtuais, blogs e paginas de captacao.",
+      label: "Foco",
+      value: "Clareza na oferta, presença profissional e geração de contatos com menos ruído.",
     },
     {
-      label: "Entrega",
-      value: "Sites claros, rapidos e prontos para conversao e crescimento.",
+      label: "Como entra a técnica",
+      value: "Next.js, Vue, SCSS, SEO técnico e automações quando isso melhora resultado de verdade.",
     },
   ];
 
@@ -91,7 +91,7 @@ export default function Home() {
                   Ver projetos
                 </Button>
                 <Button href={servicesPage.path} variant="secondary" size="m" arrowIcon>
-                  Conhecer servicos
+                  Conhecer serviços
                 </Button>
               </Row>
               <SmartLink href={about.path} suffixIcon="arrowRight">
@@ -101,7 +101,7 @@ export default function Home() {
 
             <Column className={styles.heroAside} gap="16" padding="20">
               <Tag size="s" background="neutral-alpha-weak">
-                Direcao atual
+                Direção atual
               </Tag>
               <Column className={styles.signalList} gap="12">
                 {heroSignals.map((item) => (
@@ -128,10 +128,11 @@ export default function Home() {
               Projeto em destaque
             </Tag>
             <Heading as="h2" variant="display-strong-s">
-              Uma leitura rapida do meu jeito de construir
+              Um projeto para ver como isso ganha forma
             </Heading>
             <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-              O portfolio fica mais leve quando um case abre a conversa e o restante aparece no ritmo certo.
+              Em vez de abrir com excesso de informação, a Home começa por um case que mostra critério,
+              estrutura e direção.
             </Text>
           </Column>
         </Row>
@@ -141,10 +142,10 @@ export default function Home() {
               Destaque
             </Text>
             <Text variant="heading-strong-m" wrap="balance">
-              Um case principal bem posicionado explica melhor o trabalho do que uma lista longa logo de entrada.
+              Um case principal bem posicionado explica melhor o trabalho do que uma vitrine longa logo na primeira dobra.
             </Text>
             <Text variant="body-default-m" onBackground="neutral-weak">
-              Aqui a prioridade e abrir a conversa com contexto, metodo e direcao clara.
+              A prioridade aqui é abrir a conversa com contexto, método e uma leitura clara do que eu entrego.
             </Text>
           </Column>
           <Projects range={[1, 1]} marginBottom="0" paddingX="0" cardVariant="feature" />
@@ -156,13 +157,13 @@ export default function Home() {
           <Row className={styles.sectionHeader} fillWidth horizontal="between" vertical="end" s={{ direction: "column" }}>
             <Column className={styles.sectionIntro} gap="8">
               <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-                Conteudo
+                Conteúdo
               </Tag>
               <Heading as="h2" variant="display-strong-s">
-                Artigos para aprofundar metodo, produto e SEO
+                Ensaios, tecnologia e interesses em aberto
               </Heading>
               <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-                Um bloco editorial compacto, sem transformar a Home em uma lista longa.
+                Um recorte do caderno editorial para mostrar como filosofia, cultura, internet e técnica também atravessam meu trabalho.
               </Text>
             </Column>
             <SmartLink href={blog.path} suffixIcon="arrowRight">
@@ -180,11 +181,11 @@ export default function Home() {
               Mais projetos
             </Tag>
             <Heading as="h2" variant="display-strong-s">
-              Outros cases e estudos de caso
+              Outros projetos e estudos aplicados
             </Heading>
           </Column>
           <SmartLink href={work.path} suffixIcon="arrowRight">
-            Ver portfolio completo
+            Ver portfólio completo
           </SmartLink>
         </Row>
         <Projects range={[2, 3]} marginBottom="0" paddingX="0" layout="grid" cardVariant="compact" />

@@ -1,0 +1,60 @@
+@use "../../components/breakpoints.scss" as breakpoints;
+
+.hero,
+.laneCard,
+.infoPanel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 1.75rem;
+  background: var(--surface-panel);
+  box-shadow: var(--shadow-soft);
+}
+
+.hero::before,
+.laneCard::before,
+.infoPanel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 14% 10%, var(--brand-glow), transparent 28%),
+    radial-gradient(circle at 84% 0%, var(--accent-glow), transparent 20%);
+  pointer-events: none;
+}
+
+.hero > *,
+.laneCard > *,
+.infoPanel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.heroLead {
+  max-width: 46rem;
+}
+
+.laneGrid {
+  width: 100%;
+}
+
+.laneCard {
+  min-height: 13rem;
+}
+
+.laneMeta {
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.infoPanel {
+  align-items: flex-start;
+}
+
+@media (max-width: breakpoints.$s) {
+  .hero,
+  .laneCard,
+  .infoPanel {
+    border-radius: 1.45rem;
+  }
+}

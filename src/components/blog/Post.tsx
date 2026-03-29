@@ -2,7 +2,6 @@ import { Avatar, Card, Column, Media, Row, Text } from "@once-ui-system/core";
 
 import { person } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
-import { buildOgImage } from "@/utils/og";
 
 import styles from "./Post.module.scss";
 
@@ -12,6 +11,7 @@ type PostVariant = "default" | "feature" | "compact";
 interface PostFrontmatter {
   title: string;
   publishedAt: string;
+  summary?: string;
   tag?: string;
   tags?: string[];
   categories?: string[];
@@ -30,6 +30,7 @@ interface PostProps {
   direction?: Direction;
   priority?: boolean;
   variant?: PostVariant;
+  showSummary?: boolean;
 }
 
 export default function Post({
@@ -38,19 +39,22 @@ export default function Post({
   direction = "row",
   priority = false,
   variant = "default",
+  showSummary = false,
 }: PostProps) {
   const { slug, metadata } = post;
-  const { title, publishedAt, tag, tags, categories, image, imageAlt } = metadata || {};
+  const { title, publishedAt, summary, tag, tags, categories, image, imageAlt } = metadata || {};
 
-  const displayTag = tag || tags?.[0] || categories?.[0];
-  const fallbackImage = buildOgImage(title, displayTag || "Conteudo");
-  const displayImage = image && image.trim() !== "" ? image : fallbackImage;
+  const displayTag = categories?.[0] || tag || tags?.[0];
+  const displayImage = image && image.trim() !== "" ? image.trim() : undefined;
   const resolvedDirection = variant === "feature" ? "column" : direction;
-  const showThumbnail = thumbnail && variant !== "compact";
+  const showThumbnail = thumbnail && variant !== "compact" && Boolean(displayImage);
+  const isCoverless = thumbnail && variant !== "compact" && !displayImage;
+  const shouldShowSummary = showSummary && variant !== "compact" && Boolean(summary?.trim());
 
   return (
     <Card
       className={`${styles.card} ${styles[variant]}`}
+      data-coverless={isCoverless ? "true" : "false"}
       data-variant={variant}
       fillWidth
       key={slug}
@@ -72,8 +76,8 @@ export default function Post({
             border="transparent"
             cursor="interactive"
             radius="l"
-            src={displayImage}
-            alt={imageAlt || `Thumbnail de ${title}`}
+            src={displayImage!}
+            alt={imageAlt || `Capa de ${title}`}
             aspectRatio="16 / 9"
           />
         </div>
@@ -108,6 +112,11 @@ export default function Post({
           {displayTag && (
             <Text className={styles.tag} variant="label-strong-s" onBackground="neutral-weak">
               {displayTag}
+            </Text>
+          )}
+          {shouldShowSummary && (
+            <Text className={styles.summary} onBackground="neutral-weak" variant="body-default-m">
+              {summary}
             </Text>
           )}
         </Column>
