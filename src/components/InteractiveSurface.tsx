@@ -5,30 +5,26 @@ import { CSSProperties, PointerEvent, ReactNode, useEffect, useRef } from "react
 type InteractiveSurfaceProps = {
   className?: string;
   children: ReactNode;
-  maxTilt?: number;
 };
 
-type SurfaceStyle = CSSProperties & Record<"--pointer-x" | "--pointer-y" | "--rotate-x" | "--rotate-y", string>;
+type SurfaceStyle = CSSProperties &
+  Record<"--pointer-x" | "--pointer-y" | "--pointer-opacity" | "--pointer-scale", string>;
 
 const baseStyle: SurfaceStyle = {
   "--pointer-x": "50%",
   "--pointer-y": "18%",
-  "--rotate-x": "0deg",
-  "--rotate-y": "0deg",
+  "--pointer-opacity": "0",
+  "--pointer-scale": "0.92",
 };
 
-export function InteractiveSurface({
-  className,
-  children,
-  maxTilt = 7,
-}: InteractiveSurfaceProps) {
+export function InteractiveSurface({ className, children }: InteractiveSurfaceProps) {
   const surfaceRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<number | null>(null);
   const valuesRef = useRef({
     pointerX: 50,
     pointerY: 18,
-    rotateX: 0,
-    rotateY: 0,
+    opacity: 0,
+    scale: 0.92,
   });
 
   const applyValues = () => {
@@ -37,8 +33,8 @@ export function InteractiveSurface({
 
     node.style.setProperty("--pointer-x", `${valuesRef.current.pointerX}%`);
     node.style.setProperty("--pointer-y", `${valuesRef.current.pointerY}%`);
-    node.style.setProperty("--rotate-x", `${valuesRef.current.rotateX}deg`);
-    node.style.setProperty("--rotate-y", `${valuesRef.current.rotateY}deg`);
+    node.style.setProperty("--pointer-opacity", `${valuesRef.current.opacity}`);
+    node.style.setProperty("--pointer-scale", `${valuesRef.current.scale}`);
     frameRef.current = null;
   };
 
@@ -73,8 +69,8 @@ export function InteractiveSurface({
     valuesRef.current = {
       pointerX: offsetX * 100,
       pointerY: offsetY * 100,
-      rotateX: (0.5 - offsetY) * maxTilt,
-      rotateY: (offsetX - 0.5) * maxTilt,
+      opacity: 1,
+      scale: 1,
     };
 
     scheduleApply();
@@ -84,8 +80,8 @@ export function InteractiveSurface({
     valuesRef.current = {
       pointerX: 50,
       pointerY: 18,
-      rotateX: 0,
-      rotateY: 0,
+      opacity: 0,
+      scale: 0.92,
     };
 
     scheduleApply();

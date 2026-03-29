@@ -1,37 +1,37 @@
 :root {
-  --scheme-brand-100: #060b14;
-  --scheme-brand-200: #0d1526;
-  --scheme-brand-300: #11203b;
-  --scheme-brand-400: #173056;
-  --scheme-brand-500: #23477c;
-  --scheme-brand-600: #3264aa;
-  --scheme-brand-700: #4e86e7;
-  --scheme-brand-800: #7eaef8;
-  --scheme-brand-900: #afcbff;
-  --scheme-brand-1000: #d6e4ff;
-  --scheme-brand-1100: #eaf1ff;
-  --scheme-brand-1200: #f6f9ff;
+  --scheme-brand-100: #071018;
+  --scheme-brand-200: #0c1725;
+  --scheme-brand-300: #132338;
+  --scheme-brand-400: #1d3450;
+  --scheme-brand-500: #2c4f78;
+  --scheme-brand-600: #416b9d;
+  --scheme-brand-700: #5d87c2;
+  --scheme-brand-800: #85ace0;
+  --scheme-brand-900: #b6cff1;
+  --scheme-brand-1000: #dbe7f8;
+  --scheme-brand-1100: #edf3fb;
+  --scheme-brand-1200: #f7faff;
 
   --scheme-brand-600-10: rgba(78, 134, 231, 0.1);
   --scheme-brand-600-30: rgba(78, 134, 231, 0.3);
   --scheme-brand-600-50: rgba(78, 134, 231, 0.5);
 
-  --scheme-accent-100: #12070a;
-  --scheme-accent-200: #1d0c12;
-  --scheme-accent-300: #351018;
-  --scheme-accent-400: #531522;
-  --scheme-accent-500: #792031;
-  --scheme-accent-600: #ab3248;
-  --scheme-accent-700: #ea5c57;
-  --scheme-accent-800: #ff8b73;
-  --scheme-accent-900: #ffc0b0;
-  --scheme-accent-1000: #ffdcd1;
-  --scheme-accent-1100: #ffede7;
-  --scheme-accent-1200: #fff7f4;
+  --scheme-accent-100: #170b0b;
+  --scheme-accent-200: #211111;
+  --scheme-accent-300: #341917;
+  --scheme-accent-400: #4d2420;
+  --scheme-accent-500: #6e362d;
+  --scheme-accent-600: #965041;
+  --scheme-accent-700: #c46b54;
+  --scheme-accent-800: #e18b6b;
+  --scheme-accent-900: #f0baa4;
+  --scheme-accent-1000: #f7d9ca;
+  --scheme-accent-1100: #fbece4;
+  --scheme-accent-1200: #fef7f3;
 
-  --scheme-accent-600-10: rgba(234, 92, 87, 0.1);
-  --scheme-accent-600-30: rgba(234, 92, 87, 0.3);
-  --scheme-accent-600-50: rgba(234, 92, 87, 0.5);
+  --scheme-accent-600-10: rgba(196, 107, 84, 0.1);
+  --scheme-accent-600-30: rgba(196, 107, 84, 0.3);
+  --scheme-accent-600-50: rgba(196, 107, 84, 0.5);
 
   --scheme-neutral-100: #050608;
   --scheme-neutral-200: #0b0d10;
@@ -50,84 +50,87 @@
   --scheme-neutral-600-30: rgba(105, 121, 139, 0.3);
   --scheme-neutral-600-50: rgba(105, 121, 139, 0.5);
 
-  --border-color: rgba(155, 176, 204, 0.22);
+  --border-color: rgba(149, 171, 198, 0.12);
   --text-color: rgba(243, 247, 250, 0.94);
   --focus-ring: color-mix(in oklab, var(--scheme-brand-700), white 22%);
 
-  --page-background: #050608;
-  --page-background-strong: #090b10;
-  --page-background-soft: rgba(15, 18, 23, 0.82);
+  --page-background: #06080d;
+  --page-background-strong: #0a0f15;
+  --page-background-soft: rgba(18, 22, 29, 0.74);
   --surface-panel: linear-gradient(
-    160deg,
-    rgba(28, 34, 43, 0.92) 0%,
-    rgba(16, 20, 27, 0.95) 55%,
-    rgba(10, 13, 18, 0.98) 100%
+    165deg,
+    rgba(30, 36, 45, 0.88) 0%,
+    rgba(17, 21, 28, 0.92) 52%,
+    rgba(11, 14, 19, 0.94) 100%
   );
   --surface-panel-strong: linear-gradient(
-    150deg,
-    rgba(34, 41, 52, 0.96) 0%,
-    rgba(17, 21, 29, 0.98) 55%,
-    rgba(9, 11, 16, 1) 100%
+    160deg,
+    rgba(34, 41, 50, 0.9) 0%,
+    rgba(18, 22, 29, 0.94) 55%,
+    rgba(10, 12, 17, 0.98) 100%
   );
   --surface-panel-soft: linear-gradient(
     180deg,
-    rgba(18, 22, 29, 0.78) 0%,
-    rgba(10, 13, 17, 0.92) 100%
+    rgba(18, 22, 29, 0.66) 0%,
+    rgba(11, 14, 19, 0.84) 100%
   );
-  --metal-border: rgba(156, 176, 205, 0.22);
-  --metal-border-strong: rgba(196, 215, 243, 0.34);
-  --metal-highlight: rgba(242, 247, 255, 0.16);
-  --metal-shadow: 0 28px 72px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  --metal-shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.06);
-  --heat-glow: rgba(255, 104, 76, 0.22);
-  --heat-glow-strong: rgba(255, 128, 76, 0.38);
-  --cool-glow: rgba(82, 144, 255, 0.24);
-  --grain-opacity: 0.16;
-  --page-grid: rgba(135, 156, 184, 0.08);
-  --page-grid-strong: rgba(197, 214, 239, 0.14);
+  --metal-border: rgba(156, 176, 205, 0.08);
+  --metal-border-strong: rgba(196, 215, 243, 0.18);
+  --metal-highlight: rgba(242, 247, 255, 0.12);
+  --metal-shadow: 0 30px 80px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  --metal-shadow-soft: 0 18px 42px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --heat-glow: rgba(196, 107, 84, 0.14);
+  --heat-glow-strong: rgba(196, 107, 84, 0.26);
+  --cool-glow: rgba(93, 135, 194, 0.18);
+  --grain-opacity: 0.08;
+  --page-grid: rgba(135, 156, 184, 0.05);
+  --page-grid-strong: rgba(197, 214, 239, 0.09);
   --heat-line: linear-gradient(
     90deg,
     rgba(78, 134, 231, 0) 0%,
-    rgba(126, 174, 248, 0.84) 18%,
-    rgba(248, 249, 250, 0.92) 50%,
-    rgba(255, 109, 82, 0.88) 76%,
-    rgba(255, 109, 82, 0) 100%
+    rgba(133, 172, 224, 0.72) 18%,
+    rgba(248, 249, 250, 0.84) 50%,
+    rgba(196, 107, 84, 0.76) 76%,
+    rgba(196, 107, 84, 0) 100%
   );
+  --site-cursor-x: 50%;
+  --site-cursor-y: 14%;
+  --site-cursor-opacity: 0;
 }
 
 html[data-theme="light"] {
-  --border-color: rgba(79, 93, 111, 0.18);
+  --border-color: rgba(79, 93, 111, 0.1);
   --text-color: rgba(15, 20, 27, 0.96);
-  --page-background: #e7ebf0;
-  --page-background-strong: #f1f4f7;
+  --page-background: #e7ecf1;
+  --page-background-strong: #f2f5f8;
   --page-background-soft: rgba(255, 255, 255, 0.78);
   --surface-panel: linear-gradient(
     165deg,
-    rgba(252, 252, 253, 0.94) 0%,
-    rgba(233, 239, 245, 0.98) 48%,
-    rgba(220, 229, 237, 0.98) 100%
+    rgba(252, 252, 253, 0.88) 0%,
+    rgba(236, 241, 246, 0.94) 48%,
+    rgba(226, 233, 240, 0.96) 100%
   );
   --surface-panel-strong: linear-gradient(
     150deg,
-    rgba(255, 255, 255, 0.98) 0%,
-    rgba(236, 241, 247, 0.98) 52%,
-    rgba(223, 232, 240, 1) 100%
+    rgba(255, 255, 255, 0.94) 0%,
+    rgba(239, 243, 248, 0.96) 52%,
+    rgba(227, 234, 241, 0.98) 100%
   );
   --surface-panel-soft: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.74) 0%,
-    rgba(239, 244, 249, 0.94) 100%
+    rgba(255, 255, 255, 0.68) 0%,
+    rgba(239, 244, 249, 0.86) 100%
   );
-  --metal-border: rgba(75, 92, 113, 0.18);
-  --metal-border-strong: rgba(61, 78, 101, 0.3);
+  --metal-border: rgba(75, 92, 113, 0.1);
+  --metal-border-strong: rgba(61, 78, 101, 0.18);
   --metal-highlight: rgba(255, 255, 255, 0.62);
-  --metal-shadow: 0 30px 60px rgba(39, 52, 68, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.76);
-  --metal-shadow-soft: 0 16px 30px rgba(39, 52, 68, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.7);
-  --heat-glow: rgba(255, 106, 71, 0.18);
-  --heat-glow-strong: rgba(255, 106, 71, 0.24);
-  --cool-glow: rgba(78, 134, 231, 0.16);
-  --page-grid: rgba(83, 101, 124, 0.07);
-  --page-grid-strong: rgba(61, 78, 101, 0.14);
+  --metal-shadow: 0 28px 60px rgba(39, 52, 68, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.78);
+  --metal-shadow-soft: 0 14px 30px rgba(39, 52, 68, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  --heat-glow: rgba(196, 107, 84, 0.14);
+  --heat-glow-strong: rgba(196, 107, 84, 0.2);
+  --cool-glow: rgba(93, 135, 194, 0.14);
+  --page-grid: rgba(83, 101, 124, 0.05);
+  --page-grid-strong: rgba(61, 78, 101, 0.1);
 }
 
 html,
@@ -144,10 +147,10 @@ body {
   overflow-x: hidden;
   color: var(--text-color);
   background:
-    radial-gradient(circle at 18% 14%, var(--cool-glow) 0%, transparent 28%),
-    radial-gradient(circle at 82% 6%, var(--heat-glow) 0%, transparent 24%),
-    radial-gradient(circle at 70% 24%, rgba(255, 255, 255, 0.05) 0%, transparent 18%),
-    linear-gradient(180deg, var(--page-background-strong) 0%, var(--page-background) 48%, #040507 100%);
+    radial-gradient(circle at 18% 14%, rgba(93, 135, 194, 0.16) 0%, transparent 26%),
+    radial-gradient(circle at 82% 6%, rgba(196, 107, 84, 0.12) 0%, transparent 22%),
+    radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.04) 0%, transparent 28%),
+    linear-gradient(180deg, var(--page-background-strong) 0%, var(--page-background) 52%, #04060a 100%);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -162,24 +165,31 @@ body::after {
 
 body::before {
   background:
-    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08) 0 0.9px, transparent 1.2px),
-    radial-gradient(circle at 72% 66%, rgba(255, 255, 255, 0.07) 0 1px, transparent 1.4px),
-    linear-gradient(125deg, rgba(255, 255, 255, 0.04), transparent 38%, rgba(255, 255, 255, 0.02) 100%);
-  background-size: 10px 10px, 12px 12px, 100% 100%;
-  opacity: var(--grain-opacity);
-  mix-blend-mode: soft-light;
-  animation: grainShift 12s steps(6) infinite;
+    radial-gradient(circle at 8% 18%, rgba(93, 135, 194, 0.16), transparent 22%),
+    radial-gradient(circle at 86% 12%, rgba(196, 107, 84, 0.14), transparent 20%),
+    radial-gradient(circle at 58% 74%, rgba(93, 135, 194, 0.1), transparent 26%),
+    linear-gradient(115deg, rgba(255, 255, 255, 0.04), transparent 34%, rgba(255, 255, 255, 0.015) 100%);
+  filter: blur(72px);
+  opacity: 0.9;
+  animation: ambientMesh 24s ease-in-out infinite alternate;
 }
 
 body::after {
-  inset: -12% -8%;
+  inset: -10% -6%;
   background:
-    radial-gradient(circle at 12% 8%, rgba(78, 134, 231, 0.12) 0%, transparent 22%),
-    radial-gradient(circle at 84% 14%, rgba(255, 114, 76, 0.14) 0%, transparent 28%),
-    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.06) 0%, transparent 34%);
-  filter: blur(88px);
-  opacity: 0.88;
-  animation: heatDrift 24s ease-in-out infinite alternate;
+    radial-gradient(
+      circle at var(--site-cursor-x) var(--site-cursor-y),
+      rgba(134, 173, 225, calc(0.14 * var(--site-cursor-opacity))) 0%,
+      rgba(196, 107, 84, calc(0.08 * var(--site-cursor-opacity))) 18%,
+      transparent 30%
+    ),
+    radial-gradient(circle at 18% 16%, rgba(93, 135, 194, 0.14) 0%, transparent 24%),
+    radial-gradient(circle at 82% 12%, rgba(196, 107, 84, 0.12) 0%, transparent 22%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 34%, rgba(255, 255, 255, 0.02) 100%);
+  filter: blur(80px);
+  opacity: 0.78;
+  transform: scale(1.04);
+  animation: ambientFloat 32s ease-in-out infinite alternate;
 }
 
 ::selection {
@@ -197,7 +207,7 @@ a {
 
 a:hover {
   color: color-mix(in oklab, var(--scheme-brand-800), white 20%);
-  text-shadow: 0 0 22px rgba(78, 134, 231, 0.24);
+  text-shadow: 0 0 12px rgba(93, 135, 194, 0.16);
 }
 
 h1,
@@ -273,7 +283,7 @@ blockquote,
   border-radius: 1rem;
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 42%),
-    linear-gradient(180deg, rgba(255, 96, 74, 0.08), rgba(82, 144, 255, 0.04));
+    linear-gradient(180deg, rgba(196, 107, 84, 0.08), rgba(93, 135, 194, 0.04));
   box-shadow: var(--metal-shadow-soft);
 }
 
@@ -379,39 +389,51 @@ h3 a {
   }
 }
 
-@keyframes heatDrift {
+@keyframes ambientFloat {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1.02);
+  }
+  50% {
+    transform: translate3d(1.6%, -1%, 0) scale(1.06);
+  }
+  100% {
+    transform: translate3d(-1.4%, 1.6%, 0) scale(1.04);
+  }
+}
+
+@keyframes ambientMesh {
   0% {
     transform: translate3d(0, 0, 0) scale(1);
   }
   50% {
-    transform: translate3d(1.5%, -1.2%, 0) scale(1.04);
+    transform: translate3d(-2%, 1%, 0) scale(1.03);
   }
   100% {
-    transform: translate3d(-1.2%, 1.2%, 0) scale(1.02);
+    transform: translate3d(2%, -1.4%, 0) scale(1.05);
   }
 }
 
 @media (max-width: 960px) {
   body::before {
-    opacity: 0.1;
+    opacity: 0.72;
   }
 
   body::after {
-    filter: blur(72px);
-    opacity: 0.66;
+    filter: blur(68px);
+    opacity: 0.58;
   }
 }
 
 @media (max-width: 640px) {
   body {
     background:
-      radial-gradient(circle at 50% 0%, rgba(78, 134, 231, 0.18) 0%, transparent 34%),
-      radial-gradient(circle at 80% 10%, rgba(255, 104, 76, 0.18) 0%, transparent 28%),
-      linear-gradient(180deg, var(--page-background-strong) 0%, var(--page-background) 55%, #040507 100%);
+      radial-gradient(circle at 50% 0%, rgba(93, 135, 194, 0.16) 0%, transparent 34%),
+      radial-gradient(circle at 82% 10%, rgba(196, 107, 84, 0.16) 0%, transparent 26%),
+      linear-gradient(180deg, var(--page-background-strong) 0%, var(--page-background) 55%, #04060a 100%);
   }
 
   body::before {
-    animation-duration: 16s;
+    animation-duration: 20s;
   }
 
   .hover-note__bubble {

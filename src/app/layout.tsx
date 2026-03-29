@@ -14,6 +14,7 @@ import {
   SpacingToken,
 } from "@once-ui-system/core";
 
+import { AmbientBackdrop } from "@/components/AmbientBackdrop";
 import { Footer, Header, Providers } from "@/components";
 import {
   baseURL as baseFromConfig,
@@ -168,6 +169,8 @@ export default async function RootLayout({
           padding="0"
           horizontal="center"
         >
+          <AmbientBackdrop />
+
           <RevealFx fill position="absolute">
             <Background
               mask={{

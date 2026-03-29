@@ -114,7 +114,7 @@ export default function Home() {
   const calendarLabel = about.calendar?.display ? "Agendar conversa" : "Conhecer o estudio";
 
   return (
-    <Column className={styles.page} maxWidth="m" gap="32" paddingY="12" horizontal="center">
+    <Column className={styles.page} maxWidth="m" gap="40" paddingY="16" horizontal="center">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -131,10 +131,9 @@ export default function Home() {
 
       <InteractiveSurface className={styles.heroGlow}>
         <div aria-hidden="true" className={styles.heroField}>
-          <span className={`${styles.orbit} ${styles.orbitOuter}`} />
-          <span className={`${styles.orbit} ${styles.orbitMiddle}`} />
-          <span className={`${styles.orbit} ${styles.orbitInner}`} />
-          <span className={styles.heroSpark} />
+          <span className={`${styles.glowOrb} ${styles.glowOrbPrimary}`} />
+          <span className={`${styles.glowOrb} ${styles.glowOrbSecondary}`} />
+          <span className={styles.glowVeil} />
         </div>
 
         <Column fillWidth gap="24">
@@ -216,9 +215,9 @@ export default function Home() {
               <Column
                 className={styles.signal}
                 key={signal.label}
-                gap="8"
-                paddingX="20"
-                paddingY="20"
+                gap="12"
+                paddingX="24"
+                paddingY="24"
                 radius="l"
                 background="surface"
               >
@@ -258,7 +257,7 @@ export default function Home() {
       <Column
         className={styles.sectionPanel}
         fillWidth
-        gap="20"
+        gap="24"
         paddingX="24"
         paddingY="24"
         radius="l"
@@ -289,9 +288,9 @@ export default function Home() {
               className={`${styles.cardTint} ${index === 0 ? styles.cardAccent : ""} ${styles.serviceCard}`}
               key={service.title}
               direction="column"
-              gap="12"
-              paddingX="20"
-              paddingY="20"
+              gap="16"
+              paddingX="24"
+              paddingY="24"
               radius="l"
               background="surface"
               style={{ background: "var(--surface-weak)" }}
@@ -319,7 +318,7 @@ export default function Home() {
         <Column
           className={`${styles.sectionPanel} ${styles.contentPanel}`}
           fillWidth
-          gap="20"
+          gap="24"
           paddingX="24"
           paddingY="24"
           radius="l"
@@ -357,7 +356,7 @@ export default function Home() {
       <Column
         className={`${styles.sectionPanel} ${styles.ctaPanel}`}
         fillWidth
-        gap="16"
+        gap="20"
         paddingX="24"
         paddingY="24"
         radius="l"

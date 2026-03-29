@@ -84,7 +84,7 @@ export const Header = () => {
           {display.location && <Row s={{ hide: true }}>{person.location}</Row>}
         </Row>
         <Row fillWidth horizontal="center">
-          <InteractiveSurface className={styles.shell} maxTilt={4}>
+          <InteractiveSurface className={styles.shell}>
             <Row className={styles.shellInner} padding="4" horizontal="center" vertical="center" zIndex={1}>
               <Link className={styles.brandLockup} href="/">
                 <span className={styles.brandLead}>Henrique</span>
