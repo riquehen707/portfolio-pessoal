@@ -1,45 +1,34 @@
-// src/app/work/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import {
-  Meta,
-  Schema,
   AvatarGroup,
   Column,
   Heading,
-  Media,
-  Text,
-  SmartLink,
-  Row,
   Line,
-  Tag,
+  Media,
+  Meta,
+  Row,
+  Schema,
+  SmartLink,
+  Text,
 } from "@once-ui-system/core";
 
-import { getPosts } from "@/utils/utils";
+import { ScrollToHash, CustomMDX } from "@/components";
+import { Projects } from "@/components/work/Projects";
 import { baseURL, about, person, work } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
 import { buildOgImage } from "@/utils/og";
-import { ScrollToHash, CustomMDX } from "@/components";
-import { Projects } from "@/components/work/Projects";
-import styles from "../../section.module.scss";
+import { getPosts } from "@/utils/utils";
 
-const kindLabels = {
-  client: "Case de cliente",
-  personal: "Projeto pessoal",
-  study: "Estudo de caso",
-} as const;
+type PageProps = {
+  params: Promise<{ slug: string | string[] }>;
+};
 
-// ISR estável
-export const revalidate = false;
-export const dynamic = "force-static";
-
-// Helpers
 function normalizeSlug(slugParam: string | string[] | undefined): string {
   if (!slugParam) return "";
   return Array.isArray(slugParam) ? slugParam.join("/") : slugParam;
 }
 
-// Absolutiza (para SEO/OG/Schema)
 function toAbs(pathOrUrl?: string): string | undefined {
   if (!pathOrUrl) return undefined;
   try {
@@ -49,160 +38,108 @@ function toAbs(pathOrUrl?: string): string | undefined {
   }
 }
 
-// Força caminho local (para next/image em Media/Avatar/AvatarGroup)
 function toLocal(src?: string): string | undefined {
   if (!src) return undefined;
   try {
     const u = new URL(src, baseURL);
-    return u.pathname + u.search; // ex.: "/images/xxx.jpg"
+    return u.pathname + u.search;
   } catch {
-    return src; // já é relativo
+    return src;
   }
 }
 
-type PageProps = {
-  params: Promise<{ slug: string | string[] }>;
-};
-
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "work", "projects"]);
-  return posts.map((p) => ({ slug: p.slug }));
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
 }
 
-// SEO por projeto
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const slugPath = normalizeSlug(slug);
+
   const posts = getPosts(["src", "app", "work", "projects"]);
-  const post = posts.find((p) => p.slug === slugPath);
+  const post = posts.find((item) => item.slug === slugPath);
+
   if (!post) return {};
 
-  const title = post.metadata.title;
-  const description = post.metadata.summary ?? post.metadata.title;
   const image =
     post.metadata.image ||
     post.metadata.images?.[0] ||
-    buildOgImage(title, post.metadata.tag ?? post.metadata.tags?.[0] ?? "Projeto");
-  const path = `${work.path}/${post.slug}`;
+    buildOgImage(post.metadata.title, post.metadata.tag ?? post.metadata.tags?.[0] ?? "Projeto");
 
   return Meta.generate({
-    title,
-    description,
+    title: post.metadata.title,
+    description: post.metadata.summary ?? post.metadata.title,
     baseURL,
-    image: toAbs(image), // ✅ absoluto para OG
-    path,
+    image: toAbs(image),
+    path: `${work.path}/${post.slug}`,
   });
 }
 
 export default async function ProjectPage({ params }: PageProps) {
   const { slug } = await params;
   const slugPath = normalizeSlug(slug);
-  const post = getPosts(["src", "app", "work", "projects"]).find((p) => p.slug === slugPath);
+
+  const post = getPosts(["src", "app", "work", "projects"]).find((item) => item.slug === slugPath);
 
   if (!post) notFound();
 
-  const datePublished = post.metadata.publishedAt ?? undefined;
-  const dateModified = post.metadata.updatedAt ?? post.metadata.publishedAt ?? undefined;
+  const avatars =
+    post.metadata.team?.flatMap((member) =>
+      member.avatar ? [{ src: toLocal(member.avatar) as string }] : [],
+    ) || [];
 
-  // Equipe (avatar local p/ evitar host não permitido)
-  const team = Array.isArray(post.metadata.team) ? post.metadata.team : [];
-  const avatars = team
-    .map((m: any) => ({ src: toLocal(m?.avatar) }))
-    .filter((a) => Boolean(a.src));
-
-  // Capa (usa local no componente visual)
   const cover =
     post.metadata.image ||
     post.metadata.images?.[0] ||
     buildOgImage(post.metadata.title, post.metadata.tag ?? post.metadata.tags?.[0] ?? "Projeto");
 
-  const ogImage = toAbs(cover);
-  const canonicalPath = `${work.path}/${post.slug}`;
-  const kindLabel = post.metadata.kind ? kindLabels[post.metadata.kind] : undefined;
-  const stack = post.metadata.stack ?? post.metadata.tags ?? [];
-
   return (
-    <Column
-      as="section"
-      className={styles.page}
-      maxWidth="m"
-      horizontal="center"
-      gap="l"
-      paddingTop="24"
-    >
-      {/* Para página de projeto, "article" é ok (se o Schema aceitar "CreativeWork", pode trocar) */}
+    <Column as="section" maxWidth="m" horizontal="center" gap="l">
       <Schema
         as="article"
         baseURL={baseURL}
-        path={canonicalPath}
+        path={`${work.path}/${post.slug}`}
         title={post.metadata.title}
         description={post.metadata.summary ?? post.metadata.title}
-        datePublished={datePublished}
-        dateModified={dateModified}
-        image={ogImage} // ✅ absoluto
+        datePublished={post.metadata.publishedAt}
+        dateModified={post.metadata.updatedAt ?? post.metadata.publishedAt}
+        image={toAbs(cover)}
         author={{
           name: person.name,
-          url: toAbs(about.path)!,
-          image: toAbs(person.avatar)!,
+          url: `${baseURL}${about.path}`,
+          image: `${baseURL}${person.avatar}`,
         }}
       />
-
-      {/* Breadcrumb + título */}
-      <Column className={styles.heroGlow} maxWidth="s" gap="12" horizontal="center" align="center">
+      <Column maxWidth="s" gap="16" horizontal="center" align="center">
         <SmartLink href="/work">
           <Text variant="label-strong-m">Projetos</Text>
         </SmartLink>
-
-        {datePublished && (
-          <Text variant="body-default-xs" onBackground="neutral-weak">
-            {formatDate(datePublished)}
+        {post.metadata.publishedAt && (
+          <Text variant="body-default-xs" onBackground="neutral-weak" marginBottom="12">
+            {formatDate(post.metadata.publishedAt)}
           </Text>
         )}
-
-        <Heading variant="display-strong-m" align="center">
-          {post.metadata.title}
-        </Heading>
-        <div className={styles.accentLine} />
-        {post.metadata.summary && (
-          <Text align="center" onBackground="neutral-weak" wrap="balance">
-            {post.metadata.summary}
-          </Text>
-        )}
-        {(kindLabel || stack.length > 0) && (
-          <Row gap="8" wrap horizontal="center">
-            {kindLabel && (
-              <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-                {kindLabel}
-              </Tag>
-            )}
-            {stack.slice(0, 5).map((item) => (
-              <Tag key={`${post.slug}-${item}`} size="s" background="neutral-alpha-weak">
-                {item}
-              </Tag>
-            ))}
-          </Row>
-        )}
+        <Heading variant="display-strong-m">{post.metadata.title}</Heading>
       </Column>
-
-      {/* Equipe (se houver) */}
       {avatars.length > 0 && (
-        <Row marginBottom="24" horizontal="center">
-          <Row gap="12" vertical="center" wrap>
+        <Row marginBottom="32" horizontal="center">
+          <Row gap="16" vertical="center" wrap>
             <AvatarGroup reverse avatars={avatars} size="s" />
             <Text variant="label-default-m" onBackground="brand-weak">
-              {team.map((member: any, idx: number) => (
+              {post.metadata.team?.map((member, idx) => (
                 <span key={idx}>
                   {idx > 0 && (
                     <Text as="span" onBackground="neutral-weak">
                       {", "}
                     </Text>
                   )}
-                  {member?.linkedIn ? (
-                    <SmartLink href={member.linkedIn}>{member?.name || "Integrante"}</SmartLink>
+                  {member.linkedIn ? (
+                    <SmartLink href={member.linkedIn}>{member.name}</SmartLink>
                   ) : (
-                    <Text as="span">{member?.name || "Integrante"}</Text>
+                    <Text as="span">{member.name}</Text>
                   )}
                 </span>
               ))}
@@ -210,37 +147,25 @@ export default async function ProjectPage({ params }: PageProps) {
           </Row>
         </Row>
       )}
-
-      {/* Capa (opcional) */}
       {cover && (
         <Media
           priority
-          aspectRatio="16/9"
-          radius="l"
+          aspectRatio="16 / 9"
+          radius="m"
           alt={post.metadata.title}
-          src={toLocal(cover) ?? cover} // ✅ local para next/image
-          sizes="(min-width: 1024px) 960px, 100vw"
-          border="neutral-alpha-weak"
-          marginTop="4"
-          marginBottom="8"
+          src={toLocal(cover) ?? cover}
         />
       )}
-
-      {/* Conteúdo */}
-      <Column as="article" maxWidth="s" style={{ margin: "auto" }}>
+      <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
         <CustomMDX source={post.content} />
       </Column>
-
-      {/* Relacionados */}
-      <Column fillWidth gap="32" horizontal="center" marginTop="40">
+      <Column fillWidth gap="40" horizontal="center" marginTop="40">
         <Line maxWidth="40" />
-        <Heading as="h2" variant="heading-strong-xl" marginBottom="12" align="center">
+        <Heading as="h2" variant="heading-strong-xl" marginBottom="24">
           Projetos relacionados
         </Heading>
-        <div className={styles.accentLine} />
         <Projects exclude={[post.slug]} range={[2]} />
       </Column>
-
       <ScrollToHash />
     </Column>
   );

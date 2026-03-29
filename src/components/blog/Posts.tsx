@@ -6,7 +6,6 @@ import { Column, Grid, Heading, Text } from "@once-ui-system/core";
 import { BlogFile } from "@/utils/posts";
 
 import Post from "./Post";
-import styles from "./Posts.module.scss";
 
 type Direction = "row" | "column";
 
@@ -76,7 +75,7 @@ export function Posts({
 
   if (!displayedBlogs.length) {
     return (
-      <Column className={styles.emptyState} gap="8" marginBottom="24" padding="20">
+      <Column gap="8" marginBottom="24" padding="20">
         <Heading as="h3" variant="heading-strong-l">
           Sem publicacoes ainda
         </Heading>
@@ -89,7 +88,6 @@ export function Posts({
 
   return (
     <Grid
-      className={styles.grid}
       columns={columns}
       s={{ columns: 1 }}
       fillWidth

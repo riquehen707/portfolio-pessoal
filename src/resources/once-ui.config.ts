@@ -1,4 +1,4 @@
-import { Manrope, Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 
 import {
   DataStyleConfig,
@@ -15,7 +15,7 @@ import {
 
 import { home } from "./index";
 
-const baseURL: string = (process.env.NEXT_PUBLIC_SITE_URL?.trim() as string) || "https://henrique.dog";
+const baseURL: string = process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://henrique.dog";
 
 const routes: RoutesConfig = {
   "/": true,
@@ -31,29 +31,28 @@ const display: DisplayConfig = {
   themeSwitcher: true,
 };
 
-const heading = Space_Grotesk({
+const heading = Geist({
   variable: "--font-heading",
   subsets: ["latin"],
   display: "swap",
 });
 
-const body = Manrope({
+const body = Geist({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
 });
 
-const label = Manrope({
+const label = Geist({
   variable: "--font-label",
   subsets: ["latin"],
   display: "swap",
 });
 
-const code = IBM_Plex_Mono({
+const code = Geist_Mono({
   variable: "--font-code",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "700"],
 });
 
 const fonts: FontsConfig = {
@@ -65,11 +64,11 @@ const fonts: FontsConfig = {
 
 const style: StyleConfig = {
   theme: "system",
-  neutral: "sand",
-  brand: "indigo",
-  accent: "magenta",
+  neutral: "gray",
+  brand: "cyan",
+  accent: "red",
   solid: "contrast",
-  solidStyle: "plastic",
+  solidStyle: "flat",
   border: "playful",
   surface: "translucent",
   transition: "all",
@@ -80,75 +79,97 @@ const dataStyle: DataStyleConfig = {
   variant: "gradient",
   mode: "categorical",
   height: 24,
-  axis: { stroke: "var(--neutral-alpha-weak)" },
+  axis: {
+    stroke: "var(--neutral-alpha-weak)",
+  },
   tick: {
     fill: "var(--neutral-on-background-weak)",
     fontSize: 11,
-    line: true,
+    line: false,
   },
 };
 
 const effects: EffectsConfig = {
-  mask: { cursor: false, x: 50, y: 0, radius: 90 },
-  gradient: {
-    display: true,
-    opacity: 64,
-    x: 52,
-    y: 14,
-    width: 120,
-    height: 72,
-    tilt: -8,
-    colorStart: "brand-background-strong",
-    colorEnd: "static-transparent",
+  mask: {
+    cursor: false,
+    x: 50,
+    y: 0,
+    radius: 100,
   },
-  dots: { display: false, opacity: 0, size: "2", color: "brand-background-strong" },
-  grid: {
+  gradient: {
+    display: false,
+    opacity: 100,
+    x: 50,
+    y: 60,
+    width: 100,
+    height: 50,
+    tilt: 0,
+    colorStart: "accent-background-strong",
+    colorEnd: "page-background",
+  },
+  dots: {
     display: true,
-    opacity: 22,
+    opacity: 40,
+    size: "2",
+    color: "brand-background-strong",
+  },
+  grid: {
+    display: false,
+    opacity: 100,
     color: "neutral-alpha-medium",
-    width: "1rem",
-    height: "1rem",
+    width: "0.25rem",
+    height: "0.25rem",
   },
   lines: {
-    display: true,
-    opacity: 20,
-    color: "accent-alpha-medium",
-    size: "20",
+    display: false,
+    opacity: 100,
+    color: "neutral-alpha-weak",
+    size: "16",
     thickness: 1,
-    angle: 0,
+    angle: 45,
   },
 };
 
 const mailchimp: MailchimpConfig = {
   action: "https://url/subscribe/post?parameters",
   effects: {
-    mask: { cursor: true, x: 50, y: 0, radius: 90 },
-    gradient: {
-      display: true,
-      opacity: 72,
+    mask: {
+      cursor: true,
       x: 50,
       y: 0,
-      width: 58,
-      height: 56,
-      tilt: -4,
+      radius: 100,
+    },
+    gradient: {
+      display: true,
+      opacity: 90,
+      x: 50,
+      y: 0,
+      width: 50,
+      height: 50,
+      tilt: 0,
       colorStart: "accent-background-strong",
       colorEnd: "static-transparent",
     },
-    dots: { display: false, opacity: 0, size: "2", color: "brand-on-background-weak" },
-    grid: {
+    dots: {
       display: true,
-      opacity: 24,
+      opacity: 20,
+      size: "2",
+      color: "brand-on-background-weak",
+    },
+    grid: {
+      display: false,
+      opacity: 100,
       color: "neutral-alpha-medium",
-      width: "0.9rem",
-      height: "0.9rem",
+      width: "0.25rem",
+      height: "0.25rem",
     },
     lines: {
-      display: true,
-      opacity: 18,
-      size: "18",
+      display: false,
+      opacity: 100,
+      color: "neutral-alpha-medium",
+      size: "16",
       thickness: 1,
       angle: 90,
-      color: "neutral-alpha-medium",
     },
   },
 };
@@ -156,9 +177,9 @@ const mailchimp: MailchimpConfig = {
 const schema: SchemaConfig = {
   logo: "",
   type: "Organization",
-  name: "Henrique Studio",
+  name: "Henrique Reis",
   description: home.description,
-  email: "contato@henrique.dog",
+  email: "oi@henriquereis.dev",
 };
 
 const sameAs: SameAsConfig = {

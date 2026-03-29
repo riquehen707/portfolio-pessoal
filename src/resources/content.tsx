@@ -6,17 +6,17 @@ const person: Person = {
   firstName: "Henrique",
   lastName: "Reis",
   name: "Henrique Reis",
-  role: "Desenvolvedor & Estrategista de Negocios",
+  role: "Desenvolvedor front-end, SEO tecnico e automacao",
   avatar: "/images/avatar-henrique.jpg",
   email: "oi@henriquereis.dev",
-  location: "America/Bahia",
-  languages: ["Portugues"],
+  location: "America/Sao_Paulo",
+  languages: ["Portuguese"],
 };
 
 const newsletter: Newsletter = {
   display: false,
   title: <>Assine a newsletter de {person.firstName}</>,
-  description: <>Notas semanais sobre produtos, dados e estrategia.</>,
+  description: <>Notas semanais sobre sites, SEO, produto e operacao digital.</>,
 };
 
 const social: Social = [
@@ -43,16 +43,16 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Inicio",
-  title: "Henrique Reis | Portfolio e Blog",
+  title: "Henrique Reis | Portfolio, servicos e blog",
   description:
-    "Portfolio de produto e dados com projetos, servicos e artigos praticos para crescer com clareza.",
-  headline: <>Produto, dados e conteudo para negocios que querem crescer.</>,
+    "Portfolio com projetos, servicos e artigos sobre front-end, SEO tecnico, automacao e produto digital.",
+  headline: <>Sites, SEO e sistemas para negocios que precisam crescer com clareza.</>,
   featured: {
     display: true,
     title: (
       <Row gap="12" vertical="center">
         <strong className="ml-4">
-          {featuredService.badge} · {featuredService.hero.highlight}
+          {featuredService.badge} | {featuredService.hero.highlight}
         </strong>
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
@@ -64,12 +64,11 @@ const home: Home = {
   },
   subline: (
     <>
-      Sou {person.firstName}, diretor de um estudio focado em produto, dados e crescimento. Este e
-      meu portfolio e tambem meu blog de conteudo, com analises, frameworks e sistemas que ja estao
-      em operacao.
+      Sou {person.firstName}. Trabalho com Next.js, Vue, SCSS, SEO tecnico e automacoes para sites,
+      lojas virtuais e blogs que precisam ficar mais claros, mais rapidos e mais uteis.
       <br />
-      Explore {servicesPage.label.toLowerCase()} e {productsPage.label.toLowerCase()} pensados para
-      gerar visibilidade, conversao e resultado.
+      Aqui voce encontra meus projetos, artigos e formatos de servico para transformar estrategia em
+      presenca digital bem executada.
     </>
   ),
 };
@@ -77,8 +76,8 @@ const home: Home = {
 const about: About = {
   path: "/about",
   label: "Sobre",
-  title: `Sobre • ${person.name}`,
-  description: `Conheca ${person.name}, ${person.role}, com foco em produto, dados e conteudo estrategico.`,
+  title: `Sobre | ${person.name}`,
+  description: `Conheca ${person.name}, com foco em front-end, SEO tecnico, automacao e conteudo estrategico.`,
   tableOfContent: {
     display: true,
     subItems: true,
@@ -95,9 +94,9 @@ const about: About = {
     title: "Introducao",
     description: (
       <>
-        {person.firstName} cria solucoes de negocios guiadas por dados, conectando desenvolvimento
-        web, analise e estrategia. Foco em sistemas simples capazes de gerar resultados concretos:
-        do cardapio digital com WhatsApp ao painel financeiro com previsoes e estrutura de custos.
+        Desenvolvo experiencias digitais com foco em navegacao simples, performance e resultado.
+        Trabalho principalmente com Next.js, Vue e SCSS, somando SEO tecnico e automacao para dar
+        mais consistencia a sites, blogs e operacoes digitais.
       </>
     ),
   },
@@ -106,17 +105,16 @@ const about: About = {
     title: "Experiencia",
     experiences: [
       {
-        company: "Estudio de Desenvolvimento e Marketing",
-        timeframe: "2023 – Presente",
-        role: "Fundador • Dev & Estrategia",
+        company: "Estudio independente",
+        timeframe: "2023 - Presente",
+        role: "Fundador | desenvolvimento e estrategia",
         achievements: [
           <>
-            Sistema financeiro web (Python + Streamlit) com previsoes, estrutura de custos, curva
-            ABC e relatorios exportaveis.
+            Projetos em Next.js com foco em performance, responsividade e estrutura preparada para SEO.
           </>,
           <>
-            Cardapio digital em Next.js com pedidos via WhatsApp, personalizacao de itens e calculo
-            inteligente de entrega.
+            Estudos de caso para blogs, e-commerce e paginas de captacao, com foco em clareza,
+            conteudo e conversao.
           </>,
         ],
         images: [],
@@ -128,15 +126,15 @@ const about: About = {
     title: "Estudos",
     institutions: [
       {
-        name: "Autodidata (produto, dados e estrategia)",
-        description: <>Anuncios (Meta), analise de dados, UX/SEO e gestao.</>,
+        name: "Formacao autodidata",
+        description: <>SEO tecnico, front-end, UX, conteudo, dados e estrategia digital.</>,
       },
       {
-        name: "Pesquisas atuais",
+        name: "Foco atual",
         description: (
           <>
-            Arquitetura das redes sociais, vieses cognitivos, curva ABC e modelagem adaptativa de
-            fluxo de caixa.
+            SEO para lojas e blogs, arquitetura de informacao, performance, design modular e fluxos
+            de automacao.
           </>
         ),
       },
@@ -147,36 +145,56 @@ const about: About = {
     title: "Habilidades tecnicas",
     skills: [
       {
-        title: "Python & Streamlit",
+        title: "Next.js e React",
         description: (
-          <>Dashboards financeiros com previsoes, relatorios e analises (ABC, sazonalidade, cenarios).</>
+          <>Sites, blogs e interfaces com foco em performance, SEO tecnico e manutencao simples.</>
         ),
         tags: [
-          { name: "Python", icon: "python" },
-          { name: "Streamlit", icon: "streamlit" },
-          { name: "Pandas", icon: "pandas" },
-        ],
-        images: [],
-      },
-      {
-        title: "Next.js",
-        description: (
-          <>Apps completos com Next.js + Once UI, integracao com WhatsApp e calculo de entrega.</>
-        ),
-        tags: [
-          { name: "JavaScript", icon: "javascript" },
           { name: "Next.js", icon: "nextjs" },
+          { name: "React", icon: "javascript" },
           { name: "Vercel", icon: "vercel" },
         ],
         images: [],
       },
       {
-        title: "Dados & Estrategia",
-        description: <>KPIs, projecoes, estrutura de custos e decisoes guiadas por dados.</>,
+        title: "Vue e interfaces modulares",
+        description: (
+          <>Uso Vue quando o projeto pede componentes isolados, painis internos e fluxos mais dinamicos.</>
+        ),
         tags: [
-          { name: "Analytics", icon: "chart" },
+          { name: "Vue", icon: "vue" },
+          { name: "JavaScript", icon: "javascript" },
+          { name: "Components", icon: "grid" },
+        ],
+        images: [],
+      },
+      {
+        title: "SCSS e design de interface",
+        description: <>Estruturo estilos em modulos escalaveis, responsivos e pensados para clareza visual.</>,
+        tags: [
+          { name: "SCSS", icon: "sass" },
+          { name: "Responsive", icon: "grid" },
+          { name: "UI systems", icon: "grid" },
+        ],
+        images: [],
+      },
+      {
+        title: "SEO tecnico para lojas e blogs",
+        description: <>Especialidade em indexacao, estrutura, performance e crescimento organico sustentavel.</>,
+        tags: [
           { name: "SEO", icon: "seo" },
-          { name: "Meta Ads", icon: "meta" },
+          { name: "E-commerce", icon: "shopify" },
+          { name: "Content", icon: "book" },
+        ],
+        images: [],
+      },
+      {
+        title: "Automacao e dados",
+        description: <>Organizo fluxos, integracoes e leituras tecnicas para tirar operacoes do improviso.</>,
+        tags: [
+          { name: "Python", icon: "python" },
+          { name: "Analytics", icon: "chart" },
+          { name: "Automation", icon: "rocket" },
         ],
         images: [],
       },
@@ -187,17 +205,17 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Blog de Produto, Dados e Estrategia",
+  title: "Blog de produto, SEO e estrategia",
   description:
-    "Artigos longos, frameworks e analises sobre produto, dados, SEO e crescimento sustentavel.",
+    "Artigos, ensaios e estudos aplicados sobre produto, SEO tecnico, conteudo e crescimento digital.",
 };
 
 const work: Work = {
   path: "/work",
   label: "Projetos",
-  title: `Projetos • ${person.name}`,
+  title: "Projetos e estudos de caso",
   description:
-    "Portfolio com projetos pessoais, estudos de caso e futuros cases de clientes em produto, SEO tecnico, interfaces e automacao.",
+    "Portfolio com projetos pessoais e estudos de caso em front-end, SEO tecnico, interfaces e automacao.",
 };
 
 export { person, social, newsletter, home, about, blog, work };

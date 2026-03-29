@@ -9,20 +9,19 @@ import {
   Column,
   Flex,
   Meta,
-  opacity,
   RevealFx,
   SpacingToken,
+  opacity,
 } from "@once-ui-system/core";
 
-import { AmbientBackdrop } from "@/components/AmbientBackdrop";
 import { Footer, Header, Providers } from "@/components";
 import {
   baseURL as baseFromConfig,
+  dataStyle,
   effects,
   fonts,
-  style,
-  dataStyle,
   home,
+  style,
 } from "@/resources";
 
 function resolveBaseURL(): URL {
@@ -30,12 +29,10 @@ function resolveBaseURL(): URL {
   const fallbackDev = "http://localhost:3000";
 
   try {
-    const normalized = raw || fallbackDev;
-    return new URL(normalized);
+    return new URL(raw || fallbackDev);
   } catch {
     throw new Error(
-      `baseURL invalida: "${raw}". Defina NEXT_PUBLIC_SITE_URL (ex: https://seu-dominio.com) ` +
-        `ou exporte um baseURL absoluto em '@/resources/once-ui.config'.`,
+      `baseURL invalida: "${raw}". Defina NEXT_PUBLIC_SITE_URL ou exporte um baseURL absoluto em '@/resources/once-ui.config'.`,
     );
   }
 }
@@ -61,7 +58,7 @@ export async function generateMetadata() {
   const metadataBase = resolveBaseURL();
   const siteTitle = "Henrique Reis";
   const siteDescription =
-    "Estudio de produto e dados com foco em sites de alta conversao, SEO tecnico e automacoes. Portfolio, servicos e blog.";
+    "Portfolio com projetos, servicos e artigos sobre front-end, SEO tecnico, automacao e produto digital.";
   const path = ensureLeadingSlash(home?.path ?? "/");
   const image = toAbsoluteOrPath(metadataBase, home?.image ?? "/og.png");
 
@@ -109,7 +106,6 @@ export default async function RootLayout({
     >
       <head>
         <meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
-
         <script
           id="theme-init"
           dangerouslySetInnerHTML={{
@@ -169,8 +165,6 @@ export default async function RootLayout({
           padding="0"
           horizontal="center"
         >
-          <AmbientBackdrop />
-
           <RevealFx fill position="absolute">
             <Background
               mask={{
@@ -213,16 +207,13 @@ export default async function RootLayout({
               }}
             />
           </RevealFx>
-
           <Flex fillWidth minHeight="16" s={{ hide: true }} />
           <Header />
-
           <Flex zIndex={0} fillWidth padding="l" horizontal="center" flex={1}>
             <Flex horizontal="center" fillWidth minHeight="0">
               {children}
             </Flex>
           </Flex>
-
           <Footer />
         </Column>
       </Providers>

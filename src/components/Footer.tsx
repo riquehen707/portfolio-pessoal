@@ -1,4 +1,3 @@
-﻿// src/components/layout/Footer.tsx
 import { Row, IconButton, SmartLink, Text } from "@once-ui-system/core";
 import { person, social } from "@/resources";
 import styles from "./Footer.module.scss";
@@ -9,14 +8,13 @@ export const Footer = () => {
   return (
     <Row
       as="footer"
-      className={styles.footer}
       fillWidth
       padding="8"
       horizontal="center"
       s={{ direction: "column" }}
     >
       <Row
-        className={`${styles.inner} ${styles.mobile}`}
+        className={styles.mobile}
         maxWidth="m"
         paddingY="8"
         paddingX="16"
@@ -29,27 +27,15 @@ export const Footer = () => {
           align: "center",
         }}
       >
-        <Text className={styles.copy} variant="body-default-s" onBackground="neutral-strong">
+        <Text variant="body-default-s" onBackground="neutral-strong">
           <Text onBackground="neutral-weak">© {currentYear} /</Text>
           <Text paddingX="4">{person.name}</Text>
-          <Text onBackground="neutral-weak">/ Fale comigo no Instagram:{" "}</Text>
-          <SmartLink
-            href="https://ig.me/m/riquehen"
-            aria-label="Abrir direct no Instagram de @riquehen"
-            rel="me noopener noreferrer"
-          >
-            @riquehen
-          </SmartLink>
+          <Text onBackground="neutral-weak">
+            / Build your portfolio with{" "}
+            <SmartLink href="https://once-ui.com/products/magic-portfolio">Once UI</SmartLink>
+          </Text>
         </Text>
-
-        <Row className={styles.social} gap="16">
-          <IconButton
-            href="/rss.xml"
-            icon="document"
-            tooltip="RSS"
-            size="s"
-            variant="tertiary"
-          />
+        <Row gap="16">
           {social.map(
             (item) =>
               item.link && (
@@ -59,15 +45,13 @@ export const Footer = () => {
                   icon={item.icon}
                   tooltip={item.name}
                   size="s"
-                  variant="tertiary"
+                  variant="ghost"
                 />
               ),
           )}
         </Row>
       </Row>
-
       <Row height="80" hide s={{ hide: false }} />
     </Row>
   );
 };
-

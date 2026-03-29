@@ -11,7 +11,6 @@ import {
   Tag,
   Text,
 } from "@once-ui-system/core";
-import styles from "./ProjectCard.module.scss";
 
 interface ProjectCardProps {
   href: string;
@@ -37,18 +36,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   stack = [],
 }) => {
   return (
-    <Column className={styles.root} fillWidth gap="m">
-      <div className={styles.mediaShell}>
-        <Carousel
-          sizes="(max-width: 960px) 100vw, 960px"
-          items={images.map((image) => ({
-            slide: image,
-            alt: title,
-          }))}
-        />
-      </div>
+    <Column fillWidth gap="m">
+      <Carousel
+        sizes="(max-width: 960px) 100vw, 960px"
+        items={images.map((image) => ({
+          slide: image,
+          alt: title,
+        }))}
+      />
       <Flex
-        className={styles.contentShell}
         s={{ direction: "column" }}
         fillWidth
         paddingX="s"
@@ -57,13 +53,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         gap="l"
       >
         {title && (
-          <Flex className={styles.titleBlock} flex={5}>
+          <Flex flex={5}>
             <Column gap="12">
-              {kind && (
+              {(kind || stack.length > 0) && (
                 <Row wrap gap="8">
-                  <Tag className={styles.kindTag} size="s" background="brand-alpha-weak" onBackground="brand-strong">
-                    {kind}
-                  </Tag>
+                  {kind && (
+                    <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+                      {kind}
+                    </Tag>
+                  )}
                   {stack.slice(0, 3).map((item) => (
                     <Tag key={`${title}-${item}`} size="s" background="neutral-alpha-weak">
                       {item}
@@ -71,46 +69,33 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                   ))}
                 </Row>
               )}
-              <Heading className={styles.title} as="h2" wrap="balance" variant="heading-strong-xl">
-              {title}
+              <Heading as="h2" wrap="balance" variant="heading-strong-xl">
+                {title}
               </Heading>
             </Column>
           </Flex>
         )}
         {(avatars?.length > 0 || description?.trim() || href || link) && (
-          <Column className={styles.metaBlock} flex={7} gap="16">
-            {avatars?.length > 0 && (
-              <div className={styles.avatars}>
-                <AvatarGroup avatars={avatars} size="m" reverse />
-              </div>
-            )}
+          <Column flex={7} gap="16">
+            {avatars?.length > 0 && <AvatarGroup avatars={avatars} size="m" reverse />}
             {description?.trim() && (
-              <Text
-                className={styles.description}
-                wrap="balance"
-                variant="body-default-s"
-                onBackground="neutral-weak"
-              >
+              <Text wrap="balance" variant="body-default-s" onBackground="neutral-weak">
                 {description}
               </Text>
             )}
-            <Flex className={styles.actions} gap="24" wrap>
+            <Flex gap="24" wrap>
               {href && (
-                <SmartLink
-                  suffixIcon="arrowRight"
-                  className={styles.actionLink}
-                  href={href}
-                >
+                <SmartLink suffixIcon="arrowRight" style={{ margin: "0", width: "fit-content" }} href={href}>
                   <Text variant="body-default-s">Ler estudo de caso</Text>
                 </SmartLink>
               )}
               {link && (
                 <SmartLink
                   suffixIcon="arrowUpRightFromSquare"
-                  className={styles.actionLink}
+                  style={{ margin: "0", width: "fit-content" }}
                   href={link}
                 >
-                  <Text variant="body-default-s">Ver projeto online</Text>
+                  <Text variant="body-default-s">Ver projeto</Text>
                 </SmartLink>
               )}
             </Flex>

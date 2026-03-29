@@ -1,247 +1,45 @@
-import { Suspense } from "react";
-import { Column, Heading, Schema, Text, Button, Row, Line, Grid, Card, Tag } from "@once-ui-system/core";
+import { Column, Heading, Meta, Schema } from "@once-ui-system/core";
+import { Mailchimp } from "@/components";
 import { Posts } from "@/components/blog/Posts";
-import { baseURL, blog, person, servicesPage, work } from "@/resources";
-import { getPosts } from "@/utils/utils";
-import { formatDate } from "@/utils/formatDate";
-import { getAllCategories, getAllTags } from "@/utils/posts";
-import styles from "../section.module.scss";
+import { baseURL, blog, person, newsletter } from "@/resources";
 
-const FEATURED_RANGE: [number, number] = [1, 1];
-const RECENTS_RANGE: [number, number] = [2, 3];
-const EARLIER_RANGE: [number] = [4];
-
-export const revalidate = false;
-export const dynamic = "force-static";
-
-function SectionHeading({
-  children,
-  as = "h2",
-  marginTop = "0",
-}: {
-  children: React.ReactNode;
-  as?: "h1" | "h2" | "h3";
-  marginTop?: "0" | "m" | "l" | "xl";
-}) {
-  return (
-    <Heading as={as} variant="heading-strong-xl" marginTop={marginTop} marginBottom="l">
-      {children}
-    </Heading>
-  );
+export async function generateMetadata() {
+  return Meta.generate({
+    title: blog.title,
+    description: blog.description,
+    baseURL,
+    image: `/api/og/generate?title=${encodeURIComponent(blog.title)}`,
+    path: blog.path,
+  });
 }
 
-function PostsSkeleton() {
+export default function Blog() {
   return (
-    <Column gap="16">
-      <div style={{ height: 220, borderRadius: 16, background: "var(--layer-2)" }} />
-      <div style={{ height: 220, borderRadius: 16, background: "var(--layer-2)" }} />
-    </Column>
-  );
-}
-
-export default function BlogPage() {
-  const pageTitle = blog.title;
-  const ogImage = `/api/og/generate?title=${encodeURIComponent(pageTitle)}`;
-  const posts = getPosts(["src", "app", "blog", "posts"]);
-  const totalPosts = posts.length;
-  const latestPost = posts[0];
-  const latestLabel = latestPost?.metadata?.publishedAt
-    ? formatDate(latestPost.metadata.publishedAt, true)
-    : null;
-  const categories = getAllCategories();
-  const tags = getAllTags();
-  const featuredCategories = categories.slice(0, 6);
-  const featuredTags = tags.slice(0, 12);
-  const editorialTracks = [
-    {
-      title: "Estrategia e posicionamento",
-      description:
-        "Textos que organizam decisoes de negocio, diferenciacao e posicionamento de marca.",
-    },
-    {
-      title: "Produto e execucao",
-      description:
-        "Como transformar visao em experiencias digitais: arquitetura, UX e desenvolvimento.",
-    },
-    {
-      title: "Dados, SEO e performance",
-      description:
-        "Metricas, SEO tecnico e automacoes que mantem crescimento consistente no medio prazo.",
-    },
-  ];
-  const blogHighlights = [
-    { label: "Artigos publicados", value: totalPosts.toString() },
-    { label: "Ultima atualizacao", value: latestLabel ?? "Em andamento" },
-    { label: "Formato", value: "Longform e estudos aplicados" },
-  ];
-
-  return (
-    <Column className={styles.page} maxWidth="m" paddingTop="24" gap="24">
+    <Column maxWidth="m" paddingTop="24">
       <Schema
-        as="webPage"
+        as="blogPosting"
         baseURL={baseURL}
-        title={pageTitle}
+        title={blog.title}
         description={blog.description}
         path={blog.path}
-        image={ogImage}
+        image={`/api/og/generate?title=${encodeURIComponent(blog.title)}`}
         author={{
           name: person.name,
           url: `${baseURL}/blog`,
           image: `${baseURL}${person.avatar}`,
         }}
       />
-
-      <Column className={styles.heroGlow} gap="12">
-        <SectionHeading as="h1">{pageTitle}</SectionHeading>
-        <div className={styles.accentLine} />
-        <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-          {blog.description}
-        </Text>
-        <Row gap="8" wrap>
-          {["Longform", "Frameworks", "Pesquisa aplicada", "Decisoes de produto"].map((tag) => (
-            <Tag key={tag} size="s" background="neutral-alpha-weak">
-              {tag}
-            </Tag>
-          ))}
-        </Row>
-        <Row gap="12" wrap>
-          <Button href={work.path} variant="secondary" size="m" arrowIcon>
-            Ver projetos
-          </Button>
-          <Button href={servicesPage.path} variant="tertiary" size="m" arrowIcon>
-            Conhecer servicos
-          </Button>
-        </Row>
-      </Column>
-
-      <Grid columns="3" s={{ columns: 1 }} gap="16">
-        {blogHighlights.map((item) => (
-          <Card
-            className={styles.cardTint}
-            key={item.label}
-            direction="column"
-            gap="8"
-            paddingX="20"
-            paddingY="20"
-            radius="l"
-            background="surface"
-            style={{ background: "var(--surface-weak)" }}
-            fillHeight
-          >
-            <Text variant="label-default-s" onBackground="neutral-weak">
-              {item.label}
-            </Text>
-            <Heading as="h3" variant="heading-strong-l">
-              {item.value}
-            </Heading>
-          </Card>
-        ))}
-      </Grid>
-
-      <Column gap="12">
-        <Heading as="h2" variant="heading-strong-xl">
-          Trilhas de leitura
+      <Heading marginBottom="l" variant="heading-strong-xl" marginLeft="24">
+        {blog.title}
+      </Heading>
+      <Column fillWidth flex={1} gap="40">
+        <Posts range={[1, 1]} thumbnail />
+        <Posts range={[2, 3]} columns="2" thumbnail direction="column" />
+        {newsletter.display && <Mailchimp marginBottom="l" />}
+        <Heading as="h2" variant="heading-strong-xl" marginLeft="l">
+          Posts anteriores
         </Heading>
-        <div className={styles.accentLine} />
-        <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-          Use as trilhas para escolher o tema certo e aprofundar nas discussoes que mais importam.
-        </Text>
-      </Column>
-
-      <Grid columns="3" s={{ columns: 1 }} gap="16">
-        {editorialTracks.map((track) => (
-          <Card
-            className={styles.cardTint}
-            key={track.title}
-            direction="column"
-            gap="12"
-            paddingX="20"
-            paddingY="20"
-            radius="l"
-            background="surface"
-            style={{ background: "var(--surface-weak)" }}
-            fillHeight
-          >
-            <Heading as="h3" variant="heading-strong-m">
-              {track.title}
-            </Heading>
-            <Text onBackground="neutral-weak">{track.description}</Text>
-          </Card>
-        ))}
-      </Grid>
-
-      <Line maxWidth="40" />
-
-      <Suspense fallback={<PostsSkeleton />}>
-        <Posts range={FEATURED_RANGE} thumbnail />
-      </Suspense>
-
-      <Suspense fallback={<PostsSkeleton />}>
-        <Posts range={RECENTS_RANGE} columns="2" thumbnail direction="column" />
-      </Suspense>
-
-      <SectionHeading as="h2" marginTop="l">
-        Posts anteriores
-      </SectionHeading>
-
-      <Suspense fallback={<PostsSkeleton />}>
-        <Posts range={EARLIER_RANGE} columns="2" thumbnail />
-      </Suspense>
-
-      <Column
-        className={`${styles.sectionPanel} ${styles.contentPanel}`}
-        fillWidth
-        padding="24"
-        radius="l"
-        background="surface"
-        style={{ background: "var(--surface-weak)" }}
-        gap="16"
-        s={{ padding: "16" }}
-      >
-        <Heading as="h2" variant="heading-strong-s">
-          Categorias e temas
-        </Heading>
-        <div className={styles.accentLine} />
-        <Text onBackground="neutral-weak">
-          Cada categoria agrupa posts alinhados com estrategia, cultura e narrativas de produto.
-          Use-as para guiar o que voce quer estudar hoje.
-        </Text>
-        <Row wrap gap="8">
-          {featuredCategories.map((category) => (
-            <Button
-              key={category}
-              href={`/blog/category/${encodeURIComponent(category)}`}
-              variant="tertiary"
-              size="s"
-            >
-              {category}
-            </Button>
-          ))}
-        </Row>
-        <Heading as="h3" variant="heading-strong-s" marginTop="m">
-          Palavras-chave
-        </Heading>
-        <Row wrap gap="8">
-          {featuredTags.map((tag) => (
-            <Button
-              key={tag}
-              href={`/blog/tag/${encodeURIComponent(tag)}`}
-              variant="tertiary"
-              size="s"
-            >
-              {tag}
-            </Button>
-          ))}
-        </Row>
-        <Line maxWidth="40" />
-        <Row gap="12" wrap>
-          <Button href={work.path} variant="secondary" size="m" arrowIcon>
-            Ver projetos
-          </Button>
-          <Button href="/about" variant="tertiary" size="m" arrowIcon>
-            Sobre o estudio
-          </Button>
-        </Row>
+        <Posts range={[4]} columns="2" />
       </Column>
     </Column>
   );
