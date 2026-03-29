@@ -14,6 +14,9 @@ import {
 
 import styles from "./ProjectCard.module.scss";
 
+type ProjectCardVariant = "default" | "feature" | "compact";
+type ProjectKind = "personal" | "study" | "client";
+
 interface ProjectCardProps {
   href: string;
   priority?: boolean;
@@ -24,7 +27,9 @@ interface ProjectCardProps {
   avatars: { src: string }[];
   link: string;
   kind?: string;
+  kindValue?: ProjectKind;
   stack?: string[];
+  variant?: ProjectCardVariant;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -35,78 +40,74 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   avatars,
   link,
   kind,
+  kindValue,
   stack = [],
+  variant = "default",
 }) => {
   return (
-    <Column className={styles.root} fillWidth gap="m">
-      <div className={styles.mediaShell}>
-        <Carousel
-          sizes="(max-width: 960px) 100vw, 960px"
-          items={images.map((image) => ({
-            slide: image,
-            alt: title,
-          }))}
-        />
-      </div>
-      <Flex
-        className={styles.contentShell}
-        s={{ direction: "column" }}
-        fillWidth
-        paddingX="20"
-        paddingTop="20"
-        paddingBottom="24"
-        gap="20"
-      >
-        {title && (
-          <Flex className={styles.titleBlock} flex={5}>
-            <Column gap="12">
+    <article className={styles.root} data-variant={variant} data-kind={kindValue ?? "project"}>
+      <div className={styles.card} data-variant={variant}>
+        <div className={styles.mediaShell}>
+          <Carousel
+            sizes={variant === "compact" ? "(max-width: 768px) 100vw, 360px" : "(max-width: 960px) 100vw, 960px"}
+            items={images.map((image) => ({
+              slide: image,
+              alt: title,
+            }))}
+          />
+        </div>
+
+        <Flex className={styles.contentShell} s={{ direction: "column" }} fillWidth gap="16">
+          {title && (
+            <Column className={styles.titleBlock} gap="12">
               {(kind || stack.length > 0) && (
-                <Row wrap gap="8">
+                <Row className={styles.tagsRow} wrap gap="8">
                   {kind && (
                     <Tag className={styles.kindTag} size="s" background="brand-alpha-weak" onBackground="brand-strong">
                       {kind}
                     </Tag>
                   )}
-                  {stack.slice(0, 3).map((item) => (
+                  {stack.slice(0, variant === "compact" ? 2 : 3).map((item) => (
                     <Tag key={`${title}-${item}`} size="s" background="neutral-alpha-weak">
                       {item}
                     </Tag>
                   ))}
                 </Row>
               )}
-              <Heading className={styles.title} as="h2" wrap="balance" variant="heading-strong-xl">
+              <Heading className={styles.title} as="h2" wrap="balance" variant={variant === "compact" ? "heading-strong-l" : "heading-strong-xl"}>
                 {title}
               </Heading>
             </Column>
-          </Flex>
-        )}
-        {(avatars?.length > 0 || description?.trim() || href || link) && (
-          <Column className={styles.metaBlock} flex={7} gap="16">
-            {avatars?.length > 0 && (
-              <div className={styles.avatars}>
-                <AvatarGroup avatars={avatars} size="m" reverse />
-              </div>
-            )}
-            {description?.trim() && (
-              <Text className={styles.description} wrap="balance" variant="body-default-s" onBackground="neutral-weak">
-                {description}
-              </Text>
-            )}
-            <Flex className={styles.actions} gap="20" wrap>
-              {href && (
-                <SmartLink className={styles.actionLink} suffixIcon="arrowRight" href={href}>
-                  Ler estudo de caso
-                </SmartLink>
+          )}
+
+          {(avatars?.length > 0 || description?.trim() || href || link) && (
+            <Column className={styles.metaBlock} gap="16">
+              {avatars?.length > 0 && variant !== "compact" && (
+                <div className={styles.avatars}>
+                  <AvatarGroup avatars={avatars} size="m" reverse />
+                </div>
               )}
-              {link && (
-                <SmartLink className={styles.actionLink} suffixIcon="arrowUpRightFromSquare" href={link}>
-                  Ver projeto
-                </SmartLink>
+              {description?.trim() && (
+                <Text className={styles.description} wrap="balance" variant="body-default-s" onBackground="neutral-weak">
+                  {description}
+                </Text>
               )}
-            </Flex>
-          </Column>
-        )}
-      </Flex>
-    </Column>
+              <Flex className={styles.actions} gap="20" wrap>
+                {href && (
+                  <SmartLink className={styles.actionLink} suffixIcon="arrowRight" href={href}>
+                    Ler estudo de caso
+                  </SmartLink>
+                )}
+                {link && (
+                  <SmartLink className={styles.actionLink} suffixIcon="arrowUpRightFromSquare" href={link}>
+                    Ver projeto
+                  </SmartLink>
+                )}
+              </Flex>
+            </Column>
+          )}
+        </Flex>
+      </div>
+    </article>
   );
 };

@@ -24,13 +24,14 @@ const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "pt-BR" })
         timeZone,
         hour: "2-digit",
         minute: "2-digit",
+        second: "2-digit",
         hour12: false,
       };
       setCurrentTime(new Intl.DateTimeFormat(locale, options).format(now));
     };
 
     updateTime();
-    const intervalId = setInterval(updateTime, 60000);
+    const intervalId = setInterval(updateTime, 1000);
 
     return () => clearInterval(intervalId);
   }, [timeZone, locale]);
@@ -42,7 +43,7 @@ export default TimeDisplay;
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
-  const locationLabel = person.location === "America/Bahia" ? "Bahia, Brasil" : person.location;
+  const locationLabel = person.location === "America/Bahia" ? "Brasil, Bahia" : person.location;
   const aboutSelected = pathname === about.path || pathname === technicalApproach.path;
 
   return (
@@ -64,13 +65,19 @@ export const Header = () => {
         }}
       >
         <Row className={styles.meta} paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          {display.location && <Row s={{ hide: true }}>{locationLabel}</Row>}
+          {display.location && (
+            <Row s={{ hide: true }}>
+              <Text className={styles.location} variant="body-default-s">
+                {locationLabel}
+              </Text>
+            </Row>
+          )}
         </Row>
         <Row fillWidth horizontal="center">
           <Row
             className={styles.shell}
             background="page"
-            border="neutral-alpha-weak"
+            border="transparent"
             radius="m-4"
             shadow="l"
             padding="4"
@@ -177,10 +184,15 @@ export const Header = () => {
             paddingRight="12"
             horizontal="end"
             vertical="center"
-            textVariant="body-default-s"
             gap="20"
           >
-            <Flex s={{ hide: true }}>{display.time && <TimeDisplay timeZone={person.location} />}</Flex>
+            <Flex s={{ hide: true }}>
+              {display.time && (
+                <Text className={styles.time} variant="body-default-s">
+                  <TimeDisplay timeZone={person.location} />
+                </Text>
+              )}
+            </Flex>
           </Flex>
         </Flex>
       </Row>

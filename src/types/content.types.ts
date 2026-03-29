@@ -248,6 +248,11 @@ export interface ServiceLanding {
   title: string;
   badge: string;
   summary: string;
+  seo?: {
+    title?: string;
+    description?: string;
+    keywords?: string[];
+  };
   hero: {
     highlight: string;
     description: string;

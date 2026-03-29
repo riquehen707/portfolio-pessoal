@@ -1,4 +1,4 @@
-import { IconButton, Row, SmartLink, Text } from "@once-ui-system/core";
+import { IconButton, Row, Text } from "@once-ui-system/core";
 
 import { person, social } from "@/resources";
 
@@ -27,10 +27,6 @@ export const Footer = () => {
           <Text onBackground="neutral-weak">Copyright {currentYear}</Text>
           <Text paddingX="4">{person.name}</Text>
           <Text onBackground="neutral-weak">/ front-end, SEO tecnico e automacao</Text>
-          <Text onBackground="neutral-weak">
-            {" "}
-            / <SmartLink href={`mailto:${person.email}`}>{person.email}</SmartLink>
-          </Text>
         </Text>
         <Row className={styles.social} gap="12">
           {social.map(

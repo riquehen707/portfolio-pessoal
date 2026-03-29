@@ -5,15 +5,12 @@
 }
 
 .meta {
-  color: var(--neutral-on-background-weak);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  color: var(--neutral-on-background-medium);
 }
 
 .shell {
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--border-subtle);
   background: var(--surface-panel-soft);
   box-shadow: var(--shadow-soft);
 }
@@ -35,12 +32,29 @@
 
 .brand {
   padding-inline: 0.5rem;
-  font-family: var(--font-code);
-  letter-spacing: 0.18em;
+  font-family: var(--font-heading);
+  letter-spacing: 0.14em;
+}
+
+.location,
+.time {
+  color: var(--neutral-on-background-strong);
+  font-family: var(--font-label);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.location {
+  opacity: 0.9;
+}
+
+.time {
+  min-width: 5.6rem;
+  font-variant-numeric: tabular-nums;
 }
 
 .clock {
-  min-width: 4.5rem;
+  min-width: 5.6rem;
 }
 
 @media (max-width: breakpoints.$s) {

@@ -87,6 +87,113 @@ export const services: ServiceLanding[] = [
     estimator: true,
   },
   {
+    slug: "landing-page-para-psicologas",
+    title: "Landing Page para Psicologas",
+    badge: "Psicologas + Agenda",
+    summary:
+      "Landing page focada em psicologas que querem mais constancia na captacao, previsibilidade na agenda e uma presenca digital mais profissional.",
+    seo: {
+      title: "Landing Page para Psicologas | Mais previsibilidade na agenda",
+      description:
+        "Crio landing page para psicologas com foco em SEO, profissionalismo digital e mais constancia na captacao de pacientes, sem depender so de tentativa e erro.",
+      keywords: [
+        "landing page para psicologas",
+        "site para psicologas",
+        "captar pacientes psicologa",
+        "agenda de psicologa",
+        "presenca digital para psicologas",
+      ],
+    },
+    hero: {
+      highlight: "Mais constancia, previsibilidade e presenca profissional",
+      description:
+        "Uma pagina pensada para transformar sua especialidade em uma apresentacao clara, confiavel e facil de converter em contato.",
+      price: "A partir de R$ 1.500",
+      duration: "2 a 4 semanas",
+      ctaLabel: "Quero melhorar minha agenda",
+      ctaHref: "https://wa.me/5575983675164?text=Quero%20uma%20landing%20page%20para%20psicologa",
+    },
+    audience:
+      "Psicologas autonomas, profissionais em reposicionamento e clinicas que precisam de uma presenca digital mais previsivel, confiavel e facil de converter.",
+    tags: ["Psicologas", "Landing page", "SEO", "WhatsApp"],
+    keyPoints: [
+      "Mais constancia na captacao sem depender apenas de indicacao ou redes sociais.",
+      "Agenda mais previsivel com um caminho claro entre visita, confianca e contato.",
+      "Presenca digital mais profissional para transmitir seguranca desde a primeira impressao.",
+    ],
+    scopes: [
+      {
+        title: "Landing page para agenda",
+        summary:
+          "Pagina unica para apresentar especialidade, abordagem, perguntas frequentes e CTA de contato.",
+        investment: "A partir de R$ 1.500",
+        timeline: "2 a 3 semanas",
+        includes: [
+          "Estrutura de copy orientada a conversao",
+          "WhatsApp ou formulario",
+          "SEO tecnico essencial",
+        ],
+      },
+      {
+        title: "Site profissional para psicologa",
+        summary:
+          "Estrutura com paginas para especialidades, sobre, FAQ, contato e base pronta para crescer.",
+        investment: "A partir de R$ 2.800",
+        timeline: "3 a 5 semanas",
+        includes: [
+          "Arquitetura de paginas",
+          "Layout responsivo",
+          "Blog opcional para SEO",
+        ],
+      },
+      {
+        title: "Sprint de refino da presenca digital",
+        summary:
+          "Refino de uma pagina ou site existente para melhorar clareza, confianca e conversao.",
+        investment: "A partir de R$ 900",
+        timeline: "1 a 2 semanas",
+        includes: [
+          "Revisao estrutural",
+          "Melhoria de CTA e layout",
+          "Ajustes tecnicos e SEO",
+        ],
+      },
+    ],
+    includes: [
+      "Estrutura pensada para explicar com clareza para quem voce atende e como funciona o contato.",
+      "Layout responsivo, profissional e discreto, sem exagero visual.",
+      "Base tecnica para SEO, buscas locais e futuras evolucoes de conteudo.",
+      "Caminho de contato simples por WhatsApp ou formulario, ligado a sua rotina de atendimento.",
+    ],
+    process: [
+      "Entendo seu momento, sua especialidade e o que hoje trava previsibilidade na agenda.",
+      "Organizo a pagina para comunicar seguranca, clareza e proximidade sem parecer generica.",
+      "Entrego a estrutura publicada com orientacao para evolucao de conteudo e captacao.",
+    ],
+    faq: [
+      {
+        question: "Essa landing page ajuda a deixar a agenda mais previsivel?",
+        answer:
+          "Ela ajuda a criar um caminho mais claro entre interesse e contato. Nao substitui indicacao ou conteudo, mas melhora muito a forma como sua presenca digital converte.",
+      },
+      {
+        question: "Preciso ter blog para funcionar?",
+        answer:
+          "Nao. A landing pode comecar so com a pagina principal. O blog entra depois se fizer sentido para SEO, autoridade e captacao organica.",
+      },
+      {
+        question: "Voce ajuda a organizar os textos da pagina?",
+        answer:
+          "Sim. A pagina nao depende de voce chegar com tudo pronto. Eu ajudo a transformar sua abordagem e especialidade em uma estrutura clara e confiavel.",
+      },
+      {
+        question: "Funciona para quem ainda esta construindo presenca digital?",
+        answer:
+          "Sim. Inclusive costuma funcionar melhor quando a base ainda esta sendo organizada, porque evita improviso e ja nasce com uma estrutura mais profissional.",
+      },
+    ],
+  },
+  {
     slug: "seo-tecnico",
     title: "SEO Tecnico, Auditoria e Otimizacao",
     badge: "SEO + Performance",

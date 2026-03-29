@@ -1,4 +1,4 @@
-import { IBM_Plex_Mono, Manrope, Sora } from "next/font/google";
+import { IBM_Plex_Mono, Manrope, Plus_Jakarta_Sans } from "next/font/google";
 
 import {
   DataStyleConfig,
@@ -32,7 +32,7 @@ const display: DisplayConfig = {
   themeSwitcher: true,
 };
 
-const heading = Sora({
+const heading = Plus_Jakarta_Sans({
   variable: "--font-heading",
   subsets: ["latin"],
   display: "swap",
@@ -44,7 +44,7 @@ const body = Manrope({
   display: "swap",
 });
 
-const label = Manrope({
+const label = Plus_Jakarta_Sans({
   variable: "--font-label",
   subsets: ["latin"],
   display: "swap",

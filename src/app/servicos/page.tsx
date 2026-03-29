@@ -182,7 +182,7 @@ export default function ServicesPage() {
             Servicos sob medida
           </Tag>
           <Heading as="h2" variant="display-strong-s">
-            Tres frentes principais
+            Frentes principais
           </Heading>
           <Text onBackground="neutral-weak">
             A camada principal ficou mais direta: o que cada servico resolve, para quem serve e qual

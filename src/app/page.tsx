@@ -135,7 +135,20 @@ export default function Home() {
             </Text>
           </Column>
         </Row>
-        <Projects range={[1, 1]} marginBottom="0" paddingX="0" />
+        <div className={styles.featuredLayout}>
+          <Column className={styles.featuredAside} gap="12">
+            <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
+              Destaque
+            </Text>
+            <Text variant="heading-strong-m" wrap="balance">
+              Um case principal bem posicionado explica melhor o trabalho do que uma lista longa logo de entrada.
+            </Text>
+            <Text variant="body-default-m" onBackground="neutral-weak">
+              Aqui a prioridade e abrir a conversa com contexto, metodo e direcao clara.
+            </Text>
+          </Column>
+          <Projects range={[1, 1]} marginBottom="0" paddingX="0" cardVariant="feature" />
+        </div>
       </Column>
 
       {routes["/blog"] && (
@@ -156,7 +169,7 @@ export default function Home() {
               Ir para o blog
             </SmartLink>
           </Row>
-          <Posts range={[1, 2]} columns="2" marginBottom="0" />
+          <Posts range={[1, 2]} featuredFirst marginBottom="0" />
         </Column>
       )}
 
@@ -174,7 +187,7 @@ export default function Home() {
             Ver portfolio completo
           </SmartLink>
         </Row>
-        <Projects range={[2]} marginBottom="0" paddingX="0" />
+        <Projects range={[2, 3]} marginBottom="0" paddingX="0" layout="grid" cardVariant="compact" />
       </Column>
 
       <Mailchimp />

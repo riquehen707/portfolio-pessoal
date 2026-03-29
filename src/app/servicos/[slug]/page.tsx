@@ -24,13 +24,17 @@ export async function generateMetadata({ params }: PageProps) {
   const service = services.find((item) => item.slug === slug);
   if (!service) return {};
 
+  const metaTitle = service.seo?.title ?? `${service.title} | ${servicesPage.title}`;
+  const metaDescription = service.seo?.description ?? service.summary;
+
   return {
-    title: `${service.title} | ${servicesPage.title}`,
-    description: service.summary,
+    title: metaTitle,
+    description: metaDescription,
+    keywords: service.seo?.keywords,
     alternates: { canonical: `${baseURL}${servicesPage.path}/${service.slug}` },
     openGraph: {
-      title: `${service.title} | ${servicesPage.title}`,
-      description: service.summary,
+      title: metaTitle,
+      description: metaDescription,
       url: `${baseURL}${servicesPage.path}/${service.slug}`,
       images: [{ url: `/api/og/generate?title=${encodeURIComponent(service.title)}` }],
     },
@@ -47,6 +51,9 @@ export default async function ServiceLandingPage({ params }: PageProps) {
 
   if (!service) notFound();
 
+  const metaTitle = service.seo?.title ?? `${service.title} | ${servicesPage.title}`;
+  const metaDescription = service.seo?.description ?? service.summary;
+
   const heroStats = [
     { label: "Entrada", value: service.hero.price },
     { label: "Prazo", value: service.hero.duration },
@@ -58,8 +65,8 @@ export default async function ServiceLandingPage({ params }: PageProps) {
       <Schema
         as="webPage"
         baseURL={baseURL}
-        title={`${service.title} | ${servicesPage.title}`}
-        description={service.summary}
+        title={metaTitle}
+        description={metaDescription}
         path={`${servicesPage.path}/${service.slug}`}
         image={`/api/og/generate?title=${encodeURIComponent(service.title)}`}
         author={{

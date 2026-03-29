@@ -1,36 +1,15 @@
+@use "./breakpoints.scss" as breakpoints;
+
 .root {
   position: relative;
+  width: 100%;
 }
 
-.mediaShell {
+.card {
   position: relative;
+  display: grid;
   overflow: hidden;
-  border: 1px solid var(--border-subtle);
-  border-radius: 1.7rem;
-  background: var(--surface-panel-soft);
-  box-shadow: var(--shadow-soft);
-  transition:
-    transform 180ms ease,
-    border-color 180ms ease,
-    box-shadow 180ms ease;
-}
-
-.mediaShell::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 14% 0%, var(--brand-glow), transparent 28%),
-    radial-gradient(circle at 86% 0%, var(--accent-glow), transparent 20%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.contentShell {
-  position: relative;
-  margin-top: -0.85rem;
-  border: 1px solid var(--border-subtle);
-  border-radius: 1.4rem;
+  border-radius: 1.75rem;
   background: var(--surface-panel);
   box-shadow: var(--shadow-soft);
   transition:
@@ -40,9 +19,52 @@
     background 180ms ease;
 }
 
-.contentShell > * {
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 14% 0%, var(--brand-glow), transparent 28%),
+    radial-gradient(circle at 84% 0%, var(--accent-glow), transparent 20%);
+  pointer-events: none;
+}
+
+.card[data-variant="default"],
+.card[data-variant="feature"] {
+  grid-template-columns: 1fr;
+}
+
+.card[data-variant="compact"] {
+  grid-template-columns: minmax(0, 1fr) minmax(10rem, 14rem);
+}
+
+.mediaShell,
+.contentShell {
   position: relative;
   z-index: 1;
+}
+
+.mediaShell {
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent),
+    var(--surface-panel-soft);
+}
+
+.card[data-variant="compact"] .mediaShell {
+  height: 100%;
+}
+
+.contentShell {
+  padding: 1.25rem;
+}
+
+.card[data-variant="feature"] .contentShell {
+  padding: 1.4rem 1.4rem 1.5rem;
+}
+
+.card[data-variant="compact"] .contentShell {
+  padding: 1.1rem 1rem 1.1rem 1.15rem;
 }
 
 .titleBlock,
@@ -50,8 +72,13 @@
   min-width: 0;
 }
 
+.tagsRow {
+  row-gap: 0.5rem;
+}
+
 .title {
   letter-spacing: -0.04em;
+  line-height: 1.08;
 }
 
 .kindTag {
@@ -63,7 +90,11 @@
 }
 
 .description {
-  max-width: 46ch;
+  max-width: 50ch;
+}
+
+.card[data-variant="compact"] .description {
+  max-width: 38ch;
 }
 
 .actions {
@@ -74,38 +105,47 @@
   width: fit-content;
 }
 
+.root[data-kind="study"] .kindTag {
+  background: var(--accent-alpha-weak);
+  color: var(--accent-on-background-medium);
+}
+
+.root[data-kind="client"] .kindTag {
+  background: rgba(94, 212, 146, 0.14);
+  color: #7fd9a9;
+}
+
 @media (hover: hover) and (pointer: fine) {
-  .root:hover .mediaShell,
-  .root:hover .contentShell {
-    border-color: var(--border-strong);
-    box-shadow: var(--shadow-card);
-  }
-
-  .root:hover .mediaShell {
+  .card:hover {
     transform: translateY(-2px);
-  }
-
-  .root:hover .contentShell {
-    transform: translateY(-1px);
+    box-shadow: var(--shadow-card);
     background: rgba(255, 255, 255, 0.03);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .mediaShell,
-  .contentShell {
+  .card {
     transition: none;
   }
 }
 
-@media (max-width: 768px) {
-  .mediaShell {
+@media (max-width: breakpoints.$s) {
+  .card {
     border-radius: 1.35rem;
   }
 
-  .contentShell {
-    margin-top: -0.65rem;
-    border-radius: 1.2rem;
+  .card[data-variant="compact"] {
+    grid-template-columns: 1fr;
+  }
+
+  .card[data-variant="compact"] .mediaShell {
+    border-left: 0;
+  }
+
+  .contentShell,
+  .card[data-variant="feature"] .contentShell,
+  .card[data-variant="compact"] .contentShell {
+    padding: 1rem;
   }
 
   .description {

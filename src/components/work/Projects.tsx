@@ -5,16 +5,22 @@ import { buildOgImage } from "@/utils/og";
 import { getPosts } from "@/utils/utils";
 import { Column } from "@once-ui-system/core";
 
+import styles from "./Projects.module.scss";
+
 const kindLabels = {
   personal: "Projeto pessoal",
   study: "Estudo de caso",
   client: "Case de cliente",
 } as const;
 
+type ProjectLayout = "stack" | "grid";
+type ProjectCardVariant = "default" | "feature" | "compact";
+
 interface ProjectsProps {
   range?: [number, number?];
   exclude?: string[];
-  compact?: boolean;
+  layout?: ProjectLayout;
+  cardVariant?: ProjectCardVariant;
   marginBottom?: ComponentProps<typeof Column>["marginBottom"];
   paddingX?: ComponentProps<typeof Column>["paddingX"];
 }
@@ -22,6 +28,8 @@ interface ProjectsProps {
 export function Projects({
   range,
   exclude,
+  layout = "stack",
+  cardVariant = "default",
   marginBottom = "40",
   paddingX = "l",
 }: ProjectsProps) {
@@ -43,7 +51,12 @@ export function Projects({
     : sortedProjects;
 
   return (
-    <Column fillWidth gap="xl" marginBottom={marginBottom} paddingX={paddingX}>
+    <Column
+      className={layout === "grid" ? styles.grid : styles.list}
+      fillWidth
+      marginBottom={marginBottom}
+      paddingX={paddingX}
+    >
       {displayedProjects.map((post, index) => {
         const fallbackSubtitle = post.metadata.tag ?? post.metadata.tags?.[0] ?? "Projeto";
         const images =
@@ -62,6 +75,8 @@ export function Projects({
             title={post.metadata.title}
             description={post.metadata.summary ?? post.metadata.title}
             content={post.content}
+            variant={cardVariant}
+            kindValue={post.metadata.kind}
             kind={
               post.metadata.kind
                 ? kindLabels[post.metadata.kind as keyof typeof kindLabels]

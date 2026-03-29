@@ -7,6 +7,7 @@ import { buildOgImage } from "@/utils/og";
 import styles from "./Post.module.scss";
 
 type Direction = "row" | "column";
+type PostVariant = "default" | "feature" | "compact";
 
 interface PostFrontmatter {
   title: string;
@@ -28,6 +29,7 @@ interface PostProps {
   thumbnail?: boolean;
   direction?: Direction;
   priority?: boolean;
+  variant?: PostVariant;
 }
 
 export default function Post({
@@ -35,6 +37,7 @@ export default function Post({
   thumbnail = false,
   direction = "row",
   priority = false,
+  variant = "default",
 }: PostProps) {
   const { slug, metadata } = post;
   const { title, publishedAt, tag, tags, categories, image, imageAlt } = metadata || {};
@@ -42,28 +45,31 @@ export default function Post({
   const displayTag = tag || tags?.[0] || categories?.[0];
   const fallbackImage = buildOgImage(title, displayTag || "Conteudo");
   const displayImage = image && image.trim() !== "" ? image : fallbackImage;
+  const resolvedDirection = variant === "feature" ? "column" : direction;
+  const showThumbnail = thumbnail && variant !== "compact";
 
   return (
     <Card
-      className={styles.card}
+      className={`${styles.card} ${styles[variant]}`}
+      data-variant={variant}
       fillWidth
       key={slug}
       href={`/blog/${slug}`}
       transition="micro-medium"
-      direction={direction}
+      direction={resolvedDirection}
       border="transparent"
       background="transparent"
-      padding="4"
+      padding={variant === "feature" ? "0" : "4"}
       radius="l-4"
-      gap={direction === "column" ? undefined : "20"}
+      gap={variant === "feature" ? "0" : resolvedDirection === "column" ? undefined : "20"}
       s={{ direction: "column" }}
     >
-      {thumbnail && (
-        <div className={styles.thumb} data-direction={direction}>
+      {showThumbnail && (
+        <div className={styles.thumb} data-direction={resolvedDirection}>
           <Media
             priority={priority}
-            sizes={direction === "row" ? "160px" : "(max-width: 768px) 100vw, 640px"}
-            border="neutral-alpha-weak"
+            sizes={resolvedDirection === "row" ? "160px" : "(max-width: 768px) 100vw, 640px"}
+            border="transparent"
             cursor="interactive"
             radius="l"
             src={displayImage}
@@ -73,7 +79,14 @@ export default function Post({
         </div>
       )}
       <Row fillWidth>
-        <Column className={styles.content} maxWidth={28} paddingY="20" paddingX="l" gap="16" vertical="center">
+        <Column
+          className={styles.content}
+          maxWidth={variant === "compact" ? 32 : 28}
+          paddingY={variant === "compact" ? "16" : "20"}
+          paddingX={variant === "feature" ? "20" : "l"}
+          gap={variant === "compact" ? "12" : "16"}
+          vertical="center"
+        >
           <Row className={styles.meta} gap="16" vertical="center" wrap>
             <Row vertical="center" gap="12">
               <Avatar src={person.avatar} size="s" />
@@ -85,7 +98,11 @@ export default function Post({
               </Text>
             )}
           </Row>
-          <Text className={styles.title} variant="heading-strong-l" wrap="balance">
+          <Text
+            className={styles.title}
+            variant={variant === "compact" ? "heading-strong-m" : variant === "feature" ? "heading-strong-xl" : "heading-strong-l"}
+            wrap="balance"
+          >
             {title}
           </Text>
           {displayTag && (

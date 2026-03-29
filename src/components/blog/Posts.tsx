@@ -6,6 +6,7 @@ import { Column, Grid, Heading, Text } from "@once-ui-system/core";
 import { BlogFile } from "@/utils/posts";
 
 import Post from "./Post";
+import styles from "./Posts.module.scss";
 
 type Direction = "row" | "column";
 
@@ -29,6 +30,7 @@ interface PostsProps {
   columns?: "1" | "2" | "3";
   thumbnail?: boolean;
   direction?: Direction;
+  featuredFirst?: boolean;
   exclude?: string[];
   data?: PostData[];
   marginBottom?: ComponentProps<typeof Grid>["marginBottom"];
@@ -38,6 +40,7 @@ export function Posts({
   range,
   columns = "1",
   thumbnail = false,
+  featuredFirst = false,
   exclude = [],
   direction,
   data,
@@ -75,7 +78,7 @@ export function Posts({
 
   if (!displayedBlogs.length) {
     return (
-      <Column gap="8" marginBottom="24" padding="20">
+      <Column className={styles.emptyState} gap="8" marginBottom="24" padding="20">
         <Heading as="h3" variant="heading-strong-l">
           Sem publicacoes ainda
         </Heading>
@@ -86,8 +89,24 @@ export function Posts({
     );
   }
 
+  if (featuredFirst && displayedBlogs.length > 1) {
+    const [featuredPost, ...secondaryPosts] = displayedBlogs;
+
+    return (
+      <Column className={styles.split} marginBottom={marginBottom}>
+        <Post post={featuredPost} thumbnail direction="column" variant="feature" priority />
+        <div className={styles.sideList}>
+          {secondaryPosts.map((post) => (
+            <Post key={post.slug} post={post} variant="compact" />
+          ))}
+        </div>
+      </Column>
+    );
+  }
+
   return (
     <Grid
+      className={styles.grid}
       columns={columns}
       s={{ columns: 1 }}
       fillWidth
@@ -100,6 +119,7 @@ export function Posts({
           post={post}
           thumbnail={thumbnail}
           direction={direction}
+          variant="default"
           priority={thumbnail && idx === 0}
         />
       ))}

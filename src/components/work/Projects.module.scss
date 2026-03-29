@@ -1,66 +1,28 @@
-.list {
-  position: relative;
+@use "../breakpoints.scss" as breakpoints;
+
+.list,
+.grid {
   width: 100%;
-  padding-inline: clamp(0rem, 1vw, 0.5rem);
 }
 
-.compactList {
-  padding-inline: 0;
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.list::before {
-  content: "";
-  position: absolute;
-  top: 1.75rem;
-  bottom: 2rem;
-  left: 0.35rem;
-  width: 1px;
-  background: linear-gradient(180deg, transparent, var(--page-grid-strong), transparent);
-  opacity: 0.7;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
 }
 
-.item {
-  position: relative;
-  padding-left: 2rem;
-}
-
-.item::before {
-  content: "";
-  position: absolute;
-  top: 1.55rem;
-  left: 0;
-  width: 0.8rem;
-  height: 0.8rem;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--scheme-brand-700), var(--scheme-accent-700));
-  box-shadow:
-    0 0 20px rgba(82, 144, 255, 0.24),
-    0 0 18px rgba(255, 112, 80, 0.18);
-}
-
-.compactList::before,
-.compactItem::before {
-  display: none;
-}
-
-.compactItem {
-  padding-left: 0;
-}
-
-@media (max-width: 768px) {
+@media (max-width: breakpoints.$s) {
   .list {
-    padding-inline: 0;
+    gap: 1rem;
   }
 
-  .list::before {
-    display: none;
-  }
-
-  .item {
-    padding-left: 0;
-  }
-
-  .item::before {
-    display: none;
+  .grid {
+    grid-template-columns: 1fr;
   }
 }
