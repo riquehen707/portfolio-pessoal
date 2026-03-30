@@ -45,6 +45,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   variant = "default",
 }) => {
   const hasMedia = images.length > 0;
+  const primaryActionLabel =
+    kindValue === "study"
+      ? "Abrir estudo"
+      : kindValue === "client"
+        ? "Ver case"
+        : "Abrir projeto";
 
   return (
     <article className={styles.root} data-variant={variant} data-kind={kindValue ?? "project"}>
@@ -99,7 +105,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               <Flex className={styles.actions} gap="20" wrap>
                 {href && (
                   <SmartLink className={styles.actionLink} suffixIcon="arrowRight" href={href}>
-                    Ler estudo de caso
+                    {primaryActionLabel}
                   </SmartLink>
                 )}
                 {link && (

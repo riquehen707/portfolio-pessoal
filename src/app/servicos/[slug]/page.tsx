@@ -174,10 +174,13 @@ export default async function ServiceLandingPage({ params }: PageProps) {
           <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
             O que esse serviço resolve
           </Tag>
-          <Heading as="h2" variant="display-strong-s">
-            Ganhos práticos
-          </Heading>
-        </Column>
+        <Heading as="h2" variant="display-strong-s">
+          Ganhos práticos
+        </Heading>
+        <Text onBackground="neutral-weak">
+          A ideia aqui é simples: tirar ruído do caminho e fazer a presença digital trabalhar melhor para você.
+        </Text>
+      </Column>
 
         <Grid columns="3" s={{ columns: 1 }} gap="16">
           {service.keyPoints.map((item) => (
@@ -211,13 +214,13 @@ export default async function ServiceLandingPage({ params }: PageProps) {
           <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
             Escopos comuns
           </Tag>
-          <Heading as="h2" variant="display-strong-s">
-            Formatos de entrega
-          </Heading>
-          <Text onBackground="neutral-weak">
-            Cada formato muda profundidade, prazo e investimento. A entrada pode ser menor e crescer
-            conforme a necessidade real do projeto.
-          </Text>
+        <Heading as="h2" variant="display-strong-s">
+          Formatos de entrega
+        </Heading>
+        <Text onBackground="neutral-weak">
+          Cada formato muda profundidade, prazo e investimento. A entrada pode ser menor e crescer
+          conforme a necessidade real do projeto e o momento do negócio.
+        </Text>
         </Column>
 
         <Grid columns="3" s={{ columns: 1 }} gap="16">
@@ -389,7 +392,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
           Se fizer sentido, eu transformo isso em um escopo claro
         </Heading>
         <Text onBackground="neutral-weak">
-          O melhor ponto de partida não é uma lista grande de funcionalidades. É o problema real do negócio.
+          O melhor ponto de partida não é uma lista grande de funcionalidades. É o problema real do negócio e a forma mais honesta de resolver isso.
         </Text>
         <Row className={styles.heroActions} gap="12" wrap>
           <Button href={service.hero.ctaHref} variant="primary" size="m" arrowIcon>

@@ -33,16 +33,16 @@ export async function generateMetadata() {
 export default function Home() {
   const heroSignals = [
     {
-      label: "Para quem",
-      value: "Psicólogas, consultores, autônomos e prestadores de serviço que precisam vender melhor.",
+      label: "Quem costuma me procurar",
+      value: "Psicólogas, consultores, autônomos e prestadores de serviço que precisam passar mais confiança no digital.",
     },
     {
-      label: "Foco",
-      value: "Clareza na oferta, presença profissional e geração de contatos com menos ruído.",
+      label: "O que muda",
+      value: "A oferta fica mais clara, a presença mais profissional e o contato deixa de parecer improvisado.",
     },
     {
-      label: "Como entra a técnica",
-      value: "Next.js, Vue, SCSS, SEO técnico e automações quando isso melhora resultado de verdade.",
+      label: "Onde a técnica entra",
+      value: "Next.js, Vue, SCSS, SEO técnico e automações, mas sempre como suporte para uma experiência melhor.",
     },
   ];
 
@@ -128,11 +128,11 @@ export default function Home() {
               Projeto em destaque
             </Tag>
             <Heading as="h2" variant="display-strong-s">
-              Um projeto para ver como isso ganha forma
+              Um projeto para sentir o padrão de clareza e acabamento
             </Heading>
             <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-              Em vez de abrir com excesso de informação, a Home começa por um case que mostra critério,
-              estrutura e direção.
+              Em vez de abrir com promessa demais, a Home começa por um case que mostra como eu
+              organizo leitura, hierarquia e intenção.
             </Text>
           </Column>
         </Row>
@@ -142,10 +142,10 @@ export default function Home() {
               Destaque
             </Text>
             <Text variant="heading-strong-m" wrap="balance">
-              Um case principal bem posicionado explica melhor o trabalho do que uma vitrine longa logo na primeira dobra.
+              Um case bem escolhido explica melhor o trabalho do que uma vitrine longa logo na primeira dobra.
             </Text>
             <Text variant="body-default-m" onBackground="neutral-weak">
-              A prioridade aqui é abrir a conversa com contexto, método e uma leitura clara do que eu entrego.
+              A prioridade aqui é abrir a conversa com contexto, repertório e uma leitura clara do que eu entrego.
             </Text>
           </Column>
           <Projects range={[1, 1]} marginBottom="0" paddingX="0" cardVariant="feature" />
@@ -163,7 +163,7 @@ export default function Home() {
                 Ensaios, tecnologia e interesses em aberto
               </Heading>
               <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-                Um recorte do caderno editorial para mostrar como filosofia, cultura, internet e técnica também atravessam meu trabalho.
+                O blog também faz parte do meu jeito de trabalhar: penso melhor quando escrevo, observo e conecto assuntos diferentes.
               </Text>
             </Column>
             <SmartLink href={blog.path} suffixIcon="arrowRight">

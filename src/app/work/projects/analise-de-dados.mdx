@@ -1,52 +1,52 @@
 ---
-title: "Painel Financeiro e de Operacao"
+title: "Painel financeiro e operacional"
 slug: "analise-de-dados"
 publishedAt: "2023-11-14"
-summary: "Projeto pessoal para organizar fluxo de caixa, previsao e leitura operacional em um unico painel."
+summary: "Painel interno para acompanhar caixa, custos e previsão sem depender de planilhas espalhadas."
 kind: "personal"
-categories: ["Dados", "Operacao"]
-tags: ["Dashboard", "Financeiro", "Analise de dados", "Automacao"]
+categories: ["Dados", "Operação"]
+tags: ["Dashboard", "Financeiro", "Análise de dados", "Automação"]
 stack: ["Python", "Streamlit", "Pandas"]
 ---
 
-## Visao geral
+## Visão geral
 
-Este projeto nasceu como uma ferramenta interna para acompanhar receitas, despesas, margem e previsao de caixa em um unico lugar.
+Esse painel nasceu de uma necessidade bem prática: parar de olhar o financeiro em pedaços.
 
-O objetivo era sair de planilhas soltas e criar uma leitura mais clara da operacao, com menos trabalho manual e mais apoio para decisao.
+A ideia era ter receitas, despesas, margem e previsão de caixa em uma leitura só, sem depender de planilhas espalhadas e conferência manual o tempo inteiro.
 
 ## Problema
 
-Os dados financeiros estavam espalhados em arquivos diferentes e isso dificultava:
+Antes dele, o financeiro ficava pulverizado em arquivos diferentes. Isso dificultava:
 
-- entender a situacao real do caixa
-- separar custo fixo de custo variavel
-- visualizar tendencia de curto prazo
-- transformar numero em acao pratica
+- entender a situação real do caixa
+- separar custo fixo de custo variável
+- enxergar tendência de curto prazo
+- transformar número em ação prática
 
-## Solucao
+## Solução
 
-Desenvolvi um painel em `Python` com `Streamlit` e `Pandas` para consolidar a operacao financeira em uma interface simples.
+Desenvolvi um painel em `Python` com `Streamlit` e `Pandas` para concentrar a operação financeira em uma interface simples e rápida de consultar.
 
-O sistema foi pensado para:
+Ele foi desenhado para:
 
 - importar dados e limpar entradas repetidas
 - destacar categorias de custo
-- comparar periodos
-- gerar previsoes operacionais basicas
+- comparar períodos
+- gerar previsões operacionais básicas
 
-## Decisoes tecnicas
+## Decisões técnicas
 
-Escolhi `Streamlit` porque a prioridade era velocidade de iteracao e leitura clara, nao uma camada de produto publica.
+Escolhi `Streamlit` porque a prioridade era velocidade de iteração e clareza de leitura, não uma camada pública de produto.
 
-`Pandas` entrou para modelar os dados, preparar series historicas e gerar cortes mais uteis para a rotina.
+`Pandas` entrou para modelar os dados, preparar séries históricas e gerar recortes úteis para a rotina.
 
 ## Resultado
 
-O projeto se tornou uma base pessoal para acompanhar saude financeira e testar fluxos de analise que depois podem virar dashboards mais robustos para clientes.
+O resultado foi uma base interna muito mais confiável para acompanhar saúde financeira e testar fluxos que depois podem evoluir para dashboards mais robustos.
 
 ## Aprendizados
 
-- um bom dashboard nao depende de excesso de grafico
+- um bom dashboard não depende de excesso de gráfico
 - clareza operacional vale mais do que interface carregada
-- automacao simples economiza tempo quando o input de dados e consistente
+- automação simples economiza tempo quando o input de dados é consistente

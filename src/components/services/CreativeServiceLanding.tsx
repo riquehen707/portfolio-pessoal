@@ -118,7 +118,7 @@ export default function CreativeServiceLanding({
             </Row>
 
             <Heading as="h1" variant="heading-strong-xl" wrap="balance">
-              Landing page para social media, designers e freelancers digitais que querem crescer com mais consistência.
+              Uma landing page para freelancers criativos que querem ser lembrados com mais clareza.
             </Heading>
             <div className={styles.accentLine} />
             <Text className={styles.lead} variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
@@ -175,10 +175,13 @@ export default function CreativeServiceLanding({
           <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
             Onde trava
           </Tag>
-          <Heading as="h2" variant="display-strong-s">
-            O problema não é só conseguir atenção. É transformar atenção em cliente.
-          </Heading>
-        </Column>
+        <Heading as="h2" variant="display-strong-s">
+          O problema não é só conseguir atenção. É transformar atenção em cliente.
+        </Heading>
+        <Text onBackground="neutral-weak">
+          Quando a apresentação não sustenta a conversa, o interesse até chega, mas não amadurece.
+        </Text>
+      </Column>
 
         <Grid className={styles.problemGrid} columns="3" s={{ columns: 1 }} gap="16">
           {frictionPoints.map((item) => (
@@ -256,10 +259,13 @@ export default function CreativeServiceLanding({
           <Tag size="s" background="neutral-alpha-weak">
             Como converte
           </Tag>
-          <Heading as="h2" variant="display-strong-s">
-            A página precisa vender seu serviço antes mesmo da conversa.
-          </Heading>
-        </Column>
+        <Heading as="h2" variant="display-strong-s">
+          A página precisa vender seu serviço antes mesmo da conversa.
+        </Heading>
+        <Text onBackground="neutral-weak">
+          O objetivo é sair da sensação de perfil solto e entrar em uma presença que transmite direção.
+        </Text>
+      </Column>
 
         <Grid className={styles.blockGrid} columns="3" s={{ columns: 1 }} gap="16">
           {leverageBlocks.map((item) => (

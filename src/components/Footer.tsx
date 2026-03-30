@@ -26,7 +26,7 @@ export const Footer = () => {
         <Text className={styles.copy} variant="body-default-s" onBackground="neutral-strong">
           <Text onBackground="neutral-weak">Copyright {currentYear}</Text>
           <Text paddingX="4">{person.name}</Text>
-          <Text onBackground="neutral-weak">/ front-end, SEO tecnico e automacao</Text>
+          <Text onBackground="neutral-weak">/ front-end, SEO técnico e automação</Text>
         </Text>
         <Row className={styles.social} gap="12">
           {social.map(

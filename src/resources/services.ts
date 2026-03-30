@@ -5,11 +5,11 @@ export const servicesPage: ServicesPage = {
   label: "Serviços",
   title: "Serviços em web, SEO e automação",
   description:
-    "Projetos sob medida, pacotes e ferramentas para sites, SEO técnico e operação digital.",
+    "Serviços, pacotes e ferramentas para quem quer melhorar a presença digital com mais clareza e menos improviso.",
   intro: {
-    headline: "Escolha o formato certo sem atravessar páginas longas.",
+    headline: "Escolha um ponto de entrada sem transformar a decisão em mais uma dúvida.",
     lead:
-      "Aqui você encontra quatro formatos de entrada: serviço sob medida, pacote, micro-serviço e ferramenta própria. Cada um mostra escopo, prazo e ponto de partida com mais clareza.",
+      "Se o problema pede projeto sob medida, pacote, ajuste pontual ou ferramenta própria, aqui fica mais claro por onde começar e o que esperar de cada formato.",
   },
 };
 
@@ -19,22 +19,22 @@ export const services: ServiceLanding[] = [
     title: "Websites profissionais e landing pages",
     badge: "Web + Conversão",
     summary:
-      "Sites e landing pages para apresentar melhor o serviço, facilitar o contato e sustentar campanhas ou SEO.",
+      "Sites e landing pages para apresentar seu trabalho com mais clareza e facilitar o próximo passo de quem chega.",
     hero: {
       highlight: "Next.js, SEO técnico e interface responsiva",
       description:
-        "Para negócios e profissionais que precisam sair do improviso e ter uma presença digital mais clara, rápida e profissional.",
+        "Para negócios e profissionais que querem sair do improviso e ter uma presença digital mais clara, rápida e confiável.",
       price: "A partir de R$ 1.500",
       duration: "2 a 8 semanas",
       ctaLabel: "Solicitar proposta",
       ctaHref: "mailto:oi@henriquereis.dev?subject=Websites%20Profissionais",
     },
     audience:
-      "Profissionais, negócios locais, marcas autorais e operações digitais que precisam vender, captar ou se posicionar melhor.",
+      "Profissionais, negócios locais, marcas autorais e operações digitais que precisam ser melhor entendidos, lembrados e procurados.",
     tags: ["Next.js", "SCSS", "SEO", "Responsivo"],
     keyPoints: [
-      "Mensagem mais clara para quem chega ao site.",
-      "Estrutura pronta para SEO, campanhas e evolução futura.",
+      "Uma presença que explica melhor o que você faz.",
+      "Estrutura pronta para SEO, campanhas e crescimento com mais calma.",
       "Experiência consistente no desktop e no mobile.",
     ],
     scopes: [
@@ -66,9 +66,9 @@ export const services: ServiceLanding[] = [
       "Publicação com orientação para os próximos passos.",
     ],
     process: [
-      "Diagnóstico curto para entender objetivo, público e prioridade.",
-      "Desenho e implementação das telas principais.",
-      "Ajustes finais, publicação e orientação de evolução.",
+      "Converso com você para entender o objetivo, o público e o que hoje está travando.",
+      "Desenho e implemento as telas principais com foco em leitura e contato.",
+      "Faço os ajustes finais, publico e deixo a base pronta para evoluir.",
     ],
     faq: [
       {
@@ -92,7 +92,7 @@ export const services: ServiceLanding[] = [
     badge: "Estética + Agenda",
     layout: "beauty",
     summary:
-      "Landing page para clínica de estética, esteticista ou harmonização facial com foco em agendamento, recorrência e aumento direto no faturamento.",
+      "Landing page para clínica de estética, esteticista ou harmonização facial com foco em agenda cheia, recorrência e faturamento.",
     seo: {
       title: "Landing page para clínica de estética e harmonização facial | Mais agendamentos",
       description:
@@ -190,7 +190,7 @@ export const services: ServiceLanding[] = [
     badge: "Freelancers + Clientes",
     layout: "creative",
     summary:
-      "Landing page para social media, designers e freelancers digitais que precisam parar de depender só de indicação, se posicionar melhor e gerar clientes com mais consistência.",
+      "Landing page para social media, designers e freelancers digitais que querem depender menos de indicação e ser lembrados com mais clareza.",
     seo: {
       title: "Landing page para social media, designers e freelancers digitais | Mais clientes",
       description:
@@ -377,11 +377,11 @@ export const services: ServiceLanding[] = [
     title: "SEO técnico, auditoria e otimização",
     badge: "SEO + Performance",
     summary:
-      "Auditoria e correções para sites, lojas virtuais e blogs com problemas de indexação, velocidade ou estrutura.",
+      "Auditoria e correções para sites, lojas virtuais e blogs que perderam fôlego, visibilidade ou clareza técnica.",
     hero: {
       highlight: "E-commerce, blogs e páginas de alta intenção",
       description:
-        "Para operações que já têm site no ar, mas precisam corrigir gargalos antes de escalar conteúdo, mídia ou catálogo.",
+        "Para operações que já têm site no ar, mas sentem que a base técnica está segurando o crescimento.",
       price: "A partir de R$ 350",
       duration: "1 a 4 semanas",
       ctaLabel: "Marcar auditoria",
@@ -392,7 +392,7 @@ export const services: ServiceLanding[] = [
     tags: ["SEO técnico", "Core Web Vitals", "E-commerce", "Blog"],
     keyPoints: [
       "Erros críticos identificados com mais rapidez.",
-      "Prioridades organizadas por impacto e esforço.",
+      "Prioridades organizadas por impacto real, não por achismo.",
       "Base técnica mais limpa para conteúdo, mídia e manutenção.",
     ],
     scopes: [
@@ -424,9 +424,9 @@ export const services: ServiceLanding[] = [
       "Acompanhamento técnico para rollout ou repasse ao time.",
     ],
     process: [
-      "Levantamento do ambiente, histórico e objetivo principal.",
-      "Auditoria com priorização do que traz impacto mais rápido.",
-      "Entrega técnica com recomendações, correções ou sprint dedicada.",
+      "Entendo o ambiente atual, o histórico e onde o site começou a perder força.",
+      "Faço a auditoria com foco no que realmente destrava crescimento.",
+      "Entrego recomendações, correções ou uma sprint dedicada para colocar a casa em ordem.",
     ],
     faq: [
       {
@@ -448,11 +448,11 @@ export const services: ServiceLanding[] = [
     title: "Integrações, automação e operação digital",
     badge: "Automação + Operação",
     summary:
-      "Fluxos, integrações e automações para reduzir tarefas manuais e organizar melhor a operação digital.",
+      "Fluxos, integrações e automações para reduzir retrabalho e deixar a rotina digital mais previsível.",
     hero: {
       highlight: "APIs, formulários, WhatsApp e dashboards",
       description:
-        "Ideal para quem precisa conectar canais, automatizar etapas do atendimento ou reduzir retrabalho na rotina.",
+        "Ideal para quem precisa conectar canais, automatizar etapas do atendimento ou parar de resolver tudo no braço.",
       price: "A partir de R$ 300",
       duration: "1 a 6 semanas",
       ctaLabel: "Mapear automação",
@@ -495,9 +495,9 @@ export const services: ServiceLanding[] = [
       "Documentação curta para o fluxo continuar funcionando.",
     ],
     process: [
-      "Mapeamento do fluxo atual e dos gargalos mais caros.",
-      "Implementação do caminho prioritário com validação do time.",
-      "Entrega assistida com ajustes finos e orientação de uso.",
+      "Mapeio o fluxo atual e descubro onde o tempo está sendo desperdiçado.",
+      "Implemento o caminho prioritário com validação do time.",
+      "Entrego com ajustes finos e orientação para o uso no dia a dia.",
     ],
     faq: [
       {
@@ -521,9 +521,9 @@ export const productsPage: ProductsPage = {
   label: "Pacotes e Ferramentas",
   title: "Pacotes, micro-serviços e SaaS",
   description:
-    "Ofertas menores para resolver um problema específico sem abrir um projeto completo.",
-  cta: "Escolha um formato, entenda o ponto de entrada e siga para contato, checkout ou lista de espera.",
-  note: "Aqui entram pacotes prontos, micro-serviços técnicos e ferramentas criadas por mim.",
+    "Ofertas menores para resolver um problema específico sem abrir um projeto inteiro.",
+  cta: "Escolha um formato, entenda onde ele se encaixa e siga para contato, checkout ou lista de espera.",
+  note: "Aqui entram pacotes prontos, micro-serviços e ferramentas criadas por mim para resolver dores mais objetivas.",
 };
 
 export const products: ProductItem[] = [

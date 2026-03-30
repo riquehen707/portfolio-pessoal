@@ -58,7 +58,7 @@ export async function generateMetadata() {
   const metadataBase = resolveBaseURL();
   const siteTitle = "Henrique Reis";
   const siteDescription =
-    "Portfolio com projetos, servicos e artigos sobre front-end, SEO tecnico, automacao e produto digital.";
+    "Portfólio com projetos, serviços e artigos sobre front-end, SEO técnico, automação e produto digital.";
   const path = ensureLeadingSlash(home?.path ?? "/");
   const image = toAbsoluteOrPath(metadataBase, home?.image ?? "/og.png");
 

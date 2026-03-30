@@ -11,15 +11,15 @@ const kindLabels = {
 } as const;
 
 const problemPoints = [
-  "Traduzo seu serviço em uma página que explica, com clareza, por que vale a pena entrar em contato.",
-  "Estruturo a jornada para reduzir dúvida, reforçar confiança e facilitar o agendamento.",
-  "Conecto página, SEO e atendimento para gerar mais constância sem depender só de tentativa e erro.",
+  "Transformo presença digital solta em uma apresentação que faz sentido para quem chega.",
+  "Organizo a jornada para reduzir dúvida, reforçar confiança e facilitar o próximo passo.",
+  "Conecto página, SEO e atendimento para que o digital trabalhe com mais constância a seu favor.",
 ];
 
 const audiencePoints = [
   "Psicólogas, terapeutas e profissionais que dependem de confiança antes do primeiro contato.",
   "Consultores e especialistas cujo serviço precisa ser percebido como claro, sério e bem posicionado.",
-  "Autônomos e prestadores de serviço que querem mais previsibilidade sem depender só de indicação.",
+  "Autônomos e prestadores de serviço que querem mais previsibilidade sem perder a própria voz.",
 ];
 
 const processSteps = [
@@ -85,12 +85,12 @@ export default function About() {
               Sobre o trabalho
             </Tag>
             <Heading variant="display-strong-l" wrap="balance">
-              Ajudo prestadores de serviço a sair da presença digital genérica e construir um caminho mais claro até o contato.
+              Ajudo prestadores de serviço a construir uma presença digital que passa confiança antes do contato.
             </Heading>
             <div className={styles.accentLine} />
             <Text className={styles.lead} variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
-              Meu trabalho é organizar mensagem, páginas e rotina de atendimento para que o seu site
-              não pareça só mais uma vitrine, mas uma presença que transmite confiança e ajuda a gerar conversa.
+              Não é sobre parecer grande. É sobre fazer a pessoa certa entender, em poucos segundos,
+              quem você é, o que resolve e por que vale a pena conversar com você.
             </Text>
             <Row className={styles.actions} gap="12" wrap>
               <Button href={whatsappLink} prefixIcon="whatsapp" size="m" variant="primary">
@@ -110,7 +110,7 @@ export default function About() {
               <div className={styles.avatarWrap}>
                 <Avatar src={person.avatar} size="l" />
               </div>
-              <Column className={styles.profileMeta} gap="2">
+              <Column className={styles.profileMeta} gap="8">
                 <Text variant="label-strong-m">{person.name}</Text>
                 <Text variant="body-default-s" onBackground="neutral-weak">
                   Bahia, Brasil / páginas, SEO técnico e automação
@@ -123,24 +123,33 @@ export default function About() {
                 <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
                   O que eu resolvo
                 </Text>
-                <Text variant="heading-strong-m" wrap="balance">
-                  Presença digital confusa, fraca ou sem direção comercial.
+                <Heading className={styles.collageTitle} as="h2" variant="heading-strong-m" wrap="balance">
+                  Presença digital sem direção comercial.
+                </Heading>
+                <Text className={styles.collageBody} variant="body-default-m" onBackground="neutral-weak">
+                  Quando a página não acolhe nem explica, a conversa esfria antes mesmo de começar.
                 </Text>
               </div>
               <div className={styles.collageCard}>
                 <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
                   Para quem
                 </Text>
-                <Text variant="body-default-m">
-                  Profissionais que precisam transmitir mais segurança antes do contato.
+                <Heading className={styles.collageTitle} as="h2" variant="heading-strong-s" wrap="balance">
+                  Profissionais que precisam transmitir segurança antes do contato.
+                </Heading>
+                <Text className={styles.collageBody} variant="body-default-s" onBackground="neutral-weak">
+                  Principalmente quem vive de reputação, indicação e relacionamento.
                 </Text>
               </div>
               <div className={styles.collageCard}>
                 <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
                   Como entra a técnica
                 </Text>
-                <Text variant="body-default-m">
-                  Como suporte para clareza, SEO, velocidade e manutenção.
+                <Heading className={styles.collageTitle} as="h2" variant="heading-strong-s" wrap="balance">
+                  Técnica como suporte, não como enfeite.
+                </Heading>
+                <Text className={styles.collageBody} variant="body-default-s" onBackground="neutral-weak">
+                  SEO, velocidade e manutenção entram para sustentar a experiência, não para roubar a cena.
                 </Text>
               </div>
             </div>
@@ -158,7 +167,7 @@ export default function About() {
               O que eu resolvo e para quem
             </Heading>
             <Text variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
-              A página precisa explicar, com rapidez, por que vale a pena falar com você e qual é o próximo passo.
+              Quando a página acerta o tom, a pessoa entende mais rápido por que vale a pena seguir a conversa.
             </Text>
           </Column>
         </Row>
@@ -169,7 +178,7 @@ export default function About() {
               O que eu resolvo
             </Text>
             <Heading as="h3" variant="heading-strong-l">
-              Mais geração de clientes com mensagem, estrutura e fluxo mais claros.
+              Mais geração de clientes com mensagem, estrutura e fluxo claros.
             </Heading>
             <Column as="ul" className={styles.infoList} gap="12">
               {problemPoints.map((point) => (
@@ -208,7 +217,7 @@ export default function About() {
               Um processo simples para sair do improviso
             </Heading>
             <Text variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
-              O objetivo não é empilhar recursos. É deixar a base digital clara, encontrável e preparada para contato.
+              O objetivo não é empilhar recurso. É criar uma base clara, encontrável e boa de usar.
             </Text>
           </Column>
         </Row>
@@ -238,7 +247,7 @@ export default function About() {
               Alguns projetos para ver como isso aparece na prática
             </Heading>
             <Text variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
-              O portfólio mistura projetos pessoais e estudos de caso para mostrar método, execução e critério.
+              O portfólio mistura projetos pessoais e estudos de caso para mostrar como essas decisões aparecem no trabalho real.
             </Text>
           </Column>
           <SmartLink href={work.path} suffixIcon="arrowRight">
@@ -292,7 +301,7 @@ export default function About() {
               A parte técnica existe para sustentar a leitura principal, não para competir com ela.
             </Heading>
             <Text variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
-              Se quiser entender stack, componentização, SCSS modular, SEO técnico e performance, essa camada fica em uma página separada.
+              Se quiser entrar mais a fundo em stack, componentização, SCSS modular, SEO técnico e performance, essa camada fica em uma página separada.
             </Text>
           </Column>
 

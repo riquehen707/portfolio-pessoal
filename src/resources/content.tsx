@@ -6,17 +6,17 @@ const person: Person = {
   firstName: "Henrique",
   lastName: "Reis",
   name: "Henrique Reis",
-  role: "Desenvolvedor front-end, SEO tecnico e automacao",
+  role: "Desenvolvedor front-end, SEO técnico e automação",
   avatar: "/images/avatar-henrique.jpg",
   email: "oi@henriquereis.dev",
   location: "America/Bahia",
-  languages: ["Portugues"],
+  languages: ["Português"],
 };
 
 const newsletter: Newsletter = {
   display: false,
   title: <>Assine a newsletter de {person.firstName}</>,
-  description: <>Notas semanais sobre sites, SEO, produto e operacao digital.</>,
+  description: <>Notas semanais sobre sites, SEO, produto e operação digital.</>,
 };
 
 const social: Social = [
@@ -45,8 +45,8 @@ const home: Home = {
   label: "Início",
   title: "Henrique Reis | Portfólio, serviços e blog",
   description:
-    "Portfólio com projetos, serviços e artigos sobre sites, SEO técnico, automação e presença digital para prestadores de serviço.",
-  headline: <>Sites e páginas para prestadores de serviço que querem transformar presença digital em clientes.</>,
+    "Portfólio com serviços, projetos e textos sobre presença digital para profissionais que vivem de confiança, atendimento e relacionamento.",
+  headline: <>Sites e páginas para prestadores de serviço que precisam passar confiança antes mesmo do primeiro contato.</>,
   featured: {
     display: true,
     title: (
@@ -64,12 +64,11 @@ const home: Home = {
   },
   subline: (
     <>
-      Sou {person.firstName}. Estruturo páginas, SEO técnico e automações para profissionais que
-      precisam sair do improviso, transmitir mais confiança e criar um caminho mais claro até o
-      contato.
+      Sou {person.firstName}. Crio páginas, SEO técnico e automações para profissionais que querem
+      parar de improvisar no digital e começar a ser entendidos com mais clareza.
       <br />
-      Aqui você encontra projetos, artigos e formatos de serviço pensados para gerar mais
-      previsibilidade, profissionalismo e consistência na presença digital.
+      Aqui você encontra projetos, serviços e textos que mostram meu jeito de pensar presença
+      digital com clareza, critério e uma boa dose de humanidade.
     </>
   ),
 };
@@ -78,7 +77,7 @@ const about: About = {
   path: "/about",
   label: "Sobre",
   title: `Sobre | ${person.name}`,
-  description: `Como ${person.name} organiza páginas, SEO técnico e atendimento para ajudar prestadores de serviço a gerar contato com mais clareza e profissionalismo.`,
+  description: `Como ${person.name} organiza páginas, SEO técnico e atendimento para ajudar prestadores de serviço a transmitir confiança e gerar contato com mais naturalidade.`,
   tableOfContent: {
     display: true,
     subItems: true,
@@ -92,30 +91,29 @@ const about: About = {
   },
   intro: {
     display: true,
-    title: "Introducao",
+    title: "Introdução",
     description: (
       <>
-        Desenvolvo experiencias digitais com foco em navegacao simples, performance e resultado.
-        Trabalho principalmente com Next.js, Vue e SCSS, somando SEO tecnico e automacao para dar
-        mais consistencia a sites, blogs e operacoes digitais.
+        Desenvolvo experiências digitais para quem precisa ser entendido com rapidez, confiança e
+        clareza. Trabalho principalmente com Next.js, Vue e SCSS, somando SEO técnico e automação
+        quando isso realmente melhora a experiência e o resultado.
       </>
     ),
   },
   work: {
     display: true,
-    title: "Experiencia",
+    title: "Experiência",
     experiences: [
       {
-        company: "Estudio independente",
+        company: "Estúdio independente",
         timeframe: "2023 - Presente",
-        role: "Fundador | desenvolvimento e estrategia",
+        role: "Fundador | desenvolvimento e estratégia",
         achievements: [
           <>
-            Projetos em Next.js com foco em performance, responsividade e estrutura preparada para SEO.
+            Projetos em Next.js com foco em clareza, performance e uma navegação que não atrapalha a conversa.
           </>,
           <>
-            Estudos de caso para blogs, e-commerce e paginas de captacao, com foco em clareza,
-            conteudo e conversao.
+            Estudos de caso para blogs, e-commerce e páginas de captação, sempre pensando em como a mensagem chega e como a pessoa reage a ela.
           </>,
         ],
         images: [],
@@ -127,15 +125,15 @@ const about: About = {
     title: "Estudos",
     institutions: [
       {
-        name: "Formacao autodidata",
-        description: <>SEO tecnico, front-end, UX, conteudo, dados e estrategia digital.</>,
+        name: "Formação autodidata",
+        description: <>SEO técnico, front-end, UX, conteúdo, dados e estratégia digital.</>,
       },
       {
         name: "Foco atual",
         description: (
           <>
-            SEO para lojas e blogs, arquitetura de informacao, performance, design modular e fluxos
-            de automacao.
+            SEO para lojas e blogs, arquitetura de informação, performance, design modular e formas
+            simples de organizar atendimento e operação.
           </>
         ),
       },
@@ -143,12 +141,12 @@ const about: About = {
   },
   technical: {
     display: true,
-    title: "Habilidades tecnicas",
+    title: "Habilidades técnicas",
     skills: [
       {
         title: "Next.js e React",
         description: (
-          <>Sites, blogs e interfaces com foco em performance, SEO tecnico e manutencao simples.</>
+          <>Uso para criar sites e interfaces rápidas, fáceis de manter e boas de navegar.</>
         ),
         tags: [
           { name: "Next.js", icon: "nextjs" },
@@ -160,7 +158,7 @@ const about: About = {
       {
         title: "Vue e interfaces modulares",
         description: (
-          <>Uso Vue quando o projeto pede componentes isolados, painis internos e fluxos mais dinamicos.</>
+          <>Entra bem quando o projeto pede fluxos mais vivos, painéis internos e componentes mais isolados.</>
         ),
         tags: [
           { name: "Vue", icon: "vue" },
@@ -171,7 +169,7 @@ const about: About = {
       },
       {
         title: "SCSS e design de interface",
-        description: <>Estruturo estilos em modulos escalaveis, responsivos e pensados para clareza visual.</>,
+        description: <>Organizo estilos em módulos para manter o visual consistente, limpo e fácil de evoluir.</>,
         tags: [
           { name: "SCSS", icon: "sass" },
           { name: "Responsive", icon: "grid" },
@@ -180,8 +178,8 @@ const about: About = {
         images: [],
       },
       {
-        title: "SEO tecnico para lojas e blogs",
-        description: <>Especialidade em indexacao, estrutura, performance e crescimento organico sustentavel.</>,
+        title: "SEO técnico para lojas e blogs",
+        description: <>Cuido da base técnica para o conteúdo e as páginas terem fôlego para crescer com consistência.</>,
         tags: [
           { name: "SEO", icon: "seo" },
           { name: "E-commerce", icon: "shopify" },
@@ -190,8 +188,8 @@ const about: About = {
         images: [],
       },
       {
-        title: "Automacao e dados",
-        description: <>Organizo fluxos, integracoes e leituras tecnicas para tirar operacoes do improviso.</>,
+        title: "Automação e dados",
+        description: <>Uso integrações e leitura de dados para reduzir improviso e dar mais previsibilidade à rotina.</>,
         tags: [
           { name: "Python", icon: "python" },
           { name: "Analytics", icon: "chart" },
@@ -205,10 +203,10 @@ const about: About = {
 
 const technicalApproach: TechnicalPage = {
   path: "/abordagem-tecnica",
-  label: "Abordagem tecnica",
-  title: `Abordagem tecnica | ${person.name}`,
+  label: "Abordagem técnica",
+  title: `Abordagem técnica | ${person.name}`,
   description:
-    "Visao tecnica sobre como estruturo front-end, SEO tecnico, performance, automacao e componentes reutilizaveis sem poluir a experiencia.",
+    "Uma visão prática de como estruturo front-end, SEO, performance e automação sem perder clareza nem pesar a experiência.",
 };
 
 const blog: Blog = {
@@ -224,7 +222,7 @@ const work: Work = {
   label: "Projetos",
   title: "Projetos e estudos de caso",
   description:
-    "Portfolio com projetos pessoais e estudos de caso em front-end, SEO tecnico, interfaces e automacao.",
+    "Projetos e estudos de caso que mostram como penso clareza, performance e presença digital na prática.",
 };
 
 export { person, social, newsletter, home, about, technicalApproach, blog, work };

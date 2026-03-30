@@ -43,7 +43,7 @@ export default TimeDisplay;
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
-  const locationLabel = person.location === "America/Bahia" ? "Brasil, Bahia" : person.location;
+  const locationLabel = person.location === "America/Bahia" ? "Bahia, Brasil" : person.location;
   const aboutSelected = pathname === about.path || pathname === technicalApproach.path;
 
   return (

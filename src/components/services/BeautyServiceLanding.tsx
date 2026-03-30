@@ -111,7 +111,7 @@ export default function BeautyServiceLanding({
             </Row>
 
             <Heading as="h1" variant="heading-strong-xl" wrap="balance">
-              Landing page para clínica de estética, esteticista e harmonização facial com foco em agenda e faturamento.
+              Uma landing page para clínica de estética que ajuda a transformar interesse em agendamento.
             </Heading>
             <div className={styles.accentLine} />
             <Text className={styles.lead} variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
@@ -187,10 +187,13 @@ export default function BeautyServiceLanding({
           <Tag size="s" background="neutral-alpha-weak">
             Resultado esperado
           </Tag>
-          <Heading as="h2" variant="display-strong-s">
-            O que essa landing precisa mover na prática
-          </Heading>
-        </Column>
+        <Heading as="h2" variant="display-strong-s">
+          O que essa landing precisa mover na prática
+        </Heading>
+        <Text onBackground="neutral-weak">
+          O foco não é só parecer profissional. É fazer a agenda responder melhor ao interesse que já existe.
+        </Text>
+      </Column>
 
         <Grid className={styles.signalGrid} columns="3" s={{ columns: 1 }} gap="16">
           {revenueSignals.map((item) => (
@@ -220,10 +223,13 @@ export default function BeautyServiceLanding({
           <Tag size="s" background="neutral-alpha-weak">
             Como converte
           </Tag>
-          <Heading as="h2" variant="display-strong-s">
-            Estrutura pensada para clínica de estética e procedimentos faciais
-          </Heading>
-        </Column>
+        <Heading as="h2" variant="display-strong-s">
+          Estrutura pensada para clínica de estética e procedimentos faciais
+        </Heading>
+        <Text onBackground="neutral-weak">
+          A página precisa acolher, explicar e conduzir sem excesso de informação.
+        </Text>
+      </Column>
 
         <Grid className={styles.blockGrid} columns="3" s={{ columns: 1 }} gap="16">
           {conversionBlocks.map((item) => (

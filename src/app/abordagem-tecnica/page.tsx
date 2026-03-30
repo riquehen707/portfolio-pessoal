@@ -7,7 +7,7 @@ import styles from "./page.module.scss";
 const pillars = [
   {
     label: "Front-end",
-    title: "Next.js e Vue quando a interface precisa ser clara e fácil de manter.",
+    title: "Next.js e Vue quando a interface precisa ser clara, leve e fácil de manter.",
     description:
       "Uso a stack como ferramenta de organização. Priorizo arquitetura simples, componentes reaproveitáveis e telas que não cansam a leitura.",
     items: ["Next.js para sites e conteúdo", "Vue para painéis e fluxos internos", "SCSS modular e estrutura escalável"],
@@ -16,12 +16,12 @@ const pillars = [
     label: "SEO técnico",
     title: "Estrutura para ser encontrado, entendido e indexado do jeito certo.",
     description:
-      "Cuido de arquitetura, metadados, performance e semântica para que lojas, blogs e páginas de serviço tenham base técnica consistente.",
+      "Cuido de arquitetura, metadados, performance e semântica para que lojas, blogs e páginas de serviço tenham base técnica consistente e cresçam com mais fôlego.",
     items: ["Metadata e schema", "Arquitetura para blog e e-commerce", "Leitura clara para usuário e buscador"],
   },
   {
     label: "Performance",
-    title: "Velocidade pensada desde o layout, não apenas no final.",
+    title: "Velocidade pensada desde o layout, não só no final do projeto.",
     description:
       "Evito efeitos pesados, hidrato só o necessário e organizo mídia, espaçamento e componentes para manter a navegação fluida.",
     items: ["Menos JS desnecessário", "Layout responsivo com baixo custo visual", "Microinterações leves e previsíveis"],
@@ -30,7 +30,7 @@ const pillars = [
     label: "Automação",
     title: "Integrações e rotinas simples para o atendimento não depender de improviso.",
     description:
-      "A técnica também entra no pós-clique: formulários, disparos, analytics e pequenas automações para acompanhar a conversa comercial.",
+      "A técnica também entra no pós-clique: formulários, disparos, analytics e pequenas automações para acompanhar a conversa comercial sem atrito.",
     items: ["WhatsApp, formulários e captura", "Analytics e leitura de comportamento", "Fluxos simples de organização"],
   },
 ];
@@ -108,12 +108,12 @@ export default function TechnicalApproachPage() {
               Abordagem técnica
             </Tag>
             <Heading variant="display-strong-l" wrap="balance">
-              A técnica entra para sustentar clareza, performance e conversão.
+              A técnica entra para sustentar clareza, confiança e uma navegação que faz sentido.
             </Heading>
             <div className={styles.accentLine} />
             <Text className={styles.lead} variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
               Não uso stack como vitrine. Organizo front-end, SEO técnico, performance e automação para o site
-              ser simples de usar, rápido de navegar e fácil de evoluir.
+              ser simples de usar, rápido de navegar e fácil de evoluir com o tempo.
             </Text>
             <Row className={styles.actions} gap="12" wrap>
               <Button href={whatsappLink} prefixIcon="whatsapp" size="m" variant="primary">

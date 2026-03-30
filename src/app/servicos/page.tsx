@@ -41,12 +41,34 @@ export default function ServicesPage() {
     microservice: products.filter((item) => item.category === "microservice").length,
     saas: products.filter((item) => item.category === "saas").length,
   };
+  const serviceSignals = [
+    {
+      label: "Sob medida",
+      value: `${services.length} frentes principais`,
+      description: "Web, SEO, automação e landings pensadas para contexto real.",
+    },
+    {
+      label: "Entradas rápidas",
+      value: `${offerCounts.package + offerCounts.microservice} formatos`,
+      description: "Pacotes e micro-serviços para quando você precisa resolver algo sem alongar demais.",
+    },
+    {
+      label: "Ferramentas",
+      value: `${offerCounts.saas} opções`,
+      description: "Recursos próprios para escopo, diagnóstico e rotina.",
+    },
+    {
+      label: "Escolha",
+      value: "Comece pelo problema",
+      description: "O formato certo fica claro quando a necessidade está bem definida.",
+    },
+  ];
 
   const lanes = [
     {
       label: "Sob medida",
-      title: "Projetos completos",
-      description: "Para site, SEO ou automação quando o problema pede diagnóstico, execução e entrega mais ampla.",
+      title: "Projetos sob medida",
+      description: "Para site, SEO ou automação quando o problema pede leitura mais cuidadosa e solução feita para o seu caso.",
       meta: `${services.length} serviços principais`,
       href: servicesPage.path,
       cta: "Ver serviços",
@@ -54,7 +76,7 @@ export default function ServicesPage() {
     {
       label: "Entrada fechada",
       title: "Pacotes",
-      description: "Escopos mais fechados para resolver algo comum com mais rapidez e previsibilidade.",
+      description: "Escopos mais fechados para resolver algo comum com mais rapidez e menos atrito.",
       meta: `${offerCounts.package} opções`,
       href: productsPage.path,
       cta: "Ver pacotes",
@@ -62,7 +84,7 @@ export default function ServicesPage() {
     {
       label: "Ajuste pontual",
       title: "Micro-serviços",
-      description: "Entregas menores para corrigir, refinar ou destravar um ponto específico.",
+      description: "Entregas menores para corrigir, refinar ou destravar um ponto específico sem virar projeto grande.",
       meta: `${offerCounts.microservice} opções`,
       href: productsPage.path,
       cta: "Ver micro-serviços",
@@ -70,7 +92,7 @@ export default function ServicesPage() {
     {
       label: "Ferramentas",
       title: "SaaS e ferramentas",
-      description: "Produtos próprios, gratuitos, pagos ou em beta, para apoiar diagnóstico e execução.",
+      description: "Produtos próprios, gratuitos, pagos ou em beta, para apoiar diagnóstico, planejamento e operação.",
       meta: `${offerCounts.saas} opções`,
       href: productsPage.path,
       cta: "Ver ferramentas",
@@ -81,19 +103,19 @@ export default function ServicesPage() {
     {
       title: "Pacotes para entrar sem abrir projeto maior",
       description:
-        "Bom para quem precisa sair do zero com mais clareza e menos atrito.",
+        "Uma boa porta de entrada para quem precisa sair do zero sem abrir um projeto maior de cara.",
       meta: `${offerCounts.package} pacotes`,
     },
     {
       title: "Micro-serviços técnicos",
       description:
-        "Útil para refino visual, SEO técnico, Core Web Vitals ou integrações pontuais.",
+        "Úteis para refino visual, SEO técnico, Core Web Vitals ou integrações pontuais.",
       meta: `${offerCounts.microservice} micro-serviços`,
     },
     {
       title: "Ferramentas e SaaS autorais",
       description:
-        "Inclui itens gratuitos e ofertas em beta para tornar escopo, diagnóstico e rotina mais claros.",
+        "Inclui itens gratuitos e ofertas em beta para tornar escopo, diagnóstico e rotina mais simples.",
       meta: `${offerCounts.saas} ferramentas`,
     },
   ];
@@ -114,31 +136,64 @@ export default function ServicesPage() {
         }}
       />
 
-      <Column className={sectionStyles.heroGlow} gap="16">
-        <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-          Formatos de serviço
-        </Tag>
-        <Heading as="h1" variant="heading-strong-xl">
-          {servicesPage.title}
-        </Heading>
-        <div className={sectionStyles.accentLine} />
-        <Text variant="heading-default-xs" onBackground="neutral-weak">
-          {servicesPage.intro.headline}
-        </Text>
-        <Text variant="body-default-m" onBackground="neutral-weak">
-          {servicesPage.intro.lead}
-        </Text>
-        <Row className={styles.heroActions} gap="12" wrap>
-          <Button href={productsPage.path} variant="primary" size="m" arrowIcon>
-            Ver pacotes e ferramentas
-          </Button>
-          <Button href={work.path} variant="secondary" size="m" arrowIcon>
-            Ver projetos
-          </Button>
-        </Row>
+      <Column className={styles.hero} gap="24" padding="24">
+        <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="20">
+          <Column className={styles.heroMain} gap="16">
+            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+              Serviços
+            </Tag>
+            <Heading as="h1" variant="heading-strong-xl">
+              {servicesPage.title}
+            </Heading>
+            <div className={sectionStyles.accentLine} />
+            <Text variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
+              {servicesPage.intro.headline}
+            </Text>
+            <Text variant="body-default-m" onBackground="neutral-weak">
+              {servicesPage.intro.lead}
+            </Text>
+            <Row className={styles.heroActions} gap="12" wrap>
+              <Button href={productsPage.path} variant="primary" size="m" arrowIcon>
+                Ver pacotes e ferramentas
+              </Button>
+              <Button href={work.path} variant="secondary" size="m" arrowIcon>
+                Ver projetos
+              </Button>
+            </Row>
+          </Column>
+
+          <Column className={styles.heroAside} gap="16">
+            <Column className={styles.heroPanel} gap="12">
+              <Text className={styles.heroEyebrow} variant="label-default-s" onBackground="neutral-weak">
+                Escolha rápida
+              </Text>
+              <Text variant="heading-strong-m" wrap="balance">
+                O melhor ponto de entrada depende mais do problema do que do nome do serviço.
+              </Text>
+              <Text onBackground="neutral-weak">
+                Se você precisa de uma página nova, de um ajuste pontual ou de uma ferramenta para destravar a rotina,
+                esta página já separa os caminhos para facilitar sua decisão.
+              </Text>
+            </Column>
+
+            <Grid className={styles.signalGrid} columns="2" s={{ columns: 1 }} gap="12">
+              {serviceSignals.map((item) => (
+                <Column key={item.label} className={styles.signalCard} gap="8">
+                  <Text className={styles.heroEyebrow} variant="label-default-s" onBackground="neutral-weak">
+                    {item.label}
+                  </Text>
+                  <Text variant="heading-strong-s">{item.value}</Text>
+                  <Text variant="body-default-s" onBackground="neutral-weak">
+                    {item.description}
+                  </Text>
+                </Column>
+              ))}
+            </Grid>
+          </Column>
+        </Grid>
       </Column>
 
-      <Grid columns="4" s={{ columns: 1 }} gap="16">
+      <Grid className={styles.lanesGrid} columns="2" s={{ columns: 1 }} gap="16">
         {lanes.map((lane) => (
           <Card
             className={styles.laneCard}
@@ -185,11 +240,11 @@ export default function ServicesPage() {
             Frentes principais
           </Heading>
           <Text onBackground="neutral-weak">
-            Cada serviço mostra o problema principal, para quem ele serve e qual é o ponto de entrada.
+            Cada serviço mostra o que ele resolve, para quem faz mais sentido e qual costuma ser o melhor ponto de partida.
           </Text>
         </Column>
 
-        <Grid columns="3" s={{ columns: 1 }} gap="16">
+        <Grid className={styles.servicesGrid} columns="2" s={{ columns: 1 }} gap="16">
           {services.map((service) => (
             <Card
               className={styles.serviceCard}
@@ -219,7 +274,7 @@ export default function ServicesPage() {
                 {service.hero.price} | {service.hero.duration}
               </Text>
               <Button href={`${servicesPage.path}/${service.slug}`} variant="primary" size="s" arrowIcon>
-                Ver landing
+                Ver detalhes
               </Button>
             </Card>
           ))}
@@ -242,7 +297,7 @@ export default function ServicesPage() {
             Pacotes, micro-serviços e SaaS
           </Heading>
           <Text onBackground="neutral-weak">
-            Nem toda demanda precisa virar projeto completo. Aqui entram ajustes pontuais, pacotes e ferramentas próprias.
+            Nem toda demanda precisa virar projeto completo. Às vezes o que você precisa é só do próximo passo certo.
           </Text>
         </Column>
 
@@ -301,15 +356,15 @@ export default function ServicesPage() {
           Se você ainda não sabe o formato certo, comece pelo problema
         </Heading>
         <Text onBackground="neutral-weak">
-          Se a demanda é estrutural, a entrada costuma ser um serviço sob medida. Se o problema é
-          pontual, pacote, micro-serviço ou ferramenta fazem mais sentido.
+          Se a demanda é mais estrutural, a entrada costuma ser um serviço sob medida. Se o problema é
+          pontual, pacote, micro-serviço ou ferramenta costumam fazer mais sentido.
         </Text>
         <Row className={styles.ctaBar} gap="12" wrap>
           <Button href={`mailto:${person.email}`} variant="primary" size="m" arrowIcon>
             Conversar sobre o escopo
           </Button>
           <Button href={work.path} variant="secondary" size="m" arrowIcon>
-            Ver projetos antes
+            Ver projetos
           </Button>
         </Row>
       </Card>

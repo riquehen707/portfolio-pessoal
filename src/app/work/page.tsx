@@ -10,7 +10,7 @@ const notes = [
     label: "Formato",
     title: "Projetos pessoais e estudos de caso",
     description:
-      "Uma vitrine para mostrar critério, processo e forma de resolver interface, SEO e estrutura.",
+      "Uma seleção para mostrar como eu penso interface, SEO, estrutura e apresentação de serviço.",
   },
   {
     label: "Leitura",
@@ -22,7 +22,7 @@ const notes = [
     label: "Direção",
     title: "Cases reais podem entrar aqui",
     description:
-      "Enquanto isso, os estudos de caso ajudam a deixar claro como penso produto, conteúdo e experiência.",
+      "Enquanto isso, os estudos de caso ajudam a deixar claro como eu organizo produto, conteúdo e experiência.",
   },
 ];
 
@@ -62,7 +62,7 @@ export default function Work() {
             <Heading variant="heading-strong-xl">{work.title}</Heading>
             <div className={styles.accentLine} />
             <Text className={styles.heroLead} onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-              Projetos pessoais e estudos de caso para mostrar como organizo interface, SEO técnico,
+              Projetos pessoais e estudos de caso para mostrar como eu organizo interface, SEO técnico,
               arquitetura e clareza de navegação.
             </Text>
           </Column>

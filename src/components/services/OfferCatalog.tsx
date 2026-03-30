@@ -21,8 +21,8 @@ const categoryLabels: Record<OfferCategory, string> = {
 
 const categoryDescriptions: Record<OfferCategory, string> = {
   package: "Escopos fechados para resolver algo comum com mais previsibilidade.",
-  microservice: "Entregas menores para corrigir, ajustar ou destravar um ponto específico.",
-  saas: "Ferramentas autorais, gratuitas, pagas ou em beta.",
+  microservice: "Entradas menores para corrigir, ajustar ou destravar um ponto específico.",
+  saas: "Ferramentas autorais para organizar escopo, rotina e leitura de oportunidade.",
 };
 
 const accessLabels = {

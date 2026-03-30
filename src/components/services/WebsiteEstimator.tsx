@@ -142,7 +142,7 @@ export function WebsiteEstimator({ ctaHref, ctaLabel, contactEmail }: WebsiteEst
         </Tag>
       </Row>
       <Text onBackground="neutral-weak">
-        Selecione o tipo de projeto e os módulos desejados para ter uma faixa inicial de investimento.
+        Escolha o tipo de projeto e os módulos desejados para ter uma faixa inicial de investimento.
       </Text>
 
       <Grid columns="2" s={{ columns: 1 }} gap="16">
@@ -205,7 +205,7 @@ export function WebsiteEstimator({ ctaHref, ctaLabel, contactEmail }: WebsiteEst
             </Row>
           ) : (
             <Text variant="body-default-s" onBackground="neutral-weak">
-              Selecione módulos para ajustar a estimativa.
+              Se quiser, adicione módulos para deixar a estimativa mais próxima do seu caso.
             </Text>
           )}
           <Row gap="8" wrap>
@@ -234,12 +234,12 @@ export function WebsiteEstimator({ ctaHref, ctaLabel, contactEmail }: WebsiteEst
           </Heading>
         </Row>
         <Text onBackground="neutral-weak">
-          Os valores variam conforme escopo, integrações e volume de conteúdo. Isso serve como ponto
-          de partida antes do briefing.
+          Os valores variam conforme escopo, integrações e volume de conteúdo. Isso serve como um
+          ponto de partida antes de uma conversa mais precisa.
         </Text>
         {hasDiscount && (
           <Text variant="body-default-s" onBackground="neutral-weak">
-            Seleções que reduzem esforço podem gerar desconto.
+            Quando parte do material já está pronta, o valor pode cair.
           </Text>
         )}
         <Row gap="12" wrap>

@@ -8,6 +8,11 @@
   width: 100%;
 }
 
+.hero,
+.heroPanel,
+.signalCard,
+.heroPanel,
+.signalCard,
 .laneCard,
 .serviceCard,
 .statCard,
@@ -15,16 +20,19 @@
 .ctaPanel {
   position: relative;
   overflow: hidden;
-  border-color: rgba(255, 255, 255, 0.05);
   background: var(--surface-panel-soft);
   box-shadow: var(--shadow-soft);
-  transition:
-    transform 180ms ease,
-    border-color 180ms ease,
-    background 180ms ease,
-    box-shadow 180ms ease;
 }
 
+.hero {
+  border-radius: 1.9rem;
+  background: var(--surface-panel-strong);
+  box-shadow: var(--shadow-card);
+}
+
+.hero::before,
+.heroPanel::before,
+.signalCard::before,
 .laneCard::before,
 .serviceCard::before,
 .statCard::before,
@@ -40,6 +48,9 @@
   pointer-events: none;
 }
 
+.hero > *,
+.heroPanel > *,
+.signalCard > *,
 .laneCard > *,
 .serviceCard > *,
 .statCard > *,
@@ -47,6 +58,56 @@
 .ctaPanel > * {
   position: relative;
   z-index: 1;
+}
+
+.heroGrid,
+.signalGrid,
+.lanesGrid,
+.servicesGrid {
+  width: 100%;
+  align-items: stretch;
+}
+
+.heroMain,
+.heroAside {
+  min-width: 0;
+}
+
+.heroMain {
+  max-width: 42rem;
+}
+
+.heroAside {
+  display: flex;
+  flex-direction: column;
+}
+
+.heroPanel {
+  border-radius: 1.45rem;
+  padding: 1.1rem;
+}
+
+.signalCard {
+  border-radius: 1.2rem;
+  padding: 1rem;
+}
+
+.heroEyebrow {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.laneCard,
+.serviceCard,
+.statCard,
+.faqCard,
+.ctaPanel {
+  border-color: rgba(255, 255, 255, 0.05);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .serviceMeta {
@@ -78,6 +139,8 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
+  .heroPanel:hover,
+  .signalCard:hover,
   .laneCard:hover,
   .serviceCard:hover,
   .statCard:hover,
@@ -89,7 +152,23 @@
   }
 }
 
+@media (max-width: breakpoints.$m) {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: breakpoints.$s) {
+  .hero,
+  .heroPanel,
+  .signalCard,
+  .laneCard,
+  .serviceCard,
+  .statCard,
+  .ctaPanel {
+    border-radius: 1.35rem;
+  }
+
   .heroActions,
   .heroMeta,
   .ctaBar {
