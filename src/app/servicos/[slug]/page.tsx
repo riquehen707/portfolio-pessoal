@@ -11,6 +11,8 @@ import {
   Text,
 } from "@once-ui-system/core";
 
+import BeautyServiceLanding from "@/components/services/BeautyServiceLanding";
+import CreativeServiceLanding from "@/components/services/CreativeServiceLanding";
 import { WebsiteEstimator } from "@/components/services/WebsiteEstimator";
 import { baseURL, person, services, servicesPage } from "@/resources";
 
@@ -53,6 +55,26 @@ export default async function ServiceLandingPage({ params }: PageProps) {
 
   const metaTitle = service.seo?.title ?? `${service.title} | ${servicesPage.title}`;
   const metaDescription = service.seo?.description ?? service.summary;
+
+  if (service.layout === "beauty") {
+    return (
+      <BeautyServiceLanding
+        service={service}
+        metaTitle={metaTitle}
+        metaDescription={metaDescription}
+      />
+    );
+  }
+
+  if (service.layout === "creative") {
+    return (
+      <CreativeServiceLanding
+        service={service}
+        metaTitle={metaTitle}
+        metaDescription={metaDescription}
+      />
+    );
+  }
 
   const heroStats = [
     { label: "Investimento inicial", value: service.hero.price },

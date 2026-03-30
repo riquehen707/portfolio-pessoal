@@ -248,6 +248,7 @@ export interface ServiceLanding {
   title: string;
   badge: string;
   summary: string;
+  layout?: "default" | "beauty" | "creative";
   seo?: {
     title?: string;
     description?: string;
