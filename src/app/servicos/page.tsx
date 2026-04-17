@@ -32,14 +32,12 @@ export async function generateMetadata() {
 const categoryLabels = {
   package: "Pacotes",
   microservice: "Micro-serviços",
-  saas: "SaaS",
 } as const;
 
 export default function ServicesPage() {
   const offerCounts = {
     package: products.filter((item) => item.category === "package").length,
     microservice: products.filter((item) => item.category === "microservice").length,
-    saas: products.filter((item) => item.category === "saas").length,
   };
   const serviceSignals = [
     {
@@ -51,11 +49,6 @@ export default function ServicesPage() {
       label: "Entradas rápidas",
       value: `${offerCounts.package + offerCounts.microservice} formatos`,
       description: "Pacotes e micro-serviços para quando você precisa resolver algo sem alongar demais.",
-    },
-    {
-      label: "Ferramentas",
-      value: `${offerCounts.saas} opções`,
-      description: "Recursos próprios para escopo, diagnóstico e rotina.",
     },
     {
       label: "Escolha",
@@ -89,14 +82,6 @@ export default function ServicesPage() {
       href: productsPage.path,
       cta: "Ver micro-serviços",
     },
-    {
-      label: "Ferramentas",
-      title: "SaaS e ferramentas",
-      description: "Produtos próprios, gratuitos, pagos ou em beta, para apoiar diagnóstico, planejamento e operação.",
-      meta: `${offerCounts.saas} opções`,
-      href: productsPage.path,
-      cta: "Ver ferramentas",
-    },
   ];
 
   const offerHighlights = [
@@ -111,12 +96,6 @@ export default function ServicesPage() {
       description:
         "Úteis para refino visual, SEO técnico, Core Web Vitals ou integrações pontuais.",
       meta: `${offerCounts.microservice} micro-serviços`,
-    },
-    {
-      title: "Ferramentas e SaaS autorais",
-      description:
-        "Inclui itens gratuitos e ofertas em beta para tornar escopo, diagnóstico e rotina mais simples.",
-      meta: `${offerCounts.saas} ferramentas`,
     },
   ];
 
@@ -154,7 +133,7 @@ export default function ServicesPage() {
             </Text>
             <Row className={styles.heroActions} gap="12" wrap>
               <Button href={productsPage.path} variant="primary" size="m" arrowIcon>
-                Ver pacotes e ferramentas
+                Ver pacotes
               </Button>
               <Button href={work.path} variant="secondary" size="m" arrowIcon>
                 Ver projetos
@@ -294,14 +273,14 @@ export default function ServicesPage() {
             Entrada menor
           </Tag>
           <Heading as="h2" variant="display-strong-s">
-            Pacotes, micro-serviços e SaaS
+            Pacotes e micro-serviços
           </Heading>
           <Text onBackground="neutral-weak">
             Nem toda demanda precisa virar projeto completo. Às vezes o que você precisa é só do próximo passo certo.
           </Text>
         </Column>
 
-        <Grid columns="3" s={{ columns: 1 }} gap="16">
+        <Grid columns="2" s={{ columns: 1 }} gap="16">
           {offerHighlights.map((item, index) => (
             <Card
               className={styles.statCard}
@@ -316,7 +295,7 @@ export default function ServicesPage() {
               fillHeight
             >
               <Tag size="s" background="neutral-alpha-weak">
-                {index === 0 ? categoryLabels.package : index === 1 ? categoryLabels.microservice : categoryLabels.saas}
+                {index === 0 ? categoryLabels.package : categoryLabels.microservice}
               </Tag>
               <Heading as="h3" variant="heading-strong-m">
                 {item.title}
@@ -357,7 +336,7 @@ export default function ServicesPage() {
         </Heading>
         <Text onBackground="neutral-weak">
           Se a demanda é mais estrutural, a entrada costuma ser um serviço sob medida. Se o problema é
-          pontual, pacote, micro-serviço ou ferramenta costumam fazer mais sentido.
+          pontual, pacote ou micro-serviço costumam fazer mais sentido.
         </Text>
         <Row className={styles.ctaBar} gap="12" wrap>
           <Button href={`mailto:${person.email}`} variant="primary" size="m" arrowIcon>

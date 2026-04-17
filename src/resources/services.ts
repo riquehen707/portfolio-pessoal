@@ -5,11 +5,11 @@ export const servicesPage: ServicesPage = {
   label: "Serviços",
   title: "Serviços em web, SEO e automação",
   description:
-    "Serviços, pacotes e ferramentas para quem quer melhorar a presença digital com mais clareza e menos improviso.",
+    "Serviços, pacotes e micro-serviços para quem quer melhorar a presença digital com mais clareza e menos improviso.",
   intro: {
     headline: "Escolha um ponto de entrada sem transformar a decisão em mais uma dúvida.",
     lead:
-      "Se o problema pede projeto sob medida, pacote, ajuste pontual ou ferramenta própria, aqui fica mais claro por onde começar e o que esperar de cada formato.",
+      "Se o problema pede projeto sob medida, pacote ou ajuste pontual, aqui fica mais claro por onde começar e o que esperar de cada formato.",
   },
 };
 
@@ -518,12 +518,12 @@ export const services: ServiceLanding[] = [
 
 export const productsPage: ProductsPage = {
   path: "/servicos/produtos",
-  label: "Pacotes e Ferramentas",
-  title: "Pacotes, micro-serviços e SaaS",
+  label: "Pacotes",
+  title: "Pacotes e micro-serviços",
   description:
     "Ofertas menores para resolver um problema específico sem abrir um projeto inteiro.",
-  cta: "Escolha um formato, entenda onde ele se encaixa e siga para contato, checkout ou lista de espera.",
-  note: "Aqui entram pacotes prontos, micro-serviços e ferramentas criadas por mim para resolver dores mais objetivas.",
+  cta: "Escolha um formato, entenda onde ele se encaixa e siga para contato.",
+  note: "Aqui entram pacotes prontos e micro-serviços criados por mim para resolver dores mais objetivas.",
 };
 
 export const products: ProductItem[] = [

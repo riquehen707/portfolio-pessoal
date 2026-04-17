@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react";
 
 import { getPosts } from "@/utils/utils";
-import { Column, Grid, Heading, Text } from "@once-ui-system/core";
+import { Column, Grid } from "@once-ui-system/core";
 
 import { BlogFile } from "@/utils/posts";
 
@@ -79,18 +79,7 @@ export function Posts({
     ? sortedBlogs.slice(range[0] - 1, range.length === 2 ? range[1] : sortedBlogs.length)
     : sortedBlogs;
 
-  if (!displayedBlogs.length) {
-    return (
-      <Column className={styles.emptyState} gap="8" marginBottom="24" padding="20">
-        <Heading as="h3" variant="heading-strong-l">
-          Sem publicações ainda
-        </Heading>
-        <Text onBackground="neutral-weak">
-          Assim que houver posts, eles aparecem aqui automaticamente.
-        </Text>
-      </Column>
-    );
-  }
+  if (!displayedBlogs.length) return null;
 
   if (featuredFirst && displayedBlogs.length > 1) {
     const [featuredPost, ...secondaryPosts] = displayedBlogs;

@@ -26,9 +26,9 @@ import { getPosts } from "@/utils/utils";
 import styles from "./page.module.scss";
 
 const kindLabels = {
-  personal: "Projeto pessoal",
-  study: "Estudo de caso",
-  client: "Case de cliente",
+  personal: "Pessoal",
+  study: "Estudo",
+  client: "Cliente",
 } as const;
 
 type PageProps = {
@@ -141,8 +141,8 @@ export default async function ProjectPage({ params }: PageProps) {
         <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="20">
           <Column className={styles.heroMain} gap="16">
             <Row gap="12" wrap>
-              <SmartLink href="/work">Voltar para projetos</SmartLink>
-              <SmartLink href={`/work/${post.slug}/resumo`}>Abrir resumo em PDF</SmartLink>
+              <SmartLink href="/work">Voltar</SmartLink>
+              <SmartLink href={`/work/${post.slug}/resumo`}>Resumo PDF</SmartLink>
             </Row>
 
             {(displayKind || stack.length > 0) && (
@@ -198,11 +198,9 @@ export default async function ProjectPage({ params }: PageProps) {
                 variant="label-default-s"
                 onBackground="neutral-weak"
               >
-                Estrutura
+                Tipo
               </Text>
-              <Text variant="body-default-m">
-                {displayKind ?? "Projeto com foco em interface, leitura e organização técnica."}
-              </Text>
+              <Text variant="heading-strong-s">{displayKind ?? "Projeto"}</Text>
               {stack.length > 0 && (
                 <Row className={styles.stackRow} gap="8" wrap>
                   {stack.slice(0, 5).map((item) => (
@@ -221,7 +219,7 @@ export default async function ProjectPage({ params }: PageProps) {
                   variant="label-default-s"
                   onBackground="neutral-weak"
                 >
-                  Pessoas
+                  Equipe
                 </Text>
                 <div className={styles.authorCard}>
                   <AvatarGroup reverse avatars={avatars} size="s" />
@@ -257,12 +255,8 @@ export default async function ProjectPage({ params }: PageProps) {
 
       {relatedProjects.length > 0 && (
         <Column className={styles.relatedPanel} fillWidth gap="20" padding="24">
-          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            Mais projetos
-          </Tag>
-          <Heading as="h2" variant="heading-strong-xl">
-            Continue explorando o portfólio
-          </Heading>
+          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">Mais projetos</Tag>
+          <Heading as="h2" variant="heading-strong-xl">Outros projetos</Heading>
           <Projects exclude={[post.slug]} range={[1, 2]} marginBottom="0" paddingX="0" />
         </Column>
       )}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import {
   Bar,
   BarChart,
@@ -61,12 +61,6 @@ function formatPercent(value: number) {
   return `${formatNumber(value * 100, 0)}%`;
 }
 
-function statusLabel(status: "real" | "estimated" | "projected") {
-  if (status === "real") return "Real";
-  if (status === "projected") return "Projetado";
-  return "Estimado";
-}
-
 type Props = {
   snapshot: ProjectDashboardSnapshot;
 };
@@ -83,12 +77,6 @@ export function ProjectIntelligencePanel({ snapshot }: Props) {
         ? "realista"
         : "conservador";
 
-  const scenarioNote = useMemo(() => {
-    return `${snapshot.segmentName} • ${
-      scenarioOptions.find((item) => item.id === scenario)?.label
-    }`;
-  }, [scenario, snapshot.segmentName]);
-
   return (
     <Card
       className={styles.root}
@@ -101,25 +89,21 @@ export function ProjectIntelligencePanel({ snapshot }: Props) {
       border="neutral-alpha-weak"
     >
       <Row className={styles.header} horizontal="between" vertical="start" gap="16" wrap>
-        <Column gap="12">
+        <Column gap="8">
           <Row gap="8" wrap>
             <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-              Mapa dinamico
+              Painel
             </Tag>
             <Tag size="s" background="neutral-alpha-weak">
               {snapshot.cityLabel}
             </Tag>
             <Tag size="s" background="neutral-alpha-weak">
-              {snapshot.benchmarkLabel}
+              {snapshot.segmentName}
             </Tag>
           </Row>
           <Heading as="h2" variant="heading-strong-l">
-            Inteligencia comercial e de demanda local
+            Diagnostico local
           </Heading>
-          <Text onBackground="neutral-weak">
-            {snapshot.clientName} • {snapshot.segmentName} • mercado, funil, saturacao e qualidade
-            da base em um unico painel.
-          </Text>
         </Column>
 
         <div className={styles.switcher} role="tablist" aria-label="Visoes do painel">
@@ -139,25 +123,19 @@ export function ProjectIntelligencePanel({ snapshot }: Props) {
 
       <Grid className={styles.mainGrid} columns="2" m={{ columns: 1 }} gap="16">
         <Column className={styles.visualPanel} gap="16">
-          <Row className={styles.scenarioBar} horizontal="between" vertical="center" gap="12" wrap>
-            <div className={styles.switcher} role="tablist" aria-label="Cenarios">
-              {scenarioOptions.map((item) => (
-                <button
-                  type="button"
-                  key={item.id}
-                  className={styles.toggle}
-                  data-active={scenario === item.id}
-                  onClick={() => setScenario(item.id)}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-
-            <Text variant="body-default-s" onBackground="neutral-weak">
-              {scenarioNote}
-            </Text>
-          </Row>
+          <div className={styles.switcher} role="tablist" aria-label="Cenarios">
+            {scenarioOptions.map((item) => (
+              <button
+                type="button"
+                key={item.id}
+                className={styles.toggle}
+                data-active={scenario === item.id}
+                onClick={() => setScenario(item.id)}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
 
           <div className={styles.chartShell}>
             {view === "scenarios" && (
@@ -169,27 +147,9 @@ export function ProjectIntelligencePanel({ snapshot }: Props) {
                   <Tooltip formatter={(value: number) => formatCurrency(value)} />
                   <Legend />
                   <Line type="monotone" dataKey="atual" stroke="#93a0b3" strokeWidth={2} dot={false} />
-                  <Line
-                    type="monotone"
-                    dataKey="conservador"
-                    stroke="#6fa8ff"
-                    strokeWidth={3}
-                    dot={false}
-                  />
-                  <Line
-                    type="monotone"
-                    dataKey="realista"
-                    stroke="#5ed492"
-                    strokeWidth={2}
-                    dot={false}
-                  />
-                  <Line
-                    type="monotone"
-                    dataKey="agressivo"
-                    stroke="#f2c66d"
-                    strokeWidth={2}
-                    dot={false}
-                  />
+                  <Line type="monotone" dataKey="conservador" stroke="#6fa8ff" strokeWidth={3} dot={false} />
+                  <Line type="monotone" dataKey="realista" stroke="#5ed492" strokeWidth={2} dot={false} />
+                  <Line type="monotone" dataKey="agressivo" stroke="#f2c66d" strokeWidth={2} dot={false} />
                 </LineChart>
               </ResponsiveContainer>
             )}
@@ -251,10 +211,10 @@ export function ProjectIntelligencePanel({ snapshot }: Props) {
             )}
           </div>
 
-          <Grid className={styles.quickGrid} columns="4" s={{ columns: 2 }} gap="12">
+          <Grid className={styles.quickGrid} columns="3" s={{ columns: 1 }} gap="12">
             <div className={styles.quickCard}>
               <Text variant="label-default-s" onBackground="neutral-weak">
-                Mercado elegivel
+                Mercado
               </Text>
               <Text variant="heading-strong-m">
                 {formatCompact(snapshot.report.derivedMetrics.eligibleMarket)}
@@ -262,15 +222,7 @@ export function ProjectIntelligencePanel({ snapshot }: Props) {
             </div>
             <div className={styles.quickCard}>
               <Text variant="label-default-s" onBackground="neutral-weak">
-                Mercado com intencao
-              </Text>
-              <Text variant="heading-strong-m">
-                {formatCompact(snapshot.report.derivedMetrics.intentMarket)}
-              </Text>
-            </div>
-            <div className={styles.quickCard}>
-              <Text variant="label-default-s" onBackground="neutral-weak">
-                Mercado capturavel
+                Capturavel
               </Text>
               <Text variant="heading-strong-m">
                 {formatCompact(snapshot.report.derivedMetrics.capturableMarket)}
@@ -278,9 +230,9 @@ export function ProjectIntelligencePanel({ snapshot }: Props) {
             </div>
             <div className={styles.quickCard}>
               <Text variant="label-default-s" onBackground="neutral-weak">
-                CAC ajustado
+                Receita / mes
               </Text>
-              <Text variant="heading-strong-m">{formatCurrency(snapshot.quickMetrics.adjustedCac)}</Text>
+              <Text variant="heading-strong-m">{formatCurrency(selectedScenario.revenue)}</Text>
             </div>
           </Grid>
         </Column>
@@ -289,29 +241,21 @@ export function ProjectIntelligencePanel({ snapshot }: Props) {
           <Grid className={styles.kpiGrid} columns="2" s={{ columns: 2 }} gap="12">
             <div className={styles.metricCard}>
               <Text variant="label-default-s" onBackground="neutral-weak">
-                Precisao media
+                Precisao
               </Text>
               <Text variant="heading-strong-l">{formatPercent(snapshot.precision.overall)}</Text>
             </div>
             <div className={styles.metricCard}>
               <Text variant="label-default-s" onBackground="neutral-weak">
-                Cobertura real
+                Cobertura
               </Text>
               <Text variant="heading-strong-l">{formatPercent(snapshot.precision.coverage)}</Text>
             </div>
             <div className={styles.metricCard}>
               <Text variant="label-default-s" onBackground="neutral-weak">
-                Receita atual / mes
+                ROI
               </Text>
-              <Text variant="heading-strong-m">
-                {formatCurrency(snapshot.quickMetrics.currentRevenueEstimate)}
-              </Text>
-            </div>
-            <div className={styles.metricCard}>
-              <Text variant="label-default-s" onBackground="neutral-weak">
-                Receita projetada / mes
-              </Text>
-              <Text variant="heading-strong-m">{formatCurrency(selectedScenario.revenue)}</Text>
+              <Text variant="heading-strong-m">{formatPercent(snapshot.quickMetrics.roi)}</Text>
             </div>
             <div className={styles.metricCard}>
               <Text variant="label-default-s" onBackground="neutral-weak">
@@ -319,50 +263,27 @@ export function ProjectIntelligencePanel({ snapshot }: Props) {
               </Text>
               <Text variant="heading-strong-m">{formatNumber(snapshot.quickMetrics.availableSlots)}</Text>
             </div>
-            <div className={styles.metricCard}>
-              <Text variant="label-default-s" onBackground="neutral-weak">
-                ROI base
-              </Text>
-              <Text variant="heading-strong-m">{formatPercent(snapshot.quickMetrics.roi)}</Text>
-            </div>
-            <div className={styles.metricCard}>
-              <Text variant="label-default-s" onBackground="neutral-weak">
-                ROAS base
-              </Text>
-              <Text variant="heading-strong-m">{formatNumber(snapshot.quickMetrics.roas, 1)}x</Text>
-            </div>
-            <div className={styles.metricCard}>
-              <Text variant="label-default-s" onBackground="neutral-weak">
-                Valor por seguidor
-              </Text>
-              <Text variant="heading-strong-m">
-                {formatCurrency(snapshot.quickMetrics.valuePerFollower)}
-              </Text>
-            </div>
           </Grid>
 
           <div className={styles.storyCard}>
             <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
-              Cenario ativo
+              Cenario
             </Text>
             <Heading as="h3" variant="heading-strong-m">
               {scenarioOptions.find((item) => item.id === scenario)?.label}
             </Heading>
-            <Text variant="body-default-s" onBackground="neutral-weak">
-              {scenarioNote}
-            </Text>
             <Row className={styles.storyStats} gap="12" wrap>
-              <div className={styles.storyStat}>
-                <Text variant="label-default-s" onBackground="neutral-weak">
-                  Faturamento anual
-                </Text>
-                <Text variant="body-default-m">{formatCurrency(selectedScenario.revenue * 12)}</Text>
-              </div>
               <div className={styles.storyStat}>
                 <Text variant="label-default-s" onBackground="neutral-weak">
                   Clientes / mes
                 </Text>
                 <Text variant="body-default-m">{formatNumber(selectedScenario.customers)}</Text>
+              </div>
+              <div className={styles.storyStat}>
+                <Text variant="label-default-s" onBackground="neutral-weak">
+                  Receita anual
+                </Text>
+                <Text variant="body-default-m">{formatCurrency(selectedScenario.revenue * 12)}</Text>
               </div>
               <div className={styles.storyStat}>
                 <Text variant="label-default-s" onBackground="neutral-weak">
@@ -375,7 +296,7 @@ export function ProjectIntelligencePanel({ snapshot }: Props) {
 
           <div className={styles.storyCard}>
             <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
-              Mix da base
+              Base
             </Text>
             <Row gap="8" wrap>
               <span className={styles.statusPill} data-status="real">
@@ -389,44 +310,16 @@ export function ProjectIntelligencePanel({ snapshot }: Props) {
               </span>
             </Row>
             <Column gap="8">
-              {snapshot.highlights.map((item) => (
-                <Row
-                  className={styles.highlightRow}
-                  gap="12"
-                  key={`${item.label}-${item.classification}`}
-                >
+              {snapshot.highlights.slice(0, 3).map((item) => (
+                <Row className={styles.highlightRow} gap="12" key={`${item.label}-${item.classification}`}>
                   <span className={styles.statusDot} data-status={item.classification} />
-                  <Column gap="8">
+                  <Column gap="4">
                     <Text variant="body-default-s">{item.label}</Text>
                     <Text variant="body-default-s" onBackground="neutral-weak">
-                      {item.value} • {statusLabel(item.classification)}
-                      {item.sourceLabel ? ` • ${item.sourceLabel}` : ""}
+                      {item.value}
                     </Text>
                   </Column>
                 </Row>
-              ))}
-            </Column>
-          </div>
-
-          <div className={styles.storyCard}>
-            <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
-              Leituras principais
-            </Text>
-            <Column as="ul" className={styles.list} gap="8">
-              {snapshot.insights.map((item) => (
-                <Text as="li" key={item} variant="body-default-s">
-                  {item}
-                </Text>
-              ))}
-            </Column>
-            <Column gap="8">
-              <Text variant="label-default-s" onBackground="neutral-weak">
-                Proximos dados para validar
-              </Text>
-              {snapshot.nextDataPoints.map((item) => (
-                <Text key={item} variant="body-default-s" onBackground="neutral-weak">
-                  {item}
-                </Text>
               ))}
             </Column>
           </div>

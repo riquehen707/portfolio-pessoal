@@ -50,14 +50,14 @@ const home: Home = {
   featured: {
     display: true,
     title: (
-      <Row gap="12" vertical="center">
-        <strong className="ml-4">
-          {featuredService.badge} | {featuredService.hero.highlight}
-        </strong>
-        <Line background="brand-alpha-strong" vert height="20" />
-        <Text marginRight="4" onBackground="brand-medium">
-          Serviço em destaque
+      <Row gap="8" vertical="center">
+        <Text marginLeft="4" onBackground="brand-medium">
+          Destaque
         </Text>
+        <Line background="brand-alpha-strong" vert height="20" />
+        <strong className="ml-4">
+          {featuredService.title}
+        </strong>
       </Row>
     ),
     href: `${servicesPage.path}/${featuredService.slug}`,
@@ -77,7 +77,7 @@ const about: About = {
   path: "/about",
   label: "Sobre",
   title: `Sobre | ${person.name}`,
-  description: `Como ${person.name} organiza páginas, SEO técnico e atendimento para ajudar prestadores de serviço a transmitir confiança e gerar contato com mais naturalidade.`,
+  description: `Sobre ${person.name}, com foco em sites, SEO técnico e automação.`,
   tableOfContent: {
     display: true,
     subItems: true,
@@ -94,9 +94,7 @@ const about: About = {
     title: "Introdução",
     description: (
       <>
-        Desenvolvo experiências digitais para quem precisa ser entendido com rapidez, confiança e
-        clareza. Trabalho principalmente com Next.js, Vue e SCSS, somando SEO técnico e automação
-        quando isso realmente melhora a experiência e o resultado.
+        Sites, SEO técnico e automação para negócios que precisam de clareza.
       </>
     ),
   },
@@ -109,12 +107,8 @@ const about: About = {
         timeframe: "2023 - Presente",
         role: "Fundador | desenvolvimento e estratégia",
         achievements: [
-          <>
-            Projetos em Next.js com foco em clareza, performance e uma navegação que não atrapalha a conversa.
-          </>,
-          <>
-            Estudos de caso para blogs, e-commerce e páginas de captação, sempre pensando em como a mensagem chega e como a pessoa reage a ela.
-          </>,
+          <>Projetos em Next.js, SEO e front-end para sites, páginas e operações menores.</>,
+          <>Trabalho com estrutura, performance e contato.</>,
         ],
         images: [],
       },
@@ -126,16 +120,11 @@ const about: About = {
     institutions: [
       {
         name: "Formação autodidata",
-        description: <>SEO técnico, front-end, UX, conteúdo, dados e estratégia digital.</>,
+        description: <>SEO técnico, front-end e produto digital.</>,
       },
       {
         name: "Foco atual",
-        description: (
-          <>
-            SEO para lojas e blogs, arquitetura de informação, performance, design modular e formas
-            simples de organizar atendimento e operação.
-          </>
-        ),
+        description: <>Negócios locais, estrutura de página e operação mais simples.</>,
       },
     ],
   },
@@ -145,9 +134,7 @@ const about: About = {
     skills: [
       {
         title: "Next.js e React",
-        description: (
-          <>Uso para criar sites e interfaces rápidas, fáceis de manter e boas de navegar.</>
-        ),
+        description: <>Sites e interfaces rápidas.</>,
         tags: [
           { name: "Next.js", icon: "nextjs" },
           { name: "React", icon: "javascript" },
@@ -157,9 +144,7 @@ const about: About = {
       },
       {
         title: "Vue e interfaces modulares",
-        description: (
-          <>Entra bem quando o projeto pede fluxos mais vivos, painéis internos e componentes mais isolados.</>
-        ),
+        description: <>Painéis, fluxos e componentes isolados.</>,
         tags: [
           { name: "Vue", icon: "vue" },
           { name: "JavaScript", icon: "javascript" },
@@ -169,7 +154,7 @@ const about: About = {
       },
       {
         title: "SCSS e design de interface",
-        description: <>Organizo estilos em módulos para manter o visual consistente, limpo e fácil de evoluir.</>,
+        description: <>SCSS modular e interface consistente.</>,
         tags: [
           { name: "SCSS", icon: "sass" },
           { name: "Responsive", icon: "grid" },
@@ -179,7 +164,7 @@ const about: About = {
       },
       {
         title: "SEO técnico para lojas e blogs",
-        description: <>Cuido da base técnica para o conteúdo e as páginas terem fôlego para crescer com consistência.</>,
+        description: <>Base técnica para busca, conteúdo e performance.</>,
         tags: [
           { name: "SEO", icon: "seo" },
           { name: "E-commerce", icon: "shopify" },
@@ -189,7 +174,7 @@ const about: About = {
       },
       {
         title: "Automação e dados",
-        description: <>Uso integrações e leitura de dados para reduzir improviso e dar mais previsibilidade à rotina.</>,
+        description: <>Integrações e dados para reduzir retrabalho.</>,
         tags: [
           { name: "Python", icon: "python" },
           { name: "Analytics", icon: "chart" },
@@ -220,9 +205,9 @@ const blog: Blog = {
 const work: Work = {
   path: "/work",
   label: "Projetos",
-  title: "Projetos e estudos de caso",
+  title: "Projetos",
   description:
-    "Projetos e estudos de caso que mostram como penso clareza, performance e presença digital na prática.",
+    "Projetos, casos e aplicações em uso.",
 };
 
 export { person, social, newsletter, home, about, technicalApproach, blog, work };

@@ -7,9 +7,9 @@ import { Column } from "@once-ui-system/core";
 import styles from "./Projects.module.scss";
 
 const kindLabels = {
-  personal: "Projeto pessoal",
-  study: "Estudo de caso",
-  client: "Case de cliente",
+  personal: "Pessoal",
+  study: "Estudo",
+  client: "Cliente",
 } as const;
 
 type ProjectLayout = "stack" | "grid";
@@ -91,11 +91,6 @@ export function Projects({
                 : undefined
             }
             stack={displayLabels}
-            avatars={
-              post.metadata.team?.flatMap((member) =>
-                member.avatar ? [{ src: member.avatar }] : [],
-              ) ?? []
-            }
             link={post.metadata.link || ""}
           />
         );

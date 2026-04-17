@@ -34,12 +34,15 @@ const accessLabels = {
 const filterOrder: FilterKey[] = ["all", "package", "microservice", "saas"];
 
 export default function OfferCatalog({ offers }: OfferCatalogProps) {
+  const visibleOffers = offers.filter((offer) => offer.category !== "saas");
   const [activeFilter, setActiveFilter] = useState<FilterKey>("all");
 
   const filteredOffers =
-    activeFilter === "all" ? offers : offers.filter((offer) => offer.category === activeFilter);
+    activeFilter === "all"
+      ? visibleOffers
+      : visibleOffers.filter((offer) => offer.category === activeFilter);
 
-  const sections = (["package", "microservice", "saas"] as OfferCategory[])
+  const sections = (["package", "microservice"] as OfferCategory[])
     .map((category) => ({
       category,
       items: filteredOffers.filter((offer) => offer.category === category),
@@ -49,11 +52,11 @@ export default function OfferCatalog({ offers }: OfferCatalogProps) {
   return (
     <Column className={styles.root} gap="24">
       <Row className={styles.filters} gap="12" wrap>
-        {filterOrder.map((filterKey) => {
+        {filterOrder.filter((filterKey) => filterKey !== "saas").map((filterKey) => {
           const count =
             filterKey === "all"
-              ? offers.length
-              : offers.filter((offer) => offer.category === filterKey).length;
+              ? visibleOffers.length
+              : visibleOffers.filter((offer) => offer.category === filterKey).length;
 
           const label = filterKey === "all" ? "Tudo" : categoryLabels[filterKey];
           const isActive = activeFilter === filterKey;

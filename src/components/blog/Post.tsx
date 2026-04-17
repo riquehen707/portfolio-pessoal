@@ -1,6 +1,4 @@
-import { Avatar, Card, Column, Media, Row, Text } from "@once-ui-system/core";
-
-import { person } from "@/resources";
+import { Card, Column, Media, Row, Text } from "@once-ui-system/core";
 import { formatDate } from "@/utils/formatDate";
 
 import styles from "./Post.module.scss";
@@ -82,45 +80,47 @@ export default function Post({
           />
         </div>
       )}
-      <Row fillWidth>
-        <Column
-          className={styles.content}
-          maxWidth={variant === "compact" ? 32 : 28}
-          paddingY={variant === "compact" ? "16" : "20"}
-          paddingX={variant === "feature" ? "20" : "l"}
-          gap={variant === "compact" ? "12" : "16"}
-          vertical="center"
-        >
-          <Row className={styles.meta} gap="16" vertical="center" wrap>
-            <Row vertical="center" gap="12">
-              <Avatar src={person.avatar} size="s" />
-              <Text variant="label-default-s">{person.name}</Text>
-            </Row>
+      <Column
+        className={styles.content}
+        maxWidth={variant === "compact" ? 32 : 28}
+        paddingY={variant === "compact" ? "16" : "20"}
+        paddingX={variant === "feature" ? "20" : "l"}
+        gap={variant === "compact" ? "12" : "16"}
+        vertical="center"
+      >
+        {(publishedAt || displayTag) && (
+          <Row className={styles.meta} gap="12" vertical="center" wrap>
             {publishedAt && (
               <Text variant="body-default-xs" onBackground="neutral-weak">
                 {formatDate(publishedAt, false)}
               </Text>
             )}
+            {displayTag && (
+              <Text className={styles.tag} variant="label-strong-s" onBackground="neutral-weak">
+                {displayTag}
+              </Text>
+            )}
           </Row>
-          <Text
-            className={styles.title}
-            variant={variant === "compact" ? "heading-strong-m" : variant === "feature" ? "heading-strong-xl" : "heading-strong-l"}
-            wrap="balance"
-          >
-            {title}
+        )}
+        <Text
+          className={styles.title}
+          variant={
+            variant === "compact"
+              ? "heading-strong-m"
+              : variant === "feature"
+                ? "heading-strong-xl"
+                : "heading-strong-l"
+          }
+          wrap="balance"
+        >
+          {title}
+        </Text>
+        {shouldShowSummary && (
+          <Text className={styles.summary} onBackground="neutral-weak" variant="body-default-m">
+            {summary}
           </Text>
-          {displayTag && (
-            <Text className={styles.tag} variant="label-strong-s" onBackground="neutral-weak">
-              {displayTag}
-            </Text>
-          )}
-          {shouldShowSummary && (
-            <Text className={styles.summary} onBackground="neutral-weak" variant="body-default-m">
-              {summary}
-            </Text>
-          )}
-        </Column>
-      </Row>
+        )}
+      </Column>
     </Card>
   );
 }

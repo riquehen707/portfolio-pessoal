@@ -21,18 +21,19 @@ export async function generateMetadata() {
 }
 
 export default function ProductsPage() {
+  const visibleProducts = products.filter((item) => item.category !== "saas");
   const stats = [
     {
       label: "Pacotes",
-      value: `${products.filter((item) => item.category === "package").length} opções`,
+      value: `${visibleProducts.filter((item) => item.category === "package").length} opções`,
     },
     {
       label: "Micro-serviços",
-      value: `${products.filter((item) => item.category === "microservice").length} opções`,
+      value: `${visibleProducts.filter((item) => item.category === "microservice").length} opções`,
     },
     {
-      label: "Grátis ou freemium",
-      value: `${products.filter((item) => item.access !== "paid").length} opções`,
+      label: "Total visível",
+      value: `${visibleProducts.length} opções`,
     },
   ];
 

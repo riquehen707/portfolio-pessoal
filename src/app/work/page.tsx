@@ -1,31 +1,10 @@
-import { Button, Column, Grid, Heading, Meta, Row, Schema, Tag, Text } from "@once-ui-system/core";
+import { Button, Column, Heading, Meta, Row, Schema, Tag, Text } from "@once-ui-system/core";
 
 import { Projects } from "@/components/work/Projects";
 import { baseURL, about, person, servicesPage, work } from "@/resources";
 import { getPosts } from "@/utils/utils";
 
 import styles from "./work.module.scss";
-
-const notes = [
-  {
-    label: "Formato",
-    title: "Projetos pessoais e estudos de caso",
-    description:
-      "Uma seleção para mostrar como eu penso interface, SEO, estrutura e apresentação de serviço.",
-  },
-  {
-    label: "Leitura",
-    title: "Menos volume, mais contexto",
-    description:
-      "Os projetos entram como prova de raciocínio e execução, não como uma galeria solta de telas.",
-  },
-  {
-    label: "Direção",
-    title: "Cases reais podem entrar aqui",
-    description:
-      "Enquanto isso, os estudos de caso ajudam a deixar claro como eu organizo produto, conteúdo e experiência.",
-  },
-];
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -57,84 +36,39 @@ export default function Work() {
         }}
       />
 
-      <Column className={styles.hero} gap="24" padding="24">
-        <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="20">
-          <Column className={styles.heroMain} gap="16">
-            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-              Portfólio
-            </Tag>
-            <Heading variant="heading-strong-xl">{work.title}</Heading>
-            <div className={styles.accentLine} />
-            <Text
-              className={styles.heroLead}
-              onBackground="neutral-weak"
-              variant="heading-default-m"
-              wrap="balance"
-            >
-              Projetos pessoais e estudos de caso para mostrar como eu organizo interface, SEO
-              técnico, arquitetura e clareza de navegação.
-            </Text>
-          </Column>
-
-          <Column className={styles.heroAside} gap="12">
-            <Text variant="label-default-s" onBackground="neutral-weak">
-              O que aparece aqui
-            </Text>
-            <Text variant="heading-strong-m" wrap="balance">
-              Menos vitrine vazia e mais contexto para entender o raciocínio por trás de cada
-              entrega.
-            </Text>
-            <Text variant="body-default-m" onBackground="neutral-weak">
-              Mesmo quando o case nasce como estudo, a ideia é demonstrar critério visual, estrutura
-              técnica e clareza comercial.
-            </Text>
-          </Column>
-        </Grid>
-      </Column>
-
-      <Column className={styles.notePanel} gap="16" padding="24">
-        <Grid className={styles.noteGrid} columns="3" s={{ columns: 1 }} gap="16">
-          {notes.map((note) => (
-            <Column key={note.title} className={styles.noteCard} gap="12">
-              <Text
-                className={styles.noteEyebrow}
-                variant="label-default-s"
-                onBackground="neutral-weak"
-              >
-                {note.label}
-              </Text>
-              <Heading as="h2" variant="heading-strong-m">
-                {note.title}
-              </Heading>
-              <Text onBackground="neutral-weak">{note.description}</Text>
-            </Column>
-          ))}
-        </Grid>
+      <Column className={styles.hero} gap="16" padding="24">
+        <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+          Projetos
+        </Tag>
+        <Heading variant="heading-strong-xl">{work.title}</Heading>
+        <div className={styles.accentLine} />
+        <Text
+          className={styles.heroLead}
+          onBackground="neutral-weak"
+          variant="heading-default-m"
+          wrap="balance"
+        >
+          Cases, estudos e aplicações em uso.
+        </Text>
+        <Row gap="12" wrap>
+          <Button href={servicesPage.path} variant="primary" size="m" arrowIcon>
+            Ver serviços
+          </Button>
+          <Button href="/abordagem-tecnica" variant="secondary" size="m" arrowIcon>
+            Ver abordagem técnica
+          </Button>
+        </Row>
       </Column>
 
       {hasProjects ? (
         <Projects marginBottom="0" paddingX="0" />
       ) : (
         <Column className={styles.notePanel} gap="16" padding="24">
-          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            Portfólio em revisão
-          </Tag>
+          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">Portfólio</Tag>
           <Heading as="h2" variant="display-strong-s">
-            Os projetos placeholder foram removidos
+            Novos cases entram em breve
           </Heading>
-          <Text
-            className={styles.heroLead}
-            onBackground="neutral-weak"
-            variant="heading-default-m"
-            wrap="balance"
-          >
-            Esta área continua ativa, mas agora espera cases mais sólidos, com contexto real,
-            decisões visuais melhor explicadas e material que sustente a leitura.
-          </Text>
-          <Text onBackground="neutral-weak">
-            Enquanto os novos projetos não entram, a melhor leitura do meu trabalho está nas páginas
-            de serviços, na abordagem técnica e nos textos do site.
-          </Text>
+          <Text onBackground="neutral-weak">Enquanto isso, a melhor entrada continua nos serviços.</Text>
           <Row className={styles.emptyActions} gap="12" wrap>
             <Button href={servicesPage.path} variant="primary" size="m" arrowIcon>
               Ver serviços
