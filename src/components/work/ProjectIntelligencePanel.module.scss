@@ -1,0 +1,215 @@
+@use "../breakpoints.scss" as breakpoints;
+
+.root {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top right, rgba(79, 134, 209, 0.18), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 64%),
+    var(--surface-panel-strong);
+  box-shadow: var(--shadow-card);
+}
+
+.root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.035), transparent 44%),
+    radial-gradient(circle at bottom left, rgba(255, 255, 255, 0.05), transparent 42%);
+  pointer-events: none;
+}
+
+.root > * {
+  position: relative;
+  z-index: 1;
+}
+
+.header,
+.mainGrid,
+.scenarioBar,
+.quickGrid,
+.kpiGrid,
+.storyStats {
+  width: 100%;
+}
+
+.switcher {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.toggle {
+  min-height: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+  padding: 0.65rem 0.9rem;
+  color: var(--neutral-on-background-strong);
+  font: inherit;
+  font-size: 0.86rem;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.toggle[data-active="true"] {
+  border-color: rgba(111, 168, 255, 0.42);
+  background: rgba(111, 168, 255, 0.16);
+  color: var(--brand-on-background-strong);
+}
+
+.visualPanel,
+.storyCard,
+.metricCard,
+.quickCard {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.025);
+  box-shadow: var(--shadow-soft);
+}
+
+.visualPanel,
+.storyCard {
+  padding: 1rem;
+}
+
+.chartShell {
+  width: 100%;
+  height: 22rem;
+  border-radius: 1.2rem;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 0.6rem 0.2rem 0.2rem;
+}
+
+.quickCard,
+.metricCard,
+.storyStat {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.95rem;
+}
+
+.aside {
+  min-width: 0;
+}
+
+.storyStats {
+  align-items: stretch;
+}
+
+.storyStat {
+  flex: 1 1 9rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.eyebrow {
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.statusPill[data-status="real"] {
+  background: rgba(94, 212, 146, 0.15);
+  color: #8cf0b5;
+}
+
+.statusPill[data-status="estimated"] {
+  background: rgba(111, 168, 255, 0.14);
+  color: #a7c8ff;
+}
+
+.statusPill[data-status="projected"] {
+  background: rgba(242, 198, 109, 0.14);
+  color: #f7d58c;
+}
+
+.highlightRow {
+  width: 100%;
+  align-items: flex-start;
+}
+
+.statusDot {
+  width: 0.65rem;
+  height: 0.65rem;
+  flex: 0 0 auto;
+  margin-top: 0.32rem;
+  border-radius: 999px;
+}
+
+.statusDot[data-status="real"] {
+  background: #5ed492;
+}
+
+.statusDot[data-status="estimated"] {
+  background: #6fa8ff;
+}
+
+.statusDot[data-status="projected"] {
+  background: #f2c66d;
+}
+
+.list {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.list li::marker {
+  color: var(--scheme-brand-700);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .toggle:hover {
+    transform: translateY(-1px);
+    border-color: rgba(111, 168, 255, 0.28);
+  }
+
+  .visualPanel:hover,
+  .storyCard:hover,
+  .metricCard:hover,
+  .quickCard:hover {
+    border-color: rgba(111, 168, 255, 0.14);
+    background: rgba(255, 255, 255, 0.03);
+  }
+}
+
+@media (max-width: breakpoints.$m) {
+  .chartShell {
+    height: 20rem;
+  }
+}
+
+@media (max-width: breakpoints.$s) {
+  .root,
+  .visualPanel,
+  .storyCard,
+  .metricCard,
+  .quickCard {
+    border-radius: 1.1rem;
+  }
+
+  .chartShell {
+    height: 17rem;
+  }
+
+  .scenarioBar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

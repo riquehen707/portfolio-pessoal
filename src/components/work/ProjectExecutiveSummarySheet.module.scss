@@ -1,0 +1,81 @@
+@use "../breakpoints.scss" as breakpoints;
+
+.sheet {
+  width: 100%;
+  border-radius: 1.5rem;
+  background: #fff;
+  color: #111827;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+}
+
+.hero,
+.block,
+.infoCard,
+.scoreCard,
+.sectionCard {
+  background: #fffdf9;
+  color: inherit;
+  box-shadow: none;
+}
+
+.hero {
+  border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+  padding-bottom: 0.5rem;
+}
+
+.basicGrid,
+.scoreGrid {
+  width: 100%;
+}
+
+.subBlock,
+.diagnosisBar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  background: rgba(247, 243, 234, 0.75);
+  padding: 1rem;
+}
+
+.diagnosisBar {
+  background: rgba(244, 236, 214, 0.88);
+}
+
+.list {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.list li::marker {
+  color: #2b5ea7;
+}
+
+@media (max-width: breakpoints.$s) {
+  .sheet {
+    border-radius: 1.1rem;
+    padding: 1rem;
+  }
+}
+
+@media print {
+  .sheet {
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .hero,
+  .block,
+  .infoCard,
+  .scoreCard,
+  .sectionCard,
+  .subBlock,
+  .diagnosisBar {
+    break-inside: avoid;
+    border-color: rgba(17, 24, 39, 0.16) !important;
+    background: #fff !important;
+  }
+}

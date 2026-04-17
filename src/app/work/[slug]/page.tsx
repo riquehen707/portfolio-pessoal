@@ -1,5 +1,5 @@
-import { notFound } from "next/navigation";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import {
   AvatarGroup,
   Column,
@@ -14,7 +14,9 @@ import {
   Text,
 } from "@once-ui-system/core";
 
-import { ScrollToHash, CustomMDX } from "@/components";
+import { CustomMDX, ScrollToHash } from "@/components";
+import { ProjectIntelligencePanel } from "@/components/work/ProjectIntelligencePanel";
+import { getProjectDashboardSnapshot } from "@/domain";
 import { Projects } from "@/components/work/Projects";
 import { baseURL, about, person, work } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
@@ -91,21 +93,30 @@ export default async function ProjectPage({ params }: PageProps) {
   const { slug } = await params;
   const slugPath = normalizeSlug(slug);
 
-  const post = getPosts(["src", "app", "work", "projects"]).find((item) => item.slug === slugPath);
+  const allProjects = getPosts(["src", "app", "work", "projects"]);
+  const post = allProjects.find((item) => item.slug === slugPath);
 
   if (!post) notFound();
 
+  const relatedProjects = allProjects.filter((item) => item.slug !== slugPath);
   const avatars =
     post.metadata.team?.flatMap((member) =>
       member.avatar ? [{ src: toLocal(member.avatar) as string }] : [],
     ) || [];
 
   const cover = post.metadata.image || post.metadata.images?.[0];
+  const intelligenceSnapshot = getProjectDashboardSnapshot(post.slug);
   const metaImage =
     post.metadata.image ||
     post.metadata.images?.[0] ||
     buildOgImage(post.metadata.title, post.metadata.tag ?? post.metadata.tags?.[0] ?? "Projeto");
-  const stack = post.metadata.stack ?? post.metadata.tags ?? [];
+  const stack = Array.from(
+    new Set(
+      [post.metadata.tag, ...(post.metadata.stack ?? post.metadata.tags ?? [])].filter(
+        Boolean,
+      ) as string[],
+    ),
+  );
   const displayKind = post.metadata.kind ? kindLabels[post.metadata.kind] : undefined;
 
   return (
@@ -129,9 +140,10 @@ export default async function ProjectPage({ params }: PageProps) {
       <Column className={styles.hero} gap="24" padding="24">
         <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="20">
           <Column className={styles.heroMain} gap="16">
-            <SmartLink href="/work">
-              Voltar para projetos
-            </SmartLink>
+            <Row gap="12" wrap>
+              <SmartLink href="/work">Voltar para projetos</SmartLink>
+              <SmartLink href={`/work/${post.slug}/resumo`}>Abrir resumo em PDF</SmartLink>
+            </Row>
 
             {(displayKind || stack.length > 0) && (
               <Row className={styles.tagRow} gap="8" wrap>
@@ -153,7 +165,12 @@ export default async function ProjectPage({ params }: PageProps) {
             </Heading>
             <div className={styles.accentLine} />
             {post.metadata.summary && (
-              <Text className={styles.heroLead} onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
+              <Text
+                className={styles.heroLead}
+                onBackground="neutral-weak"
+                variant="heading-default-m"
+                wrap="balance"
+              >
                 {post.metadata.summary}
               </Text>
             )}
@@ -161,16 +178,26 @@ export default async function ProjectPage({ params }: PageProps) {
 
           <Column className={styles.heroAside} gap="12">
             <Column className={styles.metaCard} gap="12">
-              <Text className={styles.metaCardLabel} variant="label-default-s" onBackground="neutral-weak">
+              <Text
+                className={styles.metaCardLabel}
+                variant="label-default-s"
+                onBackground="neutral-weak"
+              >
                 Publicado
               </Text>
               <Text variant="heading-strong-s">
-                {post.metadata.publishedAt ? formatDate(post.metadata.publishedAt) : "Sem data definida"}
+                {post.metadata.publishedAt
+                  ? formatDate(post.metadata.publishedAt)
+                  : "Sem data definida"}
               </Text>
             </Column>
 
             <Column className={styles.metaCard} gap="12">
-              <Text className={styles.metaCardLabel} variant="label-default-s" onBackground="neutral-weak">
+              <Text
+                className={styles.metaCardLabel}
+                variant="label-default-s"
+                onBackground="neutral-weak"
+              >
                 Estrutura
               </Text>
               <Text variant="body-default-m">
@@ -189,7 +216,11 @@ export default async function ProjectPage({ params }: PageProps) {
 
             {avatars.length > 0 && (
               <Column className={styles.metaCard} gap="12">
-                <Text className={styles.authorLabel} variant="label-default-s" onBackground="neutral-weak">
+                <Text
+                  className={styles.authorLabel}
+                  variant="label-default-s"
+                  onBackground="neutral-weak"
+                >
                   Pessoas
                 </Text>
                 <div className={styles.authorCard}>
@@ -216,21 +247,25 @@ export default async function ProjectPage({ params }: PageProps) {
         </div>
       )}
 
+      {intelligenceSnapshot && <ProjectIntelligencePanel snapshot={intelligenceSnapshot} />}
+
       <Column className={styles.articleShell} horizontal="center">
         <Column className={styles.article} style={{ margin: "auto" }} as="article" maxWidth="s">
           <CustomMDX source={post.content} />
         </Column>
       </Column>
 
-      <Column className={styles.relatedPanel} fillWidth gap="20" padding="24">
-        <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-          Mais projetos
-        </Tag>
-        <Heading as="h2" variant="heading-strong-xl">
-          Continue explorando o portfólio
-        </Heading>
-        <Projects exclude={[post.slug]} range={[2]} marginBottom="0" paddingX="0" />
-      </Column>
+      {relatedProjects.length > 0 && (
+        <Column className={styles.relatedPanel} fillWidth gap="20" padding="24">
+          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+            Mais projetos
+          </Tag>
+          <Heading as="h2" variant="heading-strong-xl">
+            Continue explorando o portfólio
+          </Heading>
+          <Projects exclude={[post.slug]} range={[1, 2]} marginBottom="0" paddingX="0" />
+        </Column>
+      )}
       <ScrollToHash />
     </Column>
   );

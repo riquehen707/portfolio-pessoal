@@ -22,7 +22,6 @@ interface ProjectCardProps {
   priority?: boolean;
   images: string[];
   title: string;
-  content: string;
   description: string;
   avatars: { src: string }[];
   link: string;
@@ -46,19 +45,23 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   const hasMedia = images.length > 0;
   const primaryActionLabel =
-    kindValue === "study"
-      ? "Abrir estudo"
-      : kindValue === "client"
-        ? "Ver case"
-        : "Abrir projeto";
+    kindValue === "study" ? "Abrir estudo" : kindValue === "client" ? "Ver case" : "Abrir projeto";
 
   return (
     <article className={styles.root} data-variant={variant} data-kind={kindValue ?? "project"}>
-      <div className={styles.card} data-has-media={hasMedia ? "true" : "false"} data-variant={variant}>
+      <div
+        className={styles.card}
+        data-has-media={hasMedia ? "true" : "false"}
+        data-variant={variant}
+      >
         {hasMedia && (
           <div className={styles.mediaShell}>
             <Carousel
-              sizes={variant === "compact" ? "(max-width: 768px) 100vw, 360px" : "(max-width: 960px) 100vw, 960px"}
+              sizes={
+                variant === "compact"
+                  ? "(max-width: 768px) 100vw, 360px"
+                  : "(max-width: 960px) 100vw, 960px"
+              }
               items={images.map((image) => ({
                 slide: image,
                 alt: title,
@@ -73,7 +76,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               {(kind || stack.length > 0) && (
                 <Row className={styles.tagsRow} wrap gap="8">
                   {kind && (
-                    <Tag className={styles.kindTag} size="s" background="brand-alpha-weak" onBackground="brand-strong">
+                    <Tag
+                      className={styles.kindTag}
+                      size="s"
+                      background="brand-alpha-weak"
+                      onBackground="brand-strong"
+                    >
                       {kind}
                     </Tag>
                   )}
@@ -84,7 +92,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                   ))}
                 </Row>
               )}
-              <Heading className={styles.title} as="h2" wrap="balance" variant={variant === "compact" ? "heading-strong-l" : "heading-strong-xl"}>
+              <Heading
+                className={styles.title}
+                as="h2"
+                wrap="balance"
+                variant={variant === "compact" ? "heading-strong-l" : "heading-strong-xl"}
+              >
                 {title}
               </Heading>
             </Column>
@@ -98,7 +111,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 </div>
               )}
               {description?.trim() && (
-                <Text className={styles.description} wrap="balance" variant="body-default-s" onBackground="neutral-weak">
+                <Text
+                  className={styles.description}
+                  wrap="balance"
+                  variant="body-default-s"
+                  onBackground="neutral-weak"
+                >
                   {description}
                 </Text>
               )}
@@ -109,7 +127,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                   </SmartLink>
                 )}
                 {link && (
-                  <SmartLink className={styles.actionLink} suffixIcon="arrowUpRightFromSquare" href={link}>
+                  <SmartLink
+                    className={styles.actionLink}
+                    suffixIcon="arrowUpRightFromSquare"
+                    href={link}
+                  >
                     Ver projeto
                   </SmartLink>
                 )}

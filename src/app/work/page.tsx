@@ -1,7 +1,8 @@
-import { Column, Grid, Heading, Meta, Row, Schema, Tag, Text } from "@once-ui-system/core";
+import { Button, Column, Grid, Heading, Meta, Row, Schema, Tag, Text } from "@once-ui-system/core";
 
 import { Projects } from "@/components/work/Projects";
-import { baseURL, about, person, work } from "@/resources";
+import { baseURL, about, person, servicesPage, work } from "@/resources";
+import { getPosts } from "@/utils/utils";
 
 import styles from "./work.module.scss";
 
@@ -37,6 +38,9 @@ export async function generateMetadata() {
 }
 
 export default function Work() {
+  const projects = getPosts(["src", "app", "work", "projects"]);
+  const hasProjects = projects.length > 0;
+
   return (
     <Column className={styles.page} maxWidth="m" paddingTop="24" gap="24">
       <Schema
@@ -61,9 +65,14 @@ export default function Work() {
             </Tag>
             <Heading variant="heading-strong-xl">{work.title}</Heading>
             <div className={styles.accentLine} />
-            <Text className={styles.heroLead} onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-              Projetos pessoais e estudos de caso para mostrar como eu organizo interface, SEO técnico,
-              arquitetura e clareza de navegação.
+            <Text
+              className={styles.heroLead}
+              onBackground="neutral-weak"
+              variant="heading-default-m"
+              wrap="balance"
+            >
+              Projetos pessoais e estudos de caso para mostrar como eu organizo interface, SEO
+              técnico, arquitetura e clareza de navegação.
             </Text>
           </Column>
 
@@ -72,7 +81,8 @@ export default function Work() {
               O que aparece aqui
             </Text>
             <Text variant="heading-strong-m" wrap="balance">
-              Menos vitrine vazia e mais contexto para entender o raciocínio por trás de cada entrega.
+              Menos vitrine vazia e mais contexto para entender o raciocínio por trás de cada
+              entrega.
             </Text>
             <Text variant="body-default-m" onBackground="neutral-weak">
               Mesmo quando o case nasce como estudo, a ideia é demonstrar critério visual, estrutura
@@ -86,7 +96,11 @@ export default function Work() {
         <Grid className={styles.noteGrid} columns="3" s={{ columns: 1 }} gap="16">
           {notes.map((note) => (
             <Column key={note.title} className={styles.noteCard} gap="12">
-              <Text className={styles.noteEyebrow} variant="label-default-s" onBackground="neutral-weak">
+              <Text
+                className={styles.noteEyebrow}
+                variant="label-default-s"
+                onBackground="neutral-weak"
+              >
                 {note.label}
               </Text>
               <Heading as="h2" variant="heading-strong-m">
@@ -98,7 +112,39 @@ export default function Work() {
         </Grid>
       </Column>
 
-      <Projects marginBottom="0" paddingX="0" />
+      {hasProjects ? (
+        <Projects marginBottom="0" paddingX="0" />
+      ) : (
+        <Column className={styles.notePanel} gap="16" padding="24">
+          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+            Portfólio em revisão
+          </Tag>
+          <Heading as="h2" variant="display-strong-s">
+            Os projetos placeholder foram removidos
+          </Heading>
+          <Text
+            className={styles.heroLead}
+            onBackground="neutral-weak"
+            variant="heading-default-m"
+            wrap="balance"
+          >
+            Esta área continua ativa, mas agora espera cases mais sólidos, com contexto real,
+            decisões visuais melhor explicadas e material que sustente a leitura.
+          </Text>
+          <Text onBackground="neutral-weak">
+            Enquanto os novos projetos não entram, a melhor leitura do meu trabalho está nas páginas
+            de serviços, na abordagem técnica e nos textos do site.
+          </Text>
+          <Row className={styles.emptyActions} gap="12" wrap>
+            <Button href={servicesPage.path} variant="primary" size="m" arrowIcon>
+              Ver serviços
+            </Button>
+            <Button href="/abordagem-tecnica" variant="secondary" size="m" arrowIcon>
+              Ver abordagem técnica
+            </Button>
+          </Row>
+        </Column>
+      )}
     </Column>
   );
 }

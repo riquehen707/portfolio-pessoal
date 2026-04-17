@@ -49,6 +49,10 @@ export function Projects({
     ? sortedProjects.slice(range[0] - 1, range[1] ?? sortedProjects.length)
     : sortedProjects;
 
+  if (displayedProjects.length === 0) {
+    return null;
+  }
+
   return (
     <Column
       className={layout === "grid" ? styles.grid : styles.list}
@@ -63,6 +67,13 @@ export function Projects({
             : post.metadata.image
               ? [post.metadata.image]
               : [];
+        const displayLabels = Array.from(
+          new Set(
+            [post.metadata.tag, ...(post.metadata.stack ?? post.metadata.tags ?? [])].filter(
+              Boolean,
+            ) as string[],
+          ),
+        );
 
         return (
           <ProjectCard
@@ -72,7 +83,6 @@ export function Projects({
             images={images}
             title={post.metadata.title}
             description={post.metadata.summary ?? post.metadata.title}
-            content={post.content}
             variant={cardVariant}
             kindValue={post.metadata.kind}
             kind={
@@ -80,7 +90,7 @@ export function Projects({
                 ? kindLabels[post.metadata.kind as keyof typeof kindLabels]
                 : undefined
             }
-            stack={post.metadata.stack ?? post.metadata.tags ?? []}
+            stack={displayLabels}
             avatars={
               post.metadata.team?.flatMap((member) =>
                 member.avatar ? [{ src: member.avatar }] : [],
