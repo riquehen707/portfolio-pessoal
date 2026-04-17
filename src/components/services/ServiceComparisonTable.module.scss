@@ -1,0 +1,190 @@
+@use "../breakpoints.scss" as breakpoints;
+
+.root {
+  position: relative;
+  width: 100%;
+}
+
+.header,
+.viewport {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.75rem;
+  background: var(--surface-panel);
+  box-shadow: var(--shadow-soft);
+}
+
+.header {
+  padding: 1.3rem;
+  margin-bottom: 0.9rem;
+}
+
+.header::before,
+.viewport::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 14% 10%, var(--brand-glow), transparent 28%),
+    radial-gradient(circle at 84% 0%, var(--accent-glow), transparent 20%);
+  pointer-events: none;
+}
+
+.header > *,
+.viewport > * {
+  position: relative;
+  z-index: 1;
+}
+
+.dragHint {
+  display: none;
+  margin-bottom: 0.75rem;
+  padding-inline: 0.15rem;
+}
+
+.dragDot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--scheme-brand-700), var(--scheme-accent-700));
+}
+
+.viewport {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table {
+  width: max-content;
+  min-width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+.featureHead,
+.featureCell,
+.serviceHead,
+.serviceCell {
+  min-width: 16rem;
+  padding: 1rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.featureHead,
+.featureCell {
+  min-width: 15rem;
+  max-width: 15rem;
+  border-right: 1px solid var(--border-subtle);
+}
+
+.stickyFeature {
+  position: sticky;
+  left: 0;
+  z-index: 4;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 72%),
+    var(--surface-panel-strong);
+}
+
+.serviceHead,
+.serviceCell {
+  background: rgba(255, 255, 255, 0.018);
+  border-right: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.serviceHead[data-highlight="true"],
+.serviceCell[data-highlight="true"] {
+  background:
+    radial-gradient(circle at top right, rgba(79, 134, 209, 0.12), transparent 30%),
+    linear-gradient(180deg, rgba(79, 134, 209, 0.05), transparent 68%),
+    rgba(255, 255, 255, 0.03);
+}
+
+.price {
+  letter-spacing: -0.04em;
+}
+
+.valueChip {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.42rem 0.7rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+.valueChip[data-tone="positive"] {
+  background: rgba(94, 212, 146, 0.12);
+  border-color: rgba(94, 212, 146, 0.2);
+  color: #8ce0b2;
+}
+
+.valueChip[data-tone="negative"] {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.06);
+  color: var(--neutral-on-background-medium);
+}
+
+.valueChip[data-tone="highlight"] {
+  background: var(--brand-alpha-weak);
+  border-color: rgba(79, 134, 209, 0.22);
+  color: var(--brand-on-background-strong);
+}
+
+.valueChip[data-tone="neutral"] {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.05);
+  color: var(--neutral-on-background-strong);
+}
+
+.footnote {
+  margin-top: 0.85rem;
+  max-width: 64ch;
+}
+
+@media (max-width: breakpoints.$m) {
+  .dragHint {
+    display: flex;
+  }
+
+  .header,
+  .viewport {
+    border-radius: 1.5rem;
+  }
+
+  .featureHead,
+  .featureCell {
+    min-width: 11.5rem;
+    max-width: 11.5rem;
+  }
+
+  .serviceHead,
+  .serviceCell {
+    min-width: 14rem;
+  }
+}
+
+@media (max-width: breakpoints.$s) {
+  .header {
+    padding: 1rem;
+  }
+
+  .featureHead,
+  .featureCell,
+  .serviceHead,
+  .serviceCell {
+    padding: 0.9rem;
+  }
+}

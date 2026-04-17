@@ -277,6 +277,14 @@ export interface ProductsPage extends BasePageConfig {
   note: string;
 }
 
+export interface ToolsPage extends BasePageConfig {
+  intro: {
+    headline: string;
+    lead: string;
+  };
+  note: string;
+}
+
 export type OfferCategory = "package" | "microservice" | "saas";
 
 export type OfferAccess = "free" | "paid" | "freemium";
@@ -293,5 +301,19 @@ export interface ProductItem {
   status: string;
   highlights: string[];
   link: string;
+  ctaLabel: string;
+}
+
+export interface FreeToolItem {
+  slug: string;
+  path: `/${string}` | string;
+  title: string;
+  summary: string;
+  description: string;
+  category: string;
+  format: string;
+  accessLabel: string;
+  status: string;
+  highlights: string[];
   ctaLabel: string;
 }

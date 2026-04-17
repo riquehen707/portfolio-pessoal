@@ -8,8 +8,7 @@ export const servicesPage: ServicesPage = {
     "Serviços, pacotes e ferramentas para quem quer melhorar a presença digital com mais clareza e menos improviso.",
   intro: {
     headline: "Escolha um ponto de entrada sem transformar a decisão em mais uma dúvida.",
-    lead:
-      "Se o problema pede projeto sob medida, pacote, ajuste pontual ou ferramenta própria, aqui fica mais claro por onde começar e o que esperar de cada formato.",
+    lead: "Se o problema pede projeto sob medida, pacote, ajuste pontual ou ferramenta própria, aqui fica mais claro por onde começar e o que esperar de cada formato.",
   },
 };
 
@@ -73,11 +72,13 @@ export const services: ServiceLanding[] = [
     faq: [
       {
         question: "Posso começar com uma landing page e expandir depois?",
-        answer: "Sim. A estrutura pode nascer menor e crescer para um site completo conforme a operação evolui.",
+        answer:
+          "Sim. A estrutura pode nascer menor e crescer para um site completo conforme a operação evolui.",
       },
       {
         question: "Já sai pronto para SEO?",
-        answer: "Sim. Estrutura, meta tags, performance e base técnica já entram no escopo inicial.",
+        answer:
+          "Sim. Estrutura, meta tags, performance e base técnica já entram no escopo inicial.",
       },
       {
         question: "Você segue com manutenção depois da entrega?",
@@ -117,7 +118,8 @@ export const services: ServiceLanding[] = [
       price: "A partir de R$ 1.500",
       duration: "2 a 4 semanas",
       ctaLabel: "Quero mais agendamentos",
-      ctaHref: "https://wa.me/5575983675164?text=Quero%20uma%20landing%20page%20para%20clinica%20de%20estetica",
+      ctaHref:
+        "https://wa.me/5575983675164?text=Quero%20uma%20landing%20page%20para%20clinica%20de%20estetica",
     },
     audience:
       "Clínicas de estética, esteticistas, biomédicas e profissionais de harmonização facial que já têm presença no Instagram, mas precisam converter melhor em agendamento.",
@@ -130,7 +132,8 @@ export const services: ServiceLanding[] = [
     scopes: [
       {
         title: "Landing page para agenda cheia",
-        summary: "Página única para clínica ou profissional que precisa converter melhor em agendamento.",
+        summary:
+          "Página única para clínica ou profissional que precisa converter melhor em agendamento.",
         investment: "A partir de R$ 1.500",
         timeline: "2 a 3 semanas",
         includes: ["Copy voltada a agendamento", "WhatsApp ou formulário", "SEO técnico essencial"],
@@ -140,11 +143,16 @@ export const services: ServiceLanding[] = [
         summary: "Estrutura com páginas principais, procedimentos, prova e contato.",
         investment: "A partir de R$ 2.800",
         timeline: "3 a 5 semanas",
-        includes: ["Arquitetura de páginas", "Layout responsivo", "Base para campanhas e recorrência"],
+        includes: [
+          "Arquitetura de páginas",
+          "Layout responsivo",
+          "Base para campanhas e recorrência",
+        ],
       },
       {
         title: "Sprint de conversão para página atual",
-        summary: "Refino de uma página existente para melhorar agendamento, clareza e retorno financeiro.",
+        summary:
+          "Refino de uma página existente para melhorar agendamento, clareza e retorno financeiro.",
         investment: "A partir de R$ 900",
         timeline: "1 a 2 semanas",
         includes: ["Revisão estrutural", "Ajuste de CTA e layout", "Melhoria de conversão"],
@@ -229,21 +237,24 @@ export const services: ServiceLanding[] = [
     scopes: [
       {
         title: "Landing page de captação",
-        summary: "Página única para apresentar serviço, diferenciais, prova e rota direta para contato.",
+        summary:
+          "Página única para apresentar serviço, diferenciais, prova e rota direta para contato.",
         investment: "A partir de R$ 1.500",
         timeline: "2 a 3 semanas",
         includes: ["Copy focada em conversão", "WhatsApp ou formulário", "SEO técnico essencial"],
       },
       {
         title: "Site profissional enxuto",
-        summary: "Estrutura com páginas principais para consolidar posicionamento e autoridade digital.",
+        summary:
+          "Estrutura com páginas principais para consolidar posicionamento e autoridade digital.",
         investment: "A partir de R$ 2.800",
         timeline: "3 a 5 semanas",
         includes: ["Arquitetura de páginas", "Layout responsivo", "Base para conteúdo e prova"],
       },
       {
         title: "Sprint de reposicionamento",
-        summary: "Refino em uma página atual para melhorar clareza da oferta, CTA e percepção profissional.",
+        summary:
+          "Refino em uma página atual para melhorar clareza da oferta, CTA e percepção profissional.",
         investment: "A partir de R$ 900",
         timeline: "1 a 2 semanas",
         includes: ["Revisão estrutural", "Ajuste de mensagem", "Melhoria de conversão"],
@@ -360,15 +371,18 @@ export const services: ServiceLanding[] = [
       },
       {
         question: "Preciso ter blog para funcionar?",
-        answer: "Não. A landing pode começar sozinha. O blog entra depois, se fizer sentido para SEO e autoridade.",
+        answer:
+          "Não. A landing pode começar sozinha. O blog entra depois, se fizer sentido para SEO e autoridade.",
       },
       {
         question: "Você ajuda a organizar os textos da página?",
-        answer: "Sim. Eu transformo sua abordagem e sua especialidade em uma estrutura mais clara e confiável.",
+        answer:
+          "Sim. Eu transformo sua abordagem e sua especialidade em uma estrutura mais clara e confiável.",
       },
       {
         question: "Funciona para quem ainda está começando no digital?",
-        answer: "Sim. Inclusive ajuda a evitar improviso e a construir uma base mais profissional desde o início.",
+        answer:
+          "Sim. Inclusive ajuda a evitar improviso e a construir uma base mais profissional desde o início.",
       },
     ],
   },
@@ -431,7 +445,8 @@ export const services: ServiceLanding[] = [
     faq: [
       {
         question: "Serve para blog e loja virtual?",
-        answer: "Sim. Esse é um dos focos principais do serviço, especialmente em SEO técnico para conteúdo e e-commerce.",
+        answer:
+          "Sim. Esse é um dos focos principais do serviço, especialmente em SEO técnico para conteúdo e e-commerce.",
       },
       {
         question: "Você também executa as correções?",
@@ -439,7 +454,8 @@ export const services: ServiceLanding[] = [
       },
       {
         question: "Preciso trocar de plataforma?",
-        answer: "Nem sempre. Primeiro eu avalio o que dá para corrigir na estrutura atual antes de sugerir migração.",
+        answer:
+          "Nem sempre. Primeiro eu avalio o que dá para corrigir na estrutura atual antes de sugerir migração.",
       },
     ],
   },
@@ -510,7 +526,8 @@ export const services: ServiceLanding[] = [
       },
       {
         question: "Você também organiza os dados?",
-        answer: "Sim. Posso estruturar a coleta e deixar dashboards ou tabelas mais fáceis de acompanhar.",
+        answer:
+          "Sim. Posso estruturar a coleta e deixar dashboards ou tabelas mais fáceis de acompanhar.",
       },
     ],
   },
@@ -520,8 +537,7 @@ export const productsPage: ProductsPage = {
   path: "/servicos/produtos",
   label: "Pacotes e Ferramentas",
   title: "Pacotes, micro-serviços e SaaS",
-  description:
-    "Ofertas menores para resolver um problema específico sem abrir um projeto inteiro.",
+  description: "Ofertas menores para resolver um problema específico sem abrir um projeto inteiro.",
   cta: "Escolha um formato, entenda onde ele se encaixa e siga para contato, checkout ou lista de espera.",
   note: "Aqui entram pacotes prontos, micro-serviços e ferramentas criadas por mim para resolver dores mais objetivas.",
 };
@@ -545,8 +561,7 @@ export const products: ProductItem[] = [
   {
     slug: "pacote-seo-loja-virtual",
     title: "Pacote SEO para loja virtual",
-    summary:
-      "Pacote focado em estrutura técnica, páginas-chave e gargalos comuns de e-commerce.",
+    summary: "Pacote focado em estrutura técnica, páginas-chave e gargalos comuns de e-commerce.",
     category: "package",
     access: "paid",
     format: "Auditoria + plano de ação",
@@ -560,8 +575,7 @@ export const products: ProductItem[] = [
   {
     slug: "pacote-blog-nextjs",
     title: "Pacote Blog Editorial em Next.js",
-    summary:
-      "Base para blog com SEO, performance e rotina de publicação mais organizada.",
+    summary: "Base para blog com SEO, performance e rotina de publicação mais organizada.",
     category: "package",
     access: "paid",
     format: "Estrutura editorial + implementação",
@@ -575,8 +589,7 @@ export const products: ProductItem[] = [
   {
     slug: "micro-core-web-vitals",
     title: "Micro-serviço de Core Web Vitals",
-    summary:
-      "Correção técnica focada em velocidade percebida, estabilidade visual e carregamento.",
+    summary: "Correção técnica focada em velocidade percebida, estabilidade visual e carregamento.",
     category: "microservice",
     access: "paid",
     format: "Sprint técnica curta",
@@ -590,8 +603,7 @@ export const products: ProductItem[] = [
   {
     slug: "micro-implementacao-seo",
     title: "Micro-serviço de implementação SEO",
-    summary:
-      "Aplicação rápida de meta tags, schema, headings, sitemap e ajustes técnicos básicos.",
+    summary: "Aplicação rápida de meta tags, schema, headings, sitemap e ajustes técnicos básicos.",
     category: "microservice",
     access: "paid",
     format: "Ajuste pontual",
@@ -644,14 +656,13 @@ export const products: ProductItem[] = [
     priceLabel: "Grátis",
     status: "Disponível",
     highlights: ["Estimativa inicial", "Leitura de escopo", "Entrada rápida para briefing"],
-    link: "/servicos/websites-profissionais#estimativa-rapida",
+    link: "/ferramentas/simulador-de-escopo-web",
     ctaLabel: "Abrir simulador",
   },
   {
     slug: "radar-editorial-seo",
     title: "Radar editorial SEO",
-    summary:
-      "Ferramenta em beta para organizar pautas, oportunidades e prioridade de conteúdo.",
+    summary: "Ferramenta em beta para organizar pautas, oportunidades e prioridade de conteúdo.",
     category: "saas",
     access: "freemium",
     format: "SaaS em beta",

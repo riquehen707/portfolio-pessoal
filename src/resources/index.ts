@@ -11,6 +11,7 @@ export {
 } from "./content";
 
 export { servicesPage, services, productsPage, products } from "./services";
+export { toolsPage, freeTools } from "./tools";
 
 export {
   display,

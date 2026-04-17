@@ -43,13 +43,10 @@ import { HoverNote } from "@/components/mdx/HoverNote";
 import { Callout } from "@/components/mdx/Callout";
 import { Quote } from "@/components/mdx/Quote";
 import { Highlight } from "@/components/mdx/Highlight";
-import {
-  Collapsible,
-  CollapsibleTrigger,
-  CollapsibleContent,
-} from "@/components/mdx/Collapsible";
+import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/mdx/Collapsible";
 import MindMap from "@/components/mdx/MindMap";
 import Reveal from "@/components/mdx/Reveal";
+import { ServiceComparisonTable } from "@/components/services/ServiceComparisonTable";
 
 // Charts (Client Components)
 import * as Charts from "@/components/mdx/ChartsClient";
@@ -160,14 +157,7 @@ function createHeading(as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") {
   }: Omit<React.ComponentProps<typeof HeadingLink>, "as" | "id">) => {
     const slug = slugify(getText(children));
     return (
-      <HeadingLink
-        marginTop="24"
-        marginBottom="12"
-        as={as}
-        id={slug}
-        data-mdx-heading
-        {...props}
-      >
+      <HeadingLink marginTop="24" marginBottom="12" as={as} id={slug} data-mdx-heading {...props}>
         {children}
       </HeadingLink>
     );
@@ -281,9 +271,7 @@ function TableWrapper({ children }: { children: ReactNode }) {
         boxShadow: "var(--shadow-soft)",
       }}
     >
-      <table style={{ width: "100%", borderCollapse: "collapse" }}>
-        {children}
-      </table>
+      <table style={{ width: "100%", borderCollapse: "collapse" }}>{children}</table>
     </div>
   );
 }
@@ -405,6 +393,7 @@ const components = {
   CollapsibleContent,
   MindMap,
   Reveal,
+  ServiceComparisonTable,
 
   // charts (client components)
   ChartContainer: Charts.ChartContainer,

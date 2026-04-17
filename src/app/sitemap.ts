@@ -1,5 +1,12 @@
 import { getPosts } from "@/utils/utils";
-import { baseURL, routes as routesConfig, services, servicesPage, productsPage } from "@/resources";
+import {
+  baseURL,
+  freeTools,
+  productsPage,
+  routes as routesConfig,
+  services,
+  servicesPage,
+} from "@/resources";
 
 export default async function sitemap() {
   const today = new Date().toISOString().split("T")[0];
@@ -28,6 +35,10 @@ export default async function sitemap() {
 
   const feeds = [{ url: `${baseURL}/rss.xml`, lastModified: today }];
   const products = [{ url: `${baseURL}${productsPage.path}`, lastModified: today }];
+  const toolPages = freeTools.map((tool) => ({
+    url: `${baseURL}${tool.path}`,
+    lastModified: today,
+  }));
 
-  return [...routes, ...feeds, ...products, ...serviceLandings, ...blogs, ...works];
+  return [...routes, ...feeds, ...products, ...toolPages, ...serviceLandings, ...blogs, ...works];
 }

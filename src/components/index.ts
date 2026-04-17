@@ -7,3 +7,5 @@ export { Providers } from "@/components/Providers";
 export { ScrollToHash } from "@/components/ScrollToHash";
 export { ThemeToggle } from "@/components/ThemeToggle";
 export { CustomMDX } from "@/components/mdx";
+export { ServiceComparisonTable } from "@/components/services/ServiceComparisonTable";
+export { ProjectIntelligencePanel } from "@/components/work/ProjectIntelligencePanel";
