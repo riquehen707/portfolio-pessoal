@@ -19,6 +19,11 @@
 }
 
 @media print {
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+
   .header {
     display: none !important;
   }
@@ -26,5 +31,6 @@
   .page {
     max-width: none !important;
     padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 }

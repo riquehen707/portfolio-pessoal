@@ -1,81 +1,406 @@
 @use "../breakpoints.scss" as breakpoints;
 
 .sheet {
+  --paper: #fbf6ee;
+  --paper-strong: #f3eadb;
+  --surface: #fffdf9;
+  --surface-strong: #f6efe2;
+  --ink: #142033;
+  --muted: #49586d;
+  --line: #d6c7b1;
+  --accent: #a4582e;
+  --accent-soft: #f0dfc9;
+
   width: 100%;
-  border-radius: 1.5rem;
-  background: #fff;
-  color: #111827;
-  padding: 1.5rem;
-  box-shadow: var(--shadow-card);
+  border: 1px solid var(--line);
+  border-radius: 1.75rem;
+  background:
+    radial-gradient(circle at top left, rgba(164, 88, 46, 0.08), transparent 34%),
+    linear-gradient(180deg, var(--paper) 0%, #fffdf9 100%);
+  color: var(--ink);
+  padding: 1.6rem;
+  box-shadow: 0 24px 80px rgba(20, 32, 51, 0.12);
+}
+
+.sheet p,
+.sheet li,
+.sheet a,
+.sheet span {
+  color: inherit;
 }
 
 .hero,
-.block,
-.infoCard,
-.scoreCard,
-.sectionCard {
-  background: #fffdf9;
-  color: inherit;
-  box-shadow: none;
+.panel,
+.sectionCard,
+.qrCard {
+  break-inside: avoid;
+}
+
+.hero,
+.panel,
+.sectionCard,
+.summaryBlock,
+.subBlock,
+.diagnosisBar,
+.qrCard {
+  border: 1px solid var(--line);
+  border-radius: 1.35rem;
+  background: var(--surface);
 }
 
 .hero {
-  border-bottom: 1px solid rgba(17, 24, 39, 0.08);
-  padding-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.35rem;
+  background:
+    linear-gradient(135deg, rgba(164, 88, 46, 0.1), transparent 48%),
+    var(--surface);
+}
+
+.kickerRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.kickerPrimary,
+.kickerNeutral,
+.sectionTag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.75rem;
+}
+
+.kickerPrimary,
+.sectionTag {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.kickerNeutral {
+  background: #efe8dc;
+  color: var(--muted);
+}
+
+.heroGrid,
+.footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(240px, 0.9fr);
+  gap: 1rem;
+}
+
+.heroMain,
+.signatureCard,
+.footerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.eyebrow,
+.panelEyebrow,
+.signatureEyebrow,
+.qrEyebrow,
+.cardLabel,
+.subBlockLabel {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.title,
+.panelTitle,
+.sectionTitle {
+  margin: 0;
+  line-height: 1.08;
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  color: var(--ink);
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 2.9rem);
+}
+
+.clientName {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.summary,
+.sectionProblem,
+.closingNote,
+.signatureText,
+.qrLead,
+.diagnosisText {
+  margin: 0;
+  line-height: 1.65;
+  font-size: 0.98rem;
+  color: var(--muted);
+}
+
+.signatureCard,
+.qrCard {
+  padding: 1rem;
+  background: var(--paper-strong);
+}
+
+.signatureLink {
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.signatureLink:hover {
+  text-decoration: underline;
+}
+
+.panel,
+.sectionCard,
+.qrCard {
+  padding: 1.1rem;
+}
+
+.panel {
+  margin-top: 1rem;
+}
+
+.panelHeader,
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
 }
 
 .basicGrid,
-.scoreGrid {
-  width: 100%;
+.scoreGrid,
+.twoColumnGrid,
+.reportFactsGrid {
+  display: grid;
+  gap: 0.9rem;
 }
 
-.subBlock,
-.diagnosisBar {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+.basicGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1rem;
+}
+
+.scoreGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1rem;
+}
+
+.twoColumnGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 1rem;
+}
+
+.reportFactsGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 1rem;
+}
+
+.infoCard,
+.scoreCard,
+.reportFact {
+  min-height: 100%;
+  border: 1px solid var(--line);
   border-radius: 1rem;
-  border: 1px solid rgba(17, 24, 39, 0.08);
-  background: rgba(247, 243, 234, 0.75);
+  background: #fff;
   padding: 1rem;
 }
 
-.diagnosisBar {
-  background: rgba(244, 236, 214, 0.88);
+.cardValue,
+.scoreValue,
+.reportFactValue {
+  margin: 0.3rem 0 0;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.cardValue,
+.scoreValue {
+  font-size: 1.3rem;
+}
+
+.cardMeta {
+  margin: 0.35rem 0 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.summaryBlock {
+  margin-top: 1rem;
+  padding: 1rem 1.1rem;
+  background: var(--surface-strong);
 }
 
 .list {
   margin: 0;
-  padding-left: 1rem;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.list li {
+  line-height: 1.6;
+  color: var(--muted);
 }
 
 .list li::marker {
-  color: #2b5ea7;
+  color: var(--accent);
+}
+
+.sectionStack {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.subBlock,
+.diagnosisBar {
+  padding: 1rem;
+}
+
+.subBlock {
+  background: #fffcf6;
+}
+
+.diagnosisBar {
+  margin-top: 1rem;
+  background: linear-gradient(180deg, var(--surface-strong), #fffdf8);
+}
+
+.footer {
+  margin-top: 1rem;
+  align-items: stretch;
+}
+
+.qrCard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: space-between;
+  gap: 1rem;
+}
+
+.qrText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.qrImage {
+  width: 9rem;
+  height: 9rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: #fff;
+  padding: 0.55rem;
+}
+
+@media (max-width: breakpoints.$m) {
+  .heroGrid,
+  .footer,
+  .basicGrid,
+  .scoreGrid,
+  .twoColumnGrid,
+  .reportFactsGrid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: breakpoints.$s) {
   .sheet {
-    border-radius: 1.1rem;
+    border-radius: 1.2rem;
     padding: 1rem;
+  }
+
+  .hero,
+  .panel,
+  .sectionCard,
+  .qrCard {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .qrImage {
+    width: 8rem;
+    height: 8rem;
   }
 }
 
 @media print {
   .sheet {
     border-radius: 0;
-    padding: 0;
+    border: 1px solid #cdbca6;
+    background: #fffdf8;
     box-shadow: none;
+    padding: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   .hero,
-  .block,
+  .panel,
+  .sectionCard,
+  .summaryBlock,
+  .subBlock,
+  .diagnosisBar,
+  .qrCard,
   .infoCard,
   .scoreCard,
+  .reportFact {
+    border-color: #d2c0aa;
+  }
+
+  .hero,
+  .panel,
   .sectionCard,
-  .subBlock,
-  .diagnosisBar {
-    break-inside: avoid;
-    border-color: rgba(17, 24, 39, 0.16) !important;
-    background: #fff !important;
+  .qrCard {
+    border-radius: 0;
+  }
+
+  .signatureLink {
+    text-decoration: none;
+  }
+
+  .title,
+  .panelTitle,
+  .sectionTitle,
+  .cardValue,
+  .scoreValue,
+  .reportFactValue,
+  .clientName {
+    color: #101826 !important;
+  }
+
+  .summary,
+  .sectionProblem,
+  .closingNote,
+  .signatureText,
+  .qrLead,
+  .diagnosisText,
+  .cardMeta,
+  .list li,
+  .eyebrow,
+  .panelEyebrow,
+  .signatureEyebrow,
+  .qrEyebrow,
+  .cardLabel,
+  .subBlockLabel,
+  .signatureLink {
+    color: #364152 !important;
   }
 }

@@ -6,6 +6,7 @@ import { PrintReportButton } from "@/components/work/PrintReportButton";
 import { ProjectExecutiveSummarySheet } from "@/components/work/ProjectExecutiveSummarySheet";
 import { getProjectDashboardSnapshot, getProjectExecutiveSummary } from "@/domain";
 import { baseURL, about, person, work } from "@/resources";
+import { createQrCodeDataUrl } from "@/utils/createQrCodeDataUrl";
 import { buildOgImage } from "@/utils/og";
 import { getPosts } from "@/utils/utils";
 
@@ -27,6 +28,12 @@ function toAbs(pathOrUrl?: string): string | undefined {
   } catch {
     return pathOrUrl;
   }
+}
+
+function formatReportDate(date: string): string {
+  return new Intl.DateTimeFormat("pt-BR", {
+    dateStyle: "long",
+  }).format(new Date(date));
 }
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
@@ -78,6 +85,9 @@ export default async function ProjectExecutiveSummaryPage({ params }: PageProps)
     notFound();
   }
 
+  const siteUrl = "https://henrique.dog";
+  const qrCodeDataUrl = await createQrCodeDataUrl(siteUrl);
+
   return (
     <Column className={styles.page} maxWidth="m" paddingTop="24" gap="20">
       <Schema
@@ -122,7 +132,15 @@ export default async function ProjectExecutiveSummaryPage({ params }: PageProps)
         </Text>
       </Column>
 
-      <ProjectExecutiveSummarySheet snapshot={snapshot} summary={summary} />
+      <ProjectExecutiveSummarySheet
+        snapshot={snapshot}
+        summary={summary}
+        generatedAtLabel={formatReportDate(snapshot.report.createdAt)}
+        authorHandle="@riquehen"
+        siteLabel="henrique.dog"
+        siteUrl={siteUrl}
+        qrCodeDataUrl={qrCodeDataUrl}
+      />
     </Column>
   );
 }

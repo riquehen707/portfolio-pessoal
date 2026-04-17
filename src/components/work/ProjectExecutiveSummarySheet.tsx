@@ -1,4 +1,4 @@
-import { Card, Column, Grid, Heading, Row, Tag, Text } from "@once-ui-system/core";
+import Image from "next/image";
 
 import type { ProjectDashboardSnapshot, ProjectExecutiveSummary } from "@/domain";
 
@@ -19,6 +19,13 @@ function formatCompact(value: number) {
   }).format(value);
 }
 
+function formatPercent(value: number) {
+  return new Intl.NumberFormat("pt-BR", {
+    style: "percent",
+    maximumFractionDigits: 0,
+  }).format(value);
+}
+
 function statusLabel(status: "real" | "estimated" | "projected") {
   if (status === "real") return "Real";
   if (status === "projected") return "Projetado";
@@ -28,9 +35,22 @@ function statusLabel(status: "real" | "estimated" | "projected") {
 type Props = {
   summary: ProjectExecutiveSummary;
   snapshot: ProjectDashboardSnapshot;
+  generatedAtLabel: string;
+  authorHandle: string;
+  siteLabel: string;
+  siteUrl: string;
+  qrCodeDataUrl: string;
 };
 
-export function ProjectExecutiveSummarySheet({ summary, snapshot }: Props) {
+export function ProjectExecutiveSummarySheet({
+  summary,
+  snapshot,
+  generatedAtLabel,
+  authorHandle,
+  siteLabel,
+  siteUrl,
+  qrCodeDataUrl,
+}: Props) {
   const followersTrace = snapshot.traces.find((item) => item.key === "followers");
   const reviewsTrace = snapshot.traces.find((item) => item.key === "google-reviews");
 
@@ -94,168 +114,195 @@ export function ProjectExecutiveSummarySheet({ summary, snapshot }: Props) {
     },
   ];
 
+  const reportFacts = [
+    {
+      label: "Gerado em",
+      value: generatedAtLabel,
+    },
+    {
+      label: "Precisao geral",
+      value: formatPercent(snapshot.precision.overall),
+    },
+    {
+      label: "Cobertura observada",
+      value: formatPercent(snapshot.precision.coverage),
+    },
+    {
+      label: "Receita atual estimada",
+      value: formatCurrency(snapshot.quickMetrics.currentRevenueEstimate),
+    },
+    {
+      label: "Clientes no cenario realista",
+      value: String(snapshot.report.scenarios.realistic.customers),
+    },
+    {
+      label: "Base de dados",
+      value: `${snapshot.classificationCounts.real} reais / ${snapshot.classificationCounts.estimated} estimados / ${snapshot.classificationCounts.projected} projetados`,
+    },
+  ];
+
   return (
-    <div className={styles.sheet}>
-      <Column gap="20">
-        <Column className={styles.hero} gap="16">
-          <Row gap="8" wrap>
-            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-              Resumo executivo
-            </Tag>
-            <Tag size="s" background="neutral-alpha-weak">
-              PDF friendly
-            </Tag>
-          </Row>
-          <Heading as="h1" variant="display-strong-s">
-            {summary.title}
-          </Heading>
-          <Text variant="heading-default-m" onBackground="neutral-weak">
-            {snapshot.clientName}
-          </Text>
-          <Text onBackground="neutral-weak">{summary.summary}</Text>
-        </Column>
+    <article className={styles.sheet}>
+      <header className={styles.hero}>
+        <div className={styles.kickerRow}>
+          <span className={styles.kickerPrimary}>Resumo executivo</span>
+          <span className={styles.kickerNeutral}>PDF comercial</span>
+        </div>
 
-        <Grid className={styles.basicGrid} columns="3" s={{ columns: 1 }} gap="12">
+        <div className={styles.heroGrid}>
+          <div className={styles.heroMain}>
+            <p className={styles.eyebrow}>Diagnostico para apresentacao</p>
+            <h1 className={styles.title}>{summary.title}</h1>
+            <p className={styles.clientName}>{snapshot.clientName}</p>
+            <p className={styles.summary}>{summary.summary}</p>
+          </div>
+
+          <aside className={styles.signatureCard}>
+            <p className={styles.signatureEyebrow}>Assinatura do diagnostico</p>
+            <p className={styles.signatureText}>
+              Esse diagnostico foi feito por <strong>{authorHandle}</strong>
+            </p>
+            <a className={styles.signatureLink} href={siteUrl} target="_blank" rel="noreferrer">
+              Site: {siteLabel}
+            </a>
+          </aside>
+        </div>
+      </header>
+
+      <section className={styles.panel}>
+        <div className={styles.panelHeader}>
+          <p className={styles.panelEyebrow}>Dados-base</p>
+          <h2 className={styles.panelTitle}>Leitura rapida do caso</h2>
+        </div>
+
+        <div className={styles.basicGrid}>
           {basicFacts.map((item) => (
-            <Card
-              key={item.label}
-              className={styles.infoCard}
-              direction="column"
-              gap="8"
-              padding="20"
-              radius="l"
-              background="surface"
-              border="neutral-alpha-weak"
-            >
-              <Text variant="label-default-s" onBackground="neutral-weak">
-                {item.label}
-              </Text>
-              <Text variant="heading-strong-m">{item.value}</Text>
-              <Text variant="body-default-s" onBackground="neutral-weak">
-                {item.meta}
-              </Text>
-            </Card>
+            <div key={item.label} className={styles.infoCard}>
+              <p className={styles.cardLabel}>{item.label}</p>
+              <p className={styles.cardValue}>{item.value}</p>
+              <p className={styles.cardMeta}>{item.meta}</p>
+            </div>
           ))}
-        </Grid>
+        </div>
+      </section>
 
-        <Card
-          className={styles.block}
-          direction="column"
-          gap="12"
-          padding="20"
-          radius="l"
-          background="surface"
-          border="neutral-alpha-weak"
-        >
-          <Tag size="s" background="neutral-alpha-weak">
-            Resumo executivo
-          </Tag>
-          <Column as="ul" className={styles.list} gap="8">
+      <section className={styles.panel}>
+        <div className={styles.panelHeader}>
+          <p className={styles.panelEyebrow}>Resumo de negocio</p>
+          <h2 className={styles.panelTitle}>Leitura executiva</h2>
+        </div>
+
+        <div className={styles.summaryBlock}>
+          <ul className={styles.list}>
             {summary.businessSummary.map((item) => (
-              <Text as="li" key={item} variant="body-default-s">
-                {item}
-              </Text>
+              <li key={item}>{item}</li>
             ))}
-          </Column>
-        </Card>
+          </ul>
+        </div>
+      </section>
 
-        <Grid className={styles.scoreGrid} columns="3" s={{ columns: 2 }} gap="12">
+      <section className={styles.panel}>
+        <div className={styles.panelHeader}>
+          <p className={styles.panelEyebrow}>Score rapido</p>
+          <h2 className={styles.panelTitle}>Pontos que sustentam a proposta</h2>
+        </div>
+
+        <div className={styles.scoreGrid}>
           {scoreItems.map((item) => (
-            <Card
-              key={item.label}
-              className={styles.scoreCard}
-              direction="column"
-              gap="8"
-              padding="20"
-              radius="l"
-              background="surface"
-              border="neutral-alpha-weak"
-            >
-              <Text variant="label-default-s" onBackground="neutral-weak">
-                {item.label}
-              </Text>
-              <Heading as="h2" variant="heading-strong-m">
-                {item.value}
-              </Heading>
-            </Card>
+            <div key={item.label} className={styles.scoreCard}>
+              <p className={styles.cardLabel}>{item.label}</p>
+              <p className={styles.scoreValue}>{item.value}</p>
+            </div>
           ))}
-        </Grid>
+        </div>
+      </section>
 
-        <Column gap="16">
-          {summary.sections.map((section) => (
-            <Card
-              key={section.id}
-              className={styles.sectionCard}
-              direction="column"
-              gap="16"
-              padding="20"
-              radius="l"
-              background="surface"
-              border="neutral-alpha-weak"
-            >
-              <Column gap="8">
-                <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-                  Ponto critico
-                </Tag>
-                <Heading as="h2" variant="heading-strong-m">
-                  {section.title}
-                </Heading>
-                <Text onBackground="neutral-weak">{section.problem}</Text>
-              </Column>
+      <section className={styles.sectionStack}>
+        {summary.sections.map((section) => (
+          <section key={section.id} className={styles.sectionCard}>
+            <div className={styles.sectionHeader}>
+              <span className={styles.sectionTag}>Ponto critico</span>
+              <h2 className={styles.sectionTitle}>{section.title}</h2>
+              <p className={styles.sectionProblem}>{section.problem}</p>
+            </div>
 
-              <Grid columns="2" s={{ columns: 1 }} gap="12">
-                <div className={styles.subBlock}>
-                  <Text variant="label-default-s" onBackground="neutral-weak">
-                    Impacto
-                  </Text>
-                  <Column as="ul" className={styles.list} gap="8">
-                    {section.impact.map((item) => (
-                      <Text as="li" key={item} variant="body-default-s">
-                        {item}
-                      </Text>
-                    ))}
-                  </Column>
-                </div>
-
-                <div className={styles.subBlock}>
-                  <Text variant="label-default-s" onBackground="neutral-weak">
-                    Melhoria
-                  </Text>
-                  <Column as="ul" className={styles.list} gap="8">
-                    {section.improvement.map((item) => (
-                      <Text as="li" key={item} variant="body-default-s">
-                        {item}
-                      </Text>
-                    ))}
-                  </Column>
-                </div>
-              </Grid>
-
-              <div className={styles.diagnosisBar}>
-                <Text variant="label-default-s" onBackground="neutral-weak">
-                  Diagnostico
-                </Text>
-                <Text variant="body-default-m">{section.diagnosis}</Text>
+            <div className={styles.twoColumnGrid}>
+              <div className={styles.subBlock}>
+                <p className={styles.subBlockLabel}>Impacto</p>
+                <ul className={styles.list}>
+                  {section.impact.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
               </div>
-            </Card>
-          ))}
-        </Column>
 
-        <Card
-          className={styles.block}
-          direction="column"
-          gap="12"
-          padding="20"
-          radius="l"
-          background="surface"
-          border="neutral-alpha-weak"
-        >
-          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            Fechamento
-          </Tag>
-          <Text onBackground="neutral-weak">{summary.closingNote}</Text>
-        </Card>
-      </Column>
-    </div>
+              <div className={styles.subBlock}>
+                <p className={styles.subBlockLabel}>Melhoria</p>
+                <ul className={styles.list}>
+                  {section.improvement.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className={styles.diagnosisBar}>
+              <p className={styles.subBlockLabel}>Diagnostico</p>
+              <p className={styles.diagnosisText}>{section.diagnosis}</p>
+            </div>
+          </section>
+        ))}
+      </section>
+
+      <section className={styles.panel}>
+        <div className={styles.panelHeader}>
+          <p className={styles.panelEyebrow}>Fechamento</p>
+          <h2 className={styles.panelTitle}>Sintese final</h2>
+        </div>
+
+        <div className={styles.summaryBlock}>
+          <p className={styles.closingNote}>{summary.closingNote}</p>
+        </div>
+      </section>
+
+      <footer className={styles.footer}>
+        <div className={styles.footerInfo}>
+          <div className={styles.panelHeader}>
+            <p className={styles.panelEyebrow}>Ficha tecnica</p>
+            <h2 className={styles.panelTitle}>Dados usados neste PDF</h2>
+          </div>
+
+          <div className={styles.reportFactsGrid}>
+            {reportFacts.map((item) => (
+              <div key={item.label} className={styles.reportFact}>
+                <p className={styles.cardLabel}>{item.label}</p>
+                <p className={styles.reportFactValue}>{item.value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <aside className={styles.qrCard}>
+          <div className={styles.qrText}>
+            <p className={styles.qrEyebrow}>Acesso e contato</p>
+            <p className={styles.qrLead}>
+              Esse diagnostico foi feito por <strong>{authorHandle}</strong>
+            </p>
+            <a className={styles.signatureLink} href={siteUrl} target="_blank" rel="noreferrer">
+              Site: {siteLabel}
+            </a>
+          </div>
+
+          <Image
+            className={styles.qrImage}
+            src={qrCodeDataUrl}
+            alt={`QR code para ${siteLabel}`}
+            width={180}
+            height={180}
+            unoptimized
+          />
+        </aside>
+      </footer>
+    </article>
   );
 }
