@@ -192,6 +192,30 @@ export type MetricTrace = {
 
 export type ScenarioKey = keyof DerivedReport["scenarios"];
 
+export type TimelineKpiPoint = {
+  month: string;
+  investment: number;
+  revenue: number;
+  customers: number;
+  leads: number;
+  cac: number;
+  roas: number;
+  saturation: number;
+  occupancy: number;
+};
+
+export type InvestmentCurvePoint = {
+  label: string;
+  spend: number;
+  revenue: number;
+  incrementalRevenue: number;
+  customers: number;
+  cac: number;
+  roas: number;
+  saturation: number;
+  efficiency: number;
+};
+
 export type ProjectDashboardSnapshot = {
   slug: string;
   clientName: string;
@@ -246,6 +270,8 @@ export type ProjectDashboardSnapshot = {
     precision: number;
     certainty: number;
   }>;
+  kpiTimelineChartData: Record<ScenarioKey, TimelineKpiPoint[]>;
+  investmentCurveChartData: Record<ScenarioKey, InvestmentCurvePoint[]>;
   coverageChartData: Array<{
     section: string;
     coverage: number;

@@ -202,6 +202,260 @@ function buildScenarioSeries(
   });
 }
 
+function buildKpiTimelineSeries(params: {
+  config: ScenarioConfig;
+  currentCustomers: number;
+  currentRevenueEstimate: number;
+  targetCustomers: number;
+  targetRevenue: number;
+  targetMonthlySpend: number;
+  monthlyReach: number;
+  avgCpl: number;
+  avgCpm: number;
+  avgCpc: number;
+  avgTicket: number;
+  monthlyCapacity: number;
+  returnRate: number;
+  repeatVisitsAverage: number;
+  followerGrowthRate: number;
+  baseConversionRate: number;
+  eligibleMarket: number;
+  exposureIndex: number;
+  competitionIndex: number;
+  saturationFactor: number;
+  diagnosisWeightedScore: number;
+  humanizationScore: number;
+  conversionScore: number;
+  modelConstant: ModelConstant;
+  recurringNature: boolean;
+}) {
+  const {
+    config,
+    currentCustomers,
+    currentRevenueEstimate,
+    targetCustomers,
+    targetRevenue,
+    targetMonthlySpend,
+    monthlyReach,
+    avgCpl,
+    avgCpm,
+    avgCpc,
+    avgTicket,
+    monthlyCapacity,
+    returnRate,
+    repeatVisitsAverage,
+    followerGrowthRate,
+    baseConversionRate,
+    eligibleMarket,
+    exposureIndex,
+    competitionIndex,
+    saturationFactor,
+    diagnosisWeightedScore,
+    humanizationScore,
+    conversionScore,
+    modelConstant,
+    recurringNature,
+  } = params;
+
+  let accumulatedExposure = Math.max(exposureIndex * 0.42, 0.08);
+
+  return monthLabels.map((month, index) => {
+    const progress = (index + 1) / monthLabels.length;
+    const eased = progress * progress * (3 - 2 * progress);
+    const seasonalFactor = seasonalityCurve[index];
+    const learningGain = clamp(
+      (Math.log1p(index + 1) / Math.log(13)) *
+        (0.14 + diagnosisWeightedScore * 0.08 + (conversionScore / 10) * 0.05),
+      0.02,
+      0.24,
+    );
+    const organicLift =
+      1 + followerGrowthRate * (index + 1) * (0.92 + (humanizationScore / 10) * 0.18);
+    const dynamicSaturation = Math.max(
+      modelConstant.saturationModel.minimumEfficiencyFactor,
+      Math.exp(
+        -modelConstant.saturationModel.saturationK *
+          (1 + competitionIndex * modelConstant.saturationModel.competitionPenaltyMultiplier) *
+          accumulatedExposure *
+          config.saturationMultiplier,
+      ),
+    );
+    const saturationPenalty = clamp(
+      Math.pow(1 - dynamicSaturation, 2) * (1.48 + config.demandMultiplier * 0.18),
+      0,
+      0.96,
+    );
+    const effectiveCpl = clamp(
+      avgCpl * (1 - learningGain * 0.32 + saturationPenalty * 0.34),
+      avgCpl * 0.72,
+      avgCpl * 1.74,
+    );
+    const effectiveConversion = clamp(
+      baseConversionRate *
+        (0.88 + diagnosisWeightedScore * 0.08 + (conversionScore / 10) * 0.06) *
+        (0.94 + config.contactMultiplier * 0.06) *
+        dynamicSaturation,
+      baseConversionRate * 0.55,
+      baseConversionRate * 1.14,
+    );
+    const targetCustomersThisMonth = clamp(
+      currentCustomers + (targetCustomers - currentCustomers) * eased * seasonalFactor,
+      0,
+      monthlyCapacity,
+    );
+    const customersFromDemand = targetCustomersThisMonth * clamp(dynamicSaturation / saturationFactor, 0.82, 1.14);
+    const leadsNeeded = customersFromDemand / Math.max(effectiveConversion, 0.02);
+    const investment = Math.max(leadsNeeded * effectiveCpl, targetMonthlySpend * 0.45);
+    const leads = investment / Math.max(effectiveCpl, 1);
+    const customers = Math.min(monthlyCapacity, leads * effectiveConversion);
+    const recurringRevenue =
+      customers *
+      returnRate *
+      repeatVisitsAverage *
+      avgTicket *
+      (recurringNature ? 1 : 0.45) *
+      (0.48 + eased * 0.4);
+    const revenueTarget = currentRevenueEstimate + (targetRevenue - currentRevenueEstimate) * eased * seasonalFactor;
+    const rawRevenue = customers * avgTicket + recurringRevenue;
+    const revenue = clamp(
+      rawRevenue * 0.58 + revenueTarget * 0.42,
+      currentRevenueEstimate * 0.72,
+      targetRevenue * 1.08,
+    );
+    const cac = investment / Math.max(customers, 1);
+    const roas = revenue / Math.max(investment, 1);
+    const occupancy = clamp(customers / Math.max(monthlyCapacity, 1), 0, 1.18);
+
+    const paidImpressions = avgCpm > 0 ? (investment / avgCpm) * 1000 : investment / Math.max(avgCpc, 0.5);
+    const organicReach = monthlyReach * (0.74 + eased * 0.46) * organicLift;
+
+    accumulatedExposure += (organicReach + paidImpressions) / Math.max(eligibleMarket, 1);
+
+    return {
+      month,
+      investment: round(investment),
+      revenue: round(revenue),
+      customers: round(customers),
+      leads: round(leads),
+      cac: round(cac),
+      roas: Number(roas.toFixed(2)),
+      saturation: Number(dynamicSaturation.toFixed(3)),
+      occupancy: Number(occupancy.toFixed(3)),
+    };
+  });
+}
+
+function buildInvestmentCurveSeries(params: {
+  config: ScenarioConfig;
+  currentRevenueEstimate: number;
+  baseMonthlySpend: number;
+  monthlyReach: number;
+  avgCpl: number;
+  avgCpm: number;
+  avgTicket: number;
+  monthlyCapacity: number;
+  returnRate: number;
+  repeatVisitsAverage: number;
+  baseConversionRate: number;
+  eligibleMarket: number;
+  competitionIndex: number;
+  saturationFactor: number;
+  diagnosisWeightedScore: number;
+  conversionScore: number;
+  modelConstant: ModelConstant;
+  recurringNature: boolean;
+}) {
+  const {
+    config,
+    currentRevenueEstimate,
+    baseMonthlySpend,
+    monthlyReach,
+    avgCpl,
+    avgCpm,
+    avgTicket,
+    monthlyCapacity,
+    returnRate,
+    repeatVisitsAverage,
+    baseConversionRate,
+    eligibleMarket,
+    competitionIndex,
+    saturationFactor,
+    diagnosisWeightedScore,
+    conversionScore,
+    modelConstant,
+    recurringNature,
+  } = params;
+
+  const spendMultipliers = [0.45, 0.65, 0.85, 1, 1.2, 1.45, 1.75];
+  const optimalSpendMultiplier = clamp(
+    0.84 + saturationFactor * 0.48 + diagnosisWeightedScore * 0.12 - competitionIndex * 0.08,
+    0.78,
+    1.42,
+  );
+
+  return spendMultipliers.map((multiplier) => {
+    const spend = baseMonthlySpend * multiplier;
+    const paidImpressions = avgCpm > 0 ? (spend / avgCpm) * 1000 : spend / Math.max(avgCpl, 1) * 18;
+    const reachShare = ((monthlyReach * 0.9) + paidImpressions) / Math.max(eligibleMarket, 1);
+    const curveSaturation = Math.max(
+      modelConstant.saturationModel.minimumEfficiencyFactor,
+      Math.exp(
+        -modelConstant.saturationModel.saturationK *
+          (1 + competitionIndex * modelConstant.saturationModel.competitionPenaltyMultiplier) *
+          reachShare *
+          config.saturationMultiplier,
+      ),
+    );
+    const learningGain = clamp(
+      (Math.log1p(multiplier * 4) / Math.log(8)) * (0.08 + diagnosisWeightedScore * 0.08),
+      0.03,
+      0.2,
+    );
+    const parabolicPenalty =
+      1 +
+      Math.pow(multiplier - optimalSpendMultiplier, 2) *
+        (0.5 + (1 - curveSaturation) * 2.1 + config.demandMultiplier * 0.08);
+    const effectiveCpl = clamp(
+      avgCpl * (1 - learningGain * 0.2) * parabolicPenalty,
+      avgCpl * 0.78,
+      avgCpl * 2.4,
+    );
+    const effectiveConversion = clamp(
+      baseConversionRate *
+        (0.9 + diagnosisWeightedScore * 0.06 + (conversionScore / 10) * 0.06) *
+        curveSaturation,
+      baseConversionRate * 0.55,
+      baseConversionRate * 1.08,
+    );
+    const leads = spend / Math.max(effectiveCpl, 1);
+    const customers = Math.min(monthlyCapacity, leads * effectiveConversion);
+    const recurringRevenue =
+      customers *
+      returnRate *
+      repeatVisitsAverage *
+      avgTicket *
+      (recurringNature ? 1 : 0.45) *
+      0.82;
+    const revenue = customers * avgTicket + recurringRevenue;
+    const cac = spend / Math.max(customers, 1);
+    const roas = revenue / Math.max(spend, 1);
+    const incrementalRevenue = Math.max(revenue - currentRevenueEstimate, 0);
+    const efficiency = incrementalRevenue / Math.max(spend, 1);
+
+    return {
+      label: `R$ ${formatCompact(spend)}`,
+      spend: round(spend),
+      revenue: round(revenue),
+      incrementalRevenue: round(incrementalRevenue),
+      customers: round(customers),
+      cac: round(cac),
+      roas: Number(roas.toFixed(2)),
+      saturation: Number(curveSaturation.toFixed(3)),
+      efficiency: Number(efficiency.toFixed(2)),
+    };
+  });
+}
+
 export function createProjectDashboardSnapshot(params: {
   client: Client;
   city: City;
@@ -652,6 +906,8 @@ export function createProjectDashboardSnapshot(params: {
   );
 
   const projectedTotalRevenue = (projectedInitialRevenue + projectedRecurringRevenue) * saturationFactor;
+  const baseConversionRate = clamp(leadToBookingRate * bookingToShowRate * showToSaleRate, 0.04, 0.72);
+  const adjustedCac = (impliedMediaSpend / Math.max(projectedCustomers, 1)) / Math.max(saturationFactor, 0.42);
 
   const scenarioSummaries = Object.entries(scenarioConfigs).reduce<
     Record<ScenarioKey, { customers: number; revenue: number }>
@@ -796,6 +1052,180 @@ export function createProjectDashboardSnapshot(params: {
     },
   ];
 
+  const scenarioMonthlySpend = {
+    conservative: Math.max(
+      projectedLeads *
+        scenarioConfigs.conservative.demandMultiplier *
+        scenarioConfigs.conservative.contactMultiplier *
+        avgCpl *
+        0.82,
+      report.scenarios.conservative.customers * adjustedCac * 0.84,
+    ),
+    realistic: Math.max(
+      projectedLeads *
+        scenarioConfigs.realistic.demandMultiplier *
+        scenarioConfigs.realistic.contactMultiplier *
+        avgCpl *
+        0.92,
+      report.scenarios.realistic.customers * adjustedCac * 0.92,
+    ),
+    aggressive: Math.max(
+      projectedLeads *
+        scenarioConfigs.aggressive.demandMultiplier *
+        scenarioConfigs.aggressive.contactMultiplier *
+        avgCpl *
+        1.04,
+      report.scenarios.aggressive.customers * adjustedCac,
+    ),
+  } satisfies Record<ScenarioKey, number>;
+
+  const kpiTimelineChartData = {
+    conservative: buildKpiTimelineSeries({
+      config: scenarioConfigs.conservative,
+      currentCustomers,
+      currentRevenueEstimate,
+      targetCustomers: report.scenarios.conservative.customers,
+      targetRevenue: report.scenarios.conservative.revenue,
+      targetMonthlySpend: scenarioMonthlySpend.conservative,
+      monthlyReach,
+      avgCpl,
+      avgCpm,
+      avgCpc,
+      avgTicket,
+      monthlyCapacity,
+      returnRate,
+      repeatVisitsAverage,
+      followerGrowthRate,
+      baseConversionRate,
+      eligibleMarket,
+      exposureIndex,
+      competitionIndex,
+      saturationFactor,
+      diagnosisWeightedScore,
+      humanizationScore: client.diagnosisScores.humanization,
+      conversionScore: client.diagnosisScores.conversion,
+      modelConstant,
+      recurringNature: segment.audienceProfile.recurringNature,
+    }),
+    realistic: buildKpiTimelineSeries({
+      config: scenarioConfigs.realistic,
+      currentCustomers,
+      currentRevenueEstimate,
+      targetCustomers: report.scenarios.realistic.customers,
+      targetRevenue: report.scenarios.realistic.revenue,
+      targetMonthlySpend: scenarioMonthlySpend.realistic,
+      monthlyReach,
+      avgCpl,
+      avgCpm,
+      avgCpc,
+      avgTicket,
+      monthlyCapacity,
+      returnRate,
+      repeatVisitsAverage,
+      followerGrowthRate,
+      baseConversionRate,
+      eligibleMarket,
+      exposureIndex,
+      competitionIndex,
+      saturationFactor,
+      diagnosisWeightedScore,
+      humanizationScore: client.diagnosisScores.humanization,
+      conversionScore: client.diagnosisScores.conversion,
+      modelConstant,
+      recurringNature: segment.audienceProfile.recurringNature,
+    }),
+    aggressive: buildKpiTimelineSeries({
+      config: scenarioConfigs.aggressive,
+      currentCustomers,
+      currentRevenueEstimate,
+      targetCustomers: report.scenarios.aggressive.customers,
+      targetRevenue: report.scenarios.aggressive.revenue,
+      targetMonthlySpend: scenarioMonthlySpend.aggressive,
+      monthlyReach,
+      avgCpl,
+      avgCpm,
+      avgCpc,
+      avgTicket,
+      monthlyCapacity,
+      returnRate,
+      repeatVisitsAverage,
+      followerGrowthRate,
+      baseConversionRate,
+      eligibleMarket,
+      exposureIndex,
+      competitionIndex,
+      saturationFactor,
+      diagnosisWeightedScore,
+      humanizationScore: client.diagnosisScores.humanization,
+      conversionScore: client.diagnosisScores.conversion,
+      modelConstant,
+      recurringNature: segment.audienceProfile.recurringNature,
+    }),
+  } satisfies ProjectDashboardSnapshot["kpiTimelineChartData"];
+
+  const investmentCurveChartData = {
+    conservative: buildInvestmentCurveSeries({
+      config: scenarioConfigs.conservative,
+      currentRevenueEstimate,
+      baseMonthlySpend: scenarioMonthlySpend.conservative,
+      monthlyReach,
+      avgCpl,
+      avgCpm,
+      avgTicket,
+      monthlyCapacity,
+      returnRate,
+      repeatVisitsAverage,
+      baseConversionRate,
+      eligibleMarket,
+      competitionIndex,
+      saturationFactor,
+      diagnosisWeightedScore,
+      conversionScore: client.diagnosisScores.conversion,
+      modelConstant,
+      recurringNature: segment.audienceProfile.recurringNature,
+    }),
+    realistic: buildInvestmentCurveSeries({
+      config: scenarioConfigs.realistic,
+      currentRevenueEstimate,
+      baseMonthlySpend: scenarioMonthlySpend.realistic,
+      monthlyReach,
+      avgCpl,
+      avgCpm,
+      avgTicket,
+      monthlyCapacity,
+      returnRate,
+      repeatVisitsAverage,
+      baseConversionRate,
+      eligibleMarket,
+      competitionIndex,
+      saturationFactor,
+      diagnosisWeightedScore,
+      conversionScore: client.diagnosisScores.conversion,
+      modelConstant,
+      recurringNature: segment.audienceProfile.recurringNature,
+    }),
+    aggressive: buildInvestmentCurveSeries({
+      config: scenarioConfigs.aggressive,
+      currentRevenueEstimate,
+      baseMonthlySpend: scenarioMonthlySpend.aggressive,
+      monthlyReach,
+      avgCpl,
+      avgCpm,
+      avgTicket,
+      monthlyCapacity,
+      returnRate,
+      repeatVisitsAverage,
+      baseConversionRate,
+      eligibleMarket,
+      competitionIndex,
+      saturationFactor,
+      diagnosisWeightedScore,
+      conversionScore: client.diagnosisScores.conversion,
+      modelConstant,
+      recurringNature: segment.audienceProfile.recurringNature,
+    }),
+  } satisfies ProjectDashboardSnapshot["investmentCurveChartData"];
+
   const realCount = traces.filter((item) => item.classification === "real").length;
   const estimatedCount = traces.filter((item) => item.classification === "estimated").length;
   const projectedCount = 8;
@@ -836,7 +1266,6 @@ export function createProjectDashboardSnapshot(params: {
     confidence: round((stats.confidenceSum / Math.max(stats.total, 1)) * 100),
   }));
 
-  const adjustedCac = (impliedMediaSpend / Math.max(projectedCustomers, 1)) / Math.max(saturationFactor, 0.42);
   const roi = impliedMediaSpend > 0 ? (projectedTotalRevenue - impliedMediaSpend) / impliedMediaSpend : 0;
   const roas = impliedMediaSpend > 0 ? projectedTotalRevenue / impliedMediaSpend : 0;
   const availableSlots = Math.max(monthlyCapacity - projectedBookings, 0);
@@ -964,6 +1393,8 @@ export function createProjectDashboardSnapshot(params: {
     funnelChartData,
     organicChartData,
     precisionChartData,
+    kpiTimelineChartData,
+    investmentCurveChartData,
     coverageChartData,
     highlights,
     insights: insights.slice(0, 5),
