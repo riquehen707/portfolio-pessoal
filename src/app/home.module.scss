@@ -67,6 +67,92 @@
   text-transform: uppercase;
 }
 
+.panelHeader {
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.panelCopy {
+  max-width: 42rem;
+}
+
+.blogPanel,
+.contactPanel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: clamp(1.2rem, 3.4vw, 2.2rem);
+  border-radius: 1.8rem;
+  background:
+    linear-gradient(
+      155deg,
+      rgba(255, 255, 255, 0.05),
+      transparent 26%,
+      rgba(255, 255, 255, 0.02) 100%
+    ),
+    var(--surface-panel);
+  box-shadow: var(--shadow-soft);
+}
+
+.blogPanel::before,
+.contactPanel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 12% 0%, var(--brand-glow), transparent 24%),
+    radial-gradient(circle at 86% 0%, var(--accent-glow), transparent 22%);
+  pointer-events: none;
+}
+
+.blogPanel > *,
+.contactPanel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.blogLinkRow {
+  width: fit-content;
+}
+
+.contactShell {
+  align-items: stretch;
+  gap: 1rem;
+}
+
+.contactAside {
+  min-width: 0;
+  max-width: 22rem;
+  padding: 1.1rem;
+  border: 1px solid rgba(169, 189, 214, 0.16);
+  border-radius: 1.35rem;
+  background:
+    linear-gradient(
+      150deg,
+      rgba(255, 255, 255, 0.08),
+      transparent 22%,
+      rgba(255, 255, 255, 0.03) 100%
+    ),
+    var(--surface-panel-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+.signalList {
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.signalItem {
+  display: block;
+}
+
+.signalItem + .signalItem {
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
 @keyframes heroDrift {
   from {
     transform: translate3d(0, 0, 0) scale(1);
@@ -83,8 +169,22 @@
     border-radius: 1.5rem;
   }
 
+  .blogPanel,
+  .contactPanel {
+    padding: 1.15rem;
+    border-radius: 1.45rem;
+  }
+
   .heroCopy,
   .heroLead {
+    max-width: none;
+  }
+
+  .panelHeader {
+    align-items: flex-start;
+  }
+
+  .contactAside {
     max-width: none;
   }
 
