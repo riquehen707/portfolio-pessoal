@@ -15,14 +15,7 @@ import {
 } from "@once-ui-system/core";
 
 import { Footer, Header, Providers } from "@/components";
-import {
-  baseURL as baseFromConfig,
-  dataStyle,
-  effects,
-  fonts,
-  home,
-  style,
-} from "@/resources";
+import { baseURL as baseFromConfig, dataStyle, effects, fonts, home, style } from "@/resources";
 
 function resolveBaseURL(): URL {
   const raw = (process.env.NEXT_PUBLIC_SITE_URL ?? baseFromConfig ?? "").trim();
@@ -58,7 +51,7 @@ export async function generateMetadata() {
   const metadataBase = resolveBaseURL();
   const siteTitle = "Henrique Reis";
   const siteDescription =
-    "Portfólio com projetos, serviços e artigos sobre front-end, SEO técnico, automação e produto digital.";
+    "Estratégia, design e sistemas para transformar complexidade digital em clareza, presença forte e crescimento.";
   const path = ensureLeadingSlash(home?.path ?? "/");
   const image = toAbsoluteOrPath(metadataBase, home?.image ?? "/og.png");
 
@@ -131,9 +124,14 @@ export default async function RootLayout({
                   });
 
                   const resolveTheme = (themeValue) => {
-                    if (!themeValue || themeValue === "system") {
+                    if (!themeValue) {
+                      return "${style.theme}";
+                    }
+
+                    if (themeValue === "system") {
                       return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
                     }
+
                     return themeValue;
                   };
 

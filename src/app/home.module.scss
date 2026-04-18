@@ -6,9 +6,10 @@
   overflow: hidden;
   isolation: isolate;
   padding: clamp(1.5rem, 4vw, 2.75rem);
+  border: 1px solid var(--border-subtle);
   border-radius: 2rem;
   background:
-    linear-gradient(135deg, var(--surface-panel-strong), var(--surface-panel)),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.04), transparent 24%),
     var(--surface-panel-strong);
   box-shadow: var(--shadow-card);
 }
@@ -23,16 +24,17 @@
 }
 
 .heroIntro::before {
-  inset: -18% 42% 32% -8%;
+  inset: -14% 44% 28% -8%;
   background: radial-gradient(circle, var(--brand-glow), transparent 72%);
-  animation: heroDrift 12s ease-in-out infinite alternate;
+  opacity: 0.9;
+  animation: heroDrift 22s ease-in-out infinite alternate;
 }
 
 .heroIntro::after {
-  inset: 14% -10% -28% 56%;
-  background: radial-gradient(circle, var(--accent-glow), transparent 68%);
-  opacity: 0.8;
-  animation: heroDrift 16s ease-in-out infinite alternate-reverse;
+  inset: 12% -8% -26% 58%;
+  background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+  opacity: 0.76;
+  animation: heroDrift 26s ease-in-out infinite alternate-reverse;
 }
 
 .heroIntro > * {
@@ -40,8 +42,26 @@
   z-index: 1;
 }
 
+.heroFrame {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(18rem, 0.82fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.heroStack,
+.heroAside,
+.panelCopy,
+.contactAside {
+  min-width: 0;
+}
+
 .heroStack {
   max-width: 46rem;
+}
+
+.heroBrand {
+  margin-bottom: 0.2rem;
 }
 
 .heroCopy {
@@ -49,7 +69,48 @@
 }
 
 .heroLead {
-  max-width: 44rem;
+  max-width: 45rem;
+}
+
+.heroAside {
+  padding: 1.25rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.65rem;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.04), transparent 24%),
+    var(--surface-panel-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+.heroPillarGrid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.heroPillar {
+  padding: 0.95rem 1rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.05rem;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.heroSignalList,
+.signalList {
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.heroSignalItem,
+.signalItem {
+  display: block;
+}
+
+.heroSignalItem + .heroSignalItem,
+.signalItem + .signalItem {
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .heroActions,
@@ -62,7 +123,8 @@
   transform-origin: center;
 }
 
-.proofLabel {
+.proofLabel,
+.kicker {
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -81,15 +143,11 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding: clamp(1.2rem, 3.4vw, 2.2rem);
+  padding: clamp(1.25rem, 3.4vw, 2.2rem);
+  border: 1px solid var(--border-subtle);
   border-radius: 1.8rem;
   background:
-    linear-gradient(
-      155deg,
-      rgba(255, 255, 255, 0.05),
-      transparent 26%,
-      rgba(255, 255, 255, 0.02) 100%
-    ),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.04), transparent 26%),
     var(--surface-panel);
   box-shadow: var(--shadow-soft);
 }
@@ -121,36 +179,14 @@
 }
 
 .contactAside {
-  min-width: 0;
   max-width: 22rem;
   padding: 1.1rem;
-  border: 1px solid rgba(169, 189, 214, 0.16);
+  border: 1px solid var(--border-subtle);
   border-radius: 1.35rem;
   background:
-    linear-gradient(
-      150deg,
-      rgba(255, 255, 255, 0.08),
-      transparent 22%,
-      rgba(255, 255, 255, 0.03) 100%
-    ),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.04), transparent 24%),
     var(--surface-panel-soft);
   box-shadow: var(--shadow-soft);
-}
-
-.signalList {
-  width: 100%;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.signalItem {
-  display: block;
-}
-
-.signalItem + .signalItem {
-  padding-top: 0.9rem;
-  border-top: 1px solid var(--border-subtle);
 }
 
 @keyframes heroDrift {
@@ -159,14 +195,34 @@
   }
 
   to {
-    transform: translate3d(0, -4%, 0) scale(1.05);
+    transform: translate3d(0, -1.4%, 0) scale(1.018);
+  }
+}
+
+@media (max-width: breakpoints.$m) {
+  .heroFrame {
+    grid-template-columns: 1fr;
+  }
+
+  .heroStack,
+  .heroCopy,
+  .heroLead,
+  .panelCopy,
+  .contactAside {
+    max-width: none;
   }
 }
 
 @media (max-width: breakpoints.$s) {
   .heroIntro {
-    padding: 1.25rem;
+    padding: 1.2rem;
     border-radius: 1.5rem;
+  }
+
+  .heroAside,
+  .heroPillar,
+  .contactAside {
+    border-radius: 1.2rem;
   }
 
   .blogPanel,
@@ -175,17 +231,8 @@
     border-radius: 1.45rem;
   }
 
-  .heroCopy,
-  .heroLead {
-    max-width: none;
-  }
-
   .panelHeader {
     align-items: flex-start;
-  }
-
-  .contactAside {
-    max-width: none;
   }
 
   .heroActions,

@@ -1,4 +1,4 @@
-import { IBM_Plex_Mono, Manrope, Plus_Jakarta_Sans } from "next/font/google";
+import { IBM_Plex_Mono, Manrope, Space_Grotesk } from "next/font/google";
 
 import {
   DataStyleConfig,
@@ -32,10 +32,11 @@ const display: DisplayConfig = {
   themeSwitcher: true,
 };
 
-const heading = Plus_Jakarta_Sans({
+const heading = Space_Grotesk({
   variable: "--font-heading",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500", "700"],
 });
 
 const body = Manrope({
@@ -44,10 +45,11 @@ const body = Manrope({
   display: "swap",
 });
 
-const label = Plus_Jakarta_Sans({
+const label = Space_Grotesk({
   variable: "--font-label",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500", "700"],
 });
 
 const code = IBM_Plex_Mono({
@@ -65,13 +67,13 @@ const fonts: FontsConfig = {
 };
 
 const style: StyleConfig = {
-  theme: "system",
+  theme: "dark",
   neutral: "custom",
   brand: "custom",
   accent: "custom",
   solid: "contrast",
   solidStyle: "flat",
-  border: "playful",
+  border: "rounded",
   surface: "translucent",
   transition: "all",
   scaling: "100",
@@ -94,13 +96,13 @@ const dataStyle: DataStyleConfig = {
 const effects: EffectsConfig = {
   mask: {
     cursor: false,
-    x: 48,
-    y: 8,
-    radius: 88,
+    x: 50,
+    y: 10,
+    radius: 72,
   },
   gradient: {
-    display: true,
-    opacity: 54,
+    display: false,
+    opacity: 0,
     x: 50,
     y: 0,
     width: 84,
@@ -136,14 +138,14 @@ const mailchimp: MailchimpConfig = {
   action: "https://url/subscribe/post?parameters",
   effects: {
     mask: {
-      cursor: true,
+      cursor: false,
       x: 50,
       y: 0,
-      radius: 90,
+      radius: 72,
     },
     gradient: {
-      display: true,
-      opacity: 82,
+      display: false,
+      opacity: 0,
       x: 50,
       y: 0,
       width: 52,
@@ -177,10 +179,10 @@ const mailchimp: MailchimpConfig = {
 };
 
 const schema: SchemaConfig = {
-  logo: "",
+  logo: "/trademarks/henrique-reis-mark.svg",
   type: "Organization",
   name: "Henrique Reis",
-  description: home.description,
+  description: "Estratégia, design e sistemas para transformar complexidade digital em clareza.",
   email: "oi@henriquereis.dev",
 };
 

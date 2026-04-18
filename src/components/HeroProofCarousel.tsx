@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { Icon, Row, Text } from "@once-ui-system/core";
 
@@ -18,19 +18,21 @@ type HeroProofCarouselProps = {
   speed?: number;
 };
 
-export function HeroProofCarousel({ items, speed = 0.45 }: HeroProofCarouselProps) {
+export function HeroProofCarousel({ items, speed = 0.36 }: HeroProofCarouselProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const segmentRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<number | null>(null);
   const inViewRef = useRef(true);
+  const prefersReducedMotionRef = useRef(false);
   const hoveredRef = useRef(false);
   const pausedRef = useRef(false);
+  const pendingDragRef = useRef(false);
   const draggingRef = useRef(false);
   const dragStartXRef = useRef(0);
+  const dragStartYRef = useRef(0);
   const dragStartScrollRef = useRef(0);
   const [isDragging, setIsDragging] = useState(false);
-
-  const visibleItems = useMemo(() => items, [items]);
+  const visibleItems = items;
 
   useEffect(() => {
     const viewport = viewportRef.current;
@@ -50,6 +52,23 @@ export function HeroProofCarousel({ items, speed = 0.45 }: HeroProofCarouselProp
 
     return () => observer.disconnect();
   }, [visibleItems.length]);
+
+  useEffect(() => {
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const syncMotionPreference = () => {
+      prefersReducedMotionRef.current = motionQuery.matches;
+      pausedRef.current = motionQuery.matches || hoveredRef.current;
+    };
+
+    syncMotionPreference();
+
+    motionQuery.addEventListener?.("change", syncMotionPreference);
+
+    return () => {
+      motionQuery.removeEventListener?.("change", syncMotionPreference);
+    };
+  }, []);
 
   const normalizeScroll = () => {
     const viewport = viewportRef.current;
@@ -75,7 +94,13 @@ export function HeroProofCarousel({ items, speed = 0.45 }: HeroProofCarouselProp
     if (!viewport || !segment || visibleItems.length === 0) return;
 
     const animate = () => {
-      if (inViewRef.current && !pausedRef.current && !draggingRef.current) {
+      if (
+        inViewRef.current &&
+        !prefersReducedMotionRef.current &&
+        !pausedRef.current &&
+        !pendingDragRef.current &&
+        !draggingRef.current
+      ) {
         viewport.scrollLeft += speed;
         normalizeScroll();
       }
@@ -97,25 +122,48 @@ export function HeroProofCarousel({ items, speed = 0.45 }: HeroProofCarouselProp
 
     if (!viewport) return;
 
-    draggingRef.current = true;
+    if (event.pointerType === "mouse" && event.button !== 0) {
+      return;
+    }
+
+    pendingDragRef.current = true;
     pausedRef.current = true;
     dragStartXRef.current = event.clientX;
+    dragStartYRef.current = event.clientY;
     dragStartScrollRef.current = viewport.scrollLeft;
-    setIsDragging(true);
-    viewport.setPointerCapture?.(event.pointerId);
   };
 
   const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
     const viewport = viewportRef.current;
     const segment = segmentRef.current;
 
-    if (!draggingRef.current || !viewport || !segment) return;
+    if ((!pendingDragRef.current && !draggingRef.current) || !viewport || !segment) return;
 
     const segmentWidth = segment.scrollWidth;
 
     if (segmentWidth <= 0) return;
 
     const delta = event.clientX - dragStartXRef.current;
+    const deltaY = event.clientY - dragStartYRef.current;
+
+    if (!draggingRef.current) {
+      if (Math.abs(delta) < 8 && Math.abs(deltaY) < 8) {
+        return;
+      }
+
+      if (Math.abs(deltaY) > Math.abs(delta)) {
+        pendingDragRef.current = false;
+        pausedRef.current = prefersReducedMotionRef.current || hoveredRef.current;
+        return;
+      }
+
+      draggingRef.current = true;
+      setIsDragging(true);
+      viewport.setPointerCapture?.(event.pointerId);
+    }
+
+    event.preventDefault();
+
     let nextScrollLeft = dragStartScrollRef.current - delta;
 
     if (nextScrollLeft < 0) {
@@ -134,8 +182,9 @@ export function HeroProofCarousel({ items, speed = 0.45 }: HeroProofCarouselProp
       viewport.releasePointerCapture(pointerId);
     }
 
+    pendingDragRef.current = false;
     draggingRef.current = false;
-    pausedRef.current = hoveredRef.current;
+    pausedRef.current = prefersReducedMotionRef.current || hoveredRef.current;
     setIsDragging(false);
   };
 
@@ -154,18 +203,25 @@ export function HeroProofCarousel({ items, speed = 0.45 }: HeroProofCarouselProp
         }}
         onMouseLeave={() => {
           hoveredRef.current = false;
-          if (!draggingRef.current) pausedRef.current = false;
+          if (!draggingRef.current) pausedRef.current = prefersReducedMotionRef.current;
         }}
         onFocusCapture={() => {
           pausedRef.current = true;
         }}
         onBlurCapture={() => {
-          pausedRef.current = hoveredRef.current;
+          pausedRef.current = prefersReducedMotionRef.current || hoveredRef.current;
         }}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={(event) => stopDragging(event.pointerId)}
         onPointerCancel={(event) => stopDragging(event.pointerId)}
+        onLostPointerCapture={() => stopDragging()}
+        onPointerLeave={(event) => {
+          if (event.pointerType === "mouse" && !event.currentTarget.hasPointerCapture(event.pointerId)) {
+            stopDragging();
+          }
+        }}
+        onScroll={normalizeScroll}
         aria-label="Diferenciais do trabalho"
       >
         <div ref={segmentRef} className={styles.track}>

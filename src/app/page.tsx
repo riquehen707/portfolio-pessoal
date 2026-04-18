@@ -11,32 +11,54 @@ import {
   Text,
 } from "@once-ui-system/core";
 
-import { Mailchimp } from "@/components";
+import { BrandSignature, Mailchimp } from "@/components";
 import { HeroProofCarousel } from "@/components/HeroProofCarousel";
 import { MarketStrategyRail } from "@/components/MarketStrategyRail";
 import { Posts } from "@/components/blog/Posts";
 import { FeaturedWorksShowcase } from "@/components/work/FeaturedWorksShowcase";
 import { about, baseURL, blog, home, person, routes, servicesPage, work } from "@/resources";
 import { getPosts } from "@/utils/utils";
+
 import styles from "./home.module.scss";
 
 const heroProofItems = [
   {
     icon: "grid" as const,
-    label: "Especializado em negócios e serviços locais",
+    label: "Presença forte para negócios que vivem de confiança",
   },
   {
     icon: "chart" as const,
-    label: "Decisões guiadas por dados reais",
+    label: "Decisão orientada por lógica, dados e direção clara",
   },
   {
     icon: "globe" as const,
-    label: "Ecossistema digital completo e integrado",
+    label: "Design, tecnologia e comunicação em um mesmo sistema",
   },
   {
     icon: "rocket" as const,
-    label: "Soluções personalizadas para sua operação",
+    label: "Execução sofisticada sem aparência genérica ou improvisada",
   },
+];
+
+const heroPillars = [
+  {
+    label: "Essência",
+    value: "Transformar complexidade em clareza.",
+  },
+  {
+    label: "Arquétipo",
+    value: "Criador + Sábio",
+  },
+  {
+    label: "Centro",
+    value: "Controle + Valor + Futuro",
+  },
+];
+
+const heroSignals = [
+  "Estratégia antes da execução.",
+  "Design com função real.",
+  "Tecnologia organizada para crescimento.",
 ];
 
 export async function generateMetadata() {
@@ -70,53 +92,96 @@ export default function Home() {
       />
 
       <Column className={styles.heroIntro} fillWidth gap="24">
-        <RevealFx delay={0.08} speed={1200} translateY={0.8}>
-          <Column className={styles.heroStack} gap="16">
-            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-              Operação digital para negócios locais
-            </Tag>
+        <div className={styles.heroFrame}>
+          <RevealFx delay={0.04} speed={900} translateY={0.28}>
+            <Column className={styles.heroStack} gap="16">
+              <BrandSignature
+                className={styles.heroBrand}
+                descriptor="Estratégia, design e sistemas para crescimento digital"
+              />
 
-            <Column gap="12" className={styles.heroCopy}>
-              <Heading wrap="balance" variant="display-strong-l">
-                {home.headline}
-              </Heading>
+              <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+                Estratégia antes da execução
+              </Tag>
 
-              <Text
-                className={styles.heroLead}
-                wrap="balance"
-                onBackground="neutral-weak"
-                variant="heading-default-xl"
-              >
-                {home.subline}
-              </Text>
+              <Column gap="12" className={styles.heroCopy}>
+                <Heading wrap="balance" variant="display-strong-l">
+                  {home.headline}
+                </Heading>
+
+                <Text
+                  className={styles.heroLead}
+                  wrap="balance"
+                  onBackground="neutral-weak"
+                  variant="heading-default-xl"
+                >
+                  {home.subline}
+                </Text>
+              </Column>
+
+              <Row gap="12" wrap className={styles.heroActions}>
+                <Button
+                  href={about.calendar.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  variant="primary"
+                  size="m"
+                  prefixIcon="calendar"
+                >
+                  Agendar uma ligação
+                </Button>
+                <Button href={work.path} variant="secondary" size="m" arrowIcon>
+                  Conheça meu trabalho
+                </Button>
+              </Row>
             </Column>
+          </RevealFx>
 
-            <Row gap="12" wrap className={styles.heroActions}>
-              <Button
-                href={about.calendar.link}
-                target="_blank"
-                rel="noreferrer"
-                variant="primary"
-                size="m"
-                prefixIcon="calendar"
-              >
-                Agendar uma ligação
-              </Button>
-              <Button href={work.path} variant="secondary" size="m" arrowIcon>
-                Conheça meu trabalho
-              </Button>
-            </Row>
-          </Column>
-        </RevealFx>
+          <RevealFx delay={0.1} speed={980} translateY={0.24}>
+            <Column className={styles.heroAside} gap="16">
+              <Column gap="12">
+                <Text className={styles.kicker} variant="label-default-s" onBackground="neutral-weak">
+                  Posicionamento
+                </Text>
+                <Heading as="h2" variant="heading-strong-l" wrap="balance">
+                  Presença digital que funciona. Visual que posiciona. Sistemas feitos para durar.
+                </Heading>
+                <Text onBackground="neutral-weak" variant="body-default-m">
+                  Para negócios que querem presença forte, eficiência operacional e comunicação com
+                  direção real.
+                </Text>
+              </Column>
 
-        <RevealFx delay={0.18} speed={1250} translateY={0.7}>
+              <div className={styles.heroPillarGrid}>
+                {heroPillars.map((pillar) => (
+                  <div key={pillar.label} className={styles.heroPillar}>
+                    <Text className={styles.kicker} variant="label-default-s" onBackground="neutral-weak">
+                      {pillar.label}
+                    </Text>
+                    <Text variant="body-default-m">{pillar.value}</Text>
+                  </div>
+                ))}
+              </div>
+
+              <Column as="ul" className={styles.heroSignalList} gap="12">
+                {heroSignals.map((signal) => (
+                  <Text as="li" key={signal} className={styles.heroSignalItem} onBackground="neutral-weak">
+                    {signal}
+                  </Text>
+                ))}
+              </Column>
+            </Column>
+          </RevealFx>
+        </div>
+
+        <RevealFx delay={0.14} speed={980} translateY={0.18}>
           <Column gap="12">
             <Text
               className={styles.proofLabel}
               variant="label-default-s"
               onBackground="neutral-weak"
             >
-              Base do trabalho
+              Percepção desejada
             </Text>
             <HeroProofCarousel items={heroProofItems} />
           </Column>
@@ -135,7 +200,7 @@ export default function Home() {
           <Heading as="h2" variant="display-strong-s">
             Novos cases entram em breve
           </Heading>
-          <RevealFx delay={0.22} speed={1200} translateY={0.9}>
+          <RevealFx delay={0.16} speed={900} translateY={0.3}>
             <Row gap="12" wrap className={styles.actions}>
               <Button href={servicesPage.path} variant="primary" size="m" arrowIcon>
                 Ver serviços
@@ -161,11 +226,11 @@ export default function Home() {
                 Blog
               </Tag>
               <Heading as="h2" variant="display-strong-s">
-                Textos sobre internet, negócio e tecnologia
+                Pensamento, processo e internet sem ruído.
               </Heading>
               <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-                Ensaios, notas e leituras práticas sobre presença digital, operação e tomada de
-                decisão.
+                Ensaios, notas e leituras sobre estratégia, tecnologia, comunicação e construção de
+                presença digital com critério.
               </Text>
             </Column>
 
@@ -192,11 +257,11 @@ export default function Home() {
               Próximo passo
             </Tag>
             <Heading as="h2" variant="display-strong-s">
-              Se fizer sentido, a próxima conversa já pode sair com direção prática.
+              Se a operação precisa de mais clareza, a próxima conversa começa por aí.
             </Heading>
             <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-              A ideia aqui não é vender confusão. É entender contexto, organizar prioridades e
-              transformar presença digital em operação mais clara.
+              O objetivo não é empilhar entregas. É entender contexto, organizar prioridades e
+              desenhar a estrutura certa para crescer com mais controle.
             </Text>
 
             <Row gap="12" wrap className={styles.heroActions}>
@@ -226,13 +291,13 @@ export default function Home() {
             </Text>
             <Column className={styles.signalList} as="ul" gap="12">
               <Text as="li" className={styles.signalItem} onBackground="neutral-weak">
-                leitura objetiva da situação atual do negócio
+                leitura objetiva da estrutura digital atual
               </Text>
               <Text as="li" className={styles.signalItem} onBackground="neutral-weak">
-                prioridades técnicas e estratégicas em ordem útil
+                definição do formato mais adequado para o próximo passo
               </Text>
               <Text as="li" className={styles.signalItem} onBackground="neutral-weak">
-                recomendação de formato mais adequado para o próximo passo
+                priorização técnica e estratégica sem excesso de ruído
               </Text>
             </Column>
           </Column>

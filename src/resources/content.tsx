@@ -1,12 +1,13 @@
 import { About, Blog, Home, Newsletter, Person, Social, TechnicalPage, Work } from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
-import { productsPage, services, servicesPage } from "./services";
+
+import { services, servicesPage } from "./services";
 
 const person: Person = {
   firstName: "Henrique",
   lastName: "Reis",
   name: "Henrique Reis",
-  role: "Desenvolvedor front-end, SEO técnico e automação",
+  role: "Estratégia digital, design e sistemas para negócios que precisam crescer com clareza",
   avatar: "/images/avatar-henrique.jpg",
   email: "oi@henriquereis.dev",
   location: "America/Bahia",
@@ -16,7 +17,7 @@ const person: Person = {
 const newsletter: Newsletter = {
   display: false,
   title: <>Assine a newsletter de {person.firstName}</>,
-  description: <>Notas semanais sobre sites, SEO, produto e operação digital.</>,
+  description: <>Notas sobre clareza digital, posicionamento, sistemas e execução.</>,
 };
 
 const social: Social = [
@@ -43,10 +44,10 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Início",
-  title: "Henrique Reis | Portfólio, serviços e blog",
+  title: "Henrique Reis | Estratégia, design e sistemas para crescimento digital",
   description:
-    "Portfólio com serviços, projetos e textos sobre presença digital para profissionais que vivem de confiança, atendimento e relacionamento.",
-  headline: <>Foque no seu serviço enquanto eu estruturo sua operação digital.</>,
+    "Portfólio de estratégia, design e sistemas para negócios que querem presença forte, operação eficiente e comunicação com direção real.",
+  headline: <>Operação digital completa para negócios que querem crescer com clareza.</>,
   featured: {
     display: false,
     title: (
@@ -62,8 +63,8 @@ const home: Home = {
   },
   subline: (
     <>
-      Toda a estrutura digital do seu negócio em um só parceiro: software, presença online,
-      automação e gestão orientada por dados.
+      Transformo complexidade em clareza com design, sistemas e comunicação estratégica para
+      construir presença forte, eficiência operacional e crescimento sustentável.
     </>
   ),
 };
@@ -72,7 +73,7 @@ const about: About = {
   path: "/about",
   label: "Sobre",
   title: `Sobre | ${person.name}`,
-  description: `Sobre ${person.name}, com foco em sites, SEO técnico e automação.`,
+  description: `Sobre ${person.name}, com foco em estratégia digital, estética e sistemas para crescimento.`,
   tableOfContent: {
     display: true,
     subItems: true,
@@ -87,7 +88,8 @@ const about: About = {
   intro: {
     display: true,
     title: "Introdução",
-    description: <>Sites, SEO técnico e automação para negócios que precisam de clareza.</>,
+    description:
+      <>Estratégia antes da execução. Clareza para posicionar, construir e fazer o digital funcionar.</>,
   },
   work: {
     display: true,
@@ -96,10 +98,10 @@ const about: About = {
       {
         company: "Estúdio independente",
         timeframe: "2023 - Presente",
-        role: "Fundador | desenvolvimento e estratégia",
+        role: "Fundador | estratégia, design e desenvolvimento",
         achievements: [
-          <>Projetos em Next.js, SEO e front-end para sites, páginas e operações menores.</>,
-          <>Trabalho com estrutura, performance e contato.</>,
+          <>Projetos para estruturar presença digital, operação e percepção de valor.</>,
+          <>Entrega conectando estética, lógica de negócio e execução técnica no mesmo sistema.</>,
         ],
         images: [],
       },
@@ -111,11 +113,11 @@ const about: About = {
     institutions: [
       {
         name: "Formação autodidata",
-        description: <>SEO técnico, front-end e produto digital.</>,
+        description: <>Estratégia digital, front-end, SEO técnico, produto e direção visual.</>,
       },
       {
         name: "Foco atual",
-        description: <>Negócios locais, estrutura de página e operação mais simples.</>,
+        description: <>Negócios locais, sistemas enxutos e marcas que precisam crescer com precisão.</>,
       },
     ],
   },
@@ -125,7 +127,7 @@ const about: About = {
     skills: [
       {
         title: "Next.js e React",
-        description: <>Sites e interfaces rápidas.</>,
+        description: <>Sites, interfaces e produtos com acabamento técnico forte.</>,
         tags: [
           { name: "Next.js", icon: "nextjs" },
           { name: "React", icon: "javascript" },
@@ -135,7 +137,7 @@ const about: About = {
       },
       {
         title: "Vue e interfaces modulares",
-        description: <>Painéis, fluxos e componentes isolados.</>,
+        description: <>Painéis, fluxos e sistemas com estrutura clara.</>,
         tags: [
           { name: "Vue", icon: "vue" },
           { name: "JavaScript", icon: "javascript" },
@@ -144,8 +146,8 @@ const about: About = {
         images: [],
       },
       {
-        title: "SCSS e design de interface",
-        description: <>SCSS modular e interface consistente.</>,
+        title: "Design systems e interface",
+        description: <>SCSS modular, hierarquia forte e direção visual consistente.</>,
         tags: [
           { name: "SCSS", icon: "sass" },
           { name: "Responsive", icon: "grid" },
@@ -154,8 +156,8 @@ const about: About = {
         images: [],
       },
       {
-        title: "SEO técnico para lojas e blogs",
-        description: <>Base técnica para busca, conteúdo e performance.</>,
+        title: "SEO técnico e arquitetura de presença",
+        description: <>Base técnica para busca, conteúdo, indexação e conversão.</>,
         tags: [
           { name: "SEO", icon: "seo" },
           { name: "E-commerce", icon: "shopify" },
@@ -165,7 +167,7 @@ const about: About = {
       },
       {
         title: "Automação e dados",
-        description: <>Integrações e dados para reduzir retrabalho.</>,
+        description: <>Integrações, processos e sinais para reduzir ruído operacional.</>,
         tags: [
           { name: "Python", icon: "python" },
           { name: "Analytics", icon: "chart" },
@@ -182,22 +184,22 @@ const technicalApproach: TechnicalPage = {
   label: "Abordagem técnica",
   title: `Abordagem técnica | ${person.name}`,
   description:
-    "Uma visão prática de como estruturo front-end, SEO, performance e automação sem perder clareza nem pesar a experiência.",
+    "Uma visão prática de como estruturo design, front-end, SEO, performance e sistemas sem perder clareza.",
 };
 
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Ensaios, tecnologia e interesses",
+  title: "Pensamento, processo e internet",
   description:
-    "Um espaço editorial para ensaios, filosofia, cultura, tecnologia, SEO e outros temas que atravessam meu trabalho e meus interesses.",
+    "Um espaço editorial para estratégia, tecnologia, internet, processo e ideias que atravessam o trabalho.",
 };
 
 const work: Work = {
   path: "/work",
   label: "Projetos",
-  title: "Projetos",
-  description: "Projetos, casos e aplicações em uso.",
+  title: "Works",
+  description: "Projetos, casos e estruturas digitais desenhadas para gerar valor real.",
 };
 
 export { person, social, newsletter, home, about, technicalApproach, blog, work };

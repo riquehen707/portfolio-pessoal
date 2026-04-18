@@ -1,11 +1,12 @@
-﻿import { ImageResponse } from "next/og";
+import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
-  const title = searchParams.get("title") || "Henrique Studio";
-  const subtitle = searchParams.get("subtitle") || "Portfólio • Blog • Diário";
+  const title = searchParams.get("title") || "Henrique Reis";
+  const subtitle =
+    searchParams.get("subtitle") || "Estratégia, design e sistemas para crescimento digital";
 
   return new ImageResponse(
     (
@@ -15,25 +16,71 @@ export async function GET(req: Request) {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
-          padding: "64px 80px",
-          background: "linear-gradient(120deg, #0f172a 0%, #111827 50%, #0b1324 100%)",
-          color: "#f8fafc",
-          fontFamily: "ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial",
+          justifyContent: "space-between",
+          padding: "64px 72px",
+          background:
+            "linear-gradient(180deg, #0B0B0D 0%, #101014 48%, #0B0B0D 100%)",
+          color: "#F5F5F2",
+          fontFamily:
+            "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif",
         }}
       >
-        <div style={{ fontSize: 28, letterSpacing: 2, textTransform: "uppercase", color: "#cbd5f5" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 18,
+            fontSize: 24,
+            letterSpacing: 4,
+            textTransform: "uppercase",
+            color: "#A8A8B3",
+          }}
+        >
+          <div
+            style={{
+              width: 18,
+              height: 18,
+              borderRadius: 4,
+              background: "#FFD700",
+              boxShadow: "0 0 0 1px rgba(255,215,0,0.32)",
+            }}
+          />
           Henrique Reis
         </div>
-        <div style={{ fontSize: 64, fontWeight: 700, lineHeight: 1.1, marginTop: 24 }}>
-          {title}
+
+        <div style={{ display: "flex", flexDirection: "column", gap: 24, maxWidth: 960 }}>
+          <div
+            style={{
+              fontSize: 82,
+              fontWeight: 700,
+              lineHeight: 1.02,
+              letterSpacing: -3.4,
+            }}
+          >
+            {title}
+          </div>
+          <div style={{ fontSize: 30, lineHeight: 1.35, color: "#A8A8B3", maxWidth: 900 }}>
+            {subtitle}
+          </div>
         </div>
-        <div style={{ fontSize: 28, color: "#94a3b8", marginTop: 24 }}>{subtitle}</div>
+
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            fontSize: 22,
+            color: "#D8D8D3",
+          }}
+        >
+          <div>Transformar complexidade em clareza.</div>
+          <div style={{ color: "#16B8F3" }}>henrique.dog</div>
+        </div>
       </div>
     ),
     {
       width: 1200,
       height: 630,
-    }
+    },
   );
 }

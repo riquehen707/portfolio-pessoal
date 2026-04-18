@@ -1,5 +1,6 @@
 export { Header } from "@/components/Header";
 export { Footer } from "@/components/Footer";
+export { BrandSignature } from "@/components/BrandSignature";
 export { Mailchimp } from "@/components/Mailchimp";
 export { ProjectCard } from "@/components/ProjectCard";
 export { HeadingLink } from "@/components/HeadingLink";

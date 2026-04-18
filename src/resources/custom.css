@@ -1,85 +1,91 @@
 :root {
-  --scheme-brand-100: #07101a;
-  --scheme-brand-200: #0b1523;
-  --scheme-brand-300: #112239;
-  --scheme-brand-400: #173150;
-  --scheme-brand-500: #224977;
-  --scheme-brand-600: #3468a8;
-  --scheme-brand-700: #4f86d1;
-  --scheme-brand-800: #7ca6e1;
-  --scheme-brand-900: #a9c6ef;
-  --scheme-brand-1000: #d4e3f8;
-  --scheme-brand-1100: #eaf1fb;
-  --scheme-brand-1200: #f6f9fd;
-  --scheme-brand-600-10: rgba(52, 104, 168, 0.1);
-  --scheme-brand-600-30: rgba(52, 104, 168, 0.3);
-  --scheme-brand-600-50: rgba(52, 104, 168, 0.5);
+  --scheme-brand-100: #171100;
+  --scheme-brand-200: #221900;
+  --scheme-brand-300: #3a2a00;
+  --scheme-brand-400: #564000;
+  --scheme-brand-500: #7d5d00;
+  --scheme-brand-600: #b18300;
+  --scheme-brand-700: #ffd700;
+  --scheme-brand-800: #ffe45b;
+  --scheme-brand-900: #ffec94;
+  --scheme-brand-1000: #fff3bd;
+  --scheme-brand-1100: #fff8dc;
+  --scheme-brand-1200: #fffdf2;
+  --scheme-brand-600-10: rgba(177, 131, 0, 0.1);
+  --scheme-brand-600-30: rgba(177, 131, 0, 0.3);
+  --scheme-brand-600-50: rgba(177, 131, 0, 0.5);
+  --scheme-brand-700-10: rgba(255, 215, 0, 0.1);
+  --scheme-brand-700-30: rgba(255, 215, 0, 0.3);
+  --scheme-brand-700-50: rgba(255, 215, 0, 0.5);
 
-  --scheme-accent-100: #180a0a;
-  --scheme-accent-200: #241010;
-  --scheme-accent-300: #3b1817;
-  --scheme-accent-400: #572420;
-  --scheme-accent-500: #7f332d;
-  --scheme-accent-600: #aa453c;
-  --scheme-accent-700: #d55f50;
-  --scheme-accent-800: #ea8a75;
-  --scheme-accent-900: #f4bbad;
-  --scheme-accent-1000: #f9ddd5;
-  --scheme-accent-1100: #fcf0eb;
-  --scheme-accent-1200: #fef8f5;
-  --scheme-accent-600-10: rgba(170, 69, 60, 0.1);
-  --scheme-accent-600-30: rgba(170, 69, 60, 0.3);
-  --scheme-accent-600-50: rgba(170, 69, 60, 0.5);
+  --scheme-accent-100: #04131a;
+  --scheme-accent-200: #081c24;
+  --scheme-accent-300: #0d2d39;
+  --scheme-accent-400: #104454;
+  --scheme-accent-500: #146580;
+  --scheme-accent-600: #1795bf;
+  --scheme-accent-700: #16b8f3;
+  --scheme-accent-800: #5fcbf8;
+  --scheme-accent-900: #9fddfb;
+  --scheme-accent-1000: #c9ecfd;
+  --scheme-accent-1100: #e3f7fe;
+  --scheme-accent-1200: #f3fcff;
+  --scheme-accent-600-10: rgba(23, 149, 191, 0.1);
+  --scheme-accent-600-30: rgba(23, 149, 191, 0.3);
+  --scheme-accent-600-50: rgba(23, 149, 191, 0.5);
+  --scheme-accent-700-10: rgba(22, 184, 243, 0.1);
+  --scheme-accent-700-30: rgba(22, 184, 243, 0.3);
+  --scheme-accent-700-50: rgba(22, 184, 243, 0.5);
 
-  --scheme-neutral-100: #050607;
-  --scheme-neutral-200: #0b0d10;
-  --scheme-neutral-300: #13171b;
-  --scheme-neutral-400: #1d242b;
-  --scheme-neutral-500: #2c353e;
-  --scheme-neutral-600: #485463;
-  --scheme-neutral-700: #647283;
-  --scheme-neutral-800: #92a0b0;
-  --scheme-neutral-900: #c0cad4;
-  --scheme-neutral-1000: #dde4eb;
-  --scheme-neutral-1100: #edf2f6;
-  --scheme-neutral-1200: #f8fafc;
-  --scheme-neutral-600-10: rgba(72, 84, 99, 0.1);
-  --scheme-neutral-600-30: rgba(72, 84, 99, 0.3);
-  --scheme-neutral-600-50: rgba(72, 84, 99, 0.5);
+  --scheme-neutral-100: #050506;
+  --scheme-neutral-200: #0b0b0d;
+  --scheme-neutral-300: #141418;
+  --scheme-neutral-400: #1c1c22;
+  --scheme-neutral-500: #2b2b34;
+  --scheme-neutral-600: #43434e;
+  --scheme-neutral-700: #6a6a76;
+  --scheme-neutral-800: #8f8f9a;
+  --scheme-neutral-900: #b8b8c2;
+  --scheme-neutral-1000: #d7d7de;
+  --scheme-neutral-1100: #ecece7;
+  --scheme-neutral-1200: #f5f5f2;
+  --scheme-neutral-600-10: rgba(67, 67, 78, 0.1);
+  --scheme-neutral-600-30: rgba(67, 67, 78, 0.3);
+  --scheme-neutral-600-50: rgba(67, 67, 78, 0.5);
 
-  --surface-panel: linear-gradient(180deg, rgba(13, 16, 22, 0.94), rgba(8, 10, 14, 0.98));
-  --surface-panel-soft: linear-gradient(180deg, rgba(17, 21, 29, 0.84), rgba(10, 12, 17, 0.92));
-  --surface-panel-strong: linear-gradient(180deg, rgba(20, 24, 32, 0.96), rgba(9, 11, 16, 1));
-  --border-subtle: rgba(222, 232, 245, 0.02);
-  --border-strong: rgba(222, 232, 245, 0.05);
-  --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.18);
-  --shadow-card: 0 22px 56px rgba(0, 0, 0, 0.24);
-  --brand-glow: rgba(79, 134, 209, 0.18);
-  --accent-glow: rgba(213, 95, 80, 0.14);
-  --neutral-alpha-weak: rgba(222, 232, 245, 0.04);
-  --neutral-alpha-medium: rgba(222, 232, 245, 0.07);
-  --neutral-alpha-strong: rgba(222, 232, 245, 0.1);
-  --neutral-on-background-strong: #f7fbff;
-  --neutral-on-background-medium: #edf4fb;
-  --neutral-on-background-weak: #afbccb;
+  --surface-panel: linear-gradient(180deg, rgba(20, 20, 24, 0.96), rgba(14, 14, 18, 0.98));
+  --surface-panel-soft: linear-gradient(180deg, rgba(28, 28, 34, 0.88), rgba(20, 20, 24, 0.94));
+  --surface-panel-strong: linear-gradient(180deg, rgba(28, 28, 34, 0.98), rgba(14, 14, 18, 1));
+  --border-subtle: rgba(245, 245, 242, 0.08);
+  --border-strong: rgba(255, 215, 0, 0.22);
+  --shadow-soft: 0 18px 44px rgba(0, 0, 0, 0.28);
+  --shadow-card: 0 28px 72px rgba(0, 0, 0, 0.36);
+  --brand-glow: rgba(255, 215, 0, 0.09);
+  --accent-glow: rgba(22, 184, 243, 0.1);
+  --neutral-alpha-weak: rgba(245, 245, 242, 0.05);
+  --neutral-alpha-medium: rgba(245, 245, 242, 0.08);
+  --neutral-alpha-strong: rgba(245, 245, 242, 0.12);
+  --neutral-on-background-strong: #f5f5f2;
+  --neutral-on-background-medium: #d8d8d3;
+  --neutral-on-background-weak: #a8a8b3;
 }
 
 html[data-theme="light"] {
-  --surface-panel: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 248, 252, 0.98));
-  --surface-panel-soft: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(243, 247, 251, 0.96));
-  --surface-panel-strong: linear-gradient(180deg, rgba(255, 255, 255, 0.99), rgba(247, 249, 252, 1));
-  --border-subtle: rgba(33, 45, 60, 0.05);
-  --border-strong: rgba(33, 45, 60, 0.09);
-  --shadow-soft: 0 16px 36px rgba(28, 37, 49, 0.07);
-  --shadow-card: 0 22px 52px rgba(28, 37, 49, 0.1);
-  --brand-glow: rgba(79, 134, 209, 0.12);
-  --accent-glow: rgba(213, 95, 80, 0.08);
-  --neutral-alpha-weak: rgba(33, 45, 60, 0.05);
-  --neutral-alpha-medium: rgba(33, 45, 60, 0.08);
-  --neutral-alpha-strong: rgba(33, 45, 60, 0.12);
-  --neutral-on-background-strong: #0f1725;
-  --neutral-on-background-medium: #213245;
-  --neutral-on-background-weak: #5b6d80;
+  --surface-panel: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 248, 244, 0.98));
+  --surface-panel-soft: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(236, 236, 231, 0.96));
+  --surface-panel-strong: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(244, 244, 239, 0.99));
+  --border-subtle: rgba(17, 17, 17, 0.08);
+  --border-strong: rgba(201, 166, 0, 0.22);
+  --shadow-soft: 0 18px 40px rgba(17, 17, 17, 0.08);
+  --shadow-card: 0 24px 52px rgba(17, 17, 17, 0.1);
+  --brand-glow: rgba(201, 166, 0, 0.08);
+  --accent-glow: rgba(20, 130, 184, 0.08);
+  --neutral-alpha-weak: rgba(17, 17, 17, 0.04);
+  --neutral-alpha-medium: rgba(17, 17, 17, 0.08);
+  --neutral-alpha-strong: rgba(17, 17, 17, 0.12);
+  --neutral-on-background-strong: #111111;
+  --neutral-on-background-medium: #2b2b34;
+  --neutral-on-background-weak: #555555;
 }
 
 html,
@@ -89,13 +95,16 @@ body {
 
 html {
   scroll-behavior: smooth;
+  background: #0b0b0d;
 }
 
 body {
   background:
-    radial-gradient(circle at 12% 10%, var(--brand-glow), transparent 24%),
-    radial-gradient(circle at 88% 14%, var(--accent-glow), transparent 22%),
-    linear-gradient(180deg, var(--scheme-neutral-200) 0%, var(--scheme-neutral-100) 100%);
+    repeating-linear-gradient(90deg, rgba(245, 245, 242, 0.028) 0 1px, transparent 1px 72px),
+    repeating-linear-gradient(0deg, rgba(245, 245, 242, 0.022) 0 1px, transparent 1px 72px),
+    radial-gradient(circle at 14% 6%, rgba(255, 215, 0, 0.11), transparent 18%),
+    radial-gradient(circle at 84% 10%, rgba(22, 184, 243, 0.12), transparent 16%),
+    linear-gradient(180deg, #0b0b0d 0%, #101014 48%, #0b0b0d 100%);
   color: var(--neutral-on-background-medium);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -103,16 +112,18 @@ body {
 
 html[data-theme="light"] body {
   background:
-    radial-gradient(circle at 10% 8%, rgba(79, 134, 209, 0.1), transparent 24%),
-    radial-gradient(circle at 88% 12%, rgba(213, 95, 80, 0.08), transparent 20%),
-    linear-gradient(180deg, #f8fafc 0%, #eff4f8 44%, #f7fafc 100%);
+    repeating-linear-gradient(90deg, rgba(17, 17, 17, 0.028) 0 1px, transparent 1px 72px),
+    repeating-linear-gradient(0deg, rgba(17, 17, 17, 0.02) 0 1px, transparent 1px 72px),
+    radial-gradient(circle at 14% 8%, rgba(201, 166, 0, 0.08), transparent 18%),
+    radial-gradient(circle at 84% 10%, rgba(20, 130, 184, 0.08), transparent 16%),
+    linear-gradient(180deg, #f7f7f4 0%, #f4f4ef 44%, #f7f7f4 100%);
 }
 
 h1,
 h2,
 h3,
 h4 {
-  letter-spacing: -0.045em;
+  letter-spacing: -0.055em;
   color: var(--neutral-on-background-strong);
 }
 
@@ -132,12 +143,13 @@ a {
 .button,
 button {
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.08) inset,
-    0 10px 22px rgba(7, 12, 20, 0.08);
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 14px 28px rgba(0, 0, 0, 0.16);
   transition:
     transform 140ms ease,
     box-shadow 140ms ease,
-    filter 140ms ease;
+    filter 140ms ease,
+    border-color 140ms ease;
   transform-origin: center;
 }
 
@@ -154,8 +166,8 @@ button {
   .button:hover,
   button:hover {
     box-shadow:
-      0 1px 0 rgba(255, 255, 255, 0.1) inset,
-      0 14px 28px rgba(7, 12, 20, 0.12);
+      0 1px 0 rgba(255, 255, 255, 0.08) inset,
+      0 18px 34px rgba(0, 0, 0, 0.2);
   }
 
   .reset-button-styles:hover,
@@ -167,18 +179,26 @@ button {
 .button:active,
 button:active {
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.06) inset,
-    0 8px 16px rgba(7, 12, 20, 0.08);
+    0 1px 0 rgba(255, 255, 255, 0.05) inset,
+    0 10px 20px rgba(0, 0, 0, 0.16);
 }
 
 .reset-button-styles:active,
 button:active {
-  transform: translateY(1px) scale(0.985);
-  filter: saturate(1.06) brightness(0.98);
+  transform: translateY(1px) scale(0.988);
+  filter: saturate(1.03) brightness(0.99);
+}
+
+a:focus-visible,
+button:focus-visible,
+.button:focus-visible {
+  outline: 2px solid rgba(255, 215, 0, 0.54);
+  outline-offset: 3px;
 }
 
 ::selection {
-  background: rgba(79, 134, 209, 0.26);
+  background: rgba(255, 215, 0, 0.24);
+  color: var(--neutral-on-background-strong);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -187,7 +207,8 @@ button:active {
   }
 
   .reset-button-styles,
-  button {
+  button,
+  a {
     transition: none;
   }
 }

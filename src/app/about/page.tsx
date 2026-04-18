@@ -1,5 +1,6 @@
 import { Avatar, Button, Column, Grid, Heading, Meta, Row, Schema, SmartLink, Tag, Text } from "@once-ui-system/core";
 
+import { BrandSignature } from "@/components";
 import styles from "@/components/about/about.module.scss";
 import { about, baseURL, person, social, technicalApproach, work } from "@/resources";
 import { getPosts } from "@/utils/utils";
@@ -10,12 +11,16 @@ const kindLabels = {
   client: "Cliente",
 } as const;
 
-const serviceFocus = ["Sites e landing pages", "SEO técnico", "Automações e integrações"];
+const serviceFocus = [
+  "Estratégia digital e posicionamento",
+  "Sites, landing pages e presença com alto nível estético",
+  "Sistemas, automações e operações mais claras",
+];
 
 const audienceFocus = [
-  "Negócios locais",
-  "Profissionais de serviço",
-  "Operações que vivem de confiança e contato",
+  "Negócios locais que precisam crescer com estrutura",
+  "Operações que dependem de confiança e percepção de valor",
+  "Marcas que não querem aparência genérica nem execução solta",
 ];
 
 export async function generateMetadata() {
@@ -56,15 +61,17 @@ export default function About() {
       <Column className={styles.hero} fillWidth gap="24" padding="32">
         <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="20">
           <Column className={styles.heroMain} gap="16">
+            <BrandSignature descriptor="Transformar complexidade em clareza" />
             <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
               Sobre
             </Tag>
             <Heading variant="display-strong-l" wrap="balance">
-              Crio sites, SEO técnico e automações para negócios que precisam ser entendidos rápido.
+              Uno estética, estratégia e execução para construir crescimento digital com valor real.
             </Heading>
             <div className={styles.accentLine} />
             <Text className={styles.lead} variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
-              Clareza primeiro. Técnica para sustentar o resto.
+              Não entrego só design ou código. Estruturo presença, sistemas e comunicação para
+              negócios que querem crescer com clareza, confiança e alto nível estético.
             </Text>
             <Row className={styles.actions} gap="12" wrap>
               <Button href={whatsappLink} prefixIcon="whatsapp" size="m" variant="primary">
@@ -95,29 +102,29 @@ export default function About() {
             <div className={styles.collage}>
               <div className={`${styles.collageCard} ${styles.collageWide}`}>
                 <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
-                  Foco
+                  Essência
                 </Text>
                 <Heading className={styles.collageTitle} as="h2" variant="heading-strong-m" wrap="balance">
-                  Página, busca e contato alinhados.
+                  Transformar complexidade em clareza.
                 </Heading>
                 <Text className={styles.collageBody} variant="body-default-m" onBackground="neutral-weak">
-                  Estrutura clara para vender, atender e crescer melhor.
+                  Estruturas digitais com direção, controle e valor aplicado.
                 </Text>
               </div>
               <div className={styles.collageCard}>
                 <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
-                  Entrega
+                  Arquétipo
                 </Text>
                 <Heading className={styles.collageTitle} as="h2" variant="heading-strong-s" wrap="balance">
-                  Sites, landing pages e sistemas leves.
+                  Criador + Sábio
                 </Heading>
               </div>
               <div className={styles.collageCard}>
                 <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
-                  Base
+                  Diferencial
                 </Text>
                 <Heading className={styles.collageTitle} as="h2" variant="heading-strong-s" wrap="balance">
-                  Next.js, SCSS, SEO e automação.
+                  Sofisticação aplicada, sem ruído.
                 </Heading>
               </div>
             </div>
@@ -130,7 +137,7 @@ export default function About() {
           Trabalho
         </Tag>
         <Heading as="h2" variant="display-strong-s">
-          O que eu faço
+          O que eu construo
         </Heading>
 
         <Grid className={styles.splitGrid} columns="2" s={{ columns: 1 }} gap="16">
@@ -139,7 +146,7 @@ export default function About() {
               Entrega
             </Text>
             <Heading as="h3" variant="heading-strong-l">
-              Estrutura digital para negócio local.
+              Presença, sistema e posicionamento.
             </Heading>
             <Column as="ul" className={styles.infoList} gap="12">
               {serviceFocus.map((point) => (
@@ -155,7 +162,7 @@ export default function About() {
               Para quem
             </Text>
             <Heading as="h3" variant="heading-strong-l">
-              Melhor encaixe.
+              Onde isso encaixa melhor.
             </Heading>
             <Column as="ul" className={styles.infoList} gap="12">
               {audienceFocus.map((point) => (

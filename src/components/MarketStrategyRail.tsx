@@ -1,6 +1,6 @@
 "use client";
 
-import { type CSSProperties, useEffect, useRef, useState } from "react";
+import { type CSSProperties, type KeyboardEvent, useEffect, useRef, useState } from "react";
 
 import classNames from "classnames";
 
@@ -67,31 +67,56 @@ const marketStrategies: MarketStrategyItem[] = [
   },
 ];
 
+function scrollElementIntoCenter(
+  viewport: HTMLDivElement | null,
+  element: HTMLElement | null,
+  behavior: ScrollBehavior = "smooth",
+) {
+  if (!viewport || !element) {
+    return;
+  }
+
+  const viewportRect = viewport.getBoundingClientRect();
+  const elementRect = element.getBoundingClientRect();
+  const centeredOffset =
+    elementRect.left - viewportRect.left - (viewportRect.width - elementRect.width) / 2;
+
+  viewport.scrollTo({
+    left: viewport.scrollLeft + centeredOffset,
+    behavior,
+  });
+}
+
 export function MarketStrategyRail() {
-  const sectionRef = useRef<HTMLElement>(null);
   const tabsViewportRef = useRef<HTMLDivElement>(null);
   const cardsViewportRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<Array<HTMLElement | null>>([]);
-  const hasAutoCenteredRef = useRef(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   const scrollCardIntoView = (index: number, behavior: ScrollBehavior = "smooth") => {
-    const card = cardRefs.current[index];
+    scrollElementIntoCenter(cardsViewportRef.current, cardRefs.current[index], behavior);
+  };
 
-    if (!card) return;
+  const scrollTabIntoView = (index: number, behavior: ScrollBehavior = "smooth") => {
+    const tabsViewport = tabsViewportRef.current;
+    const activeButton = tabsViewport?.querySelector<HTMLElement>(`[data-tab-index="${index}"]`);
 
-    card.scrollIntoView({
-      behavior,
-      inline: "center",
-      block: "nearest",
-    });
+    scrollElementIntoCenter(tabsViewport ?? null, activeButton ?? null, behavior);
+  };
+
+  const selectMarket = (index: number, behavior: ScrollBehavior = "smooth") => {
+    setActiveIndex(index);
+    scrollCardIntoView(index, behavior);
+    scrollTabIntoView(index, behavior);
   };
 
   useEffect(() => {
     const viewport = cardsViewportRef.current;
 
-    if (!viewport) return;
+    if (!viewport) {
+      return;
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -107,85 +132,61 @@ export function MarketStrategyRail() {
           }
         }
 
-        if (bestRatio >= 0.52) {
+        if (bestRatio >= 0.58) {
           setActiveIndex((current) => (current === bestIndex ? current : bestIndex));
         }
       },
       {
         root: viewport,
-        threshold: [0.35, 0.52, 0.7],
+        threshold: [0.36, 0.58, 0.78],
       },
     );
 
     for (const card of cardRefs.current) {
-      if (card) observer.observe(card);
+      if (card) {
+        observer.observe(card);
+      }
     }
 
     return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
-    const tabsViewport = tabsViewportRef.current;
-    const activeButton = tabsViewport?.querySelector<HTMLButtonElement>(
-      `[data-tab-index="${activeIndex}"]`,
-    );
-
-    activeButton?.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "center",
-    });
+    scrollTabIntoView(activeIndex);
   }, [activeIndex]);
 
-  useEffect(() => {
-    const section = sectionRef.current;
+  const handleTabKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (!["ArrowRight", "ArrowLeft", "Home", "End"].includes(event.key)) {
+      return;
+    }
 
-    if (!section) return;
+    event.preventDefault();
 
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const lastIndex = marketStrategies.length - 1;
+    let targetIndex = activeIndex;
 
-    if (prefersReducedMotion || !isMobile) return;
+    if (event.key === "Home") {
+      targetIndex = 0;
+    } else if (event.key === "End") {
+      targetIndex = lastIndex;
+    } else {
+      const direction = event.key === "ArrowRight" ? 1 : -1;
+      targetIndex = (activeIndex + direction + marketStrategies.length) % marketStrategies.length;
+    }
 
-    let lastScrollY = window.scrollY;
-    let scrollingDown = true;
+    selectMarket(targetIndex);
 
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      scrollingDown = currentScrollY >= lastScrollY;
-      lastScrollY = currentScrollY;
-    };
+    window.requestAnimationFrame(() => {
+      const targetButton = tabsViewportRef.current?.querySelector<HTMLButtonElement>(
+        `[data-tab-index="${targetIndex}"]`,
+      );
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry || hasAutoCenteredRef.current || !scrollingDown) return;
-
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
-          hasAutoCenteredRef.current = true;
-          window.requestAnimationFrame(() => {
-            section.scrollIntoView({
-              behavior: "smooth",
-              block: "center",
-            });
-          });
-        }
-      },
-      {
-        threshold: [0.6],
-      },
-    );
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    observer.observe(section);
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+      targetButton?.focus();
+    });
+  };
 
   return (
-    <section ref={sectionRef} className={styles.section} aria-labelledby="market-strategy-heading">
+    <section className={styles.section} aria-labelledby="market-strategy-heading">
       <Column className={styles.header} gap="12">
         <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
           Estratégia por mercado
@@ -202,19 +203,27 @@ export function MarketStrategyRail() {
       </Column>
 
       <div ref={tabsViewportRef} className={styles.tabsViewport} aria-label="Setores atendidos">
-        <div className={styles.tabs}>
+        <div
+          className={styles.tabs}
+          role="tablist"
+          aria-orientation="horizontal"
+          onKeyDown={handleTabKeyDown}
+        >
           {marketStrategies.map((item, index) => (
             <button
               key={item.title}
+              id={`market-tab-${index}`}
               type="button"
+              role="tab"
               data-tab-index={index}
               className={classNames(styles.tab, {
                 [styles.tabActive]: activeIndex === index,
               })}
-              aria-pressed={activeIndex === index}
+              aria-controls={`market-panel-${index}`}
+              aria-selected={activeIndex === index}
+              tabIndex={activeIndex === index ? 0 : -1}
               onClick={() => {
-                setActiveIndex(index);
-                scrollCardIntoView(index);
+                selectMarket(index);
               }}
             >
               {item.title}
@@ -232,6 +241,9 @@ export function MarketStrategyRail() {
           {marketStrategies.map((item, index) => (
             <article
               key={item.title}
+              id={`market-panel-${index}`}
+              role="tabpanel"
+              aria-labelledby={`market-tab-${index}`}
               ref={(node) => {
                 cardRefs.current[index] = node;
               }}
@@ -275,9 +287,8 @@ export function MarketStrategyRail() {
                   className={styles.expandButton}
                   aria-expanded={expandedIndex === index}
                   onClick={() => {
-                    setActiveIndex(index);
+                    selectMarket(index);
                     setExpandedIndex((current) => (current === index ? null : index));
-                    scrollCardIntoView(index);
                   }}
                 >
                   {expandedIndex === index ? "Ocultar abordagem" : "Ver abordagem estratégica"}

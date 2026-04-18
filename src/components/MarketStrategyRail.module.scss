@@ -37,7 +37,10 @@
 .tabsViewport {
   overflow-x: auto;
   padding-bottom: 0.35rem;
+  overscroll-behavior-x: contain;
   scrollbar-width: none;
+  touch-action: pan-x pan-y pinch-zoom;
+  scroll-behavior: smooth;
 }
 
 .tabsViewport::-webkit-scrollbar {
@@ -59,6 +62,7 @@
   color: var(--neutral-on-background-medium);
   cursor: pointer;
   font: inherit;
+  white-space: nowrap;
   transition:
     border-color 180ms ease,
     background-color 180ms ease,
@@ -78,6 +82,12 @@
   color: var(--neutral-on-background-strong);
 }
 
+.tab:focus-visible,
+.expandButton:focus-visible {
+  outline: 2px solid rgba(82, 144, 255, 0.55);
+  outline-offset: 3px;
+}
+
 .viewport {
   overflow-x: auto;
   overflow-y: visible;
@@ -86,7 +96,9 @@
   scroll-padding-inline: clamp(1rem, 7vw, 4.25rem);
   scrollbar-width: none;
   overscroll-behavior-x: contain;
-  touch-action: pan-y pinch-zoom;
+  touch-action: pan-x pan-y pinch-zoom;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 .viewport::-webkit-scrollbar {
@@ -99,6 +111,7 @@
   grid-auto-columns: clamp(18rem, 44vw, 24rem);
   gap: 1rem;
   align-items: stretch;
+  padding-inline: 0.12rem;
 }
 
 .card {
@@ -112,18 +125,19 @@
     var(--surface-panel-soft);
   box-shadow: var(--shadow-soft);
   scroll-snap-align: center;
-  opacity: 0.76;
-  transform: scale(0.965);
+  scroll-snap-stop: always;
+  opacity: 0.88;
+  transform: scale(0.985);
   transition:
-    transform 220ms ease,
-    opacity 220ms ease,
+    transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 240ms cubic-bezier(0.22, 1, 0.36, 1),
     border-color 220ms ease,
-    box-shadow 220ms ease;
+    box-shadow 240ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .cardActive {
   opacity: 1;
-  transform: translateY(-0.2rem) scale(1);
+  transform: translateY(-0.12rem) scale(1);
   box-shadow:
     0 22px 44px rgba(0, 0, 0, 0.18),
     0 0 28px var(--market-accent-soft, rgba(82, 144, 255, 0.1));
@@ -212,6 +226,10 @@
 
   .track {
     grid-auto-columns: minmax(16.5rem, calc(100vw - 4.5rem));
+  }
+
+  .viewport {
+    scroll-snap-type: x mandatory;
   }
 }
 

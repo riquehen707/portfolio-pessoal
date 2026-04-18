@@ -15,6 +15,8 @@ import {
   technicalApproach,
   work,
 } from "@/resources";
+
+import { BrandSignature } from "./BrandSignature";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
 
@@ -23,7 +25,7 @@ type TimeDisplayProps = {
   locale?: string;
 };
 
-const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "pt-BR" }) => {
+function TimeDisplay({ timeZone, locale = "pt-BR" }: TimeDisplayProps) {
   const [currentTime, setCurrentTime] = useState("");
 
   useEffect(() => {
@@ -36,6 +38,7 @@ const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "pt-BR" })
         second: "2-digit",
         hour12: false,
       };
+
       setCurrentTime(new Intl.DateTimeFormat(locale, options).format(now));
     };
 
@@ -46,9 +49,7 @@ const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "pt-BR" })
   }, [timeZone, locale]);
 
   return <>{currentTime}</>;
-};
-
-export default TimeDisplay;
+}
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
@@ -68,6 +69,7 @@ export const Header = () => {
         height="80"
         zIndex={9}
       />
+
       <Row
         fitHeight
         className={styles.position}
@@ -82,21 +84,12 @@ export const Header = () => {
           position: "fixed",
         }}
       >
-        <Row
-          className={styles.meta}
-          paddingLeft="12"
-          fillWidth
-          vertical="center"
-          textVariant="body-default-s"
-        >
-          {display.location && (
-            <Row s={{ hide: true }}>
-              <Text className={styles.location} variant="body-default-s">
-                {locationLabel}
-              </Text>
-            </Row>
-          )}
-        </Row>
+        <Flex className={styles.meta} fillWidth vertical="center">
+          <div className={styles.brandDesktop}>
+            <BrandSignature href="/" descriptor="Transformar complexidade em clareza" />
+          </div>
+        </Flex>
+
         <Row fillWidth horizontal="center">
           <Row
             className={styles.shell}
@@ -116,9 +109,12 @@ export const Header = () => {
               suppressHydrationWarning
             >
               {routes["/"] && (
-                <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
+                <Row hide s={{ hide: false }}>
+                  <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
+                  <Line background="neutral-alpha-medium" vert maxHeight="24" />
+                </Row>
               )}
-              <Line background="neutral-alpha-medium" vert maxHeight="24" />
+
               {routes["/about"] && (
                 <>
                   <Row s={{ hide: true }}>
@@ -134,13 +130,14 @@ export const Header = () => {
                   </Row>
                 </>
               )}
+
               {routes["/work"] && (
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
                       prefixIcon="grid"
                       href="/work"
-                      label={work.label}
+                      label={work.title}
                       selected={pathname.startsWith("/work")}
                     />
                   </Row>
@@ -153,6 +150,7 @@ export const Header = () => {
                   </Row>
                 </>
               )}
+
               {routes["/servicos"] && (
                 <>
                   <Row s={{ hide: true }}>
@@ -172,6 +170,7 @@ export const Header = () => {
                   </Row>
                 </>
               )}
+
               {routes["/blog"] && (
                 <>
                   <Row s={{ hide: true }}>
@@ -183,14 +182,11 @@ export const Header = () => {
                     />
                   </Row>
                   <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="book"
-                      href="/blog"
-                      selected={pathname.startsWith("/blog")}
-                    />
+                    <ToggleButton prefixIcon="book" href="/blog" selected={pathname.startsWith("/blog")} />
                   </Row>
                 </>
               )}
+
               {display.themeSwitcher && (
                 <>
                   <Line background="neutral-alpha-medium" vert maxHeight="24" />
@@ -200,22 +196,25 @@ export const Header = () => {
             </Row>
           </Row>
         </Row>
+
         <Flex className={styles.meta} fillWidth horizontal="end" vertical="center">
-          <Flex
-            className={styles.clock}
-            paddingRight="12"
-            horizontal="end"
-            vertical="center"
-            gap="20"
-          >
-            <Flex s={{ hide: true }}>
-              {display.time && (
+          <Row className={styles.statusBlock} gap="8" vertical="center">
+            {display.location && (
+              <Text className={styles.location} variant="body-default-s">
+                {locationLabel}
+              </Text>
+            )}
+            {display.time && (
+              <>
+                <Text className={styles.separator} variant="body-default-s">
+                  /
+                </Text>
                 <Text className={styles.time} variant="body-default-s">
                   <TimeDisplay timeZone={person.location} />
                 </Text>
-              )}
-            </Flex>
-          </Flex>
+              </>
+            )}
+          </Row>
         </Flex>
       </Row>
     </>
