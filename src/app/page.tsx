@@ -1,5 +1,4 @@
 import {
-  Badge,
   Button,
   Column,
   Heading,
@@ -13,10 +12,32 @@ import {
 } from "@once-ui-system/core";
 
 import { Mailchimp } from "@/components";
+import { HeroProofCarousel } from "@/components/HeroProofCarousel";
+import { MarketStrategyRail } from "@/components/MarketStrategyRail";
 import { Posts } from "@/components/blog/Posts";
 import { Projects } from "@/components/work/Projects";
 import { about, baseURL, blog, home, person, routes, servicesPage, work } from "@/resources";
 import { getPosts } from "@/utils/utils";
+import styles from "./home.module.scss";
+
+const heroProofItems = [
+  {
+    icon: "grid" as const,
+    label: "Especializado em negócios e serviços locais",
+  },
+  {
+    icon: "chart" as const,
+    label: "Decisões guiadas por dados reais",
+  },
+  {
+    icon: "globe" as const,
+    label: "Ecossistema digital completo e integrado",
+  },
+  {
+    icon: "rocket" as const,
+    label: "Soluções personalizadas para sua operação",
+  },
+];
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -49,47 +70,61 @@ export default function Home() {
         }}
       />
 
-      <RevealFx fillWidth translateY="8">
-        <Column fillWidth gap="16">
-          {home.featured.display && (
-            <Badge
-              background="brand-alpha-weak"
-              paddingX="12"
-              paddingY="4"
-              onBackground="neutral-strong"
-              textVariant="label-default-s"
-              arrow={false}
-              href={home.featured.href}
-            >
-              <Row paddingY="2">{home.featured.title}</Row>
-            </Badge>
-          )}
+      <Column className={styles.heroIntro} fillWidth gap="24">
+        <RevealFx delay={0.08} speed={1200} translateY={0.8}>
+          <Column className={styles.heroStack} gap="16">
+            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+              Operação digital para negócios locais
+            </Tag>
 
-          <Column gap="8">
-            <Heading wrap="balance" variant="display-strong-l">
-              Sites, landing pages e automações para negócios locais.
-            </Heading>
+            <Column gap="12" className={styles.heroCopy}>
+              <Heading wrap="balance" variant="display-strong-l">
+                {home.headline}
+              </Heading>
 
-            <Text
-              wrap="balance"
-              onBackground="neutral-weak"
-              variant="heading-default-xl"
-            >
-              Presença digital mais clara para vender, atender e crescer melhor.
-            </Text>
+              <Text
+                className={styles.heroLead}
+                wrap="balance"
+                onBackground="neutral-weak"
+                variant="heading-default-xl"
+              >
+                {home.subline}
+              </Text>
+            </Column>
+
+            <Row gap="12" wrap className={styles.heroActions}>
+              <Button
+                href={about.calendar.link}
+                target="_blank"
+                rel="noreferrer"
+                variant="primary"
+                size="m"
+                prefixIcon="calendar"
+              >
+                Agendar uma ligação
+              </Button>
+              <Button href={work.path} variant="secondary" size="m" arrowIcon>
+                Conheça meu trabalho
+              </Button>
+            </Row>
           </Column>
+        </RevealFx>
 
-          <Row gap="12" wrap>
-            <Button href={work.path} variant="primary" size="m" arrowIcon>
-              Ver projetos
-            </Button>
-            <Button href={servicesPage.path} variant="secondary" size="m" arrowIcon>
-              Ver serviços
-            </Button>
-          </Row>
+        <RevealFx delay={0.18} speed={1250} translateY={0.7}>
+          <Column gap="12">
+            <Text
+              className={styles.proofLabel}
+              variant="label-default-s"
+              onBackground="neutral-weak"
+            >
+              Base do trabalho
+            </Text>
+            <HeroProofCarousel items={heroProofItems} />
+          </Column>
+        </RevealFx>
+      </Column>
 
-        </Column>
-      </RevealFx>
+      <MarketStrategyRail />
 
       {hasWorkProjects ? (
         <Column fillWidth gap="12">
@@ -103,7 +138,7 @@ export default function Home() {
           </Column>
 
           <Projects range={[1, hasMoreWorkProjects ? 3 : 1]} marginBottom="0" paddingX="0" />
-          
+
           {hasMoreWorkProjects && (
             <SmartLink href={work.path} suffixIcon="arrowRight">
               Ver portfólio completo
@@ -118,14 +153,16 @@ export default function Home() {
           <Heading as="h2" variant="display-strong-s">
             Novos cases entram em breve
           </Heading>
-          <Row gap="12" wrap>
-            <Button href={servicesPage.path} variant="primary" size="m" arrowIcon>
-              Ver serviços
-            </Button>
-            <Button href={about.path} variant="secondary" size="m" arrowIcon>
-              Sobre mim
-            </Button>
-          </Row>
+          <RevealFx delay={0.22} speed={1200} translateY={0.9}>
+            <Row gap="12" wrap className={styles.actions}>
+              <Button href={servicesPage.path} variant="primary" size="m" arrowIcon>
+                Ver serviços
+              </Button>
+              <Button href={about.path} variant="secondary" size="m" arrowIcon>
+                Sobre mim
+              </Button>
+            </Row>
+          </RevealFx>
         </Column>
       )}
 

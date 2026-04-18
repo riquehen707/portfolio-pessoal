@@ -1,0 +1,104 @@
+.root {
+  position: relative;
+  width: 100%;
+}
+
+.root::before,
+.root::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(1.5rem, 5vw, 4rem);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.root::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--surface-panel-strong), transparent);
+}
+
+.root::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--surface-panel-strong), transparent);
+}
+
+.viewport {
+  position: relative;
+  display: flex;
+  gap: 0.9rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-block: 0.25rem 0.5rem;
+  scrollbar-width: none;
+  user-select: none;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.dragging {
+  cursor: grabbing;
+}
+
+.track {
+  display: flex;
+  gap: 0.9rem;
+  width: max-content;
+  flex: 0 0 auto;
+}
+
+.card {
+  min-width: clamp(15rem, 28vw, 19rem);
+  padding: 0.95rem 1rem;
+  border: 1px solid rgba(169, 189, 214, 0.18);
+  border-radius: 1.25rem;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.08),
+      transparent 30%,
+      rgba(255, 255, 255, 0.03) 70%,
+      transparent 100%
+    ),
+    var(--surface-panel-soft);
+  box-shadow: var(--shadow-soft);
+  white-space: normal;
+}
+
+.cardRow {
+  align-items: center;
+}
+
+.iconWrap {
+  flex: 0 0 auto;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--brand-solid-strong), var(--accent-solid-strong));
+  color: var(--neutral-on-solid-strong);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.14),
+    0 0 20px rgba(82, 144, 255, 0.16);
+}
+
+.label {
+  max-width: 16rem;
+  line-height: 1.35;
+}
+
+@media (max-width: 768px) {
+  .card {
+    min-width: min(17.5rem, 84vw);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viewport {
+    scroll-behavior: auto;
+  }
+}

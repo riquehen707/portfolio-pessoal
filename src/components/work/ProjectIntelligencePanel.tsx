@@ -19,13 +19,12 @@ import type { ProjectDashboardSnapshot } from "@/domain";
 
 import styles from "./ProjectIntelligencePanel.module.scss";
 
-type ViewKey = "scenarios" | "timeline" | "investment" | "funnel" | "organic" | "precision" | "coverage";
-type ScenarioKey = "conservative" | "realistic" | "aggressive";
+type ViewKey = "proposals" | "timeline" | "return" | "funnel" | "precision" | "coverage";
+type ScenarioKey = keyof ProjectDashboardSnapshot["report"]["scenarios"];
 
 const CHART_GRID_STROKE = "rgba(255,255,255,0.08)";
 const CHART_AXIS_STROKE = "rgba(255,255,255,0.45)";
 const CHART_COLORS = {
-  current: "#93a0b3",
   conservative: "#6fa8ff",
   realistic: "#5ed492",
   aggressive: "#f2c66d",
@@ -33,46 +32,35 @@ const CHART_COLORS = {
 
 const viewOptions: Array<{ id: ViewKey; label: string; description: string }> = [
   {
-    id: "scenarios",
-    label: "Cenarios",
-    description: "Compara o faturamento mensal entre a base atual e as tres faixas de crescimento simuladas.",
+    id: "proposals",
+    label: "Propostas",
+    description: "Compara o retorno liquido acumulado em 12 meses entre as propostas comerciais disponiveis.",
   },
   {
     id: "timeline",
     label: "Tempo",
-    description: "Mostra a evolucao mes a mes de receita, investimento e CAC no cenario selecionado.",
+    description: "Mostra o retorno mes a mes da proposta selecionada ate o payback e a acumulacao anual.",
   },
   {
-    id: "investment",
-    label: "Investimento",
-    description: "Relaciona faixas de aporte com crescimento incremental, eficiencia e custo de aquisicao.",
+    id: "return",
+    label: "Retorno",
+    description: "Relaciona investimento, retorno anual e retorno liquido para comparar o peso de cada proposta.",
   },
   {
     id: "funnel",
-    label: "Funil",
-    description: "Resume o volume esperado entre leads, agenda, comparecimento e clientes fechados.",
-  },
-  {
-    id: "organic",
-    label: "Organico",
-    description: "Compara o impacto organico entre seguidores, leads e clientes captados sem media paga.",
+    label: "Impacto",
+    description: "Resume o ganho incremental potencial em leads, agendas, comparecimentos e clientes extras.",
   },
   {
     id: "precision",
     label: "Precisao",
-    description: "Explica a confianca relativa de cada cenario a partir da cobertura e da certeza observada.",
+    description: "Explica a confianca relativa de cada proposta a partir da cobertura e da certeza observada.",
   },
   {
     id: "coverage",
     label: "Base",
     description: "Mostra quais secoes do diagnostico estao melhor observadas e quais dependem mais de estimativa.",
   },
-];
-
-const scenarioOptions: Array<{ id: ScenarioKey; label: string }> = [
-  { id: "conservative", label: "Conservador" },
-  { id: "realistic", label: "Realista" },
-  { id: "aggressive", label: "Agressivo" },
 ];
 
 function formatCurrency(value: number) {
@@ -104,17 +92,23 @@ function formatPercent(value: number) {
   return `${formatNumber(value * 100, 0)}%`;
 }
 
+function formatMonths(value: number | null) {
+  if (value == null || value <= 0) {
+    return "Acima de 12 meses";
+  }
+
+  return `${value} meses`;
+}
+
 type Props = {
   snapshot: ProjectDashboardSnapshot;
 };
 
 export function ProjectIntelligencePanel({ snapshot }: Props) {
-  const [view, setView] = useState<ViewKey>("scenarios");
+  const [view, setView] = useState<ViewKey>("proposals");
   const [scenario, setScenario] = useState<ScenarioKey>("realistic");
 
-  const selectedScenario = snapshot.report.scenarios[scenario];
-  const selectedScenarioLabel =
-    scenarioOptions.find((item) => item.id === scenario)?.label ?? "Realista";
+  const selectedProposal = snapshot.report.scenarios[scenario];
   const selectedView = viewOptions.find((item) => item.id === view) ?? viewOptions[0];
   const selectedDataKey =
     scenario === "aggressive"
@@ -122,70 +116,75 @@ export function ProjectIntelligencePanel({ snapshot }: Props) {
       : scenario === "realistic"
         ? "realista"
         : "conservador";
-  const selectedTimelineData = snapshot.kpiTimelineChartData[scenario];
-  const selectedInvestmentData = snapshot.investmentCurveChartData[scenario];
-  const latestTimelinePoint = selectedTimelineData[selectedTimelineData.length - 1] ?? null;
-  const peakRevenuePoint =
+  const selectedTimelineData = snapshot.proposalTimelineChartData[scenario];
+  const paybackPoint = selectedTimelineData.find((item) => item.netReturn >= 0) ?? null;
+  const strongestNetReturnPoint =
     selectedTimelineData.length > 0
-      ? selectedTimelineData.reduce((best, point) => (point.revenue > best.revenue ? point : best))
+      ? selectedTimelineData.reduce((best, point) => (point.netReturn > best.netReturn ? point : best))
       : null;
-  const minimumCacPoint =
-    selectedInvestmentData.length > 0
-      ? selectedInvestmentData.reduce((best, point) => (point.cac < best.cac ? point : best))
-      : null;
-  const highestEfficiencyPoint =
-    selectedInvestmentData.length > 0
-      ? selectedInvestmentData.reduce((best, point) => (point.efficiency > best.efficiency ? point : best))
-      : null;
-  const insights = snapshot.insights.slice(0, 4);
+  const bestProposal = Object.values(snapshot.report.scenarios).reduce((best, proposal) => {
+    if (proposal.netReturn !== best.netReturn) {
+      return proposal.netReturn > best.netReturn ? proposal : best;
+    }
+
+    return (proposal.paybackMonths ?? Number.MAX_SAFE_INTEGER) < (best.paybackMonths ?? Number.MAX_SAFE_INTEGER)
+      ? proposal
+      : best;
+  });
+  const insights = snapshot.insights.slice(0, 5);
   const priorityActions = snapshot.report.recommendations.slice(0, 3);
-  const nextDataPoints = snapshot.nextDataPoints.slice(0, 3);
-  const revenueDelta = Math.max(selectedScenario.revenue - snapshot.quickMetrics.currentRevenueEstimate, 0);
+  const nextDataPoints = snapshot.nextDataPoints.slice(0, 4);
   const viewSummary =
     view === "timeline"
       ? [
           {
-            label: "Investimento / mes",
-            value: latestTimelinePoint ? formatCurrency(latestTimelinePoint.investment) : "R$ 0",
+            label: "Retorno / mes",
+            value: selectedTimelineData.length > 0 ? formatCurrency(selectedTimelineData[0]?.monthlyReturn ?? 0) : "R$ 0",
           },
           {
-            label: "CAC final",
-            value: latestTimelinePoint ? formatCurrency(latestTimelinePoint.cac) : "R$ 0",
+            label: "Payback",
+            value: formatMonths(selectedProposal.paybackMonths),
           },
           {
-            label: "Saturacao",
-            value: latestTimelinePoint ? formatPercent(latestTimelinePoint.saturation) : "0%",
+            label: "Pico liquido",
+            value: strongestNetReturnPoint ? formatCurrency(strongestNetReturnPoint.netReturn) : "R$ 0",
           },
         ]
-      : view === "investment"
+      : view === "return"
         ? [
             {
-              label: "Faixa eficiente",
-              value: highestEfficiencyPoint ? formatCurrency(highestEfficiencyPoint.spend) : "R$ 0",
+              label: "Melhor proposta",
+              value: bestProposal.chartLabel,
             },
             {
-              label: "Menor CAC",
-              value: minimumCacPoint ? formatCurrency(minimumCacPoint.cac) : "R$ 0",
+              label: "Melhor payback",
+              value: formatMonths(snapshot.quickMetrics.bestProposalPaybackMonths),
             },
             {
-              label: "ROAS pico",
-              value: highestEfficiencyPoint ? `${formatNumber(highestEfficiencyPoint.roas, 1)}x` : "0x",
+              label: "Retorno anual",
+              value: formatCurrency(snapshot.quickMetrics.bestProposalAnnualReturn),
             },
           ]
         : [
             {
-              label: "Receita atual / mes",
-              value: formatCurrency(snapshot.quickMetrics.currentRevenueEstimate),
+              label: "Ticket da simulacao",
+              value: formatCurrency(snapshot.quickMetrics.benchmarkTicket),
             },
             {
-              label: "Incremento potencial",
-              value: formatCurrency(snapshot.quickMetrics.growthRevenuePotential),
+              label: "Base potencial / mes",
+              value: formatCurrency(snapshot.quickMetrics.baseMonthlyRevenuePotential),
             },
             {
-              label: "Receita no cenario",
-              value: formatCurrency(selectedScenario.revenue),
+              label: "Investimento selecionado",
+              value: formatCurrency(selectedProposal.investment),
             },
           ];
+
+  const scenarioOptions: Array<{ id: ScenarioKey; label: string }> = [
+    { id: "conservative", label: snapshot.report.scenarios.conservative.chartLabel },
+    { id: "realistic", label: snapshot.report.scenarios.realistic.chartLabel },
+    { id: "aggressive", label: snapshot.report.scenarios.aggressive.chartLabel },
+  ];
 
   return (
     <Card
@@ -212,10 +211,10 @@ export function ProjectIntelligencePanel({ snapshot }: Props) {
             </Tag>
           </Row>
           <Heading as="h2" variant="heading-strong-l">
-            Diagnostico local
+            Retorno por proposta
           </Heading>
           <Text className={styles.chartDescription} onBackground="neutral-weak" variant="body-default-m">
-            Leitura executiva do caso com foco em crescimento, confianca da base e proximos ajustes.
+            Leitura executiva do caso sem inferir faturamento atual: o foco aqui e comparar retorno potencial entre as suas propostas.
           </Text>
         </Column>
 
@@ -238,7 +237,7 @@ export function ProjectIntelligencePanel({ snapshot }: Props) {
       <Grid className={styles.mainGrid} columns="2" m={{ columns: 1 }} gap="16">
         <Column className={styles.visualPanel} gap="16">
           <Column className={styles.chartHeader} gap="8">
-            <div className={styles.switcher} role="group" aria-label="Cenarios">
+            <div className={styles.switcher} role="group" aria-label="Propostas">
               {scenarioOptions.map((item) => (
                 <button
                   type="button"
@@ -263,47 +262,35 @@ export function ProjectIntelligencePanel({ snapshot }: Props) {
             </Column>
           </Column>
 
-          <div
-            className={styles.chartShell}
-            role="img"
-            aria-label={`${selectedView.label} no cenario ${selectedScenarioLabel}`}
-          >
-            {view === "scenarios" && (
+          <div className={styles.chartShell} role="img" aria-label={`${selectedView.label} da proposta ${selectedProposal.title}`}>
+            {view === "proposals" && (
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={snapshot.scenarioChartData}>
                   <CartesianGrid strokeDasharray="3 3" stroke={CHART_GRID_STROKE} />
                   <XAxis dataKey="month" stroke={CHART_AXIS_STROKE} />
-                  <YAxis stroke={CHART_AXIS_STROKE} />
+                  <YAxis stroke={CHART_AXIS_STROKE} tickFormatter={(value: number) => formatCompactCurrency(value)} />
                   <Tooltip formatter={(value: number) => formatCurrency(value)} />
                   <Legend />
                   <Line
                     type="monotone"
-                    dataKey="atual"
-                    name="Atual"
-                    stroke={CHART_COLORS.current}
-                    strokeWidth={2}
-                    dot={false}
-                  />
-                  <Line
-                    type="monotone"
                     dataKey="conservador"
-                    name="Conservador"
+                    name={snapshot.report.scenarios.conservative.chartLabel}
                     stroke={CHART_COLORS.conservative}
-                    strokeWidth={3}
+                    strokeWidth={2}
                     dot={false}
                   />
                   <Line
                     type="monotone"
                     dataKey="realista"
-                    name="Realista"
+                    name={snapshot.report.scenarios.realistic.chartLabel}
                     stroke={CHART_COLORS.realistic}
-                    strokeWidth={2}
+                    strokeWidth={3}
                     dot={false}
                   />
                   <Line
                     type="monotone"
                     dataKey="agressivo"
-                    name="Agressivo"
+                    name={snapshot.report.scenarios.aggressive.chartLabel}
                     stroke={CHART_COLORS.aggressive}
                     strokeWidth={2}
                     dot={false}
@@ -317,55 +304,29 @@ export function ProjectIntelligencePanel({ snapshot }: Props) {
                 <LineChart data={selectedTimelineData}>
                   <CartesianGrid strokeDasharray="3 3" stroke={CHART_GRID_STROKE} />
                   <XAxis dataKey="month" stroke={CHART_AXIS_STROKE} />
-                  <YAxis
-                    yAxisId="revenue"
-                    stroke={CHART_AXIS_STROKE}
-                    tickFormatter={(value: number) => formatCompactCurrency(value)}
-                  />
-                  <YAxis
-                    yAxisId="cac"
-                    orientation="right"
-                    stroke={CHART_AXIS_STROKE}
-                    tickFormatter={(value: number) => formatCompactCurrency(value)}
-                  />
-                  <Tooltip
-                    formatter={(value: number, name: string | number) => {
-                      if (name === "Receita" || name === "Investimento") {
-                        return formatCurrency(value);
-                      }
-
-                      if (name === "CAC") {
-                        return formatCurrency(value);
-                      }
-
-                      return formatNumber(value);
-                    }}
-                  />
+                  <YAxis stroke={CHART_AXIS_STROKE} tickFormatter={(value: number) => formatCompactCurrency(value)} />
+                  <Tooltip formatter={(value: number) => formatCurrency(value)} />
                   <Legend />
                   <Line
-                    yAxisId="revenue"
                     type="monotone"
-                    dataKey="revenue"
-                    name="Receita"
+                    dataKey="monthlyReturn"
+                    name="Retorno / mes"
+                    stroke={CHART_COLORS.conservative}
+                    strokeWidth={2}
+                    dot={false}
+                  />
+                  <Line
+                    type="monotone"
+                    dataKey="cumulativeReturn"
+                    name="Retorno acumulado"
                     stroke={CHART_COLORS.realistic}
                     strokeWidth={3}
                     dot={false}
                   />
                   <Line
-                    yAxisId="revenue"
                     type="monotone"
-                    dataKey="investment"
-                    name="Investimento"
-                    stroke={CHART_COLORS.conservative}
-                    strokeWidth={2}
-                    strokeDasharray="6 4"
-                    dot={false}
-                  />
-                  <Line
-                    yAxisId="cac"
-                    type="monotone"
-                    dataKey="cac"
-                    name="CAC"
+                    dataKey="netReturn"
+                    name="Retorno liquido"
                     stroke={CHART_COLORS.aggressive}
                     strokeWidth={2}
                     dot={false}
@@ -374,64 +335,26 @@ export function ProjectIntelligencePanel({ snapshot }: Props) {
               </ResponsiveContainer>
             )}
 
-            {view === "investment" && (
+            {view === "return" && (
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={selectedInvestmentData}>
+                <BarChart data={snapshot.proposalReturnChartData}>
                   <CartesianGrid strokeDasharray="3 3" stroke={CHART_GRID_STROKE} />
-                  <XAxis dataKey="label" stroke={CHART_AXIS_STROKE} />
-                  <YAxis
-                    yAxisId="revenue"
-                    stroke={CHART_AXIS_STROKE}
-                    tickFormatter={(value: number) => formatCompactCurrency(value)}
-                  />
-                  <YAxis
-                    yAxisId="cac"
-                    orientation="right"
-                    stroke={CHART_AXIS_STROKE}
-                    tickFormatter={(value: number) => formatCompactCurrency(value)}
-                  />
+                  <XAxis dataKey="proposal" stroke={CHART_AXIS_STROKE} />
+                  <YAxis stroke={CHART_AXIS_STROKE} tickFormatter={(value: number) => formatCompactCurrency(value)} />
                   <Tooltip
                     formatter={(value: number, name: string | number) => {
-                      if (name === "Receita" || name === "Crescimento") {
+                      if (name === "Investimento" || name === "Retorno anual" || name === "Retorno liquido") {
                         return formatCurrency(value);
                       }
 
-                      if (name === "CAC") {
-                        return formatCurrency(value);
-                      }
-
-                      return formatNumber(value);
+                      return formatNumber(value, 1);
                     }}
                   />
                   <Legend />
-                  <Line
-                    yAxisId="revenue"
-                    type="monotone"
-                    dataKey="revenue"
-                    name="Receita"
-                    stroke={CHART_COLORS.realistic}
-                    strokeWidth={3}
-                    dot={false}
-                  />
-                  <Line
-                    yAxisId="revenue"
-                    type="monotone"
-                    dataKey="incrementalRevenue"
-                    name="Crescimento"
-                    stroke={CHART_COLORS.conservative}
-                    strokeWidth={2}
-                    dot={false}
-                  />
-                  <Line
-                    yAxisId="cac"
-                    type="monotone"
-                    dataKey="cac"
-                    name="CAC"
-                    stroke={CHART_COLORS.aggressive}
-                    strokeWidth={2}
-                    dot={false}
-                  />
-                </LineChart>
+                  <Bar dataKey="spend" name="Investimento" fill={CHART_COLORS.conservative} radius={[6, 6, 0, 0]} />
+                  <Bar dataKey="annualReturn" name="Retorno anual" fill={CHART_COLORS.realistic} radius={[6, 6, 0, 0]} />
+                  <Bar dataKey="netReturn" name="Retorno liquido" fill={CHART_COLORS.aggressive} radius={[6, 6, 0, 0]} />
+                </BarChart>
               </ResponsiveContainer>
             )}
 
@@ -443,30 +366,22 @@ export function ProjectIntelligencePanel({ snapshot }: Props) {
                   <YAxis stroke={CHART_AXIS_STROKE} />
                   <Tooltip formatter={(value: number) => formatNumber(value)} />
                   <Legend />
-                  <Bar dataKey="atual" name="Atual" fill={CHART_COLORS.current} radius={[6, 6, 0, 0]} />
                   <Bar
-                    dataKey={selectedDataKey}
-                    name={selectedScenarioLabel}
+                    dataKey="conservador"
+                    name={snapshot.report.scenarios.conservative.chartLabel}
                     fill={CHART_COLORS.conservative}
                     radius={[6, 6, 0, 0]}
                   />
-                </BarChart>
-              </ResponsiveContainer>
-            )}
-
-            {view === "organic" && (
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={snapshot.organicChartData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke={CHART_GRID_STROKE} />
-                  <XAxis dataKey="metric" stroke={CHART_AXIS_STROKE} />
-                  <YAxis stroke={CHART_AXIS_STROKE} />
-                  <Tooltip formatter={(value: number) => formatNumber(value)} />
-                  <Legend />
-                  <Bar dataKey="atual" name="Atual" fill={CHART_COLORS.current} radius={[6, 6, 0, 0]} />
                   <Bar
-                    dataKey={selectedDataKey}
-                    name={selectedScenarioLabel}
+                    dataKey="realista"
+                    name={snapshot.report.scenarios.realistic.chartLabel}
                     fill={CHART_COLORS.realistic}
+                    radius={[6, 6, 0, 0]}
+                  />
+                  <Bar
+                    dataKey="agressivo"
+                    name={snapshot.report.scenarios.aggressive.chartLabel}
+                    fill={CHART_COLORS.aggressive}
                     radius={[6, 6, 0, 0]}
                   />
                 </BarChart>
@@ -481,18 +396,8 @@ export function ProjectIntelligencePanel({ snapshot }: Props) {
                   <YAxis stroke={CHART_AXIS_STROKE} domain={[0, 100]} />
                   <Tooltip formatter={(value: number) => `${formatNumber(value)}%`} />
                   <Legend />
-                  <Bar
-                    dataKey="precision"
-                    name="Precisao"
-                    fill={CHART_COLORS.conservative}
-                    radius={[6, 6, 0, 0]}
-                  />
-                  <Bar
-                    dataKey="certainty"
-                    name="Certeza"
-                    fill={CHART_COLORS.realistic}
-                    radius={[6, 6, 0, 0]}
-                  />
+                  <Bar dataKey="precision" name="Precisao" fill={CHART_COLORS.conservative} radius={[6, 6, 0, 0]} />
+                  <Bar dataKey="certainty" name="Certeza" fill={CHART_COLORS.realistic} radius={[6, 6, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             )}
@@ -505,18 +410,8 @@ export function ProjectIntelligencePanel({ snapshot }: Props) {
                   <YAxis stroke={CHART_AXIS_STROKE} domain={[0, 100]} />
                   <Tooltip formatter={(value: number) => `${formatNumber(value)}%`} />
                   <Legend />
-                  <Bar
-                    dataKey="coverage"
-                    name="Cobertura"
-                    fill={CHART_COLORS.aggressive}
-                    radius={[6, 6, 0, 0]}
-                  />
-                  <Bar
-                    dataKey="confidence"
-                    name="Confianca"
-                    fill={CHART_COLORS.conservative}
-                    radius={[6, 6, 0, 0]}
-                  />
+                  <Bar dataKey="coverage" name="Cobertura" fill={CHART_COLORS.aggressive} radius={[6, 6, 0, 0]} />
+                  <Bar dataKey="confidence" name="Confianca" fill={CHART_COLORS.conservative} radius={[6, 6, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             )}
@@ -550,15 +445,15 @@ export function ProjectIntelligencePanel({ snapshot }: Props) {
             </div>
             <div className={styles.metricCard}>
               <Text variant="label-default-s" onBackground="neutral-weak">
-                Receita atual
+                Ticket da simulacao
               </Text>
-              <Text variant="heading-strong-m">{formatCurrency(snapshot.quickMetrics.currentRevenueEstimate)}</Text>
+              <Text variant="heading-strong-m">{formatCurrency(snapshot.quickMetrics.benchmarkTicket)}</Text>
             </div>
             <div className={styles.metricCard}>
               <Text variant="label-default-s" onBackground="neutral-weak">
-                Capacidade livre
+                Melhor payback
               </Text>
-              <Text variant="heading-strong-m">{formatNumber(snapshot.quickMetrics.availableSlots)}</Text>
+              <Text variant="heading-strong-m">{formatMonths(snapshot.quickMetrics.bestProposalPaybackMonths)}</Text>
             </div>
           </Grid>
 
@@ -602,33 +497,45 @@ export function ProjectIntelligencePanel({ snapshot }: Props) {
 
           <div className={styles.storyCard}>
             <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
-              Cenario
+              Proposta selecionada
             </Text>
             <Heading as="h3" variant="heading-strong-m">
-              {selectedScenarioLabel}
+              {selectedProposal.title}
             </Heading>
+            <Text variant="body-default-m" onBackground="neutral-medium">
+              {selectedProposal.summary}
+            </Text>
             <Row className={styles.storyStats} gap="12" wrap>
               <div className={styles.storyStat}>
                 <Text variant="label-default-s" onBackground="neutral-weak">
-                  Clientes / mes
+                  Investimento
                 </Text>
-                <Text variant="body-default-m">{formatNumber(selectedScenario.customers)}</Text>
+                <Text variant="body-default-m">{formatCurrency(selectedProposal.investment)}</Text>
               </div>
               <div className={styles.storyStat}>
                 <Text variant="label-default-s" onBackground="neutral-weak">
-                  Incremento / mes
+                  Retorno anual
                 </Text>
-                <Text variant="body-default-m">{formatCurrency(revenueDelta)}</Text>
+                <Text variant="body-default-m">{formatCurrency(selectedProposal.annualRevenue)}</Text>
               </div>
               <div className={styles.storyStat}>
                 <Text variant="label-default-s" onBackground="neutral-weak">
-                  Pico mensal
+                  Retorno liquido
                 </Text>
-                <Text variant="body-default-m">
-                  {peakRevenuePoint ? `${peakRevenuePoint.month} - ${formatCurrency(peakRevenuePoint.revenue)}` : "-"}
+                <Text variant="body-default-m">{formatCurrency(selectedProposal.netReturn)}</Text>
+              </div>
+              <div className={styles.storyStat}>
+                <Text variant="label-default-s" onBackground="neutral-weak">
+                  Payback
                 </Text>
+                <Text variant="body-default-m">{formatMonths(selectedProposal.paybackMonths)}</Text>
               </div>
             </Row>
+            {paybackPoint && (
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                O retorno liquido cruza o investimento em torno de {paybackPoint.month}.
+              </Text>
+            )}
           </div>
 
           <div className={styles.storyCard}>
@@ -647,7 +554,7 @@ export function ProjectIntelligencePanel({ snapshot }: Props) {
               </span>
             </Row>
             <Column gap="8">
-              {snapshot.highlights.slice(0, 3).map((item) => (
+              {snapshot.highlights.map((item) => (
                 <Row className={styles.highlightRow} gap="12" key={`${item.label}-${item.classification}`}>
                   <span className={styles.statusDot} data-status={item.classification} />
                   <Column gap="4">
@@ -686,7 +593,7 @@ export function ProjectIntelligencePanel({ snapshot }: Props) {
                 Proxima rodada
               </Text>
               <Heading as="h3" variant="heading-strong-m">
-                Como aumentar resultado e precisao
+                Como refinar a proposta
               </Heading>
 
               {priorityActions.length > 0 && (
@@ -705,7 +612,7 @@ export function ProjectIntelligencePanel({ snapshot }: Props) {
               {nextDataPoints.length > 0 && (
                 <Column gap="8">
                   <Text variant="label-default-s" onBackground="neutral-weak">
-                    Dados a confirmar
+                    Dados da consulta
                   </Text>
                   <ul className={styles.storyList}>
                     {nextDataPoints.map((item) => (

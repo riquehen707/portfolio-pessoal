@@ -57,10 +57,15 @@ export function ProjectExecutiveSummarySheet({
   const insightItems = snapshot.insights.slice(0, 4);
   const priorityActions = snapshot.report.recommendations.slice(0, 4);
   const pendingDataPoints = snapshot.nextDataPoints.slice(0, 4);
-  const realisticGrowthDelta = Math.max(
-    snapshot.report.scenarios.realistic.revenue - snapshot.quickMetrics.currentRevenueEstimate,
-    0,
-  );
+  const bestProposal = Object.values(snapshot.report.scenarios).reduce((best, proposal) => {
+    if (proposal.netReturn !== best.netReturn) {
+      return proposal.netReturn > best.netReturn ? proposal : best;
+    }
+
+    return (proposal.paybackMonths ?? Number.MAX_SAFE_INTEGER) < (best.paybackMonths ?? Number.MAX_SAFE_INTEGER)
+      ? proposal
+      : best;
+  });
 
   const basicFacts = [
     {
@@ -84,14 +89,22 @@ export function ProjectExecutiveSummarySheet({
       meta: reviewsTrace ? statusLabel(reviewsTrace.classification) : "Sem base",
     },
     {
-      label: "Capacidade livre",
-      value: String(Math.round(snapshot.quickMetrics.availableSlots)),
-      meta: "Estimativa atual",
+      label: "Ticket da simulacao",
+      value: formatCurrency(snapshot.quickMetrics.benchmarkTicket),
+      meta:
+        snapshot.quickMetrics.benchmarkTicketClassification === "real"
+          ? "Observado"
+          : snapshot.quickMetrics.benchmarkTicketClassification === "projected"
+            ? "Projetado"
+            : "Benchmark",
     },
     {
-      label: "Incremento realista / mes",
-      value: formatCurrency(realisticGrowthDelta),
-      meta: "Projetado sobre a base atual",
+      label: "Melhor payback",
+      value:
+        snapshot.quickMetrics.bestProposalPaybackMonths != null
+          ? `${snapshot.quickMetrics.bestProposalPaybackMonths} meses`
+          : "Acima de 12 meses",
+      meta: bestProposal.title,
     },
   ];
 
@@ -136,12 +149,16 @@ export function ProjectExecutiveSummarySheet({
       value: formatPercent(snapshot.precision.coverage),
     },
     {
-      label: "Receita atual estimada",
-      value: formatCurrency(snapshot.quickMetrics.currentRevenueEstimate),
+      label: "Melhor proposta",
+      value: bestProposal.title,
     },
     {
-      label: "Clientes no cenario realista",
-      value: String(snapshot.report.scenarios.realistic.customers),
+      label: "Investimento da melhor proposta",
+      value: formatCurrency(bestProposal.investment),
+    },
+    {
+      label: "Retorno anual potencial",
+      value: formatCurrency(bestProposal.annualRevenue),
     },
     {
       label: "Base de dados",
@@ -304,7 +321,7 @@ export function ProjectExecutiveSummarySheet({
 
             {pendingDataPoints.length > 0 && (
               <div className={styles.summaryBlock}>
-                <p className={styles.subBlockLabel}>Dados que aumentam a precisao</p>
+                <p className={styles.subBlockLabel}>Dados da consulta</p>
                 <ul className={styles.list}>
                   {pendingDataPoints.map((item) => (
                     <li key={item}>{item}</li>

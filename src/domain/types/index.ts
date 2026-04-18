@@ -158,19 +158,18 @@ export type DerivedReport = {
     eligibleMarket: number;
     intentMarket: number;
     capturableMarket: number;
-    projectedLeads: number;
-    projectedBookings: number;
-    projectedShows: number;
-    projectedCustomers: number;
-    projectedInitialRevenue: number;
-    projectedRecurringRevenue: number;
-    projectedTotalRevenue: number;
+    baseLeadsPotential: number;
+    baseBookingsPotential: number;
+    baseShowsPotential: number;
+    baseCustomersPotential: number;
+    baseMonthlyRevenuePotential: number;
+    benchmarkTicket: number;
     saturationFactor: number;
   };
   scenarios: {
-    conservative: { customers: number; revenue: number };
-    realistic: { customers: number; revenue: number };
-    aggressive: { customers: number; revenue: number };
+    conservative: ProjectProposalSummary;
+    realistic: ProjectProposalSummary;
+    aggressive: ProjectProposalSummary;
   };
   recommendations: string[];
 };
@@ -192,28 +191,44 @@ export type MetricTrace = {
 
 export type ScenarioKey = keyof DerivedReport["scenarios"];
 
-export type TimelineKpiPoint = {
-  month: string;
+export type ProjectProposalSummary = {
+  chartLabel: string;
+  title: string;
+  summary: string;
   investment: number;
-  revenue: number;
-  customers: number;
+  timeline: string;
+  ctaHref: string;
+  ctaLabel: string;
+  monthlyRevenue: number;
+  annualRevenue: number;
+  netReturn: number;
+  paybackMonths: number | null;
   leads: number;
-  cac: number;
+  bookings: number;
+  shows: number;
+  customers: number;
   roas: number;
-  saturation: number;
-  occupancy: number;
 };
 
-export type InvestmentCurvePoint = {
-  label: string;
-  spend: number;
-  revenue: number;
-  incrementalRevenue: number;
+export type ProjectProposalTimelinePoint = {
+  month: string;
+  investment: number;
+  monthlyReturn: number;
+  cumulativeReturn: number;
+  netReturn: number;
   customers: number;
-  cac: number;
   roas: number;
-  saturation: number;
-  efficiency: number;
+};
+
+export type ProjectProposalReturnPoint = {
+  proposal: string;
+  spend: number;
+  monthlyReturn: number;
+  annualReturn: number;
+  netReturn: number;
+  paybackMonths: number;
+  customers: number;
+  roas: number;
 };
 
 export type ProjectDashboardClassificationCounts = Record<DataClassification, number>;
@@ -228,7 +243,6 @@ export type ProjectDashboardPrecision = {
 
 export type ProjectScenarioChartPoint = {
   month: string;
-  atual: number;
   conservador: number;
   realista: number;
   agressivo: number;
@@ -236,15 +250,6 @@ export type ProjectScenarioChartPoint = {
 
 export type ProjectFunnelChartPoint = {
   stage: string;
-  atual: number;
-  conservador: number;
-  realista: number;
-  agressivo: number;
-};
-
-export type ProjectOrganicChartPoint = {
-  metric: string;
-  atual: number;
   conservador: number;
   realista: number;
   agressivo: number;
@@ -290,26 +295,19 @@ export type ProjectDashboardSnapshot = {
   precision: ProjectDashboardPrecision;
   narrative: ProjectBusinessNarrative;
   quickMetrics: {
-    currentCustomersEstimate: number;
-    currentRevenueEstimate: number;
-    occupancyRate: number;
-    growthRevenuePotential: number;
-    growthCustomersPotential: number;
-    adjustedCac: number;
-    roi: number;
-    roas: number;
-    availableSlots: number;
-    organicFollowersPerMonth: number;
-    organicLeadsPerMonth: number;
-    organicCustomersPerMonth: number;
-    valuePerFollower: number;
+    benchmarkTicket: number;
+    benchmarkTicketClassification: DataClassification;
+    baseMonthlyRevenuePotential: number;
+    baseCustomersPotential: number;
+    bestProposalInvestment: number;
+    bestProposalAnnualReturn: number;
+    bestProposalPaybackMonths: number | null;
   };
   scenarioChartData: ProjectScenarioChartPoint[];
   funnelChartData: ProjectFunnelChartPoint[];
-  organicChartData: ProjectOrganicChartPoint[];
   precisionChartData: ProjectPrecisionChartPoint[];
-  kpiTimelineChartData: Record<ScenarioKey, TimelineKpiPoint[]>;
-  investmentCurveChartData: Record<ScenarioKey, InvestmentCurvePoint[]>;
+  proposalTimelineChartData: Record<ScenarioKey, ProjectProposalTimelinePoint[]>;
+  proposalReturnChartData: ProjectProposalReturnPoint[];
   coverageChartData: ProjectCoverageChartPoint[];
   highlights: ProjectHighlight[];
   insights: string[];

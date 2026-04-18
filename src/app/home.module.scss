@@ -4,6 +4,50 @@
   width: 100%;
 }
 
+.heroIntro {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  border-radius: 2rem;
+  background:
+    linear-gradient(135deg, var(--surface-panel-strong), var(--surface-panel)),
+    var(--surface-panel-strong);
+  box-shadow: var(--shadow-card);
+}
+
+.heroIntro::before,
+.heroIntro::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.heroIntro::before {
+  inset: -18% 42% 32% -8%;
+  background: radial-gradient(circle, var(--brand-glow), transparent 72%);
+  animation: heroDrift 12s ease-in-out infinite alternate;
+}
+
+.heroIntro::after {
+  inset: 14% -10% -28% 56%;
+  background: radial-gradient(circle, var(--accent-glow), transparent 68%);
+  opacity: 0.8;
+  animation: heroDrift 16s ease-in-out infinite alternate-reverse;
+}
+
+.heroIntro > * {
+  position: relative;
+  z-index: 1;
+}
+
+.heroStack {
+  max-width: 46rem;
+}
+
 .hero {
   position: relative;
   width: 100%;
@@ -44,7 +88,24 @@
 }
 
 .heroCopy {
-  max-width: 35rem;
+  max-width: 42rem;
+}
+
+.heroLead {
+  max-width: 44rem;
+}
+
+.heroActions {
+  row-gap: 0.75rem;
+}
+
+.heroActions > * {
+  transform-origin: center;
+}
+
+.proofLabel {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .actions {
@@ -148,11 +209,26 @@
   background: linear-gradient(90deg, var(--scheme-brand-700), var(--scheme-accent-700));
 }
 
+@keyframes heroDrift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(0, -4%, 0) scale(1.05);
+  }
+}
+
 @media (max-width: breakpoints.$s) {
+  .heroIntro,
   .hero,
   .sectionPanel,
   .featuredAside {
     border-radius: 1.5rem;
+  }
+
+  .heroIntro {
+    padding: 1.25rem;
   }
 
   .heroGrid,
@@ -175,8 +251,20 @@
     max-width: none;
   }
 
+  .heroLead {
+    max-width: none;
+  }
+
   .heroAside {
     padding: 1rem;
+  }
+
+  .heroActions {
+    width: 100%;
+  }
+
+  .heroActions > * {
+    width: 100%;
   }
 
   .actions {
@@ -185,5 +273,12 @@
 
   .actions > * {
     width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroIntro::before,
+  .heroIntro::after {
+    animation: none;
   }
 }

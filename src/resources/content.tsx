@@ -46,29 +46,24 @@ const home: Home = {
   title: "Henrique Reis | Portfólio, serviços e blog",
   description:
     "Portfólio com serviços, projetos e textos sobre presença digital para profissionais que vivem de confiança, atendimento e relacionamento.",
-  headline: <>Sites e páginas para prestadores de serviço que precisam passar confiança antes mesmo do primeiro contato.</>,
+  headline: <>Foque no seu serviço enquanto eu estruturo sua operação digital.</>,
   featured: {
-    display: true,
+    display: false,
     title: (
       <Row gap="8" vertical="center">
         <Text marginLeft="4" onBackground="brand-medium">
           Destaque
         </Text>
         <Line background="brand-alpha-strong" vert height="20" />
-        <strong className="ml-4">
-          {featuredService.title}
-        </strong>
+        <strong className="ml-4">{featuredService.title}</strong>
       </Row>
     ),
     href: `${servicesPage.path}/${featuredService.slug}`,
   },
   subline: (
     <>
-      Sou {person.firstName}. Crio páginas, SEO técnico e automações para profissionais que querem
-      parar de improvisar no digital e começar a ser entendidos com mais clareza.
-      <br />
-      Aqui você encontra projetos, serviços e textos que mostram meu jeito de pensar presença
-      digital com clareza, critério e uma boa dose de humanidade.
+      Toda a estrutura digital do seu negócio em um só parceiro: software, presença online,
+      automação e gestão orientada por dados.
     </>
   ),
 };
@@ -92,11 +87,7 @@ const about: About = {
   intro: {
     display: true,
     title: "Introdução",
-    description: (
-      <>
-        Sites, SEO técnico e automação para negócios que precisam de clareza.
-      </>
-    ),
+    description: <>Sites, SEO técnico e automação para negócios que precisam de clareza.</>,
   },
   work: {
     display: true,
@@ -206,8 +197,7 @@ const work: Work = {
   path: "/work",
   label: "Projetos",
   title: "Projetos",
-  description:
-    "Projetos, casos e aplicações em uso.",
+  description: "Projetos, casos e aplicações em uso.",
 };
 
 export { person, social, newsletter, home, about, technicalApproach, blog, work };

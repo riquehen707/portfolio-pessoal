@@ -1,5 +1,7 @@
+import { services } from "@/resources/services";
 import type {
   Benchmark,
+  City,
   Client,
   DataClassification,
   DerivedReport,
@@ -9,9 +11,10 @@ import type {
   ProjectDashboardClassificationCounts,
   ProjectDashboardPrecision,
   ProjectDashboardSnapshot,
+  ProjectProposalSummary,
+  ProjectProposalTimelinePoint,
   ScenarioKey,
   Segment,
-  City,
 } from "@/domain/types";
 import { resolveMetricWithTrace } from "@/domain/calculations/resolveMetric";
 
@@ -24,47 +27,47 @@ type SectionStats = Record<
   }
 >;
 
-type ScenarioConfig = {
-  label: string;
-  demandMultiplier: number;
-  contactMultiplier: number;
-  revenueMultiplier: number;
-  retentionMultiplier: number;
-  saturationMultiplier: number;
-  precisionMultiplier: number;
+type ProposalScopeConfig = {
+  chartLabel: string;
+  title: string;
+  summary: string;
+  investment: number;
+  investmentLabel: string;
+  timeline: string;
+  ctaHref: string;
+  ctaLabel: string;
+  contactLift: number;
+  bookingLift: number;
+  showLift: number;
+  saleLift: number;
+  returnLift: number;
+  authorityLift: number;
+  googleLift: number;
+  rampMultiplier: number;
+  precisionPenalty: number;
+};
+
+type ProposalPotential = {
+  config: ProposalScopeConfig;
+  leads: number;
+  bookings: number;
+  shows: number;
+  customers: number;
+  monthlyRevenue: number;
+  annualRevenue: number;
+  netReturn: number;
+  paybackMonths: number | null;
+  roas: number;
+  timeline: ProjectProposalTimelinePoint[];
 };
 
 const monthLabels = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
 const seasonalityCurve = [0.97, 0.99, 1, 1.02, 1.04, 1.06, 1.05, 1.03, 1, 0.99, 0.97, 0.98];
-
-const scenarioConfigs: Record<ScenarioKey, ScenarioConfig> = {
-  conservative: {
-    label: "Conservador",
-    demandMultiplier: 0.96,
-    contactMultiplier: 0.98,
-    revenueMultiplier: 1.01,
-    retentionMultiplier: 1.03,
-    saturationMultiplier: 1.02,
-    precisionMultiplier: 0.98,
-  },
-  realistic: {
-    label: "Realista",
-    demandMultiplier: 1.08,
-    contactMultiplier: 1.06,
-    revenueMultiplier: 1.04,
-    retentionMultiplier: 1.08,
-    saturationMultiplier: 0.97,
-    precisionMultiplier: 0.92,
-  },
-  aggressive: {
-    label: "Agressivo",
-    demandMultiplier: 1.2,
-    contactMultiplier: 1.12,
-    revenueMultiplier: 1.08,
-    retentionMultiplier: 1.14,
-    saturationMultiplier: 0.92,
-    precisionMultiplier: 0.84,
-  },
+const scenarioKeys: ScenarioKey[] = ["conservative", "realistic", "aggressive"];
+const precisionMultipliers: Record<ScenarioKey, number> = {
+  conservative: 0.99,
+  realistic: 0.95,
+  aggressive: 0.9,
 };
 
 function clamp(value: number, min: number, max: number) {
@@ -88,6 +91,18 @@ function formatCurrency(value: number) {
     currency: "BRL",
     maximumFractionDigits: 0,
   }).format(value);
+}
+
+function parsePriceFloor(value: string) {
+  const match = value.match(/R\$\s*([\d\.\,]+)/);
+
+  if (!match) {
+    return null;
+  }
+
+  const normalized = match[1].replace(/\./g, "").replace(",", ".");
+  const parsedValue = Number(normalized);
+  return Number.isFinite(parsedValue) ? parsedValue : null;
 }
 
 function inferCityProfile(city: City): Benchmark["cityProfile"] {
@@ -207,9 +222,7 @@ function countTraceClassifications(traces: MetricTrace[]): ProjectDashboardClass
   );
 }
 
-function buildPrecisionFromTraces(
-  traces: MetricTrace[],
-): ProjectDashboardPrecision {
+function buildPrecisionFromTraces(traces: MetricTrace[]): ProjectDashboardPrecision {
   const classificationCounts = countTraceClassifications(traces);
   const overallConfidence =
     traces.reduce((sum, item) => sum + item.confidence, 0) / Math.max(traces.length, 1);
@@ -219,9 +232,9 @@ function buildPrecisionFromTraces(
   return {
     overall: precisionOverall,
     coverage,
-    conservative: clamp(precisionOverall * scenarioConfigs.conservative.precisionMultiplier, 0.4, 0.97),
-    realistic: clamp(precisionOverall * scenarioConfigs.realistic.precisionMultiplier, 0.38, 0.94),
-    aggressive: clamp(precisionOverall * scenarioConfigs.aggressive.precisionMultiplier, 0.34, 0.9),
+    conservative: clamp(precisionOverall * precisionMultipliers.conservative, 0.42, 0.97),
+    realistic: clamp(precisionOverall * precisionMultipliers.realistic, 0.4, 0.94),
+    aggressive: clamp(precisionOverall * precisionMultipliers.aggressive, 0.38, 0.9),
   };
 }
 
@@ -267,295 +280,162 @@ function dedupeStrings(items: string[], limit: number): string[] {
   return uniqueItems;
 }
 
-function combineClassifications(...classifications: DataClassification[]): DataClassification {
-  if (classifications.every((classification) => classification === "real")) {
-    return "real";
+function getProposalChartLabel(title: string) {
+  const normalizedTitle = title.toLowerCase();
+
+  if (normalizedTitle.includes("sprint")) {
+    return "Sprint";
   }
 
-  if (classifications.some((classification) => classification === "projected")) {
-    return "projected";
+  if (normalizedTitle.includes("site")) {
+    return "Site";
   }
 
-  return "estimated";
+  if (normalizedTitle.includes("landing")) {
+    return "Landing";
+  }
+
+  return title.split(" ").slice(0, 2).join(" ");
 }
 
-function buildScenarioSeries(
-  currentRevenueEstimate: number,
-  targetRevenue: number,
-  multiplier: number,
-) {
+function buildProposalScopeConfig(scope: {
+  title: string;
+  summary: string;
+  investment: string;
+  timeline: string;
+}, ctaHref: string, ctaLabel: string): ProposalScopeConfig {
+  const normalizedTitle = `${scope.title} ${scope.summary}`.toLowerCase();
+  const investment = parsePriceFloor(scope.investment) ?? 0;
+
+  if (normalizedTitle.includes("sprint") || normalizedTitle.includes("refino")) {
+    return {
+      chartLabel: "Sprint",
+      title: scope.title,
+      summary: scope.summary,
+      investment,
+      investmentLabel: scope.investment,
+      timeline: scope.timeline,
+      ctaHref,
+      ctaLabel,
+      contactLift: 0.14,
+      bookingLift: 0.08,
+      showLift: 0.03,
+      saleLift: 0.04,
+      returnLift: 0.02,
+      authorityLift: 0.06,
+      googleLift: 0.03,
+      rampMultiplier: 0.92,
+      precisionPenalty: 0.01,
+    };
+  }
+
+  if (normalizedTitle.includes("site")) {
+    return {
+      chartLabel: "Site",
+      title: scope.title,
+      summary: scope.summary,
+      investment,
+      investmentLabel: scope.investment,
+      timeline: scope.timeline,
+      ctaHref,
+      ctaLabel,
+      contactLift: 0.28,
+      bookingLift: 0.14,
+      showLift: 0.06,
+      saleLift: 0.08,
+      returnLift: 0.05,
+      authorityLift: 0.16,
+      googleLift: 0.1,
+      rampMultiplier: 0.82,
+      precisionPenalty: 0.08,
+    };
+  }
+
+  return {
+    chartLabel: "Landing",
+    title: scope.title,
+    summary: scope.summary,
+    investment,
+    investmentLabel: scope.investment,
+    timeline: scope.timeline,
+    ctaHref,
+    ctaLabel,
+    contactLift: 0.22,
+    bookingLift: 0.12,
+    showLift: 0.05,
+    saleLift: 0.07,
+    returnLift: 0.03,
+    authorityLift: 0.12,
+    googleLift: 0.06,
+    rampMultiplier: 0.87,
+    precisionPenalty: 0.04,
+  };
+}
+
+function buildProposalTimelineSeries(params: {
+  investment: number;
+  monthlyReturnPotential: number;
+  incrementalCustomersPotential: number;
+  rampMultiplier: number;
+}): ProjectProposalTimelinePoint[] {
+  const { investment, monthlyReturnPotential, incrementalCustomersPotential, rampMultiplier } = params;
+
+  let cumulativeReturn = 0;
+  let cumulativeCustomers = 0;
+
   return monthLabels.map((month, index) => {
     const progress = (index + 1) / monthLabels.length;
     const eased = progress * progress * (3 - 2 * progress);
     const seasonalFactor = seasonalityCurve[index];
-    const value =
-      currentRevenueEstimate +
-      (targetRevenue * multiplier - currentRevenueEstimate) * eased * seasonalFactor;
+    const realization = clamp((0.14 + eased * 0.96) * rampMultiplier * seasonalFactor, 0.1, 1.12);
+    const monthlyReturn = monthlyReturnPotential * realization;
+    const monthlyCustomers = incrementalCustomersPotential * realization;
+
+    cumulativeReturn += monthlyReturn;
+    cumulativeCustomers += monthlyCustomers;
 
     return {
       month,
-      value: round(value),
+      investment: index === 0 ? round(investment) : 0,
+      monthlyReturn: round(monthlyReturn),
+      cumulativeReturn: round(cumulativeReturn),
+      netReturn: round(cumulativeReturn - investment),
+      customers: round(cumulativeCustomers),
+      roas: Number((cumulativeReturn / Math.max(investment, 1)).toFixed(2)),
     };
   });
 }
 
-function buildKpiTimelineSeries(params: {
-  config: ScenarioConfig;
-  currentCustomers: number;
-  currentRevenueEstimate: number;
-  targetCustomers: number;
-  targetRevenue: number;
-  targetMonthlySpend: number;
-  monthlyReach: number;
-  avgCpl: number;
-  avgCpm: number;
-  avgCpc: number;
-  avgTicket: number;
-  monthlyCapacity: number;
-  returnRate: number;
-  repeatVisitsAverage: number;
-  followerGrowthRate: number;
-  baseConversionRate: number;
-  eligibleMarket: number;
-  exposureIndex: number;
-  competitionIndex: number;
-  saturationFactor: number;
-  diagnosisWeightedScore: number;
-  humanizationScore: number;
-  conversionScore: number;
-  modelConstant: ModelConstant;
-  recurringNature: boolean;
-}) {
-  const {
-    config,
-    currentCustomers,
-    currentRevenueEstimate,
-    targetCustomers,
-    targetRevenue,
-    targetMonthlySpend,
-    monthlyReach,
-    avgCpl,
-    avgCpm,
-    avgCpc,
-    avgTicket,
-    monthlyCapacity,
-    returnRate,
-    repeatVisitsAverage,
-    followerGrowthRate,
-    baseConversionRate,
-    eligibleMarket,
-    exposureIndex,
-    competitionIndex,
-    saturationFactor,
-    diagnosisWeightedScore,
-    humanizationScore,
-    conversionScore,
-    modelConstant,
-    recurringNature,
-  } = params;
+function getSegmentProposalConfigs(segment: Segment): Record<ScenarioKey, ProposalScopeConfig> {
+  const serviceSlug = segment.slug === "esthetic" ? "landing-page-para-estetica" : "websites-profissionais";
+  const service =
+    services.find((item) => item.slug === serviceSlug) ??
+    services.find((item) => item.slug === "websites-profissionais") ??
+    services[0];
 
-  let accumulatedExposure = Math.max(exposureIndex * 0.42, 0.08);
+  const rankedScopes = [...(service?.scopes ?? [])]
+    .map((scope) => ({
+      scope,
+      investment: parsePriceFloor(scope.investment) ?? Number.MAX_SAFE_INTEGER,
+    }))
+    .sort((a, b) => a.investment - b.investment);
 
-  return monthLabels.map((month, index) => {
-    const progress = (index + 1) / monthLabels.length;
-    const eased = progress * progress * (3 - 2 * progress);
-    const seasonalFactor = seasonalityCurve[index];
-    const learningGain = clamp(
-      (Math.log1p(index + 1) / Math.log(13)) *
-        (0.14 + diagnosisWeightedScore * 0.08 + (conversionScore / 10) * 0.05),
-      0.02,
-      0.24,
-    );
-    const organicLift =
-      1 + followerGrowthRate * (index + 1) * (0.92 + (humanizationScore / 10) * 0.18);
-    const dynamicSaturation = Math.max(
-      modelConstant.saturationModel.minimumEfficiencyFactor,
-      Math.exp(
-        -modelConstant.saturationModel.saturationK *
-          (1 + competitionIndex * modelConstant.saturationModel.competitionPenaltyMultiplier) *
-          accumulatedExposure *
-          config.saturationMultiplier,
-      ),
-    );
-    const saturationPenalty = clamp(
-      Math.pow(1 - dynamicSaturation, 2) * (1.48 + config.demandMultiplier * 0.18),
-      0,
-      0.96,
-    );
-    const effectiveCpl = clamp(
-      avgCpl * (1 - learningGain * 0.32 + saturationPenalty * 0.34),
-      avgCpl * 0.72,
-      avgCpl * 1.74,
-    );
-    const effectiveConversion = clamp(
-      baseConversionRate *
-        (0.88 + diagnosisWeightedScore * 0.08 + (conversionScore / 10) * 0.06) *
-        (0.94 + config.contactMultiplier * 0.06) *
-        dynamicSaturation,
-      baseConversionRate * 0.55,
-      baseConversionRate * 1.14,
-    );
-    const targetCustomersThisMonth = clamp(
-      currentCustomers + (targetCustomers - currentCustomers) * eased * seasonalFactor,
-      0,
-      monthlyCapacity,
-    );
-    const customersFromDemand = targetCustomersThisMonth * clamp(dynamicSaturation / saturationFactor, 0.82, 1.14);
-    const leadsNeeded = customersFromDemand / Math.max(effectiveConversion, 0.02);
-    const investment = Math.max(leadsNeeded * effectiveCpl, targetMonthlySpend * 0.45);
-    const leads = investment / Math.max(effectiveCpl, 1);
-    const customers = Math.min(monthlyCapacity, leads * effectiveConversion);
-    const recurringRevenue =
-      customers *
-      returnRate *
-      repeatVisitsAverage *
-      avgTicket *
-      (recurringNature ? 1 : 0.45) *
-      (0.48 + eased * 0.4);
-    const revenueTarget = currentRevenueEstimate + (targetRevenue - currentRevenueEstimate) * eased * seasonalFactor;
-    const rawRevenue = customers * avgTicket + recurringRevenue;
-    const revenue = clamp(
-      rawRevenue * 0.58 + revenueTarget * 0.42,
-      currentRevenueEstimate * 0.72,
-      targetRevenue * 1.08,
-    );
-    const incrementalRevenue = Math.max(revenue - currentRevenueEstimate, 0);
-    const cac = investment / Math.max(customers, 1);
-    const roas = incrementalRevenue / Math.max(investment, 1);
-    const occupancy = clamp(customers / Math.max(monthlyCapacity, 1), 0, 1.18);
+  const fallbackScope = rankedScopes[0]?.scope ?? {
+    title: "Proposta inicial",
+    summary: "Entrada enxuta para estruturar a captação.",
+    investment: "A partir de R$ 1.000",
+    timeline: "1 a 2 semanas",
+  };
 
-    const paidImpressions = avgCpm > 0 ? (investment / avgCpm) * 1000 : investment / Math.max(avgCpc, 0.5);
-    const organicReach = monthlyReach * (0.74 + eased * 0.46) * organicLift;
+  const conservativeScope = rankedScopes[0]?.scope ?? fallbackScope;
+  const realisticScope = rankedScopes[1]?.scope ?? rankedScopes[0]?.scope ?? fallbackScope;
+  const aggressiveScope = rankedScopes[2]?.scope ?? rankedScopes[rankedScopes.length - 1]?.scope ?? fallbackScope;
 
-    accumulatedExposure += (organicReach + paidImpressions) / Math.max(eligibleMarket, 1);
-
-    return {
-      month,
-      investment: round(investment),
-      revenue: round(revenue),
-      customers: round(customers),
-      leads: round(leads),
-      cac: round(cac),
-      roas: Number(roas.toFixed(2)),
-      saturation: Number(dynamicSaturation.toFixed(3)),
-      occupancy: Number(occupancy.toFixed(3)),
-    };
-  });
-}
-
-function buildInvestmentCurveSeries(params: {
-  config: ScenarioConfig;
-  currentCustomers: number;
-  currentRevenueEstimate: number;
-  baseMonthlySpend: number;
-  monthlyReach: number;
-  avgCpl: number;
-  avgCpm: number;
-  avgTicket: number;
-  monthlyCapacity: number;
-  returnRate: number;
-  repeatVisitsAverage: number;
-  baseConversionRate: number;
-  eligibleMarket: number;
-  competitionIndex: number;
-  saturationFactor: number;
-  diagnosisWeightedScore: number;
-  conversionScore: number;
-  modelConstant: ModelConstant;
-  recurringNature: boolean;
-}) {
-  const {
-    config,
-    currentCustomers,
-    currentRevenueEstimate,
-    baseMonthlySpend,
-    monthlyReach,
-    avgCpl,
-    avgCpm,
-    avgTicket,
-    monthlyCapacity,
-    returnRate,
-    repeatVisitsAverage,
-    baseConversionRate,
-    eligibleMarket,
-    competitionIndex,
-    saturationFactor,
-    diagnosisWeightedScore,
-    conversionScore,
-    modelConstant,
-    recurringNature,
-  } = params;
-
-  const spendMultipliers = [0.45, 0.65, 0.85, 1, 1.2, 1.45, 1.75];
-  const optimalSpendMultiplier = clamp(
-    0.84 + saturationFactor * 0.48 + diagnosisWeightedScore * 0.12 - competitionIndex * 0.08,
-    0.78,
-    1.42,
-  );
-
-  return spendMultipliers.map((multiplier) => {
-    const spend = baseMonthlySpend * multiplier;
-    const paidImpressions = avgCpm > 0 ? (spend / avgCpm) * 1000 : spend / Math.max(avgCpl, 1) * 18;
-    const reachShare = ((monthlyReach * 0.9) + paidImpressions) / Math.max(eligibleMarket, 1);
-    const curveSaturation = Math.max(
-      modelConstant.saturationModel.minimumEfficiencyFactor,
-      Math.exp(
-        -modelConstant.saturationModel.saturationK *
-          (1 + competitionIndex * modelConstant.saturationModel.competitionPenaltyMultiplier) *
-          reachShare *
-          config.saturationMultiplier,
-      ),
-    );
-    const learningGain = clamp(
-      (Math.log1p(multiplier * 4) / Math.log(8)) * (0.08 + diagnosisWeightedScore * 0.08),
-      0.03,
-      0.2,
-    );
-    const parabolicPenalty =
-      1 +
-      Math.pow(multiplier - optimalSpendMultiplier, 2) *
-        (0.5 + (1 - curveSaturation) * 2.1 + config.demandMultiplier * 0.08);
-    const effectiveCpl = clamp(
-      avgCpl * (1 - learningGain * 0.2) * parabolicPenalty,
-      avgCpl * 0.78,
-      avgCpl * 2.4,
-    );
-    const effectiveConversion = clamp(
-      baseConversionRate *
-        (0.9 + diagnosisWeightedScore * 0.06 + (conversionScore / 10) * 0.06) *
-        curveSaturation,
-      baseConversionRate * 0.55,
-      baseConversionRate * 1.08,
-    );
-    const leads = spend / Math.max(effectiveCpl, 1);
-    const customers = Math.min(monthlyCapacity, leads * effectiveConversion);
-    const recurringRevenue =
-      customers *
-      returnRate *
-      repeatVisitsAverage *
-      avgTicket *
-      (recurringNature ? 1 : 0.45) *
-      0.82;
-    const growthRevenue = customers * avgTicket + recurringRevenue;
-    const revenue = currentRevenueEstimate + growthRevenue;
-    const totalCustomers = Math.min(monthlyCapacity, currentCustomers + customers);
-    const cac = spend / Math.max(customers, 1);
-    const roas = growthRevenue / Math.max(spend, 1);
-    const incrementalRevenue = Math.max(growthRevenue, 0);
-    const efficiency = incrementalRevenue / Math.max(spend, 1);
-
-    return {
-      label: `R$ ${formatCompact(spend)}`,
-      spend: round(spend),
-      revenue: round(revenue),
-      incrementalRevenue: round(incrementalRevenue),
-      customers: round(totalCustomers),
-      cac: round(cac),
-      roas: Number(roas.toFixed(2)),
-      saturation: Number(curveSaturation.toFixed(3)),
-      efficiency: Number(efficiency.toFixed(2)),
-    };
-  });
+  return {
+    conservative: buildProposalScopeConfig(conservativeScope, service.hero.ctaHref, service.hero.ctaLabel),
+    realistic: buildProposalScopeConfig(realisticScope, service.hero.ctaHref, service.hero.ctaLabel),
+    aggressive: buildProposalScopeConfig(aggressiveScope, service.hero.ctaHref, service.hero.ctaLabel),
+  };
 }
 
 export function createProjectDashboardSnapshot(params: {
@@ -569,7 +449,6 @@ export function createProjectDashboardSnapshot(params: {
 
   const traces: MetricTrace[] = [];
   const sectionStats: SectionStats = {};
-
   const benchmarkLabel = `${segment.name} • ${benchmark.cityProfile}`;
 
   const avgTicketResolved = resolveMetricWithTrace({
@@ -583,30 +462,6 @@ export function createProjectDashboardSnapshot(params: {
   });
   registerTrace(traces, sectionStats, avgTicketResolved.trace);
   const avgTicket = avgTicketResolved.value;
-
-  const monthlyCapacityResolved = resolveMetricWithTrace({
-    key: "monthly-capacity",
-    label: "Capacidade mensal",
-    section: "Operacao",
-    observed: client.businessData.monthlyCapacity,
-    benchmark: null,
-    fallback: modelConstant.fallbackModel.defaultMonthlyCapacity,
-    benchmarkLabel,
-  });
-  registerTrace(traces, sectionStats, monthlyCapacityResolved.trace);
-  const monthlyCapacity = monthlyCapacityResolved.value;
-
-  const currentCustomersResolved = resolveMetricWithTrace({
-    key: "current-customers",
-    label: "Clientes atuais por mes",
-    section: "Comercial",
-    observed: client.businessData.currentCustomersPerMonth,
-    benchmark: Math.round(monthlyCapacity * 0.46),
-    fallback: Math.round(modelConstant.fallbackModel.defaultMonthlyCapacity * 0.42),
-    benchmarkLabel: `Estimativa pela capacidade para ${segment.name}`,
-  });
-  registerTrace(traces, sectionStats, currentCustomersResolved.trace);
-  const currentCustomers = currentCustomersResolved.value;
 
   const returnRateResolved = resolveMetricWithTrace({
     key: "return-rate",
@@ -633,18 +488,6 @@ export function createProjectDashboardSnapshot(params: {
   });
   registerTrace(traces, sectionStats, noShowRateResolved.trace);
   const noShowRate = clamp(noShowRateResolved.value, 0.01, 0.45);
-
-  const currentRevenueResolved = resolveMetricWithTrace({
-    key: "current-revenue",
-    label: "Faturamento atual",
-    section: "Comercial",
-    observed: client.businessData.currentRevenueEstimate,
-    benchmark: currentCustomers * avgTicket,
-    fallback: avgTicket * currentCustomers,
-    benchmarkLabel: "Estimativa derivada do ticket e clientes atuais",
-  });
-  registerTrace(traces, sectionStats, currentRevenueResolved.trace);
-  const currentRevenueEstimate = currentRevenueResolved.value;
 
   const followersResolved = resolveMetricWithTrace({
     key: "followers",
@@ -819,14 +662,7 @@ export function createProjectDashboardSnapshot(params: {
   registerTrace(traces, sectionStats, avgCpmResolved.trace);
   const avgCpm = avgCpmResolved.value;
 
-  pushObservedScoreTrace(
-    traces,
-    sectionStats,
-    "diagnosis-bio",
-    "Score bio",
-    "Diagnostico",
-    client.diagnosisScores.bio,
-  );
+  pushObservedScoreTrace(traces, sectionStats, "diagnosis-bio", "Score bio", "Diagnostico", client.diagnosisScores.bio);
   pushObservedScoreTrace(
     traces,
     sectionStats,
@@ -966,7 +802,7 @@ export function createProjectDashboardSnapshot(params: {
   );
 
   const leadToBookingRate = clamp(
-    benchmark.funnel.leadToBookingRate * (0.9 + client.diagnosisScores.conversion / 10 * 0.1),
+    benchmark.funnel.leadToBookingRate * (0.9 + (client.diagnosisScores.conversion / 10) * 0.1),
     0.12,
     0.88,
   );
@@ -977,26 +813,21 @@ export function createProjectDashboardSnapshot(params: {
   );
   const showToSaleRate = clamp(
     benchmark.funnel.showToSaleRate *
-      (0.9 + client.diagnosisScores.offerClarity / 10 * 0.07 + client.diagnosisScores.socialProof / 10 * 0.05),
+      (0.9 + (client.diagnosisScores.offerClarity / 10) * 0.07 + (client.diagnosisScores.socialProof / 10) * 0.05),
     0.18,
     0.9,
   );
 
-  const projectedLeads = capturableMarket * contactRate;
-  const projectedBookings = projectedLeads * leadToBookingRate;
-  const projectedShows = projectedBookings * bookingToShowRate;
-  const projectedCustomers = projectedShows * showToSaleRate;
-  const projectedInitialRevenue = projectedCustomers * avgTicket;
+  const baseLeadsPotential = capturableMarket * contactRate;
+  const baseBookingsPotential = baseLeadsPotential * leadToBookingRate;
+  const baseShowsPotential = baseBookingsPotential * bookingToShowRate;
+  const baseCustomersPotential = baseShowsPotential * showToSaleRate;
   const repeatVisitsAverage = benchmark.retention.repeatVisitsAverage;
-  const projectedRecurringRevenue =
-    projectedCustomers *
-    returnRate *
-    repeatVisitsAverage *
-    avgTicket *
-    (segment.audienceProfile.recurringNature ? 1 : 0.45);
-
-  const impliedMediaSpend = projectedLeads * avgCpl;
-  const paidImpressions = avgCpm > 0 ? (impliedMediaSpend / avgCpm) * 1000 : impliedMediaSpend / avgCpc;
+  const recurringFactor = segment.audienceProfile.recurringNature ? 1 : 0.45;
+  const baseRecurringRevenuePotential =
+    baseCustomersPotential * returnRate * repeatVisitsAverage * avgTicket * recurringFactor;
+  const impliedMediaSpend = baseLeadsPotential * avgCpl;
+  const paidImpressions = avgCpm > 0 ? (impliedMediaSpend / avgCpm) * 1000 : impliedMediaSpend / Math.max(avgCpc, 1);
   const exposureIndex = (monthlyReach + paidImpressions) / Math.max(eligibleMarket, 1);
   const saturationFactor = Math.max(
     modelConstant.saturationModel.minimumEfficiencyFactor,
@@ -1006,74 +837,113 @@ export function createProjectDashboardSnapshot(params: {
         exposureIndex,
     ),
   );
+  const baseMonthlyRevenuePotential =
+    (baseCustomersPotential * avgTicket + baseRecurringRevenuePotential) * saturationFactor;
 
-  const projectedTotalRevenue = (projectedInitialRevenue + projectedRecurringRevenue) * saturationFactor;
-  const baseConversionRate = clamp(leadToBookingRate * bookingToShowRate * showToSaleRate, 0.04, 0.72);
-  const adjustedCac = (impliedMediaSpend / Math.max(projectedCustomers, 1)) / Math.max(saturationFactor, 0.42);
-  const currentShowsEstimate = currentCustomers / Math.max(showToSaleRate, 0.18);
-  const currentBookingsEstimate = currentShowsEstimate / Math.max(bookingToShowRate, 0.3);
-  const currentLeadsEstimate = currentBookingsEstimate / Math.max(leadToBookingRate, 0.12);
+  const proposalConfigs = getSegmentProposalConfigs(segment);
+  const proposalPotentials = scenarioKeys.reduce<Record<ScenarioKey, ProposalPotential>>((acc, key) => {
+    const proposalConfig = proposalConfigs[key];
+    const proposalPresenceFactor = clamp(
+      digitalPresenceFactor * (1 + proposalConfig.authorityLift + proposalConfig.googleLift * (reviews <= 0 ? 0.7 : 0.35)),
+      0.34,
+      1.42,
+    );
+    const proposalOfferFactor = clamp(
+      offerFactor * (1 + proposalConfig.contactLift * 0.42 + proposalConfig.authorityLift * 0.24),
+      0.48,
+      1.26,
+    );
+    const proposalCapturableMarket = intentMarket * competitionFactor * proposalPresenceFactor * proposalOfferFactor;
+    const proposalContactRate = clamp(contactRate * (1 + proposalConfig.contactLift), 0.03, 0.28);
+    const proposalLeadToBookingRate = clamp(leadToBookingRate * (1 + proposalConfig.bookingLift), 0.14, 0.92);
+    const proposalBookingToShowRate = clamp(bookingToShowRate * (1 + proposalConfig.showLift), 0.35, 0.98);
+    const proposalShowToSaleRate = clamp(showToSaleRate * (1 + proposalConfig.saleLift), 0.22, 0.94);
+    const proposalReturnRate = clamp(returnRate * (1 + proposalConfig.returnLift), 0.02, 0.96);
 
-  const scenarioGrowthSummaries = Object.entries(scenarioConfigs).reduce<
-    Record<ScenarioKey, { leads: number; bookings: number; shows: number; customers: number; revenue: number }>
-  >((acc, [scenarioKey, config]) => {
-    const growthLeads = projectedLeads * config.demandMultiplier;
-    const growthBookings = projectedBookings * config.contactMultiplier;
-    const growthShows = projectedShows * config.contactMultiplier;
-    const growthCustomers =
-      projectedCustomers * config.demandMultiplier * config.contactMultiplier * config.retentionMultiplier;
-    const growthRevenue =
-      projectedTotalRevenue *
-      config.revenueMultiplier *
-      config.demandMultiplier *
-      config.contactMultiplier *
-      config.retentionMultiplier *
-      config.saturationMultiplier;
+    const grossLeadsPotential = proposalCapturableMarket * proposalContactRate;
+    const grossBookingsPotential = grossLeadsPotential * proposalLeadToBookingRate;
+    const grossShowsPotential = grossBookingsPotential * proposalBookingToShowRate;
+    const grossCustomersPotential = grossShowsPotential * proposalShowToSaleRate;
+    const grossRecurringRevenue =
+      grossCustomersPotential * proposalReturnRate * repeatVisitsAverage * avgTicket * recurringFactor;
+    const grossMonthlyRevenuePotential =
+      (grossCustomersPotential * avgTicket + grossRecurringRevenue) * saturationFactor;
 
-    acc[scenarioKey as ScenarioKey] = {
-      leads: round(growthLeads),
-      bookings: round(growthBookings),
-      shows: round(growthShows),
-      customers: round(growthCustomers),
-      revenue: round(growthRevenue),
+    const incrementalLeads = Math.max(grossLeadsPotential - baseLeadsPotential, 0);
+    const incrementalBookings = Math.max(grossBookingsPotential - baseBookingsPotential, 0);
+    const incrementalShows = Math.max(grossShowsPotential - baseShowsPotential, 0);
+    const incrementalCustomers = Math.max(grossCustomersPotential - baseCustomersPotential, 0);
+    const monthlyReturnPotential = Math.max(grossMonthlyRevenuePotential - baseMonthlyRevenuePotential, 0);
+    const timeline = buildProposalTimelineSeries({
+      investment: proposalConfig.investment,
+      monthlyReturnPotential,
+      incrementalCustomersPotential: incrementalCustomers,
+      rampMultiplier: proposalConfig.rampMultiplier,
+    });
+    const annualRevenue = timeline[timeline.length - 1]?.cumulativeReturn ?? 0;
+    const netReturn = annualRevenue - proposalConfig.investment;
+    const paybackIndex = timeline.findIndex((item) => item.netReturn >= 0);
+    const paybackMonths = paybackIndex >= 0 ? paybackIndex + 1 : null;
+    const roas = annualRevenue / Math.max(proposalConfig.investment, 1);
+
+    acc[key] = {
+      config: proposalConfig,
+      leads: round(incrementalLeads),
+      bookings: round(incrementalBookings),
+      shows: round(incrementalShows),
+      customers: round(incrementalCustomers),
+      monthlyRevenue: round(monthlyReturnPotential),
+      annualRevenue: round(annualRevenue),
+      netReturn: round(netReturn),
+      paybackMonths,
+      roas: Number(roas.toFixed(2)),
+      timeline,
     };
 
     return acc;
-  }, {} as Record<ScenarioKey, { leads: number; bookings: number; shows: number; customers: number; revenue: number }>);
+  }, {} as Record<ScenarioKey, ProposalPotential>);
 
-  const scenarioSummaries = Object.entries(scenarioGrowthSummaries).reduce<
-    Record<ScenarioKey, { customers: number; revenue: number }>
-  >((acc, [scenarioKey, growth]) => {
-    acc[scenarioKey as ScenarioKey] = {
-      customers: round(Math.min(monthlyCapacity, currentCustomers + growth.customers)),
-      revenue: round(currentRevenueEstimate + growth.revenue),
+  const reportScenarios = scenarioKeys.reduce<Record<ScenarioKey, ProjectProposalSummary>>((acc, key) => {
+    const proposal = proposalPotentials[key];
+
+    acc[key] = {
+      chartLabel: proposal.config.chartLabel,
+      title: proposal.config.title,
+      summary: proposal.config.summary,
+      investment: proposal.config.investment,
+      timeline: proposal.config.timeline,
+      ctaHref: proposal.config.ctaHref,
+      ctaLabel: proposal.config.ctaLabel,
+      monthlyRevenue: proposal.monthlyRevenue,
+      annualRevenue: proposal.annualRevenue,
+      netReturn: proposal.netReturn,
+      paybackMonths: proposal.paybackMonths,
+      leads: proposal.leads,
+      bookings: proposal.bookings,
+      shows: proposal.shows,
+      customers: proposal.customers,
+      roas: proposal.roas,
     };
 
     return acc;
-  }, {} as Record<ScenarioKey, { customers: number; revenue: number }>);
+  }, {} as Record<ScenarioKey, ProjectProposalSummary>);
 
   const recommendations: string[] = [];
 
   if (client.diagnosisScores.bio <= 4 || client.diagnosisScores.offerClarity <= 4) {
-    recommendations.push("Enxugar a bio e deixar a oferta principal mais clara ja na primeira dobra.");
+    recommendations.push("A proposta precisa deixar procedimento, promessa e CTA mais claros ja na primeira dobra.");
   }
   if (client.diagnosisScores.humanization <= 4) {
-    recommendations.push("Aumentar a presenca humana em video com voz real, bastidores e explicacao de procedimentos.");
+    recommendations.push("Usar voz, rosto e bastidores para reduzir friccao antes do clique no WhatsApp.");
   }
   if (client.diagnosisScores.socialProof <= 4) {
-    recommendations.push("Organizar prova social recorrente com depoimentos, antes e depois autorizado e feedback de clientes.");
+    recommendations.push("Organizar prova social recorrente com depoimentos, antes e depois autorizado e respostas a duvidas frequentes.");
   }
   if (reviews === 0 || client.diagnosisScores.googlePresence <= 3) {
-    recommendations.push("Estruturar Google Perfil da Empresa com reviews, fotos e prova local.");
+    recommendations.push("Se a meta for captar demanda local, priorizar proposta com Google Perfil da Empresa, FAQ e prova local bem visiveis.");
   }
-  if (client.diagnosisScores.conversion <= 4) {
-    recommendations.push("Reforcar CTA, proposta principal e caminho de contato para reduzir atrito ate o WhatsApp.");
-  }
-  if (returnRate < 0.38) {
-    recommendations.push("Criar fluxo de retorno em 30 e 60 dias para aumentar recorrencia e LTV.");
-  }
-  if (bookingToShowRate < 0.8) {
-    recommendations.push("Implementar confirmacao ativa para reduzir faltas e proteger ocupacao.");
+  if (client.businessData.avgTicket == null) {
+    recommendations.push("Na consulta, trocar o ticket benchmark por ticket real melhora muito a leitura financeira do retorno.");
   }
 
   const report: DerivedReport = {
@@ -1084,358 +954,83 @@ export function createProjectDashboardSnapshot(params: {
       eligibleMarket: round(eligibleMarket),
       intentMarket: round(intentMarket),
       capturableMarket: round(capturableMarket),
-      projectedLeads: round(projectedLeads),
-      projectedBookings: round(projectedBookings),
-      projectedShows: round(projectedShows),
-      projectedCustomers: round(projectedCustomers),
-      projectedInitialRevenue: round(projectedInitialRevenue),
-      projectedRecurringRevenue: round(projectedRecurringRevenue),
-      projectedTotalRevenue: round(projectedTotalRevenue),
+      baseLeadsPotential: round(baseLeadsPotential),
+      baseBookingsPotential: round(baseBookingsPotential),
+      baseShowsPotential: round(baseShowsPotential),
+      baseCustomersPotential: round(baseCustomersPotential),
+      baseMonthlyRevenuePotential: round(baseMonthlyRevenuePotential),
+      benchmarkTicket: round(avgTicket),
       saturationFactor,
     },
-    scenarios: scenarioSummaries,
+    scenarios: reportScenarios,
     recommendations: dedupeStrings(recommendations, 6),
   };
 
-  const conservativeSeries = buildScenarioSeries(
-    currentRevenueEstimate,
-    report.scenarios.conservative.revenue,
-    scenarioConfigs.conservative.revenueMultiplier,
-  );
-  const realisticSeries = buildScenarioSeries(
-    currentRevenueEstimate,
-    report.scenarios.realistic.revenue,
-    scenarioConfigs.realistic.revenueMultiplier,
-  );
-  const aggressiveSeries = buildScenarioSeries(
-    currentRevenueEstimate,
-    report.scenarios.aggressive.revenue,
-    scenarioConfigs.aggressive.revenueMultiplier,
-  );
-  const actualSeries = buildScenarioSeries(currentRevenueEstimate, currentRevenueEstimate * 1.06, 1);
-
   const scenarioChartData = monthLabels.map((month, index) => ({
     month,
-    atual: actualSeries[index]?.value ?? round(currentRevenueEstimate),
-    conservador: conservativeSeries[index]?.value ?? report.scenarios.conservative.revenue,
-    realista: realisticSeries[index]?.value ?? report.scenarios.realistic.revenue,
-    agressivo: aggressiveSeries[index]?.value ?? report.scenarios.aggressive.revenue,
+    conservador: proposalPotentials.conservative.timeline[index]?.netReturn ?? 0,
+    realista: proposalPotentials.realistic.timeline[index]?.netReturn ?? 0,
+    agressivo: proposalPotentials.aggressive.timeline[index]?.netReturn ?? 0,
   }));
 
   const funnelChartData = [
     {
-      stage: "Leads",
-      atual: round(currentLeadsEstimate),
-      conservador: round(currentLeadsEstimate + scenarioGrowthSummaries.conservative.leads),
-      realista: round(currentLeadsEstimate + scenarioGrowthSummaries.realistic.leads),
-      agressivo: round(currentLeadsEstimate + scenarioGrowthSummaries.aggressive.leads),
+      stage: "Leads extras",
+      conservador: report.scenarios.conservative.leads,
+      realista: report.scenarios.realistic.leads,
+      agressivo: report.scenarios.aggressive.leads,
     },
     {
-      stage: "Agenda",
-      atual: round(currentBookingsEstimate),
-      conservador: round(currentBookingsEstimate + scenarioGrowthSummaries.conservative.bookings),
-      realista: round(currentBookingsEstimate + scenarioGrowthSummaries.realistic.bookings),
-      agressivo: round(currentBookingsEstimate + scenarioGrowthSummaries.aggressive.bookings),
+      stage: "Agendas extras",
+      conservador: report.scenarios.conservative.bookings,
+      realista: report.scenarios.realistic.bookings,
+      agressivo: report.scenarios.aggressive.bookings,
     },
     {
-      stage: "Comparece",
-      atual: round(currentShowsEstimate),
-      conservador: round(currentShowsEstimate + scenarioGrowthSummaries.conservative.shows),
-      realista: round(currentShowsEstimate + scenarioGrowthSummaries.realistic.shows),
-      agressivo: round(currentShowsEstimate + scenarioGrowthSummaries.aggressive.shows),
+      stage: "Comparecimentos extras",
+      conservador: report.scenarios.conservative.shows,
+      realista: report.scenarios.realistic.shows,
+      agressivo: report.scenarios.aggressive.shows,
     },
     {
-      stage: "Clientes",
-      atual: round(currentCustomers),
+      stage: "Clientes extras",
       conservador: report.scenarios.conservative.customers,
       realista: report.scenarios.realistic.customers,
       agressivo: report.scenarios.aggressive.customers,
     },
   ];
 
-  const organicFollowersPerMonth = followers * followerGrowthRate;
-  const organicLeadsPerMonth = followers * benchmark.organic.organicLeadRate;
-  const organicCustomersPerMonth = organicLeadsPerMonth * showToSaleRate * 0.72;
-  const valuePerFollower =
-    (organicCustomersPerMonth * avgTicket) / Math.max(organicFollowersPerMonth, 1);
+  const proposalTimelineChartData = {
+    conservative: proposalPotentials.conservative.timeline,
+    realistic: proposalPotentials.realistic.timeline,
+    aggressive: proposalPotentials.aggressive.timeline,
+  } satisfies ProjectDashboardSnapshot["proposalTimelineChartData"];
 
-  const organicChartData = [
-    {
-      metric: "Seguidores",
-      atual: round(organicFollowersPerMonth * 0.9),
-      conservador: round(organicFollowersPerMonth * scenarioConfigs.conservative.revenueMultiplier),
-      realista: round(organicFollowersPerMonth * scenarioConfigs.realistic.revenueMultiplier),
-      agressivo: round(organicFollowersPerMonth * scenarioConfigs.aggressive.revenueMultiplier),
-    },
-    {
-      metric: "Leads organicos",
-      atual: round(organicLeadsPerMonth * 0.92),
-      conservador: round(organicLeadsPerMonth * scenarioConfigs.conservative.contactMultiplier),
-      realista: round(organicLeadsPerMonth * scenarioConfigs.realistic.contactMultiplier),
-      agressivo: round(organicLeadsPerMonth * scenarioConfigs.aggressive.contactMultiplier),
-    },
-    {
-      metric: "Clientes organicos",
-      atual: round(organicCustomersPerMonth * 0.94),
-      conservador: round(organicCustomersPerMonth * scenarioConfigs.conservative.retentionMultiplier),
-      realista: round(organicCustomersPerMonth * scenarioConfigs.realistic.retentionMultiplier),
-      agressivo: round(organicCustomersPerMonth * scenarioConfigs.aggressive.retentionMultiplier),
-    },
-  ];
+  const proposalReturnChartData = scenarioKeys.map((key) => {
+    const proposal = report.scenarios[key];
 
-  const scenarioMonthlySpend = {
-    conservative: Math.max(
-      scenarioGrowthSummaries.conservative.leads * avgCpl * 0.82,
-      scenarioGrowthSummaries.conservative.customers * adjustedCac * 0.84,
-    ),
-    realistic: Math.max(
-      scenarioGrowthSummaries.realistic.leads * avgCpl * 0.92,
-      scenarioGrowthSummaries.realistic.customers * adjustedCac * 0.92,
-    ),
-    aggressive: Math.max(
-      scenarioGrowthSummaries.aggressive.leads * avgCpl * 1.04,
-      scenarioGrowthSummaries.aggressive.customers * adjustedCac,
-    ),
-  } satisfies Record<ScenarioKey, number>;
-
-  const kpiTimelineChartData = {
-    conservative: buildKpiTimelineSeries({
-      config: scenarioConfigs.conservative,
-      currentCustomers,
-      currentRevenueEstimate,
-      targetCustomers: report.scenarios.conservative.customers,
-      targetRevenue: report.scenarios.conservative.revenue,
-      targetMonthlySpend: scenarioMonthlySpend.conservative,
-      monthlyReach,
-      avgCpl,
-      avgCpm,
-      avgCpc,
-      avgTicket,
-      monthlyCapacity,
-      returnRate,
-      repeatVisitsAverage,
-      followerGrowthRate,
-      baseConversionRate,
-      eligibleMarket,
-      exposureIndex,
-      competitionIndex,
-      saturationFactor,
-      diagnosisWeightedScore,
-      humanizationScore: client.diagnosisScores.humanization,
-      conversionScore: client.diagnosisScores.conversion,
-      modelConstant,
-      recurringNature: segment.audienceProfile.recurringNature,
-    }),
-    realistic: buildKpiTimelineSeries({
-      config: scenarioConfigs.realistic,
-      currentCustomers,
-      currentRevenueEstimate,
-      targetCustomers: report.scenarios.realistic.customers,
-      targetRevenue: report.scenarios.realistic.revenue,
-      targetMonthlySpend: scenarioMonthlySpend.realistic,
-      monthlyReach,
-      avgCpl,
-      avgCpm,
-      avgCpc,
-      avgTicket,
-      monthlyCapacity,
-      returnRate,
-      repeatVisitsAverage,
-      followerGrowthRate,
-      baseConversionRate,
-      eligibleMarket,
-      exposureIndex,
-      competitionIndex,
-      saturationFactor,
-      diagnosisWeightedScore,
-      humanizationScore: client.diagnosisScores.humanization,
-      conversionScore: client.diagnosisScores.conversion,
-      modelConstant,
-      recurringNature: segment.audienceProfile.recurringNature,
-    }),
-    aggressive: buildKpiTimelineSeries({
-      config: scenarioConfigs.aggressive,
-      currentCustomers,
-      currentRevenueEstimate,
-      targetCustomers: report.scenarios.aggressive.customers,
-      targetRevenue: report.scenarios.aggressive.revenue,
-      targetMonthlySpend: scenarioMonthlySpend.aggressive,
-      monthlyReach,
-      avgCpl,
-      avgCpm,
-      avgCpc,
-      avgTicket,
-      monthlyCapacity,
-      returnRate,
-      repeatVisitsAverage,
-      followerGrowthRate,
-      baseConversionRate,
-      eligibleMarket,
-      exposureIndex,
-      competitionIndex,
-      saturationFactor,
-      diagnosisWeightedScore,
-      humanizationScore: client.diagnosisScores.humanization,
-      conversionScore: client.diagnosisScores.conversion,
-      modelConstant,
-      recurringNature: segment.audienceProfile.recurringNature,
-    }),
-  } satisfies ProjectDashboardSnapshot["kpiTimelineChartData"];
-
-  const investmentCurveChartData = {
-    conservative: buildInvestmentCurveSeries({
-      config: scenarioConfigs.conservative,
-      currentCustomers,
-      currentRevenueEstimate,
-      baseMonthlySpend: scenarioMonthlySpend.conservative,
-      monthlyReach,
-      avgCpl,
-      avgCpm,
-      avgTicket,
-      monthlyCapacity,
-      returnRate,
-      repeatVisitsAverage,
-      baseConversionRate,
-      eligibleMarket,
-      competitionIndex,
-      saturationFactor,
-      diagnosisWeightedScore,
-      conversionScore: client.diagnosisScores.conversion,
-      modelConstant,
-      recurringNature: segment.audienceProfile.recurringNature,
-    }),
-    realistic: buildInvestmentCurveSeries({
-      config: scenarioConfigs.realistic,
-      currentCustomers,
-      currentRevenueEstimate,
-      baseMonthlySpend: scenarioMonthlySpend.realistic,
-      monthlyReach,
-      avgCpl,
-      avgCpm,
-      avgTicket,
-      monthlyCapacity,
-      returnRate,
-      repeatVisitsAverage,
-      baseConversionRate,
-      eligibleMarket,
-      competitionIndex,
-      saturationFactor,
-      diagnosisWeightedScore,
-      conversionScore: client.diagnosisScores.conversion,
-      modelConstant,
-      recurringNature: segment.audienceProfile.recurringNature,
-    }),
-    aggressive: buildInvestmentCurveSeries({
-      config: scenarioConfigs.aggressive,
-      currentCustomers,
-      currentRevenueEstimate,
-      baseMonthlySpend: scenarioMonthlySpend.aggressive,
-      monthlyReach,
-      avgCpl,
-      avgCpm,
-      avgTicket,
-      monthlyCapacity,
-      returnRate,
-      repeatVisitsAverage,
-      baseConversionRate,
-      eligibleMarket,
-      competitionIndex,
-      saturationFactor,
-      diagnosisWeightedScore,
-      conversionScore: client.diagnosisScores.conversion,
-      modelConstant,
-      recurringNature: segment.audienceProfile.recurringNature,
-    }),
-  } satisfies ProjectDashboardSnapshot["investmentCurveChartData"];
-
-  const roi = impliedMediaSpend > 0 ? (projectedTotalRevenue - impliedMediaSpend) / impliedMediaSpend : 0;
-  const roas = impliedMediaSpend > 0 ? projectedTotalRevenue / impliedMediaSpend : 0;
-  const availableSlots = Math.max(monthlyCapacity - currentCustomers, 0);
-  const occupancyRate = clamp(currentCustomers / Math.max(monthlyCapacity, 1), 0, 1.4);
-  const availableSlotsClassification = combineClassifications(
-    monthlyCapacityResolved.classification,
-    currentCustomersResolved.classification,
-  );
-
-  const highlights = [
-    {
-      label: "Receita atual / mes",
-      value: formatCurrency(round(currentRevenueEstimate)),
-      classification: currentRevenueResolved.classification,
-      sourceLabel: currentRevenueResolved.trace.sourceLabel,
-    },
-    {
-      label: "Capacidade livre / mes",
-      value: `${round(availableSlots)}`,
-      classification: availableSlotsClassification,
-      sourceLabel: "Capacidade mensal comparada com clientes atuais por mes",
-    },
-    {
-      label: "Seguidores observados",
-      value: String(round(followers)),
-      classification: followersResolved.classification,
-      sourceLabel: followersResolved.trace.sourceLabel,
-    },
-    {
-      label: "Incremento projetado / mes",
-      value: `R$ ${round(report.derivedMetrics.projectedTotalRevenue)}`,
-      classification: "projected" as DataClassification,
-      sourceLabel: "Motor derivado do caso sobre a base atual",
-    },
-  ];
-
-  const nextDataPoints: string[] = [];
-  if (client.businessData.currentRevenueEstimate == null) {
-    nextDataPoints.push("Faturamento fechado do ultimo mes ou media dos ultimos 3 meses.");
-  }
-  if (client.businessData.avgTicket == null) {
-    nextDataPoints.push("Ticket medio real por procedimento ou ticket medio mensal.");
-  }
-  if (client.businessData.monthlyCapacity == null) {
-    nextDataPoints.push("Capacidade mensal da agenda considerando equipe, horarios e duracao media.");
-  }
-  if (client.businessData.currentCustomersPerMonth == null) {
-    nextDataPoints.push("Quantidade real de clientes atendidos por mes.");
-  }
-  if (
-    client.instagramData.monthlyReach == null ||
-    client.instagramData.profileVisits == null ||
-    client.instagramData.linkClicks == null ||
-    client.instagramData.messagesPerMonth == null
-  ) {
-    nextDataPoints.push("Instagram dos ultimos 30 dias: alcance, visitas ao perfil, cliques no link e mensagens.");
-  }
-  if ((client.googleData.reviews ?? 0) <= 0 || client.googleData.profileViews == null) {
-    nextDataPoints.push("Google Perfil da Empresa: reviews, nota, visualizacoes, ligacoes e rotas nos ultimos 30 dias.");
-  }
-  if (client.businessData.noShowRate == null) {
-    nextDataPoints.push("Taxa media de faltas ou remarcacoes por mes.");
-  }
-  if (client.businessData.returnRate == null) {
-    nextDataPoints.push("Percentual de clientes que retornam em 30 e 60 dias.");
-  }
+    return {
+      proposal: proposal.chartLabel,
+      spend: proposal.investment,
+      monthlyReturn: proposal.monthlyRevenue,
+      annualReturn: proposal.annualRevenue,
+      netReturn: proposal.netReturn,
+      paybackMonths: proposal.paybackMonths ?? 0,
+      customers: proposal.customers,
+      roas: proposal.roas,
+    };
+  });
 
   const derivedMarketTraces = [
+    createDerivedTrace("eligible-market", "Mercado elegivel", "Mercado derivado", report.derivedMetrics.eligibleMarket, "Formula de mercado elegivel"),
+    createDerivedTrace("intent-market", "Mercado com intencao", "Mercado derivado", report.derivedMetrics.intentMarket, "Formula de intencao"),
+    createDerivedTrace("capturable-market", "Mercado capturavel", "Mercado derivado", report.derivedMetrics.capturableMarket, "Formula de captacao"),
     createDerivedTrace(
-      "eligible-market",
-      "Mercado elegivel",
+      "base-monthly-revenue-potential",
+      "Receita potencial mensal da base atual",
       "Mercado derivado",
-      report.derivedMetrics.eligibleMarket,
-      "Formula de mercado elegivel",
-    ),
-    createDerivedTrace(
-      "intent-market",
-      "Mercado com intencao",
-      "Mercado derivado",
-      report.derivedMetrics.intentMarket,
-      "Formula de intencao",
-    ),
-    createDerivedTrace(
-      "capturable-market",
-      "Mercado capturavel",
-      "Mercado derivado",
-      report.derivedMetrics.capturableMarket,
-      "Formula de captacao",
+      report.derivedMetrics.baseMonthlyRevenuePotential,
+      "Formula da estrutura digital atual",
     ),
   ];
 
@@ -1446,23 +1041,18 @@ export function createProjectDashboardSnapshot(params: {
   const classificationCounts = countTraceClassifications(traces);
   const precision = buildPrecisionFromTraces(traces);
 
-  const precisionChartData = [
-    {
-      label: "Conservador",
-      precision: round(precision.conservative * 100),
-      certainty: round((precision.coverage * 0.98) * 100),
-    },
-    {
-      label: "Realista",
-      precision: round(precision.realistic * 100),
-      certainty: round((precision.coverage * 0.94) * 100),
-    },
-    {
-      label: "Agressivo",
-      precision: round(precision.aggressive * 100),
-      certainty: round((precision.coverage * 0.88) * 100),
-    },
-  ];
+  const precisionChartData = scenarioKeys.map((key) => {
+    const proposal = report.scenarios[key];
+    const penalty = proposalConfigs[key].precisionPenalty;
+    const proposalPrecision = clamp(precision.overall * (1 - penalty), 0.42, 0.96);
+    const proposalCertainty = clamp(precision.coverage * (1 - penalty * 0.6), 0.2, 0.94);
+
+    return {
+      label: proposal.chartLabel,
+      precision: round(proposalPrecision * 100),
+      certainty: round(proposalCertainty * 100),
+    };
+  });
 
   const coverageChartData = buildCoverageChartData(sectionStats);
   const weakestCoverageSections = coverageChartData
@@ -1470,55 +1060,99 @@ export function createProjectDashboardSnapshot(params: {
     .map((item) => item.section.toLowerCase())
     .join(", ");
 
-  const stageLabel =
-    occupancyRate >= 0.78
-      ? "Operacao aquecida"
-      : occupancyRate >= 0.45 || followers >= 700
-        ? "Negocio ativo em consolidacao"
-        : "Presenca digital em estruturacao";
+  const bestScenarioKey = scenarioKeys.reduce((best, key) => {
+    const currentBest = report.scenarios[best];
+    const candidate = report.scenarios[key];
+
+    if (candidate.netReturn !== currentBest.netReturn) {
+      return candidate.netReturn > currentBest.netReturn ? key : best;
+    }
+
+    if ((candidate.paybackMonths ?? Number.MAX_SAFE_INTEGER) !== (currentBest.paybackMonths ?? Number.MAX_SAFE_INTEGER)) {
+      return (candidate.paybackMonths ?? Number.MAX_SAFE_INTEGER) < (currentBest.paybackMonths ?? Number.MAX_SAFE_INTEGER)
+        ? key
+        : best;
+    }
+
+    return best;
+  }, scenarioKeys[0]);
+
+  const bestProposal = report.scenarios[bestScenarioKey];
+  const stage =
+    followers >= 800
+      ? "Presenca digital ativa com estrutura comercial incompleta"
+      : followers >= 350
+        ? "Presenca digital em consolidacao"
+        : "Presenca digital inicial";
   const primaryBottleneck =
     reviews === 0 || client.diagnosisScores.googlePresence <= 3
-      ? "Google local e prova social ainda nao sustentam a demanda de alta intencao."
+      ? "Google local e prova social ainda nao sustentam bem a demanda de alta intencao."
       : client.diagnosisScores.offerClarity <= 4 || client.diagnosisScores.conversion <= 4
-        ? "Oferta principal e caminho de contato ainda geram atrito na conversao."
+        ? "A oferta ainda explica pouco o proximo passo e perde forca no clique para contato."
         : client.diagnosisScores.humanization <= 4
-          ? "Conteudo pouco humano reduz confianca antes do contato."
-          : returnRate < benchmark.retention.returnRate * 0.9
-            ? "Recorrencia abaixo do benchmark limita previsibilidade de receita."
-            : "A falta de dado observado ainda enfraquece a leitura operacional.";
+          ? "A comunicacao ainda parece fria demais para converter confianca em conversa."
+          : "O principal gargalo hoje esta na estrutura de conversao, nao na falta de presenca.";
   const primaryOpportunity =
-    availableSlots > monthlyCapacity * 0.25
-      ? `Existe folga estimada para cerca de ${round(availableSlots)} clientes por mes sem ampliar estrutura.`
-      : followers >= 700
-        ? "A base social atual ja permite aumentar captacao com CTA, oferta e prova social melhores."
-        : returnRate < benchmark.retention.returnRate * 0.9
-          ? "Recorrencia e reativacao podem crescer a receita sem depender so de novos leads."
-          : "O motor indica espaco para captacao incremental com melhor distribuicao e acompanhamento.";
-  const dataQualityLabel =
-    precision.overall >= 0.8
-      ? "Base forte: o painel ja pode orientar execucao com pouca margem de correcao."
-      : precision.overall >= 0.68
-        ? "Base mista: vale combinar o painel com confirmacao operacional antes de escalar investimento."
-        : `Base fragil: ${weakestCoverageSections || "comercial, operacao e funil"} ainda dependem mais de estimativa do que de dado observado.`;
-  const headline =
-    reviews === 0 || client.diagnosisScores.googlePresence <= 3
-      ? `${client.name} ja tem presenca ativa e folga para crescer, mas ainda converte pouco da demanda local por falta de prova social e estrutura de captura.`
-      : `${client.name} ja mostra operacao ativa e espaco para crescer, mas ainda perde eficiencia entre interesse, agenda e fechamento.`;
+    bestProposal.paybackMonths != null
+      ? `${bestProposal.title} tende a recuperar o investimento em cerca de ${bestProposal.paybackMonths} meses e pode gerar ${formatCurrency(bestProposal.annualRevenue)} em 12 meses.`
+      : `${bestProposal.title} entrega hoje a melhor relacao entre investimento e retorno potencial dentro do caso.`;
+  const dataQuality =
+    avgTicketResolved.classification === "real"
+      ? "A simulacao ja usa ticket real, mas ainda depende de benchmark para demanda e conversao local."
+      : `A simulacao financeira ainda usa ticket benchmark do nicho. ${weakestCoverageSections || "instagram, google local e funil"} pedem mais dado observado para refino.`;
 
   const narrative = {
-    headline,
-    stage: stageLabel,
+    headline:
+      "Sem consulta, este painel nao estima clientes nem faturamento atual. Ele compara o retorno potencial das suas propostas a partir da presenca digital observada e dos benchmarks do nicho.",
+    stage,
     primaryBottleneck,
     primaryOpportunity,
-    dataQuality: dataQualityLabel,
+    dataQuality,
   } satisfies ProjectDashboardSnapshot["narrative"];
 
-  const insights: string[] = [
-    `${stageLabel}: a leitura atual aponta cerca de ${round(currentCustomers)} clientes por mes, ${formatCurrency(round(currentRevenueEstimate))} de receita mensal e ocupacao estimada em ${round(occupancyRate * 100)}% da capacidade.`,
-    `A base social existe (${round(followers)} seguidores observados), mas o Google local ainda registra ${round(reviews)} review(s), o que enfraquece a captura de demanda de alta intencao.`,
+  const highlights = [
+    {
+      label: "Seguidores observados",
+      value: String(round(followers)),
+      classification: followersResolved.classification,
+      sourceLabel: followersResolved.trace.sourceLabel,
+    },
+    {
+      label: "Reviews Google",
+      value: String(round(reviews)),
+      classification: reviewsResolved.classification,
+      sourceLabel: reviewsResolved.trace.sourceLabel,
+    },
+    {
+      label: "Ticket usado na simulacao",
+      value: formatCurrency(round(avgTicket)),
+      classification: avgTicketResolved.classification,
+      sourceLabel: avgTicketResolved.trace.sourceLabel,
+    },
+    {
+      label: "Melhor payback",
+      value: bestProposal.paybackMonths != null ? `${bestProposal.paybackMonths} meses` : "Acima de 12 meses",
+      classification: "projected" as DataClassification,
+      sourceLabel: `${bestProposal.title}`,
+    },
+  ];
+
+  const nextDataPoints: string[] = [
+    "Ticket medio real dos procedimentos mais vendidos.",
+    "Faixa de preco do procedimento de entrada e do procedimento principal.",
+    "Capacidade semanal para novos agendamentos sem comprometer a operacao.",
+    "Leads ou agendamentos atuais vindo de Instagram, Google e WhatsApp.",
+    "Percentual de clientes que retornam em 30 e 60 dias.",
+    "Clientes por mes e faturamento entram so na consulta, para validar payback com dado real.",
+  ];
+
+  const insights = [
+    "O painel agora compara propostas comerciais e nao tenta inferir faturamento atual do negocio.",
+    `${round(followers)} seguidores e ${round(reviews)} review(s) sugerem presenca social existente, mas ainda pouca prova local para demanda de alta intencao.`,
+    `A estrutura digital atual pode capturar algo perto de ${formatCurrency(round(baseMonthlyRevenuePotential))} por mes em potencial teorico antes das melhorias de proposta.`,
     primaryBottleneck,
     primaryOpportunity,
-    dataQualityLabel,
+    dataQuality,
   ];
 
   return {
@@ -1534,30 +1168,23 @@ export function createProjectDashboardSnapshot(params: {
     precision,
     narrative,
     quickMetrics: {
-      currentCustomersEstimate: currentCustomers,
-      currentRevenueEstimate,
-      occupancyRate,
-      growthRevenuePotential: projectedTotalRevenue,
-      growthCustomersPotential: projectedCustomers,
-      adjustedCac,
-      roi,
-      roas,
-      availableSlots,
-      organicFollowersPerMonth,
-      organicLeadsPerMonth,
-      organicCustomersPerMonth,
-      valuePerFollower,
+      benchmarkTicket: avgTicket,
+      benchmarkTicketClassification: avgTicketResolved.classification,
+      baseMonthlyRevenuePotential,
+      baseCustomersPotential,
+      bestProposalInvestment: bestProposal.investment,
+      bestProposalAnnualReturn: bestProposal.annualRevenue,
+      bestProposalPaybackMonths: bestProposal.paybackMonths,
     },
     scenarioChartData,
     funnelChartData,
-    organicChartData,
     precisionChartData,
-    kpiTimelineChartData,
-    investmentCurveChartData,
+    proposalTimelineChartData,
+    proposalReturnChartData,
     coverageChartData,
     highlights,
-    insights: dedupeStrings(insights, 5),
-    nextDataPoints: dedupeStrings(nextDataPoints, 8),
+    insights: dedupeStrings(insights, 6),
+    nextDataPoints: dedupeStrings(nextDataPoints, 6),
     traces,
   };
 }

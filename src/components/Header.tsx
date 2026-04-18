@@ -5,7 +5,16 @@ import { useEffect, useState } from "react";
 
 import { Fade, Flex, Line, Row, Text, ToggleButton } from "@once-ui-system/core";
 
-import { about, blog, display, person, routes, servicesPage, technicalApproach, work } from "@/resources";
+import {
+  about,
+  blog,
+  display,
+  person,
+  routes,
+  servicesPage,
+  technicalApproach,
+  work,
+} from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
 
@@ -49,7 +58,16 @@ export const Header = () => {
   return (
     <>
       <Fade s={{ hide: true }} fillWidth position="fixed" height="80" zIndex={9} />
-      <Fade hide s={{ hide: false }} fillWidth position="fixed" bottom="0" to="top" height="80" zIndex={9} />
+      <Fade
+        hide
+        s={{ hide: false }}
+        fillWidth
+        position="fixed"
+        bottom="0"
+        to="top"
+        height="80"
+        zIndex={9}
+      />
       <Row
         fitHeight
         className={styles.position}
@@ -64,7 +82,13 @@ export const Header = () => {
           position: "fixed",
         }}
       >
-        <Row className={styles.meta} paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
+        <Row
+          className={styles.meta}
+          paddingLeft="12"
+          fillWidth
+          vertical="center"
+          textVariant="body-default-s"
+        >
           {display.location && (
             <Row s={{ hide: true }}>
               <Text className={styles.location} variant="body-default-s">
@@ -84,11 +108,13 @@ export const Header = () => {
             horizontal="center"
             zIndex={1}
           >
-            <Row className={styles.nav} gap="4" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
-              <Text className={styles.brand} variant="label-default-s" onBackground="neutral-weak">
-                HR
-              </Text>
-              <Line background="neutral-alpha-medium" vert maxHeight="24" />
+            <Row
+              className={styles.nav}
+              gap="4"
+              vertical="center"
+              textVariant="body-default-s"
+              suppressHydrationWarning
+            >
               {routes["/"] && (
                 <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
               )}
@@ -104,11 +130,7 @@ export const Header = () => {
                     />
                   </Row>
                   <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="person"
-                      href="/about"
-                      selected={aboutSelected}
-                    />
+                    <ToggleButton prefixIcon="person" href="/about" selected={aboutSelected} />
                   </Row>
                 </>
               )}
