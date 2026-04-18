@@ -1,9 +1,5 @@
 @use "../components/breakpoints.scss" as breakpoints;
 
-.page {
-  width: 100%;
-}
-
 .heroIntro {
   position: relative;
   width: 100%;
@@ -48,45 +44,6 @@
   max-width: 46rem;
 }
 
-.hero {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 2rem;
-  background: var(--surface-panel-strong);
-  box-shadow: var(--shadow-card);
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 16% 10%, var(--brand-glow), transparent 30%),
-    radial-gradient(circle at 84% 0%, var(--accent-glow), transparent 22%);
-  pointer-events: none;
-}
-
-.hero > *,
-.heroAside > * {
-  position: relative;
-  z-index: 1;
-}
-
-.heroGrid {
-  align-items: stretch;
-}
-
-.heroMain,
-.heroAside,
-.sectionIntro {
-  min-width: 0;
-}
-
-.heroMain {
-  max-width: 40rem;
-}
-
 .heroCopy {
   max-width: 42rem;
 }
@@ -95,118 +52,19 @@
   max-width: 44rem;
 }
 
-.heroActions {
+.heroActions,
+.actions {
   row-gap: 0.75rem;
 }
 
-.heroActions > * {
+.heroActions > *,
+.actions > * {
   transform-origin: center;
 }
 
 .proofLabel {
   letter-spacing: 0.14em;
   text-transform: uppercase;
-}
-
-.actions {
-  row-gap: 0.75rem;
-}
-
-.actions > * {
-  transform-origin: center;
-}
-
-.heroAside {
-  position: relative;
-  overflow: hidden;
-  border-radius: 1.5rem;
-  background: var(--surface-panel-soft);
-  box-shadow: var(--shadow-soft);
-}
-
-.heroAside::before,
-.sectionPanel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 14% 0%, var(--brand-glow), transparent 28%),
-    radial-gradient(circle at 86% 0%, var(--accent-glow), transparent 20%);
-  pointer-events: none;
-}
-
-.eyebrow {
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.signalList {
-  width: 100%;
-}
-
-.signalItem + .signalItem {
-  padding-top: 1rem;
-  border-top: 1px solid var(--border-subtle);
-}
-
-.section,
-.sectionPanel {
-  width: 100%;
-}
-
-.featuredLayout {
-  display: grid;
-  grid-template-columns: minmax(15rem, 0.72fr) minmax(0, 1.28fr);
-  gap: 1rem;
-  align-items: start;
-}
-
-.featuredAside {
-  position: relative;
-  overflow: hidden;
-  padding: 1.1rem;
-  border-radius: 1.45rem;
-  background: var(--surface-panel-soft);
-  box-shadow: var(--shadow-soft);
-}
-
-.featuredAside::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 12% 0%, var(--brand-glow), transparent 28%),
-    radial-gradient(circle at 90% 0%, var(--accent-glow), transparent 24%);
-  pointer-events: none;
-}
-
-.featuredAside > * {
-  position: relative;
-  z-index: 1;
-}
-
-.sectionPanel {
-  position: relative;
-  overflow: hidden;
-  border-radius: 1.75rem;
-  background: var(--surface-panel);
-  box-shadow: var(--shadow-soft);
-}
-
-.sectionHeader {
-  align-items: flex-end;
-  gap: 1rem;
-}
-
-.sectionIntro {
-  max-width: 38rem;
-}
-
-.accentLine {
-  width: 4.5rem;
-  height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--scheme-brand-700), var(--scheme-accent-700));
 }
 
 @keyframes heroDrift {
@@ -220,57 +78,22 @@
 }
 
 @media (max-width: breakpoints.$s) {
-  .heroIntro,
-  .hero,
-  .sectionPanel,
-  .featuredAside {
+  .heroIntro {
+    padding: 1.25rem;
     border-radius: 1.5rem;
   }
 
-  .heroIntro {
-    padding: 1.25rem;
-  }
-
-  .heroGrid,
-  .sectionHeader,
-  .featuredLayout {
-    gap: 1rem;
-  }
-
-  .featuredLayout {
-    grid-template-columns: 1fr;
-  }
-
-  .sectionHeader {
-    align-items: flex-start;
-  }
-
-  .heroMain,
   .heroCopy,
-  .sectionIntro {
-    max-width: none;
-  }
-
   .heroLead {
     max-width: none;
   }
 
-  .heroAside {
-    padding: 1rem;
-  }
-
-  .heroActions {
-    width: 100%;
-  }
-
-  .heroActions > * {
-    width: 100%;
-  }
-
+  .heroActions,
   .actions {
     width: 100%;
   }
 
+  .heroActions > *,
   .actions > * {
     width: 100%;
   }

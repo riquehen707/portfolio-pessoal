@@ -22,6 +22,7 @@ export function HeroProofCarousel({ items, speed = 0.45 }: HeroProofCarouselProp
   const viewportRef = useRef<HTMLDivElement>(null);
   const segmentRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<number | null>(null);
+  const inViewRef = useRef(true);
   const hoveredRef = useRef(false);
   const pausedRef = useRef(false);
   const draggingRef = useRef(false);
@@ -30,6 +31,25 @@ export function HeroProofCarousel({ items, speed = 0.45 }: HeroProofCarouselProp
   const [isDragging, setIsDragging] = useState(false);
 
   const visibleItems = useMemo(() => items, [items]);
+
+  useEffect(() => {
+    const viewport = viewportRef.current;
+
+    if (!viewport || visibleItems.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        inViewRef.current = Boolean(entry?.isIntersecting);
+      },
+      {
+        threshold: [0, 0.1],
+      },
+    );
+
+    observer.observe(viewport);
+
+    return () => observer.disconnect();
+  }, [visibleItems.length]);
 
   const normalizeScroll = () => {
     const viewport = viewportRef.current;
@@ -55,7 +75,7 @@ export function HeroProofCarousel({ items, speed = 0.45 }: HeroProofCarouselProp
     if (!viewport || !segment || visibleItems.length === 0) return;
 
     const animate = () => {
-      if (!pausedRef.current && !draggingRef.current) {
+      if (inViewRef.current && !pausedRef.current && !draggingRef.current) {
         viewport.scrollLeft += speed;
         normalizeScroll();
       }
@@ -119,6 +139,10 @@ export function HeroProofCarousel({ items, speed = 0.45 }: HeroProofCarouselProp
     setIsDragging(false);
   };
 
+  if (visibleItems.length === 0) {
+    return null;
+  }
+
   return (
     <div className={styles.root}>
       <div
@@ -131,6 +155,12 @@ export function HeroProofCarousel({ items, speed = 0.45 }: HeroProofCarouselProp
         onMouseLeave={() => {
           hoveredRef.current = false;
           if (!draggingRef.current) pausedRef.current = false;
+        }}
+        onFocusCapture={() => {
+          pausedRef.current = true;
+        }}
+        onBlurCapture={() => {
+          pausedRef.current = hoveredRef.current;
         }}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}

@@ -1,0 +1,188 @@
+.section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: clamp(1.35rem, 3.6vw, 2.4rem);
+  border-radius: 1.9rem;
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.06), transparent 26%, rgba(255, 255, 255, 0.02) 100%),
+    var(--surface-panel);
+  box-shadow: var(--shadow-soft);
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 10% 0%, var(--brand-glow), transparent 26%),
+    radial-gradient(circle at 86% 0%, var(--accent-glow), transparent 22%);
+  pointer-events: none;
+}
+
+.section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 1.15rem;
+}
+
+.copy {
+  max-width: 42rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.26fr) minmax(18rem, 0.74fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.mainCard,
+.sideCard,
+.supportCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 1.55rem;
+  border: 1px solid rgba(169, 189, 214, 0.16);
+  color: inherit;
+  text-decoration: none;
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.08), transparent 24%, rgba(255, 255, 255, 0.03) 100%),
+    var(--surface-panel-soft);
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.mainCard:hover,
+.sideCard:hover,
+.supportCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(169, 189, 214, 0.28);
+  box-shadow: var(--shadow-card);
+}
+
+.mainMedia,
+.sideMedia {
+  position: relative;
+}
+
+.mainMedia {
+  min-height: 0;
+}
+
+.mainContent {
+  padding: 1.35rem;
+}
+
+.sideColumn {
+  display: grid;
+  gap: 1rem;
+}
+
+.sideCard {
+  display: grid;
+  grid-template-columns: minmax(8.4rem, 10.2rem) minmax(0, 1fr);
+  min-height: 12rem;
+}
+
+.sideMedia {
+  height: 100%;
+}
+
+.sideContent {
+  padding: 1.1rem;
+}
+
+.supportCard {
+  justify-content: space-between;
+  padding: 1.15rem;
+  min-height: 12rem;
+}
+
+.metaRow {
+  row-gap: 0.45rem;
+}
+
+.title {
+  letter-spacing: -0.04em;
+  line-height: 1.04;
+}
+
+.mainDescription {
+  max-width: 54ch;
+}
+
+.summary {
+  max-width: 38ch;
+}
+
+.stackRow {
+  row-gap: 0.5rem;
+}
+
+.ctaRow {
+  row-gap: 0.35rem;
+}
+
+.cardHint {
+  width: fit-content;
+}
+
+.note {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sideColumn {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 1.15rem;
+    border-radius: 1.45rem;
+  }
+
+  .header {
+    align-items: flex-start;
+  }
+
+  .sideCard {
+    grid-template-columns: 1fr;
+  }
+
+  .mainContent,
+  .sideContent,
+  .supportCard {
+    padding: 1rem;
+  }
+
+  .mainDescription,
+  .summary {
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mainCard,
+  .sideCard,
+  .supportCard {
+    transition: none;
+  }
+}

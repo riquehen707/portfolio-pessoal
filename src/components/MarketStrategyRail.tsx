@@ -95,7 +95,7 @@ export function MarketStrategyRail() {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        let bestIndex = activeIndex;
+        let bestIndex = -1;
         let bestRatio = 0;
 
         for (const entry of entries) {
@@ -122,7 +122,7 @@ export function MarketStrategyRail() {
     }
 
     return () => observer.disconnect();
-  }, [activeIndex]);
+  }, []);
 
   useEffect(() => {
     const tabsViewport = tabsViewportRef.current;

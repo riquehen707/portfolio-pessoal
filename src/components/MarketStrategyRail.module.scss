@@ -34,11 +34,6 @@
   max-width: 40rem;
 }
 
-.eyebrow {
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
 .tabsViewport {
   overflow-x: auto;
   padding-bottom: 0.35rem;
@@ -56,11 +51,13 @@
 }
 
 .tab {
+  appearance: none;
   padding: 0.72rem 0.95rem;
   border: 1px solid rgba(169, 189, 214, 0.18);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.04);
   color: var(--neutral-on-background-medium);
+  cursor: pointer;
   font: inherit;
   transition:
     border-color 180ms ease,
@@ -181,8 +178,10 @@
   border: 0;
   background: transparent;
   color: var(--market-accent);
+  cursor: pointer;
   font: inherit;
   font-weight: 600;
+  text-align: left;
 }
 
 .expandButton::after {

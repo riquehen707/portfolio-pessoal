@@ -15,7 +15,7 @@ import { Mailchimp } from "@/components";
 import { HeroProofCarousel } from "@/components/HeroProofCarousel";
 import { MarketStrategyRail } from "@/components/MarketStrategyRail";
 import { Posts } from "@/components/blog/Posts";
-import { Projects } from "@/components/work/Projects";
+import { FeaturedWorksShowcase } from "@/components/work/FeaturedWorksShowcase";
 import { about, baseURL, blog, home, person, routes, servicesPage, work } from "@/resources";
 import { getPosts } from "@/utils/utils";
 import styles from "./home.module.scss";
@@ -52,7 +52,6 @@ export async function generateMetadata() {
 export default function Home() {
   const workProjects = getPosts(["src", "app", "work", "projects"]);
   const hasWorkProjects = workProjects.length > 0;
-  const hasMoreWorkProjects = workProjects.length > 1;
 
   return (
     <Column maxWidth="m" horizontal="center" paddingY="20" gap="40">
@@ -127,24 +126,7 @@ export default function Home() {
       <MarketStrategyRail />
 
       {hasWorkProjects ? (
-        <Column fillWidth gap="12">
-          <Column gap="8">
-            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-              Projetos
-            </Tag>
-            <Heading as="h2" variant="display-strong-s">
-              Trabalhos recentes
-            </Heading>
-          </Column>
-
-          <Projects range={[1, hasMoreWorkProjects ? 3 : 1]} marginBottom="0" paddingX="0" />
-
-          {hasMoreWorkProjects && (
-            <SmartLink href={work.path} suffixIcon="arrowRight">
-              Ver portfólio completo
-            </SmartLink>
-          )}
-        </Column>
+        <FeaturedWorksShowcase projects={workProjects} />
       ) : (
         <Column fillWidth gap="12">
           <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
