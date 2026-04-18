@@ -35,6 +35,10 @@
   width: 100%;
 }
 
+.chartHeader {
+  width: 100%;
+}
+
 .switcher {
   display: inline-flex;
   flex-wrap: wrap;
@@ -56,6 +60,11 @@
     transform 160ms ease;
 }
 
+.toggle:focus-visible {
+  outline: 2px solid rgba(111, 168, 255, 0.55);
+  outline-offset: 2px;
+}
+
 .toggle[data-active="true"] {
   border-color: rgba(111, 168, 255, 0.42);
   background: rgba(111, 168, 255, 0.16);
@@ -75,6 +84,20 @@
 .visualPanel,
 .storyCard {
   padding: 1rem;
+}
+
+.storyCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.storyLead {
+  line-height: 1.65;
+}
+
+.chartDescription {
+  max-width: 42rem;
 }
 
 .chartShell {
@@ -145,6 +168,26 @@
   align-items: flex-start;
 }
 
+.storyList {
+  margin: 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.storyList li {
+  color: var(--neutral-on-background-medium);
+  line-height: 1.6;
+}
+
+.storyList li::marker {
+  color: var(--scheme-brand-700);
+}
+
+.storyMeta {
+  line-height: 1.5;
+}
+
 .statusDot {
   width: 0.65rem;
   height: 0.65rem;
@@ -206,6 +249,10 @@
 
   .chartShell {
     height: 17rem;
+  }
+
+  .chartDescription {
+    max-width: none;
   }
 
   .scenarioBar {

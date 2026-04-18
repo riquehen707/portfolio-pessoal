@@ -1,8 +1,8 @@
 import { Button, Column, Heading, Meta, Row, Schema, Tag, Text } from "@once-ui-system/core";
 
+import { getAllWorkProjects } from "@/app/work/projectData";
 import { Projects } from "@/components/work/Projects";
 import { baseURL, about, person, servicesPage, work } from "@/resources";
-import { getPosts } from "@/utils/utils";
 
 import styles from "./work.module.scss";
 
@@ -17,7 +17,7 @@ export async function generateMetadata() {
 }
 
 export default function Work() {
-  const projects = getPosts(["src", "app", "work", "projects"]);
+  const projects = getAllWorkProjects();
   const hasProjects = projects.length > 0;
 
   return (
@@ -40,16 +40,20 @@ export default function Work() {
         <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
           Projetos
         </Tag>
-        <Heading variant="heading-strong-xl">{work.title}</Heading>
-        <div className={styles.accentLine} />
+
+        <Heading variant="heading-strong-xl">
+          Trabalhos selecionados
+        </Heading>
+
         <Text
           className={styles.heroLead}
           onBackground="neutral-weak"
           variant="heading-default-m"
           wrap="balance"
         >
-          Cases, estudos e aplicações em uso.
+          Uma seleção de projetos que mostra como estruturo ideias, construo soluções e resolvo problemas com clareza.
         </Text>
+
         <Row gap="12" wrap>
           <Button href={servicesPage.path} variant="primary" size="m" arrowIcon>
             Ver serviços
@@ -61,14 +65,32 @@ export default function Work() {
       </Column>
 
       {hasProjects ? (
-        <Projects marginBottom="0" paddingX="0" />
+        <Column gap="16">
+          <Column gap="8">
+            <Heading as="h2" variant="display-strong-s">
+              Projetos publicados
+            </Heading>
+            <Text onBackground="neutral-weak" variant="body-default-m">
+              Cada projeto ajuda a mostrar processo, critério e execução.
+            </Text>
+          </Column>
+
+          <Projects projects={projects} marginBottom="0" paddingX="0" />
+        </Column>
       ) : (
         <Column className={styles.notePanel} gap="16" padding="24">
-          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">Portfólio</Tag>
+          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+            Portfólio
+          </Tag>
+
           <Heading as="h2" variant="display-strong-s">
-            Novos cases entram em breve
+            Cases em atualização
           </Heading>
-          <Text onBackground="neutral-weak">Enquanto isso, a melhor entrada continua nos serviços.</Text>
+
+          <Text onBackground="neutral-weak" variant="body-default-m">
+            Os próximos projetos estão sendo organizados para entrar com mais contexto, clareza e consistência.
+          </Text>
+
           <Row className={styles.emptyActions} gap="12" wrap>
             <Button href={servicesPage.path} variant="primary" size="m" arrowIcon>
               Ver serviços

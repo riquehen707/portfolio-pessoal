@@ -216,6 +216,67 @@ export type InvestmentCurvePoint = {
   efficiency: number;
 };
 
+export type ProjectDashboardClassificationCounts = Record<DataClassification, number>;
+
+export type ProjectDashboardPrecision = {
+  overall: number;
+  coverage: number;
+  conservative: number;
+  realistic: number;
+  aggressive: number;
+};
+
+export type ProjectScenarioChartPoint = {
+  month: string;
+  atual: number;
+  conservador: number;
+  realista: number;
+  agressivo: number;
+};
+
+export type ProjectFunnelChartPoint = {
+  stage: string;
+  atual: number;
+  conservador: number;
+  realista: number;
+  agressivo: number;
+};
+
+export type ProjectOrganicChartPoint = {
+  metric: string;
+  atual: number;
+  conservador: number;
+  realista: number;
+  agressivo: number;
+};
+
+export type ProjectPrecisionChartPoint = {
+  label: string;
+  precision: number;
+  certainty: number;
+};
+
+export type ProjectCoverageChartPoint = {
+  section: string;
+  coverage: number;
+  confidence: number;
+};
+
+export type ProjectHighlight = {
+  label: string;
+  value: string;
+  classification: DataClassification;
+  sourceLabel: string;
+};
+
+export type ProjectBusinessNarrative = {
+  headline: string;
+  stage: string;
+  primaryBottleneck: string;
+  primaryOpportunity: string;
+  dataQuality: string;
+};
+
 export type ProjectDashboardSnapshot = {
   slug: string;
   clientName: string;
@@ -225,16 +286,15 @@ export type ProjectDashboardSnapshot = {
   segmentName: string;
   benchmarkLabel: string;
   report: DerivedReport;
-  classificationCounts: Record<DataClassification, number>;
-  precision: {
-    overall: number;
-    coverage: number;
-    conservative: number;
-    realistic: number;
-    aggressive: number;
-  };
+  classificationCounts: ProjectDashboardClassificationCounts;
+  precision: ProjectDashboardPrecision;
+  narrative: ProjectBusinessNarrative;
   quickMetrics: {
+    currentCustomersEstimate: number;
     currentRevenueEstimate: number;
+    occupancyRate: number;
+    growthRevenuePotential: number;
+    growthCustomersPotential: number;
     adjustedCac: number;
     roi: number;
     roas: number;
@@ -244,45 +304,14 @@ export type ProjectDashboardSnapshot = {
     organicCustomersPerMonth: number;
     valuePerFollower: number;
   };
-  scenarioChartData: Array<{
-    month: string;
-    atual: number;
-    conservador: number;
-    realista: number;
-    agressivo: number;
-  }>;
-  funnelChartData: Array<{
-    stage: string;
-    atual: number;
-    conservador: number;
-    realista: number;
-    agressivo: number;
-  }>;
-  organicChartData: Array<{
-    metric: string;
-    atual: number;
-    conservador: number;
-    realista: number;
-    agressivo: number;
-  }>;
-  precisionChartData: Array<{
-    label: string;
-    precision: number;
-    certainty: number;
-  }>;
+  scenarioChartData: ProjectScenarioChartPoint[];
+  funnelChartData: ProjectFunnelChartPoint[];
+  organicChartData: ProjectOrganicChartPoint[];
+  precisionChartData: ProjectPrecisionChartPoint[];
   kpiTimelineChartData: Record<ScenarioKey, TimelineKpiPoint[]>;
   investmentCurveChartData: Record<ScenarioKey, InvestmentCurvePoint[]>;
-  coverageChartData: Array<{
-    section: string;
-    coverage: number;
-    confidence: number;
-  }>;
-  highlights: Array<{
-    label: string;
-    value: string;
-    classification: DataClassification;
-    sourceLabel: string;
-  }>;
+  coverageChartData: ProjectCoverageChartPoint[];
+  highlights: ProjectHighlight[];
   insights: string[];
   nextDataPoints: string[];
   traces: MetricTrace[];

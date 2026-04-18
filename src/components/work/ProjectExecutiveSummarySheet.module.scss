@@ -182,8 +182,10 @@
 }
 
 .basicGrid,
+.signalGrid,
 .scoreGrid,
 .twoColumnGrid,
+.actionGrid,
 .reportFactsGrid {
   display: grid;
   gap: 0.9rem;
@@ -191,6 +193,11 @@
 
 .basicGrid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1rem;
+}
+
+.signalGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   margin-top: 1rem;
 }
 
@@ -209,7 +216,13 @@
   margin-top: 1rem;
 }
 
+.actionGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 1rem;
+}
+
 .infoCard,
+.signalCard,
 .scoreCard,
 .reportFact {
   min-height: 100%;
@@ -236,6 +249,38 @@
   margin: 0.35rem 0 0;
   font-size: 0.9rem;
   color: var(--muted);
+}
+
+.signalCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.statusPill {
+  display: inline-flex;
+  align-self: flex-start;
+  border-radius: 999px;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.statusPill[data-status="real"] {
+  background: rgba(94, 212, 146, 0.16);
+  color: #237c4f;
+}
+
+.statusPill[data-status="estimated"] {
+  background: rgba(111, 168, 255, 0.16);
+  color: #2b5f9f;
+}
+
+.statusPill[data-status="projected"] {
+  background: rgba(242, 198, 109, 0.22);
+  color: #875412;
 }
 
 .summaryBlock {
@@ -311,8 +356,10 @@
   .heroGrid,
   .footer,
   .basicGrid,
+  .signalGrid,
   .scoreGrid,
   .twoColumnGrid,
+  .actionGrid,
   .reportFactsGrid {
     grid-template-columns: 1fr;
   }
@@ -360,6 +407,7 @@
   .diagnosisBar,
   .qrCard,
   .infoCard,
+  .signalCard,
   .scoreCard,
   .reportFact {
     border-color: #d2c0aa;

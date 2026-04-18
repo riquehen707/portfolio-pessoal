@@ -29,8 +29,8 @@ export function resolveMetric(
   benchmark: number | null | undefined,
   fallback: number,
 ): number {
-  if (observed != null) return observed;
-  if (benchmark != null) return benchmark;
+  if (hasValue(observed)) return Number(observed);
+  if (hasValue(benchmark)) return Number(benchmark);
   return fallback;
 }
 

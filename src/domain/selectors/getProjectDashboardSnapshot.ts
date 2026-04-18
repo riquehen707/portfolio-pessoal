@@ -1,32 +1,30 @@
-import { benchmarks, cities, clients, modelConstant, segments } from "@/data";
+import {
+  findBenchmarkForSegment,
+  findCityById,
+  findClientBySlug,
+  findSegmentById,
+  inferCityProfileFromPopulation,
+  modelConstant,
+} from "@/data";
 import { createProjectDashboardSnapshot } from "@/domain/reports/createProjectDashboardSnapshot";
-import type { Benchmark, ProjectDashboardSnapshot } from "@/domain/types";
-
-function inferCityProfile(population: number): Benchmark["cityProfile"] {
-  if (population < 120000) return "small";
-  if (population < 500000) return "medium";
-  return "large";
-}
+import type { ProjectDashboardSnapshot } from "@/domain/types";
 
 export function getProjectDashboardSnapshot(slug: string): ProjectDashboardSnapshot | null {
-  const client = clients.find((item) => item.slug === slug);
+  const client = findClientBySlug(slug);
 
   if (!client) {
     return null;
   }
 
-  const city = cities.find((item) => item.id === client.cityId);
-  const segment = segments.find((item) => item.id === client.segmentId);
+  const city = findCityById(client.cityId);
+  const segment = findSegmentById(client.segmentId);
 
   if (!city || !segment) {
     return null;
   }
 
-  const cityProfile = inferCityProfile(city.population);
-  const benchmark =
-    benchmarks.find(
-      (item) => item.segmentId === segment.id && item.cityProfile === cityProfile,
-    ) ?? benchmarks.find((item) => item.segmentId === segment.id);
+  const cityProfile = inferCityProfileFromPopulation(city.population);
+  const benchmark = findBenchmarkForSegment(segment.id, cityProfile);
 
   if (!benchmark) {
     return null;

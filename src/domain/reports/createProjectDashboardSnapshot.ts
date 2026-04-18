@@ -5,6 +5,9 @@ import type {
   DerivedReport,
   MetricTrace,
   ModelConstant,
+  ProjectCoverageChartPoint,
+  ProjectDashboardClassificationCounts,
+  ProjectDashboardPrecision,
   ProjectDashboardSnapshot,
   ScenarioKey,
   Segment,
@@ -76,6 +79,14 @@ function formatCompact(value: number) {
   return new Intl.NumberFormat("pt-BR", {
     notation: "compact",
     maximumFractionDigits: 1,
+  }).format(value);
+}
+
+function formatCurrency(value: number) {
+  return new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+    maximumFractionDigits: 0,
   }).format(value);
 }
 
@@ -180,6 +191,92 @@ function createDerivedTrace(
     sourceLabel,
     confidence: 0.82,
   };
+}
+
+function countTraceClassifications(traces: MetricTrace[]): ProjectDashboardClassificationCounts {
+  return traces.reduce<ProjectDashboardClassificationCounts>(
+    (acc, trace) => {
+      acc[trace.classification] += 1;
+      return acc;
+    },
+    {
+      real: 0,
+      estimated: 0,
+      projected: 0,
+    },
+  );
+}
+
+function buildPrecisionFromTraces(
+  traces: MetricTrace[],
+): ProjectDashboardPrecision {
+  const classificationCounts = countTraceClassifications(traces);
+  const overallConfidence =
+    traces.reduce((sum, item) => sum + item.confidence, 0) / Math.max(traces.length, 1);
+  const coverage = classificationCounts.real / Math.max(traces.length, 1);
+  const precisionOverall = clamp(overallConfidence * 0.62 + coverage * 0.38, 0.44, 0.97);
+
+  return {
+    overall: precisionOverall,
+    coverage,
+    conservative: clamp(precisionOverall * scenarioConfigs.conservative.precisionMultiplier, 0.4, 0.97),
+    realistic: clamp(precisionOverall * scenarioConfigs.realistic.precisionMultiplier, 0.38, 0.94),
+    aggressive: clamp(precisionOverall * scenarioConfigs.aggressive.precisionMultiplier, 0.34, 0.9),
+  };
+}
+
+function buildCoverageChartData(sectionStats: SectionStats): ProjectCoverageChartPoint[] {
+  return Object.entries(sectionStats)
+    .map(([section, stats]) => ({
+      section,
+      coverage: round((stats.real / Math.max(stats.total, 1)) * 100),
+      confidence: round((stats.confidenceSum / Math.max(stats.total, 1)) * 100),
+    }))
+    .sort((a, b) => {
+      if (a.coverage !== b.coverage) {
+        return a.coverage - b.coverage;
+      }
+
+      if (a.confidence !== b.confidence) {
+        return a.confidence - b.confidence;
+      }
+
+      return a.section.localeCompare(b.section);
+    });
+}
+
+function dedupeStrings(items: string[], limit: number): string[] {
+  const uniqueItems: string[] = [];
+  const seen = new Set<string>();
+
+  for (const item of items) {
+    const normalized = item.trim();
+
+    if (!normalized || seen.has(normalized)) {
+      continue;
+    }
+
+    seen.add(normalized);
+    uniqueItems.push(normalized);
+
+    if (uniqueItems.length >= limit) {
+      break;
+    }
+  }
+
+  return uniqueItems;
+}
+
+function combineClassifications(...classifications: DataClassification[]): DataClassification {
+  if (classifications.every((classification) => classification === "real")) {
+    return "real";
+  }
+
+  if (classifications.some((classification) => classification === "projected")) {
+    return "projected";
+  }
+
+  return "estimated";
 }
 
 function buildScenarioSeries(
@@ -322,8 +419,9 @@ function buildKpiTimelineSeries(params: {
       currentRevenueEstimate * 0.72,
       targetRevenue * 1.08,
     );
+    const incrementalRevenue = Math.max(revenue - currentRevenueEstimate, 0);
     const cac = investment / Math.max(customers, 1);
-    const roas = revenue / Math.max(investment, 1);
+    const roas = incrementalRevenue / Math.max(investment, 1);
     const occupancy = clamp(customers / Math.max(monthlyCapacity, 1), 0, 1.18);
 
     const paidImpressions = avgCpm > 0 ? (investment / avgCpm) * 1000 : investment / Math.max(avgCpc, 0.5);
@@ -347,6 +445,7 @@ function buildKpiTimelineSeries(params: {
 
 function buildInvestmentCurveSeries(params: {
   config: ScenarioConfig;
+  currentCustomers: number;
   currentRevenueEstimate: number;
   baseMonthlySpend: number;
   monthlyReach: number;
@@ -367,6 +466,7 @@ function buildInvestmentCurveSeries(params: {
 }) {
   const {
     config,
+    currentCustomers,
     currentRevenueEstimate,
     baseMonthlySpend,
     monthlyReach,
@@ -436,10 +536,12 @@ function buildInvestmentCurveSeries(params: {
       avgTicket *
       (recurringNature ? 1 : 0.45) *
       0.82;
-    const revenue = customers * avgTicket + recurringRevenue;
+    const growthRevenue = customers * avgTicket + recurringRevenue;
+    const revenue = currentRevenueEstimate + growthRevenue;
+    const totalCustomers = Math.min(monthlyCapacity, currentCustomers + customers);
     const cac = spend / Math.max(customers, 1);
-    const roas = revenue / Math.max(spend, 1);
-    const incrementalRevenue = Math.max(revenue - currentRevenueEstimate, 0);
+    const roas = growthRevenue / Math.max(spend, 1);
+    const incrementalRevenue = Math.max(growthRevenue, 0);
     const efficiency = incrementalRevenue / Math.max(spend, 1);
 
     return {
@@ -447,7 +549,7 @@ function buildInvestmentCurveSeries(params: {
       spend: round(spend),
       revenue: round(revenue),
       incrementalRevenue: round(incrementalRevenue),
-      customers: round(customers),
+      customers: round(totalCustomers),
       cac: round(cac),
       roas: Number(roas.toFixed(2)),
       saturation: Number(curveSaturation.toFixed(3)),
@@ -908,13 +1010,19 @@ export function createProjectDashboardSnapshot(params: {
   const projectedTotalRevenue = (projectedInitialRevenue + projectedRecurringRevenue) * saturationFactor;
   const baseConversionRate = clamp(leadToBookingRate * bookingToShowRate * showToSaleRate, 0.04, 0.72);
   const adjustedCac = (impliedMediaSpend / Math.max(projectedCustomers, 1)) / Math.max(saturationFactor, 0.42);
+  const currentShowsEstimate = currentCustomers / Math.max(showToSaleRate, 0.18);
+  const currentBookingsEstimate = currentShowsEstimate / Math.max(bookingToShowRate, 0.3);
+  const currentLeadsEstimate = currentBookingsEstimate / Math.max(leadToBookingRate, 0.12);
 
-  const scenarioSummaries = Object.entries(scenarioConfigs).reduce<
-    Record<ScenarioKey, { customers: number; revenue: number }>
+  const scenarioGrowthSummaries = Object.entries(scenarioConfigs).reduce<
+    Record<ScenarioKey, { leads: number; bookings: number; shows: number; customers: number; revenue: number }>
   >((acc, [scenarioKey, config]) => {
-    const scenarioCustomers =
+    const growthLeads = projectedLeads * config.demandMultiplier;
+    const growthBookings = projectedBookings * config.contactMultiplier;
+    const growthShows = projectedShows * config.contactMultiplier;
+    const growthCustomers =
       projectedCustomers * config.demandMultiplier * config.contactMultiplier * config.retentionMultiplier;
-    const scenarioRevenue =
+    const growthRevenue =
       projectedTotalRevenue *
       config.revenueMultiplier *
       config.demandMultiplier *
@@ -923,20 +1031,43 @@ export function createProjectDashboardSnapshot(params: {
       config.saturationMultiplier;
 
     acc[scenarioKey as ScenarioKey] = {
-      customers: round(scenarioCustomers),
-      revenue: round(scenarioRevenue),
+      leads: round(growthLeads),
+      bookings: round(growthBookings),
+      shows: round(growthShows),
+      customers: round(growthCustomers),
+      revenue: round(growthRevenue),
+    };
+
+    return acc;
+  }, {} as Record<ScenarioKey, { leads: number; bookings: number; shows: number; customers: number; revenue: number }>);
+
+  const scenarioSummaries = Object.entries(scenarioGrowthSummaries).reduce<
+    Record<ScenarioKey, { customers: number; revenue: number }>
+  >((acc, [scenarioKey, growth]) => {
+    acc[scenarioKey as ScenarioKey] = {
+      customers: round(Math.min(monthlyCapacity, currentCustomers + growth.customers)),
+      revenue: round(currentRevenueEstimate + growth.revenue),
     };
 
     return acc;
   }, {} as Record<ScenarioKey, { customers: number; revenue: number }>);
 
-  const recommendations = [...client.diagnosisNotes];
+  const recommendations: string[] = [];
 
+  if (client.diagnosisScores.bio <= 4 || client.diagnosisScores.offerClarity <= 4) {
+    recommendations.push("Enxugar a bio e deixar a oferta principal mais clara ja na primeira dobra.");
+  }
+  if (client.diagnosisScores.humanization <= 4) {
+    recommendations.push("Aumentar a presenca humana em video com voz real, bastidores e explicacao de procedimentos.");
+  }
+  if (client.diagnosisScores.socialProof <= 4) {
+    recommendations.push("Organizar prova social recorrente com depoimentos, antes e depois autorizado e feedback de clientes.");
+  }
   if (reviews === 0 || client.diagnosisScores.googlePresence <= 3) {
     recommendations.push("Estruturar Google Perfil da Empresa com reviews, fotos e prova local.");
   }
-  if (client.diagnosisScores.offerClarity <= 4) {
-    recommendations.push("Enxugar a bio e deixar a oferta principal mais clara ja na primeira dobra.");
+  if (client.diagnosisScores.conversion <= 4) {
+    recommendations.push("Reforcar CTA, proposta principal e caminho de contato para reduzir atrito ate o WhatsApp.");
   }
   if (returnRate < 0.38) {
     recommendations.push("Criar fluxo de retorno em 30 e 60 dias para aumentar recorrencia e LTV.");
@@ -963,7 +1094,7 @@ export function createProjectDashboardSnapshot(params: {
       saturationFactor,
     },
     scenarios: scenarioSummaries,
-    recommendations: recommendations.slice(0, 6),
+    recommendations: dedupeStrings(recommendations, 6),
   };
 
   const conservativeSeries = buildScenarioSeries(
@@ -994,28 +1125,28 @@ export function createProjectDashboardSnapshot(params: {
   const funnelChartData = [
     {
       stage: "Leads",
-      atual: round(projectedLeads * 0.86),
-      conservador: round(projectedLeads * scenarioConfigs.conservative.demandMultiplier),
-      realista: round(projectedLeads * scenarioConfigs.realistic.demandMultiplier),
-      agressivo: round(projectedLeads * scenarioConfigs.aggressive.demandMultiplier),
+      atual: round(currentLeadsEstimate),
+      conservador: round(currentLeadsEstimate + scenarioGrowthSummaries.conservative.leads),
+      realista: round(currentLeadsEstimate + scenarioGrowthSummaries.realistic.leads),
+      agressivo: round(currentLeadsEstimate + scenarioGrowthSummaries.aggressive.leads),
     },
     {
       stage: "Agenda",
-      atual: round(projectedBookings * 0.9),
-      conservador: round(projectedBookings * scenarioConfigs.conservative.contactMultiplier),
-      realista: round(projectedBookings * scenarioConfigs.realistic.contactMultiplier),
-      agressivo: round(projectedBookings * scenarioConfigs.aggressive.contactMultiplier),
+      atual: round(currentBookingsEstimate),
+      conservador: round(currentBookingsEstimate + scenarioGrowthSummaries.conservative.bookings),
+      realista: round(currentBookingsEstimate + scenarioGrowthSummaries.realistic.bookings),
+      agressivo: round(currentBookingsEstimate + scenarioGrowthSummaries.aggressive.bookings),
     },
     {
       stage: "Comparece",
-      atual: round(projectedShows * 0.92),
-      conservador: round(projectedShows * scenarioConfigs.conservative.contactMultiplier),
-      realista: round(projectedShows * scenarioConfigs.realistic.contactMultiplier),
-      agressivo: round(projectedShows * scenarioConfigs.aggressive.contactMultiplier),
+      atual: round(currentShowsEstimate),
+      conservador: round(currentShowsEstimate + scenarioGrowthSummaries.conservative.shows),
+      realista: round(currentShowsEstimate + scenarioGrowthSummaries.realistic.shows),
+      agressivo: round(currentShowsEstimate + scenarioGrowthSummaries.aggressive.shows),
     },
     {
       stage: "Clientes",
-      atual: round(projectedCustomers * 0.94),
+      atual: round(currentCustomers),
       conservador: report.scenarios.conservative.customers,
       realista: report.scenarios.realistic.customers,
       agressivo: report.scenarios.aggressive.customers,
@@ -1054,28 +1185,16 @@ export function createProjectDashboardSnapshot(params: {
 
   const scenarioMonthlySpend = {
     conservative: Math.max(
-      projectedLeads *
-        scenarioConfigs.conservative.demandMultiplier *
-        scenarioConfigs.conservative.contactMultiplier *
-        avgCpl *
-        0.82,
-      report.scenarios.conservative.customers * adjustedCac * 0.84,
+      scenarioGrowthSummaries.conservative.leads * avgCpl * 0.82,
+      scenarioGrowthSummaries.conservative.customers * adjustedCac * 0.84,
     ),
     realistic: Math.max(
-      projectedLeads *
-        scenarioConfigs.realistic.demandMultiplier *
-        scenarioConfigs.realistic.contactMultiplier *
-        avgCpl *
-        0.92,
-      report.scenarios.realistic.customers * adjustedCac * 0.92,
+      scenarioGrowthSummaries.realistic.leads * avgCpl * 0.92,
+      scenarioGrowthSummaries.realistic.customers * adjustedCac * 0.92,
     ),
     aggressive: Math.max(
-      projectedLeads *
-        scenarioConfigs.aggressive.demandMultiplier *
-        scenarioConfigs.aggressive.contactMultiplier *
-        avgCpl *
-        1.04,
-      report.scenarios.aggressive.customers * adjustedCac,
+      scenarioGrowthSummaries.aggressive.leads * avgCpl * 1.04,
+      scenarioGrowthSummaries.aggressive.customers * adjustedCac,
     ),
   } satisfies Record<ScenarioKey, number>;
 
@@ -1166,6 +1285,7 @@ export function createProjectDashboardSnapshot(params: {
   const investmentCurveChartData = {
     conservative: buildInvestmentCurveSeries({
       config: scenarioConfigs.conservative,
+      currentCustomers,
       currentRevenueEstimate,
       baseMonthlySpend: scenarioMonthlySpend.conservative,
       monthlyReach,
@@ -1186,6 +1306,7 @@ export function createProjectDashboardSnapshot(params: {
     }),
     realistic: buildInvestmentCurveSeries({
       config: scenarioConfigs.realistic,
+      currentCustomers,
       currentRevenueEstimate,
       baseMonthlySpend: scenarioMonthlySpend.realistic,
       monthlyReach,
@@ -1206,6 +1327,7 @@ export function createProjectDashboardSnapshot(params: {
     }),
     aggressive: buildInvestmentCurveSeries({
       config: scenarioConfigs.aggressive,
+      currentCustomers,
       currentRevenueEstimate,
       baseMonthlySpend: scenarioMonthlySpend.aggressive,
       monthlyReach,
@@ -1226,56 +1348,27 @@ export function createProjectDashboardSnapshot(params: {
     }),
   } satisfies ProjectDashboardSnapshot["investmentCurveChartData"];
 
-  const realCount = traces.filter((item) => item.classification === "real").length;
-  const estimatedCount = traces.filter((item) => item.classification === "estimated").length;
-  const projectedCount = 8;
-  const overallConfidence =
-    traces.reduce((sum, item) => sum + item.confidence, 0) / Math.max(traces.length, 1);
-  const coverage = realCount / Math.max(traces.length, 1);
-  const precisionOverall = clamp(overallConfidence * 0.62 + coverage * 0.38, 0.44, 0.97);
-
-  const precision = {
-    overall: precisionOverall,
-    coverage,
-    conservative: clamp(precisionOverall * scenarioConfigs.conservative.precisionMultiplier, 0.4, 0.97),
-    realistic: clamp(precisionOverall * scenarioConfigs.realistic.precisionMultiplier, 0.38, 0.94),
-    aggressive: clamp(precisionOverall * scenarioConfigs.aggressive.precisionMultiplier, 0.34, 0.9),
-  };
-
-  const precisionChartData = [
-    {
-      label: "Conservador",
-      precision: round(precision.conservative * 100),
-      certainty: round((coverage * 0.98) * 100),
-    },
-    {
-      label: "Realista",
-      precision: round(precision.realistic * 100),
-      certainty: round((coverage * 0.94) * 100),
-    },
-    {
-      label: "Agressivo",
-      precision: round(precision.aggressive * 100),
-      certainty: round((coverage * 0.88) * 100),
-    },
-  ];
-
-  const coverageChartData = Object.entries(sectionStats).map(([section, stats]) => ({
-    section,
-    coverage: round((stats.real / Math.max(stats.total, 1)) * 100),
-    confidence: round((stats.confidenceSum / Math.max(stats.total, 1)) * 100),
-  }));
-
   const roi = impliedMediaSpend > 0 ? (projectedTotalRevenue - impliedMediaSpend) / impliedMediaSpend : 0;
   const roas = impliedMediaSpend > 0 ? projectedTotalRevenue / impliedMediaSpend : 0;
-  const availableSlots = Math.max(monthlyCapacity - projectedBookings, 0);
+  const availableSlots = Math.max(monthlyCapacity - currentCustomers, 0);
+  const occupancyRate = clamp(currentCustomers / Math.max(monthlyCapacity, 1), 0, 1.4);
+  const availableSlotsClassification = combineClassifications(
+    monthlyCapacityResolved.classification,
+    currentCustomersResolved.classification,
+  );
 
   const highlights = [
     {
-      label: "Populacao local",
-      value: formatCompact(city.population),
-      classification: "real" as DataClassification,
-      sourceLabel: `${city.name}/${city.state}`,
+      label: "Receita atual / mes",
+      value: formatCurrency(round(currentRevenueEstimate)),
+      classification: currentRevenueResolved.classification,
+      sourceLabel: currentRevenueResolved.trace.sourceLabel,
+    },
+    {
+      label: "Capacidade livre / mes",
+      value: `${round(availableSlots)}`,
+      classification: availableSlotsClassification,
+      sourceLabel: "Capacidade mensal comparada com clientes atuais por mes",
     },
     {
       label: "Seguidores observados",
@@ -1284,54 +1377,45 @@ export function createProjectDashboardSnapshot(params: {
       sourceLabel: followersResolved.trace.sourceLabel,
     },
     {
-      label: "CPL medio",
-      value: `R$ ${round(avgCpl)}`,
-      classification: avgCplResolved.classification,
-      sourceLabel: avgCplResolved.trace.sourceLabel,
-    },
-    {
-      label: "Receita projetada",
+      label: "Incremento projetado / mes",
       value: `R$ ${round(report.derivedMetrics.projectedTotalRevenue)}`,
       classification: "projected" as DataClassification,
-      sourceLabel: "Motor derivado do caso",
+      sourceLabel: "Motor derivado do caso sobre a base atual",
     },
   ];
 
-  const insights: string[] = [...client.diagnosisNotes];
-
-  if (report.derivedMetrics.capturableMarket > currentCustomers * 3) {
-    insights.push("Existe diferenca relevante entre o mercado capturavel e o volume atual de clientes.");
-  }
-  if (availableSlots > monthlyCapacity * 0.2) {
-    insights.push("A agenda ainda tem folga suficiente para crescer sem pressionar a operacao.");
-  }
-  if (reviews === 0) {
-    insights.push("Google local ainda nao gera prova social suficiente para sustentar demanda de alta intencao.");
-  }
-  if (precision.overall < 0.72) {
-    insights.push("A leitura ainda depende de benchmark e fallback em varios pontos importantes.");
-  }
-
   const nextDataPoints: string[] = [];
+  if (client.businessData.currentRevenueEstimate == null) {
+    nextDataPoints.push("Faturamento fechado do ultimo mes ou media dos ultimos 3 meses.");
+  }
   if (client.businessData.avgTicket == null) {
-    nextDataPoints.push("Validar ticket medio real por servico.");
+    nextDataPoints.push("Ticket medio real por procedimento ou ticket medio mensal.");
   }
   if (client.businessData.monthlyCapacity == null) {
-    nextDataPoints.push("Mapear capacidade mensal real da agenda.");
+    nextDataPoints.push("Capacidade mensal da agenda considerando equipe, horarios e duracao media.");
   }
   if (client.businessData.currentCustomersPerMonth == null) {
-    nextDataPoints.push("Confirmar clientes atuais por mes para reduzir a margem de estimativa.");
+    nextDataPoints.push("Quantidade real de clientes atendidos por mes.");
   }
-  if (client.instagramData.monthlyReach == null) {
-    nextDataPoints.push("Registrar alcance e visitas reais do Instagram.");
+  if (
+    client.instagramData.monthlyReach == null ||
+    client.instagramData.profileVisits == null ||
+    client.instagramData.linkClicks == null ||
+    client.instagramData.messagesPerMonth == null
+  ) {
+    nextDataPoints.push("Instagram dos ultimos 30 dias: alcance, visitas ao perfil, cliques no link e mensagens.");
   }
-  if ((client.googleData.reviews ?? 0) <= 0) {
-    nextDataPoints.push("Abrir captacao de reviews e consolidar o Google Perfil da Empresa.");
+  if ((client.googleData.reviews ?? 0) <= 0 || client.googleData.profileViews == null) {
+    nextDataPoints.push("Google Perfil da Empresa: reviews, nota, visualizacoes, ligacoes e rotas nos ultimos 30 dias.");
+  }
+  if (client.businessData.noShowRate == null) {
+    nextDataPoints.push("Taxa media de faltas ou remarcacoes por mes.");
+  }
+  if (client.businessData.returnRate == null) {
+    nextDataPoints.push("Percentual de clientes que retornam em 30 e 60 dias.");
   }
 
-  registerTrace(
-    traces,
-    sectionStats,
+  const derivedMarketTraces = [
     createDerivedTrace(
       "eligible-market",
       "Mercado elegivel",
@@ -1339,10 +1423,6 @@ export function createProjectDashboardSnapshot(params: {
       report.derivedMetrics.eligibleMarket,
       "Formula de mercado elegivel",
     ),
-  );
-  registerTrace(
-    traces,
-    sectionStats,
     createDerivedTrace(
       "intent-market",
       "Mercado com intencao",
@@ -1350,10 +1430,6 @@ export function createProjectDashboardSnapshot(params: {
       report.derivedMetrics.intentMarket,
       "Formula de intencao",
     ),
-  );
-  registerTrace(
-    traces,
-    sectionStats,
     createDerivedTrace(
       "capturable-market",
       "Mercado capturavel",
@@ -1361,7 +1437,89 @@ export function createProjectDashboardSnapshot(params: {
       report.derivedMetrics.capturableMarket,
       "Formula de captacao",
     ),
-  );
+  ];
+
+  for (const trace of derivedMarketTraces) {
+    registerTrace(traces, sectionStats, trace);
+  }
+
+  const classificationCounts = countTraceClassifications(traces);
+  const precision = buildPrecisionFromTraces(traces);
+
+  const precisionChartData = [
+    {
+      label: "Conservador",
+      precision: round(precision.conservative * 100),
+      certainty: round((precision.coverage * 0.98) * 100),
+    },
+    {
+      label: "Realista",
+      precision: round(precision.realistic * 100),
+      certainty: round((precision.coverage * 0.94) * 100),
+    },
+    {
+      label: "Agressivo",
+      precision: round(precision.aggressive * 100),
+      certainty: round((precision.coverage * 0.88) * 100),
+    },
+  ];
+
+  const coverageChartData = buildCoverageChartData(sectionStats);
+  const weakestCoverageSections = coverageChartData
+    .slice(0, 3)
+    .map((item) => item.section.toLowerCase())
+    .join(", ");
+
+  const stageLabel =
+    occupancyRate >= 0.78
+      ? "Operacao aquecida"
+      : occupancyRate >= 0.45 || followers >= 700
+        ? "Negocio ativo em consolidacao"
+        : "Presenca digital em estruturacao";
+  const primaryBottleneck =
+    reviews === 0 || client.diagnosisScores.googlePresence <= 3
+      ? "Google local e prova social ainda nao sustentam a demanda de alta intencao."
+      : client.diagnosisScores.offerClarity <= 4 || client.diagnosisScores.conversion <= 4
+        ? "Oferta principal e caminho de contato ainda geram atrito na conversao."
+        : client.diagnosisScores.humanization <= 4
+          ? "Conteudo pouco humano reduz confianca antes do contato."
+          : returnRate < benchmark.retention.returnRate * 0.9
+            ? "Recorrencia abaixo do benchmark limita previsibilidade de receita."
+            : "A falta de dado observado ainda enfraquece a leitura operacional.";
+  const primaryOpportunity =
+    availableSlots > monthlyCapacity * 0.25
+      ? `Existe folga estimada para cerca de ${round(availableSlots)} clientes por mes sem ampliar estrutura.`
+      : followers >= 700
+        ? "A base social atual ja permite aumentar captacao com CTA, oferta e prova social melhores."
+        : returnRate < benchmark.retention.returnRate * 0.9
+          ? "Recorrencia e reativacao podem crescer a receita sem depender so de novos leads."
+          : "O motor indica espaco para captacao incremental com melhor distribuicao e acompanhamento.";
+  const dataQualityLabel =
+    precision.overall >= 0.8
+      ? "Base forte: o painel ja pode orientar execucao com pouca margem de correcao."
+      : precision.overall >= 0.68
+        ? "Base mista: vale combinar o painel com confirmacao operacional antes de escalar investimento."
+        : `Base fragil: ${weakestCoverageSections || "comercial, operacao e funil"} ainda dependem mais de estimativa do que de dado observado.`;
+  const headline =
+    reviews === 0 || client.diagnosisScores.googlePresence <= 3
+      ? `${client.name} ja tem presenca ativa e folga para crescer, mas ainda converte pouco da demanda local por falta de prova social e estrutura de captura.`
+      : `${client.name} ja mostra operacao ativa e espaco para crescer, mas ainda perde eficiencia entre interesse, agenda e fechamento.`;
+
+  const narrative = {
+    headline,
+    stage: stageLabel,
+    primaryBottleneck,
+    primaryOpportunity,
+    dataQuality: dataQualityLabel,
+  } satisfies ProjectDashboardSnapshot["narrative"];
+
+  const insights: string[] = [
+    `${stageLabel}: a leitura atual aponta cerca de ${round(currentCustomers)} clientes por mes, ${formatCurrency(round(currentRevenueEstimate))} de receita mensal e ocupacao estimada em ${round(occupancyRate * 100)}% da capacidade.`,
+    `A base social existe (${round(followers)} seguidores observados), mas o Google local ainda registra ${round(reviews)} review(s), o que enfraquece a captura de demanda de alta intencao.`,
+    primaryBottleneck,
+    primaryOpportunity,
+    dataQualityLabel,
+  ];
 
   return {
     slug: client.slug,
@@ -1372,14 +1530,15 @@ export function createProjectDashboardSnapshot(params: {
     segmentName: segment.name,
     benchmarkLabel,
     report,
-    classificationCounts: {
-      real: realCount,
-      estimated: estimatedCount,
-      projected: projectedCount,
-    },
+    classificationCounts,
     precision,
+    narrative,
     quickMetrics: {
+      currentCustomersEstimate: currentCustomers,
       currentRevenueEstimate,
+      occupancyRate,
+      growthRevenuePotential: projectedTotalRevenue,
+      growthCustomersPotential: projectedCustomers,
       adjustedCac,
       roi,
       roas,
@@ -1397,8 +1556,8 @@ export function createProjectDashboardSnapshot(params: {
     investmentCurveChartData,
     coverageChartData,
     highlights,
-    insights: insights.slice(0, 5),
-    nextDataPoints: nextDataPoints.slice(0, 4),
+    insights: dedupeStrings(insights, 5),
+    nextDataPoints: dedupeStrings(nextDataPoints, 8),
     traces,
   };
 }

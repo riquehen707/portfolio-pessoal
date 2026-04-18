@@ -2,6 +2,7 @@
 
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import React, { ReactNode } from "react";
+import type { MDXComponents } from "mdx/types";
 import { slugify as transliterate } from "transliteration";
 import remarkGfm from "remark-gfm";
 
@@ -55,6 +56,25 @@ import Reveal from "@/components/mdx/Reveal";
 import * as Charts from "@/components/mdx/ChartsClient";
 
 import { baseURL } from "@/resources";
+
+const {
+  ChartContainer,
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+  Legend,
+  LineChart,
+  Line: ChartLine,
+  AreaChart,
+  Area,
+  PieChart,
+  Pie,
+  Cell,
+} = Charts;
 
 /* ========================== Helpers ========================== */
 
@@ -352,7 +372,7 @@ const MetaMDX = (props: any) => {
 
 /* ========================== Mapeamento MDX ========================== */
 
-const components = {
+export const baseMDXComponents: MDXComponents = {
   // Markdown/HTML básicos
   p: createParagraph as any,
   h1: createHeading("h1") as any,
@@ -407,30 +427,37 @@ const components = {
   Reveal,
 
   // charts (client components)
-  ChartContainer: Charts.ChartContainer,
-  ResponsiveContainer: Charts.ResponsiveContainer,
-  BarChart: Charts.BarChart,
-  Bar: Charts.Bar,
-  XAxis: Charts.XAxis,
-  YAxis: Charts.YAxis,
-  Tooltip: Charts.Tooltip,
-  CartesianGrid: Charts.CartesianGrid,
-  Legend: Charts.Legend,
-  LineChart: Charts.LineChart,
-  Line: Charts.Line,
-  AreaChart: Charts.AreaChart,
-  Area: Charts.Area,
-  PieChart: Charts.PieChart,
-  Pie: Charts.Pie,
-  Cell: Charts.Cell,
+  ChartContainer,
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+  Legend,
+  LineChart,
+  Line: ChartLine,
+  AreaChart,
+  Area,
+  PieChart,
+  Pie,
+  Cell,
 
   // shortcodes
   PillarBadge,
   CategoryBadge,
 };
 
+export function createMDXComponents(components: MDXComponents = {}): MDXComponents {
+  return {
+    ...baseMDXComponents,
+    ...components,
+  };
+}
+
 type CustomMDXProps = MDXRemoteProps & {
-  components?: typeof components;
+  components?: MDXComponents;
 
   // ✅ NOVO: glossário do post atual
   glossary?: Record<string, string>;
@@ -458,7 +485,40 @@ export function CustomMDX(props: CustomMDXProps) {
           ],
         },
       }}
-      components={{ ...components, ...(props.components || {}) }}
+      components={createMDXComponents(props.components ?? {})}
     />
   );
 }
+
+export {
+  Figure,
+  Gallery,
+  GlossTerm,
+  HoverNote,
+  Callout,
+  Quote,
+  Highlight,
+  Collapsible,
+  CollapsibleTrigger,
+  CollapsibleContent,
+  MindMap,
+  Reveal,
+  PillarBadge,
+  CategoryBadge,
+  ChartContainer,
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+  Legend,
+  LineChart,
+  ChartLine as Line,
+  AreaChart,
+  Area,
+  PieChart,
+  Pie,
+  Cell,
+};

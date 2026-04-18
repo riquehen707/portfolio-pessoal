@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react";
 
 import { ProjectCard } from "@/components";
-import { getPosts } from "@/utils/utils";
+import { type BlogFile, getPosts } from "@/utils/utils";
 import { Column } from "@once-ui-system/core";
 
 import styles from "./Projects.module.scss";
@@ -16,6 +16,7 @@ type ProjectLayout = "stack" | "grid";
 type ProjectCardVariant = "default" | "feature" | "compact";
 
 interface ProjectsProps {
+  projects?: BlogFile[];
   range?: [number, number?];
   exclude?: string[];
   layout?: ProjectLayout;
@@ -25,6 +26,7 @@ interface ProjectsProps {
 }
 
 export function Projects({
+  projects,
   range,
   exclude,
   layout = "stack",
@@ -32,13 +34,13 @@ export function Projects({
   marginBottom = "40",
   paddingX = "l",
 }: ProjectsProps) {
-  let allProjects = getPosts(["src", "app", "work", "projects"]);
+  let allProjects = projects ?? getPosts(["src", "app", "work", "projects"]);
 
   if (exclude && exclude.length > 0) {
     allProjects = allProjects.filter((post) => !exclude.includes(post.slug));
   }
 
-  const sortedProjects = allProjects.sort((a, b) => {
+  const sortedProjects = [...allProjects].sort((a, b) => {
     return (
       new Date(b.metadata.publishedAt ?? 0).getTime() -
       new Date(a.metadata.publishedAt ?? 0).getTime()

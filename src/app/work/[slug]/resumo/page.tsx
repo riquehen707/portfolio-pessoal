@@ -2,33 +2,26 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Column, Heading, Row, Schema, SmartLink, Tag, Text } from "@once-ui-system/core";
 
+import {
+  getWorkProjectBySlug,
+  getWorkProjectSummaryPath,
+  getWorkProjectSummarySeoImage,
+  getWorkProjectSummaryStaticParams,
+  hasWorkProjectPrintableSummary,
+  normalizeWorkProjectSlug,
+  toAbsoluteWorkProjectUrl,
+} from "@/app/work/projectData";
 import { PrintReportButton } from "@/components/work/PrintReportButton";
 import { ProjectExecutiveSummarySheet } from "@/components/work/ProjectExecutiveSummarySheet";
 import { getProjectDashboardSnapshot, getProjectExecutiveSummary } from "@/domain";
-import { baseURL, about, person, work } from "@/resources";
+import { baseURL, about, person } from "@/resources";
 import { createQrCodeDataUrl } from "@/utils/createQrCodeDataUrl";
-import { buildOgImage } from "@/utils/og";
-import { getPosts } from "@/utils/utils";
 
 import styles from "./page.module.scss";
 
 type PageProps = {
   params: Promise<{ slug: string | string[] }>;
 };
-
-function normalizeSlug(slugParam: string | string[] | undefined): string {
-  if (!slugParam) return "";
-  return Array.isArray(slugParam) ? slugParam.join("/") : slugParam;
-}
-
-function toAbs(pathOrUrl?: string): string | undefined {
-  if (!pathOrUrl) return undefined;
-  try {
-    return new URL(pathOrUrl, baseURL).toString();
-  } catch {
-    return pathOrUrl;
-  }
-}
 
 function formatReportDate(date: string): string {
   return new Intl.DateTimeFormat("pt-BR", {
@@ -37,47 +30,36 @@ function formatReportDate(date: string): string {
 }
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const posts = getPosts(["src", "app", "work", "projects"]);
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+  return getWorkProjectSummaryStaticParams();
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const slugPath = normalizeSlug(slug);
+  const slugPath = normalizeWorkProjectSlug(slug);
+  const post = getWorkProjectBySlug(slugPath);
+  const image = post ? toAbsoluteWorkProjectUrl(getWorkProjectSummarySeoImage(post)) : undefined;
 
-  const posts = getPosts(["src", "app", "work", "projects"]);
-  const post = posts.find((item) => item.slug === slugPath);
-
-  if (!post) return {};
-
-  const image =
-    post.metadata.image ||
-    post.metadata.images?.[0] ||
-    buildOgImage(`Resumo executivo ${post.metadata.title}`, "Diagnostico");
+  if (!post || !hasWorkProjectPrintableSummary(slugPath)) return {};
 
   return {
     title: `Resumo executivo | ${post.metadata.title}`,
     description: `Versao resumida e imprimivel do diagnostico de ${post.metadata.title}.`,
     alternates: {
-      canonical: `${baseURL}${work.path}/${post.slug}/resumo`,
+      canonical: `${baseURL}${getWorkProjectSummaryPath(post.slug)}`,
     },
     openGraph: {
       title: `Resumo executivo | ${post.metadata.title}`,
       description: `Versao resumida e imprimivel do diagnostico de ${post.metadata.title}.`,
-      url: `${baseURL}${work.path}/${post.slug}/resumo`,
-      images: [{ url: toAbs(image) ?? image }],
+      url: `${baseURL}${getWorkProjectSummaryPath(post.slug)}`,
+      images: image ? [{ url: image }] : undefined,
     },
   };
 }
 
 export default async function ProjectExecutiveSummaryPage({ params }: PageProps) {
   const { slug } = await params;
-  const slugPath = normalizeSlug(slug);
-
-  const posts = getPosts(["src", "app", "work", "projects"]);
-  const post = posts.find((item) => item.slug === slugPath);
+  const slugPath = normalizeWorkProjectSlug(slug);
+  const post = getWorkProjectBySlug(slugPath);
   const snapshot = getProjectDashboardSnapshot(slugPath);
   const summary = getProjectExecutiveSummary(slugPath);
 
@@ -85,7 +67,7 @@ export default async function ProjectExecutiveSummaryPage({ params }: PageProps)
     notFound();
   }
 
-  const siteUrl = "https://henrique.dog";
+  const siteUrl = baseURL;
   const qrCodeDataUrl = await createQrCodeDataUrl(siteUrl);
 
   return (
@@ -93,12 +75,12 @@ export default async function ProjectExecutiveSummaryPage({ params }: PageProps)
       <Schema
         as="article"
         baseURL={baseURL}
-        path={`${work.path}/${post.slug}/resumo`}
+        path={getWorkProjectSummaryPath(post.slug)}
         title={`Resumo executivo | ${post.metadata.title}`}
         description={summary.summary}
         datePublished={post.metadata.publishedAt}
         dateModified={post.metadata.updatedAt ?? post.metadata.publishedAt}
-        image={toAbs(buildOgImage(`Resumo executivo ${post.metadata.title}`, "Diagnostico"))}
+        image={toAbsoluteWorkProjectUrl(getWorkProjectSummarySeoImage(post))}
         author={{
           name: person.name,
           url: `${baseURL}${about.path}`,

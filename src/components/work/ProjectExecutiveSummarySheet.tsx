@@ -53,6 +53,14 @@ export function ProjectExecutiveSummarySheet({
 }: Props) {
   const followersTrace = snapshot.traces.find((item) => item.key === "followers");
   const reviewsTrace = snapshot.traces.find((item) => item.key === "google-reviews");
+  const signalItems = snapshot.highlights.slice(0, 4);
+  const insightItems = snapshot.insights.slice(0, 4);
+  const priorityActions = snapshot.report.recommendations.slice(0, 4);
+  const pendingDataPoints = snapshot.nextDataPoints.slice(0, 4);
+  const realisticGrowthDelta = Math.max(
+    snapshot.report.scenarios.realistic.revenue - snapshot.quickMetrics.currentRevenueEstimate,
+    0,
+  );
 
   const basicFacts = [
     {
@@ -76,14 +84,14 @@ export function ProjectExecutiveSummarySheet({
       meta: reviewsTrace ? statusLabel(reviewsTrace.classification) : "Sem base",
     },
     {
-      label: "Mercado elegivel",
-      value: formatCompact(snapshot.report.derivedMetrics.eligibleMarket),
-      meta: "Derivado",
+      label: "Capacidade livre",
+      value: String(Math.round(snapshot.quickMetrics.availableSlots)),
+      meta: "Estimativa atual",
     },
     {
-      label: "Receita realista / mes",
-      value: formatCurrency(snapshot.report.scenarios.realistic.revenue),
-      meta: "Projetado",
+      label: "Incremento realista / mes",
+      value: formatCurrency(realisticGrowthDelta),
+      meta: "Projetado sobre a base atual",
     },
   ];
 
@@ -193,6 +201,29 @@ export function ProjectExecutiveSummarySheet({
         </div>
 
         <div className={styles.summaryBlock}>
+          <p className={styles.summary}>{snapshot.narrative.headline}</p>
+        </div>
+
+        <div className={styles.twoColumnGrid}>
+          <div className={styles.infoCard}>
+            <p className={styles.cardLabel}>Estagio</p>
+            <p className={styles.cardValue}>{snapshot.narrative.stage}</p>
+          </div>
+          <div className={styles.infoCard}>
+            <p className={styles.cardLabel}>Qualidade da base</p>
+            <p className={styles.cardMeta}>{snapshot.narrative.dataQuality}</p>
+          </div>
+          <div className={styles.infoCard}>
+            <p className={styles.cardLabel}>Gargalo principal</p>
+            <p className={styles.cardMeta}>{snapshot.narrative.primaryBottleneck}</p>
+          </div>
+          <div className={styles.infoCard}>
+            <p className={styles.cardLabel}>Oportunidade principal</p>
+            <p className={styles.cardMeta}>{snapshot.narrative.primaryOpportunity}</p>
+          </div>
+        </div>
+
+        <div className={styles.summaryBlock}>
           <ul className={styles.list}>
             {summary.businessSummary.map((item) => (
               <li key={item}>{item}</li>
@@ -216,6 +247,74 @@ export function ProjectExecutiveSummarySheet({
           ))}
         </div>
       </section>
+
+      {(signalItems.length > 0 || insightItems.length > 0) && (
+        <section className={styles.panel}>
+          <div className={styles.panelHeader}>
+            <p className={styles.panelEyebrow}>Radar do painel</p>
+            <h2 className={styles.panelTitle}>Sinais que sustentam a leitura</h2>
+          </div>
+
+          {signalItems.length > 0 && (
+            <div className={styles.signalGrid}>
+              {signalItems.map((item) => (
+                <div key={`${item.label}-${item.sourceLabel}`} className={styles.signalCard}>
+                  <span className={styles.statusPill} data-status={item.classification}>
+                    {statusLabel(item.classification)}
+                  </span>
+                  <p className={styles.cardLabel}>{item.label}</p>
+                  <p className={styles.cardValue}>{item.value}</p>
+                  <p className={styles.cardMeta}>{item.sourceLabel}</p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {insightItems.length > 0 && (
+            <div className={styles.summaryBlock}>
+              <p className={styles.subBlockLabel}>Sintese do painel</p>
+              <ul className={styles.list}>
+                {insightItems.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </section>
+      )}
+
+      {(priorityActions.length > 0 || pendingDataPoints.length > 0) && (
+        <section className={styles.panel}>
+          <div className={styles.panelHeader}>
+            <p className={styles.panelEyebrow}>Proxima rodada</p>
+            <h2 className={styles.panelTitle}>Acoes para destravar o caso</h2>
+          </div>
+
+          <div className={styles.actionGrid}>
+            {priorityActions.length > 0 && (
+              <div className={styles.summaryBlock}>
+                <p className={styles.subBlockLabel}>Ajustes imediatos</p>
+                <ul className={styles.list}>
+                  {priorityActions.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {pendingDataPoints.length > 0 && (
+              <div className={styles.summaryBlock}>
+                <p className={styles.subBlockLabel}>Dados que aumentam a precisao</p>
+                <ul className={styles.list}>
+                  {pendingDataPoints.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       <section className={styles.sectionStack}>
         {summary.sections.map((section) => (

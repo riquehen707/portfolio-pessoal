@@ -7,6 +7,7 @@
 .hero,
 .metaCard,
 .coverShell,
+.supportPanel,
 .relatedPanel {
   position: relative;
   overflow: hidden;
@@ -19,6 +20,7 @@
 .hero::before,
 .metaCard::before,
 .coverShell::before,
+.supportPanel::before,
 .relatedPanel::before {
   content: "";
   position: absolute;
@@ -32,6 +34,7 @@
 .hero > *,
 .metaCard > *,
 .coverShell > *,
+.supportPanel > *,
 .relatedPanel > * {
   position: relative;
   z-index: 1;
@@ -96,6 +99,63 @@
   width: 100%;
 }
 
+.supportPanel {
+  align-items: flex-start;
+}
+
+.supportLead {
+  max-width: 42rem;
+}
+
+.faqList,
+.referenceList {
+  width: 100%;
+}
+
+.faqItem,
+.referenceItem {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.2rem;
+  background: rgba(255, 255, 255, 0.025);
+  box-shadow: var(--shadow-soft);
+}
+
+.faqItem {
+  padding: 1rem 1.1rem;
+}
+
+.faqQuestion {
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+  color: var(--neutral-on-background-strong);
+}
+
+.faqQuestion::-webkit-details-marker {
+  display: none;
+}
+
+.faqAnswer {
+  margin-top: 0.85rem;
+}
+
+.referenceItem {
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.referenceLink {
+  color: var(--brand-on-background-strong);
+  text-decoration: none;
+}
+
+.referenceLink:hover {
+  text-decoration: underline;
+}
+
 .relatedPanel {
   align-items: flex-start;
 }
@@ -110,6 +170,7 @@
   .hero,
   .metaCard,
   .coverShell,
+  .supportPanel,
   .relatedPanel {
     border-radius: 1.45rem;
   }

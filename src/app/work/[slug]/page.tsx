@@ -14,122 +14,91 @@ import {
   Text,
 } from "@once-ui-system/core";
 
+import {
+  getAllWorkProjects,
+  getWorkProjectBySlug,
+  getWorkProjectKindLabel,
+  getWorkProjectPath,
+  getWorkProjectSeoImage,
+  getWorkProjectStack,
+  getWorkProjectStaticParams,
+  getWorkProjectSummaryPath,
+  hasWorkProjectPrintableSummary,
+  normalizeWorkProjectSlug,
+  resolveWorkProjectMediaSrc,
+  toAbsoluteWorkProjectUrl,
+} from "@/app/work/projectData";
+import ArticleToc from "@/components/blog/ArticleToc";
 import { CustomMDX, ScrollToHash } from "@/components";
+import { Projects } from "@/components/work/Projects";
 import { ProjectIntelligencePanel } from "@/components/work/ProjectIntelligencePanel";
 import { getProjectDashboardSnapshot } from "@/domain";
-import { Projects } from "@/components/work/Projects";
-import { baseURL, about, person, work } from "@/resources";
+import { baseURL, about, person } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
-import { buildOgImage } from "@/utils/og";
-import { getPosts } from "@/utils/utils";
 
 import styles from "./page.module.scss";
-
-const kindLabels = {
-  personal: "Pessoal",
-  study: "Estudo",
-  client: "Cliente",
-} as const;
 
 type PageProps = {
   params: Promise<{ slug: string | string[] }>;
 };
 
-function normalizeSlug(slugParam: string | string[] | undefined): string {
-  if (!slugParam) return "";
-  return Array.isArray(slugParam) ? slugParam.join("/") : slugParam;
-}
-
-function toAbs(pathOrUrl?: string): string | undefined {
-  if (!pathOrUrl) return undefined;
-  try {
-    return new URL(pathOrUrl, baseURL).toString();
-  } catch {
-    return pathOrUrl;
-  }
-}
-
-function toLocal(src?: string): string | undefined {
-  if (!src) return undefined;
-  try {
-    const u = new URL(src, baseURL);
-    return u.pathname + u.search;
-  } catch {
-    return src;
-  }
-}
-
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const posts = getPosts(["src", "app", "work", "projects"]);
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+  return getWorkProjectStaticParams();
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const slugPath = normalizeSlug(slug);
-
-  const posts = getPosts(["src", "app", "work", "projects"]);
-  const post = posts.find((item) => item.slug === slugPath);
+  const slugPath = normalizeWorkProjectSlug(slug);
+  const post = getWorkProjectBySlug(slugPath);
 
   if (!post) return {};
-
-  const image =
-    post.metadata.image ||
-    post.metadata.images?.[0] ||
-    buildOgImage(post.metadata.title, post.metadata.tag ?? post.metadata.tags?.[0] ?? "Projeto");
 
   return Meta.generate({
     title: post.metadata.title,
     description: post.metadata.summary ?? post.metadata.title,
     baseURL,
-    image: toAbs(image),
-    path: `${work.path}/${post.slug}`,
+    image: toAbsoluteWorkProjectUrl(getWorkProjectSeoImage(post)),
+    path: getWorkProjectPath(post.slug),
   });
 }
 
 export default async function ProjectPage({ params }: PageProps) {
   const { slug } = await params;
-  const slugPath = normalizeSlug(slug);
+  const slugPath = normalizeWorkProjectSlug(slug);
 
-  const allProjects = getPosts(["src", "app", "work", "projects"]);
-  const post = allProjects.find((item) => item.slug === slugPath);
+  const allProjects = getAllWorkProjects();
+  const post = getWorkProjectBySlug(slugPath);
 
   if (!post) notFound();
 
   const relatedProjects = allProjects.filter((item) => item.slug !== slugPath);
+  const hasPrintableSummary = hasWorkProjectPrintableSummary(post.slug);
   const avatars =
     post.metadata.team?.flatMap((member) =>
-      member.avatar ? [{ src: toLocal(member.avatar) as string }] : [],
+      member.avatar ? [{ src: resolveWorkProjectMediaSrc(member.avatar) as string }] : [],
     ) || [];
 
   const cover = post.metadata.image || post.metadata.images?.[0];
   const intelligenceSnapshot = getProjectDashboardSnapshot(post.slug);
-  const metaImage =
-    post.metadata.image ||
-    post.metadata.images?.[0] ||
-    buildOgImage(post.metadata.title, post.metadata.tag ?? post.metadata.tags?.[0] ?? "Projeto");
-  const stack = Array.from(
-    new Set(
-      [post.metadata.tag, ...(post.metadata.stack ?? post.metadata.tags ?? [])].filter(
-        Boolean,
-      ) as string[],
-    ),
-  );
-  const displayKind = post.metadata.kind ? kindLabels[post.metadata.kind] : undefined;
+  const metaImage = getWorkProjectSeoImage(post);
+  const stack = getWorkProjectStack(post);
+  const displayKind = getWorkProjectKindLabel(post);
+  const faqItems = post.metadata.faq ?? [];
+  const references = post.metadata.references ?? [];
+  const tocDepth = post.metadata.tocDepth ? Math.min(Math.max(post.metadata.tocDepth, 2), 4) : 3;
+  const shouldRenderToc = post.metadata.toc === true;
 
   return (
     <Column className={styles.page} maxWidth="m" paddingTop="24" gap="24">
       <Schema
         as="article"
         baseURL={baseURL}
-        path={`${work.path}/${post.slug}`}
+        path={getWorkProjectPath(post.slug)}
         title={post.metadata.title}
         description={post.metadata.summary ?? post.metadata.title}
         datePublished={post.metadata.publishedAt}
         dateModified={post.metadata.updatedAt ?? post.metadata.publishedAt}
-        image={toAbs(metaImage)}
+        image={toAbsoluteWorkProjectUrl(metaImage)}
         author={{
           name: person.name,
           url: `${baseURL}${about.path}`,
@@ -142,7 +111,9 @@ export default async function ProjectPage({ params }: PageProps) {
           <Column className={styles.heroMain} gap="16">
             <Row gap="12" wrap>
               <SmartLink href="/work">Voltar</SmartLink>
-              <SmartLink href={`/work/${post.slug}/resumo`}>Resumo PDF</SmartLink>
+              {hasPrintableSummary && (
+                <SmartLink href={getWorkProjectSummaryPath(post.slug)}>Resumo PDF</SmartLink>
+              )}
             </Row>
 
             {(displayKind || stack.length > 0) && (
@@ -240,24 +211,103 @@ export default async function ProjectPage({ params }: PageProps) {
             aspectRatio="16 / 9"
             radius="l"
             alt={post.metadata.title}
-            src={toLocal(cover) ?? cover}
+            src={resolveWorkProjectMediaSrc(cover) ?? cover}
           />
         </div>
       )}
 
       {intelligenceSnapshot && <ProjectIntelligencePanel snapshot={intelligenceSnapshot} />}
 
+      {shouldRenderToc && (
+        <Column className={styles.supportPanel} gap="16" padding="24">
+          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+            Navegacao
+          </Tag>
+          <Heading as="h2" variant="heading-strong-l">
+            Mapa do case
+          </Heading>
+          <Text className={styles.supportLead} onBackground="neutral-weak" variant="body-default-m">
+            Uma leitura rapida das secoes principais para navegar pelo projeto sem depender de scroll cego.
+          </Text>
+          <ArticleToc containerId="project-article" minLevel={2} maxLevel={tocDepth as 2 | 3 | 4} />
+        </Column>
+      )}
+
       <Column className={styles.articleShell} horizontal="center">
-        <Column className={styles.article} style={{ margin: "auto" }} as="article" maxWidth="s">
-          <CustomMDX source={post.content} />
+        <Column
+          id="project-article"
+          className={styles.article}
+          style={{ margin: "auto" }}
+          as="article"
+          maxWidth="s"
+        >
+          <CustomMDX source={post.content} glossary={post.metadata.glossary ?? {}} />
         </Column>
       </Column>
 
+      {faqItems.length > 0 && (
+        <Column className={styles.supportPanel} gap="16" padding="24">
+          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+            FAQ
+          </Tag>
+          <Heading as="h2" variant="heading-strong-l">
+            Perguntas sobre o projeto
+          </Heading>
+          <Column className={styles.faqList} gap="12">
+            {faqItems.map((item) => (
+              <details className={styles.faqItem} key={item.q}>
+                <summary className={styles.faqQuestion}>{item.q}</summary>
+                <Text className={styles.faqAnswer} onBackground="neutral-weak" variant="body-default-m">
+                  {item.a}
+                </Text>
+              </details>
+            ))}
+          </Column>
+        </Column>
+      )}
+
+      {references.length > 0 && (
+        <Column className={styles.supportPanel} gap="16" padding="24">
+          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+            Referencias
+          </Tag>
+          <Heading as="h2" variant="heading-strong-l">
+            Base usada para este case
+          </Heading>
+          <Column className={styles.referenceList} gap="12">
+            {references.map((reference) => (
+              <div className={styles.referenceItem} key={`${reference.title}-${reference.year ?? "nd"}`}>
+                <Text variant="body-default-m">{reference.title}</Text>
+                <Text onBackground="neutral-weak" variant="body-default-s">
+                  {[reference.author, reference.year ? String(reference.year) : undefined]
+                    .filter(Boolean)
+                    .join(" - ") || "Referencia editorial"}
+                </Text>
+                {reference.url && (
+                  <a
+                    className={styles.referenceLink}
+                    href={reference.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Abrir referencia
+                  </a>
+                )}
+              </div>
+            ))}
+          </Column>
+        </Column>
+      )}
+
       {relatedProjects.length > 0 && (
         <Column className={styles.relatedPanel} fillWidth gap="20" padding="24">
-          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">Mais projetos</Tag>
-          <Heading as="h2" variant="heading-strong-xl">Outros projetos</Heading>
-          <Projects exclude={[post.slug]} range={[1, 2]} marginBottom="0" paddingX="0" />
+          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+            Mais projetos
+          </Tag>
+          <Heading as="h2" variant="heading-strong-xl">
+            Outros projetos
+          </Heading>
+          <Projects projects={relatedProjects} range={[1, 2]} marginBottom="0" paddingX="0" />
         </Column>
       )}
       <ScrollToHash />
