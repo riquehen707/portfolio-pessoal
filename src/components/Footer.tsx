@@ -1,18 +1,17 @@
 import Link from "next/link";
 
-import { Column, Text } from "@once-ui-system/core";
+import { IconButton, Row, Text } from "@once-ui-system/core";
 
-import { about, blog, brandMessaging, person, work } from "@/resources";
+import { about, blog, brandMessaging, contact, person, social, work } from "@/resources";
 
 import { BrandSignature } from "./BrandSignature";
 import styles from "./Footer.module.scss";
 
 const footerLinks = [
-  { href: "/", label: "Home" },
   { href: work.path, label: "Works" },
   { href: about.path, label: "About" },
   { href: blog.path, label: "Blog" },
-  { href: "/contact", label: "Contact" },
+  { href: contact.path, label: "Contact" },
 ] as const;
 
 export function Footer() {
@@ -21,42 +20,47 @@ export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.shell}>
-        <Column className={styles.identity} gap="12">
-          <BrandSignature href="/" />
-          <Text className={styles.statement} onBackground="neutral-weak" variant="body-default-s">
-            Clareza gera resultado.
+        <div className={styles.identity}>
+          <BrandSignature href="/" compact className={styles.brandSignature} />
+          <Text className={styles.statement} variant="body-default-s" onBackground="neutral-weak">
+            {brandMessaging.ogFooter}
           </Text>
-        </Column>
+        </div>
 
-        <Column className={styles.group} gap="12">
-          <Text className={styles.groupLabel} variant="label-default-s" onBackground="neutral-weak">
-            Links uteis
-          </Text>
-          <div className={styles.linkList}>
-            {footerLinks.map((item) => (
-              <Link className={styles.link} href={item.href} key={item.href}>
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        </Column>
+        <nav className={styles.nav} aria-label="Links do rodape">
+          {footerLinks.map((item) => (
+            <Link className={styles.link} href={item.href} key={item.href}>
+              {item.label}
+            </Link>
+          ))}
+        </nav>
 
-        <Column className={styles.group} gap="12">
-          <Text className={styles.groupLabel} variant="label-default-s" onBackground="neutral-weak">
-            Contato
-          </Text>
-          <div className={styles.linkList}>
-            <a className={styles.link} href={`mailto:${person.email}`}>
-              {person.email}
-            </a>
-            <a className={styles.link} href="https://wa.me/5575983675164">
-              WhatsApp
-            </a>
-            <Text className={styles.copy} onBackground="neutral-weak" variant="body-default-s">
-              © {currentYear} {person.name}. {brandMessaging.signatureDescriptor}.
-            </Text>
-          </div>
-        </Column>
+        <Row className={styles.social} gap="8" vertical="center">
+          {social.map(
+            (item) =>
+              item.link && (
+                <IconButton
+                  key={item.name}
+                  href={item.link}
+                  icon={item.icon}
+                  tooltip={item.name}
+                  size="s"
+                  variant="ghost"
+                />
+              ),
+          )}
+          <IconButton
+            href={`mailto:${person.email}`}
+            icon="email"
+            tooltip="Email"
+            size="s"
+            variant="ghost"
+          />
+        </Row>
+
+        <Text className={styles.copy} variant="body-default-s" onBackground="neutral-weak">
+          © {currentYear} {person.name} / {brandMessaging.supportingStatement}
+        </Text>
       </div>
     </footer>
   );

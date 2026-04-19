@@ -1,91 +1,167 @@
 "use client";
 
-import Link from "next/link";
+import { Fragment, useEffect, useState } from "react";
+
+import { Fade, Flex, Line, Row, Text, ToggleButton, useTheme } from "@once-ui-system/core";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 
-import { Row } from "@once-ui-system/core";
+import { about, blog, contact, display, person, technicalApproach, work } from "@/resources";
 
-import { about, blog, display, technicalApproach, work } from "@/resources";
-
-import { CTAButton } from "./CTAButton";
 import { BrandSignature } from "./BrandSignature";
-import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
 
 const navItems = [
-  { href: "/", label: "Home" },
-  { href: work.path, label: "Works" },
-  { href: about.path, label: "About" },
-  { href: blog.path, label: "Blog" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "Home", icon: "home" },
+  { href: work.path, label: "Works", icon: "grid" },
+  { href: about.path, label: "About", icon: "person" },
+  { href: blog.path, label: "Blog", icon: "book" },
+  { href: contact.path, label: "Contact", icon: "email" },
 ] as const;
+
+function TimeDisplay({ timeZone, locale = "pt-BR" }: { timeZone: string; locale?: string }) {
+  const [currentTime, setCurrentTime] = useState("");
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const formatter = new Intl.DateTimeFormat(locale, {
+        timeZone,
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      });
+
+      setCurrentTime(formatter.format(now));
+    };
+
+    updateTime();
+    const intervalId = window.setInterval(updateTime, 60_000);
+
+    return () => window.clearInterval(intervalId);
+  }, [locale, timeZone]);
+
+  return <>{currentTime}</>;
+}
+
+function getLocationLabel(timeZone: string) {
+  if (timeZone === "America/Bahia") {
+    return "Bahia / BR";
+  }
+
+  return timeZone.replace(/^America\//, "").replaceAll("_", " / ");
+}
 
 export function Header() {
   const pathname = usePathname() ?? "";
-  const [isScrolled, setIsScrolled] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const [currentTheme, setCurrentTheme] = useState("dark");
   const aboutSelected = pathname === about.path || pathname === technicalApproach.path;
-  const isSolid = pathname !== "/" || isScrolled;
 
   useEffect(() => {
-    const syncScrollState = () => {
-      setIsScrolled(window.scrollY > 12);
-    };
-
-    syncScrollState();
-    window.addEventListener("scroll", syncScrollState, { passive: true });
-
-    return () => window.removeEventListener("scroll", syncScrollState);
+    setCurrentTheme(document.documentElement.getAttribute("data-theme") || "dark");
   }, []);
 
+  useEffect(() => {
+    setCurrentTheme(document.documentElement.getAttribute("data-theme") || "dark");
+  }, [theme]);
+
+  const nextTheme = currentTheme === "light" ? "dark" : "light";
+  const themeIcon = currentTheme === "dark" ? "light" : "dark";
+
   return (
-    <header className={styles.root}>
-      <div className={styles.shell} data-solid={isSolid ? "true" : "false"}>
-        <div className={styles.brand}>
+    <>
+      <Fade s={{ hide: true }} fillWidth position="fixed" height={88} zIndex={9} />
+      <Fade hide s={{ hide: false }} fillWidth position="fixed" to="top" height={96} zIndex={9} style={{ bottom: 0 }} />
+
+      <Row
+        className={styles.position}
+        position="sticky"
+        as="header"
+        zIndex={9}
+        fillWidth
+        padding="8"
+        horizontal="center"
+        s={{ position: "fixed" }}
+      >
+        <Flex className={styles.sideRail} fillWidth vertical="center">
           <BrandSignature href="/" compact className={styles.brandSignature} />
-        </div>
+          {display.location && (
+            <Text className={styles.location} variant="body-default-s" onBackground="neutral-weak">
+              {getLocationLabel(person.location)}
+            </Text>
+          )}
+        </Flex>
 
-        <nav className={styles.nav} aria-label="Navegacao principal">
-          {navItems.map((item) => {
-            const isActive =
-              item.href === about.path
-                ? aboutSelected
-                : item.href === "/"
-                  ? pathname === "/"
-                  : pathname.startsWith(item.href);
+        <Row
+          className={styles.navShell}
+          background="page"
+          border="neutral-alpha-weak"
+          radius="xl"
+          shadow="l"
+          padding="4"
+          horizontal="center"
+          zIndex={1}
+        >
+          <Row className={styles.navRow} gap="4" vertical="center" textVariant="body-default-s">
+            {navItems.map((item, index) => {
+              const isActive =
+                item.href === about.path
+                  ? aboutSelected
+                  : item.href === "/"
+                    ? pathname === "/"
+                    : pathname.startsWith(item.href);
 
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={styles.navLink}
-                data-active={isActive ? "true" : "false"}
-                data-analytics-event="nav_click"
-                data-analytics-label={item.label}
-                data-analytics-location="header"
-                aria-current={isActive ? "page" : undefined}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-        </nav>
+              return (
+                <Fragment key={item.href}>
+                  <Row s={{ hide: true }}>
+                    <ToggleButton
+                      className={styles.navButton}
+                      prefixIcon={item.icon}
+                      href={item.href}
+                      label={item.label}
+                      selected={isActive}
+                    />
+                  </Row>
+                  <Row hide s={{ hide: false }}>
+                    <ToggleButton
+                      className={styles.navButton}
+                      prefixIcon={item.icon}
+                      href={item.href}
+                      selected={isActive}
+                    />
+                  </Row>
+                  {index === 0 && <Line className={styles.divider} background="neutral-alpha-medium" vert maxHeight="24" />}
+                </Fragment>
+              );
+            })}
 
-        <Row className={styles.actions} gap="8" vertical="center">
-          {display.themeSwitcher && <ThemeToggle />}
-          <CTAButton
-            className={styles.cta}
-            href="https://cal.com/henriquereis"
-            variant="secondary"
-            data-analytics-event="cta_click"
-            data-analytics-label="Agendar"
-            data-analytics-location="header"
-            data-analytics-type="primary"
-          >
-            Agendar
-          </CTAButton>
+            {display.themeSwitcher && (
+              <>
+                <Line className={styles.divider} background="neutral-alpha-medium" vert maxHeight="24" />
+                <ToggleButton
+                  className={styles.themeButton}
+                  prefixIcon={themeIcon}
+                  onClick={() => setTheme(nextTheme)}
+                  aria-label={`Switch to ${nextTheme} mode`}
+                />
+              </>
+            )}
+          </Row>
         </Row>
-      </div>
-    </header>
+
+        <Flex className={styles.sideRail} fillWidth horizontal="end" vertical="center">
+          {display.time && (
+            <Row className={styles.utility} gap="8" vertical="center" s={{ hide: true }}>
+              <Text className={styles.timeLabel} variant="body-default-s" onBackground="neutral-weak">
+                Agora
+              </Text>
+              <Text className={styles.timeValue} variant="body-default-s">
+                <TimeDisplay timeZone={person.location} />
+              </Text>
+            </Row>
+          )}
+        </Flex>
+      </Row>
+    </>
   );
 }

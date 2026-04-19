@@ -8,38 +8,51 @@
 
 .shell {
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) repeat(2, minmax(12rem, 0.8fr));
-  gap: clamp(1.5rem, 3vw, 2.5rem);
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 1rem 1.5rem;
   width: min(100%, var(--grid-max-width));
   margin-inline: auto;
-  padding-top: clamp(1.5rem, 3vw, 2rem);
+  padding-top: clamp(1.35rem, 3vw, 1.8rem);
 }
 
-.identity,
-.group {
+.identity {
+  display: grid;
+  gap: 0.45rem;
   min-width: 0;
+}
+
+.brandSignature {
+  max-width: 12rem;
 }
 
 .statement {
   max-width: 24ch;
 }
 
-.groupLabel {
-  @include mixins.label-uppercase;
-}
-
-.linkList {
-  display: grid;
-  gap: 0.75rem;
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.9rem 1.2rem;
 }
 
 .link {
   color: var(--neutral-on-background-medium);
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
   text-decoration: none;
+  text-transform: uppercase;
+}
+
+.social {
+  justify-content: flex-end;
 }
 
 .copy {
-  max-width: 30ch;
+  grid-column: 1 / -1;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-subtle);
 }
 
 @include mixins.hover-fine {
@@ -50,16 +63,21 @@
 
 @include mixins.s {
   .footer {
-    padding-bottom: 1.5rem;
+    padding-bottom: 6rem;
   }
 
   .shell {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    justify-items: center;
+    text-align: center;
   }
 
   .statement,
   .copy {
     max-width: none;
+  }
+
+  .social {
+    justify-content: center;
   }
 }

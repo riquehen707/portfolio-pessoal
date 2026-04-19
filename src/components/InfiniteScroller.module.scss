@@ -1,5 +1,15 @@
 @use "../styles/mixins" as mixins;
 
+@keyframes marqueeLoop {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
 .root {
   position: relative;
   width: 100%;
@@ -44,7 +54,7 @@
   display: flex;
   width: max-content;
   min-width: max-content;
-  animation: hr-infinite-marquee var(--hr-marquee-duration, 42s) linear infinite;
+  animation: marqueeLoop var(--hr-marquee-duration, 42s) linear infinite;
   will-change: transform;
 }
 

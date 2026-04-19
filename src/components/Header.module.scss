@@ -1,133 +1,109 @@
 @use "../styles/mixins" as mixins;
 
-.root {
-  position: fixed;
+.position {
   top: 0;
-  left: 0;
-  right: 0;
-  z-index: var(--z-nav);
-  padding: 0.9rem clamp(1rem, 2.5vw, 1.5rem);
+  padding: 0.9rem clamp(1rem, 3vw, 1.6rem);
 }
 
-.shell {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 1rem;
-  width: min(100%, calc(var(--grid-max-width) + 2rem));
-  margin-inline: auto;
-  padding: 0.85rem 1rem;
-  border: 1px solid transparent;
-  border-radius: var(--radius-panel);
-  background: transparent;
-  backdrop-filter: blur(0);
-  transition:
-    background var(--motion-base),
-    border-color var(--motion-base),
-    box-shadow var(--motion-base),
-    backdrop-filter var(--motion-base);
-}
-
-.shell[data-solid="true"] {
-  border-color: var(--border-subtle);
-  background: var(--nav-surface-solid);
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(20px);
-}
-
-.brand {
+.sideRail {
   min-width: 0;
+  gap: 0.85rem;
 }
 
 .brandSignature {
-  max-width: 15rem;
+  max-width: 12rem;
 }
 
-.nav {
-  display: flex;
+.location,
+.timeLabel,
+.timeValue {
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.location {
+  white-space: nowrap;
+}
+
+.navShell {
+  border-color: var(--border-subtle);
+  background: var(--nav-surface-solid);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow-soft);
+}
+
+.navRow {
   align-items: center;
-  justify-content: center;
-  gap: 0.35rem;
-  min-width: 0;
 }
 
-.navLink {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.75rem;
-  padding: 0.65rem 0.95rem;
-  border: 1px solid transparent;
-  border-radius: var(--radius-pill);
-  color: var(--neutral-on-background-weak);
-  font-family: var(--font-label);
-  font-size: 0.78rem;
-  text-decoration: none;
-  @include mixins.label-uppercase(0.12em);
-  transition:
-    color var(--motion-fast),
-    border-color var(--motion-fast),
-    background var(--motion-fast);
+.navButton,
+.themeButton {
+  min-height: 2.8rem;
 }
 
-.navLink[data-active="true"] {
-  border-color: var(--border-strong);
-  background: var(--surface-ghost);
+.navButton {
+  transition: transform var(--motion-fast);
+}
+
+.divider {
+  opacity: 0.8;
+}
+
+.utility {
+  padding-inline: 0.75rem;
+}
+
+.timeValue {
   color: var(--neutral-on-background-strong);
-}
-
-.actions {
-  justify-content: flex-end;
-}
-
-.cta {
-  min-width: 8.5rem;
+  font-family: var(--font-code);
+  letter-spacing: 0.1em;
 }
 
 @include mixins.hover-fine {
-  .navLink:hover {
-    color: var(--neutral-on-background-strong);
+  .navButton:hover,
+  .themeButton:hover {
+    transform: translateY(-1px);
   }
 }
 
 @include mixins.m {
   .brandSignature {
-    max-width: 12rem;
+    max-width: 10.5rem;
+  }
+
+  .location {
+    display: none;
   }
 }
 
 @include mixins.s {
-  .root {
-    padding: 0.75rem 1rem;
+  .position {
+    top: auto;
+    bottom: 0;
+    padding: 0 1rem 1rem;
   }
 
-  .shell {
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 0.8rem;
-    padding: 0.8rem 0.85rem;
-    border-color: var(--border-subtle);
-    background: var(--nav-surface-solid);
-    box-shadow: var(--shadow-soft);
-    backdrop-filter: blur(20px);
-  }
-
-  .nav {
-    grid-column: 1 / -1;
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding-bottom: 0.15rem;
-    scrollbar-width: none;
-  }
-
-  .nav::-webkit-scrollbar {
+  .sideRail {
     display: none;
   }
 
-  .navLink {
-    white-space: nowrap;
+  .navShell {
+    max-width: calc(100vw - 2rem);
+    border-radius: calc(var(--radius-panel) - 0.2rem);
+    box-shadow: var(--shadow-card);
   }
 
-  .cta {
+  .navRow {
+    gap: 0.2rem;
+  }
+
+  .navButton,
+  .themeButton {
+    min-width: 2.9rem;
+  }
+
+  .divider {
     display: none;
   }
 }
