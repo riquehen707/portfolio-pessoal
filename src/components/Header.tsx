@@ -2,7 +2,7 @@
 
 import { Fragment, useEffect, useState } from "react";
 
-import { Fade, Flex, Line, Row, Text, ToggleButton, useTheme } from "@once-ui-system/core";
+import { Flex, Line, Row, Text, ToggleButton, useTheme } from "@once-ui-system/core";
 import { usePathname } from "next/navigation";
 
 import { about, blog, contact, display, person, technicalApproach, work } from "@/resources";
@@ -69,99 +69,94 @@ export function Header() {
   const themeIcon = currentTheme === "dark" ? "light" : "dark";
 
   return (
-    <>
-      <Fade s={{ hide: true }} fillWidth position="fixed" height={88} zIndex={9} />
-      <Fade hide s={{ hide: false }} fillWidth position="fixed" to="top" height={96} zIndex={9} style={{ bottom: 0 }} />
+    <Row
+      className={styles.position}
+      position="sticky"
+      as="header"
+      zIndex={9}
+      fillWidth
+      padding="8"
+      horizontal="center"
+      s={{ position: "fixed" }}
+    >
+      <Flex className={styles.sideRail} fillWidth vertical="center">
+        <BrandSignature href="/" compact className={styles.brandSignature} />
+        {display.location && (
+          <Text className={styles.location} variant="body-default-s" onBackground="neutral-weak">
+            {getLocationLabel(person.location)}
+          </Text>
+        )}
+      </Flex>
 
       <Row
-        className={styles.position}
-        position="sticky"
-        as="header"
-        zIndex={9}
-        fillWidth
-        padding="8"
+        className={styles.navShell}
+        background="page"
+        border="neutral-alpha-weak"
+        radius="xl"
+        shadow="l"
+        padding="4"
         horizontal="center"
-        s={{ position: "fixed" }}
+        zIndex={1}
       >
-        <Flex className={styles.sideRail} fillWidth vertical="center">
-          <BrandSignature href="/" compact className={styles.brandSignature} />
-          {display.location && (
-            <Text className={styles.location} variant="body-default-s" onBackground="neutral-weak">
-              {getLocationLabel(person.location)}
-            </Text>
+        <Row className={styles.navRow} gap="4" vertical="center" textVariant="body-default-s">
+          {navItems.map((item, index) => {
+            const isActive =
+              item.href === about.path
+                ? aboutSelected
+                : item.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(item.href);
+
+            return (
+              <Fragment key={item.href}>
+                <Row s={{ hide: true }}>
+                  <ToggleButton
+                    className={styles.navButton}
+                    prefixIcon={item.icon}
+                    href={item.href}
+                    label={item.label}
+                    selected={isActive}
+                  />
+                </Row>
+                <Row hide s={{ hide: false }}>
+                  <ToggleButton
+                    className={styles.navButton}
+                    prefixIcon={item.icon}
+                    href={item.href}
+                    selected={isActive}
+                  />
+                </Row>
+                {index === 0 && <Line className={styles.divider} background="neutral-alpha-medium" vert maxHeight="24" />}
+              </Fragment>
+            );
+          })}
+
+          {display.themeSwitcher && (
+            <>
+              <Line className={styles.divider} background="neutral-alpha-medium" vert maxHeight="24" />
+              <ToggleButton
+                className={styles.themeButton}
+                prefixIcon={themeIcon}
+                onClick={() => setTheme(nextTheme)}
+                aria-label={`Switch to ${nextTheme} mode`}
+              />
+            </>
           )}
-        </Flex>
-
-        <Row
-          className={styles.navShell}
-          background="page"
-          border="neutral-alpha-weak"
-          radius="xl"
-          shadow="l"
-          padding="4"
-          horizontal="center"
-          zIndex={1}
-        >
-          <Row className={styles.navRow} gap="4" vertical="center" textVariant="body-default-s">
-            {navItems.map((item, index) => {
-              const isActive =
-                item.href === about.path
-                  ? aboutSelected
-                  : item.href === "/"
-                    ? pathname === "/"
-                    : pathname.startsWith(item.href);
-
-              return (
-                <Fragment key={item.href}>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      className={styles.navButton}
-                      prefixIcon={item.icon}
-                      href={item.href}
-                      label={item.label}
-                      selected={isActive}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      className={styles.navButton}
-                      prefixIcon={item.icon}
-                      href={item.href}
-                      selected={isActive}
-                    />
-                  </Row>
-                  {index === 0 && <Line className={styles.divider} background="neutral-alpha-medium" vert maxHeight="24" />}
-                </Fragment>
-              );
-            })}
-
-            {display.themeSwitcher && (
-              <>
-                <Line className={styles.divider} background="neutral-alpha-medium" vert maxHeight="24" />
-                <ToggleButton
-                  className={styles.themeButton}
-                  prefixIcon={themeIcon}
-                  onClick={() => setTheme(nextTheme)}
-                  aria-label={`Switch to ${nextTheme} mode`}
-                />
-              </>
-            )}
-          </Row>
         </Row>
-
-        <Flex className={styles.sideRail} fillWidth horizontal="end" vertical="center">
-          {display.time && (
-            <Row className={styles.utility} gap="8" vertical="center" s={{ hide: true }}>
-              <Text className={styles.timeLabel} variant="body-default-s" onBackground="neutral-weak">
-                Agora
-              </Text>
-              <Text className={styles.timeValue} variant="body-default-s">
-                <TimeDisplay timeZone={person.location} />
-              </Text>
-            </Row>
-          )}
-        </Flex>
       </Row>
-    </>
+
+      <Flex className={styles.sideRail} fillWidth horizontal="end" vertical="center">
+        {display.time && (
+          <Row className={styles.utility} gap="8" vertical="center" s={{ hide: true }}>
+            <Text className={styles.timeLabel} variant="body-default-s" onBackground="neutral-weak">
+              Agora
+            </Text>
+            <Text className={styles.timeValue} variant="body-default-s">
+              <TimeDisplay timeZone={person.location} />
+            </Text>
+          </Row>
+        )}
+      </Flex>
+    </Row>
   );
 }

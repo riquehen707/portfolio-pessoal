@@ -89,7 +89,7 @@ export default function About() {
     .slice(0, 2);
 
   return (
-    <Column className={styles.page} maxWidth="m" gap="32" paddingTop="24">
+    <Column className={styles.page} maxWidth="l" gap="48" paddingTop="24">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -110,7 +110,7 @@ export default function About() {
         ]}
       />
 
-      <Column className={styles.hero} fillWidth gap="24" padding="32">
+      <Column className={styles.hero} fillWidth gap="24">
         <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="20">
           <Column className={styles.heroMain} gap="16">
             <BrandSignature />
@@ -237,7 +237,7 @@ export default function About() {
         </Grid>
       </Column>
 
-      <Column className={styles.sectionPanel} fillWidth gap="16" padding="24">
+      <Column className={styles.sectionPanel} fillWidth gap="20">
         <Tag size="s" background="neutral-alpha-weak">
           Visão
         </Tag>
@@ -266,7 +266,7 @@ export default function About() {
         </Grid>
       </Column>
 
-      <Column className={styles.sectionPanel} fillWidth gap="16" padding="24">
+      <Column className={styles.sectionPanel} fillWidth gap="20">
         <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
           {aboutStrategy.sections[2]?.label ?? "Diferenciais"}
         </Tag>
@@ -296,7 +296,7 @@ export default function About() {
         </Grid>
       </Column>
 
-      <Column className={styles.sectionPanel} fillWidth gap="16" padding="24">
+      <Column className={styles.sectionPanel} fillWidth gap="20">
         <Row
           className={styles.sectionHeader}
           fillWidth

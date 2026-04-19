@@ -2,50 +2,23 @@
 
 .page {
   width: 100%;
+  gap: clamp(3.5rem, 6vw, 5.5rem);
 }
 
 .hero,
 .sectionPanel {
   position: relative;
   width: 100%;
-  overflow: hidden;
-  background: var(--surface-panel);
-  box-shadow: var(--shadow-soft);
+  overflow: visible;
 }
 
 .hero {
-  border-radius: var(--radius-panel);
-  background: var(--surface-panel-strong);
-  box-shadow: var(--shadow-card);
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
 }
 
-.hero::before,
-.sectionPanel::before,
-.heroAside::before,
-.profileCard::before,
-.collageCard::before,
-.infoCard::before,
-.stepCard::before,
-.proofCard::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 14% 0%, var(--brand-glow), transparent 28%),
-    radial-gradient(circle at 88% 0%, var(--accent-glow), transparent 22%);
-  pointer-events: none;
-}
-
-.hero > *,
-.sectionPanel > *,
-.heroAside > *,
-.profileCard > *,
-.collageCard > *,
-.infoCard > *,
-.stepCard > *,
-.proofCard > * {
-  position: relative;
-  z-index: 1;
+.sectionPanel {
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+  border-top: 1px solid var(--border-subtle);
 }
 
 .heroGrid,
@@ -58,7 +31,7 @@
 
 .heroGrid {
   grid-template-columns: minmax(0, 1.3fr) minmax(18rem, 0.7fr);
-  gap: 1.25rem;
+  gap: clamp(2rem, 5vw, 4rem);
 }
 
 .splitGrid {
@@ -82,24 +55,20 @@
 }
 
 .heroMain {
-  max-width: 43rem;
-  padding-right: 1rem;
+  max-width: 46rem;
 }
 
 .heroAside {
   position: relative;
   align-self: start;
-  max-width: 24rem;
+  max-width: 25rem;
   justify-self: end;
-  overflow: hidden;
-  padding: 1.1rem;
-  border-radius: var(--radius-24);
-  background: var(--surface-panel-soft);
-  box-shadow: var(--shadow-soft);
+  padding-left: clamp(1.5rem, 3vw, 2.5rem);
+  border-left: 1px solid var(--border-subtle);
 }
 
 .lead {
-  max-width: 39rem;
+  max-width: 42rem;
 }
 
 .accentLine {
@@ -119,22 +88,22 @@
 .stepCard,
 .proofCard {
   position: relative;
-  overflow: hidden;
-  background: var(--surface-ghost);
-  box-shadow: var(--shadow-soft);
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
   transition:
     transform var(--motion-fast),
-    box-shadow var(--motion-fast),
-    background var(--motion-fast);
+    border-color var(--motion-fast),
+    opacity var(--motion-fast);
 }
 
 .profileCard {
   display: grid;
   grid-template-columns: minmax(4.75rem, 27%) minmax(0, 1fr);
   align-items: start;
-  min-height: 7.2rem;
-  padding: 1rem 1.05rem 1.1rem;
-  border-radius: calc(var(--radius-16) + 0.35rem);
+  min-height: auto;
+  padding: 0 0 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .profileMeta {
@@ -152,8 +121,8 @@
 
 .collage {
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
-  gap: 1rem;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
 }
 
 .collageCard {
@@ -161,14 +130,13 @@
   flex-direction: column;
   justify-content: flex-start;
   gap: 0.75rem;
-  min-height: 8.75rem;
-  padding: 1.05rem 1.1rem;
-  border-radius: calc(var(--radius-16) + 0.3rem);
+  min-height: auto;
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .collageWide {
-  grid-column: 1 / -1;
-  min-height: 7.75rem;
+  grid-column: auto;
 }
 
 .collageTitle {
@@ -199,8 +167,8 @@
 
 .infoCard,
 .proofCard {
-  padding: 1.4rem;
-  border-radius: var(--radius-24);
+  padding: 1.15rem 0 0;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .stepCard {
@@ -243,8 +211,7 @@
   .stepCard:hover,
   .proofCard:hover {
     transform: translateY(-2px);
-    background: var(--surface-elevated);
-    box-shadow: var(--shadow-card);
+    opacity: 0.92;
   }
 }
 
@@ -274,6 +241,10 @@
   .heroAside {
     max-width: none;
     justify-self: stretch;
+    padding-left: 0;
+    padding-top: 1.5rem;
+    border-left: 0;
+    border-top: 1px solid var(--border-subtle);
   }
 
   .depthAside,
@@ -284,20 +255,6 @@
 }
 
 @media (max-width: breakpoints.$s) {
-  .hero,
-  .sectionPanel {
-    border-radius: calc(var(--radius-24) - 0.1rem);
-  }
-
-  .heroAside,
-  .profileCard,
-  .collageCard,
-  .infoCard,
-  .stepCard,
-  .proofCard {
-    border-radius: calc(var(--radius-16) + 0.2rem);
-  }
-
   .profileCard {
     grid-template-columns: minmax(4.5rem, 24%) minmax(0, 1fr);
   }
@@ -315,6 +272,6 @@
   }
 
   .hero {
-    padding: 0;
+    padding-block: 2rem 0.5rem;
   }
 }
