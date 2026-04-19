@@ -32,8 +32,7 @@ export function TechStrip({ items }: TechStripProps) {
       <InfiniteScroller
         items={items}
         ariaLabel="Banner de competencias"
-        speed={0.24}
-        stackOnMobile
+        speed={0.3}
         itemKey={(item) => item.label}
         renderItem={(item) => <BadgePill label={item.label} icon={item.icon} />}
       />
