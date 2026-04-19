@@ -31,8 +31,9 @@ export function TechStrip({ items }: TechStripProps) {
       <InfiniteScroller
         items={items}
         ariaLabel="Banner de competencias"
-        speed={0.8}
+        speed={1}
         pauseOnHover={false}
+        respectReducedMotion={false}
         itemKey={(item) => item.label}
         renderItem={(item) => (
           <article className={styles.item}>

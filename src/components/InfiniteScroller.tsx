@@ -15,6 +15,7 @@ type InfiniteScrollerProps<T> = {
   className?: string;
   pauseOnHover?: boolean;
   stackOnMobile?: boolean;
+  respectReducedMotion?: boolean;
 };
 
 export function InfiniteScroller<T>({
@@ -26,6 +27,7 @@ export function InfiniteScroller<T>({
   className,
   pauseOnHover = true,
   stackOnMobile = false,
+  respectReducedMotion = true,
 }: InfiniteScrollerProps<T>) {
   if (!items.length) {
     return null;
@@ -33,13 +35,14 @@ export function InfiniteScroller<T>({
 
   const normalizedSpeed = Math.max(speed, 0.16);
   const marqueeStyle = {
-    "--hr-marquee-duration": `${Math.max(24, Math.min(72, 16 / normalizedSpeed))}s`,
+    "--hr-marquee-duration": `${Math.max(12, Math.min(56, 10 / normalizedSpeed))}s`,
   } as CSSProperties;
 
   return (
     <div
       className={classNames(styles.root, className)}
       data-stack-mobile={stackOnMobile ? "true" : "false"}
+      data-reduced-motion-fallback={respectReducedMotion ? "true" : "false"}
     >
       <div
         className={classNames(styles.viewport, {

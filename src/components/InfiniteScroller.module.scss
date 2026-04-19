@@ -87,16 +87,16 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .root::before,
-  .root::after {
+  .root[data-reduced-motion-fallback="true"]::before,
+  .root[data-reduced-motion-fallback="true"]::after {
     display: none;
   }
 
-  .viewport {
+  .root[data-reduced-motion-fallback="true"] .viewport {
     display: none;
   }
 
-  .staticList {
+  .root[data-reduced-motion-fallback="true"] .staticList {
     display: flex;
   }
 }
