@@ -8,11 +8,11 @@
     var(--surface-panel-soft);
   box-shadow: var(--shadow-soft);
   transition:
-    border-color var(--transition-medium),
-    background var(--transition-medium),
-    box-shadow var(--transition-medium),
-    transform var(--transition-medium),
-    opacity var(--transition-medium);
+    border-color var(--motion-base),
+    background var(--motion-base),
+    box-shadow var(--motion-base),
+    transform var(--motion-base),
+    opacity var(--motion-base);
 }
 
 .card[data-active="true"] {
@@ -88,7 +88,7 @@
   color: var(--neutral-on-background-strong);
   cursor: pointer;
   font: inherit;
-  transition: color var(--transition-fast), transform var(--transition-fast);
+  transition: color var(--motion-fast), transform var(--motion-fast);
 }
 
 .action:hover,
@@ -101,7 +101,7 @@
 }
 
 .actionIcon {
-  transition: transform var(--transition-fast);
+  transition: transform var(--motion-fast);
 }
 
 .action:hover .actionIcon,
@@ -115,8 +115,8 @@
   grid-template-rows: 0fr;
   opacity: 0;
   transition:
-    grid-template-rows var(--transition-medium),
-    opacity var(--transition-medium);
+    grid-template-rows var(--motion-base),
+    opacity var(--motion-base);
 }
 
 .detail[data-expanded="true"] {

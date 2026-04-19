@@ -8,6 +8,16 @@
   }
 }
 
+@keyframes hr-infinite-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
 .hr-ambient-breathe {
   animation: hr-cinematic-breathe 10s var(--ease-standard) infinite alternate;
 }

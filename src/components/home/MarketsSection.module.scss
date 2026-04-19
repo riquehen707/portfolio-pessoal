@@ -1,6 +1,8 @@
 .root {
   display: grid;
   gap: 1.35rem;
+  min-width: 0;
+  overflow: clip;
 }
 
 .controls {
@@ -37,10 +39,10 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   transition:
-    color var(--transition-fast),
-    border-color var(--transition-fast),
-    background var(--transition-fast),
-    transform var(--transition-fast);
+    color var(--motion-fast),
+    border-color var(--motion-fast),
+    background var(--motion-fast),
+    transform var(--motion-fast);
   white-space: nowrap;
 }
 
@@ -76,10 +78,10 @@
   color: var(--neutral-on-background-strong);
   cursor: pointer;
   transition:
-    border-color var(--transition-fast),
-    background var(--transition-fast),
-    color var(--transition-fast),
-    transform var(--transition-fast);
+    border-color var(--motion-fast),
+    background var(--motion-fast),
+    color var(--motion-fast),
+    transform var(--motion-fast);
 }
 
 .navButton:hover:not(:disabled),
@@ -99,6 +101,7 @@
 
 .carousel {
   position: relative;
+  overflow: clip;
 }
 
 .carousel::before,
@@ -154,8 +157,8 @@
   flex: 0 0 clamp(18.75rem, 74vw, 28rem);
   scroll-snap-align: center;
   transition:
-    opacity var(--transition-medium),
-    transform var(--transition-medium);
+    opacity var(--motion-base),
+    transform var(--motion-base);
   opacity: 0.62;
   transform: scale(0.95);
 }

@@ -1,0 +1,130 @@
+@use "../../styles/mixins" as mixins;
+
+.root {
+  margin: 1.5rem 0;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-24);
+  background: var(--surface-overlay-soft), var(--surface-panel-soft);
+  box-shadow: var(--shadow-soft);
+  transition:
+    border-color var(--motion-fast),
+    background var(--motion-fast),
+    box-shadow var(--motion-fast);
+}
+
+.root[data-tone="brand"] {
+  border-color: rgba(255, 215, 0, 0.18);
+}
+
+.root[data-tone="warning"] {
+  border-color: rgba(255, 215, 0, 0.26);
+}
+
+.root[data-tone="success"] {
+  border-color: rgba(61, 187, 122, 0.28);
+}
+
+.root[data-tone="danger"] {
+  border-color: rgba(219, 106, 125, 0.28);
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  list-style: none;
+  cursor: pointer;
+}
+
+.summary::-webkit-details-marker {
+  display: none;
+}
+
+.summary:focus-visible {
+  @include mixins.focus-ring;
+  outline-offset: -3px;
+}
+
+.thumbnail {
+  position: relative;
+  width: 6rem;
+  height: 3.5rem;
+  overflow: hidden;
+  border-radius: var(--radius-8);
+  flex: 0 0 auto;
+  box-shadow: var(--shadow-soft);
+}
+
+.thumbnailImage {
+  object-fit: cover;
+}
+
+.body {
+  display: grid;
+  gap: 0.25rem;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.kicker {
+  margin: 0;
+  color: var(--neutral-on-background-weak);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  color: var(--neutral-on-background-strong);
+  font-size: clamp(1rem, 1vw, 1.15rem);
+  line-height: 1.25;
+}
+
+.meta {
+  margin: 0;
+  color: var(--neutral-on-background-weak);
+  font-size: 0.78rem;
+}
+
+.chevron {
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-left: auto;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  color: var(--neutral-on-background-weak);
+  flex: 0 0 auto;
+  transform: rotate(45deg);
+  transition: transform var(--motion-fast), color var(--motion-fast);
+}
+
+.chevron[data-open="true"] {
+  transform: rotate(-135deg) translate(-0.08rem, -0.08rem);
+  color: var(--color-accent-gold);
+}
+
+.contentWrap {
+  padding: 0 1.1rem 1.1rem;
+}
+
+.contentInner {
+  padding: 1rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-16);
+  background: var(--surface-overlay-soft), var(--surface-panel-strong);
+  box-shadow: var(--shadow-soft);
+}
+
+@include mixins.s {
+  .summary {
+    align-items: flex-start;
+  }
+
+  .thumbnail {
+    width: 5.2rem;
+    height: 3.2rem;
+  }
+}

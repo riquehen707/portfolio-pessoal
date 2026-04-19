@@ -33,6 +33,7 @@ export function TechStrip({ items }: TechStripProps) {
         items={items}
         ariaLabel="Banner de competencias"
         speed={0.24}
+        stackOnMobile
         itemKey={(item) => item.label}
         renderItem={(item) => <BadgePill label={item.label} icon={item.icon} />}
       />

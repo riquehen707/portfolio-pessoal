@@ -1,6 +1,8 @@
 // src/components/mdx/GlossTerm.tsx
 import React, { ReactNode } from "react";
 
+import styles from "./GlossTerm.module.scss";
+
 export default function GlossTerm({
   term,
   children,
@@ -8,19 +10,8 @@ export default function GlossTerm({
   term: string;
   children: ReactNode;
 }) {
-  // Render mínimo e seguro (Server Component ok)
-  // Você pode trocar isso por HoverNote/Tooltip depois.
   return (
-    <span
-      data-gloss-term
-      data-term={term}
-      style={{
-        fontWeight: 600,
-        textDecoration: "underline dotted",
-        cursor: "help",
-      }}
-      title={term}
-    >
+    <span className={styles.root} data-gloss-term data-term={term} title={term}>
       {children}
     </span>
   );

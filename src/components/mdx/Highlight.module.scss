@@ -1,0 +1,31 @@
+.root {
+  margin: 1.5rem 0;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-16);
+  color: var(--neutral-on-background-strong);
+}
+
+.root[data-tone="brand"] {
+  background:
+    linear-gradient(135deg, var(--ambient-gold-soft), transparent 52%),
+    linear-gradient(180deg, rgba(20, 130, 184, 0.08), transparent 130%),
+    var(--surface-overlay-soft),
+    var(--surface-panel-soft);
+  border-color: var(--border-strong);
+}
+
+.root[data-tone="neutral"] {
+  background:
+    linear-gradient(180deg, var(--neutral-alpha-weak), transparent 130%),
+    var(--surface-overlay-soft),
+    var(--surface-panel-soft);
+}
+
+.content {
+  line-height: 1.7;
+}
+
+.content > :last-child {
+  margin-bottom: 0;
+}

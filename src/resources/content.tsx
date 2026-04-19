@@ -72,7 +72,7 @@ const home: Home = {
           Destaque
         </Text>
         <Line background="brand-alpha-strong" vert height="20" />
-        <strong className="ml-4">{featuredService.title}</strong>
+        <strong>{featuredService.title}</strong>
       </Row>
     ),
     href: `${servicesPage.path}/${featuredService.slug}`,

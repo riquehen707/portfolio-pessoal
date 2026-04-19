@@ -1,0 +1,43 @@
+@use "../../styles/mixins" as mixins;
+
+.root {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  width: fit-content;
+  cursor: help;
+}
+
+.bubble {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 0.7rem);
+  width: min(18rem, calc(100vw - 2rem));
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-16);
+  background: var(--surface-overlay-strong), var(--surface-panel-strong);
+  box-shadow: var(--shadow-card);
+  color: var(--neutral-on-background-medium);
+  font-size: var(--type-caption);
+  line-height: 1.55;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 0.35rem);
+  transition:
+    opacity var(--motion-fast),
+    transform var(--motion-fast);
+  z-index: var(--z-overlay);
+}
+
+.root:hover .bubble,
+.root:focus-visible .bubble,
+.root:focus-within .bubble {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.root:focus-visible {
+  @include mixins.focus-ring;
+  border-radius: var(--radius-8);
+}

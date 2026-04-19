@@ -1,0 +1,64 @@
+@use "../../styles/mixins" as mixins;
+
+.root {
+  margin: 1.25rem 0;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-16);
+  background: var(--surface-overlay-soft), var(--surface-panel-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.95rem 1rem;
+  list-style: none;
+  cursor: pointer;
+  color: var(--neutral-on-background-strong);
+  font-weight: 500;
+  transition: background var(--motion-fast), color var(--motion-fast);
+}
+
+.trigger::-webkit-details-marker {
+  display: none;
+}
+
+.trigger:hover {
+  background: var(--neutral-alpha-weak);
+}
+
+.trigger:focus-visible {
+  @include mixins.focus-ring;
+  outline-offset: -3px;
+}
+
+.triggerLabel {
+  min-width: 0;
+}
+
+.triggerIcon {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  flex: 0 0 auto;
+  transform: rotate(45deg);
+  transition: transform var(--motion-fast);
+}
+
+.triggerIcon[data-open="true"] {
+  transform: rotate(-135deg) translate(-0.08rem, -0.08rem);
+}
+
+.content {
+  padding: 0.1rem 1rem 1rem;
+  color: var(--neutral-on-background-medium);
+}
+
+.content > :last-child {
+  margin-bottom: 0;
+}

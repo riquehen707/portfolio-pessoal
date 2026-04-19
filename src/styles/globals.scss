@@ -19,10 +19,14 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--scroll-offset);
   background: var(--color-background-primary);
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
   margin: 0;
+  overflow-x: hidden;
+  overflow-x: clip;
   background:
     linear-gradient(var(--page-grid-color) 1px, transparent 1px),
     linear-gradient(90deg, var(--page-grid-color) 1px, transparent 1px),
@@ -54,6 +58,8 @@ select {
 
 .hr-site-body {
   position: relative;
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 .hr-site-main {

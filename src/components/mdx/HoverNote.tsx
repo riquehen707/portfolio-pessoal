@@ -3,18 +3,21 @@
 
 import React, { useId } from "react";
 
+import styles from "./HoverNote.module.scss";
+
 export function HoverNote({
   children,
   note,
 }: {
-  children: React.ReactNode; // o texto que aparece no fluxo
-  note: string;              // conteúdo da nota
+  children: React.ReactNode;
+  note: string;
 }) {
   const id = useId();
+
   return (
-    <span className="hover-note" aria-describedby={id}>
+    <span className={styles.root} aria-describedby={id} tabIndex={0}>
       {children}
-      <span className="hover-note__bubble" role="tooltip" id={id}>
+      <span className={styles.bubble} role="tooltip" id={id}>
         {note}
       </span>
     </span>

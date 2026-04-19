@@ -1,6 +1,11 @@
+@use "../styles/mixins" as mixins;
+
 .root {
   position: relative;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .root::before,
@@ -25,39 +30,73 @@
 }
 
 .viewport {
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+.pauseOnHover:hover .marquee,
+.pauseOnHover:focus-within .marquee {
+  animation-play-state: paused;
+}
+
+.marquee {
   display: flex;
-  overflow-x: auto;
-  padding-bottom: 0.2rem;
-  scrollbar-width: none;
-  overscroll-behavior-x: contain;
-  -webkit-overflow-scrolling: touch;
-  touch-action: pan-y;
-  cursor: grab;
-}
-
-.viewport::-webkit-scrollbar {
-  display: none;
-}
-
-.dragging {
-  cursor: grabbing;
-  user-select: none;
+  width: max-content;
+  min-width: max-content;
+  animation: hr-infinite-marquee var(--hr-marquee-duration, 42s) linear infinite;
+  will-change: transform;
 }
 
 .track {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: max-content;
+  display: flex;
+  flex: 0 0 auto;
   gap: 0.85rem;
-  padding-right: 0.85rem;
+  padding-inline-end: 0.85rem;
+  min-width: max-content;
 }
 
 .itemSlot {
   display: inline-flex;
+  flex: 0 0 auto;
+}
+
+.staticList {
+  display: none;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.staticItem {
+  display: inline-flex;
+}
+
+@include mixins.s {
+  .root[data-stack-mobile="true"]::before,
+  .root[data-stack-mobile="true"]::after {
+    display: none;
+  }
+
+  .root[data-stack-mobile="true"] .viewport {
+    display: none;
+  }
+
+  .root[data-stack-mobile="true"] .staticList {
+    display: flex;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .root::before,
+  .root::after {
+    display: none;
+  }
+
   .viewport {
-    scroll-behavior: auto;
+    display: none;
+  }
+
+  .staticList {
+    display: flex;
   }
 }

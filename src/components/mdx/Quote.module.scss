@@ -1,0 +1,55 @@
+.root {
+  margin: 2rem 0;
+  padding: clamp(1.15rem, 2vw, 1.5rem);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-24);
+  background: var(--surface-overlay-soft), var(--surface-panel-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+.blockquote {
+  margin: 0;
+  color: var(--neutral-on-background-strong);
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  line-height: 1.75;
+  font-style: italic;
+}
+
+.autoQuote::before {
+  content: "\201C";
+}
+
+.autoQuote::after {
+  content: "\201D";
+}
+
+.caption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  margin-top: 0.95rem;
+  color: var(--neutral-on-background-weak);
+  font-size: var(--type-caption);
+  line-height: 1.55;
+}
+
+.author,
+.authorInteractive {
+  color: var(--neutral-on-background-strong);
+  font-weight: 600;
+}
+
+.authorInteractive {
+  text-decoration: underline dotted currentColor;
+  text-underline-offset: 0.18em;
+}
+
+.sourceLink {
+  color: inherit;
+  text-decoration: underline dotted currentColor;
+  text-underline-offset: 0.18em;
+}
+
+.source {
+  font-style: normal;
+}
