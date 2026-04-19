@@ -1,13 +1,24 @@
 import { ImageResponse } from "next/og";
 
-import { brandIdentity, brandMessaging, brandPalette } from "@/resources";
-
 export const runtime = "edge";
+
+const OG_BRAND_NAME = "Henrique Reis";
+const OG_DEFAULT_SUBTITLE = "Estrategia, design e sistemas com clareza estrutural";
+const OG_FOOTER = "Clareza gera resultado.";
+const OG_COLORS = {
+  backgroundStart: "#0B0B0D",
+  backgroundEnd: "#17171B",
+  textPrimary: "#F4F4F0",
+  textSecondary: "#9A9AA3",
+  accentGold: "#FFD700",
+  accentBlue: "#1482B8",
+  footerText: "#D8D8D0",
+} as const;
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
-  const title = searchParams.get("title") || brandIdentity.name;
-  const subtitle = searchParams.get("subtitle") || brandMessaging.signatureDescriptor;
+  const title = searchParams.get("title") || OG_BRAND_NAME;
+  const subtitle = searchParams.get("subtitle") || OG_DEFAULT_SUBTITLE;
 
   return new ImageResponse(
     <div
@@ -18,8 +29,8 @@ export async function GET(req: Request) {
         flexDirection: "column",
         justifyContent: "space-between",
         padding: "64px 72px",
-        background: "linear-gradient(180deg, #0B0B0D 0%, #17171B 100%)",
-        color: brandPalette.textDarkMode,
+        background: `linear-gradient(180deg, ${OG_COLORS.backgroundStart} 0%, ${OG_COLORS.backgroundEnd} 100%)`,
+        color: OG_COLORS.textPrimary,
         fontFamily:
           "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif",
       }}
@@ -32,17 +43,17 @@ export async function GET(req: Request) {
           fontSize: 24,
           letterSpacing: 4,
           textTransform: "uppercase",
-          color: "#9A9AA3",
+          color: OG_COLORS.textSecondary,
         }}
       >
         <div
           style={{
             width: 18,
             height: 18,
-            background: brandPalette.goldSignature,
+            background: OG_COLORS.accentGold,
           }}
         />
-        {brandIdentity.name}
+        {OG_BRAND_NAME}
       </div>
 
       <div style={{ display: "flex", flexDirection: "column", gap: 24, maxWidth: 960 }}>
@@ -56,7 +67,7 @@ export async function GET(req: Request) {
         >
           {title}
         </div>
-        <div style={{ fontSize: 30, lineHeight: 1.35, color: "#9A9AA3", maxWidth: 900 }}>
+        <div style={{ fontSize: 30, lineHeight: 1.35, color: OG_COLORS.textSecondary, maxWidth: 900 }}>
           {subtitle}
         </div>
       </div>
@@ -67,11 +78,11 @@ export async function GET(req: Request) {
           alignItems: "center",
           justifyContent: "space-between",
           fontSize: 22,
-          color: "#D8D8D0",
+          color: OG_COLORS.footerText,
         }}
       >
-        <div>{brandMessaging.ogFooter}</div>
-        <div style={{ color: brandPalette.technicalBlue }}>henrique.dog</div>
+        <div>{OG_FOOTER}</div>
+        <div style={{ color: OG_COLORS.accentBlue }}>henrique.dog</div>
       </div>
     </div>,
     {
