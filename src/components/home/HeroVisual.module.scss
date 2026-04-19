@@ -1,47 +1,88 @@
 .root {
   position: relative;
-  width: min(100%, 34rem);
-  min-height: clamp(18rem, 40vw, 31rem);
+  width: min(100%, 36rem);
+  min-height: clamp(19rem, 42vw, 32rem);
   margin-left: auto;
   will-change: transform, opacity;
 }
 
+.panel,
+.panelEcho,
 .grid,
 .beam,
+.beamVertical,
 .frame,
+.frameOffset,
 .ring,
+.ringSecondary,
 .axisHorizontal,
 .axisVertical,
 .squareGlowShell,
 .squareShell,
+.squareShadow,
+.squareOutline,
+.squareAccent,
 .squareGlow,
 .square {
   position: absolute;
 }
 
+.panel {
+  inset: 11% 8% 11% 14%;
+  border-radius: calc(var(--radius-24) + 0.5rem);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 120%),
+    radial-gradient(circle at 22% 50%, rgba(255, 215, 0, 0.14), transparent 42%),
+    linear-gradient(160deg, rgba(20, 130, 184, 0.12), transparent 48%),
+    rgba(18, 18, 22, 0.72);
+  border: 1px solid rgba(244, 244, 240, 0.08);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.22);
+}
+
+.panelEcho {
+  inset: 5% 18% 18% 0;
+  border-radius: calc(var(--radius-24) + 0.75rem);
+  background:
+    radial-gradient(circle at 40% 44%, rgba(255, 215, 0, 0.1), transparent 36%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.03), transparent 56%);
+  opacity: 0.54;
+}
+
 .grid {
-  inset: 8% 4% 8% 12%;
-  border: 1px solid var(--border-subtle);
+  inset: 12% 9% 12% 16%;
+  border: 1px solid rgba(244, 244, 240, 0.08);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 34%),
     linear-gradient(rgba(244, 244, 240, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(244, 244, 240, 0.05) 1px, transparent 1px);
-  background-size: auto, 2.75rem 2.75rem, 2.75rem 2.75rem;
-  mask-image: radial-gradient(circle at 54% 50%, #000 42%, transparent 84%);
+  background-size: auto, 3rem 3rem, 3rem 3rem;
+  mask-image: radial-gradient(circle at 54% 50%, #000 46%, transparent 88%);
   opacity: 0.72;
 }
 
 .beam {
-  inset: 10% 24% 12% -2%;
-  background: radial-gradient(circle at 0% 50%, rgba(255, 215, 0, 0.14), transparent 56%);
-  filter: blur(18px);
+  inset: 14% 22% 18% -2%;
+  background: radial-gradient(circle at 0% 50%, rgba(255, 215, 0, 0.2), transparent 58%);
+  filter: blur(24px);
   opacity: 0.75;
 }
 
+.beamVertical {
+  inset: 0 22% 0 42%;
+  background: radial-gradient(circle at 50% 50%, rgba(20, 130, 184, 0.1), transparent 68%);
+  filter: blur(28px);
+}
+
 .frame {
-  inset: 17% 18% 17% 22%;
+  inset: 18% 20% 18% 24%;
   border: 1px solid rgba(244, 244, 240, 0.12);
   transform: rotate(10deg);
+}
+
+.frameOffset {
+  inset: 14% 26% 22% 14%;
+  border: 1px solid rgba(255, 215, 0, 0.16);
+  transform: rotate(-7deg);
 }
 
 .ring {
@@ -54,10 +95,20 @@
   transform: translate(-50%, -50%);
 }
 
+.ringSecondary {
+  top: 50%;
+  left: 56%;
+  width: clamp(8rem, 17vw, 12rem);
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 215, 0, 0.18);
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+}
+
 .axisHorizontal {
   top: 50%;
-  left: 12%;
-  right: 4%;
+  left: 10%;
+  right: 6%;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(244, 244, 240, 0.16), transparent);
 }
@@ -74,6 +125,8 @@
 .squareShell {
   top: 50%;
   left: 56%;
+  width: clamp(12rem, 22vw, 15rem);
+  aspect-ratio: 1;
   transform: translate(-50%, -50%);
 }
 
@@ -85,10 +138,34 @@
   will-change: transform, opacity;
 }
 
+.squareShadow {
+  inset: 14%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.22), transparent 66%);
+  filter: blur(24px);
+  will-change: transform, opacity;
+}
+
+.squareOutline {
+  inset: 11%;
+  border: 1px solid rgba(244, 244, 240, 0.16);
+}
+
+.squareAccent {
+  top: 50%;
+  left: 4%;
+  right: 4%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.42), transparent);
+  transform: translateY(-50%);
+}
+
 .square {
+  top: 50%;
+  left: 50%;
   width: clamp(4rem, 8vw, 5.7rem);
   aspect-ratio: 1;
-  background: var(--color-accent-gold);
+  transform: translate(-50%, -50%);
+  background: linear-gradient(180deg, #ffe27c 0%, var(--color-accent-gold) 54%, #cda200 100%);
   box-shadow:
     0 18px 42px rgba(0, 0, 0, 0.24),
     0 0 0 1px rgba(255, 255, 255, 0.14);
@@ -102,11 +179,34 @@
     margin-inline: auto;
   }
 
+  .panel {
+    inset: 10% 4% 12% 8%;
+  }
+
+  .panelEcho {
+    inset: 4% 16% 18% -2%;
+  }
+
   .grid {
-    inset: 9% 4% 9% 4%;
+    inset: 11% 6% 11% 8%;
   }
 
   .frame {
     inset: 20% 16%;
+  }
+
+  .frameOffset {
+    inset: 18% 22% 22% 10%;
+  }
+
+  .ring,
+  .ringSecondary,
+  .axisVertical {
+    left: 52%;
+  }
+
+  .squareGlowShell,
+  .squareShell {
+    left: 52%;
   }
 }

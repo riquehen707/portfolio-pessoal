@@ -41,6 +41,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   const hasMedia = images.length > 0;
   const primaryActionLabel = "Abrir";
+  const condensedStack = stack.slice(0, variant === "compact" ? 2 : 3);
 
   return (
     <article className={styles.root} data-variant={variant} data-kind={kindValue ?? "project"}>
@@ -51,6 +52,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       >
         {hasMedia && (
           <div className={styles.mediaShell}>
+            {kind && <div className={styles.mediaBadge}>{kind}</div>}
             <Carousel
               sizes={
                 variant === "compact"
@@ -66,23 +68,26 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         )}
 
         <Column className={styles.contentShell} fillWidth gap="16">
-          {(kind || stack.length > 0) && (
-            <Row className={styles.tagsRow} wrap gap="8">
-              {kind && (
-                <Tag
-                  className={styles.kindTag}
-                  size="s"
-                  background="brand-alpha-weak"
-                  onBackground="brand-strong"
-                >
-                  {kind}
-                </Tag>
-              )}
-              {stack.slice(0, variant === "compact" ? 2 : 3).map((item) => (
-                <Tag key={`${title}-${item}`} size="s" background="neutral-alpha-weak">
+          {stack.length > 0 && (
+            <div className={styles.stackInline} aria-label="Stack principal">
+              {condensedStack.map((item) => (
+                <span className={styles.stackInlineItem} key={`${title}-${item}`}>
                   {item}
-                </Tag>
+                </span>
               ))}
+            </div>
+          )}
+
+          {kind && (
+            <Row className={styles.tagsRow} wrap gap="8">
+              <Tag
+                className={styles.kindTag}
+                size="s"
+                background="brand-alpha-weak"
+                onBackground="brand-strong"
+              >
+                {kind}
+              </Tag>
             </Row>
           )}
 

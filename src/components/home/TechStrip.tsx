@@ -22,7 +22,7 @@ export function TechStrip({ items }: TechStripProps) {
       <InfiniteScroller
         items={items}
         ariaLabel="Banner de competências"
-        speed={0.58}
+        speed={0.38}
         pauseOnHover={false}
         respectReducedMotion={false}
         itemKey={(item) => item.label}

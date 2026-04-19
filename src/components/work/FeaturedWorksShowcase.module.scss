@@ -2,6 +2,8 @@
 
 .section {
   width: 100%;
+  display: grid;
+  gap: 1.4rem;
 }
 
 .header {
@@ -24,7 +26,7 @@
 .layout {
   display: grid;
   grid-template-columns: minmax(0, 1.26fr) minmax(18rem, 0.74fr);
-  gap: 1rem;
+  gap: 1.2rem;
   align-items: stretch;
 }
 
@@ -44,6 +46,15 @@
   @include mixins.interactive-card-hover;
 }
 
+.mainCard {
+  min-height: 100%;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 22%),
+    linear-gradient(180deg, rgba(255, 215, 0, 0.04), transparent 70%),
+    var(--surface-overlay-card),
+    var(--surface-panel-soft);
+}
+
 .mainMedia,
 .sideMedia {
   position: relative;
@@ -51,33 +62,83 @@
 
 .mainMedia {
   min-height: 0;
+  overflow: hidden;
+}
+
+.mainMedia::after,
+.sideMedia::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(11, 11, 13, 0) 0%, rgba(11, 11, 13, 0.08) 55%, rgba(11, 11, 13, 0.32) 100%),
+    linear-gradient(135deg, rgba(255, 215, 0, 0.08), transparent 32%);
+  pointer-events: none;
+}
+
+.mediaBadge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-pill);
+  background: rgba(11, 11, 13, 0.62);
+  color: var(--neutral-on-background-strong);
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
 }
 
 .mainContent {
-  padding: 1.35rem;
+  padding: 1.5rem;
 }
 
 .sideColumn {
   display: grid;
-  gap: 1rem;
+  gap: 1.2rem;
 }
 
 .sideCard {
-  display: grid;
-  grid-template-columns: minmax(8.4rem, 10.2rem) minmax(0, 1fr);
-  min-height: 12rem;
+  min-height: 100%;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 18%),
+    var(--surface-overlay-card),
+    var(--surface-panel-soft);
 }
 
 .sideMedia {
-  height: 100%;
+  overflow: hidden;
 }
 
 .sideContent {
-  padding: 1.1rem;
+  padding: 1.2rem 1.2rem 1.25rem;
 }
 
 .metaRow {
   row-gap: 0.45rem;
+}
+
+.headlineBlock {
+  position: relative;
+}
+
+.headlineBlock::before {
+  content: "";
+  display: block;
+  width: 4.5rem;
+  height: 2px;
+  margin-bottom: 0.15rem;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--color-accent-gold), rgba(20, 130, 184, 0.5));
+}
+
+.projectEyebrow {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .title {
@@ -90,6 +151,10 @@
   color: var(--neutral-on-background-strong);
 }
 
+.result {
+  max-width: 32ch;
+}
+
 .mainDescription {
   max-width: 54ch;
 }
@@ -98,13 +163,47 @@
   max-width: 38ch;
 }
 
-.stackRow {
-  row-gap: 0.5rem;
+.stackInline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.8rem;
+  padding-top: 0.2rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.stackInlineItem {
+  position: relative;
+  color: var(--neutral-on-background-medium);
+  font-size: 0.84rem;
+  line-height: 1.2;
+}
+
+.stackInlineItem:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -0.45rem;
+  width: 0.18rem;
+  height: 0.18rem;
+  border-radius: 50%;
+  background: var(--color-accent-gold);
+  transform: translateY(-50%);
 }
 
 .cardHint {
   width: fit-content;
   margin-top: auto;
+  padding-top: 0.1rem;
+}
+
+.sideMediaOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(circle at top right, rgba(255, 215, 0, 0.12), transparent 34%),
+    linear-gradient(180deg, transparent, rgba(11, 11, 13, 0.16));
+  pointer-events: none;
 }
 
 @media (max-width: 900px) {
@@ -125,10 +224,6 @@
   .headerActions {
     display: grid;
     gap: 0.5rem;
-  }
-
-  .sideCard {
-    grid-template-columns: 1fr;
   }
 
   .mainContent,

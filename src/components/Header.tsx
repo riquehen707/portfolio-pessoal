@@ -22,20 +22,20 @@ function TimeDisplay({ timeZone, locale = "pt-BR" }: { timeZone: string; locale?
   const [currentTime, setCurrentTime] = useState("");
 
   useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      const formatter = new Intl.DateTimeFormat(locale, {
-        timeZone,
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: false,
-      });
+    const formatter = new Intl.DateTimeFormat(locale, {
+      timeZone,
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+    });
 
-      setCurrentTime(formatter.format(now));
+    const updateTime = () => {
+      setCurrentTime(formatter.format(new Date()));
     };
 
     updateTime();
-    const intervalId = window.setInterval(updateTime, 60_000);
+    const intervalId = window.setInterval(updateTime, 1_000);
 
     return () => window.clearInterval(intervalId);
   }, [locale, timeZone]);

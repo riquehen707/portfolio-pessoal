@@ -47,6 +47,16 @@ export function HeroVisual() {
       }
     >
       <m.div
+        className={styles.panel}
+        animate={reducedMotion ? undefined : { opacity: [0.7, 0.92, 0.76], scale: [0.992, 1, 0.996] }}
+        transition={reducedMotion ? undefined : getLoopTransition(9.5, 0.1)}
+      />
+      <m.div
+        className={styles.panelEcho}
+        animate={reducedMotion ? undefined : { opacity: [0.4, 0.68, 0.5], x: [0, 8, 0] }}
+        transition={reducedMotion ? undefined : getLoopTransition(11, 0.3)}
+      />
+      <m.div
         className={styles.grid}
         animate={reducedMotion ? undefined : { opacity: [0.62, 0.82, 0.68] }}
         transition={reducedMotion ? undefined : getLoopTransition(10)}
@@ -57,14 +67,29 @@ export function HeroVisual() {
         transition={reducedMotion ? undefined : getLoopTransition(7)}
       />
       <m.div
+        className={styles.beamVertical}
+        animate={reducedMotion ? undefined : { opacity: [0.24, 0.5, 0.3] }}
+        transition={reducedMotion ? undefined : getLoopTransition(8.5, 0.2)}
+      />
+      <m.div
         className={styles.frame}
         animate={reducedMotion ? undefined : { opacity: [0.78, 1, 0.84] }}
         transition={reducedMotion ? undefined : getLoopTransition(9, 0.2)}
       />
       <m.div
+        className={styles.frameOffset}
+        animate={reducedMotion ? undefined : { opacity: [0.35, 0.58, 0.4] }}
+        transition={reducedMotion ? undefined : getLoopTransition(10.5, 0.35)}
+      />
+      <m.div
         className={styles.ring}
         animate={reducedMotion ? undefined : { opacity: [0.8, 1, 0.86] }}
         transition={reducedMotion ? undefined : getLoopTransition(12, 0.1)}
+      />
+      <m.div
+        className={styles.ringSecondary}
+        animate={reducedMotion ? undefined : { opacity: [0.22, 0.42, 0.28] }}
+        transition={reducedMotion ? undefined : getLoopTransition(13, 0.25)}
       />
       <m.div
         className={styles.axisHorizontal}
@@ -91,6 +116,21 @@ export function HeroVisual() {
         />
       </div>
       <div className={styles.squareShell}>
+        <m.div
+          className={styles.squareShadow}
+          animate={reducedMotion ? undefined : { opacity: [0.34, 0.56, 0.4], scale: [0.96, 1.06, 1] }}
+          transition={reducedMotion ? undefined : getLoopTransition(7.5, 0.12)}
+        />
+        <m.div
+          className={styles.squareOutline}
+          animate={reducedMotion ? undefined : { opacity: [0.34, 0.6, 0.42] }}
+          transition={reducedMotion ? undefined : getLoopTransition(9.2, 0.18)}
+        />
+        <m.div
+          className={styles.squareAccent}
+          animate={reducedMotion ? undefined : { opacity: [0.22, 0.52, 0.3] }}
+          transition={reducedMotion ? undefined : getLoopTransition(6.8, 0.08)}
+        />
         <m.div
           className={styles.square}
           animate={

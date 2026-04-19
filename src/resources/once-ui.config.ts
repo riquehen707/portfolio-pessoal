@@ -1,4 +1,4 @@
-import { IBM_Plex_Mono, Inter, Space_Grotesk } from "next/font/google";
+import { IBM_Plex_Mono, Inter } from "next/font/google";
 
 import {
   DataStyleConfig,
@@ -34,11 +34,10 @@ const display: DisplayConfig = {
   themeSwitcher: true,
 };
 
-const heading = Space_Grotesk({
+const heading = Inter({
   variable: "--font-heading",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "700"],
 });
 
 const body = Inter({
@@ -47,11 +46,10 @@ const body = Inter({
   display: "swap",
 });
 
-const label = Space_Grotesk({
+const label = Inter({
   variable: "--font-label",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "700"],
 });
 
 const code = IBM_Plex_Mono({

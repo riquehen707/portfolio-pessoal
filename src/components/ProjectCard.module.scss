@@ -10,7 +10,10 @@
   display: grid;
   overflow: hidden;
   border-radius: var(--radius-panel);
-  background: var(--surface-panel);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 18%),
+    linear-gradient(180deg, rgba(255, 215, 0, 0.04), transparent 68%),
+    var(--surface-panel);
   box-shadow: var(--shadow-soft);
   transition:
     transform var(--motion-base),
@@ -55,12 +58,40 @@
     var(--surface-panel-soft);
 }
 
+.mediaShell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(11, 11, 13, 0) 0%, rgba(11, 11, 13, 0.08) 52%, rgba(11, 11, 13, 0.28) 100%),
+    radial-gradient(circle at top right, rgba(255, 215, 0, 0.12), transparent 34%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.mediaBadge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-pill);
+  background: rgba(11, 11, 13, 0.62);
+  color: var(--neutral-on-background-strong);
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+}
+
 .card[data-variant="compact"] .mediaShell {
   height: 100%;
 }
 
 .contentShell {
-  padding: 1.25rem;
+  padding: 1.35rem;
 }
 
 .card[data-has-media="false"] .contentShell::before {
@@ -85,9 +116,36 @@
   row-gap: 0.5rem;
 }
 
+.stackInline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.8rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.stackInlineItem {
+  position: relative;
+  color: var(--neutral-on-background-medium);
+  font-size: 0.84rem;
+  line-height: 1.2;
+}
+
+.stackInlineItem:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -0.45rem;
+  width: 0.18rem;
+  height: 0.18rem;
+  border-radius: 50%;
+  background: var(--color-accent-gold);
+  transform: translateY(-50%);
+}
+
 .title {
   letter-spacing: -0.04em;
-  line-height: 1.08;
+  line-height: 1.05;
 }
 
 .kindTag {
@@ -95,7 +153,7 @@
 }
 
 .description {
-  max-width: 50ch;
+  max-width: 48ch;
 }
 
 .card[data-variant="compact"] .description {
@@ -104,6 +162,8 @@
 
 .actions {
   row-gap: 0.35rem;
+  padding-top: 0.2rem;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .actionLink {
@@ -122,7 +182,7 @@
 
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
     box-shadow: var(--shadow-card);
     background: var(--surface-elevated);
   }
@@ -151,6 +211,11 @@
   .card[data-variant="feature"] .contentShell,
   .card[data-variant="compact"] .contentShell {
     padding: 1rem;
+  }
+
+  .mediaBadge {
+    top: 0.8rem;
+    left: 0.8rem;
   }
 
   .description {

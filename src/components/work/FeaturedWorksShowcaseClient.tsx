@@ -48,6 +48,7 @@ export function FeaturedWorksShowcaseClient({
 }: FeaturedWorksShowcaseClientProps) {
   const reducedMotion = useReducedMotion();
   const itemVariants = createRevealVariants(reducedMotion, 24, 0.992);
+  const formatStack = (stack: string[]) => stack.slice(0, 3);
 
   return (
     <m.section
@@ -104,6 +105,7 @@ export function FeaturedWorksShowcaseClient({
           >
             {mainProject.image && (
               <div className={styles.mainMedia}>
+                <div className={styles.mediaBadge}>Projeto em destaque</div>
                 <Media
                   priority
                   src={mainProject.image}
@@ -125,15 +127,13 @@ export function FeaturedWorksShowcaseClient({
                   <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
                     {mainProject.kind}
                   </Tag>
-                )}
-                {mainProject.stack.map((item) => (
-                  <Tag key={`${mainProject.slug}-${item}`} size="s" background="neutral-alpha-weak">
-                    {item}
-                  </Tag>
-                ))}
+                  )}
               </Row>
 
-              <Column gap="12">
+              <Column className={styles.headlineBlock} gap="12">
+                <Text className={styles.projectEyebrow} variant="label-default-s" onBackground="neutral-weak">
+                  Clareza visual, estratégia e execução
+                </Text>
                 <Heading className={styles.title} as="h3" variant="display-strong-s" wrap="balance">
                   {mainProject.title}
                 </Heading>
@@ -145,8 +145,18 @@ export function FeaturedWorksShowcaseClient({
                 </Text>
               </Column>
 
+              {mainProject.stack.length > 0 && (
+                <div className={styles.stackInline} aria-label="Stack principal">
+                  {formatStack(mainProject.stack).map((item) => (
+                    <span className={styles.stackInlineItem} key={`${mainProject.slug}-${item}`}>
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              )}
+
               <Row className={styles.cardHint} gap="8" vertical="center">
-                <Text variant="label-default-s">Ver projeto</Text>
+                <Text variant="label-default-s">Abrir projeto</Text>
                 <Icon name="arrowRight" size="xs" />
               </Row>
             </Column>
@@ -172,11 +182,12 @@ export function FeaturedWorksShowcaseClient({
               >
                 {project.image && (
                   <div className={styles.sideMedia}>
+                    <div className={styles.sideMediaOverlay} />
                     <Media
                       src={project.image}
                       alt={project.title}
-                      aspectRatio="5 / 4"
-                      sizes="(max-width: 900px) 100vw, 240px"
+                      aspectRatio="16 / 10"
+                      sizes="(max-width: 900px) 100vw, 360px"
                     />
                   </div>
                 )}
@@ -196,6 +207,9 @@ export function FeaturedWorksShowcaseClient({
                   </Row>
 
                   <Column gap="8">
+                    <Text className={styles.projectEyebrow} variant="label-default-s" onBackground="neutral-weak">
+                      Projeto selecionado
+                    </Text>
                     <Heading as="h3" variant="heading-strong-m" wrap="balance">
                       {project.title}
                     </Heading>
@@ -208,17 +222,17 @@ export function FeaturedWorksShowcaseClient({
                   </Column>
 
                   {project.stack.length > 0 && (
-                    <Row className={styles.stackRow} wrap gap="8">
-                      {project.stack.map((item) => (
-                        <Tag key={`${project.slug}-${item}`} size="s" background="neutral-alpha-weak">
+                    <div className={styles.stackInline} aria-label="Stack principal">
+                      {formatStack(project.stack).map((item) => (
+                        <span className={styles.stackInlineItem} key={`${project.slug}-${item}`}>
                           {item}
-                        </Tag>
+                        </span>
                       ))}
-                    </Row>
+                    </div>
                   )}
 
                   <Row className={styles.cardHint} gap="8" vertical="center">
-                    <Text variant="label-default-s">Ver projeto</Text>
+                    <Text variant="label-default-s">Abrir projeto</Text>
                     <Icon name="arrowRight" size="xs" />
                   </Row>
                 </Column>
