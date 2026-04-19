@@ -6,6 +6,8 @@
   display: grid;
   gap: clamp(3.5rem, 7vw, 6rem);
   min-width: 0;
+  overflow-x: clip;
+  overscroll-behavior-x: none;
 }
 
 .section,
@@ -115,8 +117,8 @@
 
 .postHeroSection {
   display: grid;
-  gap: 1.4rem;
-  padding-block: 1.25rem 0;
+  gap: 1rem;
+  padding-block: 0.9rem 0;
   border-top: 1px solid var(--border-subtle);
   overflow: clip;
 }
@@ -169,6 +171,7 @@
 
   .heroVisualWrap {
     justify-content: center;
+    overflow: clip;
   }
 
   .heroTrustRow {

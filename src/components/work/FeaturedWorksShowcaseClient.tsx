@@ -33,7 +33,6 @@ type FeaturedWorksShowcaseClientProps = {
   description: string;
   actionLabel: string;
   workHref: string;
-  contactHref: string;
   mainProject: ShowcaseProject;
   sideProjects: ShowcaseProject[];
 };
@@ -44,7 +43,6 @@ export function FeaturedWorksShowcaseClient({
   description,
   actionLabel,
   workHref,
-  contactHref,
   mainProject,
   sideProjects,
 }: FeaturedWorksShowcaseClientProps) {
@@ -84,16 +82,6 @@ export function FeaturedWorksShowcaseClient({
               data-analytics-type="primary"
             >
               {actionLabel}
-            </SmartLink>
-            <SmartLink
-              href={contactHref}
-              suffixIcon="arrowRight"
-              data-analytics-event="cta_click"
-              data-analytics-label="Falar sobre seu projeto"
-              data-analytics-location="home_featured_header"
-              data-analytics-type="secondary"
-            >
-              Falar sobre seu projeto
             </SmartLink>
           </div>
         </Row>
@@ -239,35 +227,6 @@ export function FeaturedWorksShowcaseClient({
           ))}
         </m.div>
       </div>
-
-      <m.div className={styles.footer} variants={itemVariants}>
-        <Text className={styles.footerNote} onBackground="neutral-weak" variant="body-default-s">
-          Projetos autorais, estudos estrategicos e execucoes reais entram juntos na vitrine quando
-          ajudam a provar criterio, repertorio e entrega.
-        </Text>
-        <div className={styles.footerActions}>
-          <SmartLink
-            href={workHref}
-            suffixIcon="arrowRight"
-            data-analytics-event="cta_click"
-            data-analytics-label="Ver todos os projetos"
-            data-analytics-location="home_featured_footer"
-            data-analytics-type="primary"
-          >
-            Ver todos os projetos
-          </SmartLink>
-          <SmartLink
-            href={contactHref}
-            suffixIcon="arrowRight"
-            data-analytics-event="cta_click"
-            data-analytics-label="Falar sobre seu projeto"
-            data-analytics-location="home_featured_footer"
-            data-analytics-type="secondary"
-          >
-            Falar sobre seu projeto
-          </SmartLink>
-        </div>
-      </m.div>
     </m.section>
   );
 }

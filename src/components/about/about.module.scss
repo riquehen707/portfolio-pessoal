@@ -13,7 +13,7 @@
 }
 
 .hero {
-  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+  padding-block: clamp(1rem, 2.8vw, 1.75rem) clamp(2.5rem, 6vw, 4.5rem);
 }
 
 .sectionPanel {
@@ -91,10 +91,6 @@
   overflow: visible;
   background: transparent;
   box-shadow: none;
-  transition:
-    transform var(--motion-fast),
-    border-color var(--motion-fast),
-    opacity var(--motion-fast);
 }
 
 .profileCard {
@@ -204,27 +200,6 @@
   row-gap: 0.5rem;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .profileCard:hover,
-  .collageCard:hover,
-  .infoCard:hover,
-  .stepCard:hover,
-  .proofCard:hover {
-    transform: translateY(-2px);
-    opacity: 0.92;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .profileCard,
-  .collageCard,
-  .infoCard,
-  .stepCard,
-  .proofCard {
-    transition: none;
-  }
-}
-
 @media (max-width: breakpoints.$m) {
   .heroGrid,
   .splitGrid,
@@ -272,6 +247,6 @@
   }
 
   .hero {
-    padding-block: 2rem 0.5rem;
+    padding-block: 1rem 0.5rem;
   }
 }

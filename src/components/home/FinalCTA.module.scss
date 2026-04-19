@@ -16,30 +16,10 @@
 }
 
 .copy {
-  grid-column: span 7;
+  grid-column: span 12;
   display: grid;
   gap: 1rem;
   align-content: start;
-}
-
-.formPanel {
-  grid-column: span 5;
-  display: grid;
-  gap: 1rem;
-  padding: 1.2rem;
-  @include mixins.panel-surface(
-    var(--radius-24),
-    var(--border-subtle),
-    var(--surface-overlay-soft),
-    var(--surface-panel-soft),
-    none
-  );
-  box-shadow: none;
-}
-
-.formIntro {
-  display: grid;
-  gap: 0.6rem;
 }
 
 .eyebrow {
@@ -86,16 +66,8 @@
   flex: 0 0 auto;
 }
 
-@include mixins.m {
-  .copy,
-  .formPanel {
-    grid-column: 1 / -1;
-  }
-}
-
 @include mixins.s {
-  .root,
-  .formPanel {
+  .root {
     border-radius: calc(var(--radius-24) - 0.1rem);
   }
 

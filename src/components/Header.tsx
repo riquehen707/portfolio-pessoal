@@ -11,11 +11,11 @@ import { BrandSignature } from "./BrandSignature";
 import styles from "./Header.module.scss";
 
 const navItems = [
-  { href: "/", label: "Home", icon: "home" },
-  { href: work.path, label: "Works", icon: "grid" },
-  { href: about.path, label: "About", icon: "person" },
+  { href: "/", label: "Início", icon: "home" },
+  { href: work.path, label: "Projetos", icon: "grid" },
+  { href: about.path, label: "Sobre", icon: "person" },
   { href: blog.path, label: "Blog", icon: "book" },
-  { href: contact.path, label: "Contact", icon: "email" },
+  { href: contact.path, label: "Contato", icon: "email" },
 ] as const;
 
 function TimeDisplay({ timeZone, locale = "pt-BR" }: { timeZone: string; locale?: string }) {
@@ -67,6 +67,7 @@ export function Header() {
 
   const nextTheme = currentTheme === "light" ? "dark" : "light";
   const themeIcon = currentTheme === "dark" ? "light" : "dark";
+  const nextThemeLabel = nextTheme === "light" ? "claro" : "escuro";
 
   return (
     <Row
@@ -138,7 +139,7 @@ export function Header() {
                 className={styles.themeButton}
                 prefixIcon={themeIcon}
                 onClick={() => setTheme(nextTheme)}
-                aria-label={`Switch to ${nextTheme} mode`}
+                aria-label={`Mudar para tema ${nextThemeLabel}`}
               />
             </>
           )}

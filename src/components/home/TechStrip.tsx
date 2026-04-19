@@ -19,26 +19,18 @@ type TechStripProps = {
 export function TechStrip({ items }: TechStripProps) {
   return (
     <div className={styles.root}>
-      <div className={styles.header}>
-        <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
-          Competencias centrais
-        </Text>
-        <Text className={styles.copy} onBackground="neutral-weak" variant="body-default-s">
-          Tecnologia, operacao e acquisicao compondo um ecossistema mais forte que uma stack isolada.
-        </Text>
-      </div>
-
       <InfiniteScroller
         items={items}
-        ariaLabel="Banner de competencias"
-        speed={1}
+        ariaLabel="Banner de competências"
+        speed={0.58}
         pauseOnHover={false}
         respectReducedMotion={false}
         itemKey={(item) => item.label}
         renderItem={(item) => (
           <article className={styles.item}>
             <span className={styles.iconWrap} aria-hidden="true">
-              <Icon name={item.icon} size="m" />
+              <span className={styles.iconHalo} />
+              <Icon name={item.icon} size="l" />
             </span>
             <Text className={styles.label} variant="body-default-s">
               {item.label}

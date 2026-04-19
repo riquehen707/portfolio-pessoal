@@ -6,7 +6,7 @@ import {
   getWorkProjectStack,
   resolveWorkProjectMediaSrc,
 } from "@/app/work/projectData";
-import { contact, contentStrategy, work } from "@/resources";
+import { contentStrategy, work } from "@/resources";
 import { type BlogFile } from "@/utils/utils";
 
 import { FeaturedWorksShowcaseClient } from "./FeaturedWorksShowcaseClient";
@@ -35,14 +35,13 @@ export function FeaturedWorksShowcase({ projects }: FeaturedWorksShowcaseProps) 
   return (
     <FeaturedWorksShowcaseClient
       eyebrow={homeWorksSection?.label ?? "Projetos em destaque"}
-      title={homeWorksSection?.title ?? "Projetos que unem estetica, estrategia e execucao."}
+      title={homeWorksSection?.title ?? "Projetos que unem estética, estratégia e execução."}
       description={
         homeWorksSection?.description ??
-        "Cada projeto resolve um desafio diferente, mas todos seguem o mesmo principio: clareza, performance e resultado real."
+        "Cada projeto resolve um desafio diferente, mas todos seguem o mesmo princípio: clareza, performance e resultado real."
       }
       actionLabel={homeWorksSection?.ctaLabel ?? "Ver todos os projetos"}
       workHref={work.path}
-      contactHref={contact.path}
       mainProject={{
         slug: mainProject.slug,
         title: mainProject.metadata.title,

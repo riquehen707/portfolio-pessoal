@@ -1,46 +1,20 @@
 @use "../../styles/mixins" as mixins;
 
 .section {
-  position: relative;
   width: 100%;
-  overflow: hidden;
-  padding: clamp(var(--space-24), 3.6vw, 2.4rem);
-  @include mixins.panel-surface(
-    var(--radius-panel),
-    var(--border-subtle),
-    var(--surface-overlay-editorial),
-    var(--surface-panel),
-    var(--shadow-soft)
-  );
-}
-
-.section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 12% 0%, var(--ambient-gold-soft), transparent 24%),
-    radial-gradient(circle at 84% 0%, var(--ambient-blue-soft), transparent 22%);
-  pointer-events: none;
-}
-
-.section > * {
-  position: relative;
-  z-index: 1;
 }
 
 .header {
   align-items: flex-end;
   gap: 1rem;
-  margin-bottom: 1.15rem;
+  margin-bottom: 1.35rem;
 }
 
 .copy {
   max-width: 42rem;
 }
 
-.headerActions,
-.footerActions {
+.headerActions {
   display: inline-flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -133,20 +107,6 @@
   margin-top: auto;
 }
 
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border-subtle);
-}
-
-.footerNote {
-  max-width: 44rem;
-}
-
 @media (max-width: 900px) {
   .layout {
     grid-template-columns: 1fr;
@@ -155,24 +115,14 @@
   .sideColumn {
     grid-template-columns: 1fr;
   }
-
-  .footer {
-    display: grid;
-  }
 }
 
 @include mixins.s {
-  .section {
-    padding: 1.15rem;
-    border-radius: calc(var(--radius-24) - 0.05rem);
-  }
-
   .header {
     align-items: flex-start;
   }
 
-  .headerActions,
-  .footerActions {
+  .headerActions {
     display: grid;
     gap: 0.5rem;
   }

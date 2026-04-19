@@ -30,7 +30,7 @@ type StrategyPage = {
 
 const contentStrategy = {
   communicationPrinciple:
-    "A comunicacao da marca vende clareza estrategica, execucao confiavel, tecnologia util, crescimento estruturado e solucoes reais para negocios reais.",
+    "A comunicação da marca vende clareza estratégica, execução confiável, tecnologia útil, crescimento estruturado e soluções reais para negócios reais.",
   copyRules: {
     mustFeel: [
       "Humana",
@@ -40,75 +40,75 @@ const contentStrategy = {
       "Sem exagero",
       "Sem linguagem corporativa vazia",
     ],
-    alwaysUse: ["Frases curtas", "Verbos fortes", "Clareza", "Especificidade", "Beneficios reais"],
+    alwaysUse: ["Frases curtas", "Verbos fortes", "Clareza", "Especificidade", "Benefícios reais"],
     avoid: [
-      "Jargao corporativo",
+      "Jargão corporativo",
       "Excesso de adjetivo",
       "Promessas vagas",
-      "Texto longo sem funcao",
+      "Texto longo sem função",
     ],
   },
   pages: {
     home: {
       objective:
-        "Causar impacto rapido, gerar confianca, mostrar diferenciacao, provar capacidade e levar para contato ou works.",
-      intendedAction: "Agendar uma ligacao ou avancar para a secao de works.",
-      emotionalTone: "Confianca + impacto",
+        "Causar impacto rápido, gerar confiança, mostrar diferenciação, provar capacidade e levar para contato ou projetos.",
+      intendedAction: "Agendar uma ligação ou avançar para a seção de projetos.",
+      emotionalTone: "Confiança + impacto",
       seo: {
-        focus: "operacao digital para negocios locais",
+        focus: "operação digital para negócios locais",
         keywords: [
-          "operacao digital para negocios locais",
-          "presenca digital para negocios locais",
-          "estrategia digital para negocios reais",
-          "automacao e gestao digital",
+          "operação digital para negócios locais",
+          "presença digital para negócios locais",
+          "estratégia digital para negócios reais",
+          "automação e gestão digital",
         ],
       },
       hero: {
-        eyebrow: "Estrategia completa",
-        headline: "Operacao digital completa para negocios locais.",
+        eyebrow: "Estratégia completa",
+        headline: "Operação digital completa para negócios locais.",
         subheadline:
-          "Toda a estrutura digital do seu negocio em um so parceiro: software, presenca online, automacao e gestao orientada por dados.",
-        primaryCtaLabel: "Agendar uma ligacao",
+          "Toda a estrutura digital do seu negócio em um só parceiro: software, presença online, automação e gestão orientada por dados.",
+        primaryCtaLabel: "Agendar uma ligação",
         primaryCtaHref: "https://cal.com/henriquereis",
-        secondaryCtaLabel: "Conheca meu trabalho",
+        secondaryCtaLabel: "Conheça meu trabalho",
         secondaryCtaHref: "/work",
       },
       sections: [
         {
           id: "proof",
-          label: "Prova rapida",
+          label: "Prova rápida",
           title: "Sinais imediatos de valor percebido.",
           description:
-            "A Home precisa provar, em poucos segundos, que existe criterio tecnico, direcao comercial e capacidade de execucao.",
+            "A Home precisa provar, em poucos segundos, que existe critério técnico, direção comercial e capacidade de execução.",
           bullets: [
-            "Especializado em negocios locais",
-            "Decisoes guiadas por dados reais",
+            "Especializado em negócios locais",
+            "Decisões guiadas por dados reais",
             "Ecossistema digital completo",
-            "Solucoes personalizadas",
+            "Soluções personalizadas",
           ],
         },
         {
           id: "markets",
           label: "Mercados",
-          title: "Mercados diferentes exigem estrategias diferentes.",
+          title: "Mercados diferentes exigem estratégias diferentes.",
           description:
-            "Crescimento sustentavel depende de dados reais, planejamento claro e constancia na execucao.",
+            "Crescimento sustentável depende de dados reais, planejamento claro e constância na execução.",
         },
         {
           id: "works",
           label: "Projetos em destaque",
-          title: "Projetos que unem estetica, estrategia e execucao.",
+          title: "Projetos que unem estética, estratégia e execução.",
           description:
-            "Cada projeto resolve um desafio diferente, mas todos seguem o mesmo principio: clareza, performance e resultado real.",
+            "Cada projeto resolve um desafio diferente, mas todos seguem o mesmo princípio: clareza, performance e resultado real.",
           ctaLabel: "Ver todos os projetos",
           ctaHref: "/work",
         },
         {
           id: "blog",
           label: "Insights",
-          title: "Ideias praticas sobre crescimento digital.",
+          title: "Ideias práticas sobre crescimento digital.",
           description:
-            "Insights diretos sobre presenca digital, conversao, posicionamento e estrutura para crescer com consistencia.",
+            "Insights diretos sobre presença digital, conversão, posicionamento e estrutura para crescer com consistência.",
           ctaLabel: "Ver artigos",
           ctaHref: "/blog",
         },
@@ -118,42 +118,42 @@ const contentStrategy = {
           title: "Mais que design e tecnologia.",
           description:
             "Transformo ideias e necessidades reais em estruturas digitais claras, funcionais e valiosas.",
-          ctaLabel: "Conheca minha trajetoria",
+          ctaLabel: "Conheça minha trajetória",
           ctaHref: "/about",
         },
         {
           id: "final-cta",
-          label: "Proximo passo",
+          label: "Próximo passo",
           title:
-            "Se seu negocio precisa de presenca forte e operacao digital eficiente, vamos conversar.",
+            "Se seu negócio precisa de presença forte e operação digital eficiente, vamos conversar.",
           description:
-            "Uma conversa direta pode revelar oportunidades reais de posicionamento, aquisicao e operacao digital.",
-          ctaLabel: "Agendar uma ligacao",
+            "Uma conversa direta pode revelar oportunidades reais de posicionamento, aquisição e operação digital.",
+          ctaLabel: "Agendar uma ligação",
           ctaHref: "https://cal.com/henriquereis",
         },
       ],
     } satisfies StrategyPage,
     work: {
       objective: "Provar capacidade real.",
-      intendedAction: "Fazer o visitante avancar para contato depois de ver projetos e recortes.",
-      emotionalTone: "Competencia + prova",
+      intendedAction: "Fazer o visitante avançar para contato depois de ver projetos e recortes.",
+      emotionalTone: "Competência + prova",
       seo: {
-        focus: "portfolio desenvolvimento web estrategico",
+        focus: "portfólio desenvolvimento web estratégico",
         keywords: [
-          "portfolio desenvolvimento web estrategico",
+          "portfólio desenvolvimento web estratégico",
           "projetos de design e tecnologia",
-          "cases de presenca digital",
-          "portfolio de operacoes digitais",
+          "cases de presença digital",
+          "portfólio de operações digitais",
         ],
       },
       hero: {
-        eyebrow: "Works",
-        headline: "Projetos que unem estetica, estrategia e execucao.",
+        eyebrow: "Projetos",
+        headline: "Projetos que unem estética, estratégia e execução.",
         subheadline:
-          "Cada projeto resolve um problema diferente. Todos seguem o mesmo principio: funcionar de verdade.",
+          "Cada projeto resolve um problema diferente. Todos seguem o mesmo princípio: funcionar de verdade.",
         primaryCtaLabel: "Vamos conversar",
         primaryCtaHref: "/contact",
-        secondaryCtaLabel: "Ver abordagem tecnica",
+        secondaryCtaLabel: "Ver abordagem técnica",
         secondaryCtaHref: "/abordagem-tecnica",
       },
       sections: [
@@ -161,43 +161,43 @@ const contentStrategy = {
           id: "featured-project",
           label: "Projeto destaque",
           title: "Projetos em destaque.",
-          description: "Leitura rapida para mostrar variedade, criterio e execucao forte.",
+          description: "Leitura rápida para mostrar variedade, critério e execução forte.",
         },
         {
           id: "categories",
           label: "Categorias",
-          title: "Recortes para leitura rapida.",
+          title: "Recortes para leitura rápida.",
           description:
             "Cliente, estudo e projetos pessoais ajudam a entender amplitude sem perder rigor.",
         },
         {
           id: "grid",
           label: "Grid",
-          title: "Portfolio publicado.",
+          title: "Portfólio publicado.",
           description:
-            "Cada projeto existe para comprovar raciocinio, solucao e resultado percebido.",
+            "Cada projeto existe para comprovar raciocínio, solução e resultado percebido.",
         },
         {
           id: "final-cta",
           label: "Contato",
           title: "Vamos criar algo forte juntos.",
           description:
-            "Se a operacao precisa de uma presenca mais clara, mais forte e mais util, o proximo passo e conversar.",
+            "Se a operação precisa de uma presença mais clara, mais forte e mais útil, o próximo passo é conversar.",
           ctaLabel: "Vamos conversar",
           ctaHref: "/contact",
         },
       ],
     } satisfies StrategyPage,
     about: {
-      objective: "Humanizar, aprofundar autoridade e mostrar visao.",
+      objective: "Humanizar, aprofundar autoridade e mostrar visão.",
       intendedAction: "Fazer o visitante confiar o suficiente para iniciar a conversa.",
-      emotionalTone: "Humanidade + visao",
+      emotionalTone: "Humanidade + visão",
       seo: {
-        focus: "estrategia digital com design e tecnologia",
+        focus: "estratégia digital com design e tecnologia",
         keywords: [
-          "estrategia digital com design e tecnologia",
-          "visao estrategica para negocios locais",
-          "parceiro digital para operacoes reais",
+          "estratégia digital com design e tecnologia",
+          "visão estratégica para negócios locais",
+          "parceiro digital para operações reais",
           "design tecnologia e resultado real",
         ],
       },
@@ -213,27 +213,27 @@ const contentStrategy = {
       sections: [
         {
           id: "vision",
-          label: "Visao",
-          title: "Nao acredito em excesso. Acredito em clareza bem executada.",
+          label: "Visão",
+          title: "Não acredito em excesso. Acredito em clareza bem executada.",
           description:
-            "O valor nao esta em parecer complexo, e sim em organizar o que importa com precisao.",
+            "O valor não está em parecer complexo, e sim em organizar o que importa com precisão.",
         },
         {
           id: "thinking",
           label: "Como penso",
-          title: "Negocios crescem quando posicionamento, operacao e tecnologia trabalham juntos.",
+          title: "Negócios crescem quando posicionamento, operação e tecnologia trabalham juntos.",
           description:
-            "Cada camada do digital precisa reforcar a outra. Quando isso acontece, a percepcao melhora e a operacao ganha forca.",
+            "Cada camada do digital precisa reforçar a outra. Quando isso acontece, a percepção melhora e a operação ganha força.",
         },
         {
           id: "differentials",
           label: "Diferenciais",
           title: "O que sustenta meu trabalho.",
           description:
-            "Visao estrategica, execucao pratica, tecnologia moderna e foco em resultado real.",
+            "Visão estratégica, execução prática, tecnologia moderna e foco em resultado real.",
           bullets: [
-            "Visao estrategica",
-            "Execucao pratica",
+            "Visão estratégica",
+            "Execução prática",
             "Tecnologia moderna",
             "Foco em resultado real",
           ],
@@ -241,25 +241,25 @@ const contentStrategy = {
       ],
     } satisfies StrategyPage,
     blog: {
-      objective: "Somar autoridade, SEO e repertorio.",
+      objective: "Somar autoridade, SEO e repertório.",
       intendedAction:
-        "Fazer o visitante consumir ideias uteis e voltar para a marca com mais confianca.",
-      emotionalTone: "Inteligencia + utilidade",
+        "Fazer o visitante consumir ideias úteis e voltar para a marca com mais confiança.",
+      emotionalTone: "Inteligência + utilidade",
       seo: {
-        focus: "marketing para negocios locais",
+        focus: "marketing para negócios locais",
         keywords: [
-          "marketing para negocios locais",
-          "presenca digital",
-          "automacao para negocios",
-          "crescimento digital pratico",
+          "marketing para negócios locais",
+          "presença digital",
+          "automação para negócios",
+          "crescimento digital prático",
           "estrutura digital",
         ],
       },
       hero: {
         eyebrow: "Insights",
-        headline: "Ideias praticas sobre crescimento digital.",
+        headline: "Ideias práticas sobre crescimento digital.",
         subheadline:
-          "Insights diretos sobre presenca digital, conversao, posicionamento e estrutura para crescer com consistencia.",
+          "Insights diretos sobre presença digital, conversão, posicionamento e estrutura para crescer com consistência.",
         primaryCtaLabel: "Explorar insights",
         primaryCtaHref: "/blog",
       },
@@ -269,20 +269,20 @@ const contentStrategy = {
           label: "Categorias",
           title: "Trilhas editoriais centrais.",
           description:
-            "Negocios locais, marketing, design, operacao, tecnologia e growth formam a base do repertorio que o blog precisa sustentar.",
-          bullets: ["Negocios locais", "Marketing", "Design", "Operacao", "Tecnologia", "Growth"],
+            "Negócios locais, marketing, design, operação, tecnologia e growth formam a base do repertório que o blog precisa sustentar.",
+          bullets: ["Negócios locais", "Marketing", "Design", "Operação", "Tecnologia", "Growth"],
         },
         {
           id: "archive",
           label: "Arquivo",
-          title: "Arquivo editorial organizado para leitura rapida.",
+          title: "Arquivo editorial organizado para leitura rápida.",
           description:
-            "O conteudo publicado precisa ser facil de explorar, util no curto prazo e consistente no longo prazo.",
+            "O conteúdo publicado precisa ser fácil de explorar, útil no curto prazo e consistente no longo prazo.",
         },
       ],
     } satisfies StrategyPage,
     contact: {
-      objective: "Converter sem friccao.",
+      objective: "Converter sem fricção.",
       intendedAction: "Levar o visitante a escolher um canal e iniciar a conversa imediatamente.",
       emotionalTone: "Facilidade + oportunidade",
       seo: {
@@ -290,17 +290,17 @@ const contentStrategy = {
         keywords: [
           "consultoria digital",
           "criar site",
-          "gestao digital",
-          "contato para estrategia digital",
-          "operacao digital para negocios locais",
+          "gestão digital",
+          "contato para estratégia digital",
+          "operação digital para negócios locais",
         ],
       },
       hero: {
         eyebrow: "Contato",
-        headline: "Vamos falar sobre o seu negocio.",
+        headline: "Vamos falar sobre o seu negócio.",
         subheadline:
           "Se existe potencial de crescimento, vamos encontrar a melhor estrutura para isso.",
-        primaryCtaLabel: "Agendar uma ligacao",
+        primaryCtaLabel: "Agendar uma ligação",
         primaryCtaHref: "https://cal.com/henriquereis",
         secondaryCtaLabel: "Falar no WhatsApp",
         secondaryCtaHref: "https://wa.me/5575983675164",
@@ -309,17 +309,17 @@ const contentStrategy = {
         {
           id: "methods",
           label: "Formas de contato",
-          title: "Tres caminhos simples para avancar.",
+          title: "Três caminhos simples para avançar.",
           description:
-            "Agenda online, WhatsApp e formulario simples reduzem atrito e deixam o proximo passo claro.",
-          bullets: ["Agenda online", "WhatsApp", "Formulario simples"],
+            "Agenda online, WhatsApp e formulário simples reduzem atrito e deixam o próximo passo claro.",
+          bullets: ["Agenda online", "WhatsApp", "Formulário simples"],
         },
         {
           id: "expectation",
           label: "O que acontece",
           title: "Uma conversa para entender contexto e prioridade.",
           description:
-            "O objetivo nao e vender no impulso. E ler o cenario, mapear o gargalo e definir o formato de trabalho mais adequado.",
+            "O objetivo não é vender no impulso. É ler o cenário, mapear o gargalo e definir o formato de trabalho mais adequado.",
         },
       ],
     } satisfies StrategyPage,

@@ -7,7 +7,6 @@ import { ArticleCard } from "@/components/cards/ArticleCard";
 import { AboutTeaser } from "@/components/home/AboutTeaser";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { HeroActions } from "@/components/home/HeroActions";
-import { MarqueeTrust } from "@/components/home/MarqueeTrust";
 import { MarketsSection } from "@/components/home/MarketsSection";
 import { HeroSubtitle } from "@/components/home/HeroSubtitle";
 import { HeroTitle } from "@/components/home/HeroTitle";
@@ -33,36 +32,9 @@ const homeAboutSection = homeStrategy.sections.find((section) => section.id === 
 const homeFinalSection = homeStrategy.sections.find((section) => section.id === "final-cta");
 
 const heroTrustItems = [
-  "Negocios locais",
-  "Estrategia orientada por dados",
-  "Solucoes completas",
-] as const;
-
-const trustMarqueeItems = [
-  {
-    label: "Especializado em negocios e servicos locais",
-    icon: "globe",
-  },
-  {
-    label: "Decisoes guiadas por dados reais",
-    icon: "chart",
-  },
-  {
-    label: "Ecossistema digital completo",
-    icon: "grid",
-  },
-  {
-    label: "Solucoes personalizadas para sua operacao",
-    icon: "person",
-  },
-  {
-    label: "Estrutura digital pensada para crescer",
-    icon: "rocket",
-  },
-  {
-    label: "Tecnologia aplicada com objetivo real",
-    icon: "nextjs",
-  },
+  "Negócios locais",
+  "Estratégia orientada por dados",
+  "Soluções completas",
 ] as const;
 
 const techStripItems = [
@@ -72,7 +44,7 @@ const techStripItems = [
   { label: "Meta Ads", icon: "meta" },
   { label: "Analytics", icon: "ga" },
   { label: "CRM", icon: "crm" },
-  { label: "Automacao", icon: "rocket" },
+  { label: "Automação", icon: "rocket" },
   { label: "SEO", icon: "seo" },
   { label: "UI/UX", icon: "figma" },
   { label: "Performance", icon: "performance" },
@@ -80,32 +52,32 @@ const techStripItems = [
 
 const marketCards = [
   {
-    title: "Alimentacao",
-    summary: "Operacoes que precisam recorrencia, ticket melhor e menos dependencia de plataformas externas.",
-    bullets: ["Pedidos recorrentes", "Ticket medio maior", "Menos dependencia de apps"],
+    title: "Alimentação",
+    summary: "Operações que precisam recorrência, ticket melhor e menos dependência de plataformas externas.",
+    bullets: ["Pedidos recorrentes", "Ticket médio maior", "Menos dependência de apps"],
     detail:
-      "A abordagem combina descoberta local, canais proprios e recompra com menos atrito operacional.",
+      "A abordagem combina descoberta local, canais próprios e recompra com menos atrito operacional.",
   },
   {
-    title: "Imoveis",
-    summary: "Mercado em que lead frio custa caro e a confianca precisa aparecer antes do primeiro contato.",
-    bullets: ["Leads qualificados", "Mais confianca", "Resposta rapida"],
+    title: "Imóveis",
+    summary: "Mercado em que lead frio custa caro e a confiança precisa aparecer antes do primeiro contato.",
+    bullets: ["Leads qualificados", "Mais confiança", "Resposta rápida"],
     detail:
       "O foco sai do volume vazio e entra em contexto, velocidade comercial e prova certa para cada etapa.",
   },
   {
-    title: "Estetica",
-    summary: "Negocios que crescem melhor quando imagem, agenda e fidelizacao trabalham juntos.",
-    bullets: ["Agenda previsivel", "Imagem premium", "Fidelizacao"],
+    title: "Estética",
+    summary: "Negócios que crescem melhor quando imagem, agenda e fidelização trabalham juntos.",
+    bullets: ["Agenda previsível", "Imagem premium", "Fidelização"],
     detail:
-      "A execucao precisa proteger valor percebido, reduzir no-show e criar recorrencia sem parecer promocional.",
+      "A execução precisa proteger valor percebido, reduzir no-show e criar recorrência sem parecer promocional.",
   },
   {
     title: "Profissionais",
-    summary: "Servicos que dependem de autoridade digital, leitura objetiva e comunicacao adequada ao setor.",
-    bullets: ["Autoridade digital", "Reputacao solida", "Comunicacao adequada ao setor"],
+    summary: "Serviços que dependem de autoridade digital, leitura objetiva e comunicação adequada ao setor.",
+    bullets: ["Autoridade digital", "Reputação sólida", "Comunicação adequada ao setor"],
     detail:
-      "A estrutura certa filtra melhor, organiza a jornada e faz a confianca chegar antes da reuniao.",
+      "A estrutura certa filtra melhor, organiza a jornada e faz a confiança chegar antes da reunião.",
   },
 ] as const;
 
@@ -127,7 +99,7 @@ export default function Home() {
   const blogPosts = getFeaturedBlogPosts(3);
   const heroHeadline = (
     <>
-      <span className={styles.heroAccent}>Operacao digital</span> completa para negocios locais.
+      <span className={styles.heroAccent}>Operação digital</span> completa para negócios locais.
     </>
   );
 
@@ -151,7 +123,7 @@ export default function Home() {
         <div className={styles.heroGrid}>
           <div className={styles.heroCopy}>
             <Text className={styles.heroIdentity} variant="label-default-s" onBackground="neutral-weak">
-              Henrique Reis / estrategia, design e sistemas
+              Henrique Reis / estratégia, design e sistemas
             </Text>
             <HeroTitle>{heroHeadline}</HeroTitle>
             <HeroSubtitle>{homeStrategy.hero.subheadline}</HeroSubtitle>
@@ -177,7 +149,7 @@ export default function Home() {
           </div>
         </div>
 
-        <a className={styles.scrollCue} href="#home-proof" aria-label="Explorar proxima secao">
+        <a className={styles.scrollCue} href="#home-proof" aria-label="Explorar próxima seção">
           <span className={styles.scrollCueText}>Explore</span>
           <span className={styles.scrollCueLine} aria-hidden="true" />
           <span className={styles.scrollCueArrow} aria-hidden="true" />
@@ -185,9 +157,6 @@ export default function Home() {
       </section>
 
       <section className={styles.postHeroSection} id="home-proof">
-        <Reveal delay={0.04} distance={20}>
-          <MarqueeTrust items={[...trustMarqueeItems]} />
-        </Reveal>
         <Reveal delay={0.12} distance={20}>
           <TechStrip items={[...techStripItems]} />
         </Reveal>
@@ -195,7 +164,7 @@ export default function Home() {
 
       <MarketsSection
         eyebrow={homeMarketsSection?.label ?? "Mercados"}
-        title={homeMarketsSection?.title ?? "Mercados diferentes exigem estrategias diferentes."}
+        title={homeMarketsSection?.title ?? "Mercados diferentes exigem estratégias diferentes."}
         description={homeMarketsSection?.description ?? ""}
         items={marketCards.map((market) => ({
           ...market,
@@ -249,7 +218,7 @@ export default function Home() {
             homeAboutSection?.description ??
             "Transformo ideias e necessidades reais em estruturas digitais claras, funcionais e valiosas."
           }
-          ctaLabel={homeAboutSection?.ctaLabel ?? "Conheca minha trajetoria"}
+          ctaLabel={homeAboutSection?.ctaLabel ?? "Conheça minha trajetória"}
           ctaHref={homeAboutSection?.ctaHref ?? about.path}
         />
       </section>
@@ -259,13 +228,13 @@ export default function Home() {
           eyebrow={homeFinalSection?.label ?? "Proximo passo"}
           title={
             homeFinalSection?.title ??
-            "Se seu negocio precisa de presenca forte e operacao digital eficiente, vamos conversar."
+            "Se seu negócio precisa de presença forte e operação digital eficiente, vamos conversar."
           }
           description={
             homeFinalSection?.description ??
-            "Uma conversa direta pode revelar oportunidades reais de posicionamento, aquisicao e operacao digital."
+            "Uma conversa direta pode revelar oportunidades reais de posicionamento, aquisição e operação digital."
           }
-          primaryLabel={homeFinalSection?.ctaLabel ?? "Agendar uma ligacao"}
+          primaryLabel={homeFinalSection?.ctaLabel ?? "Agendar uma ligação"}
           primaryHref={homeFinalSection?.ctaHref ?? contact.path}
         />
       </section>

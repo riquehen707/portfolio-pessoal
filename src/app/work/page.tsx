@@ -44,8 +44,8 @@ export default function Work() {
       />
       <BreadcrumbJsonLd
         items={[
-          { name: "Home", url: baseURL },
-          { name: "Works", url: `${baseURL}${work.path}` },
+          { name: "Início", url: baseURL },
+          { name: "Projetos", url: `${baseURL}${work.path}` },
         ]}
       />
 

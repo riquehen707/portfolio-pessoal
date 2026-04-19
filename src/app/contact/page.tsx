@@ -66,8 +66,8 @@ export default function ContactPage() {
       />
       <BreadcrumbJsonLd
         items={[
-          { name: "Home", url: baseURL },
-          { name: "Contact", url: `${baseURL}${contact.path}` },
+          { name: "Início", url: baseURL },
+          { name: "Contato", url: `${baseURL}${contact.path}` },
         ]}
       />
 

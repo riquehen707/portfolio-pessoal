@@ -27,7 +27,8 @@ export function MarketCard({
   onToggleExpand,
   className,
 }: MarketCardProps) {
-  const hasDetail = Boolean(detail && onToggleExpand);
+  const hasToggleDetail = Boolean(detail && onToggleExpand);
+  const hasInlineDetail = Boolean(detail && !onToggleExpand);
 
   const handleActionClick = (event: MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
@@ -42,9 +43,6 @@ export function MarketCard({
     >
       <div className={styles.content}>
         <div className={styles.header}>
-          <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
-            Mercado
-          </Text>
           <Heading as="h3" variant="heading-strong-l" className={styles.title}>
             {title}
           </Heading>
@@ -61,7 +59,13 @@ export function MarketCard({
           ))}
         </ul>
 
-        {hasDetail && (
+        {hasInlineDetail && (
+          <Text className={styles.inlineDetail} onBackground="neutral-weak" variant="body-default-s">
+            {detail}
+          </Text>
+        )}
+
+        {hasToggleDetail && (
           <div className={styles.footer}>
             <button
               className={styles.action}
@@ -69,7 +73,7 @@ export function MarketCard({
               aria-expanded={isExpanded ? "true" : "false"}
               onClick={handleActionClick}
             >
-              <span>{isExpanded ? "Ocultar abordagem" : "Ver abordagem estrategica"}</span>
+              <span>{isExpanded ? "Ocultar abordagem" : "Ver abordagem estratégica"}</span>
               <Icon className={styles.actionIcon} name="arrowRight" size="xs" />
             </button>
 

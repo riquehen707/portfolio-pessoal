@@ -16,25 +16,25 @@ const blogStrategy = contentStrategy.pages.blog;
 
 const categoryDescriptions: Record<string, string> = {
   "Negocios locais":
-    "Leituras para mercados reais que precisam de presenca forte, contexto comercial e operacao mais previsivel.",
+    "Leituras para mercados reais que precisam de presença forte, contexto comercial e operação mais previsível.",
   Marketing:
-    "Aquisicao, conversao, oferta e leitura comercial aplicadas a negocios que precisam crescer com criterio.",
+    "Aquisição, conversão, oferta e leitura comercial aplicadas a negócios que precisam crescer com critério.",
   Design:
-    "Percepcao de valor, hierarquia visual e clareza editorial usadas para transmitir mais confianca.",
+    "Percepção de valor, hierarquia visual e clareza editorial usadas para transmitir mais confiança.",
   Operacao:
     "Processos, CRM, follow-up e estrutura para reduzir atrito e organizar a rotina digital.",
   Tecnologia:
-    "Sites, SEO, automacao e infraestrutura colocados a servico de performance e decisao.",
+    "Sites, SEO, automação e infraestrutura colocados a serviço de performance e decisão.",
   Growth:
-    "Crescimento com base em consistencia, dados uteis e leitura mais inteligente da operacao.",
+    "Crescimento com base em consistência, dados úteis e leitura mais inteligente da operação.",
 };
 
 const trackMeta: Record<string, string> = {
   "Negocios locais": "Mercado",
-  Marketing: "Aquisicao",
-  Design: "Percepcao",
+  Marketing: "Aquisição",
+  Design: "Percepção",
   Operacao: "Estrutura",
-  Tecnologia: "Base tecnica",
+  Tecnologia: "Base técnica",
   Growth: "Crescimento",
 };
 
@@ -102,7 +102,7 @@ export default function Blog() {
       />
       <BreadcrumbJsonLd
         items={[
-          { name: "Home", url: baseURL },
+          { name: "Início", url: baseURL },
           { name: "Blog", url: `${baseURL}${blog.path}` },
         ]}
       />
@@ -152,11 +152,11 @@ export default function Blog() {
 
       <Row className={styles.infoPanel} gap="12" padding="20" wrap vertical="center">
         <Tag size="s" background="neutral-alpha-weak">
-          Direcao editorial
+          Direção editorial
         </Tag>
         <Text onBackground="neutral-weak">
-          A linha principal do blog escreve para empresarios e decisores. Os destaques abaixo
-          priorizam negocio, conversao, operacao e crescimento com linguagem direta.
+          A linha principal do blog escreve para empresários e decisores. Os destaques abaixo
+          priorizam negócio, conversão, operação e crescimento com linguagem direta.
         </Text>
       </Row>
 

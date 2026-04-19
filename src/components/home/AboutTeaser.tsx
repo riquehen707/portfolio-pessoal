@@ -24,11 +24,11 @@ type AboutTeaserProps = {
 };
 
 const supportLine =
-  "Trabalho unindo estetica, tecnologia e visao comercial com criterio humano e leitura de negocio.";
+  "Trabalho unindo estética, tecnologia e visão comercial com critério humano e leitura de negócio.";
 
-const editorialStatement = "Clareza construida por alguem real.";
+const editorialStatement = "Clareza construída por alguém real.";
 const editorialDetail =
-  "Nao e producao automatica. E pensamento, criterio e execucao alinhados do inicio ao fim.";
+  "Não é produção automática. É pensamento, critério e execução alinhados do início ao fim.";
 
 export function AboutTeaser({
   eyebrow,
@@ -153,7 +153,7 @@ export function AboutTeaser({
 
           <BrandSignature
             className={styles.signature}
-            descriptor="Estrategia, design e sistemas com criterio humano"
+            descriptor="Estratégia, design e sistemas com critério humano"
           />
         </div>
       </m.aside>

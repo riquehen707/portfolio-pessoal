@@ -8,10 +8,10 @@ import { BrandSignature } from "./BrandSignature";
 import styles from "./Footer.module.scss";
 
 const footerLinks = [
-  { href: work.path, label: "Works" },
-  { href: about.path, label: "About" },
+  { href: work.path, label: "Projetos" },
+  { href: about.path, label: "Sobre" },
   { href: blog.path, label: "Blog" },
-  { href: contact.path, label: "Contact" },
+  { href: contact.path, label: "Contato" },
 ] as const;
 
 export function Footer() {
@@ -27,7 +27,7 @@ export function Footer() {
           </Text>
         </div>
 
-        <nav className={styles.nav} aria-label="Links do rodape">
+        <nav className={styles.nav} aria-label="Links do rodapé">
           {footerLinks.map((item) => (
             <Link className={styles.link} href={item.href} key={item.href}>
               {item.label}
@@ -49,13 +49,6 @@ export function Footer() {
                 />
               ),
           )}
-          <IconButton
-            href={`mailto:${person.email}`}
-            icon="email"
-            tooltip="Email"
-            size="s"
-            variant="ghost"
-          />
         </Row>
 
         <Text className={styles.copy} variant="body-default-s" onBackground="neutral-weak">

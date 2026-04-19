@@ -4,14 +4,13 @@ import { Heading, Text } from "@once-ui-system/core";
 import { m, useReducedMotion } from "framer-motion";
 
 import { CTAButton } from "@/components/CTAButton";
-import { ContactBriefForm } from "@/components/contact/ContactBriefForm";
 import {
   createRevealVariants,
   createStaggerContainer,
   motionViewport,
   revealTransition,
 } from "@/components/motion/motionTokens";
-import { person, social } from "@/resources";
+import { social } from "@/resources";
 
 import styles from "./FinalCTA.module.scss";
 
@@ -23,7 +22,7 @@ type FinalCTAProps = {
   primaryHref: string;
 };
 
-const trustSignals = ["Resposta rapida", "Conversa objetiva", "Solucoes sob medida"] as const;
+const trustSignals = ["Resposta rápida", "Conversa objetiva", "Soluções sob medida"] as const;
 
 export function FinalCTA({
   eyebrow,
@@ -97,30 +96,6 @@ export function FinalCTA({
             </m.div>
           ))}
         </m.div>
-      </m.div>
-
-      <m.div className={styles.formPanel} variants={itemVariants}>
-        <div className={styles.formIntro}>
-          <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
-            Diagnostico inicial
-          </Text>
-          <Heading as="h3" variant="heading-strong-l" wrap="balance">
-            Se preferir, envie um briefing curto e eu respondo com o proximo passo.
-          </Heading>
-          <Text onBackground="neutral-weak" variant="body-default-m">
-            Sem compromisso inicial. Com foco real no que faz sentido para posicionamento,
-            aquisicao e operacao.
-          </Text>
-        </div>
-
-        <ContactBriefForm
-          email={person.email}
-          whatsappHref={whatsappHref}
-          contextLabel="CTA final da Home"
-          submitLabel="Solicitar diagnostico inicial"
-          whatsappLabel="Enviar no WhatsApp"
-          helperText="Agenda, WhatsApp ou briefing curto. O objetivo aqui e reduzir atrito e abrir a conversa do jeito mais claro."
-        />
       </m.div>
     </m.div>
   );

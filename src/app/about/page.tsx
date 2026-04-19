@@ -89,7 +89,7 @@ export default function About() {
     .slice(0, 2);
 
   return (
-    <Column className={styles.page} maxWidth="l" gap="48" paddingTop="24">
+    <Column className={styles.page} maxWidth="l" gap="48" paddingTop="8">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -105,8 +105,8 @@ export default function About() {
       />
       <BreadcrumbJsonLd
         items={[
-          { name: "Home", url: baseURL },
-          { name: "About", url: `${baseURL}${about.path}` },
+          { name: "Início", url: baseURL },
+          { name: "Sobre", url: `${baseURL}${about.path}` },
         ]}
       />
 

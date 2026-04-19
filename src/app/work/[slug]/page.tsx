@@ -116,8 +116,8 @@ export default async function ProjectPage({ params }: PageProps) {
       />
       <BreadcrumbJsonLd
         items={[
-          { name: "Home", url: baseURL },
-          { name: "Works", url: `${baseURL}/work` },
+          { name: "Início", url: baseURL },
+          { name: "Projetos", url: `${baseURL}/work` },
           { name: post.metadata.title, url: `${baseURL}${getWorkProjectPath(post.slug)}` },
         ]}
       />
@@ -237,13 +237,13 @@ export default async function ProjectPage({ params }: PageProps) {
       {shouldRenderToc && (
         <Column className={styles.supportPanel} gap="16" padding="24">
           <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            Navegacao
+            Navegação
           </Tag>
           <Heading as="h2" variant="heading-strong-l">
             Mapa do case
           </Heading>
           <Text className={styles.supportLead} onBackground="neutral-weak" variant="body-default-m">
-            Uma leitura rapida das secoes principais para navegar pelo projeto sem depender de scroll cego.
+            Uma leitura rápida das seções principais para navegar pelo projeto sem depender de scroll cego.
           </Text>
           <ArticleToc containerId="project-article" minLevel={2} maxLevel={tocDepth as 2 | 3 | 4} />
         </Column>
@@ -285,7 +285,7 @@ export default async function ProjectPage({ params }: PageProps) {
       {references.length > 0 && (
         <Column className={styles.supportPanel} gap="16" padding="24">
           <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            Referencias
+            Referências
           </Tag>
           <Heading as="h2" variant="heading-strong-l">
             Base usada para este case
@@ -297,7 +297,7 @@ export default async function ProjectPage({ params }: PageProps) {
                 <Text onBackground="neutral-weak" variant="body-default-s">
                   {[reference.author, reference.year ? String(reference.year) : undefined]
                     .filter(Boolean)
-                    .join(" - ") || "Referencia editorial"}
+                    .join(" - ") || "Referência editorial"}
                 </Text>
                 {reference.url && (
                   <a
@@ -306,7 +306,7 @@ export default async function ProjectPage({ params }: PageProps) {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Abrir referencia
+                    Abrir referência
                   </a>
                 )}
               </div>
