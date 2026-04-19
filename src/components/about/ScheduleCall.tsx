@@ -3,6 +3,7 @@
 
 import { useMemo, useState } from "react";
 import { Row, Button, Icon, IconButton, Text } from "@once-ui-system/core";
+import { trackEvent } from "@/components/analytics/analytics";
 
 type Props = {
   link: string;            // ex.: https://cal.com/riquehen/30min ou https://calendly.com/xxx
@@ -39,7 +40,20 @@ export default function ScheduleCall({ link, label = "Agendar uma call", variant
         variant={variant}
         prefixIcon="calendar"
         aria-expanded={open}
-        onClick={() => (embeddable ? setOpen((v) => !v) : window.open(href, "_blank", "noopener,noreferrer"))}
+        onClick={() => {
+          trackEvent("schedule_call_click", {
+            label,
+            location: "schedule_call",
+            action: embeddable ? "toggle_embed" : "open_external",
+          });
+
+          if (embeddable) {
+            setOpen((value) => !value);
+            return;
+          }
+
+          window.open(href, "_blank", "noopener,noreferrer");
+        }}
       >
         {label}
       </Button>
@@ -48,7 +62,14 @@ export default function ScheduleCall({ link, label = "Agendar uma call", variant
       <IconButton
         icon="external"
         aria-label="Abrir em nova aba"
-        onClick={() => window.open(href, "_blank", "noopener,noreferrer")}
+        onClick={() => {
+          trackEvent("schedule_call_click", {
+            label,
+            location: "schedule_call",
+            action: "open_external",
+          });
+          window.open(href, "_blank", "noopener,noreferrer");
+        }}
         variant={variant === "primary" ? "secondary" : "tertiary"}
       />
 

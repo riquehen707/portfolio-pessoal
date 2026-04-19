@@ -1,0 +1,99 @@
+$s: 768px;
+$m: 1024px;
+$l: 1440px;
+
+@mixin s {
+  @media (max-width: #{$s}) {
+    @content;
+  }
+}
+
+@mixin m {
+  @media (max-width: #{$m}) {
+    @content;
+  }
+}
+
+@mixin l {
+  @media (max-width: #{$l}) {
+    @content;
+  }
+}
+
+@mixin hover-fine {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
+
+@mixin label-uppercase($tracking: 0.14em) {
+  letter-spacing: $tracking;
+  text-transform: uppercase;
+}
+
+@mixin focus-ring {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+@mixin panel-surface(
+  $radius: var(--radius-panel),
+  $border: var(--border-subtle),
+  $overlay: var(--surface-overlay-soft),
+  $surface: var(--surface-panel),
+  $shadow: var(--shadow-soft)
+) {
+  border: 1px solid $border;
+  border-radius: $radius;
+  background: $overlay, $surface;
+  box-shadow: $shadow;
+}
+
+@mixin interactive-card(
+  $radius: var(--radius-24),
+  $overlay: var(--surface-overlay-soft),
+  $surface: var(--surface-panel-soft),
+  $border: var(--border-subtle),
+  $shadow: var(--shadow-soft)
+) {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid $border;
+  border-radius: $radius;
+  background: $overlay, $surface;
+  box-shadow: $shadow;
+  color: inherit;
+  text-decoration: none;
+  transition:
+    border-color var(--motion-base),
+    box-shadow var(--motion-base),
+    background var(--motion-base);
+}
+
+@mixin interactive-card-hover {
+  @include hover-fine {
+    &:hover {
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow-card);
+    }
+  }
+}
+
+@mixin accent-line($width: 4rem, $height: 2px) {
+  width: $width;
+  height: $height;
+  border-radius: var(--radius-pill);
+  background: var(--accent-line-gradient);
+}
+
+@mixin input-surface {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-16);
+  background: var(--surface-overlay-soft), var(--surface-panel-soft);
+  color: var(--neutral-on-background-strong);
+  box-shadow: var(--input-shadow);
+  transition:
+    border-color var(--motion-fast),
+    box-shadow var(--motion-fast),
+    background var(--motion-fast);
+}

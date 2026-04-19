@@ -8,9 +8,20 @@ export {
   technicalApproach,
   blog,
   work,
+  contact,
 } from "./content";
 
 export { servicesPage, services, productsPage, products } from "./services";
+export {
+  brandIdentity,
+  brandLogoSystem,
+  brandMessaging,
+  brandMoodboard,
+  brandPalette,
+  brandTypography,
+} from "./brand";
+export { contentStrategy } from "./content-strategy";
+export { designSystem } from "./design-system";
 
 export {
   display,

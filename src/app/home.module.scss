@@ -1,254 +1,187 @@
-@use "../components/breakpoints.scss" as breakpoints;
+@use "../styles/mixins" as mixins;
 
-.heroIntro {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  isolation: isolate;
-  padding: clamp(1.5rem, 4vw, 2.75rem);
-  border: 1px solid var(--border-subtle);
-  border-radius: 2rem;
-  background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.04), transparent 24%),
-    var(--surface-panel-strong);
-  box-shadow: var(--shadow-card);
-}
-
-.heroIntro::before,
-.heroIntro::after {
-  content: "";
-  position: absolute;
-  border-radius: 999px;
-  pointer-events: none;
-  will-change: transform;
-}
-
-.heroIntro::before {
-  inset: -14% 44% 28% -8%;
-  background: radial-gradient(circle, var(--brand-glow), transparent 72%);
-  opacity: 0.9;
-  animation: heroDrift 22s ease-in-out infinite alternate;
-}
-
-.heroIntro::after {
-  inset: 12% -8% -26% 58%;
-  background: radial-gradient(circle, var(--accent-glow), transparent 70%);
-  opacity: 0.76;
-  animation: heroDrift 26s ease-in-out infinite alternate-reverse;
-}
-
-.heroIntro > * {
-  position: relative;
-  z-index: 1;
-}
-
-.heroFrame {
+.page {
+  width: min(100%, var(--grid-max-width));
+  margin-inline: auto;
   display: grid;
-  grid-template-columns: minmax(0, 1.18fr) minmax(18rem, 0.82fr);
-  gap: 1rem;
-  align-items: stretch;
+  gap: clamp(3.5rem, 7vw, 6rem);
 }
 
-.heroStack,
-.heroAside,
-.panelCopy,
-.contactAside {
-  min-width: 0;
+.section,
+.heroSection,
+.postHeroSection,
+.aboutSection,
+.finalSection {
+  width: 100%;
 }
 
-.heroStack {
-  max-width: 46rem;
+.heroSection {
+  position: relative;
+  display: grid;
+  gap: 1.4rem;
+  min-height: clamp(34rem, 76vh, 45rem);
+  align-items: end;
 }
 
-.heroBrand {
-  margin-bottom: 0.2rem;
+.heroGrid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--grid-gutter);
+  align-items: center;
 }
 
 .heroCopy {
-  max-width: 42rem;
-}
-
-.heroLead {
-  max-width: 45rem;
-}
-
-.heroAside {
-  padding: 1.25rem;
-  border: 1px solid var(--border-subtle);
-  border-radius: 1.65rem;
-  background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.04), transparent 24%),
-    var(--surface-panel-soft);
-  box-shadow: var(--shadow-soft);
-}
-
-.heroPillarGrid {
+  grid-column: span 6;
   display: grid;
-  gap: 0.85rem;
+  gap: 1.1rem;
+  min-width: 0;
+  align-content: center;
 }
 
-.heroPillar {
-  padding: 0.95rem 1rem;
-  border: 1px solid var(--border-subtle);
-  border-radius: 1.05rem;
-  background: rgba(255, 255, 255, 0.02);
+.heroVisualWrap {
+  grid-column: span 6;
+  display: flex;
+  justify-content: flex-end;
+  min-width: 0;
 }
 
-.heroSignalList,
-.signalList {
-  width: 100%;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.heroIdentity {
+  @include mixins.label-uppercase;
 }
 
-.heroSignalItem,
-.signalItem {
-  display: block;
+.heroAccent {
+  color: var(--color-accent-gold);
 }
 
-.heroSignalItem + .heroSignalItem,
-.signalItem + .signalItem {
-  padding-top: 0.9rem;
-  border-top: 1px solid var(--border-subtle);
+.heroTrustRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem 1.15rem;
+  padding-top: 0.2rem;
 }
 
-.heroActions,
-.actions {
-  row-gap: 0.75rem;
+.heroTrustItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--neutral-on-background-medium);
 }
 
-.heroActions > *,
-.actions > * {
-  transform-origin: center;
+.heroTrustDot {
+  width: 0.38rem;
+  height: 0.38rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent-gold);
+  flex: 0 0 auto;
 }
 
-.proofLabel,
-.kicker {
-  letter-spacing: 0.14em;
+.eyebrow {
+  @include mixins.label-uppercase;
+}
+
+.scrollCue {
+  display: inline-grid;
+  gap: 0.45rem;
+  width: fit-content;
+  color: inherit;
+  text-decoration: none;
+}
+
+.scrollCueText {
+  color: var(--neutral-on-background-weak);
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
-.panelHeader {
-  align-items: flex-end;
+.scrollCueLine {
+  width: 1px;
+  height: 3.25rem;
+  margin-left: 0.25rem;
+  background: linear-gradient(180deg, var(--color-accent-gold), transparent);
+}
+
+.scrollCueArrow {
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-left: 0;
+  border-right: 1px solid var(--neutral-on-background-weak);
+  border-bottom: 1px solid var(--neutral-on-background-weak);
+  transform: rotate(45deg);
+}
+
+.postHeroSection {
+  display: grid;
+  gap: 1.4rem;
+  padding-block: 1.25rem 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.blogGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
+  margin-top: 1.5rem;
 }
 
-.panelCopy {
-  max-width: 42rem;
-}
-
-.blogPanel,
-.contactPanel {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  padding: clamp(1.25rem, 3.4vw, 2.2rem);
+.supportPanel {
+  display: grid;
+  gap: 0.75rem;
+  height: 100%;
+  padding: 1.25rem;
   border: 1px solid var(--border-subtle);
-  border-radius: 1.8rem;
-  background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.04), transparent 26%),
-    var(--surface-panel);
-  box-shadow: var(--shadow-soft);
+  border-radius: var(--radius-24);
+  background: var(--surface-ghost);
 }
 
-.blogPanel::before,
-.contactPanel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 12% 0%, var(--brand-glow), transparent 24%),
-    radial-gradient(circle at 86% 0%, var(--accent-glow), transparent 22%);
-  pointer-events: none;
-}
-
-.blogPanel > *,
-.contactPanel > * {
-  position: relative;
-  z-index: 1;
-}
-
-.blogLinkRow {
-  width: fit-content;
-}
-
-.contactShell {
-  align-items: stretch;
-  gap: 1rem;
-}
-
-.contactAside {
-  max-width: 22rem;
-  padding: 1.1rem;
-  border: 1px solid var(--border-subtle);
-  border-radius: 1.35rem;
-  background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.04), transparent 24%),
-    var(--surface-panel-soft);
-  box-shadow: var(--shadow-soft);
-}
-
-@keyframes heroDrift {
-  from {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-
-  to {
-    transform: translate3d(0, -1.4%, 0) scale(1.018);
-  }
-}
-
-@media (max-width: breakpoints.$m) {
-  .heroFrame {
-    grid-template-columns: 1fr;
-  }
-
-  .heroStack,
+@include mixins.m {
   .heroCopy,
-  .heroLead,
-  .panelCopy,
-  .contactAside {
-    max-width: none;
+  .heroVisualWrap {
+    grid-column: 1 / -1;
+  }
+
+  .blogGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: breakpoints.$s) {
-  .heroIntro {
-    padding: 1.2rem;
-    border-radius: 1.5rem;
+@include mixins.s {
+  .page {
+    gap: clamp(3.5rem, 12vw, 4.5rem);
   }
 
-  .heroAside,
-  .heroPillar,
-  .contactAside {
-    border-radius: 1.2rem;
+  .heroSection {
+    min-height: auto;
+    gap: 1rem;
   }
 
-  .blogPanel,
-  .contactPanel {
-    padding: 1.15rem;
-    border-radius: 1.45rem;
+  .heroGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  .panelHeader {
-    align-items: flex-start;
+  .supportPanel {
+    border-radius: calc(var(--radius-24) - 0.1rem);
   }
 
-  .heroActions,
-  .actions {
-    width: 100%;
+  .heroVisualWrap {
+    justify-content: center;
   }
 
-  .heroActions > *,
-  .actions > * {
-    width: 100%;
+  .heroTrustRow {
+    gap: 0.7rem 1rem;
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  .heroIntro::before,
-  .heroIntro::after {
-    animation: none;
+  .scrollCue {
+    display: none;
+  }
+
+  .blogGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .blogGrid {
+    margin-top: 1.25rem;
   }
 }

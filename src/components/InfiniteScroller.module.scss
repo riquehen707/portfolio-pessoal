@@ -1,0 +1,63 @@
+.root {
+  position: relative;
+  width: 100%;
+}
+
+.root::before,
+.root::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(1.75rem, 5vw, 3.75rem);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.root::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--color-background-primary), transparent);
+}
+
+.root::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--color-background-primary), transparent);
+}
+
+.viewport {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 0.2rem;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+
+.track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  gap: 0.85rem;
+  padding-right: 0.85rem;
+}
+
+.itemSlot {
+  display: inline-flex;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viewport {
+    scroll-behavior: auto;
+  }
+}

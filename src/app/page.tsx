@@ -1,82 +1,138 @@
-import {
-  Button,
-  Column,
-  Heading,
-  Meta,
-  RevealFx,
-  Row,
-  Schema,
-  SmartLink,
-  Tag,
-  Text,
-} from "@once-ui-system/core";
+import { Meta, Schema, Text } from "@once-ui-system/core";
 
-import { BrandSignature, Mailchimp } from "@/components";
-import { HeroProofCarousel } from "@/components/HeroProofCarousel";
-import { MarketStrategyRail } from "@/components/MarketStrategyRail";
-import { Posts } from "@/components/blog/Posts";
+import { getBlogPrimaryCategory, getFeaturedBlogPosts } from "@/app/blog/postData";
+import { getAllWorkProjects } from "@/app/work/projectData";
+import { SectionHeader } from "@/components/SectionHeader";
+import { ArticleCard } from "@/components/cards/ArticleCard";
+import { AboutTeaser } from "@/components/home/AboutTeaser";
+import { FinalCTA } from "@/components/home/FinalCTA";
+import { HeroActions } from "@/components/home/HeroActions";
+import { MarqueeTrust } from "@/components/home/MarqueeTrust";
+import { MarketsSection } from "@/components/home/MarketsSection";
+import { HeroSubtitle } from "@/components/home/HeroSubtitle";
+import { HeroTitle } from "@/components/home/HeroTitle";
+import { HeroVisual } from "@/components/home/HeroVisual";
+import { TechStrip } from "@/components/home/TechStrip";
+import { Reveal } from "@/components/motion/Reveal";
 import { FeaturedWorksShowcase } from "@/components/work/FeaturedWorksShowcase";
-import { about, baseURL, blog, home, person, routes, servicesPage, work } from "@/resources";
-import { getPosts } from "@/utils/utils";
+import {
+  about,
+  baseURL,
+  contact,
+  contentStrategy,
+  home,
+  person,
+} from "@/resources";
 
 import styles from "./home.module.scss";
 
-const heroProofItems = [
-  {
-    icon: "grid" as const,
-    label: "Presença forte para negócios que vivem de confiança",
-  },
-  {
-    icon: "chart" as const,
-    label: "Decisão orientada por lógica, dados e direção clara",
-  },
-  {
-    icon: "globe" as const,
-    label: "Design, tecnologia e comunicação em um mesmo sistema",
-  },
-  {
-    icon: "rocket" as const,
-    label: "Execução sofisticada sem aparência genérica ou improvisada",
-  },
-];
+const homeStrategy = contentStrategy.pages.home;
+const homeMarketsSection = homeStrategy.sections.find((section) => section.id === "markets");
+const homeBlogSection = homeStrategy.sections.find((section) => section.id === "blog");
+const homeAboutSection = homeStrategy.sections.find((section) => section.id === "about-teaser");
+const homeFinalSection = homeStrategy.sections.find((section) => section.id === "final-cta");
 
-const heroPillars = [
-  {
-    label: "Essência",
-    value: "Transformar complexidade em clareza.",
-  },
-  {
-    label: "Arquétipo",
-    value: "Criador + Sábio",
-  },
-  {
-    label: "Centro",
-    value: "Controle + Valor + Futuro",
-  },
-];
+const heroTrustItems = [
+  "Negocios locais",
+  "Estrategia orientada por dados",
+  "Solucoes completas",
+] as const;
 
-const heroSignals = [
-  "Estratégia antes da execução.",
-  "Design com função real.",
-  "Tecnologia organizada para crescimento.",
-];
+const trustMarqueeItems = [
+  {
+    label: "Especializado em negocios e servicos locais",
+    icon: "globe",
+  },
+  {
+    label: "Decisoes guiadas por dados reais",
+    icon: "chart",
+  },
+  {
+    label: "Ecossistema digital completo",
+    icon: "grid",
+  },
+  {
+    label: "Solucoes personalizadas para sua operacao",
+    icon: "person",
+  },
+  {
+    label: "Estrutura digital pensada para crescer",
+    icon: "rocket",
+  },
+  {
+    label: "Tecnologia aplicada com objetivo real",
+    icon: "nextjs",
+  },
+] as const;
+
+const techStripItems = [
+  { label: "React", icon: "react" },
+  { label: "Next.js", icon: "nextjs" },
+  { label: "Google Ads", icon: "ads" },
+  { label: "Meta Ads", icon: "meta" },
+  { label: "Analytics", icon: "ga" },
+  { label: "CRM", icon: "crm" },
+  { label: "Automacao", icon: "rocket" },
+  { label: "SEO", icon: "seo" },
+  { label: "UI/UX", icon: "figma" },
+  { label: "Performance", icon: "performance" },
+] as const;
+
+const marketCards = [
+  {
+    title: "Alimentacao",
+    summary: "Operacoes que precisam recorrencia, ticket melhor e menos dependencia de plataformas externas.",
+    bullets: ["Pedidos recorrentes", "Ticket medio maior", "Menos dependencia de apps"],
+    detail:
+      "A abordagem combina descoberta local, canais proprios e recompra com menos atrito operacional.",
+  },
+  {
+    title: "Imoveis",
+    summary: "Mercado em que lead frio custa caro e a confianca precisa aparecer antes do primeiro contato.",
+    bullets: ["Leads qualificados", "Mais confianca", "Resposta rapida"],
+    detail:
+      "O foco sai do volume vazio e entra em contexto, velocidade comercial e prova certa para cada etapa.",
+  },
+  {
+    title: "Estetica",
+    summary: "Negocios que crescem melhor quando imagem, agenda e fidelizacao trabalham juntos.",
+    bullets: ["Agenda previsivel", "Imagem premium", "Fidelizacao"],
+    detail:
+      "A execucao precisa proteger valor percebido, reduzir no-show e criar recorrencia sem parecer promocional.",
+  },
+  {
+    title: "Profissionais",
+    summary: "Servicos que dependem de autoridade digital, leitura objetiva e comunicacao adequada ao setor.",
+    bullets: ["Autoridade digital", "Reputacao solida", "Comunicacao adequada ao setor"],
+    detail:
+      "A estrutura certa filtra melhor, organiza a jornada e faz a confianca chegar antes da reuniao.",
+  },
+] as const;
 
 export async function generateMetadata() {
-  return Meta.generate({
-    title: home.title,
-    description: home.description,
-    baseURL,
-    path: home.path,
-    image: home.image,
-  });
+  return {
+    ...Meta.generate({
+      title: home.title,
+      description: home.description,
+      baseURL,
+      path: home.path,
+      image: home.image,
+    }),
+    keywords: homeStrategy.seo.keywords,
+  };
 }
 
 export default function Home() {
-  const workProjects = getPosts(["src", "app", "work", "projects"]);
-  const hasWorkProjects = workProjects.length > 0;
+  const workProjects = getAllWorkProjects();
+  const blogPosts = getFeaturedBlogPosts(3);
+  const heroHeadline = (
+    <>
+      <span className={styles.heroAccent}>Operacao digital</span> completa para negocios locais.
+    </>
+  );
 
   return (
-    <Column maxWidth="m" horizontal="center" paddingY="20" gap="40">
+    <div className={styles.page}>
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -91,220 +147,128 @@ export default function Home() {
         }}
       />
 
-      <Column className={styles.heroIntro} fillWidth gap="24">
-        <div className={styles.heroFrame}>
-          <RevealFx delay={0.04} speed={900} translateY={0.28}>
-            <Column className={styles.heroStack} gap="16">
-              <BrandSignature
-                className={styles.heroBrand}
-                descriptor="Estratégia, design e sistemas para crescimento digital"
-              />
+      <section className={styles.heroSection}>
+        <div className={styles.heroGrid}>
+          <div className={styles.heroCopy}>
+            <Text className={styles.heroIdentity} variant="label-default-s" onBackground="neutral-weak">
+              Henrique Reis / estrategia, design e sistemas
+            </Text>
+            <HeroTitle>{heroHeadline}</HeroTitle>
+            <HeroSubtitle>{homeStrategy.hero.subheadline}</HeroSubtitle>
+            <HeroActions
+              primaryLabel={homeStrategy.hero.primaryCtaLabel}
+              primaryHref={homeStrategy.hero.primaryCtaHref}
+              secondaryLabel={homeStrategy.hero.secondaryCtaLabel}
+              secondaryHref={homeStrategy.hero.secondaryCtaHref}
+            />
 
-              <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-                Estratégia antes da execução
-              </Tag>
+            <Reveal className={styles.heroTrustRow} delay={0.28} distance={18}>
+              {heroTrustItems.map((item) => (
+                <div className={styles.heroTrustItem} key={item}>
+                  <span className={styles.heroTrustDot} aria-hidden="true" />
+                  <Text variant="body-default-s">{item}</Text>
+                </div>
+              ))}
+            </Reveal>
+          </div>
 
-              <Column gap="12" className={styles.heroCopy}>
-                <Heading wrap="balance" variant="display-strong-l">
-                  {home.headline}
-                </Heading>
-
-                <Text
-                  className={styles.heroLead}
-                  wrap="balance"
-                  onBackground="neutral-weak"
-                  variant="heading-default-xl"
-                >
-                  {home.subline}
-                </Text>
-              </Column>
-
-              <Row gap="12" wrap className={styles.heroActions}>
-                <Button
-                  href={about.calendar.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  variant="primary"
-                  size="m"
-                  prefixIcon="calendar"
-                >
-                  Agendar uma ligação
-                </Button>
-                <Button href={work.path} variant="secondary" size="m" arrowIcon>
-                  Conheça meu trabalho
-                </Button>
-              </Row>
-            </Column>
-          </RevealFx>
-
-          <RevealFx delay={0.1} speed={980} translateY={0.24}>
-            <Column className={styles.heroAside} gap="16">
-              <Column gap="12">
-                <Text className={styles.kicker} variant="label-default-s" onBackground="neutral-weak">
-                  Posicionamento
-                </Text>
-                <Heading as="h2" variant="heading-strong-l" wrap="balance">
-                  Presença digital que funciona. Visual que posiciona. Sistemas feitos para durar.
-                </Heading>
-                <Text onBackground="neutral-weak" variant="body-default-m">
-                  Para negócios que querem presença forte, eficiência operacional e comunicação com
-                  direção real.
-                </Text>
-              </Column>
-
-              <div className={styles.heroPillarGrid}>
-                {heroPillars.map((pillar) => (
-                  <div key={pillar.label} className={styles.heroPillar}>
-                    <Text className={styles.kicker} variant="label-default-s" onBackground="neutral-weak">
-                      {pillar.label}
-                    </Text>
-                    <Text variant="body-default-m">{pillar.value}</Text>
-                  </div>
-                ))}
-              </div>
-
-              <Column as="ul" className={styles.heroSignalList} gap="12">
-                {heroSignals.map((signal) => (
-                  <Text as="li" key={signal} className={styles.heroSignalItem} onBackground="neutral-weak">
-                    {signal}
-                  </Text>
-                ))}
-              </Column>
-            </Column>
-          </RevealFx>
+          <div className={styles.heroVisualWrap}>
+            <HeroVisual />
+          </div>
         </div>
 
-        <RevealFx delay={0.14} speed={980} translateY={0.18}>
-          <Column gap="12">
-            <Text
-              className={styles.proofLabel}
-              variant="label-default-s"
-              onBackground="neutral-weak"
-            >
-              Percepção desejada
-            </Text>
-            <HeroProofCarousel items={heroProofItems} />
-          </Column>
-        </RevealFx>
-      </Column>
+        <a className={styles.scrollCue} href="#home-proof" aria-label="Explorar proxima secao">
+          <span className={styles.scrollCueText}>Explore</span>
+          <span className={styles.scrollCueLine} aria-hidden="true" />
+          <span className={styles.scrollCueArrow} aria-hidden="true" />
+        </a>
+      </section>
 
-      <MarketStrategyRail />
+      <section className={styles.postHeroSection} id="home-proof">
+        <Reveal delay={0.04} distance={20}>
+          <MarqueeTrust items={[...trustMarqueeItems]} />
+        </Reveal>
+        <Reveal delay={0.12} distance={20}>
+          <TechStrip items={[...techStripItems]} />
+        </Reveal>
+      </section>
 
-      {hasWorkProjects ? (
-        <FeaturedWorksShowcase projects={workProjects} />
-      ) : (
-        <Column fillWidth gap="12">
-          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            Portfólio em atualização
-          </Tag>
-          <Heading as="h2" variant="display-strong-s">
-            Novos cases entram em breve
-          </Heading>
-          <RevealFx delay={0.16} speed={900} translateY={0.3}>
-            <Row gap="12" wrap className={styles.actions}>
-              <Button href={servicesPage.path} variant="primary" size="m" arrowIcon>
-                Ver serviços
-              </Button>
-              <Button href={about.path} variant="secondary" size="m" arrowIcon>
-                Sobre mim
-              </Button>
-            </Row>
-          </RevealFx>
-        </Column>
-      )}
+      <MarketsSection
+        eyebrow={homeMarketsSection?.label ?? "Mercados"}
+        title={homeMarketsSection?.title ?? "Mercados diferentes exigem estrategias diferentes."}
+        description={homeMarketsSection?.description ?? ""}
+        items={marketCards.map((market) => ({
+          ...market,
+          bullets: [...market.bullets],
+        }))}
+      />
 
-      {routes["/blog"] && (
-        <Column className={styles.blogPanel} fillWidth gap="16">
-          <Row
-            className={styles.panelHeader}
-            fillWidth
-            horizontal="between"
-            s={{ direction: "column" }}
-          >
-            <Column className={styles.panelCopy} gap="8">
-              <Tag size="s" background="neutral-alpha-weak">
+      <FeaturedWorksShowcase projects={workProjects} />
+
+      <section className={styles.section}>
+        <Reveal delay={0.04} distance={24}>
+          <SectionHeader
+            eyebrow={homeBlogSection?.label ?? "Insights"}
+            title={homeBlogSection?.title ?? "Ideias que geram resultado."}
+            description={homeBlogSection?.description ?? ""}
+            actionLabel={homeBlogSection?.ctaLabel ?? "Ver artigos"}
+            actionHref={homeBlogSection?.ctaHref ?? "/blog"}
+          />
+        </Reveal>
+        <div className={styles.blogGrid}>
+          {blogPosts.length > 0 ? (
+            blogPosts.map((post) => (
+              <ArticleCard
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                title={post.metadata.title}
+                summary={post.metadata.summary}
+                publishedAt={post.metadata.publishedAt}
+                category={getBlogPrimaryCategory(post)}
+                readingTime={post.metadata.readingTime}
+              />
+            ))
+          ) : (
+            <article className={styles.supportPanel}>
+              <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
                 Blog
-              </Tag>
-              <Heading as="h2" variant="display-strong-s">
-                Pensamento, processo e internet sem ruído.
-              </Heading>
-              <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-                Ensaios, notas e leituras sobre estratégia, tecnologia, comunicação e construção de
-                presença digital com critério.
               </Text>
-            </Column>
-
-            <div className={styles.blogLinkRow}>
-              <SmartLink href={blog.path} suffixIcon="arrowRight">
-                Ir para o blog
-              </SmartLink>
-            </div>
-          </Row>
-
-          <Posts range={[1, 2]} featuredFirst thumbnail showSummary marginBottom="0" />
-        </Column>
-      )}
-
-      <Column className={styles.contactPanel} fillWidth gap="20">
-        <Row
-          className={styles.contactShell}
-          fillWidth
-          horizontal="between"
-          s={{ direction: "column" }}
-        >
-          <Column className={styles.panelCopy} gap="12">
-            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-              Próximo passo
-            </Tag>
-            <Heading as="h2" variant="display-strong-s">
-              Se a operação precisa de mais clareza, a próxima conversa começa por aí.
-            </Heading>
-            <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-              O objetivo não é empilhar entregas. É entender contexto, organizar prioridades e
-              desenhar a estrutura certa para crescer com mais controle.
-            </Text>
-
-            <Row gap="12" wrap className={styles.heroActions}>
-              <Button
-                href={about.calendar.link}
-                target="_blank"
-                rel="noreferrer"
-                variant="primary"
-                size="m"
-                prefixIcon="calendar"
-              >
-                Agendar uma ligação
-              </Button>
-              <Button href={servicesPage.path} variant="secondary" size="m" arrowIcon>
-                Ver serviços
-              </Button>
-            </Row>
-          </Column>
-
-          <Column className={styles.contactAside} gap="12">
-            <Text
-              className={styles.proofLabel}
-              variant="label-default-s"
-              onBackground="neutral-weak"
-            >
-              O que essa conversa destrava
-            </Text>
-            <Column className={styles.signalList} as="ul" gap="12">
-              <Text as="li" className={styles.signalItem} onBackground="neutral-weak">
-                leitura objetiva da estrutura digital atual
+              <Text variant="body-default-m">
+                O bloco editorial fica pronto para receber artigos assim que a nova linha de insights entrar em publicacao.
               </Text>
-              <Text as="li" className={styles.signalItem} onBackground="neutral-weak">
-                definição do formato mais adequado para o próximo passo
-              </Text>
-              <Text as="li" className={styles.signalItem} onBackground="neutral-weak">
-                priorização técnica e estratégica sem excesso de ruído
-              </Text>
-            </Column>
-          </Column>
-        </Row>
-      </Column>
+            </article>
+          )}
+        </div>
+      </section>
 
-      <Mailchimp />
-    </Column>
+      <section className={styles.aboutSection}>
+        <AboutTeaser
+          eyebrow={homeAboutSection?.label ?? "Sobre"}
+          title={homeAboutSection?.title ?? "Mais que design e tecnologia."}
+          description={
+            homeAboutSection?.description ??
+            "Transformo ideias e necessidades reais em estruturas digitais claras, funcionais e valiosas."
+          }
+          ctaLabel={homeAboutSection?.ctaLabel ?? "Conheca minha trajetoria"}
+          ctaHref={homeAboutSection?.ctaHref ?? about.path}
+        />
+      </section>
+
+      <section className={styles.finalSection}>
+        <FinalCTA
+          eyebrow={homeFinalSection?.label ?? "Proximo passo"}
+          title={
+            homeFinalSection?.title ??
+            "Se seu negocio precisa de presenca forte e operacao digital eficiente, vamos conversar."
+          }
+          description={
+            homeFinalSection?.description ??
+            "Uma conversa direta pode revelar oportunidades reais de posicionamento, aquisicao e operacao digital."
+          }
+          primaryLabel={homeFinalSection?.ctaLabel ?? "Agendar uma ligacao"}
+          primaryHref={homeFinalSection?.ctaHref ?? contact.path}
+        />
+      </section>
+    </div>
   );
 }

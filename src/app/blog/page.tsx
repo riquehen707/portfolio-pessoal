@@ -1,76 +1,89 @@
 import { Card, Column, Grid, Heading, Meta, Row, Schema, Tag, Text } from "@once-ui-system/core";
 
+import {
+  getFeaturedBlogPosts,
+  getStrategicBlogPosts,
+  strategicBlogCategories,
+} from "@/app/blog/postData";
 import BlogExplorer from "@/components/blog/BlogExplorer";
 import { PostData, PostFrontmatter } from "@/components/blog/Posts";
-import { baseURL, blog, person } from "@/resources";
-import { getAllCategories, getAllPosts } from "@/utils/posts";
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { baseURL, blog, contentStrategy, person } from "@/resources";
 
 import styles from "./blog.module.scss";
 
+const blogStrategy = contentStrategy.pages.blog;
+
 const categoryDescriptions: Record<string, string> = {
-  "Filosofia & Sociedade":
-    "Ensaios sobre moral, identidade, cultura, modernidade e os atritos da vida contemporânea.",
-  "Ética":
-    "Textos sobre dever, virtude, moral e as tensões entre teoria e vida prática.",
-  Sociologia:
-    "Leituras sobre trabalho, comportamento, consumo, classe, mídia e formas de convivência.",
-  Epistemologia:
-    "Questões sobre conhecimento, verdade, crença e os limites do que chamamos de saber.",
-  "engenharia social":
-    "Reflexões sobre mídia, narrativa, influência, espetáculo e disputa por atenção.",
+  "Negocios locais":
+    "Leituras para mercados reais que precisam de presenca forte, contexto comercial e operacao mais previsivel.",
+  Marketing:
+    "Aquisicao, conversao, oferta e leitura comercial aplicadas a negocios que precisam crescer com criterio.",
+  Design:
+    "Percepcao de valor, hierarquia visual e clareza editorial usadas para transmitir mais confianca.",
+  Operacao:
+    "Processos, CRM, follow-up e estrutura para reduzir atrito e organizar a rotina digital.",
+  Tecnologia:
+    "Sites, SEO, automacao e infraestrutura colocados a servico de performance e decisao.",
+  Growth:
+    "Crescimento com base em consistencia, dados uteis e leitura mais inteligente da operacao.",
 };
 
-const editorialLanes = [
-  {
-    title: "Ensaios e filosofia",
-    description:
-      "O eixo mais forte hoje. Um espaço para pensar moral, cultura, identidade, sociedade e conflito.",
-    meta: "Núcleo principal",
-  },
-  {
-    title: "Tecnologia quando fizer sentido",
-    description:
-      "SEO, sites, produto, front-end e decisões digitais aparecem aqui como parte da vida real, não como jargão solto.",
-    meta: "Camada aplicada",
-  },
-  {
-    title: "Cultura, internet e entretenimento",
-    description:
-      "Música, mídia, comportamento e repertório entram porque também moldam como eu leio o mundo e trabalho.",
-    meta: "Interesses abertos",
-  },
-];
+const trackMeta: Record<string, string> = {
+  "Negocios locais": "Mercado",
+  Marketing: "Aquisicao",
+  Design: "Percepcao",
+  Operacao: "Estrutura",
+  Tecnologia: "Base tecnica",
+  Growth: "Crescimento",
+};
 
 function formatCategoryLabel(category: string) {
   return category.charAt(0).toUpperCase() + category.slice(1);
 }
 
 export async function generateMetadata() {
-  return Meta.generate({
-    title: blog.title,
-    description: blog.description,
-    baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent(blog.title)}`,
-    path: blog.path,
-  });
+  return {
+    ...Meta.generate({
+      title: blog.title,
+      description: blog.description,
+      baseURL,
+      image: `/api/og/generate?title=${encodeURIComponent(blog.title)}`,
+      path: blog.path,
+    }),
+    keywords: blogStrategy.seo.keywords,
+  };
 }
 
 export default function Blog() {
-  const rawPosts = getAllPosts();
-  const allPosts = rawPosts
-    .map((post) => ({
-      slug: post.slug,
-      metadata: post.metadata as PostFrontmatter,
-    })) as PostData[];
+  const rawPosts = getStrategicBlogPosts();
+  const featuredPosts = getFeaturedBlogPosts(3, rawPosts);
+  const allPosts = rawPosts.map((post) => ({
+    slug: post.slug,
+    metadata: post.metadata as PostFrontmatter,
+  })) as PostData[];
 
-  const categories = getAllCategories(rawPosts).map((category) => ({
-    key: category,
-    label: formatCategoryLabel(category),
-    description:
-      categoryDescriptions[category] ??
-      "Textos reunidos por afinidade temática para facilitar a leitura e a navegação.",
-    count: allPosts.filter((post) => post.metadata.categories?.includes(category)).length,
-  }));
+  const orderedPosts =
+    featuredPosts.length > 0 && allPosts.length > featuredPosts.length
+      ? [
+          ...featuredPosts.map((post) => ({
+            slug: post.slug,
+            metadata: post.metadata as PostFrontmatter,
+          })),
+          ...allPosts.filter((post) => !featuredPosts.some((featured) => featured.slug === post.slug)),
+        ]
+      : allPosts;
+
+  const categories = strategicBlogCategories
+    .map((category) => ({
+      key: category,
+      label: formatCategoryLabel(category),
+      description:
+        categoryDescriptions[category] ??
+        "Textos reunidos por afinidade tematica para facilitar leitura, contexto e navegacao.",
+      count: allPosts.filter((post) => post.metadata.categories?.includes(category)).length,
+    }))
+    .filter((category) => category.count > 0);
 
   return (
     <Column maxWidth="m" paddingTop="24" gap="24">
@@ -87,24 +100,33 @@ export default function Blog() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: baseURL },
+          { name: "Blog", url: `${baseURL}${blog.path}` },
+        ]}
+      />
 
       <Column className={styles.hero} gap="16" padding="24">
         <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-          Caderno editorial
+          {blogStrategy.hero.eyebrow}
         </Tag>
-        <Heading variant="heading-strong-xl">{blog.title}</Heading>
-        <Text className={styles.heroLead} onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-          Este espaço não existe só para falar de serviço, produto ou SEO. Aqui entram ensaios,
-          filosofia, cultura, internet, tecnologia e tudo que realmente atravessa meu trabalho e os
-          meus interesses.
+        <Heading variant="heading-strong-xl">{blogStrategy.hero.headline}</Heading>
+        <Text
+          className={styles.heroLead}
+          onBackground="neutral-weak"
+          variant="heading-default-m"
+          wrap="balance"
+        >
+          {blogStrategy.hero.subheadline}
         </Text>
       </Column>
 
       <Grid className={styles.laneGrid} columns="3" s={{ columns: 1 }} gap="16">
-        {editorialLanes.map((lane) => (
+        {categories.map((lane) => (
           <Card
             className={styles.laneCard}
-            key={lane.title}
+            key={lane.key}
             direction="column"
             gap="12"
             paddingX="20"
@@ -115,27 +137,30 @@ export default function Blog() {
             fillHeight
           >
             <Text className={styles.laneMeta} variant="label-default-s" onBackground="neutral-weak">
-              {lane.meta}
+              {trackMeta[lane.key] ?? "Insight"}
             </Text>
             <Heading as="h2" variant="heading-strong-m">
-              {lane.title}
+              {lane.label}
             </Heading>
             <Text onBackground="neutral-weak">{lane.description}</Text>
+            <Text variant="body-default-s" onBackground="neutral-weak">
+              {`${lane.count} artigo${lane.count === 1 ? "" : "s"}`}
+            </Text>
           </Card>
         ))}
       </Grid>
 
       <Row className={styles.infoPanel} gap="12" padding="20" wrap vertical="center">
         <Tag size="s" background="neutral-alpha-weak">
-          Leitura organizada
+          Direcao editorial
         </Tag>
         <Text onBackground="neutral-weak">
-          As abas abaixo separam os textos por categoria e o feed continua carregando em lotes
-          pequenos para manter a navegação leve.
+          A linha principal do blog escreve para empresarios e decisores. Os destaques abaixo
+          priorizam negocio, conversao, operacao e crescimento com linguagem direta.
         </Text>
       </Row>
 
-      <BlogExplorer posts={allPosts} categories={categories} />
+      <BlogExplorer posts={orderedPosts} categories={categories} />
     </Column>
   );
 }

@@ -1,6 +1,6 @@
 import "@once-ui-system/core/css/styles.css";
 import "@once-ui-system/core/css/tokens.css";
-import "@/resources/custom.css";
+import "@/styles/globals.scss";
 
 import classNames from "classnames";
 
@@ -15,7 +15,18 @@ import {
 } from "@once-ui-system/core";
 
 import { Footer, Header, Providers } from "@/components";
-import { baseURL as baseFromConfig, dataStyle, effects, fonts, home, style } from "@/resources";
+import { SiteStructuredData } from "@/components/seo/SiteStructuredData";
+import {
+  baseURL as baseFromConfig,
+  brandIdentity,
+  brandMessaging,
+  brandPalette,
+  dataStyle,
+  effects,
+  fonts,
+  home,
+  style,
+} from "@/resources";
 
 function resolveBaseURL(): URL {
   const raw = (process.env.NEXT_PUBLIC_SITE_URL ?? baseFromConfig ?? "").trim();
@@ -47,13 +58,20 @@ function toAbsoluteOrPath(base: URL, maybePath?: string): string | undefined {
 
 const GOOGLE_SITE_VERIFICATION = "LQzYGuvWyFJ-oWweMatvNPeFAQwOIMT2q8Q1pbX27Zw";
 
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: brandPalette.darkBase },
+    { media: "(prefers-color-scheme: light)", color: brandPalette.lightBase },
+  ],
+};
+
 export async function generateMetadata() {
   const metadataBase = resolveBaseURL();
-  const siteTitle = "Henrique Reis";
-  const siteDescription =
-    "Estratégia, design e sistemas para transformar complexidade digital em clareza, presença forte e crescimento.";
+  const siteTitle = brandIdentity.name;
+  const siteDescription = brandMessaging.siteDescription;
   const path = ensureLeadingSlash(home?.path ?? "/");
   const image = toAbsoluteOrPath(metadataBase, home?.image ?? "/og.png");
+  const canonicalUrl = new URL(path || "/", metadataBase).toString();
 
   const onceMeta = Meta.generate({
     title: siteTitle,
@@ -70,20 +88,45 @@ export async function generateMetadata() {
       default: siteTitle,
       template: `%s | ${siteTitle}`,
     },
+    authors: [{ name: siteTitle, url: canonicalUrl }],
+    creator: siteTitle,
+    publisher: siteTitle,
     description: siteDescription,
     metadataBase,
     alternates: {
-      canonical: new URL(path || "/", metadataBase).toString(),
+      canonical: canonicalUrl,
     },
+    openGraph: {
+      type: "website",
+      locale: "pt_BR",
+      url: canonicalUrl,
+      siteName: siteTitle,
+      title: siteTitle,
+      description: siteDescription,
+      images: image ? [{ url: image, alt: siteTitle }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: siteTitle,
+      description: siteDescription,
+      images: image ? [image] : undefined,
+    },
+    icons: {
+      icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+      shortcut: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+    referrer: "origin-when-cross-origin",
     verification: {
       google: GOOGLE_SITE_VERIFICATION,
     },
   };
 }
 
-export default async function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <Flex
       suppressHydrationWarning
@@ -99,6 +142,7 @@ export default async function RootLayout({
     >
       <head>
         <meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
+        <SiteStructuredData />
         <script
           id="theme-init"
           dangerouslySetInnerHTML={{
@@ -156,6 +200,7 @@ export default async function RootLayout({
       <Providers>
         <Column
           as="body"
+          className="hr-site-body"
           background="page"
           fillWidth
           style={{ minHeight: "100vh" }}
@@ -205,10 +250,9 @@ export default async function RootLayout({
               }}
             />
           </RevealFx>
-          <Flex fillWidth minHeight="16" s={{ hide: true }} />
           <Header />
-          <Flex zIndex={0} fillWidth padding="l" horizontal="center" flex={1}>
-            <Flex horizontal="center" fillWidth minHeight="0">
+          <Flex as="main" className="hr-site-main" zIndex={0} fillWidth horizontal="center" flex={1}>
+            <Flex className="hr-site-content" horizontal="center" fillWidth minHeight="0">
               {children}
             </Flex>
           </Flex>

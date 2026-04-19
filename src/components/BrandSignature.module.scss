@@ -9,23 +9,10 @@
 }
 
 .mark {
-  position: relative;
   flex: 0 0 auto;
-  width: 0.98rem;
-  height: 0.98rem;
-  border-radius: 0.22rem;
+  width: 0.92rem;
+  height: 0.92rem;
   background: #ffd700;
-  box-shadow:
-    0 0 0 1px rgba(255, 215, 0, 0.28),
-    0 12px 30px rgba(255, 215, 0, 0.18);
-}
-
-.mark::after {
-  content: "";
-  position: absolute;
-  inset: 0.22rem;
-  border: 1px solid rgba(11, 11, 13, 0.38);
-  border-radius: 0.08rem;
 }
 
 .copy {
@@ -37,9 +24,9 @@
 .name {
   color: var(--neutral-on-background-strong);
   font-family: var(--font-heading);
-  font-size: 0.76rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   line-height: 1;
   text-transform: uppercase;
 }

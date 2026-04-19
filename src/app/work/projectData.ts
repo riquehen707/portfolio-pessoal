@@ -77,8 +77,93 @@ export function getWorkProjectStack(project: BlogFile) {
   );
 }
 
+export function getWorkProjectCategory(project: BlogFile) {
+  return project.metadata.category ?? project.metadata.categories?.[0] ?? project.metadata.tag;
+}
+
+export function getWorkProjectObjective(project: BlogFile) {
+  return project.metadata.objective ?? project.metadata.summary ?? project.metadata.tag ?? project.metadata.title;
+}
+
 export function getWorkProjectKindLabel(project: BlogFile) {
   return project.metadata.kind ? kindLabels[project.metadata.kind] : undefined;
+}
+
+function getWorkProjectDateScore(project: BlogFile) {
+  const timestamp = new Date(project.metadata.updatedAt ?? project.metadata.publishedAt ?? 0).getTime();
+  return Number.isFinite(timestamp) ? timestamp / 1_000_000_000_000 : 0;
+}
+
+export function getWorkProjectRelevanceScore(project: BlogFile) {
+  const explicitScore = project.metadata.score ?? 0;
+  const featuredHomeBoost = project.metadata.featuredHome ? 90 : 0;
+  const featuredBoost = project.metadata.featured ? 18 : 0;
+  const kindScore =
+    project.metadata.kind === "client" ? 20 : project.metadata.kind === "study" ? 14 : 10;
+  const imageScore = project.metadata.image || project.metadata.images?.length ? 10 : 0;
+  const categoryScore = getWorkProjectCategory(project) ? 6 : 0;
+  const objectiveScore = project.metadata.objective ? 8 : 0;
+  const stackScore = Math.min(getWorkProjectStack(project).length, 4) * 2;
+
+  return (
+    explicitScore +
+    featuredHomeBoost +
+    featuredBoost +
+    kindScore +
+    imageScore +
+    categoryScore +
+    objectiveScore +
+    stackScore +
+    getWorkProjectDateScore(project)
+  );
+}
+
+function getWorkProjectDiversityScore(project: BlogFile, selected: BlogFile[]) {
+  if (selected.length === 0) {
+    return 0;
+  }
+
+  const projectCategory = getWorkProjectCategory(project);
+  const projectStack = new Set(getWorkProjectStack(project));
+
+  return selected.reduce((total, current) => {
+    const currentCategory = getWorkProjectCategory(current);
+    const currentStack = new Set(getWorkProjectStack(current));
+    const sharedStackCount = [...projectStack].filter((item) => currentStack.has(item)).length;
+
+    let score = total;
+
+    if (projectCategory && currentCategory && projectCategory !== currentCategory) score += 10;
+    if (project.metadata.kind && current.metadata.kind && project.metadata.kind !== current.metadata.kind) score += 6;
+    if (project.metadata.tag && current.metadata.tag && project.metadata.tag !== current.metadata.tag) score += 6;
+    if (sharedStackCount === 0) score += 5;
+    if (sharedStackCount >= 2) score -= 4;
+
+    return score;
+  }, 0);
+}
+
+export function getFeaturedHomeWorkProjects(limit = 3, projects = getAllWorkProjects()) {
+  const pool = [...projects];
+  const selected: BlogFile[] = [];
+
+  while (pool.length > 0 && selected.length < limit) {
+    let bestIndex = 0;
+    let bestScore = -Infinity;
+
+    pool.forEach((project, index) => {
+      const score = getWorkProjectRelevanceScore(project) + getWorkProjectDiversityScore(project, selected);
+
+      if (score > bestScore) {
+        bestIndex = index;
+        bestScore = score;
+      }
+    });
+
+    selected.push(pool.splice(bestIndex, 1)[0]);
+  }
+
+  return selected;
 }
 
 export function toAbsoluteWorkProjectUrl(pathOrUrl?: string): string | undefined {

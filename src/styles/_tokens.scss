@@ -1,0 +1,105 @@
+:root {
+  --scheme-brand-100: #120f00;
+  --scheme-brand-200: #191400;
+  --scheme-brand-300: #251d00;
+  --scheme-brand-400: #4d3f00;
+  --scheme-brand-500: #7b6500;
+  --scheme-brand-600: #b49400;
+  --scheme-brand-700: #ffd700;
+  --scheme-brand-800: #ffe15a;
+  --scheme-brand-900: #ffeba0;
+  --scheme-brand-1000: #fff2c7;
+  --scheme-brand-1100: #fff7e0;
+  --scheme-brand-1200: #fffdf5;
+  --scheme-brand-600-10: rgba(180, 148, 0, 0.1);
+  --scheme-brand-600-30: rgba(180, 148, 0, 0.3);
+  --scheme-brand-600-50: rgba(180, 148, 0, 0.5);
+  --scheme-brand-700-10: rgba(255, 215, 0, 0.1);
+  --scheme-brand-700-30: rgba(255, 215, 0, 0.3);
+  --scheme-brand-700-50: rgba(255, 215, 0, 0.5);
+
+  --scheme-accent-100: #06131a;
+  --scheme-accent-200: #0a1e2a;
+  --scheme-accent-300: #0d3143;
+  --scheme-accent-400: #104c68;
+  --scheme-accent-500: #126a92;
+  --scheme-accent-600: #1482b8;
+  --scheme-accent-700: #3396c6;
+  --scheme-accent-800: #67aed5;
+  --scheme-accent-900: #96c7e4;
+  --scheme-accent-1000: #bfdcef;
+  --scheme-accent-1100: #deedf7;
+  --scheme-accent-1200: #f3f9fc;
+  --scheme-accent-600-10: rgba(20, 130, 184, 0.1);
+  --scheme-accent-600-30: rgba(20, 130, 184, 0.3);
+  --scheme-accent-600-50: rgba(20, 130, 184, 0.5);
+  --scheme-accent-700-10: rgba(51, 150, 198, 0.1);
+  --scheme-accent-700-30: rgba(51, 150, 198, 0.3);
+  --scheme-accent-700-50: rgba(51, 150, 198, 0.5);
+
+  --scheme-neutral-100: #050506;
+  --scheme-neutral-200: #0b0b0d;
+  --scheme-neutral-300: #121216;
+  --scheme-neutral-400: #17171b;
+  --scheme-neutral-500: #232329;
+  --scheme-neutral-600: #3a3a42;
+  --scheme-neutral-700: #5c5c66;
+  --scheme-neutral-800: #85858e;
+  --scheme-neutral-900: #afafb8;
+  --scheme-neutral-1000: #d2d2d7;
+  --scheme-neutral-1100: #ecece7;
+  --scheme-neutral-1200: #f7f7f4;
+  --scheme-neutral-600-10: rgba(58, 58, 66, 0.1);
+  --scheme-neutral-600-30: rgba(58, 58, 66, 0.3);
+  --scheme-neutral-600-50: rgba(58, 58, 66, 0.5);
+
+  --space-8: 0.5rem;
+  --space-16: 1rem;
+  --space-24: 1.5rem;
+  --space-32: 2rem;
+  --space-48: 3rem;
+  --space-64: 4rem;
+  --space-96: 6rem;
+  --space-128: 8rem;
+  --space-section: clamp(1.25rem, 2.5vw, 2rem);
+  --space-section-lg: clamp(1.5rem, 4vw, 2.75rem);
+
+  --radius-8: 0.5rem;
+  --radius-16: 1rem;
+  --radius-24: 1.5rem;
+  --radius-panel: 1.75rem;
+  --radius-pill: 999px;
+
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-fast: 200ms var(--ease-standard);
+  --motion-base: 280ms var(--ease-standard);
+  --motion-slow: 450ms var(--ease-standard);
+
+  --z-base: 1;
+  --z-nav: 9;
+  --z-overlay: 30;
+  --z-modal: 40;
+  --z-toast: 50;
+
+  --type-h1: clamp(2.5rem, 6vw, 4.5rem);
+  --type-h2: clamp(1.875rem, 4vw, 3.25rem);
+  --type-h3: clamp(1.75rem, 3vw, 2.25rem);
+  --type-body-lg: 1.25rem;
+  --type-body: clamp(1rem, 1vw, 1.125rem);
+  --type-caption: 0.875rem;
+  --line-body: 1.7;
+  --tracking-display: -0.055em;
+  --tracking-tight: -0.04em;
+
+  --grid-max-width: 1280px;
+  --grid-max-width-wide: 1440px;
+  --grid-gutter: clamp(1rem, 1.8vw, 1.5rem);
+  --grid-columns-desktop: 12;
+  --grid-columns-tablet: 8;
+  --grid-columns-mobile: 4;
+
+  --scroll-offset: 7rem;
+  --scroll-offset-mobile: 8rem;
+  --focus-ring: rgba(255, 215, 0, 0.54);
+  --accent-line-gradient: linear-gradient(90deg, var(--color-accent-gold), var(--color-accent-blue));
+}

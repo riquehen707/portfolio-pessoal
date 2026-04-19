@@ -14,11 +14,14 @@ export interface PostFrontmatter {
   title: string;
   publishedAt: string;
   summary?: string;
+  category?: string;
   tag?: string;
   tags?: string[];
   categories?: string[];
   image?: string;
   imageAlt?: string;
+  readingTime?: number;
+  featured?: boolean;
 }
 
 export interface PostData {

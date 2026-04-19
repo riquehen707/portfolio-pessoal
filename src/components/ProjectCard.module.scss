@@ -9,14 +9,14 @@
   position: relative;
   display: grid;
   overflow: hidden;
-  border-radius: 1.75rem;
+  border-radius: var(--radius-panel);
   background: var(--surface-panel);
   box-shadow: var(--shadow-soft);
   transition:
-    transform 180ms ease,
-    border-color 180ms ease,
-    box-shadow 180ms ease,
-    background 180ms ease;
+    transform var(--motion-base),
+    border-color var(--motion-base),
+    box-shadow var(--motion-base),
+    background var(--motion-base);
 }
 
 .card::before {
@@ -70,7 +70,7 @@
   height: 2px;
   margin-bottom: 0.15rem;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--scheme-brand-700), var(--scheme-accent-700));
+  background: linear-gradient(90deg, var(--color-accent-gold), var(--color-accent-blue));
 }
 
 .card[data-variant="feature"] .contentShell {
@@ -124,7 +124,7 @@
   .card:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-card);
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--surface-elevated);
   }
 }
 
@@ -136,7 +136,7 @@
 
 @media (max-width: breakpoints.$s) {
   .card {
-    border-radius: 1.35rem;
+    border-radius: calc(var(--radius-24) - 0.15rem);
   }
 
   .card[data-variant="compact"] {

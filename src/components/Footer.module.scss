@@ -1,74 +1,65 @@
-@use "./breakpoints.scss" as breakpoints;
+@use "../styles/mixins" as mixins;
 
 .footer {
   width: 100%;
+  padding: 0 clamp(1rem, 3vw, 2rem) clamp(1.75rem, 4vw, 2.5rem);
+  border-top: 1px solid var(--border-subtle);
 }
 
 .shell {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--border-subtle);
-  border-radius: 1.7rem;
-  background: rgba(20, 20, 24, 0.82);
-  backdrop-filter: blur(18px);
-  box-shadow: var(--shadow-soft);
-}
-
-.shell::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 42%),
-    radial-gradient(circle at 10% 0%, var(--brand-glow), transparent 24%),
-    radial-gradient(circle at 88% 0%, var(--accent-glow), transparent 22%);
-  pointer-events: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) repeat(2, minmax(12rem, 0.8fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  width: min(100%, var(--grid-max-width));
+  margin-inline: auto;
+  padding-top: clamp(1.5rem, 3vw, 2rem);
 }
 
 .identity,
-.meta {
-  position: relative;
-  z-index: 1;
+.group {
   min-width: 0;
 }
 
-.identity {
-  max-width: 30rem;
-}
-
 .statement {
-  max-width: 40ch;
+  max-width: 24ch;
 }
 
-.meta {
-  text-align: right;
+.groupLabel {
+  @include mixins.label-uppercase;
+}
+
+.linkList {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.link {
+  color: var(--neutral-on-background-medium);
+  text-decoration: none;
 }
 
 .copy {
-  max-width: 36ch;
+  max-width: 30ch;
 }
 
-.social {
-  justify-content: flex-end;
+@include mixins.hover-fine {
+  .link:hover {
+    color: var(--neutral-on-background-strong);
+  }
 }
 
-@media (max-width: breakpoints.$s) {
-  .shell {
-    border-radius: 1.35rem;
+@include mixins.s {
+  .footer {
+    padding-bottom: 1.5rem;
   }
 
-  .identity,
-  .meta {
-    align-items: center;
-    text-align: center;
+  .shell {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .statement,
   .copy {
     max-width: none;
-  }
-
-  .social {
-    justify-content: center;
   }
 }

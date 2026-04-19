@@ -1,0 +1,33 @@
+@keyframes hr-cinematic-breathe {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, -0.2rem, 0);
+  }
+}
+
+.hr-ambient-breathe {
+  animation: hr-cinematic-breathe 10s var(--ease-standard) infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reset-button-styles,
+  button,
+  a,
+  input,
+  textarea,
+  select,
+  .hr-card,
+  .hr-panel,
+  .hr-navbar-shell,
+  .hr-ambient-breathe {
+    transition: none;
+    animation: none;
+  }
+}

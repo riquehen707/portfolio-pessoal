@@ -1,10 +1,30 @@
+@use "../styles/mixins" as mixins;
+
 .button {
   display: flex;
   align-items: center;
   justify-content: center;
+  @include mixins.panel-surface(
+    var(--radius-16),
+    var(--border-subtle),
+    var(--surface-overlay-soft),
+    var(--surface-panel-soft),
+    var(--shadow-soft)
+  );
+  transition:
+    transform var(--motion-fast),
+    border-color var(--motion-fast),
+    box-shadow var(--motion-fast);
   
   svg {
     width: 1em;
     height: 1em;
+  }
+}
+
+@include mixins.hover-fine {
+  .button:hover {
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-card);
   }
 }

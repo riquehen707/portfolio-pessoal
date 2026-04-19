@@ -1,13 +1,25 @@
-import { About, Blog, Home, Newsletter, Person, Social, TechnicalPage, Work } from "@/types";
+import {
+  About,
+  BasePageConfig,
+  Blog,
+  Home,
+  Newsletter,
+  Person,
+  Social,
+  TechnicalPage,
+  Work,
+} from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
 
+import { brandIdentity, brandMessaging } from "./brand";
+import { contentStrategy } from "./content-strategy";
 import { services, servicesPage } from "./services";
 
 const person: Person = {
   firstName: "Henrique",
   lastName: "Reis",
   name: "Henrique Reis",
-  role: "Estratégia digital, design e sistemas para negócios que precisam crescer com clareza",
+  role: brandMessaging.role,
   avatar: "/images/avatar-henrique.jpg",
   email: "oi@henriquereis.dev",
   location: "America/Bahia",
@@ -39,15 +51,19 @@ const social: Social = [
 ];
 
 const featuredService = services[0];
+const homeStrategy = contentStrategy.pages.home;
+const aboutStrategy = contentStrategy.pages.about;
+const blogStrategy = contentStrategy.pages.blog;
+const workStrategy = contentStrategy.pages.work;
+const contactStrategy = contentStrategy.pages.contact;
 
 const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Início",
-  title: "Henrique Reis | Estratégia, design e sistemas para crescimento digital",
-  description:
-    "Portfólio de estratégia, design e sistemas para negócios que querem presença forte, operação eficiente e comunicação com direção real.",
-  headline: <>Operação digital completa para negócios que querem crescer com clareza.</>,
+  title: `${brandIdentity.name} | ${homeStrategy.seo.focus}`,
+  description: homeStrategy.hero.subheadline,
+  headline: <>{homeStrategy.hero.headline}</>,
   featured: {
     display: false,
     title: (
@@ -61,19 +77,14 @@ const home: Home = {
     ),
     href: `${servicesPage.path}/${featuredService.slug}`,
   },
-  subline: (
-    <>
-      Transformo complexidade em clareza com design, sistemas e comunicação estratégica para
-      construir presença forte, eficiência operacional e crescimento sustentável.
-    </>
-  ),
+  subline: <>{homeStrategy.hero.subheadline}</>,
 };
 
 const about: About = {
   path: "/about",
   label: "Sobre",
   title: `Sobre | ${person.name}`,
-  description: `Sobre ${person.name}, com foco em estratégia digital, estética e sistemas para crescimento.`,
+  description: aboutStrategy.hero.subheadline,
   tableOfContent: {
     display: true,
     subItems: true,
@@ -88,8 +99,7 @@ const about: About = {
   intro: {
     display: true,
     title: "Introdução",
-    description:
-      <>Estratégia antes da execução. Clareza para posicionar, construir e fazer o digital funcionar.</>,
+    description: <>Estratégia antes da execução. Crescimento exige estrutura.</>,
   },
   work: {
     display: true,
@@ -117,7 +127,9 @@ const about: About = {
       },
       {
         name: "Foco atual",
-        description: <>Negócios locais, sistemas enxutos e marcas que precisam crescer com precisão.</>,
+        description: (
+          <>Negócios locais, sistemas enxutos e marcas que precisam crescer com precisão.</>
+        ),
       },
     ],
   },
@@ -184,22 +196,28 @@ const technicalApproach: TechnicalPage = {
   label: "Abordagem técnica",
   title: `Abordagem técnica | ${person.name}`,
   description:
-    "Uma visão prática de como estruturo design, front-end, SEO, performance e sistemas sem perder clareza.",
+    "Uma visão prática de como estruturo design, tecnologia e operações com clareza, precisão e função.",
 };
 
 const blog: Blog = {
   path: "/blog",
-  label: "Blog",
-  title: "Pensamento, processo e internet",
-  description:
-    "Um espaço editorial para estratégia, tecnologia, internet, processo e ideias que atravessam o trabalho.",
+  label: "Insights",
+  title: `Insights | ${person.name}`,
+  description: blogStrategy.hero.subheadline,
 };
 
 const work: Work = {
   path: "/work",
   label: "Projetos",
-  title: "Works",
-  description: "Projetos, casos e estruturas digitais desenhadas para gerar valor real.",
+  title: `Projetos | ${person.name}`,
+  description: workStrategy.hero.subheadline,
 };
 
-export { person, social, newsletter, home, about, technicalApproach, blog, work };
+const contact: BasePageConfig = {
+  path: "/contact",
+  label: "Contato",
+  title: `Contato | ${person.name}`,
+  description: contactStrategy.hero.subheadline,
+};
+
+export { person, social, newsletter, home, about, technicalApproach, blog, work, contact };

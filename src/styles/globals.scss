@@ -1,0 +1,192 @@
+@use "./mixins" as mixins;
+@use "./tokens";
+@use "./themes";
+@use "./animations";
+@use "./utilities";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--scroll-offset);
+  background: var(--color-background-primary);
+}
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(var(--page-grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--page-grid-color) 1px, transparent 1px),
+    linear-gradient(180deg, var(--color-background-primary) 0%, var(--page-gradient-end) 100%);
+  background-size: 96px 96px, 96px 96px, auto;
+  color: var(--neutral-on-background-medium);
+  font-size: var(--type-body);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  transition:
+    background var(--motion-slow),
+    color var(--motion-fast);
+}
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.hr-site-body {
+  position: relative;
+}
+
+.hr-site-main {
+  width: 100%;
+  padding:
+    clamp(5.75rem, 8vw, 6.75rem)
+    clamp(1rem, 3vw, 2rem)
+    clamp(4rem, 7vw, 6rem);
+}
+
+.hr-site-content {
+  width: min(100%, var(--grid-max-width-wide));
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--neutral-on-background-strong);
+  letter-spacing: var(--tracking-display);
+}
+
+h1 {
+  font-size: var(--type-h1);
+  line-height: 0.96;
+}
+
+h2 {
+  font-size: var(--type-h2);
+  line-height: 1.02;
+}
+
+h3 {
+  font-size: var(--type-h3);
+  line-height: 1.08;
+}
+
+p,
+li {
+  line-height: var(--line-body);
+}
+
+a {
+  color: inherit;
+  transition:
+    color var(--motion-fast),
+    opacity var(--motion-fast),
+    border-color var(--motion-fast),
+    transform var(--motion-fast);
+}
+
+.button,
+button,
+[role="button"] {
+  box-shadow: var(--button-shadow);
+  transition:
+    transform var(--motion-fast),
+    box-shadow var(--motion-fast),
+    filter var(--motion-fast),
+    border-color var(--motion-fast),
+    background var(--motion-fast);
+  transform-origin: center;
+}
+
+.reset-button-styles,
+button {
+  transition:
+    transform var(--motion-fast),
+    box-shadow var(--motion-fast),
+    filter var(--motion-fast);
+  transform-origin: center;
+}
+
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
+  @include mixins.input-surface;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--neutral-on-background-weak);
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+a:focus-visible,
+button:focus-visible,
+.button:focus-visible,
+[role="button"]:focus-visible {
+  @include mixins.focus-ring;
+}
+
+::selection {
+  background: rgba(255, 215, 0, 0.24);
+  color: var(--neutral-on-background-strong);
+}
+
+@include mixins.hover-fine {
+  .button:hover,
+  button:hover,
+  [role="button"]:hover {
+    box-shadow: var(--button-shadow-hover);
+  }
+
+  .reset-button-styles:hover,
+  button:hover {
+    transform: translateY(-1px);
+  }
+}
+
+.button:active,
+button:active,
+[role="button"]:active {
+  box-shadow: var(--button-shadow-active);
+}
+
+.reset-button-styles:active,
+button:active {
+  transform: translateY(1px) scale(0.99);
+  filter: saturate(1.02) brightness(0.99);
+}
+
+@include mixins.s {
+  html {
+    scroll-padding-top: var(--scroll-offset-mobile);
+  }
+
+  .hr-site-main {
+    padding-top: clamp(7rem, 18vw, 8rem);
+    padding-bottom: clamp(3rem, 10vw, 4rem);
+  }
+}

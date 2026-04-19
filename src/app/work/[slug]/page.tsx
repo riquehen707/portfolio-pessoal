@@ -30,6 +30,7 @@ import {
 } from "@/app/work/projectData";
 import ArticleToc from "@/components/blog/ArticleToc";
 import { CustomMDX, ScrollToHash } from "@/components";
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { Projects } from "@/components/work/Projects";
 import { ProjectIntelligencePanel } from "@/components/work/ProjectIntelligencePanel";
 import { getProjectDashboardSnapshot } from "@/domain";
@@ -53,13 +54,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!post) return {};
 
-  return Meta.generate({
-    title: post.metadata.title,
-    description: post.metadata.summary ?? post.metadata.title,
-    baseURL,
-    image: toAbsoluteWorkProjectUrl(getWorkProjectSeoImage(post)),
-    path: getWorkProjectPath(post.slug),
-  });
+  return {
+    ...Meta.generate({
+      title: post.metadata.title,
+      description: post.metadata.summary ?? post.metadata.title,
+      baseURL,
+      image: toAbsoluteWorkProjectUrl(getWorkProjectSeoImage(post)),
+      path: getWorkProjectPath(post.slug),
+    }),
+    keywords: [
+      ...getWorkProjectStack(post),
+      getWorkProjectKindLabel(post),
+      post.metadata.category,
+      person.name,
+    ].filter((value): value is string => Boolean(value)),
+  };
 }
 
 export default async function ProjectPage({ params }: PageProps) {
@@ -104,6 +113,13 @@ export default async function ProjectPage({ params }: PageProps) {
           url: `${baseURL}${about.path}`,
           image: `${baseURL}${person.avatar}`,
         }}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: baseURL },
+          { name: "Works", url: `${baseURL}/work` },
+          { name: post.metadata.title, url: `${baseURL}${getWorkProjectPath(post.slug)}` },
+        ]}
       />
 
       <Column className={styles.hero} gap="24" padding="24">

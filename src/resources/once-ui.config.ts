@@ -1,4 +1,4 @@
-import { IBM_Plex_Mono, Manrope, Space_Grotesk } from "next/font/google";
+import { IBM_Plex_Mono, Inter, Space_Grotesk } from "next/font/google";
 
 import {
   DataStyleConfig,
@@ -13,7 +13,8 @@ import {
   StyleConfig,
 } from "@/types";
 
-import { home } from "./index";
+import { brandIdentity, brandMessaging } from "./brand";
+import { home } from "./content";
 
 const baseURL: string = process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://henrique.dog";
 
@@ -23,6 +24,7 @@ const routes: RoutesConfig = {
   "/abordagem-tecnica": true,
   "/work": true,
   "/blog": true,
+  "/contact": true,
   "/servicos": true,
 };
 
@@ -39,7 +41,7 @@ const heading = Space_Grotesk({
   weight: ["400", "500", "700"],
 });
 
-const body = Manrope({
+const body = Inter({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
@@ -180,9 +182,9 @@ const mailchimp: MailchimpConfig = {
 
 const schema: SchemaConfig = {
   logo: "/trademarks/henrique-reis-mark.svg",
-  type: "Organization",
-  name: "Henrique Reis",
-  description: "Estratégia, design e sistemas para transformar complexidade digital em clareza.",
+  type: "Person",
+  name: brandIdentity.name,
+  description: brandMessaging.siteDescription,
   email: "oi@henriquereis.dev",
 };
 

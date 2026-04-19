@@ -1,19 +1,26 @@
 import { Button, Column, Heading, Meta, Row, Schema, Tag, Text } from "@once-ui-system/core";
 
 import { getAllWorkProjects } from "@/app/work/projectData";
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { Projects } from "@/components/work/Projects";
-import { baseURL, about, person, servicesPage, work } from "@/resources";
+import { about, baseURL, contact, contentStrategy, person, servicesPage, work } from "@/resources";
 
 import styles from "./work.module.scss";
 
+const workStrategy = contentStrategy.pages.work;
+const workCategories = ["Cliente", "Estudo", "Pessoal"];
+
 export async function generateMetadata() {
-  return Meta.generate({
-    title: work.title,
-    description: work.description,
-    baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent(work.title)}`,
-    path: work.path,
-  });
+  return {
+    ...Meta.generate({
+      title: work.title,
+      description: work.description,
+      baseURL,
+      image: `/api/og/generate?title=${encodeURIComponent(work.title)}`,
+      path: work.path,
+    }),
+    keywords: workStrategy.seo.keywords,
+  };
 }
 
 export default function Work() {
@@ -35,15 +42,19 @@ export default function Work() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: baseURL },
+          { name: "Works", url: `${baseURL}${work.path}` },
+        ]}
+      />
 
       <Column className={styles.hero} gap="16" padding="24">
         <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-          Projetos
+          {workStrategy.hero.eyebrow}
         </Tag>
 
-        <Heading variant="heading-strong-xl">
-          Trabalhos selecionados
-        </Heading>
+        <Heading variant="heading-strong-xl">{workStrategy.hero.headline}</Heading>
 
         <Text
           className={styles.heroLead}
@@ -51,16 +62,44 @@ export default function Work() {
           variant="heading-default-m"
           wrap="balance"
         >
-          Uma seleção de projetos que mostra como estruturo ideias, construo soluções e resolvo problemas com clareza.
+          {workStrategy.hero.subheadline}
         </Text>
 
         <Row gap="12" wrap>
-          <Button href={servicesPage.path} variant="primary" size="m" arrowIcon>
-            Ver serviços
+          <Button
+            href={workStrategy.hero.primaryCtaHref}
+            variant="primary"
+            size="m"
+            arrowIcon
+            data-analytics-event="cta_click"
+            data-analytics-label={workStrategy.hero.primaryCtaLabel}
+            data-analytics-location="work_hero"
+            data-analytics-type="primary"
+          >
+            {workStrategy.hero.primaryCtaLabel}
           </Button>
-          <Button href="/abordagem-tecnica" variant="secondary" size="m" arrowIcon>
-            Ver abordagem técnica
-          </Button>
+          {workStrategy.hero.secondaryCtaHref && workStrategy.hero.secondaryCtaLabel && (
+            <Button
+              href={workStrategy.hero.secondaryCtaHref}
+              variant="secondary"
+              size="m"
+              arrowIcon
+              data-analytics-event="cta_click"
+              data-analytics-label={workStrategy.hero.secondaryCtaLabel}
+              data-analytics-location="work_hero"
+              data-analytics-type="secondary"
+            >
+              {workStrategy.hero.secondaryCtaLabel}
+            </Button>
+          )}
+        </Row>
+
+        <Row gap="8" wrap>
+          {workCategories.map((category) => (
+            <Tag key={category} size="s" background="neutral-alpha-weak">
+              {category}
+            </Tag>
+          ))}
         </Row>
       </Column>
 
@@ -68,10 +107,11 @@ export default function Work() {
         <Column gap="16">
           <Column gap="8">
             <Heading as="h2" variant="display-strong-s">
-              Projetos publicados
+              {workStrategy.sections[2]?.title ?? "Portfólio publicado."}
             </Heading>
             <Text onBackground="neutral-weak" variant="body-default-m">
-              Cada projeto ajuda a mostrar processo, critério e execução.
+              {workStrategy.sections[2]?.description ??
+                "Cada projeto existe para comprovar raciocínio, solução e resultado percebido."}
             </Text>
           </Column>
 
@@ -88,7 +128,8 @@ export default function Work() {
           </Heading>
 
           <Text onBackground="neutral-weak" variant="body-default-m">
-            Os próximos projetos estão sendo organizados para entrar com mais contexto, clareza e consistência.
+            Os próximos projetos estão sendo organizados para entrar com mais contexto, clareza e
+            consistência.
           </Text>
 
           <Row className={styles.emptyActions} gap="12" wrap>
@@ -101,6 +142,39 @@ export default function Work() {
           </Row>
         </Column>
       )}
+
+      <Column className={styles.notePanel} gap="16" padding="24">
+        <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+          {workStrategy.sections[3]?.label ?? "Contato"}
+        </Tag>
+
+        <Heading as="h2" variant="display-strong-s">
+          {workStrategy.sections[3]?.title ?? "Vamos criar algo forte juntos."}
+        </Heading>
+
+        <Text onBackground="neutral-weak" variant="body-default-m">
+          {workStrategy.sections[3]?.description ??
+            "Se a operação precisa de uma presença mais clara, mais forte e mais útil, o próximo passo é conversar."}
+        </Text>
+
+        <Row className={styles.emptyActions} gap="12" wrap>
+          <Button
+            href={contact.path}
+            variant="primary"
+            size="m"
+            arrowIcon
+            data-analytics-event="cta_click"
+            data-analytics-label={workStrategy.sections[3]?.ctaLabel ?? "Vamos conversar"}
+            data-analytics-location="work_final_cta"
+            data-analytics-type="primary"
+          >
+            {workStrategy.sections[3]?.ctaLabel ?? "Vamos conversar"}
+          </Button>
+          <Button href={servicesPage.path} variant="secondary" size="m" arrowIcon>
+            Ver serviços
+          </Button>
+        </Row>
+      </Column>
     </Column>
   );
 }

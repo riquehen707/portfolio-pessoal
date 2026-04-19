@@ -20,10 +20,15 @@ export type Metadata = {
   image?: string;
   images?: string[];
   tag?: string;
+  category?: string;
   tags?: string[];
   categories?: string[];
   kind?: "client" | "personal" | "study";
   stack?: string[];
+  objective?: string;
+  featured?: boolean;
+  featuredHome?: boolean;
+  score?: number;
   pillar?: string;
   keywords?: string[];
   canonical?: string;
@@ -158,10 +163,15 @@ function safeReadFile(filePath: string): BlogFile | null {
       image: image ?? cover ?? undefined,
       images,
       tag,
+      category: parsed.category ?? categories?.[0] ?? tag,
       tags,
       categories,
       kind: parsed.kind ?? undefined,
       stack,
+      objective: parsed.objective ?? undefined,
+      featured: parsed.featured ?? undefined,
+      featuredHome: parsed.featuredHome ?? parsed.featured_home ?? undefined,
+      score: parsed.score ?? parsed.relevanceScore ?? parsed.relevancia_score ?? undefined,
       pillar: parsed.pillar ?? undefined,
       keywords,
       canonical: parsed.canonical ?? undefined,

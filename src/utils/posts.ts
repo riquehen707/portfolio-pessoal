@@ -4,11 +4,14 @@ export type Frontmatter = {
   title: string;
   summary?: string;
   image?: string;
+  category?: string;
   tag?: string;        // legado
   tags?: string[];     // preferível
   categories?: string[];
   publishedAt?: string;
   updatedAt?: string;
+  readingTime?: number;
+  featured?: boolean;
   team?: Array<{ name?: string; url?: string; avatar?: string }>;
   diary?: {
     mood?: string;
@@ -39,7 +42,9 @@ export function resolveTags(m: Frontmatter): string[] {
 }
 
 export function resolveCategories(m: Frontmatter): string[] {
-  return m.categories || [];
+  if (m.categories && m.categories.length) return m.categories;
+  if (m.category) return [m.category];
+  return [];
 }
 
 export function sortByDateDesc(arr: BlogFile[]) {

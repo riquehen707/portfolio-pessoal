@@ -1,0 +1,11 @@
+.subtitle {
+  max-width: 36rem;
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  line-height: 1.55;
+}
+
+@media (max-width: 768px) {
+  .subtitle {
+    max-width: 32rem;
+  }
+}

@@ -1,0 +1,192 @@
+.root {
+  display: grid;
+  gap: 1.35rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.pillStrip {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  gap: 0.7rem;
+  min-width: 0;
+  overflow-x: auto;
+  padding-bottom: 0.2rem;
+  scrollbar-width: none;
+}
+
+.pillStrip::-webkit-scrollbar {
+  display: none;
+}
+
+.pill {
+  min-height: 2.65rem;
+  padding: 0.72rem 1rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--neutral-on-background-medium);
+  cursor: pointer;
+  font: inherit;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    transform var(--transition-fast);
+  white-space: nowrap;
+}
+
+.pill:hover,
+.pill:focus-visible {
+  color: var(--neutral-on-background-strong);
+  border-color: var(--border-strong);
+}
+
+.pill[data-active="true"] {
+  color: var(--neutral-on-background-strong);
+  border-color: var(--border-strong);
+  background:
+    linear-gradient(180deg, rgba(255, 215, 0, 0.08), transparent 135%),
+    var(--surface-panel-soft);
+}
+
+.navButtons {
+  display: inline-flex;
+  gap: 0.55rem;
+  flex: 0 0 auto;
+}
+
+.navButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 50%;
+  background: var(--surface-ghost);
+  color: var(--neutral-on-background-strong);
+  cursor: pointer;
+  transition:
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.navButton:hover:not(:disabled),
+.navButton:focus-visible:not(:disabled) {
+  border-color: var(--border-strong);
+  color: var(--color-accent-gold);
+}
+
+.navButton:disabled {
+  opacity: 0.42;
+  cursor: default;
+}
+
+.navIconLeft {
+  transform: rotate(180deg);
+}
+
+.carousel {
+  position: relative;
+}
+
+.carousel::before,
+.carousel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(1.5rem, 5vw, 3.75rem);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.carousel::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--color-background-primary), transparent);
+}
+
+.carousel::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--color-background-primary), transparent);
+}
+
+.viewport {
+  overflow-x: auto;
+  padding-inline: clamp(1rem, 5vw, 4rem);
+  padding-block: 0.35rem 0.75rem;
+  scroll-padding-inline: clamp(1rem, 5vw, 4rem);
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  cursor: grab;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+}
+
+.viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+
+.track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+}
+
+.cardSlot {
+  flex: 0 0 clamp(18.75rem, 74vw, 28rem);
+  scroll-snap-align: center;
+  transition:
+    opacity var(--transition-medium),
+    transform var(--transition-medium);
+  opacity: 0.62;
+  transform: scale(0.95);
+}
+
+.cardSlot[data-active="true"] {
+  opacity: 1;
+  transform: translateY(-0.2rem) scale(1);
+}
+
+.bridge {
+  max-width: 34rem;
+  padding-inline: clamp(1rem, 5vw, 4rem);
+}
+
+@media (max-width: 1024px) {
+  .controls {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .navButtons {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardSlot {
+    flex-basis: min(88vw, 23.5rem);
+  }
+
+  .bridge {
+    padding-inline: 1rem;
+  }
+}

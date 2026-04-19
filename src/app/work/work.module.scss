@@ -9,7 +9,7 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  border-radius: 1.75rem;
+  border-radius: var(--radius-panel);
   background: var(--surface-panel);
   box-shadow: var(--shadow-soft);
 }
@@ -51,14 +51,14 @@
 .accentLine {
   width: 4rem;
   height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--scheme-brand-700), var(--scheme-accent-700));
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--color-accent-gold), var(--color-accent-blue));
 }
 
 .heroAside {
   padding: 1.1rem;
-  border-radius: 1.4rem;
-  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--radius-24);
+  background: var(--surface-ghost);
   box-shadow: var(--shadow-soft);
 }
 
@@ -73,8 +73,8 @@
   overflow: hidden;
   min-height: 11rem;
   padding: 1.2rem;
-  border-radius: 1.4rem;
-  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--radius-24);
+  background: var(--surface-ghost);
   box-shadow: var(--shadow-soft);
 }
 
@@ -97,7 +97,7 @@
 @media (max-width: breakpoints.$s) {
   .hero,
   .notePanel {
-    border-radius: 1.45rem;
+    border-radius: calc(var(--radius-24) - 0.05rem);
   }
 
   .heroLead {
@@ -106,7 +106,7 @@
 
   .heroAside,
   .noteCard {
-    border-radius: 1.2rem;
+    border-radius: calc(var(--radius-16) + 0.2rem);
   }
 
   .emptyActions {

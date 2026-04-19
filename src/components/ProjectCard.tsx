@@ -108,7 +108,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
           <Row className={styles.actions} gap="20" wrap>
             {href && (
-              <SmartLink className={styles.actionLink} suffixIcon="arrowRight" href={href}>
+              <SmartLink
+                className={styles.actionLink}
+                suffixIcon="arrowRight"
+                href={href}
+                data-analytics-event="project_click"
+                data-analytics-label={title}
+                data-analytics-category={kind}
+                data-analytics-location="projects_list"
+              >
                 {primaryActionLabel}
               </SmartLink>
             )}
@@ -117,6 +125,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 className={styles.actionLink}
                 suffixIcon="arrowUpRightFromSquare"
                 href={link}
+                data-analytics-event="outbound_project_click"
+                data-analytics-label={title}
+                data-analytics-location="projects_list"
               >
                 Ver projeto
               </SmartLink>

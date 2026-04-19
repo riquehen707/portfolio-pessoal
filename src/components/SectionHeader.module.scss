@@ -1,0 +1,35 @@
+@use "../styles/mixins" as mixins;
+
+.root {
+  display: grid;
+  gap: 1rem;
+  align-items: end;
+}
+
+.root[data-has-action="true"] {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.copy {
+  min-width: 0;
+  max-width: 44rem;
+}
+
+.eyebrow {
+  @include mixins.label-uppercase;
+}
+
+.description {
+  max-width: 40rem;
+}
+
+.action {
+  width: fit-content;
+}
+
+@include mixins.s {
+  .root[data-has-action="true"] {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+}

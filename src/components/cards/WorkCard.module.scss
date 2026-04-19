@@ -1,0 +1,73 @@
+@use "../../styles/mixins" as mixins;
+
+.root {
+  height: 100%;
+}
+
+.link {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  height: 100%;
+  padding: 1.25rem;
+  @include mixins.interactive-card(
+    var(--radius-24),
+    var(--surface-overlay-soft),
+    var(--surface-panel)
+  );
+  @include mixins.interactive-card-hover;
+}
+
+.link[data-featured="true"] {
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.mediaWrap {
+  overflow: hidden;
+  border-radius: calc(var(--radius-24) - 0.25rem);
+}
+
+.accentLine {
+  @include mixins.accent-line(4.5rem, 2px);
+}
+
+.content {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+  min-height: 100%;
+}
+
+.meta {
+  row-gap: 0.5rem;
+}
+
+.copy {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.title {
+  letter-spacing: var(--tracking-tight);
+}
+
+.summary {
+  max-width: 48ch;
+}
+
+.cta {
+  margin-top: auto;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@include mixins.s {
+  .link {
+    padding: 1.1rem;
+    border-radius: calc(var(--radius-24) - 0.15rem);
+  }
+
+  .mediaWrap {
+    border-radius: calc(var(--radius-16) + 0.2rem);
+  }
+}

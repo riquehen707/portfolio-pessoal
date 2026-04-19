@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from "react";
 import { ToggleButton, useTheme } from "@once-ui-system/core";
 
+import styles from "./ThemeToggle.module.scss";
+
 export const ThemeToggle: React.FC = () => {
   const { theme, setTheme } = useTheme();
   const [currentTheme, setCurrentTheme] = useState("dark");
@@ -20,6 +22,7 @@ export const ThemeToggle: React.FC = () => {
 
   return (
     <ToggleButton
+      className={styles.button}
       prefixIcon={icon}
       onClick={() => setTheme(nextTheme)}
       aria-label={`Switch to ${nextTheme} mode`}

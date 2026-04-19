@@ -11,13 +11,15 @@ const withMDX = mdx({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ["ts", "tsx", "md", "mdx"],
+  poweredByHeader: false,
+  reactStrictMode: true,
 
-  // Ajuste os domínios que você realmente usa p/ imagens remotas
   images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 2678400,
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com", pathname: "**" },
       { protocol: "https", hostname: "avatars.githubusercontent.com", pathname: "**" },
-      // { protocol: "https", hostname: "cdn.seudominio.com", pathname: "**" },
     ],
   },
 
@@ -26,7 +28,6 @@ const nextConfig = {
     silenceDeprecations: ["legacy-js-api"],
   },
 
-  // ✅ qualidade em produção
   eslint: { ignoreDuringBuilds: false },
   typescript: { ignoreBuildErrors: false },
 };

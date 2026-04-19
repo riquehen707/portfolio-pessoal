@@ -1,6 +1,8 @@
+import { type MetadataRoute } from "next";
+
 import { baseURL } from "@/resources";
 
-export default function robots() {
+export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
@@ -8,6 +10,7 @@ export default function robots() {
         allow: "/",
       },
     ],
+    host: baseURL,
     sitemap: `${baseURL}/sitemap.xml`,
   };
 }

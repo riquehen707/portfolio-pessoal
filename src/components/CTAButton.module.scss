@@ -1,0 +1,10 @@
+.button {
+  min-width: 10.5rem;
+  border-radius: var(--radius-pill);
+}
+
+@media (max-width: 768px) {
+  .button {
+    width: 100%;
+  }
+}

@@ -10,11 +10,14 @@ interface PostFrontmatter {
   title: string;
   publishedAt: string;
   summary?: string;
+  category?: string;
   tag?: string;
   tags?: string[];
   categories?: string[];
   image?: string;
   imageAlt?: string;
+  readingTime?: number;
+  featured?: boolean;
 }
 
 interface PostData {
@@ -40,9 +43,10 @@ export default function Post({
   showSummary = false,
 }: PostProps) {
   const { slug, metadata } = post;
-  const { title, publishedAt, summary, tag, tags, categories, image, imageAlt } = metadata || {};
+  const { title, publishedAt, summary, category, tag, tags, categories, image, imageAlt, readingTime } =
+    metadata || {};
 
-  const displayTag = categories?.[0] || tag || tags?.[0];
+  const displayTag = category || categories?.[0] || tag || tags?.[0];
   const displayImage = image && image.trim() !== "" ? image.trim() : undefined;
   const resolvedDirection = variant === "feature" ? "column" : direction;
   const showThumbnail = thumbnail && variant !== "compact" && Boolean(displayImage);
@@ -88,11 +92,16 @@ export default function Post({
         gap={variant === "compact" ? "12" : "16"}
         vertical="center"
       >
-        {(publishedAt || displayTag) && (
+        {(publishedAt || readingTime || displayTag) && (
           <Row className={styles.meta} gap="12" vertical="center" wrap>
             {publishedAt && (
               <Text variant="body-default-xs" onBackground="neutral-weak">
                 {formatDate(publishedAt, false)}
+              </Text>
+            )}
+            {readingTime && (
+              <Text variant="body-default-xs" onBackground="neutral-weak">
+                {`${readingTime} min`}
               </Text>
             )}
             {displayTag && (

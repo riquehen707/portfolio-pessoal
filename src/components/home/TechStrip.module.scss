@@ -1,0 +1,18 @@
+.root {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.header {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.eyebrow {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.copy {
+  max-width: 40rem;
+}

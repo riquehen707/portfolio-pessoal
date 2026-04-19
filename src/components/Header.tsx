@@ -1,222 +1,91 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { Fade, Flex, Line, Row, Text, ToggleButton } from "@once-ui-system/core";
+import { Row } from "@once-ui-system/core";
 
-import {
-  about,
-  blog,
-  display,
-  person,
-  routes,
-  servicesPage,
-  technicalApproach,
-  work,
-} from "@/resources";
+import { about, blog, display, technicalApproach, work } from "@/resources";
 
+import { CTAButton } from "./CTAButton";
 import { BrandSignature } from "./BrandSignature";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
 
-type TimeDisplayProps = {
-  timeZone: string;
-  locale?: string;
-};
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: work.path, label: "Works" },
+  { href: about.path, label: "About" },
+  { href: blog.path, label: "Blog" },
+  { href: "/contact", label: "Contact" },
+] as const;
 
-function TimeDisplay({ timeZone, locale = "pt-BR" }: TimeDisplayProps) {
-  const [currentTime, setCurrentTime] = useState("");
+export function Header() {
+  const pathname = usePathname() ?? "";
+  const [isScrolled, setIsScrolled] = useState(false);
+  const aboutSelected = pathname === about.path || pathname === technicalApproach.path;
+  const isSolid = pathname !== "/" || isScrolled;
 
   useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      const options: Intl.DateTimeFormatOptions = {
-        timeZone,
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: false,
-      };
-
-      setCurrentTime(new Intl.DateTimeFormat(locale, options).format(now));
+    const syncScrollState = () => {
+      setIsScrolled(window.scrollY > 12);
     };
 
-    updateTime();
-    const intervalId = setInterval(updateTime, 1000);
+    syncScrollState();
+    window.addEventListener("scroll", syncScrollState, { passive: true });
 
-    return () => clearInterval(intervalId);
-  }, [timeZone, locale]);
-
-  return <>{currentTime}</>;
-}
-
-export const Header = () => {
-  const pathname = usePathname() ?? "";
-  const locationLabel = person.location === "America/Bahia" ? "Bahia, Brasil" : person.location;
-  const aboutSelected = pathname === about.path || pathname === technicalApproach.path;
+    return () => window.removeEventListener("scroll", syncScrollState);
+  }, []);
 
   return (
-    <>
-      <Fade s={{ hide: true }} fillWidth position="fixed" height="80" zIndex={9} />
-      <Fade
-        hide
-        s={{ hide: false }}
-        fillWidth
-        position="fixed"
-        bottom="0"
-        to="top"
-        height="80"
-        zIndex={9}
-      />
+    <header className={styles.root}>
+      <div className={styles.shell} data-solid={isSolid ? "true" : "false"}>
+        <div className={styles.brand}>
+          <BrandSignature href="/" compact className={styles.brandSignature} />
+        </div>
 
-      <Row
-        fitHeight
-        className={styles.position}
-        position="sticky"
-        as="header"
-        zIndex={9}
-        fillWidth
-        padding="8"
-        horizontal="center"
-        data-border="rounded"
-        s={{
-          position: "fixed",
-        }}
-      >
-        <Flex className={styles.meta} fillWidth vertical="center">
-          <div className={styles.brandDesktop}>
-            <BrandSignature href="/" descriptor="Transformar complexidade em clareza" />
-          </div>
-        </Flex>
+        <nav className={styles.nav} aria-label="Navegacao principal">
+          {navItems.map((item) => {
+            const isActive =
+              item.href === about.path
+                ? aboutSelected
+                : item.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(item.href);
 
-        <Row fillWidth horizontal="center">
-          <Row
-            className={styles.shell}
-            background="page"
-            border="transparent"
-            radius="m-4"
-            shadow="l"
-            padding="4"
-            horizontal="center"
-            zIndex={1}
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={styles.navLink}
+                data-active={isActive ? "true" : "false"}
+                data-analytics-event="nav_click"
+                data-analytics-label={item.label}
+                data-analytics-location="header"
+                aria-current={isActive ? "page" : undefined}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+        </nav>
+
+        <Row className={styles.actions} gap="8" vertical="center">
+          {display.themeSwitcher && <ThemeToggle />}
+          <CTAButton
+            className={styles.cta}
+            href="https://cal.com/henriquereis"
+            variant="secondary"
+            data-analytics-event="cta_click"
+            data-analytics-label="Agendar"
+            data-analytics-location="header"
+            data-analytics-type="primary"
           >
-            <Row
-              className={styles.nav}
-              gap="4"
-              vertical="center"
-              textVariant="body-default-s"
-              suppressHydrationWarning
-            >
-              {routes["/"] && (
-                <Row hide s={{ hide: false }}>
-                  <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
-                  <Line background="neutral-alpha-medium" vert maxHeight="24" />
-                </Row>
-              )}
-
-              {routes["/about"] && (
-                <>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="person"
-                      href="/about"
-                      label={about.label}
-                      selected={aboutSelected}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton prefixIcon="person" href="/about" selected={aboutSelected} />
-                  </Row>
-                </>
-              )}
-
-              {routes["/work"] && (
-                <>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="grid"
-                      href="/work"
-                      label={work.title}
-                      selected={pathname.startsWith("/work")}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="grid"
-                      href="/work"
-                      selected={pathname.startsWith("/work")}
-                    />
-                  </Row>
-                </>
-              )}
-
-              {routes["/servicos"] && (
-                <>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="rocket"
-                      href={servicesPage.path}
-                      label={servicesPage.label}
-                      selected={pathname.startsWith("/servicos")}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="rocket"
-                      href={servicesPage.path}
-                      selected={pathname.startsWith("/servicos")}
-                    />
-                  </Row>
-                </>
-              )}
-
-              {routes["/blog"] && (
-                <>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="book"
-                      href="/blog"
-                      label={blog.label}
-                      selected={pathname.startsWith("/blog")}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton prefixIcon="book" href="/blog" selected={pathname.startsWith("/blog")} />
-                  </Row>
-                </>
-              )}
-
-              {display.themeSwitcher && (
-                <>
-                  <Line background="neutral-alpha-medium" vert maxHeight="24" />
-                  <ThemeToggle />
-                </>
-              )}
-            </Row>
-          </Row>
+            Agendar
+          </CTAButton>
         </Row>
-
-        <Flex className={styles.meta} fillWidth horizontal="end" vertical="center">
-          <Row className={styles.statusBlock} gap="8" vertical="center">
-            {display.location && (
-              <Text className={styles.location} variant="body-default-s">
-                {locationLabel}
-              </Text>
-            )}
-            {display.time && (
-              <>
-                <Text className={styles.separator} variant="body-default-s">
-                  /
-                </Text>
-                <Text className={styles.time} variant="body-default-s">
-                  <TimeDisplay timeZone={person.location} />
-                </Text>
-              </>
-            )}
-          </Row>
-        </Flex>
-      </Row>
-    </>
+      </div>
+    </header>
   );
-};
+}

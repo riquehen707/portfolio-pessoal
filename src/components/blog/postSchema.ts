@@ -17,10 +17,18 @@ export const PostFrontmatterSchema = z.object({
 
   pillar: z.string().optional(),
   tag: z.string().optional(),
+  category: z.string().optional(),
   categories: z.array(z.string()).optional(),
   tags: z.array(z.string()).optional(),
   kind: z.enum(["client", "personal", "study"]).optional(),
   stack: z.array(z.string()).optional(),
+  objective: z.string().optional(),
+  featured: z.boolean().optional(),
+  featuredHome: z.boolean().optional(),
+  featured_home: z.boolean().optional(),
+  score: z.number().optional(),
+  relevanceScore: z.number().optional(),
+  relevancia_score: z.number().optional(),
 
   keywords: z.array(z.string()).optional(),
   canonical: z.string().url().optional(),

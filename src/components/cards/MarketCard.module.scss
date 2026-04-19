@@ -1,0 +1,141 @@
+.card {
+  height: 100%;
+  padding: clamp(1.2rem, 3vw, 1.55rem);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-24);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 120%),
+    var(--surface-panel-soft);
+  box-shadow: var(--shadow-soft);
+  transition:
+    border-color var(--transition-medium),
+    background var(--transition-medium),
+    box-shadow var(--transition-medium),
+    transform var(--transition-medium),
+    opacity var(--transition-medium);
+}
+
+.card[data-active="true"] {
+  border-color: var(--border-strong);
+  background:
+    linear-gradient(180deg, rgba(255, 215, 0, 0.08), transparent 140%),
+    var(--surface-panel-strong);
+  box-shadow: var(--shadow-card);
+}
+
+.content {
+  display: grid;
+  gap: 1rem;
+  height: 100%;
+}
+
+.header {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.eyebrow {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.title {
+  letter-spacing: var(--tracking-tight);
+}
+
+.summary {
+  max-width: 34ch;
+}
+
+.list {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-top: 0.45rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent-gold);
+  flex: 0 0 auto;
+}
+
+.footer {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: auto;
+  padding-top: 0.2rem;
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: fit-content;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--neutral-on-background-strong);
+  cursor: pointer;
+  font: inherit;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.action:hover,
+.action:focus-visible {
+  color: var(--color-accent-gold);
+}
+
+.action:focus-visible {
+  outline: none;
+}
+
+.actionIcon {
+  transition: transform var(--transition-fast);
+}
+
+.action:hover .actionIcon,
+.action:focus-visible .actionIcon,
+.card[data-expanded="true"] .actionIcon {
+  transform: translateX(0.18rem);
+}
+
+.detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows var(--transition-medium),
+    opacity var(--transition-medium);
+}
+
+.detail[data-expanded="true"] {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.detailInner {
+  overflow: hidden;
+  padding-top: 0.1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.detailInner :global(p) {
+  padding-top: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  .card {
+    border-radius: calc(var(--radius-24) - 0.15rem);
+  }
+}

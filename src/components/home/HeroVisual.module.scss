@@ -1,0 +1,112 @@
+.root {
+  position: relative;
+  width: min(100%, 34rem);
+  min-height: clamp(18rem, 40vw, 31rem);
+  margin-left: auto;
+  will-change: transform, opacity;
+}
+
+.grid,
+.beam,
+.frame,
+.ring,
+.axisHorizontal,
+.axisVertical,
+.squareGlowShell,
+.squareShell,
+.squareGlow,
+.square {
+  position: absolute;
+}
+
+.grid {
+  inset: 8% 4% 8% 12%;
+  border: 1px solid var(--border-subtle);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 34%),
+    linear-gradient(rgba(244, 244, 240, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 244, 240, 0.05) 1px, transparent 1px);
+  background-size: auto, 2.75rem 2.75rem, 2.75rem 2.75rem;
+  mask-image: radial-gradient(circle at 54% 50%, #000 42%, transparent 84%);
+  opacity: 0.72;
+}
+
+.beam {
+  inset: 10% 24% 12% -2%;
+  background: radial-gradient(circle at 0% 50%, rgba(255, 215, 0, 0.14), transparent 56%);
+  filter: blur(18px);
+  opacity: 0.75;
+}
+
+.frame {
+  inset: 17% 18% 17% 22%;
+  border: 1px solid rgba(244, 244, 240, 0.12);
+  transform: rotate(10deg);
+}
+
+.ring {
+  top: 50%;
+  left: 56%;
+  width: clamp(12rem, 27vw, 18rem);
+  aspect-ratio: 1;
+  border: 1px solid rgba(244, 244, 240, 0.14);
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+}
+
+.axisHorizontal {
+  top: 50%;
+  left: 12%;
+  right: 4%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(244, 244, 240, 0.16), transparent);
+}
+
+.axisVertical {
+  top: 8%;
+  bottom: 8%;
+  left: 56%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(244, 244, 240, 0.16), transparent);
+}
+
+.squareGlowShell,
+.squareShell {
+  top: 50%;
+  left: 56%;
+  transform: translate(-50%, -50%);
+}
+
+.squareGlow {
+  width: clamp(10rem, 24vw, 16rem);
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.18), transparent 64%);
+  filter: blur(12px);
+  will-change: transform, opacity;
+}
+
+.square {
+  width: clamp(4rem, 8vw, 5.7rem);
+  aspect-ratio: 1;
+  background: var(--color-accent-gold);
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.24),
+    0 0 0 1px rgba(255, 255, 255, 0.14);
+  will-change: transform, opacity;
+}
+
+@media (max-width: 768px) {
+  .root {
+    width: min(100%, 24rem);
+    min-height: 15rem;
+    margin-inline: auto;
+  }
+
+  .grid {
+    inset: 9% 4% 9% 4%;
+  }
+
+  .frame {
+    inset: 20% 16%;
+  }
+}

@@ -2,6 +2,8 @@ import Link from "next/link";
 
 import classNames from "classnames";
 
+import { brandMessaging } from "@/resources";
+
 import styles from "./BrandSignature.module.scss";
 
 type BrandSignatureProps = {
@@ -13,7 +15,7 @@ type BrandSignatureProps = {
 
 function BrandSignatureInner({
   compact = false,
-  descriptor = "Estratégia, design e sistemas",
+  descriptor = brandMessaging.signatureDescriptor,
 }: Omit<BrandSignatureProps, "href" | "className">) {
   return (
     <>

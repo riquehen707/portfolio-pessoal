@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  useDeferredValue,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  useTransition,
-} from "react";
+import { useDeferredValue, useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { Column, Grid, Heading, Row, SmartLink, Tag, Text } from "@once-ui-system/core";
 
 import Post from "./Post";
@@ -44,7 +37,7 @@ export default function BlogExplorer({ posts, categories }: BlogExplorerProps) {
         key: ALL_POSTS_KEY,
         label: "Tudo",
         description:
-          "Uma mistura de ensaios, filosofia, cultura, tecnologia e temas que atravessam meu trabalho e meus interesses.",
+          "Arquivo completo de publicações organizado para facilitar leitura, contexto e navegação por tema.",
         count: posts.length,
       },
       ...categories,
@@ -60,10 +53,7 @@ export default function BlogExplorer({ posts, categories }: BlogExplorerProps) {
   }, [deferredCategory, posts]);
 
   const featuredPosts = filteredPosts.slice(0, FEATURED_COUNT);
-  const feedPosts = filteredPosts.slice(
-    FEATURED_COUNT,
-    FEATURED_COUNT + visibleCount,
-  );
+  const feedPosts = filteredPosts.slice(FEATURED_COUNT, FEATURED_COUNT + visibleCount);
   const hasMore = FEATURED_COUNT + visibleCount < filteredPosts.length;
 
   useEffect(() => {
@@ -101,7 +91,7 @@ export default function BlogExplorer({ posts, categories }: BlogExplorerProps) {
       <Column className={styles.panel} gap="16" padding="20">
         <Row className={styles.panelHeader} gap="12" wrap vertical="center">
           <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            Explorar por categoria
+            Explorar arquivo
           </Tag>
           <Text variant="body-default-s" onBackground="neutral-weak">
             {tabs.length - 1} trilhas editoriais
@@ -136,7 +126,10 @@ export default function BlogExplorer({ posts, categories }: BlogExplorerProps) {
           </Column>
 
           {activeTab.key !== ALL_POSTS_KEY && (
-            <SmartLink href={`/blog/category/${encodeURIComponent(activeTab.key)}`} suffixIcon="arrowRight">
+            <SmartLink
+              href={`/blog/category/${encodeURIComponent(activeTab.key)}`}
+              suffixIcon="arrowRight"
+            >
               Abrir categoria
             </SmartLink>
           )}
@@ -177,10 +170,10 @@ export default function BlogExplorer({ posts, categories }: BlogExplorerProps) {
           <Row className={styles.feedHeader} gap="12" wrap vertical="end">
             <Column gap="8">
               <Tag size="s" background="neutral-alpha-weak">
-                Mais leituras
+                Leituras publicadas
               </Tag>
               <Heading as="h2" variant="heading-strong-l">
-                Fluxo editorial
+                Arquivo em destaque
               </Heading>
             </Column>
             <Text variant="body-default-s" onBackground="neutral-weak">

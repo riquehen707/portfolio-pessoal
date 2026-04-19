@@ -17,6 +17,7 @@ import {
 
 import { CustomMDX, ScrollToHash } from "@/components";
 import { Posts } from "@/components/blog/Posts";
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { baseURL, about, blog, person } from "@/resources";
 import { buildOgImage } from "@/utils/og";
 import { getPosts } from "@/utils/utils";
@@ -74,13 +75,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       post.metadata.tag ?? post.metadata.tags?.[0] ?? post.metadata.categories?.[0] ?? "Blog",
     );
 
-  return Meta.generate({
-    title: post.metadata.title,
-    description: post.metadata.summary ?? post.metadata.title,
-    baseURL,
-    image: toAbs(image),
-    path: `${blog.path}/${post.slug}`,
-  });
+  return {
+    ...Meta.generate({
+      title: post.metadata.title,
+      description: post.metadata.summary ?? post.metadata.title,
+      baseURL,
+      image: toAbs(image),
+      path: `${blog.path}/${post.slug}`,
+    }),
+    keywords: [...(post.metadata.categories ?? []), ...(post.metadata.tags ?? []), person.name].filter(
+      (value): value is string => Boolean(value),
+    ),
+  };
 }
 
 export default async function BlogPost({ params }: PageProps) {
@@ -138,6 +144,13 @@ export default async function BlogPost({ params }: PageProps) {
           url: authors[0].url,
           image: authors[0].imageAbs,
         }}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: baseURL },
+          { name: "Blog", url: `${baseURL}${blog.path}` },
+          { name: post.metadata.title, url: `${baseURL}${blog.path}/${post.slug}` },
+        ]}
       />
 
       <Column className={styles.hero} gap="24" padding="24">

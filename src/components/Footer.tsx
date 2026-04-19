@@ -1,63 +1,63 @@
-import { Column, IconButton, Row, Text } from "@once-ui-system/core";
+import Link from "next/link";
 
-import { person, social } from "@/resources";
+import { Column, Text } from "@once-ui-system/core";
+
+import { about, blog, brandMessaging, person, work } from "@/resources";
 
 import { BrandSignature } from "./BrandSignature";
 import styles from "./Footer.module.scss";
 
-export const Footer = () => {
+const footerLinks = [
+  { href: "/", label: "Home" },
+  { href: work.path, label: "Works" },
+  { href: about.path, label: "About" },
+  { href: blog.path, label: "Blog" },
+  { href: "/contact", label: "Contact" },
+] as const;
+
+export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <Row as="footer" className={styles.footer} fillWidth padding="8" horizontal="center">
-      <Row
-        className={styles.shell}
-        maxWidth="m"
-        fillWidth
-        paddingY="16"
-        paddingX="20"
-        gap="20"
-        horizontal="between"
-        vertical="center"
-        s={{
-          direction: "column",
-          horizontal: "center",
-          align: "center",
-        }}
-      >
+    <footer className={styles.footer}>
+      <div className={styles.shell}>
         <Column className={styles.identity} gap="12">
-          <BrandSignature href="/" descriptor="Transformar complexidade em clareza" />
-          <Text className={styles.statement} variant="body-default-s" onBackground="neutral-weak">
-            Presença digital que funciona. Visual que posiciona. Sistemas feitos para durar.
+          <BrandSignature href="/" />
+          <Text className={styles.statement} onBackground="neutral-weak" variant="body-default-s">
+            Clareza gera resultado.
           </Text>
         </Column>
 
-        <Column className={styles.meta} gap="12" horizontal="end" s={{ horizontal: "center" }}>
-          <Text className={styles.copy} variant="body-default-s" onBackground="neutral-weak">
-            <Text onBackground="neutral-weak">© {currentYear}</Text>
-            <Text paddingX="4">{person.name}</Text>
-            <Text onBackground="neutral-weak">/ estratégia, design e sistemas</Text>
+        <Column className={styles.group} gap="12">
+          <Text className={styles.groupLabel} variant="label-default-s" onBackground="neutral-weak">
+            Links uteis
           </Text>
-
-          <Row className={styles.social} gap="12">
-            {social.map(
-              (item) =>
-                item.link && (
-                  <IconButton
-                    key={item.name}
-                    href={item.link}
-                    icon={item.icon}
-                    tooltip={item.name}
-                    size="s"
-                    variant="ghost"
-                  />
-                ),
-            )}
-          </Row>
+          <div className={styles.linkList}>
+            {footerLinks.map((item) => (
+              <Link className={styles.link} href={item.href} key={item.href}>
+                {item.label}
+              </Link>
+            ))}
+          </div>
         </Column>
-      </Row>
 
-      <Row height="80" hide s={{ hide: false }} />
-    </Row>
+        <Column className={styles.group} gap="12">
+          <Text className={styles.groupLabel} variant="label-default-s" onBackground="neutral-weak">
+            Contato
+          </Text>
+          <div className={styles.linkList}>
+            <a className={styles.link} href={`mailto:${person.email}`}>
+              {person.email}
+            </a>
+            <a className={styles.link} href="https://wa.me/5575983675164">
+              WhatsApp
+            </a>
+            <Text className={styles.copy} onBackground="neutral-weak" variant="body-default-s">
+              © {currentYear} {person.name}. {brandMessaging.signatureDescriptor}.
+            </Text>
+          </div>
+        </Column>
+      </div>
+    </footer>
   );
-};
+}

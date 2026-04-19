@@ -1,91 +1,133 @@
-@use "./breakpoints.scss" as breakpoints;
+@use "../styles/mixins" as mixins;
 
-.position {
-  padding-inline: clamp(0.5rem, 2vw, 1rem);
-}
-
-.meta {
-  color: var(--neutral-on-background-medium);
-}
-
-.brandDesktop {
-  display: inline-flex;
-  max-width: 18rem;
+.root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-nav);
+  padding: 0.9rem clamp(1rem, 2.5vw, 1.5rem);
 }
 
 .shell {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--border-subtle);
-  background: rgba(20, 20, 24, 0.78);
-  backdrop-filter: blur(18px);
-  box-shadow: var(--shadow-soft);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  width: min(100%, calc(var(--grid-max-width) + 2rem));
+  margin-inline: auto;
+  padding: 0.85rem 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-panel);
+  background: transparent;
+  backdrop-filter: blur(0);
+  transition:
+    background var(--motion-base),
+    border-color var(--motion-base),
+    box-shadow var(--motion-base),
+    backdrop-filter var(--motion-base);
 }
 
-.shell::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 40%),
-    radial-gradient(circle at 10% 0%, var(--brand-glow), transparent 24%),
-    radial-gradient(circle at 90% 0%, var(--accent-glow), transparent 24%);
-  pointer-events: none;
+.shell[data-solid="true"] {
+  border-color: var(--border-subtle);
+  background: var(--nav-surface-solid);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(20px);
+}
+
+.brand {
+  min-width: 0;
+}
+
+.brandSignature {
+  max-width: 15rem;
 }
 
 .nav {
-  position: relative;
-  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-width: 0;
 }
 
-.statusBlock {
-  min-height: 2.5rem;
-}
-
-.location,
-.time,
-.separator {
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.65rem 0.95rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
   color: var(--neutral-on-background-weak);
-}
-
-.location,
-.time {
   font-family: var(--font-label);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.78rem;
+  text-decoration: none;
+  @include mixins.label-uppercase(0.12em);
+  transition:
+    color var(--motion-fast),
+    border-color var(--motion-fast),
+    background var(--motion-fast);
 }
 
-.location {
-  white-space: nowrap;
+.navLink[data-active="true"] {
+  border-color: var(--border-strong);
+  background: var(--surface-ghost);
+  color: var(--neutral-on-background-strong);
 }
 
-.time {
-  min-width: 5.6rem;
-  font-variant-numeric: tabular-nums;
+.actions {
+  justify-content: flex-end;
 }
 
-.separator {
-  opacity: 0.5;
+.cta {
+  min-width: 8.5rem;
 }
 
-@media (max-width: breakpoints.$m) {
-  .brandDesktop {
-    max-width: 15rem;
+@include mixins.hover-fine {
+  .navLink:hover {
+    color: var(--neutral-on-background-strong);
   }
 }
 
-@media (max-width: breakpoints.$s) {
-  .position {
-    top: auto;
-    bottom: var(--static-space-24);
+@include mixins.m {
+  .brandSignature {
+    max-width: 12rem;
   }
+}
 
-  .meta {
-    display: none;
+@include mixins.s {
+  .root {
+    padding: 0.75rem 1rem;
   }
 
   .shell {
-    border-color: rgba(245, 245, 242, 0.08);
-    background: rgba(20, 20, 24, 0.88);
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.8rem;
+    padding: 0.8rem 0.85rem;
+    border-color: var(--border-subtle);
+    background: var(--nav-surface-solid);
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(20px);
+  }
+
+  .nav {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.15rem;
+    scrollbar-width: none;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .navLink {
+    white-space: nowrap;
+  }
+
+  .cta {
+    display: none;
   }
 }

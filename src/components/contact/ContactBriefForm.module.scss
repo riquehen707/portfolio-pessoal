@@ -1,0 +1,37 @@
+@use "../../styles/mixins" as mixins;
+
+.form {
+  width: 100%;
+}
+
+.fields {
+  width: 100%;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 10rem;
+  padding: 0.95rem 1rem;
+  @include mixins.input-surface;
+  font: inherit;
+  resize: vertical;
+}
+
+.textarea::placeholder {
+  color: var(--neutral-on-background-weak);
+}
+
+.textarea:focus-visible {
+  @include mixins.focus-ring;
+}
+
+.actions {
+  width: 100%;
+}
+
+@include mixins.s {
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

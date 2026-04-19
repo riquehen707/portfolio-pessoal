@@ -10,7 +10,7 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  border-radius: 1.75rem;
+  border-radius: var(--radius-panel);
   background: var(--surface-panel);
   box-shadow: var(--shadow-soft);
 }
@@ -35,13 +35,13 @@
 .accentLine {
   width: 4.5rem;
   height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--scheme-brand-700), var(--scheme-accent-700));
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--color-accent-gold), var(--color-accent-blue));
 }
 
 @media (max-width: breakpoints.$s) {
   .heroGlow,
   .sectionPanel {
-    border-radius: 1.5rem;
+    border-radius: calc(var(--radius-24) - 0.1rem);
   }
 }

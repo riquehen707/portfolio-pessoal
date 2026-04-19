@@ -14,7 +14,7 @@
 }
 
 .hero {
-  border-radius: 2rem;
+  border-radius: var(--radius-panel);
   background: var(--surface-panel-strong);
   box-shadow: var(--shadow-card);
 }
@@ -93,7 +93,7 @@
   justify-self: end;
   overflow: hidden;
   padding: 1.1rem;
-  border-radius: 1.5rem;
+  border-radius: var(--radius-24);
   background: var(--surface-panel-soft);
   box-shadow: var(--shadow-soft);
 }
@@ -105,8 +105,8 @@
 .accentLine {
   width: 4.5rem;
   height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--scheme-brand-700), var(--scheme-accent-700));
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--color-accent-gold), var(--color-accent-blue));
 }
 
 .actions {
@@ -120,12 +120,12 @@
 .proofCard {
   position: relative;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--surface-ghost);
   box-shadow: var(--shadow-soft);
   transition:
-    transform 180ms ease,
-    box-shadow 180ms ease,
-    background 180ms ease;
+    transform var(--motion-fast),
+    box-shadow var(--motion-fast),
+    background var(--motion-fast);
 }
 
 .profileCard {
@@ -134,7 +134,7 @@
   align-items: start;
   min-height: 7.2rem;
   padding: 1rem 1.05rem 1.1rem;
-  border-radius: 1.35rem;
+  border-radius: calc(var(--radius-16) + 0.35rem);
 }
 
 .profileMeta {
@@ -163,7 +163,7 @@
   gap: 0.75rem;
   min-height: 8.75rem;
   padding: 1.05rem 1.1rem;
-  border-radius: 1.3rem;
+  border-radius: calc(var(--radius-16) + 0.3rem);
 }
 
 .collageWide {
@@ -200,21 +200,21 @@
 .infoCard,
 .proofCard {
   padding: 1.4rem;
-  border-radius: 1.5rem;
+  border-radius: var(--radius-24);
 }
 
 .stepCard {
   min-height: 12.25rem;
   padding: 1.35rem;
-  border-radius: 1.5rem;
+  border-radius: var(--radius-24);
 }
 
 .stepIndex {
   width: fit-content;
   padding: 0.35rem 0.55rem;
   border: 1px solid var(--neutral-alpha-medium);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius-pill);
+  background: var(--surface-ghost);
   font-family: var(--font-code);
   letter-spacing: 0.12em;
 }
@@ -243,7 +243,7 @@
   .stepCard:hover,
   .proofCard:hover {
     transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--surface-elevated);
     box-shadow: var(--shadow-card);
   }
 }
@@ -286,7 +286,7 @@
 @media (max-width: breakpoints.$s) {
   .hero,
   .sectionPanel {
-    border-radius: 1.5rem;
+    border-radius: calc(var(--radius-24) - 0.1rem);
   }
 
   .heroAside,
@@ -295,7 +295,7 @@
   .infoCard,
   .stepCard,
   .proofCard {
-    border-radius: 1.2rem;
+    border-radius: calc(var(--radius-16) + 0.2rem);
   }
 
   .profileCard {

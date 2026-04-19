@@ -1,0 +1,110 @@
+@use "../../components/breakpoints.scss" as breakpoints;
+
+.page {
+  width: 100%;
+}
+
+.hero,
+.panel,
+.methodCard {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background: var(--surface-panel);
+  box-shadow: var(--shadow-soft);
+}
+
+.hero {
+  border-radius: var(--radius-panel);
+  background: var(--surface-panel-strong);
+  box-shadow: var(--shadow-card);
+}
+
+.panel,
+.methodCard {
+  border-radius: var(--radius-24);
+}
+
+.hero::before,
+.panel::before,
+.methodCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 12% 0%, var(--brand-glow), transparent 28%),
+    radial-gradient(circle at 86% 0%, var(--accent-glow), transparent 22%);
+  pointer-events: none;
+}
+
+.hero > *,
+.panel > *,
+.methodCard > * {
+  position: relative;
+  z-index: 1;
+}
+
+.heroLead,
+.panelIntro {
+  max-width: 42rem;
+}
+
+.methodsGrid,
+.contentGrid,
+.benefitsGrid {
+  width: 100%;
+}
+
+.methodsGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.contentGrid {
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: start;
+}
+
+.benefitsGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.methodCard {
+  min-height: 12rem;
+}
+
+.eyebrow {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.accentLine {
+  width: 4rem;
+  height: 2px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--color-accent-gold), var(--color-accent-blue));
+}
+
+.methodActions,
+.heroActions {
+  row-gap: 0.75rem;
+}
+
+@media (max-width: breakpoints.$m) {
+  .methodsGrid,
+  .contentGrid,
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: breakpoints.$s) {
+  .hero,
+  .panel,
+  .methodCard {
+    border-radius: calc(var(--radius-24) - 0.2rem);
+  }
+
+  .heroActions > * {
+    width: 100%;
+  }
+}
