@@ -1,8 +1,7 @@
 "use client";
 
-import { Text } from "@once-ui-system/core";
+import { Icon, Text } from "@once-ui-system/core";
 
-import { BadgePill } from "@/components/BadgePill";
 import { InfiniteScroller } from "@/components/InfiniteScroller";
 import { IconName } from "@/resources/icons";
 
@@ -32,9 +31,19 @@ export function TechStrip({ items }: TechStripProps) {
       <InfiniteScroller
         items={items}
         ariaLabel="Banner de competencias"
-        speed={0.3}
+        speed={0.8}
+        pauseOnHover={false}
         itemKey={(item) => item.label}
-        renderItem={(item) => <BadgePill label={item.label} icon={item.icon} />}
+        renderItem={(item) => (
+          <article className={styles.item}>
+            <span className={styles.iconWrap} aria-hidden="true">
+              <Icon name={item.icon} size="m" />
+            </span>
+            <Text className={styles.label} variant="body-default-s">
+              {item.label}
+            </Text>
+          </article>
+        )}
       />
     </div>
   );
