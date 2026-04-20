@@ -111,8 +111,8 @@ export default function About() {
       />
 
       <Column className={styles.hero} fillWidth gap="24">
-        <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="20">
-          <Column className={styles.heroMain} gap="16">
+        <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="24">
+          <Column className={styles.heroMain} gap="20">
             <BrandSignature />
             <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
               {aboutStrategy.hero.eyebrow}
@@ -160,7 +160,7 @@ export default function About() {
             </SmartLink>
           </Column>
 
-          <Column className={styles.heroAside} gap="16">
+          <Column className={styles.heroAside} gap="20">
             <Row className={styles.profileCard} gap="16" vertical="start">
               <div className={styles.avatarWrap}>
                 <Avatar src={person.avatar} size="l" />
@@ -237,7 +237,7 @@ export default function About() {
         </Grid>
       </Column>
 
-      <Column className={styles.sectionPanel} fillWidth gap="20">
+      <Column className={styles.sectionPanel} fillWidth gap="24">
         <Tag size="s" background="neutral-alpha-weak">
           Visão
         </Tag>
@@ -245,7 +245,7 @@ export default function About() {
           Como eu penso o digital
         </Heading>
 
-        <Grid className={styles.splitGrid} columns="2" s={{ columns: 1 }} gap="16">
+        <Grid className={styles.splitGrid} columns="2" s={{ columns: 1 }} gap="20">
           {thinkingBlocks.map((block) => (
             <Column key={block.label} className={styles.infoCard} gap="12">
               <Text
@@ -266,7 +266,7 @@ export default function About() {
         </Grid>
       </Column>
 
-      <Column className={styles.sectionPanel} fillWidth gap="20">
+      <Column className={styles.sectionPanel} fillWidth gap="24">
         <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
           {aboutStrategy.sections[2]?.label ?? "Diferenciais"}
         </Tag>
@@ -278,7 +278,7 @@ export default function About() {
             "Visão estratégica, execução prática, tecnologia moderna e foco em resultado real."}
         </Text>
 
-        <Grid className={styles.splitGrid} columns="2" s={{ columns: 1 }} gap="16">
+        <Grid className={styles.splitGrid} columns="2" s={{ columns: 1 }} gap="20">
           {differentialFocus.map((point) => (
             <Column key={point} className={styles.infoCard} gap="12">
               <Text
@@ -296,7 +296,7 @@ export default function About() {
         </Grid>
       </Column>
 
-      <Column className={styles.sectionPanel} fillWidth gap="20">
+      <Column className={styles.sectionPanel} fillWidth gap="24">
         <Row
           className={styles.sectionHeader}
           fillWidth
@@ -317,7 +317,7 @@ export default function About() {
           </SmartLink>
         </Row>
 
-        <Grid className={styles.proofGrid} columns="3" s={{ columns: 1 }} gap="16">
+        <Grid className={styles.proofGrid} columns="3" s={{ columns: 1 }} gap="20">
           {proofProjects.map((project) => {
             const tag = project.metadata.tag ?? project.metadata.tags?.[0];
             const kind =

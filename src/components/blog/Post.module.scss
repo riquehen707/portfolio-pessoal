@@ -3,7 +3,8 @@
 .card {
   position: relative;
   overflow: hidden;
-  background: var(--surface-panel-soft);
+  border: 1px solid var(--border-subtle);
+  background: rgba(18, 18, 22, 0.92);
   box-shadow: var(--shadow-soft);
   transition:
     transform 180ms ease,
@@ -12,20 +13,10 @@
     background 180ms ease;
 }
 
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 14% 0%, var(--brand-glow), transparent 26%),
-    radial-gradient(circle at 88% 0%, var(--accent-glow), transparent 20%);
-  pointer-events: none;
-}
-
 .card[data-coverless="true"] {
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015)),
-    var(--surface-panel-soft);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015)),
+    rgba(18, 18, 22, 0.92);
 }
 
 .thumb {
@@ -34,11 +25,12 @@
 }
 
 .feature .thumb {
-  margin-bottom: 0.15rem;
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .thumb[data-direction="row"] {
-  width: 168px;
+  width: clamp(12rem, 24vw, 15rem);
 }
 
 .thumb[data-direction="column"] {
@@ -48,6 +40,7 @@
 .content {
   position: relative;
   z-index: 1;
+  min-width: 0;
 }
 
 .card[data-coverless="true"] .content::before {
@@ -69,7 +62,8 @@
 }
 
 .title {
-  line-height: 1.22;
+  line-height: 1.14;
+  letter-spacing: -0.03em;
 }
 
 .tag {
@@ -80,7 +74,7 @@
 
 .summary {
   max-width: 38rem;
-  line-height: 1.65;
+  line-height: 1.58;
 }
 
 .feature .summary {
@@ -91,26 +85,14 @@
 .compact {
   background: transparent;
   box-shadow: none;
-}
-
-.compact::before {
-  display: none;
+  border: 0;
+  border-top: 1px solid var(--border-subtle);
+  border-radius: 0;
 }
 
 .compact .content {
   width: 100%;
-  padding-left: 1rem;
-}
-
-.compact .content::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.25rem;
-  bottom: 0.25rem;
-  width: 2px;
-  border-radius: 999px;
-  background: linear-gradient(180deg, var(--scheme-brand-700), var(--scheme-accent-700));
+  padding-left: 0;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -121,7 +103,7 @@
   }
 
   .compact:hover {
-    transform: translateX(2px);
+    transform: translateX(0);
     box-shadow: none;
   }
 }
@@ -137,11 +119,7 @@
     width: 100%;
   }
 
-  .compact .content {
-    padding-left: 0.85rem;
-  }
-
-  .compact .content::before {
-    width: 1px;
+  .content {
+    max-width: none;
   }
 }

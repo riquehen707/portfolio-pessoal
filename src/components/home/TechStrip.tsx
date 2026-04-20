@@ -29,7 +29,6 @@ export function TechStrip({ items }: TechStripProps) {
         renderItem={(item) => (
           <article className={styles.item}>
             <span className={styles.iconWrap} aria-hidden="true">
-              <span className={styles.iconHalo} />
               <Icon name={item.icon} size="l" />
             </span>
             <Text className={styles.label} variant="body-default-s">

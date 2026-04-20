@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { IconButton, Row, Text } from "@once-ui-system/core";
 
-import { about, blog, brandMessaging, contact, person, social, work } from "@/resources";
+import { about, blog, brandMessaging, person, productsPage, social, work } from "@/resources";
 
 import { BrandSignature } from "./BrandSignature";
 import styles from "./Footer.module.scss";
@@ -11,7 +11,7 @@ const footerLinks = [
   { href: work.path, label: "Projetos" },
   { href: about.path, label: "Sobre" },
   { href: blog.path, label: "Blog" },
-  { href: contact.path, label: "Contato" },
+  { href: productsPage.path, label: "Produtos" },
 ] as const;
 
 export function Footer() {

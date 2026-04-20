@@ -86,7 +86,7 @@ export default function Post({
       )}
       <Column
         className={styles.content}
-        maxWidth={variant === "compact" ? 32 : 28}
+        maxWidth={variant === "feature" || resolvedDirection === "row" ? undefined : variant === "compact" ? 32 : 28}
         paddingY={variant === "compact" ? "16" : "20"}
         paddingX={variant === "feature" ? "20" : "l"}
         gap={variant === "compact" ? "12" : "16"}

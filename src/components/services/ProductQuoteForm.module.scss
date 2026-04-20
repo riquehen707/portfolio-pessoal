@@ -1,0 +1,49 @@
+@use "../../styles/mixins" as mixins;
+
+.form,
+.fields {
+  width: 100%;
+}
+
+.selectWrap {
+  position: relative;
+}
+
+.select,
+.textarea {
+  width: 100%;
+}
+
+.select {
+  @include mixins.input-surface;
+
+  min-height: 3.2rem;
+  padding: 0.95rem 2.8rem 0.95rem 1rem;
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--neutral-on-background-medium) 50%),
+    linear-gradient(135deg, var(--neutral-on-background-medium) 50%, transparent 50%);
+  background-position:
+    calc(100% - 1.35rem) calc(1.45rem),
+    calc(100% - 1rem) calc(1.45rem);
+  background-size: 0.45rem 0.45rem, 0.45rem 0.45rem;
+  background-repeat: no-repeat;
+}
+
+.textarea {
+  min-height: 9rem;
+  padding: 0.95rem 1rem;
+  @include mixins.input-surface;
+  resize: vertical;
+}
+
+.actions {
+  width: 100%;
+}
+
+@include mixins.s {
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

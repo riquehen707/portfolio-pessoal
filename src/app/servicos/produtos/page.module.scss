@@ -1,0 +1,200 @@
+@use "../../../styles/mixins" as mixins;
+
+.page {
+  width: 100%;
+}
+
+.hero,
+.featuredCard,
+.quotePanel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-overlay-soft), var(--surface-panel-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+  gap: 1.25rem 1.5rem;
+  padding: clamp(1.4rem, 3vw, 2rem);
+  border-radius: var(--radius-panel);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(255, 215, 0, 0.08), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 48%),
+    var(--surface-panel-strong);
+  box-shadow: var(--shadow-card);
+}
+
+.heroCopy,
+.heroAside,
+.sectionHeader,
+.quoteIntro {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.heroCopy {
+  max-width: 44rem;
+}
+
+.heroTitle {
+  letter-spacing: -0.05em;
+}
+
+.heroLead {
+  max-width: 40rem;
+}
+
+.heroActions,
+.featuredActions {
+  width: 100%;
+}
+
+.signalRail,
+.quoteBenefits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1rem;
+  margin-top: 0.2rem;
+}
+
+.signalItem,
+.quoteBenefit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 2.1rem;
+}
+
+.signalDot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: var(--brand-on-background-medium);
+  box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.08);
+}
+
+.heroAside {
+  align-content: start;
+}
+
+.heroStat {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1rem 1.05rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-20);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.heroStatLabel {
+  @include mixins.label-uppercase(0.14em);
+}
+
+.heroStatValue {
+  letter-spacing: -0.05em;
+}
+
+.section {
+  display: grid;
+  gap: 1rem;
+}
+
+.sectionHeader {
+  max-width: 40rem;
+}
+
+.featuredGrid {
+  width: 100%;
+}
+
+.featuredCard {
+  display: grid;
+  gap: 1rem;
+  padding: 1.35rem;
+  border-radius: var(--radius-24);
+}
+
+.featuredCardTop,
+.featuredMeta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.8rem 1rem;
+  align-items: center;
+}
+
+.featuredMeta {
+  padding: 1rem;
+  border-radius: var(--radius-16);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.featuredMeta > div {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.featuredList {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.featuredList li::marker {
+  color: var(--scheme-brand-700);
+}
+
+.quoteSection {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: 1.25rem 1.5rem;
+  align-items: start;
+}
+
+.quoteIntro {
+  max-width: 35rem;
+}
+
+.quotePanel {
+  padding: 1.35rem;
+  border-radius: var(--radius-panel);
+}
+
+@include mixins.hover-fine {
+  .featuredCard:hover,
+  .quotePanel:hover {
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-card);
+  }
+}
+
+@include mixins.m {
+  .hero,
+  .quoteSection {
+    grid-template-columns: 1fr;
+  }
+}
+
+@include mixins.s {
+  .hero,
+  .featuredCard,
+  .quotePanel {
+    border-radius: calc(var(--radius-panel) - 0.2rem);
+  }
+
+  .hero,
+  .featuredCard,
+  .quotePanel {
+    padding: 1rem;
+  }
+
+  .heroActions,
+  .featuredActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

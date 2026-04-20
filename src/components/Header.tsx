@@ -5,7 +5,7 @@ import { Fragment, useEffect, useState } from "react";
 import { Flex, Line, Row, Text, ToggleButton, useTheme } from "@once-ui-system/core";
 import { usePathname } from "next/navigation";
 
-import { about, blog, contact, display, person, technicalApproach, work } from "@/resources";
+import { about, blog, display, person, productsPage, technicalApproach, work } from "@/resources";
 
 import { BrandSignature } from "./BrandSignature";
 import styles from "./Header.module.scss";
@@ -15,7 +15,7 @@ const navItems = [
   { href: work.path, label: "Projetos", icon: "grid" },
   { href: about.path, label: "Sobre", icon: "person" },
   { href: blog.path, label: "Blog", icon: "book" },
-  { href: contact.path, label: "Contato", icon: "email" },
+  { href: productsPage.path, label: "Produtos", icon: "shopify" },
 ] as const;
 
 function TimeDisplay({ timeZone, locale = "pt-BR" }: { timeZone: string; locale?: string }) {

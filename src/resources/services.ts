@@ -518,12 +518,12 @@ export const services: ServiceLanding[] = [
 
 export const productsPage: ProductsPage = {
   path: "/servicos/produtos",
-  label: "Pacotes",
-  title: "Pacotes e micro-serviços",
+  label: "Produtos",
+  title: "Produtos e pacotes digitais",
   description:
-    "Ofertas menores para resolver um problema específico sem abrir um projeto inteiro.",
-  cta: "Escolha um formato, entenda onde ele se encaixa e siga para contato.",
-  note: "Aqui entram pacotes prontos e micro-serviços criados por mim para resolver dores mais objetivas.",
+    "Produtos, pacotes e micro-serviços para destravar presença digital, SEO, interface e automação com mais clareza.",
+  cta: "Escolha um formato, compare opções e siga para solicitar orçamento sem fricção.",
+  note: "Aqui entram entradas menores, mais diretas e com leitura fácil para quem quer começar sem abrir um projeto enorme.",
 };
 
 export const products: ProductItem[] = [

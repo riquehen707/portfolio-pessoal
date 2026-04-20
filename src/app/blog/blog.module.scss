@@ -1,60 +1,168 @@
 @use "../../components/breakpoints.scss" as breakpoints;
 
+.page {
+  width: min(100%, var(--grid-max-width));
+  margin-inline: auto;
+}
+
 .hero,
-.laneCard,
-.infoPanel {
+.trackPanel,
+.categorySummaryCard {
   position: relative;
   overflow: hidden;
-  width: 100%;
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-panel);
-  background: var(--surface-panel);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 22%),
+    rgba(18, 18, 22, 0.92);
   box-shadow: var(--shadow-soft);
 }
 
-.hero::before,
-.laneCard::before,
-.infoPanel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 14% 10%, var(--brand-glow), transparent 28%),
-    radial-gradient(circle at 84% 0%, var(--accent-glow), transparent 20%);
-  pointer-events: none;
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+  gap: clamp(1rem, 3vw, 1.8rem);
+  padding: clamp(1.25rem, 3vw, 2rem);
 }
 
-.hero > *,
-.laneCard > *,
-.infoPanel > * {
-  position: relative;
-  z-index: 1;
+.heroCopy,
+.heroAside,
+.sectionCopy {
+  min-width: 0;
+}
+
+.heroCopy {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.heroTitle {
+  max-width: 12ch;
 }
 
 .heroLead {
   max-width: 46rem;
 }
 
-.laneGrid {
+.heroAside {
+  display: grid;
+  gap: 0.75rem;
+  align-content: start;
+}
+
+.heroStat {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-16);
+  background: rgba(11, 11, 13, 0.42);
+}
+
+.heroStatValue {
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 3vw, 1.9rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--neutral-on-background-strong);
+}
+
+.section,
+.explorerSection {
+  display: grid;
+  gap: 1rem;
+}
+
+.sectionHeader {
+  width: 100%;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.sectionCopy {
+  max-width: 42rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.featuredGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.24fr) minmax(18rem, 0.76fr);
+  gap: 1rem;
+}
+
+.featuredSide {
+  display: grid;
+  gap: 1rem;
+}
+
+.recentGrid {
   width: 100%;
 }
 
-.laneCard {
-  min-height: 13rem;
+.trackGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
 }
 
-.laneMeta {
-  letter-spacing: 0.04em;
+.trackPanel {
+  display: grid;
+  gap: 1rem;
+  padding: 1.2rem;
+}
+
+.trackHeader {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.trackList {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.categorySummary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.categorySummaryCard {
+  display: grid;
+  gap: 0.55rem;
+  padding: 1rem 1.05rem;
+}
+
+.categorySummaryLabel {
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-.infoPanel {
-  align-items: flex-start;
+@media (max-width: breakpoints.$m) {
+  .hero,
+  .featuredGrid,
+  .trackGrid,
+  .categorySummary {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: breakpoints.$s) {
   .hero,
-  .laneCard,
-  .infoPanel {
+  .trackPanel,
+  .categorySummaryCard {
+    padding: 1rem;
     border-radius: calc(var(--radius-24) - 0.05rem);
+  }
+
+  .heroTitle,
+  .heroLead {
+    max-width: none;
+  }
+
+  .sectionHeader {
+    align-items: flex-start;
   }
 }

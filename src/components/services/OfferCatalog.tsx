@@ -33,6 +33,10 @@ const accessLabels = {
 
 const filterOrder: FilterKey[] = ["all", "package", "microservice", "saas"];
 
+function buildQuoteHref(slug: string) {
+  return `/servicos/produtos?produto=${encodeURIComponent(slug)}#solicitar-orcamento`;
+}
+
 export default function OfferCatalog({ offers }: OfferCatalogProps) {
   const visibleOffers = offers.filter((offer) => offer.category !== "saas");
   const [activeFilter, setActiveFilter] = useState<FilterKey>("all");
@@ -51,7 +55,20 @@ export default function OfferCatalog({ offers }: OfferCatalogProps) {
 
   return (
     <Column className={styles.root} gap="24">
-      <Row className={styles.filters} gap="12" wrap>
+      <div className={styles.filterShell}>
+        <Column className={styles.filterIntro} gap="8">
+          <Text className={styles.filterEyebrow} variant="label-default-s" onBackground="neutral-weak">
+            Escolha por formato
+          </Text>
+          <Heading as="h3" variant="heading-strong-l">
+            Catálogo de entradas
+          </Heading>
+          <Text onBackground="neutral-weak" variant="body-default-m">
+            Pacotes para começar com mais previsibilidade e micro-serviços para resolver gargalos específicos.
+          </Text>
+        </Column>
+
+        <Row className={styles.filters} gap="12" wrap>
         {filterOrder.filter((filterKey) => filterKey !== "saas").map((filterKey) => {
           const count =
             filterKey === "all"
@@ -66,6 +83,7 @@ export default function OfferCatalog({ offers }: OfferCatalogProps) {
               className={`${styles.filterButton} ${isActive ? styles.filterButtonActive : ""}`}
               key={filterKey}
               onClick={() => setActiveFilter(filterKey)}
+              aria-pressed={isActive}
               type="button"
             >
               <span>{label}</span>
@@ -73,24 +91,27 @@ export default function OfferCatalog({ offers }: OfferCatalogProps) {
             </button>
           );
         })}
-      </Row>
+        </Row>
+      </div>
 
       {sections.map((section) => (
-        <Column key={section.category} gap="12">
-          <Column gap="8">
+        <section className={styles.section} key={section.category}>
+          <Column className={styles.sectionHeader} gap="8">
             <Heading as="h2" variant="heading-strong-s">
               {categoryLabels[section.category]}
             </Heading>
-            <Text onBackground="neutral-weak">{categoryDescriptions[section.category]}</Text>
+            <Text onBackground="neutral-weak" variant="body-default-m">
+              {categoryDescriptions[section.category]}
+            </Text>
           </Column>
 
-          <Grid columns="3" s={{ columns: 1 }} gap="16">
+          <Grid className={styles.catalogGrid} columns="3" s={{ columns: 1 }} gap="16">
             {section.items.map((offer) => (
               <Card
                 className={styles.card}
                 key={offer.slug}
                 direction="column"
-                gap="12"
+                gap="16"
                 paddingX="20"
                 paddingY="20"
                 radius="l"
@@ -98,8 +119,8 @@ export default function OfferCatalog({ offers }: OfferCatalogProps) {
                 border="neutral-alpha-weak"
                 fillHeight
               >
-                <Row gap="8" wrap>
-                  <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+                <Row className={styles.cardTop} gap="8" wrap>
+                  <Tag className={styles.categoryTag} size="s" background="brand-alpha-weak" onBackground="brand-strong">
                     {categoryLabels[offer.category]}
                   </Tag>
                   <Tag size="s" background="neutral-alpha-weak">
@@ -110,19 +131,32 @@ export default function OfferCatalog({ offers }: OfferCatalogProps) {
                   </Tag>
                 </Row>
 
-                <Column gap="8">
-                  <Heading as="h3" variant="heading-strong-m">
+                <Column className={styles.cardIntro} gap="12">
+                  <Heading as="h3" className={styles.cardTitle} variant="heading-strong-m">
                     {offer.title}
                   </Heading>
-                  <Text onBackground="neutral-weak">{offer.summary}</Text>
+                  <Text onBackground="neutral-weak" variant="body-default-m">
+                    {offer.summary}
+                  </Text>
                 </Column>
 
-                <Column gap="4">
-                  <Text variant="label-default-s" onBackground="neutral-weak">
-                    Formato
+                <div className={styles.pricePanel}>
+                  <Text className={styles.priceValue} variant="heading-strong-l">
+                    {offer.price}
                   </Text>
-                  <Text variant="body-default-s">{offer.format}</Text>
-                </Column>
+                  <Text variant="body-default-s" onBackground="neutral-weak">
+                    {offer.priceLabel}
+                  </Text>
+                </div>
+
+                <div className={styles.metaRow}>
+                  <div className={styles.metaItem}>
+                    <Text variant="label-default-s" onBackground="neutral-weak">
+                      Formato
+                    </Text>
+                    <Text variant="body-default-s">{offer.format}</Text>
+                  </div>
+                </div>
 
                 <Column as="ul" className={styles.highlights} gap="8">
                   {offer.highlights.map((item) => (
@@ -133,21 +167,18 @@ export default function OfferCatalog({ offers }: OfferCatalogProps) {
                 </Column>
 
                 <Column className={styles.footer} gap="12">
-                  <Column gap="2">
-                    <Text variant="heading-strong-s">{offer.price}</Text>
-                    <Text variant="body-default-s" onBackground="neutral-weak">
-                      {offer.priceLabel}
-                    </Text>
-                  </Column>
-
-                  <Button href={offer.link} variant="primary" size="s" arrowIcon>
+                  <Button href={buildQuoteHref(offer.slug)} variant="primary" size="m" arrowIcon>
                     {offer.ctaLabel}
                   </Button>
+
+                  <Text variant="body-default-s" onBackground="neutral-weak">
+                    Ou siga por WhatsApp com um briefing curto e objetivo.
+                  </Text>
                 </Column>
               </Card>
             ))}
           </Grid>
-        </Column>
+        </section>
       ))}
     </Column>
   );

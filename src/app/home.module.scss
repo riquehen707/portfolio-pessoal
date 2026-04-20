@@ -35,18 +35,12 @@
 }
 
 .heroCopy {
-  grid-column: span 6;
+  grid-column: 1 / span 8;
   display: grid;
   gap: 1.1rem;
   min-width: 0;
   align-content: center;
-}
-
-.heroVisualWrap {
-  grid-column: span 6;
-  display: flex;
-  justify-content: flex-end;
-  min-width: 0;
+  max-width: min(100%, 54rem);
 }
 
 .heroIdentity {
@@ -141,9 +135,9 @@
 }
 
 @include mixins.m {
-  .heroCopy,
-  .heroVisualWrap {
+  .heroCopy {
     grid-column: 1 / -1;
+    max-width: min(100%, 46rem);
   }
 
   .blogGrid {
@@ -167,11 +161,6 @@
 
   .supportPanel {
     border-radius: calc(var(--radius-24) - 0.1rem);
-  }
-
-  .heroVisualWrap {
-    justify-content: center;
-    overflow: clip;
   }
 
   .heroTrustRow {

@@ -27,6 +27,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/contact": 0.88,
     "/about": 0.82,
     "/servicos": 0.84,
+    [productsPage.path]: 0.8,
   };
 
   const routes = Object.keys(routesConfig)
@@ -54,14 +55,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  const products = [
-    {
-      url: `${baseURL}${productsPage.path}`,
-      lastModified: today,
-      changeFrequency: "monthly" as const,
-      priority: 0.62,
-    },
-  ];
-
-  return [...routes, ...feeds, ...products, ...serviceLandings, ...blogs, ...works];
+  return [...routes, ...feeds, ...serviceLandings, ...blogs, ...works];
 }

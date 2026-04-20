@@ -1,4 +1,4 @@
-import { Meta, Schema, Text } from "@once-ui-system/core";
+﻿import { Meta, Schema, Text } from "@once-ui-system/core";
 
 import { getBlogPrimaryCategory, getFeaturedBlogPosts } from "@/app/blog/postData";
 import { getAllWorkProjects } from "@/app/work/projectData";
@@ -7,10 +7,8 @@ import { ArticleCard } from "@/components/cards/ArticleCard";
 import { AboutTeaser } from "@/components/home/AboutTeaser";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { HeroActions } from "@/components/home/HeroActions";
-import { MarketsSection } from "@/components/home/MarketsSection";
 import { HeroSubtitle } from "@/components/home/HeroSubtitle";
 import { HeroTitle } from "@/components/home/HeroTitle";
-import { HeroVisual } from "@/components/home/HeroVisual";
 import { TechStrip } from "@/components/home/TechStrip";
 import { Reveal } from "@/components/motion/Reveal";
 import { FeaturedWorksShowcase } from "@/components/work/FeaturedWorksShowcase";
@@ -26,7 +24,6 @@ import {
 import styles from "./home.module.scss";
 
 const homeStrategy = contentStrategy.pages.home;
-const homeMarketsSection = homeStrategy.sections.find((section) => section.id === "markets");
 const homeBlogSection = homeStrategy.sections.find((section) => section.id === "blog");
 const homeAboutSection = homeStrategy.sections.find((section) => section.id === "about-teaser");
 const homeFinalSection = homeStrategy.sections.find((section) => section.id === "final-cta");
@@ -50,36 +47,6 @@ const techStripItems = [
   { label: "Performance", icon: "performance" },
 ] as const;
 
-const marketCards = [
-  {
-    title: "Alimentação",
-    summary: "Operações que precisam recorrência, ticket melhor e menos dependência de plataformas externas.",
-    bullets: ["Pedidos recorrentes", "Ticket médio maior", "Menos dependência de apps"],
-    detail:
-      "A abordagem combina descoberta local, canais próprios e recompra com menos atrito operacional.",
-  },
-  {
-    title: "Imóveis",
-    summary: "Mercado em que lead frio custa caro e a confiança precisa aparecer antes do primeiro contato.",
-    bullets: ["Leads qualificados", "Mais confiança", "Resposta rápida"],
-    detail:
-      "O foco sai do volume vazio e entra em contexto, velocidade comercial e prova certa para cada etapa.",
-  },
-  {
-    title: "Estética",
-    summary: "Negócios que crescem melhor quando imagem, agenda e fidelização trabalham juntos.",
-    bullets: ["Agenda previsível", "Imagem premium", "Fidelização"],
-    detail:
-      "A execução precisa proteger valor percebido, reduzir no-show e criar recorrência sem parecer promocional.",
-  },
-  {
-    title: "Profissionais",
-    summary: "Serviços que dependem de autoridade digital, leitura objetiva e comunicação adequada ao setor.",
-    bullets: ["Autoridade digital", "Reputação sólida", "Comunicação adequada ao setor"],
-    detail:
-      "A estrutura certa filtra melhor, organiza a jornada e faz a confiança chegar antes da reunião.",
-  },
-] as const;
 
 export async function generateMetadata() {
   return {
@@ -144,9 +111,6 @@ export default function Home() {
             </Reveal>
           </div>
 
-          <div className={styles.heroVisualWrap}>
-            <HeroVisual />
-          </div>
         </div>
 
         <a className={styles.scrollCue} href="#home-proof" aria-label="Explorar próxima seção">
@@ -161,16 +125,6 @@ export default function Home() {
           <TechStrip items={[...techStripItems]} />
         </Reveal>
       </section>
-
-      <MarketsSection
-        eyebrow={homeMarketsSection?.label ?? "Mercados"}
-        title={homeMarketsSection?.title ?? "Mercados diferentes exigem estratégias diferentes."}
-        description={homeMarketsSection?.description ?? ""}
-        items={marketCards.map((market) => ({
-          ...market,
-          bullets: [...market.bullets],
-        }))}
-      />
 
       <FeaturedWorksShowcase projects={workProjects} />
 
@@ -241,3 +195,4 @@ export default function Home() {
     </div>
   );
 }
+
