@@ -120,7 +120,7 @@ const brandIdentity = {
     },
     {
       label: "Atuação",
-      value: "Estratégia, captação e gestão de clientes.",
+      value: "Marketing, sistemas e posicionamento digital.",
     },
   ],
   represents: [

@@ -34,12 +34,13 @@
   gap: clamp(2.75rem, 6vw, 5rem);
 }
 
-.splitGrid {
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-}
-
 .stepGrid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.fitGrid {
+  grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+  gap: clamp(1.75rem, 4vw, 3rem);
 }
 
 .proofGrid {
@@ -61,7 +62,7 @@
 .heroAside {
   position: relative;
   align-self: start;
-  max-width: 25rem;
+  max-width: 23rem;
   justify-self: end;
   padding-left: clamp(1.9rem, 4vw, 3.2rem);
   border-left: 1px solid var(--neutral-alpha-weak);
@@ -115,46 +116,33 @@
   padding-top: 0.15rem;
 }
 
-.collage {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.15rem;
-}
-
-.collageCard {
+.summaryCard {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  gap: 0.9rem;
-  min-height: auto;
-  padding: 1.15rem 0 0;
-  border-top: 1px solid var(--neutral-alpha-weak);
-}
-
-.collageCard:first-child {
-  padding-top: 0.2rem;
-  border-top: 0;
-}
-
-.collageWide {
-  grid-column: auto;
-}
-
-.collageTitle {
-  line-height: 1.1;
-}
-
-.collageBody {
-  max-width: 30ch;
-}
-
-.collageWide .collageBody {
-  max-width: 40ch;
+  gap: 1rem;
 }
 
 .eyebrow {
   letter-spacing: 0.16em;
   text-transform: uppercase;
+}
+
+.summaryRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--neutral-alpha-weak);
+}
+
+.summaryRow:first-child {
+  padding-top: 0.15rem;
+  border-top: 0;
+}
+
+.summaryValue,
+.storyBody {
+  max-width: 42rem;
 }
 
 .sectionHeader {
@@ -170,6 +158,20 @@
 .proofCard {
   padding: 1.35rem 0 0;
   border-top: 1px solid var(--neutral-alpha-weak);
+}
+
+.serviceCard {
+  align-self: start;
+  padding: 1.25rem;
+  border: 1px solid var(--neutral-alpha-weak);
+  border-radius: var(--radius-24);
+  background: var(--surface-panel-soft);
+}
+
+.serviceTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
 }
 
 .stepCard {
@@ -188,10 +190,6 @@
   letter-spacing: 0.12em;
 }
 
-.infoList {
-  padding-left: 1.1rem;
-}
-
 .depthPanel {
   background: var(--surface-panel-soft);
 }
@@ -207,7 +205,7 @@
 
 @media (max-width: breakpoints.$m) {
   .heroGrid,
-  .splitGrid,
+  .fitGrid,
   .stepGrid,
   .proofGrid {
     grid-template-columns: 1fr;
@@ -237,14 +235,6 @@
 @media (max-width: breakpoints.$s) {
   .profileCard {
     grid-template-columns: minmax(4.5rem, 24%) minmax(0, 1fr);
-  }
-
-  .collage {
-    grid-template-columns: 1fr;
-  }
-
-  .collageWide {
-    grid-column: auto;
   }
 
   .sectionHeader {

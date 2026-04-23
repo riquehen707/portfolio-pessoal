@@ -212,30 +212,30 @@ const contentStrategy = {
       },
       sections: [
         {
-          id: "vision",
-          label: "Visão",
-          title: "Não acredito em excesso. Acredito em clareza bem executada.",
+          id: "story",
+          label: "Trajetória",
+          title: "Minha história",
           description:
-            "O valor não está em parecer complexo, e sim em organizar o que importa com precisão.",
+            "Empreender cedo me ensinou algo importante: bons negócios nem sempre crescem, porque esforço sem estrutura cobra caro.",
         },
         {
-          id: "thinking",
-          label: "Como penso",
-          title: "Negócios crescem quando posicionamento, operação e tecnologia trabalham juntos.",
+          id: "rebuild",
+          label: "Recomeço",
+          title: "Prática, disciplina e resultado.",
           description:
-            "Cada camada do digital precisa reforçar a outra. Quando isso acontece, a percepção melhora e a operação ganha força.",
+            "Depois de enfrentar mudanças pessoais profundas, precisei recomeçar do zero. Esse processo me tornou ainda mais prático, disciplinado e orientado a resultado.",
         },
         {
-          id: "differentials",
-          label: "Diferenciais",
-          title: "O que sustenta meu trabalho.",
+          id: "fit",
+          label: "Aderência",
+          title: "Para quem faço sentido",
           description:
-            "Visão estratégica, execução prática, tecnologia moderna e foco em resultado real.",
+            "Trabalho melhor com pequenos e médios negócios que já entregam valor, mas ainda precisam organizar presença digital, captação e relacionamento com clientes.",
           bullets: [
-            "Visão estratégica",
-            "Execução prática",
-            "Tecnologia moderna",
-            "Foco em resultado real",
+            "Pequenos e médios negócios",
+            "Profissionais e empresas de serviço",
+            "Primeiros anos de crescimento",
+            "Estrutura sem complexidade",
           ],
         },
       ],

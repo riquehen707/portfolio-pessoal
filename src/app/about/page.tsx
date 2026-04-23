@@ -35,62 +35,42 @@ const kindLabels = {
 
 const aboutStrategy = contentStrategy.pages.about;
 
-const thinkingBlocks = [
+const compactSummary = [
   {
-    label: aboutStrategy.sections[0]?.label ?? "Visão",
-    title:
-      aboutStrategy.sections[0]?.title ??
-      "Não acredito em excesso. Acredito em clareza bem executada.",
-    description:
-      aboutStrategy.sections[0]?.description ??
-      "O valor não está em parecer complexo, e sim em organizar o que importa com precisão.",
+    label: "Especialidade",
+    value: "Negócios locais, prestadores de serviço e e-commerce.",
   },
   {
-    label: aboutStrategy.sections[1]?.label ?? "Como penso",
-    title:
-      aboutStrategy.sections[1]?.title ??
-      "Negócios crescem quando posicionamento, operação e tecnologia trabalham juntos.",
-    description:
-      aboutStrategy.sections[1]?.description ??
-      "Cada camada do digital precisa reforçar a outra. Quando isso acontece, a percepção melhora e a operação ganha força.",
+    label: "Entrega",
+    value: "Captação de clientes, presença digital e estrutura operacional.",
   },
+  {
+    label: "Atuação",
+    value: "Marketing, sistemas e posicionamento digital.",
+  },
+] as const;
+
+const storyParagraphs = [
+  "Empreender cedo me ensinou algo importante: bons negócios nem sempre crescem, porque esforço sem estrutura cobra caro.",
+  "Depois de enfrentar mudanças pessoais profundas, precisei recomeçar do zero. Esse processo me tornou ainda mais prático, disciplinado e orientado a resultado.",
+  "Hoje aplico essa visão ajudando pequenos negócios e prestadores de serviço a vender melhor, operar melhor e crescer com mais clareza.",
 ];
 
-const differentialFocus = [
-  "Visão estratégica para ler contexto antes de decidir ferramenta",
-  "Execução prática para transformar direção em entrega utilizável",
-  "Tecnologia moderna aplicada com critério e sem excesso",
-  "Foco em resultado real, não em volume de entregas",
+const fitParagraphs = [
+  "Trabalho melhor com pequenos e médios negócios que já entregam valor, mas ainda precisam organizar presença digital, captação e relacionamento com clientes.",
+  "Isso inclui profissionais e empresas de serviço que dependem de confiança para vender: psicólogos, advogados, contadores, dentistas, clínicas de estética e negócios locais especializados.",
+  "Faço sentido para quem está nos primeiros anos de crescimento, sente que o digital poderia render mais e precisa de estrutura sem transformar tudo em complexidade.",
 ];
 
-const collageSections = [
-  {
-    label: "Habilidades práticas",
-    items: [
-      "Anúncios altamente localizados",
-      "Sites orientados à conversão",
-      "CRM e gestão de relacionamento",
-      "Automação de processos digitais",
-    ],
-  },
-  {
-    label: "Clientes que atendo",
-    items: [
-      "Negócios locais",
-      "Prestadores de serviço presenciais",
-      "Serviços digitais e remotos",
-      "E-commerces em crescimento",
-    ],
-  },
-  {
-    label: "Especialidades",
-    items: [
-      "Tráfego pago especializado",
-      "Implantação de CRM",
-      "Desenvolvimento web e web mobile",
-      "Soluções digitais sob medida",
-    ],
-  },
+const serviceItems = [
+  "Captação de clientes",
+  "Presença digital",
+  "Sites",
+  "Tráfego pago",
+  "CRM",
+  "Automações",
+  "Sistemas web",
+  "Organização comercial",
 ] as const;
 
 export async function generateMetadata() {
@@ -110,6 +90,7 @@ export default function About() {
   const whatsappLink =
     social.find((item) => item.name === "WhatsApp")?.link ?? `mailto:${person.email}`;
   const proofProjects = getPosts(["src", "app", "work", "projects"])
+    .filter((project) => project.slug !== "atlas-imoveis-estudo")
     .sort(
       (a, b) =>
         new Date(b.metadata.publishedAt ?? 0).getTime() -
@@ -202,26 +183,24 @@ export default function About() {
               </Column>
             </Row>
 
-            <div className={styles.collage}>
-              {collageSections.map((section) => (
-                <div
-                  className={`${styles.collageCard} ${section.label === "Habilidades práticas" ? styles.collageWide : ""}`}
-                  key={section.label}
-                >
+            <div className={styles.summaryCard}>
+              {compactSummary.map((item) => (
+                <div className={styles.summaryRow} key={item.label}>
                   <Text
                     className={styles.eyebrow}
                     variant="label-default-s"
                     onBackground="neutral-weak"
                   >
-                    {section.label}
+                    {item.label}
                   </Text>
-                  <Column as="ul" className={styles.infoList} gap="8">
-                    {section.items.map((item) => (
-                      <Text as="li" key={item} variant="body-default-m" onBackground="neutral-weak">
-                        {item}
-                      </Text>
-                    ))}
-                  </Column>
+                  <Text
+                    className={styles.summaryValue}
+                    variant="body-default-m"
+                    onBackground="neutral-weak"
+                    wrap="balance"
+                  >
+                    {item.value}
+                  </Text>
                 </div>
               ))}
             </div>
@@ -231,60 +210,50 @@ export default function About() {
 
       <Column className={styles.sectionPanel} fillWidth gap="24">
         <Tag size="s" background="neutral-alpha-weak">
-          Visão
+          Trajetória
         </Tag>
         <Heading as="h2" variant="display-strong-s">
-          Como eu penso o digital
+          Minha história
         </Heading>
 
-        <Grid className={styles.splitGrid} columns="2" s={{ columns: 1 }} gap="20">
-          {thinkingBlocks.map((block) => (
-            <Column key={block.label} className={styles.infoCard} gap="12">
-              <Text
-                className={styles.eyebrow}
-                variant="label-default-s"
-                onBackground="neutral-weak"
-              >
-                {block.label}
-              </Text>
-              <Heading as="h3" variant="heading-strong-l">
-                {block.title}
-              </Heading>
-              <Text variant="body-default-m" onBackground="neutral-weak">
-                {block.description}
-              </Text>
-            </Column>
+        <Column className={styles.storyBody} gap="16">
+          {storyParagraphs.map((paragraph) => (
+            <Text key={paragraph} variant="body-default-m" onBackground="neutral-weak">
+              {paragraph}
+            </Text>
           ))}
-        </Grid>
+        </Column>
       </Column>
 
       <Column className={styles.sectionPanel} fillWidth gap="24">
         <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-          {aboutStrategy.sections[2]?.label ?? "Diferenciais"}
+          Aderência
         </Tag>
         <Heading as="h2" variant="display-strong-s">
-          {aboutStrategy.sections[2]?.title ?? "O que sustenta meu trabalho."}
+          Para quem faço sentido
         </Heading>
-        <Text onBackground="neutral-weak" variant="body-default-m">
-          {aboutStrategy.sections[2]?.description ??
-            "Visão estratégica, execução prática, tecnologia moderna e foco em resultado real."}
-        </Text>
 
-        <Grid className={styles.splitGrid} columns="2" s={{ columns: 1 }} gap="20">
-          {differentialFocus.map((point) => (
-            <Column key={point} className={styles.infoCard} gap="12">
-              <Text
-                className={styles.eyebrow}
-                variant="label-default-s"
-                onBackground="neutral-weak"
-              >
-                Diferencial
+        <Grid className={styles.fitGrid} columns="2" s={{ columns: 1 }} gap="20">
+          <Column className={styles.storyBody} gap="16">
+            {fitParagraphs.map((paragraph) => (
+              <Text key={paragraph} onBackground="neutral-weak" variant="body-default-m">
+                {paragraph}
               </Text>
-              <Text variant="heading-strong-m" wrap="balance">
-                {point}
-              </Text>
-            </Column>
-          ))}
+            ))}
+          </Column>
+
+          <Column className={styles.serviceCard} gap="16">
+            <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
+              Serviços que presto
+            </Text>
+            <div className={styles.serviceTags}>
+              {serviceItems.map((item) => (
+                <Tag key={item} size="s" background="neutral-alpha-weak">
+                  {item}
+                </Tag>
+              ))}
+            </div>
+          </Column>
         </Grid>
       </Column>
 
