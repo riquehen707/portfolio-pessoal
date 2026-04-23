@@ -115,7 +115,7 @@ const contentStrategy = {
         {
           id: "about-teaser",
           label: "Sobre",
-          title: "Mais que design e tecnologia.",
+          title: "Marketing e estrutura personalizada para atrair clientes sem tomar seu tempo.",
           description:
             "Transformo ideias e necessidades reais em estruturas digitais claras, funcionais e valiosas.",
           ctaLabel: "Conheça minha trajetória",
@@ -203,7 +203,7 @@ const contentStrategy = {
       },
       hero: {
         eyebrow: "Sobre",
-        headline: "Mais que design e tecnologia.",
+        headline: "Tudo que seu negócio precisa além de você.",
         subheadline: "Transformo ideias em estruturas digitais claras, funcionais e valiosas.",
         primaryCtaLabel: "Vamos conversar",
         primaryCtaHref: "/contact",

@@ -13,11 +13,11 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": ".",                          // ✅ novo
+    "baseUrl": ".",                          
     "plugins": [{ "name": "next" }],
     "paths": {
       "@/*": ["./src/*"],
-      "@/mdx-components": ["src/mdx-components.tsx"]  // ✅ novo
+      "@/mdx-components": ["src/mdx-components.tsx"]  
     },
     "target": "ES2017"
   },
@@ -25,7 +25,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "**/*.mdx",                              // ✅ novo
+    "**/*.mdx",                              
     ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules"]

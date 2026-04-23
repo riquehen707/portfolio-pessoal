@@ -167,7 +167,10 @@ export default function Home() {
       <section className={styles.aboutSection}>
         <AboutTeaser
           eyebrow={homeAboutSection?.label ?? "Sobre"}
-          title={homeAboutSection?.title ?? "Mais que design e tecnologia."}
+          title={
+            homeAboutSection?.title ??
+            "Marketing e estrutura personalizada para atrair clientes sem tomar seu tempo."
+          }
           description={
             homeAboutSection?.description ??
             "Transformo ideias e necessidades reais em estruturas digitais claras, funcionais e valiosas."

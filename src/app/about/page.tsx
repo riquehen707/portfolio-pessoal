@@ -18,7 +18,6 @@ import styles from "@/components/about/about.module.scss";
 import {
   about,
   baseURL,
-  brandIdentity,
   contact,
   contentStrategy,
   person,
@@ -63,6 +62,36 @@ const differentialFocus = [
   "Tecnologia moderna aplicada com critério e sem excesso",
   "Foco em resultado real, não em volume de entregas",
 ];
+
+const collageSections = [
+  {
+    label: "Habilidades práticas",
+    items: [
+      "Anúncios altamente localizados",
+      "Sites orientados à conversão",
+      "CRM e gestão de relacionamento",
+      "Automação de processos digitais",
+    ],
+  },
+  {
+    label: "Clientes que atendo",
+    items: [
+      "Negócios locais",
+      "Prestadores de serviço presenciais",
+      "Serviços digitais e remotos",
+      "E-commerces em crescimento",
+    ],
+  },
+  {
+    label: "Especialidades",
+    items: [
+      "Tráfego pago especializado",
+      "Implantação de CRM",
+      "Desenvolvimento web e web mobile",
+      "Soluções digitais sob medida",
+    ],
+  },
+] as const;
 
 export async function generateMetadata() {
   return {
@@ -174,64 +203,27 @@ export default function About() {
             </Row>
 
             <div className={styles.collage}>
-              <div className={`${styles.collageCard} ${styles.collageWide}`}>
-                <Text
-                  className={styles.eyebrow}
-                  variant="label-default-s"
-                  onBackground="neutral-weak"
+              {collageSections.map((section) => (
+                <div
+                  className={`${styles.collageCard} ${section.label === "Habilidades práticas" ? styles.collageWide : ""}`}
+                  key={section.label}
                 >
-                  Essência
-                </Text>
-                <Heading
-                  className={styles.collageTitle}
-                  as="h2"
-                  variant="heading-strong-m"
-                  wrap="balance"
-                >
-                  Simplicidade bem executada.
-                </Heading>
-                <Text
-                  className={styles.collageBody}
-                  variant="body-default-m"
-                  onBackground="neutral-weak"
-                >
-                  Clareza estratégica em um mercado cheio de excesso.
-                </Text>
-              </div>
-              <div className={styles.collageCard}>
-                <Text
-                  className={styles.eyebrow}
-                  variant="label-default-s"
-                  onBackground="neutral-weak"
-                >
-                  Emoção central
-                </Text>
-                <Heading
-                  className={styles.collageTitle}
-                  as="h2"
-                  variant="heading-strong-s"
-                  wrap="balance"
-                >
-                  {brandIdentity.emotion}
-                </Heading>
-              </div>
-              <div className={styles.collageCard}>
-                <Text
-                  className={styles.eyebrow}
-                  variant="label-default-s"
-                  onBackground="neutral-weak"
-                >
-                  Percepção
-                </Text>
-                <Heading
-                  className={styles.collageTitle}
-                  as="h2"
-                  variant="heading-strong-s"
-                  wrap="balance"
-                >
-                  Confiança silenciosa. Critério visível.
-                </Heading>
-              </div>
+                  <Text
+                    className={styles.eyebrow}
+                    variant="label-default-s"
+                    onBackground="neutral-weak"
+                  >
+                    {section.label}
+                  </Text>
+                  <Column as="ul" className={styles.infoList} gap="8">
+                    {section.items.map((item) => (
+                      <Text as="li" key={item} variant="body-default-m" onBackground="neutral-weak">
+                        {item}
+                      </Text>
+                    ))}
+                  </Column>
+                </div>
+              ))}
             </div>
           </Column>
         </Grid>

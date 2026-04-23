@@ -149,9 +149,6 @@ export function Header() {
       <Flex className={styles.sideRail} fillWidth horizontal="end" vertical="center">
         {display.time && (
           <Row className={styles.utility} gap="8" vertical="center" s={{ hide: true }}>
-            <Text className={styles.timeLabel} variant="body-default-s" onBackground="neutral-weak">
-              Agora
-            </Text>
             <Text className={styles.timeValue} variant="body-default-s">
               <TimeDisplay timeZone={person.location} />
             </Text>

@@ -109,7 +109,20 @@ const brandMessaging = {
 
 const brandIdentity = {
   name: "Henrique Reis",
-  essence: "Simplicidade bem executada. Clareza estratégica em um mercado cheio de excesso.",
+  summary: [
+    {
+      label: "Especialidade",
+      value: "Negócios locais, prestadores de serviço e e-commerce.",
+    },
+    {
+      label: "Entrega",
+      value: "Captação de clientes, presença digital e estrutura operacional.",
+    },
+    {
+      label: "Atuação",
+      value: "Estratégia, captação e gestão de clientes.",
+    },
+  ],
   represents: [
     "Inteligência aplicada",
     "Organização do caos",
@@ -132,14 +145,6 @@ const brandIdentity = {
     "Não apenas anúncios.",
     "Não apenas código.",
     "Soluções completas e integradas.",
-  ],
-  desiredPerception: [
-    "Esse profissional sabe o que está fazendo.",
-    "Parece raro e acima da média.",
-    "Transmite confiança silenciosa.",
-    "Tem critério.",
-    "Entende negócios reais.",
-    "Parece moderno sem ser genérico.",
   ],
   personality: {
     primary: [
@@ -186,7 +191,6 @@ const brandIdentity = {
     "Texto demais",
     "Animação por vaidade",
   ],
-  emotion: "Controle + Valor + Inteligência",
   manifesto: [
     "Em um mercado cheio de excesso, clareza virou diferencial.",
     "Soluções fortes não precisam gritar.",

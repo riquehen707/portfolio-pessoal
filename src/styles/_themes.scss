@@ -50,7 +50,7 @@
   --page-grid-color: rgba(244, 244, 240, 0.02);
   --page-grid-strong: rgba(244, 244, 240, 0.1);
   --page-gradient-end: var(--color-background-secondary);
-  --nav-surface-solid: rgba(11, 11, 13, 0.72);
+  --nav-surface-solid: #111113;
 
   --neutral-alpha-weak: rgba(244, 244, 240, 0.05);
   --neutral-alpha-medium: rgba(244, 244, 240, 0.08);
@@ -114,7 +114,7 @@ html[data-theme="light"] {
   --page-grid-color: rgba(17, 17, 17, 0.03);
   --page-grid-strong: rgba(17, 17, 17, 0.1);
   --page-gradient-end: var(--color-surface);
-  --nav-surface-solid: rgba(247, 247, 244, 0.82);
+  --nav-surface-solid: #f7f7f4;
 
   --neutral-alpha-weak: rgba(17, 17, 17, 0.04);
   --neutral-alpha-medium: rgba(17, 17, 17, 0.08);

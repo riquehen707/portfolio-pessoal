@@ -15,7 +15,6 @@
 }
 
 .location,
-.timeLabel,
 .timeValue {
   font-size: 0.76rem;
   letter-spacing: 0.08em;
@@ -55,8 +54,12 @@
 
 .timeValue {
   color: var(--neutral-on-background-strong);
-  font-family: var(--font-code);
-  letter-spacing: 0.1em;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-variant-numeric: tabular-nums;
 }
 
 @include mixins.hover-fine {
