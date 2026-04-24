@@ -209,9 +209,6 @@ export default function About() {
       </Column>
 
       <Column className={styles.sectionPanel} fillWidth gap="24">
-        <Tag size="s" background="neutral-alpha-weak">
-          Trajetória
-        </Tag>
         <Heading as="h2" variant="display-strong-s">
           Minha história
         </Heading>
@@ -226,9 +223,6 @@ export default function About() {
       </Column>
 
       <Column className={styles.sectionPanel} fillWidth gap="24">
-        <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-          Aderência
-        </Tag>
         <Heading as="h2" variant="display-strong-s">
           Para quem faço sentido
         </Heading>
@@ -246,11 +240,16 @@ export default function About() {
             <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
               Serviços que presto
             </Text>
-            <div className={styles.serviceTags}>
+            <Text className={styles.serviceLead} variant="body-default-s" onBackground="neutral-weak">
+              Frentes que se conectam para captar, organizar e sustentar o crescimento.
+            </Text>
+            <div className={styles.serviceList}>
               {serviceItems.map((item) => (
-                <Tag key={item} size="s" background="neutral-alpha-weak">
-                  {item}
-                </Tag>
+                <div className={styles.serviceItem} key={item}>
+                  <Text variant="body-default-m" wrap="balance">
+                    {item}
+                  </Text>
+                </div>
               ))}
             </div>
           </Column>

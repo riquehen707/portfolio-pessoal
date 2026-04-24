@@ -162,16 +162,28 @@
 
 .serviceCard {
   align-self: start;
-  padding: 1.25rem;
+  padding: 1.35rem;
   border: 1px solid var(--neutral-alpha-weak);
   border-radius: var(--radius-24);
   background: var(--surface-panel-soft);
 }
 
-.serviceTags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
+.serviceLead {
+  max-width: 34ch;
+}
+
+.serviceList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.serviceItem {
+  min-height: 100%;
+  padding: 0.9rem 0.95rem;
+  border: 1px solid var(--neutral-alpha-weak);
+  border-radius: calc(var(--radius-24) - 8px);
+  background: var(--surface-ghost);
 }
 
 .stepCard {
@@ -229,6 +241,10 @@
   .sectionIntro,
   .lead {
     max-width: none;
+  }
+
+  .serviceList {
+    grid-template-columns: 1fr;
   }
 }
 
