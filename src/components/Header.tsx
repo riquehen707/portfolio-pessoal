@@ -5,17 +5,16 @@ import { Fragment, useEffect, useState } from "react";
 import { Flex, Line, Row, Text, ToggleButton, useTheme } from "@once-ui-system/core";
 import { usePathname } from "next/navigation";
 
-import { about, blog, diagnostic, display, person, productsPage, work } from "@/resources";
+import { about, blog, display, person, productsPage, work } from "@/resources";
 
 import { BrandSignature } from "./BrandSignature";
 import styles from "./Header.module.scss";
 
 const navItems = [
-  { href: "/", label: "Início", icon: "home" },
+  { href: "/", label: "InÃ­cio", icon: "home" },
   { href: work.path, label: "Projetos", icon: "grid" },
   { href: about.path, label: "Sobre", icon: "person" },
   { href: blog.path, label: "Blog", icon: "book" },
-  { href: diagnostic.path, label: "Diagnóstico", icon: "chart" },
   { href: productsPage.path, label: "Produtos", icon: "shopify" },
 ] as const;
 
@@ -128,7 +127,14 @@ export function Header() {
                     selected={isActive}
                   />
                 </Row>
-                {index === 0 && <Line className={styles.divider} background="neutral-alpha-medium" vert maxHeight="24" />}
+                {index === 0 && (
+                  <Line
+                    className={styles.divider}
+                    background="neutral-alpha-medium"
+                    vert
+                    maxHeight="24"
+                  />
+                )}
               </Fragment>
             );
           })}

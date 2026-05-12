@@ -1,7 +1,6 @@
 ﻿import { Meta, Schema, Text } from "@once-ui-system/core";
 
 import { getBlogPrimaryCategory, getFeaturedBlogPosts } from "@/app/blog/postData";
-import { getAllWorkProjects } from "@/app/work/projectData";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ArticleCard } from "@/components/cards/ArticleCard";
 import { AboutTeaser } from "@/components/home/AboutTeaser";
@@ -11,7 +10,6 @@ import { HeroSubtitle } from "@/components/home/HeroSubtitle";
 import { HeroTitle } from "@/components/home/HeroTitle";
 import { TechStrip } from "@/components/home/TechStrip";
 import { Reveal } from "@/components/motion/Reveal";
-import { FeaturedWorksShowcase } from "@/components/work/FeaturedWorksShowcase";
 import {
   about,
   baseURL,
@@ -62,7 +60,6 @@ export async function generateMetadata() {
 }
 
 export default function Home() {
-  const workProjects = getAllWorkProjects();
   const blogPosts = getFeaturedBlogPosts(3);
   const heroHeadline = (
     <>
@@ -125,8 +122,6 @@ export default function Home() {
           <TechStrip items={[...techStripItems]} />
         </Reveal>
       </section>
-
-      <FeaturedWorksShowcase projects={workProjects} />
 
       <section className={styles.section}>
         <Reveal delay={0.04} distance={24}>

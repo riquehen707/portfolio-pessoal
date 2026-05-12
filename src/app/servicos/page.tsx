@@ -35,6 +35,7 @@ const categoryLabels = {
 } as const;
 
 export default function ServicesPage() {
+  const hasActiveProducts = products.length > 0;
   const offerCounts = {
     package: products.filter((item) => item.category === "package").length,
     microservice: products.filter((item) => item.category === "microservice").length,
@@ -46,9 +47,11 @@ export default function ServicesPage() {
       description: "Web, SEO, automação e landings pensadas para contexto real.",
     },
     {
-      label: "Entradas rápidas",
-      value: `${offerCounts.package + offerCounts.microservice} formatos`,
-      description: "Pacotes e micro-serviços para quando você precisa resolver algo sem alongar demais.",
+      label: "Produtos",
+      value: hasActiveProducts ? `${offerCounts.package + offerCounts.microservice} formatos` : "Em reinício",
+      description: hasActiveProducts
+        ? "Pacotes e micro-serviços para quando você precisa resolver algo sem alongar demais."
+        : "Estou organizando o portfólio antes de prosseguir com essa frente de produtos.",
     },
     {
       label: "Escolha",
@@ -69,33 +72,39 @@ export default function ServicesPage() {
     {
       label: "Entrada fechada",
       title: "Pacotes",
-      description: "Escopos mais fechados para resolver algo comum com mais rapidez e menos atrito.",
-      meta: `${offerCounts.package} opções`,
+      description: hasActiveProducts
+        ? "Escopos mais fechados para resolver algo comum com mais rapidez e menos atrito."
+        : "A linha de pacotes foi removida e volta depois com nova estrutura e nova apresentação.",
+      meta: hasActiveProducts ? `${offerCounts.package} opções` : "Catálogo zerado",
       href: productsPage.path,
-      cta: "Ver pacotes",
+      cta: "Abrir página de produtos",
     },
     {
       label: "Ajuste pontual",
       title: "Micro-serviços",
-      description: "Entregas menores para corrigir, refinar ou destravar um ponto específico sem virar projeto grande.",
-      meta: `${offerCounts.microservice} opções`,
+      description: hasActiveProducts
+        ? "Entregas menores para corrigir, refinar ou destravar um ponto específico sem virar projeto grande."
+        : "Os micro-serviços anteriores também saíram do ar para que o recomeço não herde os mesmos designs.",
+      meta: hasActiveProducts ? `${offerCounts.microservice} opções` : "Base em reconstrução",
       href: productsPage.path,
-      cta: "Ver micro-serviços",
+      cta: "Ver status dos produtos",
     },
   ];
 
   const offerHighlights = [
     {
-      title: "Pacotes para entrar sem abrir projeto maior",
-      description:
-        "Uma boa porta de entrada para quem precisa sair do zero sem abrir um projeto maior de cara.",
-      meta: `${offerCounts.package} pacotes`,
+      title: hasActiveProducts ? "Pacotes para entrar sem abrir projeto maior" : "Portfólio antes do catálogo",
+      description: hasActiveProducts
+        ? "Uma boa porta de entrada para quem precisa sair do zero sem abrir um projeto maior de cara."
+        : "O foco agora é organizar o portfólio antes de reabrir a linha de produtos com mais coerência.",
+      meta: hasActiveProducts ? `${offerCounts.package} pacotes` : "Sem catálogo ativo",
     },
     {
-      title: "Micro-serviços técnicos",
-      description:
-        "Úteis para refino visual, SEO técnico, Core Web Vitals ou integrações pontuais.",
-      meta: `${offerCounts.microservice} micro-serviços`,
+      title: hasActiveProducts ? "Micro-serviços técnicos" : "Em breve: gratuitos e consultoria curta",
+      description: hasActiveProducts
+        ? "Úteis para refino visual, SEO técnico, Core Web Vitals ou integrações pontuais."
+        : "A próxima fase deve incluir recursos gratuitos, apps úteis, auditoria simples e consultoria de 30 minutos.",
+      meta: hasActiveProducts ? `${offerCounts.microservice} micro-serviços` : "Nova direção em definição",
     },
   ];
 
@@ -133,7 +142,7 @@ export default function ServicesPage() {
             </Text>
             <Row className={styles.heroActions} gap="12" wrap>
               <Button href={productsPage.path} variant="primary" size="m" arrowIcon>
-                Ver pacotes
+                Abrir página de produtos
               </Button>
               <Button href={work.path} variant="secondary" size="m" arrowIcon>
                 Ver projetos
@@ -270,13 +279,15 @@ export default function ServicesPage() {
       >
         <Column gap="8">
           <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            Entrada menor
+            Produtos
           </Tag>
           <Heading as="h2" variant="display-strong-s">
-            Pacotes e micro-serviços
+            Linha de produtos
           </Heading>
           <Text onBackground="neutral-weak">
-            Nem toda demanda precisa virar projeto completo. Às vezes o que você precisa é só do próximo passo certo.
+            {hasActiveProducts
+              ? "Nem toda demanda precisa virar projeto completo. Às vezes o que você precisa é só do próximo passo certo."
+              : "A área de produtos está pausada enquanto organizo o portfólio. Depois entram formatos mais leves, inclusive gratuitos e consultoria curta."}
           </Text>
         </Column>
 
@@ -310,7 +321,7 @@ export default function ServicesPage() {
 
         <Row className={styles.ctaBar} gap="12" wrap>
           <Button href={productsPage.path} variant="primary" size="m" arrowIcon>
-            Abrir catálogo completo
+            Ver página de produtos
           </Button>
           <Button href={`mailto:${person.email}`} variant="tertiary" size="m" arrowIcon>
             Tirar uma dúvida
@@ -335,8 +346,8 @@ export default function ServicesPage() {
           Se você ainda não sabe o formato certo, comece pelo problema
         </Heading>
         <Text onBackground="neutral-weak">
-          Se a demanda é mais estrutural, a entrada costuma ser um serviço sob medida. Se o problema é
-          pontual, pacote ou micro-serviço costumam fazer mais sentido.
+          Se a demanda é mais estrutural, a entrada costuma ser um serviço sob medida. A linha de
+          produtos volta depois, quando o portfólio estiver mais organizado e a nova linha estiver pronta para abrir.
         </Text>
         <Row className={styles.ctaBar} gap="12" wrap>
           <Button href={`mailto:${person.email}`} variant="primary" size="m" arrowIcon>

@@ -41,6 +41,7 @@
 .fitGrid {
   grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
   gap: clamp(1.75rem, 4vw, 3rem);
+  align-items: start;
 }
 
 .proofGrid {
@@ -154,36 +155,101 @@
   max-width: 38rem;
 }
 
+.sectionLead {
+  max-width: 28rem;
+}
+
 .infoCard,
 .proofCard {
   padding: 1.35rem 0 0;
   border-top: 1px solid var(--neutral-alpha-weak);
 }
 
-.serviceCard {
+.servicePanel {
   align-self: start;
-  padding: 1.35rem;
+  padding: clamp(1.35rem, 3vw, 1.8rem);
   border: 1px solid var(--neutral-alpha-weak);
   border-radius: var(--radius-24);
   background: var(--surface-panel-soft);
 }
 
+.serviceHeader {
+  max-width: 36rem;
+}
+
 .serviceLead {
-  max-width: 34ch;
+  max-width: 40ch;
 }
 
-.serviceList {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.7rem;
+.serviceDeck {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
 }
 
-.serviceItem {
-  min-height: 100%;
-  padding: 0.9rem 0.95rem;
-  border: 1px solid var(--neutral-alpha-weak);
-  border-radius: calc(var(--radius-24) - 8px);
+.servicePillar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding-top: 0.95rem;
+  border-top: 1px solid var(--neutral-alpha-weak);
+}
+
+.servicePillar:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.servicePillarTop {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.servicePillarIndex {
+  width: fit-content;
+  padding: 0.35rem 0.55rem;
+  border: 1px solid var(--neutral-alpha-medium);
+  border-radius: var(--radius-pill);
   background: var(--surface-ghost);
+  font-family: var(--font-code);
+  letter-spacing: 0.12em;
+}
+
+.servicePillarItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.servicePillarItem {
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--neutral-alpha-weak);
+  border-radius: var(--radius-pill);
+  background: var(--surface-ghost);
+}
+
+.serviceNotes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 0.1rem;
+}
+
+.serviceNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.serviceNoteDot {
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-top: 0.55rem;
+  border-radius: 999px;
+  background: var(--color-accent-blue);
+  flex: 0 0 auto;
 }
 
 .stepCard {
@@ -239,12 +305,9 @@
 
   .depthAside,
   .sectionIntro,
+  .sectionLead,
   .lead {
     max-width: none;
-  }
-
-  .serviceList {
-    grid-template-columns: 1fr;
   }
 }
 

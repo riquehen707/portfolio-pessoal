@@ -1,7 +1,7 @@
 import { type MetadataRoute } from "next";
 
 import { getPosts } from "@/utils/utils";
-import { baseURL, diagnostic, productsPage, routes as routesConfig, services, servicesPage } from "@/resources";
+import { baseURL, productsPage, routes as routesConfig, services, servicesPage } from "@/resources";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const today = new Date().toISOString().split("T")[0];
@@ -26,7 +26,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/blog": 0.86,
     "/contact": 0.88,
     "/about": 0.82,
-    [diagnostic.path]: 0.83,
     "/servicos": 0.84,
     [productsPage.path]: 0.8,
   };

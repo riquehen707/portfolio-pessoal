@@ -1,11 +1,7 @@
-import { Suspense } from "react";
-
 import { Button, Column, Grid, Heading, Row, Schema, Tag, Text } from "@once-ui-system/core";
 
-import OfferCatalog from "@/components/services/OfferCatalog";
-import { ProductQuoteForm } from "@/components/services/ProductQuoteForm";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
-import { baseURL, person, products, productsPage, social } from "@/resources";
+import { baseURL, person, productsPage, servicesPage, work } from "@/resources";
 
 import styles from "./page.module.scss";
 
@@ -24,45 +20,6 @@ export async function generateMetadata() {
 }
 
 export default function ProductsPage() {
-  const visibleProducts = products.filter((item) => item.category !== "saas");
-  const packageProducts = visibleProducts.filter((item) => item.category === "package");
-  const microProducts = visibleProducts.filter((item) => item.category === "microservice");
-  const featuredProducts = [packageProducts[0], microProducts[0]].filter(Boolean);
-
-  const whatsappLink =
-    social.find((item) => item.name === "WhatsApp")?.link ?? "https://wa.me/5575983675164";
-
-  const heroStats = [
-    {
-      label: "Pacotes",
-      value: `${packageProducts.length.toString().padStart(2, "0")} opções`,
-      detail: "Entradas mais fechadas para começar com clareza.",
-    },
-    {
-      label: "Micro-serviços",
-      value: `${microProducts.length.toString().padStart(2, "0")} opções`,
-      detail: "Sprints menores para destravar algo específico.",
-    },
-    {
-      label: "Formato",
-      value: "UI + execução",
-      detail: "Página pensada para escolha rápida e orçamento sem fricção.",
-    },
-  ];
-
-  const shoppingSignals = [
-    "Escolha rápida por formato",
-    "Preço inicial visível",
-    "CTA direto para orçamento",
-    "Leitura clara em desktop e mobile",
-  ];
-
-  const quoteBenefits = [
-    "Escolha do produto ou pedido sob medida",
-    "Briefing curto para acelerar a resposta",
-    "WhatsApp como entrada principal",
-  ];
-
   return (
     <Column className={styles.page} fillWidth paddingTop="24" gap="24">
       <Schema
@@ -85,164 +42,94 @@ export default function ProductsPage() {
         ]}
       />
 
-      <section className={styles.hero}>
-        <div className={styles.heroCopy}>
-          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            Produtos e pacotes
-          </Tag>
-          <Heading as="h1" className={styles.heroTitle} variant="display-strong-s">
-            Escolha um ponto de entrada claro para destravar seu digital.
-          </Heading>
-          <Text className={styles.heroLead} onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-            {productsPage.description} A ideia aqui é facilitar a decisão com uma vitrine simples,
-            bonita e objetiva, sem transformar tudo em projeto grande logo de início.
-          </Text>
+      <section className={styles.shell}>
+        <div className={styles.aurora} aria-hidden="true" />
 
-          <Row className={styles.heroActions} gap="12" wrap>
-            <Button href="#catalogo-produtos" variant="primary" size="m" arrowIcon>
-              Ver produtos e pacotes
-            </Button>
-            <Button href="#solicitar-orcamento" variant="secondary" size="m" arrowIcon>
-              Solicitar orçamento
-            </Button>
-          </Row>
+        <div className={styles.hero}>
+          <div className={styles.heroCopy}>
+            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+              Produtos
+            </Tag>
+            <Heading as="h1" className={styles.heroTitle} variant="display-strong-s">
+              Organizando o portfólio
+            </Heading>
+            <Text
+              className={styles.heroLead}
+              onBackground="neutral-weak"
+              variant="heading-default-m"
+              wrap="balance"
+            >
+              Antes de prosseguir com produtos, estou organizando o portfólio e ajustando melhor a
+              base dessa frente.
+            </Text>
+            <Text className={styles.heroNote} onBackground="neutral-weak" variant="body-default-m">
+              Depois disso, esta página volta com recursos gratuitos, apps úteis, auditoria simples
+              e consultoria de 30 minutos como entradas mais leves.
+            </Text>
 
-          <div className={styles.signalRail}>
-            {shoppingSignals.map((item) => (
-              <div className={styles.signalItem} key={item}>
-                <span className={styles.signalDot} aria-hidden="true" />
-                <Text variant="body-default-s">{item}</Text>
-              </div>
-            ))}
+            <Row className={styles.actions} gap="12" wrap>
+              <Button href={servicesPage.path} variant="primary" size="m" arrowIcon>
+                Ver serviços
+              </Button>
+              <Button href={work.path} variant="secondary" size="m" arrowIcon>
+                Ver projetos
+              </Button>
+            </Row>
           </div>
-        </div>
 
-        <aside className={styles.heroAside}>
-          {heroStats.map((item) => (
-            <div className={styles.heroStat} key={item.label}>
-              <Text className={styles.heroStatLabel} variant="label-default-s" onBackground="neutral-weak">
-                {item.label}
-              </Text>
-              <Text className={styles.heroStatValue} variant="heading-strong-l">
-                {item.value}
-              </Text>
+          <aside className={styles.statusPanel}>
+            <div className={styles.statusCard}>
+              <span className={styles.statusValue}>00</span>
               <Text onBackground="neutral-weak" variant="body-default-s">
-                {item.detail}
+                produtos ativos
               </Text>
             </div>
-          ))}
-        </aside>
+            <div className={styles.statusCard}>
+              <span className={styles.statusValue}>Em breve</span>
+              <Text onBackground="neutral-weak" variant="body-default-s">
+                gratuitos, apps e utilitários
+              </Text>
+            </div>
+            <div className={styles.statusCard}>
+              <span className={styles.statusValue}>30 min</span>
+              <Text onBackground="neutral-weak" variant="body-default-s">
+                consultoria e auditoria simples
+              </Text>
+            </div>
+          </aside>
+        </div>
       </section>
 
-      {featuredProducts.length > 0 && (
-        <section className={styles.section}>
-          <div className={styles.sectionHeader}>
-            <Tag size="s" background="neutral-alpha-weak">
-              Comece por aqui
-            </Tag>
-            <Heading as="h2" variant="display-strong-s">
-              Entradas mais fáceis de contratar
-            </Heading>
-            <Text onBackground="neutral-weak" variant="body-default-m">
-              Uma leitura inicial para quem quer decidir rápido sem navegar o catálogo inteiro.
-            </Text>
-          </div>
-
-          <Grid className={styles.featuredGrid} columns="2" s={{ columns: 1 }} gap="16">
-            {featuredProducts.map((offer) => (
-              <article className={styles.featuredCard} key={offer.slug}>
-                <div className={styles.featuredCardTop}>
-                  <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-                    {offer.category === "package" ? "Pacote" : "Micro-serviço"}
-                  </Tag>
-                  <Text variant="body-default-s" onBackground="neutral-weak">
-                    {offer.status}
-                  </Text>
-                </div>
-
-                <Column gap="12">
-                  <Heading as="h3" variant="heading-strong-l">
-                    {offer.title}
-                  </Heading>
-                  <Text onBackground="neutral-weak" variant="body-default-m">
-                    {offer.summary}
-                  </Text>
-                </Column>
-
-                <div className={styles.featuredMeta}>
-                  <div>
-                    <Text variant="label-default-s" onBackground="neutral-weak">
-                      Formato
-                    </Text>
-                    <Text variant="body-default-s">{offer.format}</Text>
-                  </div>
-                  <div>
-                    <Text variant="label-default-s" onBackground="neutral-weak">
-                      Faixa inicial
-                    </Text>
-                    <Text variant="body-default-s">{offer.price}</Text>
-                  </div>
-                </div>
-
-                <ul className={styles.featuredList}>
-                  {offer.highlights.map((item) => (
-                    <li key={`${offer.slug}-${item}`}>
-                      <Text variant="body-default-s">{item}</Text>
-                    </li>
-                  ))}
-                </ul>
-
-                <Row className={styles.featuredActions} gap="12" wrap>
-                  <Button href={`${productsPage.path}?produto=${offer.slug}#solicitar-orcamento`} variant="primary" size="m" arrowIcon>
-                    {offer.ctaLabel}
-                  </Button>
-                  <Button href="#catalogo-produtos" variant="secondary" size="m" arrowIcon>
-                    Ver catálogo
-                  </Button>
-                </Row>
-              </article>
-            ))}
-          </Grid>
-        </section>
-      )}
-
-      <section className={styles.section} id="catalogo-produtos">
-        <OfferCatalog offers={visibleProducts} />
-      </section>
-
-      <section className={styles.quoteSection} id="solicitar-orcamento">
-        <div className={styles.quoteIntro}>
-          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            Solicitar orçamento
-          </Tag>
-          <Heading as="h2" variant="display-strong-s">
-            Se o pacote certo já apareceu, o próximo passo é pedir o orçamento.
-          </Heading>
-          <Text onBackground="neutral-weak" variant="body-default-m">
-            O formulário abaixo foi pensado para ser curto. Ele serve tanto para escolher um dos
-            produtos quanto para abrir um pedido mais personalizado.
+      <Grid className={styles.noteGrid} columns="3" s={{ columns: 1 }} gap="16">
+        <div className={styles.noteCard}>
+          <Text className={styles.noteLabel} variant="label-default-s" onBackground="neutral-weak">
+            Agora
           </Text>
-
-          <div className={styles.quoteBenefits}>
-            {quoteBenefits.map((item) => (
-              <div className={styles.quoteBenefit} key={item}>
-                <span className={styles.signalDot} aria-hidden="true" />
-                <Text variant="body-default-s">{item}</Text>
-              </div>
-            ))}
-          </div>
+          <Text variant="body-default-m" onBackground="neutral-weak">
+            Organizando o portfólio antes de prosseguir com produtos.
+          </Text>
         </div>
 
-        <div className={styles.quotePanel}>
-          <Suspense fallback={null}>
-            <ProductQuoteForm
-              offers={visibleProducts}
-              whatsappHref={whatsappLink}
-              scheduleHref="https://cal.com/henriquereis"
-            />
-          </Suspense>
+        <div className={styles.noteCard}>
+          <Text className={styles.noteLabel} variant="label-default-s" onBackground="neutral-weak">
+            Gratuitos
+          </Text>
+          <Text variant="body-default-m" onBackground="neutral-weak">
+            Devem entrar recursos gratuitos, apps úteis e algumas ferramentas mais simples para uso
+            rápido.
+          </Text>
         </div>
-      </section>
+
+        <div className={styles.noteCard}>
+          <Text className={styles.noteLabel} variant="label-default-s" onBackground="neutral-weak">
+            Entradas leves
+          </Text>
+          <Text variant="body-default-m" onBackground="neutral-weak">
+            Também quero abrir auditoria simples e consultoria de 30 minutos como formatos mais
+            diretos.
+          </Text>
+        </div>
+      </Grid>
     </Column>
   );
 }

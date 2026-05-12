@@ -1,199 +1,126 @@
-@use "../../../styles/mixins" as mixins;
+@use "../../../components/breakpoints.scss" as breakpoints;
 
 .page {
   width: 100%;
 }
 
-.hero,
-.featuredCard,
-.quotePanel {
+.shell,
+.noteCard {
   position: relative;
-  overflow: hidden;
-  border: 1px solid var(--border-subtle);
-  background: var(--surface-overlay-soft), var(--surface-panel-soft);
+  overflow: clip;
+  border: 1px solid rgba(169, 189, 214, 0.14);
+  border-radius: var(--radius-panel);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 24%),
+    rgba(18, 18, 22, 0.92);
   box-shadow: var(--shadow-soft);
 }
 
+.shell {
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.aurora {
+  position: absolute;
+  inset: -10% auto auto 10%;
+  width: 22rem;
+  height: 22rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(120, 172, 255, 0.18), transparent 64%);
+  filter: blur(10px);
+  pointer-events: none;
+}
+
 .hero {
+  position: relative;
+  z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
-  gap: 1.25rem 1.5rem;
-  padding: clamp(1.4rem, 3vw, 2rem);
-  border-radius: var(--radius-panel);
-  background:
-    radial-gradient(circle at 0% 0%, rgba(255, 215, 0, 0.08), transparent 28%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 48%),
-    var(--surface-panel-strong);
-  box-shadow: var(--shadow-card);
+  grid-template-columns: minmax(0, 1.18fr) minmax(18rem, 0.82fr);
+  gap: clamp(1rem, 3vw, 1.8rem);
 }
 
 .heroCopy,
-.heroAside,
-.sectionHeader,
-.quoteIntro {
-  display: grid;
-  gap: 0.9rem;
+.statusPanel {
+  min-width: 0;
 }
 
 .heroCopy {
-  max-width: 44rem;
+  display: grid;
+  align-content: start;
+  gap: 1rem;
 }
 
 .heroTitle {
-  letter-spacing: -0.05em;
+  max-width: 8ch;
 }
 
-.heroLead {
-  max-width: 40rem;
+.heroLead,
+.heroNote {
+  max-width: 42rem;
 }
 
-.heroActions,
-.featuredActions {
-  width: 100%;
+.actions {
+  row-gap: 0.6rem;
 }
 
-.signalRail,
-.quoteBenefits {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem 1rem;
-  margin-top: 0.2rem;
-}
-
-.signalItem,
-.quoteBenefit {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  min-height: 2.1rem;
-}
-
-.signalDot {
-  width: 0.45rem;
-  height: 0.45rem;
-  border-radius: 999px;
-  background: var(--brand-on-background-medium);
-  box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.08);
-}
-
-.heroAside {
+.statusPanel {
+  display: grid;
+  gap: 0.75rem;
   align-content: start;
 }
 
-.heroStat {
+.statusCard {
   display: grid;
-  gap: 0.35rem;
-  padding: 1rem 1.05rem;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: var(--radius-20);
-  background: rgba(255, 255, 255, 0.025);
+  gap: 0.25rem;
+  padding: 0.95rem 1rem;
+  border: 1px solid rgba(169, 189, 214, 0.14);
+  border-radius: var(--radius-16);
+  background: rgba(11, 11, 13, 0.42);
 }
 
-.heroStatLabel {
-  @include mixins.label-uppercase(0.14em);
+.statusValue {
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 3vw, 1.9rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--neutral-on-background-strong);
 }
 
-.heroStatValue {
-  letter-spacing: -0.05em;
-}
-
-.section {
-  display: grid;
-  gap: 1rem;
-}
-
-.sectionHeader {
-  max-width: 40rem;
-}
-
-.featuredGrid {
+.noteGrid {
   width: 100%;
 }
 
-.featuredCard {
-  display: grid;
-  gap: 1rem;
-  padding: 1.35rem;
-  border-radius: var(--radius-24);
-}
-
-.featuredCardTop,
-.featuredMeta {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 0.8rem 1rem;
-  align-items: center;
-}
-
-.featuredMeta {
-  padding: 1rem;
-  border-radius: var(--radius-16);
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.featuredMeta > div {
-  display: grid;
-  gap: 0.3rem;
-}
-
-.featuredList {
+.noteCard {
   display: grid;
   gap: 0.55rem;
-  margin: 0;
-  padding-left: 1.1rem;
+  padding: 1rem 1.05rem;
 }
 
-.featuredList li::marker {
-  color: var(--scheme-brand-700);
+.noteLabel {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
-.quoteSection {
-  display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-  gap: 1.25rem 1.5rem;
-  align-items: start;
-}
-
-.quoteIntro {
-  max-width: 35rem;
-}
-
-.quotePanel {
-  padding: 1.35rem;
-  border-radius: var(--radius-panel);
-}
-
-@include mixins.hover-fine {
-  .featuredCard:hover,
-  .quotePanel:hover {
-    border-color: var(--border-strong);
-    box-shadow: var(--shadow-card);
-  }
-}
-
-@include mixins.m {
-  .hero,
-  .quoteSection {
+@media (max-width: breakpoints.$m) {
+  .hero {
     grid-template-columns: 1fr;
   }
 }
 
-@include mixins.s {
-  .hero,
-  .featuredCard,
-  .quotePanel {
-    border-radius: calc(var(--radius-panel) - 0.2rem);
-  }
-
-  .hero,
-  .featuredCard,
-  .quotePanel {
+@media (max-width: breakpoints.$s) {
+  .shell,
+  .noteCard {
     padding: 1rem;
+    border-radius: calc(var(--radius-24) - 0.05rem);
   }
 
-  .heroActions,
-  .featuredActions {
+  .heroTitle,
+  .heroLead,
+  .heroNote {
+    max-width: none;
+  }
+
+  .actions {
     flex-direction: column;
     align-items: stretch;
   }

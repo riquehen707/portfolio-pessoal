@@ -62,15 +62,31 @@ const fitParagraphs = [
   "Faço sentido para quem está nos primeiros anos de crescimento, sente que o digital poderia render mais e precisa de estrutura sem transformar tudo em complexidade.",
 ];
 
-const serviceItems = [
-  "Captação de clientes",
-  "Presença digital",
-  "Sites",
-  "Tráfego pago",
-  "CRM",
-  "Automações",
-  "Sistemas web",
-  "Organização comercial",
+const serviceTracks = [
+  {
+    title: "Posicionamento e aquisição",
+    description:
+      "Estruturo presença digital e canais de entrada para atrair demanda mais qualificada.",
+    items: ["Sites e landing pages", "Tráfego pago", "Oferta e mensagem", "Captação local"],
+  },
+  {
+    title: "Conversão e relacionamento",
+    description:
+      "Organizo o caminho do lead até o fechamento para reduzir perda comercial e aumentar recorrência.",
+    items: ["CRM simples", "WhatsApp e follow-up", "Agenda e atendimento", "Nutrição de leads"],
+  },
+  {
+    title: "Operação e automação",
+    description:
+      "Conecto processos, ferramentas e rotinas para o negócio crescer com menos improviso.",
+    items: ["Automações", "Sistemas web", "Dashboards e dados", "Rotinas operacionais"],
+  },
+] as const;
+
+const serviceNotes = [
+  "Não vendo peças soltas quando o problema exige estrutura.",
+  "Cada escopo é definido conforme o momento e a capacidade real do negócio.",
+  "A prioridade é sempre clareza comercial, execução viável e resultado sustentável.",
 ] as const;
 
 export async function generateMetadata() {
@@ -223,9 +239,26 @@ export default function About() {
       </Column>
 
       <Column className={styles.sectionPanel} fillWidth gap="24">
-        <Heading as="h2" variant="display-strong-s">
-          Para quem faço sentido
-        </Heading>
+        <Row
+          className={styles.sectionHeader}
+          fillWidth
+          horizontal="between"
+          vertical="end"
+          s={{ direction: "column" }}
+        >
+          <Column className={styles.sectionIntro} gap="8">
+            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+              Encaixe
+            </Tag>
+            <Heading as="h2" variant="display-strong-s">
+              Para quem faço sentido
+            </Heading>
+          </Column>
+          <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
+            Negócios de serviço que já entregam valor, mas ainda operam marketing e vendas de forma
+            fragmentada.
+          </Text>
+        </Row>
 
         <Grid className={styles.fitGrid} columns="2" s={{ columns: 1 }} gap="20">
           <Column className={styles.storyBody} gap="16">
@@ -236,18 +269,51 @@ export default function About() {
             ))}
           </Column>
 
-          <Column className={styles.serviceCard} gap="16">
-            <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
-              Serviços que presto
-            </Text>
-            <Text className={styles.serviceLead} variant="body-default-s" onBackground="neutral-weak">
-              Frentes que se conectam para captar, organizar e sustentar o crescimento.
-            </Text>
-            <div className={styles.serviceList}>
-              {serviceItems.map((item) => (
-                <div className={styles.serviceItem} key={item}>
-                  <Text variant="body-default-m" wrap="balance">
-                    {item}
+          <Column className={styles.servicePanel} gap="20">
+            <Column className={styles.serviceHeader} gap="12">
+              <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
+                Serviços que presto
+              </Text>
+              <Heading as="h3" variant="heading-strong-l">
+                Estruturo crescimento em três frentes conectadas.
+              </Heading>
+              <Text className={styles.serviceLead} variant="body-default-s" onBackground="neutral-weak">
+                Em vez de atuar com peças isoladas, desenho uma operação digital coerente com o momento
+                do negócio e com a capacidade real de execução.
+              </Text>
+            </Column>
+
+            <div className={styles.serviceDeck}>
+              {serviceTracks.map((track, index) => (
+                <article className={styles.servicePillar} key={track.title}>
+                  <div className={styles.servicePillarTop}>
+                    <Text className={styles.servicePillarIndex} variant="label-default-s">
+                      {String(index + 1).padStart(2, "0")}
+                    </Text>
+                    <Heading as="h4" variant="heading-strong-m">
+                      {track.title}
+                    </Heading>
+                  </div>
+                  <Text variant="body-default-s" onBackground="neutral-weak">
+                    {track.description}
+                  </Text>
+                  <div className={styles.servicePillarItems}>
+                    {track.items.map((item) => (
+                      <div className={styles.servicePillarItem} key={item}>
+                        <Text variant="body-default-s">{item}</Text>
+                      </div>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <div className={styles.serviceNotes}>
+              {serviceNotes.map((note) => (
+                <div className={styles.serviceNote} key={note}>
+                  <span className={styles.serviceNoteDot} aria-hidden="true" />
+                  <Text variant="body-default-s" onBackground="neutral-weak">
+                    {note}
                   </Text>
                 </div>
               ))}

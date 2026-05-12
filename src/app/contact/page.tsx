@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
-import { productsPage } from "@/resources";
+import { servicesPage } from "@/resources";
 
 export default function ContactPage() {
-  redirect(productsPage.path);
+  redirect(servicesPage.path);
 }

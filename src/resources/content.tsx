@@ -203,7 +203,8 @@ const blog: Blog = {
   path: "/blog",
   label: "Insights",
   title: `Insights | ${person.name}`,
-  description: blogStrategy.hero.subheadline,
+  description:
+    "Blog em produção. As publicações, tags e categorias antigas foram removidas para a reconstrução editorial do zero.",
 };
 
 const work: Work = {
@@ -228,4 +229,4 @@ const diagnostic: BasePageConfig = {
     "Um diagnóstico rápido com 7 perguntas para localizar gargalos de agenda, catálogo, WhatsApp, captação, financeiro, recorrência e venda.",
 };
 
-export { person, social, newsletter, home, about, technicalApproach, blog, work, contact, diagnostic };
+export { person, social, newsletter, home, about, technicalApproach, blog, work, contact };

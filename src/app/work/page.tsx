@@ -1,21 +1,16 @@
-import { Button, Column, Heading, Meta, Row, Schema, SmartLink, Tag, Text } from "@once-ui-system/core";
+import { Button, Column, Heading, Meta, Row, Schema, Tag, Text } from "@once-ui-system/core";
 
+import { getAllWorkProjects } from "@/app/work/projectData";
 import {
-  getAllWorkProjects,
-  getWorkProjectCategory,
-} from "@/app/work/projectData";
+  buildWorkJourneyEntries,
+  formatWorkTimelineCompactDate,
+  formatWorkTimelineDate,
+  workFocusAreas,
+  workJourneyStatusMeta,
+} from "@/app/work/timelineData";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
-import { Projects } from "@/components/work/Projects";
-import {
-  about,
-  baseURL,
-  contact,
-  contentStrategy,
-  person,
-  servicesPage,
-  technicalApproach,
-  work,
-} from "@/resources";
+import { AscendingTimeline } from "@/components/work/AscendingTimeline";
+import { about, baseURL, contact, contentStrategy, person, servicesPage, work } from "@/resources";
 
 import styles from "./work.module.scss";
 
@@ -40,25 +35,12 @@ export async function generateMetadata() {
 
 export default function Work() {
   const projects = getAllWorkProjects();
-  const hasProjects = projects.length > 0;
+  const journeyEntries = buildWorkJourneyEntries(projects);
+  const latestEntry = journeyEntries[0];
 
-  const clientCount = projects.filter((project) => project.metadata.kind === "client").length;
-  const studyCount = projects.filter((project) => project.metadata.kind === "study").length;
-  const personalCount = projects.filter((project) => project.metadata.kind === "personal").length;
-
-  const activeCategories = Array.from(
-    new Set(
-      projects
-        .map((project) => getWorkProjectCategory(project))
-        .filter((category): category is string => Boolean(category)),
-    ),
-  ).slice(0, 6);
-
-  const heroStats = [
-    { label: "Projetos publicados", value: formatStatValue(projects.length) },
-    { label: "Cases de cliente", value: formatStatValue(clientCount) },
-    { label: "Estudos e autorais", value: formatStatValue(studyCount + personalCount) },
-  ];
+  if (!latestEntry) {
+    return null;
+  }
 
   return (
     <Column className={styles.page} fillWidth paddingTop="24" gap="24">
@@ -82,146 +64,142 @@ export default function Work() {
         ]}
       />
 
-      <section className={styles.heroPanel}>
-        <div className={styles.heroMain}>
-          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            {workStrategy.hero.eyebrow}
-          </Tag>
+      <section className={styles.heroSection}>
+        <div className={styles.heroGrid}>
+          <div className={styles.heroMain}>
+            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+              Linha do tempo
+            </Tag>
 
-          <Heading as="h1" className={styles.heroTitle} variant="display-strong-s">
-            {workStrategy.hero.headline}
-          </Heading>
+            <Heading as="h1" className={styles.heroTitle} variant="display-strong-s">
+              Do chão ao céu: portfólio, serviços e direção em movimento.
+            </Heading>
 
-          <Text
-            className={styles.heroLead}
-            onBackground="neutral-weak"
-            variant="heading-default-m"
-            wrap="balance"
-          >
-            {workStrategy.hero.subheadline}
-          </Text>
-
-          <Row className={styles.heroActions} gap="12" wrap>
-            <Button
-              href={workStrategy.hero.primaryCtaHref}
-              variant="primary"
-              size="m"
-              arrowIcon
-              data-analytics-event="cta_click"
-              data-analytics-label={workStrategy.hero.primaryCtaLabel}
-              data-analytics-location="work_hero"
-              data-analytics-type="primary"
+            <Text
+              className={styles.heroLead}
+              onBackground="neutral-weak"
+              variant="heading-default-m"
+              wrap="balance"
             >
-              {workStrategy.hero.primaryCtaLabel}
-            </Button>
-            {workStrategy.hero.secondaryCtaHref && workStrategy.hero.secondaryCtaLabel && (
+              Esta página registra marcos reais. O topo mostra o momento atual. A base guarda o
+              início da jornada. Cada nova etapa entra com data, tarefa e status.
+            </Text>
+
+            <Row className={styles.heroActions} gap="12" wrap>
               <Button
-                href={workStrategy.hero.secondaryCtaHref}
+                href={contact.path}
+                variant="primary"
+                size="m"
+                arrowIcon
+                data-analytics-event="cta_click"
+                data-analytics-label="Falar sobre um projeto"
+                data-analytics-location="work_hero"
+                data-analytics-type="primary"
+              >
+                Falar sobre um projeto
+              </Button>
+              <Button
+                href={servicesPage.path}
                 variant="secondary"
                 size="m"
                 arrowIcon
                 data-analytics-event="cta_click"
-                data-analytics-label={workStrategy.hero.secondaryCtaLabel}
+                data-analytics-label="Ver serviços"
                 data-analytics-location="work_hero"
                 data-analytics-type="secondary"
               >
-                {workStrategy.hero.secondaryCtaLabel}
+                Ver serviços
               </Button>
-            )}
-          </Row>
-          <SmartLink href={`${work.path}/gerenciamento`} suffixIcon="arrowRight">
-            Abrir painel interno de gestão
-          </SmartLink>
-        </div>
+            </Row>
 
-        <aside className={styles.heroAside}>
-          <Text className={styles.sideEyebrow} variant="label-default-s" onBackground="neutral-weak">
-            Leitura rápida
-          </Text>
-
-          <div className={styles.statGrid}>
-            {heroStats.map((item) => (
-              <div className={styles.statCard} key={item.label}>
-                <span className={styles.statValue}>{item.value}</span>
-                <Text onBackground="neutral-weak" variant="body-default-s">
-                  {item.label}
-                </Text>
-              </div>
-            ))}
+            <Text className={styles.heroNote} onBackground="neutral-weak" variant="body-default-s">
+              A página não tenta parecer finalizada. Ela funciona como registro vivo da construção.
+            </Text>
           </div>
 
-          {activeCategories.length > 0 && (
-            <div className={styles.categoryRail}>
-              {activeCategories.map((category) => (
-                <Tag key={category} size="s" background="neutral-alpha-weak">
-                  {category}
+          <aside className={styles.heroAside}>
+            <div className={styles.currentCard}>
+              <Text className={styles.sideEyebrow} variant="label-default-s" onBackground="neutral-weak">
+                Momento atual
+              </Text>
+
+              <Heading as="h2" variant="heading-strong-l" wrap="balance">
+                {latestEntry.task}
+              </Heading>
+
+              <div className={styles.currentMeta}>
+                <span className={styles.statusPill} data-status={latestEntry.status}>
+                  {workJourneyStatusMeta[latestEntry.status].label}
+                </span>
+                <Tag size="s" background="neutral-alpha-weak">
+                  {latestEntry.category}
                 </Tag>
-              ))}
+              </div>
+
+              <Text onBackground="neutral-weak" variant="body-default-s">
+                Atualizado em {formatWorkTimelineDate(latestEntry.date)}.
+              </Text>
+
+              <div className={styles.snapshotRail}>
+                <div className={styles.snapshotCard}>
+                  <span className={styles.snapshotValue}>
+                    {formatWorkTimelineCompactDate(latestEntry.date)}
+                  </span>
+                  <Text onBackground="neutral-weak" variant="body-default-s">
+                    Última data
+                  </Text>
+                </div>
+                <div className={styles.snapshotCard}>
+                  <span className={styles.snapshotValue}>{formatStatValue(journeyEntries.length)}</span>
+                  <Text onBackground="neutral-weak" variant="body-default-s">
+                    Marcos
+                  </Text>
+                </div>
+                <div className={styles.snapshotCard}>
+                  <span className={styles.snapshotValue}>{formatStatValue(projects.length)}</span>
+                  <Text onBackground="neutral-weak" variant="body-default-s">
+                    Portfólio
+                  </Text>
+                </div>
+              </div>
             </div>
-          )}
-        </aside>
+
+            <div className={styles.focusPanel}>
+              <Text className={styles.sideEyebrow} variant="label-default-s" onBackground="neutral-weak">
+                Frentes de trabalho
+              </Text>
+
+              <div className={styles.focusList}>
+                {workFocusAreas.map((area) => (
+                  <div className={styles.focusItem} key={area.label}>
+                    <Text className={styles.focusLabel} variant="label-default-s" onBackground="neutral-weak">
+                      {area.label}
+                    </Text>
+                    <Text variant="body-default-s" onBackground="neutral-weak">
+                      {area.value}
+                    </Text>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </aside>
+        </div>
       </section>
 
-      {hasProjects ? (
-        <section className={styles.librarySection}>
-          <div className={styles.sectionIntro}>
-            <Text className={styles.sectionEyebrow} variant="label-default-s" onBackground="neutral-weak">
-              {workStrategy.sections[2]?.label ?? "Portfólio"}
-            </Text>
-            <Heading as="h2" variant="display-strong-s">
-              {workStrategy.sections[2]?.title ?? "Portfólio publicado."}
-            </Heading>
-            <Text onBackground="neutral-weak" variant="body-default-m">
-              {workStrategy.sections[2]?.description ??
-                "Cada projeto existe para comprovar raciocínio, solução e resultado percebido."}
-            </Text>
-          </div>
-
-          <Projects
-            projects={projects}
-            layout="editorial"
-            marginBottom="0"
-            paddingX="0"
-          />
-        </section>
-      ) : (
-        <section className={styles.notePanel}>
-          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            Portfólio
-          </Tag>
-
-          <Heading as="h2" variant="display-strong-s">
-            Cases em atualização
-          </Heading>
-
-          <Text onBackground="neutral-weak" variant="body-default-m">
-            Os próximos projetos estão sendo organizados para entrar com mais contexto, clareza e
-            consistência.
-          </Text>
-
-          <Row className={styles.panelActions} gap="12" wrap>
-            <Button href={servicesPage.path} variant="primary" size="m" arrowIcon>
-              Ver serviços
-            </Button>
-            <Button href={technicalApproach.path} variant="secondary" size="m" arrowIcon>
-              Ver abordagem técnica
-            </Button>
-          </Row>
-        </section>
-      )}
+      <AscendingTimeline entries={journeyEntries} />
 
       <section className={styles.notePanel}>
         <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-          {workStrategy.sections[3]?.label ?? "Contato"}
+          Próximo passo
         </Tag>
 
         <Heading as="h2" variant="display-strong-s">
-          {workStrategy.sections[3]?.title ?? "Vamos criar algo forte juntos."}
+          Se quiser entrar nessa linha do tempo com um projeto real, vamos conversar.
         </Heading>
 
         <Text onBackground="neutral-weak" variant="body-default-m">
-          {workStrategy.sections[3]?.description ??
-            "Se a operação precisa de uma presença mais clara, mais forte e mais útil, o próximo passo é conversar."}
+          Hoje o foco está em negócios locais e serviços que precisam de presença clara, captação
+          melhor e operação digital mais organizada.
         </Text>
 
         <Row className={styles.panelActions} gap="12" wrap>
@@ -231,14 +209,14 @@ export default function Work() {
             size="m"
             arrowIcon
             data-analytics-event="cta_click"
-            data-analytics-label={workStrategy.sections[3]?.ctaLabel ?? "Vamos conversar"}
+            data-analytics-label="Vamos conversar"
             data-analytics-location="work_final_cta"
             data-analytics-type="primary"
           >
-            {workStrategy.sections[3]?.ctaLabel ?? "Vamos conversar"}
+            Vamos conversar
           </Button>
-          <Button href={servicesPage.path} variant="secondary" size="m" arrowIcon>
-            Ver serviços
+          <Button href={about.path} variant="secondary" size="m" arrowIcon>
+            Conhecer minha história
           </Button>
         </Row>
       </section>

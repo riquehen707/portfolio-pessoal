@@ -1,9 +1,7 @@
 import type { ComponentProps } from "react";
 
-import { getPosts } from "@/utils/utils";
+import { type BlogFile, getPosts } from "@/utils/utils";
 import { Column, Grid } from "@once-ui-system/core";
-
-import { BlogFile } from "@/utils/posts";
 
 import Post from "./Post";
 import styles from "./Posts.module.scss";
