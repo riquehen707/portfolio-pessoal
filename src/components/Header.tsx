@@ -11,11 +11,11 @@ import { BrandSignature } from "./BrandSignature";
 import styles from "./Header.module.scss";
 
 const navItems = [
-  { href: "/", label: "InÃ­cio", icon: "home" },
+  { href: "/", label: "Início", icon: "home" },
   { href: work.path, label: "Projetos", icon: "grid" },
   { href: about.path, label: "Sobre", icon: "person" },
   { href: blog.path, label: "Blog", icon: "book" },
-  { href: productsPage.path, label: "Produtos", icon: "shopify" },
+  { href: productsPage.path, label: "Produtos", icon: "package" },
 ] as const;
 
 function TimeDisplay({ timeZone, locale = "pt-BR" }: { timeZone: string; locale?: string }) {
@@ -70,17 +70,8 @@ export function Header() {
   const nextThemeLabel = nextTheme === "light" ? "claro" : "escuro";
 
   return (
-    <Row
-      className={styles.position}
-      position="sticky"
-      as="header"
-      zIndex={9}
-      fillWidth
-      padding="8"
-      horizontal="center"
-      s={{ position: "fixed" }}
-    >
-      <Flex className={styles.sideRail} fillWidth vertical="center">
+    <header className={styles.position}>
+      <Flex className={`${styles.sideRail} ${styles.leftRail}`} fillWidth vertical="center">
         <BrandSignature href="/" compact className={styles.brandSignature} />
         {display.location && (
           <Text className={styles.location} variant="body-default-s" onBackground="neutral-weak">
@@ -100,7 +91,7 @@ export function Header() {
         zIndex={1}
       >
         <Row className={styles.navRow} gap="4" vertical="center" textVariant="body-default-s">
-          {navItems.map((item, index) => {
+          {navItems.map((item) => {
             const isActive =
               item.href === about.path
                 ? aboutSelected
@@ -127,14 +118,6 @@ export function Header() {
                     selected={isActive}
                   />
                 </Row>
-                {index === 0 && (
-                  <Line
-                    className={styles.divider}
-                    background="neutral-alpha-medium"
-                    vert
-                    maxHeight="24"
-                  />
-                )}
               </Fragment>
             );
           })}
@@ -153,7 +136,7 @@ export function Header() {
         </Row>
       </Row>
 
-      <Flex className={styles.sideRail} fillWidth horizontal="end" vertical="center">
+      <Flex className={`${styles.sideRail} ${styles.rightRail}`} fillWidth horizontal="end" vertical="center">
         {display.time && (
           <Row className={styles.utility} gap="8" vertical="center" s={{ hide: true }}>
             <Text className={styles.timeValue} variant="body-default-s">
@@ -162,6 +145,6 @@ export function Header() {
           </Row>
         )}
       </Flex>
-    </Row>
+    </header>
   );
 }
