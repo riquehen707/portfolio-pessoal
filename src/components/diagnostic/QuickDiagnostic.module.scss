@@ -1,0 +1,312 @@
+@use "../../styles/mixins" as mixins;
+
+.root {
+  display: grid;
+  gap: 1rem;
+}
+
+.header,
+.headerCopy,
+.progressBlock,
+.questionList,
+.card,
+.summaryPanel,
+.metricCard,
+.issueList,
+.issueItem,
+.emptyState {
+  display: grid;
+}
+
+.header {
+  gap: 0.85rem;
+}
+
+.eyebrow,
+.metricLabel,
+.issueLabel {
+  @include mixins.label-uppercase(0.12em);
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+}
+
+.progressBlock {
+  gap: 0.45rem;
+}
+
+.progressTrack {
+  width: 100%;
+  height: 0.45rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.progressFill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(255, 205, 84, 0.78), rgba(255, 236, 166, 0.98));
+  transition: width var(--motion-base);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(19rem, 0.92fr);
+  gap: 1rem 1.25rem;
+  align-items: start;
+}
+
+.questionList {
+  gap: 0.9rem;
+}
+
+.card {
+  @include mixins.interactive-card(
+    $radius: var(--radius-24),
+    $surface: var(--surface-panel-soft)
+  );
+
+  gap: 0.9rem;
+  padding: 1.2rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 60%),
+    var(--surface-panel-soft);
+  transition:
+    transform var(--motion-base),
+    border-color var(--motion-base),
+    box-shadow var(--motion-base),
+    background var(--motion-base);
+}
+
+.cardAnswered {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.cardIssue {
+  border-color: rgba(255, 215, 0, 0.2);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(255, 215, 0, 0.08), transparent 30%),
+    var(--surface-panel-soft);
+}
+
+.questionTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.questionIndex {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  color: var(--neutral-on-background-medium);
+  font-family: var(--font-code);
+  font-size: 0.82rem;
+}
+
+.answerHealthy,
+.answerWarning {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.answerHealthy {
+  background: rgba(79, 201, 132, 0.12);
+  color: rgba(194, 255, 214, 0.96);
+}
+
+.answerWarning {
+  background: rgba(255, 215, 0, 0.12);
+  color: rgba(255, 234, 176, 0.98);
+}
+
+.questionTitle,
+.summaryTitle {
+  letter-spacing: -0.04em;
+}
+
+.answerRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.answerButton {
+  min-height: 5rem;
+  padding: 0.95rem 1rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-16);
+  background: rgba(255, 255, 255, 0.025);
+  color: inherit;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  transition:
+    border-color var(--motion-base),
+    background var(--motion-base),
+    transform var(--motion-fast);
+}
+
+.answerButtonTitle,
+.metricValue {
+  font-weight: 600;
+}
+
+.answerButtonTitle {
+  display: block;
+}
+
+.answerButtonHint {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--neutral-on-background-medium);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.answerButtonYes {
+  border-color: rgba(79, 201, 132, 0.28);
+  background: rgba(79, 201, 132, 0.1);
+}
+
+.answerButtonNo {
+  border-color: rgba(255, 215, 0, 0.28);
+  background: rgba(255, 215, 0, 0.08);
+}
+
+.issueHint,
+.metricCard,
+.issueItem,
+.emptyState {
+  border-radius: var(--radius-16);
+}
+
+.issueHint {
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(255, 215, 0, 0.18);
+  background: rgba(255, 215, 0, 0.06);
+}
+
+.summaryPanel {
+  position: sticky;
+  top: 7.2rem;
+  gap: 1rem;
+  padding: 1.2rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-panel);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(255, 215, 0, 0.08), transparent 30%),
+    var(--surface-panel-strong);
+  box-shadow: var(--shadow-soft);
+}
+
+.metricGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.metricCard {
+  gap: 0.3rem;
+  padding: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.metricLabel {
+  font-size: 0.68rem;
+  color: var(--neutral-on-background-medium);
+}
+
+.metricValue {
+  letter-spacing: -0.03em;
+}
+
+.issueList {
+  gap: 0.75rem;
+}
+
+.issueItem {
+  gap: 0.35rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.issueLabel {
+  color: var(--brand-on-background-medium);
+  font-size: 0.72rem;
+}
+
+.emptyState {
+  gap: 0.4rem;
+  padding: 1rem;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.summaryActions {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.helper {
+  padding-top: 0.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+@include mixins.hover-fine {
+  .card:hover {
+    transform: translateY(-1px);
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-card);
+  }
+
+  .answerButton:hover {
+    transform: translateY(-1px);
+    border-color: var(--border-strong);
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+.answerButton:focus-visible {
+  @include mixins.focus-ring;
+}
+
+@include mixins.m {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .summaryPanel {
+    position: static;
+    top: auto;
+  }
+}
+
+@include mixins.s {
+  .card,
+  .summaryPanel {
+    padding: 1rem;
+    border-radius: calc(var(--radius-panel) - 0.2rem);
+  }
+
+  .answerRow,
+  .metricGrid {
+    grid-template-columns: 1fr;
+  }
+}

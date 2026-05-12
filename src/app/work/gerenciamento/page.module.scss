@@ -1,0 +1,475 @@
+@use "../../../components/breakpoints.scss" as breakpoints;
+
+.page {
+  width: min(100%, var(--grid-max-width));
+  margin-inline: auto;
+}
+
+.loginShell,
+.heroPanel,
+.metricSection,
+.ganttSection,
+.boardSection,
+.panel {
+  width: 100%;
+  min-width: 0;
+}
+
+.loginShell {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr);
+  gap: clamp(1rem, 3vw, 1.75rem);
+}
+
+.heroPanel,
+.panel,
+.metricCard,
+.stageColumn,
+.projectCard,
+.loginIntro,
+.loginCard {
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+}
+
+.heroPanel,
+.panel,
+.loginIntro,
+.loginCard {
+  border-radius: var(--radius-panel);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 22%),
+    rgba(18, 18, 22, 0.92);
+}
+
+.loginIntro,
+.loginCard,
+.panel {
+  padding: clamp(1.1rem, 2.5vw, 1.5rem);
+}
+
+.loginIntro,
+.loginCard {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+}
+
+.eyebrow {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.bulletList,
+.detailList,
+.blockerList,
+.agendaList {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.bulletItem,
+.detailItem,
+.blockerItem,
+.agendaItem {
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-16);
+  background: rgba(15, 15, 19, 0.55);
+}
+
+.loginForm {
+  display: grid;
+  gap: 1rem;
+}
+
+.fieldGroup {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.fieldLabel {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--neutral-on-background-weak);
+}
+
+.errorBanner {
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(255, 114, 114, 0.32);
+  border-radius: var(--radius-16);
+  background: rgba(134, 24, 24, 0.24);
+  color: var(--danger-on-background-strong, #ffb5b5);
+}
+
+.heroPanel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+  gap: clamp(1rem, 3vw, 1.8rem);
+  padding: clamp(1.25rem, 3vw, 1.85rem);
+}
+
+.heroMain,
+.heroAside,
+.metricSection,
+.ganttSection,
+.boardSection {
+  min-width: 0;
+}
+
+.heroMain {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+}
+
+.heroLead {
+  max-width: 42rem;
+}
+
+.heroActions {
+  row-gap: 0.6rem;
+}
+
+.heroAside {
+  display: grid;
+  gap: 0.85rem;
+  align-content: start;
+  padding: 1rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-24);
+  background: rgba(24, 24, 29, 0.82);
+}
+
+.asideGrid,
+.metricGrid,
+.insightGrid,
+.boardGrid,
+.projectHeader,
+.cardFooter,
+.projectMeta,
+.projectTop,
+.progressRow,
+.agendaMeta {
+  display: grid;
+}
+
+.asideGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.asideCard,
+.metricCard {
+  padding: 0.95rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-16);
+  background: rgba(11, 11, 13, 0.38);
+}
+
+.asideCard {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.metricSection,
+.ganttSection,
+.boardSection {
+  display: grid;
+  gap: 1rem;
+}
+
+.metricGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.metricCard {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.metricValue {
+  font-family: var(--font-heading);
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  color: var(--neutral-on-background-strong);
+}
+
+.sectionIntro {
+  display: grid;
+  gap: 0.55rem;
+  max-width: 44rem;
+}
+
+.boardGrid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.9rem;
+  align-items: start;
+}
+
+.stageColumn {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1rem;
+  border-radius: var(--radius-24);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 28%),
+    rgba(14, 14, 18, 0.92);
+}
+
+.stageHeader {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.stageCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.8rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--neutral-on-background-medium);
+  font-size: 0.78rem;
+}
+
+.stageItems {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.projectCard {
+  display: grid;
+  gap: 0.85rem;
+  padding: 0.95rem;
+  border-radius: var(--radius-20);
+  background: rgba(20, 20, 26, 0.82);
+}
+
+.projectTop {
+  gap: 0.5rem;
+}
+
+.projectHeader {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.projectMeta {
+  gap: 0.22rem;
+}
+
+.projectTitle {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  line-height: 1.15;
+  color: var(--neutral-on-background-strong);
+}
+
+.projectSummary {
+  margin: 0;
+  color: var(--neutral-on-background-weak);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.pillRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.58rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--neutral-on-background-medium);
+  font-size: 0.74rem;
+}
+
+.pillStrong {
+  color: var(--neutral-on-background-strong);
+}
+
+.healthDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: #9dd28f;
+}
+
+.healthAttention {
+  background: #ffd36e;
+}
+
+.healthRisk {
+  background: #ff8e8e;
+}
+
+.progressRow {
+  gap: 0.45rem;
+}
+
+.progressTrack {
+  height: 0.52rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.progressBar {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(255, 215, 0, 0.78), rgba(255, 245, 196, 0.96));
+}
+
+.cardFooter {
+  gap: 0.7rem;
+}
+
+.detailList {
+  gap: 0.45rem;
+}
+
+.detailItem {
+  padding: 0.7rem 0.8rem;
+}
+
+.cardActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.insightGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.ganttGrid,
+.fieldGrid {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.ganttGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.fieldGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.fieldGroupCard,
+.periodItem {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.85rem 0.95rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-16);
+  background: rgba(15, 15, 19, 0.55);
+}
+
+.panel {
+  display: grid;
+  gap: 0.95rem;
+}
+
+.periodList,
+.agendaList,
+.blockerList {
+  gap: 0.6rem;
+}
+
+.periodList {
+  display: grid;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.agendaItem,
+.blockerItem {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.agendaMeta {
+  grid-template-columns: auto auto;
+  gap: 0.5rem;
+  justify-content: start;
+}
+
+.muted {
+  color: var(--neutral-on-background-weak);
+}
+
+@media (max-width: breakpoints.$l) {
+  .boardGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .metricGrid,
+  .insightGrid,
+  .ganttGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: breakpoints.$m) {
+  .loginShell,
+  .heroPanel {
+    grid-template-columns: 1fr;
+  }
+
+  .boardGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: breakpoints.$s) {
+  .heroPanel,
+  .panel,
+  .loginIntro,
+  .loginCard {
+    padding: 1rem;
+    border-radius: calc(var(--radius-24) - 0.05rem);
+  }
+
+  .heroAside {
+    padding: 0.9rem;
+    border-radius: calc(var(--radius-16) + 0.15rem);
+  }
+
+  .metricGrid,
+  .insightGrid,
+  .asideGrid,
+  .fieldGrid,
+  .ganttGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroActions,
+  .cardActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .projectHeader {
+    grid-template-columns: 1fr;
+  }
+}

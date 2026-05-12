@@ -91,18 +91,27 @@
   }
 
   .navShell {
+    width: calc(100vw - 2rem);
     max-width: calc(100vw - 2rem);
+    justify-content: flex-start;
     border-radius: calc(var(--radius-panel) - 0.2rem);
     box-shadow: var(--shadow-card);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .navShell::-webkit-scrollbar {
+    display: none;
   }
 
   .navRow {
-    gap: 0.2rem;
+    min-width: max-content;
+    gap: 0.12rem;
   }
 
   .navButton,
   .themeButton {
-    min-width: 2.9rem;
+    min-width: 2.55rem;
   }
 
   .divider {

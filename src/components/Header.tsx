@@ -5,7 +5,7 @@ import { Fragment, useEffect, useState } from "react";
 import { Flex, Line, Row, Text, ToggleButton, useTheme } from "@once-ui-system/core";
 import { usePathname } from "next/navigation";
 
-import { about, blog, display, person, productsPage, technicalApproach, work } from "@/resources";
+import { about, blog, diagnostic, display, person, productsPage, work } from "@/resources";
 
 import { BrandSignature } from "./BrandSignature";
 import styles from "./Header.module.scss";
@@ -15,6 +15,7 @@ const navItems = [
   { href: work.path, label: "Projetos", icon: "grid" },
   { href: about.path, label: "Sobre", icon: "person" },
   { href: blog.path, label: "Blog", icon: "book" },
+  { href: diagnostic.path, label: "Diagnóstico", icon: "chart" },
   { href: productsPage.path, label: "Produtos", icon: "shopify" },
 ] as const;
 
@@ -55,7 +56,7 @@ export function Header() {
   const pathname = usePathname() ?? "";
   const { theme, setTheme } = useTheme();
   const [currentTheme, setCurrentTheme] = useState("dark");
-  const aboutSelected = pathname === about.path || pathname === technicalApproach.path;
+  const aboutSelected = pathname === about.path || pathname.startsWith(`${about.path}/`);
 
   useEffect(() => {
     setCurrentTheme(document.documentElement.getAttribute("data-theme") || "dark");

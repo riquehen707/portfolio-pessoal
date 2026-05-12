@@ -1,4 +1,4 @@
-import { Button, Column, Heading, Meta, Row, Schema, Tag, Text } from "@once-ui-system/core";
+import { Button, Column, Heading, Meta, Row, Schema, SmartLink, Tag, Text } from "@once-ui-system/core";
 
 import {
   getAllWorkProjects,
@@ -13,6 +13,7 @@ import {
   contentStrategy,
   person,
   servicesPage,
+  technicalApproach,
   work,
 } from "@/resources";
 
@@ -128,6 +129,9 @@ export default function Work() {
               </Button>
             )}
           </Row>
+          <SmartLink href={`${work.path}/gerenciamento`} suffixIcon="arrowRight">
+            Abrir painel interno de gestão
+          </SmartLink>
         </div>
 
         <aside className={styles.heroAside}>
@@ -199,7 +203,7 @@ export default function Work() {
             <Button href={servicesPage.path} variant="primary" size="m" arrowIcon>
               Ver serviços
             </Button>
-            <Button href="/abordagem-tecnica" variant="secondary" size="m" arrowIcon>
+            <Button href={technicalApproach.path} variant="secondary" size="m" arrowIcon>
               Ver abordagem técnica
             </Button>
           </Row>

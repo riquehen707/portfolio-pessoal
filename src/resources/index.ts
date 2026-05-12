@@ -9,6 +9,7 @@ export {
   blog,
   work,
   contact,
+  diagnostic,
 } from "./content";
 
 export { servicesPage, services, productsPage, products } from "./services";

@@ -154,7 +154,7 @@ const contentStrategy = {
         primaryCtaLabel: "Vamos conversar",
         primaryCtaHref: "/contact",
         secondaryCtaLabel: "Ver abordagem técnica",
-        secondaryCtaHref: "/abordagem-tecnica",
+        secondaryCtaHref: "/about/abordagem-tecnica",
       },
       sections: [
         {

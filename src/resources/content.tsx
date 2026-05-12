@@ -192,7 +192,7 @@ const about: About = {
 };
 
 const technicalApproach: TechnicalPage = {
-  path: "/abordagem-tecnica",
+  path: "/about/abordagem-tecnica",
   label: "Abordagem técnica",
   title: `Abordagem técnica | ${person.name}`,
   description:
@@ -220,4 +220,12 @@ const contact: BasePageConfig = {
   description: contactStrategy.hero.subheadline,
 };
 
-export { person, social, newsletter, home, about, technicalApproach, blog, work, contact };
+const diagnostic: BasePageConfig = {
+  path: "/diagnostico",
+  label: "Diagnóstico",
+  title: `Diagnóstico rápido | ${person.name}`,
+  description:
+    "Um diagnóstico rápido com 7 perguntas para localizar gargalos de agenda, catálogo, WhatsApp, captação, financeiro, recorrência e venda.",
+};
+
+export { person, social, newsletter, home, about, technicalApproach, blog, work, contact, diagnostic };
