@@ -7,30 +7,36 @@ import { baseURL, diagnostic, person, productsPage, social } from "@/resources";
 
 import styles from "./page.module.scss";
 
+const projectionPage = {
+  title: `Simulador de crescimento | ${person.name}`,
+  description:
+    "Um simulador de projecao para estimar ganhos futuros por categoria de servico, faturamento atual e verba mensal de marketing e anuncios.",
+} as const;
+
 const heroSignals = [
-  "7 perguntas binárias",
-  "resultado instantâneo",
-  "sem formulário longo",
+  "categoria de servico",
+  "faturamento + verba",
+  "projecao em 90 dias",
 ] as const;
 
 const diagnosisAreas = [
   {
     id: "01",
-    title: "Captação e agenda",
+    title: "Categoria e ticket",
     description:
-      "Mostra se o fluxo entre interesse, atendimento e agendamento está claro ou ainda depende de improviso.",
+      "Cada segmento parte de uma base diferente de ticket, ciclo comercial e potencial de captura em 90 dias.",
   },
   {
     id: "02",
-    title: "Oferta e atendimento",
+    title: "Midia e estrutura",
     description:
-      "Expõe onde catálogo, WhatsApp e processo comercial atrapalham a conversão do que já chega até você.",
+      "A simulacao cruza verba de anuncios com verba total de marketing para mostrar o peso da estrutura sobre a midia.",
   },
   {
     id: "03",
-    title: "Receita e recorrência",
+    title: "Ganho futuro",
     description:
-      "Ajuda a localizar se a operação está sustentada por retorno, controle e lógica de venda ou só por esforço diário.",
+      "O resultado devolve tres cenarios de crescimento com foco em ganho bruto, faturamento projetado e retorno sobre investimento.",
   },
 ] as const;
 
@@ -38,30 +44,30 @@ const pageMetrics = [
   {
     label: "Tempo",
     value: "2 min",
-    detail: "Leitura rápida, sem atrito e sem depender de planilha.",
+    detail: "Leitura rapida, sem depender de planilha externa.",
   },
   {
-    label: "Formato",
-    value: "Sim ou não",
-    detail: "Perguntas diretas para o gargalo aparecer sem floreio.",
+    label: "Entrada",
+    value: "Caixa + verba",
+    detail: "Categoria do servico, faturamento atual e orcamento mensal.",
   },
   {
-    label: "Saída",
-    value: "Prioridades",
-    detail: "Você termina com uma lista objetiva do que atacar primeiro.",
+    label: "Saida",
+    value: "3 cenarios",
+    detail: "Voce termina com uma projecao clara de ganho futuro.",
   },
 ] as const;
 
 export async function generateMetadata() {
   return {
-    title: diagnostic.title,
-    description: diagnostic.description,
+    title: projectionPage.title,
+    description: projectionPage.description,
     alternates: { canonical: `${baseURL}${diagnostic.path}` },
     openGraph: {
-      title: diagnostic.title,
-      description: diagnostic.description,
+      title: projectionPage.title,
+      description: projectionPage.description,
       url: `${baseURL}${diagnostic.path}`,
-      images: [{ url: `/api/og/generate?title=${encodeURIComponent(diagnostic.title)}` }],
+      images: [{ url: `/api/og/generate?title=${encodeURIComponent(projectionPage.title)}` }],
     },
   };
 }
@@ -75,10 +81,10 @@ export default function DiagnosticPage() {
       <Schema
         as="webPage"
         baseURL={baseURL}
-        title={diagnostic.title}
-        description={diagnostic.description}
+        title={projectionPage.title}
+        description={projectionPage.description}
         path={diagnostic.path}
-        image={`/api/og/generate?title=${encodeURIComponent(diagnostic.title)}`}
+        image={`/api/og/generate?title=${encodeURIComponent(projectionPage.title)}`}
         author={{
           name: person.name,
           url: `${baseURL}${diagnostic.path}`,
@@ -88,7 +94,7 @@ export default function DiagnosticPage() {
 
       <BreadcrumbJsonLd
         items={[
-          { name: "Início", url: baseURL },
+          { name: "Inicio", url: baseURL },
           { name: diagnostic.label, url: `${baseURL}${diagnostic.path}` },
         ]}
       />
@@ -96,24 +102,24 @@ export default function DiagnosticPage() {
       <section className={styles.hero}>
         <Reveal className={styles.heroCopy} delay={0.04} distance={24}>
           <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            Diagnóstico rápido
+            Simulador de crescimento
           </Tag>
 
           <Heading as="h1" className={styles.heroTitle} variant="display-strong-m">
-            Descubra em 2 minutos onde o seu negócio está vazando.
+            Estime quanto seu servico pode crescer com a verba certa.
           </Heading>
 
           <Text className={styles.heroLead} onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-            {diagnostic.description} Responda sete perguntas objetivas sobre agenda, catálogo,
-            WhatsApp, captação, financeiro, recorrência e venda.
+            {projectionPage.description} Comece por psicologas, advogados, corretores de imoveis e
+            outros servicos que dependem de agenda, confianca e fechamento consultivo.
           </Text>
 
           <Row className={styles.heroActions} gap="12" wrap>
-            <Button href="#diagnostico-quiz" variant="primary" size="m" arrowIcon>
-              Começar agora
+            <Button href="#simulador-projecao" variant="primary" size="m" arrowIcon>
+              Simular agora
             </Button>
             <Button href={productsPage.path} variant="secondary" size="m" arrowIcon>
-              Ver soluções
+              Ver solucoes
             </Button>
           </Row>
 
@@ -129,8 +135,8 @@ export default function DiagnosticPage() {
 
         <Reveal className={styles.heroPanel} delay={0.14} distance={28}>
           <Text className={styles.panelCaption} onBackground="neutral-weak" variant="body-default-s">
-            A direção visual aqui puxa a lógica de produto do AdSense: entrada simples, promessa
-            clara e devolutiva imediata.
+            A direcao visual continua puxando a logica de produto do AdSense: entrada simples,
+            promessa clara e uma devolutiva imediata.
           </Text>
 
           <div className={styles.panelStats}>
@@ -154,14 +160,14 @@ export default function DiagnosticPage() {
       <section className={styles.section}>
         <div className={styles.sectionHeader}>
           <Tag size="s" background="neutral-alpha-weak">
-            O que essa página mede
+            O que esse simulador cruza
           </Tag>
           <Heading as="h2" variant="display-strong-s">
-            O objetivo não é dar nota. É localizar o ponto onde a operação começa a falhar.
+            O objetivo nao e dar um chute bonito. E aproximar um cenario de crescimento por categoria e verba.
           </Heading>
           <Text onBackground="neutral-weak" variant="body-default-m">
-            Cada bloco abaixo cobre um tipo de gargalo recorrente em negócios locais e operações
-            pequenas que já estão vendendo, mas ainda sem sistema claro.
+            A pagina combina premissas de mercado com os seus numeros atuais para devolver um
+            intervalo mais util de ganho futuro.
           </Text>
         </div>
 
@@ -182,17 +188,17 @@ export default function DiagnosticPage() {
         </div>
       </section>
 
-      <section className={styles.quizSection} id="diagnostico-quiz">
+      <section className={styles.quizSection} id="simulador-projecao">
         <div className={styles.sectionHeader}>
           <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            Checklist operacional
+            Projecao operacional
           </Tag>
           <Heading as="h2" variant="display-strong-s">
-            Responda com honestidade simples: ou isso já existe, ou ainda está frouxo.
+            Ajuste categoria, faturamento e verba para enxergar o proximo degrau da operacao.
           </Heading>
           <Text onBackground="neutral-weak" variant="body-default-m">
-            O resultado vai sendo montado conforme você responde. Se aparecerem vários “não”, a
-            prioridade tende a ser estrutura antes de aceleração.
+            O resultado devolve tres cenarios de ganho em 90 dias. A leitura melhora quando a verba
+            de anuncios nao vem sozinha, mas acompanhada de estrutura comercial e marketing.
           </Text>
         </div>
 

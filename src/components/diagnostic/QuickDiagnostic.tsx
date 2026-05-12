@@ -1,80 +1,174 @@
 "use client";
 
+import { Button, Heading, Input, Tag, Text } from "@once-ui-system/core";
 import { useState } from "react";
-
-import { Button, Heading, Tag, Text } from "@once-ui-system/core";
 
 import styles from "./QuickDiagnostic.module.scss";
 
-type Answer = "yes" | "no";
-
-type DiagnosticQuestion = {
+type ProjectionCategory = {
   id: string;
   title: string;
-  detail: string;
-  issueLabel: string;
-  issueImpact: string;
-  nextMove: string;
+  audienceLabel: string;
+  value90d: number;
+  cpl: {
+    low: number;
+    mid: number;
+    high: number;
+  };
+  closeRate: {
+    low: number;
+    mid: number;
+    high: number;
+  };
+  referenceRevenue: number;
+  minimumAdBudget: number;
+  cycleLabel: string;
+  valueLabel: string;
+  readinessBias: number;
 };
 
-const questions: DiagnosticQuestion[] = [
+type ScenarioConfig = {
+  id: string;
+  label: string;
+  tone: string;
+  cpl: keyof ProjectionCategory["cpl"];
+  closeRate: keyof ProjectionCategory["closeRate"];
+  efficiencyOffset: number;
+};
+
+const categories: ProjectionCategory[] = [
   {
-    id: "agenda",
-    title: "Sua agenda de atendimentos está organizada e atualizada em um lugar só?",
-    detail: "Quando isso está solto, horário, retorno e confirmação acabam dependendo de memória.",
-    issueLabel: "Agenda improvisada",
-    issueImpact: "A operação perde previsibilidade e o atendimento começa a falhar em pontos básicos.",
-    nextMove: "Centralizar agenda, confirmação e rotina de retorno em um fluxo único.",
+    id: "psicologas",
+    title: "Psicologas",
+    audienceLabel: "novas pacientes",
+    value90d: 1200,
+    cpl: { low: 24, mid: 34, high: 48 },
+    closeRate: { low: 0.07, mid: 0.1, high: 0.13 },
+    referenceRevenue: 12000,
+    minimumAdBudget: 1200,
+    cycleLabel: "ciclo curto com recorrencia moderada",
+    valueLabel: "ticket medio em 90 dias por paciente",
+    readinessBias: 0.94,
   },
   {
-    id: "catalogo",
-    title: "Seu catálogo ou lista de serviços ajuda o cliente a entender rápido o que comprar?",
-    detail: "Se a oferta não fica clara, o cliente entra em contato sem entender valor, formato ou próximo passo.",
-    issueLabel: "Catálogo fraco",
-    issueImpact: "A conversa comercial fica lenta e a decisão tende a esfriar antes do fechamento.",
-    nextMove: "Organizar serviços, pacotes e benefícios com leitura simples e decisão rápida.",
+    id: "advogados",
+    title: "Advogados",
+    audienceLabel: "novos casos",
+    value90d: 4200,
+    cpl: { low: 48, mid: 72, high: 108 },
+    closeRate: { low: 0.035, mid: 0.055, high: 0.075 },
+    referenceRevenue: 25000,
+    minimumAdBudget: 1800,
+    cycleLabel: "ciclo comercial consultivo e mais lento",
+    valueLabel: "ticket medio em 90 dias por caso fechado",
+    readinessBias: 0.92,
   },
   {
-    id: "whatsapp",
-    title: "Seu WhatsApp já tem mensagens, etiquetas ou alguma lógica de acompanhamento?",
-    detail: "Sem padrão, cada conversa vira um caso isolado e as oportunidades se perdem no meio do volume.",
-    issueLabel: "WhatsApp desorganizado",
-    issueImpact: "Leads entram, mas o acompanhamento fica inconsistente e a conversão cai no detalhe.",
-    nextMove: "Criar estrutura mínima de resposta, qualificação e acompanhamento comercial.",
+    id: "corretores",
+    title: "Corretores de imoveis",
+    audienceLabel: "fechamentos",
+    value90d: 9000,
+    cpl: { low: 42, mid: 64, high: 96 },
+    closeRate: { low: 0.015, mid: 0.025, high: 0.038 },
+    referenceRevenue: 30000,
+    minimumAdBudget: 2500,
+    cycleLabel: "ciclo longo com ticket alto por fechamento",
+    valueLabel: "receita media em 90 dias por fechamento",
+    readinessBias: 0.9,
   },
   {
-    id: "clientes",
-    title: "Seu negócio recebe clientes novos com alguma constância ao longo do mês?",
-    detail: "Se a entrada depende só de indicação ou sorte, a agenda oscila e a operação fica reativa.",
-    issueLabel: "Poucos clientes novos",
-    issueImpact: "O negócio perde previsibilidade e começa a aceitar qualquer demanda para preencher espaço.",
-    nextMove: "Abrir uma frente simples de captação com página, oferta clara e rota de contato.",
+    id: "estetica",
+    title: "Clinicas de estetica",
+    audienceLabel: "novos procedimentos",
+    value90d: 1800,
+    cpl: { low: 18, mid: 28, high: 42 },
+    closeRate: { low: 0.08, mid: 0.12, high: 0.16 },
+    referenceRevenue: 18000,
+    minimumAdBudget: 1500,
+    cycleLabel: "ciclo rapido com recompra e retorno",
+    valueLabel: "ticket medio em 90 dias por cliente",
+    readinessBias: 0.98,
   },
   {
-    id: "financeiro",
-    title: "Você acompanha entrada, saída e margem com clareza suficiente para decidir?",
-    detail: "Sem leitura mínima de números, desconto, investimento e prioridade viram achismo.",
-    issueLabel: "Controle financeiro fraco",
-    issueImpact: "Fica difícil saber o que sustenta o negócio e o que só ocupa tempo.",
-    nextMove: "Definir um painel enxuto de faturamento, custos e margem por serviço.",
+    id: "dentistas",
+    title: "Dentistas",
+    audienceLabel: "novos tratamentos",
+    value90d: 2600,
+    cpl: { low: 30, mid: 45, high: 68 },
+    closeRate: { low: 0.06, mid: 0.09, high: 0.12 },
+    referenceRevenue: 22000,
+    minimumAdBudget: 1800,
+    cycleLabel: "ciclo medio com decisao apoiada por confianca",
+    valueLabel: "ticket medio em 90 dias por paciente",
+    readinessBias: 0.95,
   },
   {
-    id: "recorrencia",
-    title: "Uma parte relevante dos clientes volta a comprar, reagendar ou renovar com você?",
-    detail: "Quando ninguém volta, o negócio precisa recomeçar a venda do zero o tempo todo.",
-    issueLabel: "Baixa recorrência",
-    issueImpact: "O custo para manter receita sobe e a operação vive correndo atrás da próxima venda.",
-    nextMove: "Criar ofertas de retorno, acompanhamento e reativação da base atual.",
+    id: "consultores",
+    title: "Consultores e especialistas",
+    audienceLabel: "novos contratos",
+    value90d: 5600,
+    cpl: { low: 40, mid: 62, high: 94 },
+    closeRate: { low: 0.03, mid: 0.05, high: 0.07 },
+    referenceRevenue: 20000,
+    minimumAdBudget: 1600,
+    cycleLabel: "ciclo consultivo com fechamento por autoridade",
+    valueLabel: "ticket medio em 90 dias por contrato",
+    readinessBias: 0.93,
+  },
+] as const;
+
+const scenarios: ScenarioConfig[] = [
+  {
+    id: "conservative",
+    label: "Conservador",
+    tone: "Menos eficiencia, mais cautela na previsao.",
+    cpl: "high",
+    closeRate: "low",
+    efficiencyOffset: -0.06,
   },
   {
-    id: "vendas",
-    title: "Existe uma estratégia simples para vender, fazer oferta e acompanhar oportunidades?",
-    detail: "Sem um roteiro comercial mínimo, a venda depende do improviso e do humor do dia.",
-    issueLabel: "Falta de estratégia de venda",
-    issueImpact: "O negócio até gera interesse, mas não transforma atenção em fechamento com consistência.",
-    nextMove: "Definir oferta, sequência comercial e critério de acompanhamento até a decisão.",
+    id: "expected",
+    label: "Esperado",
+    tone: "Leitura central para um mes operacional bem executado.",
+    cpl: "mid",
+    closeRate: "mid",
+    efficiencyOffset: 0,
   },
-];
+  {
+    id: "accelerated",
+    label: "Acelerado",
+    tone: "Midia, oferta e atendimento funcionando acima da media.",
+    cpl: "low",
+    closeRate: "high",
+    efficiencyOffset: 0.07,
+  },
+] as const;
+
+function clamp(value: number, min: number, max: number) {
+  return Math.min(Math.max(value, min), max);
+}
+
+function parseCurrencyInput(value: string) {
+  const normalized = value.replace(/[^\d.,]/g, "").replace(/\.(?=.*\.)/g, "").replace(",", ".");
+  const numeric = Number(normalized);
+
+  return Number.isFinite(numeric) ? numeric : 0;
+}
+
+function formatCurrency(value: number) {
+  return new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+    maximumFractionDigits: 0,
+  }).format(value);
+}
+
+function formatCount(value: number) {
+  return new Intl.NumberFormat("pt-BR", {
+    minimumFractionDigits: value < 10 ? 1 : 0,
+    maximumFractionDigits: value < 10 ? 1 : 0,
+  }).format(value);
+}
 
 function buildWhatsappLink(base: string, text: string) {
   const separator = base.includes("?") ? "&" : "?";
@@ -82,39 +176,34 @@ function buildWhatsappLink(base: string, text: string) {
   return `${base}${separator}text=${encodeURIComponent(text)}`;
 }
 
-function getSummary(issueCount: number) {
-  if (issueCount === 0) {
+function getBudgetSignal(profile: ProjectionCategory, adBudget: number, totalBudget: number) {
+  if (adBudget < profile.minimumAdBudget) {
     return {
-      tone: "Base saudável",
-      title: "Sua base parece organizada. O próximo nível é acelerar sem perder clareza.",
-      description:
-        "Você não sinalizou gargalos operacionais centrais. O trabalho aqui tende a ser mais de otimização, posicionamento e escala do que de resgate estrutural.",
+      label: "Verba curta para ganhar tracao",
+      description: `Para ${profile.title.toLowerCase()}, a leitura costuma ficar mais consistente a partir de ${formatCurrency(profile.minimumAdBudget)} por mes em anuncios.`,
     };
   }
 
-  if (issueCount <= 2) {
+  if (totalBudget <= adBudget * 1.15) {
     return {
-      tone: "Ajustes pontuais",
-      title: "Há alguns vazamentos específicos, mas o cenário ainda é bem corrigível.",
+      label: "Midia quase sem apoio estrutural",
       description:
-        "Os gargalos apareceram em pontos claros. Se você arrumar essas frentes cedo, evita que a operação cresça em cima de improviso.",
+        "Voce esta comprando cliques com pouco espaco para landing page, criativo, CRM e follow-up. A projecao fica mais sensivel a falhas na conversao.",
     };
   }
 
-  if (issueCount <= 4) {
+  if (totalBudget >= adBudget * 1.7) {
     return {
-      tone: "Atenção real",
-      title: "A operação já está perdendo energia em mais frentes do que deveria.",
+      label: "Base mais forte para crescer",
       description:
-        "O problema provavelmente não é só tráfego ou estética. Já existe vazamento entre oferta, rotina comercial, atendimento e retenção.",
+        "Existe margem para combinar anuncios com estrutura comercial, pagina e acompanhamento. Isso tende a reduzir vazamento entre lead e fechamento.",
     };
   }
 
   return {
-    tone: "Base crítica",
-    title: "Seu negócio está rodando com estrutura comercial frágil.",
+    label: "Base equilibrada",
     description:
-      "Quando muitos pontos básicos falham ao mesmo tempo, vender mais sem reorganizar a operação tende a aumentar o caos em vez do resultado.",
+      "Ha verba para midia e algum suporte operacional. O ganho real agora depende da clareza da oferta e do atendimento.",
   };
 }
 
@@ -124,208 +213,390 @@ type QuickDiagnosticProps = {
 };
 
 export function QuickDiagnostic({ whatsappHref, productsHref }: QuickDiagnosticProps) {
-  const [answers, setAnswers] = useState<Record<string, Answer>>({});
+  const [categoryId, setCategoryId] = useState(categories[0].id);
+  const [currentRevenue, setCurrentRevenue] = useState("12000");
+  const [adsBudget, setAdsBudget] = useState("1800");
+  const [marketingBudget, setMarketingBudget] = useState("3200");
 
-  const answeredCount = Object.keys(answers).length;
-  const unansweredCount = questions.length - answeredCount;
-  const completion = Math.round((answeredCount / questions.length) * 100);
-  const issues = questions.filter((question) => answers[question.id] === "no");
-  const isComplete = answeredCount === questions.length;
-  const summary = getSummary(issues.length);
+  const profile = categories.find((item) => item.id === categoryId) ?? categories[0];
+  const currentRevenueValue = parseCurrencyInput(currentRevenue);
+  const adsBudgetValue = parseCurrencyInput(adsBudget);
+  const rawMarketingBudgetValue = parseCurrencyInput(marketingBudget);
+  const totalMarketingBudget = Math.max(rawMarketingBudgetValue, adsBudgetValue);
+  const supportBudget = Math.max(totalMarketingBudget - adsBudgetValue, 0);
+  const supportShare = totalMarketingBudget > 0 ? supportBudget / totalMarketingBudget : 0;
+  const revenueReadiness = clamp(currentRevenueValue / profile.referenceRevenue, 0.55, 1.35);
+  const adsScale = clamp(adsBudgetValue / profile.minimumAdBudget, 0.55, 1.3);
+  const leadEfficiency = clamp(
+    profile.readinessBias + (revenueReadiness - 1) * 0.16 + (adsScale - 1) * 0.12 + supportShare * 0.16,
+    0.72,
+    1.24,
+  );
+  const conversionEfficiency = clamp(
+    0.88 + (revenueReadiness - 1) * 0.18 + supportShare * 0.22,
+    0.76,
+    1.18,
+  );
 
-  const whatsappMessage =
-    issues.length > 0
-      ? `Acabei de responder o diagnóstico rápido e identifiquei estes gargalos: ${issues
-          .map((question) => question.issueLabel.toLowerCase())
-          .join(", ")}. Quero organizar isso.`
-      : "Acabei de responder o diagnóstico rápido e quero revisar meus próximos passos comerciais.";
+  const projections = scenarios.map((scenario) => {
+    const effectiveLeadFactor = clamp(leadEfficiency + scenario.efficiencyOffset, 0.68, 1.3);
+    const effectiveConversionFactor = clamp(
+      conversionEfficiency + scenario.efficiencyOffset * 0.9,
+      0.72,
+      1.24,
+    );
+    const costPerLead = profile.cpl[scenario.cpl] / effectiveLeadFactor;
+    const conversionRate = clamp(
+      profile.closeRate[scenario.closeRate] * effectiveConversionFactor,
+      0.01,
+      0.22,
+    );
+    const leads = adsBudgetValue > 0 ? adsBudgetValue / costPerLead : 0;
+    const wins = leads * conversionRate;
+    const gain90d = wins * profile.value90d;
+    const monthlyLift = gain90d / 3;
+    const projectedRevenue = currentRevenueValue + monthlyLift;
+    const investment90d = totalMarketingBudget * 3;
+    const roas = investment90d > 0 ? gain90d / investment90d : 0;
+    const netGain = gain90d - investment90d;
 
-  const diagnosticWhatsappHref = buildWhatsappLink(whatsappHref, whatsappMessage);
+    return {
+      ...scenario,
+      costPerLead,
+      conversionRate,
+      leads,
+      wins,
+      gain90d,
+      monthlyLift,
+      projectedRevenue,
+      roas,
+      netGain,
+    };
+  });
+
+  const expectedProjection = projections[1];
+  const budgetSignal = getBudgetSignal(profile, adsBudgetValue, totalMarketingBudget);
+
+  const whatsappMessage = buildWhatsappLink(
+    whatsappHref,
+    [
+      "Ola, Henrique.",
+      "Usei o simulador de crescimento.",
+      `Categoria: ${profile.title}.`,
+      `Faturamento atual: ${formatCurrency(currentRevenueValue)} por mes.`,
+      `Anuncios: ${formatCurrency(adsBudgetValue)} por mes.`,
+      `Marketing total: ${formatCurrency(totalMarketingBudget)} por mes.`,
+      `Projecao esperada: ${formatCurrency(expectedProjection.projectedRevenue)} por mes e ${formatCurrency(expectedProjection.gain90d)} em 90 dias.`,
+      "Quero transformar isso em um plano real.",
+    ].join(" "),
+  );
 
   return (
     <div className={styles.root}>
       <div className={styles.header}>
         <div className={styles.headerCopy}>
           <Text className={styles.eyebrow} variant="body-default-s" onBackground="neutral-weak">
-            7 perguntas | resposta instantânea
+            Categoria + caixa + verba mensal
           </Text>
           <Heading as="h2" variant="heading-strong-l">
-            Mapa rápido da operação
+            Simulador de crescimento em 90 dias
           </Heading>
         </div>
 
-        <div className={styles.progressBlock}>
-          <Text variant="body-default-s" onBackground="neutral-weak">
-            {answeredCount}/{questions.length} respondidas
-          </Text>
-          <div className={styles.progressTrack} aria-hidden="true">
-            <span className={styles.progressFill} style={{ width: `${completion}%` }} />
-          </div>
+        <div className={styles.headerRail}>
+          <span className={styles.headerPill}>{profile.title}</span>
+          <span className={styles.headerPill}>{profile.cycleLabel}</span>
         </div>
       </div>
 
       <div className={styles.layout}>
-        <div className={styles.questionList}>
-          {questions.map((question, index) => {
-            const answer = answers[question.id];
-            const isYes = answer === "yes";
-            const isNo = answer === "no";
+        <div className={styles.formColumn}>
+          <section className={styles.formPanel}>
+            <div className={styles.sectionTop}>
+              <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+                Entradas
+              </Tag>
+              <Text onBackground="neutral-weak" variant="body-default-s">
+                Ajuste os numeros abaixo para ver quanto a operacao pode ganhar com uma base minima de marketing.
+              </Text>
+            </div>
 
-            return (
-              <article
-                className={[
-                  styles.card,
-                  answer ? styles.cardAnswered : "",
-                  isNo ? styles.cardIssue : "",
-                ].join(" ")}
-                key={question.id}
-              >
-                <div className={styles.questionTop}>
-                  <span className={styles.questionIndex}>{String(index + 1).padStart(2, "0")}</span>
-                  {answer && (
-                    <span className={isYes ? styles.answerHealthy : styles.answerWarning}>
-                      {isYes ? "Estruturado" : "Ponto crítico"}
-                    </span>
-                  )}
+            <div className={styles.formGrid}>
+              <div className={styles.fieldGroup}>
+                <label className={styles.fieldLabel} htmlFor="projection-category">
+                  Categoria do servico
+                </label>
+                <div className={styles.selectWrap}>
+                  <select
+                    id="projection-category"
+                    className={styles.select}
+                    value={categoryId}
+                    onChange={(event) => setCategoryId(event.target.value)}
+                  >
+                    {categories.map((item) => (
+                      <option key={item.id} value={item.id}>
+                        {item.title}
+                      </option>
+                    ))}
+                  </select>
                 </div>
+              </div>
 
-                <Heading as="h3" className={styles.questionTitle} variant="heading-strong-m">
-                  {question.title}
-                </Heading>
+              <div className={styles.fieldGroup}>
+                <label className={styles.fieldLabel} htmlFor="projection-revenue">
+                  Faturamento mensal atual
+                </label>
+                <Input
+                  id="projection-revenue"
+                  inputMode="decimal"
+                  min="0"
+                  name="currentRevenue"
+                  placeholder="12000"
+                  step="100"
+                  type="number"
+                  value={currentRevenue}
+                  onChange={(event) => setCurrentRevenue(event.target.value)}
+                />
+              </div>
 
+              <div className={styles.fieldGroup}>
+                <label className={styles.fieldLabel} htmlFor="projection-ads-budget">
+                  Orcamento mensal para anuncios
+                </label>
+                <Input
+                  id="projection-ads-budget"
+                  inputMode="decimal"
+                  min="0"
+                  name="adsBudget"
+                  placeholder="1800"
+                  step="100"
+                  type="number"
+                  value={adsBudget}
+                  onChange={(event) => setAdsBudget(event.target.value)}
+                />
+              </div>
+
+              <div className={styles.fieldGroup}>
+                <label className={styles.fieldLabel} htmlFor="projection-marketing-budget">
+                  Orcamento mensal total para marketing e anuncios
+                </label>
+                <Input
+                  id="projection-marketing-budget"
+                  inputMode="decimal"
+                  min="0"
+                  name="marketingBudget"
+                  placeholder="3200"
+                  step="100"
+                  type="number"
+                  value={marketingBudget}
+                  onChange={(event) => setMarketingBudget(event.target.value)}
+                />
+              </div>
+            </div>
+
+            <div className={styles.signalBox}>
+              <Text className={styles.signalLabel} variant="body-default-s">
+                Leitura do orcamento
+              </Text>
+              <Heading as="h3" variant="heading-strong-m">
+                {budgetSignal.label}
+              </Heading>
+              <Text onBackground="neutral-weak" variant="body-default-s">
+                {budgetSignal.description}
+              </Text>
+              {rawMarketingBudgetValue < adsBudgetValue && (
                 <Text onBackground="neutral-weak" variant="body-default-s">
-                  {question.detail}
+                  Como a verba total nao pode ser menor que a verba de anuncios, a simulacao considerou o total de marketing igual a {formatCurrency(totalMarketingBudget)}.
                 </Text>
+              )}
+            </div>
+          </section>
 
-                <div className={styles.answerRow} role="group" aria-label={`Resposta para ${question.title}`}>
-                  <button
-                    type="button"
-                    className={[styles.answerButton, isYes ? styles.answerButtonYes : ""].join(" ")}
-                    aria-pressed={isYes}
-                    onClick={() => setAnswers((current) => ({ ...current, [question.id]: "yes" }))}
-                  >
-                    <span className={styles.answerButtonTitle}>Sim</span>
-                    <span className={styles.answerButtonHint}>Isso já existe com alguma consistência.</span>
-                  </button>
+          <section className={styles.assumptionPanel}>
+            <div className={styles.sectionTop}>
+              <Tag size="s" background="neutral-alpha-weak">
+                Premissas da categoria
+              </Tag>
+            </div>
 
-                  <button
-                    type="button"
-                    className={[styles.answerButton, isNo ? styles.answerButtonNo : ""].join(" ")}
-                    aria-pressed={isNo}
-                    onClick={() => setAnswers((current) => ({ ...current, [question.id]: "no" }))}
-                  >
-                    <span className={styles.answerButtonTitle}>Não</span>
-                    <span className={styles.answerButtonHint}>Aqui ainda existe improviso ou falta de rotina.</span>
-                  </button>
-                </div>
+            <div className={styles.assumptionGrid}>
+              <div className={styles.assumptionCard}>
+                <Text className={styles.metricLabel} variant="body-default-s">
+                  Valor capturado
+                </Text>
+                <Text className={styles.metricValue} variant="heading-strong-l">
+                  {formatCurrency(profile.value90d)}
+                </Text>
+                <Text onBackground="neutral-weak" variant="body-default-s">
+                  {profile.valueLabel}
+                </Text>
+              </div>
 
-                {isNo && (
-                  <div className={styles.issueHint}>
-                    <Text variant="body-default-s">{question.issueImpact}</Text>
-                  </div>
-                )}
-              </article>
-            );
-          })}
+              <div className={styles.assumptionCard}>
+                <Text className={styles.metricLabel} variant="body-default-s">
+                  Faixa de CPL
+                </Text>
+                <Text className={styles.metricValue} variant="heading-strong-l">
+                  {formatCurrency(profile.cpl.low)} - {formatCurrency(profile.cpl.high)}
+                </Text>
+                <Text onBackground="neutral-weak" variant="body-default-s">
+                  custo por lead usado na simulacao
+                </Text>
+              </div>
+
+              <div className={styles.assumptionCard}>
+                <Text className={styles.metricLabel} variant="body-default-s">
+                  Fechamento
+                </Text>
+                <Text className={styles.metricValue} variant="heading-strong-l">
+                  {Math.round(profile.closeRate.low * 100)}% - {Math.round(profile.closeRate.high * 100)}%
+                </Text>
+                <Text onBackground="neutral-weak" variant="body-default-s">
+                  lead para {profile.audienceLabel}
+                </Text>
+              </div>
+
+              <div className={styles.assumptionCard}>
+                <Text className={styles.metricLabel} variant="body-default-s">
+                  Piso recomendado
+                </Text>
+                <Text className={styles.metricValue} variant="heading-strong-l">
+                  {formatCurrency(profile.minimumAdBudget)}
+                </Text>
+                <Text onBackground="neutral-weak" variant="body-default-s">
+                  verba mensal minima para anuncios
+                </Text>
+              </div>
+            </div>
+          </section>
         </div>
 
-        <aside className={styles.summaryPanel}>
+        <aside className={styles.summaryPanel} aria-live="polite">
           <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            Resultado
+            Projecao esperada
           </Tag>
 
           <Heading as="h3" className={styles.summaryTitle} variant="display-strong-xs">
-            {isComplete
-              ? summary.title
-              : "Responda todas as perguntas para fechar o diagnóstico."}
+            {formatCurrency(expectedProjection.projectedRevenue)} por mes se a operacao sustentar o ritmo esperado.
           </Heading>
 
           <Text onBackground="neutral-weak" variant="body-default-m">
-            {isComplete
-              ? summary.description
-              : unansweredCount === questions.length
-                ? "A ideia aqui é marcar o que já está organizado e deixar o resto aparecer sem rodeio."
-                : `Faltam ${unansweredCount} ${unansweredCount === 1 ? "resposta" : "respostas"} para consolidar o cenário.`}
+            A leitura parte do seu faturamento atual, da categoria escolhida e da combinacao entre verba de midia e verba total de marketing.
           </Text>
 
           <div className={styles.metricGrid}>
             <div className={styles.metricCard}>
               <Text className={styles.metricLabel} variant="body-default-s">
-                Respondidas
+                Faturamento atual
               </Text>
               <Text className={styles.metricValue} variant="heading-strong-l">
-                {answeredCount}/{questions.length}
+                {formatCurrency(currentRevenueValue)}
               </Text>
             </div>
 
             <div className={styles.metricCard}>
               <Text className={styles.metricLabel} variant="body-default-s">
-                Gargalos
+                Ganho mensal estimado
               </Text>
               <Text className={styles.metricValue} variant="heading-strong-l">
-                {issues.length.toString().padStart(2, "0")}
+                {formatCurrency(expectedProjection.monthlyLift)}
               </Text>
             </div>
 
             <div className={styles.metricCard}>
               <Text className={styles.metricLabel} variant="body-default-s">
-                Leitura
+                Ganho bruto em 90 dias
               </Text>
               <Text className={styles.metricValue} variant="heading-strong-l">
-                {isComplete ? summary.tone : "Em andamento"}
+                {formatCurrency(expectedProjection.gain90d)}
+              </Text>
+            </div>
+
+            <div className={styles.metricCard}>
+              <Text className={styles.metricLabel} variant="body-default-s">
+                ROAS bruto em 90 dias
+              </Text>
+              <Text className={styles.metricValue} variant="heading-strong-l">
+                {expectedProjection.roas.toFixed(1)}x
               </Text>
             </div>
           </div>
 
-          {issues.length > 0 ? (
-            <div className={styles.issueList}>
-              {issues.map((issue) => (
-                <div className={styles.issueItem} key={issue.id}>
-                  <Text className={styles.issueLabel} variant="body-default-s">
-                    {issue.issueLabel}
-                  </Text>
-                  <Text onBackground="neutral-weak" variant="body-default-s">
-                    {issue.nextMove}
-                  </Text>
+          <div className={styles.scenarioList}>
+            {projections.map((scenario) => (
+              <article className={styles.scenarioCard} key={scenario.id}>
+                <div className={styles.scenarioTop}>
+                  <div>
+                    <Text className={styles.scenarioLabel} variant="body-default-s">
+                      {scenario.label}
+                    </Text>
+                    <Heading as="h4" variant="heading-strong-m">
+                      {formatCurrency(scenario.gain90d)} em 90 dias
+                    </Heading>
+                  </div>
+                  <span className={styles.scenarioChip}>{scenario.id === "expected" ? "base" : scenario.id === "conservative" ? "cautela" : "tracao"}</span>
                 </div>
-              ))}
-            </div>
-          ) : (
-            <div className={styles.emptyState}>
-              <Text className={styles.issueLabel} variant="body-default-s">
-                {isComplete ? "Sem gargalo crítico marcado" : "As prioridades aparecem aqui"}
-              </Text>
-              <Text onBackground="neutral-weak" variant="body-default-s">
-                {isComplete
-                  ? "Se essa leitura bate com a realidade, o próximo passo é otimizar aquisição, posicionamento e conversão."
-                  : "Assim que você responder, esta área lista os pontos fracos e a direção mais urgente para cada um."}
-              </Text>
-            </div>
-          )}
+
+                <Text onBackground="neutral-weak" variant="body-default-s">
+                  {scenario.tone}
+                </Text>
+
+                <div className={styles.scenarioMeta}>
+                  <div>
+                    <Text className={styles.metricLabel} variant="body-default-s">
+                      Leads/mes
+                    </Text>
+                    <Text variant="body-default-s">{formatCount(scenario.leads)}</Text>
+                  </div>
+                  <div>
+                    <Text className={styles.metricLabel} variant="body-default-s">
+                      {profile.audienceLabel}
+                    </Text>
+                    <Text variant="body-default-s">{formatCount(scenario.wins)}</Text>
+                  </div>
+                  <div>
+                    <Text className={styles.metricLabel} variant="body-default-s">
+                      CPL efetivo
+                    </Text>
+                    <Text variant="body-default-s">{formatCurrency(scenario.costPerLead)}</Text>
+                  </div>
+                  <div>
+                    <Text className={styles.metricLabel} variant="body-default-s">
+                      Resultado liquido 90d
+                    </Text>
+                    <Text variant="body-default-s">{formatCurrency(scenario.netGain)}</Text>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
 
           <div className={styles.summaryActions}>
-            <Button
-              href={isComplete ? diagnosticWhatsappHref : whatsappHref}
-              variant="primary"
-              size="m"
-              arrowIcon
-            >
-              {isComplete ? "Quero organizar isso" : "Falar no WhatsApp"}
+            <Button href={whatsappMessage} variant="primary" size="m" arrowIcon>
+              Quero transformar essa projecao em plano
             </Button>
 
             <Button href={productsHref} variant="secondary" size="m" arrowIcon>
               Ver produtos e pacotes
             </Button>
 
-            {answeredCount > 0 && (
-              <Button type="button" variant="tertiary" size="s" onClick={() => setAnswers({})}>
-                Recomeçar diagnóstico
-              </Button>
-            )}
+            <Button
+              type="button"
+              variant="tertiary"
+              size="s"
+              onClick={() => {
+                setCategoryId(categories[0].id);
+                setCurrentRevenue("12000");
+                setAdsBudget("1800");
+                setMarketingBudget("3200");
+              }}
+            >
+              Voltar ao exemplo inicial
+            </Button>
           </div>
 
           <Text className={styles.helper} onBackground="neutral-weak" variant="body-default-s">
-            Se aparecerem 3 ou mais gargalos, o problema normalmente já não é só tráfego. É estrutura comercial e operacional.
+            Isso e uma estimativa, nao uma promessa. O numero final depende de oferta, pagina, criativo, velocidade de resposta e capacidade de atendimento.
           </Text>
         </aside>
       </div>
