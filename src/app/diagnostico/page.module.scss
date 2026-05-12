@@ -5,164 +5,65 @@
 }
 
 .hero,
-.heroCopy,
-.heroPanel,
-.section,
-.sectionHeader,
-.areaCard {
+.simulatorSection,
+.sectionHeader {
   display: grid;
 }
 
 .hero {
-  grid-template-columns: minmax(0, 1.08fr) minmax(18rem, 0.92fr);
-  gap: 1.25rem 1.5rem;
-  align-items: stretch;
-}
-
-.heroCopy,
-.heroPanel,
-.areaCard {
-  @include mixins.interactive-card;
-}
-
-.heroCopy {
   gap: 1rem;
-  padding: clamp(1.45rem, 3vw, 2.2rem);
+  max-width: 56rem;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-panel);
-  background:
-    radial-gradient(circle at 0% 0%, rgba(255, 215, 0, 0.09), transparent 30%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 56%),
-    var(--surface-panel-strong);
-  box-shadow: var(--shadow-card);
+  background: var(--surface-panel-strong);
+  box-shadow: var(--shadow-soft);
 }
 
 .heroTitle {
-  max-width: 16ch;
-  letter-spacing: -0.06em;
+  max-width: 14ch;
+  letter-spacing: -0.05em;
 }
 
 .heroLead {
-  max-width: 42rem;
+  max-width: 44rem;
 }
 
 .heroActions {
   width: 100%;
 }
 
-.signalRail {
+.heroNotes {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem 1rem;
 }
 
-.signalItem {
+.heroNote {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  min-height: 2.1rem;
+  min-height: 2rem;
 }
 
-.signalDot {
-  width: 0.48rem;
-  height: 0.48rem;
+.heroDot {
+  width: 0.45rem;
+  height: 0.45rem;
   border-radius: 999px;
   background: var(--brand-on-background-medium);
-  box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.08);
 }
 
-.heroPanel {
-  gap: 1rem;
-  padding: clamp(1.2rem, 2.5vw, 1.8rem);
-  border-radius: var(--radius-panel);
-  background:
-    radial-gradient(circle at 100% 0%, rgba(255, 215, 0, 0.08), transparent 26%),
-    var(--surface-panel-soft);
-}
-
-.panelCaption {
-  max-width: 26rem;
-}
-
-.panelStats {
-  display: grid;
-  gap: 0.75rem;
-}
-
-.panelStat {
-  display: grid;
-  gap: 0.3rem;
-  padding: 1rem 1.05rem;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: var(--radius-20);
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.panelStatLabel,
-.areaIndex {
-  @include mixins.label-uppercase(0.12em);
-}
-
-.panelStatLabel {
-  font-size: 0.72rem;
-  color: var(--neutral-on-background-medium);
-}
-
-.panelStatValue {
-  letter-spacing: -0.05em;
-}
-
-.section,
-.quizSection {
+.simulatorSection {
   gap: 1rem;
 }
 
 .sectionHeader {
-  gap: 0.8rem;
-  max-width: 42rem;
-}
-
-.areaGrid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.areaCard {
-  gap: 0.8rem;
-  padding: 1.15rem;
-  border-radius: var(--radius-24);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 62%),
-    var(--surface-panel-soft);
-}
-
-.areaIndex {
-  font-size: 0.72rem;
-  color: var(--brand-on-background-medium);
-}
-
-@include mixins.hover-fine {
-  .heroPanel:hover,
-  .areaCard:hover {
-    border-color: var(--border-strong);
-    box-shadow: var(--shadow-card);
-  }
-}
-
-@include mixins.m {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-
-  .areaGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  gap: 0.75rem;
+  max-width: 40rem;
 }
 
 @include mixins.s {
-  .heroCopy,
-  .heroPanel,
-  .areaCard {
+  .hero {
     padding: 1rem;
     border-radius: calc(var(--radius-panel) - 0.2rem);
   }
@@ -170,9 +71,5 @@
   .heroActions {
     flex-direction: column;
     align-items: stretch;
-  }
-
-  .areaGrid {
-    grid-template-columns: 1fr;
   }
 }

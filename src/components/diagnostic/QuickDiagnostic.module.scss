@@ -1,121 +1,59 @@
 @use "../../styles/mixins" as mixins;
 
-.root {
+.root,
+.header,
+.layout,
+.fieldGrid,
+.fieldGroup,
+.summaryGrid,
+.scenarioList,
+.actions {
   display: grid;
+}
+
+.root {
   gap: 1rem;
 }
 
-.header,
-.headerCopy,
-.formColumn,
-.formPanel,
-.assumptionPanel,
-.summaryPanel,
-.metricCard,
-.scenarioCard {
-  display: grid;
-}
-
 .header {
-  gap: 0.85rem;
+  gap: 0.65rem;
+  max-width: 38rem;
 }
 
 .eyebrow,
 .fieldLabel,
-.signalLabel,
-.metricLabel,
-.scenarioLabel {
+.noteTitle {
   @include mixins.label-uppercase(0.12em);
 }
 
-.eyebrow {
-  font-size: 0.75rem;
-}
-
-.headerRail {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-}
-
-.headerPill,
-.scenarioChip {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2rem;
-  padding: 0.35rem 0.7rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--neutral-on-background-medium);
+.eyebrow,
+.fieldLabel,
+.noteTitle {
   font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
 }
 
 .layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.04fr) minmax(20rem, 0.96fr);
+  grid-template-columns: minmax(0, 0.88fr) minmax(19rem, 1.12fr);
   gap: 1rem 1.25rem;
   align-items: flex-start;
 }
 
-.formColumn {
-  gap: 1rem;
-}
-
 .formPanel,
-.assumptionPanel,
-.summaryPanel,
-.signalBox,
-.assumptionCard,
-.scenarioCard {
-  @include mixins.interactive-card(
-    $radius: var(--radius-24),
-    $surface: var(--surface-panel-soft)
-  );
+.resultPanel {
+  padding: 1.15rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-panel);
+  background: var(--surface-panel-soft);
+  box-shadow: var(--shadow-soft);
 }
 
-.formPanel,
-.assumptionPanel,
-.summaryPanel {
-  gap: 1rem;
-  padding: 1.2rem;
-}
-
-.formPanel {
-  background:
-    radial-gradient(circle at 0% 0%, rgba(255, 215, 0, 0.08), transparent 28%),
-    var(--surface-panel-soft);
-}
-
-.sectionTop {
-  display: grid;
-  gap: 0.45rem;
-}
-
-.formGrid,
-.assumptionGrid,
-.metricGrid,
-.scenarioMeta {
-  display: grid;
-  gap: 0.8rem;
-}
-
-.formGrid {
+.fieldGrid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
 }
 
 .fieldGroup {
-  display: grid;
   gap: 0.45rem;
-}
-
-.fieldLabel,
-.signalLabel,
-.metricLabel,
-.scenarioLabel {
-  font-size: 0.72rem;
 }
 
 .selectWrap {
@@ -140,99 +78,87 @@
   font: inherit;
 }
 
-.signalBox {
-  gap: 0.5rem;
-  padding: 1rem;
-  border-color: rgba(255, 215, 0, 0.18);
-  background:
-    radial-gradient(circle at 100% 0%, rgba(255, 215, 0, 0.08), transparent 26%),
-    rgba(255, 255, 255, 0.025);
+.noteBox {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.assumptionGrid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.assumptionCard,
-.metricCard {
-  gap: 0.35rem;
-  padding: 0.95rem;
-  border-radius: var(--radius-16);
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.summaryPanel {
-  position: sticky;
-  top: 7.2rem;
+.resultPanel {
+  display: grid;
   gap: 1rem;
-  border-radius: var(--radius-panel);
-  background:
-    radial-gradient(circle at 0% 0%, rgba(255, 215, 0, 0.08), transparent 30%),
-    var(--surface-panel-strong);
-  box-shadow: var(--shadow-soft);
+  background: var(--surface-panel-strong);
 }
 
-.summaryTitle,
-.metricValue {
+.summaryTitle {
   letter-spacing: -0.04em;
 }
 
-.metricGrid {
+.summaryLead {
+  max-width: 34rem;
+}
+
+.summaryGrid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
 }
 
-.metricCard {
+.summaryItem {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.9rem;
   border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-16);
+  background: rgba(255, 255, 255, 0.025);
 }
 
-.metricValue {
-  font-weight: 600;
+.summaryValue {
+  letter-spacing: -0.03em;
+}
+
+.inlineMeta {
+  padding-top: 0.2rem;
 }
 
 .scenarioList {
-  display: grid;
-  gap: 0.8rem;
-}
-
-.scenarioCard {
   gap: 0.7rem;
-  padding: 1rem;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 64%),
-    rgba(255, 255, 255, 0.025);
 }
 
-.scenarioTop {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.8rem;
-  align-items: flex-start;
-}
-
-.scenarioMeta {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.summaryActions {
+.scenarioRow {
   display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.85rem;
+  align-items: center;
+  padding: 0.85rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.scenarioRow:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.scenarioCopy {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.scenarioValue {
+  display: grid;
+  gap: 0.15rem;
+  justify-items: end;
+  text-align: right;
+}
+
+.actions {
   gap: 0.75rem;
 }
 
 .helper {
   padding-top: 0.25rem;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-@include mixins.hover-fine {
-  .formPanel:hover,
-  .assumptionPanel:hover,
-  .summaryPanel:hover,
-  .signalBox:hover,
-  .scenarioCard:hover,
-  .assumptionCard:hover {
-    border-color: var(--border-strong);
-    box-shadow: var(--shadow-card);
-  }
 }
 
 .select:focus-visible {
@@ -243,29 +169,17 @@
   .layout {
     grid-template-columns: 1fr;
   }
-
-  .summaryPanel {
-    position: static;
-    top: auto;
-  }
 }
 
 @include mixins.s {
   .formPanel,
-  .assumptionPanel,
-  .summaryPanel,
-  .signalBox,
-  .scenarioCard,
-  .assumptionCard,
-  .metricCard {
+  .resultPanel {
     padding: 1rem;
     border-radius: calc(var(--radius-panel) - 0.2rem);
   }
 
-  .formGrid,
-  .assumptionGrid,
-  .metricGrid,
-  .scenarioMeta {
+  .fieldGrid,
+  .summaryGrid {
     grid-template-columns: 1fr;
   }
 }

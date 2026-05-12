@@ -22,7 +22,6 @@ type ProjectionCategory = {
   };
   referenceRevenue: number;
   minimumAdBudget: number;
-  cycleLabel: string;
   valueLabel: string;
   readinessBias: number;
 };
@@ -46,7 +45,6 @@ const categories: ProjectionCategory[] = [
     closeRate: { low: 0.07, mid: 0.1, high: 0.13 },
     referenceRevenue: 12000,
     minimumAdBudget: 1200,
-    cycleLabel: "ciclo curto com recorrencia moderada",
     valueLabel: "ticket medio em 90 dias por paciente",
     readinessBias: 0.94,
   },
@@ -59,7 +57,6 @@ const categories: ProjectionCategory[] = [
     closeRate: { low: 0.035, mid: 0.055, high: 0.075 },
     referenceRevenue: 25000,
     minimumAdBudget: 1800,
-    cycleLabel: "ciclo comercial consultivo e mais lento",
     valueLabel: "ticket medio em 90 dias por caso fechado",
     readinessBias: 0.92,
   },
@@ -72,7 +69,6 @@ const categories: ProjectionCategory[] = [
     closeRate: { low: 0.015, mid: 0.025, high: 0.038 },
     referenceRevenue: 30000,
     minimumAdBudget: 2500,
-    cycleLabel: "ciclo longo com ticket alto por fechamento",
     valueLabel: "receita media em 90 dias por fechamento",
     readinessBias: 0.9,
   },
@@ -85,7 +81,6 @@ const categories: ProjectionCategory[] = [
     closeRate: { low: 0.08, mid: 0.12, high: 0.16 },
     referenceRevenue: 18000,
     minimumAdBudget: 1500,
-    cycleLabel: "ciclo rapido com recompra e retorno",
     valueLabel: "ticket medio em 90 dias por cliente",
     readinessBias: 0.98,
   },
@@ -98,7 +93,6 @@ const categories: ProjectionCategory[] = [
     closeRate: { low: 0.06, mid: 0.09, high: 0.12 },
     referenceRevenue: 22000,
     minimumAdBudget: 1800,
-    cycleLabel: "ciclo medio com decisao apoiada por confianca",
     valueLabel: "ticket medio em 90 dias por paciente",
     readinessBias: 0.95,
   },
@@ -111,7 +105,6 @@ const categories: ProjectionCategory[] = [
     closeRate: { low: 0.03, mid: 0.05, high: 0.07 },
     referenceRevenue: 20000,
     minimumAdBudget: 1600,
-    cycleLabel: "ciclo consultivo com fechamento por autoridade",
     valueLabel: "ticket medio em 90 dias por contrato",
     readinessBias: 0.93,
   },
@@ -121,7 +114,7 @@ const scenarios: ScenarioConfig[] = [
   {
     id: "conservative",
     label: "Conservador",
-    tone: "Menos eficiencia, mais cautela na previsao.",
+    tone: "Mais cautela no fechamento e no custo por lead.",
     cpl: "high",
     closeRate: "low",
     efficiencyOffset: -0.06,
@@ -129,7 +122,7 @@ const scenarios: ScenarioConfig[] = [
   {
     id: "expected",
     label: "Esperado",
-    tone: "Leitura central para um mes operacional bem executado.",
+    tone: "Cenario base para uma operacao bem executada.",
     cpl: "mid",
     closeRate: "mid",
     efficiencyOffset: 0,
@@ -137,7 +130,7 @@ const scenarios: ScenarioConfig[] = [
   {
     id: "accelerated",
     label: "Acelerado",
-    tone: "Midia, oferta e atendimento funcionando acima da media.",
+    tone: "Midia e atendimento acima da media.",
     cpl: "low",
     closeRate: "high",
     efficiencyOffset: 0.07,
@@ -179,31 +172,30 @@ function buildWhatsappLink(base: string, text: string) {
 function getBudgetSignal(profile: ProjectionCategory, adBudget: number, totalBudget: number) {
   if (adBudget < profile.minimumAdBudget) {
     return {
-      label: "Verba curta para ganhar tracao",
-      description: `Para ${profile.title.toLowerCase()}, a leitura costuma ficar mais consistente a partir de ${formatCurrency(profile.minimumAdBudget)} por mes em anuncios.`,
+      label: "Verba curta",
+      description: `Para ${profile.title.toLowerCase()}, a leitura costuma ficar mais estavel a partir de ${formatCurrency(profile.minimumAdBudget)} por mes em anuncios.`,
     };
   }
 
   if (totalBudget <= adBudget * 1.15) {
     return {
-      label: "Midia quase sem apoio estrutural",
+      label: "Estrutura apertada",
       description:
-        "Voce esta comprando cliques com pouco espaco para landing page, criativo, CRM e follow-up. A projecao fica mais sensivel a falhas na conversao.",
+        "Voce esta comprando atencao com pouca margem para pagina, criativo, CRM e acompanhamento.",
     };
   }
 
   if (totalBudget >= adBudget * 1.7) {
     return {
-      label: "Base mais forte para crescer",
+      label: "Base equilibrada",
       description:
-        "Existe margem para combinar anuncios com estrutura comercial, pagina e acompanhamento. Isso tende a reduzir vazamento entre lead e fechamento.",
+        "Existe espaco para combinar anuncios com estrutura comercial e marketing de suporte.",
     };
   }
 
   return {
-    label: "Base equilibrada",
-    description:
-      "Ha verba para midia e algum suporte operacional. O ganho real agora depende da clareza da oferta e do atendimento.",
+    label: "Leitura neutra",
+    description: "Ha verba para midia, mas o resultado ainda depende bastante da conversao da operacao.",
   };
 }
 
@@ -258,24 +250,23 @@ export function QuickDiagnostic({ whatsappHref, productsHref }: QuickDiagnosticP
     const projectedRevenue = currentRevenueValue + monthlyLift;
     const investment90d = totalMarketingBudget * 3;
     const roas = investment90d > 0 ? gain90d / investment90d : 0;
-    const netGain = gain90d - investment90d;
 
     return {
       ...scenario,
       costPerLead,
-      conversionRate,
       leads,
       wins,
       gain90d,
       monthlyLift,
       projectedRevenue,
       roas,
-      netGain,
     };
   });
 
   const expectedProjection = projections[1];
   const budgetSignal = getBudgetSignal(profile, adsBudgetValue, totalMarketingBudget);
+  const closingRange = `${Math.round(profile.closeRate.low * 100)}% - ${Math.round(profile.closeRate.high * 100)}%`;
+  const leadRange = `${formatCurrency(profile.cpl.low)} - ${formatCurrency(profile.cpl.high)}`;
 
   const whatsappMessage = buildWhatsappLink(
     whatsappHref,
@@ -294,286 +285,188 @@ export function QuickDiagnostic({ whatsappHref, productsHref }: QuickDiagnosticP
   return (
     <div className={styles.root}>
       <div className={styles.header}>
-        <div className={styles.headerCopy}>
-          <Text className={styles.eyebrow} variant="body-default-s" onBackground="neutral-weak">
-            Categoria + caixa + verba mensal
-          </Text>
-          <Heading as="h2" variant="heading-strong-l">
-            Simulador de crescimento em 90 dias
-          </Heading>
-        </div>
-
-        <div className={styles.headerRail}>
-          <span className={styles.headerPill}>{profile.title}</span>
-          <span className={styles.headerPill}>{profile.cycleLabel}</span>
-        </div>
+        <Text className={styles.eyebrow} variant="body-default-s" onBackground="neutral-weak">
+          Entrada simples
+        </Text>
+        <Heading as="h2" variant="heading-strong-l">
+          Preencha quatro campos e veja a leitura de 90 dias.
+        </Heading>
+        <Text onBackground="neutral-weak" variant="body-default-m">
+          O simulador parte do seu caixa atual e da verba mensal disponivel. O resto fica visivel
+          no painel de resultado.
+        </Text>
       </div>
 
       <div className={styles.layout}>
-        <div className={styles.formColumn}>
-          <section className={styles.formPanel}>
-            <div className={styles.sectionTop}>
-              <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-                Entradas
-              </Tag>
+        <section className={styles.formPanel}>
+          <div className={styles.fieldGrid}>
+            <div className={styles.fieldGroup}>
+              <label className={styles.fieldLabel} htmlFor="projection-category">
+                Categoria do servico
+              </label>
+              <div className={styles.selectWrap}>
+                <select
+                  id="projection-category"
+                  className={styles.select}
+                  value={categoryId}
+                  onChange={(event) => setCategoryId(event.target.value)}
+                >
+                  {categories.map((item) => (
+                    <option key={item.id} value={item.id}>
+                      {item.title}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            <div className={styles.fieldGroup}>
+              <label className={styles.fieldLabel} htmlFor="projection-revenue">
+                Faturamento mensal atual
+              </label>
+              <Input
+                id="projection-revenue"
+                inputMode="decimal"
+                min="0"
+                name="currentRevenue"
+                placeholder="12000"
+                step="100"
+                type="number"
+                value={currentRevenue}
+                onChange={(event) => setCurrentRevenue(event.target.value)}
+              />
+            </div>
+
+            <div className={styles.fieldGroup}>
+              <label className={styles.fieldLabel} htmlFor="projection-ads-budget">
+                Orcamento mensal para anuncios
+              </label>
+              <Input
+                id="projection-ads-budget"
+                inputMode="decimal"
+                min="0"
+                name="adsBudget"
+                placeholder="1800"
+                step="100"
+                type="number"
+                value={adsBudget}
+                onChange={(event) => setAdsBudget(event.target.value)}
+              />
+            </div>
+
+            <div className={styles.fieldGroup}>
+              <label className={styles.fieldLabel} htmlFor="projection-marketing-budget">
+                Orcamento mensal total para marketing e anuncios
+              </label>
+              <Input
+                id="projection-marketing-budget"
+                inputMode="decimal"
+                min="0"
+                name="marketingBudget"
+                placeholder="3200"
+                step="100"
+                type="number"
+                value={marketingBudget}
+                onChange={(event) => setMarketingBudget(event.target.value)}
+              />
+            </div>
+          </div>
+
+          <div className={styles.noteBox}>
+            <Text className={styles.noteTitle} variant="body-default-s">
+              {budgetSignal.label}
+            </Text>
+            <Text onBackground="neutral-weak" variant="body-default-s">
+              {budgetSignal.description}
+            </Text>
+            {rawMarketingBudgetValue < adsBudgetValue && (
               <Text onBackground="neutral-weak" variant="body-default-s">
-                Ajuste os numeros abaixo para ver quanto a operacao pode ganhar com uma base minima de marketing.
+                Como a verba total nao pode ser menor que a verba de anuncios, a simulacao usou {formatCurrency(totalMarketingBudget)} como total mensal.
               </Text>
-            </div>
+            )}
+          </div>
+        </section>
 
-            <div className={styles.formGrid}>
-              <div className={styles.fieldGroup}>
-                <label className={styles.fieldLabel} htmlFor="projection-category">
-                  Categoria do servico
-                </label>
-                <div className={styles.selectWrap}>
-                  <select
-                    id="projection-category"
-                    className={styles.select}
-                    value={categoryId}
-                    onChange={(event) => setCategoryId(event.target.value)}
-                  >
-                    {categories.map((item) => (
-                      <option key={item.id} value={item.id}>
-                        {item.title}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              <div className={styles.fieldGroup}>
-                <label className={styles.fieldLabel} htmlFor="projection-revenue">
-                  Faturamento mensal atual
-                </label>
-                <Input
-                  id="projection-revenue"
-                  inputMode="decimal"
-                  min="0"
-                  name="currentRevenue"
-                  placeholder="12000"
-                  step="100"
-                  type="number"
-                  value={currentRevenue}
-                  onChange={(event) => setCurrentRevenue(event.target.value)}
-                />
-              </div>
-
-              <div className={styles.fieldGroup}>
-                <label className={styles.fieldLabel} htmlFor="projection-ads-budget">
-                  Orcamento mensal para anuncios
-                </label>
-                <Input
-                  id="projection-ads-budget"
-                  inputMode="decimal"
-                  min="0"
-                  name="adsBudget"
-                  placeholder="1800"
-                  step="100"
-                  type="number"
-                  value={adsBudget}
-                  onChange={(event) => setAdsBudget(event.target.value)}
-                />
-              </div>
-
-              <div className={styles.fieldGroup}>
-                <label className={styles.fieldLabel} htmlFor="projection-marketing-budget">
-                  Orcamento mensal total para marketing e anuncios
-                </label>
-                <Input
-                  id="projection-marketing-budget"
-                  inputMode="decimal"
-                  min="0"
-                  name="marketingBudget"
-                  placeholder="3200"
-                  step="100"
-                  type="number"
-                  value={marketingBudget}
-                  onChange={(event) => setMarketingBudget(event.target.value)}
-                />
-              </div>
-            </div>
-
-            <div className={styles.signalBox}>
-              <Text className={styles.signalLabel} variant="body-default-s">
-                Leitura do orcamento
-              </Text>
-              <Heading as="h3" variant="heading-strong-m">
-                {budgetSignal.label}
-              </Heading>
-              <Text onBackground="neutral-weak" variant="body-default-s">
-                {budgetSignal.description}
-              </Text>
-              {rawMarketingBudgetValue < adsBudgetValue && (
-                <Text onBackground="neutral-weak" variant="body-default-s">
-                  Como a verba total nao pode ser menor que a verba de anuncios, a simulacao considerou o total de marketing igual a {formatCurrency(totalMarketingBudget)}.
-                </Text>
-              )}
-            </div>
-          </section>
-
-          <section className={styles.assumptionPanel}>
-            <div className={styles.sectionTop}>
-              <Tag size="s" background="neutral-alpha-weak">
-                Premissas da categoria
-              </Tag>
-            </div>
-
-            <div className={styles.assumptionGrid}>
-              <div className={styles.assumptionCard}>
-                <Text className={styles.metricLabel} variant="body-default-s">
-                  Valor capturado
-                </Text>
-                <Text className={styles.metricValue} variant="heading-strong-l">
-                  {formatCurrency(profile.value90d)}
-                </Text>
-                <Text onBackground="neutral-weak" variant="body-default-s">
-                  {profile.valueLabel}
-                </Text>
-              </div>
-
-              <div className={styles.assumptionCard}>
-                <Text className={styles.metricLabel} variant="body-default-s">
-                  Faixa de CPL
-                </Text>
-                <Text className={styles.metricValue} variant="heading-strong-l">
-                  {formatCurrency(profile.cpl.low)} - {formatCurrency(profile.cpl.high)}
-                </Text>
-                <Text onBackground="neutral-weak" variant="body-default-s">
-                  custo por lead usado na simulacao
-                </Text>
-              </div>
-
-              <div className={styles.assumptionCard}>
-                <Text className={styles.metricLabel} variant="body-default-s">
-                  Fechamento
-                </Text>
-                <Text className={styles.metricValue} variant="heading-strong-l">
-                  {Math.round(profile.closeRate.low * 100)}% - {Math.round(profile.closeRate.high * 100)}%
-                </Text>
-                <Text onBackground="neutral-weak" variant="body-default-s">
-                  lead para {profile.audienceLabel}
-                </Text>
-              </div>
-
-              <div className={styles.assumptionCard}>
-                <Text className={styles.metricLabel} variant="body-default-s">
-                  Piso recomendado
-                </Text>
-                <Text className={styles.metricValue} variant="heading-strong-l">
-                  {formatCurrency(profile.minimumAdBudget)}
-                </Text>
-                <Text onBackground="neutral-weak" variant="body-default-s">
-                  verba mensal minima para anuncios
-                </Text>
-              </div>
-            </div>
-          </section>
-        </div>
-
-        <aside className={styles.summaryPanel} aria-live="polite">
+        <aside className={styles.resultPanel} aria-live="polite">
           <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            Projecao esperada
+            Resultado esperado
           </Tag>
 
           <Heading as="h3" className={styles.summaryTitle} variant="display-strong-xs">
-            {formatCurrency(expectedProjection.projectedRevenue)} por mes se a operacao sustentar o ritmo esperado.
+            {formatCurrency(expectedProjection.projectedRevenue)} por mes no cenario esperado.
           </Heading>
 
-          <Text onBackground="neutral-weak" variant="body-default-m">
-            A leitura parte do seu faturamento atual, da categoria escolhida e da combinacao entre verba de midia e verba total de marketing.
+          <Text className={styles.summaryLead} onBackground="neutral-weak" variant="body-default-m">
+            Isso representa um ganho bruto estimado de {formatCurrency(expectedProjection.gain90d)} em 90 dias, com base no segmento escolhido e na verba mensal informada.
           </Text>
 
-          <div className={styles.metricGrid}>
-            <div className={styles.metricCard}>
-              <Text className={styles.metricLabel} variant="body-default-s">
+          <div className={styles.summaryGrid}>
+            <div className={styles.summaryItem}>
+              <Text className={styles.fieldLabel} variant="body-default-s">
                 Faturamento atual
               </Text>
-              <Text className={styles.metricValue} variant="heading-strong-l">
+              <Text className={styles.summaryValue} variant="heading-strong-l">
                 {formatCurrency(currentRevenueValue)}
               </Text>
             </div>
 
-            <div className={styles.metricCard}>
-              <Text className={styles.metricLabel} variant="body-default-s">
+            <div className={styles.summaryItem}>
+              <Text className={styles.fieldLabel} variant="body-default-s">
                 Ganho mensal estimado
               </Text>
-              <Text className={styles.metricValue} variant="heading-strong-l">
+              <Text className={styles.summaryValue} variant="heading-strong-l">
                 {formatCurrency(expectedProjection.monthlyLift)}
               </Text>
             </div>
 
-            <div className={styles.metricCard}>
-              <Text className={styles.metricLabel} variant="body-default-s">
-                Ganho bruto em 90 dias
+            <div className={styles.summaryItem}>
+              <Text className={styles.fieldLabel} variant="body-default-s">
+                Novos {profile.audienceLabel}
               </Text>
-              <Text className={styles.metricValue} variant="heading-strong-l">
-                {formatCurrency(expectedProjection.gain90d)}
+              <Text className={styles.summaryValue} variant="heading-strong-l">
+                {formatCount(expectedProjection.wins)}/mes
               </Text>
             </div>
 
-            <div className={styles.metricCard}>
-              <Text className={styles.metricLabel} variant="body-default-s">
-                ROAS bruto em 90 dias
+            <div className={styles.summaryItem}>
+              <Text className={styles.fieldLabel} variant="body-default-s">
+                ROAS bruto
               </Text>
-              <Text className={styles.metricValue} variant="heading-strong-l">
+              <Text className={styles.summaryValue} variant="heading-strong-l">
                 {expectedProjection.roas.toFixed(1)}x
               </Text>
             </div>
           </div>
 
+          <Text className={styles.inlineMeta} onBackground="neutral-weak" variant="body-default-s">
+            Base usada para {profile.title.toLowerCase()}: {profile.valueLabel} de {formatCurrency(profile.value90d)}, CPL entre {leadRange} e fechamento entre {closingRange}.
+          </Text>
+
           <div className={styles.scenarioList}>
             {projections.map((scenario) => (
-              <article className={styles.scenarioCard} key={scenario.id}>
-                <div className={styles.scenarioTop}>
-                  <div>
-                    <Text className={styles.scenarioLabel} variant="body-default-s">
-                      {scenario.label}
-                    </Text>
-                    <Heading as="h4" variant="heading-strong-m">
-                      {formatCurrency(scenario.gain90d)} em 90 dias
-                    </Heading>
-                  </div>
-                  <span className={styles.scenarioChip}>{scenario.id === "expected" ? "base" : scenario.id === "conservative" ? "cautela" : "tracao"}</span>
+              <div className={styles.scenarioRow} key={scenario.id}>
+                <div className={styles.scenarioCopy}>
+                  <Text className={styles.fieldLabel} variant="body-default-s">
+                    {scenario.label}
+                  </Text>
+                  <Text onBackground="neutral-weak" variant="body-default-s">
+                    {scenario.tone}
+                  </Text>
                 </div>
 
-                <Text onBackground="neutral-weak" variant="body-default-s">
-                  {scenario.tone}
-                </Text>
-
-                <div className={styles.scenarioMeta}>
-                  <div>
-                    <Text className={styles.metricLabel} variant="body-default-s">
-                      Leads/mes
-                    </Text>
-                    <Text variant="body-default-s">{formatCount(scenario.leads)}</Text>
-                  </div>
-                  <div>
-                    <Text className={styles.metricLabel} variant="body-default-s">
-                      {profile.audienceLabel}
-                    </Text>
-                    <Text variant="body-default-s">{formatCount(scenario.wins)}</Text>
-                  </div>
-                  <div>
-                    <Text className={styles.metricLabel} variant="body-default-s">
-                      CPL efetivo
-                    </Text>
-                    <Text variant="body-default-s">{formatCurrency(scenario.costPerLead)}</Text>
-                  </div>
-                  <div>
-                    <Text className={styles.metricLabel} variant="body-default-s">
-                      Resultado liquido 90d
-                    </Text>
-                    <Text variant="body-default-s">{formatCurrency(scenario.netGain)}</Text>
-                  </div>
+                <div className={styles.scenarioValue}>
+                  <Text variant="body-default-m">{formatCurrency(scenario.gain90d)}</Text>
+                  <Text onBackground="neutral-weak" variant="body-default-s">
+                    90 dias
+                  </Text>
                 </div>
-              </article>
+              </div>
             ))}
           </div>
 
-          <div className={styles.summaryActions}>
+          <div className={styles.actions}>
             <Button href={whatsappMessage} variant="primary" size="m" arrowIcon>
-              Quero transformar essa projecao em plano
+              Quero transformar isso em plano
             </Button>
 
             <Button href={productsHref} variant="secondary" size="m" arrowIcon>
@@ -596,7 +489,7 @@ export function QuickDiagnostic({ whatsappHref, productsHref }: QuickDiagnosticP
           </div>
 
           <Text className={styles.helper} onBackground="neutral-weak" variant="body-default-s">
-            Isso e uma estimativa, nao uma promessa. O numero final depende de oferta, pagina, criativo, velocidade de resposta e capacidade de atendimento.
+            Isso e uma estimativa. O numero final depende de oferta, pagina, criativo, velocidade de resposta e capacidade de atendimento.
           </Text>
         </aside>
       </div>
