@@ -39,7 +39,7 @@ const manualJourneyEntries: WorkJourneyEntry[] = [
     points: [
       "A página agora evolui por datas reais",
       "Cada etapa entra com tarefa e status",
-      "A leitura foi pensada para mostrar continuidade",
+      "A leitura foi simplificada para mostrar continuidade",
     ],
     detailsTitle: "O que está acontecendo",
   },
@@ -89,34 +89,19 @@ const manualJourneyEntries: WorkJourneyEntry[] = [
     detailsTitle: "O que foi consolidado",
   },
   {
-    id: "studio-direction",
-    date: "2025-11-18",
-    task: "Estúdio passa a unir estratégia, design e sistemas",
-    status: "completed",
-    category: "Estúdio",
-    summary:
-      "O trabalho deixa de ser apenas execução pontual e assume uma direção mais completa, conectando posicionamento, linguagem visual e operação.",
-    points: [
-      "Estratégia para clareza comercial",
-      "Design com função de conversão",
-      "Sistemas para sustentar rotina, atendimento e crescimento",
-    ],
-    detailsTitle: "O que mudou no modelo",
-  },
-  {
-    id: "independent-beginning",
-    date: "2025-05-03",
-    task: "Início da construção independente",
+    id: "ufrb-bct-beginning",
+    date: "2026-03-30",
+    task: "Mudança para cursar BC&T na UFRB",
     status: "completed",
     category: "Origem",
     summary:
-      "A jornada pública começa com estrutura enxuta, muitos testes e a decisão de construir um portfólio que evolui junto com o próprio trabalho.",
+      "Esta fase da jornada começa com a mudança para cursar o Bacharelado em Ciência e Tecnologia na UFRB, marcando um novo ponto de partida para estudo, trabalho e construção do portfólio.",
     points: [
-      "Primeiros estudos e primeiros ajustes de posicionamento",
-      "Operação própria como campo de aprendizado",
-      "Construção gradual de repertório, processo e direção",
+      "Mudança realizada em 30 de março de 2026",
+      "Início da fase ligada ao BC&T na UFRB",
+      "Recomeço com base acadêmica e construção prática andando juntas",
     ],
-    detailsTitle: "Como começou",
+    detailsTitle: "Onde começa",
   },
 ];
 
