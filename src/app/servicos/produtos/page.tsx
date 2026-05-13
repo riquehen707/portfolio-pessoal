@@ -42,29 +42,32 @@ export default function ProductsPage() {
         ]}
       />
 
-      <section className={styles.shell}>
-        <div className={styles.aurora} aria-hidden="true" />
+      <section className={styles.heroSection}>
+        <div className={styles.atmosphere} aria-hidden="true" />
 
         <div className={styles.hero}>
           <div className={styles.heroCopy}>
             <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
               Produtos
             </Tag>
+
             <Heading as="h1" className={styles.heroTitle} variant="display-strong-s">
-              Organizando o portfólio
+              Em andamento
             </Heading>
+
             <Text
               className={styles.heroLead}
               onBackground="neutral-weak"
               variant="heading-default-m"
               wrap="balance"
             >
-              Antes de prosseguir com produtos, estou organizando o portfólio e ajustando melhor a
-              base dessa frente.
+              Estou organizando o portfólio antes de prosseguir com os produtos, para que essa área
+              entre com mais clareza, utilidade e direção.
             </Text>
+
             <Text className={styles.heroNote} onBackground="neutral-weak" variant="body-default-m">
-              Depois disso, esta página volta com recursos gratuitos, apps úteis, auditoria simples
-              e consultoria de 30 minutos como entradas mais leves.
+              A ideia é abrir essa frente por etapas, começando pelo que pode ser útil de forma mais
+              leve e imediata.
             </Text>
 
             <Row className={styles.actions} gap="12" wrap>
@@ -77,56 +80,63 @@ export default function ProductsPage() {
             </Row>
           </div>
 
-          <aside className={styles.statusPanel}>
-            <div className={styles.statusCard}>
-              <span className={styles.statusValue}>00</span>
-              <Text onBackground="neutral-weak" variant="body-default-s">
-                produtos ativos
+          <aside className={styles.roadmapList}>
+            <div className={styles.roadmapItem}>
+              <Text className={styles.roadmapLabel} variant="label-default-s" onBackground="neutral-weak">
+                Gratuitos
+              </Text>
+              <Text variant="body-default-m" onBackground="neutral-weak">
+                Recursos mais simples, materiais rápidos e utilitários para apoiar decisões e rotina.
               </Text>
             </div>
-            <div className={styles.statusCard}>
-              <span className={styles.statusValue}>Em breve</span>
-              <Text onBackground="neutral-weak" variant="body-default-s">
-                gratuitos, apps e utilitários
+
+            <div className={styles.roadmapItem}>
+              <Text className={styles.roadmapLabel} variant="label-default-s" onBackground="neutral-weak">
+                Apps úteis
+              </Text>
+              <Text variant="body-default-m" onBackground="neutral-weak">
+                Pequenas ferramentas com função prática para marketing, atendimento e operação.
               </Text>
             </div>
-            <div className={styles.statusCard}>
-              <span className={styles.statusValue}>30 min</span>
-              <Text onBackground="neutral-weak" variant="body-default-s">
-                consultoria e auditoria simples
+
+            <div className={styles.roadmapItem}>
+              <Text className={styles.roadmapLabel} variant="label-default-s" onBackground="neutral-weak">
+                Entradas leves
+              </Text>
+              <Text variant="body-default-m" onBackground="neutral-weak">
+                Auditoria simples e consultoria de 30 minutos como formatos diretos para começar.
               </Text>
             </div>
           </aside>
         </div>
       </section>
 
-      <Grid className={styles.noteGrid} columns="3" s={{ columns: 1 }} gap="16">
-        <div className={styles.noteCard}>
-          <Text className={styles.noteLabel} variant="label-default-s" onBackground="neutral-weak">
+      <Grid className={styles.signalGrid} columns="3" s={{ columns: 1 }} gap="20">
+        <div className={styles.signalItem}>
+          <Text className={styles.signalLabel} variant="label-default-s" onBackground="neutral-weak">
             Agora
           </Text>
           <Text variant="body-default-m" onBackground="neutral-weak">
-            Organizando o portfólio antes de prosseguir com produtos.
+            Organizando o portfólio e a base da oferta antes de abrir uma nova camada de produtos.
           </Text>
         </div>
 
-        <div className={styles.noteCard}>
-          <Text className={styles.noteLabel} variant="label-default-s" onBackground="neutral-weak">
-            Gratuitos
+        <div className={styles.signalItem}>
+          <Text className={styles.signalLabel} variant="label-default-s" onBackground="neutral-weak">
+            Depois
           </Text>
           <Text variant="body-default-m" onBackground="neutral-weak">
-            Devem entrar recursos gratuitos, apps úteis e algumas ferramentas mais simples para uso
-            rápido.
+            A página volta com recursos gratuitos, apps úteis, auditorias leves e consultorias rápidas.
           </Text>
         </div>
 
-        <div className={styles.noteCard}>
-          <Text className={styles.noteLabel} variant="label-default-s" onBackground="neutral-weak">
-            Entradas leves
+        <div className={styles.signalItem}>
+          <Text className={styles.signalLabel} variant="label-default-s" onBackground="neutral-weak">
+            Como entra
           </Text>
           <Text variant="body-default-m" onBackground="neutral-weak">
-            Também quero abrir auditoria simples e consultoria de 30 minutos como formatos mais
-            diretos.
+            Sem catálogo inflado: a ideia é publicar aos poucos, conforme cada item estiver realmente
+            pronto para uso.
           </Text>
         </div>
       </Grid>

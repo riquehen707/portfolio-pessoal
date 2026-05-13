@@ -4,6 +4,7 @@ import {
   Column,
   Grid,
   Heading,
+  Icon,
   Meta,
   Row,
   Schema,
@@ -15,6 +16,7 @@ import {
 import { BrandSignature } from "@/components";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import styles from "@/components/about/about.module.scss";
+import { type IconName } from "@/resources/icons";
 import {
   about,
   baseURL,
@@ -64,29 +66,34 @@ const fitParagraphs = [
 
 const serviceTracks = [
   {
+    icon: "globe" as IconName,
+    eyebrow: "Atrair",
     title: "Posicionamento e aquisição",
     description:
-      "Estruturo presença digital e canais de entrada para atrair demanda mais qualificada.",
-    items: ["Sites e landing pages", "Tráfego pago", "Oferta e mensagem", "Captação local"],
+      "Estruturo presença digital e canais de entrada para trazer demanda mais qualificada.",
+    items: ["Sites e landing pages", "Tráfego pago", "Oferta clara"],
   },
   {
+    icon: "crm" as IconName,
+    eyebrow: "Converter",
     title: "Conversão e relacionamento",
     description:
       "Organizo o caminho do lead até o fechamento para reduzir perda comercial e aumentar recorrência.",
-    items: ["CRM simples", "WhatsApp e follow-up", "Agenda e atendimento", "Nutrição de leads"],
+    items: ["CRM simples", "WhatsApp e follow-up", "Agenda e atendimento"],
   },
   {
+    icon: "rocket" as IconName,
+    eyebrow: "Operar",
     title: "Operação e automação",
-    description:
-      "Conecto processos, ferramentas e rotinas para o negócio crescer com menos improviso.",
-    items: ["Automações", "Sistemas web", "Dashboards e dados", "Rotinas operacionais"],
+    description: "Conecto processos e ferramentas para o negócio crescer com menos improviso.",
+    items: ["Automações", "Sistemas web", "Dashboards e dados"],
   },
 ] as const;
 
 const serviceNotes = [
-  "Não vendo peças soltas quando o problema exige estrutura.",
-  "Cada escopo é definido conforme o momento e a capacidade real do negócio.",
-  "A prioridade é sempre clareza comercial, execução viável e resultado sustentável.",
+  "Estrutura antes de peça solta",
+  "Escopo compatível com a realidade do negócio",
+  "Execução viável com foco comercial",
 ] as const;
 
 export async function generateMetadata() {
@@ -275,43 +282,52 @@ export default function About() {
                 Serviços que presto
               </Text>
               <Heading as="h3" variant="heading-strong-l">
-                Estruturo crescimento em três frentes conectadas.
+                Normalmente entro em três frentes que se conectam.
               </Heading>
               <Text className={styles.serviceLead} variant="body-default-s" onBackground="neutral-weak">
-                Em vez de atuar com peças isoladas, desenho uma operação digital coerente com o momento
-                do negócio e com a capacidade real de execução.
+                Captação, conversão e operação digital, de acordo com o momento real do negócio.
               </Text>
             </Column>
 
-            <div className={styles.serviceDeck}>
-              {serviceTracks.map((track, index) => (
-                <article className={styles.servicePillar} key={track.title}>
-                  <div className={styles.servicePillarTop}>
-                    <Text className={styles.servicePillarIndex} variant="label-default-s">
-                      {String(index + 1).padStart(2, "0")}
-                    </Text>
-                    <Heading as="h4" variant="heading-strong-m">
-                      {track.title}
-                    </Heading>
+            <div className={styles.serviceRail}>
+              {serviceTracks.map((track) => (
+                <article className={styles.serviceTrack} key={track.title}>
+                  <div className={styles.serviceTrackMarker}>
+                    <div className={styles.serviceIconWrap}>
+                      <Icon name={track.icon} size="m" />
+                    </div>
                   </div>
-                  <Text variant="body-default-s" onBackground="neutral-weak">
-                    {track.description}
-                  </Text>
-                  <div className={styles.servicePillarItems}>
-                    {track.items.map((item) => (
-                      <div className={styles.servicePillarItem} key={item}>
-                        <Text variant="body-default-s">{item}</Text>
-                      </div>
-                    ))}
+
+                  <div className={styles.serviceTrackBody}>
+                    <div className={styles.serviceTrackTop}>
+                      <Text className={styles.serviceTrackEyebrow} variant="label-default-s">
+                        {track.eyebrow}
+                      </Text>
+                      <Heading as="h4" variant="heading-strong-m">
+                        {track.title}
+                      </Heading>
+                    </div>
+
+                    <Text variant="body-default-s" onBackground="neutral-weak">
+                      {track.description}
+                    </Text>
+
+                    <div className={styles.servicePillarItems}>
+                      {track.items.map((item) => (
+                        <div className={styles.servicePillarItem} key={item}>
+                          <Text variant="body-default-s">{item}</Text>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </article>
               ))}
             </div>
 
-            <div className={styles.serviceNotes}>
+            <div className={styles.servicePrinciples}>
               {serviceNotes.map((note) => (
-                <div className={styles.serviceNote} key={note}>
-                  <span className={styles.serviceNoteDot} aria-hidden="true" />
+                <div className={styles.servicePrinciple} key={note}>
+                  <span className={styles.servicePrincipleDot} aria-hidden="true" />
                   <Text variant="body-default-s" onBackground="neutral-weak">
                     {note}
                   </Text>

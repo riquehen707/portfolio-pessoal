@@ -14,54 +14,66 @@ type AscendingTimelineProps = {
 
 export function AscendingTimeline({ entries }: AscendingTimelineProps) {
   const currentEntry = entries[0];
+  const currentStatusLabel = currentEntry ? workJourneyStatusMeta[currentEntry.status].label : null;
 
   return (
     <section className={styles.root} aria-labelledby="work-journey-heading">
       <div className={styles.scene} aria-hidden="true">
         <div className={styles.skyGlow} />
         <div className={styles.starField} />
-        <div className={styles.mistLayer} />
-        <div className={styles.groundGlow} />
+
+        <div className={styles.cloudBank}>
+          <span className={`${styles.cloud} ${styles.cloudOne}`} />
+          <span className={`${styles.cloud} ${styles.cloudTwo}`} />
+          <span className={`${styles.cloud} ${styles.cloudThree}`} />
+          <span className={`${styles.cloud} ${styles.cloudFour}`} />
+        </div>
+
+        <div className={styles.horizonGlow} />
+
+        <div className={styles.terrain}>
+          <span className={`${styles.hill} ${styles.hillLeft}`} />
+          <span className={`${styles.hill} ${styles.hillCenter}`} />
+          <span className={`${styles.hill} ${styles.hillRight}`} />
+        </div>
       </div>
 
       <div className={styles.content}>
-        <div className={styles.intro}>
+        <div className={styles.legend}>
           <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
             Portfólio
           </Tag>
-          <Heading id="work-journey-heading" as="h2" variant="display-strong-s">
-            Linha do tempo em ascensão
-          </Heading>
-          <Text className={styles.introLead} onBackground="neutral-weak" variant="body-default-m">
-            O topo mostra o momento atual. A base guarda a origem. Cada marco entra com data,
-            tarefa e status para dar continuidade ao que está sendo construído.
+          <Text className={styles.legendText} onBackground="neutral-weak" variant="body-default-m">
+            A história começa no chão e sobe até as estrelas. O topo mostra o momento atual; a base
+            guarda a origem do que está sendo construído.
           </Text>
         </div>
-
-        {currentEntry && (
-          <div className={styles.markerRow}>
-            <div className={styles.marker}>
-              <span className={styles.markerOrb} aria-hidden="true" />
-              <Text variant="label-default-s">Hoje</Text>
-            </div>
-            <Text onBackground="neutral-weak" variant="body-default-s">
-              Etapa atual: {currentEntry.task} em {formatWorkTimelineDate(currentEntry.date)}.
-            </Text>
-          </div>
-        )}
 
         <div className={styles.timeline}>
           <div className={styles.axisTop}>
             <div className={styles.axisStarWrap}>
               <span className={styles.axisStar} aria-hidden="true" />
             </div>
+
             <div className={styles.axisTopCopy}>
               <Text className={styles.axisEyebrow} variant="label-default-s" onBackground="neutral-weak">
-                Céu atual
+                Hoje
               </Text>
-              <Text variant="body-default-s" onBackground="neutral-weak">
-                O ponto mais alto marca o estado presente da jornada.
-              </Text>
+
+              {currentEntry ? (
+                <>
+                  <Heading id="work-journey-heading" as="h1" variant="heading-strong-l" wrap="balance">
+                    {currentEntry.task}
+                  </Heading>
+                  <Text onBackground="neutral-weak" variant="body-default-s">
+                    {formatWorkTimelineDate(currentEntry.date)} · {currentStatusLabel}
+                  </Text>
+                </>
+              ) : (
+                <Heading id="work-journey-heading" as="h1" variant="heading-strong-l">
+                  Momento atual
+                </Heading>
+              )}
             </div>
           </div>
 
@@ -69,6 +81,7 @@ export function AscendingTimeline({ entries }: AscendingTimelineProps) {
             const statusMeta = workJourneyStatusMeta[entry.status];
             const itemClassName = index % 2 === 0 ? styles.itemLeft : styles.itemRight;
             const currentClassName = index === 0 ? styles.itemCurrent : "";
+            const detailsTitle = entry.detailsTitle ?? (entry.href ? "Ferramentas e estrutura" : "O que mudou");
 
             return (
               <article
@@ -78,31 +91,37 @@ export function AscendingTimeline({ entries }: AscendingTimelineProps) {
                 <div className={styles.card}>
                   <div className={styles.cardMeta}>
                     <time className={styles.date}>{formatWorkTimelineDate(entry.date)}</time>
-                    <span className={styles.statusPill} data-status={entry.status}>
-                      {statusMeta.label}
-                    </span>
+
+                    <div className={styles.metaTrail}>
+                      <Tag size="s" background="neutral-alpha-weak">
+                        {entry.category}
+                      </Tag>
+                      <span className={styles.statusPill} data-status={entry.status}>
+                        {statusMeta.label}
+                      </span>
+                    </div>
                   </div>
 
-                  <div className={styles.cardHeader}>
-                    <Tag size="s" background="neutral-alpha-weak">
-                      {entry.category}
-                    </Tag>
-                  </div>
-
-                  <Heading as="h3" variant="heading-strong-l" wrap="balance">
+                  <Heading as="h2" variant="heading-strong-l" wrap="balance">
                     {entry.task}
                   </Heading>
 
-                  <Text onBackground="neutral-weak" variant="body-default-s">
+                  <Text className={styles.summary} onBackground="neutral-strong" variant="body-default-m">
                     {entry.summary}
                   </Text>
 
-                  <div className={styles.pointList}>
-                    {entry.points.map((point) => (
-                      <span className={styles.point} key={`${entry.id}-${point}`}>
-                        {point}
-                      </span>
-                    ))}
+                  <div className={styles.detailsBlock}>
+                    <Text className={styles.detailsLabel} variant="label-default-s" onBackground="neutral-weak">
+                      {detailsTitle}
+                    </Text>
+
+                    <ul className={styles.pointList}>
+                      {entry.points.map((point) => (
+                        <li className={styles.point} key={`${entry.id}-${point}`}>
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
                   {entry.href && entry.ctaLabel && (
@@ -123,7 +142,8 @@ export function AscendingTimeline({ entries }: AscendingTimelineProps) {
             <div className={styles.originCard}>
               <span className={styles.originSeal}>Origem</span>
               <Text variant="body-default-s" onBackground="neutral-weak">
-                A base fica aqui embaixo. O movimento sobe etapa por etapa, do chão ao céu.
+                O ponto de partida fica aqui embaixo. Cada nova etapa sobe um pouco mais a história
+                do portfólio, dos serviços e da direção do estúdio.
               </Text>
             </div>
           </div>

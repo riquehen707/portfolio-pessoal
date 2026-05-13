@@ -15,6 +15,7 @@ export type WorkJourneyEntry = {
   category: string;
   summary: string;
   points: string[];
+  detailsTitle?: string;
   href?: string;
   ctaLabel?: string;
 };
@@ -26,21 +27,6 @@ export const workJourneyStatusMeta: Record<WorkJourneyStatus, { label: string }>
   completed: { label: "Concluído" },
 };
 
-export const workFocusAreas = [
-  {
-    label: "Portfólio",
-    value: "Cases, estudos e marcos publicados para mostrar evolução real, não só vitrine.",
-  },
-  {
-    label: "Serviços",
-    value: "Sites, landing pages, captação, CRM, automações e estrutura para negócios locais.",
-  },
-  {
-    label: "Direção",
-    value: "Clareza comercial, execução técnica e continuidade para crescer com menos improviso.",
-  },
-] as const;
-
 const manualJourneyEntries: WorkJourneyEntry[] = [
   {
     id: "portfolio-in-construction",
@@ -49,8 +35,13 @@ const manualJourneyEntries: WorkJourneyEntry[] = [
     status: "in-progress",
     category: "Portfólio",
     summary:
-      "A página de projetos está virando uma linha do tempo viva, atualizada por marcos reais em vez de uma vitrine estática.",
-    points: ["Atualização por data", "Leitura de baixo para cima", "Foco em continuidade"],
+      "A área de projetos deixou de ser uma vitrine estática e passou a registrar o que está sendo construído, ajustado e publicado ao longo do tempo.",
+    points: [
+      "A página agora evolui por datas reais",
+      "Cada etapa entra com tarefa e status",
+      "A leitura foi pensada para mostrar continuidade",
+    ],
+    detailsTitle: "O que está acontecendo",
   },
   {
     id: "services-consolidated",
@@ -59,8 +50,13 @@ const manualJourneyEntries: WorkJourneyEntry[] = [
     status: "active",
     category: "Serviços",
     summary:
-      "A oferta foi reorganizada para conectar posicionamento, captação, conversão e operação sem tratar tudo como peça solta.",
-    points: ["Sites e landing pages", "Captação e tráfego", "CRM e automações"],
+      "Os serviços passaram a ser organizados como um sistema de aquisição, conversão e operação, em vez de aparecerem como entregas isoladas.",
+    points: [
+      "Sites e landing pages para captação",
+      "CRM e automações para organizar o atendimento",
+      "Oferta mais clara para negócios locais e serviços especializados",
+    ],
+    detailsTitle: "O que foi estruturado",
   },
   {
     id: "local-business-focus",
@@ -69,8 +65,13 @@ const manualJourneyEntries: WorkJourneyEntry[] = [
     status: "completed",
     category: "Direção",
     summary:
-      "A comunicação passa a assumir com mais clareza o foco em prestadores de serviço e operações locais que precisam de estrutura.",
-    points: ["Psicólogos", "Advogados", "Corretores", "Clínicas e estética"],
+      "A comunicação passa a assumir com mais clareza o foco em prestadores de serviço e operações locais que precisam crescer com mais estrutura.",
+    points: [
+      "Psicólogos, advogados e corretores entram no foco",
+      "Clínicas, estética e serviços especializados ganham prioridade",
+      "A narrativa passa a falar de agenda, recorrência e venda com mais precisão",
+    ],
+    detailsTitle: "Quem entrou no foco",
   },
   {
     id: "site-foundation",
@@ -79,8 +80,13 @@ const manualJourneyEntries: WorkJourneyEntry[] = [
     status: "completed",
     category: "Estrutura",
     summary:
-      "Arquitetura, rotas, conteúdo e base visual foram ajustados para sustentar atualizações contínuas com mais coerência.",
-    points: ["Next.js", "Conteúdo estruturado", "Performance", "Painel interno"],
+      "A arquitetura do site foi ajustada para suportar atualização contínua de conteúdo, páginas de serviço, estudos e marcos do portfólio.",
+    points: [
+      "Rotas e conteúdo organizados com mais coerência",
+      "Base visual preparada para crescer sem perder direção",
+      "Painel interno e estrutura editorial mantidos como apoio operacional",
+    ],
+    detailsTitle: "O que foi consolidado",
   },
   {
     id: "studio-direction",
@@ -89,8 +95,13 @@ const manualJourneyEntries: WorkJourneyEntry[] = [
     status: "completed",
     category: "Estúdio",
     summary:
-      "O trabalho deixa de ser apenas execução isolada e assume uma direção mais clara: resolver crescimento com estrutura.",
-    points: ["Estratégia", "Direção visual", "Sistemas", "Execução"],
+      "O trabalho deixa de ser apenas execução pontual e assume uma direção mais completa, conectando posicionamento, linguagem visual e operação.",
+    points: [
+      "Estratégia para clareza comercial",
+      "Design com função de conversão",
+      "Sistemas para sustentar rotina, atendimento e crescimento",
+    ],
+    detailsTitle: "O que mudou no modelo",
   },
   {
     id: "independent-beginning",
@@ -99,8 +110,13 @@ const manualJourneyEntries: WorkJourneyEntry[] = [
     status: "completed",
     category: "Origem",
     summary:
-      "A jornada pública começa com base enxuta, muito ajuste e a decisão de construir um portfólio que evolui junto com o trabalho.",
-    points: ["Primeiros estudos", "Operação própria", "Aprendizado contínuo"],
+      "A jornada pública começa com estrutura enxuta, muitos testes e a decisão de construir um portfólio que evolui junto com o próprio trabalho.",
+    points: [
+      "Primeiros estudos e primeiros ajustes de posicionamento",
+      "Operação própria como campo de aprendizado",
+      "Construção gradual de repertório, processo e direção",
+    ],
+    detailsTitle: "Como começou",
   },
 ];
 
@@ -115,20 +131,6 @@ export function formatWorkTimelineDate(date: string) {
     year: "numeric",
     timeZone: "America/Sao_Paulo",
   }).format(toDateValue(date));
-}
-
-export function formatWorkTimelineCompactDate(date: string) {
-  const formatter = new Intl.DateTimeFormat("pt-BR", {
-    day: "2-digit",
-    month: "short",
-    timeZone: "America/Sao_Paulo",
-  });
-
-  const parts = formatter.formatToParts(toDateValue(date));
-  const day = parts.find((part) => part.type === "day")?.value ?? "";
-  const month = (parts.find((part) => part.type === "month")?.value ?? "").replace(".", "");
-
-  return `${day} ${month}`.trim();
 }
 
 function buildProjectJourneyEntry(project: BlogFile): WorkJourneyEntry | null {
@@ -147,8 +149,9 @@ function buildProjectJourneyEntry(project: BlogFile): WorkJourneyEntry | null {
     category: "Portfólio",
     summary:
       project.metadata.summary ??
-      `${kindLabel} publicado para documentar raciocínio, estrutura e direção do trabalho.`,
+      `${kindLabel} publicado para documentar estrutura, raciocínio e direção do trabalho.`,
     points: points.length > 0 ? points : [kindLabel],
+    detailsTitle: "Ferramentas e estrutura",
     href: getWorkProjectPath(project.slug),
     ctaLabel: project.metadata.kind === "client" ? "Abrir case" : "Abrir projeto",
   };

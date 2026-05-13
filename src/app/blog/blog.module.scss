@@ -1,34 +1,25 @@
 @use "../../components/breakpoints.scss" as breakpoints;
 
 .page {
+  position: relative;
   width: min(100%, var(--grid-max-width));
   margin-inline: auto;
 }
 
-.shell,
-.noteCard {
+.heroSection {
   position: relative;
-  overflow: clip;
-  border: 1px solid rgba(169, 189, 214, 0.14);
-  border-radius: var(--radius-panel);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 24%),
-    rgba(18, 18, 22, 0.92);
-  box-shadow: var(--shadow-soft);
+  padding-block: clamp(1rem, 2vw, 1.5rem) 0.25rem;
 }
 
-.shell {
-  padding: clamp(1.25rem, 3vw, 2rem);
-}
-
-.heroGlow {
+.atmosphere {
   position: absolute;
-  inset: -10% auto auto 8%;
-  width: 22rem;
+  inset: -5rem -8% auto;
   height: 22rem;
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(126, 174, 255, 0.18), transparent 64%);
-  filter: blur(10px);
+  background:
+    radial-gradient(circle at 18% 34%, rgba(112, 166, 255, 0.18), transparent 24%),
+    radial-gradient(circle at 70% 18%, rgba(195, 221, 255, 0.14), transparent 26%),
+    radial-gradient(circle at 54% 72%, rgba(87, 130, 255, 0.1), transparent 30%);
+  filter: blur(16px);
   pointer-events: none;
 }
 
@@ -36,69 +27,74 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.18fr) minmax(18rem, 0.82fr);
-  gap: clamp(1rem, 3vw, 1.8rem);
+  grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr);
+  gap: clamp(1.2rem, 4vw, 3rem);
+  align-items: start;
 }
 
 .heroCopy,
-.statusPanel {
+.topicList {
   min-width: 0;
 }
 
 .heroCopy {
   display: grid;
-  align-content: start;
   gap: 1rem;
+  align-content: start;
 }
 
 .heroTitle {
-  max-width: 10ch;
+  max-width: 8ch;
 }
 
 .heroLead {
   max-width: 44rem;
 }
 
+.heroNote {
+  max-width: 38rem;
+}
+
 .actions {
-  row-gap: 0.6rem;
+  row-gap: 0.65rem;
 }
 
-.statusPanel {
+.topicList {
   display: grid;
-  gap: 0.75rem;
-  align-content: start;
+  gap: 1.15rem;
+  padding-top: 0.4rem;
 }
 
-.statusCard {
+.topicItem,
+.signalItem {
+  position: relative;
   display: grid;
-  gap: 0.25rem;
-  padding: 0.95rem 1rem;
-  border: 1px solid rgba(169, 189, 214, 0.14);
-  border-radius: var(--radius-16);
-  background: rgba(11, 11, 13, 0.42);
+  gap: 0.45rem;
+  padding-left: 1rem;
 }
 
-.statusValue {
-  font-family: var(--font-heading);
-  font-size: clamp(1.35rem, 3vw, 1.9rem);
-  line-height: 0.95;
-  letter-spacing: -0.04em;
-  color: var(--neutral-on-background-strong);
+.topicItem::before,
+.signalItem::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42rem;
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 999px;
+  background: rgba(133, 184, 255, 0.92);
+  box-shadow: 0 0 14px rgba(133, 184, 255, 0.26);
 }
 
-.noteGrid {
-  width: 100%;
-}
-
-.noteCard {
-  display: grid;
-  gap: 0.55rem;
-  padding: 1rem 1.05rem;
-}
-
-.noteLabel {
+.topicLabel,
+.signalLabel {
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.signalGrid {
+  width: 100%;
+  padding-top: 0.5rem;
 }
 
 @media (max-width: breakpoints.$m) {
@@ -108,14 +104,9 @@
 }
 
 @media (max-width: breakpoints.$s) {
-  .shell,
-  .noteCard {
-    padding: 1rem;
-    border-radius: calc(var(--radius-24) - 0.05rem);
-  }
-
   .heroTitle,
-  .heroLead {
+  .heroLead,
+  .heroNote {
     max-width: none;
   }
 

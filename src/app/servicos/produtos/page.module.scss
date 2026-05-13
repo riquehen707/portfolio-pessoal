@@ -1,33 +1,25 @@
 @use "../../../components/breakpoints.scss" as breakpoints;
 
 .page {
-  width: 100%;
-}
-
-.shell,
-.noteCard {
   position: relative;
-  overflow: clip;
-  border: 1px solid rgba(169, 189, 214, 0.14);
-  border-radius: var(--radius-panel);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 24%),
-    rgba(18, 18, 22, 0.92);
-  box-shadow: var(--shadow-soft);
+  width: min(100%, var(--grid-max-width));
+  margin-inline: auto;
 }
 
-.shell {
-  padding: clamp(1.25rem, 3vw, 2rem);
+.heroSection {
+  position: relative;
+  padding-block: clamp(1rem, 2vw, 1.5rem) 0.25rem;
 }
 
-.aurora {
+.atmosphere {
   position: absolute;
-  inset: -10% auto auto 10%;
-  width: 22rem;
+  inset: -5rem -8% auto;
   height: 22rem;
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(120, 172, 255, 0.18), transparent 64%);
-  filter: blur(10px);
+  background:
+    radial-gradient(circle at 14% 26%, rgba(135, 183, 255, 0.16), transparent 22%),
+    radial-gradient(circle at 68% 18%, rgba(217, 232, 255, 0.12), transparent 24%),
+    radial-gradient(circle at 52% 68%, rgba(116, 162, 255, 0.1), transparent 28%);
+  filter: blur(18px);
   pointer-events: none;
 }
 
@@ -35,19 +27,20 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.18fr) minmax(18rem, 0.82fr);
-  gap: clamp(1rem, 3vw, 1.8rem);
+  grid-template-columns: minmax(0, 1.08fr) minmax(18rem, 0.92fr);
+  gap: clamp(1.2rem, 4vw, 3rem);
+  align-items: start;
 }
 
 .heroCopy,
-.statusPanel {
+.roadmapList {
   min-width: 0;
 }
 
 .heroCopy {
   display: grid;
-  align-content: start;
   gap: 1rem;
+  align-content: start;
 }
 
 .heroTitle {
@@ -60,45 +53,45 @@
 }
 
 .actions {
-  row-gap: 0.6rem;
+  row-gap: 0.65rem;
 }
 
-.statusPanel {
+.roadmapList {
   display: grid;
-  gap: 0.75rem;
-  align-content: start;
+  gap: 1.15rem;
+  padding-top: 0.4rem;
 }
 
-.statusCard {
+.roadmapItem,
+.signalItem {
+  position: relative;
   display: grid;
-  gap: 0.25rem;
-  padding: 0.95rem 1rem;
-  border: 1px solid rgba(169, 189, 214, 0.14);
-  border-radius: var(--radius-16);
-  background: rgba(11, 11, 13, 0.42);
+  gap: 0.45rem;
+  padding-left: 1rem;
 }
 
-.statusValue {
-  font-family: var(--font-heading);
-  font-size: clamp(1.35rem, 3vw, 1.9rem);
-  line-height: 0.95;
-  letter-spacing: -0.04em;
-  color: var(--neutral-on-background-strong);
+.roadmapItem::before,
+.signalItem::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42rem;
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 999px;
+  background: rgba(133, 184, 255, 0.92);
+  box-shadow: 0 0 14px rgba(133, 184, 255, 0.24);
 }
 
-.noteGrid {
-  width: 100%;
-}
-
-.noteCard {
-  display: grid;
-  gap: 0.55rem;
-  padding: 1rem 1.05rem;
-}
-
-.noteLabel {
+.roadmapLabel,
+.signalLabel {
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.signalGrid {
+  width: 100%;
+  padding-top: 0.5rem;
 }
 
 @media (max-width: breakpoints.$m) {
@@ -108,12 +101,6 @@
 }
 
 @media (max-width: breakpoints.$s) {
-  .shell,
-  .noteCard {
-    padding: 1rem;
-    border-radius: calc(var(--radius-24) - 0.05rem);
-  }
-
   .heroTitle,
   .heroLead,
   .heroNote {
