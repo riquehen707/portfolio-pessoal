@@ -21,21 +21,7 @@ export function AscendingTimeline({ entries }: AscendingTimelineProps) {
   return (
     <section className={styles.root} aria-labelledby="work-journey-heading">
       <div className={styles.scene} aria-hidden="true">
-        <div className={styles.spaceBand} />
         <div className={styles.starField} />
-        <div className={styles.skyBand} />
-
-        <div className={styles.cloudBank}>
-          <span className={`${styles.cloud} ${styles.cloudOne}`} />
-          <span className={`${styles.cloud} ${styles.cloudTwo}`} />
-          <span className={`${styles.cloud} ${styles.cloudThree}`} />
-        </div>
-
-        <div className={styles.terrain}>
-          <span className={`${styles.hill} ${styles.hillLeft}`} />
-          <span className={`${styles.hill} ${styles.hillCenter}`} />
-          <span className={`${styles.hill} ${styles.hillRight}`} />
-        </div>
       </div>
 
       <div className={styles.content}>
@@ -44,8 +30,8 @@ export function AscendingTimeline({ entries }: AscendingTimelineProps) {
             Portfólio
           </Tag>
           <Text className={styles.legendText} onBackground="neutral-weak" variant="body-default-m">
-            O topo encosta no espaço. No meio ainda existe céu. A base fica no chão, onde começa esta
-            fase da jornada.
+            Esta linha do tempo registra a fase iniciada em 30 de março de 2026, quando me mudei para
+            cursar BC&T na UFRB. O topo mostra o momento atual e a base guarda o ponto de partida.
           </Text>
         </div>
 
