@@ -58,11 +58,29 @@ const storyParagraphs = [
   "Hoje aplico essa visão ajudando pequenos negócios e prestadores de serviço a vender melhor, operar melhor e crescer com mais clareza.",
 ];
 
-const fitParagraphs = [
-  "Trabalho melhor com pequenos e médios negócios que já entregam valor, mas ainda precisam organizar presença digital, captação e relacionamento com clientes.",
-  "Isso inclui profissionais e empresas de serviço que dependem de confiança para vender: psicólogos, advogados, contadores, dentistas, clínicas de estética e negócios locais especializados.",
-  "Faço sentido para quem está nos primeiros anos de crescimento, sente que o digital poderia render mais e precisa de estrutura sem transformar tudo em complexidade.",
-];
+const fitCards = [
+  {
+    icon: "person" as IconName,
+    title: "Prestadores de serviço",
+    description:
+      "Para profissionais que querem conquistar seus primeiros clientes virtualmente com presença mais clara e captação organizada.",
+    items: ["Psicólogos", "Advogados", "Serviços especializados"],
+  },
+  {
+    icon: "crm" as IconName,
+    title: "Clínicas e operações de atendimento",
+    description:
+      "Para clínicas de saúde, salões, estética e serviços que precisam integrar sistema, agenda e gerenciamento de clientes.",
+    items: ["Clínicas de saúde", "Salões e estética", "Agenda, CRM e automação"],
+  },
+  {
+    icon: "package" as IconName,
+    title: "Lojas locais e e-commerce",
+    description:
+      "Para lojas que querem atrair mais clientes locais ou estruturar melhor catálogo, pedidos e envios.",
+    items: ["Vitrine local", "Pedidos e catálogo", "Envios de e-commerce"],
+  },
+] as const;
 
 const serviceTracks = [
   {
@@ -262,27 +280,45 @@ export default function About() {
             </Heading>
           </Column>
           <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
-            Negócios de serviço que já entregam valor, mas ainda operam marketing e vendas de forma
-            fragmentada.
+            Faço mais sentido quando o objetivo é conquistar clientes, organizar atendimento e tornar o
+            digital mais útil para vender.
           </Text>
         </Row>
 
-        <Grid className={styles.fitGrid} columns="2" s={{ columns: 1 }} gap="20">
-          <Column className={styles.storyBody} gap="16">
-            {fitParagraphs.map((paragraph) => (
-              <Text key={paragraph} onBackground="neutral-weak" variant="body-default-m">
-                {paragraph}
-              </Text>
-            ))}
-          </Column>
+        <Grid className={styles.fitCards} columns="3" m={{ columns: 2 }} s={{ columns: 1 }} gap="20">
+          {fitCards.map((card) => (
+            <article className={styles.fitCard} key={card.title}>
+              <div className={styles.fitCardTop}>
+                <div className={styles.fitIconWrap}>
+                  <Icon name={card.icon} size="m" />
+                </div>
+                <Heading as="h3" variant="heading-strong-m">
+                  {card.title}
+                </Heading>
+              </div>
 
-          <Column className={styles.servicePanel} gap="20">
+              <Text onBackground="neutral-weak" variant="body-default-m">
+                {card.description}
+              </Text>
+
+              <div className={styles.fitCardItems}>
+                {card.items.map((item) => (
+                  <div className={styles.fitCardItem} key={item}>
+                    <Text variant="body-default-s">{item}</Text>
+                  </div>
+                ))}
+              </div>
+            </article>
+          ))}
+        </Grid>
+
+        <Column className={styles.servicePanel} gap="20">
             <Column className={styles.serviceHeader} gap="12">
               <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
                 Serviços que presto
               </Text>
               <Heading as="h3" variant="heading-strong-l">
-                Normalmente entro em três frentes que se conectam.
+                Normalmente ajudo em três frentes que se conectam.
               </Heading>
               <Text className={styles.serviceLead} variant="body-default-s" onBackground="neutral-weak">
                 Captação, conversão e operação digital, de acordo com o momento real do negócio.
@@ -335,7 +371,6 @@ export default function About() {
               ))}
             </div>
           </Column>
-        </Grid>
       </Column>
 
       <Column className={styles.sectionPanel} fillWidth gap="24">

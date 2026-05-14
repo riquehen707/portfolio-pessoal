@@ -16,10 +16,10 @@
   inset: -5rem -8% auto;
   height: 22rem;
   background:
-    radial-gradient(circle at 18% 34%, rgba(112, 166, 255, 0.18), transparent 24%),
-    radial-gradient(circle at 70% 18%, rgba(195, 221, 255, 0.14), transparent 26%),
-    radial-gradient(circle at 54% 72%, rgba(87, 130, 255, 0.1), transparent 30%);
-  filter: blur(16px);
+    radial-gradient(circle at 18% 34%, rgba(184, 146, 18, 0.18), transparent 24%),
+    radial-gradient(circle at 70% 18%, rgba(255, 223, 129, 0.12), transparent 26%),
+    radial-gradient(circle at 54% 72%, rgba(184, 146, 18, 0.09), transparent 30%);
+  filter: blur(18px);
   pointer-events: none;
 }
 
@@ -82,8 +82,8 @@
   width: 0.42rem;
   height: 0.42rem;
   border-radius: 999px;
-  background: rgba(133, 184, 255, 0.92);
-  box-shadow: 0 0 14px rgba(133, 184, 255, 0.26);
+  background: rgba(184, 146, 18, 0.94);
+  box-shadow: 0 0 14px rgba(184, 146, 18, 0.24);
 }
 
 .topicLabel,

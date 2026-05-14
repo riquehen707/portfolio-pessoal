@@ -16,9 +16,9 @@
   inset: -5rem -8% auto;
   height: 22rem;
   background:
-    radial-gradient(circle at 14% 26%, rgba(135, 183, 255, 0.16), transparent 22%),
-    radial-gradient(circle at 68% 18%, rgba(217, 232, 255, 0.12), transparent 24%),
-    radial-gradient(circle at 52% 68%, rgba(116, 162, 255, 0.1), transparent 28%);
+    radial-gradient(circle at 14% 26%, rgba(184, 146, 18, 0.16), transparent 22%),
+    radial-gradient(circle at 68% 18%, rgba(255, 223, 129, 0.12), transparent 24%),
+    radial-gradient(circle at 52% 68%, rgba(184, 146, 18, 0.1), transparent 28%);
   filter: blur(18px);
   pointer-events: none;
 }
@@ -79,8 +79,8 @@
   width: 0.42rem;
   height: 0.42rem;
   border-radius: 999px;
-  background: rgba(133, 184, 255, 0.92);
-  box-shadow: 0 0 14px rgba(133, 184, 255, 0.24);
+  background: rgba(184, 146, 18, 0.94);
+  box-shadow: 0 0 14px rgba(184, 146, 18, 0.22);
 }
 
 .roadmapLabel,

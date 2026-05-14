@@ -38,12 +38,6 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.fitGrid {
-  grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
-  gap: clamp(1.75rem, 4vw, 3rem);
-  align-items: start;
-}
-
 .proofGrid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -159,6 +153,51 @@
   max-width: 28rem;
 }
 
+.fitCards {
+  width: 100%;
+  align-items: stretch;
+}
+
+.fitCard {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1.1rem 0 0;
+  border-top: 1px solid var(--neutral-alpha-weak);
+}
+
+.fitCardTop {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.fitIconWrap {
+  display: grid;
+  place-items: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(184, 146, 18, 0.18);
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0) 62%),
+    rgba(184, 146, 18, 0.08);
+  box-shadow:
+    0 10px 24px rgba(39, 32, 10, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.fitCardItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.fitCardItem {
+  padding: 0.5rem 0.72rem;
+  border: 1px solid rgba(184, 146, 18, 0.14);
+  border-radius: var(--radius-pill);
+  background: rgba(184, 146, 18, 0.05);
+}
+
 .infoCard,
 .proofCard {
   padding: 1.35rem 0 0;
@@ -194,9 +233,9 @@
   width: 1px;
   background: linear-gradient(
     180deg,
-    rgba(110, 166, 255, 0.42),
-    rgba(110, 166, 255, 0.16) 52%,
-    rgba(110, 166, 255, 0)
+    rgba(184, 146, 18, 0.42),
+    rgba(184, 146, 18, 0.16) 52%,
+    rgba(184, 146, 18, 0)
   );
 }
 
@@ -219,12 +258,12 @@
   width: 2.7rem;
   height: 2.7rem;
   border-radius: 999px;
-  border: 1px solid rgba(110, 166, 255, 0.18);
+  border: 1px solid rgba(184, 146, 18, 0.18);
   background:
     linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0) 62%),
-    rgba(110, 166, 255, 0.08);
+    rgba(184, 146, 18, 0.08);
   box-shadow:
-    0 10px 24px rgba(16, 32, 58, 0.12),
+    0 10px 24px rgba(39, 32, 10, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
@@ -249,7 +288,7 @@
 .serviceTrackEyebrow {
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-accent-blue);
+  color: var(--color-accent-gold);
 }
 
 .servicePillarItems {
@@ -260,9 +299,9 @@
 
 .servicePillarItem {
   padding: 0.5rem 0.72rem;
-  border: 1px solid rgba(110, 166, 255, 0.14);
+  border: 1px solid rgba(184, 146, 18, 0.14);
   border-radius: var(--radius-pill);
-  background: rgba(110, 166, 255, 0.05);
+  background: rgba(184, 146, 18, 0.05);
 }
 
 .servicePrinciples {
@@ -278,14 +317,14 @@
   gap: 0.55rem;
   padding: 0.6rem 0.8rem;
   border-radius: var(--radius-pill);
-  background: rgba(110, 166, 255, 0.06);
+  background: rgba(184, 146, 18, 0.06);
 }
 
 .servicePrincipleDot {
   width: 0.42rem;
   height: 0.42rem;
   border-radius: 999px;
-  background: var(--color-accent-blue);
+  background: var(--color-accent-gold);
   flex: 0 0 auto;
 }
 
@@ -320,7 +359,6 @@
 
 @media (max-width: breakpoints.$m) {
   .heroGrid,
-  .fitGrid,
   .stepGrid,
   .proofGrid {
     grid-template-columns: 1fr;
