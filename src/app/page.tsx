@@ -13,10 +13,10 @@ import { Reveal } from "@/components/motion/Reveal";
 import {
   about,
   baseURL,
-  contact,
   contentStrategy,
   home,
   person,
+  servicesPage,
 } from "@/resources";
 
 import styles from "./home.module.scss";
@@ -180,14 +180,14 @@ export default function Home() {
           eyebrow={homeFinalSection?.label ?? "Proximo passo"}
           title={
             homeFinalSection?.title ??
-            "Se seu negócio precisa de presença forte e operação digital eficiente, vamos conversar."
+            "Antes de investir, veja se faz sentido."
           }
           description={
             homeFinalSection?.description ??
-            "Uma conversa direta pode revelar oportunidades reais de posicionamento, aquisição e operação digital."
+            "Entenda onde seu negócio pode melhorar, quanto pode custar e qual retorno pode fazer sentido para o seu momento."
           }
-          primaryLabel={homeFinalSection?.ctaLabel ?? "Agendar uma ligação"}
-          primaryHref={homeFinalSection?.ctaHref ?? contact.path}
+          primaryLabel={homeFinalSection?.ctaLabel ?? "Ver os dados primeiro"}
+          primaryHref={homeFinalSection?.ctaHref ?? servicesPage.path}
         />
       </section>
     </div>

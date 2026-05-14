@@ -182,8 +182,8 @@ export default function About() {
             </Text>
             <Row className={styles.actions} gap="12" wrap>
               <Button
-                href={contact.path}
-                prefixIcon="send"
+                href={aboutStrategy.hero.primaryCtaHref}
+                prefixIcon="chart"
                 size="m"
                 variant="primary"
                 data-analytics-event="cta_click"
@@ -194,7 +194,7 @@ export default function About() {
                 {aboutStrategy.hero.primaryCtaLabel}
               </Button>
               <Button
-                href={work.path}
+                href={aboutStrategy.hero.secondaryCtaHref ?? work.path}
                 size="m"
                 variant="secondary"
                 arrowIcon

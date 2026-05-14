@@ -124,12 +124,11 @@ const contentStrategy = {
         {
           id: "final-cta",
           label: "Próximo passo",
-          title:
-            "Se seu negócio precisa de presença forte e operação digital eficiente, vamos conversar.",
+          title: "Antes de investir, veja se faz sentido.",
           description:
-            "Uma conversa direta pode revelar oportunidades reais de posicionamento, aquisição e operação digital.",
-          ctaLabel: "Agendar uma ligação",
-          ctaHref: "https://cal.com/henriquereis",
+            "Entenda onde seu negócio pode melhorar, quanto pode custar e qual retorno pode fazer sentido para o seu momento.",
+          ctaLabel: "Ver os dados primeiro",
+          ctaHref: "/servicos",
         },
       ],
     } satisfies StrategyPage,
@@ -202,11 +201,12 @@ const contentStrategy = {
         ],
       },
       hero: {
-        eyebrow: "Sobre",
-        headline: "Tudo que seu negócio precisa além de você.",
-        subheadline: "Transformo ideias em estruturas digitais claras, funcionais e valiosas.",
-        primaryCtaLabel: "Vamos conversar",
-        primaryCtaHref: "/contact",
+        eyebrow: "Próximo passo",
+        headline: "Antes de investir, veja se faz sentido",
+        subheadline:
+          "Entenda onde seu negócio pode melhorar, quanto pode custar e qual retorno pode fazer sentido para o seu momento.",
+        primaryCtaLabel: "Ver os dados primeiro",
+        primaryCtaHref: "/servicos",
         secondaryCtaLabel: "Ver projetos",
         secondaryCtaHref: "/work",
       },

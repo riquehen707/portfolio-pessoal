@@ -2,24 +2,31 @@
 
 .root {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: var(--grid-gutter);
-  padding: clamp(1.5rem, 4vw, 2.35rem);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-panel);
-  background:
-    radial-gradient(circle at 12% 0%, var(--ambient-gold-strong), transparent 28%),
-    radial-gradient(circle at 88% 0%, var(--ambient-blue-soft), transparent 22%),
-    var(--surface-overlay-strong),
-    var(--surface-panel-strong);
-  box-shadow: var(--shadow-card);
+  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: end;
+  padding-top: clamp(2rem, 5vw, 3.2rem);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.copy,
+.aside {
+  min-width: 0;
 }
 
 .copy {
-  grid-column: span 12;
   display: grid;
   gap: 1rem;
-  align-content: start;
+  max-width: 42rem;
+}
+
+.aside {
+  display: grid;
+  gap: 1rem;
+  align-self: stretch;
+  align-content: end;
+  padding-left: clamp(1.4rem, 3vw, 2.4rem);
+  border-left: 1px solid var(--border-subtle);
 }
 
 .eyebrow {
@@ -27,11 +34,11 @@
 }
 
 .title {
-  max-width: 13ch;
+  max-width: 14ch;
 }
 
 .description {
-  max-width: 40rem;
+  max-width: 38rem;
 }
 
 .actions {
@@ -45,10 +52,10 @@
 }
 
 .trustList {
-  display: grid;
-  gap: 0.75rem;
-  padding-top: 0.9rem;
-  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1rem;
+  padding-top: 0.25rem;
 }
 
 .trustItem {
@@ -66,9 +73,29 @@
   flex: 0 0 auto;
 }
 
+@include mixins.m {
+  .root {
+    grid-template-columns: 1fr;
+  }
+
+  .aside {
+    padding-left: 0;
+    padding-top: 1.25rem;
+    border-left: 0;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .title,
+  .description,
+  .copy {
+    max-width: none;
+  }
+}
+
 @include mixins.s {
   .root {
-    border-radius: calc(var(--radius-24) - 0.1rem);
+    gap: 1.25rem;
+    padding-top: 1.8rem;
   }
 
   .actions {
@@ -78,9 +105,5 @@
   .actions > *,
   .actions > * > * {
     width: 100%;
-  }
-
-  .title {
-    max-width: none;
   }
 }

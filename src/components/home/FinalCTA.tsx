@@ -54,12 +54,14 @@ export function FinalCTA({
         <Text className={styles.description} onBackground="neutral-weak" variant="heading-default-m">
           {description}
         </Text>
+      </m.div>
 
+      <m.div className={styles.aside} variants={itemVariants}>
         <m.div className={styles.actions} variants={createStaggerContainer(reducedMotion, 0.08)}>
           <m.div variants={itemVariants}>
             <CTAButton
               href={primaryHref}
-              prefixIcon="calendar"
+              prefixIcon="chart"
               data-analytics-event="cta_click"
               data-analytics-label={primaryLabel}
               data-analytics-location="home_final_cta"
