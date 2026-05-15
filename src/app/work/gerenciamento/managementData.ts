@@ -1,9 +1,3 @@
-import {
-  getWorkProjectBySlug,
-  getWorkProjectPath,
-  getWorkProjectStack,
-} from "@/app/work/projectData";
-
 const workManagementStages = [
   {
     id: "briefing",
@@ -13,22 +7,22 @@ const workManagementStages = [
   {
     id: "planejamento",
     label: "Planejamento",
-    description: "Definição de estrutura, prioridades e entregáveis da sprint.",
+    description: "Definicao de estrutura, prioridades e entregaveis da sprint.",
   },
   {
     id: "execucao",
-    label: "Execução",
-    description: "Construção ativa, integrações e produção dos blocos principais.",
+    label: "Execucao",
+    description: "Construcao ativa, integracoes e producao dos blocos principais.",
   },
   {
     id: "revisao",
-    label: "Revisão",
-    description: "Ajustes finos, validação e checklist técnico antes da entrega.",
+    label: "Revisao",
+    description: "Ajustes finos, validacao e checklist tecnico antes da entrega.",
   },
   {
     id: "entregue",
     label: "Entregue",
-    description: "Projeto concluído, documentado e pronto para acompanhamento.",
+    description: "Projeto concluido, documentado e pronto para acompanhamento.",
   },
 ] as const;
 
@@ -41,8 +35,8 @@ type WorkManagementItem = {
   client: string;
   summary: string;
   stage: WorkManagementStageId;
-  priority: "Alta" | "Média" | "Baixa";
-  health: "Saudável" | "Atenção" | "Risco";
+  priority: "Alta" | "Media" | "Baixa";
+  health: "Saudavel" | "Atencao" | "Risco";
   progress: number;
   owner: string;
   dueDate: string;
@@ -56,96 +50,58 @@ type WorkManagementItem = {
 
 const workManagementItems: WorkManagementItem[] = [
   {
-    id: "tereza-cristina-launch",
-    slug: "tereza-cristina",
-    title: "Landing page e operação de agenda",
-    client: "Tereza Cristina",
-    summary: "Fechar revisão visual, checklist técnico e subida final da página.",
-    stage: "revisao",
-    priority: "Alta",
-    health: "Atenção",
-    progress: 86,
-    owner: "Henrique",
-    dueDate: "2026-05-02",
-    updatedAt: "2026-04-28",
-    nextAction: "Validar prova social final e publicar a configuração de analytics.",
-    blockers: ["Aguardando confirmação final das imagens de procedimentos."],
-    deliverables: ["Checklist SEO local", "Revisão mobile", "Evento de clique no WhatsApp"],
-    tags: ["Cliente", "Landing page", "Saúde e estética"],
-    visibility: "publico",
-  },
-  {
-    id: "painel-operacao-local-v2",
-    slug: "painel-operacao-local",
-    title: "Painel interno v2",
-    client: "Henrique Reis",
-    summary: "Evolução do sistema autoral para rotina comercial e leitura operacional.",
-    stage: "execucao",
-    priority: "Média",
-    health: "Saudável",
-    progress: 58,
-    owner: "Henrique",
-    dueDate: "2026-05-10",
-    updatedAt: "2026-04-29",
-    nextAction: "Fechar a camada de tarefas recorrentes e o resumo semanal da operação.",
-    blockers: ["Definir regra final de prioridade automática para follow-up."],
-    deliverables: ["Quadro por estágio", "Resumo semanal", "Filtro por origem do lead"],
-    tags: ["Interno", "SaaS", "Automação"],
-    visibility: "publico",
-  },
-  {
-    id: "psicologia-clinica-discovery",
-    title: "Site institucional para psicologia clínica",
-    client: "Projeto confidencial",
-    summary: "Mapear diferenciais da oferta e organizar arquitetura da página de atendimento.",
-    stage: "planejamento",
-    priority: "Alta",
-    health: "Atenção",
-    progress: 24,
-    owner: "Henrique",
-    dueDate: "2026-05-06",
-    updatedAt: "2026-04-27",
-    nextAction: "Fechar headline, pilares de autoridade e estrutura de agendamento.",
-    blockers: ["Briefing ainda não consolidou especialidades e provas de confiança."],
-    deliverables: ["Mapa de conteúdo", "Wireframe da hero", "Sequência de CTA"],
-    tags: ["Cliente", "Serviços", "Posicionamento"],
-    visibility: "privado",
-  },
-  {
-    id: "produtos-digitais-q2",
-    title: "Linha de produtos digitais",
-    client: "Henrique Reis",
-    summary: "Definir catálogo, recortes de oferta e ordem de lançamento do trimestre.",
+    id: "work-placeholder-public-01",
+    title: "Projeto publico 01",
+    client: "Placeholder",
+    summary: "Espaco reservado para o primeiro projeto que voltar ao portfolio.",
     stage: "briefing",
-    priority: "Média",
-    health: "Saudável",
-    progress: 14,
+    priority: "Media",
+    health: "Saudavel",
+    progress: 8,
     owner: "Henrique",
-    dueDate: "2026-05-12",
-    updatedAt: "2026-04-26",
-    nextAction: "Priorizar quais ativos viram produto pago e quais ficam como lead magnet.",
-    blockers: [],
-    deliverables: ["Mapa de ofertas", "Critério de precificação", "Página de produtos"],
-    tags: ["Interno", "Produtos", "Oferta"],
+    dueDate: "2026-05-30",
+    updatedAt: "2026-05-15",
+    nextAction: "Definir qual projeto entra primeiro no feed publico.",
+    blockers: ["Curadoria dos cases ainda nao finalizada."],
+    deliverables: ["Titulo", "Resumo", "Estrutura do artigo"],
+    tags: ["Placeholder", "Portfolio", "Publico"],
+    visibility: "publico",
+  },
+  {
+    id: "work-placeholder-internal-01",
+    title: "Sistema autoral 01",
+    client: "Placeholder interno",
+    summary: "Reserva para um projeto interno que sera republicado com escopo mais simples.",
+    stage: "planejamento",
+    priority: "Media",
+    health: "Atencao",
+    progress: 16,
+    owner: "Henrique",
+    dueDate: "2026-06-05",
+    updatedAt: "2026-05-15",
+    nextAction: "Escolher quais modulos realmente valem entrar no portfolio.",
+    blockers: ["Escopo antigo ainda precisa ser condensado."],
+    deliverables: ["Recorte funcional", "Texto de contexto", "Capturas novas"],
+    tags: ["Placeholder", "Sistema", "Interno"],
     visibility: "privado",
   },
   {
-    id: "template-seo-local-kit",
-    title: "Template SEO local para serviços",
-    client: "Henrique Reis",
-    summary: "Base reaproveitável para acelerar futuros projetos de captação local.",
-    stage: "entregue",
+    id: "work-placeholder-client-02",
+    title: "Case de cliente 02",
+    client: "Placeholder",
+    summary: "Reserva para um novo artigo de cliente quando a proxima publicacao estiver pronta.",
+    stage: "execucao",
     priority: "Baixa",
-    health: "Saudável",
-    progress: 100,
+    health: "Saudavel",
+    progress: 28,
     owner: "Henrique",
-    dueDate: "2026-04-20",
-    updatedAt: "2026-04-20",
-    nextAction: "Revisar o material quando entrar um novo case do mesmo perfil.",
+    dueDate: "2026-06-12",
+    updatedAt: "2026-05-15",
+    nextAction: "Reestruturar o formato de case para ficar mais direto e leve.",
     blockers: [],
-    deliverables: ["Estrutura de metadata", "Blocos de prova social", "Checklist de indexação"],
-    tags: ["Interno", "Template", "SEO"],
-    visibility: "privado",
+    deliverables: ["Estrutura visual", "Resumo objetivo", "CTA final"],
+    tags: ["Placeholder", "Cliente", "Feed"],
+    visibility: "publico",
   },
 ];
 
@@ -154,18 +110,11 @@ export function getWorkManagementStages() {
 }
 
 export function getWorkManagementItems() {
-  return workManagementItems.map((item) => {
-    const publicProject = item.slug ? getWorkProjectBySlug(item.slug) : null;
-
-    return {
-      ...item,
-      stack:
-        publicProject && getWorkProjectStack(publicProject).length > 0
-          ? getWorkProjectStack(publicProject)
-          : item.tags,
-      publicHref: publicProject ? getWorkProjectPath(publicProject.slug) : undefined,
-      publicTitle: publicProject?.metadata.title,
-      publicSummary: publicProject?.metadata.summary,
-    };
-  });
+  return workManagementItems.map((item) => ({
+    ...item,
+    stack: item.tags,
+    publicHref: undefined,
+    publicTitle: undefined,
+    publicSummary: undefined,
+  }));
 }

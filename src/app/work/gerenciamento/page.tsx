@@ -124,7 +124,7 @@ function LoginView({ hasAuthError }: { hasAuthError: boolean }) {
               <Text variant="body-default-m">Agenda das entregas mais próximas e leitura de risco por projeto.</Text>
             </li>
             <li className={styles.bulletItem}>
-              <Text variant="body-default-m">Ligação direta entre gestão interna e os cases públicos já publicados.</Text>
+              <Text variant="body-default-m">Separação clara entre gestão interna, placeholders e futuras publicações do portfolio.</Text>
             </li>
           </ul>
 
@@ -226,7 +226,7 @@ function DashboardView({ username }: { username: string }) {
               Ver área pública de projetos
             </Button>
             <Button href={publishedItems[0]?.publicHref ?? work.path} variant="secondary" size="m" arrowIcon>
-              Abrir último case publicado
+              Abrir feed publico
             </Button>
           </Row>
         </div>
@@ -562,7 +562,7 @@ function DashboardView({ username }: { username: string }) {
             </li>
             <li className={styles.bulletItem}>
               <Text variant="body-default-m">
-                Frentes em atenção ou risco: {items.filter((item) => item.health !== "Saudável").length}.
+                Frentes em atenção ou risco: {items.filter((item) => item.health !== "Saudavel").length}.
               </Text>
             </li>
           </ul>

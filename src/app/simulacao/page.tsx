@@ -31,12 +31,12 @@ const simulationSignals = [
   {
     label: "Etapa 2",
     description:
-      "Pequenos ajustes de vendas, preco, custo e recorrencia para ver o ganho sem depender primeiro de midia.",
+      "Pequenos ajustes de vendas, preco, custo e recorrencia para ver o ganho junto do custo de implantacao interna.",
   },
   {
     label: "Etapa 3",
     description:
-      "Quanto o marketing precisaria retornar para bater esse ganho, considerando CAC e saturacao do modelo.",
+      "Quanto o marketing precisaria retornar para bater esse ganho, considerando midia, gestao, CAC e saturacao do modelo.",
   },
 ] as const;
 
@@ -90,10 +90,10 @@ export default function SimulationPage() {
               Ver os dados primeiro
             </Heading>
             <Text className={styles.heroLead} variant="heading-default-m" onBackground="neutral-weak">
-              Esta pagina separa a conta em tres etapas para mostrar o que ja pode melhorar no negocio antes de depender de marketing.
+              Esta pagina separa a conta em tres etapas para mostrar o que ja pode melhorar no negocio antes de jogar verba em marketing.
             </Text>
             <Text className={styles.heroNote} variant="body-default-m" onBackground="neutral-weak">
-              A ideia nao e prometer faturamento. E entender margem, ganho operacional e quanto a midia realmente precisaria entregar.
+              A ideia nao e prometer faturamento. E entender margem, custo de implantacao e quanto a midia realmente precisaria entregar.
             </Text>
             <Row className={styles.actions} gap="12" wrap>
               <Button href={servicesPage.path} variant="primary" size="m" arrowIcon>
@@ -108,11 +108,11 @@ export default function SimulationPage() {
           <Column className={styles.heroAside} gap="16">
             <div className={styles.asideItem}>
               <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
-                90 dias
+                Base mensal
               </Text>
-              <Text variant="heading-strong-s">Leitura de curto prazo</Text>
+              <Text variant="heading-strong-s">Leitura do momento atual</Text>
               <Text variant="body-default-s" onBackground="neutral-weak">
-                O foco aqui e comparar esforco operacional com esforco de marketing no mesmo horizonte.
+                O foco aqui e comparar base atual, ajuste interno e investimento de marketing no mesmo raciocinio.
               </Text>
             </div>
             <div className={styles.asideItem}>
@@ -130,7 +130,7 @@ export default function SimulationPage() {
               </Text>
               <Text variant="heading-strong-s">Boa para validar o proximo passo</Text>
               <Text variant="body-default-s" onBackground="neutral-weak">
-                Se a conta fechar, a conversa entra com muito mais contexto e menos chute.
+                Se a conta fechar, a conversa entra com muito mais contexto e menos chute sobre verba.
               </Text>
             </div>
           </Column>
@@ -156,7 +156,7 @@ export default function SimulationPage() {
             </Heading>
           </Column>
           <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
-            O objetivo nao e fechar um numero exato. E comparar se um ajuste interno simples gera mais caixa do que uma aposta apressada em marketing.
+            O objetivo nao e fechar um numero exato. E comparar se um ajuste interno simples gera mais caixa do que a mesma meta comprada por marketing.
           </Text>
         </Row>
 

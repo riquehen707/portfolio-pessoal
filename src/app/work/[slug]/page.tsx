@@ -22,8 +22,6 @@ import {
   getWorkProjectSeoImage,
   getWorkProjectStack,
   getWorkProjectStaticParams,
-  getWorkProjectSummaryPath,
-  hasWorkProjectPrintableSummary,
   normalizeWorkProjectSlug,
   resolveWorkProjectMediaSrc,
   toAbsoluteWorkProjectUrl,
@@ -32,8 +30,6 @@ import ArticleToc from "@/components/blog/ArticleToc";
 import { CustomMDX, ScrollToHash } from "@/components";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { Projects } from "@/components/work/Projects";
-import { ProjectIntelligencePanel } from "@/components/work/ProjectIntelligencePanel";
-import { getProjectDashboardSnapshot } from "@/domain";
 import { baseURL, about, person } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
 
@@ -81,14 +77,12 @@ export default async function ProjectPage({ params }: PageProps) {
   if (!post) notFound();
 
   const relatedProjects = allProjects.filter((item) => item.slug !== slugPath);
-  const hasPrintableSummary = hasWorkProjectPrintableSummary(post.slug);
   const avatars =
     post.metadata.team?.flatMap((member) =>
       member.avatar ? [{ src: resolveWorkProjectMediaSrc(member.avatar) as string }] : [],
     ) || [];
 
   const cover = post.metadata.image || post.metadata.images?.[0];
-  const intelligenceSnapshot = getProjectDashboardSnapshot(post.slug);
   const metaImage = getWorkProjectSeoImage(post);
   const stack = getWorkProjectStack(post);
   const displayKind = getWorkProjectKindLabel(post);
@@ -127,9 +121,6 @@ export default async function ProjectPage({ params }: PageProps) {
           <Column className={styles.heroMain} gap="16">
             <Row gap="12" wrap>
               <SmartLink href="/work">Voltar</SmartLink>
-              {hasPrintableSummary && (
-                <SmartLink href={getWorkProjectSummaryPath(post.slug)}>Resumo PDF</SmartLink>
-              )}
             </Row>
 
             {(displayKind || stack.length > 0) && (
@@ -231,8 +222,6 @@ export default async function ProjectPage({ params }: PageProps) {
           />
         </div>
       )}
-
-      {intelligenceSnapshot && <ProjectIntelligencePanel snapshot={intelligenceSnapshot} />}
 
       {shouldRenderToc && (
         <Column className={styles.supportPanel} gap="16" padding="24">

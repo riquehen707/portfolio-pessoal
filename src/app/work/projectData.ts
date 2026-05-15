@@ -1,6 +1,5 @@
 import { cache } from "react";
 
-import { getProjectDashboardSnapshot, getProjectExecutiveSummary } from "@/domain";
 import { baseURL, work } from "@/resources";
 import { buildOgImage } from "@/utils/og";
 import { type BlogFile, getPosts } from "@/utils/utils";
@@ -39,16 +38,8 @@ export const getWorkProjectStaticParams = cache(() => {
   });
 });
 
-export const getWorkProjectSummaryStaticParams = cache(() => {
-  return getWorkProjectStaticParams().filter(({ slug }) => hasWorkProjectPrintableSummary(slug));
-});
-
 export function getWorkProjectPath(slug: string) {
   return `${work.path}/${slug}`;
-}
-
-export function getWorkProjectSummaryPath(slug: string) {
-  return `${getWorkProjectPath(slug)}/resumo`;
 }
 
 export function getWorkProjectSeoImage(project: BlogFile) {
@@ -56,14 +47,6 @@ export function getWorkProjectSeoImage(project: BlogFile) {
     project.metadata.image ||
     project.metadata.images?.[0] ||
     buildOgImage(project.metadata.title, project.metadata.tag ?? project.metadata.tags?.[0] ?? "Projeto")
-  );
-}
-
-export function getWorkProjectSummarySeoImage(project: BlogFile) {
-  return (
-    project.metadata.image ||
-    project.metadata.images?.[0] ||
-    buildOgImage(`Resumo executivo ${project.metadata.title}`, "Diagnostico")
   );
 }
 
@@ -192,7 +175,3 @@ export function resolveWorkProjectMediaSrc(src?: string): string | undefined {
     return src;
   }
 }
-
-export const hasWorkProjectPrintableSummary = cache((slug: string) => {
-  return Boolean(getProjectDashboardSnapshot(slug) && getProjectExecutiveSummary(slug));
-});

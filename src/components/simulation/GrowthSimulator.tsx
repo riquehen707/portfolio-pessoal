@@ -1,7 +1,7 @@
 "use client";
 
-import { Button, Heading, Row, Tag, Text } from "@once-ui-system/core";
-import { useState } from "react";
+import { Button, Heading, Text } from "@once-ui-system/core";
+import { type ChangeEvent, useId, useState } from "react";
 
 import styles from "./GrowthSimulator.module.scss";
 
@@ -16,570 +16,1071 @@ type SegmentProfile = {
     sales: number;
     fixed: number;
   };
-  recurrenceWeight: number;
   baseCAC: number;
-  saturationClients: number;
-  cacSlope: number;
+  saturationPoint: number;
+  marketingRate: number;
+  marketingFloor: number;
+  opsIntensity: number;
+  recurrenceWeight: number;
+  costOpsWeight: number;
 };
 
-const segments: SegmentProfile[] = [
-  {
-    id: "psicologas",
-    label: "Psicologas e terapeutas",
-    note: "Modelo com recorrencia relevante quando agenda e posicionamento estao organizados.",
-    saturationNote: "Costuma segurar bem ate cerca de 18 novos clientes por mes antes de perder eficiencia.",
-    defaults: { price: 220, cost: 35, sales: 38, fixed: 4500 },
-    recurrenceWeight: 0.95,
-    baseCAC: 85,
-    saturationClients: 18,
-    cacSlope: 0.44,
-  },
-  {
-    id: "advogados",
-    label: "Advogados e escritorios",
-    note: "Captacao mais cara, com fechamento menos imediato e maior peso de filtro comercial.",
-    saturationNote: "O ponto de saturacao costuma aparecer mais cedo, perto de 7 novos clientes por mes.",
-    defaults: { price: 900, cost: 120, sales: 12, fixed: 8500 },
-    recurrenceWeight: 0.28,
-    baseCAC: 280,
-    saturationClients: 7,
-    cacSlope: 0.7,
-  },
-  {
-    id: "corretores",
-    label: "Corretores de imoveis",
-    note: "Ticket alto, mas com oscilacao maior de fechamento e menos previsibilidade mensal.",
-    saturationNote: "Normalmente o modelo satura cedo, por volta de 4 novos clientes por mes.",
-    defaults: { price: 3500, cost: 450, sales: 4, fixed: 12000 },
-    recurrenceWeight: 0.18,
-    baseCAC: 420,
-    saturationClients: 4,
-    cacSlope: 0.84,
-  },
-  {
-    id: "clinicas",
-    label: "Clinicas de saude",
-    note: "Quando agenda e atendimento melhoram, recorrencia e indicacao costumam subir junto.",
-    saturationNote: "O modelo tende a manter eficiencia por mais tempo, ate perto de 26 novos clientes por mes.",
-    defaults: { price: 260, cost: 70, sales: 70, fixed: 9000 },
-    recurrenceWeight: 0.78,
-    baseCAC: 95,
-    saturationClients: 26,
-    cacSlope: 0.5,
-  },
-  {
-    id: "estetica",
-    label: "Saloes, beleza e estetica",
-    note: "Modelo em que pequenos ajustes costumam impactar agenda e retorno relativamente rapido.",
-    saturationNote: "Em geral aguenta bem ate 34 novos clientes por mes antes do CAC acelerar mais.",
-    defaults: { price: 180, cost: 45, sales: 90, fixed: 7000 },
-    recurrenceWeight: 0.68,
-    baseCAC: 60,
-    saturationClients: 34,
-    cacSlope: 0.46,
-  },
-  {
-    id: "lojas",
-    label: "Lojas locais e e-commerce",
-    note: "A margem pode apertar mais rapido, por isso marketing exige mais cuidado com custo e repeticao de compra.",
-    saturationNote: "O ponto de saturacao costuma chegar depois, mas a margem por cliente e mais sensivel.",
-    defaults: { price: 140, cost: 85, sales: 160, fixed: 10000 },
-    recurrenceWeight: 0.36,
-    baseCAC: 32,
-    saturationClients: 120,
-    cacSlope: 0.58,
-  },
-] as const;
+type ScaleProfile = {
+  id: string;
+  label: string;
+  note: string;
+  opsMultiplier: number;
+  marketingMultiplier: number;
+  baseOps: number;
+};
 
-function formatCurrency(value: number) {
-  return new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-    maximumFractionDigits: 0,
-  }).format(value);
-}
-
-function formatNumber(value: number) {
-  return new Intl.NumberFormat("pt-BR", {
-    maximumFractionDigits: value < 10 ? 1 : 0,
-  }).format(value);
-}
-
-function clamp(value: number, min: number, max: number) {
-  return Math.min(Math.max(value, min), max);
-}
-
-function percentLabel(value: number, prefix = "+") {
-  return `${prefix}${value}%`;
-}
-
-function getAdjustedCAC(clientTarget: number, segment: SegmentProfile) {
-  if (clientTarget <= segment.saturationClients) {
-    return segment.baseCAC;
-  }
-
-  const over = clientTarget / segment.saturationClients - 1;
-  const multiplier = 1 + over * segment.cacSlope + over * over * 0.42;
-  return segment.baseCAC * multiplier;
-}
-
-function estimateMarketingNeed(
-  targetNetGain: number,
-  pricePerClient: number,
-  contributionPerSale: number,
-  recurrenceFactor: number,
-  segment: SegmentProfile,
-) {
-  if (targetNetGain <= 0 || contributionPerSale <= 0 || pricePerClient <= 0) {
-    return null;
-  }
-
-  const effectiveRevenuePerClient = pricePerClient * recurrenceFactor;
-  const effectiveContributionPerClient = contributionPerSale * recurrenceFactor;
-  const maxClients = Math.max(segment.saturationClients * 10, 60);
-
-  for (let clients = 0.1; clients <= maxClients; clients += 0.1) {
-    const adjustedCAC = getAdjustedCAC(clients, segment);
-    const investment = clients * adjustedCAC;
-    const contributionGenerated = clients * effectiveContributionPerClient;
-    const netGenerated = contributionGenerated - investment;
-
-    if (netGenerated >= targetNetGain) {
-      return {
-        clients,
-        adjustedCAC,
-        investment,
-        contributionGenerated,
-        netGenerated,
-        grossRevenueGenerated: clients * effectiveRevenuePerClient,
-        saturationRatio: clients / segment.saturationClients,
-      };
-    }
-  }
-
-  return null;
-}
+type MarketingEstimate = {
+  viable: boolean;
+  targetNetLift: number;
+  achievedNetLift: number;
+  newClients: number;
+  baseCAC: number;
+  adjustedCAC: number;
+  efficiencyLossPct: number;
+  mediaSpend: number;
+  managementCost: number;
+  totalInvestment: number;
+  grossRevenue: number;
+  contributionGenerated: number;
+  grossReturnPerReal: number;
+  contributionReturnPerReal: number;
+  netReturnPerReal: number;
+  saturationPoint: number;
+  managementRate: number;
+};
 
 type GrowthSimulatorProps = {
   servicesHref: string;
   contactHref: string;
 };
 
+type MarketingEstimateInput = {
+  targetNetLift: number;
+  contributionPerClient: number;
+  effectivePrice: number;
+  segment: SegmentProfile;
+  currentSales: number;
+  scale: ScaleProfile;
+};
+
+type TermHintProps = {
+  label: string;
+  description: string;
+  href: string;
+};
+
+const glossaryLinks = {
+  marketing: "/blog/termos-de-marketing",
+  publicidade: "/blog/termos-de-publicidade",
+} as const;
+
+const segmentProfiles: SegmentProfile[] = [
+  {
+    id: "psicologas",
+    label: "Psicologas e terapeutas",
+    note: "Operacao com ticket medio menor, decisao mais sensivel a confianca e recorrencia.",
+    saturationNote: "A saturacao costuma aparecer quando a agenda local exige volume constante de leads qualificados.",
+    defaults: { price: 180, cost: 40, sales: 42, fixed: 3600 },
+    baseCAC: 58,
+    saturationPoint: 10,
+    marketingRate: 0.18,
+    marketingFloor: 420,
+    opsIntensity: 0.95,
+    recurrenceWeight: 0.85,
+    costOpsWeight: 1.15,
+  },
+  {
+    id: "advogados",
+    label: "Advogados e consultoria juridica",
+    note: "Ticket maior, ciclo comercial mais lento e dependencia maior de autoridade.",
+    saturationNote: "Subir verba cedo costuma encarecer o CAC porque a demanda local e mais estreita.",
+    defaults: { price: 420, cost: 92, sales: 18, fixed: 7200 },
+    baseCAC: 148,
+    saturationPoint: 6,
+    marketingRate: 0.22,
+    marketingFloor: 900,
+    opsIntensity: 1.08,
+    recurrenceWeight: 0.48,
+    costOpsWeight: 1.18,
+  },
+  {
+    id: "corretores",
+    label: "Corretores de imoveis",
+    note: "Poucos fechamentos, ticket alto e grande pressao de acompanhamento comercial.",
+    saturationNote: "Passar do ponto de saturacao costuma elevar o CAC rapidamente por competicao local.",
+    defaults: { price: 1800, cost: 420, sales: 4, fixed: 9000 },
+    baseCAC: 680,
+    saturationPoint: 3,
+    marketingRate: 0.2,
+    marketingFloor: 1200,
+    opsIntensity: 1.24,
+    recurrenceWeight: 0.3,
+    costOpsWeight: 1.24,
+  },
+  {
+    id: "clinicas",
+    label: "Clinicas de saude e odontologia",
+    note: "Agenda intensa, mais pontos de contato e operacao interna pesada para sustentar ganho.",
+    saturationNote: "O limite aparece quando o time interno nao acompanha atendimento, retorno e remarcacao.",
+    defaults: { price: 260, cost: 95, sales: 70, fixed: 14500 },
+    baseCAC: 96,
+    saturationPoint: 16,
+    marketingRate: 0.19,
+    marketingFloor: 1200,
+    opsIntensity: 1.25,
+    recurrenceWeight: 0.74,
+    costOpsWeight: 1.32,
+  },
+  {
+    id: "estetica",
+    label: "Salao, beleza e estetica",
+    note: "Ticket menor, retorno mais rapido e mais espaco para recorrencia bem organizada.",
+    saturationNote: "A perda de eficiencia aparece quando a verba sobe mais rapido do que a recompra.",
+    defaults: { price: 160, cost: 55, sales: 110, fixed: 8600 },
+    baseCAC: 48,
+    saturationPoint: 24,
+    marketingRate: 0.18,
+    marketingFloor: 820,
+    opsIntensity: 1.02,
+    recurrenceWeight: 0.92,
+    costOpsWeight: 1.08,
+  },
+  {
+    id: "loja-local",
+    label: "Loja local e varejo de bairro",
+    note: "Volume maior, margem apertada e necessidade forte de fluxo local.",
+    saturationNote: "Depois do ponto de saturacao, mais verba tende a comprar cliques piores e visitas menos prontas.",
+    defaults: { price: 220, cost: 118, sales: 95, fixed: 12000 },
+    baseCAC: 62,
+    saturationPoint: 28,
+    marketingRate: 0.16,
+    marketingFloor: 1200,
+    opsIntensity: 1.05,
+    recurrenceWeight: 0.58,
+    costOpsWeight: 1.05,
+  },
+  {
+    id: "ecommerce",
+    label: "E-commerce com envios",
+    note: "Escala mais facil, mas com CAC, frete e operacao comendo margem rapidamente.",
+    saturationNote: "Escalar midia sem melhorar ticket, recompra e operacao derruba o retorno mais cedo.",
+    defaults: { price: 290, cost: 165, sales: 130, fixed: 18000 },
+    baseCAC: 74,
+    saturationPoint: 36,
+    marketingRate: 0.15,
+    marketingFloor: 1500,
+    opsIntensity: 1.1,
+    recurrenceWeight: 0.55,
+    costOpsWeight: 1.08,
+  },
+];
+
+const formatCurrency = (value: number) =>
+  new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+    maximumFractionDigits: 0,
+  }).format(Number.isFinite(value) ? value : 0);
+
+const formatNumber = (value: number, maximumFractionDigits = 1) =>
+  new Intl.NumberFormat("pt-BR", {
+    maximumFractionDigits,
+  }).format(Number.isFinite(value) ? value : 0);
+
+const formatPercent = (value: number) =>
+  `${value >= 0 ? "+" : ""}${formatNumber(value, 0)}%`;
+
+function TermHint({ label, description, href }: TermHintProps) {
+  const tooltipId = useId();
+
+  return (
+    <span className={styles.labelWithHint}>
+      <span>{label}</span>
+      <span className={styles.hintWrap}>
+        <button
+          aria-describedby={tooltipId}
+          aria-label={`Explicar ${label}`}
+          className={styles.hintButton}
+          onClick={(event) => {
+            event.preventDefault();
+            event.stopPropagation();
+          }}
+          type="button"
+        >
+          ?
+        </button>
+        <span className={styles.hintTooltip} id={tooltipId} role="tooltip">
+          <span>{description}</span>
+          <a className={styles.hintLink} href={href}>
+            Saiba mais
+          </a>
+        </span>
+      </span>
+    </span>
+  );
+}
+
+function getBusinessScale(monthlyRevenue: number): ScaleProfile {
+  if (monthlyRevenue < 12000) {
+    return {
+      id: "micro",
+      label: "Micro operacao",
+      note: "Mudancas ainda sao leves, mas dependem muito do dono e do tempo de execucao.",
+      opsMultiplier: 0.82,
+      marketingMultiplier: 0.92,
+      baseOps: 240,
+    };
+  }
+
+  if (monthlyRevenue < 40000) {
+    return {
+      id: "small",
+      label: "Operacao pequena",
+      note: "Ja existe algum processo, mas a implantacao ainda cabe sem uma equipe muito grande.",
+      opsMultiplier: 1,
+      marketingMultiplier: 1,
+      baseOps: 480,
+    };
+  }
+
+  if (monthlyRevenue < 100000) {
+    return {
+      id: "medium",
+      label: "Operacao em consolidacao",
+      note: "Qualquer ajuste comeca a exigir mais gestao, treinamento e acompanhamento.",
+      opsMultiplier: 1.24,
+      marketingMultiplier: 1.12,
+      baseOps: 920,
+    };
+  }
+
+  return {
+    id: "structured",
+    label: "Operacao estruturada",
+    note: "A mudanca depende de alinhamento de time, controle e mais camada de gerencia.",
+    opsMultiplier: 1.52,
+    marketingMultiplier: 1.24,
+    baseOps: 1650,
+  };
+}
+
+function getAdjustedCAC(requestedClients: number, segment: SegmentProfile) {
+  if (requestedClients <= segment.saturationPoint) {
+    return {
+      adjustedCAC: segment.baseCAC,
+      efficiencyLossPct: 0,
+    };
+  }
+
+  const overflowRatio =
+    (requestedClients - segment.saturationPoint) / Math.max(segment.saturationPoint, 1);
+  const multiplier = 1 + overflowRatio * 0.48 + overflowRatio * overflowRatio * 0.32;
+
+  return {
+    adjustedCAC: segment.baseCAC * multiplier,
+    efficiencyLossPct: (multiplier - 1) * 100,
+  };
+}
+
+function estimateMarketing({
+  targetNetLift,
+  contributionPerClient,
+  effectivePrice,
+  segment,
+  currentSales,
+  scale,
+}: MarketingEstimateInput): MarketingEstimate {
+  if (targetNetLift <= 0 || contributionPerClient <= 0 || effectivePrice <= 0) {
+    return {
+      viable: true,
+      targetNetLift: Math.max(targetNetLift, 0),
+      achievedNetLift: 0,
+      newClients: 0,
+      baseCAC: segment.baseCAC,
+      adjustedCAC: segment.baseCAC,
+      efficiencyLossPct: 0,
+      mediaSpend: 0,
+      managementCost: 0,
+      totalInvestment: 0,
+      grossRevenue: 0,
+      contributionGenerated: 0,
+      grossReturnPerReal: 0,
+      contributionReturnPerReal: 0,
+      netReturnPerReal: 0,
+      saturationPoint: segment.saturationPoint,
+      managementRate: segment.marketingRate,
+    };
+  }
+
+  const upperBound = Math.max(
+    40,
+    Math.ceil(currentSales * 4),
+    Math.ceil(segment.saturationPoint * 9),
+  );
+
+  let chosen: MarketingEstimate | null = null;
+  let best: MarketingEstimate | null = null;
+
+  for (let clients = 0.5; clients <= upperBound; clients += 0.5) {
+    const { adjustedCAC, efficiencyLossPct } = getAdjustedCAC(clients, segment);
+    const managementRate =
+      segment.marketingRate * scale.marketingMultiplier +
+      Math.min(0.12, (efficiencyLossPct / 100) * 0.12);
+    const mediaSpend = clients * adjustedCAC;
+    const managementCost = Math.max(
+      segment.marketingFloor * scale.marketingMultiplier,
+      mediaSpend * managementRate,
+    );
+    const totalInvestment = mediaSpend + managementCost;
+    const grossRevenue = clients * effectivePrice;
+    const contributionGenerated = clients * contributionPerClient;
+    const achievedNetLift = contributionGenerated - totalInvestment;
+    const grossReturnPerReal = totalInvestment > 0 ? grossRevenue / totalInvestment : 0;
+    const contributionReturnPerReal =
+      totalInvestment > 0 ? contributionGenerated / totalInvestment : 0;
+    const netReturnPerReal = totalInvestment > 0 ? achievedNetLift / totalInvestment : 0;
+
+    const snapshot: MarketingEstimate = {
+      viable: achievedNetLift >= targetNetLift,
+      targetNetLift,
+      achievedNetLift,
+      newClients: clients,
+      baseCAC: segment.baseCAC,
+      adjustedCAC,
+      efficiencyLossPct,
+      mediaSpend,
+      managementCost,
+      totalInvestment,
+      grossRevenue,
+      contributionGenerated,
+      grossReturnPerReal,
+      contributionReturnPerReal,
+      netReturnPerReal,
+      saturationPoint: segment.saturationPoint,
+      managementRate,
+    };
+
+    if (!best || snapshot.achievedNetLift > best.achievedNetLift) {
+      best = snapshot;
+    }
+
+    if (snapshot.viable) {
+      chosen = snapshot;
+      break;
+    }
+  }
+
+  return chosen ?? (best as MarketingEstimate);
+}
+
 export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorProps) {
-  const firstSegment = segments[0];
-
-  const [segmentId, setSegmentId] = useState(firstSegment.id);
-  const [priceInput, setPriceInput] = useState(String(firstSegment.defaults.price));
-  const [costInput, setCostInput] = useState(String(firstSegment.defaults.cost));
-  const [salesInput, setSalesInput] = useState(String(firstSegment.defaults.sales));
-  const [fixedInput, setFixedInput] = useState(String(firstSegment.defaults.fixed));
-
+  const [segmentId, setSegmentId] = useState(segmentProfiles[0].id);
+  const [currentPrice, setCurrentPrice] = useState(segmentProfiles[0].defaults.price);
+  const [currentCost, setCurrentCost] = useState(segmentProfiles[0].defaults.cost);
+  const [currentSales, setCurrentSales] = useState(segmentProfiles[0].defaults.sales);
+  const [currentFixed, setCurrentFixed] = useState(segmentProfiles[0].defaults.fixed);
   const [salesLift, setSalesLift] = useState(12);
   const [priceLift, setPriceLift] = useState(6);
   const [costDrop, setCostDrop] = useState(5);
   const [recurrenceLift, setRecurrenceLift] = useState(8);
 
-  const segment = segments.find((item) => item.id === segmentId) ?? firstSegment;
+  const segment =
+    segmentProfiles.find((item) => item.id === segmentId) ?? segmentProfiles[0];
 
-  const currentPrice = Math.max(0, Number(priceInput) || 0);
-  const currentCost = Math.max(0, Number(costInput) || 0);
-  const currentSales = Math.max(0, Number(salesInput) || 0);
-  const currentFixed = Math.max(0, Number(fixedInput) || 0);
-
-  const currentContribution = currentPrice - currentCost;
   const currentRevenue = currentPrice * currentSales;
-  const currentGross = currentContribution * currentSales;
-  const currentNet = currentGross - currentFixed;
-  const currentBreakEvenSales =
-    currentContribution > 0 ? currentFixed / currentContribution : Number.POSITIVE_INFINITY;
+  const currentContribution = Math.max(currentPrice - currentCost, 0);
+  const currentNet = currentContribution * currentSales - currentFixed;
+  const currentMargin = currentRevenue > 0 ? (currentNet / currentRevenue) * 100 : 0;
+  const scale = getBusinessScale(currentRevenue);
 
-  const salesBoostFactor = salesLift / 100;
-  const priceBoostFactor = priceLift / 100;
-  const costDropFactor = costDrop / 100;
-  const recurrenceBoostFactor = recurrenceLift / 100;
-  const recurrenceSalesGain = currentSales * recurrenceBoostFactor * segment.recurrenceWeight;
+  const salesFromProcess = currentSales * (salesLift / 100);
+  const salesFromRecurrence =
+    currentSales * (recurrenceLift / 100) * segment.recurrenceWeight;
+  const projectedSales = currentSales + salesFromProcess + salesFromRecurrence;
+  const projectedPrice = currentPrice * (1 + priceLift / 100);
+  const projectedCost = currentCost * (1 - costDrop / 100);
+  const projectedContribution = Math.max(projectedPrice - projectedCost, 0);
+  const projectedRevenue = projectedPrice * projectedSales;
+  const projectedNetBeforeOps = projectedContribution * projectedSales - currentFixed;
 
-  const improvedSales = currentSales * (1 + salesBoostFactor) + recurrenceSalesGain;
-  const improvedPrice = currentPrice * (1 + priceBoostFactor);
-  const improvedCost = currentCost * (1 - costDropFactor);
-  const improvedContribution = improvedPrice - improvedCost;
-  const improvedRevenue = improvedPrice * improvedSales;
-  const improvedGross = improvedContribution * improvedSales;
-  const improvedNet = improvedGross - currentFixed;
-  const deltaRevenue = improvedRevenue - currentRevenue;
-  const deltaNet = improvedNet - currentNet;
-  const improvedBreakEvenSales =
-    improvedContribution > 0 ? currentFixed / improvedContribution : Number.POSITIVE_INFINITY;
+  const implementationBase = scale.baseOps + currentFixed * 0.04 * scale.opsMultiplier;
+  const salesOpsCost =
+    currentRevenue * (salesLift / 100) * 0.12 * scale.opsMultiplier * segment.opsIntensity;
+  const priceOpsCost =
+    currentRevenue * (priceLift / 100) * 0.08 * scale.opsMultiplier;
+  const costOpsCost =
+    currentRevenue *
+    (costDrop / 100) *
+    0.18 *
+    scale.opsMultiplier *
+    segment.costOpsWeight;
+  const recurrenceOpsCost =
+    currentRevenue *
+    (recurrenceLift / 100) *
+    0.14 *
+    scale.opsMultiplier *
+    segment.recurrenceWeight;
+  const adjustmentOpsCost =
+    implementationBase +
+    salesOpsCost +
+    priceOpsCost +
+    costOpsCost +
+    recurrenceOpsCost;
+  const projectedNetAfterOps = projectedNetBeforeOps - adjustmentOpsCost;
+  const internalNetLift = projectedNetAfterOps - currentNet;
 
-  const recurrenceFactorForMarketing = 1 + recurrenceBoostFactor * segment.recurrenceWeight;
-  const marketingNeed = estimateMarketingNeed(
-    Math.max(0, deltaNet),
-    improvedPrice,
-    improvedContribution,
-    recurrenceFactorForMarketing,
+  const marketingEstimate = estimateMarketing({
+    targetNetLift: Math.max(internalNetLift, 0),
+    contributionPerClient: projectedContribution,
+    effectivePrice: projectedPrice,
     segment,
-  );
+    currentSales,
+    scale,
+  });
 
-  const blockedByMargin = improvedContribution <= 0;
-  const grossReturnPerReal =
-    marketingNeed && marketingNeed.investment > 0
-      ? marketingNeed.grossRevenueGenerated / marketingNeed.investment
-      : 0;
-  const marginReturnPerReal =
-    marketingNeed && marketingNeed.investment > 0
-      ? marketingNeed.contributionGenerated / marketingNeed.investment
-      : 0;
+  const handleSegmentChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    const nextSegment =
+      segmentProfiles.find((item) => item.id === event.target.value) ?? segmentProfiles[0];
 
-  function applySegmentDefaults(nextId: string) {
-    const nextSegment = segments.find((item) => item.id === nextId) ?? firstSegment;
     setSegmentId(nextSegment.id);
-    setPriceInput(String(nextSegment.defaults.price));
-    setCostInput(String(nextSegment.defaults.cost));
-    setSalesInput(String(nextSegment.defaults.sales));
-    setFixedInput(String(nextSegment.defaults.fixed));
-  }
+    setCurrentPrice(nextSegment.defaults.price);
+    setCurrentCost(nextSegment.defaults.cost);
+    setCurrentSales(nextSegment.defaults.sales);
+    setCurrentFixed(nextSegment.defaults.fixed);
+  };
+
+  const handleCurrencyChange =
+    (setter: (value: number) => void) => (event: ChangeEvent<HTMLInputElement>) => {
+      const parsed = Number(event.target.value.replace(",", "."));
+      setter(Number.isFinite(parsed) ? Math.max(parsed, 0) : 0);
+    };
+
+  const handleRangeChange =
+    (setter: (value: number) => void) => (event: ChangeEvent<HTMLInputElement>) => {
+      setter(Number(event.target.value));
+    };
 
   return (
-    <section className={styles.root}>
+    <div className={styles.root}>
       <div className={styles.layout}>
         <div className={styles.steps}>
-          <article className={styles.stepPanel}>
+          <section className={styles.stepPanel}>
             <div className={styles.stepHeader}>
-              <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-                Etapa 1
-              </Tag>
-              <Heading as="h2" variant="heading-strong-l">
+              <span className={styles.stepBadge}>Etapa 1</span>
+              <Heading as="h2" variant="heading-strong-m">
                 Base atual do negocio
               </Heading>
-              <Text onBackground="neutral-weak">
-                Preco, custo, vendas e custos fixos para entender o ponto atual antes de falar em marketing.
+              <Text className={styles.stepLead} variant="body-default-s" onBackground="neutral-weak">
+                Comece pela operacao atual. O simulador parte de preco, custo, vendas e custos fixos
+                para entender quanto sobra hoje e qual o porte estimado da estrutura.
               </Text>
             </div>
 
             <div className={styles.fieldGrid}>
-              <label className={styles.field}>
-                <span className={styles.fieldLabel}>Modelo de negocio</span>
+              <label className={`${styles.field} ${styles.fieldWide}`} htmlFor="simulation-segment">
+                <Text className={styles.fieldLabel} variant="label-default-s" onBackground="neutral-weak">
+                  Categoria
+                </Text>
                 <select
                   className={styles.select}
+                  id="simulation-segment"
+                  onChange={handleSegmentChange}
                   value={segmentId}
-                  onChange={(event) => applySegmentDefaults(event.target.value)}
                 >
-                  {segments.map((item) => (
+                  {segmentProfiles.map((item) => (
                     <option key={item.id} value={item.id}>
                       {item.label}
                     </option>
                   ))}
                 </select>
+                <Text className={styles.helper} variant="body-default-xs" onBackground="neutral-weak">
+                  {segment.note}
+                </Text>
               </label>
 
-              <label className={styles.field}>
-                <span className={styles.fieldLabel}>Preco medio atual</span>
+              <label className={styles.field} htmlFor="simulation-price">
+                <Text className={styles.fieldLabel} variant="label-default-s" onBackground="neutral-weak">
+                  <TermHint
+                    label="Preco medio por venda"
+                    description="E o valor medio que entra a cada venda feita pelo negocio."
+                    href={`${glossaryLinks.marketing}#ticket-medio`}
+                  />
+                </Text>
                 <input
                   className={styles.input}
-                  inputMode="numeric"
+                  id="simulation-price"
+                  inputMode="decimal"
                   min="0"
+                  onChange={handleCurrencyChange(setCurrentPrice)}
                   step="10"
                   type="number"
-                  value={priceInput}
-                  onChange={(event) => setPriceInput(event.target.value)}
+                  value={currentPrice}
                 />
               </label>
 
-              <label className={styles.field}>
-                <span className={styles.fieldLabel}>Custo por venda atual</span>
+              <label className={styles.field} htmlFor="simulation-cost">
+                <Text className={styles.fieldLabel} variant="label-default-s" onBackground="neutral-weak">
+                  Custo direto por venda
+                </Text>
                 <input
                   className={styles.input}
-                  inputMode="numeric"
+                  id="simulation-cost"
+                  inputMode="decimal"
                   min="0"
+                  onChange={handleCurrencyChange(setCurrentCost)}
                   step="10"
                   type="number"
-                  value={costInput}
-                  onChange={(event) => setCostInput(event.target.value)}
+                  value={currentCost}
                 />
               </label>
 
-              <label className={styles.field}>
-                <span className={styles.fieldLabel}>Vendas por mes</span>
+              <label className={styles.field} htmlFor="simulation-sales">
+                <Text className={styles.fieldLabel} variant="label-default-s" onBackground="neutral-weak">
+                  Vendas por mes
+                </Text>
                 <input
                   className={styles.input}
-                  inputMode="numeric"
+                  id="simulation-sales"
+                  inputMode="decimal"
                   min="0"
+                  onChange={handleCurrencyChange(setCurrentSales)}
                   step="1"
                   type="number"
-                  value={salesInput}
-                  onChange={(event) => setSalesInput(event.target.value)}
+                  value={currentSales}
                 />
               </label>
 
-              <label className={styles.field}>
-                <span className={styles.fieldLabel}>Custos fixos mensais</span>
+              <label className={styles.field} htmlFor="simulation-fixed">
+                <Text className={styles.fieldLabel} variant="label-default-s" onBackground="neutral-weak">
+                  Custos fixos mensais
+                </Text>
                 <input
                   className={styles.input}
-                  inputMode="numeric"
+                  id="simulation-fixed"
+                  inputMode="decimal"
                   min="0"
+                  onChange={handleCurrencyChange(setCurrentFixed)}
                   step="100"
                   type="number"
-                  value={fixedInput}
-                  onChange={(event) => setFixedInput(event.target.value)}
+                  value={currentFixed}
                 />
               </label>
             </div>
 
             <div className={styles.metricGrid}>
-              <div className={styles.metricCard}>
+              <article className={styles.metricCard}>
                 <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                  Receita atual
+                  Faturamento atual
                 </Text>
-                <Text variant="heading-strong-s">{formatCurrency(currentRevenue)}</Text>
-              </div>
-              <div className={styles.metricCard}>
-                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                  Margem por venda
+                <Text className={styles.metricValue} variant="body-default-l">
+                  {formatCurrency(currentRevenue)}
                 </Text>
-                <Text variant="heading-strong-s">{formatCurrency(currentContribution)}</Text>
-              </div>
-              <div className={styles.metricCard}>
-                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                  Resultado mensal
+                <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
+                  Equivalente mensal usando ticket e volume atuais.
                 </Text>
-                <Text variant="heading-strong-s">{formatCurrency(currentNet)}</Text>
-              </div>
-              <div className={styles.metricCard}>
-                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                  Ponto de equilibrio
-                </Text>
-                <Text variant="heading-strong-s">
-                  {Number.isFinite(currentBreakEvenSales) ? `${formatNumber(currentBreakEvenSales)} vendas` : "Margem negativa"}
-                </Text>
-              </div>
-            </div>
-          </article>
+              </article>
 
-          <article className={styles.stepPanel}>
+              <article className={styles.metricCard}>
+                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
+                  Caixa atual
+                </Text>
+                <Text className={styles.metricValue} variant="body-default-l">
+                  {formatCurrency(currentNet)}
+                </Text>
+                <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
+                  Margem apos custos diretos e fixos: {formatPercent(currentMargin)}.
+                </Text>
+              </article>
+
+              <article className={styles.metricCard}>
+                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
+                  Porte estimado
+                </Text>
+                <Text className={styles.metricValue} variant="body-default-l">
+                  {scale.label}
+                </Text>
+                <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
+                  {scale.note}
+                </Text>
+              </article>
+
+              <article className={styles.metricCard}>
+                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
+                  <TermHint
+                    label="Margem por venda"
+                    description="E quanto sobra por venda depois de tirar o custo direto daquele atendimento ou produto."
+                    href={`${glossaryLinks.marketing}#margem`}
+                  />
+                </Text>
+                <Text className={styles.metricValue} variant="body-default-l">
+                  {formatCurrency(currentContribution)}
+                </Text>
+                <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
+                  Valor que cada venda deixa antes dos custos fixos.
+                </Text>
+              </article>
+            </div>
+          </section>
+
+          <section className={styles.stepPanel}>
             <div className={styles.stepHeader}>
-              <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-                Etapa 2
-              </Tag>
-              <Heading as="h2" variant="heading-strong-l">
+              <span className={styles.stepBadge}>Etapa 2</span>
+              <Heading as="h2" variant="heading-strong-m">
                 O que pequenos ajustes mudam
               </Heading>
-              <Text onBackground="neutral-weak">
-                A ideia aqui e testar o efeito combinado de vender um pouco mais, precificar melhor, comprar melhor e aumentar recorrencia.
+              <Text className={styles.stepLead} variant="body-default-s" onBackground="neutral-weak">
+                Aqui o ganho nao aparece de graca. Melhorar vendas, subir ticket, reduzir custo e
+                aumentar recorrencia exigem implantacao, gestao e operacao. Esse custo entra na conta.
               </Text>
             </div>
 
             <div className={styles.sliderList}>
-              <label className={styles.sliderField}>
+              <label className={styles.sliderField} htmlFor="sales-lift">
                 <div className={styles.sliderHead}>
-                  <span className={styles.fieldLabel}>+ vendas</span>
-                  <span className={styles.sliderValue}>{percentLabel(salesLift)}</span>
+                  <div className={styles.sliderCopy}>
+                    <Text className={styles.fieldLabel} variant="label-default-s" onBackground="neutral-weak">
+                      + vendas
+                    </Text>
+                    <Text className={styles.helper} variant="body-default-xs" onBackground="neutral-weak">
+                      Mais agenda preenchida, mais resposta comercial e mais fechamento.
+                    </Text>
+                  </div>
+                  <span className={styles.sliderValue}>{formatPercent(salesLift)}</span>
                 </div>
                 <input
                   className={styles.range}
-                  max="40"
+                  id="sales-lift"
+                  max="35"
                   min="0"
+                  onChange={handleRangeChange(setSalesLift)}
                   step="1"
                   type="range"
                   value={salesLift}
-                  onChange={(event) => setSalesLift(Number(event.target.value))}
                 />
+                <div className={styles.rangeMeta}>
+                  <span>0%</span>
+                  <span>{formatNumber(salesFromProcess)} vendas extras</span>
+                  <span>35%</span>
+                </div>
               </label>
 
-              <label className={styles.sliderField}>
+              <label className={styles.sliderField} htmlFor="price-lift">
                 <div className={styles.sliderHead}>
-                  <span className={styles.fieldLabel}>+ preco</span>
-                  <span className={styles.sliderValue}>{percentLabel(priceLift)}</span>
+                  <div className={styles.sliderCopy}>
+                    <Text className={styles.fieldLabel} variant="label-default-s" onBackground="neutral-weak">
+                      + preco
+                    </Text>
+                    <Text className={styles.helper} variant="body-default-xs" onBackground="neutral-weak">
+                      Reposicionamento de proposta, pacote e valor percebido.
+                    </Text>
+                  </div>
+                  <span className={styles.sliderValue}>{formatPercent(priceLift)}</span>
                 </div>
                 <input
                   className={styles.range}
-                  max="25"
+                  id="price-lift"
+                  max="20"
                   min="0"
+                  onChange={handleRangeChange(setPriceLift)}
                   step="1"
                   type="range"
                   value={priceLift}
-                  onChange={(event) => setPriceLift(Number(event.target.value))}
                 />
+                <div className={styles.rangeMeta}>
+                  <span>0%</span>
+                  <span>Ticket alvo: {formatCurrency(projectedPrice)}</span>
+                  <span>20%</span>
+                </div>
               </label>
 
-              <label className={styles.sliderField}>
+              <label className={styles.sliderField} htmlFor="cost-drop">
                 <div className={styles.sliderHead}>
-                  <span className={styles.fieldLabel}>- custo</span>
-                  <span className={styles.sliderValue}>{percentLabel(costDrop, "-")}</span>
+                  <div className={styles.sliderCopy}>
+                    <Text className={styles.fieldLabel} variant="label-default-s" onBackground="neutral-weak">
+                      - custo
+                    </Text>
+                    <Text className={styles.helper} variant="body-default-xs" onBackground="neutral-weak">
+                      Reorganizacao interna, renegociacao e menos desperdicio por venda.
+                    </Text>
+                  </div>
+                  <span className={styles.sliderValue}>{formatPercent(-costDrop)}</span>
                 </div>
                 <input
                   className={styles.range}
-                  max="20"
+                  id="cost-drop"
+                  max="18"
                   min="0"
+                  onChange={handleRangeChange(setCostDrop)}
                   step="1"
                   type="range"
                   value={costDrop}
-                  onChange={(event) => setCostDrop(Number(event.target.value))}
                 />
+                <div className={styles.rangeMeta}>
+                  <span>0%</span>
+                  <span>Custo alvo: {formatCurrency(projectedCost)}</span>
+                  <span>18%</span>
+                </div>
               </label>
 
-              <label className={styles.sliderField}>
+              <label className={styles.sliderField} htmlFor="recurrence-lift">
                 <div className={styles.sliderHead}>
-                  <span className={styles.fieldLabel}>+ recorrencia</span>
-                  <span className={styles.sliderValue}>{percentLabel(recurrenceLift)}</span>
+                  <div className={styles.sliderCopy}>
+                    <Text className={styles.fieldLabel} variant="label-default-s" onBackground="neutral-weak">
+                      <TermHint
+                        label="+ recorrencia"
+                        description="Mostra o efeito de fazer o mesmo cliente voltar mais vezes ou comprar de novo."
+                        href={`${glossaryLinks.marketing}#recorrencia`}
+                      />
+                    </Text>
+                    <Text className={styles.helper} variant="body-default-xs" onBackground="neutral-weak">
+                      Mais retorno, recompra, remarcacao e continuidade no atendimento.
+                    </Text>
+                  </div>
+                  <span className={styles.sliderValue}>{formatPercent(recurrenceLift)}</span>
                 </div>
                 <input
                   className={styles.range}
-                  max="30"
+                  id="recurrence-lift"
+                  max="25"
                   min="0"
+                  onChange={handleRangeChange(setRecurrenceLift)}
                   step="1"
                   type="range"
                   value={recurrenceLift}
-                  onChange={(event) => setRecurrenceLift(Number(event.target.value))}
                 />
+                <div className={styles.rangeMeta}>
+                  <span>0%</span>
+                  <span>{formatNumber(salesFromRecurrence)} vendas equivalentes</span>
+                  <span>25%</span>
+                </div>
               </label>
             </div>
 
             <div className={styles.metricGrid}>
-              <div className={styles.metricCard}>
+              <article className={styles.metricCard}>
                 <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                  Receita com ajustes
+                  Faturamento projetado
                 </Text>
-                <Text variant="heading-strong-s">{formatCurrency(improvedRevenue)}</Text>
-              </div>
-              <div className={styles.metricCard}>
+                <Text className={styles.metricValue} variant="body-default-l">
+                  {formatCurrency(projectedRevenue)}
+                </Text>
+                <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
+                  {formatNumber(projectedSales)} vendas por mes com ticket alvo de{" "}
+                  {formatCurrency(projectedPrice)}.
+                </Text>
+              </article>
+
+              <article className={styles.metricCard}>
                 <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                  Resultado com ajustes
+                  Caixa antes da implantacao
                 </Text>
-                <Text variant="heading-strong-s">{formatCurrency(improvedNet)}</Text>
-              </div>
-              <div className={styles.metricCard}>
+                <Text className={styles.metricValue} variant="body-default-l">
+                  {formatCurrency(projectedNetBeforeOps)}
+                </Text>
+                <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
+                  Ganho operacional bruto se a mudanca ja estivesse rodando.
+                </Text>
+              </article>
+
+              <article className={styles.metricCard}>
                 <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                  Ganho mensal
+                  <TermHint
+                    label="Custo de implantacao"
+                    description="E o custo interno de colocar os ajustes em pratica, incluindo gestao, treinamento e operacao."
+                    href={`${glossaryLinks.marketing}#margem`}
+                  />
                 </Text>
-                <Text variant="heading-strong-s">{formatCurrency(deltaNet)}</Text>
-              </div>
-              <div className={styles.metricCard}>
+                <Text className={styles.metricValue} variant="body-default-l">
+                  {formatCurrency(adjustmentOpsCost)}
+                </Text>
+                <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
+                  Inclui comercial, reposicionamento, revisao de custos e gerencia interna.
+                </Text>
+              </article>
+
+              <article className={styles.metricCard}>
                 <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                  Vendas extras totais
+                  Ganho liquido apos implantacao
                 </Text>
-                <Text variant="heading-strong-s">{formatNumber(improvedSales - currentSales)}</Text>
-              </div>
+                <Text className={styles.metricValue} variant="body-default-l">
+                  {formatCurrency(projectedNetAfterOps)}
+                </Text>
+                <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
+                  Diferenca sobre hoje: {formatCurrency(internalNetLift)} por mes.
+                </Text>
+              </article>
             </div>
 
-            <div className={styles.noteBlock}>
-              <Text variant="body-default-s" onBackground="neutral-weak">
-                Novo preco medio: {formatCurrency(improvedPrice)} | novo custo por venda: {formatCurrency(improvedCost)}.
-              </Text>
-              <Text variant="body-default-s" onBackground="neutral-weak">
-                Novo ponto de equilibrio: {Number.isFinite(improvedBreakEvenSales) ? `${formatNumber(improvedBreakEvenSales)} vendas` : "margem ainda negativa"}.
+            <div className={styles.breakdownList}>
+              <div className={styles.breakdownItem}>
+                <Text variant="body-default-s">Base de implantacao e gestao</Text>
+                <Text variant="body-default-s">{formatCurrency(implementationBase)}</Text>
+              </div>
+              <div className={styles.breakdownItem}>
+                <Text variant="body-default-s">Ajuste comercial para ganhar volume</Text>
+                <Text variant="body-default-s">{formatCurrency(salesOpsCost)}</Text>
+              </div>
+              <div className={styles.breakdownItem}>
+                <Text variant="body-default-s">Reposicionamento para sustentar preco</Text>
+                <Text variant="body-default-s">{formatCurrency(priceOpsCost)}</Text>
+              </div>
+              <div className={styles.breakdownItem}>
+                <Text variant="body-default-s">Revisao operacional para reduzir custo</Text>
+                <Text variant="body-default-s">{formatCurrency(costOpsCost)}</Text>
+              </div>
+              <div className={styles.breakdownItem}>
+                <Text variant="body-default-s">Recorrencia, CRM e acompanhamento</Text>
+                <Text variant="body-default-s">{formatCurrency(recurrenceOpsCost)}</Text>
+              </div>
+            </div>
+          </section>
+
+          <section className={styles.stepPanel}>
+            <div className={styles.stepHeader}>
+              <span className={styles.stepBadge}>Etapa 3</span>
+              <Heading as="h2" variant="heading-strong-m">
+                Quanto o marketing precisaria retornar
+              </Heading>
+              <Text className={styles.stepLead} variant="body-default-s" onBackground="neutral-weak">
+                Agora a conta replica o ganho liquido da etapa 2 via marketing. O calculo usa o
+                ticket alvo, a margem por venda, o CAC base do segmento e a perda de eficiencia
+                depois do ponto de saturacao.
               </Text>
             </div>
-          </article>
+
+            <div className={styles.metricGrid}>
+              <article className={styles.metricCard}>
+                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
+                  Meta liquida a replicar
+                </Text>
+                <Text className={styles.metricValue} variant="body-default-l">
+                  {formatCurrency(marketingEstimate.targetNetLift)}
+                </Text>
+                <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
+                  Ganho mensal equivalente ao resultado liquido dos ajustes internos.
+                </Text>
+              </article>
+
+              <article className={styles.metricCard}>
+                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
+                  <TermHint
+                    label="Ticket usado na conta"
+                    description="E o valor medio por venda que o simulador assume para projetar o retorno."
+                    href={`${glossaryLinks.marketing}#ticket-medio`}
+                  />
+                </Text>
+                <Text className={styles.metricValue} variant="body-default-l">
+                  {formatCurrency(projectedPrice)}
+                </Text>
+                <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
+                  A conta considera o valor que voce quer sustentar, nao apenas o ticket atual.
+                </Text>
+              </article>
+
+              <article className={styles.metricCard}>
+                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
+                  <TermHint
+                    label="CAC base do segmento"
+                    description="E o custo medio para conquistar um novo cliente antes de a verba comecar a perder eficiencia."
+                    href={`${glossaryLinks.marketing}#cac`}
+                  />
+                </Text>
+                <Text className={styles.metricValue} variant="body-default-l">
+                  {formatCurrency(marketingEstimate.baseCAC)}
+                </Text>
+                <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
+                  Ponto de partida antes da verba passar de {formatNumber(marketingEstimate.saturationPoint, 0)}{" "}
+                  novos clientes por mes.
+                </Text>
+              </article>
+
+              <article className={styles.metricCard}>
+                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
+                  <TermHint
+                    label="CAC ajustado"
+                    description="E o CAC depois de considerar que subir a verba tende a encarecer a aquisicao."
+                    href={`${glossaryLinks.publicidade}#ponto-de-saturacao`}
+                  />
+                </Text>
+                <Text className={styles.metricValue} variant="body-default-l">
+                  {formatCurrency(marketingEstimate.adjustedCAC)}
+                </Text>
+                <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
+                  Perda de eficiencia: {formatPercent(marketingEstimate.efficiencyLossPct)}.
+                </Text>
+              </article>
+            </div>
+
+            <div className={styles.breakdownList}>
+              <div className={styles.breakdownItem}>
+                <Text variant="body-default-s">Novos clientes necessarios</Text>
+                <Text variant="body-default-s">{formatNumber(marketingEstimate.newClients)}</Text>
+              </div>
+              <div className={styles.breakdownItem}>
+                <Text variant="body-default-s">
+                  <TermHint
+                    label="Midia estimada"
+                    description="E a verba de anuncios que o simulador estima para buscar o volume de clientes desejado."
+                    href={`${glossaryLinks.publicidade}#midia-paga`}
+                  />
+                </Text>
+                <Text variant="body-default-s">{formatCurrency(marketingEstimate.mediaSpend)}</Text>
+              </div>
+              <div className={styles.breakdownItem}>
+                <Text variant="body-default-s">Gestao e operacao de marketing</Text>
+                <Text variant="body-default-s">{formatCurrency(marketingEstimate.managementCost)}</Text>
+              </div>
+              <div className={styles.breakdownItem}>
+                <Text variant="body-default-s">Taxa operacional de marketing</Text>
+                <Text variant="body-default-s">
+                  {formatPercent(marketingEstimate.managementRate * 100)}
+                </Text>
+              </div>
+              <div className={styles.breakdownItem}>
+                <Text variant="body-default-s">
+                  <TermHint
+                    label="Investimento total estimado"
+                    description="Soma da verba de midia com a camada operacional e de gestao necessaria para rodar o marketing."
+                    href={`${glossaryLinks.publicidade}#roas`}
+                  />
+                </Text>
+                <Text variant="body-default-s">{formatCurrency(marketingEstimate.totalInvestment)}</Text>
+              </div>
+            </div>
+          </section>
         </div>
 
         <aside className={styles.resultPanel}>
           <div className={styles.stepHeader}>
-            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-              Etapa 3
-            </Tag>
-            <Heading as="h2" variant="heading-strong-l">
-              Quanto o marketing precisaria retornar
+            <span className={styles.stepBadge}>Leitura final</span>
+            <Heading as="h2" variant="heading-strong-m">
+              Quanto essa meta pede de marketing
             </Heading>
-            <Text onBackground="neutral-weak">
-              Aqui a conta considera aumento proporcional de CAC e perda de eficiencia depois do ponto de saturacao do modelo.
+            <Text className={styles.stepLead} variant="body-default-s" onBackground="neutral-weak">
+              O retorno cai porque o custo total nao e so CAC. Entram midia, operacao, gestao e a
+              piora natural de eficiencia quando a verba sobe alem do ponto de saturacao.
             </Text>
           </div>
 
-          {blockedByMargin ? (
-            <div className={styles.warningCard}>
-              <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                Antes do marketing
-              </Text>
-              <Heading as="h3" variant="heading-strong-m">
-                A margem por venda ainda esta negativa.
-              </Heading>
-              <Text onBackground="neutral-weak">
-                Se o preco medio nao cobre o custo variavel, investir em marketing acelera a perda. Primeiro precisa ajustar oferta, preco ou custo.
-              </Text>
-            </div>
-          ) : !marketingNeed ? (
-            <div className={styles.warningCard}>
-              <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                Limite do modelo
-              </Text>
-              <Heading as="h3" variant="heading-strong-m">
-                O marketing nao fecha a conta nesse cenario.
-              </Heading>
-              <Text onBackground="neutral-weak">
-                Com a margem atual e o ganho desejado, o CAC sobe antes de o investimento se pagar. Vale fortalecer mais o passo 2 antes de empurrar midia.
-              </Text>
-            </div>
-          ) : (
-            <>
-              <div className={styles.resultHero}>
-                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                  Retorno bruto mensal necessario
-                </Text>
-                <div className={styles.resultPill}>{formatCurrency(marketingNeed.grossRevenueGenerated)}</div>
-                <Text variant="body-default-s" onBackground="neutral-weak">
-                  Para bater o ganho mensal de {formatCurrency(deltaNet)} gerado pelos ajustes do passo 2.
-                </Text>
-              </div>
+          <div className={styles.resultHero}>
+            <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
+              <TermHint
+                label="Investimento total estimado"
+                description="Soma da verba de anuncios com o custo de operacao do marketing para buscar essa meta."
+                href={`${glossaryLinks.publicidade}#roas`}
+              />
+            </Text>
+            <span className={styles.resultPill}>
+              {formatCurrency(marketingEstimate.totalInvestment)}
+            </span>
+            <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
+              {marketingEstimate.viable
+                ? "Valor mensal aproximado para replicar o ganho da etapa 2 via marketing."
+                : "Mesmo com mais verba, a conta nao fecha com folga sob estas premissas."}
+            </Text>
+          </div>
 
-              <div className={styles.resultMetricGrid}>
-                <div className={styles.resultMetric}>
-                  <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                    Investimento estimado
-                  </Text>
-                  <Text variant="heading-strong-s">{formatCurrency(marketingNeed.investment)}</Text>
-                </div>
-                <div className={styles.resultMetric}>
-                  <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                    Novos clientes necessarios
-                  </Text>
-                  <Text variant="heading-strong-s">{formatNumber(marketingNeed.clients)}/mes</Text>
-                </div>
-                <div className={styles.resultMetric}>
-                  <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                    CAC ajustado
-                  </Text>
-                  <Text variant="heading-strong-s">{formatCurrency(marketingNeed.adjustedCAC)}</Text>
-                </div>
-                <div className={styles.resultMetric}>
-                  <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                    Retorno bruto por R$1
-                  </Text>
-                  <Text variant="heading-strong-s">{formatNumber(grossReturnPerReal)}x</Text>
-                </div>
-                <div className={styles.resultMetric}>
-                  <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                    Margem por R$1
-                  </Text>
-                  <Text variant="heading-strong-s">{formatNumber(marginReturnPerReal)}x</Text>
-                </div>
-                <div className={styles.resultMetric}>
-                  <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                    Ponto de saturacao
-                  </Text>
-                  <Text variant="heading-strong-s">{formatNumber(segment.saturationClients)} clientes/mes</Text>
-                </div>
-              </div>
-            </>
-          )}
+          <div className={styles.resultMetricGrid}>
+            <article className={styles.resultMetric}>
+              <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
+                Receita gerada
+              </Text>
+              <Text className={styles.metricValue} variant="body-default-l">
+                {formatCurrency(marketingEstimate.grossRevenue)}
+              </Text>
+              <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
+                Receita mensal puxada pelos novos clientes calculados.
+              </Text>
+            </article>
+
+            <article className={styles.resultMetric}>
+              <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
+                Margem gerada
+              </Text>
+              <Text className={styles.metricValue} variant="body-default-l">
+                {formatCurrency(marketingEstimate.contributionGenerated)}
+              </Text>
+              <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
+                Valor antes dos fixos, usando a margem por venda alvo.
+              </Text>
+            </article>
+
+            <article className={styles.resultMetric}>
+              <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
+                <TermHint
+                  label="Retorno bruto por R$ 1"
+                  description="Compara a receita gerada com o total investido em marketing, sem descontar os custos fixos."
+                  href={`${glossaryLinks.publicidade}#roas`}
+                />
+              </Text>
+              <Text className={styles.metricValue} variant="body-default-l">
+                {formatNumber(marketingEstimate.grossReturnPerReal, 2)}x
+              </Text>
+              <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
+                Receita total dividida pelo investimento total em marketing.
+              </Text>
+            </article>
+
+            <article className={styles.resultMetric}>
+              <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
+                Retorno de margem por R$ 1
+              </Text>
+              <Text className={styles.metricValue} variant="body-default-l">
+                {formatNumber(marketingEstimate.contributionReturnPerReal, 2)}x
+              </Text>
+              <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
+                Ajuda a ver quando a verba sobe mas a margem nao acompanha no mesmo ritmo.
+              </Text>
+            </article>
+          </div>
 
           <div className={styles.noteBlock}>
-            <Tag size="s" background="neutral-alpha-weak">
-              Leitura direcional
-            </Tag>
+            <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
+              O que esta puxando a conta
+            </Text>
             <Text variant="body-default-s" onBackground="neutral-weak">
-              {segment.note}
+              O calculo usa o ticket alvo de {formatCurrency(projectedPrice)}, a margem alvo de{" "}
+              {formatCurrency(projectedContribution)} por venda e um ponto de saturacao de{" "}
+              {formatNumber(marketingEstimate.saturationPoint, 0)} novos clientes por mes para{" "}
+              {segment.label.toLowerCase()}.
             </Text>
             <Text variant="body-default-s" onBackground="neutral-weak">
               {segment.saturationNote}
             </Text>
-            <Text variant="body-default-s" onBackground="neutral-weak">
-              O marketing aqui precisa competir com o ganho de caixa do passo 2, nao apenas gerar faturamento bruto.
-            </Text>
+            {!marketingEstimate.viable ? (
+              <div className={styles.warningCard}>
+                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
+                  Meta agressiva para o modelo
+                </Text>
+                <Text variant="body-default-s" onBackground="neutral-weak">
+                  Com as premissas atuais, o marketing chega a cerca de{" "}
+                  {formatCurrency(marketingEstimate.achievedNetLift)} de ganho liquido mensal antes
+                  de ficar caro demais. Vale revisar ticket, margem ou a meta de volume antes de
+                  acelerar verba.
+                </Text>
+              </div>
+            ) : (
+              <div className={styles.warningCard}>
+                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
+                  Ganho liquido replicado
+                </Text>
+                <Text variant="body-default-s" onBackground="neutral-weak">
+                  A leitura encontra cerca de {formatCurrency(marketingEstimate.achievedNetLift)} de
+                  ganho liquido mensal com {formatNumber(marketingEstimate.newClients)} novos
+                  clientes.
+                </Text>
+              </div>
+            )}
           </div>
 
           <div className={styles.actions}>
-            <Button href={contactHref} variant="primary" size="m" prefixIcon="whatsapp">
-              Levar essa leitura para uma conversa
+            <Button href={contactHref} variant="primary" size="m" arrowIcon>
+              Conversar com contexto
             </Button>
             <Button href={servicesHref} variant="secondary" size="m" arrowIcon>
               Ver servicos
@@ -587,6 +1088,6 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
           </div>
         </aside>
       </div>
-    </section>
+    </div>
   );
 }

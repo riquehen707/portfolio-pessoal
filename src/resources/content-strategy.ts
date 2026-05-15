@@ -147,9 +147,9 @@ const contentStrategy = {
       },
       hero: {
         eyebrow: "Projetos",
-        headline: "Projetos que unem estética, estratégia e execução.",
+        headline: "Feed de projetos, sistemas e publicações do portfolio.",
         subheadline:
-          "Cada projeto resolve um problema diferente. Todos seguem o mesmo princípio: funcionar de verdade.",
+          "O /work reúne projetos pessoais, sistemas, cases e atualizações do que está sendo construído, enquanto o /blog fica para estudos, análises e notícias.",
         primaryCtaLabel: "Vamos conversar",
         primaryCtaHref: "/contact",
         secondaryCtaLabel: "Ver abordagem técnica",

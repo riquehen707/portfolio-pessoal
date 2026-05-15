@@ -1,10 +1,10 @@
 import { Column, Meta, Schema } from "@once-ui-system/core";
 
+import { buildWorkFeedEntries } from "@/app/work/feedData";
 import { getAllWorkProjects } from "@/app/work/projectData";
-import { buildWorkJourneyEntries } from "@/app/work/timelineData";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
-import { AscendingTimeline } from "@/components/work/AscendingTimeline";
-import { about, baseURL, contentStrategy, person, work } from "@/resources";
+import { WorkFeed } from "@/components/work/WorkFeed";
+import { about, baseURL, blog, contentStrategy, person, work } from "@/resources";
 
 import styles from "./work.module.scss";
 
@@ -25,9 +25,9 @@ export async function generateMetadata() {
 
 export default function Work() {
   const projects = getAllWorkProjects();
-  const journeyEntries = buildWorkJourneyEntries(projects);
+  const feedEntries = buildWorkFeedEntries(projects);
 
-  if (journeyEntries.length === 0) {
+  if (feedEntries.length === 0) {
     return null;
   }
 
@@ -48,12 +48,12 @@ export default function Work() {
       />
       <BreadcrumbJsonLd
         items={[
-          { name: "Início", url: baseURL },
+          { name: "Inicio", url: baseURL },
           { name: "Projetos", url: `${baseURL}${work.path}` },
         ]}
       />
 
-      <AscendingTimeline entries={journeyEntries} />
+      <WorkFeed entries={feedEntries} blogHref={blog.path} />
     </Column>
   );
 }

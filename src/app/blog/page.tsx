@@ -1,17 +1,18 @@
 import { Button, Column, Grid, Heading, Meta, Row, Schema, Tag, Text } from "@once-ui-system/core";
 
+import { Posts } from "@/components/blog/Posts";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { baseURL, blog, person, servicesPage } from "@/resources";
 
 import styles from "./blog.module.scss";
 
 const blogPlaceholderDescription =
-  "Blog em produção com foco em marketing, design, economia aplicada a negócios e operação para prestadores de serviço.";
+  "Blog em producao com foco em marketing, design, economia aplicada a negocios e operacao para prestadores de servico.";
 
 const newsletterWaitlistHref = `mailto:${person.email}?subject=${encodeURIComponent(
   "Quero entrar na newsletter",
 )}&body=${encodeURIComponent(
-  "Quero receber os próximos conteúdos do blog quando a newsletter for aberta.",
+  "Quero receber os proximos conteudos do blog quando a newsletter for aberta.",
 )}`;
 
 export async function generateMetadata() {
@@ -19,7 +20,7 @@ export async function generateMetadata() {
     title: blog.title,
     description: blogPlaceholderDescription,
     baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent("Blog em produção")}`,
+    image: `/api/og/generate?title=${encodeURIComponent("Blog em producao")}`,
     path: blog.path,
   });
 }
@@ -33,7 +34,7 @@ export default function Blog() {
         title={blog.title}
         description={blogPlaceholderDescription}
         path={blog.path}
-        image={`/api/og/generate?title=${encodeURIComponent("Blog em produção")}`}
+        image={`/api/og/generate?title=${encodeURIComponent("Blog em producao")}`}
         author={{
           name: person.name,
           url: `${baseURL}${blog.path}`,
@@ -42,7 +43,7 @@ export default function Blog() {
       />
       <BreadcrumbJsonLd
         items={[
-          { name: "Início", url: baseURL },
+          { name: "Inicio", url: baseURL },
           { name: "Blog", url: `${baseURL}${blog.path}` },
         ]}
       />
@@ -55,7 +56,7 @@ export default function Blog() {
             </Tag>
 
             <Heading as="h1" className={styles.heroTitle} variant="display-strong-s">
-              Em andamento
+              Editorial em abertura
             </Heading>
 
             <Text
@@ -64,13 +65,13 @@ export default function Blog() {
               variant="heading-default-m"
               wrap="balance"
             >
-              O blog está sendo preparado para publicar conteúdo prático sobre marketing, design,
-              economia aplicada a negócios e rotina de prestadores de serviço.
+              O blog esta sendo estruturado para publicar conteudo pratico sobre marketing, design,
+              economia aplicada a negocios e rotina de prestadores de servico.
             </Text>
 
             <Text className={styles.heroNote} onBackground="neutral-weak" variant="body-default-m">
-              A ideia é abrir com uma linha editorial coesa, para que os textos entrem como base útil
-              e não como arquivo solto.
+              Os primeiros guias de termos ja entram como base de apoio para o simulador e para os
+              proximos artigos.
             </Text>
 
             <Row className={styles.actions} gap="12" wrap>
@@ -78,7 +79,7 @@ export default function Blog() {
                 Entrar na newsletter
               </Button>
               <Button href={servicesPage.path} variant="secondary" size="m" arrowIcon>
-                Ver serviços
+                Ver servicos
               </Button>
             </Row>
           </div>
@@ -89,8 +90,8 @@ export default function Blog() {
                 Marketing
               </Text>
               <Text variant="body-default-m" onBackground="neutral-weak">
-                Posicionamento, aquisição, oferta, comunicação e estrutura comercial para negócios de
-                serviço.
+                Posicionamento, aquisicao, oferta, comunicacao e estrutura comercial para negocios
+                de servico.
               </Text>
             </div>
 
@@ -99,20 +100,38 @@ export default function Blog() {
                 Design
               </Text>
               <Text variant="body-default-m" onBackground="neutral-weak">
-                Páginas, direção visual, experiência e clareza estética com função prática de venda.
+                Paginas, direcao visual, experiencia e clareza estetica com funcao pratica de venda.
               </Text>
             </div>
 
             <div className={styles.topicItem}>
               <Text className={styles.topicLabel} variant="label-default-s" onBackground="neutral-weak">
-                Economia aplicada
+                Publicidade
               </Text>
               <Text variant="body-default-m" onBackground="neutral-weak">
-                Preço, margem, recorrência, demanda e leitura de negócio para crescer com menos ruído.
+                Midia paga, leitura de eficiencia, custos de aquisicao e retorno real por verba
+                investida.
               </Text>
             </div>
           </aside>
         </div>
+      </section>
+
+      <section className={styles.publishedSection}>
+        <div className={styles.sectionHeader}>
+          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+            Guias
+          </Tag>
+          <Heading as="h2" variant="heading-strong-l">
+            Primeiros artigos publicados
+          </Heading>
+          <Text onBackground="neutral-weak" variant="body-default-m">
+            Um ponto de partida para explicar termos que aparecem nas simulacoes e nos proximos
+            textos do site.
+          </Text>
+        </div>
+
+        <Posts columns="3" range={[1, 3]} showSummary marginBottom="0" />
       </section>
 
       <Grid className={styles.signalGrid} columns="3" s={{ columns: 1 }} gap="20">
@@ -121,8 +140,7 @@ export default function Blog() {
             Como vou publicar
           </Text>
           <Text variant="body-default-m" onBackground="neutral-weak">
-            Artigos curtos, análises aplicáveis, frameworks de decisão e materiais úteis para o dia a
-            dia.
+            Artigos curtos, analises aplicaveis, frameworks de decisao e materiais uteis para o dia a dia.
           </Text>
         </div>
 
@@ -131,7 +149,7 @@ export default function Blog() {
             Para quem
           </Text>
           <Text variant="body-default-m" onBackground="neutral-weak">
-            Principalmente para prestadores de serviço, pequenos negócios e operações que precisam
+            Principalmente para prestadores de servico, pequenos negocios e operacoes que precisam
             vender melhor com mais clareza.
           </Text>
         </div>
@@ -141,8 +159,8 @@ export default function Blog() {
             Newsletter
           </Text>
           <Text variant="body-default-m" onBackground="neutral-weak">
-            A newsletter entra junto com os primeiros conteúdos para acompanhar essa base editorial em
-            construção.
+            A newsletter entra junto com os proximos conteudos para acompanhar essa base editorial
+            em construcao.
           </Text>
         </div>
       </Grid>

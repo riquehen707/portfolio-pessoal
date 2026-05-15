@@ -4,57 +4,169 @@
 
 .layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(22rem, 0.86fr);
-  gap: clamp(1.25rem, 4vw, 2rem);
+  grid-template-columns: minmax(0, 1.1fr) minmax(21rem, 0.9fr);
+  gap: clamp(1.5rem, 4vw, 2.4rem);
   align-items: flex-start;
 }
 
 .steps {
   display: grid;
-  gap: 1.2rem;
+  gap: 1.35rem;
 }
 
 .stepPanel,
 .resultPanel {
   display: grid;
-  gap: 1.25rem;
-  padding: clamp(1.15rem, 3vw, 1.6rem);
+  gap: 1.5rem;
+  padding: clamp(1.25rem, 3vw, 1.9rem);
   border: 1px solid var(--border-subtle);
-  border-radius: 1.4rem;
-  background: rgba(255, 255, 255, 0.02);
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.resultPanel {
+  position: sticky;
+  top: 6rem;
 }
 
 .stepHeader {
   display: grid;
-  gap: 0.65rem;
+  gap: 0.8rem;
+}
+
+.stepBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 2rem;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid rgba(184, 146, 18, 0.24);
+  border-radius: 999px;
+  color: var(--color-accent-gold);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.stepLead {
+  max-width: 40rem;
+  line-height: 1.68;
 }
 
 .fieldGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.95rem 1rem;
+  gap: 1rem;
 }
 
 .field,
 .sliderField {
   display: grid;
-  gap: 0.5rem;
+  gap: 0.55rem;
+  align-content: start;
+}
+
+.fieldWide {
+  grid-column: 1 / -1;
 }
 
 .fieldLabel,
 .metricLabel {
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  line-height: 1.35;
+}
+
+.labelWithHint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.hintWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.hintButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  padding: 0;
+  border: 1px solid rgba(184, 146, 18, 0.24);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-accent-gold);
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: help;
+}
+
+.hintTooltip {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 0.55rem);
+  z-index: 5;
+  display: grid;
+  gap: 0.45rem;
+  min-width: min(16rem, 70vw);
+  max-width: 18rem;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.9rem;
+  background: rgba(16, 16, 16, 0.96);
+  color: var(--neutral-on-background-strong);
+  font-size: 0.78rem;
+  letter-spacing: normal;
+  line-height: 1.55;
+  opacity: 0;
+  pointer-events: none;
+  text-transform: none;
+  transform: translateY(0.2rem);
+  transition:
+    opacity var(--motion-fast),
+    transform var(--motion-fast);
+}
+
+.hintWrap:hover .hintTooltip,
+.hintWrap:focus-within .hintTooltip {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.hintLink {
+  color: var(--color-accent-gold);
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.hintLink:hover,
+.hintLink:focus-visible {
+  text-decoration: underline;
+}
+
+.helper,
+.metricHint {
+  line-height: 1.65;
 }
 
 .input,
 .select {
   width: 100%;
-  min-height: 3rem;
-  padding: 0.8rem 0.95rem;
+  min-height: 3.2rem;
+  padding: 0.85rem 0.95rem;
   border: 1px solid var(--border-subtle);
   border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.01);
   color: var(--neutral-on-background-strong);
   font: inherit;
 }
@@ -70,27 +182,41 @@
 .resultMetricGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.9rem;
+  gap: 0.95rem;
 }
 
 .metricCard,
 .resultMetric,
-.warningCard,
-.resultHero {
+.warningCard {
   display: grid;
-  gap: 0.65rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border-subtle);
+  gap: 0.55rem;
+  min-height: 100%;
+  padding: 1rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.15rem;
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.metricValue {
+  font-size: clamp(1.12rem, 2vw, 1.65rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
 }
 
 .sliderList {
   display: grid;
-  gap: 1rem;
+  gap: 1.25rem;
+}
+
+.sliderCopy {
+  display: grid;
+  gap: 0.2rem;
 }
 
 .sliderHead {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
 }
@@ -106,25 +232,56 @@
   accent-color: var(--color-accent-gold);
 }
 
+.rangeMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: var(--neutral-on-background-medium);
+  font-size: 0.82rem;
+}
+
+.breakdownList {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.breakdownItem {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.resultHero {
+  display: grid;
+  gap: 0.75rem;
+}
+
 .resultPill {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 4.5rem;
-  padding: 0.8rem 1rem;
+  min-height: 4.75rem;
+  padding: 0.95rem 1rem;
+  border: 1px solid rgba(184, 146, 18, 0.16);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  background: rgba(184, 146, 18, 0.08);
+  font-size: clamp(1.6rem, 4vw, 2.45rem);
   font-weight: 700;
   letter-spacing: -0.05em;
 }
 
 .noteBlock {
   display: grid;
-  gap: 0.65rem;
-  padding-top: 0.35rem;
-  border-top: 1px solid var(--border-subtle);
+  gap: 0.8rem;
+}
+
+.warningCard {
+  border-color: rgba(184, 146, 18, 0.2);
 }
 
 .actions {
@@ -133,9 +290,20 @@
   gap: 0.75rem;
 }
 
+.stepPanel :global(input[type="number"]::-webkit-outer-spin-button),
+.stepPanel :global(input[type="number"]::-webkit-inner-spin-button) {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
 @media (max-width: 960px) {
   .layout {
     grid-template-columns: 1fr;
+  }
+
+  .resultPanel {
+    position: static;
+    top: auto;
   }
 }
 
@@ -146,9 +314,38 @@
     grid-template-columns: 1fr;
   }
 
-  .sliderHead {
+  .stepPanel,
+  .resultPanel {
+    gap: 1.35rem;
+    padding: 1.15rem;
+    border-radius: 1.2rem;
+  }
+
+  .sliderHead,
+  .rangeMeta,
+  .breakdownItem {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .fieldLabel,
+  .metricLabel {
+    letter-spacing: 0.08em;
+  }
+
+  .hintTooltip {
+    min-width: 14rem;
+    max-width: min(15.5rem, 78vw);
+  }
+
+  .metricValue {
+    font-size: 1.2rem;
+  }
+
+  .stepLead,
+  .helper,
+  .metricHint {
+    line-height: 1.72;
   }
 
   .actions {
