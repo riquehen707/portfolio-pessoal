@@ -67,7 +67,7 @@ const fitCards = [
     items: ["Psicólogos", "Advogados", "Serviços especializados"],
   },
   {
-    icon: "crm" as IconName,
+    icon: "calendar" as IconName,
     title: "Clínicas e operações de atendimento",
     description:
       "Para clínicas de saúde, salões, estética e serviços que precisam integrar sistema, agenda e gerenciamento de clientes.",

@@ -43,8 +43,6 @@ export default function ProductsPage() {
       />
 
       <section className={styles.heroSection}>
-        <div className={styles.atmosphere} aria-hidden="true" />
-
         <div className={styles.hero}>
           <div className={styles.heroCopy}>
             <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">

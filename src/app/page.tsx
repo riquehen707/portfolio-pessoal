@@ -16,7 +16,7 @@ import {
   contentStrategy,
   home,
   person,
-  servicesPage,
+  simulationPage,
 } from "@/resources";
 
 import styles from "./home.module.scss";
@@ -187,7 +187,7 @@ export default function Home() {
             "Entenda onde seu negócio pode melhorar, quanto pode custar e qual retorno pode fazer sentido para o seu momento."
           }
           primaryLabel={homeFinalSection?.ctaLabel ?? "Ver os dados primeiro"}
-          primaryHref={homeFinalSection?.ctaHref ?? servicesPage.path}
+          primaryHref={homeFinalSection?.ctaHref ?? simulationPage.path}
         />
       </section>
     </div>

@@ -1,0 +1,161 @@
+.root {
+  width: 100%;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(22rem, 0.86fr);
+  gap: clamp(1.25rem, 4vw, 2rem);
+  align-items: flex-start;
+}
+
+.steps {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.stepPanel,
+.resultPanel {
+  display: grid;
+  gap: 1.25rem;
+  padding: clamp(1.15rem, 3vw, 1.6rem);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.4rem;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.stepHeader {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.fieldGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.95rem 1rem;
+}
+
+.field,
+.sliderField {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.fieldLabel,
+.metricLabel {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.input,
+.select {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.8rem 0.95rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--neutral-on-background-strong);
+  font: inherit;
+}
+
+.input:focus,
+.select:focus,
+.range:focus {
+  outline: none;
+  border-color: rgba(184, 146, 18, 0.42);
+}
+
+.metricGrid,
+.resultMetricGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.metricCard,
+.resultMetric,
+.warningCard,
+.resultHero {
+  display: grid;
+  gap: 0.65rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.sliderList {
+  display: grid;
+  gap: 1rem;
+}
+
+.sliderHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.sliderValue {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-accent-gold);
+}
+
+.range {
+  width: 100%;
+  accent-color: var(--color-accent-gold);
+}
+
+.resultPill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 4.5rem;
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+}
+
+.noteBlock {
+  display: grid;
+  gap: 0.65rem;
+  padding-top: 0.35rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .fieldGrid,
+  .metricGrid,
+  .resultMetricGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sliderHead {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .actions {
+    display: grid;
+  }
+
+  .actions > * {
+    width: 100%;
+  }
+}

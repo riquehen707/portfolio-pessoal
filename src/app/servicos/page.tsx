@@ -1,19 +1,95 @@
 import {
   Button,
-  Card,
   Column,
   Grid,
   Heading,
   Row,
   Schema,
+  SmartLink,
   Tag,
   Text,
 } from "@once-ui-system/core";
 
-import { baseURL, person, products, productsPage, services, servicesPage, work } from "@/resources";
+import {
+  baseURL,
+  person,
+  productsPage,
+  services,
+  servicesPage,
+  simulationPage,
+  work,
+} from "@/resources";
 
-import sectionStyles from "../section.module.scss";
 import styles from "./services.module.scss";
+
+const focusAreas = [
+  {
+    label: "Presenca",
+    title: "Sites e paginas com funcao comercial clara",
+    description:
+      "Projetos para explicar melhor o servico, reduzir ruido e facilitar o proximo passo de quem chega.",
+    items: ["Landing pages", "Sites institucionais", "Estrutura para campanhas"],
+  },
+  {
+    label: "Captacao",
+    title: "Leitura de aquisicao antes de escopo grande",
+    description:
+      "Simulacao inicial, ajuste de oferta e desenho de entrada para investir com mais criterio.",
+    items: ["Simulacao de cenario", "Diagnostico de gargalo", "Prioridade comercial"],
+  },
+  {
+    label: "Operacao",
+    title: "Fluxos, CRM e organizacao digital do atendimento",
+    description:
+      "Integracoes e automacoes para reduzir perda comercial e deixar a rotina menos improvisada.",
+    items: ["WhatsApp e CRM", "Agenda e follow-up", "Dashboards e automacao"],
+  },
+] as const;
+
+const audienceGroups = [
+  {
+    title: "Prestadores de servico",
+    description:
+      "Psicologas, advogados, consultores e profissionais que precisam conquistar clientes online com mais consistencia.",
+  },
+  {
+    title: "Clinicas e negocios de atendimento",
+    description:
+      "Saude, beleza e estetica quando agenda, relacionamento e operacao precisam conversar melhor.",
+  },
+  {
+    title: "Lojas locais e e-commerce",
+    description:
+      "Operacoes que precisam vender melhor no local, organizar catalogo ou estruturar melhor pedidos e envios.",
+  },
+] as const;
+
+const entryPoints = [
+  {
+    label: "Primeiro passo",
+    title: "Ver os dados antes do escopo",
+    description:
+      "A simulacao cruza faturamento atual, verba de anuncios, verba total de marketing e tipo de servico para dar uma leitura inicial.",
+    href: simulationPage.path,
+    cta: "Abrir simulacao",
+  },
+  {
+    label: "Servico sob medida",
+    title: "Escolher a frente de trabalho certa",
+    description:
+      "Depois da leitura inicial, o trabalho pode entrar por pagina, SEO, automacao ou estrutura comercial.",
+    href: "#servicos-publicados",
+    cta: "Ver frentes atuais",
+  },
+  {
+    label: "Produtos",
+    title: "Linha de produtos em reorganizacao",
+    description:
+      "Os produtos voltam depois com formato mais claro, incluindo entradas leves, recursos gratuitos e consultoria curta.",
+    href: productsPage.path,
+    cta: "Ver status dos produtos",
+  },
+] as const;
 
 export async function generateMetadata() {
   return {
@@ -29,87 +105,9 @@ export async function generateMetadata() {
   };
 }
 
-const categoryLabels = {
-  package: "Pacotes",
-  microservice: "Micro-serviços",
-} as const;
-
 export default function ServicesPage() {
-  const hasActiveProducts = products.length > 0;
-  const offerCounts = {
-    package: products.filter((item) => item.category === "package").length,
-    microservice: products.filter((item) => item.category === "microservice").length,
-  };
-  const serviceSignals = [
-    {
-      label: "Sob medida",
-      value: `${services.length} frentes principais`,
-      description: "Web, SEO, automação e landings pensadas para contexto real.",
-    },
-    {
-      label: "Produtos",
-      value: hasActiveProducts ? `${offerCounts.package + offerCounts.microservice} formatos` : "Em reinício",
-      description: hasActiveProducts
-        ? "Pacotes e micro-serviços para quando você precisa resolver algo sem alongar demais."
-        : "Estou organizando o portfólio antes de prosseguir com essa frente de produtos.",
-    },
-    {
-      label: "Escolha",
-      value: "Comece pelo problema",
-      description: "O formato certo fica claro quando a necessidade está bem definida.",
-    },
-  ];
-
-  const lanes = [
-    {
-      label: "Sob medida",
-      title: "Projetos sob medida",
-      description: "Para site, SEO ou automação quando o problema pede leitura mais cuidadosa e solução feita para o seu caso.",
-      meta: `${services.length} serviços principais`,
-      href: servicesPage.path,
-      cta: "Ver serviços",
-    },
-    {
-      label: "Entrada fechada",
-      title: "Pacotes",
-      description: hasActiveProducts
-        ? "Escopos mais fechados para resolver algo comum com mais rapidez e menos atrito."
-        : "A linha de pacotes foi removida e volta depois com nova estrutura e nova apresentação.",
-      meta: hasActiveProducts ? `${offerCounts.package} opções` : "Catálogo zerado",
-      href: productsPage.path,
-      cta: "Abrir página de produtos",
-    },
-    {
-      label: "Ajuste pontual",
-      title: "Micro-serviços",
-      description: hasActiveProducts
-        ? "Entregas menores para corrigir, refinar ou destravar um ponto específico sem virar projeto grande."
-        : "Os micro-serviços anteriores também saíram do ar para que o recomeço não herde os mesmos designs.",
-      meta: hasActiveProducts ? `${offerCounts.microservice} opções` : "Base em reconstrução",
-      href: productsPage.path,
-      cta: "Ver status dos produtos",
-    },
-  ];
-
-  const offerHighlights = [
-    {
-      title: hasActiveProducts ? "Pacotes para entrar sem abrir projeto maior" : "Portfólio antes do catálogo",
-      description: hasActiveProducts
-        ? "Uma boa porta de entrada para quem precisa sair do zero sem abrir um projeto maior de cara."
-        : "O foco agora é organizar o portfólio antes de reabrir a linha de produtos com mais coerência.",
-      meta: hasActiveProducts ? `${offerCounts.package} pacotes` : "Sem catálogo ativo",
-    },
-    {
-      title: hasActiveProducts ? "Micro-serviços técnicos" : "Em breve: gratuitos e consultoria curta",
-      description: hasActiveProducts
-        ? "Úteis para refino visual, SEO técnico, Core Web Vitals ou integrações pontuais."
-        : "A próxima fase deve incluir recursos gratuitos, apps úteis, auditoria simples e consultoria de 30 minutos.",
-      meta: hasActiveProducts ? `${offerCounts.microservice} micro-serviços` : "Nova direção em definição",
-    },
-  ];
-
   return (
-    <Column className={sectionStyles.page} maxWidth="m" paddingTop="24" gap="24">
+    <Column className={styles.page} maxWidth="l" paddingTop="24" gap="40">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -124,25 +122,25 @@ export default function ServicesPage() {
         }}
       />
 
-      <Column className={styles.hero} gap="24" padding="24">
-        <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="20">
-          <Column className={styles.heroMain} gap="16">
+      <section className={styles.hero}>
+        <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="24">
+          <Column className={styles.heroMain} gap="20">
             <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-              Serviços
+              Servicos
             </Tag>
-            <Heading as="h1" variant="heading-strong-xl">
-              {servicesPage.title}
+            <Heading as="h1" variant="display-strong-l" wrap="balance">
+              Presenca, captacao e operacao digital para negocios que precisam vender melhor.
             </Heading>
-            <div className={sectionStyles.accentLine} />
-            <Text variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
-              {servicesPage.intro.headline}
+            <Text className={styles.heroLead} variant="heading-default-m" onBackground="neutral-weak">
+              Eu nao comeco por catalogo. Primeiro leio momento, orcamento e gargalo principal para
+              decidir se vale investir, por onde entrar e qual formato faz sentido.
             </Text>
-            <Text variant="body-default-m" onBackground="neutral-weak">
-              {servicesPage.intro.lead}
+            <Text className={styles.heroNote} variant="body-default-m" onBackground="neutral-weak">
+              Se a leitura ainda nao esta clara, a simulacao entra antes do escopo.
             </Text>
-            <Row className={styles.heroActions} gap="12" wrap>
-              <Button href={productsPage.path} variant="primary" size="m" arrowIcon>
-                Abrir página de produtos
+            <Row className={styles.actions} gap="12" wrap>
+              <Button href={simulationPage.path} variant="primary" size="m" prefixIcon="chart">
+                Ver os dados primeiro
               </Button>
               <Button href={work.path} variant="secondary" size="m" arrowIcon>
                 Ver projetos
@@ -151,101 +149,185 @@ export default function ServicesPage() {
           </Column>
 
           <Column className={styles.heroAside} gap="16">
-            <Column className={styles.heroPanel} gap="12">
-              <Text className={styles.heroEyebrow} variant="label-default-s" onBackground="neutral-weak">
-                Escolha rápida
+            <div className={styles.heroStep}>
+              <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
+                01
               </Text>
-              <Text variant="heading-strong-m" wrap="balance">
-                O melhor ponto de entrada depende mais do problema do que do nome do serviço.
+              <Text variant="heading-strong-s">Simular o cenario</Text>
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                Entender se o momento pede pagina, captacao, operacao ou mais base antes de investir.
               </Text>
-              <Text onBackground="neutral-weak">
-                Se você precisa de uma página nova, de um ajuste pontual ou de uma ferramenta para destravar a rotina,
-                esta página já separa os caminhos para facilitar sua decisão.
+            </div>
+            <div className={styles.heroStep}>
+              <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
+                02
               </Text>
-            </Column>
-
-            <Grid className={styles.signalGrid} columns="2" s={{ columns: 1 }} gap="12">
-              {serviceSignals.map((item) => (
-                <Column key={item.label} className={styles.signalCard} gap="8">
-                  <Text className={styles.heroEyebrow} variant="label-default-s" onBackground="neutral-weak">
-                    {item.label}
-                  </Text>
-                  <Text variant="heading-strong-s">{item.value}</Text>
-                  <Text variant="body-default-s" onBackground="neutral-weak">
-                    {item.description}
-                  </Text>
-                </Column>
-              ))}
-            </Grid>
+              <Text variant="heading-strong-s">Definir a frente certa</Text>
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                Escolher o tipo de trabalho pelo problema real, nao pelo nome do servico.
+              </Text>
+            </div>
+            <div className={styles.heroStep}>
+              <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
+                03
+              </Text>
+              <Text variant="heading-strong-s">Fechar um escopo viavel</Text>
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                Entrar com algo que caiba na operacao e sustente o proximo passo do negocio.
+              </Text>
+            </div>
           </Column>
         </Grid>
-      </Column>
+      </section>
 
-      <Grid className={styles.lanesGrid} columns="2" s={{ columns: 1 }} gap="16">
-        {lanes.map((lane) => (
-          <Card
-            className={styles.laneCard}
-            key={lane.title}
-            direction="column"
-            gap="12"
-            paddingX="20"
-            paddingY="20"
-            radius="l"
-            background="surface"
-            border="neutral-alpha-weak"
-            fillHeight
-          >
-            <Text variant="label-default-s" onBackground="neutral-weak">
-              {lane.label}
-            </Text>
-            <Heading as="h2" variant="heading-strong-m">
-              {lane.title}
+      <section className={styles.section} id="servicos-publicados">
+        <Row
+          className={styles.sectionHeader}
+          fillWidth
+          horizontal="between"
+          vertical="end"
+          s={{ direction: "column" }}
+        >
+          <Column className={styles.sectionIntro} gap="8">
+            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+              Onde entro
+            </Tag>
+            <Heading as="h2" variant="display-strong-s">
+              Tres frentes que normalmente se conectam
             </Heading>
-            <Text onBackground="neutral-weak">{lane.description}</Text>
-            <Text className={styles.serviceMeta} variant="body-default-s" onBackground="neutral-weak">
-              {lane.meta}
-            </Text>
-            <Button href={lane.href} variant="tertiary" size="s" arrowIcon>
-              {lane.cta}
-            </Button>
-          </Card>
-        ))}
-      </Grid>
-
-      <Column
-        className={sectionStyles.sectionPanel}
-        gap="16"
-        padding="24"
-        radius="l"
-        background="surface"
-        style={{ background: "var(--surface-weak)" }}
-      >
-        <Column gap="8">
-          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            Serviços sob medida
-          </Tag>
-          <Heading as="h2" variant="display-strong-s">
-            Frentes principais
-          </Heading>
-          <Text onBackground="neutral-weak">
-            Cada serviço mostra o que ele resolve, para quem faz mais sentido e qual costuma ser o melhor ponto de partida.
+          </Column>
+          <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
+            A maioria dos projetos entra por presenca, captacao ou operacao. Em muitos casos, o
+            problema real atravessa as tres.
           </Text>
-        </Column>
+        </Row>
 
-        <Grid className={styles.servicesGrid} columns="2" s={{ columns: 1 }} gap="16">
+        <Grid className={styles.focusGrid} columns="3" m={{ columns: 2 }} s={{ columns: 1 }} gap="20">
+          {focusAreas.map((area) => (
+            <article className={styles.focusCard} key={area.title}>
+              <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
+                {area.label}
+              </Text>
+              <Heading as="h3" variant="heading-strong-m">
+                {area.title}
+              </Heading>
+              <Text variant="body-default-m" onBackground="neutral-weak">
+                {area.description}
+              </Text>
+              <div className={styles.itemRow}>
+                {area.items.map((item) => (
+                  <div className={styles.inlineItem} key={item}>
+                    <Text variant="body-default-s">{item}</Text>
+                  </div>
+                ))}
+              </div>
+            </article>
+          ))}
+        </Grid>
+      </section>
+
+      <section className={styles.section}>
+        <Row
+          className={styles.sectionHeader}
+          fillWidth
+          horizontal="between"
+          vertical="end"
+          s={{ direction: "column" }}
+        >
+          <Column className={styles.sectionIntro} gap="8">
+            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+              Para quem
+            </Tag>
+            <Heading as="h2" variant="display-strong-s">
+              Negocios em que esse trabalho costuma fazer mais sentido
+            </Heading>
+          </Column>
+          <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
+            Principalmente quando ja existe valor real no servico, mas falta mais clareza para
+            vender, atender e sustentar crescimento.
+          </Text>
+        </Row>
+
+        <Grid className={styles.audienceGrid} columns="3" m={{ columns: 2 }} s={{ columns: 1 }} gap="20">
+          {audienceGroups.map((group) => (
+            <article className={styles.audienceCard} key={group.title}>
+              <Heading as="h3" variant="heading-strong-m">
+                {group.title}
+              </Heading>
+              <Text variant="body-default-m" onBackground="neutral-weak">
+                {group.description}
+              </Text>
+            </article>
+          ))}
+        </Grid>
+      </section>
+
+      <section className={styles.section}>
+        <Row
+          className={styles.sectionHeader}
+          fillWidth
+          horizontal="between"
+          vertical="end"
+          s={{ direction: "column" }}
+        >
+          <Column className={styles.sectionIntro} gap="8">
+            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+              Caminhos
+            </Tag>
+            <Heading as="h2" variant="display-strong-s">
+              Como normalmente o trabalho comeca
+            </Heading>
+          </Column>
+          <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
+            A simulacao vira porta de entrada quando ainda nao vale fechar um formato no escuro.
+          </Text>
+        </Row>
+
+        <Grid className={styles.entryGrid} columns="3" m={{ columns: 2 }} s={{ columns: 1 }} gap="20">
+          {entryPoints.map((item) => (
+            <article className={styles.entryCard} key={item.title}>
+              <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
+                {item.label}
+              </Text>
+              <Heading as="h3" variant="heading-strong-m">
+                {item.title}
+              </Heading>
+              <Text variant="body-default-m" onBackground="neutral-weak">
+                {item.description}
+              </Text>
+              <SmartLink href={item.href} suffixIcon="arrowRight">
+                {item.cta}
+              </SmartLink>
+            </article>
+          ))}
+        </Grid>
+      </section>
+
+      <section className={styles.section}>
+        <Row
+          className={styles.sectionHeader}
+          fillWidth
+          horizontal="between"
+          vertical="end"
+          s={{ direction: "column" }}
+        >
+          <Column className={styles.sectionIntro} gap="8">
+            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+              Frentes atuais
+            </Tag>
+            <Heading as="h2" variant="display-strong-s">
+              Servicos publicados hoje
+            </Heading>
+          </Column>
+          <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
+            Os detalhes continuam acessiveis por pagina propria. Aqui fica a leitura curta do que
+            esta aberto agora.
+          </Text>
+        </Row>
+
+        <Grid className={styles.serviceGrid} columns="2" s={{ columns: 1 }} gap="20">
           {services.map((service) => (
-            <Card
-              className={styles.serviceCard}
-              key={service.slug}
-              direction="column"
-              gap="12"
-              paddingX="20"
-              paddingY="20"
-              radius="l"
-              background="surface"
-              border="neutral-alpha-weak"
-              fillHeight
-            >
+            <article className={styles.serviceCard} key={service.slug}>
               <Row gap="8" wrap>
                 <Tag size="s">{service.badge}</Tag>
                 {service.tags.slice(0, 2).map((tag) => (
@@ -257,107 +339,19 @@ export default function ServicesPage() {
               <Heading as="h3" variant="heading-strong-m">
                 {service.title}
               </Heading>
-              <Text onBackground="neutral-weak">{service.summary}</Text>
-              <Text className={styles.serviceMeta} variant="body-default-s" onBackground="neutral-weak">
+              <Text variant="body-default-m" onBackground="neutral-weak">
+                {service.summary}
+              </Text>
+              <Text className={styles.meta} variant="body-default-s" onBackground="neutral-weak">
                 {service.hero.price} | {service.hero.duration}
               </Text>
-              <Button href={`${servicesPage.path}/${service.slug}`} variant="primary" size="s" arrowIcon>
+              <SmartLink href={`${servicesPage.path}/${service.slug}`} suffixIcon="arrowRight">
                 Ver detalhes
-              </Button>
-            </Card>
+              </SmartLink>
+            </article>
           ))}
         </Grid>
-      </Column>
-
-      <Column
-        className={sectionStyles.sectionPanel}
-        gap="16"
-        padding="24"
-        radius="l"
-        background="surface"
-        style={{ background: "var(--surface-weak)" }}
-      >
-        <Column gap="8">
-          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            Produtos
-          </Tag>
-          <Heading as="h2" variant="display-strong-s">
-            Linha de produtos
-          </Heading>
-          <Text onBackground="neutral-weak">
-            {hasActiveProducts
-              ? "Nem toda demanda precisa virar projeto completo. Às vezes o que você precisa é só do próximo passo certo."
-              : "A área de produtos está pausada enquanto organizo o portfólio. Depois entram formatos mais leves, inclusive gratuitos e consultoria curta."}
-          </Text>
-        </Column>
-
-        <Grid columns="2" s={{ columns: 1 }} gap="16">
-          {offerHighlights.map((item, index) => (
-            <Card
-              className={styles.statCard}
-              key={item.title}
-              direction="column"
-              gap="12"
-              paddingX="20"
-              paddingY="20"
-              radius="l"
-              background="surface"
-              border="neutral-alpha-weak"
-              fillHeight
-            >
-              <Tag size="s" background="neutral-alpha-weak">
-                {index === 0 ? categoryLabels.package : categoryLabels.microservice}
-              </Tag>
-              <Heading as="h3" variant="heading-strong-m">
-                {item.title}
-              </Heading>
-              <Text onBackground="neutral-weak">{item.description}</Text>
-              <Text className={styles.serviceMeta} variant="body-default-s" onBackground="neutral-weak">
-                {item.meta}
-              </Text>
-            </Card>
-          ))}
-        </Grid>
-
-        <Row className={styles.ctaBar} gap="12" wrap>
-          <Button href={productsPage.path} variant="primary" size="m" arrowIcon>
-            Ver página de produtos
-          </Button>
-          <Button href={`mailto:${person.email}`} variant="tertiary" size="m" arrowIcon>
-            Tirar uma dúvida
-          </Button>
-        </Row>
-      </Column>
-
-      <Card
-        className={styles.ctaPanel}
-        direction="column"
-        gap="16"
-        paddingX="24"
-        paddingY="24"
-        radius="l"
-        background="surface"
-        border="neutral-alpha-weak"
-      >
-        <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-          Escolha simples
-        </Tag>
-        <Heading as="h2" variant="display-strong-s">
-          Se você ainda não sabe o formato certo, comece pelo problema
-        </Heading>
-        <Text onBackground="neutral-weak">
-          Se a demanda é mais estrutural, a entrada costuma ser um serviço sob medida. A linha de
-          produtos volta depois, quando o portfólio estiver mais organizado e a nova linha estiver pronta para abrir.
-        </Text>
-        <Row className={styles.ctaBar} gap="12" wrap>
-          <Button href={`mailto:${person.email}`} variant="primary" size="m" arrowIcon>
-            Conversar sobre o escopo
-          </Button>
-          <Button href={work.path} variant="secondary" size="m" arrowIcon>
-            Ver projetos
-          </Button>
-        </Row>
-      </Card>
+      </section>
     </Column>
   );
 }

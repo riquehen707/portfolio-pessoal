@@ -1,16 +1,24 @@
-import { ProductsPage, ProductItem, ServicesPage, ServiceLanding } from "@/types";
+import { BasePageConfig, ProductsPage, ProductItem, ServicesPage, ServiceLanding } from "@/types";
 
 export const servicesPage: ServicesPage = {
   path: "/servicos",
   label: "Serviços",
-  title: "Serviços em web, SEO e automação",
+  title: "Serviços para presença, captação e operação digital",
   description:
-    "Serviços sob medida para quem quer melhorar a presença digital com mais clareza, enquanto a linha de produtos passa por reconstrução.",
+    "Serviços sob medida para negócios que precisam vender com mais clareza, organizar atendimento e estruturar melhor a operação digital.",
   intro: {
-    headline: "Escolha um ponto de entrada sem depender de um catálogo genérico.",
+    headline: "Antes do escopo, vale entender o momento do negócio.",
     lead:
-      "Hoje a base principal está nos serviços sob medida. A linha de produtos foi zerada e volta depois com outra lógica, outra oferta e outra apresentação.",
+      "A nova página de serviços organiza melhor o que eu resolvo, para quem isso faz sentido e quando a simulação ajuda a decidir o próximo passo.",
   },
+};
+
+export const simulationPage: BasePageConfig = {
+  path: "/simulacao",
+  label: "Simulação",
+  title: "Simulação de crescimento",
+  description:
+    "Uma leitura inicial para estimar cenário de crescimento a partir do faturamento atual, da verba de anúncios, da verba total de marketing e do tipo de serviço.",
 };
 
 export const services: ServiceLanding[] = [

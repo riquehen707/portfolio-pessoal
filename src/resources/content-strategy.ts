@@ -128,7 +128,7 @@ const contentStrategy = {
           description:
             "Entenda onde seu negócio pode melhorar, quanto pode custar e qual retorno pode fazer sentido para o seu momento.",
           ctaLabel: "Ver os dados primeiro",
-          ctaHref: "/servicos",
+          ctaHref: "/simulacao",
         },
       ],
     } satisfies StrategyPage,
@@ -206,7 +206,7 @@ const contentStrategy = {
         subheadline:
           "Entenda onde seu negócio pode melhorar, quanto pode custar e qual retorno pode fazer sentido para o seu momento.",
         primaryCtaLabel: "Ver os dados primeiro",
-        primaryCtaHref: "/servicos",
+        primaryCtaHref: "/simulacao",
         secondaryCtaLabel: "Ver projetos",
         secondaryCtaHref: "/work",
       },

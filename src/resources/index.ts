@@ -11,7 +11,7 @@ export {
   contact,
 } from "./content";
 
-export { servicesPage, services, productsPage, products } from "./services";
+export { servicesPage, simulationPage, services, productsPage, products } from "./services";
 export {
   brandIdentity,
   brandLogoSystem,

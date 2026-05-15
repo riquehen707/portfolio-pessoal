@@ -15,7 +15,7 @@ import {
 
 import { brandIdentity, brandMessaging } from "./brand";
 import { home } from "./content";
-import { productsPage } from "./services";
+import { productsPage, simulationPage } from "./services";
 
 const baseURL: string = process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://henrique.dog";
 
@@ -27,6 +27,7 @@ const routes: RoutesConfig = {
   "/blog": true,
   "/contact": true,
   "/servicos": true,
+  [simulationPage.path]: true,
   [productsPage.path]: true,
 };
 
