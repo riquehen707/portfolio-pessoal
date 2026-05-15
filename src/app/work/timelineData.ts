@@ -124,19 +124,23 @@ function buildProjectJourneyEntry(project: BlogFile): WorkJourneyEntry | null {
   if (!date) return null;
 
   const kindLabel = getWorkProjectKindLabel(project) ?? "Projeto";
-  const points = getWorkProjectStack(project).slice(0, 4);
+  const points = [
+    project.metadata.objective ? `Objetivo: ${project.metadata.objective}` : null,
+    project.metadata.category ? `Categoria: ${project.metadata.category}` : null,
+    ...getWorkProjectStack(project).slice(0, 3),
+  ].filter(Boolean) as string[];
 
   return {
     id: `project-${project.slug}`,
     date,
-    task: `${project.metadata.title} entrou no portfólio`,
+    task: project.metadata.title,
     status: "published",
-    category: "Portfólio",
+    category: kindLabel,
     summary:
       project.metadata.summary ??
       `${kindLabel} publicado para documentar estrutura, raciocínio e direção do trabalho.`,
     points: points.length > 0 ? points : [kindLabel],
-    detailsTitle: "Ferramentas e estrutura",
+    detailsTitle: "Stack e contexto",
     href: getWorkProjectPath(project.slug),
     ctaLabel: project.metadata.kind === "client" ? "Abrir case" : "Abrir projeto",
   };

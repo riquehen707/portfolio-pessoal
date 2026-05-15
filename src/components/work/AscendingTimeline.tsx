@@ -1,10 +1,11 @@
-import { Heading, SmartLink, Tag, Text } from "@once-ui-system/core";
+import { Heading, Icon, Row, SmartLink, Tag, Text } from "@once-ui-system/core";
 
 import {
   formatWorkTimelineDate,
   type WorkJourneyEntry,
   workJourneyStatusMeta,
 } from "@/app/work/timelineData";
+import { type IconName } from "@/resources/icons";
 
 import styles from "./AscendingTimeline.module.scss";
 
@@ -12,117 +13,123 @@ type AscendingTimelineProps = {
   entries: WorkJourneyEntry[];
 };
 
-const curveClasses = [styles.curveA, styles.curveB, styles.curveC, styles.curveD];
+function getEntryIcon(entry: WorkJourneyEntry): IconName {
+  if (entry.status === "published") return "document";
+  if (entry.category === "Origem") return "calendar";
+  if (entry.category === "Estrutura") return "grid";
+  if (entry.category === "Direção") return "chart";
+  if (entry.category === "Serviços") return "globe";
+  return "rocket";
+}
 
 export function AscendingTimeline({ entries }: AscendingTimelineProps) {
   const currentEntry = entries[0];
-  const currentStatusLabel = currentEntry ? workJourneyStatusMeta[currentEntry.status].label : null;
+  const publishedCount = entries.filter((entry) => entry.status === "published").length;
+  const timelineCount = entries.length;
 
   return (
     <section className={styles.root} aria-labelledby="work-journey-heading">
-      <div className={styles.scene} aria-hidden="true">
-        <div className={styles.starField} />
-      </div>
-
-      <div className={styles.content}>
-        <div className={styles.legend}>
+      <div className={styles.header}>
+        <div className={styles.intro}>
           <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
             Portfólio
           </Tag>
-          <Text className={styles.legendText} onBackground="neutral-weak" variant="body-default-m">
-            Esta linha do tempo registra a fase iniciada em 30 de março de 2026, quando me mudei para
-            cursar BC&T na UFRB. O topo mostra o momento atual e a base guarda o ponto de partida.
+          <Heading id="work-journey-heading" as="h1" variant="display-strong-s" wrap="balance">
+            Linha do tempo de projetos, estrutura e direção.
+          </Heading>
+          <Text className={styles.introLead} onBackground="neutral-weak" variant="body-default-m">
+            O topo mostra o momento atual. Cada item pode ser aberto para revelar contexto, stack,
+            próximos passos e registros do que já foi publicado.
           </Text>
         </div>
 
-        <div className={styles.timeline}>
-          <div className={styles.pathGuide} aria-hidden="true">
-            <svg className={styles.pathSvg} viewBox="0 0 160 1200" preserveAspectRatio="none">
-              <path
-                className={styles.pathGlow}
-                d="M 106 32 C 140 148, 132 246, 82 344 S 34 556, 88 694 S 128 918, 70 1168"
-              />
-              <path
-                className={styles.pathStroke}
-                d="M 106 32 C 140 148, 132 246, 82 344 S 34 556, 88 694 S 128 918, 70 1168"
-              />
-            </svg>
-          </div>
-
-          <div className={`${styles.axisTop} ${styles.curveTop}`}>
-            <div className={styles.axisNode}>
-              <span className={styles.axisStar} aria-hidden="true" />
-            </div>
-
-            <div className={styles.axisTopCopy}>
-              <Text className={styles.axisEyebrow} variant="label-default-s" onBackground="neutral-weak">
-                Hoje
+        <div className={styles.overview}>
+          <div className={styles.overviewCard}>
+            <Text className={styles.overviewLabel} variant="label-default-s" onBackground="neutral-weak">
+              Agora
+            </Text>
+            <Heading as="h2" variant="heading-strong-m" wrap="balance">
+              {currentEntry?.task ?? "Momento atual"}
+            </Heading>
+            {currentEntry && (
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                {formatWorkTimelineDate(currentEntry.date)} ·{" "}
+                {workJourneyStatusMeta[currentEntry.status].label}
               </Text>
-
-              {currentEntry ? (
-                <>
-                  <Heading id="work-journey-heading" as="h1" variant="heading-strong-l" wrap="balance">
-                    {currentEntry.task}
-                  </Heading>
-                  <Text onBackground="neutral-weak" variant="body-default-s">
-                    {formatWorkTimelineDate(currentEntry.date)} · {currentStatusLabel}
-                  </Text>
-                </>
-              ) : (
-                <Heading id="work-journey-heading" as="h1" variant="heading-strong-l">
-                  Momento atual
-                </Heading>
-              )}
-            </div>
+            )}
           </div>
 
+          <Row className={styles.stats} gap="8" wrap>
+            <div className={styles.statPill}>
+              <span className={styles.statValue}>{publishedCount}</span>
+              <span className={styles.statLabel}>projetos publicados</span>
+            </div>
+            <div className={styles.statPill}>
+              <span className={styles.statValue}>{timelineCount}</span>
+              <span className={styles.statLabel}>marcos registrados</span>
+            </div>
+          </Row>
+        </div>
+      </div>
+
+      <div className={styles.railSection}>
+        <div className={styles.rail} aria-hidden="true" />
+
+        <div className={styles.entryList}>
           {entries.map((entry, index) => {
             const statusMeta = workJourneyStatusMeta[entry.status];
-            const curveClassName = curveClasses[index % curveClasses.length];
-            const currentClassName = index === 0 ? styles.itemCurrent : "";
-            const detailsTitle = entry.detailsTitle ?? (entry.href ? "Ferramentas e estrutura" : "O que mudou");
+            const markerIcon = getEntryIcon(entry);
+            const isCurrent = index === 0;
 
             return (
-              <article className={`${styles.item} ${curveClassName} ${currentClassName}`.trim()} key={entry.id}>
-                <div className={styles.node}>
-                  <span className={styles.nodeDot} aria-hidden="true" />
-                </div>
-
-                <div className={styles.card}>
-                  <div className={styles.cardMeta}>
-                    <time className={styles.date}>{formatWorkTimelineDate(entry.date)}</time>
-
-                    <div className={styles.metaTrail}>
-                      <Tag size="s" background="neutral-alpha-weak">
-                        {entry.category}
-                      </Tag>
-                      <span className={styles.statusPill} data-status={entry.status}>
-                        {statusMeta.label}
-                      </span>
-                    </div>
+              <details className={`${styles.entry} ${isCurrent ? styles.entryCurrent : ""}`} key={entry.id} open={isCurrent}>
+                <summary className={styles.entrySummary}>
+                  <div className={styles.markerColumn}>
+                    <span className={styles.marker}>
+                      <Icon name={markerIcon} size="s" />
+                    </span>
+                    {index < entries.length - 1 && <span className={styles.markerLine} />}
                   </div>
 
-                  <Heading as="h2" variant="heading-strong-l" wrap="balance">
-                    {entry.task}
-                  </Heading>
+                  <div className={styles.entryCard}>
+                    <div className={styles.entryMeta}>
+                      <time className={styles.date}>{formatWorkTimelineDate(entry.date)}</time>
 
-                  <Text className={styles.summary} onBackground="neutral-strong" variant="body-default-m">
-                    {entry.summary}
+                      <div className={styles.metaTrail}>
+                        <Tag size="s" background="neutral-alpha-weak">
+                          {entry.category}
+                        </Tag>
+                        <span className={styles.statusPill} data-status={entry.status}>
+                          {statusMeta.label}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className={styles.entryHeadlineRow}>
+                      <Heading as="h2" variant="heading-strong-m" wrap="balance">
+                        {entry.task}
+                      </Heading>
+                      <span className={styles.disclosureIcon} aria-hidden="true" />
+                    </div>
+
+                    <Text className={styles.summary} onBackground="neutral-weak" variant="body-default-m">
+                      {entry.summary}
+                    </Text>
+                  </div>
+                </summary>
+
+                <div className={styles.entryContent}>
+                  <Text className={styles.detailsLabel} variant="label-default-s" onBackground="neutral-weak">
+                    {entry.detailsTitle ?? "Detalhes"}
                   </Text>
 
-                  <div className={styles.detailsBlock}>
-                    <Text className={styles.detailsLabel} variant="label-default-s" onBackground="neutral-weak">
-                      {detailsTitle}
-                    </Text>
-
-                    <ul className={styles.pointList}>
-                      {entry.points.map((point) => (
-                        <li className={styles.point} key={`${entry.id}-${point}`}>
-                          {point}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <ul className={styles.pointList}>
+                    {entry.points.map((point) => (
+                      <li className={styles.point} key={`${entry.id}-${point}`}>
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
 
                   {entry.href && entry.ctaLabel && (
                     <SmartLink href={entry.href} suffixIcon="arrowRight">
@@ -130,23 +137,9 @@ export function AscendingTimeline({ entries }: AscendingTimelineProps) {
                     </SmartLink>
                   )}
                 </div>
-              </article>
+              </details>
             );
           })}
-
-          <div className={`${styles.axisBottom} ${styles.curveBottom}`}>
-            <div className={styles.originNode}>
-              <span className={styles.originDot} aria-hidden="true" />
-            </div>
-
-            <div className={styles.originCard}>
-              <span className={styles.originSeal}>Origem</span>
-              <Text variant="body-default-s" onBackground="neutral-weak">
-                A base fica no chão. É daqui que esta fase sobe: estudo, trabalho e construção do
-                portfólio andando juntos.
-              </Text>
-            </div>
-          </div>
         </div>
       </div>
     </section>
