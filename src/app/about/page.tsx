@@ -5,7 +5,6 @@ import {
   Grid,
   Heading,
   Icon,
-  Media,
   Meta,
   Row,
   Schema,
@@ -13,6 +12,7 @@ import {
   Text,
 } from "@once-ui-system/core";
 
+import { BrandSignature } from "@/components";
 import { AboutScrollButton, AboutSectionNav } from "@/components/about/AboutSectionNav";
 import styles from "@/components/about/about.module.scss";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
@@ -31,7 +31,7 @@ const aboutStrategy = contentStrategy.pages.about;
 
 const sectionNavItems = [
   { id: "sobre", label: "Sobre" },
-  { id: "historia", label: "Historia" },
+  { id: "como-penso", label: "Como penso" },
   { id: "foco", label: "Foco" },
   { id: "metodo", label: "Metodo" },
   { id: "projetos", label: "Projetos" },
@@ -53,54 +53,48 @@ const profileFacts = [
   },
 ] as const;
 
-const storyBlocks = [
-  "Comecei cedo construindo meus proprios projetos e aprendendo na pratica como venda, comunicacao e operacao se conectam.",
-  "Com o tempo, percebi que muitos negocios nao precisam apenas de mais divulgacao. Precisam entender onde a estrutura falha: oferta, pagina, atendimento, margem ou acompanhamento.",
-  "Hoje uso essa visao para criar solucoes simples, mensuraveis e adequadas ao momento real de cada negocio.",
+const thoughtBlocks = [
+  "Muitos negocios tentam resolver crescimento apenas com divulgacao.",
+  "Na pratica, o problema costuma estar distribuido entre oferta, pagina, atendimento, margem e acompanhamento.",
+  "Meu trabalho e organizar essas partes antes de aumentar complexidade.",
 ] as const;
 
 const fitCards = [
   {
     icon: "person" as IconName,
     title: "Prestadores de servico",
-    description:
-      "Psicologos, advogados, consultores e servicos especializados.",
+    description: "Psicologos, advogados, consultores e servicos especializados.",
   },
   {
     icon: "calendar" as IconName,
-    title: "Clinicas e operacoes de atendimento",
-    description:
-      "Saude, estetica, saloes e negocios com agenda, recorrencia e atendimento.",
+    title: "Operacoes de atendimento",
+    description: "Clinicas, estetica, saude, agenda e recorrencia.",
   },
   {
     icon: "package" as IconName,
-    title: "Negocios locais e e-commerce",
-    description:
-      "Lojas e marcas que precisam organizar presenca digital, pedidos e captacao.",
+    title: "Negocios locais",
+    description: "Lojas, servicos locais e marcas que precisam captar melhor.",
   },
 ] as const;
 
-const workStages = [
+const methodBlocks = [
   {
     number: "01",
-    title: "Atrair",
-    description:
-      "Presenca digital, oferta, canais e paginas de entrada para gerar demanda qualificada.",
-    items: ["Sites e landing pages", "Trafego pago", "Oferta clara"],
+    title: "Presenca e aquisicao",
+    description: "Sites, paginas, canais de entrada e oferta.",
+    items: ["Site", "Landing page", "Canal de entrada"],
   },
   {
     number: "02",
-    title: "Converter",
-    description:
-      "Paginas, WhatsApp, CRM simples e fluxo de atendimento para transformar interesse em oportunidade.",
-    items: ["CRM simples", "WhatsApp e follow-up", "Agenda e atendimento"],
+    title: "Conversa e decisao",
+    description: "WhatsApp, formulario, proposta, atendimento e follow-up.",
+    items: ["WhatsApp", "Formulario", "Follow-up"],
   },
   {
     number: "03",
-    title: "Operar",
-    description:
-      "Sistemas, automacoes, dados e acompanhamento para crescer com mais controle.",
-    items: ["Automacoes", "Sistemas web", "Dashboards e dados"],
+    title: "Rotina e controle",
+    description: "Sistemas simples, dados, automacoes e acompanhamento.",
+    items: ["Sistemas", "Dados", "Acompanhamento"],
   },
 ] as const;
 
@@ -110,24 +104,18 @@ const relatedProjects = [
     type: "Diagnostico e calculo",
     summary: "Leitura inicial para decidir antes de aumentar verba.",
     href: simulationPage.path,
-    image:
-      "/api/og/generate?title=Simulador%20de%20investimento&subtitle=diagnostico%20e%20calculo",
   },
   {
     title: "Pagina para clinica de estetica",
     type: "Pagina e captacao",
     summary: "Estrutura pensada para agenda, recorrencia e contato simples.",
     href: "/servicos/landing-page-para-estetica",
-    image:
-      "/api/og/generate?title=Pagina%20para%20clinica%20de%20estetica&subtitle=agenda%20e%20captacao",
   },
   {
     title: "Integracoes para atendimento",
     type: "Sistema e operacao",
     summary: "Fluxos, automacoes e organizacao para leads e acompanhamento.",
     href: "/servicos/integracoes-automacoes",
-    image:
-      "/api/og/generate?title=Integracoes%20para%20atendimento&subtitle=sistema%20e%20operacao",
   },
 ] as const;
 
@@ -173,76 +161,63 @@ export default function About() {
       <section className={styles.heroSection} id="sobre">
         <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="24">
           <Column className={styles.heroMain} gap="20">
+            <BrandSignature />
             <Text className={styles.kicker} variant="label-default-s" onBackground="brand-strong">
               Sobre
             </Text>
             <Heading as="h1" variant="display-strong-l" wrap="balance">
-              Estruturo presenca digital para negocios venderem com mais clareza e controle.
+              Estrategia, paginas e sistemas para negocios venderem com mais clareza.
             </Heading>
             <div className={styles.accentLine} />
             <Text className={styles.heroLead} variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
-              O problema nem sempre e falta de marketing. Muitas vezes esta entre oferta, pagina,
-              atendimento e acompanhamento.
+              Trabalho entre marketing, design e operacao digital para organizar presenca, captacao
+              e acompanhamento.
             </Text>
-            <AboutScrollButton targetId="metodo">Veja como trabalho</AboutScrollButton>
+            <AboutScrollButton targetId="metodo">Ver como trabalho</AboutScrollButton>
           </Column>
 
-          <Column className={styles.heroAside} gap="16">
-            <div className={styles.portraitCard}>
-              <Media
-                src={person.avatar}
-                alt={`Retrato de ${person.name}`}
-                aspectRatio="4 / 5"
-                radius="l"
-                border="transparent"
-                sizes="(max-width: 768px) 100vw, 420px"
-                priority
-              />
-            </div>
+          <div className={styles.profileCard}>
+            <Row className={styles.profileTop} gap="12" vertical="center">
+              <Avatar src={person.avatar} size="m" />
+              <Column className={styles.profileIdentity} gap="4">
+                <Text variant="label-strong-m">{person.name}</Text>
+                <Text variant="body-default-s" onBackground="neutral-weak">
+                  Bahia, Brasil
+                </Text>
+              </Column>
+            </Row>
 
-            <div className={styles.profileCard}>
-              <Row className={styles.profileTop} gap="12" vertical="center">
-                <Avatar src={person.avatar} size="m" />
-                <Column className={styles.profileIdentity} gap="4">
-                  <Text variant="label-strong-m">{person.name}</Text>
-                  <Text variant="body-default-s" onBackground="neutral-weak">
-                    Bahia, Brasil
+            <div className={styles.profileFacts}>
+              {profileFacts.map((item) => (
+                <div className={styles.profileFact} key={item.label}>
+                  <Text className={styles.factLabel} variant="label-default-s" onBackground="neutral-weak">
+                    {item.label}
                   </Text>
-                </Column>
-              </Row>
-
-              <div className={styles.profileFacts}>
-                {profileFacts.map((item) => (
-                  <div className={styles.profileFact} key={item.label}>
-                    <Text className={styles.factLabel} variant="label-default-s" onBackground="neutral-weak">
-                      {item.label}
-                    </Text>
-                    <Text className={styles.factValue} variant="body-default-m" onBackground="neutral-weak">
-                      {item.value}
-                    </Text>
-                  </div>
-                ))}
-              </div>
+                  <Text className={styles.factValue} variant="body-default-m" onBackground="neutral-weak">
+                    {item.value}
+                  </Text>
+                </div>
+              ))}
             </div>
-          </Column>
+          </div>
         </Grid>
       </section>
 
       <AboutSectionNav items={[...sectionNavItems]} />
 
-      <section className={styles.section} id="historia">
+      <section className={styles.section} id="como-penso">
         <div className={styles.sectionHeader}>
           <Text className={styles.sectionKicker} variant="label-default-s" onBackground="brand-strong">
-            Historia
+            Sobre
           </Text>
           <Heading as="h2" variant="display-strong-s">
-            Como cheguei ate aqui
+            Como penso
           </Heading>
         </div>
 
-        <Grid className={styles.storyGrid} columns="3" m={{ columns: 1 }} gap="20">
-          {storyBlocks.map((item) => (
-            <div className={styles.storyBlock} key={item}>
+        <Grid className={styles.thoughtGrid} columns="3" m={{ columns: 1 }} gap="20">
+          {thoughtBlocks.map((item) => (
+            <div className={styles.thoughtBlock} key={item}>
               <Text variant="body-default-m" onBackground="neutral-weak">
                 {item}
               </Text>
@@ -267,13 +242,15 @@ export default function About() {
 
         <Grid className={styles.fitGrid} columns="3" m={{ columns: 1 }} gap="20">
           {fitCards.map((card) => (
-            <article className={styles.fitCard} key={card.title}>
-              <div className={styles.fitIcon}>
-                <Icon name={card.icon} size="m" />
+            <article className={styles.fitItem} key={card.title}>
+              <div className={styles.fitItemTop}>
+                <div className={styles.fitIcon}>
+                  <Icon name={card.icon} size="m" />
+                </div>
+                <Heading as="h3" variant="heading-strong-m">
+                  {card.title}
+                </Heading>
               </div>
-              <Heading as="h3" variant="heading-strong-m">
-                {card.title}
-              </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak">
                 {card.description}
               </Text>
@@ -288,31 +265,24 @@ export default function About() {
             Metodo
           </Text>
           <Heading as="h2" variant="display-strong-s">
-            Como trabalho
+            O que normalmente organizo
           </Heading>
-          <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
-            Normalmente ajudo em tres frentes que se conectam.
-          </Text>
         </div>
 
         <Grid className={styles.methodGrid} columns="3" m={{ columns: 1 }} gap="20">
-          {workStages.map((stage) => (
-            <article className={styles.methodCard} key={stage.title}>
-              <div className={styles.methodTop}>
-                <span className={styles.methodNumber}>{stage.number}</span>
-                <Heading as="h3" variant="heading-strong-m">
-                  {stage.title}
-                </Heading>
-              </div>
-
+          {methodBlocks.map((item) => (
+            <article className={styles.methodItemBlock} key={item.title}>
+              <span className={styles.methodNumber}>{item.number}</span>
+              <Heading as="h3" variant="heading-strong-m">
+                {item.title}
+              </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak">
-                {stage.description}
+                {item.description}
               </Text>
-
-              <div className={styles.methodItems}>
-                {stage.items.map((item) => (
-                  <span className={styles.methodItem} key={item}>
-                    {item}
+              <div className={styles.methodList}>
+                {item.items.map((entry) => (
+                  <span className={styles.methodListItem} key={entry}>
+                    {entry}
                   </span>
                 ))}
               </div>
@@ -336,17 +306,7 @@ export default function About() {
 
         <Grid className={styles.projectsGrid} columns="3" m={{ columns: 1 }} gap="20">
           {relatedProjects.map((project) => (
-            <article className={styles.projectCard} key={project.title}>
-              <div className={styles.projectPreview}>
-                <Media
-                  src={project.image}
-                  alt={`Preview de ${project.title}`}
-                  aspectRatio="16 / 9"
-                  radius="l"
-                  border="transparent"
-                  sizes="(max-width: 768px) 100vw, 360px"
-                />
-              </div>
+            <article className={styles.projectItem} key={project.title}>
               <Text className={styles.projectType} variant="label-default-s" onBackground="neutral-weak">
                 {project.type}
               </Text>
@@ -368,17 +328,17 @@ export default function About() {
         </Button>
       </section>
 
-      <section className={styles.nextStep} id="contato">
+      <section className={styles.section} id="contato">
         <div className={styles.sectionHeader}>
           <Text className={styles.sectionKicker} variant="label-default-s" onBackground="brand-strong">
-            Proximo passo
+            Contato
           </Text>
           <Heading as="h2" variant="display-strong-s">
-            Vamos avaliar seu cenario antes de investir mais?
+            Antes de investir mais, vale entender a estrutura.
           </Heading>
           <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
-            Sem compromisso. A ideia e entender se a conta faz sentido antes de aumentar verba,
-            redesenhar pagina ou contratar novas acoes.
+            A simulacao ajuda a estimar se a conta faz sentido antes de aumentar verba, redesenhar
+            paginas ou criar novas acoes.
           </Text>
         </div>
 
@@ -387,7 +347,7 @@ export default function About() {
             Ver simulacao
           </Button>
           <Button href={whatsappLink} variant="secondary" size="m" prefixIcon="whatsapp">
-            Conversar no WhatsApp
+            Conversar
           </Button>
         </Row>
       </section>

@@ -2,7 +2,7 @@
 
 .page {
   width: 100%;
-  gap: clamp(4rem, 7vw, 6rem);
+  gap: clamp(3.5rem, 6vw, 5.25rem);
 }
 
 .hover {
@@ -14,50 +14,43 @@
 }
 
 .heroSection,
-.section,
-.nextStep {
+.section {
   width: 100%;
 }
 
 .heroSection {
-  padding-block: clamp(1rem, 2vw, 1.4rem) clamp(1.75rem, 4vw, 2.5rem);
+  padding-block: clamp(0.9rem, 2vw, 1.25rem) clamp(1.4rem, 3vw, 2rem);
 }
 
-.heroGrid {
+.heroGrid,
+.thoughtGrid,
+.fitGrid,
+.methodGrid,
+.projectsGrid {
   width: 100%;
-  grid-template-columns: minmax(0, 1.18fr) minmax(18rem, 0.82fr);
   align-items: start;
 }
 
-.heroMain,
-.heroAside {
-  min-width: 0;
+.heroGrid {
+  grid-template-columns: minmax(0, 1.22fr) minmax(18rem, 0.78fr);
+  gap: clamp(1.8rem, 4vw, 3rem);
 }
 
 .heroMain {
-  max-width: 44rem;
-}
-
-.heroAside {
-  display: grid;
-  gap: 1rem;
-  align-content: start;
-}
-
-.kicker,
-.sectionKicker {
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.heroLead,
-.sectionLead,
-.factValue {
-  line-height: 1.6;
+  max-width: 42rem;
 }
 
 .heroLead {
-  max-width: 38rem;
+  max-width: 34rem;
+  line-height: 1.58;
+}
+
+.kicker,
+.sectionKicker,
+.factLabel,
+.projectType {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .accentLine {
@@ -73,7 +66,7 @@
   justify-content: center;
   min-height: 3rem;
   width: fit-content;
-  padding: 0.8rem 1.1rem;
+  padding: 0.78rem 1rem;
   border: 1px solid var(--border-subtle);
   border-radius: 999px;
   background: transparent;
@@ -87,41 +80,33 @@
 }
 
 .heroJump:hover,
-.heroJump:focus-visible {
-  border-color: rgba(184, 146, 18, 0.28);
+.heroJump:focus-visible,
+.sectionNavButton:hover,
+.sectionNavButton:focus-visible,
+.sectionNavButtonActive:hover,
+.sectionNavButtonActive:focus-visible {
+  border-color: rgba(184, 146, 18, 0.26);
   color: var(--color-accent-gold);
   background: rgba(255, 255, 255, 0.02);
-}
-
-.portraitCard,
-.profileCard,
-.fitCard,
-.methodCard,
-.projectCard,
-.nextStep {
-  border: 1px solid var(--border-subtle);
-  background: rgba(255, 255, 255, 0.01);
-}
-
-.portraitCard {
-  overflow: hidden;
-  border-radius: 1.5rem;
 }
 
 .profileCard {
   display: grid;
   gap: 1rem;
-  padding: 1rem;
-  border-radius: 1.25rem;
+  padding: 1rem 1rem 0.95rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.1rem;
+  background: rgba(255, 255, 255, 0.01);
 }
 
 .profileTop {
   align-items: center;
-  padding-bottom: 0.9rem;
+  padding-bottom: 0.85rem;
   border-bottom: 1px solid var(--border-subtle);
 }
 
-.profileIdentity {
+.profileIdentity,
+.profileFact {
   min-width: 0;
 }
 
@@ -132,28 +117,26 @@
 
 .profileFact {
   display: grid;
-  gap: 0.35rem;
+  gap: 0.32rem;
 }
 
-.factLabel,
-.projectType {
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+.factValue,
+.sectionLead {
+  line-height: 1.6;
 }
 
 .sectionNav {
   position: sticky;
-  top: 5.1rem;
+  top: 5rem;
   z-index: 12;
   width: 100%;
-  margin-top: -0.25rem;
 }
 
 .sectionNavRail {
   display: flex;
   gap: 0.55rem;
   width: 100%;
-  padding: 0.85rem 0;
+  padding: 0.75rem 0;
   overflow-x: auto;
   background: rgba(10, 10, 10, 0.94);
   border-top: 1px solid var(--border-subtle);
@@ -167,9 +150,9 @@
 
 .sectionNavButton,
 .sectionNavButtonActive {
-  min-height: 2.35rem;
-  padding: 0.5rem 0.85rem;
-  border: 1px solid var(--border-subtle);
+  min-height: 2.25rem;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid transparent;
   border-radius: 999px;
   background: transparent;
   color: var(--neutral-on-background-medium);
@@ -183,68 +166,51 @@
 }
 
 .sectionNavButtonActive {
-  border-color: rgba(184, 146, 18, 0.3);
+  border-color: rgba(184, 146, 18, 0.24);
   color: var(--neutral-on-background-strong);
   background: rgba(184, 146, 18, 0.08);
 }
 
 .section {
   display: grid;
-  gap: 1.5rem;
-  padding-top: clamp(3rem, 6vw, 4rem);
+  gap: 1.35rem;
+  padding-top: clamp(2.6rem, 5vw, 3.6rem);
   border-top: 1px solid var(--border-subtle);
 }
 
 .sectionHeader {
   display: grid;
-  gap: 0.7rem;
-  max-width: 42rem;
+  gap: 0.65rem;
+  max-width: 40rem;
 }
 
 .sectionLead {
-  max-width: 34rem;
+  max-width: 33rem;
 }
 
-.storyGrid,
-.fitGrid,
-.methodGrid,
-.projectsGrid {
-  width: 100%;
-  align-items: stretch;
-}
-
-.storyBlock {
+.thoughtBlock,
+.fitItem,
+.methodItemBlock,
+.projectItem {
+  display: grid;
+  gap: 0.8rem;
   padding-top: 1rem;
   border-top: 1px solid var(--border-subtle);
 }
 
-.fitCard {
+.fitItemTop {
   display: grid;
-  gap: 0.9rem;
-  padding: 1.15rem;
-  border-radius: 1.1rem;
+  gap: 0.7rem;
 }
 
 .fitIcon {
   display: grid;
   place-items: center;
-  width: 2.6rem;
-  height: 2.6rem;
-  border: 1px solid rgba(184, 146, 18, 0.2);
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid rgba(184, 146, 18, 0.18);
   border-radius: 999px;
   color: var(--color-accent-gold);
-}
-
-.methodCard {
-  display: grid;
-  gap: 1rem;
-  padding: 1.2rem;
-  border-radius: 1.1rem;
-}
-
-.methodTop {
-  display: grid;
-  gap: 0.75rem;
 }
 
 .methodNumber {
@@ -252,50 +218,31 @@
   align-items: center;
   justify-content: center;
   width: fit-content;
-  min-height: 2rem;
-  padding: 0.28rem 0.55rem;
-  border: 1px solid rgba(184, 146, 18, 0.2);
+  min-height: 1.9rem;
+  padding: 0.28rem 0.52rem;
+  border: 1px solid rgba(184, 146, 18, 0.18);
   border-radius: 999px;
   color: var(--color-accent-gold);
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   font-weight: 600;
   letter-spacing: 0.1em;
 }
 
-.methodItems {
+.methodList {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.55rem;
+  gap: 0.5rem;
 }
 
-.methodItem {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2rem;
-  padding: 0.45rem 0.7rem;
-  border: 1px solid rgba(184, 146, 18, 0.14);
-  border-radius: 999px;
+.methodListItem {
   color: var(--neutral-on-background-medium);
-  font-size: 0.84rem;
+  font-size: 0.85rem;
 }
 
-.projectCard {
-  display: grid;
-  gap: 0.8rem;
-  padding: 0.9rem;
-  border-radius: 1.15rem;
-}
-
-.projectPreview {
-  overflow: hidden;
-  border-radius: 0.95rem;
-}
-
-.nextStep {
-  display: grid;
-  gap: 1.4rem;
-  padding: 1.4rem;
-  border-radius: 1.4rem;
+.methodListItem::before {
+  content: "•";
+  margin-right: 0.35rem;
+  color: var(--color-accent-gold);
 }
 
 .ctaRow {
@@ -304,7 +251,7 @@
 
 @media (max-width: breakpoints.$m) {
   .heroGrid,
-  .storyGrid,
+  .thoughtGrid,
   .fitGrid,
   .methodGrid,
   .projectsGrid {
@@ -325,29 +272,24 @@
 
 @media (max-width: breakpoints.$s) {
   .page {
-    gap: 3.25rem;
+    gap: 3rem;
   }
 
   .heroSection {
-    padding-block: 0.75rem 1.25rem;
+    padding-block: 0.75rem 1.1rem;
   }
 
-  .section,
-  .nextStep {
-    padding-top: 2.4rem;
-  }
-
-  .portraitCard,
-  .profileCard,
-  .fitCard,
-  .methodCard,
-  .projectCard,
-  .nextStep {
-    border-radius: 1.05rem;
+  .section {
+    gap: 1.15rem;
+    padding-top: 2.2rem;
   }
 
   .heroJump {
     width: 100%;
+  }
+
+  .profileCard {
+    border-radius: 1rem;
   }
 
   .ctaRow {

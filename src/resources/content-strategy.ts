@@ -202,10 +202,10 @@ const contentStrategy = {
       },
       hero: {
         eyebrow: "Sobre",
-        headline: "Estruturo presenca digital para negocios venderem com mais clareza e controle.",
+        headline: "Estrategia, paginas e sistemas para negocios venderem com mais clareza.",
         subheadline:
-          "O problema nem sempre e falta de marketing. Muitas vezes esta entre oferta, pagina, atendimento e acompanhamento.",
-        primaryCtaLabel: "Veja como trabalho",
+          "Trabalho entre marketing, design e operacao digital para organizar presenca, captacao e acompanhamento.",
+        primaryCtaLabel: "Ver como trabalho",
         primaryCtaHref: "/about#metodo",
         secondaryCtaLabel: "Ver simulacao",
         secondaryCtaHref: "/simulacao",
