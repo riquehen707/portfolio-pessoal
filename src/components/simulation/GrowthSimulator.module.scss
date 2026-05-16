@@ -1,6 +1,6 @@
 .root {
   width: 100%;
-  padding-bottom: 7rem;
+  padding-bottom: 7.25rem;
 }
 
 .topBar {
@@ -8,19 +8,27 @@
   top: 0;
   z-index: 20;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1.2rem;
   width: 100%;
-  padding: 1rem 0 1.1rem;
+  padding: 0.9rem 0 1rem;
   background: rgba(10, 10, 10, 0.96);
   border-bottom: 1px solid var(--border-subtle);
 }
 
 .stageNav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  align-items: flex-end;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-padding-inline: 0.1rem;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+
+.stageNav::-webkit-scrollbar {
+  display: none;
 }
 
 .stageLink,
@@ -37,71 +45,108 @@
 
 .stageLink,
 .stageLinkActive {
-  min-height: 2.4rem;
-  padding: 0.55rem 0.9rem;
-  border: 1px solid var(--border-subtle);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.01);
+  display: grid;
+  flex: 0 0 auto;
+  gap: 0.2rem;
+  min-height: 3rem;
+  padding: 0.7rem 0 0.6rem;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
+  background: none;
   color: var(--neutral-on-background-medium);
+  text-align: left;
   cursor: pointer;
+  scroll-snap-align: start;
   transition:
     border-color var(--motion-fast),
-    color var(--motion-fast),
-    background var(--motion-fast);
+    color var(--motion-fast);
 }
 
 .stageLinkActive {
   border-color: rgba(184, 146, 18, 0.34);
-  background: rgba(184, 146, 18, 0.08);
   color: var(--neutral-on-background-strong);
+}
+
+.stageLinkIndex {
+  color: var(--color-accent-gold);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.stageLinkLabel {
+  font-size: 0.92rem;
+  line-height: 1.2;
 }
 
 .topBarMeta {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 1rem;
 }
 
 .technicalToggle {
-  min-height: 2.4rem;
-  padding: 0.55rem 0.95rem;
+  min-height: 2.75rem;
+  padding: 0.65rem 0.95rem;
   border: 1px solid var(--border-subtle);
   border-radius: 999px;
   background: transparent;
   color: var(--neutral-on-background-medium);
   cursor: pointer;
+  transition:
+    border-color var(--motion-fast),
+    color var(--motion-fast);
 }
 
 .desktopSummary {
-  display: inline-flex;
+  display: inline-grid;
+  grid-template-columns: repeat(3, minmax(0, auto));
   align-items: center;
-  gap: 0.85rem;
-  color: var(--neutral-on-background-medium);
-  font-size: 0.84rem;
+  gap: 0.85rem 1rem;
   white-space: nowrap;
+}
+
+.compactSummaryItem {
+  display: grid;
+  gap: 0.14rem;
+}
+
+.compactSummaryLabel {
+  color: var(--neutral-on-background-medium);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.compactSummaryValue {
+  color: var(--neutral-on-background-strong);
+  font-size: 0.88rem;
+  line-height: 1.25;
 }
 
 .sections {
   display: grid;
-  gap: clamp(2.5rem, 5vw, 4.25rem);
-  padding-top: clamp(1.4rem, 3vw, 2rem);
+  gap: clamp(3rem, 7vw, 4.8rem);
+  padding-top: clamp(1.5rem, 3vw, 2.1rem);
 }
 
 .stage {
-  min-height: calc(100svh - 7.5rem);
-  scroll-margin-top: 7rem;
+  min-height: calc(100svh - 7rem);
+  scroll-margin-top: 6.8rem;
   display: flex;
   align-items: center;
 }
 
 .startStage {
-  min-height: calc(100svh - 8.5rem);
+  min-height: calc(100svh - 8rem);
 }
 
 .stageInner {
   display: grid;
-  gap: clamp(1.35rem, 2vw, 1.85rem);
-  width: min(100%, 52rem);
+  gap: clamp(1.45rem, 2.4vw, 2rem);
+  width: min(100%, 48rem);
   margin: 0 auto;
 }
 
@@ -123,21 +168,21 @@
 .stageTitle {
   margin: 0;
   letter-spacing: -0.05em;
-  line-height: 0.96;
+  line-height: 0.98;
 }
 
 .displayTitle {
-  font-size: clamp(2.8rem, 8vw, 5.1rem);
+  font-size: clamp(2.65rem, 7vw, 4.65rem);
   max-width: 11ch;
 }
 
 .stageTitle {
-  font-size: clamp(1.9rem, 5vw, 3rem);
+  font-size: clamp(1.85rem, 4vw, 2.75rem);
+  max-width: 12ch;
 }
 
 .displayLead,
 .helperText,
-.summaryLine,
 .primaryMetricHint,
 .readingText,
 .alertItem,
@@ -146,10 +191,17 @@
 }
 
 .displayLead {
-  max-width: 34rem;
+  max-width: 31rem;
   margin: 0;
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  line-height: 1.6;
+  font-size: clamp(1rem, 1.8vw, 1.12rem);
+  line-height: 1.7;
+}
+
+.stageNote {
+  max-width: 38rem;
+  margin: 0;
+  color: var(--neutral-on-background-medium);
+  line-height: 1.7;
 }
 
 .fieldGrid {
@@ -167,6 +219,10 @@
 
 .fieldWide {
   grid-column: 1 / -1;
+}
+
+.fieldCompact {
+  max-width: 24rem;
 }
 
 .fieldLabel,
@@ -258,11 +314,11 @@
 .input,
 .select {
   width: 100%;
-  min-height: 3.35rem;
-  padding: 0.85rem 0.95rem;
+  min-height: 3.45rem;
+  padding: 0.9rem 1rem;
   border: 1px solid var(--border-subtle);
-  border-radius: 1.05rem;
-  background: rgba(255, 255, 255, 0.01);
+  border-radius: 0.95rem;
+  background: rgba(255, 255, 255, 0.015);
   color: var(--neutral-on-background-strong);
   font: inherit;
 }
@@ -274,9 +330,34 @@
   border-color: rgba(184, 146, 18, 0.42);
 }
 
-.summaryLine {
-  margin: 0;
-  line-height: 1.75;
+.summaryStrip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem 1rem;
+  padding-top: 0.2rem;
+}
+
+.summaryItem {
+  display: grid;
+  gap: 0.3rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.summaryItemLabel {
+  color: var(--neutral-on-background-medium);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.35;
+}
+
+.summaryItemValue {
+  color: var(--neutral-on-background-strong);
+  font-size: clamp(0.98rem, 1.8vw, 1.15rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
 }
 
 .scenarioList,
@@ -292,13 +373,29 @@
 .scenarioButton,
 .scenarioButtonActive,
 .secondaryAction {
-  min-height: 2.85rem;
-  padding: 0.7rem 1rem;
+  min-height: 2.75rem;
+  padding: 0.68rem 0.95rem;
   border: 1px solid var(--border-subtle);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.01);
   color: var(--neutral-on-background-medium);
   cursor: pointer;
+}
+
+.secondaryActionLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.68rem 0.95rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.01);
+  color: var(--neutral-on-background-medium);
+  text-decoration: none;
+  transition:
+    border-color var(--motion-fast),
+    color var(--motion-fast);
 }
 
 .scenarioButtonActive {
@@ -323,6 +420,8 @@
 
 .primaryAction:hover,
 .primaryAction:focus-visible,
+.secondaryActionLink:hover,
+.secondaryActionLink:focus-visible,
 .secondaryAction:hover,
 .secondaryAction:focus-visible,
 .technicalToggle:hover,
@@ -339,15 +438,55 @@
   color: var(--neutral-on-background-strong);
 }
 
+.expandableHelp {
+  display: grid;
+  gap: 0.5rem;
+  padding-top: 0.15rem;
+}
+
+.expandableSummary {
+  width: fit-content;
+  color: var(--neutral-on-background-medium);
+  cursor: pointer;
+  list-style: none;
+  line-height: 1.55;
+}
+
+.expandableSummary::-webkit-details-marker {
+  display: none;
+}
+
+.expandableSummary::after {
+  content: "+";
+  margin-left: 0.5rem;
+  color: var(--color-accent-gold);
+}
+
+.expandableHelp[open] .expandableSummary::after {
+  content: "-";
+}
+
+.expandableBody {
+  max-width: 36rem;
+  color: var(--neutral-on-background-medium);
+  line-height: 1.65;
+}
+
 .primaryMetricCard,
-.readingCard,
-.detailsBlock {
+.readingCard {
   display: grid;
   gap: 0.55rem;
-  padding: 1.35rem;
+  padding: 1.25rem 1.3rem;
   border: 1px solid var(--border-subtle);
-  border-radius: 1.4rem;
-  background: rgba(255, 255, 255, 0.01);
+  border-radius: 1.15rem;
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.detailsBlock {
+  display: grid;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .primaryMetricValue,
@@ -387,7 +526,7 @@
 .compareGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.8rem;
+  gap: 0.9rem;
 }
 
 .compareItem {
@@ -405,7 +544,7 @@
 
 .metricList {
   display: grid;
-  gap: 0.25rem;
+  gap: 0.2rem;
 }
 
 .metricRow {
@@ -413,7 +552,7 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.95rem 0;
+  padding: 0.9rem 0;
   border-top: 1px solid var(--border-subtle);
 }
 
@@ -427,7 +566,7 @@
 }
 
 .metricRowValue {
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: clamp(1rem, 1.8vw, 1.14rem);
   font-weight: 600;
   line-height: 1.2;
 }
@@ -441,7 +580,7 @@
 .manualPanel {
   display: grid;
   gap: 1rem;
-  padding-top: 0.3rem;
+  padding-top: 0.15rem;
 }
 
 .sliderHeader {
@@ -484,7 +623,9 @@
   justify-content: space-between;
   gap: 1rem;
   color: var(--neutral-on-background-medium);
-  font-size: 0.84rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .statusList {
@@ -551,17 +692,22 @@
   .topBar {
     align-items: flex-start;
     flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .stageNav,
+  .topBarMeta {
+    width: 100%;
   }
 
   .topBarMeta {
-    width: 100%;
     justify-content: space-between;
   }
 }
 
 @media (max-width: 720px) {
   .root {
-    padding-bottom: 8.5rem;
+    padding-bottom: 9rem;
   }
 
   .desktopSummary {
@@ -573,36 +719,40 @@
     grid-template-columns: 1fr;
   }
 
+  .fieldCompact {
+    max-width: none;
+  }
+
   .sections {
-    gap: 2rem;
+    gap: 2.4rem;
   }
 
   .stage,
   .startStage {
     min-height: auto;
-    padding: 1rem 0 1.5rem;
+    padding: 0.8rem 0 1.35rem;
   }
 
   .stageInner {
-    gap: 1.25rem;
+    gap: 1.4rem;
   }
 
   .displayTitle {
-    font-size: clamp(2.2rem, 15vw, 3.2rem);
+    font-size: clamp(2.15rem, 14vw, 3rem);
   }
 
   .stageTitle {
-    font-size: clamp(1.55rem, 8vw, 2.1rem);
+    font-size: clamp(1.45rem, 7vw, 2rem);
   }
 
   .displayLead,
-  .summaryLine,
+  .stageNote,
   .helperText,
   .readingText,
   .alertItem,
   .metricRowMuted {
-    font-size: 0.95rem;
-    line-height: 1.7;
+    font-size: 0.93rem;
+    line-height: 1.75;
   }
 
   .fieldLabel,
@@ -611,6 +761,29 @@
   .compareLabel,
   .kicker {
     letter-spacing: 0.08em;
+  }
+
+  .topBar {
+    padding: 0.75rem 0 0.9rem;
+  }
+
+  .stageNav {
+    gap: 0.85rem;
+  }
+
+  .stageLink,
+  .stageLinkActive {
+    min-height: 2.8rem;
+    padding: 0.62rem 0 0.52rem;
+  }
+
+  .stageLinkLabel {
+    font-size: 0.86rem;
+  }
+
+  .summaryStrip {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem 0.85rem;
   }
 
   .compareValue,
@@ -626,7 +799,17 @@
     flex-direction: column;
   }
 
+  .topBarMeta {
+    gap: 0.8rem;
+  }
+
+  .technicalToggle {
+    min-height: 2.6rem;
+    padding-inline: 0.9rem;
+  }
+
   .primaryAction,
+  .secondaryActionLink,
   .primaryLink,
   .secondaryLink {
     width: 100%;
@@ -643,15 +826,13 @@
     bottom: max(0.75rem, env(safe-area-inset-bottom));
     left: 0.75rem;
     z-index: 30;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.55rem 0.85rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.7rem;
     padding: 0.85rem 1rem;
     border: 1px solid var(--border-subtle);
-    border-radius: 1rem;
+    border-radius: 0.95rem;
     background: rgba(10, 10, 10, 0.96);
-    color: var(--neutral-on-background-medium);
-    font-size: 0.82rem;
   }
 
   .metricRowValue {

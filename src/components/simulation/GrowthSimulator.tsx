@@ -2,6 +2,7 @@
 
 import {
   type ChangeEvent,
+  type ReactNode,
   useEffect,
   useId,
   useRef,
@@ -79,8 +80,14 @@ type TermHintProps = {
   href: string;
 };
 
+type ExpandableHelpProps = {
+  label: string;
+  children: ReactNode;
+};
+
 type StepId = "start" | "base" | "adjustments" | "marketing" | "final";
 type ScenarioId = "conservative" | "realistic" | "aggressive" | "custom";
+type ReturnWindowId = "up-to-30" | "thirty-to-sixty" | "sixty-to-ninety" | "over-ninety";
 
 type ScenarioPreset = {
   id: Exclude<ScenarioId, "custom">;
@@ -94,13 +101,15 @@ type ScenarioPreset = {
 const glossaryLinks = {
   marketing: "/blog/termos-de-marketing",
   publicidade: "/blog/termos-de-publicidade",
+  baseGuide: "/blog/como-entender-receita-margem-custos-e-volume",
+  adjustmentsGuide: "/blog/como-melhorar-o-retorno-com-pequenos-ajustes",
 } as const;
 
 const stageItems: Array<{ id: StepId; label: string }> = [
   { id: "start", label: "Inicio" },
   { id: "base", label: "Base" },
   { id: "adjustments", label: "Ajustes" },
-  { id: "marketing", label: "Marketing" },
+  { id: "marketing", label: "Investimento" },
   { id: "final", label: "Leitura" },
 ];
 
@@ -129,6 +138,13 @@ const scenarioPresets: ScenarioPreset[] = [
     costDrop: 8,
     recurrenceLift: 14,
   },
+];
+
+const returnWindowOptions: Array<{ id: ReturnWindowId; label: string; days: number }> = [
+  { id: "up-to-30", label: "Ate 30 dias", days: 25 },
+  { id: "thirty-to-sixty", label: "30 a 60 dias", days: 45 },
+  { id: "sixty-to-ninety", label: "60 a 90 dias", days: 75 },
+  { id: "over-ninety", label: "Mais de 90 dias", days: 120 },
 ];
 
 const segmentProfiles: SegmentProfile[] = [
@@ -250,6 +266,18 @@ const formatSignedCurrency = (value: number) =>
 const formatPercent = (value: number) =>
   `${value >= 0 ? "+" : ""}${formatNumber(value, 0)}%`;
 
+function formatTimeEstimate(days: number) {
+  if (!Number.isFinite(days) || days <= 0) {
+    return "Sem retorno estimado";
+  }
+
+  if (days <= 120) {
+    return `Cerca de ${formatNumber(Math.round(days), 0)} dias`;
+  }
+
+  return `Cerca de ${formatNumber(Math.max(days / 30, 1), 1)} meses`;
+}
+
 function TermHint({ label, description, href }: TermHintProps) {
   const tooltipId = useId();
 
@@ -277,6 +305,15 @@ function TermHint({ label, description, href }: TermHintProps) {
         </span>
       </span>
     </span>
+  );
+}
+
+function ExpandableHelp({ label, children }: ExpandableHelpProps) {
+  return (
+    <details className={styles.expandableHelp}>
+      <summary className={styles.expandableSummary}>{label}</summary>
+      <div className={styles.expandableBody}>{children}</div>
+    </details>
   );
 }
 
@@ -456,6 +493,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
   const [costDrop, setCostDrop] = useState(5);
   const [recurrenceLift, setRecurrenceLift] = useState(8);
   const [selectedScenario, setSelectedScenario] = useState<ScenarioId>("realistic");
+  const [returnWindowId, setReturnWindowId] = useState<ReturnWindowId>("thirty-to-sixty");
   const [manualOpen, setManualOpen] = useState(false);
   const [technicalMode, setTechnicalMode] = useState(false);
   const [activeStep, setActiveStep] = useState<StepId>("start");
@@ -514,6 +552,8 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
 
   const segment =
     segmentProfiles.find((item) => item.id === segmentId) ?? segmentProfiles[0];
+  const selectedReturnWindow =
+    returnWindowOptions.find((item) => item.id === returnWindowId) ?? returnWindowOptions[1];
 
   const currentRevenue = currentPrice * currentSales;
   const currentContribution = Math.max(currentPrice - currentCost, 0);
@@ -566,11 +606,23 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
     scale,
   });
 
-  const summaryLine = [
-    `Faturamento atual: ${formatCurrency(currentRevenue)}`,
-    `Margem por venda: ${formatCurrency(currentContribution)}`,
-    `Caixa estimado: ${formatCurrency(currentNet)}`,
-    `Porte: ${scale.label.toLowerCase()}`,
+  const estimatedReturnDays =
+    marketingEstimate.totalInvestment > 0 && marketingEstimate.contributionGenerated > 0
+      ? selectedReturnWindow.days +
+        (marketingEstimate.totalInvestment / marketingEstimate.contributionGenerated) * 30
+      : 0;
+  const estimatedReturnLabel = formatTimeEstimate(estimatedReturnDays);
+
+  const baseSummaryItems = [
+    { label: "Receita atual", value: formatCurrency(currentRevenue) },
+    { label: "Margem por cliente", value: formatCurrency(currentContribution) },
+    { label: "Resultado apos fixos", value: formatCurrency(currentNet) },
+  ];
+
+  const compactSummaryItems = [
+    { label: "Receita", value: formatCurrency(currentRevenue) },
+    { label: "Clientes", value: formatNumber(marketingEstimate.newClients) },
+    { label: "Investimento", value: formatCurrency(marketingEstimate.totalInvestment) },
   ];
 
   const revenueDifference = projectedRevenue - currentRevenue;
@@ -580,45 +632,64 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
       : 0;
 
   let readingTitle = "Conta viavel.";
-  let readingText = "A operacao sustenta a meta com investimento proporcional.";
+  let readingText =
+    "O cenario sustenta o investimento se o volume projetado for alcancado dentro do prazo estimado.";
+  let attentionPoint = "Sustentar o volume projetado com atendimento consistente.";
 
   if (projectedContribution <= 0) {
-    readingTitle = "Margem insuficiente.";
-    readingText = "Revise preco ou custo antes de aumentar a verba.";
-  } else if (marketingEstimate.adjustedCAC >= projectedContribution) {
-    readingTitle = "Cenario apertado.";
-    readingText = "O CAC estimado consome margem rapido.";
+    readingTitle = "Cenario fragil.";
+    readingText =
+      "Antes de investir, ajuste valor medio, custo por cliente ou recorrencia.";
+    attentionPoint = "Margem por cliente insuficiente.";
   } else if (!marketingEstimate.viable) {
-    readingTitle = "Meta exigente.";
-    readingText = "Revise ticket, margem e volume antes de subir a verba.";
+    readingTitle = "Conta apertada.";
+    readingText =
+      "O investimento exige mais clientes do que a base atual indica. Revise margem, valor medio ou custo por cliente.";
+    attentionPoint = "Meta de clientes acima da base atual.";
+  } else if (marketingEstimate.adjustedCAC >= projectedContribution) {
+    readingTitle = "Conta apertada.";
+    readingText =
+      "O custo para trazer cliente novo encosta na margem por cliente. Revise valor medio ou custo direto.";
+    attentionPoint = "Custo para trazer cliente novo perto da margem.";
   } else if (marketingEstimate.totalInvestment > Math.max(projectedNetAfterOps, currentNet, 0)) {
-    readingTitle = "Investimento alto para a base atual.";
-    readingText = "A conta fecha, mas o caixa pode travar a execucao.";
+    readingTitle = "Conta apertada.";
+    readingText =
+      "A conta pode fechar, mas o investimento fica alto para o resultado atual da operacao.";
+    attentionPoint = "Investimento acima do resultado atual.";
+  } else if (estimatedReturnDays > 120) {
+    readingTitle = "Conta apertada.";
+    readingText =
+      "O retorno demora mais do que o esperado para a maioria das operacoes de servico.";
+    attentionPoint = "Prazo de retorno longo.";
   } else if (marketingEstimate.newClients > currentSales * 1.4) {
-    readingTitle = "Volume acima da base atual.";
-    readingText = "A conta parece viavel se a operacao sustentar o novo ritmo.";
+    attentionPoint = "Sustentar o novo volume de atendimento.";
   }
 
   const statusChips = Array.from(
     new Set(
       [
         readingTitle.replace(".", ""),
-        marketingEstimate.adjustedCAC >= projectedContribution ? "CAC alto" : null,
-        marketingEstimate.totalInvestment > Math.max(currentNet, 0) ? "Investimento acima do caixa" : null,
+        marketingEstimate.adjustedCAC >= projectedContribution
+          ? "Custo por cliente alto"
+          : null,
+        marketingEstimate.totalInvestment > Math.max(currentNet, 0)
+          ? "Investimento acima da base atual"
+          : null,
         marketingEstimate.newClients > currentSales * 1.4 ? "Volume acima da base atual" : null,
+        estimatedReturnDays > 120 ? "Prazo longo" : null,
       ].filter(Boolean) as string[],
     ),
   );
 
   const alerts = [
     marketingEstimate.adjustedCAC >= projectedContribution
-      ? "CAC acima da margem por venda."
+      ? "O custo para trazer cliente novo passa da margem por cliente."
       : null,
     marketingEstimate.newClients > currentSales * 1.6
-      ? "Meta de clientes muito acima da base atual."
+      ? "A meta de novos clientes esta muito acima da base atual."
       : null,
     marketingEstimate.totalInvestment > Math.max(currentNet, 0)
-      ? "Investimento maior que o caixa estimado."
+      ? "O investimento fica maior do que o resultado atual."
       : null,
     projectedContribution <= 0 ? "Margem insuficiente para sustentar esse cenario." : null,
   ].filter(Boolean) as string[];
@@ -657,8 +728,12 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
   };
 
   const scrollToStep = (stepId: StepId) => {
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     sectionRefs[stepId].current?.scrollIntoView({
-      behavior: "smooth",
+      behavior: prefersReducedMotion ? "auto" : "smooth",
       block: "start",
     });
   };
@@ -667,7 +742,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
     <div className={styles.root}>
       <div className={styles.topBar}>
         <nav aria-label="Etapas da simulacao" className={styles.stageNav}>
-          {stageItems.map((item) => (
+          {stageItems.map((item, index) => (
             <button
               aria-current={activeStep === item.id ? "step" : undefined}
               className={activeStep === item.id ? styles.stageLinkActive : styles.stageLink}
@@ -675,7 +750,10 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
               onClick={() => scrollToStep(item.id)}
               type="button"
             >
-              {item.label}
+              <span className={styles.stageLinkIndex}>
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className={styles.stageLinkLabel}>{item.label}</span>
             </button>
           ))}
         </nav>
@@ -691,9 +769,12 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
           </button>
 
           <div className={styles.desktopSummary}>
-            <span>Base: {formatCurrency(currentRevenue)}</span>
-            <span>Meta: {formatNumber(marketingEstimate.newClients)} clientes</span>
-            <span>Investimento: {formatCurrency(marketingEstimate.totalInvestment)}</span>
+            {compactSummaryItems.map((item) => (
+              <div className={styles.compactSummaryItem} key={item.label}>
+                <span className={styles.compactSummaryLabel}>{item.label}</span>
+                <span className={styles.compactSummaryValue}>{item.value}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -709,7 +790,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
               <span className={styles.kicker}>Inicio</span>
               <h1 className={styles.displayTitle}>Simulacao de crescimento</h1>
               <p className={styles.displayLead}>
-                Base atual, ajustes internos e meta de marketing.
+                Base atual, ajustes internos e meta de investimento.
               </p>
             </div>
 
@@ -726,12 +807,18 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
         <section className={styles.stage} data-step-id="base" ref={sectionRefs.base}>
           <div className={styles.stageInner}>
             <header className={styles.stageHeader}>
-              <span className={styles.kicker}>Base atual</span>
-              <h2 className={styles.stageTitle}>Onde o negocio esta?</h2>
+              <span className={styles.kicker}>Base</span>
+              <h2 className={styles.stageTitle}>Base atual</h2>
             </header>
 
+            <p className={styles.stageNote}>
+              Essa simulacao usa estimativas para entender como seu negocio funciona hoje. Quanto
+              mais preciso, melhor. Mas voce pode comecar com numeros aproximados que observa no
+              dia a dia.
+            </p>
+
             <div className={styles.fieldGrid}>
-              <label className={`${styles.field} ${styles.fieldWide}`} htmlFor="simulation-segment">
+              <label className={`${styles.field} ${styles.fieldCompact}`} htmlFor="simulation-segment">
                 <span className={styles.fieldLabel}>Categoria</span>
                 <select
                   className={styles.select}
@@ -745,17 +832,10 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
                     </option>
                   ))}
                 </select>
-                <span className={styles.helperText}>{segment.note}</span>
               </label>
 
               <label className={styles.field} htmlFor="simulation-price">
-                <span className={styles.fieldLabel}>
-                  <TermHint
-                    label="Preco medio por venda"
-                    description="E o valor medio que entra a cada venda feita pelo negocio."
-                    href={`${glossaryLinks.marketing}#ticket-medio`}
-                  />
-                </span>
+                <span className={styles.fieldLabel}>Valor medio recebido por cliente</span>
                 <input
                   className={styles.input}
                   id="simulation-price"
@@ -769,7 +849,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
               </label>
 
               <label className={styles.field} htmlFor="simulation-cost">
-                <span className={styles.fieldLabel}>Custo direto por venda</span>
+                <span className={styles.fieldLabel}>Custo direto por cliente</span>
                 <input
                   className={styles.input}
                   id="simulation-cost"
@@ -780,10 +860,14 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
                   type="number"
                   value={currentCost}
                 />
+                <ExpandableHelp label="O que entra aqui?">
+                  Inclua custos que aparecem para atender, entregar ou vender: materiais, taxas,
+                  repasses, deslocamento, comissoes, ferramentas e tempo operacional.
+                </ExpandableHelp>
               </label>
 
               <label className={styles.field} htmlFor="simulation-sales">
-                <span className={styles.fieldLabel}>Vendas por mes</span>
+                <span className={styles.fieldLabel}>Clientes atendidos por mes</span>
                 <input
                   className={styles.input}
                   id="simulation-sales"
@@ -811,7 +895,20 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
               </label>
             </div>
 
-            <p className={styles.summaryLine}>{summaryLine.join(" | ")}</p>
+            <div className={styles.summaryStrip}>
+              {baseSummaryItems.map((item) => (
+                <div className={styles.summaryItem} key={item.label}>
+                  <span className={styles.summaryItemLabel}>{item.label}</span>
+                  <strong className={styles.summaryItemValue}>{item.value}</strong>
+                </div>
+              ))}
+            </div>
+
+            <div className={styles.secondaryActions}>
+              <a className={styles.secondaryActionLink} href={glossaryLinks.baseGuide}>
+                Nao sei onde meu negocio esta
+              </a>
+            </div>
 
             {technicalMode ? (
               <div className={styles.detailsBlock}>
@@ -820,8 +917,8 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
                 </div>
                 <div className={styles.metricList}>
                   {renderMetricRow("Margem atual", formatPercent(currentMargin), "sobre o faturamento")}
-                  {renderMetricRow("Escala lida", scale.label, scale.note)}
-                  {renderMetricRow("Segmento", segment.label, segment.saturationNote)}
+                  {renderMetricRow("Porte estimado", scale.label, scale.note)}
+                  {renderMetricRow("Categoria lida", segment.label, segment.saturationNote)}
                 </div>
               </div>
             ) : null}
@@ -842,8 +939,14 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
           <div className={styles.stageInner}>
             <header className={styles.stageHeader}>
               <span className={styles.kicker}>Ajustes</span>
-              <h2 className={styles.stageTitle}>O que melhora antes da verba?</h2>
+              <h2 className={styles.stageTitle}>Pequenos ajustes antes de investir</h2>
             </header>
+
+            <p className={styles.stageNote}>
+              Veja como mudancas em valor, volume, custo e recorrencia alteram o resultado.
+            </p>
+
+            <p className={styles.stageNote}>Escolha um cenario para estimar impacto.</p>
 
             <div className={styles.scenarioList}>
               {scenarioPresets.map((preset) => (
@@ -862,13 +965,11 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
             </div>
 
             <div className={styles.primaryMetricCard}>
-              <span className={styles.primaryMetricLabel}>Ganho liquido</span>
+              <span className={styles.primaryMetricLabel}>Resultado apos ajustes</span>
               <strong className={styles.primaryMetricValue}>
                 {formatCurrency(projectedNetAfterOps)}
               </strong>
-              <span className={styles.primaryMetricHint}>
-                Depois do custo de implantacao.
-              </span>
+              <span className={styles.primaryMetricHint}>Ja descontando o custo de implantacao.</span>
             </div>
 
             <div className={styles.compareGrid}>
@@ -887,21 +988,24 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
             </div>
 
             <div className={styles.metricList}>
-              {renderMetricRow("Faturamento projetado", formatCurrency(projectedRevenue))}
-              {renderMetricRow("Caixa antes da implantacao", formatCurrency(projectedNetBeforeOps))}
+              {renderMetricRow("Receita projetada", formatCurrency(projectedRevenue))}
+              {renderMetricRow("Resultado antes da implantacao", formatCurrency(projectedNetBeforeOps))}
               {renderMetricRow(
                 "Custo de implantacao",
                 formatCurrency(adjustmentOpsCost),
                 "interno e operacional",
               )}
               {renderMetricRow(
-                "Ganho liquido",
+                "Resultado extra",
                 formatCurrency(internalNetLift),
                 "diferenca sobre hoje",
               )}
             </div>
 
             <div className={styles.secondaryActions}>
+              <a className={styles.secondaryActionLink} href={glossaryLinks.adjustmentsGuide}>
+                Como aumentar o retorno com pequenos ajustes
+              </a>
               <button
                 aria-expanded={manualOpen}
                 className={styles.secondaryAction}
@@ -916,7 +1020,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
               <div className={styles.manualPanel}>
                 <label className={styles.sliderField} htmlFor="sales-lift">
                   <div className={styles.sliderHeader}>
-                    <span className={styles.fieldLabel}>+ vendas</span>
+                    <span className={styles.fieldLabel}>+ clientes atendidos</span>
                     <span className={styles.sliderValue}>{formatPercent(salesLift)}</span>
                   </div>
                   <input
@@ -933,7 +1037,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
 
                 <label className={styles.sliderField} htmlFor="price-lift">
                   <div className={styles.sliderHeader}>
-                    <span className={styles.fieldLabel}>+ preco</span>
+                    <span className={styles.fieldLabel}>+ valor medio</span>
                     <span className={styles.sliderValue}>{formatPercent(priceLift)}</span>
                   </div>
                   <input
@@ -950,7 +1054,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
 
                 <label className={styles.sliderField} htmlFor="cost-drop">
                   <div className={styles.sliderHeader}>
-                    <span className={styles.fieldLabel}>- custo</span>
+                    <span className={styles.fieldLabel}>- custo por cliente</span>
                     <span className={styles.sliderValue}>{formatPercent(-costDrop)}</span>
                   </div>
                   <input
@@ -997,8 +1101,8 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
                 </div>
                 <div className={styles.metricList}>
                   {renderMetricRow("Base de implantacao", formatCurrency(implementationBase))}
-                  {renderMetricRow("Ajuste comercial", formatCurrency(salesOpsCost))}
-                  {renderMetricRow("Reposicionamento de preco", formatCurrency(priceOpsCost))}
+                  {renderMetricRow("Ajuste de atendimento", formatCurrency(salesOpsCost))}
+                  {renderMetricRow("Reposicionamento de valor", formatCurrency(priceOpsCost))}
                   {renderMetricRow("Reducao de custo", formatCurrency(costOpsCost))}
                   {renderMetricRow("Recorrencia e CRM", formatCurrency(recurrenceOpsCost))}
                 </div>
@@ -1020,26 +1124,46 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
         <section className={styles.stage} data-step-id="marketing" ref={sectionRefs.marketing}>
           <div className={styles.stageInner}>
             <header className={styles.stageHeader}>
-              <span className={styles.kicker}>Marketing</span>
-              <h2 className={styles.stageTitle}>Quanto precisa retornar?</h2>
+              <span className={styles.kicker}>Investimento</span>
+              <h2 className={styles.stageTitle}>Quanto precisa investir?</h2>
             </header>
 
+            <div className={styles.fieldGrid}>
+              <label className={`${styles.field} ${styles.fieldCompact}`} htmlFor="simulation-return-window">
+                <span className={styles.fieldLabel}>Tempo medio ate retorno</span>
+                <select
+                  className={styles.select}
+                  id="simulation-return-window"
+                  onChange={(event) => setReturnWindowId(event.target.value as ReturnWindowId)}
+                  value={returnWindowId}
+                >
+                  {returnWindowOptions.map((option) => (
+                    <option key={option.id} value={option.id}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+                <span className={styles.helperText}>
+                  Quanto tempo, em media, um novo contato leva para virar receita.
+                </span>
+              </label>
+            </div>
+
             <div className={styles.primaryMetricCard}>
-              <span className={styles.primaryMetricLabel}>
-                <TermHint
-                  label="Investimento total estimado"
-                  description="Soma da verba de anuncios com o custo de operacao do marketing para buscar essa meta."
-                  href={`${glossaryLinks.publicidade}#roas`}
-                />
-              </span>
+              <span className={styles.primaryMetricLabel}>Investimento estimado</span>
               <strong className={styles.primaryMetricValue}>
                 {formatCurrency(marketingEstimate.totalInvestment)}
               </strong>
               <span className={styles.primaryMetricHint}>
                 {formatCurrency(marketingEstimate.mediaSpend)} midia |{" "}
-                {formatCurrency(marketingEstimate.managementCost)} gestao
+                {formatCurrency(marketingEstimate.managementCost)} gestao e operacao
               </span>
             </div>
+
+            <ExpandableHelp label="O que entra no investimento?">
+              O investimento pode incluir anuncios, criacao, gestao, ferramentas, atendimento e
+              perda natural de eficiencia.
+            </ExpandableHelp>
 
             <div className={styles.segmentBar} aria-hidden="true">
               <span
@@ -1053,20 +1177,11 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
             </div>
 
             <div className={styles.metricList}>
+              {renderMetricRow("Retorno estimado", formatCurrency(marketingEstimate.grossRevenue))}
+              {renderMetricRow("Tempo estimado de retorno", estimatedReturnLabel)}
               {renderMetricRow("Novos clientes necessarios", formatNumber(marketingEstimate.newClients))}
-              {renderMetricRow(
-                "CAC ajustado",
-                formatCurrency(marketingEstimate.adjustedCAC),
-                marketingEstimate.efficiencyLossPct > 0
-                  ? `perda de eficiencia ${formatPercent(marketingEstimate.efficiencyLossPct)}`
-                  : "sem perda relevante",
-              )}
-              {renderMetricRow("Midia estimada", formatCurrency(marketingEstimate.mediaSpend))}
+              {renderMetricRow("Midia", formatCurrency(marketingEstimate.mediaSpend))}
               {renderMetricRow("Gestao e operacao", formatCurrency(marketingEstimate.managementCost))}
-              {renderMetricRow(
-                "Taxa operacional",
-                `${formatNumber(marketingEstimate.managementRate * 100, 0)}%`,
-              )}
             </div>
 
             {technicalMode ? (
@@ -1076,11 +1191,22 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
                 </div>
                 <div className={styles.metricList}>
                   {renderMetricRow("Meta liquida", formatCurrency(marketingEstimate.targetNetLift))}
-                  {renderMetricRow("Ticket usado na conta", formatCurrency(projectedPrice))}
+                  {renderMetricRow("Valor medio usado na conta", formatCurrency(projectedPrice))}
                   {renderMetricRow("CAC base do segmento", formatCurrency(marketingEstimate.baseCAC))}
+                  {renderMetricRow(
+                    "CAC ajustado",
+                    formatCurrency(marketingEstimate.adjustedCAC),
+                    marketingEstimate.efficiencyLossPct > 0
+                      ? `perda de eficiencia ${formatPercent(marketingEstimate.efficiencyLossPct)}`
+                      : "sem perda relevante",
+                  )}
                   {renderMetricRow(
                     "Ponto de saturacao",
                     `${formatNumber(marketingEstimate.saturationPoint, 0)} clientes`,
+                  )}
+                  {renderMetricRow(
+                    "Taxa operacional",
+                    `${formatNumber(marketingEstimate.managementRate * 100, 0)}%`,
                   )}
                   {renderMetricRow(
                     "Retorno bruto por R$ 1",
@@ -1109,7 +1235,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
         <section className={styles.stage} data-step-id="final" ref={sectionRefs.final}>
           <div className={styles.stageInner}>
             <header className={styles.stageHeader}>
-              <span className={styles.kicker}>Leitura final</span>
+              <span className={styles.kicker}>Leitura</span>
               <h2 className={styles.stageTitle}>Faz sentido avancar?</h2>
             </header>
 
@@ -1138,10 +1264,16 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
             ) : null}
 
             <div className={styles.metricList}>
-              {renderMetricRow("Base", formatCurrency(currentRevenue))}
-              {renderMetricRow("Meta", `${formatNumber(marketingEstimate.newClients)} clientes`)}
-              {renderMetricRow("Investimento", formatCurrency(marketingEstimate.totalInvestment))}
+              {renderMetricRow("Investimento necessario", formatCurrency(marketingEstimate.totalInvestment))}
+              {renderMetricRow("Retorno estimado", formatCurrency(marketingEstimate.grossRevenue))}
+              {renderMetricRow("Tempo estimado", estimatedReturnLabel)}
+              {renderMetricRow("Ponto de atencao", attentionPoint)}
             </div>
+
+            <ExpandableHelp label="Retorno estimado nao e lucro.">
+              Receita estimada ainda precisa passar por custos, operacao, impostos e tempo de
+              recebimento.
+            </ExpandableHelp>
 
             {technicalMode ? (
               <div className={styles.detailsBlock}>
@@ -1149,15 +1281,15 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
                   <span>Detalhes tecnicos</span>
                 </div>
                 <div className={styles.metricList}>
-                  {renderMetricRow("Margem alvo por venda", formatCurrency(projectedContribution))}
-                  {renderMetricRow("Receita puxada pelo marketing", formatCurrency(marketingEstimate.grossRevenue))}
+                  {renderMetricRow("Margem alvo por cliente", formatCurrency(projectedContribution))}
+                  {renderMetricRow("Receita puxada pelo investimento", formatCurrency(marketingEstimate.grossRevenue))}
                   {renderMetricRow(
                     "Margem gerada",
                     formatCurrency(marketingEstimate.contributionGenerated),
                     "antes dos fixos",
                   )}
                   {renderMetricRow(
-                    "Ganho liquido encontrado",
+                    "Resultado liquido encontrado",
                     formatCurrency(marketingEstimate.achievedNetLift),
                   )}
                   {renderMetricRow(
@@ -1186,9 +1318,12 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
       </div>
 
       <div className={styles.mobileSummary}>
-        <span>Base: {formatCurrency(currentRevenue)}</span>
-        <span>Meta: {formatNumber(marketingEstimate.newClients)}</span>
-        <span>Investimento: {formatCurrency(marketingEstimate.totalInvestment)}</span>
+        {compactSummaryItems.map((item) => (
+          <div className={styles.compactSummaryItem} key={item.label}>
+            <span className={styles.compactSummaryLabel}>{item.label}</span>
+            <span className={styles.compactSummaryValue}>{item.value}</span>
+          </div>
+        ))}
       </div>
     </div>
   );

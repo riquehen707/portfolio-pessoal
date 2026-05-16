@@ -26,8 +26,12 @@ function scrollToId(id: string) {
     return;
   }
 
+  const prefersReducedMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   target.scrollIntoView({
-    behavior: "smooth",
+    behavior: prefersReducedMotion ? "auto" : "smooth",
     block: "start",
   });
 }
@@ -96,7 +100,7 @@ export function AboutSectionNav({ items }: AboutSectionNavProps) {
   return (
     <nav aria-label="Secoes da pagina sobre" className={styles.sectionNav}>
       <div className={styles.sectionNavRail}>
-        {items.map((item) => {
+        {items.map((item, index) => {
           const active = activeId === item.id;
 
           return (
@@ -107,7 +111,10 @@ export function AboutSectionNav({ items }: AboutSectionNavProps) {
               onClick={() => scrollToId(item.id)}
               type="button"
             >
-              {item.label}
+              <span className={styles.sectionNavIndex}>
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className={styles.sectionNavLabel}>{item.label}</span>
             </button>
           );
         })}
