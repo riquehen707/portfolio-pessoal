@@ -201,14 +201,14 @@ const contentStrategy = {
         ],
       },
       hero: {
-        eyebrow: "Próximo passo",
-        headline: "Antes de investir, veja se faz sentido",
+        eyebrow: "Sobre",
+        headline: "Estruturo presenca digital para negocios venderem com mais clareza e controle.",
         subheadline:
-          "Entenda onde seu negócio pode melhorar, quanto pode custar e qual retorno pode fazer sentido para o seu momento.",
-        primaryCtaLabel: "Ver os dados primeiro",
-        primaryCtaHref: "/simulacao",
-        secondaryCtaLabel: "Ver projetos",
-        secondaryCtaHref: "/work",
+          "O problema nem sempre e falta de marketing. Muitas vezes esta entre oferta, pagina, atendimento e acompanhamento.",
+        primaryCtaLabel: "Veja como trabalho",
+        primaryCtaHref: "/about#metodo",
+        secondaryCtaLabel: "Ver simulacao",
+        secondaryCtaHref: "/simulacao",
       },
       sections: [
         {

@@ -18,7 +18,9 @@ export type Metadata = {
   updatedAt?: string;
   summary?: string;
   image?: string;
+  imageAlt?: string;
   images?: string[];
+  format?: string;
   tag?: string;
   category?: string;
   tags?: string[];
@@ -139,6 +141,7 @@ function safeReadFile(filePath: string): BlogFile | null {
     const keywords = normalizeStringArray(parsed.keywords);
     const cover = typeof parsed.cover === "string" ? parsed.cover : undefined;
     const image = typeof parsed.image === "string" ? parsed.image : undefined;
+    const imageAlt = typeof parsed.imageAlt === "string" ? parsed.imageAlt : undefined;
     const images = normalizeStringArray(parsed.images) ?? (cover ? [cover] : undefined);
     const faq = Array.isArray(parsed.faq) ? parsed.faq : undefined;
     const references = Array.isArray(parsed.references) ? parsed.references : undefined;
@@ -161,7 +164,9 @@ function safeReadFile(filePath: string): BlogFile | null {
       updatedAt,
       summary: (parsed.summary ?? parsed.description ?? "").trim(),
       image: image ?? cover ?? undefined,
+      imageAlt,
       images,
+      format: parsed.format ?? undefined,
       tag,
       category: parsed.category ?? categories?.[0] ?? tag,
       tags,

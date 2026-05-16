@@ -16,6 +16,7 @@ interface PostFrontmatter {
   categories?: string[];
   image?: string;
   imageAlt?: string;
+  format?: string;
   readingTime?: number;
   featured?: boolean;
 }

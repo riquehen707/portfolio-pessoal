@@ -204,7 +204,7 @@ const blog: Blog = {
   label: "Insights",
   title: `Insights | ${person.name}`,
   description:
-    "Blog em produção com foco em marketing, design, economia aplicada a negócios e operação para prestadores de serviço.",
+    "Artigos sobre marketing, paginas e aquisicao para negocios de servico.",
 };
 
 const work: Work = {

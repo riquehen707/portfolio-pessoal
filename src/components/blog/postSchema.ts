@@ -12,9 +12,11 @@ export const PostFrontmatterSchema = z.object({
   updated: z.string().optional(),
 
   image: z.string().optional(),
+  imageAlt: z.string().optional(),
   images: z.array(z.string()).optional(),
   cover: z.string().optional(),
 
+  format: z.string().optional(),
   pillar: z.string().optional(),
   tag: z.string().optional(),
   category: z.string().optional(),

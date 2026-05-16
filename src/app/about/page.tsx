@@ -5,113 +5,130 @@ import {
   Grid,
   Heading,
   Icon,
+  Media,
   Meta,
   Row,
   Schema,
   SmartLink,
-  Tag,
   Text,
 } from "@once-ui-system/core";
 
-import { BrandSignature } from "@/components";
-import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { AboutScrollButton, AboutSectionNav } from "@/components/about/AboutSectionNav";
 import styles from "@/components/about/about.module.scss";
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { type IconName } from "@/resources/icons";
 import {
   about,
   baseURL,
-  contact,
   contentStrategy,
   person,
+  simulationPage,
   social,
-  technicalApproach,
   work,
 } from "@/resources";
-import { getPosts } from "@/utils/utils";
-
-const kindLabels = {
-  personal: "Pessoal",
-  study: "Estudo",
-  client: "Cliente",
-} as const;
 
 const aboutStrategy = contentStrategy.pages.about;
 
-const compactSummary = [
+const sectionNavItems = [
+  { id: "sobre", label: "Sobre" },
+  { id: "historia", label: "Historia" },
+  { id: "foco", label: "Foco" },
+  { id: "metodo", label: "Metodo" },
+  { id: "projetos", label: "Projetos" },
+  { id: "contato", label: "Contato" },
+] as const;
+
+const profileFacts = [
   {
-    label: "Especialidade",
-    value: "Negócios locais, prestadores de serviço e e-commerce.",
+    label: "Foco",
+    value: "Negocios locais, prestadores de servico e operacoes de atendimento.",
+  },
+  {
+    label: "Atuacao",
+    value: "Marketing, paginas e sistemas digitais.",
   },
   {
     label: "Entrega",
-    value: "Captação de clientes, presença digital e estrutura operacional.",
-  },
-  {
-    label: "Atuação",
-    value: "Marketing, sistemas e posicionamento digital.",
+    value: "Aquisicao, clareza comercial e organizacao de leads.",
   },
 ] as const;
 
-const storyParagraphs = [
-  "Empreender cedo me ensinou algo importante: bons negócios nem sempre crescem, porque esforço sem estrutura cobra caro.",
-  "Depois de enfrentar mudanças pessoais profundas, precisei recomeçar do zero. Esse processo me tornou ainda mais prático, disciplinado e orientado a resultado.",
-  "Hoje aplico essa visão ajudando pequenos negócios e prestadores de serviço a vender melhor, operar melhor e crescer com mais clareza.",
-];
+const storyBlocks = [
+  "Comecei cedo construindo meus proprios projetos e aprendendo na pratica como venda, comunicacao e operacao se conectam.",
+  "Com o tempo, percebi que muitos negocios nao precisam apenas de mais divulgacao. Precisam entender onde a estrutura falha: oferta, pagina, atendimento, margem ou acompanhamento.",
+  "Hoje uso essa visao para criar solucoes simples, mensuraveis e adequadas ao momento real de cada negocio.",
+] as const;
 
 const fitCards = [
   {
     icon: "person" as IconName,
-    title: "Prestadores de serviço",
+    title: "Prestadores de servico",
     description:
-      "Para profissionais que querem conquistar seus primeiros clientes virtualmente com presença mais clara e captação organizada.",
-    items: ["Psicólogos", "Advogados", "Serviços especializados"],
+      "Psicologos, advogados, consultores e servicos especializados.",
   },
   {
     icon: "calendar" as IconName,
-    title: "Clínicas e operações de atendimento",
+    title: "Clinicas e operacoes de atendimento",
     description:
-      "Para clínicas de saúde, salões, estética e serviços que precisam integrar sistema, agenda e gerenciamento de clientes.",
-    items: ["Clínicas de saúde", "Salões e estética", "Agenda, CRM e automação"],
+      "Saude, estetica, saloes e negocios com agenda, recorrencia e atendimento.",
   },
   {
     icon: "package" as IconName,
-    title: "Lojas locais e e-commerce",
+    title: "Negocios locais e e-commerce",
     description:
-      "Para lojas que querem atrair mais clientes locais ou estruturar melhor catálogo, pedidos e envios.",
-    items: ["Vitrine local", "Pedidos e catálogo", "Envios de e-commerce"],
+      "Lojas e marcas que precisam organizar presenca digital, pedidos e captacao.",
   },
 ] as const;
 
-const serviceTracks = [
+const workStages = [
   {
-    icon: "globe" as IconName,
-    eyebrow: "Atrair",
-    title: "Posicionamento e aquisição",
+    number: "01",
+    title: "Atrair",
     description:
-      "Estruturo presença digital e canais de entrada para trazer demanda mais qualificada.",
-    items: ["Sites e landing pages", "Tráfego pago", "Oferta clara"],
+      "Presenca digital, oferta, canais e paginas de entrada para gerar demanda qualificada.",
+    items: ["Sites e landing pages", "Trafego pago", "Oferta clara"],
   },
   {
-    icon: "crm" as IconName,
-    eyebrow: "Converter",
-    title: "Conversão e relacionamento",
+    number: "02",
+    title: "Converter",
     description:
-      "Organizo o caminho do lead até o fechamento para reduzir perda comercial e aumentar recorrência.",
+      "Paginas, WhatsApp, CRM simples e fluxo de atendimento para transformar interesse em oportunidade.",
     items: ["CRM simples", "WhatsApp e follow-up", "Agenda e atendimento"],
   },
   {
-    icon: "rocket" as IconName,
-    eyebrow: "Operar",
-    title: "Operação e automação",
-    description: "Conecto processos e ferramentas para o negócio crescer com menos improviso.",
-    items: ["Automações", "Sistemas web", "Dashboards e dados"],
+    number: "03",
+    title: "Operar",
+    description:
+      "Sistemas, automacoes, dados e acompanhamento para crescer com mais controle.",
+    items: ["Automacoes", "Sistemas web", "Dashboards e dados"],
   },
 ] as const;
 
-const serviceNotes = [
-  "Estrutura antes de peça solta",
-  "Escopo compatível com a realidade do negócio",
-  "Execução viável com foco comercial",
+const relatedProjects = [
+  {
+    title: "Simulador de investimento",
+    type: "Diagnostico e calculo",
+    summary: "Leitura inicial para decidir antes de aumentar verba.",
+    href: simulationPage.path,
+    image:
+      "/api/og/generate?title=Simulador%20de%20investimento&subtitle=diagnostico%20e%20calculo",
+  },
+  {
+    title: "Pagina para clinica de estetica",
+    type: "Pagina e captacao",
+    summary: "Estrutura pensada para agenda, recorrencia e contato simples.",
+    href: "/servicos/landing-page-para-estetica",
+    image:
+      "/api/og/generate?title=Pagina%20para%20clinica%20de%20estetica&subtitle=agenda%20e%20captacao",
+  },
+  {
+    title: "Integracoes para atendimento",
+    type: "Sistema e operacao",
+    summary: "Fluxos, automacoes e organizacao para leads e acompanhamento.",
+    href: "/servicos/integracoes-automacoes",
+    image:
+      "/api/og/generate?title=Integracoes%20para%20atendimento&subtitle=sistema%20e%20operacao",
+  },
 ] as const;
 
 export async function generateMetadata() {
@@ -130,14 +147,6 @@ export async function generateMetadata() {
 export default function About() {
   const whatsappLink =
     social.find((item) => item.name === "WhatsApp")?.link ?? `mailto:${person.email}`;
-  const proofProjects = getPosts(["src", "app", "work", "projects"])
-    .filter((project) => project.slug !== "atlas-imoveis-estudo")
-    .sort(
-      (a, b) =>
-        new Date(b.metadata.publishedAt ?? 0).getTime() -
-        new Date(a.metadata.publishedAt ?? 0).getTime(),
-    )
-    .slice(0, 2);
 
   return (
     <Column className={styles.page} maxWidth="l" gap="48" paddingTop="8">
@@ -156,284 +165,232 @@ export default function About() {
       />
       <BreadcrumbJsonLd
         items={[
-          { name: "Início", url: baseURL },
+          { name: "Inicio", url: baseURL },
           { name: "Sobre", url: `${baseURL}${about.path}` },
         ]}
       />
 
-      <Column className={styles.hero} fillWidth gap="24">
+      <section className={styles.heroSection} id="sobre">
         <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="24">
           <Column className={styles.heroMain} gap="20">
-            <BrandSignature />
-            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-              {aboutStrategy.hero.eyebrow}
-            </Tag>
-            <Heading variant="display-strong-l" wrap="balance">
-              {aboutStrategy.hero.headline}
+            <Text className={styles.kicker} variant="label-default-s" onBackground="brand-strong">
+              Sobre
+            </Text>
+            <Heading as="h1" variant="display-strong-l" wrap="balance">
+              Estruturo presenca digital para negocios venderem com mais clareza e controle.
             </Heading>
             <div className={styles.accentLine} />
-            <Text
-              className={styles.lead}
-              variant="heading-default-m"
-              onBackground="neutral-weak"
-              wrap="balance"
-            >
-              {aboutStrategy.hero.subheadline}
+            <Text className={styles.heroLead} variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
+              O problema nem sempre e falta de marketing. Muitas vezes esta entre oferta, pagina,
+              atendimento e acompanhamento.
             </Text>
-            <Row className={styles.actions} gap="12" wrap>
-              <Button
-                href={aboutStrategy.hero.primaryCtaHref}
-                prefixIcon="chart"
-                size="m"
-                variant="primary"
-                data-analytics-event="cta_click"
-                data-analytics-label={aboutStrategy.hero.primaryCtaLabel}
-                data-analytics-location="about_hero"
-                data-analytics-type="primary"
-              >
-                {aboutStrategy.hero.primaryCtaLabel}
-              </Button>
-              <Button
-                href={aboutStrategy.hero.secondaryCtaHref ?? work.path}
-                size="m"
-                variant="secondary"
-                arrowIcon
-                data-analytics-event="cta_click"
-                data-analytics-label={aboutStrategy.hero.secondaryCtaLabel}
-                data-analytics-location="about_hero"
-                data-analytics-type="secondary"
-              >
-                {aboutStrategy.hero.secondaryCtaLabel}
-              </Button>
-            </Row>
-            <SmartLink href={technicalApproach.path} suffixIcon="arrowRight">
-              Abordagem técnica
-            </SmartLink>
+            <AboutScrollButton targetId="metodo">Veja como trabalho</AboutScrollButton>
           </Column>
 
-          <Column className={styles.heroAside} gap="20">
-            <Row className={styles.profileCard} gap="16" vertical="start">
-              <div className={styles.avatarWrap}>
-                <Avatar src={person.avatar} size="l" />
-              </div>
-              <Column className={styles.profileMeta} gap="8">
-                <Text variant="label-strong-m">{person.name}</Text>
-                <Text variant="body-default-s" onBackground="neutral-weak">
-                  Bahia, Brasil
-                </Text>
-              </Column>
-            </Row>
+          <Column className={styles.heroAside} gap="16">
+            <div className={styles.portraitCard}>
+              <Media
+                src={person.avatar}
+                alt={`Retrato de ${person.name}`}
+                aspectRatio="4 / 5"
+                radius="l"
+                border="transparent"
+                sizes="(max-width: 768px) 100vw, 420px"
+                priority
+              />
+            </div>
 
-            <div className={styles.summaryCard}>
-              {compactSummary.map((item) => (
-                <div className={styles.summaryRow} key={item.label}>
-                  <Text
-                    className={styles.eyebrow}
-                    variant="label-default-s"
-                    onBackground="neutral-weak"
-                  >
-                    {item.label}
+            <div className={styles.profileCard}>
+              <Row className={styles.profileTop} gap="12" vertical="center">
+                <Avatar src={person.avatar} size="m" />
+                <Column className={styles.profileIdentity} gap="4">
+                  <Text variant="label-strong-m">{person.name}</Text>
+                  <Text variant="body-default-s" onBackground="neutral-weak">
+                    Bahia, Brasil
                   </Text>
-                  <Text
-                    className={styles.summaryValue}
-                    variant="body-default-m"
-                    onBackground="neutral-weak"
-                    wrap="balance"
-                  >
-                    {item.value}
-                  </Text>
-                </div>
-              ))}
+                </Column>
+              </Row>
+
+              <div className={styles.profileFacts}>
+                {profileFacts.map((item) => (
+                  <div className={styles.profileFact} key={item.label}>
+                    <Text className={styles.factLabel} variant="label-default-s" onBackground="neutral-weak">
+                      {item.label}
+                    </Text>
+                    <Text className={styles.factValue} variant="body-default-m" onBackground="neutral-weak">
+                      {item.value}
+                    </Text>
+                  </div>
+                ))}
+              </div>
             </div>
           </Column>
         </Grid>
-      </Column>
+      </section>
 
-      <Column className={styles.sectionPanel} fillWidth gap="24">
-        <Heading as="h2" variant="display-strong-s">
-          Minha história
-        </Heading>
+      <AboutSectionNav items={[...sectionNavItems]} />
 
-        <Column className={styles.storyBody} gap="16">
-          {storyParagraphs.map((paragraph) => (
-            <Text key={paragraph} variant="body-default-m" onBackground="neutral-weak">
-              {paragraph}
-            </Text>
-          ))}
-        </Column>
-      </Column>
-
-      <Column className={styles.sectionPanel} fillWidth gap="24">
-        <Row
-          className={styles.sectionHeader}
-          fillWidth
-          horizontal="between"
-          vertical="end"
-          s={{ direction: "column" }}
-        >
-          <Column className={styles.sectionIntro} gap="8">
-            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-              Encaixe
-            </Tag>
-            <Heading as="h2" variant="display-strong-s">
-              Para quem faço sentido
-            </Heading>
-          </Column>
-          <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
-            Faço mais sentido quando o objetivo é conquistar clientes, organizar atendimento e tornar o
-            digital mais útil para vender.
+      <section className={styles.section} id="historia">
+        <div className={styles.sectionHeader}>
+          <Text className={styles.sectionKicker} variant="label-default-s" onBackground="brand-strong">
+            Historia
           </Text>
-        </Row>
+          <Heading as="h2" variant="display-strong-s">
+            Como cheguei ate aqui
+          </Heading>
+        </div>
 
-        <Grid className={styles.fitCards} columns="3" m={{ columns: 2 }} s={{ columns: 1 }} gap="20">
+        <Grid className={styles.storyGrid} columns="3" m={{ columns: 1 }} gap="20">
+          {storyBlocks.map((item) => (
+            <div className={styles.storyBlock} key={item}>
+              <Text variant="body-default-m" onBackground="neutral-weak">
+                {item}
+              </Text>
+            </div>
+          ))}
+        </Grid>
+      </section>
+
+      <section className={styles.section} id="foco">
+        <div className={styles.sectionHeader}>
+          <Text className={styles.sectionKicker} variant="label-default-s" onBackground="brand-strong">
+            Foco
+          </Text>
+          <Heading as="h2" variant="display-strong-s">
+            Para quem faco sentido
+          </Heading>
+          <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
+            Faco mais sentido quando o objetivo e conquistar clientes, organizar atendimento e
+            tornar o digital mais util para vender.
+          </Text>
+        </div>
+
+        <Grid className={styles.fitGrid} columns="3" m={{ columns: 1 }} gap="20">
           {fitCards.map((card) => (
             <article className={styles.fitCard} key={card.title}>
-              <div className={styles.fitCardTop}>
-                <div className={styles.fitIconWrap}>
-                  <Icon name={card.icon} size="m" />
-                </div>
+              <div className={styles.fitIcon}>
+                <Icon name={card.icon} size="m" />
+              </div>
+              <Heading as="h3" variant="heading-strong-m">
+                {card.title}
+              </Heading>
+              <Text variant="body-default-m" onBackground="neutral-weak">
+                {card.description}
+              </Text>
+            </article>
+          ))}
+        </Grid>
+      </section>
+
+      <section className={styles.section} id="metodo">
+        <div className={styles.sectionHeader}>
+          <Text className={styles.sectionKicker} variant="label-default-s" onBackground="brand-strong">
+            Metodo
+          </Text>
+          <Heading as="h2" variant="display-strong-s">
+            Como trabalho
+          </Heading>
+          <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
+            Normalmente ajudo em tres frentes que se conectam.
+          </Text>
+        </div>
+
+        <Grid className={styles.methodGrid} columns="3" m={{ columns: 1 }} gap="20">
+          {workStages.map((stage) => (
+            <article className={styles.methodCard} key={stage.title}>
+              <div className={styles.methodTop}>
+                <span className={styles.methodNumber}>{stage.number}</span>
                 <Heading as="h3" variant="heading-strong-m">
-                  {card.title}
+                  {stage.title}
                 </Heading>
               </div>
 
-              <Text onBackground="neutral-weak" variant="body-default-m">
-                {card.description}
+              <Text variant="body-default-m" onBackground="neutral-weak">
+                {stage.description}
               </Text>
 
-              <div className={styles.fitCardItems}>
-                {card.items.map((item) => (
-                  <div className={styles.fitCardItem} key={item}>
-                    <Text variant="body-default-s">{item}</Text>
-                  </div>
+              <div className={styles.methodItems}>
+                {stage.items.map((item) => (
+                  <span className={styles.methodItem} key={item}>
+                    {item}
+                  </span>
                 ))}
               </div>
             </article>
           ))}
         </Grid>
+      </section>
 
-        <Column className={styles.servicePanel} gap="20">
-            <Column className={styles.serviceHeader} gap="12">
-              <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
-                Serviços que presto
+      <section className={styles.section} id="projetos">
+        <div className={styles.sectionHeader}>
+          <Text className={styles.sectionKicker} variant="label-default-s" onBackground="brand-strong">
+            Projetos
+          </Text>
+          <Heading as="h2" variant="display-strong-s">
+            Projetos relacionados
+          </Heading>
+          <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
+            Alguns trabalhos onde essa logica aparece em paginas, sistemas e aquisicao.
+          </Text>
+        </div>
+
+        <Grid className={styles.projectsGrid} columns="3" m={{ columns: 1 }} gap="20">
+          {relatedProjects.map((project) => (
+            <article className={styles.projectCard} key={project.title}>
+              <div className={styles.projectPreview}>
+                <Media
+                  src={project.image}
+                  alt={`Preview de ${project.title}`}
+                  aspectRatio="16 / 9"
+                  radius="l"
+                  border="transparent"
+                  sizes="(max-width: 768px) 100vw, 360px"
+                />
+              </div>
+              <Text className={styles.projectType} variant="label-default-s" onBackground="neutral-weak">
+                {project.type}
               </Text>
-              <Heading as="h3" variant="heading-strong-l">
-                Normalmente ajudo em três frentes que se conectam.
+              <Heading as="h3" variant="heading-strong-m">
+                {project.title}
               </Heading>
-              <Text className={styles.serviceLead} variant="body-default-s" onBackground="neutral-weak">
-                Captação, conversão e operação digital, de acordo com o momento real do negócio.
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                {project.summary}
               </Text>
-            </Column>
-
-            <div className={styles.serviceRail}>
-              {serviceTracks.map((track) => (
-                <article className={styles.serviceTrack} key={track.title}>
-                  <div className={styles.serviceTrackMarker}>
-                    <div className={styles.serviceIconWrap}>
-                      <Icon name={track.icon} size="m" />
-                    </div>
-                  </div>
-
-                  <div className={styles.serviceTrackBody}>
-                    <div className={styles.serviceTrackTop}>
-                      <Text className={styles.serviceTrackEyebrow} variant="label-default-s">
-                        {track.eyebrow}
-                      </Text>
-                      <Heading as="h4" variant="heading-strong-m">
-                        {track.title}
-                      </Heading>
-                    </div>
-
-                    <Text variant="body-default-s" onBackground="neutral-weak">
-                      {track.description}
-                    </Text>
-
-                    <div className={styles.servicePillarItems}>
-                      {track.items.map((item) => (
-                        <div className={styles.servicePillarItem} key={item}>
-                          <Text variant="body-default-s">{item}</Text>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-
-            <div className={styles.servicePrinciples}>
-              {serviceNotes.map((note) => (
-                <div className={styles.servicePrinciple} key={note}>
-                  <span className={styles.servicePrincipleDot} aria-hidden="true" />
-                  <Text variant="body-default-s" onBackground="neutral-weak">
-                    {note}
-                  </Text>
-                </div>
-              ))}
-            </div>
-          </Column>
-      </Column>
-
-      <Column className={styles.sectionPanel} fillWidth gap="24">
-        <Row
-          className={styles.sectionHeader}
-          fillWidth
-          horizontal="between"
-          vertical="end"
-          s={{ direction: "column" }}
-        >
-          <Column className={styles.sectionIntro} gap="8">
-            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-              Projetos
-            </Tag>
-            <Heading as="h2" variant="display-strong-s">
-              Alguns trabalhos
-            </Heading>
-          </Column>
-          <SmartLink href={work.path} suffixIcon="arrowRight">
-            Ver projetos
-          </SmartLink>
-        </Row>
-
-        <Grid className={styles.proofGrid} columns="3" s={{ columns: 1 }} gap="20">
-          {proofProjects.map((project) => {
-            const tag = project.metadata.tag ?? project.metadata.tags?.[0];
-            const kind =
-              project.metadata.kind && kindLabels[project.metadata.kind as keyof typeof kindLabels];
-
-            return (
-              <Column key={project.slug} className={styles.proofCard} gap="12">
-                <Row gap="8" wrap>
-                  {kind && (
-                    <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-                      {kind}
-                    </Tag>
-                  )}
-                  {tag && (
-                    <Tag size="s" background="neutral-alpha-weak">
-                      {tag}
-                    </Tag>
-                  )}
-                </Row>
-                <Text variant="heading-strong-m" wrap="balance">
-                  {project.metadata.title}
-                </Text>
-                <SmartLink href={`/work/${project.slug}`} suffixIcon="arrowRight">
-                  Abrir
-                </SmartLink>
-              </Column>
-            );
-          })}
+              <SmartLink href={project.href} suffixIcon="arrowRight">
+                Ver projeto
+              </SmartLink>
+            </article>
+          ))}
         </Grid>
 
-        <Row gap="12" wrap>
-          <Button href={contact.path} variant="primary" size="m" arrowIcon>
-            Vamos conversar
+        <Button href={work.path} variant="secondary" size="m" arrowIcon>
+          Ver todos os projetos
+        </Button>
+      </section>
+
+      <section className={styles.nextStep} id="contato">
+        <div className={styles.sectionHeader}>
+          <Text className={styles.sectionKicker} variant="label-default-s" onBackground="brand-strong">
+            Proximo passo
+          </Text>
+          <Heading as="h2" variant="display-strong-s">
+            Vamos avaliar seu cenario antes de investir mais?
+          </Heading>
+          <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
+            Sem compromisso. A ideia e entender se a conta faz sentido antes de aumentar verba,
+            redesenhar pagina ou contratar novas acoes.
+          </Text>
+        </div>
+
+        <Row className={styles.ctaRow} gap="12" wrap>
+          <Button href={simulationPage.path} variant="primary" size="m" arrowIcon>
+            Ver simulacao
           </Button>
           <Button href={whatsappLink} variant="secondary" size="m" prefixIcon="whatsapp">
-            Falar no WhatsApp
+            Conversar no WhatsApp
           </Button>
         </Row>
-      </Column>
+      </section>
     </Column>
   );
 }

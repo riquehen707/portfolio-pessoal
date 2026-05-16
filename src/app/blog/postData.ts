@@ -22,6 +22,22 @@ type TaxonomyCount = {
 
 export const getAllBlogPosts = cache(() => getPosts([...BLOG_POSTS_PATH]));
 
+export function getBlogPostFormat(post: BlogFile) {
+  if (post.metadata.format?.trim()) {
+    return post.metadata.format.trim();
+  }
+
+  if ((post.metadata.title ?? "").toLowerCase().includes("termos")) {
+    return "Guia";
+  }
+
+  if (post.metadata.kind === "study") {
+    return "Estudo";
+  }
+
+  return "Artigo";
+}
+
 export function getBlogPrimaryCategory(post: BlogFile) {
   return (
     post.metadata.category ??
@@ -104,6 +120,16 @@ export function getFeaturedBlogPosts(limit = 3, posts = getStrategicBlogPosts())
   const pool = featuredPosts.length >= limit ? featuredPosts : posts;
 
   return pool.slice(0, limit);
+}
+
+export function getFeaturedHomeBlogPost(posts = getStrategicBlogPosts()) {
+  const featuredHomePost = posts.find((post) => post.metadata.featuredHome);
+
+  if (featuredHomePost) {
+    return featuredHomePost;
+  }
+
+  return getFeaturedBlogPosts(1, posts)[0] ?? posts[0];
 }
 
 export function getBlogCategoryCounts(posts = getAllBlogPosts()): TaxonomyCount[] {

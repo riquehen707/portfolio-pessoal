@@ -86,6 +86,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     keywords: [...(post.metadata.categories ?? []), ...(post.metadata.tags ?? []), person.name].filter(
       (value): value is string => Boolean(value),
     ),
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
   };
 }
 
@@ -188,6 +199,19 @@ export default async function BlogPost({ params }: PageProps) {
                 {post.metadata.publishedAt
                   ? new Date(post.metadata.publishedAt).toLocaleDateString("pt-BR")
                   : "Sem data definida"}
+              </Text>
+            </Column>
+
+            <Column className={styles.metaCard} gap="12">
+              <Text className={styles.metaLabel} variant="label-default-s" onBackground="neutral-weak">
+                Atualizado
+              </Text>
+              <Text variant="heading-strong-s">
+                {post.metadata.updatedAt
+                  ? new Date(post.metadata.updatedAt).toLocaleDateString("pt-BR")
+                  : post.metadata.publishedAt
+                    ? new Date(post.metadata.publishedAt).toLocaleDateString("pt-BR")
+                    : "Sem data definida"}
               </Text>
             </Column>
 

@@ -1,40 +1,75 @@
-import { Button, Column, Grid, Heading, Meta, Row, Schema, Tag, Text } from "@once-ui-system/core";
+import { Column, Heading, Media, Meta, Schema, Text } from "@once-ui-system/core";
 
-import { Posts } from "@/components/blog/Posts";
+import {
+  getAllBlogPosts,
+  getBlogPostFormat,
+  getBlogPrimaryCategory,
+  getFeaturedHomeBlogPost,
+  getRecentBlogPosts,
+} from "@/app/blog/postData";
+import { EditorialFeed, type EditorialFeedPost } from "@/components/blog/EditorialFeed";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
-import { baseURL, blog, person, servicesPage } from "@/resources";
+import { baseURL, blog, person } from "@/resources";
 
 import styles from "./blog.module.scss";
 
-const blogPlaceholderDescription =
-  "Blog em producao com foco em marketing, design, economia aplicada a negocios e operacao para prestadores de servico.";
-
-const newsletterWaitlistHref = `mailto:${person.email}?subject=${encodeURIComponent(
-  "Quero entrar na newsletter",
-)}&body=${encodeURIComponent(
-  "Quero receber os proximos conteudos do blog quando a newsletter for aberta.",
-)}`;
+const blogHomeDescription =
+  "Artigos sobre marketing, paginas e aquisicao para negocios de servico.";
 
 export async function generateMetadata() {
   return Meta.generate({
     title: blog.title,
-    description: blogPlaceholderDescription,
+    description: blogHomeDescription,
     baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent("Blog em producao")}`,
+    image: `/api/og/generate?title=${encodeURIComponent("Insights")}&subtitle=${encodeURIComponent("marketing e aquisicao")}`,
     path: blog.path,
   });
 }
 
 export default function Blog() {
+  const posts = getAllBlogPosts();
+  const featuredPost = getFeaturedHomeBlogPost(posts);
+  const recentPosts = getRecentBlogPosts(24, posts).filter((post) => post.slug !== featuredPost?.slug);
+
+  const feedPosts: EditorialFeedPost[] = recentPosts.map((post) => ({
+    slug: post.slug,
+    title: post.metadata.title,
+    summary: post.metadata.summary,
+    image: post.metadata.image,
+    imageAlt: post.metadata.imageAlt,
+    category: getBlogPrimaryCategory(post),
+    format: getBlogPostFormat(post),
+    readingTime: post.metadata.readingTime,
+    publishedAt: post.metadata.updatedAt ?? post.metadata.publishedAt,
+  }));
+
+  const startCards = [
+    {
+      title: "Antes de investir",
+      summary: "Margem, CAC e meta.",
+      href: "/blog/termos-de-marketing",
+    },
+    {
+      title: "Antes de melhorar uma pagina",
+      summary: "Clareza, hierarquia e oferta.",
+      href: "/blog/termos-de-design",
+    },
+    {
+      title: "Antes de gerar leads",
+      summary: "Canal, anuncio e custo.",
+      href: "/blog/termos-de-publicidade",
+    },
+  ];
+
   return (
-    <Column className={styles.page} fillWidth paddingTop="24" gap="24">
+    <Column className={styles.page} fillWidth paddingTop="24" gap="32">
       <Schema
         as="webPage"
         baseURL={baseURL}
         title={blog.title}
-        description={blogPlaceholderDescription}
+        description={blogHomeDescription}
         path={blog.path}
-        image={`/api/og/generate?title=${encodeURIComponent("Blog em producao")}`}
+        image={`/api/og/generate?title=${encodeURIComponent("Insights")}&subtitle=${encodeURIComponent("marketing e aquisicao")}`}
         author={{
           name: person.name,
           url: `${baseURL}${blog.path}`,
@@ -50,120 +85,100 @@ export default function Blog() {
 
       <section className={styles.heroSection}>
         <div className={styles.hero}>
-          <div className={styles.heroCopy}>
-            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-              Blog
-            </Tag>
-
-            <Heading as="h1" className={styles.heroTitle} variant="display-strong-s">
-              Editorial em abertura
-            </Heading>
-
-            <Text
-              className={styles.heroLead}
-              onBackground="neutral-weak"
-              variant="heading-default-m"
-              wrap="balance"
-            >
-              O blog esta sendo estruturado para publicar conteudo pratico sobre marketing, design,
-              economia aplicada a negocios e rotina de prestadores de servico.
-            </Text>
-
-            <Text className={styles.heroNote} onBackground="neutral-weak" variant="body-default-m">
-              Os primeiros guias de termos ja entram como base de apoio para o simulador e para os
-              proximos artigos.
-            </Text>
-
-            <Row className={styles.actions} gap="12" wrap>
-              <Button href={newsletterWaitlistHref} variant="primary" size="m" arrowIcon>
-                Entrar na newsletter
-              </Button>
-              <Button href={servicesPage.path} variant="secondary" size="m" arrowIcon>
-                Ver servicos
-              </Button>
-            </Row>
-          </div>
-
-          <aside className={styles.topicList}>
-            <div className={styles.topicItem}>
-              <Text className={styles.topicLabel} variant="label-default-s" onBackground="neutral-weak">
-                Marketing
-              </Text>
-              <Text variant="body-default-m" onBackground="neutral-weak">
-                Posicionamento, aquisicao, oferta, comunicacao e estrutura comercial para negocios
-                de servico.
-              </Text>
-            </div>
-
-            <div className={styles.topicItem}>
-              <Text className={styles.topicLabel} variant="label-default-s" onBackground="neutral-weak">
-                Design
-              </Text>
-              <Text variant="body-default-m" onBackground="neutral-weak">
-                Paginas, direcao visual, experiencia e clareza estetica com funcao pratica de venda.
-              </Text>
-            </div>
-
-            <div className={styles.topicItem}>
-              <Text className={styles.topicLabel} variant="label-default-s" onBackground="neutral-weak">
-                Publicidade
-              </Text>
-              <Text variant="body-default-m" onBackground="neutral-weak">
-                Midia paga, leitura de eficiencia, custos de aquisicao e retorno real por verba
-                investida.
-              </Text>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <section className={styles.publishedSection}>
-        <div className={styles.sectionHeader}>
-          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            Guias
-          </Tag>
-          <Heading as="h2" variant="heading-strong-l">
-            Primeiros artigos publicados
+          <Text className={styles.kicker} variant="label-default-s" onBackground="brand-strong">
+            Blog
+          </Text>
+          <Heading as="h1" className={styles.heroTitle} variant="display-strong-l">
+            Insights
           </Heading>
-          <Text onBackground="neutral-weak" variant="body-default-m">
-            Um ponto de partida para explicar termos que aparecem nas simulacoes e nos proximos
-            textos do site.
+          <Text className={styles.heroLead} onBackground="neutral-weak" variant="heading-default-m">
+            Artigos sobre marketing, paginas e aquisicao para negocios de servico.
           </Text>
         </div>
-
-        <Posts columns="3" range={[1, 3]} showSummary marginBottom="0" />
       </section>
 
-      <Grid className={styles.signalGrid} columns="3" s={{ columns: 1 }} gap="20">
-        <div className={styles.signalItem}>
-          <Text className={styles.signalLabel} variant="label-default-s" onBackground="neutral-weak">
-            Como vou publicar
+      {featuredPost ? (
+        <section className={styles.featuredSection}>
+          <Text className={styles.sectionLabel} variant="label-default-s" onBackground="brand-strong">
+            Em destaque
           </Text>
-          <Text variant="body-default-m" onBackground="neutral-weak">
-            Artigos curtos, analises aplicaveis, frameworks de decisao e materiais uteis para o dia a dia.
+
+          <article className={styles.featuredCard}>
+            <a className={styles.featuredLink} href={`/blog/${featuredPost.slug}`}>
+              <div className={styles.featuredMedia}>
+                <Media
+                  src={featuredPost.metadata.image ?? "/api/og/generate?title=Insights"}
+                  alt={
+                    featuredPost.metadata.imageAlt ?? `Capa do artigo ${featuredPost.metadata.title}`
+                  }
+                  aspectRatio="16 / 9"
+                  radius="l"
+                  border="transparent"
+                  sizes="(max-width: 768px) 100vw, 720px"
+                  priority
+                />
+              </div>
+
+              <div className={styles.featuredContent}>
+                <span className={styles.featuredBadge}>Em destaque</span>
+                <Heading as="h2" className={styles.featuredTitle} variant="display-strong-s">
+                  {featuredPost.metadata.title}
+                </Heading>
+                <Text className={styles.featuredSummary} onBackground="neutral-weak" variant="body-default-m">
+                  {featuredPost.metadata.summary}
+                </Text>
+                <div className={styles.featuredMeta}>
+                  <span className={styles.featuredTag}>{getBlogPrimaryCategory(featuredPost)}</span>
+                  <span>{getBlogPostFormat(featuredPost)}</span>
+                  {featuredPost.metadata.readingTime ? (
+                    <span>{featuredPost.metadata.readingTime} min</span>
+                  ) : null}
+                </div>
+              </div>
+            </a>
+          </article>
+        </section>
+      ) : null}
+
+      <section className={styles.startSection}>
+        <div className={styles.sectionHeader}>
+          <Text className={styles.sectionLabel} variant="label-default-s" onBackground="brand-strong">
+            Comece por aqui
           </Text>
         </div>
 
-        <div className={styles.signalItem}>
-          <Text className={styles.signalLabel} variant="label-default-s" onBackground="neutral-weak">
-            Para quem
+        <div className={styles.startGrid}>
+          {startCards.map((item) => (
+            <a className={styles.startCard} href={item.href} key={item.title}>
+              <span className={styles.startMarker} aria-hidden="true" />
+              <div className={styles.startCopy}>
+                <Heading as="h3" className={styles.startTitle} variant="heading-strong-m">
+                  {item.title}
+                </Heading>
+                <Text className={styles.startSummary} onBackground="neutral-weak" variant="body-default-s">
+                  {item.summary}
+                </Text>
+              </div>
+              <span className={styles.startArrow} aria-hidden="true">
+                {">"}
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.feedSection} id="artigos">
+        <div className={styles.sectionHeader}>
+          <Text className={styles.sectionLabel} variant="label-default-s" onBackground="brand-strong">
+            Ultimos artigos
           </Text>
-          <Text variant="body-default-m" onBackground="neutral-weak">
-            Principalmente para prestadores de servico, pequenos negocios e operacoes que precisam
-            vender melhor com mais clareza.
+          <Text className={styles.sectionLead} onBackground="neutral-weak" variant="body-default-s">
+            Leitura direta, temas especificos e links internos claros.
           </Text>
         </div>
 
-        <div className={styles.signalItem}>
-          <Text className={styles.signalLabel} variant="label-default-s" onBackground="neutral-weak">
-            Newsletter
-          </Text>
-          <Text variant="body-default-m" onBackground="neutral-weak">
-            A newsletter entra junto com os proximos conteudos para acompanhar essa base editorial
-            em construcao.
-          </Text>
-        </div>
-      </Grid>
+        <EditorialFeed posts={feedPosts} />
+      </section>
     </Column>
   );
 }

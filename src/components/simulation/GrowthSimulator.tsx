@@ -1,7 +1,12 @@
 "use client";
 
-import { Button, Heading, Text } from "@once-ui-system/core";
-import { type ChangeEvent, useId, useState } from "react";
+import {
+  type ChangeEvent,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+} from "react";
 
 import styles from "./GrowthSimulator.module.scss";
 
@@ -74,10 +79,57 @@ type TermHintProps = {
   href: string;
 };
 
+type StepId = "start" | "base" | "adjustments" | "marketing" | "final";
+type ScenarioId = "conservative" | "realistic" | "aggressive" | "custom";
+
+type ScenarioPreset = {
+  id: Exclude<ScenarioId, "custom">;
+  label: string;
+  salesLift: number;
+  priceLift: number;
+  costDrop: number;
+  recurrenceLift: number;
+};
+
 const glossaryLinks = {
   marketing: "/blog/termos-de-marketing",
   publicidade: "/blog/termos-de-publicidade",
 } as const;
+
+const stageItems: Array<{ id: StepId; label: string }> = [
+  { id: "start", label: "Inicio" },
+  { id: "base", label: "Base" },
+  { id: "adjustments", label: "Ajustes" },
+  { id: "marketing", label: "Marketing" },
+  { id: "final", label: "Leitura" },
+];
+
+const scenarioPresets: ScenarioPreset[] = [
+  {
+    id: "conservative",
+    label: "Conservador",
+    salesLift: 6,
+    priceLift: 3,
+    costDrop: 2,
+    recurrenceLift: 4,
+  },
+  {
+    id: "realistic",
+    label: "Realista",
+    salesLift: 12,
+    priceLift: 6,
+    costDrop: 5,
+    recurrenceLift: 8,
+  },
+  {
+    id: "aggressive",
+    label: "Agressivo",
+    salesLift: 20,
+    priceLift: 10,
+    costDrop: 8,
+    recurrenceLift: 14,
+  },
+];
 
 const segmentProfiles: SegmentProfile[] = [
   {
@@ -191,6 +243,9 @@ const formatNumber = (value: number, maximumFractionDigits = 1) =>
   new Intl.NumberFormat("pt-BR", {
     maximumFractionDigits,
   }).format(Number.isFinite(value) ? value : 0);
+
+const formatSignedCurrency = (value: number) =>
+  `${value >= 0 ? "+" : "-"}${formatCurrency(Math.abs(value))}`;
 
 const formatPercent = (value: number) =>
   `${value >= 0 ? "+" : ""}${formatNumber(value, 0)}%`;
@@ -378,6 +433,18 @@ function estimateMarketing({
   return chosen ?? (best as MarketingEstimate);
 }
 
+function renderMetricRow(label: string, value: string, muted?: string) {
+  return (
+    <div className={styles.metricRow} key={label}>
+      <div className={styles.metricRowCopy}>
+        <span className={styles.metricRowLabel}>{label}</span>
+        {muted ? <span className={styles.metricRowMuted}>{muted}</span> : null}
+      </div>
+      <span className={styles.metricRowValue}>{value}</span>
+    </div>
+  );
+}
+
 export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorProps) {
   const [segmentId, setSegmentId] = useState(segmentProfiles[0].id);
   const [currentPrice, setCurrentPrice] = useState(segmentProfiles[0].defaults.price);
@@ -388,6 +455,62 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
   const [priceLift, setPriceLift] = useState(6);
   const [costDrop, setCostDrop] = useState(5);
   const [recurrenceLift, setRecurrenceLift] = useState(8);
+  const [selectedScenario, setSelectedScenario] = useState<ScenarioId>("realistic");
+  const [manualOpen, setManualOpen] = useState(false);
+  const [technicalMode, setTechnicalMode] = useState(false);
+  const [activeStep, setActiveStep] = useState<StepId>("start");
+
+  const startRef = useRef<HTMLElement | null>(null);
+  const baseRef = useRef<HTMLElement | null>(null);
+  const adjustmentsRef = useRef<HTMLElement | null>(null);
+  const marketingRef = useRef<HTMLElement | null>(null);
+  const finalRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const refs = [startRef, baseRef, adjustmentsRef, marketingRef, finalRef];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        let nextStep: StepId | null = null;
+        let nextRatio = 0;
+
+        entries.forEach((entry) => {
+          const stepId = entry.target.getAttribute("data-step-id") as StepId | null;
+          if (!stepId || !entry.isIntersecting) {
+            return;
+          }
+
+          if (entry.intersectionRatio >= nextRatio) {
+            nextStep = stepId;
+            nextRatio = entry.intersectionRatio;
+          }
+        });
+
+        if (nextStep) {
+          setActiveStep(nextStep);
+        }
+      },
+      {
+        rootMargin: "-20% 0px -35% 0px",
+        threshold: [0.2, 0.45, 0.7],
+      },
+    );
+
+    refs.forEach((ref) => {
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const sectionRefs = {
+    start: startRef,
+    base: baseRef,
+    adjustments: adjustmentsRef,
+    marketing: marketingRef,
+    final: finalRef,
+  };
 
   const segment =
     segmentProfiles.find((item) => item.id === segmentId) ?? segmentProfiles[0];
@@ -443,6 +566,65 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
     scale,
   });
 
+  const summaryLine = [
+    `Faturamento atual: ${formatCurrency(currentRevenue)}`,
+    `Margem por venda: ${formatCurrency(currentContribution)}`,
+    `Caixa estimado: ${formatCurrency(currentNet)}`,
+    `Porte: ${scale.label.toLowerCase()}`,
+  ];
+
+  const revenueDifference = projectedRevenue - currentRevenue;
+  const investmentShare =
+    marketingEstimate.totalInvestment > 0
+      ? (marketingEstimate.mediaSpend / marketingEstimate.totalInvestment) * 100
+      : 0;
+
+  let readingTitle = "Conta viavel.";
+  let readingText = "A operacao sustenta a meta com investimento proporcional.";
+
+  if (projectedContribution <= 0) {
+    readingTitle = "Margem insuficiente.";
+    readingText = "Revise preco ou custo antes de aumentar a verba.";
+  } else if (marketingEstimate.adjustedCAC >= projectedContribution) {
+    readingTitle = "Cenario apertado.";
+    readingText = "O CAC estimado consome margem rapido.";
+  } else if (!marketingEstimate.viable) {
+    readingTitle = "Meta exigente.";
+    readingText = "Revise ticket, margem e volume antes de subir a verba.";
+  } else if (marketingEstimate.totalInvestment > Math.max(projectedNetAfterOps, currentNet, 0)) {
+    readingTitle = "Investimento alto para a base atual.";
+    readingText = "A conta fecha, mas o caixa pode travar a execucao.";
+  } else if (marketingEstimate.newClients > currentSales * 1.4) {
+    readingTitle = "Volume acima da base atual.";
+    readingText = "A conta parece viavel se a operacao sustentar o novo ritmo.";
+  }
+
+  const statusChips = Array.from(
+    new Set(
+      [
+        readingTitle.replace(".", ""),
+        marketingEstimate.adjustedCAC >= projectedContribution ? "CAC alto" : null,
+        marketingEstimate.totalInvestment > Math.max(currentNet, 0) ? "Investimento acima do caixa" : null,
+        marketingEstimate.newClients > currentSales * 1.4 ? "Volume acima da base atual" : null,
+      ].filter(Boolean) as string[],
+    ),
+  );
+
+  const alerts = [
+    marketingEstimate.adjustedCAC >= projectedContribution
+      ? "CAC acima da margem por venda."
+      : null,
+    marketingEstimate.newClients > currentSales * 1.6
+      ? "Meta de clientes muito acima da base atual."
+      : null,
+    marketingEstimate.totalInvestment > Math.max(currentNet, 0)
+      ? "Investimento maior que o caixa estimado."
+      : null,
+    projectedContribution <= 0 ? "Margem insuficiente para sustentar esse cenario." : null,
+  ].filter(Boolean) as string[];
+
+  const contactIsExternal = contactHref.startsWith("http");
+
   const handleSegmentChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const nextSegment =
       segmentProfiles.find((item) => item.id === event.target.value) ?? segmentProfiles[0];
@@ -462,30 +644,95 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
 
   const handleRangeChange =
     (setter: (value: number) => void) => (event: ChangeEvent<HTMLInputElement>) => {
+      setSelectedScenario("custom");
       setter(Number(event.target.value));
     };
 
+  const handleScenarioSelect = (preset: ScenarioPreset) => {
+    setSelectedScenario(preset.id);
+    setSalesLift(preset.salesLift);
+    setPriceLift(preset.priceLift);
+    setCostDrop(preset.costDrop);
+    setRecurrenceLift(preset.recurrenceLift);
+  };
+
+  const scrollToStep = (stepId: StepId) => {
+    sectionRefs[stepId].current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
     <div className={styles.root}>
-      <div className={styles.layout}>
-        <div className={styles.steps}>
-          <section className={styles.stepPanel}>
-            <div className={styles.stepHeader}>
-              <span className={styles.stepBadge}>Etapa 1</span>
-              <Heading as="h2" variant="heading-strong-m">
-                Base atual do negocio
-              </Heading>
-              <Text className={styles.stepLead} variant="body-default-s" onBackground="neutral-weak">
-                Comece pela operacao atual. O simulador parte de preco, custo, vendas e custos fixos
-                para entender quanto sobra hoje e qual o porte estimado da estrutura.
-              </Text>
+      <div className={styles.topBar}>
+        <nav aria-label="Etapas da simulacao" className={styles.stageNav}>
+          {stageItems.map((item) => (
+            <button
+              aria-current={activeStep === item.id ? "step" : undefined}
+              className={activeStep === item.id ? styles.stageLinkActive : styles.stageLink}
+              key={item.id}
+              onClick={() => scrollToStep(item.id)}
+              type="button"
+            >
+              {item.label}
+            </button>
+          ))}
+        </nav>
+
+        <div className={styles.topBarMeta}>
+          <button
+            aria-pressed={technicalMode}
+            className={styles.technicalToggle}
+            onClick={() => setTechnicalMode((current) => !current)}
+            type="button"
+          >
+            {technicalMode ? "Ocultar detalhes" : "Ver detalhes"}
+          </button>
+
+          <div className={styles.desktopSummary}>
+            <span>Base: {formatCurrency(currentRevenue)}</span>
+            <span>Meta: {formatNumber(marketingEstimate.newClients)} clientes</span>
+            <span>Investimento: {formatCurrency(marketingEstimate.totalInvestment)}</span>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.sections}>
+        <section
+          className={`${styles.stage} ${styles.startStage}`}
+          data-step-id="start"
+          ref={sectionRefs.start}
+        >
+          <div className={styles.stageInner}>
+            <div className={styles.stageIntro}>
+              <span className={styles.kicker}>Inicio</span>
+              <h1 className={styles.displayTitle}>Simulacao de crescimento</h1>
+              <p className={styles.displayLead}>
+                Base atual, ajustes internos e meta de marketing.
+              </p>
             </div>
+
+            <button
+              className={styles.primaryAction}
+              onClick={() => scrollToStep("base")}
+              type="button"
+            >
+              Comecar
+            </button>
+          </div>
+        </section>
+
+        <section className={styles.stage} data-step-id="base" ref={sectionRefs.base}>
+          <div className={styles.stageInner}>
+            <header className={styles.stageHeader}>
+              <span className={styles.kicker}>Base atual</span>
+              <h2 className={styles.stageTitle}>Onde o negocio esta?</h2>
+            </header>
 
             <div className={styles.fieldGrid}>
               <label className={`${styles.field} ${styles.fieldWide}`} htmlFor="simulation-segment">
-                <Text className={styles.fieldLabel} variant="label-default-s" onBackground="neutral-weak">
-                  Categoria
-                </Text>
+                <span className={styles.fieldLabel}>Categoria</span>
                 <select
                   className={styles.select}
                   id="simulation-segment"
@@ -498,19 +745,17 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
                     </option>
                   ))}
                 </select>
-                <Text className={styles.helper} variant="body-default-xs" onBackground="neutral-weak">
-                  {segment.note}
-                </Text>
+                <span className={styles.helperText}>{segment.note}</span>
               </label>
 
               <label className={styles.field} htmlFor="simulation-price">
-                <Text className={styles.fieldLabel} variant="label-default-s" onBackground="neutral-weak">
+                <span className={styles.fieldLabel}>
                   <TermHint
                     label="Preco medio por venda"
                     description="E o valor medio que entra a cada venda feita pelo negocio."
                     href={`${glossaryLinks.marketing}#ticket-medio`}
                   />
-                </Text>
+                </span>
                 <input
                   className={styles.input}
                   id="simulation-price"
@@ -524,9 +769,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
               </label>
 
               <label className={styles.field} htmlFor="simulation-cost">
-                <Text className={styles.fieldLabel} variant="label-default-s" onBackground="neutral-weak">
-                  Custo direto por venda
-                </Text>
+                <span className={styles.fieldLabel}>Custo direto por venda</span>
                 <input
                   className={styles.input}
                   id="simulation-cost"
@@ -540,9 +783,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
               </label>
 
               <label className={styles.field} htmlFor="simulation-sales">
-                <Text className={styles.fieldLabel} variant="label-default-s" onBackground="neutral-weak">
-                  Vendas por mes
-                </Text>
+                <span className={styles.fieldLabel}>Vendas por mes</span>
                 <input
                   className={styles.input}
                   id="simulation-sales"
@@ -556,9 +797,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
               </label>
 
               <label className={styles.field} htmlFor="simulation-fixed">
-                <Text className={styles.fieldLabel} variant="label-default-s" onBackground="neutral-weak">
-                  Custos fixos mensais
-                </Text>
+                <span className={styles.fieldLabel}>Custos fixos mensais</span>
                 <input
                   className={styles.input}
                   id="simulation-fixed"
@@ -572,521 +811,384 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
               </label>
             </div>
 
-            <div className={styles.metricGrid}>
-              <article className={styles.metricCard}>
-                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                  Faturamento atual
-                </Text>
-                <Text className={styles.metricValue} variant="body-default-l">
-                  {formatCurrency(currentRevenue)}
-                </Text>
-                <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
-                  Equivalente mensal usando ticket e volume atuais.
-                </Text>
-              </article>
+            <p className={styles.summaryLine}>{summaryLine.join(" | ")}</p>
 
-              <article className={styles.metricCard}>
-                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                  Caixa atual
-                </Text>
-                <Text className={styles.metricValue} variant="body-default-l">
-                  {formatCurrency(currentNet)}
-                </Text>
-                <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
-                  Margem apos custos diretos e fixos: {formatPercent(currentMargin)}.
-                </Text>
-              </article>
+            {technicalMode ? (
+              <div className={styles.detailsBlock}>
+                <div className={styles.detailsHeader}>
+                  <span>Detalhes tecnicos</span>
+                </div>
+                <div className={styles.metricList}>
+                  {renderMetricRow("Margem atual", formatPercent(currentMargin), "sobre o faturamento")}
+                  {renderMetricRow("Escala lida", scale.label, scale.note)}
+                  {renderMetricRow("Segmento", segment.label, segment.saturationNote)}
+                </div>
+              </div>
+            ) : null}
 
-              <article className={styles.metricCard}>
-                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                  Porte estimado
-                </Text>
-                <Text className={styles.metricValue} variant="body-default-l">
-                  {scale.label}
-                </Text>
-                <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
-                  {scale.note}
-                </Text>
-              </article>
+            <div className={styles.stageFooter}>
+              <button
+                className={styles.primaryAction}
+                onClick={() => scrollToStep("adjustments")}
+                type="button"
+              >
+                Continuar
+              </button>
+            </div>
+          </div>
+        </section>
 
-              <article className={styles.metricCard}>
-                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                  <TermHint
-                    label="Margem por venda"
-                    description="E quanto sobra por venda depois de tirar o custo direto daquele atendimento ou produto."
-                    href={`${glossaryLinks.marketing}#margem`}
+        <section className={styles.stage} data-step-id="adjustments" ref={sectionRefs.adjustments}>
+          <div className={styles.stageInner}>
+            <header className={styles.stageHeader}>
+              <span className={styles.kicker}>Ajustes</span>
+              <h2 className={styles.stageTitle}>O que melhora antes da verba?</h2>
+            </header>
+
+            <div className={styles.scenarioList}>
+              {scenarioPresets.map((preset) => (
+                <button
+                  aria-pressed={selectedScenario === preset.id}
+                  className={
+                    selectedScenario === preset.id ? styles.scenarioButtonActive : styles.scenarioButton
+                  }
+                  key={preset.id}
+                  onClick={() => handleScenarioSelect(preset)}
+                  type="button"
+                >
+                  {preset.label}
+                </button>
+              ))}
+            </div>
+
+            <div className={styles.primaryMetricCard}>
+              <span className={styles.primaryMetricLabel}>Ganho liquido</span>
+              <strong className={styles.primaryMetricValue}>
+                {formatCurrency(projectedNetAfterOps)}
+              </strong>
+              <span className={styles.primaryMetricHint}>
+                Depois do custo de implantacao.
+              </span>
+            </div>
+
+            <div className={styles.compareGrid}>
+              <div className={styles.compareItem}>
+                <span className={styles.compareLabel}>Atual</span>
+                <strong className={styles.compareValue}>{formatCurrency(currentRevenue)}</strong>
+              </div>
+              <div className={styles.compareItem}>
+                <span className={styles.compareLabel}>Projetado</span>
+                <strong className={styles.compareValue}>{formatCurrency(projectedRevenue)}</strong>
+              </div>
+              <div className={styles.compareItem}>
+                <span className={styles.compareLabel}>Diferenca</span>
+                <strong className={styles.compareValue}>{formatSignedCurrency(revenueDifference)}</strong>
+              </div>
+            </div>
+
+            <div className={styles.metricList}>
+              {renderMetricRow("Faturamento projetado", formatCurrency(projectedRevenue))}
+              {renderMetricRow("Caixa antes da implantacao", formatCurrency(projectedNetBeforeOps))}
+              {renderMetricRow(
+                "Custo de implantacao",
+                formatCurrency(adjustmentOpsCost),
+                "interno e operacional",
+              )}
+              {renderMetricRow(
+                "Ganho liquido",
+                formatCurrency(internalNetLift),
+                "diferenca sobre hoje",
+              )}
+            </div>
+
+            <div className={styles.secondaryActions}>
+              <button
+                aria-expanded={manualOpen}
+                className={styles.secondaryAction}
+                onClick={() => setManualOpen((current) => !current)}
+                type="button"
+              >
+                {manualOpen ? "Ocultar edicao" : "Editar manualmente"}
+              </button>
+            </div>
+
+            {manualOpen ? (
+              <div className={styles.manualPanel}>
+                <label className={styles.sliderField} htmlFor="sales-lift">
+                  <div className={styles.sliderHeader}>
+                    <span className={styles.fieldLabel}>+ vendas</span>
+                    <span className={styles.sliderValue}>{formatPercent(salesLift)}</span>
+                  </div>
+                  <input
+                    className={styles.range}
+                    id="sales-lift"
+                    max="35"
+                    min="0"
+                    onChange={handleRangeChange(setSalesLift)}
+                    step="1"
+                    type="range"
+                    value={salesLift}
                   />
-                </Text>
-                <Text className={styles.metricValue} variant="body-default-l">
-                  {formatCurrency(currentContribution)}
-                </Text>
-                <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
-                  Valor que cada venda deixa antes dos custos fixos.
-                </Text>
-              </article>
-            </div>
-          </section>
+                </label>
 
-          <section className={styles.stepPanel}>
-            <div className={styles.stepHeader}>
-              <span className={styles.stepBadge}>Etapa 2</span>
-              <Heading as="h2" variant="heading-strong-m">
-                O que pequenos ajustes mudam
-              </Heading>
-              <Text className={styles.stepLead} variant="body-default-s" onBackground="neutral-weak">
-                Aqui o ganho nao aparece de graca. Melhorar vendas, subir ticket, reduzir custo e
-                aumentar recorrencia exigem implantacao, gestao e operacao. Esse custo entra na conta.
-              </Text>
-            </div>
-
-            <div className={styles.sliderList}>
-              <label className={styles.sliderField} htmlFor="sales-lift">
-                <div className={styles.sliderHead}>
-                  <div className={styles.sliderCopy}>
-                    <Text className={styles.fieldLabel} variant="label-default-s" onBackground="neutral-weak">
-                      + vendas
-                    </Text>
-                    <Text className={styles.helper} variant="body-default-xs" onBackground="neutral-weak">
-                      Mais agenda preenchida, mais resposta comercial e mais fechamento.
-                    </Text>
+                <label className={styles.sliderField} htmlFor="price-lift">
+                  <div className={styles.sliderHeader}>
+                    <span className={styles.fieldLabel}>+ preco</span>
+                    <span className={styles.sliderValue}>{formatPercent(priceLift)}</span>
                   </div>
-                  <span className={styles.sliderValue}>{formatPercent(salesLift)}</span>
-                </div>
-                <input
-                  className={styles.range}
-                  id="sales-lift"
-                  max="35"
-                  min="0"
-                  onChange={handleRangeChange(setSalesLift)}
-                  step="1"
-                  type="range"
-                  value={salesLift}
-                />
-                <div className={styles.rangeMeta}>
-                  <span>0%</span>
-                  <span>{formatNumber(salesFromProcess)} vendas extras</span>
-                  <span>35%</span>
-                </div>
-              </label>
+                  <input
+                    className={styles.range}
+                    id="price-lift"
+                    max="25"
+                    min="0"
+                    onChange={handleRangeChange(setPriceLift)}
+                    step="1"
+                    type="range"
+                    value={priceLift}
+                  />
+                </label>
 
-              <label className={styles.sliderField} htmlFor="price-lift">
-                <div className={styles.sliderHead}>
-                  <div className={styles.sliderCopy}>
-                    <Text className={styles.fieldLabel} variant="label-default-s" onBackground="neutral-weak">
-                      + preco
-                    </Text>
-                    <Text className={styles.helper} variant="body-default-xs" onBackground="neutral-weak">
-                      Reposicionamento de proposta, pacote e valor percebido.
-                    </Text>
+                <label className={styles.sliderField} htmlFor="cost-drop">
+                  <div className={styles.sliderHeader}>
+                    <span className={styles.fieldLabel}>- custo</span>
+                    <span className={styles.sliderValue}>{formatPercent(-costDrop)}</span>
                   </div>
-                  <span className={styles.sliderValue}>{formatPercent(priceLift)}</span>
-                </div>
-                <input
-                  className={styles.range}
-                  id="price-lift"
-                  max="20"
-                  min="0"
-                  onChange={handleRangeChange(setPriceLift)}
-                  step="1"
-                  type="range"
-                  value={priceLift}
-                />
-                <div className={styles.rangeMeta}>
-                  <span>0%</span>
-                  <span>Ticket alvo: {formatCurrency(projectedPrice)}</span>
-                  <span>20%</span>
-                </div>
-              </label>
+                  <input
+                    className={styles.range}
+                    id="cost-drop"
+                    max="18"
+                    min="0"
+                    onChange={handleRangeChange(setCostDrop)}
+                    step="1"
+                    type="range"
+                    value={costDrop}
+                  />
+                </label>
 
-              <label className={styles.sliderField} htmlFor="cost-drop">
-                <div className={styles.sliderHead}>
-                  <div className={styles.sliderCopy}>
-                    <Text className={styles.fieldLabel} variant="label-default-s" onBackground="neutral-weak">
-                      - custo
-                    </Text>
-                    <Text className={styles.helper} variant="body-default-xs" onBackground="neutral-weak">
-                      Reorganizacao interna, renegociacao e menos desperdicio por venda.
-                    </Text>
-                  </div>
-                  <span className={styles.sliderValue}>{formatPercent(-costDrop)}</span>
-                </div>
-                <input
-                  className={styles.range}
-                  id="cost-drop"
-                  max="18"
-                  min="0"
-                  onChange={handleRangeChange(setCostDrop)}
-                  step="1"
-                  type="range"
-                  value={costDrop}
-                />
-                <div className={styles.rangeMeta}>
-                  <span>0%</span>
-                  <span>Custo alvo: {formatCurrency(projectedCost)}</span>
-                  <span>18%</span>
-                </div>
-              </label>
-
-              <label className={styles.sliderField} htmlFor="recurrence-lift">
-                <div className={styles.sliderHead}>
-                  <div className={styles.sliderCopy}>
-                    <Text className={styles.fieldLabel} variant="label-default-s" onBackground="neutral-weak">
+                <label className={styles.sliderField} htmlFor="recurrence-lift">
+                  <div className={styles.sliderHeader}>
+                    <span className={styles.fieldLabel}>
                       <TermHint
                         label="+ recorrencia"
                         description="Mostra o efeito de fazer o mesmo cliente voltar mais vezes ou comprar de novo."
                         href={`${glossaryLinks.marketing}#recorrencia`}
                       />
-                    </Text>
-                    <Text className={styles.helper} variant="body-default-xs" onBackground="neutral-weak">
-                      Mais retorno, recompra, remarcacao e continuidade no atendimento.
-                    </Text>
+                    </span>
+                    <span className={styles.sliderValue}>{formatPercent(recurrenceLift)}</span>
                   </div>
-                  <span className={styles.sliderValue}>{formatPercent(recurrenceLift)}</span>
+                  <input
+                    className={styles.range}
+                    id="recurrence-lift"
+                    max="25"
+                    min="0"
+                    onChange={handleRangeChange(setRecurrenceLift)}
+                    step="1"
+                    type="range"
+                    value={recurrenceLift}
+                  />
+                </label>
+              </div>
+            ) : null}
+
+            {technicalMode ? (
+              <div className={styles.detailsBlock}>
+                <div className={styles.detailsHeader}>
+                  <span>Detalhes tecnicos</span>
                 </div>
-                <input
-                  className={styles.range}
-                  id="recurrence-lift"
-                  max="25"
-                  min="0"
-                  onChange={handleRangeChange(setRecurrenceLift)}
-                  step="1"
-                  type="range"
-                  value={recurrenceLift}
-                />
-                <div className={styles.rangeMeta}>
-                  <span>0%</span>
-                  <span>{formatNumber(salesFromRecurrence)} vendas equivalentes</span>
-                  <span>25%</span>
+                <div className={styles.metricList}>
+                  {renderMetricRow("Base de implantacao", formatCurrency(implementationBase))}
+                  {renderMetricRow("Ajuste comercial", formatCurrency(salesOpsCost))}
+                  {renderMetricRow("Reposicionamento de preco", formatCurrency(priceOpsCost))}
+                  {renderMetricRow("Reducao de custo", formatCurrency(costOpsCost))}
+                  {renderMetricRow("Recorrencia e CRM", formatCurrency(recurrenceOpsCost))}
                 </div>
-              </label>
+              </div>
+            ) : null}
+
+            <div className={styles.stageFooter}>
+              <button
+                className={styles.primaryAction}
+                onClick={() => scrollToStep("marketing")}
+                type="button"
+              >
+                Aplicar cenario
+              </button>
             </div>
-
-            <div className={styles.metricGrid}>
-              <article className={styles.metricCard}>
-                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                  Faturamento projetado
-                </Text>
-                <Text className={styles.metricValue} variant="body-default-l">
-                  {formatCurrency(projectedRevenue)}
-                </Text>
-                <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
-                  {formatNumber(projectedSales)} vendas por mes com ticket alvo de{" "}
-                  {formatCurrency(projectedPrice)}.
-                </Text>
-              </article>
-
-              <article className={styles.metricCard}>
-                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                  Caixa antes da implantacao
-                </Text>
-                <Text className={styles.metricValue} variant="body-default-l">
-                  {formatCurrency(projectedNetBeforeOps)}
-                </Text>
-                <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
-                  Ganho operacional bruto se a mudanca ja estivesse rodando.
-                </Text>
-              </article>
-
-              <article className={styles.metricCard}>
-                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                  <TermHint
-                    label="Custo de implantacao"
-                    description="E o custo interno de colocar os ajustes em pratica, incluindo gestao, treinamento e operacao."
-                    href={`${glossaryLinks.marketing}#margem`}
-                  />
-                </Text>
-                <Text className={styles.metricValue} variant="body-default-l">
-                  {formatCurrency(adjustmentOpsCost)}
-                </Text>
-                <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
-                  Inclui comercial, reposicionamento, revisao de custos e gerencia interna.
-                </Text>
-              </article>
-
-              <article className={styles.metricCard}>
-                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                  Ganho liquido apos implantacao
-                </Text>
-                <Text className={styles.metricValue} variant="body-default-l">
-                  {formatCurrency(projectedNetAfterOps)}
-                </Text>
-                <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
-                  Diferenca sobre hoje: {formatCurrency(internalNetLift)} por mes.
-                </Text>
-              </article>
-            </div>
-
-            <div className={styles.breakdownList}>
-              <div className={styles.breakdownItem}>
-                <Text variant="body-default-s">Base de implantacao e gestao</Text>
-                <Text variant="body-default-s">{formatCurrency(implementationBase)}</Text>
-              </div>
-              <div className={styles.breakdownItem}>
-                <Text variant="body-default-s">Ajuste comercial para ganhar volume</Text>
-                <Text variant="body-default-s">{formatCurrency(salesOpsCost)}</Text>
-              </div>
-              <div className={styles.breakdownItem}>
-                <Text variant="body-default-s">Reposicionamento para sustentar preco</Text>
-                <Text variant="body-default-s">{formatCurrency(priceOpsCost)}</Text>
-              </div>
-              <div className={styles.breakdownItem}>
-                <Text variant="body-default-s">Revisao operacional para reduzir custo</Text>
-                <Text variant="body-default-s">{formatCurrency(costOpsCost)}</Text>
-              </div>
-              <div className={styles.breakdownItem}>
-                <Text variant="body-default-s">Recorrencia, CRM e acompanhamento</Text>
-                <Text variant="body-default-s">{formatCurrency(recurrenceOpsCost)}</Text>
-              </div>
-            </div>
-          </section>
-
-          <section className={styles.stepPanel}>
-            <div className={styles.stepHeader}>
-              <span className={styles.stepBadge}>Etapa 3</span>
-              <Heading as="h2" variant="heading-strong-m">
-                Quanto o marketing precisaria retornar
-              </Heading>
-              <Text className={styles.stepLead} variant="body-default-s" onBackground="neutral-weak">
-                Agora a conta replica o ganho liquido da etapa 2 via marketing. O calculo usa o
-                ticket alvo, a margem por venda, o CAC base do segmento e a perda de eficiencia
-                depois do ponto de saturacao.
-              </Text>
-            </div>
-
-            <div className={styles.metricGrid}>
-              <article className={styles.metricCard}>
-                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                  Meta liquida a replicar
-                </Text>
-                <Text className={styles.metricValue} variant="body-default-l">
-                  {formatCurrency(marketingEstimate.targetNetLift)}
-                </Text>
-                <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
-                  Ganho mensal equivalente ao resultado liquido dos ajustes internos.
-                </Text>
-              </article>
-
-              <article className={styles.metricCard}>
-                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                  <TermHint
-                    label="Ticket usado na conta"
-                    description="E o valor medio por venda que o simulador assume para projetar o retorno."
-                    href={`${glossaryLinks.marketing}#ticket-medio`}
-                  />
-                </Text>
-                <Text className={styles.metricValue} variant="body-default-l">
-                  {formatCurrency(projectedPrice)}
-                </Text>
-                <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
-                  A conta considera o valor que voce quer sustentar, nao apenas o ticket atual.
-                </Text>
-              </article>
-
-              <article className={styles.metricCard}>
-                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                  <TermHint
-                    label="CAC base do segmento"
-                    description="E o custo medio para conquistar um novo cliente antes de a verba comecar a perder eficiencia."
-                    href={`${glossaryLinks.marketing}#cac`}
-                  />
-                </Text>
-                <Text className={styles.metricValue} variant="body-default-l">
-                  {formatCurrency(marketingEstimate.baseCAC)}
-                </Text>
-                <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
-                  Ponto de partida antes da verba passar de {formatNumber(marketingEstimate.saturationPoint, 0)}{" "}
-                  novos clientes por mes.
-                </Text>
-              </article>
-
-              <article className={styles.metricCard}>
-                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                  <TermHint
-                    label="CAC ajustado"
-                    description="E o CAC depois de considerar que subir a verba tende a encarecer a aquisicao."
-                    href={`${glossaryLinks.publicidade}#ponto-de-saturacao`}
-                  />
-                </Text>
-                <Text className={styles.metricValue} variant="body-default-l">
-                  {formatCurrency(marketingEstimate.adjustedCAC)}
-                </Text>
-                <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
-                  Perda de eficiencia: {formatPercent(marketingEstimate.efficiencyLossPct)}.
-                </Text>
-              </article>
-            </div>
-
-            <div className={styles.breakdownList}>
-              <div className={styles.breakdownItem}>
-                <Text variant="body-default-s">Novos clientes necessarios</Text>
-                <Text variant="body-default-s">{formatNumber(marketingEstimate.newClients)}</Text>
-              </div>
-              <div className={styles.breakdownItem}>
-                <Text variant="body-default-s">
-                  <TermHint
-                    label="Midia estimada"
-                    description="E a verba de anuncios que o simulador estima para buscar o volume de clientes desejado."
-                    href={`${glossaryLinks.publicidade}#midia-paga`}
-                  />
-                </Text>
-                <Text variant="body-default-s">{formatCurrency(marketingEstimate.mediaSpend)}</Text>
-              </div>
-              <div className={styles.breakdownItem}>
-                <Text variant="body-default-s">Gestao e operacao de marketing</Text>
-                <Text variant="body-default-s">{formatCurrency(marketingEstimate.managementCost)}</Text>
-              </div>
-              <div className={styles.breakdownItem}>
-                <Text variant="body-default-s">Taxa operacional de marketing</Text>
-                <Text variant="body-default-s">
-                  {formatPercent(marketingEstimate.managementRate * 100)}
-                </Text>
-              </div>
-              <div className={styles.breakdownItem}>
-                <Text variant="body-default-s">
-                  <TermHint
-                    label="Investimento total estimado"
-                    description="Soma da verba de midia com a camada operacional e de gestao necessaria para rodar o marketing."
-                    href={`${glossaryLinks.publicidade}#roas`}
-                  />
-                </Text>
-                <Text variant="body-default-s">{formatCurrency(marketingEstimate.totalInvestment)}</Text>
-              </div>
-            </div>
-          </section>
-        </div>
-
-        <aside className={styles.resultPanel}>
-          <div className={styles.stepHeader}>
-            <span className={styles.stepBadge}>Leitura final</span>
-            <Heading as="h2" variant="heading-strong-m">
-              Quanto essa meta pede de marketing
-            </Heading>
-            <Text className={styles.stepLead} variant="body-default-s" onBackground="neutral-weak">
-              O retorno cai porque o custo total nao e so CAC. Entram midia, operacao, gestao e a
-              piora natural de eficiencia quando a verba sobe alem do ponto de saturacao.
-            </Text>
           </div>
+        </section>
 
-          <div className={styles.resultHero}>
-            <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-              <TermHint
-                label="Investimento total estimado"
-                description="Soma da verba de anuncios com o custo de operacao do marketing para buscar essa meta."
-                href={`${glossaryLinks.publicidade}#roas`}
-              />
-            </Text>
-            <span className={styles.resultPill}>
-              {formatCurrency(marketingEstimate.totalInvestment)}
-            </span>
-            <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
-              {marketingEstimate.viable
-                ? "Valor mensal aproximado para replicar o ganho da etapa 2 via marketing."
-                : "Mesmo com mais verba, a conta nao fecha com folga sob estas premissas."}
-            </Text>
-          </div>
+        <section className={styles.stage} data-step-id="marketing" ref={sectionRefs.marketing}>
+          <div className={styles.stageInner}>
+            <header className={styles.stageHeader}>
+              <span className={styles.kicker}>Marketing</span>
+              <h2 className={styles.stageTitle}>Quanto precisa retornar?</h2>
+            </header>
 
-          <div className={styles.resultMetricGrid}>
-            <article className={styles.resultMetric}>
-              <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                Receita gerada
-              </Text>
-              <Text className={styles.metricValue} variant="body-default-l">
-                {formatCurrency(marketingEstimate.grossRevenue)}
-              </Text>
-              <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
-                Receita mensal puxada pelos novos clientes calculados.
-              </Text>
-            </article>
-
-            <article className={styles.resultMetric}>
-              <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                Margem gerada
-              </Text>
-              <Text className={styles.metricValue} variant="body-default-l">
-                {formatCurrency(marketingEstimate.contributionGenerated)}
-              </Text>
-              <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
-                Valor antes dos fixos, usando a margem por venda alvo.
-              </Text>
-            </article>
-
-            <article className={styles.resultMetric}>
-              <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
+            <div className={styles.primaryMetricCard}>
+              <span className={styles.primaryMetricLabel}>
                 <TermHint
-                  label="Retorno bruto por R$ 1"
-                  description="Compara a receita gerada com o total investido em marketing, sem descontar os custos fixos."
+                  label="Investimento total estimado"
+                  description="Soma da verba de anuncios com o custo de operacao do marketing para buscar essa meta."
                   href={`${glossaryLinks.publicidade}#roas`}
                 />
-              </Text>
-              <Text className={styles.metricValue} variant="body-default-l">
-                {formatNumber(marketingEstimate.grossReturnPerReal, 2)}x
-              </Text>
-              <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
-                Receita total dividida pelo investimento total em marketing.
-              </Text>
-            </article>
+              </span>
+              <strong className={styles.primaryMetricValue}>
+                {formatCurrency(marketingEstimate.totalInvestment)}
+              </strong>
+              <span className={styles.primaryMetricHint}>
+                {formatCurrency(marketingEstimate.mediaSpend)} midia |{" "}
+                {formatCurrency(marketingEstimate.managementCost)} gestao
+              </span>
+            </div>
 
-            <article className={styles.resultMetric}>
-              <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                Retorno de margem por R$ 1
-              </Text>
-              <Text className={styles.metricValue} variant="body-default-l">
-                {formatNumber(marketingEstimate.contributionReturnPerReal, 2)}x
-              </Text>
-              <Text className={styles.metricHint} variant="body-default-xs" onBackground="neutral-weak">
-                Ajuda a ver quando a verba sobe mas a margem nao acompanha no mesmo ritmo.
-              </Text>
-            </article>
-          </div>
+            <div className={styles.segmentBar} aria-hidden="true">
+              <span
+                className={styles.segmentBarMedia}
+                style={{ width: `${Math.max(investmentShare, 0)}%` }}
+              />
+              <span
+                className={styles.segmentBarManagement}
+                style={{ width: `${Math.max(100 - investmentShare, 0)}%` }}
+              />
+            </div>
 
-          <div className={styles.noteBlock}>
-            <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-              O que esta puxando a conta
-            </Text>
-            <Text variant="body-default-s" onBackground="neutral-weak">
-              O calculo usa o ticket alvo de {formatCurrency(projectedPrice)}, a margem alvo de{" "}
-              {formatCurrency(projectedContribution)} por venda e um ponto de saturacao de{" "}
-              {formatNumber(marketingEstimate.saturationPoint, 0)} novos clientes por mes para{" "}
-              {segment.label.toLowerCase()}.
-            </Text>
-            <Text variant="body-default-s" onBackground="neutral-weak">
-              {segment.saturationNote}
-            </Text>
-            {!marketingEstimate.viable ? (
-              <div className={styles.warningCard}>
-                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                  Meta agressiva para o modelo
-                </Text>
-                <Text variant="body-default-s" onBackground="neutral-weak">
-                  Com as premissas atuais, o marketing chega a cerca de{" "}
-                  {formatCurrency(marketingEstimate.achievedNetLift)} de ganho liquido mensal antes
-                  de ficar caro demais. Vale revisar ticket, margem ou a meta de volume antes de
-                  acelerar verba.
-                </Text>
+            <div className={styles.metricList}>
+              {renderMetricRow("Novos clientes necessarios", formatNumber(marketingEstimate.newClients))}
+              {renderMetricRow(
+                "CAC ajustado",
+                formatCurrency(marketingEstimate.adjustedCAC),
+                marketingEstimate.efficiencyLossPct > 0
+                  ? `perda de eficiencia ${formatPercent(marketingEstimate.efficiencyLossPct)}`
+                  : "sem perda relevante",
+              )}
+              {renderMetricRow("Midia estimada", formatCurrency(marketingEstimate.mediaSpend))}
+              {renderMetricRow("Gestao e operacao", formatCurrency(marketingEstimate.managementCost))}
+              {renderMetricRow(
+                "Taxa operacional",
+                `${formatNumber(marketingEstimate.managementRate * 100, 0)}%`,
+              )}
+            </div>
+
+            {technicalMode ? (
+              <div className={styles.detailsBlock}>
+                <div className={styles.detailsHeader}>
+                  <span>Detalhes tecnicos</span>
+                </div>
+                <div className={styles.metricList}>
+                  {renderMetricRow("Meta liquida", formatCurrency(marketingEstimate.targetNetLift))}
+                  {renderMetricRow("Ticket usado na conta", formatCurrency(projectedPrice))}
+                  {renderMetricRow("CAC base do segmento", formatCurrency(marketingEstimate.baseCAC))}
+                  {renderMetricRow(
+                    "Ponto de saturacao",
+                    `${formatNumber(marketingEstimate.saturationPoint, 0)} clientes`,
+                  )}
+                  {renderMetricRow(
+                    "Retorno bruto por R$ 1",
+                    `${formatNumber(marketingEstimate.grossReturnPerReal, 2)}x`,
+                  )}
+                  {renderMetricRow(
+                    "Retorno de margem por R$ 1",
+                    `${formatNumber(marketingEstimate.contributionReturnPerReal, 2)}x`,
+                  )}
+                </div>
               </div>
-            ) : (
-              <div className={styles.warningCard}>
-                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                  Ganho liquido replicado
-                </Text>
-                <Text variant="body-default-s" onBackground="neutral-weak">
-                  A leitura encontra cerca de {formatCurrency(marketingEstimate.achievedNetLift)} de
-                  ganho liquido mensal com {formatNumber(marketingEstimate.newClients)} novos
-                  clientes.
-                </Text>
-              </div>
-            )}
-          </div>
+            ) : null}
 
-          <div className={styles.actions}>
-            <Button href={contactHref} variant="primary" size="m" arrowIcon>
-              Conversar com contexto
-            </Button>
-            <Button href={servicesHref} variant="secondary" size="m" arrowIcon>
-              Ver servicos
-            </Button>
+            <div className={styles.stageFooter}>
+              <button
+                className={styles.primaryAction}
+                onClick={() => scrollToStep("final")}
+                type="button"
+              >
+                Ver leitura
+              </button>
+            </div>
           </div>
-        </aside>
+        </section>
+
+        <section className={styles.stage} data-step-id="final" ref={sectionRefs.final}>
+          <div className={styles.stageInner}>
+            <header className={styles.stageHeader}>
+              <span className={styles.kicker}>Leitura final</span>
+              <h2 className={styles.stageTitle}>Faz sentido avancar?</h2>
+            </header>
+
+            <div className={styles.readingCard}>
+              <span className={styles.readingState}>{readingTitle.replace(".", "")}</span>
+              <strong className={styles.readingTitle}>{readingTitle}</strong>
+              <p className={styles.readingText}>{readingText}</p>
+            </div>
+
+            <div className={styles.statusList}>
+              {statusChips.map((chip) => (
+                <span className={styles.statusChip} key={chip}>
+                  {chip}
+                </span>
+              ))}
+            </div>
+
+            {alerts.length > 0 ? (
+              <div className={styles.alertList}>
+                {alerts.map((alert) => (
+                  <p className={styles.alertItem} key={alert}>
+                    {alert}
+                  </p>
+                ))}
+              </div>
+            ) : null}
+
+            <div className={styles.metricList}>
+              {renderMetricRow("Base", formatCurrency(currentRevenue))}
+              {renderMetricRow("Meta", `${formatNumber(marketingEstimate.newClients)} clientes`)}
+              {renderMetricRow("Investimento", formatCurrency(marketingEstimate.totalInvestment))}
+            </div>
+
+            {technicalMode ? (
+              <div className={styles.detailsBlock}>
+                <div className={styles.detailsHeader}>
+                  <span>Detalhes tecnicos</span>
+                </div>
+                <div className={styles.metricList}>
+                  {renderMetricRow("Margem alvo por venda", formatCurrency(projectedContribution))}
+                  {renderMetricRow("Receita puxada pelo marketing", formatCurrency(marketingEstimate.grossRevenue))}
+                  {renderMetricRow(
+                    "Margem gerada",
+                    formatCurrency(marketingEstimate.contributionGenerated),
+                    "antes dos fixos",
+                  )}
+                  {renderMetricRow(
+                    "Ganho liquido encontrado",
+                    formatCurrency(marketingEstimate.achievedNetLift),
+                  )}
+                  {renderMetricRow(
+                    "Retorno liquido por R$ 1",
+                    `${formatNumber(marketingEstimate.netReturnPerReal, 2)}x`,
+                  )}
+                </div>
+              </div>
+            ) : null}
+
+            <div className={styles.finalActions}>
+              <a
+                className={styles.primaryLink}
+                href={contactHref}
+                rel={contactIsExternal ? "noreferrer" : undefined}
+                target={contactIsExternal ? "_blank" : undefined}
+              >
+                Conversar com contexto
+              </a>
+              <a className={styles.secondaryLink} href={servicesHref}>
+                Ver servicos
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div className={styles.mobileSummary}>
+        <span>Base: {formatCurrency(currentRevenue)}</span>
+        <span>Meta: {formatNumber(marketingEstimate.newClients)}</span>
+        <span>Investimento: {formatCurrency(marketingEstimate.totalInvestment)}</span>
       </div>
     </div>
   );

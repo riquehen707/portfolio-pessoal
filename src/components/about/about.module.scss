@@ -2,407 +2,356 @@
 
 .page {
   width: 100%;
-  gap: clamp(4.75rem, 8vw, 7rem);
+  gap: clamp(4rem, 7vw, 6rem);
 }
 
-.hero,
-.sectionPanel {
-  position: relative;
+.hover {
+  transition: color var(--motion-fast);
+}
+
+.hover:hover {
+  color: var(--color-accent-gold);
+}
+
+.heroSection,
+.section,
+.nextStep {
   width: 100%;
-  overflow: visible;
 }
 
-.hero {
-  padding-block: clamp(1.25rem, 3vw, 2rem) clamp(3.75rem, 8vw, 5.75rem);
-}
-
-.sectionPanel {
-  padding-top: clamp(3.5rem, 7vw, 5.5rem);
-  border-top: 1px solid var(--border-subtle);
-}
-
-.heroGrid,
-.splitGrid,
-.stepGrid,
-.proofGrid {
-  width: 100%;
-  align-items: start;
+.heroSection {
+  padding-block: clamp(1rem, 2vw, 1.4rem) clamp(1.75rem, 4vw, 2.5rem);
 }
 
 .heroGrid {
-  grid-template-columns: minmax(0, 1.3fr) minmax(18rem, 0.7fr);
-  gap: clamp(2.75rem, 6vw, 5rem);
-}
-
-.stepGrid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.proofGrid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+  grid-template-columns: minmax(0, 1.18fr) minmax(18rem, 0.82fr);
+  align-items: start;
 }
 
 .heroMain,
-.heroAside,
-.sectionIntro,
-.profileMeta,
-.depthAside {
+.heroAside {
   min-width: 0;
 }
 
 .heroMain {
-  max-width: 46rem;
+  max-width: 44rem;
 }
 
 .heroAside {
-  position: relative;
-  align-self: start;
-  max-width: 23rem;
-  justify-self: end;
-  padding-left: clamp(1.9rem, 4vw, 3.2rem);
-  border-left: 1px solid var(--neutral-alpha-weak);
+  display: grid;
+  gap: 1rem;
+  align-content: start;
 }
 
-.lead {
-  max-width: 42rem;
+.kicker,
+.sectionKicker {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.heroLead,
+.sectionLead,
+.factValue {
+  line-height: 1.6;
+}
+
+.heroLead {
+  max-width: 38rem;
 }
 
 .accentLine {
-  width: 4.5rem;
+  width: 4rem;
   height: 2px;
   border-radius: var(--radius-pill);
-  background: linear-gradient(90deg, var(--color-accent-gold), var(--color-accent-blue));
+  background: var(--color-accent-gold);
 }
 
-.actions {
-  row-gap: 0.75rem;
-}
-
-.profileCard,
-.collageCard,
-.infoCard,
-.stepCard,
-.proofCard {
-  position: relative;
-  overflow: visible;
+.heroJump {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  width: fit-content;
+  padding: 0.8rem 1.1rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
   background: transparent;
-  box-shadow: none;
+  color: var(--neutral-on-background-strong);
+  font: inherit;
+  cursor: pointer;
+  transition:
+    border-color var(--motion-fast),
+    color var(--motion-fast),
+    background var(--motion-fast);
+}
+
+.heroJump:hover,
+.heroJump:focus-visible {
+  border-color: rgba(184, 146, 18, 0.28);
+  color: var(--color-accent-gold);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.portraitCard,
+.profileCard,
+.fitCard,
+.methodCard,
+.projectCard,
+.nextStep {
+  border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.portraitCard {
+  overflow: hidden;
+  border-radius: 1.5rem;
 }
 
 .profileCard {
   display: grid;
-  grid-template-columns: minmax(4.75rem, 27%) minmax(0, 1fr);
-  align-items: start;
-  min-height: auto;
-  padding: 0 0 1.55rem;
-  border-bottom: 1px solid var(--neutral-alpha-weak);
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 1.25rem;
 }
 
-.profileMeta {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+.profileTop {
+  align-items: center;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--border-subtle);
 }
 
-.avatarWrap {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding-top: 0.15rem;
+.profileIdentity {
+  min-width: 0;
 }
 
-.summaryCard {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
+.profileFacts {
+  display: grid;
+  gap: 0.95rem;
 }
 
-.eyebrow {
-  letter-spacing: 0.16em;
+.profileFact {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.factLabel,
+.projectType {
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.summaryRow {
+.sectionNav {
+  position: sticky;
+  top: 5.1rem;
+  z-index: 12;
+  width: 100%;
+  margin-top: -0.25rem;
+}
+
+.sectionNavRail {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--neutral-alpha-weak);
+  gap: 0.55rem;
+  width: 100%;
+  padding: 0.85rem 0;
+  overflow-x: auto;
+  background: rgba(10, 10, 10, 0.94);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  scrollbar-width: none;
 }
 
-.summaryRow:first-child {
-  padding-top: 0.15rem;
-  border-top: 0;
+.sectionNavRail::-webkit-scrollbar {
+  display: none;
 }
 
-.summaryValue,
-.storyBody {
-  max-width: 42rem;
+.sectionNavButton,
+.sectionNavButtonActive {
+  min-height: 2.35rem;
+  padding: 0.5rem 0.85rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--neutral-on-background-medium);
+  font: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    border-color var(--motion-fast),
+    color var(--motion-fast),
+    background var(--motion-fast);
+}
+
+.sectionNavButtonActive {
+  border-color: rgba(184, 146, 18, 0.3);
+  color: var(--neutral-on-background-strong);
+  background: rgba(184, 146, 18, 0.08);
+}
+
+.section {
+  display: grid;
+  gap: 1.5rem;
+  padding-top: clamp(3rem, 6vw, 4rem);
+  border-top: 1px solid var(--border-subtle);
 }
 
 .sectionHeader {
-  align-items: flex-end;
-  gap: clamp(1.35rem, 3vw, 2rem);
-}
-
-.sectionIntro {
-  max-width: 38rem;
+  display: grid;
+  gap: 0.7rem;
+  max-width: 42rem;
 }
 
 .sectionLead {
-  max-width: 30rem;
-  line-height: 1.65;
+  max-width: 34rem;
 }
 
-.fitCards {
+.storyGrid,
+.fitGrid,
+.methodGrid,
+.projectsGrid {
   width: 100%;
   align-items: stretch;
-  padding-top: 0.4rem;
+}
+
+.storyBlock {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .fitCard {
   display: grid;
-  gap: 1.05rem;
-  padding: 1.45rem 0 0;
-  border-top: 1px solid var(--neutral-alpha-weak);
+  gap: 0.9rem;
+  padding: 1.15rem;
+  border-radius: 1.1rem;
 }
 
-.fitCardTop {
-  display: grid;
-  gap: 0.85rem;
-}
-
-.fitIconWrap {
+.fitIcon {
   display: grid;
   place-items: center;
-  width: 2.8rem;
-  height: 2.8rem;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 1px solid rgba(184, 146, 18, 0.2);
   border-radius: 999px;
-  border: 1px solid rgba(184, 146, 18, 0.18);
-  background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0) 62%),
-    rgba(184, 146, 18, 0.08);
-  box-shadow:
-    0 10px 24px rgba(39, 32, 10, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-.fitCardItems {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-  padding-top: 0.15rem;
-}
-
-.fitCardItem {
-  padding: 0.5rem 0.72rem;
-  border: 1px solid rgba(184, 146, 18, 0.14);
-  border-radius: var(--radius-pill);
-  background: rgba(184, 146, 18, 0.05);
-}
-
-.infoCard,
-.proofCard {
-  padding: 1.35rem 0 0;
-  border-top: 1px solid var(--neutral-alpha-weak);
-}
-
-.servicePanel {
-  align-self: start;
-  display: grid;
-  gap: 1.8rem;
-  margin-top: clamp(1.2rem, 3vw, 2rem);
-  padding-top: clamp(2rem, 5vw, 3rem);
-  border-top: 1px solid var(--neutral-alpha-weak);
-}
-
-.serviceHeader {
-  max-width: 34rem;
-}
-
-.serviceLead {
-  max-width: 38ch;
-  line-height: 1.65;
-}
-
-.serviceRail {
-  position: relative;
-  display: grid;
-  gap: 1.4rem;
-}
-
-.serviceRail::before {
-  content: "";
-  position: absolute;
-  top: 0.9rem;
-  bottom: 0.9rem;
-  left: 1.35rem;
-  width: 1px;
-  background: linear-gradient(
-    180deg,
-    rgba(184, 146, 18, 0.42),
-    rgba(184, 146, 18, 0.16) 52%,
-    rgba(184, 146, 18, 0)
-  );
-}
-
-.serviceTrack {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 1rem;
-  align-items: start;
-}
-
-.serviceTrackMarker {
-  padding-top: 0.1rem;
-}
-
-.serviceIconWrap {
-  display: grid;
-  place-items: center;
-  width: 2.7rem;
-  height: 2.7rem;
-  border-radius: 999px;
-  border: 1px solid rgba(184, 146, 18, 0.18);
-  background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0) 62%),
-    rgba(184, 146, 18, 0.08);
-  box-shadow:
-    0 10px 24px rgba(39, 32, 10, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-.serviceTrackBody {
-  display: grid;
-  gap: 0.95rem;
-  min-width: 0;
-  padding-bottom: 1.35rem;
-  border-bottom: 1px solid var(--neutral-alpha-weak);
-}
-
-.serviceTrack:last-child .serviceTrackBody {
-  padding-bottom: 0;
-  border-bottom: 0;
-}
-
-.serviceTrackTop {
-  display: grid;
-  gap: 0.3rem;
-}
-
-.serviceTrackEyebrow {
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
   color: var(--color-accent-gold);
 }
 
-.servicePillarItems {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
+.methodCard {
+  display: grid;
+  gap: 1rem;
+  padding: 1.2rem;
+  border-radius: 1.1rem;
 }
 
-.servicePillarItem {
-  padding: 0.5rem 0.72rem;
-  border: 1px solid rgba(184, 146, 18, 0.14);
-  border-radius: var(--radius-pill);
-  background: rgba(184, 146, 18, 0.05);
-}
-
-.servicePrinciples {
-  display: flex;
-  flex-wrap: wrap;
+.methodTop {
+  display: grid;
   gap: 0.75rem;
-  padding-top: 0.55rem;
 }
 
-.servicePrinciple {
-  display: flex;
+.methodNumber {
+  display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  padding: 0.6rem 0.8rem;
-  border-radius: var(--radius-pill);
-  background: rgba(184, 146, 18, 0.06);
-}
-
-.servicePrincipleDot {
-  width: 0.42rem;
-  height: 0.42rem;
-  border-radius: 999px;
-  background: var(--color-accent-gold);
-  flex: 0 0 auto;
-}
-
-.stepCard {
-  min-height: 12.25rem;
-  padding: 1.35rem;
-  border-radius: var(--radius-24);
-}
-
-.stepIndex {
+  justify-content: center;
   width: fit-content;
-  padding: 0.35rem 0.55rem;
-  border: 1px solid var(--neutral-alpha-medium);
-  border-radius: var(--radius-pill);
-  background: var(--surface-ghost);
-  font-family: var(--font-code);
-  letter-spacing: 0.12em;
+  min-height: 2rem;
+  padding: 0.28rem 0.55rem;
+  border: 1px solid rgba(184, 146, 18, 0.2);
+  border-radius: 999px;
+  color: var(--color-accent-gold);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
 }
 
-.depthPanel {
-  background: var(--surface-panel-soft);
+.methodItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
 }
 
-.depthAside {
-  align-self: start;
-  max-width: 18rem;
+.methodItem {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid rgba(184, 146, 18, 0.14);
+  border-radius: 999px;
+  color: var(--neutral-on-background-medium);
+  font-size: 0.84rem;
 }
 
-.depthTags {
-  row-gap: 0.5rem;
+.projectCard {
+  display: grid;
+  gap: 0.8rem;
+  padding: 0.9rem;
+  border-radius: 1.15rem;
+}
+
+.projectPreview {
+  overflow: hidden;
+  border-radius: 0.95rem;
+}
+
+.nextStep {
+  display: grid;
+  gap: 1.4rem;
+  padding: 1.4rem;
+  border-radius: 1.4rem;
+}
+
+.ctaRow {
+  row-gap: 0.75rem;
 }
 
 @media (max-width: breakpoints.$m) {
   .heroGrid,
-  .stepGrid,
-  .proofGrid {
+  .storyGrid,
+  .fitGrid,
+  .methodGrid,
+  .projectsGrid {
     grid-template-columns: 1fr;
   }
 
-  .heroMain {
+  .heroMain,
+  .heroLead,
+  .sectionHeader,
+  .sectionLead {
     max-width: none;
-    padding-right: 0;
   }
 
-  .heroAside {
-    max-width: none;
-    justify-self: stretch;
-    padding-left: 0;
-    padding-top: 1.9rem;
-    border-left: 0;
-    border-top: 1px solid var(--neutral-alpha-weak);
-  }
-
-  .depthAside,
-  .sectionIntro,
-  .sectionLead,
-  .lead {
-    max-width: none;
+  .sectionNav {
+    top: 4.75rem;
   }
 }
 
 @media (max-width: breakpoints.$s) {
-  .profileCard {
-    grid-template-columns: minmax(4.5rem, 24%) minmax(0, 1fr);
+  .page {
+    gap: 3.25rem;
   }
 
-  .sectionHeader {
-    align-items: flex-start;
+  .heroSection {
+    padding-block: 0.75rem 1.25rem;
   }
 
-  .hero {
-    padding-block: 1rem 1.35rem;
+  .section,
+  .nextStep {
+    padding-top: 2.4rem;
+  }
+
+  .portraitCard,
+  .profileCard,
+  .fitCard,
+  .methodCard,
+  .projectCard,
+  .nextStep {
+    border-radius: 1.05rem;
+  }
+
+  .heroJump {
+    width: 100%;
+  }
+
+  .ctaRow {
+    flex-direction: column;
+    align-items: stretch;
   }
 }
