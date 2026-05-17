@@ -25,6 +25,7 @@ const routes: RoutesConfig = {
   "/about/abordagem-tecnica": true,
   "/work": true,
   "/blog": true,
+  "/blog/temas": true,
   "/contact": true,
   "/servicos": true,
   [simulationPage.path]: true,

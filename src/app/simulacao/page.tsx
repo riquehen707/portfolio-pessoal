@@ -6,16 +6,20 @@ import { baseURL, person, servicesPage, simulationPage, social } from "@/resourc
 
 import styles from "./page.module.scss";
 
+const simulationTitle = "Simulacao antes de investir";
+const simulationDescription =
+  "Uma leitura inicial para entender se a base atual sustenta ajustes internos, investimento e retorno antes de ampliar a operacao.";
+
 export async function generateMetadata() {
   return {
-    title: simulationPage.title,
-    description: simulationPage.description,
+    title: simulationTitle,
+    description: simulationDescription,
     alternates: { canonical: `${baseURL}${simulationPage.path}` },
     openGraph: {
-      title: simulationPage.title,
-      description: simulationPage.description,
+      title: simulationTitle,
+      description: simulationDescription,
       url: `${baseURL}${simulationPage.path}`,
-      images: [{ url: `/api/og/generate?title=${encodeURIComponent(simulationPage.title)}` }],
+      images: [{ url: `/api/og/generate?title=${encodeURIComponent(simulationTitle)}` }],
     },
   };
 }
@@ -29,10 +33,10 @@ export default function SimulationPage() {
       <Schema
         as="webPage"
         baseURL={baseURL}
-        title={simulationPage.title}
-        description={simulationPage.description}
+        title={simulationTitle}
+        description={simulationDescription}
         path={simulationPage.path}
-        image={`/api/og/generate?title=${encodeURIComponent(simulationPage.title)}`}
+        image={`/api/og/generate?title=${encodeURIComponent(simulationTitle)}`}
         author={{
           name: person.name,
           url: `${baseURL}${simulationPage.path}`,

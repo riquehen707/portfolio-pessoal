@@ -4,35 +4,12 @@
 }
 
 .topBar {
-  position: sticky;
-  top: 0;
-  z-index: 20;
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1.2rem;
+  justify-content: flex-end;
   width: 100%;
-  padding: 0.9rem 0 1rem;
-  background: rgba(10, 10, 10, 0.96);
-  border-bottom: 1px solid var(--border-subtle);
+  padding: 0.4rem 0 0.9rem;
 }
 
-.stageNav {
-  display: flex;
-  align-items: flex-end;
-  gap: 1rem;
-  overflow-x: auto;
-  scroll-padding-inline: 0.1rem;
-  scroll-snap-type: x proximity;
-  scrollbar-width: none;
-}
-
-.stageNav::-webkit-scrollbar {
-  display: none;
-}
-
-.stageLink,
-.stageLinkActive,
 .technicalToggle,
 .scenarioButton,
 .scenarioButtonActive,
@@ -41,44 +18,6 @@
   appearance: none;
   border: 0;
   font: inherit;
-}
-
-.stageLink,
-.stageLinkActive {
-  display: grid;
-  flex: 0 0 auto;
-  gap: 0.2rem;
-  min-height: 3rem;
-  padding: 0.7rem 0 0.6rem;
-  border: 0;
-  border-bottom: 1px solid transparent;
-  border-radius: 0;
-  background: none;
-  color: var(--neutral-on-background-medium);
-  text-align: left;
-  cursor: pointer;
-  scroll-snap-align: start;
-  transition:
-    border-color var(--motion-fast),
-    color var(--motion-fast);
-}
-
-.stageLinkActive {
-  border-color: rgba(184, 146, 18, 0.34);
-  color: var(--neutral-on-background-strong);
-}
-
-.stageLinkIndex {
-  color: var(--color-accent-gold);
-  font-size: 0.66rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.stageLinkLabel {
-  font-size: 0.92rem;
-  line-height: 1.2;
 }
 
 .topBarMeta {
@@ -361,13 +300,18 @@
 }
 
 .scenarioList,
-.statusList,
 .secondaryActions,
 .finalActions,
 .stageFooter {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
+}
+
+.supportLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
 }
 
 .scenarioButton,
@@ -398,6 +342,14 @@
     color var(--motion-fast);
 }
 
+.supportLink {
+  color: var(--neutral-on-background-medium);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  text-decoration: none;
+  transition: color var(--motion-fast);
+}
+
 .scenarioButtonActive {
   border-color: rgba(184, 146, 18, 0.34);
   background: rgba(184, 146, 18, 0.08);
@@ -420,16 +372,14 @@
 
 .primaryAction:hover,
 .primaryAction:focus-visible,
+.supportLink:hover,
+.supportLink:focus-visible,
 .secondaryActionLink:hover,
 .secondaryActionLink:focus-visible,
 .secondaryAction:hover,
 .secondaryAction:focus-visible,
 .technicalToggle:hover,
 .technicalToggle:focus-visible,
-.stageLink:hover,
-.stageLink:focus-visible,
-.stageLinkActive:hover,
-.stageLinkActive:focus-visible,
 .scenarioButton:hover,
 .scenarioButton:focus-visible,
 .scenarioButtonActive:hover,
@@ -470,6 +420,16 @@
   max-width: 36rem;
   color: var(--neutral-on-background-medium);
   line-height: 1.65;
+}
+
+.breakdownPanel {
+  display: grid;
+  gap: 0.9rem;
+  padding-top: 0.1rem;
+}
+
+.breakdownText {
+  margin: 0;
 }
 
 .primaryMetricCard,
@@ -628,20 +588,62 @@
   text-transform: uppercase;
 }
 
-.statusList {
-  row-gap: 0.55rem;
+.directionPanel {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem 0 0.1rem;
+  border-top: 1px solid var(--border-subtle);
 }
 
-.statusChip {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.1rem;
-  padding: 0.4rem 0.75rem;
-  border: 1px solid var(--border-subtle);
-  border-radius: 999px;
+.directionLabel {
+  color: var(--color-accent-gold);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.directionTitle {
+  color: var(--neutral-on-background-strong);
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.directionText,
+.directionFootnote {
   color: var(--neutral-on-background-medium);
-  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+.directionText {
+  margin: 0;
+}
+
+.directionFootnote {
+  font-size: 0.92rem;
+}
+
+.advancedPanel {
+  display: grid;
+  gap: 0.45rem;
+  padding-top: 0.25rem;
+}
+
+.advancedLabel {
+  color: var(--color-accent-gold);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.advancedText {
+  max-width: 36rem;
+  margin: 0;
+  color: var(--neutral-on-background-medium);
+  line-height: 1.65;
 }
 
 .alertList {
@@ -690,18 +692,33 @@
 
 @media (max-width: 1040px) {
   .topBar {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 0.85rem;
-  }
-
-  .stageNav,
-  .topBarMeta {
     width: 100%;
   }
 
+  .fieldGrid,
+  .compareGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .fieldCompact {
+    max-width: none;
+  }
+
+  .stage,
+  .startStage {
+    min-height: auto;
+    padding: 0.85rem 0 1.35rem;
+  }
+
   .topBarMeta {
+    width: 100%;
     justify-content: space-between;
+  }
+
+  .desktopSummary {
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    white-space: normal;
   }
 }
 
@@ -714,27 +731,12 @@
     display: none;
   }
 
-  .fieldGrid,
-  .compareGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .fieldCompact {
-    max-width: none;
-  }
-
   .sections {
-    gap: 2.4rem;
-  }
-
-  .stage,
-  .startStage {
-    min-height: auto;
-    padding: 0.8rem 0 1.35rem;
+    gap: 2.15rem;
   }
 
   .stageInner {
-    gap: 1.4rem;
+    gap: 1.2rem;
   }
 
   .displayTitle {
@@ -750,7 +752,10 @@
   .helperText,
   .readingText,
   .alertItem,
-  .metricRowMuted {
+  .metricRowMuted,
+  .advancedText,
+  .directionText,
+  .directionFootnote {
     font-size: 0.93rem;
     line-height: 1.75;
   }
@@ -764,25 +769,11 @@
   }
 
   .topBar {
-    padding: 0.75rem 0 0.9rem;
-  }
-
-  .stageNav {
-    gap: 0.85rem;
-  }
-
-  .stageLink,
-  .stageLinkActive {
-    min-height: 2.8rem;
-    padding: 0.62rem 0 0.52rem;
-  }
-
-  .stageLinkLabel {
-    font-size: 0.86rem;
+    padding: 0.25rem 0 0.9rem;
   }
 
   .summaryStrip {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 0.75rem 0.85rem;
   }
 
@@ -793,6 +784,8 @@
 
   .metricRow,
   .sliderHeader,
+  .secondaryActions,
+  .supportLinks,
   .finalActions,
   .topBarMeta {
     align-items: flex-start;
@@ -809,10 +802,16 @@
   }
 
   .primaryAction,
+  .secondaryAction,
   .secondaryActionLink,
   .primaryLink,
   .secondaryLink {
     width: 100%;
+  }
+
+  .primaryMetricCard,
+  .readingCard {
+    padding: 1.05rem 1.1rem;
   }
 
   .hintTooltip {
@@ -827,12 +826,16 @@
     left: 0.75rem;
     z-index: 30;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.7rem;
     padding: 0.85rem 1rem;
     border: 1px solid var(--border-subtle);
     border-radius: 0.95rem;
     background: rgba(10, 10, 10, 0.96);
+  }
+
+  .mobileSummary .compactSummaryItem:last-child {
+    grid-column: 1 / -1;
   }
 
   .metricRowValue {

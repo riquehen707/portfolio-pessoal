@@ -15,10 +15,10 @@ export const servicesPage: ServicesPage = {
 
 export const simulationPage: BasePageConfig = {
   path: "/simulacao",
-  label: "Simulação",
-  title: "Simulação de crescimento",
+  label: "Simulacao",
+  title: "Simulacao antes de investir",
   description:
-    "Uma leitura inicial para estimar cenário de crescimento a partir do faturamento atual, da verba de anúncios, da verba total de marketing e do tipo de serviço.",
+    "Uma leitura inicial para entender se a base atual sustenta ajustes internos, investimento e retorno antes de ampliar a operacao.",
 };
 
 export const services: ServiceLanding[] = [

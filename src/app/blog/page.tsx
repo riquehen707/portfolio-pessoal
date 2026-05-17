@@ -2,6 +2,7 @@ import { Column, Heading, Media, Meta, Schema, Text } from "@once-ui-system/core
 
 import {
   getAllBlogPosts,
+  getBlogCollectionIndex,
   getBlogPostFormat,
   getBlogPrimaryCategory,
   getFeaturedHomeBlogPost,
@@ -28,6 +29,7 @@ export async function generateMetadata() {
 
 export default function Blog() {
   const posts = getAllBlogPosts();
+  const topics = getBlogCollectionIndex(posts);
   const featuredPost = getFeaturedHomeBlogPost(posts);
   const recentPosts = getRecentBlogPosts(24, posts).filter((post) => post.slug !== featuredPost?.slug);
 
@@ -166,6 +168,38 @@ export default function Blog() {
           ))}
         </div>
       </section>
+
+      {topics.length > 0 ? (
+        <section className={styles.startSection}>
+          <div className={styles.sectionHeader}>
+            <Text className={styles.sectionLabel} variant="label-default-s" onBackground="brand-strong">
+              Indices
+            </Text>
+            <Text className={styles.sectionLead} onBackground="neutral-weak" variant="body-default-s">
+              Hubs por tema para fortalecer leitura e navegacao interna.
+            </Text>
+          </div>
+
+          <div className={styles.startGrid}>
+            {topics.map((topic) => (
+              <a className={styles.startCard} href={`/blog/temas/${topic.slug}`} key={topic.slug}>
+                <span className={styles.startMarker} aria-hidden="true" />
+                <div className={styles.startCopy}>
+                  <Heading as="h3" className={styles.startTitle} variant="heading-strong-m">
+                    {topic.label}
+                  </Heading>
+                  <Text className={styles.startSummary} onBackground="neutral-weak" variant="body-default-s">
+                    {topic.description}
+                  </Text>
+                </div>
+                <span className={styles.startArrow} aria-hidden="true">
+                  {topic.count}
+                </span>
+              </a>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <section className={styles.feedSection} id="artigos">
         <div className={styles.sectionHeader}>

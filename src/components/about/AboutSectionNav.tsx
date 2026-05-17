@@ -1,17 +1,8 @@
 "use client";
 
-import { type ReactNode, useEffect, useState } from "react";
+import { type ReactNode } from "react";
 
 import styles from "./about.module.scss";
-
-type AboutSectionNavItem = {
-  id: string;
-  label: string;
-};
-
-type AboutSectionNavProps = {
-  items: AboutSectionNavItem[];
-};
 
 type AboutScrollButtonProps = {
   targetId: string;
@@ -49,76 +40,5 @@ export function AboutScrollButton({
     >
       {children}
     </button>
-  );
-}
-
-export function AboutSectionNav({ items }: AboutSectionNavProps) {
-  const [activeId, setActiveId] = useState(items[0]?.id ?? "");
-
-  useEffect(() => {
-    const elements = items
-      .map((item) => document.getElementById(item.id))
-      .filter((element): element is HTMLElement => Boolean(element));
-
-    if (elements.length === 0) {
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        let nextId = "";
-        let nextRatio = 0;
-
-        entries.forEach((entry) => {
-          const sectionId = entry.target.getAttribute("id");
-
-          if (!sectionId || !entry.isIntersecting) {
-            return;
-          }
-
-          if (entry.intersectionRatio >= nextRatio) {
-            nextId = sectionId;
-            nextRatio = entry.intersectionRatio;
-          }
-        });
-
-        if (nextId) {
-          setActiveId(nextId);
-        }
-      },
-      {
-        rootMargin: "-20% 0px -60% 0px",
-        threshold: [0.15, 0.4, 0.7],
-      },
-    );
-
-    elements.forEach((element) => observer.observe(element));
-
-    return () => observer.disconnect();
-  }, [items]);
-
-  return (
-    <nav aria-label="Secoes da pagina sobre" className={styles.sectionNav}>
-      <div className={styles.sectionNavRail}>
-        {items.map((item, index) => {
-          const active = activeId === item.id;
-
-          return (
-            <button
-              aria-current={active ? "location" : undefined}
-              className={active ? styles.sectionNavButtonActive : styles.sectionNavButton}
-              key={item.id}
-              onClick={() => scrollToId(item.id)}
-              type="button"
-            >
-              <span className={styles.sectionNavIndex}>
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <span className={styles.sectionNavLabel}>{item.label}</span>
-            </button>
-          );
-        })}
-      </div>
-    </nav>
   );
 }

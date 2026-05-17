@@ -206,7 +206,7 @@ const contentStrategy = {
         subheadline:
           "Trabalho entre marketing, design e operacao digital para organizar presenca, captacao e acompanhamento.",
         primaryCtaLabel: "Ver como trabalho",
-        primaryCtaHref: "/about#metodo",
+        primaryCtaHref: "/about",
         secondaryCtaLabel: "Ver simulacao",
         secondaryCtaHref: "/simulacao",
       },

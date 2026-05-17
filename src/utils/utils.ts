@@ -65,20 +65,38 @@ export type BlogFile = {
   slug: string;
   content: string;
   metadata: Metadata;
+  collection?: string;
 };
 
 const DEFAULT_DIR = ["src", "app", "blog", "posts"];
+
+function isMarkdownFile(fileName: string) {
+  const ext = path.extname(fileName).toLowerCase();
+  const normalized = fileName.toLowerCase();
+
+  if (normalized.includes("template")) return false;
+
+  return ext === ".mdx" || ext === ".md";
+}
 
 function safeListFiles(dir: string): string[] {
   try {
     if (!fs.existsSync(dir)) return [];
 
-    return fs.readdirSync(dir).filter((file) => {
-      const ext = path.extname(file).toLowerCase();
-      const normalized = file.toLowerCase();
-      if (normalized.includes("template")) return false;
-      return ext === ".mdx" || ext === ".md";
-    });
+    return fs.readdirSync(dir).filter((file) => isMarkdownFile(file));
+  } catch {
+    return [];
+  }
+}
+
+function safeListDirectories(dir: string): string[] {
+  try {
+    if (!fs.existsSync(dir)) return [];
+
+    return fs
+      .readdirSync(dir, { withFileTypes: true })
+      .filter((entry) => entry.isDirectory())
+      .map((entry) => entry.name);
   } catch {
     return [];
   }
@@ -103,7 +121,7 @@ function normalizeStringArray(value: unknown): string[] | undefined {
   return normalized.length ? normalized : undefined;
 }
 
-function safeReadFile(filePath: string): BlogFile | null {
+function safeReadFile(filePath: string, collection?: string): BlogFile | null {
   try {
     if (!fs.existsSync(filePath)) return null;
 
@@ -200,21 +218,26 @@ function safeReadFile(filePath: string): BlogFile | null {
 
     const slug = typeof parsed.slug === "string" && parsed.slug.trim() ? parsed.slug.trim() : inferredSlug;
 
-    return { slug, metadata, content };
+    return { slug, metadata, content, collection };
   } catch {
     return null;
   }
 }
 
-function collectFromDir(dir: string): BlogFile[] {
+function collectFromDir(dir: string, segments: string[] = []): BlogFile[] {
   const files = safeListFiles(dir);
+  const directories = safeListDirectories(dir);
   const items: BlogFile[] = [];
 
   for (const file of files) {
     const fullPath = path.join(dir, file);
-    const parsed = safeReadFile(fullPath);
+    const parsed = safeReadFile(fullPath, segments[0]);
     if (!parsed) continue;
     items.push(parsed);
+  }
+
+  for (const childDir of directories) {
+    items.push(...collectFromDir(path.join(dir, childDir), [...segments, childDir]));
   }
 
   items.sort((a, b) => {

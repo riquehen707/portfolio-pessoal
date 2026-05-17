@@ -13,7 +13,7 @@ import {
 } from "@once-ui-system/core";
 
 import { BrandSignature } from "@/components";
-import { AboutScrollButton, AboutSectionNav } from "@/components/about/AboutSectionNav";
+import { AboutScrollButton } from "@/components/about/AboutSectionNav";
 import styles from "@/components/about/about.module.scss";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { type IconName } from "@/resources/icons";
@@ -28,15 +28,6 @@ import {
 } from "@/resources";
 
 const aboutStrategy = contentStrategy.pages.about;
-
-const sectionNavItems = [
-  { id: "sobre", label: "Sobre" },
-  { id: "como-penso", label: "Como penso" },
-  { id: "foco", label: "Foco" },
-  { id: "metodo", label: "Metodo" },
-  { id: "projetos", label: "Projetos" },
-  { id: "contato", label: "Contato" },
-] as const;
 
 const profileFacts = [
   {
@@ -202,9 +193,6 @@ export default function About() {
           </div>
         </Grid>
       </section>
-
-      <AboutSectionNav items={[...sectionNavItems]} />
-
       <section className={styles.section} id="como-penso">
         <div className={styles.sectionHeader}>
           <Text className={styles.sectionKicker} variant="label-default-s" onBackground="brand-strong">

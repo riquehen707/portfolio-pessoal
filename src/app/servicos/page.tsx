@@ -69,7 +69,7 @@ const entryPoints = [
     label: "Primeiro passo",
     title: "Ver os dados antes do escopo",
     description:
-      "A simulacao cruza faturamento atual, verba de anuncios, verba total de marketing e tipo de servico para dar uma leitura inicial.",
+      "A simulacao le a base atual, os ajustes internos e a viabilidade do investimento antes de fechar escopo.",
     href: simulationPage.path,
     cta: "Abrir simulacao",
   },
@@ -155,7 +155,7 @@ export default function ServicesPage() {
               </Text>
               <Text variant="heading-strong-s">Simular o cenario</Text>
               <Text variant="body-default-s" onBackground="neutral-weak">
-                Entender se o momento pede pagina, captacao, operacao ou mais base antes de investir.
+                Entender se a base comporta investimento agora ou se ainda pede ajuste interno.
               </Text>
             </div>
             <div className={styles.heroStep}>

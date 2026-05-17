@@ -16,6 +16,7 @@ import {
 } from "@once-ui-system/core";
 
 import { CustomMDX, ScrollToHash } from "@/components";
+import { getBlogCollectionLabel, getBlogCollectionSlug } from "@/app/blog/postData";
 import { Posts } from "@/components/blog/Posts";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { baseURL, about, blog, person } from "@/resources";
@@ -138,6 +139,8 @@ export default async function BlogPost({ params }: PageProps) {
   const coverImage = post.metadata.image?.trim() || post.metadata.images?.[0];
   const categories = post.metadata.categories ?? [];
   const tags = post.metadata.tags ?? (post.metadata.tag ? [post.metadata.tag] : []);
+  const collectionSlug = getBlogCollectionSlug(post);
+  const collectionLabel = getBlogCollectionLabel(collectionSlug);
 
   return (
     <Column className={styles.page} maxWidth="m" paddingTop="24" gap="24">
@@ -168,6 +171,12 @@ export default async function BlogPost({ params }: PageProps) {
         <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="20">
           <Column className={styles.heroMain} gap="16">
             <SmartLink href="/blog">Voltar para o blog</SmartLink>
+
+            {collectionSlug && collectionLabel ? (
+              <Row className={styles.categoryRow} gap="8" wrap>
+                <SmartLink href={`/blog/temas/${collectionSlug}`}>{collectionLabel}</SmartLink>
+              </Row>
+            ) : null}
 
             {categories.length > 0 && (
               <Row className={styles.categoryRow} gap="8" wrap>

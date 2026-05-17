@@ -4,6 +4,39 @@ import { type BlogFile, getPosts } from "@/utils/utils";
 
 const BLOG_POSTS_PATH = ["src", "app", "blog", "posts"] as const;
 
+export const blogCollections = {
+  fundamentos: {
+    label: "Fundamentos",
+    description: "Conceitos de marketing, design e leitura de negocio antes da acao.",
+  },
+  imobiliario: {
+    label: "Imobiliario",
+    description: "Captacao, paginas, Google e conteudo para corretores e imobiliarias.",
+  },
+  "clinicas-saude": {
+    label: "Clinicas e saude",
+    description: "Presenca digital, agendamento e captacao para clinicas e operacoes de atendimento.",
+  },
+  educacao: {
+    label: "Educacao",
+    description: "Matriculas, cursos, escolas e operacoes educacionais com mais clareza comercial.",
+  },
+  juridico: {
+    label: "Juridico",
+    description: "Conteudo, presenca e busca para escritorios e profissionais da advocacia.",
+  },
+  contabilidade: {
+    label: "Contabilidade",
+    description: "Comunicacao e captacao para servicos contabeis e escritorios.",
+  },
+  "beleza-estetica": {
+    label: "Beleza e estetica",
+    description: "Agenda, recorrencia e divulgacao para saloes, estetica e servicos de beleza.",
+  },
+} as const;
+
+type BlogCollectionSlug = keyof typeof blogCollections;
+
 export const strategicBlogCategories = [
   "Negocios locais",
   "Marketing",
@@ -21,6 +54,26 @@ type TaxonomyCount = {
 };
 
 export const getAllBlogPosts = cache(() => getPosts([...BLOG_POSTS_PATH]));
+
+export function getBlogCollectionSlug(post: BlogFile) {
+  return post.collection?.trim();
+}
+
+export function getBlogCollectionLabel(slug?: string) {
+  if (!slug) {
+    return undefined;
+  }
+
+  return blogCollections[slug as BlogCollectionSlug]?.label ?? slug;
+}
+
+export function getBlogCollectionDescription(slug?: string) {
+  if (!slug) {
+    return undefined;
+  }
+
+  return blogCollections[slug as BlogCollectionSlug]?.description;
+}
 
 export function getBlogPostFormat(post: BlogFile) {
   if (post.metadata.format?.trim()) {
@@ -152,4 +205,29 @@ export function getBlogTagCounts(limit = 18, posts = getAllBlogPosts()): Taxonom
   );
 
   return countTaxonomy(values).slice(0, limit);
+}
+
+export function getBlogCollectionIndex(posts = getAllBlogPosts()) {
+  const counts = new Map<string, number>();
+
+  posts.forEach((post) => {
+    const slug = getBlogCollectionSlug(post);
+    if (!slug) return;
+    counts.set(slug, (counts.get(slug) ?? 0) + 1);
+  });
+
+  return [...counts.entries()]
+    .map(([slug, count]) => ({
+      slug,
+      count,
+      label: getBlogCollectionLabel(slug) ?? slug,
+      description: getBlogCollectionDescription(slug) ?? "",
+    }))
+    .sort((left, right) => left.label.localeCompare(right.label));
+}
+
+export function getBlogPostsByCollection(collectionSlug: string, posts = getAllBlogPosts()) {
+  return sortBlogPostsByDate(
+    posts.filter((post) => getBlogCollectionSlug(post) === collectionSlug),
+  );
 }
