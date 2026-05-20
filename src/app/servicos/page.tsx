@@ -6,7 +6,6 @@ import {
   Row,
   Schema,
   SmartLink,
-  Tag,
   Text,
 } from "@once-ui-system/core";
 
@@ -107,7 +106,7 @@ export async function generateMetadata() {
 
 export default function ServicesPage() {
   return (
-    <Column className={styles.page} maxWidth="l" paddingTop="24" gap="40">
+    <Column className={styles.page} maxWidth="l" paddingTop="8" gap="48">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -125,12 +124,13 @@ export default function ServicesPage() {
       <section className={styles.hero}>
         <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="24">
           <Column className={styles.heroMain} gap="20">
-            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+            <Text className={styles.kicker} variant="label-default-s" onBackground="brand-strong">
               Servicos
-            </Tag>
+            </Text>
             <Heading as="h1" variant="display-strong-l" wrap="balance">
               Presenca, captacao e operacao digital para negocios que precisam vender melhor.
             </Heading>
+            <div className={styles.accentLine} />
             <Text className={styles.heroLead} variant="heading-default-m" onBackground="neutral-weak">
               Eu nao comeco por catalogo. Primeiro leio momento, orcamento e gargalo principal para
               decidir se vale investir, por onde entrar e qual formato faz sentido.
@@ -180,7 +180,7 @@ export default function ServicesPage() {
         </Grid>
       </section>
 
-      <section className={styles.section} id="servicos-publicados">
+      <section className={styles.section} id="onde-entro">
         <Row
           className={styles.sectionHeader}
           fillWidth
@@ -189,9 +189,9 @@ export default function ServicesPage() {
           s={{ direction: "column" }}
         >
           <Column className={styles.sectionIntro} gap="8">
-            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+            <Text className={styles.kicker} variant="label-default-s" onBackground="brand-strong">
               Onde entro
-            </Tag>
+            </Text>
             <Heading as="h2" variant="display-strong-s">
               Tres frentes que normalmente se conectam
             </Heading>
@@ -204,7 +204,7 @@ export default function ServicesPage() {
 
         <Grid className={styles.focusGrid} columns="3" m={{ columns: 2 }} s={{ columns: 1 }} gap="20">
           {focusAreas.map((area) => (
-            <article className={styles.focusCard} key={area.title}>
+            <article className={styles.focusItem} key={area.title}>
               <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
                 {area.label}
               </Text>
@@ -226,7 +226,7 @@ export default function ServicesPage() {
         </Grid>
       </section>
 
-      <section className={styles.section}>
+      <section className={styles.section} id="para-quem">
         <Row
           className={styles.sectionHeader}
           fillWidth
@@ -235,9 +235,9 @@ export default function ServicesPage() {
           s={{ direction: "column" }}
         >
           <Column className={styles.sectionIntro} gap="8">
-            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+            <Text className={styles.kicker} variant="label-default-s" onBackground="brand-strong">
               Para quem
-            </Tag>
+            </Text>
             <Heading as="h2" variant="display-strong-s">
               Negocios em que esse trabalho costuma fazer mais sentido
             </Heading>
@@ -250,7 +250,7 @@ export default function ServicesPage() {
 
         <Grid className={styles.audienceGrid} columns="3" m={{ columns: 2 }} s={{ columns: 1 }} gap="20">
           {audienceGroups.map((group) => (
-            <article className={styles.audienceCard} key={group.title}>
+            <article className={styles.audienceItem} key={group.title}>
               <Heading as="h3" variant="heading-strong-m">
                 {group.title}
               </Heading>
@@ -262,7 +262,7 @@ export default function ServicesPage() {
         </Grid>
       </section>
 
-      <section className={styles.section}>
+      <section className={styles.section} id="caminhos">
         <Row
           className={styles.sectionHeader}
           fillWidth
@@ -271,9 +271,9 @@ export default function ServicesPage() {
           s={{ direction: "column" }}
         >
           <Column className={styles.sectionIntro} gap="8">
-            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+            <Text className={styles.kicker} variant="label-default-s" onBackground="brand-strong">
               Caminhos
-            </Tag>
+            </Text>
             <Heading as="h2" variant="display-strong-s">
               Como normalmente o trabalho comeca
             </Heading>
@@ -285,7 +285,7 @@ export default function ServicesPage() {
 
         <Grid className={styles.entryGrid} columns="3" m={{ columns: 2 }} s={{ columns: 1 }} gap="20">
           {entryPoints.map((item) => (
-            <article className={styles.entryCard} key={item.title}>
+            <article className={styles.entryItem} key={item.title}>
               <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
                 {item.label}
               </Text>
@@ -303,7 +303,7 @@ export default function ServicesPage() {
         </Grid>
       </section>
 
-      <section className={styles.section}>
+      <section className={styles.section} id="servicos-publicados">
         <Row
           className={styles.sectionHeader}
           fillWidth
@@ -312,9 +312,9 @@ export default function ServicesPage() {
           s={{ direction: "column" }}
         >
           <Column className={styles.sectionIntro} gap="8">
-            <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+            <Text className={styles.kicker} variant="label-default-s" onBackground="brand-strong">
               Frentes atuais
-            </Tag>
+            </Text>
             <Heading as="h2" variant="display-strong-s">
               Servicos publicados hoje
             </Heading>
@@ -325,32 +325,38 @@ export default function ServicesPage() {
           </Text>
         </Row>
 
-        <Grid className={styles.serviceGrid} columns="2" s={{ columns: 1 }} gap="20">
+        <div className={styles.serviceList}>
           {services.map((service) => (
-            <article className={styles.serviceCard} key={service.slug}>
-              <Row gap="8" wrap>
-                <Tag size="s">{service.badge}</Tag>
-                {service.tags.slice(0, 2).map((tag) => (
-                  <Tag key={`${service.slug}-${tag}`} size="s" background="neutral-alpha-weak">
-                    {tag}
-                  </Tag>
-                ))}
-              </Row>
-              <Heading as="h3" variant="heading-strong-m">
-                {service.title}
-              </Heading>
-              <Text variant="body-default-m" onBackground="neutral-weak">
-                {service.summary}
-              </Text>
-              <Text className={styles.meta} variant="body-default-s" onBackground="neutral-weak">
-                {service.hero.price} | {service.hero.duration}
-              </Text>
-              <SmartLink href={`${servicesPage.path}/${service.slug}`} suffixIcon="arrowRight">
-                Ver detalhes
-              </SmartLink>
+            <article className={styles.serviceItem} key={service.slug}>
+              <div className={styles.serviceCopy}>
+                <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
+                  {service.badge}
+                </Text>
+                <Heading as="h3" variant="heading-strong-m">
+                  {service.title}
+                </Heading>
+                <Text variant="body-default-m" onBackground="neutral-weak">
+                  {service.summary}
+                </Text>
+              </div>
+              <div className={styles.serviceMeta}>
+                <div className={styles.serviceTags}>
+                  {service.tags.slice(0, 2).map((tag) => (
+                    <span className={styles.serviceTag} key={`${service.slug}-${tag}`}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <Text className={styles.meta} variant="body-default-s" onBackground="neutral-weak">
+                  {service.hero.price} | {service.hero.duration}
+                </Text>
+                <SmartLink href={`${servicesPage.path}/${service.slug}`} suffixIcon="arrowRight">
+                  Ver detalhes
+                </SmartLink>
+              </div>
             </article>
           ))}
-        </Grid>
+        </div>
       </section>
     </Column>
   );
