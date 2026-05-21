@@ -163,7 +163,7 @@ export default function Home() {
                 Blog
               </Text>
               <Text variant="body-default-m">
-                O bloco editorial fica pronto para receber artigos assim que a nova linha de insights entrar em publicacao.
+            O bloco editorial fica pronto para receber artigos assim que a nova linha de insights entrar em publicação.
               </Text>
             </article>
           )}

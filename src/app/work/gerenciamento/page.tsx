@@ -331,7 +331,7 @@ function DashboardView({ username }: { username: string }) {
               Cobertura
             </Text>
             <Heading as="h3" variant="heading-strong-l">
-              Calendario 2026 pronto para filtro por semana e mes
+              Calendário 2026 pronto para filtro por semana e mês
             </Heading>
             <ul className={styles.bulletList}>
               <li className={styles.bulletItem}>
@@ -576,7 +576,7 @@ function DashboardView({ username }: { username: string }) {
             </li>
             <li className={styles.bulletItem}>
               <Text variant="body-default-m">
-                Frentes em atenção ou risco: {items.filter((item) => item.health !== "Saudavel").length}.
+                Frentes em atenção ou risco: {items.filter((item) => item.health !== "Saudável").length}.
               </Text>
             </li>
           </ul>

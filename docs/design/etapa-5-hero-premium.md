@@ -67,6 +67,6 @@ Resultado esperado:
 ## Critério de aprovacao
 
 - em poucos segundos fica claro o que Henrique faz
-- a dobra parece acima da media sem excesso de efeito
+- a dobra parece acima da média sem excesso de efeito
 - o CTA primário chama a ação sem competir com o resto
 - existe curiosidade real para continuar a leitura

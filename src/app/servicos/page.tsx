@@ -83,7 +83,7 @@ const entryPoints = [
   },
   {
     label: "Produtos",
-    title: "Linha de produtos em reorganizacao",
+    title: "Linha de produtos em reorganização",
     description:
       "Os produtos voltam depois com formato mais claro, incluindo entradas leves, recursos gratuitos e consultoria curta.",
     href: productsPage.path,

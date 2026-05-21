@@ -7,7 +7,7 @@ Objetivo desta etapa: fazer o blog deixar de ser apenas arquivo e passar a opera
 A Home agora mostra apenas três artigos estrategicos, com:
 
 1. categoria
-2. titulo forte
+2. título forte
 3. resumo curto
 4. tempo de leitura
 5. CTA para leitura
@@ -17,7 +17,7 @@ A Home agora mostra apenas três artigos estrategicos, com:
 A seleção do blog agora passa por helper próprio e prioriza:
 
 - posts marcados como `featured`
-- categorias estrategicas
+- categorias estratégicas
 - recencia
 - resumo e leitura forte para Home
 

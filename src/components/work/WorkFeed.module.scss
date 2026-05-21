@@ -1,44 +1,61 @@
 .root {
   width: 100%;
   display: grid;
-  gap: clamp(1.8rem, 4vw, 2.8rem);
+  gap: clamp(2rem, 4vw, 3.5rem);
 }
 
 .header {
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(17rem, 0.92fr);
-  gap: clamp(1.5rem, 4vw, 3rem);
-  align-items: flex-start;
+  grid-template-columns: minmax(0, 0.95fr) minmax(20rem, 0.75fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+  padding-bottom: clamp(1.6rem, 4vw, 2.6rem);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .intro,
-.aside {
+.overview,
+.heroVisual {
   min-width: 0;
 }
 
 .intro {
   display: grid;
-  gap: 0.9rem;
-  max-width: 44rem;
+  gap: 1rem;
+  max-width: 48rem;
 }
 
 .introLead,
-.summary {
-  line-height: 1.68;
+.summary,
+.featuredSummary {
+  line-height: 1.65;
 }
 
-.aside {
-  display: grid;
-  gap: 1rem;
-  padding-left: clamp(1.35rem, 3vw, 2.2rem);
-  border-left: 1px solid var(--border-subtle);
+.heroVisual {
+  overflow: hidden;
+  border-radius: 0.75rem;
 }
 
-.asideBlock {
+.overview {
   display: grid;
-  gap: 0.5rem;
-  padding-top: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
   border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.overviewBlock {
+  display: grid;
+  align-content: start;
+  gap: 0.55rem;
+  min-height: 8.5rem;
+  padding: 1.15rem 1.25rem 1.15rem 0;
+}
+
+.overviewBlock + .overviewBlock,
+.statRow {
+  padding-left: 1.25rem;
+  border-left: 1px solid var(--border-subtle);
 }
 
 .eyebrow,
@@ -49,25 +66,24 @@
 }
 
 .statRow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
+  display: grid;
+  align-content: center;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  padding-top: 1.15rem;
+  padding-bottom: 1.15rem;
 }
 
 .statPill {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.55rem;
-  padding: 0.65rem 0.85rem;
-  border: 1px solid rgba(184, 146, 18, 0.16);
-  border-radius: 999px;
-  background: rgba(184, 146, 18, 0.05);
+  display: grid;
+  gap: 0.25rem;
 }
 
 .statValue {
   color: var(--color-accent-gold);
-  font-size: 1rem;
+  font-size: clamp(1.55rem, 3vw, 2rem);
   font-weight: 700;
+  line-height: 1;
 }
 
 .statLabel {
@@ -75,20 +91,105 @@
   color: var(--neutral-on-background-weak);
 }
 
+.featured {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(16rem, 0.58fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(1.4rem, 4vw, 2.25rem) 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.featuredMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  grid-column: 1 / -1;
+}
+
+.featuredBody {
+  display: grid;
+  gap: 0.8rem;
+  min-width: 0;
+}
+
+.featuredList {
+  display: grid;
+  gap: 0;
+  align-self: start;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--border-subtle);
+  list-style: none;
+}
+
+.featuredList li {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--neutral-on-background-medium);
+  line-height: 1.6;
+}
+
+.highlights,
+.feedSection {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.sectionHeader {
+  display: grid;
+  gap: 0.45rem;
+  max-width: 44rem;
+}
+
+.highlightList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.highlightItem {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1rem;
+  align-content: start;
+  min-height: 14rem;
+  padding: 1.2rem 1.2rem 1.2rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.highlightItem + .highlightItem {
+  padding-left: 1.2rem;
+  border-left: 1px solid var(--border-subtle);
+}
+
+.highlightIndex {
+  color: var(--neutral-on-background-weak);
+  font-family: var(--font-technical);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
 .feed {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .entry {
   display: grid;
   gap: 1rem;
-  padding: 1.2rem 0;
-  border-top: 1px solid var(--border-subtle);
+  align-content: start;
+  padding: 1.2rem 1.2rem 1.2rem 0;
+  border-bottom: 1px solid var(--border-subtle);
 }
 
-.entry:first-child {
-  padding-top: 0;
-  border-top: 0;
+.entry:nth-child(even) {
+  padding-left: 1.2rem;
+  border-left: 1px solid var(--border-subtle);
 }
 
 .entryMeta {
@@ -115,10 +216,8 @@
   display: inline-flex;
   align-items: center;
   min-height: 1.9rem;
-  padding: 0.4rem 0.68rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.03);
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--border-subtle);
   font-size: 0.74rem;
   letter-spacing: 0.11em;
   line-height: 1;
@@ -126,22 +225,18 @@
 }
 
 .statusPill[data-status="building"] {
-  border-color: rgba(184, 146, 18, 0.28);
   color: rgba(255, 230, 182, 0.96);
 }
 
 .statusPill[data-status="active"] {
-  border-color: rgba(110, 170, 255, 0.28);
   color: rgba(210, 227, 255, 0.96);
 }
 
 .statusPill[data-status="published"] {
-  border-color: rgba(126, 207, 158, 0.24);
   color: rgba(213, 246, 223, 0.96);
 }
 
 .statusPill[data-status="note"] {
-  border-color: rgba(255, 255, 255, 0.1);
   color: var(--neutral-on-background-weak);
 }
 
@@ -194,10 +289,8 @@
 .inlineTag {
   display: inline-flex;
   align-items: center;
-  min-height: 1.9rem;
-  padding: 0.38rem 0.68rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.03);
+  min-height: 1.5rem;
+  padding: 0;
   color: var(--neutral-on-background-weak);
   font-size: 0.82rem;
 }
@@ -205,13 +298,42 @@
 @media (max-width: 900px) {
   .header {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
-  .aside {
+  .overview,
+  .highlightList,
+  .feed,
+  .featured {
+    grid-template-columns: 1fr;
+  }
+
+  .overviewBlock,
+  .overviewBlock + .overviewBlock,
+  .statRow,
+  .highlightItem,
+  .highlightItem + .highlightItem,
+  .entry,
+  .entry:nth-child(even) {
     padding-left: 0;
-    padding-top: 1.1rem;
     border-left: 0;
+  }
+
+  .overviewBlock + .overviewBlock,
+  .statRow {
     border-top: 1px solid var(--border-subtle);
+  }
+
+  .overviewBlock {
+    min-height: 0;
+  }
+
+  .highlightItem {
+    min-height: 0;
+  }
+
+  .entry:nth-child(even) {
+    padding-left: 0;
   }
 }
 
@@ -229,5 +351,9 @@
   .entryFooter {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .statRow {
+    grid-template-columns: 1fr;
   }
 }

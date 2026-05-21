@@ -39,17 +39,17 @@ const fieldGroupSummary: WorkGanttFieldGroupSummary[] = [
   },
   {
     id: "estrategia",
-    label: "Informações estrategicas",
+    label: "Informações estratégicas",
     count: 4,
     requiredCount: 2,
-    fields: ["objetivo", "prioridade", "impacto", "observacoes"],
+    fields: ["objetivo", "prioridade", "impacto", "observações"],
   },
   {
     id: "operacional",
     label: "Controle operacional",
     count: 4,
     requiredCount: 2,
-    fields: ["progresso", "bloqueios", "proxima_acao", "atualizado_em"],
+    fields: ["progresso", "bloqueios", "próxima_ação", "atualizado_em"],
   },
 ];
 
@@ -77,7 +77,7 @@ function buildPlaceholderDataset(year: number): WorkGanttDataset {
       periodLabel: "S22-S23 · Junho",
       contractLabel: "Interno",
       weeklyCapacityHours: 5,
-      monthlyValue: "Reorganizacao",
+      monthlyValue: "Reorganização",
     },
     {
       projectId: "prj-placeholder-03",

@@ -798,7 +798,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
               </label>
 
               <label className={styles.field} htmlFor="simulation-sales">
-                <span className={styles.fieldLabel}>Clientes atendidos por mes</span>
+                    <span className={styles.fieldLabel}>Clientes atendidos por mês</span>
                 <input
                   className={styles.input}
                   id="simulation-sales"
@@ -1076,7 +1076,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
             </div>
 
             <ExpandableHelp label="Como ler esse prazo?">
-              Quanto tempo, em media, um novo contato leva para virar receita.
+                    Quanto tempo, em média, um novo contato leva para virar receita.
             </ExpandableHelp>
 
             <div className={styles.primaryMetricCard}>

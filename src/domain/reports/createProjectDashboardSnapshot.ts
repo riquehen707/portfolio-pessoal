@@ -552,7 +552,7 @@ export function createProjectDashboardSnapshot(params: {
 
   const messagesResolved = resolveMetricWithTrace({
     key: "messages",
-    label: "Mensagens por mes",
+    label: "Mensagens por mês",
     section: "Funil",
     observed: client.instagramData.messagesPerMonth,
     benchmark: linkClicks * 0.34,
@@ -1143,13 +1143,13 @@ export function createProjectDashboardSnapshot(params: {
     "Capacidade semanal para novos agendamentos sem comprometer a operação.",
     "Leads ou agendamentos atuais vindo de Instagram, Google e WhatsApp.",
     "Percentual de clientes que retornam em 30 e 60 dias.",
-    "Clientes por mes e faturamento entram só na consulta, para validar payback com dado real.",
+    "Clientes por mês e faturamento entram só na consulta, para validar payback com dado real.",
   ];
 
   const insights = [
     "O painel agora compara propostas comerciais e não tenta inferir faturamento atual do negócio.",
     `${round(followers)} seguidores e ${round(reviews)} review(s) sugerem presença social existente, mas ainda pouca prova local para demanda de alta intenção.`,
-    `A estrutura digital atual pode capturar algo perto de ${formatCurrency(round(baseMonthlyRevenuePotential))} por mes em potencial teorico antes das melhorias de proposta.`,
+    `A estrutura digital atual pode capturar algo perto de ${formatCurrency(round(baseMonthlyRevenuePotential))} por mês em potencial teórico antes das melhorias de proposta.`,
     primaryBottleneck,
     primaryOpportunity,
     dataQuality,

@@ -23,7 +23,7 @@ export type WorkFeedEntry = {
 };
 
 export const workFeedStatusMeta: Record<WorkFeedStatus, { label: string }> = {
-  building: { label: "Em construcao" },
+  building: { label: "Em construção" },
   active: { label: "Ativo" },
   published: { label: "Publicado" },
   note: { label: "Registro" },
@@ -35,28 +35,28 @@ const manualFeedEntries: WorkFeedEntry[] = [
     date: "2026-05-15",
     type: "Portfolio",
     status: "building",
-    title: "Projetos ainda não inseridos",
+    title: "Projetos em reorganização",
     summary:
-      "O /work foi reiniciado para receber um feed mais simples. Os projetos anteriores foram removidos e os novos ainda não foram publicados aqui.",
+      "Este espaço está sendo reorganizado para publicar projetos com mais contexto, clareza e critério.",
     notes: [
-      "Os cases antigos foram retirados para reduzir complexidade",
-      "Os próximos projetos entram aqui como artigos do próprio portfolio",
-      "Enquanto isso, este feed fica somente com registros de reorganizacao",
+      "As próximas publicações vão mostrar decisões, processo e aprendizado",
+      "Cada registro deve ajudar a entender o problema, a solução e o raciocínio por trás do projeto",
+      "A curadoria prioriza clareza editorial antes de volume",
     ],
-    tags: ["Placeholder", "Portfolio", "Reset"],
+    tags: ["Projetos", "Curadoria", "Em breve"],
   },
   {
     id: "work-cases-hold",
     date: "2026-05-14",
     type: "Cases",
     status: "note",
-    title: "Cases de clientes em reorganizacao",
+    title: "Cases de clientes em reorganização",
     summary:
-      "Os artigos de projetos de clientes serao republicados aos poucos, com estrutura mais enxuta e menos camadas tecnicas desnecessarias.",
+      "Os próximos cases devem aparecer com contexto, objetivo, decisão visual e aprendizados úteis para quem lê.",
     notes: [
-      "Nenhum case de cliente está publicado neste momento",
-      "A ideia agora e documentar melhor contexto, execução e aprendizados",
-      "Quando entrar um novo projeto, ele aparece aqui antes de qualquer grid fixa",
+      "Menos vitrine genérica, mais leitura de problema e solução",
+      "O foco é mostrar escolhas reais de projeto",
+      "Cada case precisa sustentar uma conclusão clara",
     ],
     tags: ["Clientes", "Feed", "Em breve"],
   },
@@ -65,28 +65,28 @@ const manualFeedEntries: WorkFeedEntry[] = [
     date: "2026-05-13",
     type: "Sistemas",
     status: "note",
-    title: "Projetos autorais serao reinseridos do zero",
+    title: "Sistemas autorais em revisão",
     summary:
-      "Os sistemas e experimentos internos também foram limpos para voltar com escopo mais claro, menos ruído e melhor critério de publicacao.",
+      "Os sistemas e experimentos autorais voltam quando puderem ser apresentados com escopo claro e valor prático.",
     notes: [
-      "A parte pública fica reduzida até a nova seleção de projetos entrar",
-      "O foco agora é publicar menos itens, com mais critério editorial",
-      "O /blog continua separado para estudos, analises e noticias",
+      "Publicar menos itens ajuda a explicar melhor cada decisão",
+      "O valor está no raciocínio, não na quantidade de telas",
+      "O /blog continua para marketing, design, conversão e produtos digitais",
     ],
-    tags: ["Interno", "Sistemas", "Curadoria"],
+    tags: ["Sistemas", "Produto", "Curadoria"],
   },
   {
     id: "site-foundation-refined",
     date: "2026-05-12",
     type: "Base",
     status: "note",
-    title: "Base tecnica e editorial refinada",
+    title: "Base técnica e editorial refinada",
     summary:
-      "A arquitetura do site foi mantida pronta para receber novos projetos, mas o conteúdo publicado do /work agora volta para um estado minimo e controlado.",
+      "A base do portfólio está pronta para receber projetos mais objetivos, com leitura rápida e contexto suficiente.",
     notes: [
-      "O feed continua preparado para datas, tags e CTAs",
-      "A separacao entre /work e /blog foi preservada",
-      "Os próximos artigos podem entrar sem reativar a complexidade antiga",
+      "Datas, tags e chamadas ficam a serviço da leitura",
+      "A separação entre projeto e artigo fica mais clara",
+      "A estrutura favorece contexto, decisão e próximo passo",
     ],
     tags: ["Next.js", "Conteúdo", "Arquitetura"],
   },
@@ -120,7 +120,7 @@ function buildProjectFeedEntry(project: BlogFile): WorkFeedEntry | null {
     title: project.metadata.title,
     summary:
       project.metadata.summary ??
-      `${kindLabel} publicado para documentar raciocinio, estrutura e execução.`,
+      `${kindLabel} publicado para documentar raciocínio, estrutura e execução.`,
     notes,
     tags: stack.slice(0, 4),
     href: getWorkProjectPath(project.slug),
