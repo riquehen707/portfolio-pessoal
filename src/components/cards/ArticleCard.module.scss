@@ -10,7 +10,7 @@
   height: 100%;
   min-height: 15rem;
   padding: 1.25rem 0;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--line-subtle);
   color: inherit;
   text-decoration: none;
   transition: border-color var(--motion-base);
@@ -36,16 +36,23 @@
 }
 
 .title {
+  font-weight: var(--type-weight-subtitle);
   letter-spacing: var(--tracking-tight);
 }
 
 .summary {
   max-width: 40ch;
+  font-weight: var(--type-weight-body);
+  line-height: 1.72;
 }
 
 .cta {
   margin-top: auto;
-  letter-spacing: 0.12em;
+  color: var(--neutral-on-background-weak);
+  font-family: var(--font-label);
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
   text-transform: uppercase;
 }
 

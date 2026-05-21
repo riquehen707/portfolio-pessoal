@@ -16,6 +16,23 @@ function overlapScore(a: string[] = [], b: string[] = []) {
   return a.reduce((acc, x) => acc + (setB.has(x.toLowerCase()) ? 1 : 0), 0);
 }
 
+function toVisualTagLabel(tag: string) {
+  const normalized = tag.toLowerCase();
+
+  if (normalized.includes("seo") || normalized.includes("google") || normalized.includes("busca")) {
+    return "Encontrar no Google";
+  }
+  if (normalized.includes("whatsapp") || normalized.includes("contato")) return "Contato mais direto";
+  if (normalized.includes("agenda") || normalized.includes("agendamento")) return "Agenda mais clara";
+  if (normalized.includes("instagram") || normalized.includes("redes")) return "Prova social";
+  if (normalized.includes("cliente") || normalized.includes("paciente") || normalized.includes("aluno")) {
+    return "Mais conversas certas";
+  }
+  if (normalized.includes("convers")) return "Decisão com menos atrito";
+
+  return tag;
+}
+
 export default function RelatedPosts({
   currentSlug,
   pillar,
@@ -114,7 +131,7 @@ export default function RelatedPosts({
                         {c}
                       </Badge>
                     ))}
-                    {(p.metadata.tags ?? []).slice(0, 2).map((t) => (
+                    {Array.from(new Set((p.metadata.tags ?? []).map(toVisualTagLabel))).slice(0, 2).map((t) => (
                       <Badge
                         key={t}
                         background="brand-alpha-weak"

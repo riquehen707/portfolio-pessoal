@@ -1,6 +1,6 @@
 .root {
   color: var(--neutral-on-background-strong);
-  font-weight: 600;
+  font-weight: var(--type-weight-caption);
   text-decoration: underline dotted currentColor;
   text-underline-offset: 0.18em;
   cursor: help;

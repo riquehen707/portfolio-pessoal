@@ -14,9 +14,11 @@ import styles from "./HeroSubtitle.module.scss";
 
 type HeroSubtitleProps = {
   children: ReactNode;
+  support?: ReactNode;
+  benefits?: readonly string[];
 };
 
-export function HeroSubtitle({ children }: HeroSubtitleProps) {
+export function HeroSubtitle({ children, support, benefits = [] }: HeroSubtitleProps) {
   const reducedMotion = useReducedMotion();
 
   return (
@@ -35,9 +37,28 @@ export function HeroSubtitle({ children }: HeroSubtitleProps) {
             }
       }
     >
-      <Text className={styles.subtitle} onBackground="neutral-weak" variant="heading-default-xl" wrap="balance">
-        {children}
-      </Text>
+      <div className={styles.group}>
+        <Text className={styles.subtitle} onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
+          {children}
+        </Text>
+
+        {support ? (
+          <Text className={styles.support} onBackground="neutral-weak" variant="body-default-m" wrap="balance">
+            {support}
+          </Text>
+        ) : null}
+
+        {benefits.length > 0 ? (
+          <ul className={styles.benefits} aria-label="Benefícios principais">
+            {benefits.map((benefit) => (
+              <li className={styles.benefit} key={benefit}>
+                <span className={styles.benefitDot} aria-hidden="true" />
+                <span>{benefit}</span>
+              </li>
+            ))}
+          </ul>
+        ) : null}
+      </div>
     </m.div>
   );
 }

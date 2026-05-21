@@ -1,5 +1,6 @@
 .root {
-  margin: 1.5rem 0;
+  max-width: var(--measure-body);
+  margin: 1.8rem 0;
   padding: 1rem 1.05rem;
   border: 1px solid var(--border-subtle);
   border-left-width: 3px;
@@ -44,19 +45,22 @@
   border-radius: var(--radius-pill);
   background: var(--neutral-alpha-medium);
   color: var(--neutral-on-background-weak);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-family: var(--font-label);
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
   text-transform: uppercase;
 }
 
 .title {
   color: var(--neutral-on-background-strong);
-  font-weight: 600;
+  font-weight: var(--type-weight-subtitle);
 }
 
 .content {
   color: var(--neutral-on-background-medium);
+  font-weight: var(--type-weight-body);
+  line-height: 1.78;
 }
 
 .content a {

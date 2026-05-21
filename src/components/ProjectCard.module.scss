@@ -10,7 +10,7 @@
   display: grid;
   overflow: hidden;
   border: 0;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--line-subtle);
   border-radius: 0;
   background: transparent;
   box-shadow: none;
@@ -36,7 +36,7 @@
 
 .mediaShell {
   overflow: hidden;
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--line-muted);
   background: var(--surface-panel-soft);
 }
 
@@ -55,8 +55,9 @@
   background: var(--color-background-primary);
   color: var(--neutral-on-background-strong);
   font-family: var(--font-label);
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
   text-transform: uppercase;
 }
 
@@ -111,6 +112,7 @@
 }
 
 .title {
+  font-weight: var(--type-weight-subtitle);
   letter-spacing: 0;
   line-height: 1.05;
 }
@@ -118,10 +120,12 @@
 .objective {
   color: var(--neutral-on-background-strong);
   max-width: 36ch;
+  font-weight: var(--type-weight-subtitle);
 }
 
 .description {
   max-width: 56ch;
+  font-weight: var(--type-weight-body);
 }
 
 .card[data-variant="compact"] .objective,
@@ -139,7 +143,7 @@
 .actions {
   row-gap: 0.35rem;
   padding-top: 0.35rem;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--line-muted);
 }
 
 .actionLink {

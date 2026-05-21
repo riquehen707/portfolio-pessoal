@@ -33,7 +33,11 @@
 
 .eyebrow,
 .filterLabel {
-  letter-spacing: 0.12em;
+  color: var(--neutral-on-background-weak);
+  font-family: var(--font-label);
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
   text-transform: uppercase;
 }
 

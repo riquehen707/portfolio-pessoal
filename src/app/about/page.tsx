@@ -46,9 +46,9 @@ const profileFacts = [
 ] as const;
 
 const thoughtBlocks = [
-  "Muitos negócios tentam resolver crescimento apenas com divulgação.",
-  "Na prática, o problema costuma estar distribuido entre oferta, página, atendimento, margem e acompanhamento.",
-  "Meu trabalho e organizar essas partes antes de aumentar complexidade.",
+  "Divulgação sozinha não resolve crescimento.",
+  "Oferta, página e atendimento precisam conversar.",
+  "Organizo a base antes de aumentar complexidade.",
 ] as const;
 
 const fitCards = [
@@ -169,12 +169,11 @@ export default function About() {
               Sobre
             </Text>
             <Heading as="h1" variant="display-strong-l" wrap="balance">
-              Estratégia, páginas e sistemas para negócios venderem com mais direção.
+              Estratégia, páginas e sistemas para vender com mais direção.
             </Heading>
             <div className={styles.accentLine} />
             <Text className={styles.heroLead} variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
-              Trabalho entre marketing, design e operação digital para organizar presença, captação
-              e acompanhamento.
+              Presença, captação e acompanhamento no mesmo raciocínio.
             </Text>
             <AboutScrollButton targetId="metodo">Ver como trabalho</AboutScrollButton>
           </Column>
@@ -232,11 +231,10 @@ export default function About() {
             Foco
           </Text>
           <Heading as="h2" variant="display-strong-s">
-            Para quem faco sentido
+            Para quem faço sentido
           </Heading>
           <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
-            Faco mais sentido quando o objetivo e conquistar clientes, organizar atendimento e
-            tornar o digital mais útil para vender.
+            Para quem precisa captar, atender e vender com mais clareza.
           </Text>
         </div>
 
@@ -261,8 +259,8 @@ export default function About() {
 
       <section className={styles.section} id="metodo">
         <div className={styles.sectionHeader}>
-          <Text className={styles.sectionKicker} variant="label-default-s" onBackground="brand-strong">
-            Metodo
+         <Text className={styles.sectionKicker} variant="label-default-s" onBackground="brand-strong">
+            Método
           </Text>
           <Heading as="h2" variant="display-strong-s">
             O que normalmente organizo
@@ -300,7 +298,7 @@ export default function About() {
             Projetos relacionados
           </Heading>
           <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
-            Alguns trabalhos onde essa logica aparece em páginas, sistemas e aquisição.
+            Páginas, sistemas e aquisição em prática.
           </Text>
         </div>
 
@@ -337,8 +335,7 @@ export default function About() {
             Antes de investir mais, vale entender a estrutura.
           </Heading>
           <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
-            A simulação ajuda a estimar se a conta faz sentido antes de aumentar verba, redesenhar
-            páginas ou criar novas ações.
+            Simule antes de aumentar verba ou redesenhar páginas.
           </Text>
         </div>
 

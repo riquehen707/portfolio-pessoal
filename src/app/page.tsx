@@ -27,23 +27,29 @@ const homeBlogSection = homeStrategy.sections.find((section) => section.id === "
 const homeAboutSection = homeStrategy.sections.find((section) => section.id === "about-teaser");
 const homeFinalSection = homeStrategy.sections.find((section) => section.id === "final-cta");
 
-const heroTrustItems = [
-  "Negócios locais",
-  "Estratégia orientada por dados",
-  "Soluções completas",
+const heroMicroBenefits = [
+  "Oferta",
+  "Atendimento",
+  "Decisão",
 ] as const;
 
 const techStripItems = [
-  { label: "React", icon: "react" },
-  { label: "Next.js", icon: "nextjs" },
-  { label: "Google Ads", icon: "ads" },
-  { label: "Meta Ads", icon: "meta" },
-  { label: "Analytics", icon: "ga" },
-  { label: "CRM", icon: "crm" },
-  { label: "Automação", icon: "rocket" },
-  { label: "SEO", icon: "seo" },
-  { label: "UI/UX", icon: "figma" },
-  { label: "Performance", icon: "performance" },
+  { label: "Interface clara", icon: "react" },
+  { label: "Página leve", icon: "nextjs" },
+  { label: "Busca local", icon: "ads" },
+  { label: "Oferta testável", icon: "meta" },
+  { label: "Medição útil", icon: "ga" },
+  { label: "Lead rastreável", icon: "crm" },
+  { label: "Fluxo simples", icon: "rocket" },
+  { label: "Base indexável", icon: "seo" },
+  { label: "Leitura rápida", icon: "figma" },
+  { label: "Carga menor", icon: "performance" },
+] as const;
+
+const homeProofPoints = [
+  { label: "Antes", value: "entender o gargalo real" },
+  { label: "Durante", value: "executar o menor escopo útil" },
+  { label: "Depois", value: "acompanhar sinais de melhoria" },
 ] as const;
 
 
@@ -98,40 +104,52 @@ export default function Home() {
         <div className={styles.heroGrid}>
           <div className={styles.heroCopy}>
             <Text className={styles.heroIdentity} variant="label-default-s" onBackground="neutral-weak">
-              Henrique Reis / estratégia, design e sistemas
+              Henrique Reis / operação digital
             </Text>
             <HeroTitle>{heroHeadline}</HeroTitle>
-            <HeroSubtitle>{homeStrategy.hero.subheadline}</HeroSubtitle>
+            <HeroSubtitle
+              support="Para organizar a jornada do primeiro clique ao próximo contato."
+              benefits={heroMicroBenefits}
+            >
+              Da atenção ao próximo passo.
+            </HeroSubtitle>
             <HeroActions
               primaryLabel={homeStrategy.hero.primaryCtaLabel}
               primaryHref={homeStrategy.hero.primaryCtaHref}
               secondaryLabel={homeStrategy.hero.secondaryCtaLabel}
               secondaryHref={homeStrategy.hero.secondaryCtaHref}
             />
-
-            <Reveal className={styles.heroTrustRow} delay={0.28} distance={18}>
-              {heroTrustItems.map((item) => (
-                <div className={styles.heroTrustItem} key={item}>
-                  <span className={styles.heroTrustDot} aria-hidden="true" />
-                  <Text variant="body-default-s">{item}</Text>
-                </div>
-              ))}
-            </Reveal>
           </div>
 
         </div>
-
-        <a className={styles.scrollCue} href="#home-proof" aria-label="Explorar próxima seção">
-          <span className={styles.scrollCueText}>Explore</span>
-          <span className={styles.scrollCueLine} aria-hidden="true" />
-          <span className={styles.scrollCueArrow} aria-hidden="true" />
-        </a>
       </section>
 
       <section className={styles.postHeroSection} id="home-proof">
         <Reveal delay={0.12} distance={20}>
           <TechStrip items={[...techStripItems]} />
         </Reveal>
+      </section>
+
+      <section className={styles.statementSection}>
+        <div className={styles.statementCopy}>
+          <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
+            Método
+          </Text>
+          <h2 className={styles.statementTitle}>Diagnóstico antes de produção.</h2>
+        </div>
+
+        <div className={styles.proofList}>
+          {homeProofPoints.map((point) => (
+            <div className={styles.proofItem} key={point.label}>
+              <Text className={styles.proofLabel} variant="label-default-s" onBackground="neutral-weak">
+                {point.label}
+              </Text>
+              <Text className={styles.proofValue} variant="body-default-m" onBackground="neutral-medium">
+                {point.value}
+              </Text>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className={styles.section}>
@@ -163,7 +181,7 @@ export default function Home() {
                 Blog
               </Text>
               <Text variant="body-default-m">
-            O bloco editorial fica pronto para receber artigos assim que a nova linha de insights entrar em publicação.
+                Novos artigos entram aqui quando forem publicados.
               </Text>
             </article>
           )}

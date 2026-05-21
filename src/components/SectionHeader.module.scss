@@ -12,15 +12,23 @@
 
 .copy {
   min-width: 0;
-  max-width: 44rem;
+  max-width: var(--measure-body);
 }
 
 .eyebrow {
   @include mixins.label-uppercase;
+  color: var(--neutral-on-background-weak);
+  font-family: var(--font-technical);
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
 }
 
 .description {
-  max-width: 40rem;
+  max-width: var(--measure-article);
+  color: var(--neutral-on-background-medium);
+  font-weight: var(--type-weight-body);
+  line-height: 1.72;
 }
 
 .action {

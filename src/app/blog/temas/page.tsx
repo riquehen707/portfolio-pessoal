@@ -8,12 +8,12 @@ import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 import styles from "./topics.module.scss";
 
 const topicsPath = "/blog/temas";
-const topicsTitle = "Índices do blog";
+const topicsTitle = "Guias por tema";
 const topicsDescription =
-  "Hubs editoriais por tema para navegar pelos artigos do blog com mais contexto e ligacao interna.";
+  "Artigos agrupados por problema para navegar com mais contexto.";
 
 export async function generateMetadata() {
-  const image = buildOgImage(topicsTitle, "hubs editoriais por tema");
+  const image = buildOgImage(topicsTitle, "artigos por problema");
   const generatedMeta = Meta.generate({
     title: topicsTitle,
     description: topicsDescription,
@@ -46,7 +46,7 @@ export default function BlogTopicsPage() {
         title={topicsTitle}
         description={topicsDescription}
         path={topicsPath}
-        image={`/api/og/generate?title=${encodeURIComponent(topicsTitle)}&subtitle=${encodeURIComponent("hubs editoriais por tema")}`}
+        image={`/api/og/generate?title=${encodeURIComponent(topicsTitle)}&subtitle=${encodeURIComponent("artigos por problema")}`}
         author={{
           name: person.name,
           url: `${baseURL}${topicsPath}`,
@@ -66,20 +66,20 @@ export default function BlogTopicsPage() {
           Blog
         </Text>
         <Heading as="h1" variant="display-strong-l">
-          Índices
+          Guias por tema
         </Heading>
         <Text className={styles.heroLead} onBackground="neutral-weak" variant="heading-default-m">
-          Hubs por tema para fortalecer leitura, links internos e descoberta dos artigos.
+          Trilhas curtas para chegar ao artigo certo.
         </Text>
       </section>
 
       <section className={styles.gridSection}>
         <div className={styles.sectionHeader}>
           <Text className={styles.sectionLabel} variant="label-default-s" onBackground="brand-strong">
-            Temas
+            Problemas agrupados
           </Text>
           <Text className={styles.sectionLead} onBackground="neutral-weak" variant="body-default-s">
-            Cada índice agrupa textos relacionados e ajuda a navegar por assunto.
+            Cada guia reúne textos com aplicação próxima.
           </Text>
         </div>
 

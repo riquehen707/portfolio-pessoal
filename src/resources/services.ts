@@ -25,7 +25,7 @@ export const services: ServiceLanding[] = [
   {
     slug: "websites-profissionais",
     title: "Websites profissionais e landing pages",
-    badge: "Web + Conversão",
+    badge: "Oferta mais clara",
     summary:
       "Sites e landing pages para explicar a oferta, reduzir dúvida e facilitar o próximo passo de quem chega.",
     hero: {
@@ -39,7 +39,7 @@ export const services: ServiceLanding[] = [
     },
     audience:
       "Profissionais, negócios locais, marcas autorais e operações digitais que precisam ser melhor entendidos, lembrados e procurados.",
-    tags: ["Next.js", "SCSS", "SEO", "Responsivo"],
+    tags: ["Página rápida", "Busca pronta", "Contato claro", "Mobile fluido"],
     keyPoints: [
       "Uma presença que explica melhor o que você faz.",
       "Estrutura pronta para SEO, campanhas e crescimento com mais calma.",
@@ -97,7 +97,7 @@ export const services: ServiceLanding[] = [
   {
     slug: "landing-page-para-estetica",
     title: "Landing page para estética e harmonização facial",
-    badge: "Estética + Agenda",
+    badge: "Agenda com menos atrito",
     layout: "beauty",
     summary:
       "Landing page para clínica de estética, esteticista ou harmonização facial com foco em agenda cheia, recorrência e faturamento.",
@@ -129,7 +129,7 @@ export const services: ServiceLanding[] = [
     },
     audience:
       "Clínicas de estética, esteticistas, biomédicas e profissionais de harmonização facial que já têm presença no Instagram, mas precisam converter melhor em agendamento.",
-    tags: ["Estética", "Clínica", "Agendamento", "Harmonização facial"],
+    tags: ["Agenda visível", "Prova de confiança", "Procedimentos claros", "Retorno facilitado"],
     keyPoints: [
       "Mais agendamentos saindo do Instagram e do tráfego pago.",
       "Mais clientes recorrentes com jornada mais clara entre interesse, contato e retorno.",
@@ -195,7 +195,7 @@ export const services: ServiceLanding[] = [
   {
     slug: "landing-page-para-social-media-designers-e-freelancers",
     title: "Landing page para social media, designers e freelancers digitais",
-    badge: "Freelancers + Clientes",
+    badge: "Oferta mais profissional",
     layout: "creative",
     summary:
       "Landing page para social media, designers e freelancers digitais que querem depender menos de indicação e apresentar melhor o próprio serviço.",
@@ -228,7 +228,7 @@ export const services: ServiceLanding[] = [
     },
     audience:
       "Social medias, designers, gestores de tráfego, videomakers, freelancers digitais e pequenos estúdios que querem captar clientes com mais previsibilidade e autoridade.",
-    tags: ["Freelancer", "Clientes", "Marketing digital", "Posicionamento"],
+    tags: ["Serviço explicado", "Contato direto", "Prova organizada", "Autoridade visível"],
     keyPoints: [
       "Mais consistência na geração de clientes sem depender só de indicação ou plataforma.",
       "Posicionamento mais profissional para explicar o que você faz, para quem e por que contratar.",
@@ -294,7 +294,7 @@ export const services: ServiceLanding[] = [
   {
     slug: "landing-page-para-psicologas",
     title: "Landing page para psicólogas",
-    badge: "Psicólogas + Agenda",
+    badge: "Confiança antes do contato",
     summary:
       "Landing page para psicólogas que precisam transmitir confiança, organizar melhor a agenda e facilitar o primeiro contato.",
     seo: {
@@ -320,7 +320,7 @@ export const services: ServiceLanding[] = [
     },
     audience:
       "Psicólogas autônomas, profissionais em reposicionamento e clínicas que querem uma presença digital mais confiável e previsível.",
-    tags: ["Psicólogas", "Landing page", "SEO", "WhatsApp"],
+    tags: ["Abordagem clara", "Busca local", "Primeiro contato", "Agenda previsível"],
     keyPoints: [
       "Mais clareza sobre abordagem, especialidade e contato.",
       "Um caminho simples entre visita, confiança e agenda.",
@@ -383,7 +383,7 @@ export const services: ServiceLanding[] = [
   {
     slug: "seo-tecnico",
     title: "SEO técnico, auditoria e otimização",
-    badge: "SEO + Performance",
+    badge: "Busca sem bloqueios",
     summary:
       "Auditoria e correções para sites, lojas virtuais e blogs que perderam fôlego, visibilidade ou clareza técnica.",
     hero: {
@@ -397,7 +397,7 @@ export const services: ServiceLanding[] = [
     },
     audience:
       "Lojas virtuais, blogs, sites institucionais e operações de conteúdo que perderam visibilidade ou não conseguem crescer com segurança.",
-    tags: ["SEO técnico", "Core Web Vitals", "E-commerce", "Blog"],
+    tags: ["Indexação limpa", "Velocidade melhor", "Prioridade técnica", "Conteúdo encontrável"],
     keyPoints: [
       "Erros críticos identificados com mais rapidez.",
       "Prioridades organizadas por impacto real, não por achismo.",
@@ -454,7 +454,7 @@ export const services: ServiceLanding[] = [
   {
     slug: "integracoes-automacoes",
     title: "Integrações, automação e operação digital",
-    badge: "Automação + Operação",
+    badge: "Rotina menos manual",
     summary:
       "Fluxos, integrações e automações para reduzir retrabalho e deixar a rotina digital mais previsível.",
     hero: {
@@ -468,7 +468,7 @@ export const services: ServiceLanding[] = [
     },
     audience:
       "Negócios que já captam, atendem ou operam no digital e precisam de mais previsibilidade, velocidade e controle.",
-    tags: ["APIs", "WhatsApp", "Dashboards", "Automação"],
+    tags: ["Canais conectados", "Resposta mais rápida", "Dados visíveis", "Follow-up simples"],
     keyPoints: [
       "Menos retrabalho no dia a dia.",
       "Fluxo mais claro entre lead, atendimento e acompanhamento.",

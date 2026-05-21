@@ -71,8 +71,10 @@
 .kicker {
   margin: 0;
   color: var(--neutral-on-background-weak);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
+  font-family: var(--font-label);
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
   text-transform: uppercase;
 }
 
@@ -80,6 +82,7 @@
   margin: 0;
   color: var(--neutral-on-background-strong);
   font-size: clamp(1rem, 1vw, 1.15rem);
+  font-weight: var(--type-weight-subtitle);
   line-height: 1.25;
 }
 

@@ -30,7 +30,7 @@ type StrategyPage = {
 
 const contentStrategy = {
   communicationPrinciple:
-    "A comunicação deve explicar decisões digitais com precisão editorial: problema real, leitura estratégica, implicação prática e próximo passo possível.",
+    "Explicar problema real, critério e próximo passo com precisão editorial.",
   editorialVoice: {
     tone: "Direto, claro, estratégico e sem exagero publicitário.",
     rhythm:
@@ -96,7 +96,7 @@ const contentStrategy = {
         eyebrow: "Estratégia completa",
         headline: "Operação digital completa para negócios locais.",
         subheadline:
-          "Toda a estrutura digital do seu negócio em um só parceiro: software, presença online, automação e gestão orientada por dados.",
+          "Presença, automação e dados para vender com mais direção.",
         primaryCtaLabel: "Agendar uma ligação",
         primaryCtaHref: "https://cal.com/henriquereis",
         secondaryCtaLabel: "Conheça meu trabalho",
@@ -135,18 +135,18 @@ const contentStrategy = {
         {
           id: "blog",
           label: "Insights",
-          title: "Ideias práticas sobre crescimento digital.",
+          title: "Leituras para ajustar uma decisão.",
           description:
-            "Insights diretos sobre presença digital, conversão, posicionamento e estrutura para crescer com consistência.",
+            "Critérios curtos antes de criar, anunciar ou refazer.",
           ctaLabel: "Ver artigos",
           ctaHref: "/blog",
         },
         {
           id: "about-teaser",
           label: "Sobre",
-          title: "Marketing e estrutura personalizada para atrair clientes sem tomar seu tempo.",
+          title: "Por trás do trabalho.",
           description:
-            "Transformo ideias e necessidades reais em estruturas digitais claras, funcionais e valiosas.",
+            "Como penso escopo, prioridade e execução.",
           ctaLabel: "Conheça minha trajetória",
           ctaHref: "/about",
         },
@@ -155,7 +155,7 @@ const contentStrategy = {
           label: "Próximo passo",
           title: "Antes de investir, veja se faz sentido.",
           description:
-            "Entenda onde seu negócio pode melhorar, quanto pode custar e qual retorno pode fazer sentido para o seu momento.",
+            "Leia cenário, custo e retorno antes de fechar escopo.",
           ctaLabel: "Ver os dados primeiro",
           ctaHref: "/simulacao",
         },
@@ -176,9 +176,9 @@ const contentStrategy = {
       },
       hero: {
         eyebrow: "Projetos",
-        headline: "Feed de projetos, sistemas e públicações do portfolio.",
+        headline: "Projetos e bastidores em construção.",
         subheadline:
-          "O /work reúne projetos pessoais, sistemas, cases e atualizações do que está sendo construído, enquanto o /blog fica para estudos, análises e notícias.",
+          "Decisões, aprendizados e registros do que estou construindo.",
         primaryCtaLabel: "Vamos conversar",
         primaryCtaHref: "/contact",
         secondaryCtaLabel: "Ver abordagem técnica",
@@ -208,9 +208,9 @@ const contentStrategy = {
         {
           id: "final-cta",
           label: "Contato",
-          title: "Vamos criar algo forte juntos.",
+          title: "Vamos organizar o próximo passo.",
           description:
-            "Se a operação precisa de uma presença mais clara, mais forte e mais útil, o próximo passo é conversar.",
+            "Se existe um problema claro, a conversa pode virar escopo.",
           ctaLabel: "Vamos conversar",
           ctaHref: "/contact",
         },
@@ -245,21 +245,21 @@ const contentStrategy = {
           label: "Trajetória",
           title: "Minha história",
           description:
-            "Empreender cedo me ensinou algo importante: bons negócios nem sempre crescem, porque esforço sem estrutura cobra caro.",
+            "Empreender cedo mostrou que esforço sem estrutura cobra caro.",
         },
         {
           id: "rebuild",
           label: "Recomeço",
           title: "Prática, disciplina e resultado.",
           description:
-            "Depois de enfrentar mudanças pessoais profundas, precisei recomeçar do zero. Esse processo me tornou ainda mais prático, disciplinado e orientado a resultado.",
+            "Recomeçar do zero tornou meu trabalho mais prático e disciplinado.",
         },
         {
           id: "fit",
           label: "Aderência",
           title: "Para quem faço sentido",
           description:
-            "Trabalho melhor com pequenos e médios negócios que já entregam valor, mas ainda precisam organizar presença digital, captação e relacionamento com clientes.",
+            "Para negócios que entregam valor, mas precisam organizar presença e captação.",
           bullets: [
             "Pequenos e médios negócios",
             "Profissionais e empresas de serviço",
@@ -286,9 +286,9 @@ const contentStrategy = {
       },
       hero: {
         eyebrow: "Insights",
-        headline: "Ideias práticas sobre crescimento digital.",
+        headline: "Marketing, design e conversão sem ruído.",
         subheadline:
-          "Insights diretos sobre presença digital, conversão, posicionamento e estrutura para crescer com consistência.",
+          "Textos curtos para melhorar presença, oferta e decisão.",
         primaryCtaLabel: "Explorar insights",
         primaryCtaHref: "/blog",
       },
@@ -298,7 +298,7 @@ const contentStrategy = {
           label: "Categorias",
           title: "Trilhas editoriais centrais.",
           description:
-            "Negócios locais, marketing, design, operação, tecnologia e growth formam a base do repertório que o blog precisa sustentar.",
+            "Temas para navegar por problema, não por volume.",
           bullets: ["Negócios locais", "Marketing", "Design", "Operação", "Tecnologia", "Growth"],
         },
         {

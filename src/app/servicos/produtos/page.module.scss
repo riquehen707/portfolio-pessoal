@@ -37,8 +37,10 @@
 
 .heroLead,
 .heroNote {
-  max-width: 42rem;
-  line-height: 1.6;
+  max-width: 34rem;
+  color: var(--neutral-on-background-medium);
+  font-weight: var(--type-weight-body);
+  line-height: 1.65;
 }
 
 .actions {
@@ -77,7 +79,11 @@
 
 .roadmapLabel,
 .signalLabel {
-  letter-spacing: 0.12em;
+  color: var(--neutral-on-background-weak);
+  font-family: var(--font-label);
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
   text-transform: uppercase;
 }
 

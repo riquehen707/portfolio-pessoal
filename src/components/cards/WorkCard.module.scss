@@ -48,16 +48,22 @@
 }
 
 .title {
+  font-weight: var(--type-weight-subtitle);
   letter-spacing: var(--tracking-tight);
 }
 
 .summary {
   max-width: 48ch;
+  font-weight: var(--type-weight-body);
 }
 
 .cta {
   margin-top: auto;
-  letter-spacing: 0.12em;
+  color: var(--neutral-on-background-weak);
+  font-family: var(--font-label);
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
   text-transform: uppercase;
 }
 

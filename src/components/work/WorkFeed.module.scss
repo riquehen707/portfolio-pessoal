@@ -10,7 +10,7 @@
   gap: clamp(2rem, 5vw, 4rem);
   align-items: center;
   padding-bottom: clamp(1.6rem, 4vw, 2.6rem);
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--line-subtle);
 }
 
 .intro,
@@ -28,6 +28,7 @@
 .introLead,
 .summary,
 .featuredSummary {
+  font-weight: var(--type-weight-body);
   line-height: 1.65;
 }
 
@@ -40,8 +41,8 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0;
-  border-top: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--line-subtle);
+  border-bottom: 1px solid var(--line-subtle);
 }
 
 .overviewBlock {
@@ -55,13 +56,17 @@
 .overviewBlock + .overviewBlock,
 .statRow {
   padding-left: 1.25rem;
-  border-left: 1px solid var(--border-subtle);
+  border-left: 1px solid var(--line-muted);
 }
 
 .eyebrow,
 .date,
 .statLabel {
-  letter-spacing: 0.12em;
+  color: var(--neutral-on-background-weak);
+  font-family: var(--font-technical);
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
   text-transform: uppercase;
 }
 
@@ -82,12 +87,11 @@
 .statValue {
   color: var(--color-accent-gold);
   font-size: clamp(1.55rem, 3vw, 2rem);
-  font-weight: 700;
+  font-weight: var(--type-weight-subtitle);
   line-height: 1;
 }
 
 .statLabel {
-  font-size: 0.72rem;
   color: var(--neutral-on-background-weak);
 }
 
@@ -96,8 +100,8 @@
   grid-template-columns: minmax(0, 0.82fr) minmax(16rem, 0.58fr);
   gap: clamp(1.5rem, 4vw, 3rem);
   padding: clamp(1.4rem, 4vw, 2.25rem) 0;
-  border-top: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--line-subtle);
+  border-bottom: 1px solid var(--line-subtle);
 }
 
 .featuredMeta {
@@ -120,13 +124,13 @@
   align-self: start;
   margin: 0;
   padding: 0;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--line-muted);
   list-style: none;
 }
 
 .featuredList li {
   padding: 0.85rem 0;
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--line-muted);
   color: var(--neutral-on-background-medium);
   line-height: 1.6;
 }
@@ -147,7 +151,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--line-subtle);
 }
 
 .highlightItem {
@@ -157,12 +161,12 @@
   align-content: start;
   min-height: 14rem;
   padding: 1.2rem 1.2rem 1.2rem 0;
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--line-muted);
 }
 
 .highlightItem + .highlightItem {
   padding-left: 1.2rem;
-  border-left: 1px solid var(--border-subtle);
+  border-left: 1px solid var(--line-muted);
 }
 
 .highlightIndex {
@@ -176,7 +180,7 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--line-subtle);
 }
 
 .entry {
@@ -184,12 +188,12 @@
   gap: 1rem;
   align-content: start;
   padding: 1.2rem 1.2rem 1.2rem 0;
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--line-muted);
 }
 
 .entry:nth-child(even) {
   padding-left: 1.2rem;
-  border-left: 1px solid var(--border-subtle);
+  border-left: 1px solid var(--line-muted);
 }
 
 .entryMeta {
@@ -208,7 +212,6 @@
 }
 
 .date {
-  font-size: 0.74rem;
   color: var(--neutral-on-background-weak);
 }
 
@@ -217,9 +220,11 @@
   align-items: center;
   min-height: 1.9rem;
   padding: 0.35rem 0;
-  border-bottom: 1px solid var(--border-subtle);
-  font-size: 0.74rem;
-  letter-spacing: 0.11em;
+  border-bottom: 1px solid var(--line-muted);
+  font-family: var(--font-technical);
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
   line-height: 1;
   text-transform: uppercase;
 }
@@ -295,6 +300,12 @@
   font-size: 0.82rem;
 }
 
+.inlineTag::before {
+  margin-right: 0.35rem;
+  color: var(--color-accent-gold);
+  content: "•";
+}
+
 @media (max-width: 900px) {
   .header {
     grid-template-columns: 1fr;
@@ -321,7 +332,7 @@
 
   .overviewBlock + .overviewBlock,
   .statRow {
-    border-top: 1px solid var(--border-subtle);
+    border-top: 1px solid var(--line-muted);
   }
 
   .overviewBlock {

@@ -31,6 +31,7 @@ body {
   color: var(--neutral-on-background-medium);
   font-family: var(--font-body);
   font-size: var(--type-body);
+  line-height: var(--line-body);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   transition:
@@ -79,7 +80,7 @@ h5,
 h6 {
   color: var(--neutral-on-background-strong);
   font-family: var(--font-heading);
-  font-weight: 400;
+  font-weight: var(--type-weight-heading);
   letter-spacing: var(--tracking-display);
 }
 
@@ -101,6 +102,10 @@ h3 {
 p,
 li {
   line-height: var(--line-body);
+}
+
+p {
+  color: var(--neutral-on-background-medium);
 }
 
 a {

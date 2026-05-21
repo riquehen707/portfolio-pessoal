@@ -138,7 +138,7 @@ function LoginView({ hasAuthError }: { hasAuthError: boolean }) {
               <Text variant="body-default-m">Agenda das entregas mais próximas e leitura de risco por projeto.</Text>
             </li>
             <li className={styles.bulletItem}>
-              <Text variant="body-default-m">Separação clara entre gestão interna, placeholders e futuras públicações do portfolio.</Text>
+              <Text variant="body-default-m">Gestão interna, placeholders e futuras publicações do portfólio.</Text>
             </li>
           </ul>
 

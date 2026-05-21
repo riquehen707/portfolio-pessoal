@@ -8,8 +8,8 @@
   --color-surface-ghost: rgba(244, 244, 240, 0.03);
   --color-border: #2f2f36;
   --color-border-strong: rgba(255, 215, 0, 0.26);
-  --color-text-primary: #f4f4f0;
-  --color-text-secondary: #a8a8b3;
+  --color-text-primary: #f0eee7;
+  --color-text-secondary: #9f9faa;
   --color-accent-gold: #ffd700;
   --color-accent-gold-muted: #c9a600;
   --color-accent-blue: #1482b8;
@@ -26,6 +26,9 @@
   --surface-overlay-card: transparent;
 
   --border-subtle: rgba(244, 244, 240, 0.08);
+  --line-subtle: rgba(244, 244, 240, 0.065);
+  --line-muted: rgba(244, 244, 240, 0.045);
+  --line-accent: rgba(255, 215, 0, 0.18);
   --border-strong: var(--color-border-strong);
 
   --shadow-soft: none;
@@ -54,10 +57,10 @@
   --neutral-alpha-medium: rgba(244, 244, 240, 0.08);
   --neutral-alpha-strong: rgba(244, 244, 240, 0.12);
   --neutral-on-background-strong: var(--color-text-primary);
-  --neutral-on-background-medium: #d8d8d0;
+  --neutral-on-background-medium: #cbc9c0;
   --neutral-on-background-weak: var(--color-text-secondary);
   --neutral-on-surface-strong: var(--color-text-primary);
-  --neutral-on-surface-medium: #d8d8d0;
+  --neutral-on-surface-medium: #cbc9c0;
   --neutral-on-surface-weak: var(--color-text-secondary);
 }
 
@@ -88,6 +91,9 @@ html[data-theme="light"] {
   --surface-overlay-card: transparent;
 
   --border-subtle: rgba(17, 17, 17, 0.08);
+  --line-subtle: rgba(17, 17, 17, 0.07);
+  --line-muted: rgba(17, 17, 17, 0.045);
+  --line-accent: rgba(184, 146, 18, 0.18);
   --border-strong: var(--color-border-strong);
 
   --shadow-soft: none;

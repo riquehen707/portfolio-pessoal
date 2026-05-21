@@ -87,9 +87,20 @@
   --type-body-lg: 1.25rem;
   --type-body: clamp(1rem, 1vw, 1.125rem);
   --type-caption: 0.875rem;
-  --line-body: 1.7;
+  --line-body: 1.78;
+  --line-article: 1.88;
+  --measure-body: 36rem;
+  --measure-article: 35rem;
+  --measure-heading: 34rem;
   --tracking-display: 0;
   --tracking-tight: 0;
+  --type-weight-heading: 400;
+  --type-weight-subtitle: 600;
+  --type-weight-body: 400;
+  --type-weight-caption: 500;
+  --type-weight-technical: 400;
+  --type-technical-size: 0.66rem;
+  --type-technical-tracking: 0.08em;
 
   --grid-max-width: 1280px;
   --grid-max-width-wide: 1440px;

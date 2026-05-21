@@ -23,10 +23,10 @@ export type WorkFeedEntry = {
 };
 
 export const workFeedStatusMeta: Record<WorkFeedStatus, { label: string }> = {
-  building: { label: "Em construção" },
-  active: { label: "Ativo" },
-  published: { label: "Publicado" },
-  note: { label: "Registro" },
+  building: { label: "Ainda em ajuste" },
+  active: { label: "Em uso" },
+  published: { label: "Pronto para ler" },
+  note: { label: "Contexto rápido" },
 };
 
 const manualFeedEntries: WorkFeedEntry[] = [
@@ -37,13 +37,13 @@ const manualFeedEntries: WorkFeedEntry[] = [
     status: "building",
     title: "Projetos em reorganização",
     summary:
-      "Este espaço está sendo reorganizado para publicar projetos com mais contexto, clareza e critério.",
+      "Projetos voltarão com contexto, critério e leitura rápida.",
     notes: [
-      "As próximas publicações vão mostrar decisões, processo e aprendizado",
-      "Cada registro deve ajudar a entender o problema, a solução e o raciocínio por trás do projeto",
-      "A curadoria prioriza clareza editorial antes de volume",
+      "Decisões, processo e aprendizado",
+      "Problema, solução e raciocínio",
+      "Clareza antes de volume",
     ],
-    tags: ["Projetos", "Curadoria", "Em breve"],
+    tags: ["Leitura em breve", "Critério editorial", "Menos volume"],
   },
   {
     id: "work-cases-hold",
@@ -52,13 +52,13 @@ const manualFeedEntries: WorkFeedEntry[] = [
     status: "note",
     title: "Cases de clientes em reorganização",
     summary:
-      "Os próximos cases devem aparecer com contexto, objetivo, decisão visual e aprendizados úteis para quem lê.",
+      "Cases voltarão com objetivo, decisão visual e aprendizado.",
     notes: [
-      "Menos vitrine genérica, mais leitura de problema e solução",
-      "O foco é mostrar escolhas reais de projeto",
-      "Cada case precisa sustentar uma conclusão clara",
+      "Problema e solução",
+      "Escolhas reais de projeto",
+      "Conclusão clara",
     ],
-    tags: ["Clientes", "Feed", "Em breve"],
+    tags: ["Cases com contexto", "Decisões reais", "Em revisão"],
   },
   {
     id: "work-systems-hold",
@@ -67,13 +67,13 @@ const manualFeedEntries: WorkFeedEntry[] = [
     status: "note",
     title: "Sistemas autorais em revisão",
     summary:
-      "Os sistemas e experimentos autorais voltam quando puderem ser apresentados com escopo claro e valor prático.",
+      "Sistemas autorais voltam com escopo claro e valor prático.",
     notes: [
-      "Publicar menos itens ajuda a explicar melhor cada decisão",
-      "O valor está no raciocínio, não na quantidade de telas",
-      "O /blog continua para marketing, design, conversão e produtos digitais",
+      "Menos itens, mais critério",
+      "Valor no raciocínio",
+      "Blog para marketing, design e conversão",
     ],
-    tags: ["Sistemas", "Produto", "Curadoria"],
+    tags: ["Escopo claro", "Valor prático", "Produto autoral"],
   },
   {
     id: "site-foundation-refined",
@@ -82,18 +82,33 @@ const manualFeedEntries: WorkFeedEntry[] = [
     status: "note",
     title: "Base técnica e editorial refinada",
     summary:
-      "A base do portfólio está pronta para receber projetos mais objetivos, com leitura rápida e contexto suficiente.",
+      "Base pronta para projetos objetivos e leitura rápida.",
     notes: [
-      "Datas, tags e chamadas ficam a serviço da leitura",
-      "A separação entre projeto e artigo fica mais clara",
-      "A estrutura favorece contexto, decisão e próximo passo",
+      "Datas e tags a serviço da leitura",
+      "Projeto separado de artigo",
+      "Contexto, decisão e próximo passo",
     ],
-    tags: ["Next.js", "Conteúdo", "Arquitetura"],
+    tags: ["Base rápida", "Conteúdo legível", "Arquitetura clara"],
   },
 ];
 
 function toDateValue(date: string) {
   return new Date(`${date}T12:00:00-03:00`);
+}
+
+function toUsefulStackLabel(stackItem: string) {
+  const normalized = stackItem.toLowerCase();
+
+  if (normalized.includes("next")) return "Página rápida";
+  if (normalized.includes("react")) return "Interface modular";
+  if (normalized.includes("scss") || normalized.includes("css")) return "Estilo consistente";
+  if (normalized.includes("seo")) return "Busca preparada";
+  if (normalized.includes("analytics")) return "Dados para leitura";
+  if (normalized.includes("crm")) return "Leads organizados";
+  if (normalized.includes("automation") || normalized.includes("automação")) return "Rotina automatizada";
+  if (normalized.includes("api")) return "Canais conectados";
+
+  return stackItem;
 }
 
 function buildProjectFeedEntry(project: BlogFile): WorkFeedEntry | null {
@@ -120,9 +135,9 @@ function buildProjectFeedEntry(project: BlogFile): WorkFeedEntry | null {
     title: project.metadata.title,
     summary:
       project.metadata.summary ??
-      `${kindLabel} publicado para documentar raciocínio, estrutura e execução.`,
+      `${kindLabel} publicado com raciocínio, estrutura e execução.`,
     notes,
-    tags: stack.slice(0, 4),
+    tags: stack.slice(0, 4).map(toUsefulStackLabel),
     href: getWorkProjectPath(project.slug),
     ctaLabel: "Abrir artigo",
   };

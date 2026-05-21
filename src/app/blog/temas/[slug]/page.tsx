@@ -115,7 +115,7 @@ export default async function BlogTopicPage({ params }: PageProps) {
 
       <section className={styles.hero}>
         <Text className={styles.kicker} variant="label-default-s" onBackground="brand-strong">
-          Tema
+          Guia de leitura
         </Text>
         <Heading as="h1" variant="display-strong-l">
           {label}
@@ -131,10 +131,10 @@ export default async function BlogTopicPage({ params }: PageProps) {
       <section className={styles.feedSection}>
         <div className={styles.sectionHeader}>
           <Text className={styles.sectionLabel} variant="label-default-s" onBackground="brand-strong">
-            Artigos
+            Leituras do tema
           </Text>
           <Text className={styles.sectionLead} onBackground="neutral-weak" variant="body-default-s">
-            Uma leitura agrupada para fortalecer navegação, contexto e descoberta.
+            Textos conectados para avançar sem perder contexto.
           </Text>
         </div>
 

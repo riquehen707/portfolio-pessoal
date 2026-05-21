@@ -25,6 +25,7 @@
 
 .copy {
   max-width: 40rem;
+  font-weight: var(--type-weight-body);
 }
 
 .tabsViewport {
@@ -149,6 +150,7 @@
 }
 
 .cardTitle {
+  font-weight: var(--type-weight-subtitle);
   line-height: 1.15;
 }
 
@@ -185,7 +187,7 @@
   color: var(--market-accent);
   cursor: pointer;
   font: inherit;
-  font-weight: 600;
+  font-weight: var(--type-weight-caption);
   text-align: left;
 }
 

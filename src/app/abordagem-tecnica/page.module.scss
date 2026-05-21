@@ -61,7 +61,10 @@
 
 .lead,
 .sectionIntro {
-  max-width: 40rem;
+  max-width: 34rem;
+  color: var(--neutral-on-background-medium);
+  font-weight: var(--type-weight-body);
+  line-height: 1.65;
 }
 
 .accentLine {
@@ -100,7 +103,9 @@
 .signalValue,
 .processIndex {
   font-family: var(--font-code);
-  letter-spacing: 0.12em;
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
   text-transform: uppercase;
 }
 

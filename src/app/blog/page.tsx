@@ -16,10 +16,10 @@ import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 import styles from "./blog.module.scss";
 
 const blogHomeDescription =
-  "Artigos sobre marketing, páginas e aquisição para negócios de serviço.";
+  "Critérios práticos para decidir melhor em marketing e produto.";
 
 export async function generateMetadata() {
-  const image = buildOgImage("Insights", "marketing e aquisição");
+  const image = buildOgImage("Guias", "critérios para decidir");
   const generatedMeta = Meta.generate({
     title: blog.title,
     description: blogHomeDescription,
@@ -62,19 +62,25 @@ export default function Blog() {
   const startCards = [
     {
       title: "Antes de investir em tráfego",
-      summary: "Entenda margem, CAC e meta antes de aumentar verba.",
+      summary: "Margem, CAC e meta antes da verba.",
       href: "/blog/termos-de-marketing",
     },
     {
       title: "Antes de redesenhar uma página",
-      summary: "Veja se hierarquia, oferta e CTA já ajudam a decisão.",
+      summary: "Hierarquia, oferta e CTA em primeiro lugar.",
       href: "/blog/termos-de-design",
     },
     {
       title: "Antes de gerar mais leads",
-      summary: "Leia canal, anúncio, custo e qualidade do contato.",
+      summary: "Canal, custo e qualidade do contato.",
       href: "/blog/termos-de-publicidade",
     },
+  ];
+
+  const readingModes = [
+    { label: "Entender", value: "conceitos sem jargão" },
+    { label: "Aplicar", value: "checklists e exemplos" },
+    { label: "Comparar", value: "temas, formatos e próximos passos" },
   ];
 
   return (
@@ -101,13 +107,13 @@ export default function Blog() {
       <section className={styles.heroSection}>
         <div className={styles.hero}>
           <Text className={styles.kicker} variant="label-default-s" onBackground="brand-strong">
-            Blog
+            Biblioteca
           </Text>
           <Heading as="h1" className={styles.heroTitle} variant="display-strong-l">
-            Insights
+            Guias
           </Heading>
           <Text className={styles.heroLead} onBackground="neutral-weak" variant="heading-default-m">
-            Artigos sobre marketing, páginas e aquisição para negócios de serviço.
+            Textos para escolher com mais critério antes de executar.
           </Text>
         </div>
       </section>
@@ -115,14 +121,14 @@ export default function Blog() {
       {featuredPost ? (
         <section className={styles.featuredSection}>
           <Text className={styles.sectionLabel} variant="label-default-s" onBackground="brand-strong">
-            Em destaque
+            Leitura principal
           </Text>
 
           <article className={styles.featuredCard}>
             <a className={styles.featuredLink} href={`/blog/${featuredPost.slug}`}>
               <div className={styles.featuredMedia}>
-                <Media
-                  src={featuredPost.metadata.image ?? "/api/og/generate?title=Insights"}
+                  <Media
+                  src={featuredPost.metadata.image ?? "/api/og/generate?title=Guias"}
                   alt={
                     featuredPost.metadata.imageAlt ?? `Capa do artigo ${featuredPost.metadata.title}`
                   }
@@ -135,7 +141,7 @@ export default function Blog() {
               </div>
 
               <div className={styles.featuredContent}>
-                <span className={styles.featuredBadge}>Em destaque</span>
+                <span className={styles.featuredBadge}>Melhor ponto de entrada</span>
                 <Heading as="h2" className={styles.featuredTitle} variant="display-strong-s">
                   {featuredPost.metadata.title}
                 </Heading>
@@ -154,6 +160,28 @@ export default function Blog() {
           </article>
         </section>
       ) : null}
+
+      <section className={styles.modeSection}>
+        <div className={styles.modeHeader}>
+          <Text className={styles.sectionLabel} variant="label-default-s" onBackground="brand-strong">
+            Como ler
+          </Text>
+          <h2 className={styles.modeTitle}>Leia pela pergunta do momento.</h2>
+        </div>
+
+        <div className={styles.modeList}>
+          {readingModes.map((mode) => (
+            <div className={styles.modeItem} key={mode.label}>
+              <Text className={styles.modeLabel} variant="label-default-s" onBackground="neutral-weak">
+                {mode.label}
+              </Text>
+              <Text className={styles.modeValue} variant="body-default-s" onBackground="neutral-medium">
+                {mode.value}
+              </Text>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <section className={styles.startSection}>
         <div className={styles.sectionHeader}>
@@ -186,10 +214,10 @@ export default function Blog() {
         <section className={styles.startSection}>
           <div className={styles.sectionHeader}>
             <Text className={styles.sectionLabel} variant="label-default-s" onBackground="brand-strong">
-              Índices
+              Mapas por assunto
             </Text>
             <Text className={styles.sectionLead} onBackground="neutral-weak" variant="body-default-s">
-              Hubs por tema para fortalecer leitura e navegação interna.
+              Quando você já sabe onde investigar.
             </Text>
           </div>
 
@@ -217,14 +245,14 @@ export default function Blog() {
       <section className={styles.feedSection} id="artigos">
         <div className={styles.sectionHeader}>
           <Text className={styles.sectionLabel} variant="label-default-s" onBackground="brand-strong">
-            Últimos artigos
+            Leituras recentes
           </Text>
           <Text className={styles.sectionLead} onBackground="neutral-weak" variant="body-default-s">
-            Leituras para melhorar presença, oferta, atendimento e conversão com menos improviso.
+            Publicações novas e ajustes editoriais.
           </Text>
         </div>
 
-        <EditorialFeed posts={feedPosts} />
+        <EditorialFeed posts={feedPosts} initialCount={3} step={3} />
       </section>
     </Column>
   );

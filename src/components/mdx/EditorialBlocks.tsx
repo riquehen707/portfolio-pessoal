@@ -51,9 +51,21 @@ function EditorialBlock({
     <section className={clsx(styles.block, compact && styles.compact, className)}>
       {(eyebrow || title || description) && (
         <header className={styles.header}>
-          {eyebrow ? <span className={styles.eyebrow}>{eyebrow}</span> : null}
-          {title ? <h3 className={styles.title}>{title}</h3> : null}
-          {description ? <p className={styles.description}>{description}</p> : null}
+          {eyebrow ? (
+            <span className={styles.eyebrow} data-reading-layer="quick">
+              {eyebrow}
+            </span>
+          ) : null}
+          {title ? (
+            <h3 className={styles.title} data-reading-layer="intermediate">
+              {title}
+            </h3>
+          ) : null}
+          {description ? (
+            <p className={styles.description} data-reading-layer="complete">
+              {description}
+            </p>
+          ) : null}
         </header>
       )}
       {children ? <div className={styles.content}>{children}</div> : null}
@@ -80,6 +92,7 @@ function EditorialList({
 
   return (
     <ul
+      data-reading-layer="quick"
       className={clsx(
         styles.list,
         resolvedVariant === "check" && styles.checkList,

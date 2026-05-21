@@ -196,10 +196,10 @@ function createImage({ alt, src, ...props }: MediaProps & { src: string }) {
 
 function createHeading(as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") {
   const spacing = {
-    h1: { marginTop: "40", marginBottom: "16" },
-    h2: { marginTop: "40", marginBottom: "16" },
-    h3: { marginTop: "32", marginBottom: "12" },
-    h4: { marginTop: "28", marginBottom: "8" },
+    h1: { marginTop: "44", marginBottom: "16" },
+    h2: { marginTop: "48", marginBottom: "16" },
+    h3: { marginTop: "36", marginBottom: "12" },
+    h4: { marginTop: "30", marginBottom: "8" },
     h5: { marginTop: "24", marginBottom: "8" },
     h6: { marginTop: "24", marginBottom: "8" },
   }[as];
@@ -216,9 +216,11 @@ function createHeading(as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") {
         as={as}
         id={slug}
         data-mdx-heading
+        data-reading-layer="intermediate"
         style={{
           color: "var(--neutral-on-background-strong)",
-          lineHeight: as === "h2" ? 1.12 : 1.18,
+          lineHeight: as === "h2" ? 1.1 : 1.18,
+          maxWidth: as === "h2" ? "var(--measure-heading)" : "36rem",
         }}
         {...props}
       >
@@ -235,12 +237,15 @@ function createParagraph({ children }: TextProps) {
     <Text
       style={{
         color: "var(--neutral-on-background-medium)",
-        lineHeight: "190%",
+        fontWeight: "var(--type-weight-body)",
+        lineHeight: "var(--line-article)",
+        maxWidth: "var(--measure-article)",
       }}
       variant="body-default-m"
       onBackground="neutral-medium"
-      marginTop="12"
-      marginBottom="20"
+      data-reading-layer="complete"
+      marginTop="8"
+      marginBottom="24"
     >
       {children}
     </Text>
@@ -283,10 +288,14 @@ function createCodeBlock(props: any) {
 function createList({ children }: { children: ReactNode }) {
   return (
     <List
+      data-reading-layer="quick"
       style={{
         color: "var(--neutral-on-background-medium)",
-        marginTop: "0.75rem",
-        marginBottom: "1.35rem",
+        marginTop: "1rem",
+        marginBottom: "1.85rem",
+        display: "grid",
+        gap: "0.25rem",
+        fontWeight: "var(--type-weight-body)",
       }}
     >
       {children}
@@ -298,10 +307,12 @@ function createListItem({ children }: { children: ReactNode }) {
   return (
     <ListItem
       marginTop="8"
-      marginBottom="10"
+      marginBottom="12"
       style={{
         color: "var(--neutral-on-background-medium)",
-        lineHeight: "185%",
+        fontWeight: "var(--type-weight-body)",
+        lineHeight: "182%",
+        maxWidth: "var(--measure-article)",
       }}
     >
       {children}
@@ -340,7 +351,7 @@ function BlockQuote({ children }: { children: ReactNode }) {
         onBackground="neutral-medium"
         style={{
           color: "var(--neutral-on-background-medium)",
-          lineHeight: "185%",
+          lineHeight: "var(--line-article)",
         }}
       >
         {children}
@@ -355,10 +366,11 @@ function TableWrapper({ children }: { children: ReactNode }) {
     <div
       style={{
         overflowX: "auto",
-        margin: "16px 0 24px",
-        border: "1px solid var(--border-subtle)",
-        borderRadius: "1rem",
-        background: "var(--surface-panel-soft)",
+        margin: "20px 0 28px",
+        borderTop: "1px solid var(--line-subtle)",
+        borderBottom: "1px solid var(--line-subtle)",
+        borderRadius: 0,
+        background: "transparent",
         boxShadow: "none",
       }}
     >

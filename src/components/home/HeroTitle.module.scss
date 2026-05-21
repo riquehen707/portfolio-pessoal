@@ -1,6 +1,7 @@
 .title {
   max-width: 11.5ch;
   font-size: clamp(3.5rem, 6vw, 4.5rem);
+  font-weight: var(--type-weight-heading);
   letter-spacing: var(--tracking-display);
   line-height: 0.94;
 }

@@ -28,8 +28,9 @@
 
 .technicalToggle {
   font-family: var(--font-technical);
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
   text-transform: uppercase;
   min-height: 2.75rem;
   padding: 0.65rem 0.95rem;
@@ -59,8 +60,9 @@
 .compactSummaryLabel {
   color: var(--neutral-on-background-medium);
   font-family: var(--font-technical);
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
   text-transform: uppercase;
 }
 
@@ -102,9 +104,10 @@
 
 .kicker {
   color: var(--color-accent-gold);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-family: var(--font-label);
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
   text-transform: uppercase;
 }
 
@@ -173,10 +176,12 @@
 .metricRowLabel,
 .primaryMetricLabel,
 .compareLabel {
-  letter-spacing: 0.1em;
+  font-family: var(--font-label);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
   text-transform: uppercase;
   line-height: 1.35;
-  font-size: 0.76rem;
+  font-size: var(--type-technical-size);
   color: var(--neutral-on-background-medium);
 }
 
@@ -205,7 +210,7 @@
   background: transparent;
   color: var(--color-accent-gold);
   font-size: 0.62rem;
-  font-weight: 700;
+  font-weight: var(--type-weight-caption);
   line-height: 1;
   cursor: help;
 }
@@ -246,7 +251,7 @@
 .hintLink {
   color: var(--color-accent-gold);
   font-size: 0.74rem;
-  font-weight: 600;
+  font-weight: var(--type-weight-caption);
   text-decoration: none;
 }
 
@@ -290,8 +295,10 @@
 
 .summaryItemLabel {
   color: var(--neutral-on-background-medium);
-  font-size: 0.74rem;
-  letter-spacing: 0.08em;
+  font-family: var(--font-label);
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
   text-transform: uppercase;
   line-height: 1.35;
 }
@@ -299,7 +306,7 @@
 .summaryItemValue {
   color: var(--neutral-on-background-strong);
   font-size: clamp(0.98rem, 1.8vw, 1.15rem);
-  font-weight: 600;
+  font-weight: var(--type-weight-subtitle);
   letter-spacing: 0;
   line-height: 1.25;
 }
@@ -371,7 +378,7 @@
   border-radius: 999px;
   background: var(--color-accent-gold);
   color: #111;
-  font-weight: 600;
+  font-weight: var(--type-weight-subtitle);
   cursor: pointer;
 }
 
@@ -483,8 +490,9 @@
   background: rgba(184, 146, 18, 0.08);
   color: var(--color-accent-gold);
   font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-family: var(--font-label);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
   text-transform: uppercase;
 }
 
@@ -503,7 +511,7 @@
 
 .compareValue {
   font-size: clamp(1.1rem, 2vw, 1.5rem);
-  font-weight: 600;
+  font-weight: var(--type-weight-subtitle);
   line-height: 1.1;
 }
 
@@ -532,13 +540,13 @@
 
 .metricRowValue {
   font-size: clamp(1rem, 1.8vw, 1.14rem);
-  font-weight: 600;
+  font-weight: var(--type-weight-subtitle);
   line-height: 1.2;
 }
 
 .sliderValue {
   font-size: 0.92rem;
-  font-weight: 700;
+  font-weight: var(--type-weight-caption);
   color: var(--color-accent-gold);
 }
 
@@ -588,8 +596,10 @@
   justify-content: space-between;
   gap: 1rem;
   color: var(--neutral-on-background-medium);
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
+  font-family: var(--font-label);
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
   text-transform: uppercase;
 }
 
@@ -602,16 +612,17 @@
 
 .directionLabel {
   color: var(--color-accent-gold);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-family: var(--font-label);
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
   text-transform: uppercase;
 }
 
 .directionTitle {
   color: var(--neutral-on-background-strong);
   font-size: clamp(1.05rem, 2vw, 1.2rem);
-  font-weight: 600;
+  font-weight: var(--type-weight-subtitle);
   letter-spacing: 0;
   line-height: 1.2;
 }
@@ -638,9 +649,10 @@
 
 .advancedLabel {
   color: var(--color-accent-gold);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-family: var(--font-label);
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
   text-transform: uppercase;
 }
 
@@ -677,7 +689,7 @@
 .primaryLink {
   background: var(--color-accent-gold);
   color: #111;
-  font-weight: 600;
+  font-weight: var(--type-weight-subtitle);
 }
 
 .secondaryLink {
@@ -770,7 +782,7 @@
   .primaryMetricLabel,
   .compareLabel,
   .kicker {
-    letter-spacing: 0.08em;
+    letter-spacing: var(--type-technical-tracking);
   }
 
   .topBar {

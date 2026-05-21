@@ -46,7 +46,10 @@
 }
 
 .heroLead {
-  max-width: 42rem;
+  max-width: 34rem;
+  color: var(--neutral-on-background-medium);
+  font-weight: var(--type-weight-body);
+  line-height: 1.65;
 }
 
 .accentLine {
@@ -76,7 +79,11 @@
 
 .metaCardLabel,
 .authorLabel {
-  letter-spacing: 0.04em;
+  color: var(--neutral-on-background-weak);
+  font-family: var(--font-technical);
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
   text-transform: uppercase;
 }
 
@@ -91,7 +98,41 @@
 }
 
 .article {
-  width: 100%;
+  width: min(100%, 39.5rem);
+}
+
+.article :global(p),
+.article :global(ul),
+.article :global(ol) {
+  max-width: 37rem;
+}
+
+.article :global([data-reading-layer="quick"]) {
+  margin-block: 1rem 1.65rem;
+}
+
+.article :global([data-reading-layer="quick"] li) {
+  line-height: 1.72;
+}
+
+.article :global([data-reading-layer="quick"] strong) {
+  color: var(--neutral-on-background-strong);
+}
+
+.article :global([data-reading-layer="intermediate"] + [data-reading-layer="complete"]) {
+  max-width: 35rem;
+  color: var(--neutral-on-background-strong);
+  font-weight: var(--type-weight-subtitle);
+  line-height: 1.78;
+}
+
+.article :global(li + li) {
+  margin-top: 0.25rem;
+}
+
+.article :global([data-mdx-heading]) {
+  max-width: 34rem;
+  scroll-margin-top: calc(var(--scroll-offset) + 1.5rem);
 }
 
 .supportPanel {
@@ -124,7 +165,7 @@
 .faqQuestion {
   cursor: pointer;
   list-style: none;
-  font-weight: 600;
+  font-weight: var(--type-weight-subtitle);
   color: var(--neutral-on-background-strong);
 }
 

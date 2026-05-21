@@ -25,10 +25,10 @@ export function WorkFeed({ entries, blogHref }: WorkFeedProps) {
             Work
           </Tag>
           <Heading id="work-feed-heading" as="h1" variant="display-strong-s" wrap="balance">
-            Projetos, estudos e bastidores de sistemas em construção.
+            Projetos e bastidores em construção.
           </Heading>
           <Text className={styles.introLead} onBackground="neutral-weak" variant="body-default-m">
-            Um registro dos projetos, decisões e aprendizados por trás do que estou construindo.
+            Decisões, aprendizados e registros do processo.
           </Text>
         </div>
 
@@ -50,7 +50,7 @@ export function WorkFeed({ entries, blogHref }: WorkFeedProps) {
             Em /work
           </Text>
           <Text variant="body-default-s" onBackground="neutral-weak">
-            Projetos, estudos e bastidores de sistemas em construção.
+            Sistemas, estudos e registros em andamento.
           </Text>
         </div>
 
@@ -69,11 +69,11 @@ export function WorkFeed({ entries, blogHref }: WorkFeedProps) {
         <div className={styles.statRow}>
           <div className={styles.statPill}>
             <span className={styles.statValue}>{publishedArticles}</span>
-            <span className={styles.statLabel}>artigos publicados</span>
+            <span className={styles.statLabel}>leituras prontas</span>
           </div>
           <div className={styles.statPill}>
             <span className={styles.statValue}>{internalUpdates}</span>
-            <span className={styles.statLabel}>atualizações</span>
+            <span className={styles.statLabel}>registros em ajuste</span>
           </div>
         </div>
       </div>
@@ -111,10 +111,10 @@ export function WorkFeed({ entries, blogHref }: WorkFeedProps) {
         <section className={styles.highlights} aria-labelledby="work-highlights-heading">
           <div className={styles.sectionHeader}>
             <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
-              Conteúdos em destaque
+              Destaques
             </Text>
             <Heading id="work-highlights-heading" as="h2" variant="heading-strong-xl">
-              Leituras rápidas para entender a direção do trabalho
+              Leituras rápidas do processo
             </Heading>
           </div>
 

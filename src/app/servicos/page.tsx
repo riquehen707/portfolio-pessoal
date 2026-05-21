@@ -27,21 +27,21 @@ const focusAreas = [
     label: "Presença",
     title: "Sites e páginas com função comercial clara",
     description:
-      "Projetos para explicar melhor o serviço, reduzir ruído e facilitar o próximo passo de quem chega.",
+      "Explique o serviço e facilite o próximo passo.",
     items: ["Landing pages", "Sites institucionais", "Estrutura para campanhas"],
   },
   {
     label: "Captação",
-    title: "Leitura de aquisição antes de escopo grande",
+    title: "Aquisição com critério antes da verba",
     description:
-      "Simulação inicial, ajuste de oferta e desenho de entrada para investir com mais critério.",
+      "Simule cenário, ajuste oferta e escolha a entrada.",
     items: ["Simulação de cenário", "Diagnóstico de gargalo", "Prioridade comercial"],
   },
   {
     label: "Operação",
     title: "Fluxos, CRM e organização digital do atendimento",
     description:
-      "Integrações e automações para reduzir perda comercial e deixar a rotina menos improvisada.",
+      "Reduza perda comercial e improviso no atendimento.",
     items: ["WhatsApp e CRM", "Agenda e follow-up", "Dashboards e automação"],
   },
 ] as const;
@@ -50,17 +50,17 @@ const audienceGroups = [
   {
     title: "Prestadores de serviço",
     description:
-      "Psicólogas, advogados, consultores e profissionais que precisam conquistar clientes online com mais consistência.",
+      "Profissionais que precisam explicar valor e gerar conversas melhores.",
   },
   {
     title: "Clínicas e negócios de atendimento",
     description:
-      "Saúde, beleza e estética quando agenda, relacionamento e operação precisam conversar melhor.",
+      "Agenda, relacionamento e operação no mesmo fluxo.",
   },
   {
     title: "Lojas locais e e-commerce",
     description:
-      "Operações que precisam vender melhor no local, organizar catálogo ou estruturar melhor pedidos e envios.",
+      "Catálogo, pedidos e canais mais fáceis de operar.",
   },
 ] as const;
 
@@ -69,7 +69,7 @@ const entryPoints = [
     label: "Primeiro passo",
     title: "Ver os dados antes do escopo",
     description:
-      "A simulação lê a base atual, os ajustes internos e a viabilidade do investimento antes de fechar escopo.",
+      "Leia base, gargalos e viabilidade antes de decidir.",
     href: simulationPage.path,
     cta: "Abrir simulação",
   },
@@ -77,7 +77,7 @@ const entryPoints = [
     label: "Serviço sob medida",
     title: "Escolher a frente de trabalho certa",
     description:
-      "Depois da leitura inicial, o trabalho pode entrar por página, SEO, automação ou estrutura comercial.",
+      "Página, busca, automação ou estrutura comercial.",
     href: "#servicos-publicados",
     cta: "Ver frentes atuais",
   },
@@ -85,10 +85,16 @@ const entryPoints = [
     label: "Produtos",
     title: "Linha de produtos em reorganização",
     description:
-      "Os produtos voltam depois com formato mais claro, incluindo entradas leves, recursos gratuitos e consultoria curta.",
+      "Entradas leves, recursos gratuitos e consultoria curta.",
     href: productsPage.path,
     cta: "Ver status dos produtos",
   },
+] as const;
+
+const serviceProofPoints = [
+  { label: "Leitura", value: "qual problema merece prioridade" },
+  { label: "Escolha", value: "qual frente resolve primeiro" },
+  { label: "Entrega", value: "o que precisa ficar operável" },
 ] as const;
 
 export async function generateMetadata() {
@@ -131,15 +137,14 @@ export default function ServicesPage() {
               Serviços
             </Text>
             <Heading as="h1" variant="display-strong-l" wrap="balance">
-              Presença, captação e operação digital para negócios que precisam vender melhor.
+              Serviços digitais para resolver o gargalo certo primeiro.
             </Heading>
             <div className={styles.accentLine} />
             <Text className={styles.heroLead} variant="heading-default-m" onBackground="neutral-weak">
-              Eu não começo por catálogo. Primeiro leio momento, orçamento e gargalo principal para
-              decidir se vale investir, por onde entrar e qual formato faz sentido.
+              A conversa começa pela causa do problema, não pelo nome do serviço.
             </Text>
             <Text className={styles.heroNote} variant="body-default-m" onBackground="neutral-weak">
-              Se a leitura ainda não está clara, a simulação entra antes do escopo.
+              Quando o cenário ainda está nebuloso, a simulação vem antes do escopo.
             </Text>
             <Row className={styles.actions} gap="12" wrap>
               <Button href={simulationPage.path} variant="primary" size="m" prefixIcon="chart">
@@ -158,7 +163,7 @@ export default function ServicesPage() {
               </Text>
               <Text variant="heading-strong-s">Simular o cenário</Text>
               <Text variant="body-default-s" onBackground="neutral-weak">
-                Entender se a base comporta investimento agora ou se ainda pede ajuste interno.
+                Ver se a base comporta investimento agora.
               </Text>
             </div>
             <div className={styles.heroStep}>
@@ -167,7 +172,7 @@ export default function ServicesPage() {
               </Text>
               <Text variant="heading-strong-s">Definir a frente certa</Text>
               <Text variant="body-default-s" onBackground="neutral-weak">
-                Escolher o tipo de trabalho pelo problema real, não pelo nome do serviço.
+                Escolher pelo problema, não pelo nome do serviço.
               </Text>
             </div>
             <div className={styles.heroStep}>
@@ -176,14 +181,32 @@ export default function ServicesPage() {
               </Text>
               <Text variant="heading-strong-s">Fechar um escopo viável</Text>
               <Text variant="body-default-s" onBackground="neutral-weak">
-                Entrar com algo que caiba na operação e sustente o próximo passo do negócio.
+                Começar com algo que caiba na operação.
               </Text>
             </div>
           </Column>
         </Grid>
       </section>
 
-      <section className={styles.section} id="onde-entro">
+      <section className={styles.proofSection}>
+        <Text className={styles.kicker} variant="label-default-s" onBackground="brand-strong">
+          Critério
+        </Text>
+        <div className={styles.proofGrid}>
+          {serviceProofPoints.map((point) => (
+            <div className={styles.proofItem} key={point.label}>
+              <Text className={styles.proofLabel} variant="label-default-s" onBackground="neutral-weak">
+                {point.label}
+              </Text>
+              <Text variant="body-default-m" onBackground="neutral-medium">
+                {point.value}
+              </Text>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className={`${styles.section} ${styles.sectionCompact}`} id="onde-entro">
         <Row
           className={styles.sectionHeader}
           fillWidth
@@ -196,12 +219,11 @@ export default function ServicesPage() {
               Onde entro
             </Text>
             <Heading as="h2" variant="display-strong-s">
-              Três frentes que normalmente se conectam
+              Onde cada frente entra no problema
             </Heading>
           </Column>
           <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
-            A maioria dos projetos entra por presença, captação ou operação. Em muitos casos, o
-            problema real atravessa as três.
+            Cada frente tem uma função diferente na jornada.
           </Text>
         </Row>
 
@@ -229,7 +251,7 @@ export default function ServicesPage() {
         </Grid>
       </section>
 
-      <section className={styles.section} id="para-quem">
+      <section className={`${styles.section} ${styles.sectionStatement}`} id="para-quem">
         <Row
           className={styles.sectionHeader}
           fillWidth
@@ -242,12 +264,11 @@ export default function ServicesPage() {
               Para quem
             </Text>
             <Heading as="h2" variant="display-strong-s">
-              Negócios em que esse trabalho costuma fazer mais sentido
+              Quando vale trazer ajuda externa
             </Heading>
           </Column>
           <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
-            Principalmente quando já existe valor real no serviço, mas falta mais clareza para
-            vender, atender e sustentar crescimento.
+            O encaixe depende do momento, não só do segmento.
           </Text>
         </Row>
 
@@ -265,7 +286,7 @@ export default function ServicesPage() {
         </Grid>
       </section>
 
-      <section className={styles.section} id="caminhos">
+      <section className={`${styles.section} ${styles.sectionProof}`} id="caminhos">
         <Row
           className={styles.sectionHeader}
           fillWidth
@@ -278,11 +299,11 @@ export default function ServicesPage() {
               Caminhos
             </Text>
             <Heading as="h2" variant="display-strong-s">
-              Como normalmente o trabalho começa
+              Caminhos possíveis de entrada
             </Heading>
           </Column>
           <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
-            A simulação vira porta de entrada quando ainda não vale fechar um formato no escuro.
+            Três formas de começar sem inflar o projeto.
           </Text>
         </Row>
 
@@ -306,7 +327,7 @@ export default function ServicesPage() {
         </Grid>
       </section>
 
-      <section className={styles.section} id="servicos-publicados">
+      <section className={`${styles.section} ${styles.sectionList}`} id="servicos-publicados">
         <Row
           className={styles.sectionHeader}
           fillWidth
@@ -319,12 +340,11 @@ export default function ServicesPage() {
               Frentes atuais
             </Text>
             <Heading as="h2" variant="display-strong-s">
-              Serviços publicados hoje
+              Frentes disponíveis hoje
             </Heading>
           </Column>
           <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
-            Os detalhes continuam acessíveis por página própria. Aqui fica a leitura curta do que
-            está aberto agora.
+            Detalhes para comparar escopo, prazo e investimento.
           </Text>
         </Row>
 

@@ -87,6 +87,27 @@ function getReadingTrail(current: BlogFile, posts: BlogFile[]) {
     .slice(0, 4);
 }
 
+function toVisualTagLabel(tag: string) {
+  const normalized = tag.toLowerCase();
+
+  if (normalized.includes("seo") || normalized.includes("google") || normalized.includes("busca")) {
+    return "Encontrar no Google";
+  }
+  if (normalized.includes("whatsapp") || normalized.includes("contato")) return "Contato mais direto";
+  if (normalized.includes("agenda") || normalized.includes("agendamento")) return "Agenda mais clara";
+  if (normalized.includes("instagram") || normalized.includes("redes")) return "Prova social";
+  if (normalized.includes("cliente") || normalized.includes("paciente") || normalized.includes("aluno")) {
+    return "Mais conversas certas";
+  }
+  if (normalized.includes("convers")) return "Decisão com menos atrito";
+  if (normalized.includes("conteúdo")) return "Conteúdo com função";
+  if (normalized.includes("operação")) return "Rotina mais organizada";
+  if (normalized.includes("tráfego") || normalized.includes("anúncio")) return "Verba com mais critério";
+  if (normalized.includes("matrícula")) return "Captação mais previsível";
+
+  return tag;
+}
+
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "blog", "posts"]);
   return posts.map((post) => ({
@@ -187,6 +208,7 @@ export default async function BlogPost({ params }: PageProps) {
   const coverImage = post.metadata.image?.trim() || post.metadata.images?.[0];
   const categories = post.metadata.categories ?? [];
   const tags = post.metadata.tags ?? (post.metadata.tag ? [post.metadata.tag] : []);
+  const visualTags = Array.from(new Set(tags.map(toVisualTagLabel))).slice(0, 5);
   const collectionSlug = getBlogCollectionSlug(post);
   const collectionLabel = getBlogCollectionLabel(collectionSlug);
   const publishedDate = post.metadata.publishedAt
@@ -273,9 +295,9 @@ export default async function BlogPost({ params }: PageProps) {
               </div>
             </dl>
 
-            {tags.length > 0 && (
+            {visualTags.length > 0 && (
               <Row className={styles.tagRow} gap="8" wrap>
-                {tags.slice(0, 5).map((tag) => (
+                {visualTags.map((tag) => (
                   <Tag key={tag} size="s" background="neutral-alpha-weak">
                     {tag}
                   </Tag>

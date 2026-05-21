@@ -6,7 +6,7 @@
   gap: clamp(1.5rem, 4vw, 3.5rem);
   align-items: end;
   padding-top: clamp(2rem, 5vw, 3.2rem);
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--line-subtle);
 }
 
 .copy,
@@ -17,7 +17,7 @@
 .copy {
   display: grid;
   gap: 1rem;
-  max-width: 42rem;
+  max-width: var(--measure-body);
 }
 
 .aside {
@@ -26,7 +26,7 @@
   align-self: stretch;
   align-content: end;
   padding-left: clamp(1.4rem, 3vw, 2.4rem);
-  border-left: 1px solid var(--border-subtle);
+  border-left: 1px solid var(--line-muted);
 }
 
 .eyebrow {
@@ -38,7 +38,9 @@
 }
 
 .description {
-  max-width: 38rem;
+  max-width: var(--measure-article);
+  color: var(--neutral-on-background-medium);
+  line-height: 1.72;
 }
 
 .actions {
@@ -82,7 +84,7 @@
     padding-left: 0;
     padding-top: 1.25rem;
     border-left: 0;
-    border-top: 1px solid var(--border-subtle);
+    border-top: 1px solid var(--line-muted);
   }
 
   .title,

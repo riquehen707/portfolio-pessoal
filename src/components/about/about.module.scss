@@ -42,16 +42,26 @@
 }
 
 .heroLead {
-  max-width: 36rem;
-  line-height: 1.65;
+  max-width: 31rem;
+  color: var(--neutral-on-background-medium);
+  line-height: 1.7;
 }
 
 .kicker,
 .sectionKicker,
 .factLabel,
 .projectType {
-  letter-spacing: 0.12em;
+  color: var(--neutral-on-background-weak);
+  font-family: var(--font-technical);
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
   text-transform: uppercase;
+}
+
+.heroLead,
+.sectionLead {
+  font-weight: var(--type-weight-body);
 }
 
 .accentLine {
@@ -178,8 +188,9 @@
   border-radius: 999px;
   color: var(--color-accent-gold);
   font-size: 0.74rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-family: var(--font-label);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
 }
 
 .methodList {

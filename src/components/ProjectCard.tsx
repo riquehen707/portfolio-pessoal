@@ -21,6 +21,21 @@ interface ProjectCardProps {
   variant?: ProjectCardVariant;
 }
 
+function toUsefulStackLabel(item: string) {
+  const normalized = item.toLowerCase();
+
+  if (normalized.includes("next")) return "Página rápida";
+  if (normalized.includes("react")) return "Interface modular";
+  if (normalized.includes("scss") || normalized.includes("css")) return "Visual consistente";
+  if (normalized.includes("seo")) return "Busca preparada";
+  if (normalized.includes("analytics")) return "Dados acionáveis";
+  if (normalized.includes("crm")) return "Leads organizados";
+  if (normalized.includes("automation") || normalized.includes("automação")) return "Rotina automatizada";
+  if (normalized.includes("api")) return "Canais conectados";
+
+  return item;
+}
+
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   href,
   images = [],
@@ -34,7 +49,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   variant = "default",
 }) => {
   const hasMedia = images.length > 0;
-  const condensedStack = stack.slice(0, variant === "feature" ? 4 : 3);
+  const condensedStack = stack.slice(0, variant === "feature" ? 4 : 3).map(toUsefulStackLabel);
 
   return (
     <article className={styles.root} data-variant={variant} data-kind={kindValue ?? "project"}>
@@ -70,7 +85,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             )}
 
             {condensedStack.length > 0 && (
-              <div className={styles.stackInline} aria-label="Stack principal">
+              <div className={styles.stackInline} aria-label="Funções principais">
                 {condensedStack.map((item) => (
                   <span className={styles.stackInlineItem} key={`${title}-${item}`}>
                     {item}

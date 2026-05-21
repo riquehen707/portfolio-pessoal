@@ -56,7 +56,11 @@
 }
 
 .eyebrow {
-  letter-spacing: 0.12em;
+  color: var(--neutral-on-background-weak);
+  font-family: var(--font-technical);
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
   text-transform: uppercase;
 }
 
@@ -93,7 +97,9 @@
 
 .fieldLabel {
   font-size: 0.78rem;
-  letter-spacing: 0.08em;
+  font-family: var(--font-technical);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
   text-transform: uppercase;
   color: var(--neutral-on-background-weak);
 }
@@ -128,7 +134,10 @@
 }
 
 .heroLead {
-  max-width: 42rem;
+  max-width: 34rem;
+  color: var(--neutral-on-background-medium);
+  font-weight: var(--type-weight-body);
+  line-height: 1.65;
 }
 
 .heroActions {
@@ -196,6 +205,7 @@
 .metricValue {
   font-family: var(--font-heading);
   font-size: clamp(1.45rem, 3vw, 2rem);
+  font-weight: var(--type-weight-heading);
   line-height: 0.95;
   letter-spacing: 0;
   color: var(--neutral-on-background-strong);
