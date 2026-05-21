@@ -11,13 +11,13 @@ const workManagementStages = [
   },
   {
     id: "execucao",
-    label: "Execucao",
-    description: "Construcao ativa, integracoes e producao dos blocos principais.",
+    label: "Execução",
+    description: "Construcao ativa, integrações e producao dos blocos principais.",
   },
   {
     id: "revisao",
     label: "Revisao",
-    description: "Ajustes finos, validacao e checklist tecnico antes da entrega.",
+    description: "Ajustes finos, validacao e checklist técnico antes da entrega.",
   },
   {
     id: "entregue",
@@ -36,7 +36,7 @@ type WorkManagementItem = {
   summary: string;
   stage: WorkManagementStageId;
   priority: "Alta" | "Media" | "Baixa";
-  health: "Saudavel" | "Atencao" | "Risco";
+  health: "Saudavel" | "Atenção" | "Risco";
   progress: number;
   owner: string;
   dueDate: string;
@@ -45,15 +45,15 @@ type WorkManagementItem = {
   blockers: string[];
   deliverables: string[];
   tags: string[];
-  visibility: "publico" | "privado";
+  visibility: "público" | "privado";
 };
 
 const workManagementItems: WorkManagementItem[] = [
   {
     id: "work-placeholder-public-01",
-    title: "Projeto publico 01",
+    title: "Projeto público 01",
     client: "Placeholder",
-    summary: "Espaco reservado para o primeiro projeto que voltar ao portfolio.",
+    summary: "Espaço reservado para o primeiro projeto que voltar ao portfolio.",
     stage: "briefing",
     priority: "Media",
     health: "Saudavel",
@@ -61,11 +61,11 @@ const workManagementItems: WorkManagementItem[] = [
     owner: "Henrique",
     dueDate: "2026-05-30",
     updatedAt: "2026-05-15",
-    nextAction: "Definir qual projeto entra primeiro no feed publico.",
-    blockers: ["Curadoria dos cases ainda nao finalizada."],
+    nextAction: "Definir qual projeto entra primeiro no feed público.",
+    blockers: ["Curadoria dos cases ainda não finalizada."],
     deliverables: ["Titulo", "Resumo", "Estrutura do artigo"],
-    tags: ["Placeholder", "Portfolio", "Publico"],
-    visibility: "publico",
+    tags: ["Placeholder", "Portfolio", "Público"],
+    visibility: "público",
   },
   {
     id: "work-placeholder-internal-01",
@@ -74,12 +74,12 @@ const workManagementItems: WorkManagementItem[] = [
     summary: "Reserva para um projeto interno que sera republicado com escopo mais simples.",
     stage: "planejamento",
     priority: "Media",
-    health: "Atencao",
+    health: "Atenção",
     progress: 16,
     owner: "Henrique",
     dueDate: "2026-06-05",
     updatedAt: "2026-05-15",
-    nextAction: "Escolher quais modulos realmente valem entrar no portfolio.",
+    nextAction: "Escolher quais módulos realmente valem entrar no portfolio.",
     blockers: ["Escopo antigo ainda precisa ser condensado."],
     deliverables: ["Recorte funcional", "Texto de contexto", "Capturas novas"],
     tags: ["Placeholder", "Sistema", "Interno"],
@@ -89,7 +89,7 @@ const workManagementItems: WorkManagementItem[] = [
     id: "work-placeholder-client-02",
     title: "Case de cliente 02",
     client: "Placeholder",
-    summary: "Reserva para um novo artigo de cliente quando a proxima publicacao estiver pronta.",
+    summary: "Reserva para um novo artigo de cliente quando a próxima publicacao estiver pronta.",
     stage: "execucao",
     priority: "Baixa",
     health: "Saudavel",
@@ -101,7 +101,7 @@ const workManagementItems: WorkManagementItem[] = [
     blockers: [],
     deliverables: ["Estrutura visual", "Resumo objetivo", "CTA final"],
     tags: ["Placeholder", "Cliente", "Feed"],
-    visibility: "publico",
+    visibility: "público",
   },
 ];
 

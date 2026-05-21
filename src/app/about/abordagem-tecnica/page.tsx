@@ -2,6 +2,7 @@ import { Button, Column, Grid, Heading, Meta, Row, Schema, SmartLink, Tag, Text 
 
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { about, baseURL, person, social, technicalApproach, work } from "@/resources";
+import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 
 import styles from "../../abordagem-tecnica/page.module.scss";
 
@@ -74,13 +75,26 @@ const systemBlocks = [
 ];
 
 export async function generateMetadata() {
-  return Meta.generate({
+  const image = buildOgImage(technicalApproach.title);
+  const generatedMeta = Meta.generate({
     title: technicalApproach.title,
     description: technicalApproach.description,
     baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent(technicalApproach.title)}`,
+    image,
     path: technicalApproach.path,
   });
+
+  return {
+    ...generatedMeta,
+    openGraph: {
+      ...generatedMeta.openGraph,
+      images: buildDiscoverImageMetadata(image, technicalApproach.title),
+    },
+    twitter: {
+      ...generatedMeta.twitter,
+      images: [image],
+    },
+  };
 }
 
 export default function TechnicalApproachPage() {

@@ -32,7 +32,7 @@ const frictionPoints = [
     label: "Oferta confusa",
     title: "Muita gente boa perde cliente porque não explica bem o que faz.",
     description:
-      "O visitante entra, gosta do visual, mas não entende com clareza o serviço, o perfil de cliente atendido e o próximo passo.",
+      "O visitante entra, gosta do visual, mas não entende o serviço, o perfil de cliente atendido e o próximo passo.",
   },
   {
     label: "Autoridade dispersa",
@@ -118,7 +118,7 @@ export default function CreativeServiceLanding({
             </Row>
 
             <Heading as="h1" variant="heading-strong-xl" wrap="balance">
-              Uma landing page para freelancers criativos que querem ser lembrados com mais clareza.
+              Uma landing page para freelancers criativos apresentarem melhor serviço, processo e prova.
             </Heading>
             <div className={styles.accentLine} />
             <Text className={styles.lead} variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
@@ -337,7 +337,7 @@ export default function CreativeServiceLanding({
             O que entra
           </Tag>
           <Heading as="h2" variant="heading-strong-m">
-            Base para captar clientes com mais clareza
+            Base para captar clientes com uma oferta mais legível
           </Heading>
           <Column as="ul" className={styles.list} gap="8">
             {service.includes.map((item) => (

@@ -35,6 +35,8 @@ export type FontsConfig = {
   body: NextFontWithVariable;
   label: NextFontWithVariable;
   code: NextFontWithVariable;
+  technical: NextFontWithVariable;
+  accent: NextFontWithVariable;
 };
 
 /**

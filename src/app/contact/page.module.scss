@@ -10,14 +10,15 @@
   position: relative;
   overflow: hidden;
   width: 100%;
+  border: 1px solid var(--border-subtle);
   background: var(--surface-panel);
-  box-shadow: var(--shadow-soft);
+  box-shadow: none;
 }
 
 .hero {
   border-radius: var(--radius-panel);
   background: var(--surface-panel-strong);
-  box-shadow: var(--shadow-card);
+  box-shadow: none;
 }
 
 .panel,
@@ -28,13 +29,7 @@
 .hero::before,
 .panel::before,
 .methodCard::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 12% 0%, var(--brand-glow), transparent 28%),
-    radial-gradient(circle at 86% 0%, var(--accent-glow), transparent 22%);
-  pointer-events: none;
+  content: none;
 }
 
 .hero > *,
@@ -81,7 +76,7 @@
   width: 4rem;
   height: 2px;
   border-radius: var(--radius-pill);
-  background: linear-gradient(90deg, var(--color-accent-gold), var(--color-accent-blue));
+  background: var(--color-accent-gold);
 }
 
 .methodActions,

@@ -16,9 +16,10 @@
 .ctaPanel {
   position: relative;
   overflow: hidden;
-  border-radius: 1.7rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-24);
   background: var(--surface-panel);
-  box-shadow: var(--shadow-soft);
+  box-shadow: none;
 }
 
 .hero::before,
@@ -31,13 +32,7 @@
 .scopeCard::before,
 .faqCard::before,
 .ctaPanel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 12% 10%, rgba(92, 151, 232, 0.14), transparent 30%),
-    radial-gradient(circle at 84% 4%, rgba(235, 112, 97, 0.12), transparent 24%);
-  pointer-events: none;
+  content: none;
 }
 
 .hero > *,
@@ -87,7 +82,7 @@
   width: 4.25rem;
   height: 2px;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--scheme-brand-700), var(--scheme-accent-700));
+  background: var(--scheme-brand-700);
 }
 
 .tagRow,
@@ -154,7 +149,7 @@
   .scopeCard:hover,
   .faqCard:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-card);
+    box-shadow: none;
     background: rgba(255, 255, 255, 0.035);
     transition:
       transform 180ms ease,
@@ -185,7 +180,7 @@
   .scopeCard,
   .faqCard,
   .ctaPanel {
-    border-radius: 1.35rem;
+    border-radius: var(--radius-24);
   }
 
   .metricRow {

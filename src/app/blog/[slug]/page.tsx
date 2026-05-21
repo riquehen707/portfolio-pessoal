@@ -17,17 +17,20 @@ import {
 
 import { CustomMDX, ScrollToHash } from "@/components";
 import { getBlogCollectionLabel, getBlogCollectionSlug } from "@/app/blog/postData";
-import { Posts } from "@/components/blog/Posts";
+import { ArticleNativeCTA } from "@/components/blog/ArticleNativeCTA";
+import { ArticleTools } from "@/components/blog/ArticleTools";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { baseURL, about, blog, person } from "@/resources";
-import { buildOgImage } from "@/utils/og";
-import { getPosts } from "@/utils/utils";
+import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
+import { type BlogFile, getPosts } from "@/utils/utils";
 
 import styles from "./page.module.scss";
 
 type PageProps = {
   params: Promise<{ slug: string | string[] }>;
 };
+
+const readingTrailLabels = ["Para aplicar", "Para aprofundar", "Relacionado"] as const;
 
 function normalizeSlug(slugParam: string | string[] | undefined): string {
   if (!slugParam) return "";
@@ -53,6 +56,37 @@ function toLocal(src?: string): string | undefined {
   }
 }
 
+function toSet(values?: string[]) {
+  return new Set((values ?? []).filter(Boolean));
+}
+
+function getDateScore(post: BlogFile) {
+  const timestamp = new Date(post.metadata.updatedAt ?? post.metadata.publishedAt ?? 0).getTime();
+  return Number.isFinite(timestamp) ? timestamp / 1_000_000_000_000 : 0;
+}
+
+function getRelatedScore(current: BlogFile, candidate: BlogFile) {
+  const currentCategories = toSet(current.metadata.categories);
+  const currentTags = toSet(current.metadata.tags);
+  const candidateCategories = candidate.metadata.categories ?? [];
+  const candidateTags = candidate.metadata.tags ?? [];
+
+  const collectionScore = current.collection && candidate.collection === current.collection ? 16 : 0;
+  const categoryScore = candidateCategories.filter((category) => currentCategories.has(category)).length * 5;
+  const tagScore = candidateTags.filter((tag) => currentTags.has(tag)).length * 3;
+  const primaryCategoryScore =
+    current.metadata.category && candidate.metadata.category === current.metadata.category ? 4 : 0;
+
+  return collectionScore + categoryScore + tagScore + primaryCategoryScore + getDateScore(candidate);
+}
+
+function getReadingTrail(current: BlogFile, posts: BlogFile[]) {
+  return posts
+    .filter((candidate) => candidate.slug !== current.slug)
+    .sort((left, right) => getRelatedScore(current, right) - getRelatedScore(current, left))
+    .slice(0, 4);
+}
+
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "blog", "posts"]);
   return posts.map((post) => ({
@@ -75,15 +109,28 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       post.metadata.title,
       post.metadata.tag ?? post.metadata.tags?.[0] ?? post.metadata.categories?.[0] ?? "Blog",
     );
+  const absoluteImage = toAbs(image);
+  const generatedMeta = Meta.generate({
+    title: post.metadata.title,
+    description: post.metadata.summary ?? post.metadata.title,
+    baseURL,
+    image: absoluteImage,
+    path: `${blog.path}/${post.slug}`,
+  });
 
   return {
-    ...Meta.generate({
-      title: post.metadata.title,
-      description: post.metadata.summary ?? post.metadata.title,
-      baseURL,
-      image: toAbs(image),
-      path: `${blog.path}/${post.slug}`,
-    }),
+    ...generatedMeta,
+    openGraph: {
+      ...generatedMeta.openGraph,
+      images: buildDiscoverImageMetadata(
+        absoluteImage,
+        post.metadata.imageAlt ?? post.metadata.title,
+      ),
+    },
+    twitter: {
+      ...generatedMeta.twitter,
+      images: absoluteImage ? [absoluteImage] : undefined,
+    },
     keywords: [...(post.metadata.categories ?? []), ...(post.metadata.tags ?? []), person.name].filter(
       (value): value is string => Boolean(value),
     ),
@@ -105,7 +152,8 @@ export default async function BlogPost({ params }: PageProps) {
   const { slug } = await params;
   const slugPath = normalizeSlug(slug);
 
-  const post = getPosts(["src", "app", "blog", "posts"]).find((item) => item.slug === slugPath);
+  const posts = getPosts(["src", "app", "blog", "posts"]);
+  const post = posts.find((item) => item.slug === slugPath);
 
   if (!post) notFound();
 
@@ -141,13 +189,22 @@ export default async function BlogPost({ params }: PageProps) {
   const tags = post.metadata.tags ?? (post.metadata.tag ? [post.metadata.tag] : []);
   const collectionSlug = getBlogCollectionSlug(post);
   const collectionLabel = getBlogCollectionLabel(collectionSlug);
+  const publishedDate = post.metadata.publishedAt
+    ? new Date(post.metadata.publishedAt).toLocaleDateString("pt-BR")
+    : "Sem data definida";
+  const updatedDate = post.metadata.updatedAt
+    ? new Date(post.metadata.updatedAt).toLocaleDateString("pt-BR")
+    : publishedDate;
+  const articlePath = `${blog.path}/${post.slug}`;
+  const readingTrail = getReadingTrail(post, posts);
+  const [primaryReading, ...secondaryReadings] = readingTrail;
 
   return (
-    <Column className={styles.page} maxWidth="m" paddingTop="24" gap="24">
+    <Column className={styles.page} maxWidth="l" paddingTop="24" gap="24">
       <Schema
         as="blogPosting"
         baseURL={baseURL}
-        path={`${blog.path}/${post.slug}`}
+        path={articlePath}
         title={post.metadata.title}
         description={post.metadata.summary ?? post.metadata.title}
         datePublished={post.metadata.publishedAt}
@@ -167,31 +224,26 @@ export default async function BlogPost({ params }: PageProps) {
         ]}
       />
 
-      <Column className={styles.hero} gap="24" padding="24">
-        <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="20">
-          <Column className={styles.heroMain} gap="16">
+      <Column className={styles.hero} gap="24">
+        <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="24">
+          <Column className={styles.heroMain} gap="20">
             <SmartLink href="/blog">Voltar para o blog</SmartLink>
 
-            {collectionSlug && collectionLabel ? (
-              <Row className={styles.categoryRow} gap="8" wrap>
+            <Row className={styles.eyebrowRow} gap="12" wrap>
+              {collectionSlug && collectionLabel ? (
                 <SmartLink href={`/blog/temas/${collectionSlug}`}>{collectionLabel}</SmartLink>
-              </Row>
-            ) : null}
+              ) : null}
+              {categories.slice(0, 2).map((category) => (
+                <Text key={category} as="span" variant="label-default-s" onBackground="neutral-weak">
+                  {category}
+                </Text>
+              ))}
+            </Row>
 
-            {categories.length > 0 && (
-              <Row className={styles.categoryRow} gap="8" wrap>
-                {categories.slice(0, 3).map((category) => (
-                  <Tag key={category} size="s" background="brand-alpha-weak" onBackground="brand-strong">
-                    {category}
-                  </Tag>
-                ))}
-              </Row>
-            )}
-
-            <Heading variant="display-strong-m" wrap="balance">
+            <Heading as="h1" className={styles.heroTitle} variant="display-strong-l" wrap="balance">
               {post.metadata.title}
             </Heading>
-            <div className={styles.accentLine} />
+
             {post.metadata.summary && (
               <Text className={styles.heroLead} onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
                 {post.metadata.summary}
@@ -199,56 +251,38 @@ export default async function BlogPost({ params }: PageProps) {
             )}
           </Column>
 
-          <Column className={styles.heroAside} gap="12">
-            <Column className={styles.metaCard} gap="12">
+          <aside className={styles.heroAside} aria-label="Metadados do artigo">
+            <div className={styles.byline}>
               <Text className={styles.metaLabel} variant="label-default-s" onBackground="neutral-weak">
-                Publicado
-              </Text>
-              <Text variant="heading-strong-s">
-                {post.metadata.publishedAt
-                  ? new Date(post.metadata.publishedAt).toLocaleDateString("pt-BR")
-                  : "Sem data definida"}
-              </Text>
-            </Column>
-
-            <Column className={styles.metaCard} gap="12">
-              <Text className={styles.metaLabel} variant="label-default-s" onBackground="neutral-weak">
-                Atualizado
-              </Text>
-              <Text variant="heading-strong-s">
-                {post.metadata.updatedAt
-                  ? new Date(post.metadata.updatedAt).toLocaleDateString("pt-BR")
-                  : post.metadata.publishedAt
-                    ? new Date(post.metadata.publishedAt).toLocaleDateString("pt-BR")
-                    : "Sem data definida"}
-              </Text>
-            </Column>
-
-            <Column className={styles.metaCard} gap="12">
-              <Text className={styles.metaLabel} variant="label-default-s" onBackground="neutral-weak">
-                Autor
+                Por
               </Text>
               <div className={styles.authorCard}>
                 <Avatar size="s" src={authors[0].imageLocal} />
-                <Text variant="body-default-m">{authors[0].name}</Text>
+                <Text variant="body-strong-m">{authors[0].name}</Text>
               </div>
-            </Column>
+            </div>
+
+            <dl className={styles.metaList}>
+              <div>
+                <dt>Publicado</dt>
+                <dd>{publishedDate}</dd>
+              </div>
+              <div>
+                <dt>Atualizado</dt>
+                <dd>{updatedDate}</dd>
+              </div>
+            </dl>
 
             {tags.length > 0 && (
-              <Column className={styles.metaCard} gap="12">
-                <Text className={styles.metaLabel} variant="label-default-s" onBackground="neutral-weak">
-                  Termos
-                </Text>
-                <Row className={styles.tagRow} gap="8" wrap>
-                  {tags.slice(0, 5).map((tag) => (
-                    <Tag key={tag} size="s" background="neutral-alpha-weak">
-                      {tag}
-                    </Tag>
-                  ))}
-                </Row>
-              </Column>
+              <Row className={styles.tagRow} gap="8" wrap>
+                {tags.slice(0, 5).map((tag) => (
+                  <Tag key={tag} size="s" background="neutral-alpha-weak">
+                    {tag}
+                  </Tag>
+                ))}
+              </Row>
             )}
-          </Column>
+          </aside>
         </Grid>
       </Column>
 
@@ -266,29 +300,53 @@ export default async function BlogPost({ params }: PageProps) {
         </div>
       )}
 
-      <Column className={styles.articleShell} horizontal="center">
-        <Column className={styles.article} as="article" maxWidth="s">
+      <div className={styles.articleShell}>
+        <ArticleNativeCTA theme={collectionLabel ?? categories[0]} />
+        <Column className={styles.article} id="article-content" as="article" maxWidth="s">
           <CustomMDX source={post.content} glossary={post.metadata.glossary ?? {}} />
         </Column>
-      </Column>
-
-      <Column className={styles.relatedPanel} fillWidth gap="20" padding="24">
-        <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-          Continue lendo
-        </Tag>
-        <Heading as="h2" variant="heading-strong-xl">
-          Mais textos do caderno editorial
-        </Heading>
-        <Posts
-          exclude={[post.slug]}
-          range={[1, 2]}
-          columns="2"
-          thumbnail
-          direction="column"
-          showSummary
-          marginBottom="0"
+        <ArticleTools
+          title={post.metadata.title}
+          summary={post.metadata.summary}
+          readingTime={post.metadata.readingTime}
+          url={articlePath}
         />
-      </Column>
+      </div>
+
+      {primaryReading ? (
+        <section className={styles.relatedPanel} aria-labelledby="reading-trail-title">
+          <div className={styles.relatedHeader}>
+            <Text className={styles.metaLabel} variant="label-default-s" onBackground="neutral-weak">
+              Continue lendo
+            </Text>
+            <Heading id="reading-trail-title" as="h2" variant="heading-strong-xl">
+              Uma trilha para continuar a leitura
+            </Heading>
+          </div>
+
+          <a className={styles.primaryReading} href={`${blog.path}/${primaryReading.slug}`}>
+            <span className={styles.readingLabel}>Próximo passo</span>
+            <span className={styles.primaryReadingTitle}>{primaryReading.metadata.title}</span>
+            {primaryReading.metadata.summary ? (
+              <span className={styles.primaryReadingSummary}>{primaryReading.metadata.summary}</span>
+            ) : null}
+          </a>
+
+          {secondaryReadings.length > 0 ? (
+            <div className={styles.secondaryReadings}>
+              {secondaryReadings.slice(0, 3).map((item, index) => (
+                <a className={styles.secondaryReading} href={`${blog.path}/${item.slug}`} key={item.slug}>
+                  <span className={styles.readingLabel}>{readingTrailLabels[index] ?? "Relacionado"}</span>
+                  <span className={styles.secondaryReadingTitle}>{item.metadata.title}</span>
+                  {item.metadata.readingTime ? (
+                    <span className={styles.secondaryReadingMeta}>{item.metadata.readingTime} min de leitura</span>
+                  ) : null}
+                </a>
+              ))}
+            </div>
+          ) : null}
+        </section>
+      ) : null}
       <ScrollToHash />
     </Column>
   );

@@ -65,9 +65,9 @@
   --space-section-lg: clamp(1.5rem, 4vw, 2.75rem);
 
   --radius-8: 0.5rem;
-  --radius-16: 1rem;
-  --radius-24: 1.5rem;
-  --radius-panel: 1.75rem;
+  --radius-16: 0.5rem;
+  --radius-24: 0.75rem;
+  --radius-panel: 0.9rem;
   --radius-pill: 999px;
 
   --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
@@ -88,8 +88,8 @@
   --type-body: clamp(1rem, 1vw, 1.125rem);
   --type-caption: 0.875rem;
   --line-body: 1.7;
-  --tracking-display: -0.055em;
-  --tracking-tight: -0.04em;
+  --tracking-display: 0;
+  --tracking-tight: 0;
 
   --grid-max-width: 1280px;
   --grid-max-width-wide: 1440px;
@@ -101,5 +101,5 @@
   --scroll-offset: 7rem;
   --scroll-offset-mobile: 8rem;
   --focus-ring: rgba(255, 215, 0, 0.54);
-  --accent-line-gradient: linear-gradient(90deg, var(--color-accent-gold), var(--color-accent-blue));
+  --accent-line-gradient: var(--color-accent-gold);
 }

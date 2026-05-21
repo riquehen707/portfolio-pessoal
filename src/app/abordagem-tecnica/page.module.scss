@@ -9,16 +9,15 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+  border: 1px solid var(--border-subtle);
   background: var(--surface-panel);
-  box-shadow: var(--shadow-soft);
+  box-shadow: none;
 }
 
 .hero {
-  border-radius: 2rem;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent),
-    var(--surface-panel-strong);
-  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-panel);
+  background: var(--surface-panel-strong);
+  box-shadow: none;
 }
 
 .hero::before,
@@ -27,25 +26,11 @@
 .pillarCard::before,
 .processCard::before,
 .systemCard::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 14% 0%, var(--brand-glow), transparent 28%),
-    radial-gradient(circle at 88% 0%, var(--accent-glow), transparent 20%);
-  pointer-events: none;
+  content: none;
 }
 
 .hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 2.75rem 2.75rem;
-  opacity: 0.22;
-  pointer-events: none;
+  content: none;
 }
 
 .hero > *,
@@ -83,7 +68,7 @@
   width: 4.5rem;
   height: 2px;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--scheme-brand-700), var(--scheme-accent-700));
+  background: var(--scheme-brand-700);
 }
 
 .actions {
@@ -96,8 +81,9 @@
 .systemCard {
   position: relative;
   overflow: hidden;
+  border: 1px solid var(--border-subtle);
   background: rgba(255, 255, 255, 0.02);
-  box-shadow: var(--shadow-soft);
+  box-shadow: none;
   transition:
     transform 180ms ease,
     border-color 180ms ease,
@@ -187,7 +173,7 @@
     transform: translateY(-2px);
     border-color: var(--border-strong);
     background: rgba(255, 255, 255, 0.04);
-    box-shadow: var(--shadow-card);
+    box-shadow: none;
   }
 }
 

@@ -16,12 +16,12 @@
 
 .root::before {
   left: 0;
-  background: linear-gradient(90deg, var(--surface-panel-strong), transparent);
+  background: transparent;
 }
 
 .root::after {
   right: 0;
-  background: linear-gradient(270deg, var(--surface-panel-strong), transparent);
+  background: transparent;
 }
 
 .viewport {
@@ -56,19 +56,12 @@
 
 .card {
   min-width: clamp(15rem, 28vw, 19rem);
-  padding: 0.95rem 1rem;
-  border: 1px solid rgba(169, 189, 214, 0.18);
-  border-radius: 1.25rem;
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.08),
-      transparent 30%,
-      rgba(255, 255, 255, 0.03) 70%,
-      transparent 100%
-    ),
-    var(--surface-panel-soft);
-  box-shadow: var(--shadow-soft);
+  padding: 0.95rem 0;
+  border: 0;
+  border-top: 1px solid rgba(169, 189, 214, 0.18);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
   white-space: normal;
 }
 
@@ -81,11 +74,10 @@
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 999px;
-  background: linear-gradient(135deg, var(--brand-solid-strong), var(--accent-solid-strong));
-  color: var(--neutral-on-solid-strong);
-  box-shadow:
-    0 10px 24px rgba(0, 0, 0, 0.14),
-    0 0 20px rgba(82, 144, 255, 0.16);
+  border: 1px solid var(--border-subtle);
+  background: transparent;
+  color: var(--color-accent-gold);
+  box-shadow: none;
 }
 
 .label {

@@ -1,0 +1,141 @@
+.rail {
+  position: sticky;
+  top: calc(var(--scroll-offset) + 1rem);
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 16rem);
+  max-height: calc(100svh - var(--scroll-offset) - 2rem);
+  overflow-y: auto;
+  padding-left: 1rem;
+  border-left: 1px solid var(--border-subtle);
+  color: var(--neutral-on-background-medium);
+  scrollbar-width: thin;
+}
+
+.section {
+  display: grid;
+  gap: 0.65rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.section:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.label {
+  color: var(--neutral-on-background-weak);
+  font-family: var(--font-technical);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.summary {
+  margin: 0;
+  color: var(--neutral-on-background-medium);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.readingTime {
+  color: var(--neutral-on-background-strong);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.toc {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.tocLink {
+  display: block;
+  color: var(--neutral-on-background-weak);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  text-decoration: none;
+}
+
+.tocLink[data-active="true"] {
+  color: var(--neutral-on-background-strong);
+  font-weight: 700;
+}
+
+.tocLink:hover,
+.tocLink:focus-visible {
+  color: var(--brand-on-background-strong);
+}
+
+.actions {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.button,
+.stepperButton {
+  appearance: none;
+  border: 1px solid var(--border-subtle);
+  border-width: 0 0 1px;
+  border-radius: 0;
+  background: transparent;
+  color: var(--neutral-on-background-medium);
+  cursor: pointer;
+  font: inherit;
+  line-height: 1;
+}
+
+.button {
+  min-height: 2rem;
+  padding: 0.45rem 0;
+  text-align: left;
+}
+
+.button[data-active="true"] {
+  border-color: var(--border-strong);
+  color: var(--neutral-on-background-strong);
+}
+
+.button:hover,
+.button:focus-visible,
+.stepperButton:hover,
+.stepperButton:focus-visible {
+  border-color: var(--border-strong);
+  color: var(--neutral-on-background-strong);
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.stepperButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+}
+
+.scaleValue {
+  min-width: 3.2rem;
+  color: var(--neutral-on-background-weak);
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+.status {
+  min-height: 1rem;
+  color: var(--brand-on-background-strong);
+  font-size: 0.76rem;
+  line-height: 1.35;
+}
+
+@media (max-width: 1180px) {
+  .rail {
+    display: none;
+  }
+}

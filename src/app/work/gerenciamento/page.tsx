@@ -14,6 +14,7 @@ import {
 
 import { baseURL, work } from "@/resources";
 import { getWorkAdminSession } from "@/lib/workAdminAuth";
+import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 
 import { loginWorkManagement, logoutWorkManagement } from "./actions";
 import { getWorkGanttDataset, getWorkGanttFieldGroupSummary } from "./ganttData";
@@ -85,14 +86,27 @@ function getHealthClass(health: string) {
 }
 
 export async function generateMetadata(): Promise<Metadata> {
+  const title = "Painel de gestão | Work";
+  const description = "Área interna para acompanhar pipeline, prioridades e andamento dos projetos.";
+  const image = buildOgImage("Painel de gestão");
+  const generatedMeta = Meta.generate({
+    title,
+    description,
+    baseURL,
+    image,
+    path: workManagementPath,
+  });
+
   return {
-    ...Meta.generate({
-      title: "Painel de gestão | Work",
-      description: "Área interna para acompanhar pipeline, prioridades e andamento dos projetos.",
-      baseURL,
-      image: `/api/og/generate?title=${encodeURIComponent("Painel de gestão")}`,
-      path: workManagementPath,
-    }),
+    ...generatedMeta,
+    openGraph: {
+      ...generatedMeta.openGraph,
+      images: buildDiscoverImageMetadata(image, title),
+    },
+    twitter: {
+      ...generatedMeta.twitter,
+      images: [image],
+    },
     robots: {
       index: false,
       follow: false,
@@ -124,7 +138,7 @@ function LoginView({ hasAuthError }: { hasAuthError: boolean }) {
               <Text variant="body-default-m">Agenda das entregas mais próximas e leitura de risco por projeto.</Text>
             </li>
             <li className={styles.bulletItem}>
-              <Text variant="body-default-m">Separação clara entre gestão interna, placeholders e futuras publicações do portfolio.</Text>
+              <Text variant="body-default-m">Separação clara entre gestão interna, placeholders e futuras públicações do portfolio.</Text>
             </li>
           </ul>
 
@@ -199,7 +213,7 @@ function DashboardView({ username }: { username: string }) {
       blocker,
     })),
   );
-  const publishedItems = items.filter((item) => item.visibility === "publico" && item.publicHref);
+  const publishedItems = items.filter((item) => item.visibility === "público" && item.publicHref);
   const agendaItems = [...items]
     .filter((item) => item.stage !== "entregue")
     .sort((left, right) => +new Date(left.dueDate) - +new Date(right.dueDate))
@@ -226,7 +240,7 @@ function DashboardView({ username }: { username: string }) {
               Ver área pública de projetos
             </Button>
             <Button href={publishedItems[0]?.publicHref ?? work.path} variant="secondary" size="m" arrowIcon>
-              Abrir feed publico
+              Abrir feed público
             </Button>
           </Row>
         </div>
@@ -306,7 +320,7 @@ function DashboardView({ username }: { username: string }) {
             Base de dados inserivel e traduzida para linha do tempo
           </Heading>
           <Text onBackground="neutral-weak" variant="body-default-m">
-            Antes do grafico e do PDF, a estrutura ja esta pronta para trabalhar tarefas, dependencias,
+            Antes do grafico e do PDF, a estrutura já está pronta para trabalhar tarefas, dependencias,
             semanas ISO, meses, filtros por periodo e projetos reais ligados ao admin.
           </Text>
         </div>
@@ -327,12 +341,12 @@ function DashboardView({ username }: { username: string }) {
               </li>
               <li className={styles.bulletItem}>
                 <Text variant="body-default-m">
-                  {ganttDataset.projects.length} projetos com janela propria de execucao.
+                  {ganttDataset.projects.length} projetos com janela própria de execução.
                 </Text>
               </li>
               <li className={styles.bulletItem}>
                 <Text variant="body-default-m">
-                  Semanas visiveis: S{String(ganttDataset.visibleStartWeek).padStart(2, "0")} ate S
+                  Semanas visiveis: S{String(ganttDataset.visibleStartWeek).padStart(2, "0")} até S
                   {String(ganttDataset.visibleEndWeek).padStart(2, "0")} em 2026.
                 </Text>
               </li>
@@ -349,7 +363,7 @@ function DashboardView({ username }: { username: string }) {
               Projetos reais
             </Text>
             <Heading as="h3" variant="heading-strong-l">
-              Periodos ja mapeados por projeto
+              Periodos já mapeados por projeto
             </Heading>
             <ul className={styles.periodList}>
               {ganttHighlightedProjects.map((project) => (
@@ -371,7 +385,7 @@ function DashboardView({ username }: { username: string }) {
               Campos inseriveis
             </Text>
             <Heading as="h3" variant="heading-strong-l">
-              Estrutura pronta para formulario, JSON e PDF
+              Estrutura pronta para formulário, JSON e PDF
             </Heading>
             <div className={styles.fieldGrid}>
               {ganttFieldGroups.map((group) => (
@@ -444,7 +458,7 @@ function DashboardView({ username }: { username: string }) {
                         <span className={getHealthClass(item.health)} />
                         {item.health}
                       </span>
-                      <span className={styles.pill}>{item.visibility === "publico" ? "Público" : "Privado"}</span>
+                      <span className={styles.pill}>{item.visibility === "público" ? "Público" : "Privado"}</span>
                       <span className={styles.pill}>Prazo {formatDate(item.dueDate)}</span>
                     </div>
 

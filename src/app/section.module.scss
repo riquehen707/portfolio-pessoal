@@ -10,20 +10,15 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  border-radius: var(--radius-panel);
-  background: var(--surface-panel);
-  box-shadow: var(--shadow-soft);
+  border-top: 1px solid var(--border-subtle);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .heroGlow::before,
 .sectionPanel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 16% 10%, var(--brand-glow), transparent 30%),
-    radial-gradient(circle at 84% 0%, var(--accent-glow), transparent 20%);
-  pointer-events: none;
+  content: none;
 }
 
 .heroGlow > *,
@@ -36,12 +31,12 @@
   width: 4.5rem;
   height: 2px;
   border-radius: var(--radius-pill);
-  background: linear-gradient(90deg, var(--color-accent-gold), var(--color-accent-blue));
+  background: var(--color-accent-gold);
 }
 
 @media (max-width: breakpoints.$s) {
   .heroGlow,
   .sectionPanel {
-    border-radius: calc(var(--radius-24) - 0.1rem);
+    border-radius: 0;
   }
 }

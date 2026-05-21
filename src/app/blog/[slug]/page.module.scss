@@ -5,41 +5,39 @@
 }
 
 .hero,
-.metaCard,
 .coverShell,
 .relatedPanel {
   position: relative;
-  overflow: hidden;
   width: 100%;
-  border-radius: 1.75rem;
-  background: var(--surface-panel);
-  box-shadow: var(--shadow-soft);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .hero::before,
-.metaCard::before,
 .coverShell::before,
 .relatedPanel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 14% 10%, var(--brand-glow), transparent 28%),
-    radial-gradient(circle at 84% 0%, var(--accent-glow), transparent 20%);
-  pointer-events: none;
+  content: none;
 }
 
 .hero > *,
-.metaCard > *,
 .coverShell > *,
 .relatedPanel > * {
   position: relative;
   z-index: 1;
 }
 
+.coverShell {
+  max-width: 58rem;
+  margin-inline: auto;
+}
+
 .heroGrid {
   width: 100%;
-  align-items: stretch;
+  align-items: end;
+  grid-template-columns: minmax(0, 1fr) minmax(14rem, 18rem);
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .heroMain,
@@ -50,30 +48,54 @@
 
 .heroLead {
   max-width: 42rem;
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.42;
 }
 
-.accentLine {
-  width: 4rem;
-  height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--scheme-brand-700), var(--scheme-accent-700));
+.heroTitle {
+  max-width: 52rem;
+  font-size: clamp(2.4rem, 3.4vw, 3.15rem) !important;
+  line-height: 1.08 !important;
 }
 
-.categoryRow,
+.eyebrowRow,
 .tagRow {
   row-gap: 0.5rem;
 }
 
-.heroAside {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.eyebrowRow {
+  align-items: center;
+  padding-top: 0.5rem;
+  color: var(--neutral-on-background-weak);
 }
 
-.metaCard {
-  padding: 1.15rem;
-  border-radius: 1.45rem;
-  background: rgba(255, 255, 255, 0.02);
+.eyebrowRow span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.eyebrowRow span::before {
+  width: 0.25rem;
+  height: 0.25rem;
+  margin-right: 0.75rem;
+  border-radius: 999px;
+  background: var(--neutral-on-background-weak);
+  content: "";
+  opacity: 0.45;
+}
+
+.heroAside {
+  display: grid;
+  gap: 1.15rem;
+  align-self: end;
+  padding-top: 1rem;
+  color: var(--neutral-on-background-weak);
+}
+
+.byline {
+  display: grid;
+  gap: 0.65rem;
 }
 
 .metaLabel {
@@ -87,33 +109,324 @@
   gap: 0.85rem;
 }
 
+.metaList {
+  display: grid;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.metaList div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.metaList dt,
+.metaList dd {
+  margin: 0;
+}
+
+.metaList dt {
+  color: var(--neutral-on-background-weak);
+  font-size: var(--font-size-label-s);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.metaList dd {
+  color: var(--neutral-on-background-strong);
+  font-size: var(--font-size-body-s);
+  text-align: right;
+  white-space: nowrap;
+}
+
 .articleShell {
+  display: grid;
+  grid-template-columns: minmax(12rem, 14rem) minmax(0, 1fr) minmax(13rem, 16rem);
+  gap: clamp(1.5rem, 3.5vw, 3rem);
+  align-items: start;
   width: 100%;
+  padding-top: clamp(0.25rem, 1.5vw, 1rem);
 }
 
 .article {
-  width: 100%;
+  justify-self: center;
+  width: min(100%, 41.5rem);
+  color: var(--neutral-on-background-medium);
+  --article-font-size: clamp(1.05rem, 1vw, 1.13rem);
+  font-size: calc(var(--article-font-size) * var(--article-font-scale, 1));
+}
+
+.article :global(p),
+.article :global(li) {
+  color: var(--neutral-on-background-medium);
+}
+
+.article :global(strong),
+.article :global(b) {
+  color: var(--neutral-on-background-strong);
+  font-weight: 650;
+}
+
+.article :global(a) {
+  color: var(--brand-on-background-strong);
+  text-underline-offset: 0.18em;
+}
+
+.article :global([data-mdx-heading]) {
+  color: var(--neutral-on-background-strong);
+}
+
+.article :global([data-mdx-heading] + p) {
+  margin-top: 0;
+}
+
+:global(html[data-article-focus]) .hero,
+:global(html[data-article-focus]) .coverShell,
+:global(html[data-article-focus]) .relatedPanel {
+  display: none;
+}
+
+:global(html[data-article-focus]) .articleShell {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+:global(html[data-article-focus]) .article {
+  width: min(100%, 45rem);
 }
 
 .relatedPanel {
-  align-items: flex-start;
+  display: grid;
+  gap: 1.25rem;
+  padding-top: clamp(1.75rem, 4vw, 3rem);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.relatedHeader {
+  display: grid;
+  gap: 0.65rem;
+  max-width: 44rem;
+}
+
+.primaryReading,
+.secondaryReading {
+  color: inherit;
+  text-decoration: none;
+}
+
+.primaryReading {
+  display: grid;
+  gap: 0.7rem;
+  max-width: 52rem;
+  padding: 0 0 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.readingLabel {
+  color: var(--neutral-on-background-weak);
+  font-size: var(--font-size-label-s);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.primaryReadingTitle {
+  color: var(--neutral-on-background-strong);
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 2.5vw, 2.15rem);
+  font-weight: 760;
+  line-height: 1.1;
+}
+
+.primaryReadingSummary {
+  max-width: 42rem;
+  color: var(--neutral-on-background-medium);
+  font-size: var(--font-size-body-l);
+  line-height: 1.65;
+}
+
+.secondaryReadings {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.secondaryReading {
+  display: grid;
+  align-content: start;
+  gap: 0.65rem;
+  min-height: 10rem;
+  padding: 1.25rem 1.15rem 1.25rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.secondaryReading + .secondaryReading {
+  padding-left: 1.15rem;
+  border-left: 1px solid var(--border-subtle);
+}
+
+.secondaryReadingTitle {
+  color: var(--neutral-on-background-strong);
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 1.5vw, 1.35rem);
+  font-weight: 720;
+  line-height: 1.18;
+}
+
+.secondaryReadingMeta {
+  color: var(--neutral-on-background-weak);
+  font-size: var(--font-size-body-s);
 }
 
 @media (max-width: breakpoints.$m) {
+  .coverShell {
+    display: none;
+  }
+
+  .articleShell {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-top: 0;
+  }
+
   .heroGrid {
     grid-template-columns: 1fr;
+    align-items: start;
+    gap: 1rem;
+    padding-bottom: 1.15rem;
+  }
+
+  .heroAside {
+    gap: 0.65rem;
+    width: 100%;
+    padding-top: 0;
+  }
+
+  .byline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .metaList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.15rem;
+    padding: 0.7rem 0;
+  }
+
+  .metaList div {
+    justify-content: flex-start;
+    gap: 0.45rem;
+  }
+
+  .metaList dd {
+    text-align: left;
+  }
+
+  .secondaryReadings {
+    grid-template-columns: 1fr;
+    border-top: 0;
+  }
+
+  .secondaryReading,
+  .secondaryReading + .secondaryReading {
+    min-height: 0;
+    padding: 1rem 0;
+    border-left: 0;
+    border-top: 1px solid var(--border-subtle);
   }
 }
 
 @media (max-width: breakpoints.$s) {
+  .page {
+    padding-top: 0.75rem;
+  }
+
   .hero,
-  .metaCard,
   .coverShell,
   .relatedPanel {
-    border-radius: 1.45rem;
+    border-radius: 0;
   }
 
   .heroLead {
     max-width: none;
+  }
+
+  .heroTitle {
+    font-size: clamp(2rem, 10vw, 2.65rem) !important;
+    line-height: 1.03 !important;
+  }
+
+  .heroLead {
+    font-size: 1rem;
+    line-height: 1.42;
+  }
+
+  .heroGrid {
+    gap: 0.75rem;
+    padding-bottom: 0.95rem;
+  }
+
+  .heroMain {
+    gap: 0.7rem;
+  }
+
+  .heroMain > :first-child {
+    display: none;
+  }
+
+  .eyebrowRow {
+    gap: 0.5rem;
+    padding-top: 0;
+  }
+
+  .eyebrowRow span::before {
+    margin-right: 0.5rem;
+  }
+
+  .byline {
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .metaList {
+    gap: 0.35rem 1rem;
+    padding: 0.55rem 0;
+  }
+
+  .tagRow {
+    display: none;
+  }
+
+  .article {
+    width: min(100%, 38rem);
+    --article-font-size: 1.04rem;
+  }
+
+  .relatedPanel {
+    gap: 1.25rem;
+    padding-top: 1.8rem;
+  }
+
+  .primaryReading {
+    gap: 0.65rem;
+    padding: 0 0 1.15rem 0.9rem;
+  }
+
+  .primaryReadingTitle {
+    font-size: 1.45rem;
+    line-height: 1.12;
+  }
+
+  .primaryReadingSummary {
+    font-size: 1rem;
+    line-height: 1.55;
   }
 }

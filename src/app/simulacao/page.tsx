@@ -3,14 +3,17 @@ import { Column, Schema } from "@once-ui-system/core";
 import { GrowthSimulator } from "@/components/simulation/GrowthSimulator";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { baseURL, person, servicesPage, simulationPage, social } from "@/resources";
+import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 
 import styles from "./page.module.scss";
 
-const simulationTitle = "Simulacao antes de investir";
+const simulationTitle = "Simulação antes de investir";
 const simulationDescription =
-  "Uma leitura inicial para entender se a base atual sustenta ajustes internos, investimento e retorno antes de ampliar a operacao.";
+  "Uma leitura inicial para entender se a base atual sustenta ajustes internos, investimento e retorno antes de ampliar a operação.";
 
 export async function generateMetadata() {
+  const image = buildOgImage(simulationTitle);
+
   return {
     title: simulationTitle,
     description: simulationDescription,
@@ -19,7 +22,7 @@ export async function generateMetadata() {
       title: simulationTitle,
       description: simulationDescription,
       url: `${baseURL}${simulationPage.path}`,
-      images: [{ url: `/api/og/generate?title=${encodeURIComponent(simulationTitle)}` }],
+      images: buildDiscoverImageMetadata(image, simulationTitle),
     },
   };
 }
@@ -46,7 +49,7 @@ export default function SimulationPage() {
       <BreadcrumbJsonLd
         items={[
           { name: "Inicio", url: baseURL },
-          { name: "Simulacao", url: `${baseURL}${simulationPage.path}` },
+          { name: "Simulação", url: `${baseURL}${simulationPage.path}` },
         ]}
       />
       <GrowthSimulator servicesHref={servicesPage.path} contactHref={whatsappLink} />

@@ -1,6 +1,6 @@
-# Etapa 11 - CTA final, conversao e captacao de leads
+# Etapa 11 - CTA final, conversão e captação de leads
 
-Objetivo desta etapa: fazer a Home terminar com clareza operacional e abrir o contato sem friccao desnecessaria.
+Objetivo desta etapa: fazer a Home terminar com clareza operacional e abrir o contato sem fricção desnecessária.
 
 ## Estrutura aplicada
 
@@ -9,25 +9,25 @@ O fechamento da Home agora combina:
 1. headline final forte
 2. subheadline objetiva
 3. CTA principal para agenda
-4. CTA secundario para WhatsApp
-5. briefing curto dentro da propria secao
+4. CTA secundário para WhatsApp
+5. briefing curto dentro da própria seção
 
 ## O que mudou
 
 - o bloco final deixou de ser apenas dois botoes e texto de apoio
-- o formulario agora usa `Contato` em vez de exigir e-mail
+- o formulário agora usa `Contato` em vez de exigir e-mail
 - cada envio carrega `contextLabel` para identificar a origem do lead
 - a Home termina com agenda, WhatsApp e briefing no mesmo lugar
 
-## Conversao real
+## Conversão real
 
-O fluxo final agora cobre tres entradas:
+O fluxo final agora cobre três entradas:
 
 - agenda online
 - WhatsApp
-- formulario curto
+- formulário curto
 
-Isso reduz atrito e deixa obvio como comecar.
+Isso reduz atrito e deixa óbvio como começar.
 
 ## Tagging basico de leads
 
@@ -36,7 +36,7 @@ O `ContactBriefForm` passou a enviar a origem no corpo do mailto e na mensagem d
 Exemplo:
 
 - `CTA final da Home`
-- `Pagina de contato`
+- `Página de contato`
 
 ## Arquivos centrais
 
@@ -46,9 +46,9 @@ Exemplo:
 - `src/app/page.tsx`
 - `src/resources/content-strategy.ts`
 
-## Criterio de aprovacao
+## Critério de aprovacao
 
-- fica obvio como contratar ou falar
-- a Home encerra com mais forca que antes
-- o proximo passo nao depende de navegar para outra pagina
+- fica óbvio como contratar ou falar
+- a Home encerra com mais força que antes
+- o próximo passo não depende de navegar para outra página
 - o lead chega com contexto minimo suficiente para triagem

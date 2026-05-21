@@ -29,7 +29,7 @@ const person: Person = {
 const newsletter: Newsletter = {
   display: false,
   title: <>Assine a newsletter de {person.firstName}</>,
-  description: <>Notas sobre clareza digital, posicionamento, sistemas e execução.</>,
+  description: <>Notas sobre posicionamento, sistemas, operação e execução digital.</>,
 };
 
 const social: Social = [
@@ -59,7 +59,9 @@ const contactStrategy = contentStrategy.pages.contact;
 
 const home: Home = {
   path: "/",
-  image: "/images/og/home.jpg",
+  image: `/api/og/generate?title=${encodeURIComponent(brandIdentity.name)}&subtitle=${encodeURIComponent(
+    homeStrategy.seo.focus,
+  )}`,
   label: "Início",
   title: `${brandIdentity.name} | ${homeStrategy.seo.focus}`,
   description: homeStrategy.hero.subheadline,
@@ -204,7 +206,7 @@ const blog: Blog = {
   label: "Insights",
   title: `Insights | ${person.name}`,
   description:
-    "Artigos sobre marketing, paginas e aquisicao para negocios de servico.",
+    "Artigos sobre marketing, páginas e aquisição para negócios de serviço.",
 };
 
 const work: Work = {

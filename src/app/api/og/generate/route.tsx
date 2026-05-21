@@ -1,9 +1,11 @@
 import { ImageResponse } from "next/og";
 
+import { DISCOVER_IMAGE_HEIGHT, DISCOVER_IMAGE_WIDTH } from "@/utils/og";
+
 export const runtime = "edge";
 
 const OG_BRAND_NAME = "Henrique Reis";
-const OG_DEFAULT_SUBTITLE = "Estrategia, design e sistemas com clareza estrutural";
+const OG_DEFAULT_SUBTITLE = "Estratégia, design e sistemas para operações digitais";
 const OG_FOOTER = "Clareza gera resultado.";
 const OG_COLORS = {
   backgroundStart: "#0B0B0D",
@@ -28,7 +30,7 @@ export async function GET(req: Request) {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        padding: "64px 72px",
+        padding: "72px 88px",
         background: `linear-gradient(180deg, ${OG_COLORS.backgroundStart} 0%, ${OG_COLORS.backgroundEnd} 100%)`,
         color: OG_COLORS.textPrimary,
         fontFamily:
@@ -40,7 +42,7 @@ export async function GET(req: Request) {
           display: "flex",
           alignItems: "center",
           gap: 18,
-          fontSize: 24,
+          fontSize: 26,
           letterSpacing: 4,
           textTransform: "uppercase",
           color: OG_COLORS.textSecondary,
@@ -56,18 +58,18 @@ export async function GET(req: Request) {
         {OG_BRAND_NAME}
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: 24, maxWidth: 960 }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 28, maxWidth: 1160 }}>
         <div
           style={{
-            fontSize: 82,
+            fontSize: 104,
             fontWeight: 700,
             lineHeight: 1.02,
-            letterSpacing: -3.4,
+            letterSpacing: -3.8,
           }}
         >
           {title}
         </div>
-        <div style={{ fontSize: 30, lineHeight: 1.35, color: OG_COLORS.textSecondary, maxWidth: 900 }}>
+        <div style={{ fontSize: 34, lineHeight: 1.35, color: OG_COLORS.textSecondary, maxWidth: 980 }}>
           {subtitle}
         </div>
       </div>
@@ -77,7 +79,7 @@ export async function GET(req: Request) {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          fontSize: 22,
+          fontSize: 24,
           color: OG_COLORS.footerText,
         }}
       >
@@ -86,8 +88,8 @@ export async function GET(req: Request) {
       </div>
     </div>,
     {
-      width: 1200,
-      height: 630,
+      width: DISCOVER_IMAGE_WIDTH,
+      height: DISCOVER_IMAGE_HEIGHT,
     },
   );
 }

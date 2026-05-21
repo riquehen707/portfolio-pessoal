@@ -44,6 +44,27 @@ import { HoverNote } from "@/components/mdx/HoverNote";
 import { Callout } from "@/components/mdx/Callout";
 import { Quote } from "@/components/mdx/Quote";
 import { Highlight } from "@/components/mdx/Highlight";
+import { ArticleNativeCTA } from "@/components/blog/ArticleNativeCTA";
+import {
+  ArticleIndex,
+  CommonMistake,
+  CommonMistakes,
+  Definition,
+  Diagnostic,
+  DiagnosticQuestions,
+  DecisionPoints,
+  EditorialChecklist,
+  EditorialComparison,
+  EditorialFAQ,
+  EditorialTable,
+  FeaturedQuote,
+  Insight,
+  NextSteps,
+  NumberedContextList,
+  PracticalExample,
+  QuickSummary,
+  RelatedArticles,
+} from "@/components/mdx/EditorialBlocks";
 import {
   Collapsible,
   CollapsibleTrigger,
@@ -174,6 +195,15 @@ function createImage({ alt, src, ...props }: MediaProps & { src: string }) {
 }
 
 function createHeading(as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") {
+  const spacing = {
+    h1: { marginTop: "40", marginBottom: "16" },
+    h2: { marginTop: "40", marginBottom: "16" },
+    h3: { marginTop: "32", marginBottom: "12" },
+    h4: { marginTop: "28", marginBottom: "8" },
+    h5: { marginTop: "24", marginBottom: "8" },
+    h6: { marginTop: "24", marginBottom: "8" },
+  }[as];
+
   const CustomHeading = ({
     children,
     ...props
@@ -181,11 +211,15 @@ function createHeading(as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") {
     const slug = slugify(getText(children));
     return (
       <HeadingLink
-        marginTop="24"
-        marginBottom="12"
+        marginTop={spacing.marginTop as any}
+        marginBottom={spacing.marginBottom as any}
         as={as}
         id={slug}
         data-mdx-heading
+        style={{
+          color: "var(--neutral-on-background-strong)",
+          lineHeight: as === "h2" ? 1.12 : 1.18,
+        }}
         {...props}
       >
         {children}
@@ -199,11 +233,14 @@ function createHeading(as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") {
 function createParagraph({ children }: TextProps) {
   return (
     <Text
-      style={{ lineHeight: "182%" }}
+      style={{
+        color: "var(--neutral-on-background-medium)",
+        lineHeight: "190%",
+      }}
       variant="body-default-m"
       onBackground="neutral-medium"
-      marginTop="8"
-      marginBottom="16"
+      marginTop="12"
+      marginBottom="20"
     >
       {children}
     </Text>
@@ -233,8 +270,8 @@ function createCodeBlock(props: any) {
     const typedLanguage = language as Language;
     return (
       <CodeBlock
-        marginTop="8"
-        marginBottom="16"
+        marginTop="16"
+        marginBottom="24"
         codes={[{ code: children, language: typedLanguage, label }]}
         copyButton
       />
@@ -244,12 +281,29 @@ function createCodeBlock(props: any) {
 }
 
 function createList({ children }: { children: ReactNode }) {
-  return <List>{children}</List>;
+  return (
+    <List
+      style={{
+        color: "var(--neutral-on-background-medium)",
+        marginTop: "0.75rem",
+        marginBottom: "1.35rem",
+      }}
+    >
+      {children}
+    </List>
+  );
 }
 
 function createListItem({ children }: { children: ReactNode }) {
   return (
-    <ListItem marginTop="4" marginBottom="8" style={{ lineHeight: "180%" }}>
+    <ListItem
+      marginTop="8"
+      marginBottom="10"
+      style={{
+        color: "var(--neutral-on-background-medium)",
+        lineHeight: "185%",
+      }}
+    >
       {children}
     </ListItem>
   );
@@ -278,10 +332,17 @@ function BlockQuote({ children }: { children: ReactNode }) {
         borderLeftStyle: "solid",
         borderLeftColor: "var(--scheme-brand-700)",
         background: "var(--surface-panel-soft)",
-        boxShadow: "var(--shadow-soft)",
+        boxShadow: "none",
       }}
     >
-      <Text variant="body-default-m" onBackground="neutral-medium" style={{ lineHeight: "180%" }}>
+      <Text
+        variant="body-default-m"
+        onBackground="neutral-medium"
+        style={{
+          color: "var(--neutral-on-background-medium)",
+          lineHeight: "185%",
+        }}
+      >
         {children}
       </Text>
     </Row>
@@ -298,7 +359,7 @@ function TableWrapper({ children }: { children: ReactNode }) {
         border: "1px solid var(--border-subtle)",
         borderRadius: "1rem",
         background: "var(--surface-panel-soft)",
-        boxShadow: "var(--shadow-soft)",
+        boxShadow: "none",
       }}
     >
       <table style={{ width: "100%", borderCollapse: "collapse" }}>
@@ -420,6 +481,25 @@ export const baseMDXComponents: MDXComponents = {
   Callout,
   Quote,
   Highlight,
+  ArticleCTA: ArticleNativeCTA,
+  QuickSummary,
+  ArticleIndex,
+  Definition,
+  CommonMistake,
+  CommonMistakes,
+  DecisionPoints,
+  DiagnosticQuestions,
+  NumberedContextList,
+  PracticalExample,
+  EditorialChecklist,
+  EditorialComparison,
+  EditorialTable,
+  Diagnostic,
+  Insight,
+  FeaturedQuote,
+  EditorialFAQ,
+  NextSteps,
+  RelatedArticles,
   Collapsible,
   CollapsibleTrigger,
   CollapsibleContent,
@@ -498,6 +578,25 @@ export {
   Callout,
   Quote,
   Highlight,
+  ArticleNativeCTA,
+  QuickSummary,
+  ArticleIndex,
+  Definition,
+  CommonMistake,
+  CommonMistakes,
+  DecisionPoints,
+  DiagnosticQuestions,
+  NumberedContextList,
+  PracticalExample,
+  EditorialChecklist,
+  EditorialComparison,
+  EditorialTable,
+  Diagnostic,
+  Insight,
+  FeaturedQuote,
+  EditorialFAQ,
+  NextSteps,
+  RelatedArticles,
   Collapsible,
   CollapsibleTrigger,
   CollapsibleContent,

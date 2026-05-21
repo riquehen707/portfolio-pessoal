@@ -18,48 +18,49 @@ import {
   simulationPage,
   work,
 } from "@/resources";
+import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 
 import styles from "./services.module.scss";
 
 const focusAreas = [
   {
-    label: "Presenca",
-    title: "Sites e paginas com funcao comercial clara",
+    label: "Presença",
+    title: "Sites e páginas com função comercial clara",
     description:
-      "Projetos para explicar melhor o servico, reduzir ruido e facilitar o proximo passo de quem chega.",
+      "Projetos para explicar melhor o serviço, reduzir ruído e facilitar o próximo passo de quem chega.",
     items: ["Landing pages", "Sites institucionais", "Estrutura para campanhas"],
   },
   {
-    label: "Captacao",
-    title: "Leitura de aquisicao antes de escopo grande",
+    label: "Captação",
+    title: "Leitura de aquisição antes de escopo grande",
     description:
-      "Simulacao inicial, ajuste de oferta e desenho de entrada para investir com mais criterio.",
-    items: ["Simulacao de cenario", "Diagnostico de gargalo", "Prioridade comercial"],
+      "Simulação inicial, ajuste de oferta e desenho de entrada para investir com mais critério.",
+    items: ["Simulação de cenário", "Diagnóstico de gargalo", "Prioridade comercial"],
   },
   {
-    label: "Operacao",
-    title: "Fluxos, CRM e organizacao digital do atendimento",
+    label: "Operação",
+    title: "Fluxos, CRM e organização digital do atendimento",
     description:
-      "Integracoes e automacoes para reduzir perda comercial e deixar a rotina menos improvisada.",
-    items: ["WhatsApp e CRM", "Agenda e follow-up", "Dashboards e automacao"],
+      "Integrações e automações para reduzir perda comercial e deixar a rotina menos improvisada.",
+    items: ["WhatsApp e CRM", "Agenda e follow-up", "Dashboards e automação"],
   },
 ] as const;
 
 const audienceGroups = [
   {
-    title: "Prestadores de servico",
+    title: "Prestadores de serviço",
     description:
-      "Psicologas, advogados, consultores e profissionais que precisam conquistar clientes online com mais consistencia.",
+      "Psicólogas, advogados, consultores e profissionais que precisam conquistar clientes online com mais consistência.",
   },
   {
-    title: "Clinicas e negocios de atendimento",
+    title: "Clínicas e negócios de atendimento",
     description:
-      "Saude, beleza e estetica quando agenda, relacionamento e operacao precisam conversar melhor.",
+      "Saúde, beleza e estética quando agenda, relacionamento e operação precisam conversar melhor.",
   },
   {
     title: "Lojas locais e e-commerce",
     description:
-      "Operacoes que precisam vender melhor no local, organizar catalogo ou estruturar melhor pedidos e envios.",
+      "Operações que precisam vender melhor no local, organizar catálogo ou estruturar melhor pedidos e envios.",
   },
 ] as const;
 
@@ -68,15 +69,15 @@ const entryPoints = [
     label: "Primeiro passo",
     title: "Ver os dados antes do escopo",
     description:
-      "A simulacao le a base atual, os ajustes internos e a viabilidade do investimento antes de fechar escopo.",
+      "A simulação lê a base atual, os ajustes internos e a viabilidade do investimento antes de fechar escopo.",
     href: simulationPage.path,
-    cta: "Abrir simulacao",
+    cta: "Abrir simulação",
   },
   {
-    label: "Servico sob medida",
+    label: "Serviço sob medida",
     title: "Escolher a frente de trabalho certa",
     description:
-      "Depois da leitura inicial, o trabalho pode entrar por pagina, SEO, automacao ou estrutura comercial.",
+      "Depois da leitura inicial, o trabalho pode entrar por página, SEO, automação ou estrutura comercial.",
     href: "#servicos-publicados",
     cta: "Ver frentes atuais",
   },
@@ -91,6 +92,8 @@ const entryPoints = [
 ] as const;
 
 export async function generateMetadata() {
+  const image = buildOgImage(servicesPage.title);
+
   return {
     title: servicesPage.title,
     description: servicesPage.description,
@@ -99,7 +102,7 @@ export async function generateMetadata() {
       title: servicesPage.title,
       description: servicesPage.description,
       url: `${baseURL}${servicesPage.path}`,
-      images: [{ url: `/api/og/generate?title=${encodeURIComponent(servicesPage.title)}` }],
+      images: buildDiscoverImageMetadata(image, servicesPage.title),
     },
   };
 }
@@ -125,18 +128,18 @@ export default function ServicesPage() {
         <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="24">
           <Column className={styles.heroMain} gap="20">
             <Text className={styles.kicker} variant="label-default-s" onBackground="brand-strong">
-              Servicos
+              Serviços
             </Text>
             <Heading as="h1" variant="display-strong-l" wrap="balance">
-              Presenca, captacao e operacao digital para negocios que precisam vender melhor.
+              Presença, captação e operação digital para negócios que precisam vender melhor.
             </Heading>
             <div className={styles.accentLine} />
             <Text className={styles.heroLead} variant="heading-default-m" onBackground="neutral-weak">
-              Eu nao comeco por catalogo. Primeiro leio momento, orcamento e gargalo principal para
+              Eu não começo por catálogo. Primeiro leio momento, orçamento e gargalo principal para
               decidir se vale investir, por onde entrar e qual formato faz sentido.
             </Text>
             <Text className={styles.heroNote} variant="body-default-m" onBackground="neutral-weak">
-              Se a leitura ainda nao esta clara, a simulacao entra antes do escopo.
+              Se a leitura ainda não está clara, a simulação entra antes do escopo.
             </Text>
             <Row className={styles.actions} gap="12" wrap>
               <Button href={simulationPage.path} variant="primary" size="m" prefixIcon="chart">
@@ -153,7 +156,7 @@ export default function ServicesPage() {
               <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
                 01
               </Text>
-              <Text variant="heading-strong-s">Simular o cenario</Text>
+              <Text variant="heading-strong-s">Simular o cenário</Text>
               <Text variant="body-default-s" onBackground="neutral-weak">
                 Entender se a base comporta investimento agora ou se ainda pede ajuste interno.
               </Text>
@@ -164,16 +167,16 @@ export default function ServicesPage() {
               </Text>
               <Text variant="heading-strong-s">Definir a frente certa</Text>
               <Text variant="body-default-s" onBackground="neutral-weak">
-                Escolher o tipo de trabalho pelo problema real, nao pelo nome do servico.
+                Escolher o tipo de trabalho pelo problema real, não pelo nome do serviço.
               </Text>
             </div>
             <div className={styles.heroStep}>
               <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
                 03
               </Text>
-              <Text variant="heading-strong-s">Fechar um escopo viavel</Text>
+              <Text variant="heading-strong-s">Fechar um escopo viável</Text>
               <Text variant="body-default-s" onBackground="neutral-weak">
-                Entrar com algo que caiba na operacao e sustente o proximo passo do negocio.
+                Entrar com algo que caiba na operação e sustente o próximo passo do negócio.
               </Text>
             </div>
           </Column>
@@ -193,12 +196,12 @@ export default function ServicesPage() {
               Onde entro
             </Text>
             <Heading as="h2" variant="display-strong-s">
-              Tres frentes que normalmente se conectam
+              Três frentes que normalmente se conectam
             </Heading>
           </Column>
           <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
-            A maioria dos projetos entra por presenca, captacao ou operacao. Em muitos casos, o
-            problema real atravessa as tres.
+            A maioria dos projetos entra por presença, captação ou operação. Em muitos casos, o
+            problema real atravessa as três.
           </Text>
         </Row>
 
@@ -239,11 +242,11 @@ export default function ServicesPage() {
               Para quem
             </Text>
             <Heading as="h2" variant="display-strong-s">
-              Negocios em que esse trabalho costuma fazer mais sentido
+              Negócios em que esse trabalho costuma fazer mais sentido
             </Heading>
           </Column>
           <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
-            Principalmente quando ja existe valor real no servico, mas falta mais clareza para
+            Principalmente quando já existe valor real no serviço, mas falta mais clareza para
             vender, atender e sustentar crescimento.
           </Text>
         </Row>
@@ -275,11 +278,11 @@ export default function ServicesPage() {
               Caminhos
             </Text>
             <Heading as="h2" variant="display-strong-s">
-              Como normalmente o trabalho comeca
+              Como normalmente o trabalho começa
             </Heading>
           </Column>
           <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
-            A simulacao vira porta de entrada quando ainda nao vale fechar um formato no escuro.
+            A simulação vira porta de entrada quando ainda não vale fechar um formato no escuro.
           </Text>
         </Row>
 
@@ -316,12 +319,12 @@ export default function ServicesPage() {
               Frentes atuais
             </Text>
             <Heading as="h2" variant="display-strong-s">
-              Servicos publicados hoje
+              Serviços publicados hoje
             </Heading>
           </Column>
           <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
-            Os detalhes continuam acessiveis por pagina propria. Aqui fica a leitura curta do que
-            esta aberto agora.
+            Os detalhes continuam acessíveis por página própria. Aqui fica a leitura curta do que
+            está aberto agora.
           </Text>
         </Row>
 

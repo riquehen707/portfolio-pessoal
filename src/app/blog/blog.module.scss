@@ -59,10 +59,10 @@
   gap: clamp(1rem, 3vw, 2rem);
   align-items: stretch;
   width: 100%;
-  padding: clamp(0.75rem, 2vw, 1rem);
-  border: 1px solid var(--border-subtle);
-  border-radius: 1.5rem;
-  background: rgba(255, 255, 255, 0.01);
+  padding-block: clamp(1rem, 2vw, 1.35rem);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  background: transparent;
   color: inherit;
   text-decoration: none;
   transition:
@@ -75,12 +75,12 @@
 .startCard:hover,
 .startCard:focus-visible {
   border-color: rgba(184, 146, 18, 0.26);
-  background: rgba(255, 255, 255, 0.02);
+  background: transparent;
 }
 
 .featuredMedia {
   overflow: hidden;
-  border-radius: 1rem;
+  border-radius: var(--radius-24);
 }
 
 .featuredContent {
@@ -144,10 +144,11 @@
   align-items: start;
   width: 100%;
   min-height: 100%;
-  padding: 1rem;
-  border: 1px solid var(--border-subtle);
-  border-radius: 1.25rem;
-  background: rgba(255, 255, 255, 0.01);
+  padding: 1rem 0;
+  border: 0;
+  border-top: 1px solid var(--border-subtle);
+  border-radius: 0;
+  background: transparent;
   color: inherit;
   text-decoration: none;
   transition:
@@ -192,6 +193,6 @@
 @media (max-width: breakpoints.$s) {
   .featuredLink,
   .startCard {
-    border-radius: 1.2rem;
+    border-radius: 0;
   }
 }

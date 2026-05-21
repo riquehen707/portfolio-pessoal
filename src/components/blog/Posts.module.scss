@@ -21,19 +21,13 @@
   position: relative;
   overflow: hidden;
   border: 1px solid var(--border-subtle);
-  border-radius: 1.35rem;
+  border-radius: var(--radius-24);
   background: var(--surface-panel-soft);
-  box-shadow: var(--shadow-soft);
+  box-shadow: none;
 }
 
 .emptyState::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 16% 12%, var(--brand-glow), transparent 34%),
-    radial-gradient(circle at 82% 0%, var(--accent-glow), transparent 30%);
-  pointer-events: none;
+  content: none;
 }
 
 .emptyState > * {

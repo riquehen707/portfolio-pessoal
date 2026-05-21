@@ -30,22 +30,51 @@ type StrategyPage = {
 
 const contentStrategy = {
   communicationPrinciple:
-    "A comunicação da marca vende clareza estratégica, execução confiável, tecnologia útil, crescimento estruturado e soluções reais para negócios reais.",
+    "A comunicação deve explicar decisões digitais com precisão editorial: problema real, leitura estratégica, implicação prática e próximo passo possível.",
+  editorialVoice: {
+    tone: "Direto, claro, estratégico e sem exagero publicitário.",
+    rhythm:
+      "Frases curtas e médias. Começar pelo problema concreto, depois mostrar o critério e só então sugerir ação.",
+    pointOfView:
+      "Escrever como consultoria editorial: observar, organizar, comparar e orientar. Evitar soar como anúncio de agência.",
+    signatureRule:
+      "A frase 'Clareza gera resultado.' pode aparecer como assinatura, mas não deve ser repetida como título, subtítulo ou argumento central.",
+    preferredPatterns: [
+      "Organize [elemento] para transformar [sinal fraco] em [ação concreta].",
+      "Antes de [investir/criar/anunciar], revise [base operacional].",
+      "O problema não é só [canal]. É [mecanismo] + [rotina] + [próximo passo].",
+      "Use [canal] para [função real], não apenas para aparecer.",
+    ],
+    avoidPatterns: [
+      "Promessas absolutas.",
+      "Superlativos sem prova.",
+      "Frases genéricas sobre resultado, crescimento ou inovação.",
+      "Repetir clareza, estratégia e estrutura quando uma palavra mais específica resolve.",
+    ],
+  },
   copyRules: {
     mustFeel: [
       "Humana",
       "Segura",
       "Direta",
-      "Inteligente",
+      "Editorial",
+      "Específica",
       "Sem exagero",
       "Sem linguagem corporativa vazia",
     ],
-    alwaysUse: ["Frases curtas", "Verbos fortes", "Clareza", "Especificidade", "Benefícios reais"],
+    alwaysUse: [
+      "Frases curtas",
+      "Verbos fortes",
+      "Recorte específico",
+      "Benefícios verificáveis",
+      "Próximo passo concreto",
+    ],
     avoid: [
       "Jargão corporativo",
       "Excesso de adjetivo",
       "Promessas vagas",
       "Texto longo sem função",
+      "Slogan repetido como explicação",
     ],
   },
   pages: {
@@ -99,7 +128,7 @@ const contentStrategy = {
           label: "Projetos em destaque",
           title: "Projetos que unem estética, estratégia e execução.",
           description:
-            "Cada projeto resolve um desafio diferente, mas todos seguem o mesmo princípio: clareza, performance e resultado real.",
+            "Cada projeto resolve um desafio diferente, com foco em leitura, performance e impacto prático.",
           ctaLabel: "Ver todos os projetos",
           ctaHref: "/work",
         },
@@ -147,7 +176,7 @@ const contentStrategy = {
       },
       hero: {
         eyebrow: "Projetos",
-        headline: "Feed de projetos, sistemas e publicações do portfolio.",
+        headline: "Feed de projetos, sistemas e públicações do portfolio.",
         subheadline:
           "O /work reúne projetos pessoais, sistemas, cases e atualizações do que está sendo construído, enquanto o /blog fica para estudos, análises e notícias.",
         primaryCtaLabel: "Vamos conversar",
@@ -202,12 +231,12 @@ const contentStrategy = {
       },
       hero: {
         eyebrow: "Sobre",
-        headline: "Estrategia, paginas e sistemas para negocios venderem com mais clareza.",
+        headline: "Estratégia, páginas e sistemas para negócios venderem com mais direção.",
         subheadline:
-          "Trabalho entre marketing, design e operacao digital para organizar presenca, captacao e acompanhamento.",
+          "Trabalho entre marketing, design e operação digital para organizar presença, captação e acompanhamento.",
         primaryCtaLabel: "Ver como trabalho",
         primaryCtaHref: "/about",
-        secondaryCtaLabel: "Ver simulacao",
+        secondaryCtaLabel: "Ver simulação",
         secondaryCtaHref: "/simulacao",
       },
       sections: [

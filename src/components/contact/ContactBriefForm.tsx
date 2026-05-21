@@ -27,7 +27,7 @@ function buildMailto(
     [
       `Origem: ${payload.contextLabel}`,
       `Nome: ${payload.name}`,
-      `Negocio: ${payload.business}`,
+      `Negócio: ${payload.business}`,
       `Contato: ${payload.contact}`,
       "",
       "Objetivo:",
@@ -48,7 +48,7 @@ function buildWhatsappHref(
       "Ola, Henrique.",
       `Origem: ${payload.contextLabel}.`,
       `Meu nome e ${payload.name || "..."}.`,
-      payload.business ? `Negocio: ${payload.business}.` : "",
+      payload.business ? `Negócio: ${payload.business}.` : "",
       payload.contact ? `Contato: ${payload.contact}.` : "",
       payload.goal ? `Objetivo: ${payload.goal}` : "",
     ]
@@ -65,7 +65,7 @@ export function ContactBriefForm({
   contextLabel = "Site",
   submitLabel = "Enviar briefing por e-mail",
   whatsappLabel = "Enviar pelo WhatsApp",
-  helperText = "O formulario usa seu cliente de e-mail ou o WhatsApp para abrir a conversa com o briefing ja preenchido.",
+  helperText = "O formulário usa seu cliente de e-mail ou o WhatsApp para abrir a conversa com o briefing já preenchido.",
 }: ContactBriefFormProps) {
   const [name, setName] = useState("");
   const [business, setBusiness] = useState("");
@@ -122,7 +122,7 @@ export function ContactBriefForm({
         <Input
           id="contact-business"
           name="business"
-          placeholder="Negocio ou segmento"
+          placeholder="Negócio ou segmento"
           value={business}
           onChange={(event) => setBusiness(event.target.value)}
           required

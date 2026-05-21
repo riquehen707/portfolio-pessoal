@@ -1,6 +1,26 @@
 export { Callout } from "./Callout";
 export { Quote } from "./Quote";
 export { Highlight } from "./Highlight";
+export {
+  ArticleIndex,
+  CommonMistake,
+  CommonMistakes,
+  Definition,
+  Diagnostic,
+  DiagnosticQuestions,
+  DecisionPoints,
+  EditorialChecklist,
+  EditorialComparison,
+  EditorialFAQ,
+  EditorialTable,
+  FeaturedQuote,
+  Insight,
+  NextSteps,
+  NumberedContextList,
+  PracticalExample,
+  QuickSummary,
+  RelatedArticles,
+} from "./EditorialBlocks";
 export { Collapsible, CollapsibleTrigger, CollapsibleContent } from "./Collapsible";
 export { default as Reveal } from "./Reveal";
 export { default as MindMap } from "./MindMap";

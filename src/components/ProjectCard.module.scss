@@ -9,12 +9,11 @@
   position: relative;
   display: grid;
   overflow: hidden;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-panel);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 20%),
-    rgba(18, 18, 22, 0.9);
-  box-shadow: var(--shadow-soft);
+  border: 0;
+  border-top: 1px solid var(--border-subtle);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
   transition:
     transform var(--motion-base),
     border-color var(--motion-base),
@@ -38,18 +37,11 @@
 .mediaShell {
   overflow: hidden;
   border-bottom: 1px solid var(--border-subtle);
-  background: rgba(24, 24, 29, 0.92);
+  background: var(--surface-panel-soft);
 }
 
 .mediaShell::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(11, 11, 13, 0) 0%, rgba(11, 11, 13, 0.08) 55%, rgba(11, 11, 13, 0.24) 100%),
-    linear-gradient(135deg, rgba(255, 215, 0, 0.08), transparent 34%);
-  pointer-events: none;
-  z-index: 1;
+  content: none;
 }
 
 .mediaBadge {
@@ -58,9 +50,9 @@
   left: 1rem;
   z-index: 2;
   padding: 0.45rem 0.7rem;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-pill);
-  background: rgba(11, 11, 13, 0.68);
+  background: var(--color-background-primary);
   color: var(--neutral-on-background-strong);
   font-family: var(--font-label);
   font-size: 0.68rem;
@@ -119,7 +111,7 @@
 }
 
 .title {
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
   line-height: 1.05;
 }
 
@@ -166,10 +158,10 @@
 
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-1px);
     border-color: var(--border-strong);
-    box-shadow: var(--shadow-card);
-    background: var(--surface-elevated);
+    box-shadow: none;
+    background: transparent;
   }
 }
 
@@ -181,7 +173,7 @@
 
 @media (max-width: breakpoints.$s) {
   .card {
-    border-radius: calc(var(--radius-24) - 0.15rem);
+    border-radius: 0;
   }
 
   .contentShell,

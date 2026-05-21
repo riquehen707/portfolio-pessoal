@@ -1,6 +1,6 @@
-# Etapa 12 - Motion system, Framer Motion e experiencia premium
+# Etapa 12 - Motion system, Framer Motion e experiência premium
 
-Objetivo desta etapa: transformar a interface em uma experiencia mais viva, fluida e premium sem perder controle visual.
+Objetivo desta etapa: transformar a interface em uma experiência mais viva, fluida e premium sem perder controle visual.
 
 ## Base aplicada
 
@@ -9,15 +9,15 @@ O motion agora parte de uma infraestrutura unica:
 1. `MotionProvider` global com `LazyMotion`
 2. respeito automatico a `prefers-reduced-motion`
 3. tokens compartilhados para reveal, stagger, hover e tap
-4. wrapper reutilizavel para reveals em blocos server-side
+4. wrapper reutilizável para reveals em blocos server-side
 
 ## O que entrou
 
 - Hero com entrada em camadas para headline, subheadline, CTAs e visual
-- post-hero com reveals leves para marquee e faixa de competencias
-- secao de Mercados com entrada progressiva, pills com feedback e cards ativos com transicao mais premium
-- vitrine principal de Works com reveal de secao e hover controlado nos cards
-- cards reutilizaveis de blog e work com lift sutil e entrada em viewport
+- post-hero com reveals leves para marquee e faixa de competências
+- seção de Mercados com entrada progressiva, pills com feedback e cards ativos com transição mais premium
+- vitrine principal de Works com reveal de seção e hover controlado nos cards
+- cards reutilizáveis de blog e work com lift sutil e entrada em viewport
 - About teaser e CTA final com reveals consistentes e loops discretos nos elementos visuais
 
 ## Regras respeitadas
@@ -26,7 +26,7 @@ O motion agora parte de uma infraestrutura unica:
 - tempos curtos a moderados
 - nada de bounce cartunesco
 - loops lentos e discretos
-- acessibilidade mantida para usuarios com reducao de movimento
+- acessibilidade mantida para usuarios com redução de movimento
 
 ## Arquivos centrais
 
@@ -47,9 +47,9 @@ O motion agora parte de uma infraestrutura unica:
 - `src/components/home/AboutTeaser.tsx`
 - `src/components/home/FinalCTA.tsx`
 
-## Criterio de aprovacao
+## Critério de aprovacao
 
 - a interface parece mais cara sem parecer barulhenta
-- a navegacao ficou mais fluida
+- a navegação ficou mais fluida
 - hover e reveal seguem a mesma linguagem
-- o site continua responsivo e compativel com reducao de movimento
+- o site continua responsivo e compatível com redução de movimento

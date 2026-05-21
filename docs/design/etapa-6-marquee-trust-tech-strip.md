@@ -1,31 +1,31 @@
-# Etapa 6 - Prova rapida, marquee infinita e banner de competencias
+# Etapa 6 - Prova rápida, marquee infinita e banner de competências
 
-Objetivo desta etapa: reforcar confianca logo depois do hero e manter o ritmo da Home com movimento util, leve e controlado.
+Objetivo desta etapa: reforcar confiança logo depois do hero e manter o ritmo da Home com movimento útil, leve e controlado.
 
 ## Estrutura aplicada
 
-O bloco pos-hero agora segue esta ordem:
+O bloco pos-hero agora segue está ordem:
 
-1. faixa de prova rapida com marquee infinita
-2. banner de competencias e plataformas
-3. transicao direta para a secao de mercados
+1. faixa de prova rápida com marquee infinita
+2. banner de competências e plataformas
+3. transição direta para a seção de mercados
 
-## Prova rapida
+## Prova rápida
 
 A marquee foi desenhada para confirmar capacidade sem virar texto longo.
 
 Mensagens usadas:
 
-- `Especializado em negocios e servicos locais`
+- `Especializado em negócios e serviços locais`
 - `Decisoes guiadas por dados reais`
 - `Ecossistema digital completo`
-- `Solucoes personalizadas para sua operacao`
+- `Soluções personalizadas para sua operação`
 - `Estrutura digital pensada para crescer`
 - `Tecnologia aplicada com objetivo real`
 
-## Banner de competencias
+## Banner de competências
 
-O segundo bloco amplia a percepcao de repertorio combinando tecnologia, aquisicao e operacao.
+O segundo bloco amplia a percepção de repertorio combinando tecnologia, aquisição e operação.
 
 Itens usados:
 
@@ -35,7 +35,7 @@ Itens usados:
 - `Meta Ads`
 - `Analytics`
 - `CRM`
-- `Automacao`
+- `Automação`
 - `SEO`
 - `UI/UX`
 - `Performance`
@@ -44,7 +44,7 @@ Itens usados:
 
 O scroller infinito foi implementado com:
 
-- loop continuo e velocidade baixa
+- loop contínuo e velocidade baixa
 - pausa ao hover no desktop
 - arraste manual em touch e pointer
 - retomada suave ao soltar
@@ -62,9 +62,9 @@ O scroller infinito foi implementado com:
 - `src/components/home/MarqueeTrust.tsx`
 - `src/components/home/TechStrip.tsx`
 
-## Criterio de aprovacao
+## Critério de aprovacao
 
-- o bloco aumenta confianca sem competir com o hero
+- o bloco aumenta confiança sem competir com o hero
 - a Home ganha continuidade visual logo apos a dobra
-- o movimento parece premium e funcional, nao chamativo
-- mobile continua limpo e facil de percorrer
+- o movimento parece premium e funcional, não chamativo
+- mobile continua limpo e fácil de percorrer

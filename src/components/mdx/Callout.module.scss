@@ -5,7 +5,7 @@
   border-left-width: 3px;
   border-radius: var(--radius-16);
   background: var(--surface-overlay-soft), var(--surface-panel-soft);
-  box-shadow: var(--shadow-soft);
+  box-shadow: none;
 }
 
 .root[data-variant="info"] {

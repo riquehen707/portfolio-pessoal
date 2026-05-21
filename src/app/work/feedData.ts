@@ -35,12 +35,12 @@ const manualFeedEntries: WorkFeedEntry[] = [
     date: "2026-05-15",
     type: "Portfolio",
     status: "building",
-    title: "Projetos ainda nao inseridos",
+    title: "Projetos ainda não inseridos",
     summary:
-      "O /work foi reiniciado para receber um feed mais simples. Os projetos anteriores foram removidos e os novos ainda nao foram publicados aqui.",
+      "O /work foi reiniciado para receber um feed mais simples. Os projetos anteriores foram removidos e os novos ainda não foram publicados aqui.",
     notes: [
       "Os cases antigos foram retirados para reduzir complexidade",
-      "Os proximos projetos entram aqui como artigos do proprio portfolio",
+      "Os próximos projetos entram aqui como artigos do próprio portfolio",
       "Enquanto isso, este feed fica somente com registros de reorganizacao",
     ],
     tags: ["Placeholder", "Portfolio", "Reset"],
@@ -54,8 +54,8 @@ const manualFeedEntries: WorkFeedEntry[] = [
     summary:
       "Os artigos de projetos de clientes serao republicados aos poucos, com estrutura mais enxuta e menos camadas tecnicas desnecessarias.",
     notes: [
-      "Nenhum case de cliente esta publicado neste momento",
-      "A ideia agora e documentar melhor contexto, execucao e aprendizados",
+      "Nenhum case de cliente está publicado neste momento",
+      "A ideia agora e documentar melhor contexto, execução e aprendizados",
       "Quando entrar um novo projeto, ele aparece aqui antes de qualquer grid fixa",
     ],
     tags: ["Clientes", "Feed", "Em breve"],
@@ -67,10 +67,10 @@ const manualFeedEntries: WorkFeedEntry[] = [
     status: "note",
     title: "Projetos autorais serao reinseridos do zero",
     summary:
-      "Os sistemas e experimentos internos tambem foram limpos para voltar com escopo mais claro, menos ruido e melhor criterio de publicacao.",
+      "Os sistemas e experimentos internos também foram limpos para voltar com escopo mais claro, menos ruído e melhor critério de publicacao.",
     notes: [
-      "A parte publica fica reduzida ate a nova selecao de projetos entrar",
-      "O foco agora e publicar menos itens, mas com mais clareza",
+      "A parte pública fica reduzida até a nova seleção de projetos entrar",
+      "O foco agora é publicar menos itens, com mais critério editorial",
       "O /blog continua separado para estudos, analises e noticias",
     ],
     tags: ["Interno", "Sistemas", "Curadoria"],
@@ -82,13 +82,13 @@ const manualFeedEntries: WorkFeedEntry[] = [
     status: "note",
     title: "Base tecnica e editorial refinada",
     summary:
-      "A arquitetura do site foi mantida pronta para receber novos projetos, mas o conteudo publicado do /work agora volta para um estado minimo e controlado.",
+      "A arquitetura do site foi mantida pronta para receber novos projetos, mas o conteúdo publicado do /work agora volta para um estado minimo e controlado.",
     notes: [
       "O feed continua preparado para datas, tags e CTAs",
       "A separacao entre /work e /blog foi preservada",
-      "Os proximos artigos podem entrar sem reativar a complexidade antiga",
+      "Os próximos artigos podem entrar sem reativar a complexidade antiga",
     ],
-    tags: ["Next.js", "Conteudo", "Arquitetura"],
+    tags: ["Next.js", "Conteúdo", "Arquitetura"],
   },
 ];
 
@@ -120,7 +120,7 @@ function buildProjectFeedEntry(project: BlogFile): WorkFeedEntry | null {
     title: project.metadata.title,
     summary:
       project.metadata.summary ??
-      `${kindLabel} publicado para documentar raciocinio, estrutura e execucao.`,
+      `${kindLabel} publicado para documentar raciocinio, estrutura e execução.`,
     notes,
     tags: stack.slice(0, 4),
     href: getWorkProjectPath(project.slug),

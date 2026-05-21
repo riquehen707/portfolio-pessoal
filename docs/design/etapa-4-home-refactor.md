@@ -1,6 +1,6 @@
-# Etapa 4 - Refatoracao estrutural global e nova base da Home
+# Etapa 4 - Refatoração estrutural global e nova base da Home
 
-Objetivo desta etapa: remover a base generica herdada e reconstruir a Home com hierarquia forte, ritmo premium e estrutura pronta para evoluir.
+Objetivo desta etapa: remover a base genérica herdada e reconstruir a Home com hierarquia forte, ritmo premium e estrutura pronta para evoluir.
 
 ## Auditoria da Home anterior
 
@@ -12,13 +12,13 @@ Objetivo desta etapa: remover a base generica herdada e reconstruir a Home com h
 - `Posts` na Home
 - `Mailchimp` na Home
 - wrappers redundantes de hero, teaser e CTA final
-- excesso de panels para blocos que podiam respirar em secoes abertas
-- navegacao com itens extras e ruido informacional
+- excesso de panels para blocos que podiam respirar em seções abertas
+- navegação com itens extras e ruído informacional
 - footer em formato de card pesado
 
 ### Manter
 
-- estrategia editorial da Etapa 2
+- estratégia editorial da Etapa 2
 - dados de `work` e `blog`
 - identidade visual e tokens da Etapa 3
 - `BrandSignature`, `ThemeToggle` e metadata base
@@ -26,8 +26,8 @@ Objetivo desta etapa: remover a base generica herdada e reconstruir a Home com h
 ### Reconstruir
 
 - Home inteira na ordem oficial
-- Header com base fixa, transparente no topo e solida ao scroll
-- Footer com links uteis, contato e frase curta
+- Header com base fixa, transparente no topo e sólida ao scroll
+- Footer com links úteis, contato e frase curta
 - cards de `Work`, `Article` e `Market`
 - `SectionHeader`, `CTAButton` e `MarqueeRow`
 - componentes de hero (`HeroTitle`, `HeroSubtitle`, `HeroActions`)
@@ -35,9 +35,9 @@ Objetivo desta etapa: remover a base generica herdada e reconstruir a Home com h
 ## Ordem oficial aplicada
 
 1. Hero
-2. Prova rapida
-3. Banner de competencias
-4. Mercados / estrategia
+2. Prova rápida
+3. Banner de competências
+4. Mercados / estratégia
 5. Works destaque
 6. Blog destaque
 7. About teaser
@@ -45,9 +45,9 @@ Objetivo desta etapa: remover a base generica herdada e reconstruir a Home com h
 
 ## Decisoes estruturais
 
-- A Home agora trabalha com menos caixas e mais secoes abertas.
+- A Home agora trabalha com menos caixas e mais seções abertas.
 - Containers foram reservados para hero, destaque de works e CTA final.
-- O ritmo vertical foi reorganizado com espacamento amplo entre secoes.
+- O ritmo vertical foi reorganizado com espacamento amplo entre seções.
 - A hierarquia agora prioriza headline, prova, repertorio, autoridade e conversa final.
 
 ## Componentes-base adicionados
@@ -76,6 +76,6 @@ Objetivo desta etapa: remover a base generica herdada e reconstruir a Home com h
 ## Checklist de aprovacao
 
 - A Home respira melhor mesmo sem motion avancado.
-- O fluxo de secoes agora faz sentido sem blocos sobrando.
-- Header e footer deixaram de parecer componentes genericos.
+- O fluxo de seções agora faz sentido sem blocos sobrando.
+- Header e footer deixaram de parecer componentes genéricos.
 - A base aceita novos cases, artigos e refinamentos visuais sem retrabalho estrutural.

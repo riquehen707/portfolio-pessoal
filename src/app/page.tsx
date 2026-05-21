@@ -18,6 +18,7 @@ import {
   person,
   simulationPage,
 } from "@/resources";
+import { buildDiscoverImageMetadata } from "@/utils/og";
 
 import styles from "./home.module.scss";
 
@@ -47,14 +48,24 @@ const techStripItems = [
 
 
 export async function generateMetadata() {
+  const generatedMeta = Meta.generate({
+    title: home.title,
+    description: home.description,
+    baseURL,
+    path: home.path,
+    image: home.image,
+  });
+
   return {
-    ...Meta.generate({
-      title: home.title,
-      description: home.description,
-      baseURL,
-      path: home.path,
-      image: home.image,
-    }),
+    ...generatedMeta,
+    openGraph: {
+      ...generatedMeta.openGraph,
+      images: buildDiscoverImageMetadata(home.image, home.title),
+    },
+    twitter: {
+      ...generatedMeta.twitter,
+      images: home.image ? [home.image] : undefined,
+    },
     keywords: homeStrategy.seo.keywords,
   };
 }
@@ -177,7 +188,7 @@ export default function Home() {
 
       <section className={styles.finalSection}>
         <FinalCTA
-          eyebrow={homeFinalSection?.label ?? "Proximo passo"}
+          eyebrow={homeFinalSection?.label ?? "Próximo passo"}
           title={
             homeFinalSection?.title ??
             "Antes de investir, veja se faz sentido."

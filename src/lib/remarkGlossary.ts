@@ -96,7 +96,7 @@ const remarkGlossary: Plugin<[Options?]> = (options = {}) => {
 
       if (newChildren) {
         parent.children.splice(index, 1, ...newChildren);
-        // não precisa retornar índice, unist-util-visit lida bem
+        // não precisa retornar índice, unist-útil-visit lida bem
       }
     });
 

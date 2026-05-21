@@ -5,20 +5,32 @@ import { getAllWorkProjects } from "@/app/work/projectData";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { WorkFeed } from "@/components/work/WorkFeed";
 import { about, baseURL, blog, contentStrategy, person, work } from "@/resources";
+import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 
 import styles from "./work.module.scss";
 
 const workStrategy = contentStrategy.pages.work;
 
 export async function generateMetadata() {
+  const image = buildOgImage(work.title);
+  const generatedMeta = Meta.generate({
+    title: work.title,
+    description: work.description,
+    baseURL,
+    image,
+    path: work.path,
+  });
+
   return {
-    ...Meta.generate({
-      title: work.title,
-      description: work.description,
-      baseURL,
-      image: `/api/og/generate?title=${encodeURIComponent(work.title)}`,
-      path: work.path,
-    }),
+    ...generatedMeta,
+    openGraph: {
+      ...generatedMeta.openGraph,
+      images: buildDiscoverImageMetadata(image, work.title),
+    },
+    twitter: {
+      ...generatedMeta.twitter,
+      images: [image],
+    },
     keywords: workStrategy.seo.keywords,
   };
 }

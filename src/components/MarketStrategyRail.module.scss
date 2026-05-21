@@ -2,22 +2,15 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding: clamp(1.4rem, 3.6vw, 2.4rem);
-  border-radius: 1.8rem;
-  background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.06), transparent 24%, rgba(255, 255, 255, 0.02) 100%),
-    var(--surface-panel);
-  box-shadow: var(--shadow-soft);
+  padding-block: clamp(1.4rem, 3.6vw, 2.4rem);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  background: transparent;
+  box-shadow: none;
 }
 
 .section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 12% 0%, var(--brand-glow), transparent 24%),
-    radial-gradient(circle at 88% 0%, var(--accent-glow), transparent 20%);
-  pointer-events: none;
+  content: none;
 }
 
 .section > * {
@@ -58,7 +51,7 @@
   padding: 0.72rem 0.95rem;
   border: 1px solid rgba(169, 189, 214, 0.18);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
+  background: transparent;
   color: var(--neutral-on-background-medium);
   cursor: pointer;
   font: inherit;
@@ -78,7 +71,7 @@
 
 .tabActive {
   border-color: rgba(82, 144, 255, 0.36);
-  background: rgba(82, 144, 255, 0.14);
+  background: var(--surface-ghost);
   color: var(--neutral-on-background-strong);
 }
 
@@ -117,13 +110,12 @@
 .card {
   position: relative;
   min-height: 100%;
-  padding: 1.25rem;
-  border: 1px solid var(--market-accent-border, rgba(169, 189, 214, 0.18));
-  border-radius: 1.5rem;
-  background:
-    linear-gradient(160deg, var(--market-accent-soft, rgba(82, 144, 255, 0.1)), transparent 44%),
-    var(--surface-panel-soft);
-  box-shadow: var(--shadow-soft);
+  padding: 1.25rem 0;
+  border: 0;
+  border-top: 1px solid var(--market-accent-border, rgba(169, 189, 214, 0.18));
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
   scroll-snap-align: center;
   scroll-snap-stop: always;
   opacity: 0.88;
@@ -137,10 +129,8 @@
 
 .cardActive {
   opacity: 1;
-  transform: translateY(-0.12rem) scale(1);
-  box-shadow:
-    0 22px 44px rgba(0, 0, 0, 0.18),
-    0 0 28px var(--market-accent-soft, rgba(82, 144, 255, 0.1));
+  transform: translateY(-0.06rem) scale(1);
+  box-shadow: none;
 }
 
 .cardHeader {
@@ -152,9 +142,10 @@
   width: 2.7rem;
   height: 2.7rem;
   border-radius: 999px;
-  background: linear-gradient(135deg, var(--market-accent), rgba(255, 255, 255, 0.78));
-  color: var(--neutral-on-solid-strong);
-  box-shadow: 0 12px 24px var(--market-accent-soft, rgba(82, 144, 255, 0.12));
+  border: 1px solid var(--market-accent-border, rgba(169, 189, 214, 0.18));
+  background: transparent;
+  color: var(--market-accent);
+  box-shadow: none;
 }
 
 .cardTitle {
@@ -181,7 +172,7 @@
   margin-top: 0.42rem;
   border-radius: 999px;
   background: var(--market-accent);
-  box-shadow: 0 0 0 5px var(--market-accent-soft, rgba(82, 144, 255, 0.12));
+  box-shadow: none;
 }
 
 .expandButton {
@@ -204,23 +195,23 @@
 }
 
 .insight {
-  padding: 0.95rem 1rem;
-  border: 1px solid var(--market-accent-border, rgba(169, 189, 214, 0.18));
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.04);
+  padding: 0.95rem 0 0;
+  border: 0;
+  border-top: 1px solid var(--market-accent-border, rgba(169, 189, 214, 0.18));
+  border-radius: 0;
+  background: transparent;
 }
 
 @media (max-width: 768px) {
   .section {
-    padding: 1.2rem;
-    border-radius: 1.45rem;
+    padding-block: 1.2rem;
   }
 
   .header {
     position: sticky;
     top: clamp(4.9rem, 14vw, 6rem);
     padding-bottom: 0.8rem;
-    background: linear-gradient(180deg, var(--surface-panel) 78%, transparent);
+    background: var(--color-background-primary);
     backdrop-filter: blur(12px);
   }
 

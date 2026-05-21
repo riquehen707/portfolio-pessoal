@@ -131,7 +131,7 @@ const scenarioPresets: ScenarioPreset[] = [
 ];
 
 const returnWindowOptions: Array<{ id: ReturnWindowId; label: string; days: number }> = [
-  { id: "up-to-30", label: "Ate 30 dias", days: 25 },
+  { id: "up-to-30", label: "Até 30 dias", days: 25 },
   { id: "thirty-to-sixty", label: "30 a 60 dias", days: 45 },
   { id: "sixty-to-ninety", label: "60 a 90 dias", days: 75 },
   { id: "over-ninety", label: "Mais de 90 dias", days: 120 },
@@ -140,9 +140,9 @@ const returnWindowOptions: Array<{ id: ReturnWindowId; label: string; days: numb
 const segmentProfiles: SegmentProfile[] = [
   {
     id: "psicologas",
-    label: "Psicologas e terapeutas",
-    note: "Operacao com ticket medio menor, decisao mais sensivel a confianca e recorrencia.",
-    saturationNote: "A saturacao costuma aparecer quando a agenda local exige volume constante de leads qualificados.",
+    label: "Psicólogas e terapeutas",
+    note: "Operação com ticket médio menor, decisão mais sensível a confiança e recorrência.",
+    saturationNote: "A saturação costuma aparecer quando a agenda local exige volume constante de leads qualificados.",
     defaults: { price: 180, cost: 40, sales: 42, fixed: 3600 },
     baseCAC: 58,
     saturationPoint: 10,
@@ -154,9 +154,9 @@ const segmentProfiles: SegmentProfile[] = [
   },
   {
     id: "advogados",
-    label: "Advogados e consultoria juridica",
-    note: "Ticket maior, ciclo comercial mais lento e dependencia maior de autoridade.",
-    saturationNote: "Subir verba cedo costuma encarecer o CAC porque a demanda local e mais estreita.",
+    label: "Advogados e consultoria jurídica",
+    note: "Ticket maior, ciclo comercial mais lento e dependência maior de autoridade.",
+    saturationNote: "Subir verba cedo costuma encarecer o CAC porque a demanda local é mais estreita.",
     defaults: { price: 420, cost: 92, sales: 18, fixed: 7200 },
     baseCAC: 148,
     saturationPoint: 6,
@@ -168,9 +168,9 @@ const segmentProfiles: SegmentProfile[] = [
   },
   {
     id: "corretores",
-    label: "Corretores de imoveis",
-    note: "Poucos fechamentos, ticket alto e grande pressao de acompanhamento comercial.",
-    saturationNote: "Passar do ponto de saturacao costuma elevar o CAC rapidamente por competicao local.",
+    label: "Corretores de imóveis",
+    note: "Poucos fechamentos, ticket alto e grande pressão de acompanhamento comercial.",
+    saturationNote: "Passar do ponto de saturação costuma elevar o CAC rapidamente por competição local.",
     defaults: { price: 1800, cost: 420, sales: 4, fixed: 9000 },
     baseCAC: 680,
     saturationPoint: 3,
@@ -182,9 +182,9 @@ const segmentProfiles: SegmentProfile[] = [
   },
   {
     id: "clinicas",
-    label: "Clinicas de saude e odontologia",
-    note: "Agenda intensa, mais pontos de contato e operacao interna pesada para sustentar ganho.",
-    saturationNote: "O limite aparece quando o time interno nao acompanha atendimento, retorno e remarcacao.",
+    label: "Clínicas de saúde e odontologia",
+    note: "Agenda intensa, mais pontos de contato e operação interna pesada para sustentar ganho.",
+    saturationNote: "O limite aparece quando o time interno não acompanha atendimento, retorno e remarcação.",
     defaults: { price: 260, cost: 95, sales: 70, fixed: 14500 },
     baseCAC: 96,
     saturationPoint: 16,
@@ -196,9 +196,9 @@ const segmentProfiles: SegmentProfile[] = [
   },
   {
     id: "estetica",
-    label: "Salao, beleza e estetica",
-    note: "Ticket menor, retorno mais rapido e mais espaco para recorrencia bem organizada.",
-    saturationNote: "A perda de eficiencia aparece quando a verba sobe mais rapido do que a recompra.",
+    label: "Salão, beleza e estética",
+    note: "Ticket menor, retorno mais rápido e mais espaço para recorrência bem organizada.",
+    saturationNote: "A perda de eficiência aparece quando a verba sobe mais rápido do que a recompra.",
     defaults: { price: 160, cost: 55, sales: 110, fixed: 8600 },
     baseCAC: 48,
     saturationPoint: 24,
@@ -212,7 +212,7 @@ const segmentProfiles: SegmentProfile[] = [
     id: "loja-local",
     label: "Loja local e varejo de bairro",
     note: "Volume maior, margem apertada e necessidade forte de fluxo local.",
-    saturationNote: "Depois do ponto de saturacao, mais verba tende a comprar cliques piores e visitas menos prontas.",
+    saturationNote: "Depois do ponto de saturação, mais verba tende a comprar cliques piores e visitas menos prontas.",
     defaults: { price: 220, cost: 118, sales: 95, fixed: 12000 },
     baseCAC: 62,
     saturationPoint: 28,
@@ -225,8 +225,8 @@ const segmentProfiles: SegmentProfile[] = [
   {
     id: "ecommerce",
     label: "E-commerce com envios",
-    note: "Escala mais facil, mas com CAC, frete e operacao comendo margem rapidamente.",
-    saturationNote: "Escalar midia sem melhorar ticket, recompra e operacao derruba o retorno mais cedo.",
+    note: "Escala mais fácil, mas com CAC, frete e operação comendo margem rapidamente.",
+    saturationNote: "Escalar mídia sem melhorar ticket, recompra e operação derruba o retorno mais cedo.",
     defaults: { price: 290, cost: 165, sales: 130, fixed: 18000 },
     baseCAC: 74,
     saturationPoint: 36,
@@ -311,8 +311,8 @@ function getBusinessScale(monthlyRevenue: number): ScaleProfile {
   if (monthlyRevenue < 12000) {
     return {
       id: "micro",
-      label: "Micro operacao",
-      note: "Mudancas ainda sao leves, mas dependem muito do dono e do tempo de execucao.",
+      label: "Micro operação",
+      note: "Mudanças ainda são leves, mas dependem muito do dono e do tempo de execução.",
       opsMultiplier: 0.82,
       marketingMultiplier: 0.92,
       baseOps: 240,
@@ -322,8 +322,8 @@ function getBusinessScale(monthlyRevenue: number): ScaleProfile {
   if (monthlyRevenue < 40000) {
     return {
       id: "small",
-      label: "Operacao pequena",
-      note: "Ja existe algum processo, mas a implantacao ainda cabe sem uma equipe muito grande.",
+      label: "Operação pequena",
+      note: "Já existe algum processo, mas a implantação ainda cabe sem uma equipe muito grande.",
       opsMultiplier: 1,
       marketingMultiplier: 1,
       baseOps: 480,
@@ -333,8 +333,8 @@ function getBusinessScale(monthlyRevenue: number): ScaleProfile {
   if (monthlyRevenue < 100000) {
     return {
       id: "medium",
-      label: "Operacao em consolidacao",
-      note: "Qualquer ajuste comeca a exigir mais gestao, treinamento e acompanhamento.",
+      label: "Operação em consolidação",
+      note: "Qualquer ajuste começa a exigir mais gestão, treinamento e acompanhamento.",
       opsMultiplier: 1.24,
       marketingMultiplier: 1.12,
       baseOps: 920,
@@ -343,8 +343,8 @@ function getBusinessScale(monthlyRevenue: number): ScaleProfile {
 
   return {
     id: "structured",
-    label: "Operacao estruturada",
-    note: "A mudanca depende de alinhamento de time, controle e mais camada de gerencia.",
+    label: "Operação estruturada",
+    note: "A mudança depende de alinhamento de time, controle e mais camada de gerência.",
     opsMultiplier: 1.52,
     marketingMultiplier: 1.24,
     baseOps: 1650,
@@ -582,51 +582,51 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
       ? (marketingEstimate.mediaSpend / marketingEstimate.totalInvestment) * 100
       : 0;
 
-  let readingTitle = "Conta viavel.";
+  let readingTitle = "Conta viável.";
   let readingText =
-    "O cenario sustenta o investimento se o volume projetado for alcancado dentro do prazo estimado.";
+    "O cenário sustenta o investimento se o volume projetado for alcançado dentro do prazo estimado.";
   let attentionPoint = "Sustentar o volume projetado com atendimento consistente.";
   let nextMoveLabel = "Pode testar investimento.";
-  let nextMoveText = "Validar com verba controlada e acompanhar resposta real da operacao.";
+  let nextMoveText = "Validar com verba controlada e acompanhar resposta real da operação.";
 
   if (projectedContribution <= 0) {
-    readingTitle = "Cenario fragil.";
+    readingTitle = "Cenário frágil.";
     readingText =
-      "Antes de investir, ajuste valor medio, custo por cliente ou recorrencia.";
+      "Antes de investir, ajuste valor médio, custo por cliente ou recorrência.";
     attentionPoint = "Margem por cliente insuficiente.";
     nextMoveLabel = "Ajuste a base primeiro.";
-    nextMoveText = "Reveja valor medio, custo direto e formato de entrega antes da midia.";
+    nextMoveText = "Reveja valor médio, custo direto e formato de entrega antes da mídia.";
   } else if (!marketingEstimate.viable) {
     readingTitle = "Conta apertada.";
     readingText =
-      "O investimento exige mais clientes do que a base atual indica. Revise margem, valor medio ou custo por cliente.";
+      "O investimento exige mais clientes do que a base atual indica. Revise margem, valor médio ou custo por cliente.";
     attentionPoint = "Meta de clientes acima da base atual.";
-    nextMoveLabel = "Ganhe margem antes da midia.";
-    nextMoveText = "Melhore a base antes de exigir volume que a operacao ainda nao sustenta.";
+    nextMoveLabel = "Ganhe margem antes da mídia.";
+    nextMoveText = "Melhore a base antes de exigir volume que a operação ainda não sustenta.";
   } else if (marketingEstimate.adjustedCAC >= projectedContribution) {
     readingTitle = "Conta apertada.";
     readingText =
-      "O custo para trazer cliente novo encosta na margem por cliente. Revise valor medio ou custo direto.";
+      "O custo para trazer cliente novo encosta na margem por cliente. Revise valor médio ou custo direto.";
     attentionPoint = "Custo para trazer cliente novo perto da margem.";
     nextMoveLabel = "Revisar a conta por cliente.";
-    nextMoveText = "Sem margem melhor, mais investimento tende a ficar caro rapido.";
+    nextMoveText = "Sem margem melhor, mais investimento tende a ficar caro rápido.";
   } else if (marketingEstimate.totalInvestment > Math.max(projectedNetAfterOps, currentNet, 0)) {
     readingTitle = "Conta apertada.";
     readingText =
-      "A conta pode fechar, mas o investimento fica alto para o resultado atual da operacao.";
+      "A conta pode fechar, mas o investimento fica alto para o resultado atual da operação.";
     attentionPoint = "Investimento acima do resultado atual.";
     nextMoveLabel = "Teste com cautela.";
-    nextMoveText = "Comecar menor reduz risco e ajuda a validar resposta antes de subir verba.";
+    nextMoveText = "Começar menor reduz risco e ajuda a validar resposta antes de subir verba.";
   } else if (estimatedReturnDays > 120) {
     readingTitle = "Conta apertada.";
     readingText =
-      "O retorno demora mais do que o esperado para a maioria das operacoes de servico.";
+      "O retorno demora mais do que o esperado para a maioria das operações de serviço.";
     attentionPoint = "Prazo de retorno longo.";
     nextMoveLabel = "Valide o prazo antes de escalar.";
     nextMoveText = "Se o recebimento demora muito, o caixa precisa aguentar o ciclo com folga.";
   } else if (marketingEstimate.newClients > currentSales * 1.4) {
     attentionPoint = "Sustentar o novo volume de atendimento.";
-    nextMoveLabel = "Prepare a operacao para subir.";
+    nextMoveLabel = "Prepare a operação para subir.";
     nextMoveText = "Atendimento, agenda e follow-up precisam acompanhar o ritmo projetado.";
   }
 
@@ -635,12 +635,12 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
       ? "O custo para trazer cliente novo passa da margem por cliente."
       : null,
     marketingEstimate.newClients > currentSales * 1.6
-      ? "A meta de novos clientes esta muito acima da base atual."
+      ? "A meta de novos clientes está muito acima da base atual."
       : null,
     marketingEstimate.totalInvestment > Math.max(currentNet, 0)
       ? "O investimento fica maior do que o resultado atual."
       : null,
-    projectedContribution <= 0 ? "Margem insuficiente para sustentar esse cenario." : null,
+    projectedContribution <= 0 ? "Margem insuficiente para sustentar esse cenário." : null,
   ].filter(Boolean) as string[];
   const visibleAlerts = alerts.slice(0, 2);
 
@@ -721,7 +721,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
           <div className={styles.stageInner}>
             <div className={styles.stageIntro}>
               <span className={styles.kicker}>Inicio</span>
-              <h1 className={styles.displayTitle}>Simulacao antes de investir</h1>
+              <h1 className={styles.displayTitle}>Simulação antes de investir</h1>
               <p className={styles.displayLead}>
                 Base atual, ajustes internos e leitura de viabilidade.
               </p>
@@ -732,7 +732,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
               onClick={() => scrollToStep("base")}
               type="button"
             >
-              Comecar
+              Começar
             </button>
           </div>
         </section>
@@ -745,7 +745,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
             </header>
 
             <p className={styles.stageNote}>
-              Use numeros aproximados. A ideia e ler como a operacao funciona hoje.
+              Use números aproximados. A ideia é ler como a operação funciona hoje.
             </p>
 
             <div className={styles.fieldGrid}>
@@ -766,7 +766,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
               </label>
 
               <label className={styles.field} htmlFor="simulation-price">
-                <span className={styles.fieldLabel}>Valor medio recebido por cliente</span>
+                <span className={styles.fieldLabel}>Valor médio recebido por cliente</span>
                 <input
                   className={styles.input}
                   id="simulation-price"
@@ -793,7 +793,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
                 />
                 <ExpandableHelp label="O que entra aqui?">
                   Inclua custos que aparecem para atender, entregar ou vender: materiais, taxas,
-                  repasses, deslocamento, comissoes, ferramentas e tempo operacional.
+                  repasses, deslocamento, comissões, ferramentas e tempo operacional.
                 </ExpandableHelp>
               </label>
 
@@ -844,7 +844,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
             {technicalMode ? (
               <div className={styles.detailsBlock}>
                 <div className={styles.detailsHeader}>
-                  <span>Detalhes tecnicos</span>
+                  <span>Detalhes técnicos</span>
                 </div>
                 <div className={styles.metricList}>
                   {renderMetricRow("Margem atual", formatPercent(currentMargin), "sobre o faturamento")}
@@ -874,7 +874,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
             </header>
 
             <p className={styles.stageNote}>
-              Escolha um cenario e veja o impacto antes de abrir ajustes manuais.
+              Escolha um cenário e veja o impacto antes de abrir ajustes manuais.
             </p>
 
             <div className={styles.scenarioList}>
@@ -898,7 +898,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
               <strong className={styles.primaryMetricValue}>
                 {formatCurrency(projectedNetAfterOps)}
               </strong>
-              <span className={styles.primaryMetricHint}>Ja descontando o custo de implantacao.</span>
+              <span className={styles.primaryMetricHint}>Já descontando o custo de implantação.</span>
             </div>
 
             <div className={styles.compareGrid}>
@@ -911,7 +911,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
                 <strong className={styles.compareValue}>{formatCurrency(projectedRevenue)}</strong>
               </div>
               <div className={styles.compareItem}>
-                <span className={styles.compareLabel}>Diferenca</span>
+                <span className={styles.compareLabel}>Diferença</span>
                 <strong className={styles.compareValue}>{formatSignedCurrency(revenueDifference)}</strong>
               </div>
             </div>
@@ -954,7 +954,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
 
                 <label className={styles.sliderField} htmlFor="price-lift">
                   <div className={styles.sliderHeader}>
-                    <span className={styles.fieldLabel}>+ valor medio</span>
+                    <span className={styles.fieldLabel}>+ valor médio</span>
                     <span className={styles.sliderValue}>{formatPercent(priceLift)}</span>
                   </div>
                   <input
@@ -990,7 +990,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
                   <div className={styles.sliderHeader}>
                     <span className={styles.fieldLabel}>
                       <TermHint
-                        label="+ recorrencia"
+                        label="+ recorrência"
                         description="Mostra o efeito de fazer o mesmo cliente voltar mais vezes ou comprar de novo."
                         href={`${glossaryLinks.marketing}#recorrencia`}
                       />
@@ -1014,26 +1014,26 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
             {technicalMode ? (
               <div className={styles.detailsBlock}>
                 <div className={styles.detailsHeader}>
-                  <span>Detalhes tecnicos</span>
+                  <span>Detalhes técnicos</span>
                 </div>
                 <div className={styles.metricList}>
                   {renderMetricRow("Receita projetada", formatCurrency(projectedRevenue))}
-                  {renderMetricRow("Resultado antes da implantacao", formatCurrency(projectedNetBeforeOps))}
+                  {renderMetricRow("Resultado antes da implantação", formatCurrency(projectedNetBeforeOps))}
                   {renderMetricRow(
-                    "Custo de implantacao",
+                    "Custo de implantação",
                     formatCurrency(adjustmentOpsCost),
                     "interno e operacional",
                   )}
                   {renderMetricRow(
                     "Resultado extra",
                     formatCurrency(internalNetLift),
-                    "diferenca sobre hoje",
+                    "diferença sobre hoje",
                   )}
-                  {renderMetricRow("Base de implantacao", formatCurrency(implementationBase))}
+                  {renderMetricRow("Base de implantação", formatCurrency(implementationBase))}
                   {renderMetricRow("Ajuste de atendimento", formatCurrency(salesOpsCost))}
                   {renderMetricRow("Reposicionamento de valor", formatCurrency(priceOpsCost))}
-                  {renderMetricRow("Reducao de custo", formatCurrency(costOpsCost))}
-                  {renderMetricRow("Recorrencia e CRM", formatCurrency(recurrenceOpsCost))}
+                  {renderMetricRow("Redução de custo", formatCurrency(costOpsCost))}
+                  {renderMetricRow("Recorrência e CRM", formatCurrency(recurrenceOpsCost))}
                 </div>
               </div>
             ) : null}
@@ -1044,7 +1044,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
                 onClick={() => scrollToStep("marketing")}
                 type="button"
               >
-                Aplicar cenario
+                Aplicar cenário
               </button>
             </div>
           </div>
@@ -1059,7 +1059,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
 
             <div className={styles.fieldGrid}>
               <label className={`${styles.field} ${styles.fieldCompact}`} htmlFor="simulation-return-window">
-                <span className={styles.fieldLabel}>Tempo medio ate retorno</span>
+                <span className={styles.fieldLabel}>Tempo médio até retorno</span>
                 <select
                   className={styles.select}
                   id="simulation-return-window"
@@ -1084,14 +1084,14 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
               <strong className={styles.primaryMetricValue}>
                 {formatCurrency(marketingEstimate.totalInvestment)}
               </strong>
-              <span className={styles.primaryMetricHint}>Inclui midia, gestao e operacao.</span>
+              <span className={styles.primaryMetricHint}>Inclui mídia, gestão e operação.</span>
             </div>
 
-            <ExpandableHelp label="Ver composicao do investimento">
+            <ExpandableHelp label="Ver composição do investimento">
               <div className={styles.breakdownPanel}>
                 <p className={styles.breakdownText}>
-                  O investimento pode incluir anuncios, criacao, gestao, ferramentas, atendimento
-                  e perda natural de eficiencia.
+                  O investimento pode incluir anúncios, criação, gestão, ferramentas, atendimento
+                  e perda natural de eficiência.
                 </p>
 
                 <div className={styles.segmentBar} aria-hidden="true">
@@ -1106,9 +1106,9 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
                 </div>
 
                 <div className={styles.metricList}>
-                  {renderMetricRow("Midia", formatCurrency(marketingEstimate.mediaSpend))}
+                  {renderMetricRow("Mídia", formatCurrency(marketingEstimate.mediaSpend))}
                   {renderMetricRow(
-                    "Gestao e operacao",
+                    "Gestão e operação",
                     formatCurrency(marketingEstimate.managementCost),
                   )}
                   {renderMetricRow("Total estimado", formatCurrency(marketingEstimate.totalInvestment))}
@@ -1125,21 +1125,21 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
             {technicalMode ? (
               <div className={styles.detailsBlock}>
                 <div className={styles.detailsHeader}>
-                  <span>Detalhes tecnicos</span>
+                  <span>Detalhes técnicos</span>
                 </div>
                 <div className={styles.metricList}>
-                  {renderMetricRow("Meta liquida", formatCurrency(marketingEstimate.targetNetLift))}
-                  {renderMetricRow("Valor medio usado na conta", formatCurrency(projectedPrice))}
+                  {renderMetricRow("Meta líquida", formatCurrency(marketingEstimate.targetNetLift))}
+                  {renderMetricRow("Valor médio usado na conta", formatCurrency(projectedPrice))}
                   {renderMetricRow("CAC base do segmento", formatCurrency(marketingEstimate.baseCAC))}
                   {renderMetricRow(
                     "CAC ajustado",
                     formatCurrency(marketingEstimate.adjustedCAC),
                     marketingEstimate.efficiencyLossPct > 0
-                      ? `perda de eficiencia ${formatPercent(marketingEstimate.efficiencyLossPct)}`
+                      ? `perda de eficiência ${formatPercent(marketingEstimate.efficiencyLossPct)}`
                       : "sem perda relevante",
                   )}
                   {renderMetricRow(
-                    "Ponto de saturacao",
+                    "Ponto de saturação",
                     `${formatNumber(marketingEstimate.saturationPoint, 0)} clientes`,
                   )}
                   {renderMetricRow(
@@ -1184,10 +1184,10 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
             </div>
 
             <div className={styles.directionPanel}>
-              <span className={styles.directionLabel}>Proximo passo</span>
+              <span className={styles.directionLabel}>Próximo passo</span>
               <strong className={styles.directionTitle}>{nextMoveLabel}</strong>
               <p className={styles.directionText}>{nextMoveText}</p>
-              <span className={styles.directionFootnote}>Ponto de atencao: {attentionPoint}</span>
+              <span className={styles.directionFootnote}>Ponto de atenção: {attentionPoint}</span>
             </div>
 
             {visibleAlerts.length > 0 ? (
@@ -1206,27 +1206,27 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
               {renderMetricRow("Tempo estimado", estimatedReturnLabel)}
             </div>
 
-            <ExpandableHelp label="Retorno estimado nao e lucro.">
-              Receita estimada ainda precisa passar por custos, operacao, impostos e tempo de
+            <ExpandableHelp label="Retorno estimado não é lucro.">
+              Receita estimada ainda precisa passar por custos, operação, impostos e tempo de
               recebimento.
             </ExpandableHelp>
 
             <div className={styles.advancedPanel}>
               <span className={styles.advancedLabel}>Leitura mais precisa</span>
               <p className={styles.advancedText}>
-                Este modelo e simplificado. A leitura completa entra depois, cruzando canal,
-                agenda, capacidade, prazo de recebimento, recorrencia, equipe e caixa.
+                Este modelo é simplificado. A leitura completa entra depois, cruzando canal,
+                agenda, capacidade, prazo de recebimento, recorrência, equipe e caixa.
               </p>
             </div>
 
             {technicalMode ? (
               <div className={styles.detailsBlock}>
                 <div className={styles.detailsHeader}>
-                  <span>Detalhes tecnicos</span>
+                  <span>Detalhes técnicos</span>
                 </div>
                 <div className={styles.metricList}>
-                  {renderMetricRow("Ponto de atencao", attentionPoint)}
-                  {renderMetricRow("Direcao sugerida", nextMoveLabel, nextMoveText)}
+                  {renderMetricRow("Ponto de atenção", attentionPoint)}
+                  {renderMetricRow("Direção sugerida", nextMoveLabel, nextMoveText)}
                   {renderMetricRow("Margem alvo por cliente", formatCurrency(projectedContribution))}
                   {renderMetricRow("Receita puxada pelo investimento", formatCurrency(marketingEstimate.grossRevenue))}
                   {renderMetricRow(
@@ -1253,10 +1253,10 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
                 rel={contactIsExternal ? "noreferrer" : undefined}
                 target={contactIsExternal ? "_blank" : undefined}
               >
-                Agendar uma reuniao
+                Agendar uma reunião
               </a>
               <a className={styles.secondaryLink} href={servicesHref}>
-                Ver servicos
+                Ver serviços
               </a>
             </div>
           </div>

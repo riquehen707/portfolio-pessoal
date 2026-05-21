@@ -5,7 +5,7 @@ export const servicesPage: ServicesPage = {
   label: "Serviços",
   title: "Serviços para presença, captação e operação digital",
   description:
-    "Serviços sob medida para negócios que precisam vender com mais clareza, organizar atendimento e estruturar melhor a operação digital.",
+    "Serviços sob medida para negócios que precisam melhorar oferta, atendimento e rotina digital.",
   intro: {
     headline: "Antes do escopo, vale entender o momento do negócio.",
     lead:
@@ -15,10 +15,10 @@ export const servicesPage: ServicesPage = {
 
 export const simulationPage: BasePageConfig = {
   path: "/simulacao",
-  label: "Simulacao",
-  title: "Simulacao antes de investir",
+  label: "Simulação",
+  title: "Simulação antes de investir",
   description:
-    "Uma leitura inicial para entender se a base atual sustenta ajustes internos, investimento e retorno antes de ampliar a operacao.",
+    "Uma leitura inicial para entender se a base atual sustenta ajustes internos, investimento e retorno antes de ampliar a operação.",
 };
 
 export const services: ServiceLanding[] = [
@@ -27,7 +27,7 @@ export const services: ServiceLanding[] = [
     title: "Websites profissionais e landing pages",
     badge: "Web + Conversão",
     summary:
-      "Sites e landing pages para apresentar seu trabalho com mais clareza e facilitar o próximo passo de quem chega.",
+      "Sites e landing pages para explicar a oferta, reduzir dúvida e facilitar o próximo passo de quem chega.",
     hero: {
       highlight: "Next.js, SEO técnico e interface responsiva",
       description:
@@ -69,14 +69,14 @@ export const services: ServiceLanding[] = [
       },
     ],
     includes: [
-      "Arquitetura da página com foco em clareza e navegação simples.",
+      "Arquitetura da página com foco em leitura, oferta e navegação simples.",
       "Implementação responsiva com performance e SEO técnico desde o início.",
-      "Publicação com orientação para os próximos passos.",
+      "Públicação com orientação para os próximos passos.",
     ],
     process: [
       "Converso com você para entender o objetivo, o público e o que hoje está travando.",
       "Desenho e implemento as telas principais com foco em leitura e contato.",
-      "Faço os ajustes finais, publico e deixo a base pronta para evoluir.",
+      "Faço os ajustes finais, público e deixo a base pronta para evoluir.",
     ],
     faq: [
       {
@@ -198,7 +198,7 @@ export const services: ServiceLanding[] = [
     badge: "Freelancers + Clientes",
     layout: "creative",
     summary:
-      "Landing page para social media, designers e freelancers digitais que querem depender menos de indicação e ser lembrados com mais clareza.",
+      "Landing page para social media, designers e freelancers digitais que querem depender menos de indicação e apresentar melhor o próprio serviço.",
     seo: {
       title: "Landing page para social media, designers e freelancers digitais | Mais clientes",
       description:
@@ -464,7 +464,7 @@ export const services: ServiceLanding[] = [
       price: "A partir de R$ 300",
       duration: "1 a 6 semanas",
       ctaLabel: "Mapear automação",
-      ctaHref: "mailto:oi@henriquereis.dev?subject=Automacao%20e%20Integracoes",
+      ctaHref: "mailto:oi@henriquereis.dev?subject=Automação%20e%20Integracoes",
     },
     audience:
       "Negócios que já captam, atendem ou operam no digital e precisam de mais previsibilidade, velocidade e controle.",

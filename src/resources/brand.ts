@@ -41,14 +41,22 @@ const brandPalette = {
 
 const brandTypography = {
   heading: {
-    primary: "Space Grotesk",
-    alternatives: ["Satoshi", "Clash Display"],
+    primary: "Archivo Black",
+    alternatives: ["Anton", "Oswald"],
     purpose: "Títulos fortes, modernos e limpos.",
   },
   body: {
-    primary: "Inter",
-    alternatives: ["Manrope"],
+    primary: "Source Sans 3",
+    alternatives: ["Atkinson Hyperlegible", "IBM Plex Sans"],
     purpose: "Leitura perfeita para texto informativo e claro.",
+  },
+  technical: {
+    primary: "Michroma",
+    purpose: "Detalhes técnicos curtos, usados com moderação.",
+  },
+  accent: {
+    primary: "Fugaz One",
+    purpose: "Acentos criativos pequenos e memoráveis.",
   },
 } as const;
 
@@ -90,19 +98,19 @@ const brandMoodboard = {
 } as const;
 
 const brandMessaging = {
-  signatureDescriptor: "Estratégia, design e sistemas com clareza estrutural",
+  signatureDescriptor: "Estratégia, design e sistemas para operações digitais",
   role: "Parceiro estratégico em design, tecnologia e visão comercial para operações digitais",
   siteDescription:
-    "Henrique Reis combina design, tecnologia e visão comercial para estruturar operações digitais com clareza, valor percebido e execução confiável.",
-  homeHeadline: "Estratégia, design e sistemas para negócios que precisam crescer com clareza.",
+    "Henrique Reis combina design, tecnologia e visão comercial para organizar presença, captação e operação digital.",
+  homeHeadline: "Estratégia, design e sistemas para negócios que precisam operar melhor.",
   homeSubline:
-    "Não apenas sites, anúncios ou código. Soluções digitais completas e integradas para negócios reais.",
+    "Não apenas sites, anúncios ou código. Estruturas digitais integradas para negócios que precisam vender, atender e acompanhar melhor.",
   supportingStatement: "Controle, valor percebido e execução confiável.",
-  footerStatement: "Estrutura digital com critério, clareza estratégica e execução confiável.",
+  footerStatement: "Estrutura digital com critério, leitura comercial e execução confiável.",
   aboutHeadline:
     "Design, tecnologia e visão comercial para estruturar presença, operação e crescimento.",
   aboutLead:
-    "Não entrego partes soltas. Conecto estratégia, estética e execução para criar sistemas digitais claros, sofisticados e funcionais.",
+    "Não entrego partes soltas. Conecto estratégia, estética e execução para criar sistemas digitais funcionais, legíveis e fáceis de evoluir.",
   ogFooter: "Clareza gera resultado.",
   contactStatement: "Crescimento exige estrutura.",
 } as const;
@@ -160,14 +168,25 @@ const brandIdentity = {
     secondary: ["Criativo", "Ousado com controle", "Técnico", "Refinado"],
   },
   voice: {
-    traits: ["Direto", "Claro", "Sem exagero", "Seguro", "Maduro", "Objetivo"],
+    traits: ["Direto", "Claro", "Estratégico", "Sóbrio", "Específico", "Editorial"],
+    description:
+      "A voz explica o problema, mostra critério e aponta o próximo passo sem soar como promessa publicitária.",
     approvedExamples: [
-      "Estratégia antes da execução.",
-      "Sistemas digitais que funcionam.",
-      "Clareza gera resultado.",
-      "Crescimento exige estrutura.",
+      "Antes de investir, entenda onde a operação perde resposta.",
+      "Uma boa página reduz dúvida, organiza a oferta e facilita o contato.",
+      "Nem todo problema de captação se resolve com mais verba.",
+      "O próximo passo depende de margem, agenda e capacidade de atendimento.",
     ],
-    avoid: ["Revolucionário", "Disruptivo", "Inovador em tudo", "Solução 360 mágica"],
+    avoid: [
+      "Revolucionário",
+      "Disruptivo",
+      "Inovador em tudo",
+      "Solução 360 mágica",
+      "Resultado garantido",
+      "Texto que promete sem explicar o mecanismo",
+    ],
+    signatureUse:
+      "Use 'Clareza gera resultado.' apenas como assinatura curta, nunca como argumento principal de seções, cards ou chamadas editoriais.",
   },
   visualDirection: brandMoodboard,
   typography: brandTypography,

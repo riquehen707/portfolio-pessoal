@@ -3,7 +3,7 @@ import type { Segment } from "@/domain/types";
 export const estheticSegment: Segment = {
   id: "segment_esthetic",
   slug: "esthetic",
-  name: "Estetica e Beleza",
+  name: "Estética e Beleza",
   audienceProfile: {
     primaryGender: "female",
     primaryAgeRanges: ["18-24", "25-34", "35-44", "45-59"],

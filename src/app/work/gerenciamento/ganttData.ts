@@ -32,14 +32,14 @@ type WorkGanttDataset = {
 const fieldGroupSummary: WorkGanttFieldGroupSummary[] = [
   {
     id: "essencial",
-    label: "Informacoes essenciais",
+    label: "Informações essenciais",
     count: 6,
     requiredCount: 4,
     fields: ["id", "projeto", "status", "responsavel", "prazo", "entregavel"],
   },
   {
     id: "estrategia",
-    label: "Informacoes estrategicas",
+    label: "Informações estrategicas",
     count: 4,
     requiredCount: 2,
     fields: ["objetivo", "prioridade", "impacto", "observacoes"],
@@ -57,18 +57,18 @@ function buildPlaceholderDataset(year: number): WorkGanttDataset {
   const tasks = [
     { id: "tsk-placeholder-01", projectId: "prj-placeholder-01", name: "Definir primeiro projeto" },
     { id: "tsk-placeholder-02", projectId: "prj-placeholder-02", name: "Condensar escopo do sistema" },
-    { id: "tsk-placeholder-03", projectId: "prj-placeholder-03", name: "Preparar estrutura do proximo case" },
+    { id: "tsk-placeholder-03", projectId: "prj-placeholder-03", name: "Preparar estrutura do próximo case" },
   ];
 
   const projects: WorkGanttProjectWindow[] = [
     {
       projectId: "prj-placeholder-01",
-      projectName: "Projeto publico 01",
+      projectName: "Projeto público 01",
       taskCount: 1,
       periodLabel: "S21-S22 · Maio-Junho",
       contractLabel: "Placeholder",
       weeklyCapacityHours: 4,
-      monthlyValue: "Nao definido",
+      monthlyValue: "Não definido",
     },
     {
       projectId: "prj-placeholder-02",
@@ -86,7 +86,7 @@ function buildPlaceholderDataset(year: number): WorkGanttDataset {
       periodLabel: "S23-S24 · Junho",
       contractLabel: "Placeholder",
       weeklyCapacityHours: 3,
-      monthlyValue: "Nao definido",
+      monthlyValue: "Não definido",
     },
   ];
 

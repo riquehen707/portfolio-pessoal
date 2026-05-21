@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+﻿import { notFound } from "next/navigation";
 import { Column, Heading, Meta, Schema, Text } from "@once-ui-system/core";
 
 import {
@@ -12,6 +12,7 @@ import {
 import { EditorialFeed, type EditorialFeedPost } from "@/components/blog/EditorialFeed";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { baseURL, blog, person } from "@/resources";
+import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 
 import styles from "../topics.module.scss";
 
@@ -42,13 +43,26 @@ export async function generateMetadata({ params }: PageProps) {
     getBlogCollectionDescription(slug) ??
     `Artigos sobre ${label.toLowerCase()} no blog.`;
 
-  return Meta.generate({
+  const image = buildOgImage(label, "índice editorial do blog");
+  const generatedMeta = Meta.generate({
     title: `${label} | Blog`,
     description,
     baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent(label)}&subtitle=${encodeURIComponent("indice editorial do blog")}`,
+    image,
     path: getTopicPath(slug),
   });
+
+  return {
+    ...generatedMeta,
+    openGraph: {
+      ...generatedMeta.openGraph,
+      images: buildDiscoverImageMetadata(image, `${label} | Blog`),
+    },
+    twitter: {
+      ...generatedMeta.twitter,
+      images: [image],
+    },
+  };
 }
 
 export default async function BlogTopicPage({ params }: PageProps) {
@@ -84,7 +98,6 @@ export default async function BlogTopicPage({ params }: PageProps) {
         title={`${label} | Blog`}
         description={description}
         path={getTopicPath(slug)}
-        image={`/api/og/generate?title=${encodeURIComponent(label)}&subtitle=${encodeURIComponent("indice editorial do blog")}`}
         author={{
           name: person.name,
           url: `${baseURL}${getTopicPath(slug)}`,
@@ -121,7 +134,7 @@ export default async function BlogTopicPage({ params }: PageProps) {
             Artigos
           </Text>
           <Text className={styles.sectionLead} onBackground="neutral-weak" variant="body-default-s">
-            Uma leitura agrupada para fortalecer navegacao, contexto e descoberta.
+            Uma leitura agrupada para fortalecer navegação, contexto e descoberta.
           </Text>
         </div>
 

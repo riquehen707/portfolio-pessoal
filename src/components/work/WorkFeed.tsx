@@ -26,7 +26,7 @@ export function WorkFeed({ entries, blogHref }: WorkFeedProps) {
           </Heading>
           <Text className={styles.introLead} onBackground="neutral-weak" variant="body-default-m">
             O /work agora funciona como um feed limpo de projetos pessoais, sistemas, cases e
-            atualizacoes do que esta sendo construido.
+            atualizacoes do que está sendo construido.
           </Text>
         </div>
 
@@ -36,7 +36,7 @@ export function WorkFeed({ entries, blogHref }: WorkFeedProps) {
               Em /work
             </Text>
             <Text variant="body-default-s" onBackground="neutral-weak">
-              Projetos pessoais, sistemas autorais, bastidores e artigos do proprio portfolio.
+              Projetos pessoais, sistemas autorais, bastidores e artigos do próprio portfolio.
             </Text>
           </div>
 
@@ -45,7 +45,7 @@ export function WorkFeed({ entries, blogHref }: WorkFeedProps) {
               Em /blog
             </Text>
             <Text variant="body-default-s" onBackground="neutral-weak">
-              Estudos, analises e possiveis noticias ligadas a marketing, design e negocio.
+              Estudos, analises e possiveis noticias ligadas a marketing, design e negócio.
             </Text>
             <SmartLink href={blogHref} suffixIcon="arrowRight">
               Ver blog

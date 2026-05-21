@@ -32,6 +32,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { Projects } from "@/components/work/Projects";
 import { baseURL, about, person } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
+import { buildDiscoverImageMetadata } from "@/utils/og";
 
 import styles from "./page.module.scss";
 
@@ -50,14 +51,25 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!post) return {};
 
+  const image = toAbsoluteWorkProjectUrl(getWorkProjectSeoImage(post));
+  const generatedMeta = Meta.generate({
+    title: post.metadata.title,
+    description: post.metadata.summary ?? post.metadata.title,
+    baseURL,
+    image,
+    path: getWorkProjectPath(post.slug),
+  });
+
   return {
-    ...Meta.generate({
-      title: post.metadata.title,
-      description: post.metadata.summary ?? post.metadata.title,
-      baseURL,
-      image: toAbsoluteWorkProjectUrl(getWorkProjectSeoImage(post)),
-      path: getWorkProjectPath(post.slug),
-    }),
+    ...generatedMeta,
+    openGraph: {
+      ...generatedMeta.openGraph,
+      images: buildDiscoverImageMetadata(image, post.metadata.imageAlt ?? post.metadata.title),
+    },
+    twitter: {
+      ...generatedMeta.twitter,
+      images: image ? [image] : undefined,
+    },
     keywords: [
       ...getWorkProjectStack(post),
       getWorkProjectKindLabel(post),

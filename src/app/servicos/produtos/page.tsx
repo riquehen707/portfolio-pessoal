@@ -2,10 +2,13 @@ import { Button, Column, Grid, Heading, Row, Schema, Tag, Text } from "@once-ui-
 
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { baseURL, person, productsPage, servicesPage, work } from "@/resources";
+import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 
 import styles from "./page.module.scss";
 
 export async function generateMetadata() {
+  const image = buildOgImage(productsPage.title);
+
   return {
     title: productsPage.title,
     description: productsPage.description,
@@ -14,7 +17,7 @@ export async function generateMetadata() {
       title: productsPage.title,
       description: productsPage.description,
       url: `${baseURL}${productsPage.path}`,
-      images: [{ url: `/api/og/generate?title=${encodeURIComponent(productsPage.title)}` }],
+      images: buildDiscoverImageMetadata(image, productsPage.title),
     },
   };
 }
@@ -60,7 +63,7 @@ export default function ProductsPage() {
               wrap="balance"
             >
               Estou organizando o portfólio antes de prosseguir com os produtos, para que essa área
-              entre com mais clareza, utilidade e direção.
+              entre com utilidade real, recorte e direção.
             </Text>
 
             <Text className={styles.heroNote} onBackground="neutral-weak" variant="body-default-m">

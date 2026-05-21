@@ -26,65 +26,66 @@ import {
   social,
   work,
 } from "@/resources";
+import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 
 const aboutStrategy = contentStrategy.pages.about;
 
 const profileFacts = [
   {
     label: "Foco",
-    value: "Negocios locais, prestadores de servico e operacoes de atendimento.",
+    value: "Negócios locais, prestadores de serviço e operações de atendimento.",
   },
   {
-    label: "Atuacao",
-    value: "Marketing, paginas e sistemas digitais.",
+    label: "Atuação",
+    value: "Marketing, páginas e sistemas digitais.",
   },
   {
     label: "Entrega",
-    value: "Aquisicao, clareza comercial e organizacao de leads.",
+    value: "Aquisição, recorte comercial e organização de leads.",
   },
 ] as const;
 
 const thoughtBlocks = [
-  "Muitos negocios tentam resolver crescimento apenas com divulgacao.",
-  "Na pratica, o problema costuma estar distribuido entre oferta, pagina, atendimento, margem e acompanhamento.",
+  "Muitos negócios tentam resolver crescimento apenas com divulgação.",
+  "Na prática, o problema costuma estar distribuido entre oferta, página, atendimento, margem e acompanhamento.",
   "Meu trabalho e organizar essas partes antes de aumentar complexidade.",
 ] as const;
 
 const fitCards = [
   {
     icon: "person" as IconName,
-    title: "Prestadores de servico",
-    description: "Psicologos, advogados, consultores e servicos especializados.",
+    title: "Prestadores de serviço",
+    description: "Psicologos, advogados, consultores e serviços especializados.",
   },
   {
     icon: "calendar" as IconName,
-    title: "Operacoes de atendimento",
-    description: "Clinicas, estetica, saude, agenda e recorrencia.",
+    title: "Operações de atendimento",
+    description: "Clínicas, estética, saúde, agenda e recorrência.",
   },
   {
     icon: "package" as IconName,
-    title: "Negocios locais",
-    description: "Lojas, servicos locais e marcas que precisam captar melhor.",
+    title: "Negócios locais",
+    description: "Lojas, serviços locais e marcas que precisam captar melhor.",
   },
 ] as const;
 
 const methodBlocks = [
   {
     number: "01",
-    title: "Presenca e aquisicao",
-    description: "Sites, paginas, canais de entrada e oferta.",
+    title: "Presença e aquisição",
+    description: "Sites, páginas, canais de entrada e oferta.",
     items: ["Site", "Landing page", "Canal de entrada"],
   },
   {
     number: "02",
-    title: "Conversa e decisao",
-    description: "WhatsApp, formulario, proposta, atendimento e follow-up.",
-    items: ["WhatsApp", "Formulario", "Follow-up"],
+    title: "Conversa e decisão",
+    description: "WhatsApp, formulário, proposta, atendimento e follow-up.",
+    items: ["WhatsApp", "Formulário", "Follow-up"],
   },
   {
     number: "03",
     title: "Rotina e controle",
-    description: "Sistemas simples, dados, automacoes e acompanhamento.",
+    description: "Sistemas simples, dados, automações e acompanhamento.",
     items: ["Sistemas", "Dados", "Acompanhamento"],
   },
 ] as const;
@@ -92,33 +93,44 @@ const methodBlocks = [
 const relatedProjects = [
   {
     title: "Simulador de investimento",
-    type: "Diagnostico e calculo",
+    type: "Diagnóstico e calculo",
     summary: "Leitura inicial para decidir antes de aumentar verba.",
     href: simulationPage.path,
   },
   {
-    title: "Pagina para clinica de estetica",
-    type: "Pagina e captacao",
-    summary: "Estrutura pensada para agenda, recorrencia e contato simples.",
+    title: "Página para clínica de estética",
+    type: "Página e captação",
+    summary: "Estrutura pensada para agenda, recorrência e contato simples.",
     href: "/servicos/landing-page-para-estetica",
   },
   {
-    title: "Integracoes para atendimento",
-    type: "Sistema e operacao",
-    summary: "Fluxos, automacoes e organizacao para leads e acompanhamento.",
+    title: "Integrações para atendimento",
+    type: "Sistema e operação",
+    summary: "Fluxos, automações e organização para leads e acompanhamento.",
     href: "/servicos/integracoes-automacoes",
   },
 ] as const;
 
 export async function generateMetadata() {
+  const image = buildOgImage(about.title);
+  const generatedMeta = Meta.generate({
+    title: about.title,
+    description: about.description,
+    baseURL,
+    image,
+    path: about.path,
+  });
+
   return {
-    ...Meta.generate({
-      title: about.title,
-      description: about.description,
-      baseURL,
-      image: `/api/og/generate?title=${encodeURIComponent(about.title)}`,
-      path: about.path,
-    }),
+    ...generatedMeta,
+    openGraph: {
+      ...generatedMeta.openGraph,
+      images: buildDiscoverImageMetadata(image, about.title),
+    },
+    twitter: {
+      ...generatedMeta.twitter,
+      images: [image],
+    },
     keywords: aboutStrategy.seo.keywords,
   };
 }
@@ -157,11 +169,11 @@ export default function About() {
               Sobre
             </Text>
             <Heading as="h1" variant="display-strong-l" wrap="balance">
-              Estrategia, paginas e sistemas para negocios venderem com mais clareza.
+              Estratégia, páginas e sistemas para negócios venderem com mais direção.
             </Heading>
             <div className={styles.accentLine} />
             <Text className={styles.heroLead} variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
-              Trabalho entre marketing, design e operacao digital para organizar presenca, captacao
+              Trabalho entre marketing, design e operação digital para organizar presença, captação
               e acompanhamento.
             </Text>
             <AboutScrollButton targetId="metodo">Ver como trabalho</AboutScrollButton>
@@ -224,7 +236,7 @@ export default function About() {
           </Heading>
           <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
             Faco mais sentido quando o objetivo e conquistar clientes, organizar atendimento e
-            tornar o digital mais util para vender.
+            tornar o digital mais útil para vender.
           </Text>
         </div>
 
@@ -288,7 +300,7 @@ export default function About() {
             Projetos relacionados
           </Heading>
           <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
-            Alguns trabalhos onde essa logica aparece em paginas, sistemas e aquisicao.
+            Alguns trabalhos onde essa logica aparece em páginas, sistemas e aquisição.
           </Text>
         </div>
 
@@ -325,14 +337,14 @@ export default function About() {
             Antes de investir mais, vale entender a estrutura.
           </Heading>
           <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
-            A simulacao ajuda a estimar se a conta faz sentido antes de aumentar verba, redesenhar
-            paginas ou criar novas acoes.
+            A simulação ajuda a estimar se a conta faz sentido antes de aumentar verba, redesenhar
+            páginas ou criar novas ações.
           </Text>
         </div>
 
         <Row className={styles.ctaRow} gap="12" wrap>
           <Button href={simulationPage.path} variant="primary" size="m" arrowIcon>
-            Ver simulacao
+            Ver simulação
           </Button>
           <Button href={whatsappLink} variant="secondary" size="m" prefixIcon="whatsapp">
             Conversar

@@ -1,10 +1,10 @@
 # Etapa 9 - Blog principal, autoridade e SEO
 
-Objetivo desta etapa: fazer o blog deixar de ser apenas arquivo e passar a operar como prova de repertorio, fonte de busca organica e reforco de confianca.
+Objetivo desta etapa: fazer o blog deixar de ser apenas arquivo e passar a operar como prova de repertorio, fonte de busca orgânica e reforço de confiança.
 
 ## Estrutura aplicada
 
-A Home agora mostra apenas tres artigos estrategicos, com:
+A Home agora mostra apenas três artigos estrategicos, com:
 
 1. categoria
 2. titulo forte
@@ -14,7 +14,7 @@ A Home agora mostra apenas tres artigos estrategicos, com:
 
 ## Curadoria
 
-A selecao do blog agora passa por helper proprio e prioriza:
+A seleção do blog agora passa por helper próprio e prioriza:
 
 - posts marcados como `featured`
 - categorias estrategicas
@@ -23,24 +23,24 @@ A selecao do blog agora passa por helper proprio e prioriza:
 
 ## Categorias centrais
 
-- `Negocios locais`
+- `Negócios locais`
 - `Marketing`
 - `Design`
-- `Operacao`
+- `Operação`
 - `Tecnologia`
 - `Growth`
 
 ## Artigos destaque
 
-- `Como clinicas perdem clientes no digital sem perceber`
-- `Por que muitos negocios locais dependem demais de apps`
-- `CRM simples para pequenos negocios: menos caos, mais follow-up`
+- `Como clínicas perdem clientes no digital sem perceber`
+- `Por que muitos negócios locais dependem demais de apps`
+- `CRM simples para pequenos negócios: menos caos, mais follow-up`
 
 ## O que mudou
 
 - a Home deixou de puxar qualquer post recente
-- a pagina `/blog` passou a destacar apenas a linha estrategica da marca
-- o explorador principal agora trabalha sobre os posts de negocio, nao sobre o arquivo filosofico antigo
+- a página `/blog` passou a destacar apenas a linha estrategica da marca
+- o explorador principal agora trabalha sobre os posts de negócio, não sobre o arquivo filosofico antigo
 
 ## Arquivos centrais
 
@@ -52,9 +52,9 @@ A selecao do blog agora passa por helper proprio e prioriza:
 - `src/resources/content-strategy.ts`
 - `src/app/blog/posts/*.mdx`
 
-## Criterio de aprovacao
+## Critério de aprovacao
 
-- o visitante entende que existe pensamento por tras da execucao
+- o visitante entende que existe pensamento por tras da execução
 - a Home ganha autoridade sem virar blogao
-- o blog principal passa a conversar com negocio real
-- a base de SEO fica pronta para crescer com consistencia
+- o blog principal passa a conversar com negócio real
+- a base de SEO fica pronta para crescer com consistência

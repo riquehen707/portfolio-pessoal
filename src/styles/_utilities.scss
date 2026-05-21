@@ -65,14 +65,7 @@
 .hr-card::before,
 .hr-navbar-shell::before,
 .hr-modal-shell::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 42%),
-    radial-gradient(circle at 14% 0%, var(--brand-glow), transparent 28%),
-    radial-gradient(circle at 86% 0%, var(--accent-glow), transparent 22%);
-  pointer-events: none;
+  content: none;
 }
 
 .hr-panel > *,
@@ -85,18 +78,18 @@
 
 .hr-panel[data-surface="hero"] {
   background: var(--surface-overlay-strong), var(--surface-panel-strong);
-  box-shadow: var(--shadow-card);
+  box-shadow: none;
 }
 
 .hr-card[data-surface="elevated"],
 .hr-modal-shell {
   background: var(--surface-overlay-soft), var(--surface-elevated);
-  box-shadow: var(--shadow-card);
+  box-shadow: none;
 }
 
 .hr-card[data-surface="ghost"],
 .hr-tooltip {
-  background: linear-gradient(180deg, var(--surface-ghost), transparent), var(--surface-panel-soft);
+  background: var(--surface-panel-soft);
 }
 
 .hr-surface-flat {
@@ -112,7 +105,7 @@
 }
 
 .hr-surface-ghost {
-  background: linear-gradient(180deg, var(--surface-ghost), transparent), var(--surface-panel-soft);
+  background: var(--surface-panel-soft);
 }
 
 .hr-tag {
@@ -156,6 +149,19 @@
 
 .hr-accent-line {
   @include mixins.accent-line;
+}
+
+.hr-technical-detail {
+  font-family: var(--font-technical);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hr-creative-accent {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  letter-spacing: 0;
 }
 
 .hr-input {

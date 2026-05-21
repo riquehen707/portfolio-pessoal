@@ -3,22 +3,36 @@ import { Column, Heading, Meta, Schema, Text } from "@once-ui-system/core";
 import { getBlogCollectionIndex } from "@/app/blog/postData";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { baseURL, blog, person } from "@/resources";
+import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 
 import styles from "./topics.module.scss";
 
 const topicsPath = "/blog/temas";
-const topicsTitle = "Indices do blog";
+const topicsTitle = "Índices do blog";
 const topicsDescription =
   "Hubs editoriais por tema para navegar pelos artigos do blog com mais contexto e ligacao interna.";
 
 export async function generateMetadata() {
-  return Meta.generate({
+  const image = buildOgImage(topicsTitle, "hubs editoriais por tema");
+  const generatedMeta = Meta.generate({
     title: topicsTitle,
     description: topicsDescription,
     baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent(topicsTitle)}&subtitle=${encodeURIComponent("hubs editoriais por tema")}`,
+    image,
     path: topicsPath,
   });
+
+  return {
+    ...generatedMeta,
+    openGraph: {
+      ...generatedMeta.openGraph,
+      images: buildDiscoverImageMetadata(image, topicsTitle),
+    },
+    twitter: {
+      ...generatedMeta.twitter,
+      images: [image],
+    },
+  };
 }
 
 export default function BlogTopicsPage() {
@@ -52,7 +66,7 @@ export default function BlogTopicsPage() {
           Blog
         </Text>
         <Heading as="h1" variant="display-strong-l">
-          Indices
+          Índices
         </Heading>
         <Text className={styles.heroLead} onBackground="neutral-weak" variant="heading-default-m">
           Hubs por tema para fortalecer leitura, links internos e descoberta dos artigos.
@@ -65,7 +79,7 @@ export default function BlogTopicsPage() {
             Temas
           </Text>
           <Text className={styles.sectionLead} onBackground="neutral-weak" variant="body-default-s">
-            Cada indice agrupa textos relacionados e ajuda a navegar por assunto.
+            Cada índice agrupa textos relacionados e ajuda a navegar por assunto.
           </Text>
         </div>
 

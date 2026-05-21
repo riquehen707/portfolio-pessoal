@@ -23,12 +23,11 @@
 
 .name {
   color: var(--neutral-on-background-strong);
-  font-family: var(--font-heading);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
+  font-family: var(--font-accent);
+  font-size: 0.92rem;
+  font-weight: 400;
+  letter-spacing: 0;
   line-height: 1;
-  text-transform: uppercase;
 }
 
 .descriptor {
@@ -43,8 +42,7 @@
 }
 
 .compact .name {
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
+  font-size: 0.86rem;
 }
 
 .compact .descriptor {

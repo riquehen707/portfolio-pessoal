@@ -1,4 +1,10 @@
-import { IBM_Plex_Mono, Inter } from "next/font/google";
+import {
+  Archivo_Black,
+  Fugaz_One,
+  IBM_Plex_Mono,
+  Michroma,
+  Source_Sans_3,
+} from "next/font/google";
 
 import {
   DataStyleConfig,
@@ -38,22 +44,25 @@ const display: DisplayConfig = {
   themeSwitcher: true,
 };
 
-const heading = Inter({
+const heading = Archivo_Black({
   variable: "--font-heading",
   subsets: ["latin"],
   display: "swap",
+  weight: "400",
 });
 
-const body = Inter({
+const body = Source_Sans_3({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
-const label = Inter({
+const label = Source_Sans_3({
   variable: "--font-label",
   subsets: ["latin"],
   display: "swap",
+  weight: ["500", "600", "700"],
 });
 
 const code = IBM_Plex_Mono({
@@ -63,11 +72,27 @@ const code = IBM_Plex_Mono({
   weight: ["400", "500", "700"],
 });
 
+const technical = Michroma({
+  variable: "--font-technical",
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
+});
+
+const accent = Fugaz_One({
+  variable: "--font-accent",
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
+});
+
 const fonts: FontsConfig = {
   heading,
   body,
   label,
   code,
+  technical,
+  accent,
 };
 
 const style: StyleConfig = {

@@ -1,4 +1,4 @@
-import { Column, Heading, Media, Meta, Schema, Text } from "@once-ui-system/core";
+﻿import { Column, Heading, Media, Meta, Schema, Text } from "@once-ui-system/core";
 
 import {
   getAllBlogPosts,
@@ -11,20 +11,34 @@ import {
 import { EditorialFeed, type EditorialFeedPost } from "@/components/blog/EditorialFeed";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { baseURL, blog, person } from "@/resources";
+import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 
 import styles from "./blog.module.scss";
 
 const blogHomeDescription =
-  "Artigos sobre marketing, paginas e aquisicao para negocios de servico.";
+  "Artigos sobre marketing, páginas e aquisição para negócios de serviço.";
 
 export async function generateMetadata() {
-  return Meta.generate({
+  const image = buildOgImage("Insights", "marketing e aquisição");
+  const generatedMeta = Meta.generate({
     title: blog.title,
     description: blogHomeDescription,
     baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent("Insights")}&subtitle=${encodeURIComponent("marketing e aquisicao")}`,
+    image,
     path: blog.path,
   });
+
+  return {
+    ...generatedMeta,
+    openGraph: {
+      ...generatedMeta.openGraph,
+      images: buildDiscoverImageMetadata(image, blog.title),
+    },
+    twitter: {
+      ...generatedMeta.twitter,
+      images: [image],
+    },
+  };
 }
 
 export default function Blog() {
@@ -47,18 +61,18 @@ export default function Blog() {
 
   const startCards = [
     {
-      title: "Antes de investir",
-      summary: "Margem, CAC e meta.",
+      title: "Antes de investir em tráfego",
+      summary: "Entenda margem, CAC e meta antes de aumentar verba.",
       href: "/blog/termos-de-marketing",
     },
     {
-      title: "Antes de melhorar uma pagina",
-      summary: "Clareza, hierarquia e oferta.",
+      title: "Antes de redesenhar uma página",
+      summary: "Veja se hierarquia, oferta e CTA já ajudam a decisão.",
       href: "/blog/termos-de-design",
     },
     {
-      title: "Antes de gerar leads",
-      summary: "Canal, anuncio e custo.",
+      title: "Antes de gerar mais leads",
+      summary: "Leia canal, anúncio, custo e qualidade do contato.",
       href: "/blog/termos-de-publicidade",
     },
   ];
@@ -71,7 +85,6 @@ export default function Blog() {
         title={blog.title}
         description={blogHomeDescription}
         path={blog.path}
-        image={`/api/og/generate?title=${encodeURIComponent("Insights")}&subtitle=${encodeURIComponent("marketing e aquisicao")}`}
         author={{
           name: person.name,
           url: `${baseURL}${blog.path}`,
@@ -94,7 +107,7 @@ export default function Blog() {
             Insights
           </Heading>
           <Text className={styles.heroLead} onBackground="neutral-weak" variant="heading-default-m">
-            Artigos sobre marketing, paginas e aquisicao para negocios de servico.
+            Artigos sobre marketing, páginas e aquisição para negócios de serviço.
           </Text>
         </div>
       </section>
@@ -173,10 +186,10 @@ export default function Blog() {
         <section className={styles.startSection}>
           <div className={styles.sectionHeader}>
             <Text className={styles.sectionLabel} variant="label-default-s" onBackground="brand-strong">
-              Indices
+              Índices
             </Text>
             <Text className={styles.sectionLead} onBackground="neutral-weak" variant="body-default-s">
-              Hubs por tema para fortalecer leitura e navegacao interna.
+              Hubs por tema para fortalecer leitura e navegação interna.
             </Text>
           </div>
 
@@ -204,10 +217,10 @@ export default function Blog() {
       <section className={styles.feedSection} id="artigos">
         <div className={styles.sectionHeader}>
           <Text className={styles.sectionLabel} variant="label-default-s" onBackground="brand-strong">
-            Ultimos artigos
+            Últimos artigos
           </Text>
           <Text className={styles.sectionLead} onBackground="neutral-weak" variant="body-default-s">
-            Leitura direta, temas especificos e links internos claros.
+            Leituras para melhorar presença, oferta, atendimento e conversão com menos improviso.
           </Text>
         </div>
 

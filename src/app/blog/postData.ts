@@ -7,41 +7,41 @@ const BLOG_POSTS_PATH = ["src", "app", "blog", "posts"] as const;
 export const blogCollections = {
   fundamentos: {
     label: "Fundamentos",
-    description: "Conceitos de marketing, design e leitura de negocio antes da acao.",
+    description: "Conceitos de marketing, design e leitura de negócio antes da ação.",
   },
   imobiliario: {
-    label: "Imobiliario",
-    description: "Captacao, paginas, Google e conteudo para corretores e imobiliarias.",
+    label: "Imobiliário",
+    description: "Captação, páginas, Google e conteúdo para corretores e imobiliárias.",
   },
   "clinicas-saude": {
-    label: "Clinicas e saude",
-    description: "Presenca digital, agendamento e captacao para clinicas e operacoes de atendimento.",
+    label: "Clínicas e saúde",
+    description: "Presença digital, agendamento e captação para clínicas e operações de atendimento.",
   },
   educacao: {
-    label: "Educacao",
-    description: "Matriculas, cursos, escolas e operacoes educacionais com mais clareza comercial.",
+    label: "Educação",
+    description: "Matrículas, cursos, escolas e operações educacionais com melhor recorte comercial.",
   },
   juridico: {
-    label: "Juridico",
-    description: "Conteudo, presenca e busca para escritorios e profissionais da advocacia.",
+    label: "Jurídico",
+    description: "Conteúdo, presença e busca para escritórios e profissionais da advocacia.",
   },
   contabilidade: {
     label: "Contabilidade",
-    description: "Comunicacao e captacao para servicos contabeis e escritorios.",
+    description: "Comunicação e captação para serviços contábeis e escritórios.",
   },
   "beleza-estetica": {
-    label: "Beleza e estetica",
-    description: "Agenda, recorrencia e divulgacao para saloes, estetica e servicos de beleza.",
+    label: "Beleza e estética",
+    description: "Agenda, recorrência e divulgação para salões, estética e serviços de beleza.",
   },
 } as const;
 
 type BlogCollectionSlug = keyof typeof blogCollections;
 
 export const strategicBlogCategories = [
-  "Negocios locais",
+  "Negócios locais",
   "Marketing",
   "Design",
-  "Operacao",
+  "Operação",
   "Tecnologia",
   "Growth",
 ] as const;

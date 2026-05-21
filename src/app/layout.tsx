@@ -27,6 +27,7 @@ import {
   home,
   style,
 } from "@/resources";
+import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 
 function resolveBaseURL(): URL {
   const raw = (process.env.NEXT_PUBLIC_SITE_URL ?? baseFromConfig ?? "").trim();
@@ -70,7 +71,7 @@ export async function generateMetadata() {
   const siteTitle = brandIdentity.name;
   const siteDescription = brandMessaging.siteDescription;
   const path = ensureLeadingSlash(home?.path ?? "/");
-  const image = toAbsoluteOrPath(metadataBase, home?.image ?? "/og.png");
+  const image = toAbsoluteOrPath(metadataBase, home?.image ?? buildOgImage(siteTitle));
   const canonicalUrl = new URL(path || "/", metadataBase).toString();
 
   const onceMeta = Meta.generate({
@@ -103,7 +104,7 @@ export async function generateMetadata() {
       siteName: siteTitle,
       title: siteTitle,
       description: siteDescription,
-      images: image ? [{ url: image, alt: siteTitle }] : undefined,
+      images: buildDiscoverImageMetadata(image, siteTitle),
     },
     twitter: {
       card: "summary_large_image",
@@ -138,6 +139,8 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
         fonts.body.variable,
         fonts.label.variable,
         fonts.code.variable,
+        fonts.technical.variable,
+        fonts.accent.variable,
       )}
     >
       <head>

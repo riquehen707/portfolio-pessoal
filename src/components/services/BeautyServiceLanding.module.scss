@@ -14,9 +14,10 @@
 .ctaPanel {
   position: relative;
   overflow: hidden;
-  border-radius: 1.7rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-24);
   background: var(--surface-panel);
-  box-shadow: var(--shadow-soft);
+  box-shadow: none;
 }
 
 .hero::before,
@@ -27,13 +28,7 @@
 .scopeCard::before,
 .faqCard::before,
 .ctaPanel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 14% 10%, rgba(234, 138, 117, 0.14), transparent 28%),
-    radial-gradient(circle at 84% 0%, rgba(79, 134, 209, 0.12), transparent 22%);
-  pointer-events: none;
+  content: none;
 }
 
 .hero > *,
@@ -75,7 +70,7 @@
   width: 4rem;
   height: 2px;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--scheme-accent-700), var(--scheme-brand-700));
+  background: var(--scheme-accent-700);
 }
 
 .tagRow,
@@ -96,7 +91,7 @@
 .faqCard,
 .ctaPanel {
   background: rgba(255, 255, 255, 0.025);
-  box-shadow: var(--shadow-soft);
+  box-shadow: none;
 }
 
 .metricCard,
@@ -136,7 +131,7 @@
   .scopeCard:hover,
   .faqCard:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-card);
+    box-shadow: none;
     background: rgba(255, 255, 255, 0.035);
     transition:
       transform 180ms ease,
@@ -165,7 +160,7 @@
   .scopeCard,
   .faqCard,
   .ctaPanel {
-    border-radius: 1.35rem;
+    border-radius: var(--radius-24);
   }
 
   .heroActions {

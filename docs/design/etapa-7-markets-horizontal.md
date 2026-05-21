@@ -1,21 +1,21 @@
-# Etapa 7 - Secao estrategica horizontal de mercados
+# Etapa 7 - Seção estrategica horizontal de mercados
 
 Objetivo desta etapa: transformar a leitura de "ele parece competente" em "ele entende meu contexto".
 
 ## Estrutura aplicada
 
-A secao de mercados saiu do grid estatico e virou um trilho horizontal com:
+A seção de mercados saiu do grid estático e virou um trilho horizontal com:
 
 1. cabecalho curto
-2. faixa de selecao por mercado
+2. faixa de seleção por mercado
 3. cards amplos com snap central
-4. ponte curta para a secao de projetos
+4. ponte curta para a seção de projetos
 
 ## Mercados oficiais
 
 - `Alimentacao`
-- `Imoveis`
-- `Estetica`
+- `Imóveis`
+- `Estética`
 - `Profissionais`
 
 Cada card agora trabalha com:
@@ -32,13 +32,13 @@ A interacao foi desenhada para parecer natural no mobile e controlada no desktop
 - card ativo centralizado
 - cards laterais parcialmente visiveis
 - botões `anterior/proximo` em telas maiores
-- autocentralizacao suave quando a secao entra forte na viewport
+- autocentralizacao suave quando a seção entra forte na viewport
 
-## O que a secao comunica
+## O que a seção comunica
 
-- existe leitura por mercado, nao formula pronta
-- o trabalho e consultivo, nao apenas tecnico
-- a transicao para `Works` acontece com contexto, nao por exibicao vazia
+- existe leitura por mercado, não formula pronta
+- o trabalho e consultivo, não apenas técnico
+- a transição para `Works` acontece com contexto, não por exibicao vazia
 
 ## Arquivos centrais
 
@@ -48,9 +48,9 @@ A interacao foi desenhada para parecer natural no mobile e controlada no desktop
 - `src/components/cards/MarketCard.tsx`
 - `src/components/cards/MarketCard.module.scss`
 
-## Criterio de aprovacao
+## Critério de aprovacao
 
-- a secao parece mais sofisticada que um grid comum
+- a seção parece mais sofisticada que um grid comum
 - o uso no celular continua intuitivo
 - a leitura de mercado fica clara sem textao
 - a vontade de ver projetos aumenta logo em seguida

@@ -161,7 +161,7 @@ function pushObservedScoreTrace(
     value,
     classification: "real",
     sourceKind: "observed",
-    sourceLabel: "Diagnostico manual do cliente",
+    sourceLabel: "Diagnóstico manual do cliente",
     confidence: 0.94,
   });
 
@@ -453,7 +453,7 @@ export function createProjectDashboardSnapshot(params: {
 
   const avgTicketResolved = resolveMetricWithTrace({
     key: "avg-ticket",
-    label: "Ticket medio",
+    label: "Ticket médio",
     section: "Comercial",
     observed: client.businessData.avgTicket,
     benchmark: segment.revenueProfile.typicalTicketMid,
@@ -466,7 +466,7 @@ export function createProjectDashboardSnapshot(params: {
   const returnRateResolved = resolveMetricWithTrace({
     key: "return-rate",
     label: "Taxa de retorno",
-    section: "Recorrencia",
+    section: "Recorrência",
     observed: client.businessData.returnRate,
     benchmark: benchmark.retention.returnRate,
     fallback: modelConstant.fallbackModel.defaultReturnRate,
@@ -618,15 +618,15 @@ export function createProjectDashboardSnapshot(params: {
     observed: client.googleData.rankingEstimate,
     benchmark: 12 - client.diagnosisScores.googlePresence * 0.7,
     fallback: 10,
-    benchmarkLabel: "Estimativa de ranking a partir da presenca local",
+    benchmarkLabel: "Estimativa de ranking a partir da presença local",
   });
   registerTrace(traces, sectionStats, rankingResolved.trace);
   const rankingEstimate = clamp(rankingResolved.value, 1, 20);
 
   const avgCplResolved = resolveMetricWithTrace({
     key: "avg-cpl",
-    label: "CPL medio",
-    section: "Midia paga",
+    label: "CPL médio",
+    section: "Mídia paga",
     observed: null,
     benchmark: benchmark.paidTraffic.avgCpl,
     fallback: 18,
@@ -638,8 +638,8 @@ export function createProjectDashboardSnapshot(params: {
 
   const avgCpcResolved = resolveMetricWithTrace({
     key: "avg-cpc",
-    label: "CPC medio",
-    section: "Midia paga",
+    label: "CPC médio",
+    section: "Mídia paga",
     observed: null,
     benchmark: benchmark.paidTraffic.avgCpc ?? null,
     fallback: 1.8,
@@ -651,8 +651,8 @@ export function createProjectDashboardSnapshot(params: {
 
   const avgCpmResolved = resolveMetricWithTrace({
     key: "avg-cpm",
-    label: "CPM medio",
-    section: "Midia paga",
+    label: "CPM médio",
+    section: "Mídia paga",
     observed: null,
     benchmark: benchmark.paidTraffic.avgCpm ?? null,
     fallback: 16,
@@ -662,21 +662,21 @@ export function createProjectDashboardSnapshot(params: {
   registerTrace(traces, sectionStats, avgCpmResolved.trace);
   const avgCpm = avgCpmResolved.value;
 
-  pushObservedScoreTrace(traces, sectionStats, "diagnosis-bio", "Score bio", "Diagnostico", client.diagnosisScores.bio);
+  pushObservedScoreTrace(traces, sectionStats, "diagnosis-bio", "Score bio", "Diagnóstico", client.diagnosisScores.bio);
   pushObservedScoreTrace(
     traces,
     sectionStats,
     "diagnosis-humanization",
-    "Score humanizacao",
-    "Diagnostico",
+    "Score humanização",
+    "Diagnóstico",
     client.diagnosisScores.humanization,
   );
   pushObservedScoreTrace(
     traces,
     sectionStats,
     "diagnosis-conversion",
-    "Score conversao",
-    "Diagnostico",
+    "Score conversão",
+    "Diagnóstico",
     client.diagnosisScores.conversion,
   );
   pushObservedScoreTrace(
@@ -684,7 +684,7 @@ export function createProjectDashboardSnapshot(params: {
     sectionStats,
     "diagnosis-branding",
     "Score branding",
-    "Diagnostico",
+    "Diagnóstico",
     client.diagnosisScores.branding,
   );
   pushObservedScoreTrace(
@@ -692,7 +692,7 @@ export function createProjectDashboardSnapshot(params: {
     sectionStats,
     "diagnosis-google",
     "Score Google",
-    "Diagnostico",
+    "Diagnóstico",
     client.diagnosisScores.googlePresence,
   );
   pushObservedScoreTrace(
@@ -700,7 +700,7 @@ export function createProjectDashboardSnapshot(params: {
     sectionStats,
     "diagnosis-social-proof",
     "Score prova social",
-    "Diagnostico",
+    "Diagnóstico",
     client.diagnosisScores.socialProof,
   );
 
@@ -931,10 +931,10 @@ export function createProjectDashboardSnapshot(params: {
   const recommendations: string[] = [];
 
   if (client.diagnosisScores.bio <= 4 || client.diagnosisScores.offerClarity <= 4) {
-    recommendations.push("A proposta precisa deixar procedimento, promessa e CTA mais claros ja na primeira dobra.");
+    recommendations.push("A proposta precisa deixar procedimento, promessa e CTA mais claros já na primeira dobra.");
   }
   if (client.diagnosisScores.humanization <= 4) {
-    recommendations.push("Usar voz, rosto e bastidores para reduzir friccao antes do clique no WhatsApp.");
+    recommendations.push("Usar voz, rosto e bastidores para reduzir fricção antes do clique no WhatsApp.");
   }
   if (client.diagnosisScores.socialProof <= 4) {
     recommendations.push("Organizar prova social recorrente com depoimentos, antes e depois autorizado e respostas a duvidas frequentes.");
@@ -1023,8 +1023,8 @@ export function createProjectDashboardSnapshot(params: {
 
   const derivedMarketTraces = [
     createDerivedTrace("eligible-market", "Mercado elegivel", "Mercado derivado", report.derivedMetrics.eligibleMarket, "Formula de mercado elegivel"),
-    createDerivedTrace("intent-market", "Mercado com intencao", "Mercado derivado", report.derivedMetrics.intentMarket, "Formula de intencao"),
-    createDerivedTrace("capturable-market", "Mercado capturavel", "Mercado derivado", report.derivedMetrics.capturableMarket, "Formula de captacao"),
+    createDerivedTrace("intent-market", "Mercado com intenção", "Mercado derivado", report.derivedMetrics.intentMarket, "Formula de intenção"),
+    createDerivedTrace("capturable-market", "Mercado capturavel", "Mercado derivado", report.derivedMetrics.capturableMarket, "Formula de captação"),
     createDerivedTrace(
       "base-monthly-revenue-potential",
       "Receita potencial mensal da base atual",
@@ -1080,30 +1080,30 @@ export function createProjectDashboardSnapshot(params: {
   const bestProposal = report.scenarios[bestScenarioKey];
   const stage =
     followers >= 800
-      ? "Presenca digital ativa com estrutura comercial incompleta"
+      ? "Presença digital ativa com estrutura comercial incompleta"
       : followers >= 350
-        ? "Presenca digital em consolidacao"
-        : "Presenca digital inicial";
+        ? "Presença digital em consolidação"
+        : "Presença digital inicial";
   const primaryBottleneck =
     reviews === 0 || client.diagnosisScores.googlePresence <= 3
-      ? "Google local e prova social ainda nao sustentam bem a demanda de alta intencao."
+      ? "Google local e prova social ainda não sustentam bem a demanda de alta intenção."
       : client.diagnosisScores.offerClarity <= 4 || client.diagnosisScores.conversion <= 4
-        ? "A oferta ainda explica pouco o proximo passo e perde forca no clique para contato."
+        ? "A oferta ainda explica pouco o próximo passo e perde força no clique para contato."
         : client.diagnosisScores.humanization <= 4
-          ? "A comunicacao ainda parece fria demais para converter confianca em conversa."
-          : "O principal gargalo hoje esta na estrutura de conversao, nao na falta de presenca.";
+          ? "A comunicação ainda parece fria demais para converter confiança em conversa."
+          : "O principal gargalo hoje está na estrutura de conversão, não na falta de presença.";
   const primaryOpportunity =
     bestProposal.paybackMonths != null
       ? `${bestProposal.title} tende a recuperar o investimento em cerca de ${bestProposal.paybackMonths} meses e pode gerar ${formatCurrency(bestProposal.annualRevenue)} em 12 meses.`
       : `${bestProposal.title} entrega hoje a melhor relacao entre investimento e retorno potencial dentro do caso.`;
   const dataQuality =
     avgTicketResolved.classification === "real"
-      ? "A simulacao ja usa ticket real, mas ainda depende de benchmark para demanda e conversao local."
-      : `A simulacao financeira ainda usa ticket benchmark do nicho. ${weakestCoverageSections || "instagram, google local e funil"} pedem mais dado observado para refino.`;
+      ? "A simulação já usa ticket real, mas ainda depende de benchmark para demanda e conversão local."
+      : `A simulação financeira ainda usa ticket benchmark do nicho. ${weakestCoverageSections || "instagram, google local e funil"} pedem mais dado observado para refino.`;
 
   const narrative = {
     headline:
-      "Sem consulta, este painel nao estima clientes nem faturamento atual. Ele compara o retorno potencial das suas propostas a partir da presenca digital observada e dos benchmarks do nicho.",
+      "Sem consulta, este painel não estima clientes nem faturamento atual. Ele compara o retorno potencial das suas propostas a partir da presença digital observada e dos benchmarks do nicho.",
     stage,
     primaryBottleneck,
     primaryOpportunity,
@@ -1124,7 +1124,7 @@ export function createProjectDashboardSnapshot(params: {
       sourceLabel: reviewsResolved.trace.sourceLabel,
     },
     {
-      label: "Ticket usado na simulacao",
+      label: "Ticket usado na simulação",
       value: formatCurrency(round(avgTicket)),
       classification: avgTicketResolved.classification,
       sourceLabel: avgTicketResolved.trace.sourceLabel,
@@ -1138,17 +1138,17 @@ export function createProjectDashboardSnapshot(params: {
   ];
 
   const nextDataPoints: string[] = [
-    "Ticket medio real dos procedimentos mais vendidos.",
-    "Faixa de preco do procedimento de entrada e do procedimento principal.",
-    "Capacidade semanal para novos agendamentos sem comprometer a operacao.",
+    "Ticket médio real dos procedimentos mais vendidos.",
+    "Faixa de preço do procedimento de entrada e do procedimento principal.",
+    "Capacidade semanal para novos agendamentos sem comprometer a operação.",
     "Leads ou agendamentos atuais vindo de Instagram, Google e WhatsApp.",
     "Percentual de clientes que retornam em 30 e 60 dias.",
-    "Clientes por mes e faturamento entram so na consulta, para validar payback com dado real.",
+    "Clientes por mes e faturamento entram só na consulta, para validar payback com dado real.",
   ];
 
   const insights = [
-    "O painel agora compara propostas comerciais e nao tenta inferir faturamento atual do negocio.",
-    `${round(followers)} seguidores e ${round(reviews)} review(s) sugerem presenca social existente, mas ainda pouca prova local para demanda de alta intencao.`,
+    "O painel agora compara propostas comerciais e não tenta inferir faturamento atual do negócio.",
+    `${round(followers)} seguidores e ${round(reviews)} review(s) sugerem presença social existente, mas ainda pouca prova local para demanda de alta intenção.`,
     `A estrutura digital atual pode capturar algo perto de ${formatCurrency(round(baseMonthlyRevenuePotential))} por mes em potencial teorico antes das melhorias de proposta.`,
     primaryBottleneck,
     primaryOpportunity,

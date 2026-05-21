@@ -1,19 +1,19 @@
 # Etapa 8 - Works principal, colagem premium e sistema dinamico
 
-Objetivo desta etapa: transformar interesse em prova concreta com uma vitrine de projetos que pareca curada, forte e confiavel mesmo com poucos casos.
+Objetivo desta etapa: transformar interesse em prova concreta com uma vitrine de projetos que pareca curada, forte e confiável mesmo com poucos casos.
 
 ## Estrutura aplicada
 
-A secao de `Works` da Home deixou o grid generico e passou a usar:
+A seção de `Works` da Home deixou o grid genérico e passou a usar:
 
 1. card principal em destaque
 2. dois cards secundarios empilhados
-3. CTA para pagina completa
-4. CTA secundario para conversa
+3. CTA para página completa
+4. CTA secundário para conversa
 
 ## Sistema dinamico de projetos
 
-Os projetos agora aceitam metadados proprios para selecao da Home:
+Os projetos agora aceitam metadados próprios para seleção da Home:
 
 - `category`
 - `objective`
@@ -21,26 +21,26 @@ Os projetos agora aceitam metadados proprios para selecao da Home:
 - `featuredHome`
 - `score`
 
-A selecao da Home considera:
+A seleção da Home considera:
 
 - score explicito
 - destaque para Home
 - tipo do projeto
-- presenca visual
+- presença visual
 - diversidade entre categoria, tag e stack
 
 ## Projetos publicados na vitrine
 
-- `Tereza Cristina` como execucao real
-- `Atlas Imoveis` como estudo estrategico
-- `Painel de Operacao Local` como sistema autoral
+- `Tereza Cristina` como execução real
+- `Atlas Imóveis` como estudo estrategico
+- `Painel de Operação Local` como sistema autoral
 
-## O que a secao comunica
+## O que a seção comunica
 
-- existe entrega real, nao so discurso
-- design e criterio aparecem juntos
+- existe entrega real, não só discurso
+- design e critério aparecem juntos
 - poucos projetos ainda podem parecer fortes quando a curadoria e boa
-- a Home passa de interesse para confianca concreta
+- a Home passa de interesse para confiança concreta
 
 ## Arquivos centrais
 
@@ -51,9 +51,9 @@ A selecao da Home considera:
 - `src/resources/content-strategy.ts`
 - `src/app/work/projects/*.mdx`
 
-## Criterio de aprovacao
+## Critério de aprovacao
 
-- a secao parece profissional de alto nivel
+- a seção parece profissional de alto nivel
 - da vontade de abrir os projetos
-- a Home nao depende de grid comum
+- a Home não depende de grid comum
 - o sistema consegue se atualizar com novos cases sem refazer o layout

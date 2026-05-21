@@ -27,12 +27,9 @@ body {
   margin: 0;
   overflow-x: hidden;
   overflow-x: clip;
-  background:
-    linear-gradient(var(--page-grid-color) 1px, transparent 1px),
-    linear-gradient(90deg, var(--page-grid-color) 1px, transparent 1px),
-    linear-gradient(180deg, var(--color-background-primary) 0%, var(--page-gradient-end) 100%);
-  background-size: 96px 96px, 96px 96px, auto;
+  background: var(--color-background-primary);
   color: var(--neutral-on-background-medium);
+  font-family: var(--font-body);
   font-size: var(--type-body);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -81,6 +78,8 @@ h4,
 h5,
 h6 {
   color: var(--neutral-on-background-strong);
+  font-family: var(--font-heading);
+  font-weight: 400;
   letter-spacing: var(--tracking-display);
 }
 
@@ -116,7 +115,7 @@ a {
 .button,
 button,
 [role="button"] {
-  box-shadow: var(--button-shadow);
+  box-shadow: none;
   transition:
     transform var(--motion-fast),
     box-shadow var(--motion-fast),
@@ -165,7 +164,7 @@ button:focus-visible,
   .button:hover,
   button:hover,
   [role="button"]:hover {
-    box-shadow: var(--button-shadow-hover);
+    box-shadow: none;
   }
 
   .reset-button-styles:hover,
@@ -177,7 +176,7 @@ button:focus-visible,
 .button:active,
 button:active,
 [role="button"]:active {
-  box-shadow: var(--button-shadow-active);
+  box-shadow: none;
 }
 
 .reset-button-styles:active,

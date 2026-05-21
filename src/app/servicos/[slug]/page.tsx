@@ -15,6 +15,7 @@ import BeautyServiceLanding from "@/components/services/BeautyServiceLanding";
 import CreativeServiceLanding from "@/components/services/CreativeServiceLanding";
 import { WebsiteEstimator } from "@/components/services/WebsiteEstimator";
 import { baseURL, person, services, servicesPage } from "@/resources";
+import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 
 import sectionStyles from "../../section.module.scss";
 import styles from "../services.module.scss";
@@ -28,6 +29,7 @@ export async function generateMetadata({ params }: PageProps) {
 
   const metaTitle = service.seo?.title ?? `${service.title} | ${servicesPage.title}`;
   const metaDescription = service.seo?.description ?? service.summary;
+  const image = buildOgImage(service.title);
 
   return {
     title: metaTitle,
@@ -38,7 +40,7 @@ export async function generateMetadata({ params }: PageProps) {
       title: metaTitle,
       description: metaDescription,
       url: `${baseURL}${servicesPage.path}/${service.slug}`,
-      images: [{ url: `/api/og/generate?title=${encodeURIComponent(service.title)}` }],
+      images: buildDiscoverImageMetadata(image, service.title),
     },
   };
 }
@@ -312,7 +314,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
         <Column
           className={`${sectionStyles.sectionPanel} ${styles.estimatorAnchor}`}
           gap="16"
-          id="estimativa-rapida"
+          id="estimativa-rápida"
           padding="24"
           radius="l"
           background="surface"

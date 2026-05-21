@@ -23,7 +23,7 @@ export function Footer() {
         <div className={styles.identity}>
           <BrandSignature href="/" compact className={styles.brandSignature} />
           <Text className={styles.statement} variant="body-default-s" onBackground="neutral-weak">
-            {brandMessaging.ogFooter}
+            {brandMessaging.footerStatement}
           </Text>
         </div>
 
