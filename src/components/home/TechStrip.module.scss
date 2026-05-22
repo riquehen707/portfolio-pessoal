@@ -1,6 +1,6 @@
 @use "../../styles/mixins" as mixins;
 
-@keyframes detailLoop {
+@keyframes iconLoop {
   from {
     transform: translate3d(0, 0, 0);
   }
@@ -12,49 +12,17 @@
 
 .root {
   --strip-background: #030403;
-  --strip-surface: rgba(247, 243, 234, 0.045);
-  --strip-surface-active: rgba(247, 243, 234, 0.08);
-  --strip-text: #f7f3ea;
-  --strip-muted: rgba(247, 243, 234, 0.64);
-  --strip-line: rgba(247, 243, 234, 0.11);
+  --strip-surface: rgba(247, 243, 234, 0.04);
+  --strip-line: rgba(247, 243, 234, 0.1);
   --strip-accent: var(--color-accent-gold);
 
-  display: grid;
-  gap: clamp(1rem, 2.2vw, 1.35rem);
   min-width: 0;
-  padding-block: clamp(1.45rem, 3vw, 2.25rem);
+  padding-block: clamp(1rem, 2vw, 1.45rem);
   overflow: clip;
   border-block: 1px solid var(--strip-line);
-  color: var(--strip-text);
-  font-family: var(--font-body);
   background:
-    radial-gradient(circle at 18% 10%, color-mix(in srgb, var(--strip-accent) 10%, transparent), transparent 18rem),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 45%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 55%),
     var(--strip-background);
-}
-
-.intro {
-  display: grid;
-  gap: 0.45rem;
-  width: min(100%, var(--grid-max-width));
-  margin-inline: auto;
-  padding-inline: clamp(1rem, 3vw, 1.5rem);
-}
-
-.title {
-  margin: 0;
-  color: var(--strip-text);
-  font-family: var(--font-body);
-  font-size: clamp(1.35rem, 2.4vw, 2rem);
-  font-weight: 700;
-  letter-spacing: 0;
-  line-height: 1.08;
-}
-
-.subtitle {
-  max-width: 42rem;
-  color: var(--strip-muted);
-  line-height: 1.45;
 }
 
 .viewport {
@@ -69,7 +37,7 @@
   top: 0;
   bottom: 0;
   z-index: 2;
-  width: clamp(2.2rem, 8vw, 7rem);
+  width: clamp(2.4rem, 8vw, 7rem);
   pointer-events: none;
   content: "";
 }
@@ -88,130 +56,44 @@
   display: flex;
   width: max-content;
   min-width: max-content;
-  animation: detailLoop 46s linear infinite;
+  animation: iconLoop 42s linear infinite;
   will-change: transform;
-}
-
-.root:hover .marquee,
-.root:focus-within .marquee {
-  animation-play-state: paused;
 }
 
 .track {
   display: flex;
   flex: 0 0 auto;
-  gap: clamp(0.85rem, 1.6vw, 1.15rem);
+  align-items: center;
+  gap: clamp(0.75rem, 1.5vw, 1rem);
   min-width: max-content;
-  padding-inline-end: clamp(0.85rem, 1.6vw, 1.15rem);
+  padding-inline-end: clamp(0.75rem, 1.5vw, 1rem);
 }
 
 .item {
-  position: relative;
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
+  display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  min-width: clamp(11.5rem, 16vw, 14.5rem);
-  min-height: 4.85rem;
-  padding: 0.85rem 1rem;
+  justify-content: center;
+  width: clamp(4.1rem, 6vw, 5.15rem);
+  height: clamp(3.5rem, 5vw, 4.25rem);
   border: 1px solid var(--strip-line);
-  border-radius: 0.75rem;
-  color: var(--strip-muted);
+  border-radius: 0.8rem;
+  color: var(--strip-accent);
   background: var(--strip-surface);
-  font: inherit;
-  text-align: left;
-  cursor: pointer;
+  opacity: 0.88;
   transition:
     border-color var(--motion-fast),
     background var(--motion-fast),
     color var(--motion-fast),
+    opacity var(--motion-fast),
     transform var(--motion-fast);
 }
 
-.item::after {
-  position: absolute;
-  inset: auto 1rem 0.45rem 1rem;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--strip-accent), transparent);
-  opacity: 0;
-  content: "";
-  transition: opacity var(--motion-fast);
-}
-
-.iconWrap {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: 0.7rem;
-  color: var(--strip-accent);
-  background: color-mix(in srgb, var(--strip-accent) 9%, transparent);
-  transition:
-    background var(--motion-fast),
-    color var(--motion-fast),
-    transform var(--motion-fast);
-}
-
-.label {
-  max-width: 11ch;
-  color: currentColor;
-  font-size: 0.98rem;
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: 0;
-}
-
-.item:hover,
-.item:focus-visible,
-.item[data-active="true"] {
-  border-color: color-mix(in srgb, var(--strip-accent) 54%, transparent);
-  color: var(--strip-text);
-  background: var(--strip-surface-active);
-  transform: translateY(-2px);
-  outline: none;
-}
-
-.item:hover::after,
-.item:focus-visible::after,
-.item[data-active="true"]::after {
-  opacity: 0.9;
-}
-
-.item:hover .iconWrap,
-.item:focus-visible .iconWrap,
-.item[data-active="true"] .iconWrap {
-  color: #fff7c7;
-  background: color-mix(in srgb, var(--strip-accent) 16%, transparent);
-  transform: scale(1.06);
-}
-
-.detail {
-  display: grid;
-  gap: 0.35rem;
-  width: min(100%, var(--grid-max-width));
-  min-height: 4.8rem;
-  margin-inline: auto;
-  padding: 0.15rem clamp(1rem, 3vw, 1.5rem) 0;
-}
-
-.detailTitle {
-  color: var(--strip-accent);
-  font-family: var(--font-body);
-  font-size: var(--type-technical-size);
-  font-weight: var(--type-weight-technical);
-  letter-spacing: var(--type-technical-tracking);
-  text-transform: uppercase;
-}
-
-.detailText {
-  max-width: 42rem;
-  color: var(--strip-muted);
-  line-height: 1.55;
-}
-
-.mobileHint {
-  display: none;
+.item:hover {
+  border-color: color-mix(in srgb, var(--strip-accent) 42%, transparent);
+  background: color-mix(in srgb, var(--strip-accent) 8%, var(--strip-surface));
+  color: #fff4a8;
+  opacity: 1;
+  transform: translateY(-1px);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -223,52 +105,21 @@
 
 @include mixins.s {
   .root {
-    gap: 1rem;
-    padding-block: 1.25rem 1.4rem;
-  }
-
-  .intro,
-  .detail {
-    padding-inline: clamp(1.4rem, 6vw, 2rem);
-  }
-
-  .subtitle {
-    display: none;
+    padding-block: 0.85rem;
   }
 
   .marquee {
-    animation-duration: 56s;
+    animation-duration: 50s;
   }
 
   .track {
-    gap: 0.75rem;
-    padding-inline-end: 0.75rem;
+    gap: 0.68rem;
+    padding-inline-end: 0.68rem;
   }
 
   .item {
-    min-width: 11.4rem;
-    min-height: 4.75rem;
-    padding: 0.8rem 0.9rem;
-  }
-
-  .iconWrap {
-    width: 2.55rem;
-    height: 2.55rem;
-  }
-
-  .label {
-    font-size: 0.94rem;
-  }
-
-  .detail {
-    min-height: 5.8rem;
-  }
-
-  .desktopHint {
-    display: none;
-  }
-
-  .mobileHint {
-    display: inline;
+    width: 3.75rem;
+    height: 3.35rem;
+    border-radius: 0.72rem;
   }
 }

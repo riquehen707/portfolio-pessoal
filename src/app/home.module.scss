@@ -92,6 +92,8 @@
 }
 
 .heroCopy {
+  position: relative;
+  z-index: 2;
   grid-column: 1 / span 5;
   display: grid;
   gap: clamp(1rem, 2vw, 1.45rem);

@@ -25,57 +25,42 @@ const techStripItems = [
   {
     label: "Página leve",
     icon: "performance",
-    description: "Seu cliente não espera. Uma página rápida mantém a atenção no que importa.",
   },
   {
     label: "Interface clara",
     icon: "figma",
-    description:
-      "Menos distração, mais entendimento. A pessoa encontra rápido o motivo para escolher você.",
   },
   {
     label: "Busca local",
     icon: "seo",
-    description: "Seu negócio precisa aparecer quando alguém próximo está procurando uma solução.",
   },
   {
     label: "Oferta testável",
     icon: "meta",
-    description:
-      "A mensagem precisa poder ser medida, comparada e melhorada com base em resposta real.",
   },
   {
     label: "Medição útil",
     icon: "ga",
-    description: "Dados só importam quando ajudam a decidir o próximo movimento.",
   },
   {
     label: "Contato rastreável",
     icon: "crm",
-    description:
-      "Cada clique de WhatsApp, ligação ou formulário precisa ter origem e intenção mais claras.",
   },
   {
     label: "Design adaptável",
     icon: "react",
-    description:
-      "A experiência precisa funcionar bem em telas, contextos e necessidades diferentes.",
   },
   {
     label: "Mensagem clara",
     icon: "document",
-    description:
-      "O visitante deve entender rápido o que você oferece, para quem serve e qual é o próximo passo.",
   },
   {
     label: "Jornada objetiva",
     icon: "rocket",
-    description: "Cada seção deve conduzir a pessoa com menos ruído e mais direção.",
   },
   {
     label: "Atendimento simples",
     icon: "whatsapp",
-    description: "O contato precisa ser fácil, direto e coerente com a decisão do cliente.",
   },
 ] as const;
 
