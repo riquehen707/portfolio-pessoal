@@ -2,6 +2,26 @@
   row-gap: 0.75rem;
 }
 
+.primaryButton,
+.secondaryButton {
+  min-height: 3.25rem;
+  padding-inline: 1.55rem;
+  font-weight: 700;
+}
+
+.primaryButton {
+  border-color: var(--hero-accent, var(--color-accent-gold));
+  background: var(--hero-accent, var(--color-accent-gold));
+  color: var(--hero-background, #030403);
+  box-shadow: 0 1rem 2rem color-mix(in srgb, var(--hero-accent, var(--color-accent-gold)) 18%, transparent);
+}
+
+.secondaryButton {
+  border-color: color-mix(in srgb, var(--hero-text, currentColor) 34%, transparent);
+  background: transparent;
+  color: var(--hero-text, currentColor);
+}
+
 @media (max-width: 768px) {
   .actions {
     width: 100%;

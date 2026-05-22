@@ -8,16 +8,10 @@ import { FinalCTA } from "@/components/home/FinalCTA";
 import { HeroActions } from "@/components/home/HeroActions";
 import { HeroSubtitle } from "@/components/home/HeroSubtitle";
 import { HeroTitle } from "@/components/home/HeroTitle";
+import { HeroVisual } from "@/components/home/HeroVisual";
 import { TechStrip } from "@/components/home/TechStrip";
 import { Reveal } from "@/components/motion/Reveal";
-import {
-  about,
-  baseURL,
-  contentStrategy,
-  home,
-  person,
-  simulationPage,
-} from "@/resources";
+import { about, baseURL, contentStrategy, home, person, simulationPage } from "@/resources";
 import { buildDiscoverImageMetadata } from "@/utils/og";
 
 import styles from "./home.module.scss";
@@ -26,12 +20,6 @@ const homeStrategy = contentStrategy.pages.home;
 const homeBlogSection = homeStrategy.sections.find((section) => section.id === "blog");
 const homeAboutSection = homeStrategy.sections.find((section) => section.id === "about-teaser");
 const homeFinalSection = homeStrategy.sections.find((section) => section.id === "final-cta");
-
-const heroMicroBenefits = [
-  "Oferta",
-  "Atendimento",
-  "Decisão",
-] as const;
 
 const techStripItems = [
   { label: "Interface clara", icon: "react" },
@@ -51,7 +39,6 @@ const homeProofPoints = [
   { label: "Durante", value: "executar o menor escopo útil" },
   { label: "Depois", value: "acompanhar sinais de melhoria" },
 ] as const;
-
 
 export async function generateMetadata() {
   const generatedMeta = Meta.generate({
@@ -78,11 +65,6 @@ export async function generateMetadata() {
 
 export default function Home() {
   const blogPosts = getFeaturedBlogPosts(3);
-  const heroHeadline = (
-    <>
-      <span className={styles.heroAccent}>Operação digital</span> completa para negócios locais.
-    </>
-  );
 
   return (
     <div className={styles.page}>
@@ -103,24 +85,31 @@ export default function Home() {
       <section className={styles.heroSection}>
         <div className={styles.heroGrid}>
           <div className={styles.heroCopy}>
-            <Text className={styles.heroIdentity} variant="label-default-s" onBackground="neutral-weak">
-              Henrique Reis / operação digital
-            </Text>
-            <HeroTitle>{heroHeadline}</HeroTitle>
-            <HeroSubtitle
-              support="Para organizar a jornada do primeiro clique ao próximo contato."
-              benefits={heroMicroBenefits}
+            <Text
+              className={styles.heroIdentity}
+              variant="label-default-s"
+              onBackground="neutral-weak"
             >
-              Da atenção ao próximo passo.
-            </HeroSubtitle>
+              POSICIONAMENTO / NEGÓCIOS LOCAIS
+            </Text>
+            <HeroTitle>
+              <span className={styles.heroAccent}>Destaque</span>
+            </HeroTitle>
+            <HeroSubtitle>Descubra como não ser só mais uma no mercado.</HeroSubtitle>
             <HeroActions
-              primaryLabel={homeStrategy.hero.primaryCtaLabel}
-              primaryHref={homeStrategy.hero.primaryCtaHref}
-              secondaryLabel={homeStrategy.hero.secondaryCtaLabel}
-              secondaryHref={homeStrategy.hero.secondaryCtaHref}
+              primaryLabel="Saiba mais"
+              primaryHref="#home-proof"
+              secondaryLabel="Agendar uma ligação"
+              secondaryHref={homeStrategy.hero.primaryCtaHref}
             />
           </div>
 
+          <HeroVisual />
+
+          <p className={styles.heroDisciplines}>
+            ESTRATÉGIA <span aria-hidden="true">•</span> DESIGN <span aria-hidden="true">•</span>{" "}
+            CONTEÚDO <span aria-hidden="true">•</span> TECNOLOGIA
+          </p>
         </div>
       </section>
 
@@ -141,10 +130,18 @@ export default function Home() {
         <div className={styles.proofList}>
           {homeProofPoints.map((point) => (
             <div className={styles.proofItem} key={point.label}>
-              <Text className={styles.proofLabel} variant="label-default-s" onBackground="neutral-weak">
+              <Text
+                className={styles.proofLabel}
+                variant="label-default-s"
+                onBackground="neutral-weak"
+              >
                 {point.label}
               </Text>
-              <Text className={styles.proofValue} variant="body-default-m" onBackground="neutral-medium">
+              <Text
+                className={styles.proofValue}
+                variant="body-default-m"
+                onBackground="neutral-medium"
+              >
                 {point.value}
               </Text>
             </div>
@@ -177,7 +174,11 @@ export default function Home() {
             ))
           ) : (
             <article className={styles.supportPanel}>
-              <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
+              <Text
+                className={styles.eyebrow}
+                variant="label-default-s"
+                onBackground="neutral-weak"
+              >
                 Blog
               </Text>
               <Text variant="body-default-m">
@@ -207,10 +208,7 @@ export default function Home() {
       <section className={styles.finalSection}>
         <FinalCTA
           eyebrow={homeFinalSection?.label ?? "Próximo passo"}
-          title={
-            homeFinalSection?.title ??
-            "Antes de investir, veja se faz sentido."
-          }
+          title={homeFinalSection?.title ?? "Antes de investir, veja se faz sentido."}
           description={
             homeFinalSection?.description ??
             "Entenda onde seu negócio pode melhorar, quanto pode custar e qual retorno pode fazer sentido para o seu momento."
@@ -222,4 +220,3 @@ export default function Home() {
     </div>
   );
 }
-

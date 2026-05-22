@@ -4,10 +4,7 @@ import { Row } from "@once-ui-system/core";
 import { m, useReducedMotion } from "framer-motion";
 
 import { CTAButton } from "@/components/CTAButton";
-import {
-  createRevealVariants,
-  createStaggerContainer,
-} from "@/components/motion/motionTokens";
+import { createRevealVariants, createStaggerContainer } from "@/components/motion/motionTokens";
 
 import styles from "./HeroActions.module.scss";
 
@@ -36,8 +33,9 @@ export function HeroActions({
       <Row className={styles.actions} gap="12" wrap>
         <m.div variants={itemVariants}>
           <CTAButton
+            className={styles.primaryButton}
             href={primaryHref}
-            prefixIcon="calendar"
+            suffixIcon="arrowRight"
             data-analytics-event="cta_click"
             data-analytics-label={primaryLabel}
             data-analytics-location="home_hero"
@@ -49,9 +47,10 @@ export function HeroActions({
         {secondaryLabel && secondaryHref && (
           <m.div variants={itemVariants}>
             <CTAButton
+              className={styles.secondaryButton}
               href={secondaryHref}
               variant="secondary"
-              arrowIcon
+              prefixIcon="calendar"
               data-analytics-event="cta_click"
               data-analytics-label={secondaryLabel}
               data-analytics-location="home_hero"

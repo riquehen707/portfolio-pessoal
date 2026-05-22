@@ -29,34 +29,105 @@
 }
 
 .heroSection {
+  --hero-background: #030403;
+  --hero-text: #f7f3ea;
+  --hero-muted: rgba(247, 243, 234, 0.66);
+  --hero-line: rgba(247, 243, 234, 0.12);
+  --hero-accent: var(--color-accent-gold);
+  --ufo-line: var(--hero-text);
+  --ufo-muted: rgba(247, 243, 234, 0.38);
+  --ufo-accent: var(--hero-accent);
+  --ufo-background: var(--hero-background);
+
   position: relative;
   display: grid;
-  min-height: clamp(30rem, 68vh, 40rem);
+  min-height: min(52rem, 88svh);
   align-items: center;
+  padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.2rem, 4vw, 4.25rem) clamp(2rem, 4vw, 3rem);
+  overflow: clip;
+  border: 1px solid var(--hero-line);
+  border-radius: calc(var(--radius-panel) + 0.6rem);
+  color: var(--hero-text);
+  background:
+    radial-gradient(circle at 72% 26%, color-mix(in srgb, var(--hero-accent) 14%, transparent), transparent 26rem),
+    radial-gradient(circle at 10% 18%, rgba(255, 255, 255, 0.04), transparent 20rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.035), transparent 42%),
+    var(--hero-background);
+}
+
+.heroSection::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.18) 0 0.05rem, transparent 0.065rem),
+    radial-gradient(circle, color-mix(in srgb, var(--hero-accent) 22%, transparent) 0 0.04rem, transparent 0.06rem);
+  background-position:
+    0 0,
+    1.1rem 1.4rem;
+  background-size:
+    2.6rem 2.6rem,
+    3.8rem 3.8rem;
+  mask-image: radial-gradient(circle at 62% 46%, #000 0, transparent 72%);
+  opacity: 0.14;
+}
+
+.heroSection > * {
+  position: relative;
+  z-index: 1;
 }
 
 .heroGrid {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: var(--grid-gutter);
   align-items: center;
+  min-height: clamp(34rem, 73svh, 45rem);
 }
 
 .heroCopy {
-  grid-column: 1 / span 8;
+  grid-column: 1 / span 5;
   display: grid;
-  gap: 0.95rem;
+  gap: clamp(1rem, 2vw, 1.45rem);
   min-width: 0;
   align-content: center;
-  max-width: min(100%, 50rem);
+  max-width: min(100%, 39rem);
+  padding-top: clamp(1rem, 8vh, 4rem);
 }
 
 .heroIdentity {
   @include mixins.label-uppercase;
+
+  color: var(--hero-accent);
+  font-size: clamp(0.78rem, 1vw, 0.9rem);
+  letter-spacing: 0.16em;
 }
 
 .heroAccent {
-  color: var(--color-accent-gold);
+  color: var(--hero-accent);
+}
+
+.heroDisciplines {
+  position: absolute;
+  right: 13%;
+  bottom: clamp(1rem, 3vw, 1.75rem);
+  left: 28%;
+  margin: 0;
+  color: var(--hero-muted);
+  font-family: var(--font-technical);
+  font-size: clamp(0.74rem, 1vw, 0.92rem);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: 0.28em;
+  line-height: 1.8;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.heroDisciplines span {
+  color: var(--hero-accent);
+  letter-spacing: 0;
 }
 
 .eyebrow {
@@ -151,8 +222,8 @@
   }
 
   .heroCopy {
-    grid-column: 1 / -1;
-    max-width: min(100%, 43rem);
+    grid-column: 1 / span 6;
+    max-width: min(100%, 34rem);
   }
 
   .blogGrid {
@@ -167,11 +238,29 @@
 
   .heroSection {
     min-height: auto;
-    padding-top: 0.35rem;
+    padding: clamp(1.35rem, 6vw, 2rem) 1rem 4.75rem;
+    border-radius: var(--radius-panel);
   }
 
   .heroGrid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+    min-height: 0;
+    gap: clamp(1.5rem, 7vw, 2.35rem);
+  }
+
+  .heroCopy {
+    grid-column: 1 / -1;
+    max-width: min(100%, 32rem);
+    padding-top: 0;
+  }
+
+  .heroIdentity {
+    font-size: 0.73rem;
+    letter-spacing: 0.13em;
+  }
+
+  .heroDisciplines {
+    display: none;
   }
 
   .postHeroSection {

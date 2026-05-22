@@ -1,199 +1,139 @@
 .root {
+  --ufo-line: var(--hero-text, var(--neutral-on-background-strong));
+  --ufo-muted: var(--hero-muted, color-mix(in srgb, var(--neutral-on-background-strong) 48%, transparent));
+  --ufo-accent: var(--hero-accent, var(--color-accent-gold));
+  --ufo-background: var(--hero-background, var(--page-background));
+
   position: relative;
-  width: min(100%, 36rem);
-  min-height: clamp(19rem, 42vw, 32rem);
+  grid-column: 6 / -1;
+  width: min(100%, 48rem);
+  min-height: clamp(30rem, 58vw, 47rem);
   margin-left: auto;
+  color: var(--ufo-line);
   will-change: transform, opacity;
 }
 
-.panel,
-.panelEcho,
-.grid,
-.beam,
-.beamVertical,
-.frame,
-.frameOffset,
-.ring,
-.ringSecondary,
-.axisHorizontal,
-.axisVertical,
-.squareGlowShell,
-.squareShell,
-.squareShadow,
-.squareOutline,
-.squareAccent,
-.squareGlow,
-.square {
+.scene {
   position: absolute;
+  inset: -8% -5% -4% -8%;
+  width: 110%;
+  height: 112%;
+  overflow: visible;
 }
 
-.panel {
-  inset: 11% 8% 11% 14%;
-  border-radius: var(--radius-24);
-  background: transparent;
-  border: 1px solid rgba(244, 244, 240, 0.1);
-  box-shadow: none;
+.scene path,
+.scene circle,
+.scene ellipse {
+  vector-effect: non-scaling-stroke;
 }
 
-.panelEcho {
-  inset: 5% 18% 18% 0;
-  border-radius: var(--radius-24);
-  border: 1px solid rgba(244, 244, 240, 0.06);
-  background: transparent;
-  opacity: 0.42;
+.ufo {
+  fill: var(--ufo-background);
+  stroke: var(--ufo-line);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 1.2rem 2.2rem rgba(0, 0, 0, 0.4));
+  transform-origin: 50% 28%;
 }
 
-.grid {
-  inset: 12% 9% 12% 16%;
-  border: 1px solid rgba(244, 244, 240, 0.08);
-  background:
-    linear-gradient(rgba(244, 244, 240, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(244, 244, 240, 0.05) 1px, transparent 1px);
-  background-size: 3rem 3rem, 3rem 3rem;
-  mask-image: radial-gradient(circle at 54% 50%, #000 46%, transparent 88%);
-  opacity: 0.72;
+.ufo ellipse {
+  fill: var(--ufo-line);
 }
 
 .beam {
-  display: none;
+  fill: none;
+  stroke: var(--ufo-accent);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.78;
+  filter: drop-shadow(0 0 1.4rem color-mix(in srgb, var(--ufo-accent) 26%, transparent));
 }
 
-.beamVertical {
-  display: none;
+.beam path:not(:first-child) {
+  stroke-width: 1.35;
+  opacity: 0.78;
+  stroke-dasharray: 3 10;
 }
 
-.frame {
-  inset: 18% 20% 18% 24%;
-  border: 1px solid rgba(244, 244, 240, 0.12);
-  transform: rotate(10deg);
+.beam path:first-child,
+.beam ellipse {
+  stroke-width: 3.4;
+  stroke-dasharray: none;
 }
 
-.frameOffset {
-  inset: 14% 26% 22% 14%;
-  border: 1px solid rgba(255, 215, 0, 0.16);
-  transform: rotate(-7deg);
+.cat {
+  fill: var(--ufo-background);
+  stroke: var(--ufo-line);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transform-origin: 54% 66%;
+  filter: drop-shadow(0 1rem 1.6rem rgba(0, 0, 0, 0.34));
 }
 
-.ring {
-  top: 50%;
-  left: 56%;
-  width: clamp(12rem, 27vw, 18rem);
-  aspect-ratio: 1;
-  border: 1px solid rgba(244, 244, 240, 0.14);
-  border-radius: 999px;
-  transform: translate(-50%, -50%);
+.cat circle:nth-of-type(1),
+.cat circle:nth-of-type(2) {
+  fill: var(--ufo-background);
 }
 
-.ringSecondary {
-  top: 50%;
-  left: 56%;
-  width: clamp(8rem, 17vw, 12rem);
-  aspect-ratio: 1;
-  border: 1px solid rgba(255, 215, 0, 0.18);
-  border-radius: 999px;
-  transform: translate(-50%, -50%);
+.cat circle:nth-of-type(3),
+.cat circle:nth-of-type(4) {
+  fill: var(--ufo-line);
+  stroke-width: 0;
 }
 
-.axisHorizontal {
-  top: 50%;
-  left: 10%;
-  right: 6%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(244, 244, 240, 0.16), transparent);
+.noiseIcons {
+  fill: none;
+  stroke: var(--ufo-muted);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.58;
 }
 
-.axisVertical {
-  top: 8%;
-  bottom: 8%;
-  left: 56%;
-  width: 1px;
-  background: linear-gradient(180deg, transparent, rgba(244, 244, 240, 0.16), transparent);
+.noiseIcons circle {
+  fill: var(--ufo-muted);
+  stroke-width: 0;
 }
 
-.squareGlowShell,
-.squareShell {
-  top: 50%;
-  left: 56%;
-  width: clamp(12rem, 22vw, 15rem);
-  aspect-ratio: 1;
-  transform: translate(-50%, -50%);
-}
+@media (max-width: 1024px) {
+  .root {
+    grid-column: 7 / -1;
+    min-height: clamp(24rem, 54vw, 36rem);
+  }
 
-.squareGlow {
-  width: clamp(10rem, 24vw, 16rem);
-  aspect-ratio: 1;
-  background: transparent;
-  filter: none;
-  will-change: transform, opacity;
-}
-
-.squareShadow {
-  inset: 14%;
-  background: transparent;
-  filter: none;
-  will-change: transform, opacity;
-}
-
-.squareOutline {
-  inset: 11%;
-  border: 1px solid rgba(244, 244, 240, 0.16);
-}
-
-.squareAccent {
-  top: 50%;
-  left: 4%;
-  right: 4%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.42), transparent);
-  transform: translateY(-50%);
-}
-
-.square {
-  top: 50%;
-  left: 50%;
-  width: clamp(4rem, 8vw, 5.7rem);
-  aspect-ratio: 1;
-  transform: translate(-50%, -50%);
-  background: var(--color-accent-gold);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.14);
-  will-change: transform, opacity;
+  .scene {
+    inset: -4% -8% -4% -4%;
+  }
 }
 
 @media (max-width: 768px) {
   .root {
-    width: min(100%, 24rem);
-    min-height: 15rem;
-    margin-inline: auto;
+    grid-column: 1 / -1;
+    width: min(100%, 27rem);
+    min-height: clamp(22rem, 88vw, 31rem);
+    margin: 0 auto;
   }
 
-  .panel {
-    inset: 10% 4% 12% 8%;
+  .scene {
+    inset: -3% -4% 0;
+    width: 108%;
+    height: 108%;
   }
 
-  .panelEcho {
-    inset: 4% 16% 18% -2%;
+  .noiseIcons path:nth-child(n + 9),
+  .noiseIcons circle:nth-child(n + 15) {
+    display: none;
   }
 
-  .grid {
-    inset: 11% 6% 11% 8%;
+  .ufo,
+  .cat {
+    stroke-width: 4.2;
   }
 
-  .frame {
-    inset: 20% 16%;
-  }
-
-  .frameOffset {
-    inset: 18% 22% 22% 10%;
-  }
-
-  .ring,
-  .ringSecondary,
-  .axisVertical {
-    left: 52%;
-  }
-
-  .squareGlowShell,
-  .squareShell {
-    left: 52%;
+  .beam {
+    stroke-width: 2.5;
   }
 }

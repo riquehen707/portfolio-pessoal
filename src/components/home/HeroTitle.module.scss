@@ -1,14 +1,15 @@
 .title {
-  max-width: 11.5ch;
-  font-size: clamp(3.5rem, 6vw, 4.5rem);
-  font-weight: var(--type-weight-heading);
-  letter-spacing: var(--tracking-display);
-  line-height: 0.94;
+  max-width: 8ch;
+  font-size: clamp(5.6rem, 11.5vw, 9.4rem);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 0.82;
 }
 
 @media (max-width: 768px) {
   .title {
-    max-width: 12ch;
-    font-size: clamp(2.5rem, 9vw, 3rem);
+    max-width: 100%;
+    font-size: clamp(4rem, 19vw, 6.5rem);
+    line-height: 0.88;
   }
 }
