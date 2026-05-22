@@ -13,17 +13,19 @@ type TechStripProps = {
   items: readonly TechStripItem[];
 };
 
+const segmentIndexes = Array.from({ length: 4 }, (_, index) => index);
+
 export function TechStrip({ items }: TechStripProps) {
   return (
     <div className={styles.root} aria-label="Recursos de operação digital">
       <div className={styles.viewport}>
         <div className={styles.marquee}>
-          {[0, 1].map((segment) => (
+          {segmentIndexes.map((segment) => (
             <div
               className={styles.track}
               key={`tech-strip-${segment}`}
-              aria-hidden={segment === 1 ? "true" : undefined}
-              inert={segment === 1 ? true : undefined}
+              aria-hidden={segment > 0 ? "true" : undefined}
+              inert={segment > 0 ? true : undefined}
             >
               {items.map((item) => (
                 <span

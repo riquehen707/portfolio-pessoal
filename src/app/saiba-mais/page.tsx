@@ -1,5 +1,4 @@
 import { Icon } from "@once-ui-system/core";
-import Image from "next/image";
 
 import { CTAButton } from "@/components/CTAButton";
 import { about, baseURL, home } from "@/resources";
@@ -97,15 +96,10 @@ export default function SaibaMaisPage() {
         </div>
 
         <div className={styles.heroVisual} aria-hidden="true">
-          <Image
-            className={styles.heroSticker}
-            src="/images/cat-stickers/ufo-cats.png"
-            alt=""
-            width={328}
-            height={362}
-            priority
-            sizes="(max-width: 768px) 92vw, 46vw"
-          />
+          <span className={styles.visualOrbit} />
+          <span className={styles.visualOrbit} />
+          <span className={styles.visualCore} />
+          <span className={styles.visualRay} />
         </div>
       </section>
 
@@ -121,9 +115,10 @@ export default function SaibaMaisPage() {
           <h2>Quando tudo parece rápido demais, o comum vira padrão.</h2>
         </div>
         <div className={styles.problemStack}>
-          <div className={styles.problemStickers} aria-hidden="true">
-            <Image src="/images/cat-stickers/cat-camera.png" alt="" width={265} height={305} />
-            <Image src="/images/cat-stickers/cat-bag.png" alt="" width={277} height={303} />
+          <div className={styles.problemSignal} aria-hidden="true">
+            <span />
+            <span />
+            <span />
           </div>
           <div className={styles.problemCards}>
             <article>
@@ -199,14 +194,7 @@ export default function SaibaMaisPage() {
             </li>
           ))}
         </ol>
-        <Image
-          className={styles.processSticker}
-          src="/images/cat-stickers/laptop-cat.png"
-          alt=""
-          width={355}
-          height={305}
-          aria-hidden="true"
-        />
+        <div className={styles.processMark} aria-hidden="true" />
       </section>
 
       <section className={styles.localSection}>
@@ -214,7 +202,6 @@ export default function SaibaMaisPage() {
           <span />
           <span />
           <span />
-          <Image src="/images/cat-stickers/box-cat.png" alt="" width={323} height={238} />
         </div>
         <div className={styles.localCopy}>
           <p className={styles.eyebrow}>Negócios locais</p>
@@ -227,14 +214,7 @@ export default function SaibaMaisPage() {
       </section>
 
       <section className={styles.finalCta}>
-        <Image
-          className={styles.finalSticker}
-          src="/images/cat-stickers/cat-fuel.png"
-          alt=""
-          width={243}
-          height={300}
-          aria-hidden="true"
-        />
+        <div className={styles.finalMark} aria-hidden="true" />
         <p className={styles.eyebrow}>Próximo passo</p>
         <h2>Vale conversar antes de investir.</h2>
         <p>

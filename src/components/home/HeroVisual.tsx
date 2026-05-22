@@ -1,7 +1,6 @@
 "use client";
 
 import { m, useReducedMotion } from "framer-motion";
-import Image from "next/image";
 
 import { sectionTransition } from "@/components/motion/motionTokens";
 
@@ -43,16 +42,15 @@ export function HeroVisual() {
             }
       }
     >
-      <Image
-        className={styles.image}
-        src="/images/hero-ufo-cat-doodle.png"
-        alt=""
-        width={1536}
-        height={1024}
-        priority
-        loading="eager"
-        decoding="async"
-      />
+      <div className={styles.signalField}>
+        <span className={styles.orbit} />
+        <span className={styles.orbit} />
+        <span className={styles.core} />
+        <span className={styles.beam} />
+        <span className={styles.marker} />
+        <span className={styles.marker} />
+        <span className={styles.marker} />
+      </div>
     </m.div>
   );
 }

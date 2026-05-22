@@ -6,7 +6,7 @@
   }
 
   to {
-    transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-25%, 0, 0);
   }
 }
 
@@ -15,6 +15,8 @@
   --strip-surface: rgba(247, 243, 234, 0.04);
   --strip-line: rgba(247, 243, 234, 0.1);
   --strip-accent: var(--color-accent-gold);
+  --strip-gap: clamp(0.95rem, 1.8vw, 1.4rem);
+  --strip-item-width: clamp(4.6rem, 6.4vw, 5.8rem);
 
   min-width: 0;
   padding-block: clamp(1rem, 2vw, 1.45rem);
@@ -29,6 +31,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+  transform: translateZ(0);
 }
 
 .viewport::before,
@@ -56,7 +59,9 @@
   display: flex;
   width: max-content;
   min-width: max-content;
-  animation: iconLoop 42s linear infinite;
+  animation: iconLoop 72s linear infinite;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
   will-change: transform;
 }
 
@@ -64,17 +69,17 @@
   display: flex;
   flex: 0 0 auto;
   align-items: center;
-  gap: clamp(0.75rem, 1.5vw, 1rem);
+  gap: var(--strip-gap);
   min-width: max-content;
-  padding-inline-end: clamp(0.75rem, 1.5vw, 1rem);
+  padding-inline-end: var(--strip-gap);
 }
 
 .item {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: clamp(4.1rem, 6vw, 5.15rem);
-  height: clamp(3.5rem, 5vw, 4.25rem);
+  width: var(--strip-item-width);
+  height: clamp(3.65rem, 5.15vw, 4.35rem);
   border: 1px solid var(--strip-line);
   border-radius: 0.8rem;
   color: var(--strip-accent);
@@ -105,20 +110,17 @@
 
 @include mixins.s {
   .root {
+    --strip-gap: 0.85rem;
+    --strip-item-width: 4rem;
+
     padding-block: 0.85rem;
   }
 
   .marquee {
-    animation-duration: 50s;
-  }
-
-  .track {
-    gap: 0.68rem;
-    padding-inline-end: 0.68rem;
+    animation-duration: 86s;
   }
 
   .item {
-    width: 3.75rem;
     height: 3.35rem;
     border-radius: 0.72rem;
   }

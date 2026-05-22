@@ -44,7 +44,7 @@ export function FinalCTA({
       viewport={motionViewport}
       variants={createStaggerContainer(reducedMotion, 0.1, 0.04)}
     >
-      <div className={styles.catObserver} aria-hidden="true" />
+      <div className={styles.ambientMark} aria-hidden="true" />
 
       <m.div className={styles.copy} variants={itemVariants}>
         <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
