@@ -98,10 +98,11 @@ export default function SaibaMaisPage() {
 
         <div className={styles.heroVisual} aria-hidden="true">
           <Image
-            src="/images/hero-ufo-cat-doodle.png"
+            className={styles.heroSticker}
+            src="/images/cat-stickers/ufo-cats.png"
             alt=""
-            width={1536}
-            height={1024}
+            width={328}
+            height={362}
             priority
             sizes="(max-width: 768px) 92vw, 46vw"
           />
@@ -119,22 +120,28 @@ export default function SaibaMaisPage() {
           <p className={styles.eyebrow}>O problema</p>
           <h2>Quando tudo parece rápido demais, o comum vira padrão.</h2>
         </div>
-        <div className={styles.problemCards}>
-          <article>
-            <span>01</span>
-            <h3>Mais produção não significa mais percepção.</h3>
-            <p>
-              Volume sem critério aumenta ruído. O cliente vê, mas não entende por que escolher.
-            </p>
-          </article>
-          <article>
-            <span>02</span>
-            <h3>Negócios locais competem por confiança.</h3>
-            <p>
-              Antes da conversa, sua presença digital já está formando expectativa sobre preço e
-              cuidado.
-            </p>
-          </article>
+        <div className={styles.problemStack}>
+          <div className={styles.problemStickers} aria-hidden="true">
+            <Image src="/images/cat-stickers/cat-camera.png" alt="" width={265} height={305} />
+            <Image src="/images/cat-stickers/cat-bag.png" alt="" width={277} height={303} />
+          </div>
+          <div className={styles.problemCards}>
+            <article>
+              <span>01</span>
+              <h3>Mais produção não significa mais percepção.</h3>
+              <p>
+                Volume sem critério aumenta ruído. O cliente vê, mas não entende por que escolher.
+              </p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Negócios locais competem por confiança.</h3>
+              <p>
+                Antes da conversa, sua presença digital já está formando expectativa sobre preço e
+                cuidado.
+              </p>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -192,6 +199,14 @@ export default function SaibaMaisPage() {
             </li>
           ))}
         </ol>
+        <Image
+          className={styles.processSticker}
+          src="/images/cat-stickers/laptop-cat.png"
+          alt=""
+          width={355}
+          height={305}
+          aria-hidden="true"
+        />
       </section>
 
       <section className={styles.localSection}>
@@ -199,6 +214,7 @@ export default function SaibaMaisPage() {
           <span />
           <span />
           <span />
+          <Image src="/images/cat-stickers/box-cat.png" alt="" width={323} height={238} />
         </div>
         <div className={styles.localCopy}>
           <p className={styles.eyebrow}>Negócios locais</p>
@@ -211,6 +227,14 @@ export default function SaibaMaisPage() {
       </section>
 
       <section className={styles.finalCta}>
+        <Image
+          className={styles.finalSticker}
+          src="/images/cat-stickers/cat-fuel.png"
+          alt=""
+          width={243}
+          height={300}
+          aria-hidden="true"
+        />
         <p className={styles.eyebrow}>Próximo passo</p>
         <h2>Vale conversar antes de investir.</h2>
         <p>

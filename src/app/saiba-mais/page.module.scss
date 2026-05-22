@@ -96,16 +96,18 @@
 }
 
 .heroVisual {
+  position: relative;
   display: flex;
   justify-content: flex-end;
   min-width: 0;
 }
 
-.heroVisual img {
-  width: min(100%, 48rem);
+.heroSticker {
+  width: min(100%, 26rem);
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 1.5rem 3rem rgba(0, 0, 0, 0.28));
+  filter: invert(1) grayscale(1) drop-shadow(0 1.5rem 3rem rgba(0, 0, 0, 0.28));
+  opacity: 0.9;
 }
 
 .signalBand {
@@ -137,11 +139,41 @@
   align-items: start;
 }
 
-.problemCards,
+.problemStack,
 .compareGrid,
 .pillarGrid,
 .timeline {
   min-width: 0;
+}
+
+.problemStack {
+  display: grid;
+  gap: 1rem;
+}
+
+.problemStickers {
+  display: flex;
+  justify-content: flex-end;
+  gap: clamp(0.4rem, 1vw, 0.8rem);
+  min-height: clamp(7.5rem, 13vw, 10rem);
+  padding-right: clamp(0rem, 2vw, 1.2rem);
+  overflow: hidden;
+}
+
+.problemStickers img {
+  width: auto;
+  height: clamp(7rem, 12vw, 9.5rem);
+  object-fit: contain;
+  filter: invert(1) grayscale(1);
+  opacity: 0.42;
+}
+
+.problemStickers img:first-child {
+  transform: rotate(-4deg) translateY(0.35rem);
+}
+
+.problemStickers img:last-child {
+  transform: rotate(3deg);
 }
 
 .problemCards {
@@ -274,6 +306,28 @@
   align-items: center;
 }
 
+.processSection {
+  position: relative;
+  overflow: clip;
+}
+
+.processSticker {
+  position: absolute;
+  right: clamp(0rem, 2vw, 1rem);
+  bottom: clamp(-4.2rem, -6vw, -2.5rem);
+  z-index: 0;
+  width: clamp(9rem, 18vw, 14rem);
+  height: auto;
+  pointer-events: none;
+  filter: invert(1) grayscale(1);
+  opacity: 0.12;
+}
+
+.processSection > :not(.processSticker) {
+  position: relative;
+  z-index: 1;
+}
+
 .localVisual {
   position: relative;
   min-height: clamp(17rem, 28vw, 24rem);
@@ -283,6 +337,17 @@
   background:
     radial-gradient(circle at 50% 48%, color-mix(in srgb, var(--color-accent-gold) 15%, transparent), transparent 9rem),
     rgba(255, 255, 255, 0.025);
+}
+
+.localVisual img {
+  position: absolute;
+  right: 8%;
+  bottom: -5%;
+  z-index: 1;
+  width: min(54%, 15rem);
+  height: auto;
+  filter: invert(1) grayscale(1);
+  opacity: 0.28;
 }
 
 .localVisual::before,
@@ -318,12 +383,31 @@
 }
 
 .finalCta {
+  position: relative;
   justify-items: start;
   max-width: 48rem;
   margin-inline: auto;
   padding: clamp(1.35rem, 3vw, 2rem);
   border-radius: var(--radius-panel);
+  overflow: hidden;
   text-align: left;
+}
+
+.finalCta > :not(.finalSticker) {
+  position: relative;
+  z-index: 1;
+}
+
+.finalSticker {
+  position: absolute;
+  right: clamp(-3rem, -4vw, -1rem);
+  bottom: clamp(-4rem, -5vw, -2rem);
+  z-index: 0;
+  width: clamp(8rem, 16vw, 12rem);
+  height: auto;
+  pointer-events: none;
+  filter: invert(1) grayscale(1);
+  opacity: 0.1;
 }
 
 @include mixins.m {
@@ -352,6 +436,10 @@
 
   .heroVisual {
     justify-content: center;
+  }
+
+  .problemStickers {
+    justify-content: flex-start;
   }
 }
 
@@ -382,5 +470,23 @@
 
   .signalBand span {
     font-size: 0.82rem;
+  }
+
+  .problemStickers {
+    min-height: 6rem;
+  }
+
+  .problemStickers img {
+    height: 5.8rem;
+    opacity: 0.34;
+  }
+
+  .processSticker {
+    display: none;
+  }
+
+  .localVisual img {
+    width: 58%;
+    opacity: 0.2;
   }
 }
