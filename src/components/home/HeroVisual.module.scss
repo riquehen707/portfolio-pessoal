@@ -1,139 +1,51 @@
 .root {
-  --ufo-line: var(--hero-text, var(--neutral-on-background-strong));
-  --ufo-muted: var(--hero-muted, color-mix(in srgb, var(--neutral-on-background-strong) 48%, transparent));
-  --ufo-accent: var(--hero-accent, var(--color-accent-gold));
-  --ufo-background: var(--hero-background, var(--page-background));
-
   position: relative;
   grid-column: 6 / -1;
-  width: min(100%, 48rem);
-  min-height: clamp(30rem, 58vw, 47rem);
-  margin-left: auto;
-  color: var(--ufo-line);
+  align-self: stretch;
+  min-height: clamp(34rem, 67svh, 52rem);
+  margin-left: clamp(-2rem, -2vw, -0.75rem);
+  pointer-events: none;
   will-change: transform, opacity;
 }
 
-.scene {
+.image {
   position: absolute;
-  inset: -8% -5% -4% -8%;
-  width: 110%;
-  height: 112%;
-  overflow: visible;
-}
-
-.scene path,
-.scene circle,
-.scene ellipse {
-  vector-effect: non-scaling-stroke;
-}
-
-.ufo {
-  fill: var(--ufo-background);
-  stroke: var(--ufo-line);
-  stroke-width: 5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  filter: drop-shadow(0 1.2rem 2.2rem rgba(0, 0, 0, 0.4));
-  transform-origin: 50% 28%;
-}
-
-.ufo ellipse {
-  fill: var(--ufo-line);
-}
-
-.beam {
-  fill: none;
-  stroke: var(--ufo-accent);
-  stroke-width: 3;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  opacity: 0.78;
-  filter: drop-shadow(0 0 1.4rem color-mix(in srgb, var(--ufo-accent) 26%, transparent));
-}
-
-.beam path:not(:first-child) {
-  stroke-width: 1.35;
-  opacity: 0.78;
-  stroke-dasharray: 3 10;
-}
-
-.beam path:first-child,
-.beam ellipse {
-  stroke-width: 3.4;
-  stroke-dasharray: none;
-}
-
-.cat {
-  fill: var(--ufo-background);
-  stroke: var(--ufo-line);
-  stroke-width: 5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  transform-origin: 54% 66%;
-  filter: drop-shadow(0 1rem 1.6rem rgba(0, 0, 0, 0.34));
-}
-
-.cat circle:nth-of-type(1),
-.cat circle:nth-of-type(2) {
-  fill: var(--ufo-background);
-}
-
-.cat circle:nth-of-type(3),
-.cat circle:nth-of-type(4) {
-  fill: var(--ufo-line);
-  stroke-width: 0;
-}
-
-.noiseIcons {
-  fill: none;
-  stroke: var(--ufo-muted);
-  stroke-width: 4;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  opacity: 0.58;
-}
-
-.noiseIcons circle {
-  fill: var(--ufo-muted);
-  stroke-width: 0;
+  inset: 43% auto auto 49%;
+  width: min(68vw, 67rem);
+  max-width: none;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 2rem 4rem rgba(0, 0, 0, 0.32));
+  mask-image: radial-gradient(ellipse at 64% 52%, #000 58%, rgba(0, 0, 0, 0.86) 72%, transparent 95%);
+  user-select: none;
 }
 
 @media (max-width: 1024px) {
   .root {
-    grid-column: 7 / -1;
-    min-height: clamp(24rem, 54vw, 36rem);
+    grid-column: 6 / -1;
+    min-height: clamp(28rem, 58svh, 38rem);
+    margin-left: -1.5rem;
   }
 
-  .scene {
-    inset: -4% -8% -4% -4%;
+  .image {
+    top: 44%;
+    left: 53%;
+    width: min(72vw, 45rem);
   }
 }
 
 @media (max-width: 768px) {
   .root {
     grid-column: 1 / -1;
-    width: min(100%, 27rem);
-    min-height: clamp(22rem, 88vw, 31rem);
-    margin: 0 auto;
+    width: min(100%, 31rem);
+    min-height: clamp(20rem, 78vw, 31rem);
+    margin: -0.25rem auto 0;
   }
 
-  .scene {
-    inset: -3% -4% 0;
-    width: 108%;
-    height: 108%;
-  }
-
-  .noiseIcons path:nth-child(n + 9),
-  .noiseIcons circle:nth-child(n + 15) {
-    display: none;
-  }
-
-  .ufo,
-  .cat {
-    stroke-width: 4.2;
-  }
-
-  .beam {
-    stroke-width: 2.5;
+  .image {
+    inset: 49% auto auto 50%;
+    width: min(108vw, 36rem);
   }
 }

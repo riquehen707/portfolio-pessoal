@@ -41,12 +41,15 @@
 
   position: relative;
   display: grid;
-  min-height: min(52rem, 88svh);
+  width: 100vw;
+  min-height: min(57rem, 92svh);
+  margin-top: clamp(-7rem, -8vw, -5rem);
+  margin-left: calc(50% - 50vw);
   align-items: center;
-  padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.2rem, 4vw, 4.25rem) clamp(2rem, 4vw, 3rem);
+  padding-block: clamp(3rem, 6vw, 5.5rem) clamp(2rem, 4vw, 3.25rem);
   overflow: clip;
-  border: 1px solid var(--hero-line);
-  border-radius: calc(var(--radius-panel) + 0.6rem);
+  border: 0;
+  border-radius: 0;
   color: var(--hero-text);
   background:
     radial-gradient(circle at 72% 26%, color-mix(in srgb, var(--hero-accent) 14%, transparent), transparent 26rem),
@@ -84,7 +87,10 @@
   grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: var(--grid-gutter);
   align-items: center;
-  min-height: clamp(34rem, 73svh, 45rem);
+  width: min(100%, var(--grid-max-width));
+  min-height: clamp(38rem, 78svh, 50rem);
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 3vw, 1.5rem);
 }
 
 .heroCopy {
@@ -94,7 +100,7 @@
   min-width: 0;
   align-content: center;
   max-width: min(100%, 39rem);
-  padding-top: clamp(1rem, 8vh, 4rem);
+  padding-top: clamp(1.5rem, 9vh, 5rem);
 }
 
 .heroIdentity {
@@ -137,8 +143,11 @@
 .postHeroSection {
   display: grid;
   gap: 1rem;
-  padding-block: 0.9rem 0;
-  border-top: 1px solid var(--line-subtle);
+  width: 100vw;
+  margin-top: clamp(-2rem, -3vw, -1.15rem);
+  margin-left: calc(50% - 50vw);
+  padding-block: 0;
+  border-top: 0;
   overflow: clip;
 }
 
@@ -238,14 +247,15 @@
 
   .heroSection {
     min-height: auto;
-    padding: clamp(1.35rem, 6vw, 2rem) 1rem 4.75rem;
-    border-radius: var(--radius-panel);
+    margin-top: 0;
+    padding-block: clamp(1.4rem, 6vw, 2.2rem) clamp(2.2rem, 8vw, 3rem);
   }
 
   .heroGrid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     min-height: 0;
     gap: clamp(1.5rem, 7vw, 2.35rem);
+    padding-inline: 1.5rem;
   }
 
   .heroCopy {
@@ -264,7 +274,8 @@
   }
 
   .postHeroSection {
-    padding-block: 0.55rem 0;
+    margin-top: clamp(-1.3rem, -4vw, -0.7rem);
+    padding-block: 0;
   }
 
   .statementSection {
