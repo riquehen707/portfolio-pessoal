@@ -48,7 +48,7 @@ export default function SimulationPage() {
       />
       <BreadcrumbJsonLd
         items={[
-          { name: "Inicio", url: baseURL },
+          { name: "Início", url: baseURL },
           { name: "Simulação", url: `${baseURL}${simulationPage.path}` },
         ]}
       />

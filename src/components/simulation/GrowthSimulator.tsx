@@ -720,7 +720,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
         >
           <div className={styles.stageInner}>
             <div className={styles.stageIntro}>
-              <span className={styles.kicker}>Inicio</span>
+              <span className={styles.kicker}>Início</span>
               <h1 className={styles.displayTitle}>Simulação antes de investir</h1>
               <p className={styles.displayLead}>
                 Base atual, ajustes internos e leitura de viabilidade.

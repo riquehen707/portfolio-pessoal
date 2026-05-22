@@ -106,7 +106,7 @@ export default async function BlogTopicPage({ params }: PageProps) {
       />
       <BreadcrumbJsonLd
         items={[
-          { name: "Inicio", url: baseURL },
+          { name: "Início", url: baseURL },
           { name: "Blog", url: `${baseURL}${blog.path}` },
           { name: "Temas", url: `${baseURL}/blog/temas` },
           { name: label, url: `${baseURL}${getTopicPath(slug)}` },

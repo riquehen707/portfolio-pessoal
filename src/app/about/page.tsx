@@ -156,7 +156,7 @@ export default function About() {
       />
       <BreadcrumbJsonLd
         items={[
-          { name: "Inicio", url: baseURL },
+          { name: "Início", url: baseURL },
           { name: "Sobre", url: `${baseURL}${about.path}` },
         ]}
       />

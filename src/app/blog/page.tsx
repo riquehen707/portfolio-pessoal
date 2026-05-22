@@ -99,7 +99,7 @@ export default function Blog() {
       />
       <BreadcrumbJsonLd
         items={[
-          { name: "Inicio", url: baseURL },
+          { name: "Início", url: baseURL },
           { name: "Blog", url: `${baseURL}${blog.path}` },
         ]}
       />

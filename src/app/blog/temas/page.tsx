@@ -55,7 +55,7 @@ export default function BlogTopicsPage() {
       />
       <BreadcrumbJsonLd
         items={[
-          { name: "Inicio", url: baseURL },
+          { name: "Início", url: baseURL },
           { name: "Blog", url: `${baseURL}${blog.path}` },
           { name: "Temas", url: `${baseURL}${topicsPath}` },
         ]}
