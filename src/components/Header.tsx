@@ -2,7 +2,7 @@
 
 import { Fragment, useEffect, useState } from "react";
 
-import { Flex, Line, Row, Text, ToggleButton, useTheme } from "@once-ui-system/core";
+import { Flex, Row, Text, ToggleButton } from "@once-ui-system/core";
 import { usePathname } from "next/navigation";
 
 import { about, blog, display, person, productsPage, work } from "@/resources";
@@ -53,21 +53,7 @@ function getLocationLabel(timeZone: string) {
 
 export function Header() {
   const pathname = usePathname() ?? "";
-  const { theme, setTheme } = useTheme();
-  const [currentTheme, setCurrentTheme] = useState("dark");
   const aboutSelected = pathname === about.path || pathname.startsWith(`${about.path}/`);
-
-  useEffect(() => {
-    setCurrentTheme(document.documentElement.getAttribute("data-theme") || "dark");
-  }, []);
-
-  useEffect(() => {
-    setCurrentTheme(document.documentElement.getAttribute("data-theme") || "dark");
-  }, [theme]);
-
-  const nextTheme = currentTheme === "light" ? "dark" : "light";
-  const themeIcon = currentTheme === "dark" ? "light" : "dark";
-  const nextThemeLabel = nextTheme === "light" ? "claro" : "escuro";
 
   return (
     <header className={styles.position}>
@@ -121,22 +107,15 @@ export function Header() {
               </Fragment>
             );
           })}
-
-          {display.themeSwitcher && (
-            <>
-              <Line className={styles.divider} background="neutral-alpha-medium" vert maxHeight="24" />
-              <ToggleButton
-                className={styles.themeButton}
-                prefixIcon={themeIcon}
-                onClick={() => setTheme(nextTheme)}
-                aria-label={`Mudar para tema ${nextThemeLabel}`}
-              />
-            </>
-          )}
         </Row>
       </Row>
 
-      <Flex className={`${styles.sideRail} ${styles.rightRail}`} fillWidth horizontal="end" vertical="center">
+      <Flex
+        className={`${styles.sideRail} ${styles.rightRail}`}
+        fillWidth
+        horizontal="end"
+        vertical="center"
+      >
         {display.time && (
           <Row className={styles.utility} gap="8" vertical="center" s={{ hide: true }}>
             <Text className={styles.timeValue} variant="body-default-s">

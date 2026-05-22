@@ -32,11 +32,13 @@
 }
 
 .title {
+  font-family: var(--font-heading);
   letter-spacing: var(--tracking-tight);
 }
 
 .summary {
   max-width: 34ch;
+  font-family: var(--font-body);
 }
 
 .inlineDetail {

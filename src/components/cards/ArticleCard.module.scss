@@ -36,12 +36,14 @@
 }
 
 .title {
+  font-family: var(--font-heading);
   font-weight: var(--type-weight-subtitle);
   letter-spacing: var(--tracking-tight);
 }
 
 .summary {
   max-width: 40ch;
+  font-family: var(--font-body);
   font-weight: var(--type-weight-body);
   line-height: 1.72;
 }

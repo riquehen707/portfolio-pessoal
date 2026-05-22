@@ -1,15 +1,16 @@
 .title {
-  max-width: 8ch;
-  font-size: clamp(5.6rem, 11.5vw, 9.4rem);
+  max-width: 9.4ch;
+  font-family: var(--font-heading);
+  font-size: clamp(5.5rem, 10vw, 8.6rem) !important;
   font-weight: 900;
   letter-spacing: 0;
-  line-height: 0.82;
+  line-height: 0.84 !important;
 }
 
 @media (max-width: 768px) {
   .title {
     max-width: 100%;
-    font-size: clamp(4rem, 19vw, 6.5rem);
-    line-height: 0.88;
+    font-size: clamp(4.1rem, 20vw, 6.6rem) !important;
+    line-height: 0.88 !important;
   }
 }

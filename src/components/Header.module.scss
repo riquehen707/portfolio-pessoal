@@ -57,8 +57,7 @@
   gap: 0.2rem;
 }
 
-.navButton,
-.themeButton {
+.navButton {
   min-height: 2.9rem;
 }
 
@@ -66,27 +65,22 @@
   transition: transform var(--motion-fast);
 }
 
-.divider {
-  opacity: 0.8;
-}
-
 .utility {
   padding-inline: 0.75rem;
 }
 
 .timeValue {
-  color: var(--neutral-on-background-strong);
-  font-family: var(--font-technical);
-  font-size: 0.82rem;
-  font-weight: var(--type-weight-technical);
-  letter-spacing: var(--type-technical-tracking);
+  color: color-mix(in srgb, var(--neutral-on-background-strong) 78%, transparent);
+  font-family: var(--font-code);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
   text-transform: none;
   font-variant-numeric: tabular-nums;
 }
 
 @include mixins.hover-fine {
-  .navButton:hover,
-  .themeButton:hover {
+  .navButton:hover {
     transform: translateY(-1px);
   }
 }
@@ -130,12 +124,7 @@
     gap: 0.18rem;
   }
 
-  .navButton,
-  .themeButton {
+  .navButton {
     min-width: 2.55rem;
-  }
-
-  .divider {
-    display: none;
   }
 }

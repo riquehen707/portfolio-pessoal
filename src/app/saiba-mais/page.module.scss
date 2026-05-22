@@ -1,0 +1,386 @@
+@use "../../styles/mixins" as mixins;
+
+.page {
+  display: grid;
+  gap: clamp(3rem, 7vw, 6rem);
+  width: min(100%, var(--grid-max-width));
+  margin-inline: auto;
+  color: var(--neutral-on-background-strong);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(18rem, 1.1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+  min-height: clamp(36rem, 76svh, 48rem);
+  padding-top: clamp(1rem, 4vw, 3rem);
+}
+
+.heroCopy,
+.statement,
+.compareHeader,
+.pillarsIntro,
+.processCopy,
+.localCopy,
+.finalCta {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.heroCopy {
+  max-width: 39rem;
+}
+
+.eyebrow {
+  @include mixins.label-uppercase;
+
+  margin: 0;
+  color: var(--color-accent-gold);
+  font-family: var(--font-body);
+  font-size: clamp(0.72rem, 1vw, 0.82rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.hero h1,
+.statement h2,
+.compareHeader h2,
+.pillarsIntro h2,
+.processCopy h2,
+.localCopy h2,
+.finalCta h2 {
+  margin: 0;
+  color: var(--neutral-on-background-strong);
+  font-family: var(--font-heading);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 0.98;
+}
+
+.hero h1 {
+  max-width: 10ch;
+  font-size: clamp(3.25rem, 7vw, 6.7rem);
+}
+
+.statement h2,
+.compareHeader h2,
+.pillarsIntro h2,
+.processCopy h2,
+.localCopy h2,
+.finalCta h2 {
+  max-width: 13ch;
+  font-size: clamp(2.15rem, 4.8vw, 4rem);
+}
+
+.hero p:not(.eyebrow),
+.problemCards p,
+.pillarCard p,
+.processCopy p,
+.localCopy p,
+.finalCta p:not(.eyebrow) {
+  max-width: 39rem;
+  margin: 0;
+  color: var(--neutral-on-background-medium);
+  font-size: clamp(1rem, 1.3vw, 1.16rem);
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  padding-top: 0.35rem;
+}
+
+.heroVisual {
+  display: flex;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.heroVisual img {
+  width: min(100%, 48rem);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 1.5rem 3rem rgba(0, 0, 0, 0.28));
+}
+
+.signalBand {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  padding-block: 1rem;
+  border-block: 1px solid var(--line-subtle);
+}
+
+.signalBand span {
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--line-subtle);
+  border-radius: var(--radius-pill);
+  color: var(--neutral-on-background-medium);
+  background: rgba(255, 255, 255, 0.025);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.problemGrid,
+.compareSection,
+.pillars,
+.processSection,
+.localSection {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(18rem, 1.18fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.problemCards,
+.compareGrid,
+.pillarGrid,
+.timeline {
+  min-width: 0;
+}
+
+.problemCards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.problemCards article,
+.compareCard,
+.pillarCard,
+.finalCta {
+  border: 1px solid color-mix(in srgb, var(--neutral-on-background-strong) 10%, transparent);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.055), transparent 46%),
+    rgba(255, 255, 255, 0.025);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.055);
+}
+
+.problemCards article,
+.compareCard,
+.pillarCard {
+  display: grid;
+  gap: 0.8rem;
+  min-height: 100%;
+  padding: clamp(1rem, 2.2vw, 1.35rem);
+  border-radius: var(--radius-panel);
+}
+
+.problemCards span {
+  color: var(--color-accent-gold);
+  font-family: var(--font-code);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.problemCards h3,
+.compareCard h3,
+.pillarCard h3 {
+  margin: 0;
+  color: var(--neutral-on-background-strong);
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  font-weight: 800;
+  line-height: 1.08;
+}
+
+.compareSection {
+  align-items: end;
+}
+
+.compareGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.compareCard ul {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.compareCard li {
+  display: flex;
+  gap: 0.6rem;
+  color: var(--neutral-on-background-medium);
+  line-height: 1.45;
+}
+
+.compareCard li::before {
+  width: 0.38rem;
+  height: 0.38rem;
+  margin-top: 0.55rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent-gold);
+  flex: 0 0 auto;
+  content: "";
+}
+
+.pillarGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.72rem;
+  color: var(--color-accent-gold);
+  background: color-mix(in srgb, var(--color-accent-gold) 9%, transparent);
+}
+
+.timeline {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line-subtle);
+}
+
+.timeline li {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line-subtle);
+  color: var(--neutral-on-background-strong);
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  font-weight: 700;
+}
+
+.timeline span {
+  color: var(--color-accent-gold);
+  font-family: var(--font-code);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.localSection {
+  align-items: center;
+}
+
+.localVisual {
+  position: relative;
+  min-height: clamp(17rem, 28vw, 24rem);
+  border: 1px solid var(--line-subtle);
+  border-radius: var(--radius-panel);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 48%, color-mix(in srgb, var(--color-accent-gold) 15%, transparent), transparent 9rem),
+    rgba(255, 255, 255, 0.025);
+}
+
+.localVisual::before,
+.localVisual span {
+  position: absolute;
+  border: 1px solid color-mix(in srgb, var(--color-accent-gold) 38%, transparent);
+  border-radius: 999px;
+  content: "";
+}
+
+.localVisual::before {
+  inset: 28%;
+}
+
+.localVisual span:nth-child(1) {
+  inset: 17%;
+  opacity: 0.68;
+}
+
+.localVisual span:nth-child(2) {
+  inset: 39%;
+  background: var(--color-accent-gold);
+  opacity: 0.92;
+}
+
+.localVisual span:nth-child(3) {
+  top: 28%;
+  right: 24%;
+  width: 0.65rem;
+  height: 0.65rem;
+  background: var(--neutral-on-background-strong);
+  opacity: 0.72;
+}
+
+.finalCta {
+  justify-items: start;
+  max-width: 48rem;
+  margin-inline: auto;
+  padding: clamp(1.35rem, 3vw, 2rem);
+  border-radius: var(--radius-panel);
+  text-align: left;
+}
+
+@include mixins.m {
+  .hero,
+  .problemGrid,
+  .compareSection,
+  .pillars,
+  .processSection,
+  .localSection {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .hero h1,
+  .statement h2,
+  .compareHeader h2,
+  .pillarsIntro h2,
+  .processCopy h2,
+  .localCopy h2,
+  .finalCta h2 {
+    max-width: 14ch;
+  }
+
+  .heroVisual {
+    justify-content: center;
+  }
+}
+
+@include mixins.s {
+  .page {
+    gap: clamp(2.5rem, 11vw, 3.7rem);
+  }
+
+  .hero h1 {
+    font-size: clamp(3.05rem, 15vw, 4.7rem);
+  }
+
+  .actions,
+  .actions > *,
+  .actions > * > * {
+    width: 100%;
+  }
+
+  .problemCards,
+  .compareGrid,
+  .pillarGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .signalBand {
+    gap: 0.5rem;
+  }
+
+  .signalBand span {
+    font-size: 0.82rem;
+  }
+}

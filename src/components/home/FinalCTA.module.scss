@@ -1,17 +1,35 @@
 @use "../../styles/mixins" as mixins;
 
 .root {
+  position: relative;
+  isolation: isolate;
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
   gap: clamp(1.5rem, 4vw, 3.5rem);
   align-items: end;
   padding-top: clamp(2rem, 5vw, 3.2rem);
+  overflow: clip;
   border-top: 1px solid var(--line-subtle);
 }
 
 .copy,
 .aside {
+  position: relative;
+  z-index: 1;
   min-width: 0;
+}
+
+.catObserver {
+  position: absolute;
+  right: clamp(-4.5rem, -6vw, -2rem);
+  bottom: clamp(-7.5rem, -10vw, -5rem);
+  z-index: 0;
+  width: clamp(18rem, 34vw, 34rem);
+  aspect-ratio: 760 / 520;
+  pointer-events: none;
+  background: url("/images/cat-observer.svg") center / contain no-repeat;
+  opacity: 0.1;
+  transform: rotate(-2deg);
 }
 
 .copy {
@@ -78,6 +96,14 @@
 @include mixins.m {
   .root {
     grid-template-columns: 1fr;
+    padding-bottom: clamp(2rem, 8vw, 4rem);
+  }
+
+  .catObserver {
+    right: clamp(-5rem, -10vw, -2.5rem);
+    bottom: -6.75rem;
+    width: clamp(16rem, 48vw, 25rem);
+    opacity: 0.08;
   }
 
   .aside {
@@ -98,6 +124,14 @@
   .root {
     gap: 1.25rem;
     padding-top: 1.8rem;
+    padding-bottom: 5.25rem;
+  }
+
+  .catObserver {
+    right: -4.5rem;
+    bottom: -5.35rem;
+    width: 18rem;
+    opacity: 0.075;
   }
 
   .actions {

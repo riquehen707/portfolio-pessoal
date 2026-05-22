@@ -44,6 +44,8 @@ export function FinalCTA({
       viewport={motionViewport}
       variants={createStaggerContainer(reducedMotion, 0.1, 0.04)}
     >
+      <div className={styles.catObserver} aria-hidden="true" />
+
       <m.div className={styles.copy} variants={itemVariants}>
         <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
           {eyebrow}
@@ -51,7 +53,11 @@ export function FinalCTA({
         <Heading as="h2" className={styles.title} variant="display-strong-s" wrap="balance">
           {title}
         </Heading>
-        <Text className={styles.description} onBackground="neutral-weak" variant="heading-default-m">
+        <Text
+          className={styles.description}
+          onBackground="neutral-weak"
+          variant="heading-default-m"
+        >
           {description}
         </Text>
       </m.div>

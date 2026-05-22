@@ -143,7 +143,7 @@ export default function Home() {
             <HeroSubtitle>Descubra como não ser só mais uma no mercado.</HeroSubtitle>
             <HeroActions
               primaryLabel="Saiba mais"
-              primaryHref="#home-proof"
+              primaryHref="/saiba-mais"
               secondaryLabel="Agendar uma ligação"
               secondaryHref={homeStrategy.hero.primaryCtaHref}
             />

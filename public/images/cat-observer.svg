@@ -1,0 +1,13 @@
+<svg width="760" height="520" viewBox="0 0 760 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M74 520C54 374 63 230 132 72C151 119 206 169 265 218C297 244 322 272 332 306C367 274 421 258 492 262C559 266 617 289 667 325C688 260 721 210 760 176V520H74Z" fill="#020202"/>
+  <path d="M118 353C101 261 117 160 153 102C189 154 246 193 285 249C245 293 199 329 143 357C133 362 121 360 118 353Z" fill="#373737"/>
+  <path d="M652 347C679 281 712 232 760 196V400C717 387 683 369 652 347Z" fill="#373737"/>
+  <ellipse cx="392" cy="390" rx="122" ry="118" fill="#F8F8F4"/>
+  <ellipse cx="590" cy="390" rx="122" ry="118" fill="#F8F8F4"/>
+  <ellipse cx="407" cy="398" rx="88" ry="82" fill="#020202"/>
+  <ellipse cx="576" cy="398" rx="88" ry="82" fill="#020202"/>
+  <ellipse cx="362" cy="354" rx="32" ry="21" transform="rotate(-28 362 354)" fill="#F8F8F4"/>
+  <ellipse cx="540" cy="354" rx="32" ry="21" transform="rotate(-28 540 354)" fill="#F8F8F4"/>
+  <ellipse cx="336" cy="417" rx="16" ry="25" transform="rotate(14 336 417)" fill="#F8F8F4"/>
+  <ellipse cx="512" cy="417" rx="16" ry="25" transform="rotate(14 512 417)" fill="#F8F8F4"/>
+</svg>

@@ -26,6 +26,7 @@
   overflow: clip;
   border-block: 1px solid var(--strip-line);
   color: var(--strip-text);
+  font-family: var(--font-body);
   background:
     radial-gradient(circle at 18% 10%, color-mix(in srgb, var(--strip-accent) 10%, transparent), transparent 18rem),
     linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 45%),
@@ -43,9 +44,9 @@
 .title {
   margin: 0;
   color: var(--strip-text);
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: clamp(1.35rem, 2.4vw, 2rem);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0;
   line-height: 1.08;
 }
@@ -92,8 +93,7 @@
 }
 
 .root:hover .marquee,
-.root:focus-within .marquee,
-.root[data-has-active="true"] .marquee {
+.root:focus-within .marquee {
   animation-play-state: paused;
 }
 
@@ -197,7 +197,7 @@
 
 .detailTitle {
   color: var(--strip-accent);
-  font-family: var(--font-technical);
+  font-family: var(--font-body);
   font-size: var(--type-technical-size);
   font-weight: var(--type-weight-technical);
   letter-spacing: var(--type-technical-tracking);

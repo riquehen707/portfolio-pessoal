@@ -1,10 +1,4 @@
-import {
-  Archivo_Black,
-  Fugaz_One,
-  IBM_Plex_Mono,
-  Michroma,
-  Source_Sans_3,
-} from "next/font/google";
+import { Archivo_Black, Fugaz_One, IBM_Plex_Mono, Michroma, Source_Sans_3 } from "next/font/google";
 
 import {
   DataStyleConfig,
@@ -27,6 +21,7 @@ const baseURL: string = process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://hen
 
 const routes: RoutesConfig = {
   "/": true,
+  "/saiba-mais": true,
   "/about": true,
   "/about/abordagem-tecnica": true,
   "/work": true,
@@ -41,7 +36,7 @@ const routes: RoutesConfig = {
 const display: DisplayConfig = {
   location: true,
   time: true,
-  themeSwitcher: true,
+  themeSwitcher: false,
 };
 
 const heading = Archivo_Black({

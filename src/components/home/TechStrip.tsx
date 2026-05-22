@@ -32,7 +32,12 @@ export function TechStrip({ items }: TechStripProps) {
   return (
     <div
       className={styles.root}
-      data-has-active={activeItem ? "true" : "false"}
+      onPointerLeave={() => setActiveLabel(null)}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) {
+          setActiveLabel(null);
+        }
+      }}
       onPointerDownCapture={(event) => {
         if (!(event.target as HTMLElement).closest("button")) {
           setActiveLabel(null);

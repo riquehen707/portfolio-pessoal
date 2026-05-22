@@ -39,6 +39,14 @@ body {
     color var(--motion-fast);
 }
 
+.hr-font-system.hr-font-system {
+  --font-heading: "Satoshi", "Source Sans 3", system-ui, sans-serif;
+  --font-body: "Satoshi", "Source Sans 3", system-ui, sans-serif;
+  --font-label: "Satoshi", "Source Sans 3", system-ui, sans-serif;
+  --font-technical: "Satoshi", "Source Sans 3", system-ui, sans-serif;
+  --font-accent: "Satoshi", "Source Sans 3", system-ui, sans-serif;
+}
+
 img,
 svg,
 video,
@@ -197,6 +205,6 @@ button:active {
 
   .hr-site-main {
     padding-top: clamp(7rem, 18vw, 8rem);
-    padding-bottom: clamp(3rem, 10vw, 4rem);
+    padding-bottom: clamp(6.5rem, 18vw, 7.25rem);
   }
 }

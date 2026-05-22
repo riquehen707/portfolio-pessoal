@@ -10,8 +10,8 @@ import {
   Flex,
   Meta,
   RevealFx,
-  SpacingToken,
-  opacity,
+  type SpacingToken,
+  type opacity,
 } from "@once-ui-system/core";
 
 import { Footer, Header, Providers } from "@/components";
@@ -135,6 +135,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
       lang="pt-BR"
       fillWidth
       className={classNames(
+        "hr-font-system",
         fonts.heading.variable,
         fonts.body.variable,
         fonts.label.variable,
@@ -145,6 +146,12 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
     >
       <head>
         <meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
+        <link rel="preconnect" href="https://api.fontshare.com" />
+        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700,900&display=swap"
+        />
         <SiteStructuredData />
         <script
           id="theme-init"
@@ -170,21 +177,8 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
                     root.setAttribute("data-" + key, value);
                   });
 
-                  const resolveTheme = (themeValue) => {
-                    if (!themeValue) {
-                      return "${style.theme}";
-                    }
-
-                    if (themeValue === "system") {
-                      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-                    }
-
-                    return themeValue;
-                  };
-
-                  const savedTheme = localStorage.getItem("data-theme");
-                  const resolvedTheme = resolveTheme(savedTheme);
-                  root.setAttribute("data-theme", resolvedTheme);
+                  root.setAttribute("data-theme", "dark");
+                  localStorage.setItem("data-theme", "dark");
 
                   Object.keys(config).forEach((key) => {
                     const value = localStorage.getItem("data-" + key);
@@ -254,7 +248,14 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
             />
           </RevealFx>
           <Header />
-          <Flex as="main" className="hr-site-main" zIndex={0} fillWidth horizontal="center" flex={1}>
+          <Flex
+            as="main"
+            className="hr-site-main"
+            zIndex={0}
+            fillWidth
+            horizontal="center"
+            flex={1}
+          >
             <Flex className="hr-site-content" horizontal="center" fillWidth minHeight="0">
               {children}
             </Flex>

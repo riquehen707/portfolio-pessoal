@@ -1,38 +1,36 @@
 .root {
   position: relative;
   grid-column: 6 / -1;
-  align-self: stretch;
-  min-height: clamp(34rem, 67svh, 52rem);
-  margin-left: clamp(-2rem, -2vw, -0.75rem);
+  display: flex;
+  align-self: center;
+  justify-content: flex-end;
+  min-height: clamp(30rem, 62svh, 45rem);
+  margin-left: clamp(0rem, 1.5vw, 1.25rem);
+  padding: clamp(1rem, 2vw, 1.5rem) 0 clamp(1.25rem, 2vw, 1.75rem);
   pointer-events: none;
   will-change: transform, opacity;
 }
 
 .image {
-  position: absolute;
-  inset: 43% auto auto 49%;
-  width: min(68vw, 67rem);
-  max-width: none;
+  position: relative;
+  width: min(53vw, 48rem);
+  max-width: 100%;
   height: auto;
   aspect-ratio: 3 / 2;
   object-fit: contain;
-  transform: translate(-50%, -50%);
-  filter: drop-shadow(0 2rem 4rem rgba(0, 0, 0, 0.32));
-  mask-image: radial-gradient(ellipse at 64% 52%, #000 58%, rgba(0, 0, 0, 0.86) 72%, transparent 95%);
+  filter: drop-shadow(0 1.5rem 3rem rgba(0, 0, 0, 0.28));
   user-select: none;
 }
 
 @media (max-width: 1024px) {
   .root {
     grid-column: 6 / -1;
-    min-height: clamp(28rem, 58svh, 38rem);
-    margin-left: -1.5rem;
+    min-height: clamp(25rem, 52svh, 36rem);
+    margin-left: 0;
   }
 
   .image {
-    top: 44%;
-    left: 53%;
-    width: min(72vw, 45rem);
+    width: min(52vw, 37rem);
   }
 }
 
@@ -40,12 +38,13 @@
   .root {
     grid-column: 1 / -1;
     width: min(100%, 31rem);
-    min-height: clamp(20rem, 78vw, 31rem);
-    margin: -0.25rem auto 0;
+    min-height: auto;
+    margin: -0.15rem auto 0;
+    padding: 0;
+    justify-content: center;
   }
 
   .image {
-    inset: 49% auto auto 50%;
-    width: min(108vw, 36rem);
+    width: min(100%, 31rem);
   }
 }
