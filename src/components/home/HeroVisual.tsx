@@ -1,6 +1,7 @@
 "use client";
 
 import { m, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 
 import { sectionTransition } from "@/components/motion/motionTokens";
 
@@ -42,14 +43,16 @@ export function HeroVisual() {
             }
       }
     >
-      <div className={styles.signalField}>
-        <span className={styles.orbit} />
-        <span className={styles.orbit} />
-        <span className={styles.core} />
-        <span className={styles.beam} />
-        <span className={styles.marker} />
-        <span className={styles.marker} />
-        <span className={styles.marker} />
+      <div className={styles.imageShell}>
+        <Image
+          className={styles.image}
+          src="/images/hero-dark-illustration.svg"
+          alt=""
+          width={810}
+          height={1012}
+          priority
+          unoptimized
+        />
       </div>
     </m.div>
   );

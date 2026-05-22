@@ -1,3 +1,13 @@
+@keyframes heroFloat {
+  from {
+    transform: translate3d(0, -0.45rem, 0) rotate(-0.35deg);
+  }
+
+  to {
+    transform: translate3d(0, 0.55rem, 0) rotate(0.35deg);
+  }
+}
+
 .root {
   position: relative;
   z-index: 1;
@@ -12,103 +22,42 @@
   will-change: transform, opacity;
 }
 
-.signalField {
+.imageShell {
   position: relative;
-  width: min(46vw, 41rem);
-  aspect-ratio: 1 / 1;
-  border-radius: 999px;
-  background:
-    radial-gradient(circle at 54% 42%, color-mix(in srgb, var(--hero-accent) 18%, transparent), transparent 0.9rem),
-    radial-gradient(circle at 56% 46%, rgba(255, 255, 255, 0.14), transparent 0.12rem),
-    radial-gradient(circle at 36% 34%, rgba(255, 255, 255, 0.1), transparent 0.1rem),
-    radial-gradient(circle at 72% 63%, rgba(255, 255, 255, 0.12), transparent 0.1rem);
-  opacity: 0.92;
+  display: flex;
+  justify-content: center;
+  width: min(38vw, 34rem);
+  max-width: 100%;
+  animation: heroFloat 7.5s ease-in-out infinite alternate;
 }
 
-.signalField::before,
-.signalField::after,
-.orbit,
-.core,
-.beam,
-.marker {
+.imageShell::before {
   position: absolute;
+  inset: 12% 8% 10%;
+  z-index: -1;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 54% 42%, color-mix(in srgb, var(--hero-accent) 18%, transparent), transparent 42%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.06), transparent 55%);
+  filter: blur(1.25rem);
+  opacity: 0.8;
   content: "";
 }
 
-.signalField::before {
-  inset: 14%;
-  border: 1px solid color-mix(in srgb, var(--hero-text) 10%, transparent);
-  border-radius: 999px;
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: clamp(30rem, 68svh, 45rem);
+  object-fit: contain;
+  filter: drop-shadow(0 1.75rem 3rem rgba(0, 0, 0, 0.32));
+  user-select: none;
 }
 
-.signalField::after {
-  right: 10%;
-  bottom: 12%;
-  width: 38%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--hero-accent) 52%, transparent), transparent);
-  transform: rotate(-18deg);
-}
-
-.orbit {
-  inset: 24%;
-  border: 1px solid color-mix(in srgb, var(--hero-accent) 30%, transparent);
-  border-radius: 999px;
-  transform: rotate(-14deg) scaleY(0.58);
-}
-
-.orbit:nth-child(2) {
-  inset: 31%;
-  border-color: color-mix(in srgb, var(--hero-text) 18%, transparent);
-  transform: rotate(19deg) scaleY(0.5);
-}
-
-.core {
-  top: 38%;
-  left: 50%;
-  width: clamp(7.5rem, 14vw, 12rem);
-  aspect-ratio: 1;
-  border: 1px solid color-mix(in srgb, var(--hero-text) 18%, transparent);
-  border-radius: 999px;
-  background:
-    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--hero-accent) 86%, white 2%), transparent 0.33rem),
-    radial-gradient(circle, color-mix(in srgb, var(--hero-accent) 14%, transparent), transparent 58%);
-  box-shadow:
-    0 0 2.5rem color-mix(in srgb, var(--hero-accent) 12%, transparent),
-    inset 0 0 2.2rem rgba(255, 255, 255, 0.03);
-  transform: translate(-50%, -50%);
-}
-
-.beam {
-  top: 50%;
-  left: 50%;
-  width: 2px;
-  height: 34%;
-  background: linear-gradient(180deg, color-mix(in srgb, var(--hero-accent) 72%, transparent), transparent);
-  transform: translateX(-50%);
-}
-
-.marker {
-  width: 0.5rem;
-  height: 0.5rem;
-  border: 1px solid color-mix(in srgb, var(--hero-accent) 64%, transparent);
-  border-radius: 999px;
-}
-
-.marker:nth-last-child(3) {
-  top: 23%;
-  right: 18%;
-}
-
-.marker:nth-last-child(2) {
-  right: 24%;
-  bottom: 24%;
-}
-
-.marker:nth-last-child(1) {
-  left: 24%;
-  bottom: 31%;
-  border-color: color-mix(in srgb, var(--hero-text) 22%, transparent);
+@media (prefers-reduced-motion: reduce) {
+  .imageShell {
+    animation: none;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -118,8 +67,8 @@
     margin-left: 0;
   }
 
-  .signalField {
-    width: min(44vw, 32rem);
+  .imageShell {
+    width: min(39vw, 29rem);
   }
 }
 
@@ -133,7 +82,11 @@
     justify-content: center;
   }
 
-  .signalField {
-    width: min(100%, 27rem);
+  .imageShell {
+    width: min(82vw, 24rem);
+  }
+
+  .image {
+    max-height: 32rem;
   }
 }
