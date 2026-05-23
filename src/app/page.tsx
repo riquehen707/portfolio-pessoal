@@ -36,6 +36,8 @@ const homeProofPoints = [
   { label: "Depois", value: "acompanhar sinais de melhoria" },
 ] as const;
 
+const heroBenefits = ["Identidade clara", "Mensagem direta", "Presença memorável"] as const;
+
 export async function generateMetadata() {
   const generatedMeta = Meta.generate({
     title: home.title,
@@ -93,12 +95,19 @@ export default function Home() {
               Não faça igual a <span className={styles.heroAccent}>todo mundo.</span>
             </HeroTitle>
 
-            <HeroSubtitle
-              benefits={["Identidade clara", "Mensagem direta", "Presença memorável"]}
-            >
+            <HeroSubtitle>
               Assim como é possível identificar uma expressão em poucos traços, seu site precisa
               ser percebido e entendido sem exageros.
             </HeroSubtitle>
+
+            <ul className={styles.heroBenefits} aria-label="Benefícios principais">
+              {heroBenefits.map((benefit) => (
+                <li className={styles.heroBenefit} key={benefit}>
+                  <span className={styles.heroBenefitDot} aria-hidden="true" />
+                  <span>{benefit}</span>
+                </li>
+              ))}
+            </ul>
 
             <HeroActions
               primaryLabel="Saiba mais"
