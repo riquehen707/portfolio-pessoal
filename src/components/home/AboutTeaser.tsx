@@ -106,7 +106,7 @@ export function AboutTeaser({
         <div className={styles.visualContent}>
           <div className={styles.logoWrap} aria-hidden="true">
             <Image
-              src="/trademarks/henrique-reis-mark-primary.svg"
+              src="/trademarks/henrique-reis-mark.svg"
               alt=""
               width={96}
               height={96}
