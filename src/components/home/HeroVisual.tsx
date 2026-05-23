@@ -1,8 +1,8 @@
 "use client";
 
 import { m, useReducedMotion } from "framer-motion";
-import Image from "next/image";
 
+import { AvatarSticker } from "@/components/avatar/AvatarSticker";
 import { sectionTransition } from "@/components/motion/motionTokens";
 
 import styles from "./HeroVisual.module.scss";
@@ -20,7 +20,7 @@ export function HeroVisual() {
           : {
               opacity: 0,
               y: 18,
-              scale: 0.98,
+              scale: 0.985,
             }
       }
       animate={
@@ -34,25 +34,23 @@ export function HeroVisual() {
       }
       transition={
         reducedMotion
-          ? {
-              duration: 0.01,
-            }
+          ? { duration: 0.01 }
           : {
               ...sectionTransition,
-              delay: 0.18,
+              delay: 0.16,
             }
       }
     >
-      <div className={styles.imageShell}>
-        <Image
-          className={styles.image}
-          src="/images/hero-dark-illustration.svg"
-          alt=""
-          width={810}
-          height={1012}
-          priority
-          unoptimized
-        />
+      <div className={styles.visualShell}>
+        <div className={styles.expressionMain}>
+          <AvatarSticker expression="confident" size="xl" />
+        </div>
+
+        <div className={styles.expressionAccent}>
+          <AvatarSticker expression="curious" size="md" />
+        </div>
+
+        <div className={styles.orbit} />
       </div>
     </m.div>
   );

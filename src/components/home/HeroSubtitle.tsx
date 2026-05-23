@@ -5,10 +5,7 @@ import type { ReactNode } from "react";
 import { Text } from "@once-ui-system/core";
 import { m, useReducedMotion } from "framer-motion";
 
-import {
-  createRevealVariants,
-  revealTransition,
-} from "@/components/motion/motionTokens";
+import { createRevealVariants, revealTransition } from "@/components/motion/motionTokens";
 
 import styles from "./HeroSubtitle.module.scss";
 
@@ -23,27 +20,29 @@ export function HeroSubtitle({ children, support, benefits = [] }: HeroSubtitleP
 
   return (
     <m.div
+      className={styles.root}
       initial="hidden"
       animate="visible"
-      variants={createRevealVariants(reducedMotion, 20, 0.992)}
-      transition={
-        reducedMotion
-          ? {
-              duration: 0.01,
-            }
-          : {
-              ...revealTransition,
-              delay: 0.14,
-            }
-      }
+      variants={createRevealVariants(reducedMotion, 16, 0.992)}
+      transition={reducedMotion ? { duration: 0.01 } : { ...revealTransition, delay: 0.12 }}
     >
       <div className={styles.group}>
-        <Text className={styles.subtitle} onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
+        <Text
+          className={styles.subtitle}
+          onBackground="neutral-weak"
+          variant="body-default-l"
+          wrap="balance"
+        >
           {children}
         </Text>
 
         {support ? (
-          <Text className={styles.support} onBackground="neutral-weak" variant="body-default-m" wrap="balance">
+          <Text
+            className={styles.support}
+            onBackground="neutral-weak"
+            variant="body-default-m"
+            wrap="balance"
+          >
             {support}
           </Text>
         ) : null}

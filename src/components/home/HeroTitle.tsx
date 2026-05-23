@@ -5,10 +5,7 @@ import type { ReactNode } from "react";
 import { Heading } from "@once-ui-system/core";
 import { m, useReducedMotion } from "framer-motion";
 
-import {
-  createRevealVariants,
-  sectionTransition,
-} from "@/components/motion/motionTokens";
+import { createRevealVariants, sectionTransition } from "@/components/motion/motionTokens";
 
 import styles from "./HeroTitle.module.scss";
 
@@ -21,14 +18,13 @@ export function HeroTitle({ children }: HeroTitleProps) {
 
   return (
     <m.div
+      className={styles.root}
       initial="hidden"
       animate="visible"
-      variants={createRevealVariants(reducedMotion, 34, 0.982)}
+      variants={createRevealVariants(reducedMotion, 26, 0.986)}
       transition={
         reducedMotion
-          ? {
-              duration: 0.01,
-            }
+          ? { duration: 0.01 }
           : {
               ...sectionTransition,
               delay: 0.02,

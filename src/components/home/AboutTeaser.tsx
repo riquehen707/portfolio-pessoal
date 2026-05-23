@@ -3,6 +3,7 @@
 import { Heading, SmartLink, Text } from "@once-ui-system/core";
 import { m, useReducedMotion } from "framer-motion";
 
+import { AvatarSticker } from "@/components/avatar/AvatarSticker";
 import {
   createRevealVariants,
   motionViewport,
@@ -21,11 +22,12 @@ type AboutTeaserProps = {
 };
 
 const supportLine =
-  "Trabalho unindo estética, tecnologia e visão comercial com critério humano e leitura de negócio.";
+  "Combino leitura de negócio, direção visual e implementação técnica para criar estruturas digitais mais claras, úteis e sustentáveis.";
 
-const editorialStatement = "Estudante do Bacharelado em Ciência e Tecnologia.";
+const editorialStatement = "Estética com critério. Tecnologia com intenção.";
+
 const editorialDetail =
-  "Me especializando em automação e softwares aplicados a empresas e serviços.";
+  "Minha formação em Ciência e Tecnologia sustenta uma abordagem prática: entender o problema, organizar a mensagem e construir soluções que façam sentido para o negócio.";
 
 export function AboutTeaser({
   eyebrow,
@@ -36,31 +38,37 @@ export function AboutTeaser({
 }: AboutTeaserProps) {
   const reducedMotion = useReducedMotion();
 
+  const copyVariants = createRevealVariants(reducedMotion, 24, 0.99);
+  const panelVariants = createRevealVariants(reducedMotion, 20, 0.99);
+
   return (
-    <div className={styles.root}>
+    <section className={styles.root} aria-labelledby="about-teaser-title">
       <m.div
         className={styles.copy}
         initial="hidden"
         whileInView="visible"
         viewport={motionViewport}
-        variants={createRevealVariants(reducedMotion, 24, 0.99)}
-        transition={
-          reducedMotion
-            ? {
-                duration: 0.01,
-              }
-            : revealTransition
-        }
+        variants={copyVariants}
+        transition={reducedMotion ? { duration: 0.01 } : revealTransition}
       >
         <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
           {eyebrow}
         </Text>
-        <Heading as="h2" className={styles.title} variant="display-strong-s" wrap="balance">
+
+        <Heading
+          id="about-teaser-title"
+          as="h2"
+          className={styles.title}
+          variant="display-strong-s"
+          wrap="balance"
+        >
           {title}
         </Heading>
+
         <Text className={styles.description} onBackground="neutral-weak" variant="heading-default-m">
           {description}
         </Text>
+
         <Text className={styles.support} onBackground="neutral-weak" variant="body-default-m">
           {supportLine}
         </Text>
@@ -81,16 +89,14 @@ export function AboutTeaser({
 
       <m.aside
         className={styles.visualPanel}
-        aria-label="Resumo pessoal"
+        aria-label="Resumo da abordagem"
         initial="hidden"
         whileInView="visible"
         viewport={motionViewport}
-        variants={createRevealVariants(reducedMotion, 24, 0.99)}
+        variants={panelVariants}
         transition={
           reducedMotion
-            ? {
-                duration: 0.01,
-              }
+            ? { duration: 0.01 }
             : {
                 ...sectionTransition,
                 delay: 0.06,
@@ -98,18 +104,23 @@ export function AboutTeaser({
         }
       >
         <div className={styles.visualContent}>
-          <span className={styles.square} aria-hidden="true" />
+          <div className={styles.avatarWrap} aria-hidden="true">
+            <AvatarSticker expression="focused" size="lg" />
+          </div>
+
           <Text className={styles.visualLabel} variant="label-default-s" onBackground="neutral-weak">
-            Sobre mim
+            Como penso o trabalho
           </Text>
+
           <Heading as="p" className={styles.statement} variant="heading-strong-l" wrap="balance">
             {editorialStatement}
           </Heading>
+
           <Text className={styles.detail} onBackground="neutral-weak" variant="body-default-m">
             {editorialDetail}
           </Text>
         </div>
       </m.aside>
-    </div>
+    </section>
   );
 }

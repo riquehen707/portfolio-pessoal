@@ -13,6 +13,7 @@ type HeroActionsProps = {
   primaryHref: string;
   secondaryLabel?: string;
   secondaryHref?: string;
+  analyticsLocation?: string;
 };
 
 export function HeroActions({
@@ -20,32 +21,40 @@ export function HeroActions({
   primaryHref,
   secondaryLabel,
   secondaryHref,
+  analyticsLocation = "home_hero",
 }: HeroActionsProps) {
   const reducedMotion = useReducedMotion();
-  const itemVariants = createRevealVariants(reducedMotion, 18, 0.992);
+
+  const containerVariants = createStaggerContainer(reducedMotion, 0.07, 0.16);
+  const itemVariants = createRevealVariants(reducedMotion, 14, 0.992);
+
+  const hasSecondaryAction = Boolean(secondaryLabel && secondaryHref);
 
   return (
-    <m.div
+    <m.nav
+      className={styles.wrapper}
+      aria-label="Ações principais"
       initial="hidden"
       animate="visible"
-      variants={createStaggerContainer(reducedMotion, 0.08, 0.2)}
+      variants={containerVariants}
     >
       <Row className={styles.actions} gap="12" wrap>
-        <m.div variants={itemVariants}>
+        <m.div className={styles.actionItem} variants={itemVariants}>
           <CTAButton
             className={styles.primaryButton}
             href={primaryHref}
             suffixIcon="arrowRight"
             data-analytics-event="cta_click"
             data-analytics-label={primaryLabel}
-            data-analytics-location="home_hero"
+            data-analytics-location={analyticsLocation}
             data-analytics-type="primary"
           >
             {primaryLabel}
           </CTAButton>
         </m.div>
-        {secondaryLabel && secondaryHref && (
-          <m.div variants={itemVariants}>
+
+        {hasSecondaryAction && (
+          <m.div className={styles.actionItem} variants={itemVariants}>
             <CTAButton
               className={styles.secondaryButton}
               href={secondaryHref}
@@ -53,7 +62,7 @@ export function HeroActions({
               prefixIcon="calendar"
               data-analytics-event="cta_click"
               data-analytics-label={secondaryLabel}
-              data-analytics-location="home_hero"
+              data-analytics-location={analyticsLocation}
               data-analytics-type="secondary"
             >
               {secondaryLabel}
@@ -61,6 +70,6 @@ export function HeroActions({
           </m.div>
         )}
       </Row>
-    </m.div>
+    </m.nav>
   );
 }

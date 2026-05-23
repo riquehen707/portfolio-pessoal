@@ -13,11 +13,15 @@ type TechStripProps = {
   items: readonly TechStripItem[];
 };
 
-const segmentIndexes = Array.from({ length: 4 }, (_, index) => index);
+const segmentIndexes = Array.from({ length: 3 }, (_, index) => index);
 
 export function TechStrip({ items }: TechStripProps) {
+  if (items.length === 0) {
+    return null;
+  }
+
   return (
-    <div className={styles.root} aria-label="Recursos de operação digital">
+    <section className={styles.root} aria-label="Recursos de operação digital">
       <div className={styles.viewport}>
         <div className={styles.marquee}>
           {segmentIndexes.map((segment) => (
@@ -28,19 +32,18 @@ export function TechStrip({ items }: TechStripProps) {
               inert={segment > 0 ? true : undefined}
             >
               {items.map((item) => (
-                <span
-                  className={styles.item}
-                  key={`${item.label}-${segment}`}
-                  aria-label={segment === 0 ? item.label : undefined}
-                  role={segment === 0 ? "img" : undefined}
-                >
-                  <Icon name={item.icon} size="l" />
+                <span className={styles.item} key={`${item.label}-${segment}`}>
+                  <span className={styles.icon} aria-hidden="true">
+                    <Icon name={item.icon} size="m" />
+                  </span>
+
+                  <span className={styles.label}>{item.label}</span>
                 </span>
               ))}
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

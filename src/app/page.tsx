@@ -22,46 +22,16 @@ const homeAboutSection = homeStrategy.sections.find((section) => section.id === 
 const homeFinalSection = homeStrategy.sections.find((section) => section.id === "final-cta");
 
 const techStripItems = [
-  {
-    label: "Página leve",
-    icon: "performance",
-  },
-  {
-    label: "Interface clara",
-    icon: "figma",
-  },
-  {
-    label: "Busca local",
-    icon: "seo",
-  },
-  {
-    label: "Oferta testável",
-    icon: "meta",
-  },
-  {
-    label: "Medição útil",
-    icon: "ga",
-  },
-  {
-    label: "Contato rastreável",
-    icon: "crm",
-  },
-  {
-    label: "Design adaptável",
-    icon: "react",
-  },
-  {
-    label: "Mensagem clara",
-    icon: "document",
-  },
-  {
-    label: "Jornada objetiva",
-    icon: "rocket",
-  },
-  {
-    label: "Atendimento simples",
-    icon: "whatsapp",
-  },
+  { label: "Página leve", icon: "performance" },
+  { label: "Interface clara", icon: "figma" },
+  { label: "Busca local", icon: "seo" },
+  { label: "Oferta testável", icon: "meta" },
+  { label: "Medição útil", icon: "ga" },
+  { label: "Contato rastreável", icon: "crm" },
+  { label: "Design adaptável", icon: "react" },
+  { label: "Mensagem clara", icon: "document" },
+  { label: "Jornada objetiva", icon: "rocket" },
+  { label: "Atendimento simples", icon: "whatsapp" },
 ] as const;
 
 const homeProofPoints = [
@@ -122,14 +92,19 @@ export default function Home() {
             >
               POSICIONAMENTO / NEGÓCIOS LOCAIS
             </Text>
+
             <HeroTitle>
               Em um oceano de marcas, o que faz você se{" "}
               <span className={styles.heroAccent}>destacar?</span>
             </HeroTitle>
-            <HeroSubtitle>
+
+            <HeroSubtitle
+              benefits={["Clareza de oferta", "Design com intenção", "Contato mais objetivo"]}
+            >
               Posicionamento, design e conteúdo para sua marca deixar de disputar atenção e
               começar a ser lembrada.
             </HeroSubtitle>
+
             <HeroActions
               primaryLabel="Saiba mais"
               primaryHref="/saiba-mais"
@@ -148,7 +123,7 @@ export default function Home() {
       </section>
 
       <section className={styles.postHeroSection} id="home-proof">
-        <Reveal delay={0.12} distance={20}>
+        <Reveal delay={0.12} distance={16}>
           <TechStrip items={[...techStripItems]} />
         </Reveal>
       </section>
@@ -184,7 +159,7 @@ export default function Home() {
       </section>
 
       <section className={styles.section}>
-        <Reveal delay={0.04} distance={24}>
+        <Reveal delay={0.04} distance={20}>
           <SectionHeader
             eyebrow={homeBlogSection?.label ?? "Insights"}
             title={homeBlogSection?.title ?? "Ideias que geram resultado."}
@@ -193,6 +168,7 @@ export default function Home() {
             actionHref={homeBlogSection?.ctaHref ?? "/blog"}
           />
         </Reveal>
+
         <div className={styles.blogGrid}>
           {blogPosts.length > 0 ? (
             blogPosts.map((post) => (

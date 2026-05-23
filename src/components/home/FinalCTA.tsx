@@ -3,6 +3,7 @@
 import { Heading, Text } from "@once-ui-system/core";
 import { m, useReducedMotion } from "framer-motion";
 
+import { AvatarSticker } from "@/components/avatar/AvatarSticker";
 import { CTAButton } from "@/components/CTAButton";
 import {
   createRevealVariants,
@@ -32,27 +33,41 @@ export function FinalCTA({
   primaryHref,
 }: FinalCTAProps) {
   const reducedMotion = useReducedMotion();
+
   const whatsappHref =
     social.find((item) => item.name === "WhatsApp")?.link ?? "https://wa.me/5575983675164";
-  const itemVariants = createRevealVariants(reducedMotion, 24, 0.99);
+
+  const itemVariants = createRevealVariants(reducedMotion, 22, 0.99);
+  const trustVariants = createRevealVariants(reducedMotion, 14, 0.995);
 
   return (
-    <m.div
+    <m.section
       className={styles.root}
+      aria-labelledby="final-cta-title"
       initial="hidden"
       whileInView="visible"
       viewport={motionViewport}
       variants={createStaggerContainer(reducedMotion, 0.1, 0.04)}
     >
-      <div className={styles.ambientMark} aria-hidden="true" />
+      <div className={styles.expression} aria-hidden="true">
+        <AvatarSticker expression="confident" size="xl" />
+      </div>
 
       <m.div className={styles.copy} variants={itemVariants}>
         <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
           {eyebrow}
         </Text>
-        <Heading as="h2" className={styles.title} variant="display-strong-s" wrap="balance">
+
+        <Heading
+          id="final-cta-title"
+          as="h2"
+          className={styles.title}
+          variant="display-strong-s"
+          wrap="balance"
+        >
           {title}
         </Heading>
+
         <Text
           className={styles.description}
           onBackground="neutral-weak"
@@ -63,8 +78,11 @@ export function FinalCTA({
       </m.div>
 
       <m.div className={styles.aside} variants={itemVariants}>
-        <m.div className={styles.actions} variants={createStaggerContainer(reducedMotion, 0.08)}>
-          <m.div variants={itemVariants}>
+        <m.div
+          className={styles.actions}
+          variants={createStaggerContainer(reducedMotion, 0.08)}
+        >
+          <m.div className={styles.actionItem} variants={itemVariants}>
             <CTAButton
               href={primaryHref}
               prefixIcon="chart"
@@ -76,7 +94,8 @@ export function FinalCTA({
               {primaryLabel}
             </CTAButton>
           </m.div>
-          <m.div variants={itemVariants}>
+
+          <m.div className={styles.actionItem} variants={itemVariants}>
             <CTAButton
               href={whatsappHref}
               variant="secondary"
@@ -91,12 +110,15 @@ export function FinalCTA({
           </m.div>
         </m.div>
 
-        <m.div className={styles.trustList} variants={createStaggerContainer(reducedMotion, 0.06)}>
+        <m.div
+          className={styles.trustList}
+          variants={createStaggerContainer(reducedMotion, 0.06)}
+        >
           {trustSignals.map((item) => (
             <m.div
               className={styles.trustItem}
               key={item}
-              variants={createRevealVariants(reducedMotion, 16, 0.995)}
+              variants={trustVariants}
               transition={reducedMotion ? { duration: 0.01 } : revealTransition}
             >
               <span className={styles.trustDot} aria-hidden="true" />
@@ -105,6 +127,6 @@ export function FinalCTA({
           ))}
         </m.div>
       </m.div>
-    </m.div>
+    </m.section>
   );
 }

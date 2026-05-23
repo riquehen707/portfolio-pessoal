@@ -1,16 +1,37 @@
+.root {
+  width: 100%;
+}
+
 .title {
-  max-width: 12.5ch;
+  max-width: 12ch;
+  color: var(--hero-text, var(--neutral-on-background-strong));
   font-family: var(--font-heading);
-  font-size: clamp(3.9rem, 7vw, 6.7rem) !important;
+  font-size: clamp(3.4rem, 6.2vw, 6rem) !important;
   font-weight: 900;
-  letter-spacing: 0;
-  line-height: 0.88 !important;
+  letter-spacing: -0.045em;
+  line-height: 0.94 !important;
+}
+
+@media (max-width: 1024px) {
+  .title {
+    max-width: 11.5ch;
+    font-size: clamp(3rem, 7.8vw, 5rem) !important;
+  }
 }
 
 @media (max-width: 768px) {
   .title {
-    max-width: 100%;
-    font-size: clamp(3rem, 14vw, 4.7rem) !important;
-    line-height: 0.92 !important;
+    max-width: 9.5ch;
+    font-size: clamp(2.65rem, 12vw, 4rem) !important;
+    letter-spacing: -0.04em;
+    line-height: 0.96 !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .title {
+    max-width: 10ch;
+    font-size: clamp(2.45rem, 11.5vw, 3.35rem) !important;
+    line-height: 0.98 !important;
   }
 }

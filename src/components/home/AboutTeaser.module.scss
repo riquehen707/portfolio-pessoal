@@ -21,30 +21,38 @@
 }
 
 .title {
-  max-width: 11ch;
+  max-width: 12ch;
 }
 
 .description {
-  max-width: 35rem;
+  max-width: 36rem;
 }
 
 .support {
   max-width: 36rem;
+  color: var(--neutral-on-background-medium);
 }
 
 .action {
-  padding-top: 0.15rem;
+  padding-top: 0.25rem;
 }
 
 .visualPanel {
+  position: relative;
   grid-column: span 6;
   display: grid;
-  min-height: clamp(16rem, 24vw, 19rem);
-  padding: clamp(1.5rem, 3.5vw, 2.4rem);
-  border-radius: clamp(1.1rem, 2vw, 1.5rem);
+  min-height: clamp(18rem, 28vw, 23rem);
+  overflow: hidden;
+  padding: clamp(1.35rem, 3vw, 2.2rem);
   border: 1px solid color-mix(in srgb, var(--neutral-on-background-strong) 10%, transparent);
+  border-radius: clamp(1.1rem, 2vw, 1.5rem);
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.07), transparent 42%),
+    radial-gradient(
+      circle at 78% 18%,
+      color-mix(in srgb, var(--color-accent-gold) 16%, transparent),
+      transparent 34%
+    ),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.07), transparent 44%),
     rgba(255, 255, 255, 0.025);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.06),
@@ -52,27 +60,53 @@
   backdrop-filter: blur(18px);
 }
 
+.visualPanel::before {
+  position: absolute;
+  right: -18%;
+  bottom: -38%;
+  width: clamp(12rem, 22vw, 18rem);
+  aspect-ratio: 1;
+  pointer-events: none;
+  content: "";
+  border-radius: 999rem;
+  background: color-mix(in srgb, var(--color-accent-gold) 8%, transparent);
+  filter: blur(0.5rem);
+}
+
 .visualContent {
+  position: relative;
+  z-index: 1;
   display: grid;
+  gap: 0.85rem;
   align-content: end;
-  gap: 0.9rem;
   min-height: 100%;
 }
 
-.square {
-  width: 0.95rem;
+.avatarWrap {
+  width: clamp(4.5rem, 9vw, 7rem);
   aspect-ratio: 1;
-  background: var(--color-accent-gold);
-  margin-bottom: 0.35rem;
-  box-shadow: 0 0 1.5rem color-mix(in srgb, var(--color-accent-gold) 22%, transparent);
+  margin-bottom: clamp(0.25rem, 1vw, 0.75rem);
+}
+
+.avatarWrap img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 1rem 1.6rem rgba(0, 0, 0, 0.22));
+}
+
+.visualLabel {
+  color: var(--color-accent-gold);
 }
 
 .statement {
-  max-width: 13ch;
+  max-width: 15ch;
 }
 
 .detail {
-  max-width: 25rem;
+  max-width: 27rem;
+  color: var(--neutral-on-background-medium);
 }
 
 @include mixins.m {
@@ -85,11 +119,32 @@
   .statement {
     max-width: none;
   }
+
+  .visualPanel {
+    min-height: clamp(17rem, 36vw, 21rem);
+  }
 }
 
 @include mixins.s {
+  .root {
+    gap: 1.25rem;
+  }
+
+  .copy {
+    gap: 0.95rem;
+  }
+
   .visualPanel {
     min-height: auto;
+    padding: 1.2rem;
     border-radius: calc(var(--radius-24) - 0.1rem);
+  }
+
+  .visualContent {
+    gap: 0.75rem;
+  }
+
+  .avatarWrap {
+    width: 4.75rem;
   }
 }

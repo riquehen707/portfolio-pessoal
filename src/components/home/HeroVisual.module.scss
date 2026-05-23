@@ -1,10 +1,20 @@
 @keyframes heroFloat {
   from {
-    transform: translate3d(0, -0.45rem, 0) rotate(-0.35deg);
+    transform: translate3d(0, -0.35rem, 0) rotate(-0.25deg);
   }
 
   to {
-    transform: translate3d(0, 0.55rem, 0) rotate(0.35deg);
+    transform: translate3d(0, 0.45rem, 0) rotate(0.25deg);
+  }
+}
+
+@keyframes accentFloat {
+  from {
+    transform: translate3d(0.15rem, 0.25rem, 0) rotate(4deg);
+  }
+
+  to {
+    transform: translate3d(-0.15rem, -0.25rem, 0) rotate(1deg);
   }
 }
 
@@ -16,47 +26,95 @@
   display: flex;
   align-self: center;
   justify-content: flex-end;
-  min-height: clamp(28rem, 58svh, 41rem);
+  min-height: clamp(24rem, 52svh, 36rem);
   margin-left: clamp(0rem, 1.5vw, 1.25rem);
-  padding: clamp(1rem, 2vw, 1.5rem) 0 clamp(1.25rem, 2vw, 1.75rem);
+  padding: clamp(1rem, 2vw, 1.5rem) 0;
   pointer-events: none;
   will-change: transform, opacity;
 }
 
-.imageShell {
+.visualShell {
   position: relative;
-  display: flex;
-  justify-content: center;
-  width: min(34vw, 31rem);
-  max-width: 100%;
+  display: grid;
+  place-items: center;
+  width: min(34vw, 30rem);
+  aspect-ratio: 1;
   animation: heroFloat 7.5s ease-in-out infinite alternate;
 }
 
-.imageShell::before {
+.visualShell::before {
   position: absolute;
-  inset: 12% 8% 10%;
-  z-index: -1;
+  inset: 14%;
+  z-index: -2;
+  content: "";
   border-radius: 999px;
   background:
-    radial-gradient(circle at 54% 42%, color-mix(in srgb, var(--hero-accent) 18%, transparent), transparent 42%),
-    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.06), transparent 55%);
-  filter: blur(1.25rem);
-  opacity: 0.8;
-  content: "";
+    radial-gradient(
+      circle at 54% 42%,
+      color-mix(in srgb, var(--hero-accent) 18%, transparent),
+      transparent 44%
+    ),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.055), transparent 58%);
+  filter: blur(1.35rem);
+  opacity: 0.72;
 }
 
-.image {
-  display: block;
-  width: 100%;
+.visualShell::after {
+  position: absolute;
+  inset: 21%;
+  z-index: -1;
+  content: "";
+  border: 1px solid color-mix(in srgb, var(--hero-text) 12%, transparent);
+  border-radius: 999px;
+  opacity: 0.58;
+}
+
+.expressionMain {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  opacity: 0.92;
+  transform: rotate(-2deg);
+}
+
+.expressionMain img {
+  width: clamp(10rem, 24vw, 22rem);
   height: auto;
-  max-height: clamp(28rem, 62svh, 40rem);
-  object-fit: contain;
-  filter: drop-shadow(0 1.75rem 3rem rgba(0, 0, 0, 0.32));
-  user-select: none;
+  filter:
+    drop-shadow(0 1.75rem 3rem rgba(0, 0, 0, 0.32))
+    drop-shadow(0 0 2.5rem color-mix(in srgb, var(--hero-accent) 10%, transparent));
+}
+
+.expressionAccent {
+  position: absolute;
+  right: 7%;
+  bottom: 13%;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  opacity: 0.42;
+  animation: accentFloat 6s ease-in-out infinite alternate;
+}
+
+.expressionAccent img {
+  width: clamp(3.2rem, 7vw, 5.5rem);
+  height: auto;
+  filter: drop-shadow(0 1rem 1.6rem rgba(0, 0, 0, 0.22));
+}
+
+.orbit {
+  position: absolute;
+  inset: 5%;
+  z-index: 0;
+  border: 1px solid color-mix(in srgb, var(--hero-accent) 18%, transparent);
+  border-radius: 999px;
+  opacity: 0.35;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .imageShell {
+  .visualShell,
+  .expressionAccent {
     animation: none;
   }
 }
@@ -64,30 +122,57 @@
 @media (max-width: 1024px) {
   .root {
     grid-column: 7 / -1;
-    min-height: clamp(24rem, 50svh, 34rem);
+    min-height: clamp(22rem, 46svh, 31rem);
     margin-left: 0;
   }
 
-  .imageShell {
-    width: min(37vw, 27rem);
+  .visualShell {
+    width: min(36vw, 25rem);
+  }
+
+  .expressionMain img {
+    width: clamp(8rem, 23vw, 17rem);
   }
 }
 
 @media (max-width: 768px) {
   .root {
     grid-column: 1 / -1;
-    width: min(100%, 29rem);
-    min-height: auto;
-    margin: -0.15rem auto 0;
+    width: 100%;
+    min-height: 0;
+    margin: 0;
     padding: 0;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
-  .imageShell {
-    width: min(82vw, 24rem);
+  .visualShell {
+    place-items: start;
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    animation: none;
   }
 
-  .image {
-    max-height: 32rem;
+  .visualShell::before,
+  .visualShell::after,
+  .orbit,
+  .expressionAccent {
+    display: none;
+  }
+
+  .expressionMain {
+    opacity: 0.72;
+    transform: rotate(-1deg);
+  }
+
+  .expressionMain img {
+    width: clamp(4.75rem, 22vw, 6.75rem);
+    filter: drop-shadow(0 1rem 1.8rem rgba(0, 0, 0, 0.26));
+  }
+}
+
+@media (max-width: 420px) {
+  .expressionMain img {
+    width: clamp(4.25rem, 20vw, 5.75rem);
   }
 }
