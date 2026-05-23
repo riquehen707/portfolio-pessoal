@@ -1,38 +1,33 @@
 import classNames from "classnames";
+import Image from "next/image";
 
 import styles from "./AvatarSticker.module.scss";
 
-export type AvatarExpression =
-  | "confident"
-  | "thinking"
-  | "focused"
-  | "curious"
-  | "happy"
-  | "surprised";
+const expressionSrc = {
+  attentive: "/images/avatar-expressions/attentive.svg",
+  confident: "/images/avatar-expressions/confident.svg",
+  focused: "/images/avatar-expressions/focused.svg",
+  curious: "/images/avatar-expressions/curious.svg",
+  neutral: "/images/avatar-expressions/neutral.svg",
+  thinking: "/images/avatar-expressions/thinking.svg",
+};
+
+export type AvatarExpression = keyof typeof expressionSrc;
 
 type AvatarStickerProps = {
   expression: AvatarExpression;
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "xl";
   className?: string;
   decorative?: boolean;
 };
 
-const expressionSrc: Record<AvatarExpression, string> = {
-  confident: "/images/avatar-expressions/confident.svg",
-  thinking: "/images/avatar-expressions/thinking.svg",
-  focused: "/images/avatar-expressions/focused.svg",
-  curious: "/images/avatar-expressions/curious.svg",
-  happy: "/images/avatar-expressions/happy.svg",
-  surprised: "/images/avatar-expressions/surprised.svg",
-};
-
 const expressionAlt: Record<AvatarExpression, string> = {
+  attentive: "Expressão atenta",
   confident: "Expressão confiante",
-  thinking: "Expressão pensativa",
   focused: "Expressão focada",
   curious: "Expressão curiosa",
-  happy: "Expressão positiva",
-  surprised: "Expressão surpresa",
+  neutral: "Expressão neutra",
+  thinking: "Expressão pensativa",
 };
 
 export function AvatarSticker({
@@ -42,13 +37,15 @@ export function AvatarSticker({
   decorative = true,
 }: AvatarStickerProps) {
   return (
-    <img
+    <Image
       src={expressionSrc[expression]}
       alt={decorative ? "" : expressionAlt[expression]}
       aria-hidden={decorative}
       className={classNames(styles.root, styles[size], className)}
+      width={128}
+      height={128}
+      sizes="(max-width: 768px) 28vw, 8rem"
       loading="lazy"
-      decoding="async"
       draggable={false}
     />
   );

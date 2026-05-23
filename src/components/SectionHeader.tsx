@@ -6,6 +6,7 @@ type SectionHeaderProps = {
   eyebrow: string;
   title: string;
   description: string;
+  titleId?: string;
   actionLabel?: string;
   actionHref?: string;
 };
@@ -14,6 +15,7 @@ export function SectionHeader({
   eyebrow,
   title,
   description,
+  titleId,
   actionLabel,
   actionHref,
 }: SectionHeaderProps) {
@@ -25,7 +27,7 @@ export function SectionHeader({
         <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
           {eyebrow}
         </Text>
-        <Heading as="h2" variant="display-strong-s" wrap="balance">
+        <Heading id={titleId} as="h2" variant="display-strong-s" wrap="balance">
           {title}
         </Heading>
         <Text className={styles.description} onBackground="neutral-weak" variant="heading-default-m">
