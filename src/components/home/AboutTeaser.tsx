@@ -2,8 +2,8 @@
 
 import { Heading, SmartLink, Text } from "@once-ui-system/core";
 import { m, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 
-import { AvatarSticker } from "@/components/avatar/AvatarSticker";
 import {
   createRevealVariants,
   motionViewport,
@@ -104,8 +104,13 @@ export function AboutTeaser({
         }
       >
         <div className={styles.visualContent}>
-          <div className={styles.avatarWrap} aria-hidden="true">
-            <AvatarSticker expression="focused" size="lg" />
+          <div className={styles.logoWrap} aria-hidden="true">
+            <Image
+              src="/trademarks/henrique-reis-mark-primary.svg"
+              alt=""
+              width={96}
+              height={96}
+            />
           </div>
 
           <Text className={styles.visualLabel} variant="label-default-s" onBackground="neutral-weak">

@@ -22,16 +22,12 @@ const homeAboutSection = homeStrategy.sections.find((section) => section.id === 
 const homeFinalSection = homeStrategy.sections.find((section) => section.id === "final-cta");
 
 const techStripItems = [
-  { label: "Página leve", icon: "performance" },
-  { label: "Interface clara", icon: "figma" },
-  { label: "Busca local", icon: "seo" },
-  { label: "Oferta testável", icon: "meta" },
-  { label: "Medição útil", icon: "ga" },
-  { label: "Contato rastreável", icon: "crm" },
-  { label: "Design adaptável", icon: "react" },
-  { label: "Mensagem clara", icon: "document" },
-  { label: "Jornada objetiva", icon: "rocket" },
-  { label: "Atendimento simples", icon: "whatsapp" },
+  { label: "Identidade clara" },
+  { label: "Mensagem direta" },
+  { label: "Página leve" },
+  { label: "Design funcional" },
+  { label: "Oferta entendível" },
+  { label: "Contato simples" },
 ] as const;
 
 const homeProofPoints = [
@@ -94,15 +90,14 @@ export default function Home() {
             </Text>
 
             <HeroTitle>
-              Em um oceano de marcas, o que faz você se{" "}
-              <span className={styles.heroAccent}>destacar?</span>
+              Não faça igual a <span className={styles.heroAccent}>todo mundo.</span>
             </HeroTitle>
 
             <HeroSubtitle
-              benefits={["Clareza de oferta", "Design com intenção", "Contato mais objetivo"]}
+              benefits={["Identidade clara", "Mensagem direta", "Presença memorável"]}
             >
-              Posicionamento, design e conteúdo para sua marca deixar de disputar atenção e
-              começar a ser lembrada.
+              Assim como é possível identificar uma expressão em poucos traços, seu site precisa
+              ser percebido e entendido sem exageros.
             </HeroSubtitle>
 
             <HeroActions
@@ -123,9 +118,7 @@ export default function Home() {
       </section>
 
       <section className={styles.postHeroSection} id="home-proof">
-        <Reveal delay={0.12} distance={16}>
-          <TechStrip items={[...techStripItems]} />
-        </Reveal>
+        <TechStrip items={[...techStripItems]} />
       </section>
 
       <section className={styles.statementSection}>

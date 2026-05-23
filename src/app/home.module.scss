@@ -46,14 +46,7 @@
   overflow: clip;
   border: 0;
   color: var(--hero-text);
-  background:
-    radial-gradient(
-      circle at 78% 44%,
-      color-mix(in srgb, var(--hero-accent) 10%, transparent),
-      transparent 34rem
-    ),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 28rem),
-    var(--hero-background);
+  background: var(--hero-background);
 }
 
 .heroSection::before {
@@ -61,17 +54,14 @@
   inset: 0;
   pointer-events: none;
   content: "";
-  background-image:
-    radial-gradient(circle, rgba(255, 255, 255, 0.16) 0 0.045rem, transparent 0.06rem),
-    radial-gradient(circle, color-mix(in srgb, var(--hero-accent) 20%, transparent) 0 0.04rem, transparent 0.06rem);
-  background-position:
-    0 0,
-    1.1rem 1.4rem;
-  background-size:
-    2.8rem 2.8rem,
-    4rem 4rem;
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.14) 0 0.04rem,
+    transparent 0.055rem
+  );
+  background-size: 3.4rem 3.4rem;
   mask-image: radial-gradient(circle at 68% 42%, #000 0, transparent 62%);
-  opacity: 0.075;
+  opacity: 0.045;
 }
 
 .heroSection > * {
@@ -145,7 +135,7 @@
   display: grid;
   gap: 1rem;
   width: 100vw;
-  margin-top: clamp(-1.6rem, -2.6vw, -0.9rem);
+  margin-top: 0;
   margin-left: calc(50% - 50vw);
   padding-block: 0;
   border-top: 0;
@@ -260,14 +250,7 @@
   .heroSection {
     min-height: auto;
     margin-top: 0;
-    padding-block: clamp(1.45rem, 6vw, 2.25rem) clamp(2rem, 7vw, 2.9rem);
-    background:
-      radial-gradient(
-        circle at 82% 18%,
-        color-mix(in srgb, var(--hero-accent) 9%, transparent),
-        transparent 15rem
-      ),
-      var(--hero-background);
+    padding-block: clamp(1.45rem, 6vw, 2.25rem) clamp(1.6rem, 6vw, 2.4rem);
   }
 
   .heroSection::before {
@@ -300,7 +283,7 @@
   }
 
   .postHeroSection {
-    margin-top: -0.35rem;
+    margin-top: 0;
     padding-block: 0;
   }
 

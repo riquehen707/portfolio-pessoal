@@ -43,7 +43,7 @@ export function HeroVisual() {
     >
       <div className={styles.visualShell}>
         <div className={styles.expressionMain}>
-          <AvatarSticker expression="attentive" size="xl" />
+          <AvatarSticker expression="neutral" size="xl" />
         </div>
 
         <div className={styles.orbit} />

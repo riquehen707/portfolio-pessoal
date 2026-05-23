@@ -3,7 +3,6 @@
 import { Heading, Text } from "@once-ui-system/core";
 import { m, useReducedMotion } from "framer-motion";
 
-import { AvatarSticker } from "@/components/avatar/AvatarSticker";
 import { CTAButton } from "@/components/CTAButton";
 import {
   createRevealVariants,
@@ -49,10 +48,6 @@ export function FinalCTA({
       viewport={motionViewport}
       variants={createStaggerContainer(reducedMotion, 0.1, 0.04)}
     >
-      <div className={styles.expression} aria-hidden="true">
-        <AvatarSticker expression="confident" size="xl" />
-      </div>
-
       <m.div className={styles.copy} variants={itemVariants}>
         <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
           {eyebrow}
