@@ -123,9 +123,13 @@ export default function Home() {
               POSICIONAMENTO / NEGÓCIOS LOCAIS
             </Text>
             <HeroTitle>
-              <span className={styles.heroAccent}>Destaque</span>
+              Em um oceano de marcas, o que faz você se{" "}
+              <span className={styles.heroAccent}>destacar?</span>
             </HeroTitle>
-            <HeroSubtitle>Descubra como não ser só mais uma no mercado.</HeroSubtitle>
+            <HeroSubtitle>
+              Posicionamento, design e conteúdo para sua marca deixar de disputar atenção e
+              começar a ser lembrada.
+            </HeroSubtitle>
             <HeroActions
               primaryLabel="Saiba mais"
               primaryHref="/saiba-mais"

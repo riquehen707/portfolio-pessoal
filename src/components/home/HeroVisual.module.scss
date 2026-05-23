@@ -12,10 +12,11 @@
   position: relative;
   z-index: 1;
   grid-column: 7 / -1;
+  grid-row: 1;
   display: flex;
   align-self: center;
   justify-content: flex-end;
-  min-height: clamp(30rem, 62svh, 45rem);
+  min-height: clamp(28rem, 58svh, 41rem);
   margin-left: clamp(0rem, 1.5vw, 1.25rem);
   padding: clamp(1rem, 2vw, 1.5rem) 0 clamp(1.25rem, 2vw, 1.75rem);
   pointer-events: none;
@@ -26,7 +27,7 @@
   position: relative;
   display: flex;
   justify-content: center;
-  width: min(38vw, 34rem);
+  width: min(34vw, 31rem);
   max-width: 100%;
   animation: heroFloat 7.5s ease-in-out infinite alternate;
 }
@@ -48,7 +49,7 @@
   display: block;
   width: 100%;
   height: auto;
-  max-height: clamp(30rem, 68svh, 45rem);
+  max-height: clamp(28rem, 62svh, 40rem);
   object-fit: contain;
   filter: drop-shadow(0 1.75rem 3rem rgba(0, 0, 0, 0.32));
   user-select: none;
@@ -63,12 +64,12 @@
 @media (max-width: 1024px) {
   .root {
     grid-column: 7 / -1;
-    min-height: clamp(25rem, 52svh, 36rem);
+    min-height: clamp(24rem, 50svh, 34rem);
     margin-left: 0;
   }
 
   .imageShell {
-    width: min(39vw, 29rem);
+    width: min(37vw, 27rem);
   }
 }
 
