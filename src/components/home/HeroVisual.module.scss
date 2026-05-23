@@ -1,20 +1,10 @@
 @keyframes heroFloat {
   from {
-    transform: translate3d(0, -0.35rem, 0) rotate(-0.25deg);
+    transform: translate3d(0, -0.28rem, 0) rotate(-0.18deg);
   }
 
   to {
-    transform: translate3d(0, 0.45rem, 0) rotate(0.25deg);
-  }
-}
-
-@keyframes accentFloat {
-  from {
-    transform: translate3d(0.15rem, 0.25rem, 0) rotate(4deg);
-  }
-
-  to {
-    transform: translate3d(-0.15rem, -0.25rem, 0) rotate(1deg);
+    transform: translate3d(0, 0.38rem, 0) rotate(0.18deg);
   }
 }
 
@@ -26,7 +16,7 @@
   display: flex;
   align-self: center;
   justify-content: flex-end;
-  min-height: clamp(24rem, 52svh, 36rem);
+  min-height: clamp(22rem, 48svh, 34rem);
   margin-left: clamp(0rem, 1.5vw, 1.25rem);
   padding: clamp(1rem, 2vw, 1.5rem) 0;
   pointer-events: none;
@@ -37,36 +27,23 @@
   position: relative;
   display: grid;
   place-items: center;
-  width: min(34vw, 30rem);
+  width: min(32vw, 28rem);
   aspect-ratio: 1;
   animation: heroFloat 7.5s ease-in-out infinite alternate;
 }
 
 .visualShell::before {
-  position: absolute;
-  inset: 14%;
-  z-index: -2;
-  content: "";
-  border-radius: 999px;
-  background:
-    radial-gradient(
-      circle at 54% 42%,
-      color-mix(in srgb, var(--hero-accent) 18%, transparent),
-      transparent 44%
-    ),
-    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.055), transparent 58%);
-  filter: blur(1.35rem);
-  opacity: 0.72;
+  display: none;
 }
 
 .visualShell::after {
   position: absolute;
-  inset: 21%;
+  inset: 23%;
   z-index: -1;
   content: "";
-  border: 1px solid color-mix(in srgb, var(--hero-text) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--hero-text) 9%, transparent);
   border-radius: 999px;
-  opacity: 0.58;
+  opacity: 0.42;
 }
 
 .expressionMain {
@@ -74,47 +51,27 @@
   z-index: 2;
   display: grid;
   place-items: center;
-  opacity: 0.92;
-  transform: rotate(-2deg);
+  opacity: 0.9;
+  transform: rotate(-1.5deg);
 }
 
 .expressionMain img {
-  width: clamp(10rem, 24vw, 22rem);
+  width: clamp(9rem, 21vw, 19rem);
   height: auto;
-  filter:
-    drop-shadow(0 1.75rem 3rem rgba(0, 0, 0, 0.32))
-    drop-shadow(0 0 2.5rem color-mix(in srgb, var(--hero-accent) 10%, transparent));
-}
-
-.expressionAccent {
-  position: absolute;
-  right: 7%;
-  bottom: 13%;
-  z-index: 3;
-  display: grid;
-  place-items: center;
-  opacity: 0.42;
-  animation: accentFloat 6s ease-in-out infinite alternate;
-}
-
-.expressionAccent img {
-  width: clamp(3.2rem, 7vw, 5.5rem);
-  height: auto;
-  filter: drop-shadow(0 1rem 1.6rem rgba(0, 0, 0, 0.22));
+  filter: drop-shadow(0 1.5rem 2.8rem rgba(0, 0, 0, 0.34));
 }
 
 .orbit {
   position: absolute;
-  inset: 5%;
+  inset: 7%;
   z-index: 0;
-  border: 1px solid color-mix(in srgb, var(--hero-accent) 18%, transparent);
+  border: 1px solid color-mix(in srgb, var(--hero-text) 7%, transparent);
   border-radius: 999px;
-  opacity: 0.35;
+  opacity: 0.28;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .visualShell,
-  .expressionAccent {
+  .visualShell {
     animation: none;
   }
 }
@@ -122,16 +79,16 @@
 @media (max-width: 1024px) {
   .root {
     grid-column: 7 / -1;
-    min-height: clamp(22rem, 46svh, 31rem);
+    min-height: clamp(20rem, 42svh, 29rem);
     margin-left: 0;
   }
 
   .visualShell {
-    width: min(36vw, 25rem);
+    width: min(34vw, 23rem);
   }
 
   .expressionMain img {
-    width: clamp(8rem, 23vw, 17rem);
+    width: clamp(7.5rem, 20vw, 15.5rem);
   }
 }
 
@@ -153,26 +110,24 @@
     animation: none;
   }
 
-  .visualShell::before,
   .visualShell::after,
-  .orbit,
-  .expressionAccent {
+  .orbit {
     display: none;
   }
 
   .expressionMain {
-    opacity: 0.72;
+    opacity: 0.68;
     transform: rotate(-1deg);
   }
 
   .expressionMain img {
-    width: clamp(4.75rem, 22vw, 6.75rem);
-    filter: drop-shadow(0 1rem 1.8rem rgba(0, 0, 0, 0.26));
+    width: clamp(4.4rem, 20vw, 6.25rem);
+    filter: drop-shadow(0 0.9rem 1.6rem rgba(0, 0, 0, 0.28));
   }
 }
 
 @media (max-width: 420px) {
   .expressionMain img {
-    width: clamp(4.25rem, 20vw, 5.75rem);
+    width: clamp(4rem, 19vw, 5.5rem);
   }
 }

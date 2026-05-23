@@ -19,8 +19,8 @@ export function HeroVisual() {
           ? { opacity: 0 }
           : {
               opacity: 0,
-              y: 18,
-              scale: 0.985,
+              y: 14,
+              scale: 0.988,
             }
       }
       animate={
@@ -37,17 +37,13 @@ export function HeroVisual() {
           ? { duration: 0.01 }
           : {
               ...sectionTransition,
-              delay: 0.16,
+              delay: 0.14,
             }
       }
     >
       <div className={styles.visualShell}>
         <div className={styles.expressionMain}>
-          <AvatarSticker expression="confident" size="xl" />
-        </div>
-
-        <div className={styles.expressionAccent}>
-          <AvatarSticker expression="curious" size="md" />
+          <AvatarSticker expression="attentive" size="xl" />
         </div>
 
         <div className={styles.orbit} />
