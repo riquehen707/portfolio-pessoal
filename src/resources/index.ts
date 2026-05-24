@@ -22,6 +22,8 @@ export {
 } from "./brand";
 export { contentStrategy } from "./content-strategy";
 export { designSystem } from "./design-system";
+export { audiencePages, getAudiencePage } from "./audiences";
+export type { AudiencePage } from "./audiences";
 
 export {
   display,

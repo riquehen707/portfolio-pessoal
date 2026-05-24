@@ -2,36 +2,18 @@
 
 .root {
   position: relative;
-  isolation: isolate;
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
-  gap: clamp(1.5rem, 4vw, 3.5rem);
-  align-items: end;
-  padding-top: clamp(2rem, 5vw, 3.2rem);
-  overflow: clip;
-  border-top: 1px solid var(--line-subtle);
-}
-
-.copy,
-.aside {
-  position: relative;
-  z-index: 2;
-  min-width: 0;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(1.25rem, 4vw, 3rem);
+  align-items: center;
+  padding-top: 0;
 }
 
 .copy {
   display: grid;
-  gap: 1rem;
-  max-width: var(--measure-body);
-}
-
-.aside {
-  display: grid;
-  gap: 1rem;
-  align-self: stretch;
-  align-content: end;
-  padding-left: clamp(1.4rem, 3vw, 2.4rem);
-  border-left: 1px solid var(--line-muted);
+  gap: 0.75rem;
+  min-width: 0;
+  max-width: 44rem;
 }
 
 .eyebrow {
@@ -39,19 +21,21 @@
 }
 
 .title {
-  max-width: 14ch;
+  max-width: 13ch;
 }
 
 .description {
-  max-width: var(--measure-article);
+  max-width: 36rem;
   color: var(--neutral-on-background-medium);
-  line-height: 1.72;
+  line-height: 1.55;
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 0.75rem;
+  min-width: min(100%, 23rem);
 }
 
 .actionItem {
@@ -59,39 +43,11 @@
   min-width: 0;
 }
 
-.trustList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem 1rem;
-  padding-top: 0.25rem;
-}
-
-.trustItem {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  color: var(--neutral-on-background-medium);
-}
-
-.trustDot {
-  width: 0.38rem;
-  height: 0.38rem;
-  flex: 0 0 auto;
-  border-radius: var(--radius-pill);
-  background: var(--color-accent-gold);
-}
-
 @include mixins.m {
   .root {
     grid-template-columns: 1fr;
-    padding-bottom: clamp(2rem, 8vw, 4rem);
-  }
-
-  .aside {
-    padding-left: 0;
-    padding-top: 1.25rem;
-    border-left: 0;
-    border-top: 1px solid var(--line-muted);
+    gap: 1.15rem;
+    padding-bottom: clamp(1.5rem, 6vw, 2.5rem);
   }
 
   .title,
@@ -99,27 +55,27 @@
   .copy {
     max-width: none;
   }
+
+  .actions {
+    justify-content: flex-start;
+  }
 }
 
 @include mixins.s {
   .root {
-    gap: 1.25rem;
-    padding-top: 1.8rem;
-    padding-bottom: 4.25rem;
+    gap: 1.1rem;
+    padding-top: 0;
+    padding-bottom: 3rem;
   }
 
   .actions {
     display: grid;
+    grid-template-columns: 1fr;
     width: 100%;
   }
 
   .actionItem,
   .actionItem > * {
     width: 100%;
-  }
-
-  .trustList {
-    display: grid;
-    gap: 0.65rem;
   }
 }

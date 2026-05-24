@@ -1,6 +1,7 @@
 ﻿import { Meta, Schema, Text } from "@once-ui-system/core";
 
 import { getBlogPrimaryCategory, getFeaturedBlogPosts } from "@/app/blog/postData";
+import Link from "next/link";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ArticleCard } from "@/components/cards/ArticleCard";
 import { AboutTeaser } from "@/components/home/AboutTeaser";
@@ -11,7 +12,15 @@ import { HeroTitle } from "@/components/home/HeroTitle";
 import { HeroVisual } from "@/components/home/HeroVisual";
 import { TechStrip } from "@/components/home/TechStrip";
 import { Reveal } from "@/components/motion/Reveal";
-import { about, baseURL, contentStrategy, home, person, simulationPage } from "@/resources";
+import {
+  about,
+  audiencePages,
+  baseURL,
+  contentStrategy,
+  home,
+  person,
+  simulationPage,
+} from "@/resources";
 import { buildDiscoverImageMetadata } from "@/utils/og";
 
 import styles from "./home.module.scss";
@@ -22,12 +31,18 @@ const homeAboutSection = homeStrategy.sections.find((section) => section.id === 
 const homeFinalSection = homeStrategy.sections.find((section) => section.id === "final-cta");
 
 const techStripItems = [
-  { label: "Identidade clara" },
-  { label: "Mensagem direta" },
-  { label: "Página leve" },
-  { label: "Design funcional" },
-  { label: "Oferta entendível" },
-  { label: "Contato simples" },
+  { label: "Sites", icon: "globe" },
+  { label: "Sistema de gestão", icon: "chart" },
+  { label: "Next.js", icon: "nextjs" },
+  { label: "React", icon: "react" },
+  { label: "Banco de dados", icon: "supabase" },
+  { label: "CRM", icon: "crm" },
+  { label: "SEO", icon: "seo" },
+  { label: "PageSpeed", icon: "performance" },
+  { label: "Meta", icon: "meta" },
+  { label: "Instagram", icon: "instagram" },
+  { label: "Facebook", icon: "facebook" },
+  { label: "YouTube", icon: "youtube" },
 ] as const;
 
 const homeProofPoints = [
@@ -83,21 +98,21 @@ export default function Home() {
       <section className={styles.heroSection}>
         <div className={styles.heroGrid}>
           <div className={styles.heroCopy}>
-            <Text
-              className={styles.heroIdentity}
-              variant="label-default-s"
-              onBackground="neutral-weak"
-            >
-              POSICIONAMENTO / NEGÓCIOS LOCAIS
-            </Text>
+            <nav className={styles.heroAudienceNav} aria-label="Públicos atendidos">
+              {audiencePages.map((audience) => (
+                <Link className={styles.heroAudienceLink} href={audience.path} key={audience.slug}>
+                  {audience.label}
+                </Link>
+              ))}
+            </nav>
 
             <HeroTitle>
               Não faça igual a <span className={styles.heroAccent}>todo mundo.</span>
             </HeroTitle>
 
             <HeroSubtitle>
-              Assim como é possível identificar uma expressão em poucos traços, seu site precisa
-              ser percebido e entendido sem exageros.
+              Assim como uma expressão pode ser reconhecida em poucos traços, seu site precisa ser
+              entendido sem exageros.
             </HeroSubtitle>
 
             <ul className={styles.heroBenefits} aria-label="Benefícios principais">
@@ -119,10 +134,6 @@ export default function Home() {
 
           <HeroVisual />
 
-          <p className={styles.heroDisciplines}>
-            ESTRATÉGIA <span aria-hidden="true">•</span> DESIGN <span aria-hidden="true">•</span>{" "}
-            CONTEÚDO <span aria-hidden="true">•</span> TECNOLOGIA
-          </p>
         </div>
       </section>
 
@@ -219,13 +230,13 @@ export default function Home() {
 
       <section className={styles.finalSection}>
         <FinalCTA
-          eyebrow={homeFinalSection?.label ?? "Próximo passo"}
-          title={homeFinalSection?.title ?? "Antes de investir, veja se faz sentido."}
+          eyebrow={homeFinalSection?.label ?? "Decisão"}
+          title={homeFinalSection?.title ?? "Veja se faz sentido."}
           description={
             homeFinalSection?.description ??
-            "Entenda onde seu negócio pode melhorar, quanto pode custar e qual retorno pode fazer sentido para o seu momento."
+            "Avalie cenário, prioridade e próximo passo antes de decidir."
           }
-          primaryLabel={homeFinalSection?.ctaLabel ?? "Ver os dados primeiro"}
+          primaryLabel={homeFinalSection?.ctaLabel ?? "Avaliar cenário"}
           primaryHref={homeFinalSection?.ctaHref ?? simulationPage.path}
         />
       </section>

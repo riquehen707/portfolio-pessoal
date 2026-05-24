@@ -152,11 +152,11 @@ const contentStrategy = {
         },
         {
           id: "final-cta",
-          label: "Próximo passo",
-          title: "Antes de investir, veja se faz sentido.",
+          label: "Decisão",
+          title: "Veja se faz sentido.",
           description:
-            "Leia cenário, custo e retorno antes de fechar escopo.",
-          ctaLabel: "Ver os dados primeiro",
+            "Avalie cenário, prioridade e próximo passo antes de decidir.",
+          ctaLabel: "Avaliar cenário",
           ctaHref: "/simulacao",
         },
       ],

@@ -4,6 +4,7 @@ import { getBlogCollectionIndex } from "@/app/blog/postData";
 import { getPosts } from "@/utils/utils";
 import {
   baseURL,
+  audiencePages,
   productsPage,
   routes as routesConfig,
   services,
@@ -63,6 +64,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.74,
   }));
 
+  const audienceLandings = audiencePages.map((audience) => ({
+    url: `${baseURL}${audience.path}`,
+    lastModified: today,
+    changeFrequency: "monthly" as const,
+    priority: 0.78,
+  }));
+
   const feeds = [
     {
       url: `${baseURL}/rss.xml`,
@@ -72,5 +80,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  return [...routes, ...feeds, ...serviceLandings, ...blogs, ...blogTopics, ...works];
+  return [
+    ...routes,
+    ...feeds,
+    ...audienceLandings,
+    ...serviceLandings,
+    ...blogs,
+    ...blogTopics,
+    ...works,
+  ];
 }

@@ -8,7 +8,7 @@
 
 .shell {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 1rem 1.5rem;
   width: min(100%, var(--grid-max-width));
@@ -31,10 +31,16 @@
 }
 
 .nav {
+  display: grid;
+  justify-items: end;
+  gap: 0.7rem;
+}
+
+.linkGroup {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.9rem 1.2rem;
+  justify-content: flex-end;
+  gap: 0.65rem 1.05rem;
 }
 
 .link {
@@ -45,10 +51,6 @@
   letter-spacing: var(--type-technical-tracking);
   text-decoration: none;
   text-transform: uppercase;
-}
-
-.social {
-  justify-content: flex-end;
 }
 
 .copy {
@@ -79,7 +81,9 @@
     max-width: none;
   }
 
-  .social {
+  .nav,
+  .linkGroup {
     justify-content: center;
+    justify-items: center;
   }
 }

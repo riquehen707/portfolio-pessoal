@@ -8,7 +8,6 @@ import {
   createRevealVariants,
   createStaggerContainer,
   motionViewport,
-  revealTransition,
 } from "@/components/motion/motionTokens";
 import { social } from "@/resources";
 
@@ -21,8 +20,6 @@ type FinalCTAProps = {
   primaryLabel: string;
   primaryHref: string;
 };
-
-const trustSignals = ["Resposta rápida", "Conversa objetiva", "Soluções sob medida"] as const;
 
 export function FinalCTA({
   eyebrow,
@@ -37,7 +34,6 @@ export function FinalCTA({
     social.find((item) => item.name === "WhatsApp")?.link ?? "https://wa.me/5575983675164";
 
   const itemVariants = createRevealVariants(reducedMotion, 22, 0.99);
-  const trustVariants = createRevealVariants(reducedMotion, 14, 0.995);
 
   return (
     <m.section
@@ -66,60 +62,38 @@ export function FinalCTA({
         <Text
           className={styles.description}
           onBackground="neutral-weak"
-          variant="heading-default-m"
+          variant="body-default-l"
         >
           {description}
         </Text>
       </m.div>
 
-      <m.div className={styles.aside} variants={itemVariants}>
-        <m.div
-          className={styles.actions}
-          variants={createStaggerContainer(reducedMotion, 0.08)}
-        >
-          <m.div className={styles.actionItem} variants={itemVariants}>
-            <CTAButton
-              href={primaryHref}
-              prefixIcon="chart"
-              data-analytics-event="cta_click"
-              data-analytics-label={primaryLabel}
-              data-analytics-location="home_final_cta"
-              data-analytics-type="primary"
-            >
-              {primaryLabel}
-            </CTAButton>
-          </m.div>
-
-          <m.div className={styles.actionItem} variants={itemVariants}>
-            <CTAButton
-              href={whatsappHref}
-              variant="secondary"
-              prefixIcon="whatsapp"
-              data-analytics-event="cta_click"
-              data-analytics-label="WhatsApp"
-              data-analytics-location="home_final_cta"
-              data-analytics-type="secondary"
-            >
-              WhatsApp
-            </CTAButton>
-          </m.div>
+      <m.div className={styles.actions} variants={createStaggerContainer(reducedMotion, 0.08)}>
+        <m.div className={styles.actionItem} variants={itemVariants}>
+          <CTAButton
+            href={primaryHref}
+            prefixIcon="chart"
+            data-analytics-event="cta_click"
+            data-analytics-label={primaryLabel}
+            data-analytics-location="home_final_cta"
+            data-analytics-type="primary"
+          >
+            {primaryLabel}
+          </CTAButton>
         </m.div>
 
-        <m.div
-          className={styles.trustList}
-          variants={createStaggerContainer(reducedMotion, 0.06)}
-        >
-          {trustSignals.map((item) => (
-            <m.div
-              className={styles.trustItem}
-              key={item}
-              variants={trustVariants}
-              transition={reducedMotion ? { duration: 0.01 } : revealTransition}
-            >
-              <span className={styles.trustDot} aria-hidden="true" />
-              <Text variant="body-default-s">{item}</Text>
-            </m.div>
-          ))}
+        <m.div className={styles.actionItem} variants={itemVariants}>
+          <CTAButton
+            href={whatsappHref}
+            variant="secondary"
+            prefixIcon="whatsapp"
+            data-analytics-event="cta_click"
+            data-analytics-label="WhatsApp"
+            data-analytics-location="home_final_cta"
+            data-analytics-type="secondary"
+          >
+            WhatsApp
+          </CTAButton>
         </m.div>
       </m.div>
     </m.section>

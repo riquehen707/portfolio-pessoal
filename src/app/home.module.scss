@@ -94,12 +94,36 @@
   padding-top: clamp(0.5rem, 4vh, 2.5rem);
 }
 
-.heroIdentity {
+.heroAudienceNav {
   @include mixins.label-uppercase;
 
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 0.85rem;
   color: var(--hero-accent);
   font-size: clamp(0.74rem, 0.95vw, 0.86rem);
   letter-spacing: 0.15em;
+}
+
+.heroAudienceLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  color: inherit;
+  text-decoration: none;
+  transition:
+    color var(--motion-fast),
+    opacity var(--motion-fast);
+}
+
+.heroAudienceLink:not(:last-child)::after {
+  color: var(--hero-muted);
+  content: "|";
+  opacity: 0.72;
+}
+
+.heroAudienceLink:hover {
+  opacity: 0.78;
 }
 
 .heroAccent {
@@ -131,27 +155,6 @@
   flex: 0 0 auto;
   border-radius: var(--radius-pill);
   background: var(--color-accent-gold);
-}
-
-.heroDisciplines {
-  position: relative;
-  z-index: 3;
-  grid-column: 1 / -1;
-  grid-row: 2;
-  margin: clamp(0.5rem, 2vw, 1rem) 0 0;
-  color: var(--hero-muted);
-  font-family: var(--font-body);
-  font-size: clamp(0.7rem, 0.92vw, 0.86rem);
-  font-weight: var(--type-weight-technical);
-  letter-spacing: 0.26em;
-  line-height: 1.8;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.heroDisciplines span {
-  color: var(--hero-accent);
-  letter-spacing: 0;
 }
 
 .eyebrow {
@@ -310,7 +313,7 @@
     grid-row: 6;
   }
 
-  .heroIdentity {
+  .heroAudienceNav {
     grid-row: 1;
   }
 
@@ -318,7 +321,7 @@
     max-width: min(100%, 32rem);
   }
 
-  .heroIdentity {
+  .heroAudienceNav {
     font-size: 0.7rem;
     letter-spacing: 0.125em;
   }
@@ -332,8 +335,8 @@
     font-size: 0.84rem;
   }
 
-  .heroDisciplines {
-    display: none;
+  .heroAudienceLink {
+    gap: 0.65rem;
   }
 
   .postHeroSection {

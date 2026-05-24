@@ -58,6 +58,7 @@ import {
   FaReddit,
   FaTelegram,
   FaInstagram,
+  FaYoutube,
 } from "react-icons/fa6";
 
 export const iconLibrary: Record<string, IconType> = {
@@ -109,6 +110,7 @@ export const iconLibrary: Record<string, IconType> = {
   reddit: FaReddit,
   telegram: FaTelegram,
   instagram: FaInstagram,
+  youtube: FaYoutube,
   chevronRight: HiChevronRight,
   send: HiPaperAirplane,
 };

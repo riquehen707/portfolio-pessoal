@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { IconButton, Row, Text } from "@once-ui-system/core";
+import { Text } from "@once-ui-system/core";
 
 import { about, blog, brandMessaging, person, productsPage, social, work } from "@/resources";
 
@@ -28,28 +28,30 @@ export function Footer() {
         </div>
 
         <nav className={styles.nav} aria-label="Links do rodapé">
-          {footerLinks.map((item) => (
-            <Link className={styles.link} href={item.href} key={item.href}>
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+          <div className={styles.linkGroup}>
+            {footerLinks.map((item) => (
+              <Link className={styles.link} href={item.href} key={item.href}>
+                {item.label}
+              </Link>
+            ))}
+          </div>
 
-        <Row className={styles.social} gap="8" vertical="center">
-          {social.map(
-            (item) =>
-              item.link && (
-                <IconButton
-                  key={item.name}
+          <div className={styles.linkGroup}>
+            {social.map((item) =>
+              item.link ? (
+                <a
+                  className={styles.link}
                   href={item.link}
-                  icon={item.icon}
-                  tooltip={item.name}
-                  size="s"
-                  variant="ghost"
-                />
-              ),
-          )}
-        </Row>
+                  key={item.name}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {item.name}
+                </a>
+              ) : null,
+            )}
+          </div>
+        </nav>
 
         <Text className={styles.copy} variant="body-default-s" onBackground="neutral-weak">
           © {currentYear} {person.name} / {brandMessaging.supportingStatement}
