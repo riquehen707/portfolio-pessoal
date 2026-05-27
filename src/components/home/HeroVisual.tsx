@@ -1,8 +1,8 @@
 "use client";
 
 import { m, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 
-import { AvatarSticker } from "@/components/avatar/AvatarSticker";
 import { sectionTransition } from "@/components/motion/motionTokens";
 
 import styles from "./HeroVisual.module.scss";
@@ -43,7 +43,16 @@ export function HeroVisual() {
     >
       <div className={styles.visualShell}>
         <div className={styles.expressionMain}>
-          <AvatarSticker expression="curious" size="xl" />
+          <Image
+            src="/images/avatar-dog/pride-dog.svg"
+            alt=""
+            aria-hidden="true"
+            width={256}
+            height={256}
+            sizes="(max-width: 768px) 28vw, 19rem"
+            priority
+            draggable={false}
+          />
         </div>
       </div>
     </m.div>
