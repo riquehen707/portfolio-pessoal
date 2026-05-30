@@ -8,7 +8,9 @@ import { usePathname } from "next/navigation";
 import { about, blog, display, person, productsPage, work } from "@/resources";
 
 import { BrandSignature } from "./BrandSignature";
+import { GlobalSearch } from "./GlobalSearch";
 import styles from "./Header.module.scss";
+import type { GlobalSearchItem } from "@/lib/globalSearch";
 
 const navItems = [
   { href: "/", label: "Início", icon: "home" },
@@ -51,7 +53,11 @@ function getLocationLabel(timeZone: string) {
   return timeZone.replace(/^America\//, "").replaceAll("_", " / ");
 }
 
-export function Header() {
+type HeaderProps = {
+  searchItems: GlobalSearchItem[];
+};
+
+export function Header({ searchItems }: HeaderProps) {
   const pathname = usePathname() ?? "";
   const aboutSelected = pathname === about.path || pathname.startsWith(`${about.path}/`);
 
@@ -77,6 +83,7 @@ export function Header() {
         zIndex={1}
       >
         <Row className={styles.navRow} gap="4" vertical="center" textVariant="body-default-s">
+          <GlobalSearch items={searchItems} />
           {navItems.map((item) => {
             const isActive =
               item.href === about.path

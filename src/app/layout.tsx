@@ -28,6 +28,7 @@ import {
   style,
 } from "@/resources";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
+import { getGlobalSearchItems } from "@/lib/globalSearch";
 
 function resolveBaseURL(): URL {
   const raw = (process.env.NEXT_PUBLIC_SITE_URL ?? baseFromConfig ?? "").trim();
@@ -128,6 +129,8 @@ export async function generateMetadata() {
 }
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const searchItems = getGlobalSearchItems();
+
   return (
     <Flex
       suppressHydrationWarning
@@ -247,7 +250,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
               }}
             />
           </RevealFx>
-          <Header />
+          <Header searchItems={searchItems} />
           <Flex
             as="main"
             className="hr-site-main"
