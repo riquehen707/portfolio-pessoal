@@ -5,14 +5,14 @@ import { DISCOVER_IMAGE_HEIGHT, DISCOVER_IMAGE_WIDTH } from "@/utils/og";
 export const runtime = "edge";
 
 const OG_BRAND_NAME = "Henrique Reis";
-const OG_DEFAULT_SUBTITLE = "Estratégia, design e sistemas para operações digitais";
-const OG_FOOTER = "Clareza gera resultado.";
+const OG_DEFAULT_SUBTITLE = "Oferta, página e sistemas para operações digitais";
+const OG_FOOTER = "Clareza reduz atrito.";
 const OG_COLORS = {
-  backgroundStart: "#0B0B0D",
-  backgroundEnd: "#17171B",
+  backgroundStart: "#0E0E11",
+  backgroundEnd: "#19191F",
   textPrimary: "#F4F4F0",
   textSecondary: "#9A9AA3",
-  accentGold: "#FFD700",
+  accentGold: "#E6C94A",
   accentBlue: "#1482B8",
   footerText: "#D8D8D0",
 } as const;
@@ -69,7 +69,9 @@ export async function GET(req: Request) {
         >
           {title}
         </div>
-        <div style={{ fontSize: 34, lineHeight: 1.35, color: OG_COLORS.textSecondary, maxWidth: 980 }}>
+        <div
+          style={{ fontSize: 34, lineHeight: 1.35, color: OG_COLORS.textSecondary, maxWidth: 980 }}
+        >
           {subtitle}
         </div>
       </div>

@@ -4,7 +4,16 @@ import { buildWorkFeedEntries } from "@/app/work/feedData";
 import { getAllWorkProjects } from "@/app/work/projectData";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { WorkFeed } from "@/components/work/WorkFeed";
-import { about, baseURL, blog, contentStrategy, person, work } from "@/resources";
+import {
+  about,
+  baseURL,
+  blog,
+  contentStrategy,
+  person,
+  productsPage,
+  servicesPage,
+  work,
+} from "@/resources";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 
 import styles from "./work.module.scss";
@@ -61,11 +70,16 @@ export default function Work() {
       <BreadcrumbJsonLd
         items={[
           { name: "Início", url: baseURL },
-          { name: "Projetos", url: `${baseURL}${work.path}` },
+          { name: work.label, url: `${baseURL}${work.path}` },
         ]}
       />
 
-      <WorkFeed entries={feedEntries} blogHref={blog.path} />
+      <WorkFeed
+        entries={feedEntries}
+        blogHref={blog.path}
+        productsHref={productsPage.path}
+        servicesHref={servicesPage.path}
+      />
     </Column>
   );
 }

@@ -12,6 +12,8 @@ export {
 } from "./content";
 
 export { servicesPage, simulationPage, services, productsPage, products } from "./services";
+export { ecosystemAreas, getEcosystemArea } from "./ecosystem";
+export type { EcosystemArea, EcosystemAreaKey } from "./ecosystem";
 export {
   brandIdentity,
   brandLogoSystem,

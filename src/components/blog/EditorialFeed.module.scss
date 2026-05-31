@@ -2,7 +2,7 @@
 
 .root {
   display: grid;
-  gap: 1.4rem;
+  gap: 1.15rem;
   width: 100%;
 }
 
@@ -21,14 +21,18 @@
 
 .link {
   display: grid;
-  grid-template-columns: minmax(13rem, 20rem) minmax(0, 1fr);
-  gap: 1rem;
+  grid-template-columns: minmax(12rem, 18rem) minmax(0, 1fr);
+  gap: 1.05rem;
   align-items: stretch;
   width: 100%;
-  padding: 0.9rem 0;
+  padding: 0.9rem 0.2rem 0.9rem 0;
   border-top: 1px solid var(--line-subtle);
   color: inherit;
   text-decoration: none;
+  transition:
+    border-color var(--motion-fast),
+    background var(--motion-fast),
+    transform var(--motion-fast);
 }
 
 .thumb {
@@ -48,7 +52,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.55rem 0.85rem;
-  color: var(--neutral-on-background-weak);
+  color: color-mix(in srgb, var(--neutral-on-background-strong) 58%, var(--neutral-on-background-weak));
   font-family: var(--font-label);
   font-size: var(--type-technical-size);
   font-weight: var(--type-weight-technical);
@@ -57,7 +61,7 @@
 }
 
 .tag {
-  color: var(--color-accent-gold);
+  color: var(--neutral-on-background-medium);
 }
 
 .title {
@@ -71,7 +75,7 @@
 .summary {
   max-width: var(--measure-body);
   margin: 0;
-  color: var(--neutral-on-background-medium);
+  color: color-mix(in srgb, var(--neutral-on-background-strong) 72%, var(--neutral-on-background-medium));
   font-weight: var(--type-weight-body);
   line-height: 1.72;
 }
@@ -103,6 +107,20 @@
   background: rgba(184, 146, 18, 0.06);
 }
 
+.link:focus-visible,
+.loadMore:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--brand-on-background-medium) 42%, transparent);
+  outline-offset: 3px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    border-color: color-mix(in srgb, var(--brand-on-background-medium) 22%, var(--line-subtle));
+    background: color-mix(in srgb, var(--surface-panel-soft) 36%, transparent);
+    transform: translateX(2px);
+  }
+}
+
 @media (max-width: breakpoints.$s) {
   .root {
     gap: 1rem;
@@ -115,7 +133,8 @@
   .link {
     grid-template-columns: 1fr;
     gap: 0.65rem;
-    padding: 0.8rem 0;
+    padding: 0.78rem 0;
+    transform: none;
   }
 
   .thumb {

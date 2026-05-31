@@ -28,10 +28,7 @@ const LOAD_STEP = 6;
 
 function matchesCategory(post: PostData, category: string) {
   if (category === ALL_FILTER) return true;
-  return (
-    post.metadata.category === category ||
-    post.metadata.categories?.includes(category)
-  );
+  return post.metadata.category === category || post.metadata.categories?.includes(category);
 }
 
 function matchesTag(post: PostData, tag: string) {
@@ -82,13 +79,13 @@ export default function BlogExplorer({ posts, categories, tags }: BlogExplorerPr
         <div className={styles.panelTop}>
           <Column className={styles.panelCopy} gap="8">
             <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
-              Explorar arquivo
+              Arquivo editorial
             </Text>
             <Heading as="h3" variant="heading-strong-l">
               Navegação por categorias e tags
             </Heading>
             <Text onBackground="neutral-weak" variant="body-default-m">
-              Filtros discretos para navegar o arquivo sem transformar o blog em painel pesado.
+              Filtros simples para encontrar leituras sem depender da ordem cronológica.
             </Text>
           </Column>
 
@@ -113,7 +110,11 @@ export default function BlogExplorer({ posts, categories, tags }: BlogExplorerPr
         </div>
 
         <div className={styles.filterGroup}>
-          <Text className={styles.filterLabel} variant="label-default-s" onBackground="neutral-weak">
+          <Text
+            className={styles.filterLabel}
+            variant="label-default-s"
+            onBackground="neutral-weak"
+          >
             Categorias
           </Text>
           <div className={styles.filterRail}>
@@ -143,7 +144,11 @@ export default function BlogExplorer({ posts, categories, tags }: BlogExplorerPr
         </div>
 
         <div className={styles.filterGroup}>
-          <Text className={styles.filterLabel} variant="label-default-s" onBackground="neutral-weak">
+          <Text
+            className={styles.filterLabel}
+            variant="label-default-s"
+            onBackground="neutral-weak"
+          >
             Tags
           </Text>
           <div className={styles.filterRail}>
@@ -229,7 +234,9 @@ export default function BlogExplorer({ posts, categories, tags }: BlogExplorerPr
 
         {!isPending && hasMore && (
           <Button
-            onClick={() => setVisibleCount((current) => Math.min(current + LOAD_STEP, filteredPosts.length))}
+            onClick={() =>
+              setVisibleCount((current) => Math.min(current + LOAD_STEP, filteredPosts.length))
+            }
             variant="secondary"
             size="m"
           >

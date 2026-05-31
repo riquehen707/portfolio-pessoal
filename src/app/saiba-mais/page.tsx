@@ -22,7 +22,7 @@ const comparison = [
   },
   {
     title: "Bem posicionado",
-    items: ["Clareza de oferta", "Estética memorável", "Jornada objetiva", "Medição para decidir"],
+    items: ["Clareza de oferta", "Visual com critério", "Jornada objetiva", "Medição para decidir"],
   },
 ] as const;
 
@@ -52,9 +52,9 @@ const pillars: { title: string; text: string; icon: IconName }[] = [
 const process = ["Diagnóstico", "Posicionamento", "Interface", "Conteúdo", "Medição"] as const;
 
 export async function generateMetadata() {
-  const title = "Saiba mais sobre destaque digital";
+  const title = "Como diferenciar sua presença digital";
   const description =
-    "Entenda como clareza, estética, posicionamento, conteúdo e tecnologia ajudam negócios locais a saírem do comum.";
+    "Veja como clareza, página, conteúdo e medição deixam a presença local menos genérica.";
 
   return {
     title,
@@ -79,7 +79,7 @@ export default function SaibaMaisPage() {
     <div className={styles.page}>
       <section className={styles.hero}>
         <div className={styles.heroCopy}>
-          <p className={styles.eyebrow}>Destaque / Posicionamento local</p>
+          <p className={styles.eyebrow}>Presença digital local</p>
           <h1>Hoje, criar ficou fácil. Parecer diferente ficou raro.</h1>
           <p>
             IA acelera sites, peças e conteúdos. O problema é que muita coisa começa a soar igual. O

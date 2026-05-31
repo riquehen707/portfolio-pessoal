@@ -3,7 +3,14 @@ import { brandMoodboard, brandPalette, brandTypography } from "./brand";
 const designSystem = {
   name: "Henrique Reis Design System",
   direction: brandMoodboard.title,
-  principle: "Menos elementos. Mais intenção.",
+  principle: "Dark híbrido: identidade escura com camadas claras o suficiente para leitura longa.",
+  visualRecommendation: {
+    chosenDirection: "dark-hybrid",
+    reason:
+      "O site tem biblioteca, trilhas e artigos longos. O dark absoluto preserva identidade, mas pesa a leitura; o claro exigiria reposicionamento visual; modo alternável aumenta manutenção agora.",
+    nextThreshold:
+      "Considerar tema claro apenas se os artigos continuarem cansativos depois de medir leitura em mobile e desktop.",
+  },
   themes: {
     defaultTheme: "dark",
     secondaryTheme: "light",
@@ -29,7 +36,7 @@ const designSystem = {
     },
   },
   accentUsage: {
-    principle: "O dourado é assinatura, não preenchimento.",
+    principle: "O dourado é ação, assinatura e estado ativo, não preenchimento.",
     applyTo: [
       "logo",
       "item ativo",
@@ -38,11 +45,7 @@ const designSystem = {
       "números de destaque",
       "CTA principal pontual",
     ],
-    avoid: [
-      "fundos grandes dourados",
-      "múltiplos elementos competindo",
-      "texto corrido dourado",
-    ],
+    avoid: ["fundos grandes dourados", "múltiplos elementos competindo", "texto corrido dourado"],
   },
   typography: {
     heading: brandTypography.heading.primary,

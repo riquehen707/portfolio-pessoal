@@ -52,7 +52,7 @@
 
 .knowledgeContextGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0;
   border-top: 1px solid var(--line-muted);
 }
@@ -109,7 +109,7 @@
 .heroLead {
   max-width: 34rem;
   font-family: var(--font-body);
-  color: var(--neutral-on-background-medium);
+  color: color-mix(in srgb, var(--neutral-on-background-strong) 82%, var(--neutral-on-background-medium));
   font-size: clamp(1rem, 1.15vw, 1.08rem);
   font-weight: var(--type-weight-body);
   line-height: 1.62;
@@ -224,14 +224,14 @@
 .article {
   justify-self: center;
   width: min(100%, 37.5rem);
-  color: var(--neutral-on-background-medium);
+  color: color-mix(in srgb, var(--neutral-on-background-strong) 84%, var(--neutral-on-background-medium));
   --article-font-size: clamp(1.05rem, 1vw, 1.13rem);
   font-size: calc(var(--article-font-size) * var(--article-font-scale, 1));
 }
 
 .article :global(p),
 .article :global(li) {
-  color: var(--neutral-on-background-medium);
+  color: color-mix(in srgb, var(--neutral-on-background-strong) 84%, var(--neutral-on-background-medium));
 }
 
 .article :global(p) {
@@ -278,7 +278,7 @@
 }
 
 .article :global(a) {
-  color: var(--brand-on-background-strong);
+  color: color-mix(in srgb, var(--brand-on-background-strong) 84%, var(--neutral-on-background-strong));
   text-underline-offset: 0.18em;
 }
 

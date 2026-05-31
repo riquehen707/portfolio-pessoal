@@ -51,13 +51,13 @@
   align-items: center;
   justify-content: center;
   padding: 0.25rem;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid color-mix(in srgb, var(--border-subtle) 92%, var(--neutral-on-background-weak));
   border-radius: 0.68rem;
-  background: color-mix(in srgb, var(--nav-surface-solid) 94%, var(--page-background));
+  background: color-mix(in srgb, var(--nav-surface-solid) 96%, var(--surface-panel-strong));
   box-shadow:
     0 14px 44px rgba(0, 0, 0, 0.16),
     inset 0 1px 0 color-mix(in srgb, white 7%, transparent);
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(18px) saturate(120%);
 }
 
 .navRow {
@@ -78,7 +78,7 @@
   border: 1px solid transparent;
   border-radius: 0.48rem;
   background: transparent;
-  color: var(--neutral-on-background-medium);
+  color: color-mix(in srgb, var(--neutral-on-background-medium) 88%, var(--neutral-on-background-weak));
   cursor: pointer;
   font-family: var(--font-label);
   font-size: 0.86rem;
@@ -89,8 +89,8 @@
 }
 
 .navButton[data-active="true"] {
-  border-color: color-mix(in srgb, var(--brand-on-background-medium) 24%, transparent);
-  background: color-mix(in srgb, var(--brand-background-strong) 12%, var(--surface-panel-soft));
+  border-color: color-mix(in srgb, var(--brand-on-background-medium) 18%, var(--border-subtle));
+  background: color-mix(in srgb, var(--brand-background-strong) 7%, var(--surface-panel-strong));
   color: var(--neutral-on-background-strong);
 }
 
@@ -110,15 +110,16 @@
   z-index: 24;
   display: grid;
   grid-template-columns: minmax(16rem, 1.2fr) minmax(13rem, 0.8fr);
-  gap: 0.75rem;
-  width: min(42rem, calc(100vw - 2rem));
-  padding: 0.75rem;
-  border: 1px solid var(--border-subtle);
+  gap: 0.68rem;
+  width: min(39rem, calc(100vw - 2rem));
+  padding: 0.68rem;
+  border: 1px solid color-mix(in srgb, var(--border-subtle) 82%, var(--neutral-on-background-weak));
   border-radius: 0.65rem;
-  background: color-mix(in srgb, var(--surface-panel-strong) 96%, var(--page-background));
+  background: color-mix(in srgb, var(--surface-panel-strong) 94%, var(--page-background));
   box-shadow:
-    0 24px 70px rgba(0, 0, 0, 0.28),
+    0 24px 76px rgba(0, 0, 0, 0.44),
     inset 0 1px 0 color-mix(in srgb, white 8%, transparent);
+  backdrop-filter: blur(24px) saturate(120%);
   opacity: 0;
   pointer-events: none;
   transform: translate(-50%, 0.35rem);
@@ -157,8 +158,9 @@
 .megaMenuLink {
   display: grid;
   gap: 0.2rem;
-  min-height: 4rem;
-  padding: 0.75rem;
+  min-height: 3.55rem;
+  padding: 0.68rem;
+  background: color-mix(in srgb, var(--surface-panel-soft) 86%, var(--page-background));
 }
 
 .megaMenuLink strong,
@@ -171,7 +173,7 @@
 }
 
 .megaMenuLink span {
-  color: var(--neutral-on-background-weak);
+  color: var(--neutral-on-background-medium);
   font-size: 0.8rem;
   line-height: 1.35;
 }
@@ -183,7 +185,7 @@
 }
 
 .megaMenuLabel {
-  color: var(--color-accent-gold);
+  color: var(--neutral-on-background-weak);
   font-family: var(--font-technical);
   font-size: var(--type-technical-size);
   font-weight: var(--type-weight-technical);
@@ -202,7 +204,15 @@
   align-items: center;
   min-height: 2.35rem;
   padding: 0.55rem 0.65rem;
-  color: var(--neutral-on-background-medium);
+  background: color-mix(in srgb, var(--surface-panel-soft) 78%, var(--page-background));
+  color: color-mix(in srgb, var(--neutral-on-background-strong) 82%, var(--neutral-on-background-medium));
+}
+
+.navButton:focus-visible,
+.megaMenuLink:focus-visible,
+.trailLink:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--brand-on-background-medium) 42%, transparent);
+  outline-offset: 3px;
 }
 
 .utility {
@@ -233,8 +243,8 @@
 
   .megaMenuLink:hover,
   .trailLink:hover {
-    border-color: color-mix(in srgb, var(--brand-on-background-medium) 22%, transparent);
-    background: color-mix(in srgb, var(--brand-background-strong) 10%, var(--surface-panel-soft));
+    border-color: color-mix(in srgb, var(--brand-on-background-medium) 18%, var(--border-subtle));
+    background: color-mix(in srgb, var(--brand-background-strong) 6%, var(--surface-panel-strong));
   }
 }
 
@@ -319,19 +329,19 @@
 
   .navButton {
     flex: 1 1 0;
-    min-width: 2.55rem;
+    min-width: 2.2rem;
     min-height: 2.85rem;
     flex-direction: column;
     gap: 0.22rem;
     padding: 0.28rem 0.2rem;
-    font-size: 0.66rem;
+    font-size: 0.62rem;
     line-height: 1;
   }
 
   .navItemWithMenu {
     position: static;
     flex: 1 1 0;
-    min-width: 2.55rem;
+    min-width: 2.2rem;
   }
 
   .navItemWithMenu > .navButton {
@@ -346,9 +356,9 @@
     left: 1rem;
     grid-template-columns: 1fr;
     width: auto;
-    max-height: min(58vh, 28rem);
+    max-height: min(52vh, 24rem);
     overflow: auto;
-    padding: 0.75rem;
+    padding: 0.65rem;
     opacity: 0;
     transform: translateY(0.4rem);
   }

@@ -33,16 +33,18 @@ type FooterGroup = {
 
 const primaryLinks: FooterLink[] = [
   { href: "/", label: "Início" },
-  { href: work.path, label: "Projetos" },
+  { href: blog.path, label: blog.label },
+  { href: work.path, label: work.label },
+  { href: productsPage.path, label: productsPage.label },
+  { href: "/modelos", label: "Modelos" },
+  { href: servicesPage.path, label: servicesPage.label },
   { href: about.path, label: "Sobre" },
-  { href: blog.path, label: "Blog" },
-  { href: servicesPage.path, label: "Serviços" },
-  { href: productsPage.path, label: "Produtos" },
   { href: contact.path, label: "Contato" },
 ];
 
 const contentLinks: FooterLink[] = [
-  { href: "/blog/temas", label: "Temas do blog" },
+  { href: "/blog/temas", label: "Temas da biblioteca" },
+  { href: "/modelos", label: "Modelos de páginas" },
   { href: "/blog/termos-de-marketing", label: "Termos de marketing" },
   { href: "/blog/termos-de-design", label: "Termos de design" },
   { href: "/blog/como-entender-receita-margem-custos-e-volume", label: "Receita, margem e custos" },
@@ -62,9 +64,9 @@ const footerGroups: FooterGroup[] = [
     links: primaryLinks,
   },
   {
-    title: "Serviços",
+    title: "Consultoria",
     links: [
-      { href: servicesPage.path, label: "Todos os serviços" },
+      { href: servicesPage.path, label: "Visão da consultoria" },
       ...services.slice(0, 5).map((service) => ({
         href: `${servicesPage.path}/${service.slug}`,
         label: service.title,

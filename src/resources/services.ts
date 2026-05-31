@@ -2,14 +2,13 @@ import { BasePageConfig, ProductsPage, ProductItem, ServicesPage, ServiceLanding
 
 export const servicesPage: ServicesPage = {
   path: "/servicos",
-  label: "Serviços",
-  title: "Serviços para presença, captação e operação digital",
+  label: "Consultoria",
+  title: "Consultoria para corrigir gargalos antes de aumentar volume",
   description:
-    "Serviços sob medida para negócios que precisam melhorar oferta, atendimento e rotina digital.",
+    "Serviços para revisar oferta, página, atendimento e rotina quando publicar mais já não resolve.",
   intro: {
     headline: "Antes do escopo, vale entender o momento do negócio.",
-    lead:
-      "A nova página de serviços organiza melhor o que eu resolvo, para quem isso faz sentido e quando a simulação ajuda a decidir o próximo passo.",
+    lead: "Nem todo problema pede site novo, campanha nova ou automação. Primeiro eu olho onde a decisão está travando.",
   },
 };
 
@@ -18,7 +17,7 @@ export const simulationPage: BasePageConfig = {
   label: "Simulação",
   title: "Simulação antes de investir",
   description:
-    "Uma leitura inicial para entender se a base atual sustenta ajustes internos, investimento e retorno antes de ampliar a operação.",
+    "Uma leitura inicial para saber se faz sentido ajustar oferta, página ou atendimento antes de colocar mais dinheiro.",
 };
 
 export const services: ServiceLanding[] = [
@@ -31,18 +30,18 @@ export const services: ServiceLanding[] = [
     hero: {
       highlight: "Next.js, SEO técnico e interface responsiva",
       description:
-        "Para negócios e profissionais que querem sair do improviso e ter uma presença digital mais clara, rápida e confiável.",
+        "Para quem recebe acesso, indicação ou tráfego, mas ainda precisa explicar melhor a oferta.",
       price: "A partir de R$ 1.500",
       duration: "2 a 8 semanas",
       ctaLabel: "Solicitar proposta",
       ctaHref: "mailto:oi@henriquereis.dev?subject=Websites%20Profissionais",
     },
     audience:
-      "Profissionais, negócios locais, marcas autorais e operações digitais que precisam ser melhor entendidos, lembrados e procurados.",
+      "Profissionais, negócios locais e operações digitais que precisam ser entendidos antes de serem comparados por preço.",
     tags: ["Página rápida", "Busca pronta", "Contato claro", "Mobile fluido"],
     keyPoints: [
       "Uma presença que explica melhor o que você faz.",
-      "Estrutura pronta para SEO, campanhas e crescimento com mais calma.",
+      "Base pronta para SEO e campanhas sem depender de improviso.",
       "Experiência consistente no desktop e no mobile.",
     ],
     scopes: [
@@ -81,11 +80,13 @@ export const services: ServiceLanding[] = [
     faq: [
       {
         question: "Posso começar com uma landing page e expandir depois?",
-        answer: "Sim. A estrutura pode nascer menor e crescer para um site completo conforme a operação evolui.",
+        answer:
+          "Sim. A estrutura pode nascer menor e crescer para um site completo conforme a operação evolui.",
       },
       {
         question: "Já sai pronto para SEO?",
-        answer: "Sim. Estrutura, meta tags, performance e base técnica já entram no escopo inicial.",
+        answer:
+          "Sim. Estrutura, meta tags, performance e base técnica já entram no escopo inicial.",
       },
       {
         question: "Você segue com manutenção depois da entrega?",
@@ -125,7 +126,8 @@ export const services: ServiceLanding[] = [
       price: "A partir de R$ 1.500",
       duration: "2 a 4 semanas",
       ctaLabel: "Quero mais agendamentos",
-      ctaHref: "https://wa.me/5575983675164?text=Quero%20uma%20landing%20page%20para%20clinica%20de%20estetica",
+      ctaHref:
+        "https://wa.me/5575983675164?text=Quero%20uma%20landing%20page%20para%20clinica%20de%20estetica",
     },
     audience:
       "Clínicas de estética, esteticistas, biomédicas e profissionais de harmonização facial que já têm presença no Instagram, mas precisam converter melhor em agendamento.",
@@ -133,12 +135,13 @@ export const services: ServiceLanding[] = [
     keyPoints: [
       "Mais agendamentos saindo do Instagram e do tráfego pago.",
       "Mais clientes recorrentes com jornada mais clara entre interesse, contato e retorno.",
-      "Mais faturamento com uma presença digital mais profissional e mais orientada a resultado.",
+      "Menos dúvida antes do agendamento e mais clareza sobre o próximo passo.",
     ],
     scopes: [
       {
         title: "Landing page para agenda cheia",
-        summary: "Página única para clínica ou profissional que precisa converter melhor em agendamento.",
+        summary:
+          "Página única para clínica ou profissional que precisa converter melhor em agendamento.",
         investment: "A partir de R$ 1.500",
         timeline: "2 a 3 semanas",
         includes: ["Copy voltada a agendamento", "WhatsApp ou formulário", "SEO técnico essencial"],
@@ -148,11 +151,16 @@ export const services: ServiceLanding[] = [
         summary: "Estrutura com páginas principais, procedimentos, prova e contato.",
         investment: "A partir de R$ 2.800",
         timeline: "3 a 5 semanas",
-        includes: ["Arquitetura de páginas", "Layout responsivo", "Base para campanhas e recorrência"],
+        includes: [
+          "Arquitetura de páginas",
+          "Layout responsivo",
+          "Base para campanhas e recorrência",
+        ],
       },
       {
         title: "Sprint de conversão para página atual",
-        summary: "Refino de uma página existente para melhorar agendamento, clareza e retorno financeiro.",
+        summary:
+          "Refino de uma página existente para melhorar agendamento, clareza e retorno financeiro.",
         investment: "A partir de R$ 900",
         timeline: "1 a 2 semanas",
         includes: ["Revisão estrutural", "Ajuste de CTA e layout", "Melhoria de conversão"],
@@ -162,7 +170,7 @@ export const services: ServiceLanding[] = [
       "Estrutura pensada para transformar interesse em agendamento com menos atrito.",
       "Mensagem mais clara sobre procedimento, diferenciais e confiança na clínica.",
       "Layout responsivo com foco em clique, WhatsApp e leitura rápida no mobile.",
-      "Base técnica para campanhas, buscas locais e crescimento mais previsível.",
+      "Base técnica para campanhas, buscas locais e leitura do que funciona.",
     ],
     process: [
       "Entendo quais procedimentos trazem mais faturamento e onde a agenda está vazando.",
@@ -237,21 +245,24 @@ export const services: ServiceLanding[] = [
     scopes: [
       {
         title: "Landing page de captação",
-        summary: "Página única para apresentar serviço, diferenciais, prova e rota direta para contato.",
+        summary:
+          "Página única para apresentar serviço, diferenciais, prova e rota direta para contato.",
         investment: "A partir de R$ 1.500",
         timeline: "2 a 3 semanas",
         includes: ["Copy focada em conversão", "WhatsApp ou formulário", "SEO técnico essencial"],
       },
       {
         title: "Site profissional enxuto",
-        summary: "Estrutura com páginas principais para consolidar posicionamento e autoridade digital.",
+        summary:
+          "Estrutura com páginas principais para consolidar posicionamento e autoridade digital.",
         investment: "A partir de R$ 2.800",
         timeline: "3 a 5 semanas",
         includes: ["Arquitetura de páginas", "Layout responsivo", "Base para conteúdo e prova"],
       },
       {
         title: "Sprint de reposicionamento",
-        summary: "Refino em uma página atual para melhorar clareza da oferta, CTA e percepção profissional.",
+        summary:
+          "Refino em uma página atual para melhorar clareza da oferta, CTA e percepção profissional.",
         investment: "A partir de R$ 900",
         timeline: "1 a 2 semanas",
         includes: ["Revisão estrutural", "Ajuste de mensagem", "Melhoria de conversão"],
@@ -260,8 +271,8 @@ export const services: ServiceLanding[] = [
     includes: [
       "Estrutura pensada para mostrar serviço, nicho, diferenciais e caminho de contato com clareza.",
       "Layout responsivo para apresentar portfólio, processo e prova sem poluir a leitura.",
-      "Base técnica para SEO, campanhas, tráfego e crescimento mais previsível no digital.",
-      "Organização visual que ajuda o cliente a entender rápido o que você resolve e por que contratar.",
+      "Base técnica para SEO, campanhas e leitura do que acontece depois do clique.",
+      "Organização visual para o cliente entender rápido o que você resolve e como chamar.",
     ],
     process: [
       "Entendo seu serviço, o tipo de cliente ideal e onde hoje a captação está travando.",
@@ -287,7 +298,7 @@ export const services: ServiceLanding[] = [
       {
         question: "Isso ajuda a conseguir clientes com mais consistência?",
         answer:
-          "Ajuda porque melhora sua apresentação, sua proposta de valor e o caminho até o contato, que normalmente são os pontos que mais travam freelancers.",
+          "Ajuda porque melhora a apresentação da oferta e o caminho até o contato, que normalmente são pontos que travam freelancers.",
       },
     ],
   },
@@ -368,15 +379,18 @@ export const services: ServiceLanding[] = [
       },
       {
         question: "Preciso ter blog para funcionar?",
-        answer: "Não. A landing pode começar sozinha. O blog entra depois, se fizer sentido para SEO e autoridade.",
+        answer:
+          "Não. A landing pode começar sozinha. O blog entra depois, se fizer sentido para SEO e autoridade.",
       },
       {
         question: "Você ajuda a organizar os textos da página?",
-        answer: "Sim. Eu transformo sua abordagem e sua especialidade em uma estrutura mais clara e confiável.",
+        answer:
+          "Sim. Eu transformo sua abordagem e sua especialidade em uma estrutura mais clara e confiável.",
       },
       {
         question: "Funciona para quem ainda está começando no digital?",
-        answer: "Sim. Inclusive ajuda a evitar improviso e a construir uma base mais profissional desde o início.",
+        answer:
+          "Sim. Inclusive ajuda a evitar improviso e a construir uma base mais profissional desde o início.",
       },
     ],
   },
@@ -439,7 +453,8 @@ export const services: ServiceLanding[] = [
     faq: [
       {
         question: "Serve para blog e loja virtual?",
-        answer: "Sim. Esse é um dos focos principais do serviço, especialmente em SEO técnico para conteúdo e e-commerce.",
+        answer:
+          "Sim. Esse é um dos focos principais do serviço, especialmente em SEO técnico para conteúdo e e-commerce.",
       },
       {
         question: "Você também executa as correções?",
@@ -447,7 +462,8 @@ export const services: ServiceLanding[] = [
       },
       {
         question: "Preciso trocar de plataforma?",
-        answer: "Nem sempre. Primeiro eu avalio o que dá para corrigir na estrutura atual antes de sugerir migração.",
+        answer:
+          "Nem sempre. Primeiro eu avalio o que dá para corrigir na estrutura atual antes de sugerir migração.",
       },
     ],
   },
@@ -518,7 +534,8 @@ export const services: ServiceLanding[] = [
       },
       {
         question: "Você também organiza os dados?",
-        answer: "Sim. Posso estruturar a coleta e deixar dashboards ou tabelas mais fáceis de acompanhar.",
+        answer:
+          "Sim. Posso estruturar a coleta e deixar dashboards ou tabelas mais fáceis de acompanhar.",
       },
     ],
   },
@@ -526,12 +543,12 @@ export const services: ServiceLanding[] = [
 
 export const productsPage: ProductsPage = {
   path: "/servicos/produtos",
-  label: "Produtos",
-  title: "Produtos em reinício",
+  label: "Ferramentas",
+  title: "Ferramentas e recursos | Henrique Reis",
   description:
-    "Organizando o portfólio antes de prosseguir com produtos. A próxima fase deve abrir espaço para gratuitos, apps úteis, auditoria simples e consultoria curta.",
-  cta: "A página de produtos está em transição enquanto o portfólio é organizado para sustentar uma nova linha de ofertas.",
-  note: "Depois dessa base, entram recursos gratuitos, apps úteis, auditoria simples e consultoria de 30 minutos como formatos mais leves de entrada.",
+    "Materiais, templates e ferramentas pequenas para decidir, organizar ou aplicar sem inflar o escopo.",
+  cta: "Use quando o problema ainda não pede consultoria, mas já pede um pouco mais de método.",
+  note: "Prefiro publicar recursos pequenos que resolvem um ponto real a montar um catálogo cheio.",
 };
 
 export const products: ProductItem[] = [];

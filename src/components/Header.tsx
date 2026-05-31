@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Flex, Icon, Row, Text } from "@once-ui-system/core";
 import { usePathname } from "next/navigation";
 
-import { about, blog, display, person, productsPage, work } from "@/resources";
+import { about, blog, display, ecosystemAreas, person } from "@/resources";
 import { publicTrailAreas } from "@/lib/knowledgeConfig";
 
 import { BrandSignature } from "./BrandSignature";
@@ -15,39 +15,48 @@ import styles from "./Header.module.scss";
 import type { GlobalSearchItem } from "@/lib/globalSearch";
 
 const navItems = [
-  { href: "/", label: "Início", icon: "home" },
-  { href: work.path, label: "Projetos", icon: "grid" },
-  { href: about.path, label: "Sobre", icon: "person" },
-  { href: blog.path, label: "Blog", icon: "book" },
-  { href: productsPage.path, label: "Produtos", icon: "package" },
-] as const;
+  { href: "/", label: "Início", icon: "home", key: "home" as const },
+  ...ecosystemAreas.map((area) => ({
+    href: area.href,
+    label: area.navLabel,
+    icon: area.icon,
+    key: area.key,
+  })),
+];
 
-const blogMenuLinks = [
+const ecosystemMenuLinks = [
   {
     href: blog.path,
-    title: "Todos os artigos",
-    description: "Biblioteca geral do blog.",
+    title: "Biblioteca",
+    description: "Guias, temas e artigos.",
   },
   {
     href: "/mapa",
     title: "Mapa de aprendizado",
-    description: "Visao geral por areas e progressao.",
+    description: "Visão geral por áreas e progressão.",
   },
   {
     href: "/trilhas",
-    title: "Trilhas de conteudo",
+    title: "Trilhas de conteúdo",
     description: "Caminhos organizados por tema.",
+  },
+  {
+    href: "/modelos",
+    title: "Modelos de página",
+    description: "Demos visuais por segmento.",
   },
   {
     href: `${blog.path}#artigos`,
     title: "Artigos recentes",
-    description: "Publicacoes novas e revisadas.",
+    description: "Publicações novas e revisadas.",
   },
-  {
-    href: work.path,
-    title: "Projetos",
-    description: "Bastidores, estudos de caso e aplicacoes.",
-  },
+  ...ecosystemAreas
+    .filter((area) => area.key !== "biblioteca" && area.key !== "sobre")
+    .map((area) => ({
+      href: area.href,
+      title: area.title,
+      description: area.intent,
+    })),
 ] as const;
 
 function TimeDisplay({ timeZone, locale = "pt-BR" }: { timeZone: string; locale?: string }) {
@@ -89,16 +98,35 @@ type HeaderProps = {
 
 export function Header({ searchItems }: HeaderProps) {
   const pathname = usePathname() ?? "";
-  const [isBlogMenuOpen, setIsBlogMenuOpen] = useState(false);
-  const aboutSelected = pathname === about.path || pathname.startsWith(`${about.path}/`);
-  const blogSelected =
-    pathname === blog.path ||
-    pathname.startsWith(`${blog.path}/`) ||
-    pathname === "/mapa" ||
-    pathname.startsWith("/trilhas");
+  const [isEcosystemMenuOpen, setIsEcosystemMenuOpen] = useState(false);
+  const getIsActive = (item: (typeof navItems)[number]) => {
+    if (item.key === "home") return pathname === "/";
+    if (item.key === "biblioteca") {
+      return (
+        pathname === blog.path ||
+        pathname.startsWith(`${blog.path}/`) ||
+        pathname === "/mapa" ||
+        pathname.startsWith("/trilhas")
+      );
+    }
+    if (item.key === "ferramentas") {
+      return pathname === item.href || pathname.startsWith(`${item.href}/`);
+    }
+    if (item.key === "consultoria") {
+      return (
+        pathname === item.href ||
+        (pathname.startsWith(`${item.href}/`) && !pathname.startsWith("/servicos/produtos"))
+      );
+    }
+    if (item.key === "sobre") {
+      return pathname === about.path || pathname.startsWith(`${about.path}/`);
+    }
+
+    return pathname === item.href || pathname.startsWith(`${item.href}/`);
+  };
 
   useEffect(() => {
-    setIsBlogMenuOpen(false);
+    setIsEcosystemMenuOpen(false);
   }, [pathname]);
 
   return (
@@ -115,38 +143,35 @@ export function Header({ searchItems }: HeaderProps) {
       <nav className={styles.navShell} aria-label="Menu principal">
         <div className={styles.navRow}>
           {navItems.map((item) => {
-            const isActive =
-              item.href === blog.path
-                ? blogSelected
-                : item.href === about.path
-                  ? aboutSelected
-                  : item.href === "/"
-                    ? pathname === "/"
-                    : pathname.startsWith(item.href);
+            const isActive = getIsActive(item);
 
-            if (item.href === blog.path) {
+            if (item.key === "biblioteca") {
               return (
-                <div className={styles.navItemWithMenu} data-open={isBlogMenuOpen} key={item.href}>
+                <div
+                  className={styles.navItemWithMenu}
+                  data-open={isEcosystemMenuOpen}
+                  key={item.href}
+                >
                   <button
                     type="button"
                     className={styles.navButton}
                     data-active={isActive}
-                    aria-expanded={isBlogMenuOpen}
+                    aria-expanded={isEcosystemMenuOpen}
                     aria-haspopup="true"
-                    onClick={() => setIsBlogMenuOpen((current) => !current)}
+                    onClick={() => setIsEcosystemMenuOpen((current) => !current)}
                   >
                     <Icon name={item.icon} size="xs" />
                     <span>{item.label}</span>
                   </button>
 
-                  <div className={styles.megaMenu} aria-label="Navegacao do blog">
+                  <div className={styles.megaMenu} aria-label="Explorador do ecossistema">
                     <div className={styles.megaMenuPrimary}>
-                      {blogMenuLinks.map((link) => (
+                      {ecosystemMenuLinks.map((link) => (
                         <Link
                           className={styles.megaMenuLink}
                           href={link.href}
                           key={link.href}
-                          onClick={() => setIsBlogMenuOpen(false)}
+                          onClick={() => setIsEcosystemMenuOpen(false)}
                         >
                           <strong>{link.title}</strong>
                           <span>{link.description}</span>
@@ -162,7 +187,7 @@ export function Header({ searchItems }: HeaderProps) {
                             className={styles.trailLink}
                             href={area.path}
                             key={area.slug}
-                            onClick={() => setIsBlogMenuOpen(false)}
+                            onClick={() => setIsEcosystemMenuOpen(false)}
                           >
                             {area.title}
                           </Link>

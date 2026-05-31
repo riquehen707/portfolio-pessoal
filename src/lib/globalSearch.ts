@@ -10,6 +10,9 @@ import {
   getWorkProjectPath,
   getWorkProjectStack,
 } from "@/app/work/projectData";
+import { demoRegistry } from "@/features/demos/data/demo-registry";
+import { demoSegments } from "@/features/demos/data/demo-segments";
+import { modelsDescription, modelsPath, modelsTitle } from "@/features/demos/helpers/seo";
 import { publicTrailAreas } from "@/lib/knowledgeConfig";
 import {
   about,
@@ -33,7 +36,8 @@ export type GlobalSearchItemType =
   | "service"
   | "audience"
   | "project"
-  | "product";
+  | "product"
+  | "demo";
 
 export type GlobalSearchItem = {
   id: string;
@@ -139,6 +143,13 @@ export function getGlobalSearchItems(): GlobalSearchItem[] {
       keywords: ["trilhas", "conteudo", "marketing", "design", "renda digital"],
     }),
     pageItem({
+      id: "page-models",
+      title: modelsTitle,
+      description: modelsDescription,
+      href: modelsPath,
+      keywords: ["modelos", "demos", "templates", "vitrines", "clinicas", "advocacia"],
+    }),
+    pageItem({
       id: "page-services",
       title: servicesPage.title,
       description: servicesPage.description,
@@ -229,6 +240,47 @@ export function getGlobalSearchItems(): GlobalSearchItem[] {
     ]),
   }));
 
+  const demoSegmentItems: GlobalSearchItem[] = demoSegments.map((segment) => ({
+    id: `demo-segment-${segment.slug}`,
+    type: "demo",
+    title: segment.title,
+    description: segment.description,
+    href: `${modelsPath}/${segment.slug}`,
+    label: "Segmento",
+    keywords: uniq([
+      "modelo",
+      "demo",
+      "vitrine",
+      segment.name,
+      segment.audience,
+      ...segment.siteTypes,
+      ...segment.visualSignals,
+      ...segment.importantCtas,
+    ]),
+  }));
+
+  const demoItems: GlobalSearchItem[] = demoRegistry.map((demo) => ({
+    id: `demo-${demo.segment}-${demo.slug}`,
+    type: "demo",
+    title: demo.name,
+    description: demo.description,
+    href: demo.route,
+    label: "Demo",
+    keywords: uniq([
+      "modelo",
+      "demo",
+      "vitrine",
+      demo.segment,
+      demo.visualStyle,
+      demo.goal,
+      demo.audience,
+      demo.status,
+      demo.maturity,
+      ...demo.tags,
+      ...demo.components,
+    ]),
+  }));
+
   const serviceItems: GlobalSearchItem[] = services.map((service) => ({
     id: `service-${service.slug}`,
     type: "service",
@@ -307,6 +359,8 @@ export function getGlobalSearchItems(): GlobalSearchItem[] {
     ...articleItems,
     ...topicItems,
     ...trailItems,
+    ...demoSegmentItems,
+    ...demoItems,
     ...serviceItems,
     ...audienceItems,
     ...projectItems,

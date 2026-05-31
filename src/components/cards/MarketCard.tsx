@@ -60,7 +60,11 @@ export function MarketCard({
         </ul>
 
         {hasInlineDetail && (
-          <Text className={styles.inlineDetail} onBackground="neutral-weak" variant="body-default-s">
+          <Text
+            className={styles.inlineDetail}
+            onBackground="neutral-weak"
+            variant="body-default-s"
+          >
             {detail}
           </Text>
         )}
@@ -73,7 +77,7 @@ export function MarketCard({
               aria-expanded={isExpanded ? "true" : "false"}
               onClick={handleActionClick}
             >
-              <span>{isExpanded ? "Ocultar abordagem" : "Ver abordagem estratégica"}</span>
+              <span>{isExpanded ? "Ocultar leitura" : "Ver leitura do mercado"}</span>
               <Icon className={styles.actionIcon} name="arrowRight" size="xs" />
             </button>
 

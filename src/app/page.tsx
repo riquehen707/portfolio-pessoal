@@ -10,15 +10,16 @@ import { HeroActions } from "@/components/home/HeroActions";
 import { HeroSubtitle } from "@/components/home/HeroSubtitle";
 import { HeroTitle } from "@/components/home/HeroTitle";
 import { HeroVisual } from "@/components/home/HeroVisual";
-import { TechStrip } from "@/components/home/TechStrip";
 import { Reveal } from "@/components/motion/Reveal";
 import {
   about,
   audiencePages,
   baseURL,
   contentStrategy,
+  ecosystemAreas,
   home,
   person,
+  servicesPage,
   simulationPage,
 } from "@/resources";
 import { buildDiscoverImageMetadata } from "@/utils/og";
@@ -30,28 +31,17 @@ const homeBlogSection = homeStrategy.sections.find((section) => section.id === "
 const homeAboutSection = homeStrategy.sections.find((section) => section.id === "about-teaser");
 const homeFinalSection = homeStrategy.sections.find((section) => section.id === "final-cta");
 
-const techStripItems = [
-  { label: "Sites", icon: "globe" },
-  { label: "Sistema de gestão", icon: "chart" },
-  { label: "Next.js", icon: "nextjs" },
-  { label: "React", icon: "react" },
-  { label: "Banco de dados", icon: "supabase" },
-  { label: "CRM", icon: "crm" },
-  { label: "SEO", icon: "seo" },
-  { label: "PageSpeed", icon: "performance" },
-  { label: "Meta", icon: "meta" },
-  { label: "Instagram", icon: "instagram" },
-  { label: "Facebook", icon: "facebook" },
-  { label: "YouTube", icon: "youtube" },
-] as const;
-
 const homeProofPoints = [
-  { label: "Antes", value: "entender o gargalo real" },
-  { label: "Durante", value: "executar o menor escopo útil" },
-  { label: "Depois", value: "acompanhar sinais de melhoria" },
+  { label: "Antes", value: "achar onde a decisão trava" },
+  { label: "Durante", value: "mudar só o que precisa mudar" },
+  { label: "Depois", value: "medir se a base respondeu" },
 ] as const;
 
-const heroBenefits = ["Identidade clara", "Mensagem direta", "Presença memorável"] as const;
+const heroBenefits = [
+  "Oferta antes de tráfego",
+  "Página antes de campanha",
+  "Atendimento antes de automação",
+] as const;
 
 export async function generateMetadata() {
   const generatedMeta = Meta.generate({
@@ -107,12 +97,11 @@ export default function Home() {
             </nav>
 
             <HeroTitle>
-              Não faça igual a <span className={styles.heroAccent}>todo mundo.</span>
+              Mais tráfego não corrige uma <span className={styles.heroAccent}>base confusa.</span>
             </HeroTitle>
 
             <HeroSubtitle>
-              Assim como uma expressão pode ser reconhecida em poucos traços, seu site precisa ser
-              entendido sem exageros.
+              Eu organizo oferta, página, conteúdo e atendimento antes de aumentar volume.
             </HeroSubtitle>
 
             <ul className={styles.heroBenefits} aria-label="Benefícios principais">
@@ -125,28 +114,47 @@ export default function Home() {
             </ul>
 
             <HeroActions
-              primaryLabel="Saiba mais"
-              primaryHref="/saiba-mais"
-              secondaryLabel="Agendar uma ligação"
-              secondaryHref={homeStrategy.hero.primaryCtaHref}
+              primaryLabel="Começar pelo mapa"
+              primaryHref="/mapa"
+              secondaryLabel="Entender consultoria"
+              secondaryHref={servicesPage.path}
             />
           </div>
 
           <HeroVisual />
-
         </div>
       </section>
 
-      <section className={styles.postHeroSection} id="home-proof">
-        <TechStrip items={[...techStripItems]} />
+      <section className={styles.ecosystemSection} id="ecossistema">
+        <Reveal delay={0.04} distance={20}>
+          <SectionHeader
+            eyebrow="Ecossistema"
+            title="Escolha por onde entrar."
+            description="Você não precisa abrir tudo. Entre pelo problema: estudar, ver processo, usar um recurso ou avaliar ajuda."
+          />
+        </Reveal>
+
+        <div className={styles.ecosystemGrid}>
+          {ecosystemAreas.map((card) => (
+            <Link className={styles.ecosystemCard} href={card.href} key={card.key}>
+              <span className={styles.ecosystemLabel}>{card.label}</span>
+              <strong>{card.title}</strong>
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                {card.description}
+              </Text>
+              <span className={styles.ecosystemPaths}>{card.paths.join(" / ")}</span>
+              <span className={styles.ecosystemCta}>{card.cta}</span>
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section className={styles.statementSection}>
         <div className={styles.statementCopy}>
           <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
-            Método
+            Critério
           </Text>
-          <h2 className={styles.statementTitle}>Diagnóstico antes de produção.</h2>
+          <h2 className={styles.statementTitle}>Antes de produzir, descubra o vazamento.</h2>
         </div>
 
         <div className={styles.proofList}>
@@ -174,10 +182,10 @@ export default function Home() {
       <section className={styles.section}>
         <Reveal delay={0.04} distance={20}>
           <SectionHeader
-            eyebrow={homeBlogSection?.label ?? "Insights"}
-            title={homeBlogSection?.title ?? "Ideias que geram resultado."}
+            eyebrow={homeBlogSection?.label ?? "Biblioteca"}
+            title={homeBlogSection?.title ?? "Leia antes de mexer no canal."}
             description={homeBlogSection?.description ?? ""}
-            actionLabel={homeBlogSection?.ctaLabel ?? "Ver artigos"}
+            actionLabel={homeBlogSection?.ctaLabel ?? "Começar pela biblioteca"}
             actionHref={homeBlogSection?.ctaHref ?? "/blog"}
           />
         </Reveal>
@@ -215,15 +223,12 @@ export default function Home() {
       <section className={styles.aboutSection}>
         <AboutTeaser
           eyebrow={homeAboutSection?.label ?? "Sobre"}
-          title={
-            homeAboutSection?.title ??
-            "Marketing e estrutura personalizada para atrair clientes sem tomar seu tempo."
-          }
+          title={homeAboutSection?.title ?? "Por que eu olho a base antes do volume."}
           description={
             homeAboutSection?.description ??
-            "Transformo ideias e necessidades reais em estruturas digitais claras, funcionais e valiosas."
+            "Se a oferta, a página ou o atendimento confundem, mais volume só aumenta o ruído."
           }
-          ctaLabel={homeAboutSection?.ctaLabel ?? "Conheça minha trajetória"}
+          ctaLabel={homeAboutSection?.ctaLabel ?? "Ver como penso"}
           ctaHref={homeAboutSection?.ctaHref ?? about.path}
         />
       </section>

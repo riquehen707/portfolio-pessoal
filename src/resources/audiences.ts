@@ -36,11 +36,11 @@ export const audiencePages = [
     eyebrow: "Para agências",
     title: "Apoio digital para agências que precisam entregar com mais critério.",
     description:
-      "Entro como parceiro de execução para transformar estratégia, briefing e direção criativa em páginas, interfaces e estruturas digitais prontas para apresentar, publicar e evoluir.",
+      "Entro como parceiro de execução quando briefing, direção criativa e prazo precisam virar página publicável sem perder clareza.",
     fit: [
       "Quando o time está com demanda acima da capacidade interna.",
       "Quando o projeto precisa de front-end, landing page ou ajuste técnico com acabamento.",
-      "Quando a agência quer manter a direção estratégica e delegar a produção com confiança.",
+      "Quando a agência quer manter a direção e delegar a produção sem retrabalho desnecessário.",
     ],
     problems: [
       {
@@ -83,7 +83,7 @@ export const audiencePages = [
     ],
     contentTips: [
       "Mostre bastidores de estratégia, não só peças finais.",
-      "Publique estudos curtos explicando o problema antes da solução.",
+      "Publique estudos curtos explicando o problema antes da entrega.",
       "Transforme aprendizados de projeto em posts educativos para clientes futuros.",
       "Use comparativos: antes do briefing, depois da organização e depois da página.",
       "Crie conteúdo que prove método, não apenas portfólio.",
@@ -127,7 +127,12 @@ export const audiencePages = [
           "Contato direto com agências que já vendem estratégia, mas precisam fortalecer execução digital.",
       },
     ],
-    metrics: ["Prazo de entrega", "Aprovações por rodada", "Performance da página", "Clareza do CTA"],
+    metrics: [
+      "Prazo de entrega",
+      "Aprovações por rodada",
+      "Performance da página",
+      "Clareza do CTA",
+    ],
     ctaTitle: "Vamos avaliar se eu entro como parceiro de execução?",
     ctaDescription:
       "Uma conversa curta basta para entender escopo, prazo, materiais e nível de autonomia necessário.",
@@ -139,9 +144,9 @@ export const audiencePages = [
     eyebrow: "Para profissionais",
     title: "Presença digital para profissionais que vendem confiança antes da conversa.",
     description:
-      "Ajudo especialistas, prestadores de serviço e profissionais autônomos a explicar valor, organizar oferta e transformar interesse em contato qualificado.",
+      "Organizo oferta, página e caminho de contato para especialistas que ainda precisam explicar tudo no privado.",
     fit: [
-      "Quando sua indicação é boa, mas sua presença digital não sustenta a percepção de valor.",
+      "Quando sua indicação é boa, mas a página não explica por que escolher você.",
       "Quando o Instagram existe, mas não explica claramente como contratar.",
       "Quando você precisa parecer mais específico sem se tornar artificial.",
     ],
@@ -179,7 +184,7 @@ export const audiencePages = [
           "A página apresenta contexto, método, benefícios, provas e chamada para conversa sem exagero.",
       },
       {
-        title: "Preparar conteúdo de sustentação",
+        title: "Preparar conteúdo de apoio",
         description:
           "Ideias de posts, artigos ou materiais curtos passam a responder dúvidas reais do público.",
       },
@@ -204,8 +209,7 @@ export const audiencePages = [
       },
       {
         title: "Método e critérios",
-        description:
-          "Mostre como você conduz o trabalho e quais decisões toma antes da entrega.",
+        description: "Mostre como você conduz o trabalho e quais decisões toma antes da entrega.",
       },
       {
         title: "Contato sem fricção",
@@ -221,8 +225,7 @@ export const audiencePages = [
       },
       {
         title: "Conteúdo de autoridade",
-        description:
-          "Posts e materiais curtos que mostram raciocínio, não apenas disponibilidade.",
+        description: "Posts e materiais curtos que mostram raciocínio, não apenas disponibilidade.",
       },
       {
         title: "Tráfego leve para oferta clara",
@@ -230,7 +233,12 @@ export const audiencePages = [
           "Campanhas pequenas podem funcionar melhor quando a página já explica valor e próximo passo.",
       },
     ],
-    metrics: ["Cliques no contato", "Qualidade das conversas", "Dúvidas repetidas", "Origem dos leads"],
+    metrics: [
+      "Cliques no contato",
+      "Qualidade das conversas",
+      "Dúvidas repetidas",
+      "Origem dos leads",
+    ],
     ctaTitle: "Sua presença explica bem por que escolher você?",
     ctaDescription:
       "Vamos revisar mensagem, página e caminho de contato para encontrar o ajuste mais importante.",
@@ -308,7 +316,7 @@ export const audiencePages = [
       {
         title: "Provas de confiança",
         description:
-          "Depoimentos, fotos reais, equipe, estrutura, processo e garantias possíveis sustentam a decisão.",
+          "Depoimentos, fotos reais, equipe, estrutura, processo e garantias possíveis reduzem insegurança.",
       },
       {
         title: "WhatsApp orientado",
@@ -386,8 +394,7 @@ export const audiencePages = [
       },
       {
         title: "Conectar conteúdo e aquisição",
-        description:
-          "Conteúdo, lista, tráfego e remarketing apontam para a mesma tese comercial.",
+        description: "Conteúdo, lista, tráfego e remarketing apontam para a mesma tese comercial.",
       },
     ],
     contentTips: [
@@ -406,7 +413,7 @@ export const audiencePages = [
       {
         title: "Mecanismo e método",
         description:
-          "A pessoa precisa entender por que sua solução faz sentido e como ela organiza o caminho.",
+          "A pessoa precisa entender por que sua abordagem faz sentido e como ela organiza o caminho.",
       },
       {
         title: "Prova e objeções",

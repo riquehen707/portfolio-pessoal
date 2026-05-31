@@ -39,6 +39,16 @@ body {
     color var(--motion-fast);
 }
 
+.hr-site-main {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-panel-soft) 14%, transparent),
+      transparent 18rem
+    ),
+    var(--page-background);
+}
+
 .hr-font-system.hr-font-system {
   --font-heading: "Satoshi", "Source Sans 3", system-ui, sans-serif;
   --font-body: "Satoshi", "Source Sans 3", system-ui, sans-serif;
@@ -78,6 +88,21 @@ select {
 
 .hr-site-content {
   width: min(100%, var(--grid-max-width-wide));
+}
+
+.hr-site-body:has(.demoCanvasRoot) > header,
+.hr-site-body:has(.demoCanvasRoot) > footer {
+  display: none;
+}
+
+.hr-site-body:has(.demoCanvasRoot) .hr-site-main {
+  padding: 0;
+  background: transparent;
+}
+
+.hr-site-body:has(.demoCanvasRoot) .hr-site-content {
+  width: 100%;
+  max-width: none;
 }
 
 h1,
@@ -169,7 +194,7 @@ button:focus-visible,
 }
 
 ::selection {
-  background: rgba(255, 215, 0, 0.24);
+  background: rgba(230, 201, 74, 0.22);
   color: var(--neutral-on-background-strong);
 }
 

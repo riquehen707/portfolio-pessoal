@@ -102,7 +102,7 @@
 }
 
 .filterButtonActive {
-  border-color: rgba(255, 215, 0, 0.24);
+  border-color: color-mix(in srgb, var(--brand-on-background-medium) 20%, var(--border-subtle));
   background: var(--surface-ghost);
 }
 
@@ -147,7 +147,7 @@
 
 @media (hover: hover) and (pointer: fine) {
   .filterButton:hover {
-    border-color: rgba(255, 215, 0, 0.16);
+    border-color: color-mix(in srgb, var(--brand-on-background-medium) 14%, var(--border-subtle));
     background: var(--surface-ghost);
   }
 

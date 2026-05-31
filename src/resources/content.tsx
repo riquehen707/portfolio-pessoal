@@ -112,8 +112,11 @@ const about: About = {
         timeframe: "2023 - Presente",
         role: "Fundador | estratégia, design e desenvolvimento",
         achievements: [
-          <>Projetos para estruturar presença digital, operação e percepção de valor.</>,
-          <>Entrega conectando estética, lógica de negócio e execução técnica no mesmo sistema.</>,
+          <>Projetos para corrigir página, oferta, rotina e presença digital.</>,
+          <>
+            Entrega que junta leitura comercial, interface e implementação sem separar demais as
+            partes.
+          </>,
         ],
         images: [],
       },
@@ -130,7 +133,7 @@ const about: About = {
       {
         name: "Foco atual",
         description: (
-          <>Negócios locais, sistemas enxutos e marcas que precisam crescer com precisão.</>
+          <>Negócios locais, sistemas enxutos e operações que precisam parar de improvisar.</>
         ),
       },
     ],
@@ -203,16 +206,15 @@ const technicalApproach: TechnicalPage = {
 
 const blog: Blog = {
   path: "/blog",
-  label: "Insights",
-  title: `Insights | ${person.name}`,
-  description:
-    "Artigos sobre marketing, páginas e aquisição para negócios de serviço.",
+  label: "Biblioteca",
+  title: `Biblioteca | ${person.name}`,
+  description: "Guias, trilhas, temas e artigos para estudar, aplicar e revisar com mais ordem.",
 };
 
 const work: Work = {
   path: "/work",
-  label: "Projetos",
-  title: `Projetos | ${person.name}`,
+  label: "Laboratório",
+  title: `Laboratório | ${person.name}`,
   description: workStrategy.hero.subheadline,
 };
 

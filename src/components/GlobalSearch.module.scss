@@ -8,9 +8,9 @@
   width: min(22rem, 100%);
   min-height: 3rem;
   padding: 0.42rem 0.78rem;
-  border: 1px solid color-mix(in srgb, var(--border-subtle) 92%, transparent);
+  border: 1px solid color-mix(in srgb, var(--border-subtle) 92%, var(--neutral-on-background-weak));
   border-radius: 0.55rem;
-  background: var(--nav-surface-solid);
+  background: color-mix(in srgb, var(--nav-surface-solid) 96%, var(--surface-panel-strong));
   color: var(--neutral-on-background-strong);
   cursor: pointer;
   font: inherit;
@@ -30,9 +30,9 @@
   place-items: center;
   width: 2rem;
   height: 2rem;
-  border: 1px solid color-mix(in srgb, var(--brand-on-background-medium) 22%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brand-on-background-medium) 14%, var(--border-subtle));
   border-radius: 0.45rem;
-  background: color-mix(in srgb, var(--brand-background-strong) 11%, transparent);
+  background: color-mix(in srgb, var(--surface-panel-soft) 92%, var(--page-background));
 }
 
 .triggerIcon {
@@ -57,7 +57,7 @@
 
 .triggerHint {
   overflow: hidden;
-  color: var(--neutral-on-background-weak);
+  color: var(--neutral-on-background-medium);
   font-size: 0.72rem;
   line-height: 1.2;
   text-overflow: ellipsis;
@@ -72,7 +72,7 @@
   place-items: start center;
   padding: min(10vh, 5rem) 1rem 1rem;
   background: color-mix(in srgb, var(--page-background) 94%, #000 6%);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(18px) saturate(115%);
 }
 
 .dialog {
@@ -81,7 +81,7 @@
   width: min(47rem, 100%);
   max-height: min(45rem, calc(100svh - 2rem));
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--border-subtle) 88%, var(--neutral-on-background-weak));
+  border: 1px solid color-mix(in srgb, var(--border-subtle) 78%, var(--neutral-on-background-weak));
   border-radius: 0.65rem;
   background: color-mix(in srgb, var(--surface-panel-strong) 94%, var(--page-background));
   box-shadow:
@@ -134,11 +134,11 @@
   gap: 0.8rem;
   margin: 0.95rem 1rem 0;
   padding: 0.78rem 0.84rem;
-  border: 1px solid color-mix(in srgb, var(--brand-on-background-medium) 26%, var(--border-subtle));
+  border: 1px solid color-mix(in srgb, var(--brand-on-background-medium) 16%, var(--border-subtle));
   border-radius: 0.55rem;
   background: var(--page-background);
   box-shadow:
-    0 0 0 3px color-mix(in srgb, var(--brand-background-strong) 8%, transparent),
+    0 0 0 3px color-mix(in srgb, var(--brand-background-strong) 5%, transparent),
     inset 0 1px 0 color-mix(in srgb, white 6%, transparent);
 }
 
@@ -159,7 +159,7 @@
 }
 
 .input::placeholder {
-  color: var(--neutral-on-background-weak);
+  color: var(--neutral-on-background-medium);
 }
 
 .closeButton {
@@ -173,6 +173,14 @@
   font-family: var(--font-label);
   font-size: 0.74rem;
   font-weight: 600;
+}
+
+.trigger:focus-visible,
+.quickChip:focus-visible,
+.closeButton:focus-visible,
+.result:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--brand-on-background-medium) 42%, transparent);
+  outline-offset: 3px;
 }
 
 .intentRow,
@@ -212,8 +220,8 @@
 
 .intentChip {
   padding: 0.34rem 0.55rem;
-  color: var(--brand-on-background-strong);
-  background: color-mix(in srgb, var(--brand-background-strong) 12%, var(--surface-panel-soft));
+  color: color-mix(in srgb, var(--brand-on-background-strong) 82%, var(--neutral-on-background-strong));
+  background: color-mix(in srgb, var(--brand-background-strong) 7%, var(--surface-panel-soft));
   font-family: var(--font-label);
   font-size: 0.73rem;
   font-weight: 650;
@@ -276,8 +284,8 @@
 }
 
 .result[data-active="true"] {
-  border-color: color-mix(in srgb, var(--brand-on-background-medium) 30%, transparent);
-  background: color-mix(in srgb, var(--brand-background-strong) 10%, var(--surface-panel-soft));
+  border-color: color-mix(in srgb, var(--brand-on-background-medium) 20%, var(--border-subtle));
+  background: color-mix(in srgb, var(--brand-background-strong) 6%, var(--surface-panel-strong));
   transform: translateX(2px);
 }
 
@@ -404,14 +412,14 @@
 
 @include mixins.hover-fine {
   .trigger:hover {
-    border-color: color-mix(in srgb, var(--brand-on-background-medium) 32%, var(--border-subtle));
+    border-color: color-mix(in srgb, var(--brand-on-background-medium) 22%, var(--border-subtle));
     background: color-mix(in srgb, var(--surface-panel-strong) 88%, var(--page-background));
     transform: translateY(-1px);
   }
 
   .quickChip:hover {
-    border-color: color-mix(in srgb, var(--brand-on-background-medium) 34%, transparent);
-    background: color-mix(in srgb, var(--brand-background-strong) 12%, var(--surface-panel-soft));
+    border-color: color-mix(in srgb, var(--brand-on-background-medium) 22%, var(--border-subtle));
+    background: color-mix(in srgb, var(--brand-background-strong) 7%, var(--surface-panel-soft));
     color: var(--neutral-on-background-strong);
     transform: translateY(-1px);
   }
@@ -433,7 +441,7 @@
     min-height: 3.25rem;
     padding: 0.48rem 0.72rem;
     border-radius: 0.55rem;
-    background: color-mix(in srgb, var(--nav-surface-solid) 94%, var(--page-background));
+    background: color-mix(in srgb, var(--nav-surface-solid) 99%, var(--page-background));
   }
 
   .triggerIconShell {
@@ -442,6 +450,7 @@
   }
 
   .triggerHint {
+    display: block;
     font-size: 0.7rem;
   }
 

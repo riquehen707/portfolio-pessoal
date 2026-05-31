@@ -5,17 +5,44 @@ import { getAllBlogPosts } from "@/app/blog/postData";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { baseURL, person } from "@/resources";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
-import { getKnowledgeMap } from "@/lib/knowledge";
+import { getKnowledgeMap, knowledgeStageFlow } from "@/lib/knowledge";
 
 import styles from "./mapa.module.scss";
 
 const pageTitle = "Mapa de Aprendizado";
 const pageDescription =
-  "Uma forma simples de navegar pelos conteudos do basico ao avancado, entendendo o que vem antes, o que vem depois e quais caminhos seguir.";
+  "Visao geral para escolher uma area, seguir uma trilha e encontrar a proxima leitura sem depender de uma lista cronologica.";
 const pagePath = "/mapa";
 
+const structureLevels = [
+  {
+    label: "Area",
+    title: "Grande tema",
+    description: "Campo de conhecimento, como Marketing, Design ou Renda Digital.",
+  },
+  {
+    label: "Trilha",
+    title: "Sequencia recomendada",
+    description: "Ordem de estudo dentro de uma area.",
+  },
+  {
+    label: "Modulo",
+    title: "Etapa da trilha",
+    description: "Agrupa artigos que resolvem uma parte do aprendizado.",
+  },
+  {
+    label: "Artigo",
+    title: "Leitura especifica",
+    description: "Conteudo pratico para uma pergunta ou problema.",
+  },
+] as const;
+
+function formatCount(count: number, singular: string, plural: string) {
+  return `${count} ${count === 1 ? singular : plural}`;
+}
+
 export async function generateMetadata() {
-  const image = buildOgImage("Mapa de Aprendizado", "conteudos do basico ao avancado");
+  const image = buildOgImage("Mapa de Aprendizado", "areas, trilhas e modulos");
   const generatedMeta = Meta.generate({
     title: pageTitle,
     description: pageDescription,
@@ -43,10 +70,6 @@ export async function generateMetadata() {
 export default function KnowledgeMapPage() {
   const posts = getAllBlogPosts();
   const mapItems = getKnowledgeMap(posts);
-  const totalPublished = mapItems.reduce((sum, item) => sum + item.publishedCount, 0);
-  const totalPlanned = mapItems.reduce((sum, item) => sum + item.plannedCount, 0);
-  const totalEssentials = mapItems.reduce((sum, item) => sum + item.essentialCount, 0);
-
   return (
     <Column className={styles.page} fillWidth paddingTop="24" gap="32">
       <Schema
@@ -82,47 +105,82 @@ export default function KnowledgeMapPage() {
         </div>
 
         <div className={styles.heroActions}>
-          <Link className={styles.primaryAction} href="/trilhas/renda-digital#diagnostico">
-            Comecar pelo diagnostico
-          </Link>
-          <Link className={styles.secondaryAction} href="/blog">
-            Ver biblioteca geral
+          <Link className={styles.primaryAction} href="/trilhas">
+            Ver trilhas por area
           </Link>
         </div>
       </section>
 
-      <section className={styles.stats} aria-label="Resumo do mapa">
-        <div>
-          <span>{totalPublished}</span>
-          <p>publicados</p>
+      <section className={styles.flowSection} aria-labelledby="flow-title">
+        <div className={styles.sectionHeader}>
+          <Text className={styles.kicker} variant="label-default-s" onBackground="brand-strong">
+            Estrutura
+          </Text>
+          <Heading id="flow-title" as="h2" variant="heading-strong-xl">
+            Como a biblioteca se organiza.
+          </Heading>
         </div>
-        <div>
-          <span>{totalEssentials}</span>
-          <p>essenciais</p>
+
+        <ol className={styles.flowList}>
+          {structureLevels.map((level, index) => (
+            <li key={level.label}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <strong>{level.label}</strong>
+              <small>{level.description}</small>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className={styles.journeySection} aria-labelledby="journey-title">
+        <div className={styles.sectionHeader}>
+          <Text className={styles.kicker} variant="label-default-s" onBackground="brand-strong">
+            Ordem de aprendizado
+          </Text>
+          <Heading id="journey-title" as="h2" variant="heading-strong-xl">
+            Comece pela base. Depois avance para escolha, pratica e casos.
+          </Heading>
         </div>
-        <div>
-          <span>{totalPlanned}</span>
-          <p>em construcao</p>
-        </div>
+
+        <ol className={styles.stageRail}>
+          {knowledgeStageFlow.map((stage, index) => (
+            <li key={stage.stage}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <strong>{stage.label}</strong>
+              <small>{stage.description}</small>
+            </li>
+          ))}
+        </ol>
       </section>
 
       <section className={styles.areaSection} aria-labelledby="areas-title">
         <div className={styles.sectionHeader}>
           <Text className={styles.kicker} variant="label-default-s" onBackground="brand-strong">
-            Caminhos principais
+            Areas
           </Text>
           <Heading id="areas-title" as="h2" variant="heading-strong-xl">
-            Escolha uma area para seguir.
+            Escolha uma area. Depois siga a trilha.
           </Heading>
         </div>
 
         <div className={styles.areaGrid}>
           {mapItems.map(
-            ({ area, publishedCount, plannedCount, essentialCount, modules }, index) => (
+            (
+              {
+                area,
+                publishedCount,
+                moduleCount,
+                readingMinutes,
+                modules,
+                startItem,
+                stageCounts,
+              },
+              index,
+            ) => (
               <Link className={styles.areaCard} href={area.path} key={area.slug}>
                 <div className={styles.areaCardTop}>
                   <span className={styles.areaIndex}>{String(index + 1).padStart(2, "0")}</span>
-                  <span className={styles.areaCount}>{publishedCount} publicados</span>
+                  <span className={styles.areaCount}>Area</span>
                 </div>
 
                 <div className={styles.areaCardCopy}>
@@ -138,50 +196,46 @@ export default function KnowledgeMapPage() {
                   </Text>
                 </div>
 
-                <div className={styles.moduleChips} aria-label={`Modulos de ${area.title}`}>
+                <div className={styles.trailPreview}>
+                  <span>Comece por</span>
+                  <strong>{startItem?.title ?? `Trilha de ${area.title}`}</strong>
+                  <small>
+                    {formatCount(moduleCount, "modulo", "modulos")} -{" "}
+                    {formatCount(publishedCount, "artigo", "artigos")}
+                    {readingMinutes > 0 ? ` - ${readingMinutes} min de leitura` : ""}
+                  </small>
+                </div>
+
+                <div
+                  className={styles.moduleChips}
+                  aria-label={`Modulos da trilha de ${area.title}`}
+                >
                   {modules.slice(0, 3).map((module) => (
                     <span key={module.slug}>{module.title}</span>
                   ))}
                 </div>
 
+                {stageCounts.length > 0 ? (
+                  <div
+                    className={styles.stageChips}
+                    aria-label={`Etapas da trilha de ${area.title}`}
+                  >
+                    {stageCounts.slice(0, 3).map((stage) => (
+                      <span key={stage.stage}>
+                        {stage.label}: {stage.count}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+
                 <div className={styles.areaMeta}>
-                  <span>{essentialCount} essenciais</span>
-                  <span>{plannedCount} planejados</span>
-                  <strong>{area.slug === "projetos" ? "Ver projetos" : "Ver caminho"}</strong>
+                  <span>Sequencia recomendada</span>
+                  <strong>{area.slug === "projetos" ? "Abrir area" : "Abrir trilha"}</strong>
                 </div>
               </Link>
             ),
           )}
         </div>
-      </section>
-
-      <section className={styles.flowSection} aria-labelledby="flow-title">
-        <div className={styles.sectionHeader}>
-          <Text className={styles.kicker} variant="label-default-s" onBackground="brand-strong">
-            Progressao
-          </Text>
-          <Heading id="flow-title" as="h2" variant="heading-strong-xl">
-            Uma ordem simples para nao se perder.
-          </Heading>
-        </div>
-
-        <ol className={styles.flowList}>
-          {[
-            "Diagnostico",
-            "Aprendizado",
-            "Ambiente digital",
-            "Habilidades-base",
-            "Ramificacao",
-            "Projetos",
-            "Monetizacao",
-            "Ativos",
-          ].map((step, index) => (
-            <li key={step}>
-              <span>{index}</span>
-              <strong>{step}</strong>
-            </li>
-          ))}
-        </ol>
       </section>
     </Column>
   );

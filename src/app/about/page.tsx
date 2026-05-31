@@ -20,94 +20,113 @@ import { type IconName } from "@/resources/icons";
 import {
   about,
   baseURL,
+  blog,
   contentStrategy,
   person,
-  simulationPage,
-  social,
+  productsPage,
+  servicesPage,
   work,
 } from "@/resources";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 
 const aboutStrategy = contentStrategy.pages.about;
+const aboutPageDescription =
+  "Como Henrique Reis lê oferta, página, conteúdo e atendimento antes de recomendar mais volume.";
 
 const profileFacts = [
   {
-    label: "Foco",
-    value: "Negócios locais, prestadores de serviço e operações de atendimento.",
+    label: "O que faço",
+    value: "Procuro onde a pessoa entende, desconfia ou abandona.",
   },
   {
-    label: "Atuação",
-    value: "Marketing, páginas e sistemas digitais.",
+    label: "Como decido",
+    value: "Mexo no ponto que trava a próxima ação.",
   },
   {
-    label: "Entrega",
-    value: "Aquisição, recorte comercial e organização de leads.",
+    label: "O que evito",
+    value: "Aumentar campanha quando a página ainda não explica.",
   },
 ] as const;
 
 const thoughtBlocks = [
-  "Divulgação sozinha não resolve crescimento.",
-  "Oferta, página e atendimento precisam conversar.",
-  "Organizo a base antes de aumentar complexidade.",
+  "Prefiro corrigir uma oferta ruim antes de aumentar tráfego.",
+  "Se o atendimento quebra, marketing vira desperdício.",
+  "Nem todo negócio precisa postar mais. Às vezes precisa explicar melhor o que já vende.",
 ] as const;
 
 const fitCards = [
   {
     icon: "person" as IconName,
-    title: "Prestadores de serviço",
-    description: "Psicologos, advogados, consultores e serviços especializados.",
+    title: "Oferta e mensagem",
+    description: "Quando a pessoa chega, mas não entende por que deveria escolher você.",
   },
   {
     icon: "calendar" as IconName,
-    title: "Operações de atendimento",
-    description: "Clínicas, estética, saúde, agenda e recorrência.",
+    title: "Página e conteúdo",
+    description: "Quando existe divulgação, mas a explicação não conduz para uma ação clara.",
   },
   {
     icon: "package" as IconName,
-    title: "Negócios locais",
-    description: "Lojas, serviços locais e marcas que precisam captar melhor.",
+    title: "Atendimento e rotina",
+    description: "Quando leads aparecem, mas se perdem no WhatsApp, agenda ou follow-up.",
   },
 ] as const;
 
 const methodBlocks = [
   {
     number: "01",
-    title: "Presença e aquisição",
-    description: "Sites, páginas, canais de entrada e oferta.",
-    items: ["Site", "Landing page", "Canal de entrada"],
+    title: "Procurar o vazamento",
+    description: "A pessoa chega? Entende? Confia? Chama? Recebe resposta?",
+    items: ["Procura", "Página", "Conversa"],
   },
   {
     number: "02",
-    title: "Conversa e decisão",
-    description: "WhatsApp, formulário, proposta, atendimento e follow-up.",
-    items: ["WhatsApp", "Formulário", "Follow-up"],
+    title: "Mexer no menor ponto útil",
+    description: "Uma oferta, uma seção da página, um CTA ou uma prova melhor.",
+    items: ["Oferta", "CTA", "Prova"],
   },
   {
     number: "03",
-    title: "Rotina e controle",
-    description: "Sistemas simples, dados, automações e acompanhamento.",
-    items: ["Sistemas", "Dados", "Acompanhamento"],
+    title: "Só depois pensar em volume",
+    description: "Mais conteúdo, tráfego ou automação entram quando a base já responde melhor.",
+    items: ["Conteúdo", "Tráfego", "Automação"],
   },
 ] as const;
 
-const relatedProjects = [
+const aboutNextLinks = [
+  { href: blog.path, label: "Ler biblioteca" },
+  { href: work.path, label: "Ver laboratório" },
+  { href: productsPage.path, label: "Ver ferramentas" },
+] as const;
+
+const aboutPathCards = [
   {
-    title: "Simulador de investimento",
-    type: "Diagnóstico e calculo",
-    summary: "Leitura inicial para decidir antes de aumentar verba.",
-    href: simulationPage.path,
+    label: "Raciocínio",
+    title: "Quero entender como Henrique pensa",
+    description: "Leia as opiniões que aparecem antes de qualquer escopo.",
+    href: "#como-penso",
+    cta: "Ver raciocínio",
   },
   {
-    title: "Página para clínica de estética",
-    type: "Página e captação",
-    summary: "Estrutura pensada para agenda, recorrência e contato simples.",
-    href: "/servicos/landing-page-para-estetica",
+    label: "Processo",
+    title: "Quero ver exemplos práticos",
+    description: "Veja decisões pequenas, registros e aprendizados em andamento.",
+    href: work.path,
+    cta: "Ver laboratório",
   },
   {
-    title: "Integrações para atendimento",
-    type: "Sistema e operação",
-    summary: "Fluxos, automações e organização para leads e acompanhamento.",
-    href: "/servicos/integracoes-automacoes",
+    label: "Estudo",
+    title: "Quero aprender antes de executar",
+    description: "Use a biblioteca para revisar o problema antes de agir.",
+    href: blog.path,
+    cta: "Ir para biblioteca",
+  },
+  {
+    label: "Ajuda",
+    title: "Quero avaliar contratação",
+    description: "Veja se o gargalo já pede ajuda externa.",
+    href: servicesPage.path,
+    cta: "Entender consultoria",
   },
 ] as const;
 
@@ -115,7 +134,7 @@ export async function generateMetadata() {
   const image = buildOgImage(about.title);
   const generatedMeta = Meta.generate({
     title: about.title,
-    description: about.description,
+    description: aboutPageDescription,
     baseURL,
     image,
     path: about.path,
@@ -136,16 +155,13 @@ export async function generateMetadata() {
 }
 
 export default function About() {
-  const whatsappLink =
-    social.find((item) => item.name === "WhatsApp")?.link ?? `mailto:${person.email}`;
-
   return (
     <Column className={styles.page} maxWidth="l" gap="48" paddingTop="8">
       <Schema
         as="webPage"
         baseURL={baseURL}
         title={about.title}
-        description={about.description}
+        description={aboutPageDescription}
         path={about.path}
         image={`/api/og/generate?title=${encodeURIComponent(about.title)}`}
         author={{
@@ -169,13 +185,19 @@ export default function About() {
               Sobre
             </Text>
             <Heading as="h1" variant="display-strong-l" wrap="balance">
-              Estratégia, páginas e sistemas para vender com mais direção.
+              Sou Henrique Reis. Eu organizo o que acontece antes da venda.
             </Heading>
             <div className={styles.accentLine} />
-            <Text className={styles.heroLead} variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
-              Presença, captação e acompanhamento no mesmo raciocínio.
+            <Text
+              className={styles.heroLead}
+              variant="heading-default-m"
+              onBackground="neutral-weak"
+              wrap="balance"
+            >
+              Olho para oferta, página, conteúdo e atendimento para descobrir onde a decisão trava.
+              Quase nunca começo perguntando qual canal falta.
             </Text>
-            <AboutScrollButton targetId="metodo">Ver como trabalho</AboutScrollButton>
+            <AboutScrollButton targetId="caminhos">Escolher caminho</AboutScrollButton>
           </Column>
 
           <div className={styles.profileCard}>
@@ -192,10 +214,18 @@ export default function About() {
             <div className={styles.profileFacts}>
               {profileFacts.map((item) => (
                 <div className={styles.profileFact} key={item.label}>
-                  <Text className={styles.factLabel} variant="label-default-s" onBackground="neutral-weak">
+                  <Text
+                    className={styles.factLabel}
+                    variant="label-default-s"
+                    onBackground="neutral-weak"
+                  >
                     {item.label}
                   </Text>
-                  <Text className={styles.factValue} variant="body-default-m" onBackground="neutral-weak">
+                  <Text
+                    className={styles.factValue}
+                    variant="body-default-m"
+                    onBackground="neutral-weak"
+                  >
                     {item.value}
                   </Text>
                 </div>
@@ -204,13 +234,51 @@ export default function About() {
           </div>
         </Grid>
       </section>
-      <section className={styles.section} id="como-penso">
+
+      <section className={styles.section} id="caminhos">
         <div className={styles.sectionHeader}>
-          <Text className={styles.sectionKicker} variant="label-default-s" onBackground="brand-strong">
-            Sobre
+          <Text
+            className={styles.sectionKicker}
+            variant="label-default-s"
+            onBackground="brand-strong"
+          >
+            Caminhos
           </Text>
           <Heading as="h2" variant="display-strong-s">
-            Como penso
+            Escolha pelo que você quer entender.
+          </Heading>
+          <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
+            Sobre não precisa ser fim de navegação.
+          </Text>
+        </div>
+
+        <div className={styles.pathGrid}>
+          {aboutPathCards.map((item) => (
+            <a className={styles.pathCard} href={item.href} key={item.title}>
+              <span className={styles.pathLabel}>{item.label}</span>
+              <Heading as="h3" variant="heading-strong-m">
+                {item.title}
+              </Heading>
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                {item.description}
+              </Text>
+              <span className={styles.pathCta}>{item.cta}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.section} id="como-penso">
+        <div className={styles.sectionHeader}>
+          <Text
+            className={styles.sectionKicker}
+            variant="label-default-s"
+            onBackground="brand-strong"
+          >
+            O que observo
+          </Text>
+          <Heading as="h2" variant="display-strong-s">
+            Algumas quebras aparecem o tempo todo.
           </Heading>
         </div>
 
@@ -227,14 +295,18 @@ export default function About() {
 
       <section className={styles.section} id="foco">
         <div className={styles.sectionHeader}>
-          <Text className={styles.sectionKicker} variant="label-default-s" onBackground="brand-strong">
-            Foco
+          <Text
+            className={styles.sectionKicker}
+            variant="label-default-s"
+            onBackground="brand-strong"
+          >
+            Onde entro
           </Text>
           <Heading as="h2" variant="display-strong-s">
-            Para quem faço sentido
+            Quando mais procura não vira conversa boa.
           </Heading>
           <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
-            Para quem precisa captar, atender e vender com mais clareza.
+            O gargalo costuma aparecer antes da venda.
           </Text>
         </div>
 
@@ -259,11 +331,15 @@ export default function About() {
 
       <section className={styles.section} id="metodo">
         <div className={styles.sectionHeader}>
-         <Text className={styles.sectionKicker} variant="label-default-s" onBackground="brand-strong">
-            Método
+          <Text
+            className={styles.sectionKicker}
+            variant="label-default-s"
+            onBackground="brand-strong"
+          >
+            Como penso
           </Text>
           <Heading as="h2" variant="display-strong-s">
-            O que normalmente organizo
+            Eu organizo antes de escalar.
           </Heading>
         </div>
 
@@ -289,63 +365,32 @@ export default function About() {
         </Grid>
       </section>
 
-      <section className={styles.section} id="projetos">
-        <div className={styles.sectionHeader}>
-          <Text className={styles.sectionKicker} variant="label-default-s" onBackground="brand-strong">
-            Projetos
-          </Text>
-          <Heading as="h2" variant="display-strong-s">
-            Projetos relacionados
-          </Heading>
-          <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
-            Páginas, sistemas e aquisição em prática.
-          </Text>
-        </div>
-
-        <Grid className={styles.projectsGrid} columns="3" m={{ columns: 1 }} gap="20">
-          {relatedProjects.map((project) => (
-            <article className={styles.projectItem} key={project.title}>
-              <Text className={styles.projectType} variant="label-default-s" onBackground="neutral-weak">
-                {project.type}
-              </Text>
-              <Heading as="h3" variant="heading-strong-m">
-                {project.title}
-              </Heading>
-              <Text variant="body-default-s" onBackground="neutral-weak">
-                {project.summary}
-              </Text>
-              <SmartLink href={project.href} suffixIcon="arrowRight">
-                Ver projeto
-              </SmartLink>
-            </article>
-          ))}
-        </Grid>
-
-        <Button href={work.path} variant="secondary" size="m" arrowIcon>
-          Ver todos os projetos
-        </Button>
-      </section>
-
       <section className={styles.section} id="contato">
         <div className={styles.sectionHeader}>
-          <Text className={styles.sectionKicker} variant="label-default-s" onBackground="brand-strong">
-            Contato
+          <Text
+            className={styles.sectionKicker}
+            variant="label-default-s"
+            onBackground="brand-strong"
+          >
+            Próximo passo
           </Text>
           <Heading as="h2" variant="display-strong-s">
-            Antes de investir mais, vale entender a estrutura.
+            Veja se o problema combina com meu jeito de trabalhar.
           </Heading>
           <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
-            Simule antes de aumentar verba ou redesenhar páginas.
+            Se a trava está na oferta, página, conteúdo ou atendimento, comece pela consultoria.
           </Text>
         </div>
 
         <Row className={styles.ctaRow} gap="12" wrap>
-          <Button href={simulationPage.path} variant="primary" size="m" arrowIcon>
-            Ver simulação
+          <Button href={servicesPage.path} variant="primary" size="m" arrowIcon>
+            Entender consultoria
           </Button>
-          <Button href={whatsappLink} variant="secondary" size="m" prefixIcon="whatsapp">
-            Conversar
-          </Button>
+          {aboutNextLinks.map((link) => (
+            <SmartLink href={link.href} suffixIcon="arrowRight" key={link.href}>
+              {link.label}
+            </SmartLink>
+          ))}
         </Row>
       </section>
     </Column>

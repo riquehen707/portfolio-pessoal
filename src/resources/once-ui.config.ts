@@ -29,6 +29,7 @@ const routes: RoutesConfig = {
   "/blog/temas": true,
   "/mapa": true,
   "/trilhas": true,
+  "/modelos": true,
   "/contact": false,
   "/servicos": true,
   [simulationPage.path]: true,

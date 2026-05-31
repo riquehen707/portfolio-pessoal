@@ -1,6 +1,8 @@
 import { type MetadataRoute } from "next";
 
 import { getBlogCollectionIndex } from "@/app/blog/postData";
+import { demoRegistry } from "@/features/demos/data/demo-registry";
+import { demoSegments } from "@/features/demos/data/demo-segments";
 import { publicTrailAreas } from "@/lib/knowledgeConfig";
 import { getPosts } from "@/utils/utils";
 import {
@@ -44,6 +46,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/blog/temas": 0.74,
     "/mapa": 0.82,
     "/trilhas": 0.78,
+    "/modelos": 0.7,
     "/contact": 0.88,
     "/about": 0.82,
     "/servicos": 0.84,
@@ -90,9 +93,29 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.76,
   }));
 
+  const demoSegmentRoutes = demoSegments
+    .filter((segment) => segment.indexable)
+    .map((segment) => ({
+      url: `${baseURL}/modelos/${segment.slug}`,
+      lastModified: today,
+      changeFrequency: "monthly" as const,
+      priority: 0.62,
+    }));
+
+  const demoRoutes = demoRegistry
+    .filter((demo) => demo.indexable)
+    .map((demo) => ({
+      url: `${baseURL}${demo.route}`,
+      lastModified: today,
+      changeFrequency: "monthly" as const,
+      priority: 0.56,
+    }));
+
   return [
     ...routes,
     ...trailRoutes,
+    ...demoSegmentRoutes,
+    ...demoRoutes,
     ...feeds,
     ...audienceLandings,
     ...serviceLandings,

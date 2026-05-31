@@ -3,7 +3,7 @@
   margin: 2.25rem 0;
   padding: 1.15rem 0 0;
   border-top: 1px solid var(--line-subtle);
-  color: var(--neutral-on-background-medium);
+  color: color-mix(in srgb, var(--neutral-on-background-strong) 82%, var(--neutral-on-background-medium));
 }
 
 .block + .block {
@@ -44,7 +44,7 @@
 .description {
   max-width: var(--measure-article);
   margin: 0.2rem 0 0;
-  color: var(--neutral-on-background-medium);
+  color: color-mix(in srgb, var(--neutral-on-background-strong) 82%, var(--neutral-on-background-medium));
   font-size: 1rem;
   font-weight: var(--type-weight-body);
   line-height: 1.76;
@@ -76,7 +76,7 @@
   grid-template-columns: auto minmax(0, 1fr);
   gap: 0.65rem;
   align-items: baseline;
-  color: var(--neutral-on-background-medium);
+  color: color-mix(in srgb, var(--neutral-on-background-strong) 82%, var(--neutral-on-background-medium));
   line-height: 1.74;
 }
 
@@ -104,7 +104,7 @@
   width: 0.36rem;
   height: 0.36rem;
   border-radius: 999px;
-  background: var(--color-accent-gold);
+  background: var(--brand-on-background-medium);
   transform: translateY(-0.05rem);
 }
 
@@ -126,8 +126,8 @@
 .checkMarker::before {
   width: 0.45rem;
   height: 0.72rem;
-  border-right: 1.5px solid var(--color-accent-gold);
-  border-bottom: 1.5px solid var(--color-accent-gold);
+  border-right: 1.5px solid var(--brand-on-background-medium);
+  border-bottom: 1.5px solid var(--brand-on-background-medium);
   content: "";
   transform: rotate(42deg) translate(-0.04rem, -0.05rem);
 }
@@ -159,7 +159,7 @@
   justify-content: center;
   min-width: 1.9rem;
   height: 1.45rem;
-  border-bottom: 1px solid var(--color-accent-gold);
+  border-bottom: 1px solid var(--line-accent);
   color: var(--neutral-on-background-weak);
   font-family: var(--font-technical);
   font-size: 0.7rem;
@@ -192,7 +192,7 @@
   margin: 0;
   padding: 0.95rem 0 0.95rem 2.25rem;
   border-bottom: 1px solid var(--line-muted);
-  color: var(--neutral-on-background-medium);
+  color: color-mix(in srgb, var(--neutral-on-background-strong) 82%, var(--neutral-on-background-medium));
   line-height: 1.78;
 }
 
@@ -226,7 +226,7 @@
   margin-top: 0.48rem;
   margin-left: 0.48rem;
   border: 0;
-  background: var(--color-accent-gold);
+  background: var(--brand-on-background-medium);
 }
 
 .checklistBlock .content :global(li)::before {
@@ -239,8 +239,8 @@
   top: 1.2rem;
   width: 0.4rem;
   height: 0.65rem;
-  border-right: 1.5px solid var(--color-accent-gold);
-  border-bottom: 1.5px solid var(--color-accent-gold);
+  border-right: 1.5px solid var(--brand-on-background-medium);
+  border-bottom: 1.5px solid var(--brand-on-background-medium);
   content: "";
   transform: rotate(42deg);
 }
@@ -279,7 +279,7 @@
   content: counter(editorial-step, decimal-leading-zero);
   width: 1.8rem;
   border: 0;
-  border-bottom: 1px solid var(--color-accent-gold);
+  border-bottom: 1px solid var(--line-accent);
   border-radius: 0;
 }
 
@@ -303,7 +303,7 @@
 .definitionText,
 .quote {
   margin: 0;
-  color: var(--neutral-on-background-medium);
+  color: color-mix(in srgb, var(--neutral-on-background-strong) 84%, var(--neutral-on-background-medium));
   font-size: clamp(1.05rem, 1.3vw, 1.18rem);
   line-height: 1.86;
 }
@@ -346,7 +346,7 @@
 .tableIntro {
   max-width: var(--measure-article);
   margin: 0 0 0.8rem;
-  color: var(--neutral-on-background-medium);
+  color: color-mix(in srgb, var(--neutral-on-background-strong) 82%, var(--neutral-on-background-medium));
   font-size: 0.98rem;
   line-height: 1.65;
 }
@@ -355,7 +355,7 @@
   overflow: hidden;
   border: 1px solid var(--line-subtle);
   border-radius: 0.5rem;
-  background: var(--surface-panel-soft);
+  background: color-mix(in srgb, var(--surface-panel) 84%, var(--page-background));
 }
 
 .tableViewport,
@@ -412,7 +412,7 @@
 
 .table td,
 .tableFallback :global(td) {
-  color: var(--neutral-on-background-medium);
+  color: color-mix(in srgb, var(--neutral-on-background-strong) 78%, var(--neutral-on-background-medium));
   font-size: 0.92rem;
   line-height: 1.55;
 }
@@ -422,7 +422,7 @@
 }
 
 .table tbody tr:nth-child(even) {
-  background: color-mix(in srgb, var(--surface-panel) 38%, transparent);
+  background: color-mix(in srgb, var(--surface-panel-strong) 44%, transparent);
 }
 
 .tableCell,
@@ -454,7 +454,7 @@
   padding: 1rem;
   border: 1px solid var(--line-subtle);
   border-radius: 0.5rem;
-  background: var(--surface-panel-soft);
+  background: color-mix(in srgb, var(--surface-panel) 84%, var(--page-background));
 }
 
 .tableCardTitle {
@@ -500,7 +500,7 @@
 }
 
 .tableCardField dd {
-  color: var(--neutral-on-background-medium);
+  color: color-mix(in srgb, var(--neutral-on-background-strong) 78%, var(--neutral-on-background-medium));
   font-size: 0.98rem;
   line-height: 1.58;
   overflow-wrap: anywhere;

@@ -46,7 +46,7 @@ const marketStrategies: MarketStrategyItem[] = [
     icon: "calendar",
     bullets: ["Agenda previsível", "Imagem premium", "Fidelização"],
     insight:
-      "O ganho vem de percepção de valor, recorrência e rotina operacional. A estratégia precisa proteger agenda e marca ao mesmo tempo.",
+      "O ganho vem de preço defendido, recorrência e rotina operacional. A estratégia precisa proteger agenda e marca ao mesmo tempo.",
     accent: "#ff6e96",
     accentSoft: "rgba(255, 110, 150, 0.18)",
     accentBorder: "rgba(255, 110, 150, 0.34)",
@@ -193,11 +193,11 @@ export function MarketStrategyRail() {
         </Tag>
         <Column className={styles.copy} gap="8">
           <Heading id="market-strategy-heading" as="h2" variant="display-strong-s">
-            Mercados diferentes exigem estratégias diferentes.
+            Cada mercado perde cliente em um ponto diferente.
           </Heading>
           <Text onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
-            Crescimento sustentável depende de dados reais, planejamento claro e constância na
-            execução.
+            Clínica perde no retorno. Loja perde no pedido. Serviço profissional perde na confiança.
+            O canal vem depois dessa leitura.
           </Text>
         </Column>
       </Column>
@@ -291,7 +291,7 @@ export function MarketStrategyRail() {
                     setExpandedIndex((current) => (current === index ? null : index));
                   }}
                 >
-                  {expandedIndex === index ? "Ocultar abordagem" : "Ver abordagem estratégica"}
+                  {expandedIndex === index ? "Ocultar leitura" : "Ver leitura do mercado"}
                 </button>
 
                 {expandedIndex === index && (

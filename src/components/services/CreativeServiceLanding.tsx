@@ -1,14 +1,4 @@
-import {
-  Button,
-  Card,
-  Column,
-  Grid,
-  Heading,
-  Row,
-  Schema,
-  Tag,
-  Text,
-} from "@once-ui-system/core";
+import { Button, Card, Column, Grid, Heading, Row, Schema, Tag, Text } from "@once-ui-system/core";
 
 import { baseURL, person, servicesPage, work } from "@/resources";
 import { ServiceLanding } from "@/types";
@@ -36,24 +26,25 @@ const frictionPoints = [
   },
   {
     label: "Autoridade dispersa",
-    title: "Portfólio solto e bio genérica não sustentam crescimento.",
+    title: "Portfólio solto e bio genérica deixam a venda pesada.",
     description:
-      "Sem uma página bem organizada, prova, processo e diferenciais ficam espalhados e a percepção profissional cai.",
+      "Sem uma página bem organizada, prova, processo e diferenciais ficam espalhados e o cliente precisa montar tudo sozinho.",
   },
 ];
 
 const growthSignals = [
   {
     title: "Mais clientes com constância",
-    description: "Uma rota mais previsível para transformar visita em conversa comercial e briefing.",
+    description:
+      "Uma rota mais previsível para transformar visita em conversa comercial e briefing.",
   },
   {
     title: "Posicionamento mais claro",
     description: "Mensagem mais direta sobre nicho, serviço, processo e valor entregue.",
   },
   {
-    title: "Autoridade no digital",
-    description: "Presença mais profissional para sustentar conteúdo, tráfego, indicação e fechamento.",
+    title: "Base para conteúdo, tráfego e indicação",
+    description: "Uma página clara evita que cada canal precise explicar a oferta do zero.",
   },
 ];
 
@@ -118,10 +109,16 @@ export default function CreativeServiceLanding({
             </Row>
 
             <Heading as="h1" variant="heading-strong-xl" wrap="balance">
-              Uma landing page para freelancers criativos apresentarem melhor serviço, processo e prova.
+              Uma landing page para freelancers criativos apresentarem melhor serviço, processo e
+              prova.
             </Heading>
             <div className={styles.accentLine} />
-            <Text className={styles.lead} variant="heading-default-m" onBackground="neutral-weak" wrap="balance">
+            <Text
+              className={styles.lead}
+              variant="heading-default-m"
+              onBackground="neutral-weak"
+              wrap="balance"
+            >
               {service.hero.description}
             </Text>
 
@@ -137,30 +134,49 @@ export default function CreativeServiceLanding({
 
           <Column className={styles.heroSide} gap="12">
             <Column className={styles.metricCard} gap="8">
-              <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
+              <Text
+                className={styles.metricLabel}
+                variant="label-default-s"
+                onBackground="neutral-weak"
+              >
                 Objetivo
               </Text>
-              <Text variant="heading-strong-m">Sair do ciclo instável e gerar clientes com mais frequência.</Text>
+              <Text variant="heading-strong-m">
+                Sair do ciclo instável e gerar clientes com mais frequência.
+              </Text>
             </Column>
 
             <Column className={styles.metricCard} gap="8">
-              <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
+              <Text
+                className={styles.metricLabel}
+                variant="label-default-s"
+                onBackground="neutral-weak"
+              >
                 Ponto crítico
               </Text>
               <Text variant="body-default-m">
-                Ter presença online sem posicionamento claro normalmente reduz resposta, autoridade e fechamento.
+                Ter presença online sem posicionamento claro normalmente reduz resposta, autoridade
+                e fechamento.
               </Text>
             </Column>
 
             <Column className={styles.metricRow} gap="12">
               <Column className={styles.metricMini} gap="8">
-                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
+                <Text
+                  className={styles.metricLabel}
+                  variant="label-default-s"
+                  onBackground="neutral-weak"
+                >
                   Investimento
                 </Text>
                 <Text variant="heading-strong-s">{service.hero.price}</Text>
               </Column>
               <Column className={styles.metricMini} gap="8">
-                <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
+                <Text
+                  className={styles.metricLabel}
+                  variant="label-default-s"
+                  onBackground="neutral-weak"
+                >
                   Prazo
                 </Text>
                 <Text variant="heading-strong-s">{service.hero.duration}</Text>
@@ -175,18 +191,22 @@ export default function CreativeServiceLanding({
           <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
             Onde trava
           </Tag>
-        <Heading as="h2" variant="display-strong-s">
-          O problema não é só conseguir atenção. É transformar atenção em cliente.
-        </Heading>
-        <Text onBackground="neutral-weak">
-          Quando a apresentação não sustenta a conversa, o interesse até chega, mas não amadurece.
-        </Text>
-      </Column>
+          <Heading as="h2" variant="display-strong-s">
+            O problema não é só conseguir atenção. É transformar atenção em cliente.
+          </Heading>
+          <Text onBackground="neutral-weak">
+            Quando a apresentação não sustenta a conversa, o interesse até chega, mas não amadurece.
+          </Text>
+        </Column>
 
         <Grid className={styles.problemGrid} columns="3" s={{ columns: 1 }} gap="16">
           {frictionPoints.map((item) => (
             <Column key={item.title} className={styles.infoCard} gap="12">
-              <Text className={styles.eyebrow} variant="label-default-s" onBackground="neutral-weak">
+              <Text
+                className={styles.eyebrow}
+                variant="label-default-s"
+                onBackground="neutral-weak"
+              >
                 {item.label}
               </Text>
               <Heading as="h3" variant="heading-strong-m">
@@ -213,7 +233,7 @@ export default function CreativeServiceLanding({
             O que precisa melhorar
           </Tag>
           <Heading as="h2" variant="heading-strong-l">
-            Crescimento previsível pede estrutura.
+            Venda menos dependente de improviso.
           </Heading>
           <Column gap="12">
             {growthSignals.map((item) => (
@@ -259,13 +279,14 @@ export default function CreativeServiceLanding({
           <Tag size="s" background="neutral-alpha-weak">
             Como converte
           </Tag>
-        <Heading as="h2" variant="display-strong-s">
-          A página precisa vender seu serviço antes mesmo da conversa.
-        </Heading>
-        <Text onBackground="neutral-weak">
-          O objetivo é sair da sensação de perfil solto e entrar em uma presença que transmite direção.
-        </Text>
-      </Column>
+          <Heading as="h2" variant="display-strong-s">
+            A página precisa vender seu serviço antes mesmo da conversa.
+          </Heading>
+          <Text onBackground="neutral-weak">
+            O objetivo é sair da sensação de perfil solto e entrar em uma presença que transmite
+            direção.
+          </Text>
+        </Column>
 
         <Grid className={styles.blockGrid} columns="3" s={{ columns: 1 }} gap="16">
           {leverageBlocks.map((item) => (
@@ -307,7 +328,11 @@ export default function CreativeServiceLanding({
                 {scope.title}
               </Heading>
               <Text onBackground="neutral-weak">{scope.summary}</Text>
-              <Text className={styles.scopeMeta} variant="body-default-s" onBackground="neutral-weak">
+              <Text
+                className={styles.scopeMeta}
+                variant="body-default-s"
+                onBackground="neutral-weak"
+              >
                 {scope.investment} | {scope.timeline}
               </Text>
               <Column as="ul" className={styles.list} gap="8">
@@ -421,8 +446,8 @@ export default function CreativeServiceLanding({
           Se sua presença digital não ajuda a vender, ela precisa mudar de função.
         </Heading>
         <Text onBackground="neutral-weak">
-          Posso transformar sua apresentação atual em uma landing mais clara, mais profissional e mais
-          orientada a clientes para social media, designers e freelancers digitais.
+          Posso transformar sua apresentação atual em uma landing mais clara, mais profissional e
+          mais orientada a clientes para social media, designers e freelancers digitais.
         </Text>
         <Row className={styles.heroActions} gap="12" wrap>
           <Button href={service.hero.ctaHref} variant="primary" size="m" arrowIcon>

@@ -22,20 +22,14 @@ type AboutTeaserProps = {
 };
 
 const supportLine =
-  "Combino leitura de negócio, direção visual e implementação técnica para criar estruturas digitais mais claras, úteis e sustentáveis.";
+  "Trabalho entre leitura comercial, direção visual e implementação para tirar a operação do improviso.";
 
-const editorialStatement = "Estética com critério. Tecnologia com intenção.";
+const editorialStatement = "Oferta antes de tráfego. Página antes de campanha.";
 
 const editorialDetail =
-  "Minha formação em Ciência e Tecnologia sustenta uma abordagem prática: entender o problema, organizar a mensagem e construir soluções que façam sentido para o negócio.";
+  "Antes de construir, eu tento entender onde a pessoa desiste: na promessa, na página, no preço, no contato ou no atendimento.";
 
-export function AboutTeaser({
-  eyebrow,
-  title,
-  description,
-  ctaLabel,
-  ctaHref,
-}: AboutTeaserProps) {
+export function AboutTeaser({ eyebrow, title, description, ctaLabel, ctaHref }: AboutTeaserProps) {
   const reducedMotion = useReducedMotion();
 
   const copyVariants = createRevealVariants(reducedMotion, 24, 0.99);
@@ -65,7 +59,11 @@ export function AboutTeaser({
           {title}
         </Heading>
 
-        <Text className={styles.description} onBackground="neutral-weak" variant="heading-default-m">
+        <Text
+          className={styles.description}
+          onBackground="neutral-weak"
+          variant="heading-default-m"
+        >
           {description}
         </Text>
 
@@ -105,15 +103,14 @@ export function AboutTeaser({
       >
         <div className={styles.visualContent}>
           <div className={styles.logoWrap} aria-hidden="true">
-            <Image
-              src="/trademarks/henrique-reis-mark.svg"
-              alt=""
-              width={96}
-              height={96}
-            />
+            <Image src="/trademarks/henrique-reis-mark.svg" alt="" width={96} height={96} />
           </div>
 
-          <Text className={styles.visualLabel} variant="label-default-s" onBackground="neutral-weak">
+          <Text
+            className={styles.visualLabel}
+            variant="label-default-s"
+            onBackground="neutral-weak"
+          >
             Como penso o trabalho
           </Text>
 

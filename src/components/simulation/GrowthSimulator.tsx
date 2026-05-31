@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  type ChangeEvent,
-  type ReactNode,
-  useId,
-  useRef,
-  useState,
-} from "react";
+import { type ChangeEvent, type ReactNode, useId, useRef, useState } from "react";
 
 import styles from "./GrowthSimulator.module.scss";
 
@@ -142,7 +136,8 @@ const segmentProfiles: SegmentProfile[] = [
     id: "psicologas",
     label: "Psicólogas e terapeutas",
     note: "Operação com ticket médio menor, decisão mais sensível a confiança e recorrência.",
-    saturationNote: "A saturação costuma aparecer quando a agenda local exige volume constante de leads qualificados.",
+    saturationNote:
+      "A saturação costuma aparecer quando a agenda local exige volume constante de leads qualificados.",
     defaults: { price: 180, cost: 40, sales: 42, fixed: 3600 },
     baseCAC: 58,
     saturationPoint: 10,
@@ -156,7 +151,8 @@ const segmentProfiles: SegmentProfile[] = [
     id: "advogados",
     label: "Advogados e consultoria jurídica",
     note: "Ticket maior, ciclo comercial mais lento e dependência maior de autoridade.",
-    saturationNote: "Subir verba cedo costuma encarecer o CAC porque a demanda local é mais estreita.",
+    saturationNote:
+      "Subir verba cedo costuma encarecer o CAC porque a demanda local é mais estreita.",
     defaults: { price: 420, cost: 92, sales: 18, fixed: 7200 },
     baseCAC: 148,
     saturationPoint: 6,
@@ -170,7 +166,8 @@ const segmentProfiles: SegmentProfile[] = [
     id: "corretores",
     label: "Corretores de imóveis",
     note: "Poucos fechamentos, ticket alto e grande pressão de acompanhamento comercial.",
-    saturationNote: "Passar do ponto de saturação costuma elevar o CAC rapidamente por competição local.",
+    saturationNote:
+      "Passar do ponto de saturação costuma elevar o CAC rapidamente por competição local.",
     defaults: { price: 1800, cost: 420, sales: 4, fixed: 9000 },
     baseCAC: 680,
     saturationPoint: 3,
@@ -184,7 +181,8 @@ const segmentProfiles: SegmentProfile[] = [
     id: "clinicas",
     label: "Clínicas de saúde e odontologia",
     note: "Agenda intensa, mais pontos de contato e operação interna pesada para sustentar ganho.",
-    saturationNote: "O limite aparece quando o time interno não acompanha atendimento, retorno e remarcação.",
+    saturationNote:
+      "O limite aparece quando o time interno não acompanha atendimento, retorno e remarcação.",
     defaults: { price: 260, cost: 95, sales: 70, fixed: 14500 },
     baseCAC: 96,
     saturationPoint: 16,
@@ -198,7 +196,8 @@ const segmentProfiles: SegmentProfile[] = [
     id: "estetica",
     label: "Salão, beleza e estética",
     note: "Ticket menor, retorno mais rápido e mais espaço para recorrência bem organizada.",
-    saturationNote: "A perda de eficiência aparece quando a verba sobe mais rápido do que a recompra.",
+    saturationNote:
+      "A perda de eficiência aparece quando a verba sobe mais rápido do que a recompra.",
     defaults: { price: 160, cost: 55, sales: 110, fixed: 8600 },
     baseCAC: 48,
     saturationPoint: 24,
@@ -212,7 +211,8 @@ const segmentProfiles: SegmentProfile[] = [
     id: "loja-local",
     label: "Loja local e varejo de bairro",
     note: "Volume maior, margem apertada e necessidade forte de fluxo local.",
-    saturationNote: "Depois do ponto de saturação, mais verba tende a comprar cliques piores e visitas menos prontas.",
+    saturationNote:
+      "Depois do ponto de saturação, mais verba tende a comprar cliques piores e visitas menos prontas.",
     defaults: { price: 220, cost: 118, sales: 95, fixed: 12000 },
     baseCAC: 62,
     saturationPoint: 28,
@@ -226,7 +226,8 @@ const segmentProfiles: SegmentProfile[] = [
     id: "ecommerce",
     label: "E-commerce com envios",
     note: "Escala mais fácil, mas com CAC, frete e operação comendo margem rapidamente.",
-    saturationNote: "Escalar mídia sem melhorar ticket, recompra e operação derruba o retorno mais cedo.",
+    saturationNote:
+      "Escalar mídia sem melhorar ticket, recompra e operação derruba o retorno mais cedo.",
     defaults: { price: 290, cost: 165, sales: 130, fixed: 18000 },
     baseCAC: 74,
     saturationPoint: 36,
@@ -253,8 +254,7 @@ const formatNumber = (value: number, maximumFractionDigits = 1) =>
 const formatSignedCurrency = (value: number) =>
   `${value >= 0 ? "+" : "-"}${formatCurrency(Math.abs(value))}`;
 
-const formatPercent = (value: number) =>
-  `${value >= 0 ? "+" : ""}${formatNumber(value, 0)}%`;
+const formatPercent = (value: number) => `${value >= 0 ? "+" : ""}${formatNumber(value, 0)}%`;
 
 function formatTimeEstimate(days: number) {
   if (!Number.isFinite(days) || days <= 0) {
@@ -290,7 +290,7 @@ function TermHint({ label, description, href }: TermHintProps) {
         <span className={styles.hintTooltip} id={tooltipId} role="tooltip">
           <span>{description}</span>
           <a className={styles.hintLink} href={href}>
-            Saiba mais
+            Entender termo
           </a>
         </span>
       </span>
@@ -501,8 +501,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
     final: finalRef,
   };
 
-  const segment =
-    segmentProfiles.find((item) => item.id === segmentId) ?? segmentProfiles[0];
+  const segment = segmentProfiles.find((item) => item.id === segmentId) ?? segmentProfiles[0];
   const selectedReturnWindow =
     returnWindowOptions.find((item) => item.id === returnWindowId) ?? returnWindowOptions[1];
 
@@ -513,8 +512,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
   const scale = getBusinessScale(currentRevenue);
 
   const salesFromProcess = currentSales * (salesLift / 100);
-  const salesFromRecurrence =
-    currentSales * (recurrenceLift / 100) * segment.recurrenceWeight;
+  const salesFromRecurrence = currentSales * (recurrenceLift / 100) * segment.recurrenceWeight;
   const projectedSales = currentSales + salesFromProcess + salesFromRecurrence;
   const projectedPrice = currentPrice * (1 + priceLift / 100);
   const projectedCost = currentCost * (1 - costDrop / 100);
@@ -525,26 +523,13 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
   const implementationBase = scale.baseOps + currentFixed * 0.04 * scale.opsMultiplier;
   const salesOpsCost =
     currentRevenue * (salesLift / 100) * 0.12 * scale.opsMultiplier * segment.opsIntensity;
-  const priceOpsCost =
-    currentRevenue * (priceLift / 100) * 0.08 * scale.opsMultiplier;
+  const priceOpsCost = currentRevenue * (priceLift / 100) * 0.08 * scale.opsMultiplier;
   const costOpsCost =
-    currentRevenue *
-    (costDrop / 100) *
-    0.18 *
-    scale.opsMultiplier *
-    segment.costOpsWeight;
+    currentRevenue * (costDrop / 100) * 0.18 * scale.opsMultiplier * segment.costOpsWeight;
   const recurrenceOpsCost =
-    currentRevenue *
-    (recurrenceLift / 100) *
-    0.14 *
-    scale.opsMultiplier *
-    segment.recurrenceWeight;
+    currentRevenue * (recurrenceLift / 100) * 0.14 * scale.opsMultiplier * segment.recurrenceWeight;
   const adjustmentOpsCost =
-    implementationBase +
-    salesOpsCost +
-    priceOpsCost +
-    costOpsCost +
-    recurrenceOpsCost;
+    implementationBase + salesOpsCost + priceOpsCost + costOpsCost + recurrenceOpsCost;
   const projectedNetAfterOps = projectedNetBeforeOps - adjustmentOpsCost;
   const internalNetLift = projectedNetAfterOps - currentNet;
 
@@ -591,8 +576,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
 
   if (projectedContribution <= 0) {
     readingTitle = "Cenário frágil.";
-    readingText =
-      "Antes de investir, ajuste valor médio, custo por cliente ou recorrência.";
+    readingText = "Antes de investir, ajuste valor médio, custo por cliente ou recorrência.";
     attentionPoint = "Margem por cliente insuficiente.";
     nextMoveLabel = "Ajuste a base primeiro.";
     nextMoveText = "Reveja valor médio, custo direto e formato de entrega antes da mídia.";
@@ -698,7 +682,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
             onClick={() => setTechnicalMode((current) => !current)}
             type="button"
           >
-            {technicalMode ? "Ocultar detalhes" : "Ver detalhes"}
+            {technicalMode ? "Ocultar cálculo" : "Ver cálculo"}
           </button>
 
           <div className={styles.desktopSummary}>
@@ -749,7 +733,10 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
             </p>
 
             <div className={styles.fieldGrid}>
-              <label className={`${styles.field} ${styles.fieldCompact}`} htmlFor="simulation-segment">
+              <label
+                className={`${styles.field} ${styles.fieldCompact}`}
+                htmlFor="simulation-segment"
+              >
                 <span className={styles.fieldLabel}>Categoria</span>
                 <select
                   className={styles.select}
@@ -798,7 +785,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
               </label>
 
               <label className={styles.field} htmlFor="simulation-sales">
-                    <span className={styles.fieldLabel}>Clientes atendidos por mês</span>
+                <span className={styles.fieldLabel}>Clientes atendidos por mês</span>
                 <input
                   className={styles.input}
                   id="simulation-sales"
@@ -847,7 +834,11 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
                   <span>Detalhes técnicos</span>
                 </div>
                 <div className={styles.metricList}>
-                  {renderMetricRow("Margem atual", formatPercent(currentMargin), "sobre o faturamento")}
+                  {renderMetricRow(
+                    "Margem atual",
+                    formatPercent(currentMargin),
+                    "sobre o faturamento",
+                  )}
                   {renderMetricRow("Porte estimado", scale.label, scale.note)}
                   {renderMetricRow("Categoria lida", segment.label, segment.saturationNote)}
                 </div>
@@ -882,7 +873,9 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
                 <button
                   aria-pressed={selectedScenario === preset.id}
                   className={
-                    selectedScenario === preset.id ? styles.scenarioButtonActive : styles.scenarioButton
+                    selectedScenario === preset.id
+                      ? styles.scenarioButtonActive
+                      : styles.scenarioButton
                   }
                   key={preset.id}
                   onClick={() => handleScenarioSelect(preset)}
@@ -898,7 +891,9 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
               <strong className={styles.primaryMetricValue}>
                 {formatCurrency(projectedNetAfterOps)}
               </strong>
-              <span className={styles.primaryMetricHint}>Já descontando o custo de implantação.</span>
+              <span className={styles.primaryMetricHint}>
+                Já descontando o custo de implantação.
+              </span>
             </div>
 
             <div className={styles.compareGrid}>
@@ -912,7 +907,9 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
               </div>
               <div className={styles.compareItem}>
                 <span className={styles.compareLabel}>Diferença</span>
-                <strong className={styles.compareValue}>{formatSignedCurrency(revenueDifference)}</strong>
+                <strong className={styles.compareValue}>
+                  {formatSignedCurrency(revenueDifference)}
+                </strong>
               </div>
             </div>
 
@@ -1018,7 +1015,10 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
                 </div>
                 <div className={styles.metricList}>
                   {renderMetricRow("Receita projetada", formatCurrency(projectedRevenue))}
-                  {renderMetricRow("Resultado antes da implantação", formatCurrency(projectedNetBeforeOps))}
+                  {renderMetricRow(
+                    "Resultado antes da implantação",
+                    formatCurrency(projectedNetBeforeOps),
+                  )}
                   {renderMetricRow(
                     "Custo de implantação",
                     formatCurrency(adjustmentOpsCost),
@@ -1058,7 +1058,10 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
             </header>
 
             <div className={styles.fieldGrid}>
-              <label className={`${styles.field} ${styles.fieldCompact}`} htmlFor="simulation-return-window">
+              <label
+                className={`${styles.field} ${styles.fieldCompact}`}
+                htmlFor="simulation-return-window"
+              >
                 <span className={styles.fieldLabel}>Tempo médio até retorno</span>
                 <select
                   className={styles.select}
@@ -1076,7 +1079,7 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
             </div>
 
             <ExpandableHelp label="Como ler esse prazo?">
-                    Quanto tempo, em média, um novo contato leva para virar receita.
+              Quanto tempo, em média, um novo contato leva para virar receita.
             </ExpandableHelp>
 
             <div className={styles.primaryMetricCard}>
@@ -1090,8 +1093,8 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
             <ExpandableHelp label="Ver composição do investimento">
               <div className={styles.breakdownPanel}>
                 <p className={styles.breakdownText}>
-                  O investimento pode incluir anúncios, criação, gestão, ferramentas, atendimento
-                  e perda natural de eficiência.
+                  O investimento pode incluir anúncios, criação, gestão, ferramentas, atendimento e
+                  perda natural de eficiência.
                 </p>
 
                 <div className={styles.segmentBar} aria-hidden="true">
@@ -1111,7 +1114,10 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
                     "Gestão e operação",
                     formatCurrency(marketingEstimate.managementCost),
                   )}
-                  {renderMetricRow("Total estimado", formatCurrency(marketingEstimate.totalInvestment))}
+                  {renderMetricRow(
+                    "Total estimado",
+                    formatCurrency(marketingEstimate.totalInvestment),
+                  )}
                 </div>
               </div>
             </ExpandableHelp>
@@ -1119,7 +1125,10 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
             <div className={styles.metricList}>
               {renderMetricRow("Retorno estimado", formatCurrency(marketingEstimate.grossRevenue))}
               {renderMetricRow("Tempo estimado de retorno", estimatedReturnLabel)}
-              {renderMetricRow("Novos clientes necessarios", formatNumber(marketingEstimate.newClients))}
+              {renderMetricRow(
+                "Novos clientes necessarios",
+                formatNumber(marketingEstimate.newClients),
+              )}
             </div>
 
             {technicalMode ? (
@@ -1130,7 +1139,10 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
                 <div className={styles.metricList}>
                   {renderMetricRow("Meta líquida", formatCurrency(marketingEstimate.targetNetLift))}
                   {renderMetricRow("Valor médio usado na conta", formatCurrency(projectedPrice))}
-                  {renderMetricRow("CAC base do segmento", formatCurrency(marketingEstimate.baseCAC))}
+                  {renderMetricRow(
+                    "CAC base do segmento",
+                    formatCurrency(marketingEstimate.baseCAC),
+                  )}
                   {renderMetricRow(
                     "CAC ajustado",
                     formatCurrency(marketingEstimate.adjustedCAC),
@@ -1201,7 +1213,10 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
             ) : null}
 
             <div className={styles.metricList}>
-              {renderMetricRow("Investimento necessario", formatCurrency(marketingEstimate.totalInvestment))}
+              {renderMetricRow(
+                "Investimento necessario",
+                formatCurrency(marketingEstimate.totalInvestment),
+              )}
               {renderMetricRow("Retorno estimado", formatCurrency(marketingEstimate.grossRevenue))}
               {renderMetricRow("Tempo estimado", estimatedReturnLabel)}
             </div>
@@ -1214,8 +1229,8 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
             <div className={styles.advancedPanel}>
               <span className={styles.advancedLabel}>Leitura mais precisa</span>
               <p className={styles.advancedText}>
-                Este modelo é simplificado. A leitura completa entra depois, cruzando canal,
-                agenda, capacidade, prazo de recebimento, recorrência, equipe e caixa.
+                Este modelo é simplificado. A leitura completa entra depois, cruzando canal, agenda,
+                capacidade, prazo de recebimento, recorrência, equipe e caixa.
               </p>
             </div>
 
@@ -1227,8 +1242,14 @@ export function GrowthSimulator({ servicesHref, contactHref }: GrowthSimulatorPr
                 <div className={styles.metricList}>
                   {renderMetricRow("Ponto de atenção", attentionPoint)}
                   {renderMetricRow("Direção sugerida", nextMoveLabel, nextMoveText)}
-                  {renderMetricRow("Margem alvo por cliente", formatCurrency(projectedContribution))}
-                  {renderMetricRow("Receita puxada pelo investimento", formatCurrency(marketingEstimate.grossRevenue))}
+                  {renderMetricRow(
+                    "Margem alvo por cliente",
+                    formatCurrency(projectedContribution),
+                  )}
+                  {renderMetricRow(
+                    "Receita puxada pelo investimento",
+                    formatCurrency(marketingEstimate.grossRevenue),
+                  )}
                   {renderMetricRow(
                     "Margem gerada",
                     formatCurrency(marketingEstimate.contributionGenerated),

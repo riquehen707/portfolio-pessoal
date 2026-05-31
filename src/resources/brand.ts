@@ -1,11 +1,11 @@
 const brandPalette = {
-  goldSignature: "#FFD700",
-  accentMuted: "#C9A600",
-  darkBase: "#0B0B0D",
-  darkBaseSecondary: "#141418",
-  darkSurface: "#1B1B20",
-  darkSurfaceElevated: "#24242A",
-  darkBorder: "#2F2F36",
+  goldSignature: "#E6C94A",
+  accentMuted: "#B89D37",
+  darkBase: "#0E0E11",
+  darkBaseSecondary: "#151519",
+  darkSurface: "#1C1C22",
+  darkSurfaceElevated: "#26262D",
+  darkBorder: "#3A3A42",
   lightBase: "#F7F7F4",
   lightBaseSecondary: "#FFFFFF",
   lightSurface: "#ECECE7",
@@ -17,15 +17,15 @@ const brandPalette = {
   technicalBlue: "#1482B8",
   themes: {
     dark: {
-      backgroundPrimary: "#0B0B0D",
-      backgroundSecondary: "#141418",
-      surface: "#1B1B20",
-      surfaceElevated: "#24242A",
-      border: "#2F2F36",
-      textPrimary: "#F4F4F0",
-      textSecondary: "#A8A8B3",
-      accentGold: "#FFD700",
-      accentMuted: "#C9A600",
+      backgroundPrimary: "#0E0E11",
+      backgroundSecondary: "#151519",
+      surface: "#1C1C22",
+      surfaceElevated: "#26262D",
+      border: "#3A3A42",
+      textPrimary: "#F4F1E8",
+      textSecondary: "#AAA8A1",
+      accentGold: "#E6C94A",
+      accentMuted: "#B89D37",
     },
     light: {
       backgroundPrimary: "#F7F7F4",
@@ -56,7 +56,7 @@ const brandTypography = {
   },
   accent: {
     primary: "Fugaz One",
-    purpose: "Acentos criativos pequenos e memoráveis.",
+    purpose: "Acentos curtos para assinatura visual.",
   },
 } as const;
 
@@ -94,24 +94,22 @@ const brandMoodboard = {
     "Atmosfera cinematográfica leve",
     "Tecnologia refinada",
   ],
-  outcome: "Premium, inteligente, memorável.",
+  outcome: "Escuro, editorial e preciso.",
 } as const;
 
 const brandMessaging = {
-  signatureDescriptor: "Estratégia, design e sistemas para operações digitais",
-  role: "Parceiro estratégico em design, tecnologia e visão comercial para operações digitais",
+  signatureDescriptor: "Oferta, página e sistemas para operações digitais",
+  role: "Leitura comercial, design e tecnologia para corrigir gargalos digitais",
   siteDescription:
-    "Henrique Reis combina design, tecnologia e visão comercial para organizar presença, captação e operação digital.",
-  homeHeadline: "Estratégia, design e sistemas para negócios que precisam operar melhor.",
+    "Henrique Reis organiza oferta, página, conteúdo e rotina antes de aumentar tráfego.",
+  homeHeadline: "Antes de aumentar volume, organize a base.",
   homeSubline:
-    "Não apenas sites, anúncios ou código. Estruturas digitais integradas para negócios que precisam vender, atender e acompanhar melhor.",
-  supportingStatement: "Controle, valor percebido e execução confiável.",
-  aboutHeadline:
-    "Design, tecnologia e visão comercial para estruturar presença, operação e crescimento.",
-  aboutLead:
-    "Não entrego partes soltas. Conecto estratégia, estética e execução para criar sistemas digitais funcionais, legíveis e fáceis de evoluir.",
-  ogFooter: "Clareza gera resultado.",
-  contactStatement: "Crescimento exige estrutura.",
+    "Mais conteúdo, tráfego ou automação não resolvem quando a oferta, a página e o atendimento ainda confundem.",
+  supportingStatement: "Oferta clara. Página útil. Processo acompanhável.",
+  aboutHeadline: "Eu organizo o que acontece antes da venda.",
+  aboutLead: "Olho para procura, página, conversa e proposta para descobrir onde a decisão trava.",
+  ogFooter: "Clareza reduz atrito.",
+  contactStatement: "Escalar sem base costuma só aumentar o vazamento.",
 } as const;
 
 const brandIdentity = {
@@ -132,11 +130,11 @@ const brandIdentity = {
   ],
   represents: [
     "Inteligência aplicada",
-    "Organização do caos",
+    "Leitura do gargalo",
     "Estética com função",
     "Tecnologia com critério",
     "Execução confiável",
-    "Crescimento estruturado",
+    "Base antes de volume",
   ],
   avoids: [
     "Hype vazio",
@@ -146,12 +144,12 @@ const brandIdentity = {
     "Complexidade desnecessária",
   ],
   positioning:
-    "Henrique Reis é um parceiro estratégico que combina design, tecnologia e visão comercial para estruturar operações digitais de negócios reais.",
+    "Henrique Reis trabalha entre oferta, página, conteúdo e rotina para corrigir o que trava a decisão do cliente.",
   commercialTranslation: [
     "Não apenas sites.",
     "Não apenas anúncios.",
     "Não apenas código.",
-    "Soluções completas e integradas.",
+    "Primeiro a base. Depois o volume.",
   ],
   personality: {
     primary: [
@@ -159,7 +157,7 @@ const brandIdentity = {
       "Preciso",
       "Sofisticado",
       "Confiável",
-      "Estratégico",
+      "Criterioso",
       "Moderno",
       "Calmo",
       "Seguro",
@@ -167,14 +165,15 @@ const brandIdentity = {
     secondary: ["Criativo", "Ousado com controle", "Técnico", "Refinado"],
   },
   voice: {
-    traits: ["Direto", "Claro", "Estratégico", "Sóbrio", "Específico", "Editorial"],
+    traits: ["Direto", "Claro", "Criterioso", "Sóbrio", "Específico", "Editorial"],
     description:
-      "A voz explica o problema, mostra critério e aponta o próximo passo sem soar como promessa publicitária.",
+      "A voz aponta onde a decisão quebra, mostra o critério e evita prometer o que depende da operação.",
     approvedExamples: [
+      "Mais tráfego não corrige uma oferta ruim.",
+      "Se a página não explica, o atendimento precisa compensar.",
+      "Conteúdo sem direção vira volume.",
       "Antes de investir, entenda onde a operação perde resposta.",
-      "Uma boa página reduz dúvida, organiza a oferta e facilita o contato.",
-      "Nem todo problema de captação se resolve com mais verba.",
-      "O próximo passo depende de margem, agenda e capacidade de atendimento.",
+      "Nem todo problema de marketing é problema de marketing.",
     ],
     avoid: [
       "Revolucionário",
@@ -185,7 +184,7 @@ const brandIdentity = {
       "Texto que promete sem explicar o mecanismo",
     ],
     signatureUse:
-      "Use 'Clareza gera resultado.' apenas como assinatura curta, nunca como argumento principal de seções, cards ou chamadas editoriais.",
+      "Use 'Clareza reduz atrito.' apenas como assinatura curta, nunca como argumento principal de seções, cards ou chamadas editoriais.",
   },
   visualDirection: brandMoodboard,
   typography: brandTypography,
@@ -210,9 +209,9 @@ const brandIdentity = {
     "Animação por vaidade",
   ],
   manifesto: [
-    "Em um mercado cheio de excesso, clareza virou diferencial.",
-    "Soluções fortes não precisam gritar.",
-    "Precisam funcionar.",
+    "Quando a base está confusa, aumentar volume só espalha o problema.",
+    "Uma página boa reduz explicação repetida.",
+    "Um processo claro protege tempo, verba e atendimento.",
   ],
   approval: "Isso parece meu - e não parece template.",
 } as const;

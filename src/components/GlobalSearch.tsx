@@ -29,6 +29,7 @@ const typeLabels: Record<GlobalSearchItemType, string> = {
   audience: "Público",
   project: "Projeto",
   product: "Produto",
+  demo: "Demo",
 };
 
 const typePriority: Record<GlobalSearchItemType, number> = {
@@ -39,6 +40,7 @@ const typePriority: Record<GlobalSearchItemType, number> = {
   audience: 4,
   project: 3,
   product: 2,
+  demo: 4,
 };
 
 const quickQueries = [

@@ -20,8 +20,8 @@ import { getBlogCollectionLabel, getBlogCollectionSlug } from "@/app/blog/postDa
 import { ArticleNativeCTA } from "@/components/blog/ArticleNativeCTA";
 import { ArticleTools } from "@/components/blog/ArticleTools";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
-import { getKnowledgeContextForPost } from "@/lib/knowledge";
-import { baseURL, about, blog, person } from "@/resources";
+import { getKnowledgeContextForPost, type KnowledgeItem } from "@/lib/knowledge";
+import { baseURL, about, blog, person, work } from "@/resources";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 import { type BlogFile, getPosts } from "@/utils/utils";
 
@@ -32,6 +32,13 @@ type PageProps = {
 };
 
 const readingTrailLabels = ["Para aplicar", "Para aprofundar", "Relacionado"] as const;
+
+type ContinuationCard = {
+  label: string;
+  title: string;
+  summary?: string;
+  href: string;
+};
 
 function normalizeSlug(slugParam: string | string[] | undefined): string {
   if (!slugParam) return "";
@@ -118,6 +125,41 @@ function toVisualTagLabel(tag: string) {
   if (normalized.includes("matrícula")) return "Captação mais previsível";
 
   return tag;
+}
+
+function knowledgeItemToContinuation(
+  item: KnowledgeItem | undefined,
+  label: string,
+): ContinuationCard | null {
+  if (!item?.href) return null;
+
+  return {
+    label,
+    title: item.title,
+    summary: item.description,
+    href: item.href,
+  };
+}
+
+function postToContinuation(post: BlogFile | undefined, label: string): ContinuationCard | null {
+  if (!post) return null;
+
+  return {
+    label,
+    title: post.metadata.title,
+    summary: post.metadata.summary,
+    href: `${blog.path}/${post.slug}`,
+  };
+}
+
+function uniqueContinuations(cards: Array<ContinuationCard | null>) {
+  const seen = new Set<string>();
+
+  return cards.filter((card): card is ContinuationCard => {
+    if (!card || seen.has(card.href)) return false;
+    seen.add(card.href);
+    return true;
+  });
 }
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
@@ -233,8 +275,30 @@ export default async function BlogPost({ params }: PageProps) {
     : publishedDate;
   const articlePath = `${blog.path}/${post.slug}`;
   const readingTrail = getReadingTrail(post, posts);
-  const [primaryReading, ...secondaryReadings] = readingTrail;
   const knowledgeContext = getKnowledgeContextForPost(post.slug, posts);
+  const structuredContinuations = uniqueContinuations([
+    knowledgeItemToContinuation(knowledgeContext?.nextItem, "Proximo artigo da trilha"),
+    knowledgeItemToContinuation(knowledgeContext?.applicationItem, "Para aplicar"),
+    knowledgeItemToContinuation(knowledgeContext?.deepDiveItem, "Para aprofundar"),
+    knowledgeItemToContinuation(knowledgeContext?.relatedItems[0], "Relacionado"),
+    knowledgeContext
+      ? {
+          label: "Aplicacao pratica",
+          title: "Ver laboratorio",
+          summary: "Bastidores, decisoes e aprendizados que mostram a aplicacao dos conceitos.",
+          href: work.path,
+        }
+      : null,
+  ]);
+  const fallbackContinuations = uniqueContinuations([
+    postToContinuation(readingTrail[0], "Proximo passo"),
+    postToContinuation(readingTrail[1], readingTrailLabels[0]),
+    postToContinuation(readingTrail[2], readingTrailLabels[1]),
+    postToContinuation(readingTrail[3], readingTrailLabels[2]),
+  ]);
+  const continuationCards =
+    structuredContinuations.length > 0 ? structuredContinuations : fallbackContinuations;
+  const [primaryReading, ...secondaryReadings] = continuationCards;
 
   return (
     <Column className={styles.page} maxWidth="l" paddingTop="24" gap="24">
@@ -369,13 +433,25 @@ export default async function BlogPost({ params }: PageProps) {
 
           <div className={styles.knowledgeContextGrid}>
             <div>
+              <span>Etapa</span>
+              <p>
+                {knowledgeContext.stage.label} / {knowledgeContext.roleLabel}
+              </p>
+            </div>
+            <div>
               <span>Trilha</span>
               <a href={`/trilhas/${knowledgeContext.area.slug}`}>Ver caminho completo</a>
             </div>
-            {knowledgeContext.prerequisites.length > 0 ? (
+            {knowledgeContext.previousItem ? (
               <div>
                 <span>Antes</span>
-                <p>{knowledgeContext.prerequisites.join(", ")}</p>
+                {knowledgeContext.previousItem.href ? (
+                  <a href={knowledgeContext.previousItem.href}>
+                    {knowledgeContext.previousItem.title}
+                  </a>
+                ) : (
+                  <p>{knowledgeContext.previousItem.title}</p>
+                )}
               </div>
             ) : null}
             {knowledgeContext.nextItem ? (
@@ -416,36 +492,28 @@ export default async function BlogPost({ params }: PageProps) {
               Continue lendo
             </Text>
             <Heading id="reading-trail-title" as="h2" variant="heading-strong-xl">
-              Uma trilha para continuar a leitura
+              Continue pela proxima decisao
             </Heading>
           </div>
 
-          <a className={styles.primaryReading} href={`${blog.path}/${primaryReading.slug}`}>
-            <span className={styles.readingLabel}>Próximo passo</span>
-            <span className={styles.primaryReadingTitle}>{primaryReading.metadata.title}</span>
-            {primaryReading.metadata.summary ? (
-              <span className={styles.primaryReadingSummary}>
-                {primaryReading.metadata.summary}
-              </span>
+          <a className={styles.primaryReading} href={primaryReading.href}>
+            <span className={styles.readingLabel}>{primaryReading.label}</span>
+            <span className={styles.primaryReadingTitle}>{primaryReading.title}</span>
+            {primaryReading.summary ? (
+              <span className={styles.primaryReadingSummary}>{primaryReading.summary}</span>
             ) : null}
           </a>
 
           {secondaryReadings.length > 0 ? (
             <div className={styles.secondaryReadings}>
               {secondaryReadings.slice(0, 3).map((item, index) => (
-                <a
-                  className={styles.secondaryReading}
-                  href={`${blog.path}/${item.slug}`}
-                  key={item.slug}
-                >
+                <a className={styles.secondaryReading} href={item.href} key={item.href}>
                   <span className={styles.readingLabel}>
-                    {readingTrailLabels[index] ?? "Relacionado"}
+                    {item.label ?? readingTrailLabels[index] ?? "Relacionado"}
                   </span>
-                  <span className={styles.secondaryReadingTitle}>{item.metadata.title}</span>
-                  {item.metadata.readingTime ? (
-                    <span className={styles.secondaryReadingMeta}>
-                      {item.metadata.readingTime} min de leitura
-                    </span>
+                  <span className={styles.secondaryReadingTitle}>{item.title}</span>
+                  {item.summary ? (
+                    <span className={styles.secondaryReadingMeta}>{item.summary}</span>
                   ) : null}
                 </a>
               ))}

@@ -11,7 +11,7 @@
 }
 
 .root {
-  --strip-background: #030403;
+  --strip-background: var(--color-background-primary);
   --strip-line: rgba(247, 243, 234, 0.1);
   --strip-text: rgba(247, 243, 234, 0.7);
   --strip-accent: var(--color-accent-gold);

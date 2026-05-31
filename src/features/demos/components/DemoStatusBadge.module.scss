@@ -1,0 +1,26 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 1.55rem;
+  padding: 0.22rem 0.58rem;
+  border: 1px solid var(--line-muted);
+  border-radius: var(--radius-pill);
+  color: var(--neutral-on-background-medium);
+  background: color-mix(in srgb, var(--surface-panel-soft) 78%, transparent);
+  font-family: var(--font-technical);
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.badge[data-status="experimental"] {
+  color: color-mix(in srgb, var(--neutral-on-background-strong) 74%, var(--neutral-on-background-medium));
+}
+
+.badge[data-status="publicado"] {
+  border-color: color-mix(in srgb, var(--color-accent-gold) 32%, var(--line-muted));
+  color: var(--neutral-on-background-strong);
+}

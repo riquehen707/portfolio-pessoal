@@ -15,6 +15,20 @@ export type KnowledgeType =
   | "referencia";
 export type KnowledgeStatus = "publicado" | "planejado" | "em breve";
 export type KnowledgeVisibility = "mapa" | "trilha" | "blog-only" | "projeto";
+export type KnowledgeStage =
+  | "diagnostico"
+  | "fundamento"
+  | "aplicacao"
+  | "comparacao"
+  | "aprofundamento"
+  | "caso-pratico";
+export type KnowledgeRole =
+  | "essencial"
+  | "complementar"
+  | "avancado"
+  | "pratico"
+  | "caso"
+  | "referencia";
 
 export type KnowledgeItem = {
   title: string;
@@ -27,6 +41,9 @@ export type KnowledgeItem = {
   level: KnowledgeLevel;
   type: KnowledgeType;
   status: KnowledgeStatus;
+  stage: KnowledgeStage;
+  role: KnowledgeRole;
+  sequence: number;
   essential: boolean;
   prerequisites: string[];
   unlocks: string[];
@@ -47,14 +64,104 @@ export type KnowledgeTrail = {
     title: string;
     description: string;
     items: KnowledgeItem[];
+    startItem?: KnowledgeItem;
+    essentialItems: KnowledgeItem[];
+    complementaryItems: KnowledgeItem[];
+    stageCounts: Array<{
+      stage: KnowledgeStage;
+      label: string;
+      count: number;
+    }>;
     publishedCount: number;
     plannedCount: number;
+    readingMinutes: number;
   }>;
   publishedCount: number;
   plannedCount: number;
+  readingMinutes: number;
+  startItem?: KnowledgeItem;
+  stageCounts: Array<{
+    stage: KnowledgeStage;
+    label: string;
+    count: number;
+  }>;
 };
 
-const plannedKnowledgeItems: KnowledgeItem[] = [
+type KnowledgeItemInput = Omit<KnowledgeItem, "stage" | "role" | "sequence"> &
+  Partial<Pick<KnowledgeItem, "stage" | "role" | "sequence">>;
+
+export const knowledgeStageFlow: Array<{
+  stage: KnowledgeStage;
+  label: string;
+  shortLabel: string;
+  description: string;
+}> = [
+  {
+    stage: "diagnostico",
+    label: "Diagnostico",
+    shortLabel: "Diagnostico",
+    description: "Entender contexto, urgencia, limites e problema antes da acao.",
+  },
+  {
+    stage: "fundamento",
+    label: "Fundamento",
+    shortLabel: "Base",
+    description: "Aprender conceitos que sustentam as proximas decisoes.",
+  },
+  {
+    stage: "aplicacao",
+    label: "Aplicacao",
+    shortLabel: "Aplicar",
+    description: "Transformar criterio em execucao, checklist ou pratica.",
+  },
+  {
+    stage: "comparacao",
+    label: "Comparacao",
+    shortLabel: "Escolher",
+    description: "Comparar caminhos, modelos, riscos e pre-requisitos.",
+  },
+  {
+    stage: "aprofundamento",
+    label: "Aprofundamento",
+    shortLabel: "Aprofundar",
+    description: "Conectar temas mais especificos ou tecnicos depois da base.",
+  },
+  {
+    stage: "caso-pratico",
+    label: "Caso pratico",
+    shortLabel: "Demonstrar",
+    description: "Ver como a ideia aparece em projetos, sistemas e bastidores.",
+  },
+];
+
+const knowledgeRoleLabels: Record<KnowledgeRole, string> = {
+  essencial: "Essencial",
+  complementar: "Complementar",
+  avancado: "Avancado",
+  pratico: "Pratico",
+  caso: "Caso",
+  referencia: "Referencia",
+};
+
+const knowledgeStageOrder = knowledgeStageFlow.map((item) => item.stage);
+const knowledgeRoleOrder: KnowledgeRole[] = [
+  "essencial",
+  "referencia",
+  "pratico",
+  "complementar",
+  "avancado",
+  "caso",
+];
+
+export function getKnowledgeStageMeta(stage: KnowledgeStage) {
+  return knowledgeStageFlow.find((item) => item.stage === stage) ?? knowledgeStageFlow[1];
+}
+
+export function getKnowledgeRoleLabel(role: KnowledgeRole) {
+  return knowledgeRoleLabels[role];
+}
+
+const plannedKnowledgeItems: KnowledgeItemInput[] = [
   {
     title: "Antes de tentar ganhar dinheiro na internet, entenda sua situacao",
     description: "Diagnostico simples para alinhar necessidade, tempo, energia e risco.",
@@ -448,7 +555,124 @@ function normalizeVisibility(value?: string): KnowledgeVisibility {
   return "trilha";
 }
 
-function postToKnowledgeItem(post: BlogFile): KnowledgeItem | null {
+function getWeight<T extends string>(values: readonly T[], value: T, fallback = 99) {
+  const index = values.indexOf(value);
+  return index >= 0 ? index : fallback;
+}
+
+function inferKnowledgeStage(item: KnowledgeItemInput): KnowledgeStage {
+  const normalizedModule = normalizeKey(item.module);
+  const normalizedNode = normalizeKey(item.node);
+  const normalizedTitle = normalizeKey(item.title);
+
+  if (
+    item.type === "estudo de caso" ||
+    item.area === "projetos" ||
+    item.mapVisibility === "projeto"
+  ) {
+    return "caso-pratico";
+  }
+
+  if (
+    normalizedModule.includes("diagnostico") ||
+    normalizedNode.includes("diagnostico") ||
+    normalizedTitle.startsWith("antes-de")
+  ) {
+    return "diagnostico";
+  }
+
+  if (item.type === "comparacao") return "comparacao";
+
+  if (
+    item.level === "avancado" ||
+    item.level === "intermediario" ||
+    normalizedModule.includes("conversao") ||
+    normalizedModule.includes("metricas") ||
+    normalizedNode.includes("otimizacao")
+  ) {
+    return "aprofundamento";
+  }
+
+  if (item.type === "checklist" || item.type === "pratica") return "aplicacao";
+
+  return "fundamento";
+}
+
+function inferKnowledgeRole(item: KnowledgeItemInput, stage: KnowledgeStage): KnowledgeRole {
+  if (stage === "caso-pratico" || item.type === "estudo de caso") return "caso";
+  if (item.type === "referencia") return "referencia";
+  if (item.essential) return "essencial";
+  if (stage === "aplicacao" || item.type === "checklist" || item.type === "pratica") {
+    return "pratico";
+  }
+  if (item.level === "intermediario" || item.level === "avancado") return "avancado";
+
+  return "complementar";
+}
+
+function getKnowledgeSequence(
+  item: KnowledgeItemInput & { stage: KnowledgeStage; role: KnowledgeRole },
+) {
+  const area = getKnowledgeAreaBySlug(item.area);
+  const moduleIndex = area?.modules.findIndex((module) => module.slug === item.module) ?? -1;
+  const moduleWeight = moduleIndex >= 0 ? moduleIndex : 99;
+  const stageWeight = getWeight(knowledgeStageOrder, item.stage);
+  const levelWeight: Record<KnowledgeLevel, number> = {
+    iniciante: 0,
+    intermediario: 1,
+    avancado: 2,
+  };
+  const statusWeight: Record<KnowledgeStatus, number> = {
+    publicado: 0,
+    "em breve": 1,
+    planejado: 2,
+  };
+  const roleWeight = getWeight(knowledgeRoleOrder, item.role);
+
+  return (
+    moduleWeight * 10_000 +
+    stageWeight * 1_000 +
+    levelWeight[item.level] * 100 +
+    roleWeight * 10 +
+    statusWeight[item.status]
+  );
+}
+
+function completeKnowledgeItem(item: KnowledgeItemInput): KnowledgeItem {
+  const stage = item.stage ?? inferKnowledgeStage(item);
+  const role = item.role ?? inferKnowledgeRole(item, stage);
+
+  return {
+    ...item,
+    stage,
+    role,
+    sequence: item.sequence ?? getKnowledgeSequence({ ...item, stage, role }),
+  };
+}
+
+function hasReadableHref(item?: KnowledgeItem | null) {
+  return Boolean(item?.href && item.status === "publicado");
+}
+
+function findKnowledgeItemByReference(items: KnowledgeItem[], reference: string) {
+  const normalized = normalizeKey(reference);
+
+  return items.find(
+    (candidate) => candidate.slug === normalized || normalizeKey(candidate.title) === normalized,
+  );
+}
+
+function getStageCounts(items: KnowledgeItem[]) {
+  return knowledgeStageFlow
+    .map(({ stage, label }) => ({
+      stage,
+      label,
+      count: items.filter((item) => item.stage === stage).length,
+    }))
+    .filter((item) => item.count > 0);
+}
+
+function postToKnowledgeItem(post: BlogFile): KnowledgeItemInput | null {
   const area = normalizeArea(post.metadata.area);
   if (!area) return null;
 
@@ -486,14 +710,15 @@ function sortKnowledgeItems(left: KnowledgeItem, right: KnowledgeItem) {
   };
 
   return (
-    statusWeight[left.status] - statusWeight[right.status] ||
+    left.sequence - right.sequence ||
     Number(right.essential) - Number(left.essential) ||
-    left.title.localeCompare(right.title)
+    left.title.localeCompare(right.title) ||
+    statusWeight[left.status] - statusWeight[right.status]
   );
 }
 
 export function getKnowledgeItems(posts = getAllBlogPosts()) {
-  const itemMap = new Map<string, KnowledgeItem>();
+  const itemMap = new Map<string, KnowledgeItemInput>();
 
   plannedKnowledgeItems.forEach((item) => {
     itemMap.set(item.slug, item);
@@ -501,12 +726,12 @@ export function getKnowledgeItems(posts = getAllBlogPosts()) {
 
   posts
     .map(postToKnowledgeItem)
-    .filter((item): item is KnowledgeItem => Boolean(item))
+    .filter((item): item is KnowledgeItemInput => Boolean(item))
     .forEach((item) => {
       itemMap.set(item.slug, item);
     });
 
-  return Array.from(itemMap.values()).sort(sortKnowledgeItems);
+  return Array.from(itemMap.values()).map(completeKnowledgeItem).sort(sortKnowledgeItems);
 }
 
 export function getKnowledgeTrail(
@@ -516,17 +741,26 @@ export function getKnowledgeTrail(
   const area = getKnowledgeAreaBySlug(areaSlug);
   if (!area) return null;
 
-  const items = getKnowledgeItems(posts).filter((item) => item.area === area.slug);
+  const items = getKnowledgeItems(posts)
+    .filter((item) => item.area === area.slug)
+    .sort(sortKnowledgeItems);
   const modules = area.modules.map((module) => {
     const moduleItems = items
       .filter((item) => item.module === module.slug)
       .sort(sortKnowledgeItems);
+    const essentialItems = moduleItems.filter((item) => item.essential);
+    const complementaryItems = moduleItems.filter((item) => !item.essential);
 
     return {
       ...module,
       items: moduleItems,
+      startItem: moduleItems.find(hasReadableHref) ?? moduleItems[0],
+      essentialItems,
+      complementaryItems,
+      stageCounts: getStageCounts(moduleItems),
       publishedCount: moduleItems.filter((item) => item.status === "publicado").length,
       plannedCount: moduleItems.filter((item) => item.status !== "publicado").length,
+      readingMinutes: moduleItems.reduce((sum, item) => sum + (item.estimatedReadingTime ?? 0), 0),
     };
   });
 
@@ -535,55 +769,109 @@ export function getKnowledgeTrail(
     items,
     essentials: items.filter((item) => item.essential).slice(0, 6),
     modules,
+    startItem: items.find(hasReadableHref) ?? items[0],
     publishedCount: items.filter((item) => item.status === "publicado").length,
     plannedCount: items.filter((item) => item.status !== "publicado").length,
+    readingMinutes: items.reduce((sum, item) => sum + (item.estimatedReadingTime ?? 0), 0),
+    stageCounts: getStageCounts(items),
   };
 }
 
 export function getKnowledgeMap(posts = getAllBlogPosts()) {
   return knowledgeAreas.map((area) => {
     const trail = getKnowledgeTrail(area.slug, posts);
-    const modulesWithItems = trail?.modules.filter((module) => module.items.length > 0) ?? [];
+    const modules =
+      trail?.modules ??
+      area.modules.map((module) => ({
+        ...module,
+        items: [],
+        startItem: undefined,
+        essentialItems: [],
+        complementaryItems: [],
+        stageCounts: [],
+        publishedCount: 0,
+        plannedCount: 0,
+        readingMinutes: 0,
+      }));
 
     return {
       area,
       publishedCount: trail?.publishedCount ?? 0,
       plannedCount: trail?.plannedCount ?? 0,
       essentialCount: trail?.items.filter((item) => item.essential).length ?? 0,
-      modules: modulesWithItems.length > 0 ? modulesWithItems : area.modules.slice(0, 3),
+      moduleCount: area.modules.length,
+      readingMinutes: trail?.readingMinutes ?? 0,
+      modules,
+      startItem: trail?.startItem,
+      stageCounts: trail?.stageCounts ?? [],
     };
   });
 }
 
 export function getKnowledgeContextForPost(slug: string, posts = getAllBlogPosts()) {
-  const item = getKnowledgeItems(posts).find((candidate) => candidate.slug === slug);
+  const items = getKnowledgeItems(posts);
+  const item = items.find((candidate) => candidate.slug === slug);
   if (!item) return null;
 
   const area = getKnowledgeAreaBySlug(item.area);
   const areaModule = area?.modules.find((candidate) => candidate.slug === item.module);
-  const items = getKnowledgeItems(posts);
-  const currentIndex = items.findIndex((candidate) => candidate.slug === slug);
+  const areaItems = items
+    .filter((candidate) => candidate.area === item.area)
+    .sort(sortKnowledgeItems);
+  const currentIndex = areaItems.findIndex((candidate) => candidate.slug === slug);
+  const laterAreaItems = currentIndex >= 0 ? areaItems.slice(currentIndex + 1) : [];
+  const resolvedPrerequisites = item.prerequisites
+    .map((reference) => findKnowledgeItemByReference(items, reference))
+    .filter((candidate): candidate is KnowledgeItem => Boolean(candidate));
+  const unlockedItems = item.unlocks
+    .map((reference) => findKnowledgeItemByReference(items, reference))
+    .filter((candidate): candidate is KnowledgeItem => Boolean(candidate));
+  const relatedItems = item.related
+    .map((reference) => findKnowledgeItemByReference(items, reference))
+    .filter((candidate): candidate is KnowledgeItem => Boolean(candidate));
+  const previousItem =
+    [...resolvedPrerequisites].reverse().find(Boolean) ??
+    (currentIndex > 0 ? areaItems[currentIndex - 1] : undefined);
   const nextItem =
-    item.unlocks
-      .map((unlock) => {
-        const normalized = normalizeKey(unlock);
-        return items.find(
-          (candidate) =>
-            candidate.slug === normalized || normalizeKey(candidate.title) === normalized,
-        );
-      })
-      .find(Boolean) ??
-    items
-      .filter((candidate) => candidate.area === item.area && candidate.module === item.module)
-      .find((candidate) => candidate.slug !== item.slug && candidate.status !== "planejado");
+    unlockedItems.find(hasReadableHref) ??
+    unlockedItems[0] ??
+    laterAreaItems.find(hasReadableHref) ??
+    laterAreaItems[0];
+  const applicationItem = laterAreaItems.find(
+    (candidate) =>
+      candidate.slug !== nextItem?.slug &&
+      candidate.stage === "aplicacao" &&
+      hasReadableHref(candidate),
+  );
+  const deepDiveItem = laterAreaItems.find(
+    (candidate) =>
+      candidate.slug !== nextItem?.slug &&
+      candidate.slug !== applicationItem?.slug &&
+      (candidate.stage === "aprofundamento" || candidate.level !== "iniciante") &&
+      hasReadableHref(candidate),
+  );
+  const projectItems = items
+    .filter((candidate) => candidate.area === "projetos")
+    .filter((candidate) =>
+      item.related.some((reference) => normalizeKey(reference) === normalizeKey(candidate.title)),
+    )
+    .slice(0, 2);
 
   return {
     item,
     area,
     module: areaModule,
+    previousItem,
     nextItem,
     position: currentIndex >= 0 ? currentIndex + 1 : undefined,
+    stage: getKnowledgeStageMeta(item.stage),
+    roleLabel: getKnowledgeRoleLabel(item.role),
+    applicationItem,
+    deepDiveItem,
+    relatedItems: relatedItems.slice(0, 3),
+    projectItems,
     related: uniq(item.related).slice(0, 4),
     prerequisites: uniq(item.prerequisites).slice(0, 4),
+    resolvedPrerequisites,
   };
 }

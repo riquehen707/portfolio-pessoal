@@ -30,26 +30,27 @@ type StrategyPage = {
 
 const contentStrategy = {
   communicationPrinciple:
-    "Explicar problema real, critério e próximo passo com precisão editorial.",
+    "Apontar onde a decisão quebra, cortar ruído e sugerir o próximo passo possível.",
   editorialVoice: {
-    tone: "Direto, claro, estratégico e sem exagero publicitário.",
+    tone: "Direto, crítico, claro e sem frase de agência.",
     rhythm:
-      "Frases curtas e médias. Começar pelo problema concreto, depois mostrar o critério e só então sugerir ação.",
+      "Frases curtas. Começar pelo problema visto na prática, mostrar o critério e parar antes de explicar demais.",
     pointOfView:
-      "Escrever como consultoria editorial: observar, organizar, comparar e orientar. Evitar soar como anúncio de agência.",
+      "Escrever como alguém que revisa oferta, página, conteúdo e atendimento. Ter opinião. Evitar neutralidade decorativa.",
     signatureRule:
-      "A frase 'Clareza gera resultado.' pode aparecer como assinatura, mas não deve ser repetida como título, subtítulo ou argumento central.",
+      "A frase 'Clareza reduz atrito.' pode aparecer como assinatura curta, mas não deve virar argumento central.",
     preferredPatterns: [
-      "Organize [elemento] para transformar [sinal fraco] em [ação concreta].",
-      "Antes de [investir/criar/anunciar], revise [base operacional].",
-      "O problema não é só [canal]. É [mecanismo] + [rotina] + [próximo passo].",
-      "Use [canal] para [função real], não apenas para aparecer.",
+      "Mais [canal] não corrige [base quebrada].",
+      "Antes de [investir/criar/anunciar], revise [ponto que trava a decisão].",
+      "O problema talvez não seja [canal]. Pode ser [oferta/página/atendimento].",
+      "[Canal] só ajuda quando [função real] está clara.",
     ],
     avoidPatterns: [
       "Promessas absolutas.",
       "Superlativos sem prova.",
       "Frases genéricas sobre resultado, crescimento ou inovação.",
       "Repetir clareza, estratégia e estrutura quando uma palavra mais específica resolve.",
+      "Explicar o método como se fosse uma tese.",
     ],
   },
   copyRules: {
@@ -68,6 +69,7 @@ const contentStrategy = {
       "Recorte específico",
       "Benefícios verificáveis",
       "Próximo passo concreto",
+      "Opiniões que mostram critério",
     ],
     avoid: [
       "Jargão corporativo",
@@ -75,14 +77,16 @@ const contentStrategy = {
       "Promessas vagas",
       "Texto longo sem função",
       "Slogan repetido como explicação",
+      "Botões genéricos como 'saiba mais' quando existe ação melhor",
     ],
   },
   pages: {
     home: {
       objective:
-        "Causar impacto rápido, gerar confiança, mostrar diferenciação, provar capacidade e levar para contato ou projetos.",
-      intendedAction: "Agendar uma ligação ou avançar para a seção de projetos.",
-      emotionalTone: "Confiança + impacto",
+        "Mostrar que o site ajuda a diagnosticar, estudar, ver processo e decidir escopo sem depender de uma vitrine solta.",
+      intendedAction:
+        "Entrar pelo mapa, biblioteca, laboratório ou consultoria conforme a necessidade.",
+      emotionalTone: "Critério + orientação",
       seo: {
         focus: "operação digital para negócios locais",
         keywords: [
@@ -93,148 +97,145 @@ const contentStrategy = {
         ],
       },
       hero: {
-        eyebrow: "Estratégia completa",
-        headline: "Operação digital completa para negócios locais.",
+        eyebrow: "Base antes de volume",
+        headline: "Mais tráfego não corrige uma base confusa.",
         subheadline:
-          "Presença, automação e dados para vender com mais direção.",
-        primaryCtaLabel: "Agendar uma ligação",
-        primaryCtaHref: "https://cal.com/henriquereis",
-        secondaryCtaLabel: "Conheça meu trabalho",
-        secondaryCtaHref: "/work",
+          "Conteúdo, projetos e serviços para revisar oferta, página e atendimento antes de aumentar esforço.",
+        primaryCtaLabel: "Começar pelo mapa",
+        primaryCtaHref: "/mapa",
+        secondaryCtaLabel: "Entender consultoria",
+        secondaryCtaHref: "/servicos",
       },
       sections: [
         {
           id: "proof",
-          label: "Prova rápida",
-          title: "Sinais imediatos de valor percebido.",
+          label: "Critério",
+          title: "O primeiro ajuste raramente é publicar mais.",
           description:
-            "A Home precisa provar, em poucos segundos, que existe critério técnico, direção comercial e capacidade de execução.",
+            "Antes de produzir, eu procuro onde a pessoa perde entendimento, confiança ou vontade de chamar.",
           bullets: [
-            "Especializado em negócios locais",
-            "Decisões guiadas por dados reais",
-            "Ecossistema digital completo",
-            "Soluções personalizadas",
+            "Oferta antes de campanha",
+            "Página antes de verba",
+            "Atendimento antes de automação",
+            "Escopo pequeno antes de volume",
           ],
         },
         {
           id: "markets",
           label: "Mercados",
-          title: "Mercados diferentes exigem estratégias diferentes.",
+          title: "Nem todo mercado perde cliente no mesmo ponto.",
           description:
-            "Crescimento sustentável depende de dados reais, planejamento claro e constância na execução.",
+            "Clínica perde no atendimento. Freelancer perde na oferta. Loja perde no catálogo. O canal vem depois.",
         },
         {
           id: "works",
-          label: "Projetos em destaque",
-          title: "Projetos que unem estética, estratégia e execução.",
+          label: "Laboratório",
+          title: "Bastidores, decisões e aprendizados.",
           description:
-            "Cada projeto resolve um desafio diferente, com foco em leitura, performance e impacto prático.",
-          ctaLabel: "Ver todos os projetos",
+            "Registros de processo para entender como projetos, sistemas e escolhas evoluem.",
+          ctaLabel: "Ver laboratório",
           ctaHref: "/work",
         },
         {
           id: "blog",
-          label: "Insights",
-          title: "Leituras para ajustar uma decisão.",
-          description:
-            "Critérios curtos antes de criar, anunciar ou refazer.",
-          ctaLabel: "Ver artigos",
+          label: "Biblioteca",
+          title: "Leia antes de mexer em tráfego, página ou conteúdo.",
+          description: "Guias curtos para decidir com menos achismo.",
+          ctaLabel: "Começar pela biblioteca",
           ctaHref: "/blog",
         },
         {
           id: "about-teaser",
           label: "Sobre",
-          title: "Por trás do trabalho.",
-          description:
-            "Como penso escopo, prioridade e execução.",
-          ctaLabel: "Conheça minha trajetória",
+          title: "Por que eu olho a base antes do volume.",
+          description: "Como penso oferta, página, atendimento e execução.",
+          ctaLabel: "Ver como penso",
           ctaHref: "/about",
         },
         {
           id: "final-cta",
           label: "Decisão",
           title: "Veja se faz sentido.",
-          description:
-            "Avalie cenário, prioridade e próximo passo antes de decidir.",
+          description: "Avalie cenário, prioridade e próximo passo antes de decidir.",
           ctaLabel: "Avaliar cenário",
           ctaHref: "/simulacao",
         },
       ],
     } satisfies StrategyPage,
     work: {
-      objective: "Provar capacidade real.",
-      intendedAction: "Fazer o visitante avançar para contato depois de ver projetos e recortes.",
-      emotionalTone: "Competência + prova",
+      objective: "Mostrar processo, decisões e aprendizados.",
+      intendedAction:
+        "Fazer o visitante entender como os projetos evoluem e continuar pela biblioteca ou serviços.",
+      emotionalTone: "Bastidor + decisão",
       seo: {
-        focus: "portfólio desenvolvimento web estratégico",
+        focus: "laboratório de projetos digitais",
         keywords: [
-          "portfólio desenvolvimento web estratégico",
-          "projetos de design e tecnologia",
-          "cases de presença digital",
-          "portfólio de operações digitais",
+          "laboratório de projetos digitais",
+          "bastidores de projetos digitais",
+          "estudos de caso de presença digital",
+          "decisões de produto e marketing",
         ],
       },
       hero: {
-        eyebrow: "Projetos",
-        headline: "Projetos e bastidores em construção.",
+        eyebrow: "Work",
+        headline: "Bastidores, decisões e aprendizados.",
         subheadline:
-          "Decisões, aprendizados e registros do que estou construindo.",
-        primaryCtaLabel: "Vamos conversar",
-        primaryCtaHref: "/contact",
-        secondaryCtaLabel: "Ver abordagem técnica",
-        secondaryCtaHref: "/about/abordagem-tecnica",
+          "Registros curtos sobre o que mudou, por que mudou e o que isso ensinou no site, nos sistemas e nos projetos.",
+        primaryCtaLabel: "Continuar na biblioteca",
+        primaryCtaHref: "/blog",
+        secondaryCtaLabel: "Entender serviços",
+        secondaryCtaHref: "/servicos",
       },
       sections: [
         {
           id: "featured-project",
-          label: "Projeto destaque",
-          title: "Projetos em destaque.",
-          description: "Leitura rápida para mostrar variedade, critério e execução forte.",
+          label: "Destaque",
+          title: "Registro principal.",
+          description: "O problema, a escolha feita e o aprendizado que sobrou.",
         },
         {
           id: "categories",
           label: "Categorias",
-          title: "Recortes para leitura rápida.",
+          title: "Registros por função.",
           description:
-            "Cliente, estudo e projetos pessoais ajudam a entender amplitude sem perder rigor.",
+            "Casos, bastidores, sistemas, aprendizados e experimentos têm papéis diferentes.",
         },
         {
           id: "grid",
-          label: "Grid",
-          title: "Portfólio publicado.",
-          description:
-            "Cada projeto existe para comprovar raciocínio, solução e resultado percebido.",
+          label: "Arquivo",
+          title: "Registros disponíveis.",
+          description: "Cada item precisa explicar a decisão, não só mostrar que algo foi feito.",
         },
         {
           id: "final-cta",
-          label: "Contato",
-          title: "Vamos organizar o próximo passo.",
+          label: "Próximo passo",
+          title: "Continue pela biblioteca.",
           description:
-            "Se existe um problema claro, a conversa pode virar escopo.",
-          ctaLabel: "Vamos conversar",
-          ctaHref: "/contact",
+            "Quando o registro fica estável, ele vira guia, artigo ou material de estudo.",
+          ctaLabel: "Continuar na biblioteca",
+          ctaHref: "/blog",
         },
       ],
     } satisfies StrategyPage,
     about: {
-      objective: "Humanizar, aprofundar autoridade e mostrar visão.",
-      intendedAction: "Fazer o visitante confiar o suficiente para iniciar a conversa.",
-      emotionalTone: "Humanidade + visão",
+      objective: "Mostrar como Henrique pensa sem virar texto institucional.",
+      intendedAction: "Levar para biblioteca, laboratório ou consultoria conforme o problema.",
+      emotionalTone: "Humano + crítico",
       seo: {
         focus: "estratégia digital com design e tecnologia",
         keywords: [
           "estratégia digital com design e tecnologia",
-          "visão estratégica para negócios locais",
+          "leitura comercial para negócios locais",
           "parceiro digital para operações reais",
-          "design tecnologia e resultado real",
+          "design tecnologia e decisão comercial",
         ],
       },
       hero: {
         eyebrow: "Sobre",
-        headline: "Estratégia, páginas e sistemas para negócios venderem com mais direção.",
+        headline: "Eu organizo o que acontece antes da venda.",
         subheadline:
-          "Trabalho entre marketing, design e operação digital para organizar presença, captação e acompanhamento.",
-        primaryCtaLabel: "Ver como trabalho",
+          "Oferta, página, conteúdo e atendimento precisam se entender antes de pedir mais volume.",
+        primaryCtaLabel: "Ver como penso",
         primaryCtaHref: "/about",
         secondaryCtaLabel: "Ver simulação",
         secondaryCtaHref: "/simulacao",
@@ -244,36 +245,34 @@ const contentStrategy = {
           id: "story",
           label: "Trajetória",
           title: "Minha história",
-          description:
-            "Empreender cedo mostrou que esforço sem estrutura cobra caro.",
+          description: "Empreender cedo mostrou que esforço sem estrutura cobra caro.",
         },
         {
           id: "rebuild",
           label: "Recomeço",
-          title: "Prática, disciplina e resultado.",
-          description:
-            "Recomeçar do zero tornou meu trabalho mais prático e disciplinado.",
+          title: "Prática antes de discurso.",
+          description: "Recomeçar do zero tornou meu trabalho mais prático e disciplinado.",
         },
         {
           id: "fit",
           label: "Aderência",
           title: "Para quem faço sentido",
           description:
-            "Para negócios que entregam valor, mas precisam organizar presença e captação.",
+            "Para quem já entrega algo útil, mas perde cliente por falta de clareza no caminho.",
           bullets: [
             "Pequenos e médios negócios",
             "Profissionais e empresas de serviço",
-            "Primeiros anos de crescimento",
-            "Estrutura sem complexidade",
+            "Operações dependentes de indicação",
+            "Páginas que explicam pouco",
           ],
         },
       ],
     } satisfies StrategyPage,
     blog: {
-      objective: "Somar autoridade, SEO e repertório.",
+      objective: "Organizar conhecimento, SEO e repertório.",
       intendedAction:
-        "Fazer o visitante consumir ideias úteis e voltar para a marca com mais confiança.",
-      emotionalTone: "Inteligência + utilidade",
+        "Ajudar o visitante a escolher uma leitura por problema, tema ou etapa de aprendizado.",
+      emotionalTone: "Clareza + utilidade",
       seo: {
         focus: "marketing para negócios locais",
         keywords: [
@@ -285,35 +284,34 @@ const contentStrategy = {
         ],
       },
       hero: {
-        eyebrow: "Insights",
-        headline: "Marketing, design e conversão sem ruído.",
+        eyebrow: "Biblioteca",
+        headline: "Leia por problema, tema ou etapa.",
         subheadline:
-          "Textos curtos para melhorar presença, oferta e decisão.",
-        primaryCtaLabel: "Explorar insights",
+          "Textos para pensar antes de anunciar, redesenhar página, comprar ferramenta ou publicar mais.",
+        primaryCtaLabel: "Começar pela biblioteca",
         primaryCtaHref: "/blog",
       },
       sections: [
         {
           id: "categories",
           label: "Categorias",
-          title: "Trilhas editoriais centrais.",
-          description:
-            "Temas para navegar por problema, não por volume.",
+          title: "Temas para não abrir tudo ao mesmo tempo.",
+          description: "Use quando já sabe qual problema quer revisar.",
           bullets: ["Negócios locais", "Marketing", "Design", "Operação", "Tecnologia", "Growth"],
         },
         {
           id: "archive",
           label: "Arquivo",
-          title: "Arquivo editorial organizado para leitura rápida.",
+          title: "Arquivo sem depender de ordem cronológica.",
           description:
-            "O conteúdo publicado precisa ser fácil de explorar, útil no curto prazo e consistente no longo prazo.",
+            "Artigo recente ajuda, mas o melhor ponto de partida nem sempre é o último publicado.",
         },
       ],
     } satisfies StrategyPage,
     contact: {
-      objective: "Converter sem fricção.",
-      intendedAction: "Levar o visitante a escolher um canal e iniciar a conversa imediatamente.",
-      emotionalTone: "Facilidade + oportunidade",
+      objective: "Abrir conversa sem empurrar escopo antes de entender o problema.",
+      intendedAction: "Levar o visitante a explicar contexto e prioridade.",
+      emotionalTone: "Direto + sem pressão",
       seo: {
         focus: "consultoria digital",
         keywords: [
@@ -326,9 +324,8 @@ const contentStrategy = {
       },
       hero: {
         eyebrow: "Contato",
-        headline: "Vamos falar sobre o seu negócio.",
-        subheadline:
-          "Se existe potencial de crescimento, vamos encontrar a melhor estrutura para isso.",
+        headline: "Vamos entender onde a conta não fecha.",
+        subheadline: "A conversa começa pelo problema, não por uma lista de entregáveis.",
         primaryCtaLabel: "Agendar uma ligação",
         primaryCtaHref: "https://cal.com/henriquereis",
         secondaryCtaLabel: "Falar no WhatsApp",

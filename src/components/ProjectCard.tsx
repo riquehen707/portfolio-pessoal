@@ -30,7 +30,8 @@ function toUsefulStackLabel(item: string) {
   if (normalized.includes("seo")) return "Busca preparada";
   if (normalized.includes("analytics")) return "Dados acionáveis";
   if (normalized.includes("crm")) return "Leads organizados";
-  if (normalized.includes("automation") || normalized.includes("automação")) return "Rotina automatizada";
+  if (normalized.includes("automation") || normalized.includes("automação"))
+    return "Rotina automatizada";
   if (normalized.includes("api")) return "Canais conectados";
 
   return item;
@@ -53,7 +54,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <article className={styles.root} data-variant={variant} data-kind={kindValue ?? "project"}>
-      <div className={styles.card} data-has-media={hasMedia ? "true" : "false"} data-variant={variant}>
+      <div
+        className={styles.card}
+        data-has-media={hasMedia ? "true" : "false"}
+        data-variant={variant}
+      >
         {hasMedia && (
           <div className={styles.mediaShell}>
             {kind && <div className={styles.mediaBadge}>{kind}</div>}
@@ -134,7 +139,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 data-analytics-category={kind}
                 data-analytics-location="projects_list"
               >
-                Ver detalhes
+                Ver projeto
               </SmartLink>
             )}
             {link && (

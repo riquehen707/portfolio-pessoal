@@ -4,11 +4,17 @@
   position: relative;
   width: min(100%, var(--grid-max-width));
   margin-inline: auto;
-  gap: clamp(2rem, 4vw, 3rem);
+  gap: clamp(2.2rem, 4.5vw, 3.8rem);
+}
+
+.heroSection,
+.section,
+.nextStep {
+  position: relative;
+  width: 100%;
 }
 
 .heroSection {
-  position: relative;
   padding-block: clamp(1rem, 2vw, 1.5rem) 0.5rem;
 }
 
@@ -32,7 +38,7 @@
 }
 
 .heroTitle {
-  max-width: 8ch;
+  max-width: 13ch;
 }
 
 .heroLead,
@@ -58,15 +64,20 @@
 }
 
 .roadmapItem,
-.signalItem {
+.resourceCard,
+.linkCard {
   position: relative;
   display: grid;
-  gap: 0.55rem;
-  padding-left: 1rem;
+  gap: 0.7rem;
 }
 
-.roadmapItem::before,
-.signalItem::before {
+.roadmapItem {
+  padding-left: 1rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.roadmapItem::before {
   content: "";
   position: absolute;
   left: 0;
@@ -77,8 +88,7 @@
   background: var(--color-accent-gold);
 }
 
-.roadmapLabel,
-.signalLabel {
+.roadmapLabel {
   color: var(--neutral-on-background-weak);
   font-family: var(--font-label);
   font-size: var(--type-technical-size);
@@ -87,14 +97,107 @@
   text-transform: uppercase;
 }
 
-.signalGrid {
-  width: 100%;
-  padding-top: clamp(1.5rem, 4vw, 2.5rem);
-  border-top: 1px solid var(--border-subtle);
+.section {
+  display: grid;
+  gap: 1.25rem;
+  padding-top: clamp(1.8rem, 4vw, 3rem);
+  border-top: 1px solid var(--line-subtle);
+}
+
+.sectionHeader {
+  display: grid;
+  gap: 0.55rem;
+  max-width: 42rem;
+}
+
+.sectionLabel,
+.statusPill {
+  color: var(--neutral-on-background-weak);
+  font-family: var(--font-label);
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
+  text-transform: uppercase;
+}
+
+.resourceGrid,
+.linkGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line-muted);
+}
+
+.resourceCard,
+.linkCard {
+  align-content: start;
+  min-height: 12rem;
+  padding: 1.05rem 1rem 1rem 0;
+  border-bottom: 1px solid var(--line-muted);
+}
+
+.resourceCard + .resourceCard,
+.linkCard + .linkCard {
+  padding-left: 1rem;
+  border-left: 1px solid var(--line-muted);
+}
+
+.statusPill {
+  width: fit-content;
+  color: var(--color-accent-gold);
+}
+
+.exampleRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.7rem;
+}
+
+.exampleRow span {
+  color: var(--neutral-on-background-medium);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.exampleRow span::before {
+  color: var(--color-accent-gold);
+  content: "\2022 ";
+}
+
+.criteriaSection {
+  grid-template-columns: minmax(0, 0.75fr) minmax(18rem, 1.25fr);
+  align-items: start;
+}
+
+.criteriaList {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line-muted);
+  list-style: none;
+}
+
+.criteriaList li {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--line-muted);
+  color: var(--neutral-on-background-medium);
+  line-height: 1.6;
+}
+
+.nextStep {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 48rem;
+  padding-top: clamp(1.8rem, 4vw, 3rem);
+  border-top: 1px solid var(--line-subtle);
 }
 
 @media (max-width: breakpoints.$m) {
-  .hero {
+  .hero,
+  .resourceGrid,
+  .linkGrid,
+  .criteriaSection {
     grid-template-columns: 1fr;
   }
 
@@ -103,6 +206,14 @@
     padding-top: 1.35rem;
     border-left: 0;
     border-top: 1px solid var(--border-subtle);
+  }
+
+  .resourceCard,
+  .resourceCard + .resourceCard,
+  .linkCard,
+  .linkCard + .linkCard {
+    padding-left: 0;
+    border-left: 0;
   }
 }
 
@@ -116,5 +227,25 @@
   .actions {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .section,
+  .nextStep {
+    padding-top: 1.6rem;
+  }
+
+  .resourceCard,
+  .linkCard {
+    min-height: 0;
+    padding-block: 0.9rem;
+  }
+
+  .resourceCard > :nth-child(3),
+  .linkCard > :nth-child(3),
+  .criteriaList li {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
   }
 }

@@ -7,8 +7,10 @@
 }
 
 .hero,
-.essentialSection,
-.moduleSection {
+.fitSection,
+.moduleSection,
+.sequenceSection,
+.nextPanel {
   display: grid;
   gap: 1.15rem;
 }
@@ -54,13 +56,62 @@
 }
 
 .heroTitle {
-  max-width: 10ch;
+  max-width: 15ch;
 }
 
 .heroLead {
   max-width: 38rem;
   color: var(--neutral-on-background-medium);
   line-height: 1.62;
+}
+
+.sectionLead {
+  max-width: 39rem;
+  color: var(--neutral-on-background-medium);
+  line-height: 1.58;
+}
+
+.stageSteps {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  border-top: 1px solid var(--line-subtle);
+  border-bottom: 1px solid var(--line-subtle);
+}
+
+.stageSteps li {
+  display: grid;
+  align-content: start;
+  gap: 0.35rem;
+  min-height: 5.75rem;
+  padding: 0.85rem 0.75rem 0.85rem 0;
+}
+
+.stageSteps li + li {
+  padding-left: 0.75rem;
+  border-left: 1px solid var(--line-muted);
+}
+
+.stageSteps span,
+.moduleContext span {
+  color: var(--color-accent-gold);
+  font-family: var(--font-code);
+  font-size: 0.72rem;
+}
+
+.stageSteps strong {
+  color: var(--neutral-on-background-strong);
+  font-size: 0.9rem;
+  line-height: 1.18;
+}
+
+.stageSteps small {
+  color: var(--neutral-on-background-medium);
+  font-size: 0.78rem;
+  line-height: 1.35;
 }
 
 .heroStats {
@@ -83,8 +134,8 @@
 .heroStats span {
   color: var(--neutral-on-background-strong);
   font-family: var(--font-heading);
-  font-size: clamp(1.55rem, 3vw, 2rem);
-  line-height: 1;
+  font-size: clamp(1.15rem, 2.2vw, 1.42rem);
+  line-height: 1.08;
 }
 
 .heroStats p {
@@ -129,11 +180,28 @@
   text-decoration: none;
 }
 
-.essentialGrid,
+.fitGrid,
 .articleGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.75rem;
+}
+
+.fitGrid {
+  gap: 0;
+  border-top: 1px solid var(--line-subtle);
+}
+
+.fitGrid p {
+  margin: 0;
+  padding: 0.95rem 0.95rem 0 0;
+  color: var(--neutral-on-background-medium);
+  line-height: 1.62;
+}
+
+.fitGrid p + p {
+  padding-left: 0.95rem;
+  border-left: 1px solid var(--line-muted);
 }
 
 .articleCard {
@@ -253,8 +321,14 @@ article.articleCard {
   line-height: 1.4;
 }
 
+.moduleStages {
+  color: var(--neutral-on-background-medium) !important;
+}
+
 .moduleCount {
   color: var(--color-accent-gold);
+  line-height: 1.35;
+  text-align: right;
 }
 
 .articleGrid {
@@ -262,10 +336,69 @@ article.articleCard {
   padding: 0 1rem 1rem;
 }
 
+.moduleContext {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0 1rem 1rem;
+  padding: 0.85rem 0 0;
+  border-top: 1px solid var(--line-muted);
+}
+
+.moduleContext a,
+.moduleContext p {
+  margin: 0;
+  color: var(--neutral-on-background-strong);
+  font-size: 0.95rem;
+  line-height: 1.42;
+  text-decoration: none;
+}
+
+.moduleContext a {
+  color: var(--color-accent-gold);
+  font-weight: 700;
+}
+
 .emptyModule {
   margin: 0;
   padding: 0 1rem 1rem;
   color: var(--neutral-on-background-weak);
+}
+
+.nextPanel {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  padding-block: 1.15rem;
+  border-top: 1px solid var(--line-subtle);
+  border-bottom: 1px solid var(--line-subtle);
+}
+
+.nextPanel > div:first-child {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.nextActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: flex-end;
+}
+
+.secondaryAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.55rem;
+  padding: 0.72rem 0.9rem;
+  border: 1px solid var(--line-muted);
+  border-radius: var(--radius-8);
+  background: var(--surface-panel-soft);
+  color: var(--neutral-on-background-medium);
+  font-family: var(--font-label);
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -278,12 +411,31 @@ article.articleCard {
 
 @media (max-width: breakpoints.$m) {
   .hero,
-  .essentialGrid {
+  .fitGrid {
     grid-template-columns: 1fr;
   }
 
   .heroStats {
     max-width: 32rem;
+  }
+
+  .stageSteps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .stageSteps li:nth-child(3n + 1) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .fitGrid p,
+  .fitGrid p + p {
+    padding: 0.85rem 0 0;
+    border-left: 0;
+  }
+
+  .fitGrid p + p {
+    border-top: 1px solid var(--line-muted);
   }
 }
 
@@ -293,12 +445,13 @@ article.articleCard {
   }
 
   .heroTitle {
-    max-width: 9ch;
+    max-width: 13ch;
     font-size: 2.45rem;
   }
 
   .heroStats,
-  .articleGrid {
+  .articleGrid,
+  .stageSteps {
     grid-template-columns: 1fr;
   }
 
@@ -307,12 +460,31 @@ article.articleCard {
     border-top: 1px solid var(--line-muted);
   }
 
+  .stageSteps li + li {
+    border-left: 0;
+    border-top: 1px solid var(--line-muted);
+  }
+
+  .stageSteps li,
+  .stageSteps li + li {
+    padding-left: 0;
+  }
+
   .startPanel {
     display: grid;
   }
 
-  .startAction {
+  .startAction,
+  .secondaryAction {
     width: 100%;
+  }
+
+  .nextPanel {
+    grid-template-columns: 1fr;
+  }
+
+  .nextActions {
+    justify-content: stretch;
   }
 
   .moduleBlock summary {

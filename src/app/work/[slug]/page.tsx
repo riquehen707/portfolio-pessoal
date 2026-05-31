@@ -30,7 +30,7 @@ import ArticleToc from "@/components/blog/ArticleToc";
 import { CustomMDX, ScrollToHash } from "@/components";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { Projects } from "@/components/work/Projects";
-import { baseURL, about, person } from "@/resources";
+import { about, baseURL, person, work } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
 import { buildDiscoverImageMetadata } from "@/utils/og";
 
@@ -123,7 +123,7 @@ export default async function ProjectPage({ params }: PageProps) {
       <BreadcrumbJsonLd
         items={[
           { name: "Início", url: baseURL },
-          { name: "Projetos", url: `${baseURL}/work` },
+          { name: work.label, url: `${baseURL}${work.path}` },
           { name: post.metadata.title, url: `${baseURL}${getWorkProjectPath(post.slug)}` },
         ]}
       />
@@ -132,7 +132,7 @@ export default async function ProjectPage({ params }: PageProps) {
         <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="20">
           <Column className={styles.heroMain} gap="16">
             <Row gap="12" wrap>
-              <SmartLink href="/work">Voltar</SmartLink>
+              <SmartLink href={work.path}>Voltar ao laboratório</SmartLink>
             </Row>
 
             {(displayKind || stack.length > 0) && (
@@ -244,7 +244,8 @@ export default async function ProjectPage({ params }: PageProps) {
             Mapa do case
           </Heading>
           <Text className={styles.supportLead} onBackground="neutral-weak" variant="body-default-m">
-            Uma leitura rápida das seções principais para navegar pelo projeto sem depender de scroll cego.
+            Uma leitura rápida das seções principais para navegar pelo projeto sem depender de
+            scroll cego.
           </Text>
           <ArticleToc containerId="project-article" minLevel={2} maxLevel={tocDepth as 2 | 3 | 4} />
         </Column>
@@ -274,7 +275,11 @@ export default async function ProjectPage({ params }: PageProps) {
             {faqItems.map((item) => (
               <details className={styles.faqItem} key={item.q}>
                 <summary className={styles.faqQuestion}>{item.q}</summary>
-                <Text className={styles.faqAnswer} onBackground="neutral-weak" variant="body-default-m">
+                <Text
+                  className={styles.faqAnswer}
+                  onBackground="neutral-weak"
+                  variant="body-default-m"
+                >
                   {item.a}
                 </Text>
               </details>
@@ -293,7 +298,10 @@ export default async function ProjectPage({ params }: PageProps) {
           </Heading>
           <Column className={styles.referenceList} gap="12">
             {references.map((reference) => (
-              <div className={styles.referenceItem} key={`${reference.title}-${reference.year ?? "nd"}`}>
+              <div
+                className={styles.referenceItem}
+                key={`${reference.title}-${reference.year ?? "nd"}`}
+              >
                 <Text variant="body-default-m">{reference.title}</Text>
                 <Text onBackground="neutral-weak" variant="body-default-s">
                   {[reference.author, reference.year ? String(reference.year) : undefined]
