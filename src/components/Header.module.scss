@@ -23,6 +23,7 @@
 
 .rightRail {
   justify-self: end;
+  align-items: center;
 }
 
 .brandSignature {
@@ -107,6 +108,15 @@
 
   .sideRail {
     display: none;
+  }
+
+  .rightRail {
+    position: fixed;
+    top: 0.85rem;
+    right: 1rem;
+    z-index: 10;
+    width: auto;
+    display: flex;
   }
 
   .navShell {

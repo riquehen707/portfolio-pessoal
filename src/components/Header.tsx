@@ -83,7 +83,6 @@ export function Header({ searchItems }: HeaderProps) {
         zIndex={1}
       >
         <Row className={styles.navRow} gap="4" vertical="center" textVariant="body-default-s">
-          <GlobalSearch items={searchItems} />
           {navItems.map((item) => {
             const isActive =
               item.href === about.path
@@ -123,6 +122,7 @@ export function Header({ searchItems }: HeaderProps) {
         horizontal="end"
         vertical="center"
       >
+        <GlobalSearch items={searchItems} />
         {display.time && (
           <Row className={styles.utility} gap="8" vertical="center" s={{ hide: true }}>
             <Text className={styles.timeValue} variant="body-default-s">
