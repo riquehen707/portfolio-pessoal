@@ -6,7 +6,6 @@ import classNames from "classnames";
 import { Text } from "@once-ui-system/core";
 import { m, useReducedMotion } from "framer-motion";
 
-import { AvatarSticker } from "@/components/avatar/AvatarSticker";
 import { SectionHeader } from "@/components/SectionHeader";
 import { MarketCard } from "@/components/cards/MarketCard";
 import {
@@ -117,10 +116,6 @@ export function MarketsSection({ eyebrow, title, description, items }: MarketsSe
             description={description}
             titleId="markets-section-title"
           />
-        </div>
-
-        <div className={styles.headerExpression} aria-hidden="true">
-          <AvatarSticker expression="attentive" size="md" />
         </div>
       </m.div>
 

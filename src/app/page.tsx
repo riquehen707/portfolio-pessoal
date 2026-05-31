@@ -9,7 +9,6 @@ import { FinalCTA } from "@/components/home/FinalCTA";
 import { HeroActions } from "@/components/home/HeroActions";
 import { HeroSubtitle } from "@/components/home/HeroSubtitle";
 import { HeroTitle } from "@/components/home/HeroTitle";
-import { HeroVisual } from "@/components/home/HeroVisual";
 import { Reveal } from "@/components/motion/Reveal";
 import {
   about,
@@ -121,7 +120,6 @@ export default function Home() {
             />
           </div>
 
-          <HeroVisual />
         </div>
       </section>
 

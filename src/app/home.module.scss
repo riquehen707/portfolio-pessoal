@@ -84,7 +84,7 @@
 .heroCopy {
   position: relative;
   z-index: 3;
-  grid-column: 1 / span 6;
+  grid-column: 1 / span 7;
   grid-row: 1;
   display: grid;
   gap: clamp(1rem, 1.8vw, 1.35rem);
@@ -302,8 +302,8 @@
   }
 
   .heroCopy {
-    grid-column: 1 / span 6;
-    max-width: min(100%, 35rem);
+    grid-column: 1 / span 7;
+    max-width: min(100%, 39rem);
   }
 
   .blogGrid {
@@ -363,14 +363,6 @@
   .heroCopy > * {
     grid-column: 1 / -1;
     min-width: 0;
-  }
-
-  .heroCopy > :nth-child(4) {
-    grid-row: 5;
-  }
-
-  .heroCopy > :nth-child(5) {
-    grid-row: 6;
   }
 
   .heroAudienceNav {
