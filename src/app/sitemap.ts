@@ -1,6 +1,7 @@
 import { type MetadataRoute } from "next";
 
 import { getBlogCollectionIndex } from "@/app/blog/postData";
+import { publicTrailAreas } from "@/lib/knowledgeConfig";
 import { getPosts } from "@/utils/utils";
 import {
   baseURL,
@@ -41,6 +42,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/work": 0.9,
     "/blog": 0.86,
     "/blog/temas": 0.74,
+    "/mapa": 0.82,
+    "/trilhas": 0.78,
     "/contact": 0.88,
     "/about": 0.82,
     "/servicos": 0.84,
@@ -80,8 +83,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
+  const trailRoutes = publicTrailAreas.map((area) => ({
+    url: `${baseURL}${area.path}`,
+    lastModified: today,
+    changeFrequency: "monthly" as const,
+    priority: 0.76,
+  }));
+
   return [
     ...routes,
+    ...trailRoutes,
     ...feeds,
     ...audienceLandings,
     ...serviceLandings,

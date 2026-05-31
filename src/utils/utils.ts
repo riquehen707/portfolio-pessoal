@@ -59,6 +59,30 @@ export type Metadata = {
     next?: string[];
   };
   link?: string;
+  area?: string;
+  module?: string;
+  node?: string;
+  level?: "iniciante" | "intermediario" | "intermediário" | "avancado" | "avançado";
+  type?:
+    | "conceito"
+    | "guia"
+    | "checklist"
+    | "estudo de caso"
+    | "pratica"
+    | "prática"
+    | "comparacao"
+    | "comparação"
+    | "referencia"
+    | "referência";
+  knowledgeStatus?: "publicado" | "planejado" | "em breve";
+  essential?: boolean;
+  prerequisites?: string[];
+  unlocks?: string[];
+  related?: string[];
+  estimatedReadingTime?: number;
+  primaryKeyword?: string;
+  secondaryKeywords?: string[];
+  mapVisibility?: "mapa" | "trilha" | "blog-only" | "projeto";
 };
 
 export type BlogFile = {
@@ -153,10 +177,15 @@ function safeReadFile(filePath: string, collection?: string): BlogFile | null {
 
     const tag = typeof parsed.tag === "string" ? parsed.tag : undefined;
     const tags =
-      normalizeStringArray(parsed.tags) ?? (typeof parsed.tag === "string" ? [parsed.tag] : undefined);
+      normalizeStringArray(parsed.tags) ??
+      (typeof parsed.tag === "string" ? [parsed.tag] : undefined);
     const categories = normalizeStringArray(parsed.categories);
     const stack = normalizeStringArray(parsed.stack);
     const keywords = normalizeStringArray(parsed.keywords);
+    const prerequisites = normalizeStringArray(parsed.prerequisites);
+    const unlocks = normalizeStringArray(parsed.unlocks);
+    const related = normalizeStringArray(parsed.related);
+    const secondaryKeywords = normalizeStringArray(parsed.secondaryKeywords);
     const cover = typeof parsed.cover === "string" ? parsed.cover : undefined;
     const image = typeof parsed.image === "string" ? parsed.image : undefined;
     const imageAlt = typeof parsed.imageAlt === "string" ? parsed.imageAlt : undefined;
@@ -210,13 +239,28 @@ function safeReadFile(filePath: string, collection?: string): BlogFile | null {
       references,
       diary,
       link: parsed.link ?? undefined,
+      area: parsed.area ?? undefined,
+      module: parsed.module ?? undefined,
+      node: parsed.node ?? undefined,
+      level: parsed.level ?? undefined,
+      type: parsed.type ?? undefined,
+      knowledgeStatus: parsed.knowledgeStatus ?? undefined,
+      essential: parsed.essential ?? undefined,
+      prerequisites,
+      unlocks,
+      related,
+      estimatedReadingTime: parsed.estimatedReadingTime ?? undefined,
+      primaryKeyword: parsed.primaryKeyword ?? undefined,
+      secondaryKeywords,
+      mapVisibility: parsed.mapVisibility ?? undefined,
     };
 
     if (metadata.status === "draft") {
       return null;
     }
 
-    const slug = typeof parsed.slug === "string" && parsed.slug.trim() ? parsed.slug.trim() : inferredSlug;
+    const slug =
+      typeof parsed.slug === "string" && parsed.slug.trim() ? parsed.slug.trim() : inferredSlug;
 
     return { slug, metadata, content, collection };
   } catch {

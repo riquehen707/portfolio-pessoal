@@ -1,0 +1,137 @@
+@use "../../components/breakpoints.scss" as breakpoints;
+
+.page {
+  width: min(100%, var(--grid-max-width));
+  margin-inline: auto;
+  gap: clamp(2rem, 5vw, 3.6rem);
+}
+
+.hero {
+  display: grid;
+  gap: 0.65rem;
+  max-width: 42rem;
+  padding-top: clamp(0.75rem, 2vw, 1.2rem);
+}
+
+.kicker {
+  color: var(--neutral-on-background-weak);
+  font-family: var(--font-technical);
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  max-width: 11ch;
+}
+
+.heroLead {
+  color: var(--neutral-on-background-medium);
+  line-height: 1.62;
+}
+
+.trailGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.trailCard {
+  display: grid;
+  gap: 0.9rem;
+  min-height: 15rem;
+  padding: 1rem;
+  border: 1px solid var(--line-muted);
+  border-radius: var(--radius-8);
+  background: color-mix(in srgb, var(--surface-panel-soft) 76%, transparent);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    border-color var(--motion-fast),
+    background var(--motion-fast),
+    transform var(--motion-fast);
+}
+
+.trailHeader,
+.trailFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.trailHeader span,
+.trailFooter {
+  color: var(--neutral-on-background-weak);
+  font-family: var(--font-technical);
+  font-size: 0.68rem;
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
+  text-transform: uppercase;
+}
+
+.trailTitle {
+  margin: 0;
+  line-height: 1.05;
+}
+
+.trailDescription {
+  max-width: 34rem;
+  line-height: 1.58;
+}
+
+.moduleList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.moduleList span {
+  padding: 0.32rem 0.5rem;
+  border: 1px solid var(--line-muted);
+  border-radius: 999px;
+  color: var(--neutral-on-background-medium);
+  font-size: 0.76rem;
+  line-height: 1.1;
+}
+
+.trailFooter {
+  align-self: end;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--line-muted);
+}
+
+.trailFooter strong,
+.mapLink {
+  color: var(--color-accent-gold);
+  font-weight: 700;
+}
+
+.mapLink {
+  width: fit-content;
+  text-decoration: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .trailCard:hover {
+    border-color: color-mix(in srgb, var(--brand-on-background-medium) 28%, var(--line-muted));
+    background: color-mix(in srgb, var(--surface-panel-strong) 78%, transparent);
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: breakpoints.$s) {
+  .page {
+    gap: 2.2rem;
+  }
+
+  .trailGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroTitle {
+    max-width: 10ch;
+    font-size: 2.45rem;
+  }
+}

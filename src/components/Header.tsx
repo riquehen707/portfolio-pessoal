@@ -7,6 +7,7 @@ import { Flex, Icon, Row, Text } from "@once-ui-system/core";
 import { usePathname } from "next/navigation";
 
 import { about, blog, display, person, productsPage, work } from "@/resources";
+import { publicTrailAreas } from "@/lib/knowledgeConfig";
 
 import { BrandSignature } from "./BrandSignature";
 import { GlobalSearch } from "./GlobalSearch";
@@ -19,6 +20,34 @@ const navItems = [
   { href: about.path, label: "Sobre", icon: "person" },
   { href: blog.path, label: "Blog", icon: "book" },
   { href: productsPage.path, label: "Produtos", icon: "package" },
+] as const;
+
+const blogMenuLinks = [
+  {
+    href: blog.path,
+    title: "Todos os artigos",
+    description: "Biblioteca geral do blog.",
+  },
+  {
+    href: "/mapa",
+    title: "Mapa de aprendizado",
+    description: "Visao geral por areas e progressao.",
+  },
+  {
+    href: "/trilhas",
+    title: "Trilhas de conteudo",
+    description: "Caminhos organizados por tema.",
+  },
+  {
+    href: `${blog.path}#artigos`,
+    title: "Artigos recentes",
+    description: "Publicacoes novas e revisadas.",
+  },
+  {
+    href: work.path,
+    title: "Projetos",
+    description: "Bastidores, estudos de caso e aplicacoes.",
+  },
 ] as const;
 
 function TimeDisplay({ timeZone, locale = "pt-BR" }: { timeZone: string; locale?: string }) {
@@ -60,7 +89,17 @@ type HeaderProps = {
 
 export function Header({ searchItems }: HeaderProps) {
   const pathname = usePathname() ?? "";
+  const [isBlogMenuOpen, setIsBlogMenuOpen] = useState(false);
   const aboutSelected = pathname === about.path || pathname.startsWith(`${about.path}/`);
+  const blogSelected =
+    pathname === blog.path ||
+    pathname.startsWith(`${blog.path}/`) ||
+    pathname === "/mapa" ||
+    pathname.startsWith("/trilhas");
+
+  useEffect(() => {
+    setIsBlogMenuOpen(false);
+  }, [pathname]);
 
   return (
     <header className={styles.position}>
@@ -77,11 +116,63 @@ export function Header({ searchItems }: HeaderProps) {
         <div className={styles.navRow}>
           {navItems.map((item) => {
             const isActive =
-              item.href === about.path
-                ? aboutSelected
-                : item.href === "/"
-                  ? pathname === "/"
-                  : pathname.startsWith(item.href);
+              item.href === blog.path
+                ? blogSelected
+                : item.href === about.path
+                  ? aboutSelected
+                  : item.href === "/"
+                    ? pathname === "/"
+                    : pathname.startsWith(item.href);
+
+            if (item.href === blog.path) {
+              return (
+                <div className={styles.navItemWithMenu} data-open={isBlogMenuOpen} key={item.href}>
+                  <button
+                    type="button"
+                    className={styles.navButton}
+                    data-active={isActive}
+                    aria-expanded={isBlogMenuOpen}
+                    aria-haspopup="true"
+                    onClick={() => setIsBlogMenuOpen((current) => !current)}
+                  >
+                    <Icon name={item.icon} size="xs" />
+                    <span>{item.label}</span>
+                  </button>
+
+                  <div className={styles.megaMenu} aria-label="Navegacao do blog">
+                    <div className={styles.megaMenuPrimary}>
+                      {blogMenuLinks.map((link) => (
+                        <Link
+                          className={styles.megaMenuLink}
+                          href={link.href}
+                          key={link.href}
+                          onClick={() => setIsBlogMenuOpen(false)}
+                        >
+                          <strong>{link.title}</strong>
+                          <span>{link.description}</span>
+                        </Link>
+                      ))}
+                    </div>
+
+                    <div className={styles.megaMenuTrails}>
+                      <span className={styles.megaMenuLabel}>Trilhas</span>
+                      <div className={styles.trailLinkGrid}>
+                        {publicTrailAreas.map((area) => (
+                          <Link
+                            className={styles.trailLink}
+                            href={area.path}
+                            key={area.slug}
+                            onClick={() => setIsBlogMenuOpen(false)}
+                          >
+                            {area.title}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            }
 
             return (
               <Link

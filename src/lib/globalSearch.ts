@@ -1,5 +1,16 @@
-import { getBlogCollectionIndex, getAllBlogPosts, getBlogPostFormat, getBlogPrimaryCategory } from "@/app/blog/postData";
-import { getAllWorkProjects, getWorkProjectCategory, getWorkProjectPath, getWorkProjectStack } from "@/app/work/projectData";
+import {
+  getBlogCollectionIndex,
+  getAllBlogPosts,
+  getBlogPostFormat,
+  getBlogPrimaryCategory,
+} from "@/app/blog/postData";
+import {
+  getAllWorkProjects,
+  getWorkProjectCategory,
+  getWorkProjectPath,
+  getWorkProjectStack,
+} from "@/app/work/projectData";
+import { publicTrailAreas } from "@/lib/knowledgeConfig";
 import {
   about,
   audiencePages,
@@ -114,6 +125,20 @@ export function getGlobalSearchItems(): GlobalSearchItem[] {
       keywords: ["blog", "artigos", "guias", "insights"],
     }),
     pageItem({
+      id: "page-knowledge-map",
+      title: "Mapa de Aprendizado",
+      description: "Base de conhecimento organizada por areas, modulos e ordem de leitura.",
+      href: "/mapa",
+      keywords: ["mapa", "aprendizado", "trilhas", "base de conhecimento"],
+    }),
+    pageItem({
+      id: "page-trails",
+      title: "Trilhas de Conteudo",
+      description: "Caminhos organizados por area para navegar pelos artigos em progressao.",
+      href: "/trilhas",
+      keywords: ["trilhas", "conteudo", "marketing", "design", "renda digital"],
+    }),
+    pageItem({
       id: "page-services",
       title: servicesPage.title,
       description: servicesPage.description,
@@ -184,6 +209,24 @@ export function getGlobalSearchItems(): GlobalSearchItem[] {
     href: `${blog.path}/temas/${topic.slug}`,
     label: `${topic.count} artigos`,
     keywords: uniq(["tema", "blog", topic.slug, topic.label, topic.description]),
+  }));
+
+  const trailItems: GlobalSearchItem[] = publicTrailAreas.map((area) => ({
+    id: `trail-${area.slug}`,
+    type: "topic",
+    title: area.title,
+    description: area.description,
+    href: area.path,
+    label: "Trilha",
+    keywords: uniq([
+      "trilha",
+      "mapa",
+      "aprendizado",
+      area.slug,
+      area.title,
+      area.description,
+      ...area.modules.flatMap((module) => [module.title, module.description]),
+    ]),
   }));
 
   const serviceItems: GlobalSearchItem[] = services.map((service) => ({
@@ -263,6 +306,7 @@ export function getGlobalSearchItems(): GlobalSearchItem[] {
     ...staticPages,
     ...articleItems,
     ...topicItems,
+    ...trailItems,
     ...serviceItems,
     ...audienceItems,
     ...projectItems,

@@ -20,6 +20,7 @@ import { getBlogCollectionLabel, getBlogCollectionSlug } from "@/app/blog/postDa
 import { ArticleNativeCTA } from "@/components/blog/ArticleNativeCTA";
 import { ArticleTools } from "@/components/blog/ArticleTools";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { getKnowledgeContextForPost } from "@/lib/knowledge";
 import { baseURL, about, blog, person } from "@/resources";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 import { type BlogFile, getPosts } from "@/utils/utils";
@@ -71,13 +72,17 @@ function getRelatedScore(current: BlogFile, candidate: BlogFile) {
   const candidateCategories = candidate.metadata.categories ?? [];
   const candidateTags = candidate.metadata.tags ?? [];
 
-  const collectionScore = current.collection && candidate.collection === current.collection ? 16 : 0;
-  const categoryScore = candidateCategories.filter((category) => currentCategories.has(category)).length * 5;
+  const collectionScore =
+    current.collection && candidate.collection === current.collection ? 16 : 0;
+  const categoryScore =
+    candidateCategories.filter((category) => currentCategories.has(category)).length * 5;
   const tagScore = candidateTags.filter((tag) => currentTags.has(tag)).length * 3;
   const primaryCategoryScore =
     current.metadata.category && candidate.metadata.category === current.metadata.category ? 4 : 0;
 
-  return collectionScore + categoryScore + tagScore + primaryCategoryScore + getDateScore(candidate);
+  return (
+    collectionScore + categoryScore + tagScore + primaryCategoryScore + getDateScore(candidate)
+  );
 }
 
 function getReadingTrail(current: BlogFile, posts: BlogFile[]) {
@@ -93,16 +98,23 @@ function toVisualTagLabel(tag: string) {
   if (normalized.includes("seo") || normalized.includes("google") || normalized.includes("busca")) {
     return "Encontrar no Google";
   }
-  if (normalized.includes("whatsapp") || normalized.includes("contato")) return "Contato mais direto";
-  if (normalized.includes("agenda") || normalized.includes("agendamento")) return "Agenda mais clara";
+  if (normalized.includes("whatsapp") || normalized.includes("contato"))
+    return "Contato mais direto";
+  if (normalized.includes("agenda") || normalized.includes("agendamento"))
+    return "Agenda mais clara";
   if (normalized.includes("instagram") || normalized.includes("redes")) return "Prova social";
-  if (normalized.includes("cliente") || normalized.includes("paciente") || normalized.includes("aluno")) {
+  if (
+    normalized.includes("cliente") ||
+    normalized.includes("paciente") ||
+    normalized.includes("aluno")
+  ) {
     return "Mais conversas certas";
   }
   if (normalized.includes("convers")) return "Decisão com menos atrito";
   if (normalized.includes("conteúdo")) return "Conteúdo com função";
   if (normalized.includes("operação")) return "Rotina mais organizada";
-  if (normalized.includes("tráfego") || normalized.includes("anúncio")) return "Verba com mais critério";
+  if (normalized.includes("tráfego") || normalized.includes("anúncio"))
+    return "Verba com mais critério";
   if (normalized.includes("matrícula")) return "Captação mais previsível";
 
   return tag;
@@ -152,9 +164,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       ...generatedMeta.twitter,
       images: absoluteImage ? [absoluteImage] : undefined,
     },
-    keywords: [...(post.metadata.categories ?? []), ...(post.metadata.tags ?? []), person.name].filter(
-      (value): value is string => Boolean(value),
-    ),
+    keywords: [
+      ...(post.metadata.categories ?? []),
+      ...(post.metadata.tags ?? []),
+      person.name,
+    ].filter((value): value is string => Boolean(value)),
     robots: {
       index: true,
       follow: true,
@@ -220,6 +234,7 @@ export default async function BlogPost({ params }: PageProps) {
   const articlePath = `${blog.path}/${post.slug}`;
   const readingTrail = getReadingTrail(post, posts);
   const [primaryReading, ...secondaryReadings] = readingTrail;
+  const knowledgeContext = getKnowledgeContextForPost(post.slug, posts);
 
   return (
     <Column className={styles.page} maxWidth="l" paddingTop="24" gap="24">
@@ -256,7 +271,12 @@ export default async function BlogPost({ params }: PageProps) {
                 <SmartLink href={`/blog/temas/${collectionSlug}`}>{collectionLabel}</SmartLink>
               ) : null}
               {categories.slice(0, 2).map((category) => (
-                <Text key={category} as="span" variant="label-default-s" onBackground="neutral-weak">
+                <Text
+                  key={category}
+                  as="span"
+                  variant="label-default-s"
+                  onBackground="neutral-weak"
+                >
                   {category}
                 </Text>
               ))}
@@ -267,7 +287,12 @@ export default async function BlogPost({ params }: PageProps) {
             </Heading>
 
             {post.metadata.summary && (
-              <Text className={styles.heroLead} onBackground="neutral-weak" variant="heading-default-m" wrap="balance">
+              <Text
+                className={styles.heroLead}
+                onBackground="neutral-weak"
+                variant="heading-default-m"
+                wrap="balance"
+              >
                 {post.metadata.summary}
               </Text>
             )}
@@ -275,7 +300,11 @@ export default async function BlogPost({ params }: PageProps) {
 
           <aside className={styles.heroAside} aria-label="Metadados do artigo">
             <div className={styles.byline}>
-              <Text className={styles.metaLabel} variant="label-default-s" onBackground="neutral-weak">
+              <Text
+                className={styles.metaLabel}
+                variant="label-default-s"
+                onBackground="neutral-weak"
+              >
                 Por
               </Text>
               <div className={styles.authorCard}>
@@ -322,6 +351,47 @@ export default async function BlogPost({ params }: PageProps) {
         </div>
       )}
 
+      {knowledgeContext?.area ? (
+        <section className={styles.knowledgeContext} aria-labelledby="knowledge-context-title">
+          <div className={styles.knowledgeContextHeader}>
+            <Text
+              className={styles.metaLabel}
+              variant="label-default-s"
+              onBackground="neutral-weak"
+            >
+              Onde este artigo entra
+            </Text>
+            <Heading id="knowledge-context-title" as="h2" variant="heading-strong-l">
+              {knowledgeContext.area.title}
+              {knowledgeContext.module ? ` / ${knowledgeContext.module.title}` : ""}
+            </Heading>
+          </div>
+
+          <div className={styles.knowledgeContextGrid}>
+            <div>
+              <span>Trilha</span>
+              <a href={`/trilhas/${knowledgeContext.area.slug}`}>Ver caminho completo</a>
+            </div>
+            {knowledgeContext.prerequisites.length > 0 ? (
+              <div>
+                <span>Antes</span>
+                <p>{knowledgeContext.prerequisites.join(", ")}</p>
+              </div>
+            ) : null}
+            {knowledgeContext.nextItem ? (
+              <div>
+                <span>Proximo passo</span>
+                {knowledgeContext.nextItem.href ? (
+                  <a href={knowledgeContext.nextItem.href}>{knowledgeContext.nextItem.title}</a>
+                ) : (
+                  <p>{knowledgeContext.nextItem.title}</p>
+                )}
+              </div>
+            ) : null}
+          </div>
+        </section>
+      ) : null}
+
       <div className={styles.articleShell}>
         <ArticleNativeCTA theme={collectionLabel ?? categories[0]} />
         <Column className={styles.article} id="article-content" as="article" maxWidth="s">
@@ -338,7 +408,11 @@ export default async function BlogPost({ params }: PageProps) {
       {primaryReading ? (
         <section className={styles.relatedPanel} aria-labelledby="reading-trail-title">
           <div className={styles.relatedHeader}>
-            <Text className={styles.metaLabel} variant="label-default-s" onBackground="neutral-weak">
+            <Text
+              className={styles.metaLabel}
+              variant="label-default-s"
+              onBackground="neutral-weak"
+            >
               Continue lendo
             </Text>
             <Heading id="reading-trail-title" as="h2" variant="heading-strong-xl">
@@ -350,18 +424,28 @@ export default async function BlogPost({ params }: PageProps) {
             <span className={styles.readingLabel}>Próximo passo</span>
             <span className={styles.primaryReadingTitle}>{primaryReading.metadata.title}</span>
             {primaryReading.metadata.summary ? (
-              <span className={styles.primaryReadingSummary}>{primaryReading.metadata.summary}</span>
+              <span className={styles.primaryReadingSummary}>
+                {primaryReading.metadata.summary}
+              </span>
             ) : null}
           </a>
 
           {secondaryReadings.length > 0 ? (
             <div className={styles.secondaryReadings}>
               {secondaryReadings.slice(0, 3).map((item, index) => (
-                <a className={styles.secondaryReading} href={`${blog.path}/${item.slug}`} key={item.slug}>
-                  <span className={styles.readingLabel}>{readingTrailLabels[index] ?? "Relacionado"}</span>
+                <a
+                  className={styles.secondaryReading}
+                  href={`${blog.path}/${item.slug}`}
+                  key={item.slug}
+                >
+                  <span className={styles.readingLabel}>
+                    {readingTrailLabels[index] ?? "Relacionado"}
+                  </span>
                   <span className={styles.secondaryReadingTitle}>{item.metadata.title}</span>
                   {item.metadata.readingTime ? (
-                    <span className={styles.secondaryReadingMeta}>{item.metadata.readingTime} min de leitura</span>
+                    <span className={styles.secondaryReadingMeta}>
+                      {item.metadata.readingTime} min de leitura
+                    </span>
                   ) : null}
                 </a>
               ))}

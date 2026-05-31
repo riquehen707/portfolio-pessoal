@@ -74,6 +74,34 @@ export const PostFrontmatterSchema = z.object({
   readingTime: z.number().min(1).max(120).optional(),
   link: z.string().optional(),
 
+  area: z.string().optional(),
+  module: z.string().optional(),
+  node: z.string().optional(),
+  level: z.enum(["iniciante", "intermediario", "intermediário", "avancado", "avançado"]).optional(),
+  type: z
+    .enum([
+      "conceito",
+      "guia",
+      "checklist",
+      "estudo de caso",
+      "pratica",
+      "prática",
+      "comparacao",
+      "comparação",
+      "referencia",
+      "referência",
+    ])
+    .optional(),
+  knowledgeStatus: z.enum(["publicado", "planejado", "em breve"]).optional(),
+  essential: z.boolean().optional(),
+  prerequisites: z.array(z.string()).optional(),
+  unlocks: z.array(z.string()).optional(),
+  related: z.array(z.string()).optional(),
+  estimatedReadingTime: z.number().min(1).max(120).optional(),
+  primaryKeyword: z.string().optional(),
+  secondaryKeywords: z.array(z.string()).optional(),
+  mapVisibility: z.enum(["mapa", "trilha", "blog-only", "projeto"]).optional(),
+
   diary: z
     .object({
       mood: z.string().optional(),

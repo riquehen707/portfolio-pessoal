@@ -6,6 +6,7 @@
 
 .hero,
 .coverShell,
+.knowledgeContext,
 .relatedPanel {
   position: relative;
   width: 100%;
@@ -16,12 +17,14 @@
 
 .hero::before,
 .coverShell::before,
+.knowledgeContext::before,
 .relatedPanel::before {
   content: none;
 }
 
 .hero > *,
 .coverShell > *,
+.knowledgeContext > *,
 .relatedPanel > * {
   position: relative;
   z-index: 1;
@@ -30,6 +33,63 @@
 .coverShell {
   max-width: 58rem;
   margin-inline: auto;
+}
+
+.knowledgeContext {
+  display: grid;
+  gap: 1rem;
+  max-width: 58rem;
+  margin-inline: auto;
+  padding-block: 1.1rem;
+  border-top: 1px solid var(--line-subtle);
+  border-bottom: 1px solid var(--line-subtle);
+}
+
+.knowledgeContextHeader {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.knowledgeContextGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line-muted);
+}
+
+.knowledgeContextGrid div {
+  display: grid;
+  gap: 0.45rem;
+  min-width: 0;
+  padding: 0.85rem 0.9rem 0 0;
+}
+
+.knowledgeContextGrid div + div {
+  padding-left: 0.9rem;
+  border-left: 1px solid var(--line-muted);
+}
+
+.knowledgeContextGrid span {
+  color: var(--neutral-on-background-weak);
+  font-family: var(--font-technical);
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
+  text-transform: uppercase;
+}
+
+.knowledgeContextGrid a,
+.knowledgeContextGrid p {
+  margin: 0;
+  color: var(--neutral-on-background-medium);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.knowledgeContextGrid a {
+  color: var(--color-accent-gold);
+  font-weight: 700;
+  text-decoration: none;
 }
 
 .heroGrid {
@@ -237,6 +297,7 @@
 
 :global(html[data-article-focus]) .hero,
 :global(html[data-article-focus]) .coverShell,
+:global(html[data-article-focus]) .knowledgeContext,
 :global(html[data-article-focus]) .relatedPanel {
   display: none;
 }
@@ -398,6 +459,20 @@
     border-top: 0;
   }
 
+  .knowledgeContextGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .knowledgeContextGrid div,
+  .knowledgeContextGrid div + div {
+    padding: 0.8rem 0 0;
+    border-left: 0;
+  }
+
+  .knowledgeContextGrid div + div {
+    border-top: 1px solid var(--line-muted);
+  }
+
   .secondaryReading,
   .secondaryReading + .secondaryReading {
     min-height: 0;
@@ -414,6 +489,7 @@
 
   .hero,
   .coverShell,
+  .knowledgeContext,
   .relatedPanel {
     border-radius: 0;
   }

@@ -68,6 +68,7 @@
 }
 
 .navButton {
+  appearance: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -76,7 +77,9 @@
   padding: 0 0.72rem;
   border: 1px solid transparent;
   border-radius: 0.48rem;
+  background: transparent;
   color: var(--neutral-on-background-medium);
+  cursor: pointer;
   font-family: var(--font-label);
   font-size: 0.86rem;
   font-weight: 650;
@@ -93,6 +96,113 @@
 
 .navButton span {
   white-space: nowrap;
+}
+
+.navItemWithMenu {
+  position: relative;
+  display: inline-flex;
+}
+
+.megaMenu {
+  position: absolute;
+  top: calc(100% + 0.55rem);
+  left: 50%;
+  z-index: 24;
+  display: grid;
+  grid-template-columns: minmax(16rem, 1.2fr) minmax(13rem, 0.8fr);
+  gap: 0.75rem;
+  width: min(42rem, calc(100vw - 2rem));
+  padding: 0.75rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.65rem;
+  background: color-mix(in srgb, var(--surface-panel-strong) 96%, var(--page-background));
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 color-mix(in srgb, white 8%, transparent);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 0.35rem);
+  visibility: hidden;
+  transition:
+    opacity var(--motion-fast),
+    transform var(--motion-fast),
+    visibility var(--motion-fast);
+}
+
+.navItemWithMenu[data-open="true"] .megaMenu,
+.navItemWithMenu:focus-within .megaMenu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+  visibility: visible;
+}
+
+.megaMenuPrimary,
+.megaMenuTrails {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.megaMenuLink,
+.trailLink {
+  border: 1px solid transparent;
+  border-radius: var(--radius-8);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    border-color var(--motion-fast),
+    background var(--motion-fast);
+}
+
+.megaMenuLink {
+  display: grid;
+  gap: 0.2rem;
+  min-height: 4rem;
+  padding: 0.75rem;
+}
+
+.megaMenuLink strong,
+.trailLink {
+  color: var(--neutral-on-background-strong);
+  font-family: var(--font-label);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.megaMenuLink span {
+  color: var(--neutral-on-background-weak);
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+.megaMenuTrails {
+  align-content: start;
+  padding: 0.25rem 0 0.25rem 0.75rem;
+  border-left: 1px solid var(--line-muted);
+}
+
+.megaMenuLabel {
+  color: var(--color-accent-gold);
+  font-family: var(--font-technical);
+  font-size: var(--type-technical-size);
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
+  text-transform: uppercase;
+}
+
+.trailLinkGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.25rem;
+}
+
+.trailLink {
+  display: flex;
+  align-items: center;
+  min-height: 2.35rem;
+  padding: 0.55rem 0.65rem;
+  color: var(--neutral-on-background-medium);
 }
 
 .utility {
@@ -112,6 +222,19 @@
 @include mixins.hover-fine {
   .navButton:hover {
     transform: translateY(-1px);
+  }
+
+  .navItemWithMenu:hover .megaMenu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+    visibility: visible;
+  }
+
+  .megaMenuLink:hover,
+  .trailLink:hover {
+    border-color: color-mix(in srgb, var(--brand-on-background-medium) 22%, transparent);
+    background: color-mix(in srgb, var(--brand-background-strong) 10%, var(--surface-panel-soft));
   }
 }
 
@@ -203,6 +326,50 @@
     padding: 0.28rem 0.2rem;
     font-size: 0.66rem;
     line-height: 1;
+  }
+
+  .navItemWithMenu {
+    position: static;
+    flex: 1 1 0;
+    min-width: 2.55rem;
+  }
+
+  .navItemWithMenu > .navButton {
+    width: 100%;
+  }
+
+  .megaMenu {
+    position: fixed;
+    top: auto;
+    right: 1rem;
+    bottom: calc(max(0.75rem, env(safe-area-inset-bottom)) + 4.2rem);
+    left: 1rem;
+    grid-template-columns: 1fr;
+    width: auto;
+    max-height: min(58vh, 28rem);
+    overflow: auto;
+    padding: 0.75rem;
+    opacity: 0;
+    transform: translateY(0.4rem);
+  }
+
+  .navItemWithMenu[data-open="true"] .megaMenu,
+  .navItemWithMenu:focus-within .megaMenu {
+    transform: translateY(0);
+  }
+
+  .megaMenuPrimary {
+    gap: 0.35rem;
+  }
+
+  .megaMenuTrails {
+    padding: 0.75rem 0 0;
+    border-top: 1px solid var(--line-muted);
+    border-left: 0;
+  }
+
+  .trailLinkGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .navButton span {
