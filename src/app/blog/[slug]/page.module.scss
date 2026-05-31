@@ -249,6 +249,18 @@
   width: min(100%, 37.5rem);
 }
 
+@media (max-width: 1320px) and (min-width: 1181px) {
+  .articleShell {
+    grid-template-columns: minmax(0, 1fr) minmax(13rem, 16rem);
+  }
+}
+
+@media (max-width: 1180px) and (min-width: 1025px) {
+  .articleShell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .relatedPanel {
   display: grid;
   gap: 1.25rem;

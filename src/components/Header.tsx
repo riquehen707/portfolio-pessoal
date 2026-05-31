@@ -1,8 +1,9 @@
 "use client";
 
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import { Flex, Row, Text, ToggleButton } from "@once-ui-system/core";
+import Link from "next/link";
+import { Flex, Icon, Row, Text } from "@once-ui-system/core";
 import { usePathname } from "next/navigation";
 
 import { about, blog, display, person, productsPage, work } from "@/resources";
@@ -72,17 +73,8 @@ export function Header({ searchItems }: HeaderProps) {
         )}
       </Flex>
 
-      <Row
-        className={styles.navShell}
-        background="page"
-        border="neutral-alpha-weak"
-        radius="xl"
-        shadow="l"
-        padding="4"
-        horizontal="center"
-        zIndex={1}
-      >
-        <Row className={styles.navRow} gap="4" vertical="center" textVariant="body-default-s">
+      <nav className={styles.navShell} aria-label="Menu principal">
+        <div className={styles.navRow}>
           {navItems.map((item) => {
             const isActive =
               item.href === about.path
@@ -92,29 +84,19 @@ export function Header({ searchItems }: HeaderProps) {
                   : pathname.startsWith(item.href);
 
             return (
-              <Fragment key={item.href}>
-                <Row s={{ hide: true }}>
-                  <ToggleButton
-                    className={styles.navButton}
-                    prefixIcon={item.icon}
-                    href={item.href}
-                    label={item.label}
-                    selected={isActive}
-                  />
-                </Row>
-                <Row hide s={{ hide: false }}>
-                  <ToggleButton
-                    className={styles.navButton}
-                    prefixIcon={item.icon}
-                    href={item.href}
-                    selected={isActive}
-                  />
-                </Row>
-              </Fragment>
+              <Link
+                className={styles.navButton}
+                data-active={isActive}
+                href={item.href}
+                key={item.href}
+              >
+                <Icon name={item.icon} size="xs" />
+                <span>{item.label}</span>
+              </Link>
             );
           })}
-        </Row>
-      </Row>
+        </div>
+      </nav>
 
       <Flex
         className={`${styles.sideRail} ${styles.rightRail}`}

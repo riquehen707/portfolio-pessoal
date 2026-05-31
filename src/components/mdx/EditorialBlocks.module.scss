@@ -339,47 +339,171 @@
   line-height: 1.35;
 }
 
-.tableWrap {
+.tableBlock {
+  max-width: min(100%, var(--measure-body));
+}
+
+.tableIntro {
+  max-width: var(--measure-article);
+  margin: 0 0 0.8rem;
+  color: var(--neutral-on-background-medium);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.tableSurface {
+  overflow: hidden;
+  border: 1px solid var(--line-subtle);
+  border-radius: 0.5rem;
+  background: var(--surface-panel-soft);
+}
+
+.tableViewport,
+.tableFallback {
+  width: 100%;
+  max-width: 100%;
   overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.tableFallback {
   margin-top: 0.5rem;
+  border-top: 1px solid var(--line-subtle);
+  border-bottom: 1px solid var(--line-subtle);
 }
 
 .table {
   width: 100%;
-  min-width: 36rem;
+  max-width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
-.tableWrap :global(table) {
-  width: 100%;
-  min-width: 36rem;
-  border-collapse: collapse;
+.tableCaption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
 .table th,
 .table td,
-.tableWrap :global(th),
-.tableWrap :global(td) {
-  padding: 0.85rem 0.75rem;
+.tableFallback :global(th),
+.tableFallback :global(td) {
+  min-width: 0;
+  padding: 0.72rem 0.68rem;
   border-bottom: 1px solid var(--line-muted);
   text-align: left;
   vertical-align: top;
 }
 
 .table th,
-.tableWrap :global(th) {
+.tableFallback :global(th) {
   color: var(--neutral-on-background-strong);
   font-family: var(--font-technical);
-  font-size: var(--type-technical-size);
+  font-size: 0.68rem;
   font-weight: var(--type-weight-technical);
   letter-spacing: var(--type-technical-tracking);
+  line-height: 1.32;
   text-transform: uppercase;
 }
 
 .table td,
-.tableWrap :global(td) {
+.tableFallback :global(td) {
   color: var(--neutral-on-background-medium);
-  line-height: 1.68;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.table tbody tr:nth-child(even) {
+  background: color-mix(in srgb, var(--surface-panel) 38%, transparent);
+}
+
+.tableCell,
+.table th,
+.tableFallback :global(th),
+.tableFallback :global(td) {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.highlightFirstColumn tbody td:first-child .tableCell {
+  color: var(--neutral-on-background-strong);
+  font-weight: 650;
+}
+
+.manyColumns .table th,
+.manyColumns .table td {
+  padding-inline: 0.55rem;
+}
+
+.tableCards {
+  display: none;
+}
+
+.tableCard {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1rem;
+  border: 1px solid var(--line-subtle);
+  border-radius: 0.5rem;
+  background: var(--surface-panel-soft);
+}
+
+.tableCardTitle {
+  margin: 0;
+  color: var(--neutral-on-background-strong);
+  font-family: var(--font-body);
+  font-size: 1.08rem;
+  font-weight: var(--type-weight-subtitle);
+  letter-spacing: 0;
+  line-height: 1.25;
+}
+
+.tableCardFields {
+  display: grid;
+  gap: 0;
+  margin: 0;
+}
+
+.tableCardField {
+  display: grid;
+  gap: 0.28rem;
+  padding: 0.72rem 0;
+  border-top: 1px solid var(--line-muted);
+}
+
+.tableCardField:last-child {
+  padding-bottom: 0;
+}
+
+.tableCardField dt,
+.tableCardField dd {
+  margin: 0;
+}
+
+.tableCardField dt {
+  color: var(--neutral-on-background-weak);
+  font-family: var(--font-technical);
+  font-size: 0.68rem;
+  font-weight: var(--type-weight-technical);
+  letter-spacing: var(--type-technical-tracking);
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.tableCardField dd {
+  color: var(--neutral-on-background-medium);
+  font-size: 0.98rem;
+  line-height: 1.58;
+  overflow-wrap: anywhere;
 }
 
 .faq {
@@ -445,7 +569,26 @@
     grid-template-columns: 1fr;
   }
 
-  .table {
-    min-width: 30rem;
+  .tableSurfaceWithCards {
+    display: none;
+  }
+
+  .tableCards {
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .tableIntro {
+    font-size: 0.96rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .tableCard {
+    padding: 0.9rem;
+  }
+
+  .tableCardTitle {
+    font-size: 1.02rem;
   }
 }

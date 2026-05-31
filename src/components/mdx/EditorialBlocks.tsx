@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { Children, isValidElement, type ReactElement, type ReactNode } from "react";
 
 import clsx from "clsx";
 
@@ -30,23 +30,33 @@ type ComparisonColumn = {
 type TableColumn = {
   key: string;
   label: string;
+  width?: string;
 };
 
 type TableRow = Record<string, ReactNode>;
+
+type EditorialTableProps = {
+  title?: string;
+  caption?: string;
+  columns?: TableColumn[];
+  rows?: TableRow[];
+  children?: ReactNode;
+  compact?: boolean;
+  mobileMode?: "cards" | "scroll";
+  highlightFirstColumn?: boolean;
+};
+
+type NormalizedTable = {
+  columns: TableColumn[];
+  rows: TableRow[];
+};
 
 type FaqItem = {
   question: string;
   answer: ReactNode;
 };
 
-function EditorialBlock({
-  eyebrow,
-  title,
-  description,
-  children,
-  compact,
-  className,
-}: BlockProps) {
+function EditorialBlock({ eyebrow, title, description, children, compact, className }: BlockProps) {
   return (
     <section className={clsx(styles.block, compact && styles.compact, className)}>
       {(eyebrow || title || description) && (
@@ -75,6 +85,99 @@ function EditorialBlock({
 
 function itemKey(item: Item, index: number) {
   return typeof item === "string" ? `${item}-${index}` : index;
+}
+
+function nodeText(node: ReactNode): string {
+  if (typeof node === "string" || typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(nodeText).join("");
+  if (isValidElement<{ children?: ReactNode }>(node)) return nodeText(node.props.children);
+  return "";
+}
+
+function elementName(node: ReactNode): string | null {
+  if (!isValidElement(node)) return null;
+
+  const { type } = node;
+
+  if (typeof type === "string") return type.toLowerCase();
+  if (typeof type === "function") {
+    const component = type as { displayName?: string; name?: string };
+    return (component.displayName || component.name || "").toLowerCase();
+  }
+  if (typeof type === "object" && type && "displayName" in type) {
+    const displayName = (type as { displayName?: string }).displayName;
+    return displayName?.toLowerCase() ?? null;
+  }
+
+  return null;
+}
+
+function hasElementName(node: ReactNode, names: string[]) {
+  const name = elementName(node);
+  return name ? names.includes(name) : false;
+}
+
+function collectRows(node: ReactNode, rows: ReactElement<{ children?: ReactNode }>[] = []) {
+  if (Array.isArray(node)) {
+    node.forEach((child) => collectRows(child, rows));
+    return rows;
+  }
+
+  if (isValidElement<{ children?: ReactNode }>(node)) {
+    if (hasElementName(node, ["tr"])) {
+      rows.push(node);
+    }
+
+    Children.toArray(node.props.children).forEach((child) => collectRows(child, rows));
+    return rows;
+  }
+
+  return rows;
+}
+
+function directCells(row: ReactElement<{ children?: ReactNode }>, names: string[]) {
+  return Children.toArray(row.props.children).filter((child) =>
+    hasElementName(child, names),
+  ) as ReactElement<{
+    children?: ReactNode;
+  }>[];
+}
+
+function tableFromChildren(children?: ReactNode): NormalizedTable | null {
+  if (!children) return null;
+
+  const tableRows = collectRows(children);
+  const headerRow = tableRows.find((row) => directCells(row, ["th"]).length > 0);
+
+  if (!headerRow) return null;
+
+  const headerCells = directCells(headerRow, ["th"]);
+  const columns = headerCells.map((cell, index) => ({
+    key: `column-${index}`,
+    label: nodeText(cell.props.children).trim() || `Coluna ${index + 1}`,
+  }));
+
+  const rows = tableRows
+    .map((row) => directCells(row, ["td"]))
+    .filter((cells) => cells.length > 0)
+    .map((cells) =>
+      columns.reduce<TableRow>((result, column, index) => {
+        result[column.key] = cells[index]?.props.children ?? null;
+        return result;
+      }, {}),
+    );
+
+  if (!columns.length || !rows.length) return null;
+
+  return { columns, rows };
+}
+
+function columnWidth(index: number, total: number, customWidth?: string) {
+  if (customWidth) return customWidth;
+  if (total <= 2) return index === 0 ? "38%" : "62%";
+  if (total === 3) return index === 0 ? "30%" : "35%";
+  if (total >= 6) return index === 0 ? "17%" : `${83 / (total - 1)}%`;
+  return index === 0 ? "24%" : `${76 / (total - 1)}%`;
 }
 
 function EditorialList({
@@ -107,7 +210,10 @@ function EditorialList({
           {resolvedVariant === "numbered" ? (
             <span className={styles.number}>{String(index + 1).padStart(2, "0")}</span>
           ) : (
-            <span className={clsx(styles.marker, styles[`${resolvedVariant}Marker`])} aria-hidden="true" />
+            <span
+              className={clsx(styles.marker, styles[`${resolvedVariant}Marker`])}
+              aria-hidden="true"
+            />
           )}
           <span>{item}</span>
         </li>
@@ -292,45 +398,104 @@ export function EditorialComparison({
 
 export function EditorialTable({
   title = "Tabela",
+  caption,
   columns,
   rows,
   children,
-}: {
-  title?: string;
-  columns?: TableColumn[];
-  rows?: TableRow[];
-  children?: ReactNode;
-}) {
-  if (!columns?.length || !rows?.length) {
+  compact,
+  mobileMode = "cards",
+  highlightFirstColumn = true,
+}: EditorialTableProps) {
+  const tableData =
+    columns?.length && rows?.length ? { columns, rows } : tableFromChildren(children);
+  const useCards = mobileMode === "cards" && !!tableData;
+
+  if (!tableData) {
     return (
-      <EditorialBlock eyebrow="Referência" title={title}>
-        <div className={styles.tableWrap}>{children}</div>
+      <EditorialBlock
+        eyebrow="Referência"
+        title={title}
+        compact={compact}
+        className={styles.tableBlock}
+      >
+        {caption ? <p className={styles.tableIntro}>{caption}</p> : null}
+        <div className={styles.tableFallback}>{children}</div>
       </EditorialBlock>
     );
   }
 
   return (
-    <EditorialBlock eyebrow="Referência" title={title}>
-      <div className={styles.tableWrap}>
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              {columns.map((column) => (
-                <th key={column.key}>{column.label}</th>
+    <EditorialBlock
+      eyebrow="Referência"
+      title={title}
+      compact={compact}
+      className={styles.tableBlock}
+    >
+      {caption ? <p className={styles.tableIntro}>{caption}</p> : null}
+      <div
+        className={clsx(
+          styles.tableSurface,
+          useCards && styles.tableSurfaceWithCards,
+          tableData.columns.length >= 6 && styles.manyColumns,
+          highlightFirstColumn && styles.highlightFirstColumn,
+        )}
+      >
+        <div className={styles.tableViewport}>
+          <table className={styles.table}>
+            {caption ? <caption className={styles.tableCaption}>{caption}</caption> : null}
+            <colgroup>
+              {tableData.columns.map((column, index) => (
+                <col
+                  key={column.key}
+                  style={{ width: columnWidth(index, tableData.columns.length, column.width) }}
+                />
               ))}
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((row, rowIndex) => (
-              <tr key={rowIndex}>
-                {columns.map((column) => (
-                  <td key={column.key}>{row[column.key]}</td>
+            </colgroup>
+            <thead>
+              <tr>
+                {tableData.columns.map((column) => (
+                  <th key={column.key} scope="col">
+                    {column.label}
+                  </th>
                 ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {tableData.rows.map((row, rowIndex) => (
+                <tr key={rowIndex}>
+                  {tableData.columns.map((column) => (
+                    <td key={column.key}>
+                      <div className={styles.tableCell}>{row[column.key]}</div>
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
+      {useCards ? (
+        <div className={styles.tableCards} role="list" aria-label={title}>
+          {tableData.rows.map((row, rowIndex) => {
+            const [primaryColumn, ...detailColumns] = tableData.columns;
+            const primaryValue = primaryColumn ? row[primaryColumn.key] : null;
+
+            return (
+              <article className={styles.tableCard} key={rowIndex} role="listitem">
+                <h4 className={styles.tableCardTitle}>{primaryValue || `Linha ${rowIndex + 1}`}</h4>
+                <dl className={styles.tableCardFields}>
+                  {detailColumns.map((column) => (
+                    <div className={styles.tableCardField} key={column.key}>
+                      <dt>{column.label}</dt>
+                      <dd>{row[column.key]}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </article>
+            );
+          })}
+        </div>
+      ) : null}
     </EditorialBlock>
   );
 }
@@ -456,7 +621,11 @@ export function NextSteps({
   secondaryLabel?: string;
 }) {
   return (
-    <EditorialBlock eyebrow="Próximos passos" title={title} className={clsx(styles.cta, styles.nextStepsBlock)}>
+    <EditorialBlock
+      eyebrow="Próximos passos"
+      title={title}
+      className={clsx(styles.cta, styles.nextStepsBlock)}
+    >
       {items.length ? <EditorialList items={items} ordered /> : children}
       {(primaryHref || secondaryHref) && (
         <div className={styles.ctaActions}>
