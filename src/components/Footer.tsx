@@ -18,7 +18,6 @@ import {
   work,
 } from "@/resources";
 
-import { BrandSignature } from "./BrandSignature";
 import styles from "./Footer.module.scss";
 
 type FooterLink = {
@@ -107,34 +106,6 @@ export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.shell}>
-        <section className={styles.hero} aria-labelledby="footer-title">
-          <div className={styles.identity}>
-            <BrandSignature href="/" compact className={styles.brandSignature} />
-            <Text className={styles.statement} variant="body-default-s" onBackground="neutral-weak">
-              {brandMessaging.footerStatement}
-            </Text>
-          </div>
-
-          <div className={styles.ctaBlock}>
-            <span className={styles.kicker}>Próximo passo</span>
-            <h2 id="footer-title" className={styles.ctaTitle}>
-              Vamos encontrar o gargalo antes de aumentar o esforço?
-            </h2>
-            <p className={styles.ctaText}>
-              Uma conversa curta ajuda a entender se o problema está na página, oferta,
-              conteúdo, busca ou rotina de atendimento.
-            </p>
-            <div className={styles.actions}>
-              <Link className={styles.primaryAction} href={contact.path}>
-                Pedir diagnóstico
-              </Link>
-              <Link className={styles.secondaryAction} href={simulationPage.path}>
-                Simular cenário
-              </Link>
-            </div>
-          </div>
-        </section>
-
         <nav className={styles.nav} aria-label="Links do rodapé">
           {footerGroups.map((group) => (
             <section className={styles.group} key={group.title}>

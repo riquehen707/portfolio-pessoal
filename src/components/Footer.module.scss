@@ -19,39 +19,6 @@
   gap: clamp(2rem, 4vw, 3rem);
 }
 
-.hero {
-  display: grid;
-  grid-template-columns: minmax(16rem, 0.78fr) minmax(0, 1.22fr);
-  gap: clamp(1.5rem, 4vw, 3rem);
-  align-items: end;
-}
-
-.identity {
-  min-width: 0;
-  display: grid;
-  gap: 0.85rem;
-}
-
-.brandSignature {
-  max-width: 13rem;
-}
-
-.statement {
-  max-width: 28rem;
-  line-height: 1.6;
-}
-
-.ctaBlock {
-  display: grid;
-  gap: 0.85rem;
-  padding: clamp(1.1rem, 2vw, 1.35rem);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-panel);
-  background: var(--surface-panel);
-  box-shadow: inset 0 1px 0 color-mix(in srgb, white 6%, transparent);
-}
-
-.kicker,
 .groupTitle,
 .metaLink {
   font-family: var(--font-label);
@@ -59,70 +26,6 @@
   font-weight: var(--type-weight-technical);
   letter-spacing: var(--type-technical-tracking);
   text-transform: uppercase;
-}
-
-.kicker {
-  width: fit-content;
-  border: 1px solid color-mix(in srgb, var(--brand-on-background-medium) 30%, transparent);
-  border-radius: 999px;
-  padding: 0.34rem 0.58rem;
-  color: var(--brand-on-background-strong);
-  background: color-mix(in srgb, var(--brand-background-strong) 12%, transparent);
-}
-
-.ctaTitle {
-  max-width: 15ch;
-  margin: 0;
-  color: var(--neutral-on-background-strong);
-  font-family: var(--font-heading);
-  font-size: clamp(1.65rem, 4vw, 3rem);
-  font-weight: 680;
-  line-height: 1;
-}
-
-.ctaText {
-  max-width: 42rem;
-  margin: 0;
-  color: var(--neutral-on-background-medium);
-  font-size: 0.98rem;
-  line-height: 1.65;
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-  padding-top: 0.35rem;
-}
-
-.primaryAction,
-.secondaryAction {
-  min-height: 2.8rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  padding: 0 1rem;
-  font-family: var(--font-label);
-  font-size: 0.86rem;
-  font-weight: 650;
-  text-decoration: none;
-  transition:
-    transform var(--motion-fast),
-    border-color var(--motion-fast),
-    background var(--motion-fast),
-    color var(--motion-fast);
-}
-
-.primaryAction {
-  color: var(--brand-on-solid-strong, var(--page-background));
-  background: var(--brand-solid-strong, var(--neutral-on-background-strong));
-}
-
-.secondaryAction {
-  border: 1px solid var(--border-subtle);
-  color: var(--neutral-on-background-strong);
-  background: var(--surface-panel-soft);
 }
 
 .nav {
@@ -190,22 +93,12 @@
   }
 
   .link:hover,
-  .primaryAction:hover,
-  .secondaryAction:hover {
+  .metaLink:hover {
     transform: translateY(-1px);
-  }
-
-  .secondaryAction:hover {
-    border-color: color-mix(in srgb, var(--brand-on-background-medium) 35%, var(--border-subtle));
-    background: color-mix(in srgb, var(--brand-background-strong) 12%, var(--surface-panel-soft));
   }
 }
 
 @include mixins.m {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-
   .nav {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -220,24 +113,8 @@
     gap: 1.75rem;
   }
 
-  .hero,
-  .identity,
-  .ctaBlock,
   .group {
     text-align: left;
-  }
-
-  .ctaTitle {
-    max-width: 13ch;
-  }
-
-  .actions {
-    display: grid;
-  }
-
-  .primaryAction,
-  .secondaryAction {
-    width: 100%;
   }
 
   .nav {

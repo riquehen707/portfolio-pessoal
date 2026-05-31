@@ -106,7 +106,6 @@ const brandMessaging = {
   homeSubline:
     "Não apenas sites, anúncios ou código. Estruturas digitais integradas para negócios que precisam vender, atender e acompanhar melhor.",
   supportingStatement: "Controle, valor percebido e execução confiável.",
-  footerStatement: "Estrutura digital com critério, leitura comercial e execução confiável.",
   aboutHeadline:
     "Design, tecnologia e visão comercial para estruturar presença, operação e crescimento.",
   aboutLead:
