@@ -208,7 +208,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
           padding="0"
           horizontal="center"
         >
-          <RevealFx fill position="absolute">
+          <RevealFx fill position="absolute" style={{ pointerEvents: "none" }}>
             <Background
               mask={{
                 x: effects.mask.x,

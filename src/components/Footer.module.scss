@@ -1,89 +1,255 @@
 @use "../styles/mixins" as mixins;
 
 .footer {
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
   width: 100%;
-  padding: 0 clamp(1rem, 3vw, 2rem) clamp(1.75rem, 4vw, 2.5rem);
+  padding: clamp(3.5rem, 7vw, 5.5rem) clamp(1rem, 3vw, 2rem) clamp(1.75rem, 4vw, 2.5rem);
   border-top: 1px solid var(--line-subtle);
+  background:
+    linear-gradient(180deg, transparent, color-mix(in srgb, var(--surface-panel) 55%, transparent)),
+    var(--page-background);
 }
 
 .shell {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 1rem 1.5rem;
   width: min(100%, var(--grid-max-width));
   margin-inline: auto;
-  padding-top: clamp(1.35rem, 3vw, 1.8rem);
+  display: grid;
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.78fr) minmax(0, 1.22fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: end;
 }
 
 .identity {
-  display: grid;
-  gap: 0.45rem;
   min-width: 0;
+  display: grid;
+  gap: 0.85rem;
 }
 
 .brandSignature {
-  max-width: 12rem;
+  max-width: 13rem;
 }
 
 .statement {
-  max-width: 24ch;
+  max-width: 28rem;
+  line-height: 1.6;
 }
 
-.nav {
+.ctaBlock {
   display: grid;
-  justify-items: end;
-  gap: 0.7rem;
+  gap: 0.85rem;
+  padding: clamp(1.1rem, 2vw, 1.35rem);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-panel);
+  background: var(--surface-panel);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, white 6%, transparent);
 }
 
-.linkGroup {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 0.65rem 1.05rem;
-}
-
-.link {
-  color: var(--neutral-on-background-medium);
+.kicker,
+.groupTitle,
+.metaLink {
   font-family: var(--font-label);
   font-size: var(--type-technical-size);
   font-weight: var(--type-weight-technical);
   letter-spacing: var(--type-technical-tracking);
-  text-decoration: none;
   text-transform: uppercase;
 }
 
+.kicker {
+  width: fit-content;
+  border: 1px solid color-mix(in srgb, var(--brand-on-background-medium) 30%, transparent);
+  border-radius: 999px;
+  padding: 0.34rem 0.58rem;
+  color: var(--brand-on-background-strong);
+  background: color-mix(in srgb, var(--brand-background-strong) 12%, transparent);
+}
+
+.ctaTitle {
+  max-width: 15ch;
+  margin: 0;
+  color: var(--neutral-on-background-strong);
+  font-family: var(--font-heading);
+  font-size: clamp(1.65rem, 4vw, 3rem);
+  font-weight: 680;
+  line-height: 1;
+}
+
+.ctaText {
+  max-width: 42rem;
+  margin: 0;
+  color: var(--neutral-on-background-medium);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  padding-top: 0.35rem;
+}
+
+.primaryAction,
+.secondaryAction {
+  min-height: 2.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0 1rem;
+  font-family: var(--font-label);
+  font-size: 0.86rem;
+  font-weight: 650;
+  text-decoration: none;
+  transition:
+    transform var(--motion-fast),
+    border-color var(--motion-fast),
+    background var(--motion-fast),
+    color var(--motion-fast);
+}
+
+.primaryAction {
+  color: var(--brand-on-solid-strong, var(--page-background));
+  background: var(--brand-solid-strong, var(--neutral-on-background-strong));
+}
+
+.secondaryAction {
+  border: 1px solid var(--border-subtle);
+  color: var(--neutral-on-background-strong);
+  background: var(--surface-panel-soft);
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(1rem, 3vw, 2rem);
+  padding-block: clamp(1.6rem, 3vw, 2.2rem);
+  border-block: 1px solid var(--line-subtle);
+}
+
+.group {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: 0.82rem;
+}
+
+.groupTitle {
+  margin: 0;
+  color: var(--neutral-on-background-weak);
+}
+
+.linkList {
+  display: grid;
+  gap: 0.56rem;
+}
+
+.link {
+  width: fit-content;
+  color: var(--neutral-on-background-medium);
+  font-size: 0.92rem;
+  line-height: 1.35;
+  text-decoration: none;
+  text-wrap: balance;
+  transition:
+    color var(--motion-fast),
+    transform var(--motion-fast);
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+
 .copy {
-  grid-column: 1 / -1;
-  padding-top: 0.85rem;
-  border-top: 1px solid var(--line-muted);
+  max-width: 58rem;
+}
+
+.metaLinks {
+  display: flex;
+  gap: 0.85rem;
+}
+
+.metaLink {
+  color: var(--neutral-on-background-weak);
+  text-decoration: none;
 }
 
 @include mixins.hover-fine {
-  .link:hover {
+  .link:hover,
+  .metaLink:hover {
     color: var(--neutral-on-background-strong);
+  }
+
+  .link:hover,
+  .primaryAction:hover,
+  .secondaryAction:hover {
+    transform: translateY(-1px);
+  }
+
+  .secondaryAction:hover {
+    border-color: color-mix(in srgb, var(--brand-on-background-medium) 35%, var(--border-subtle));
+    background: color-mix(in srgb, var(--brand-background-strong) 12%, var(--surface-panel-soft));
+  }
+}
+
+@include mixins.m {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 @include mixins.s {
   .footer {
-    padding-bottom: 6rem;
+    padding-bottom: 6.5rem;
   }
 
   .shell {
+    gap: 1.75rem;
+  }
+
+  .hero,
+  .identity,
+  .ctaBlock,
+  .group {
+    text-align: left;
+  }
+
+  .ctaTitle {
+    max-width: 13ch;
+  }
+
+  .actions {
+    display: grid;
+  }
+
+  .primaryAction,
+  .secondaryAction {
+    width: 100%;
+  }
+
+  .nav {
     grid-template-columns: 1fr;
-    justify-items: center;
-    text-align: center;
+    gap: 1.35rem;
   }
 
-  .statement,
-  .copy {
-    max-width: none;
+  .bottom {
+    display: grid;
   }
 
-  .nav,
-  .linkGroup {
-    justify-content: center;
-    justify-items: center;
+  .metaLinks {
+    flex-wrap: wrap;
   }
 }
