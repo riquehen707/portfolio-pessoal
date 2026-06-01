@@ -30,6 +30,7 @@ const routes: RoutesConfig = {
   "/mapa": true,
   "/trilhas": true,
   "/modelos": true,
+  "/aulas-particulares": true,
   "/contact": false,
   "/servicos": true,
   [simulationPage.path]: true,

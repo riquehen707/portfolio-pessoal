@@ -1,0 +1,589 @@
+.page {
+  --math-bg: #f8f3e6;
+  --math-paper: #fffaf0;
+  --math-ink: #17212b;
+  --math-muted: #64707d;
+  --math-line: rgba(23, 33, 43, 0.13);
+  --math-blue: #2864c9;
+  --math-orange: #e66f2f;
+  --math-green: #1f8d67;
+  --math-shadow: 0 24px 80px rgba(38, 44, 57, 0.14);
+  --math-radius: 28px;
+
+  min-height: 100vh;
+  width: 100%;
+  overflow: clip;
+  background:
+    linear-gradient(rgba(40, 100, 201, 0.052) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(40, 100, 201, 0.052) 1px, transparent 1px),
+    radial-gradient(circle at 88% 12%, rgba(230, 111, 47, 0.2), transparent 24rem),
+    radial-gradient(circle at 10% 8%, rgba(40, 100, 201, 0.16), transparent 22rem),
+    var(--math-bg);
+  background-size:
+    28px 28px,
+    28px 28px,
+    auto,
+    auto,
+    auto;
+  color: var(--math-ink);
+  font-family:
+    "Satoshi",
+    "Source Sans 3",
+    system-ui,
+    sans-serif;
+}
+
+.topbar,
+.hero,
+.subjectSection,
+.methodSection,
+.pricingSection,
+.fitSection,
+.faqSection,
+.finalCta {
+  width: min(100% - 2rem, 1180px);
+  margin-inline: auto;
+}
+
+.topbar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 76px;
+  padding-block: 1rem;
+}
+
+.logo {
+  display: inline-flex;
+  gap: 0.6rem;
+  align-items: center;
+  color: var(--math-ink);
+  font-size: 0.98rem;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.logo:visited {
+  color: var(--math-ink);
+}
+
+.logo span {
+  display: grid;
+  place-items: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  border: 2px solid var(--math-ink);
+  border-radius: 50%;
+  color: var(--math-paper);
+  background: var(--math-ink);
+  font-size: 1.2rem;
+}
+
+.topbar nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding: 0.35rem;
+  border: 1px solid var(--math-line);
+  border-radius: 999px;
+  background: rgba(255, 250, 240, 0.7);
+  backdrop-filter: blur(18px);
+}
+
+.topbar nav a {
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  color: var(--math-muted);
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.topbar nav a:hover,
+.topbar nav a:focus-visible {
+  color: var(--math-ink);
+  background: rgba(23, 33, 43, 0.06);
+  outline: none;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.76fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+  min-height: min(760px, calc(100svh - 76px));
+  padding-block: clamp(3rem, 8vw, 6rem);
+}
+
+.heroCopy,
+.sectionHeader,
+.finalCta div {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.kicker {
+  color: var(--math-blue);
+  font-size: 0.76rem;
+  font-weight: 1000;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.hero h1,
+.sectionHeader h2,
+.fitSection h2,
+.finalCta h2 {
+  margin: 0;
+  max-width: 11ch;
+  color: var(--math-ink);
+  font-size: clamp(3rem, 6.5vw, 5.9rem);
+  font-weight: 1000;
+  letter-spacing: -0.045em;
+  line-height: 0.88;
+}
+
+.hero p {
+  max-width: 42rem;
+  margin: 0;
+  color: var(--math-muted);
+  font-size: clamp(1.08rem, 1.6vw, 1.34rem);
+  font-weight: 650;
+  line-height: 1.42;
+}
+
+.heroActions,
+.planCard a,
+.finalCta > a {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
+  padding: 0.85rem 1.15rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 1000;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.primaryButton {
+  border: 2px solid var(--math-ink);
+  color: #fff;
+  background: var(--math-ink);
+  box-shadow: 0 12px 0 rgba(23, 33, 43, 0.13);
+}
+
+.secondaryButton {
+  border: 2px solid var(--math-ink);
+  color: var(--math-ink);
+  background: var(--math-paper);
+}
+
+.primaryButton:visited {
+  color: #fff;
+}
+
+.secondaryButton:visited {
+  color: var(--math-ink);
+}
+
+.primaryButton:hover,
+.secondaryButton:hover,
+.primaryButton:focus-visible,
+.secondaryButton:focus-visible {
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.heroBoard {
+  position: relative;
+  display: grid;
+  gap: 1.2rem;
+  padding: clamp(1.1rem, 3vw, 1.5rem);
+  border: 3px solid var(--math-ink);
+  border-radius: var(--math-radius);
+  background:
+    linear-gradient(rgba(40, 100, 201, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(40, 100, 201, 0.08) 1px, transparent 1px),
+    var(--math-paper);
+  background-size: 22px 22px;
+  box-shadow: var(--math-shadow);
+  transform: rotate(1.2deg);
+}
+
+.boardHeader {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  border-bottom: 2px dashed var(--math-line);
+  color: var(--math-muted);
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.boardHeader strong {
+  color: var(--math-green);
+}
+
+.equation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+  color: var(--math-ink);
+  font-family: var(--font-code);
+  font-size: clamp(1.8rem, 4vw, 3.4rem);
+  font-weight: 900;
+}
+
+.equation strong {
+  color: var(--math-orange);
+}
+
+.graph {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.graph::before,
+.graph::after {
+  position: absolute;
+  inset: 50% 0 auto;
+  height: 2px;
+  background: rgba(23, 33, 43, 0.2);
+  content: "";
+}
+
+.graph::after {
+  inset: 0 auto 0 50%;
+  width: 2px;
+  height: auto;
+}
+
+.graph span {
+  min-height: 5.5rem;
+  border: 2px solid var(--math-line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.graph span:nth-child(1),
+.graph span:nth-child(4) {
+  background: rgba(40, 100, 201, 0.1);
+}
+
+.note {
+  width: fit-content;
+  padding: 0.6rem 0.8rem;
+  border: 2px solid rgba(230, 111, 47, 0.22);
+  border-radius: 999px;
+  color: #914219;
+  background: rgba(230, 111, 47, 0.12);
+  font-weight: 900;
+}
+
+.subjectSection,
+.methodSection,
+.pricingSection,
+.fitSection,
+.faqSection,
+.finalCta {
+  padding-block: clamp(3rem, 7vw, 5rem);
+}
+
+.sectionHeader h2,
+.fitSection h2,
+.finalCta h2 {
+  max-width: 13ch;
+  font-size: clamp(2.2rem, 5vw, 4.4rem);
+  line-height: 0.94;
+}
+
+.subjectGrid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.85rem;
+  padding-top: 1.4rem;
+}
+
+.subjectGrid span {
+  display: grid;
+  min-height: 7rem;
+  padding: 1rem;
+  border: 2px solid var(--math-ink);
+  border-radius: 22px;
+  align-items: flex-end;
+  justify-items: flex-start;
+  color: var(--math-ink);
+  background: var(--math-paper);
+  box-shadow: 7px 7px 0 rgba(23, 33, 43, 0.1);
+  font-size: 1rem;
+  font-weight: 1000;
+}
+
+.subjectGrid span:nth-child(2n) {
+  background: #eaf2ff;
+}
+
+.subjectGrid span:nth-child(3n) {
+  background: #fff0df;
+}
+
+.stepGrid,
+.planGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding-top: 1.4rem;
+}
+
+.stepGrid article,
+.planCard,
+.fitSection,
+.faqList details,
+.finalCta {
+  border: 2px solid var(--math-ink);
+  border-radius: var(--math-radius);
+  background: rgba(255, 250, 240, 0.8);
+  box-shadow: 8px 8px 0 rgba(23, 33, 43, 0.09);
+}
+
+.stepGrid article {
+  display: grid;
+  gap: 0.65rem;
+  min-height: 17rem;
+  padding: 1.1rem;
+}
+
+.stepGrid article > span {
+  color: var(--math-orange);
+  font-family: var(--font-code);
+  font-size: 0.9rem;
+  font-weight: 900;
+}
+
+.stepGrid h3,
+.planCard h3 {
+  margin: 0;
+  color: var(--math-ink);
+  font-size: 1.55rem;
+  font-weight: 1000;
+  line-height: 1;
+}
+
+.stepGrid p,
+.planCard p,
+.fitSection li,
+.faqList p {
+  margin: 0;
+  color: var(--math-muted);
+  font-size: 1rem;
+  font-weight: 650;
+  line-height: 1.55;
+}
+
+.planGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.planCard {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.1rem, 3vw, 1.4rem);
+}
+
+.planCard[data-highlighted="true"] {
+  background: #eaf2ff;
+}
+
+.recommended {
+  width: fit-content;
+  padding: 0.35rem 0.65rem;
+  border: 2px solid rgba(40, 100, 201, 0.22);
+  border-radius: 999px;
+  color: var(--math-blue);
+  background: rgba(40, 100, 201, 0.1);
+  font-size: 0.78rem;
+  font-weight: 1000;
+  text-transform: uppercase;
+}
+
+.price {
+  display: flex;
+  gap: 0.35rem;
+  align-items: flex-end;
+}
+
+.price strong {
+  color: var(--math-ink);
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 1000;
+  letter-spacing: -0.06em;
+  line-height: 0.86;
+}
+
+.price span {
+  color: var(--math-muted);
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.planCard ul,
+.fitSection ul {
+  display: grid;
+  gap: 0.65rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.planCard li,
+.fitSection li {
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-start;
+}
+
+.planCard li::before,
+.fitSection li::before {
+  flex: 0 0 auto;
+  width: 0.58rem;
+  height: 0.58rem;
+  margin-top: 0.48rem;
+  border-radius: 50%;
+  background: var(--math-green);
+  content: "";
+}
+
+.fitSection {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(18rem, 1fr);
+  gap: clamp(1.4rem, 5vw, 4rem);
+  align-items: flex-start;
+  padding-inline: clamp(1.1rem, 3vw, 1.6rem);
+}
+
+.faqList {
+  display: grid;
+  gap: 0.85rem;
+  padding-top: 1.4rem;
+}
+
+.faqList details {
+  padding: 1rem 1.1rem;
+}
+
+.faqList summary {
+  color: var(--math-ink);
+  cursor: pointer;
+  font-size: 1.08rem;
+  font-weight: 1000;
+}
+
+.faqList summary::-webkit-details-marker {
+  display: none;
+}
+
+.faqList p {
+  padding-top: 0.7rem;
+}
+
+.finalCta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.25rem;
+  align-items: center;
+  padding-inline: clamp(1.1rem, 3vw, 1.6rem);
+  margin-bottom: clamp(2rem, 6vw, 4rem);
+  background: #fff0df;
+}
+
+@media (max-width: 1024px) {
+  .hero,
+  .fitSection,
+  .finalCta {
+    grid-template-columns: 1fr;
+  }
+
+  .subjectGrid,
+  .stepGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .topbar nav {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-block: 2rem 3rem;
+  }
+
+  .hero h1 {
+    max-width: 10.5ch;
+    font-size: clamp(2.7rem, 13vw, 4rem);
+    line-height: 0.92;
+  }
+
+  .hero p {
+    font-size: 1.02rem;
+  }
+
+  .heroBoard {
+    transform: none;
+  }
+
+  .heroActions,
+  .heroActions a,
+  .planCard a,
+  .finalCta > a {
+    width: 100%;
+  }
+
+  .subjectGrid,
+  .stepGrid,
+  .planGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .subjectGrid span,
+  .stepGrid article {
+    min-height: 0;
+  }
+
+  .sectionHeader h2,
+  .fitSection h2,
+  .finalCta h2 {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .price strong {
+    font-size: 3.4rem;
+  }
+}

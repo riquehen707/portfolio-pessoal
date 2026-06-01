@@ -105,6 +105,21 @@ select {
   max-width: none;
 }
 
+.hr-site-body:has(.standaloneLandingRoot) > header,
+.hr-site-body:has(.standaloneLandingRoot) > footer {
+  display: none;
+}
+
+.hr-site-body:has(.standaloneLandingRoot) .hr-site-main {
+  padding: 0;
+  background: transparent;
+}
+
+.hr-site-body:has(.standaloneLandingRoot) .hr-site-content {
+  width: 100%;
+  max-width: none;
+}
+
 h1,
 h2,
 h3,
