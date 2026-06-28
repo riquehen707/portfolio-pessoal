@@ -16,6 +16,7 @@ import {
 
 import { Footer, Header, Providers } from "@/components";
 import { SiteStructuredData } from "@/components/seo/SiteStructuredData";
+import { getGlobalSearchItems } from "@/lib/globalSearch";
 import {
   baseURL as baseFromConfig,
   brandIdentity,
@@ -28,7 +29,6 @@ import {
   style,
 } from "@/resources";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
-import { getGlobalSearchItems } from "@/lib/globalSearch";
 
 function resolveBaseURL(): URL {
   const raw = (process.env.NEXT_PUBLIC_SITE_URL ?? baseFromConfig ?? "").trim();
@@ -180,8 +180,8 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
                     root.setAttribute("data-" + key, value);
                   });
 
-                  root.setAttribute("data-theme", "dark");
-                  localStorage.setItem("data-theme", "dark");
+                  root.setAttribute("data-theme", "light");
+                  localStorage.setItem("data-theme", "light");
 
                   Object.keys(config).forEach((key) => {
                     const value = localStorage.getItem("data-" + key);
@@ -189,7 +189,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
                   });
                 } catch (error) {
                   console.error("Failed to initialize theme:", error);
-                  document.documentElement.setAttribute("data-theme", "dark");
+                  document.documentElement.setAttribute("data-theme", "light");
                 }
               })();
             `,

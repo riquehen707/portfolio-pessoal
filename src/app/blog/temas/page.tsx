@@ -1,4 +1,5 @@
 import { Column, Heading, Meta, Schema, Text } from "@once-ui-system/core";
+import Link from "next/link";
 
 import { getBlogCollectionIndex } from "@/app/blog/postData";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
@@ -8,12 +9,11 @@ import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 import styles from "./topics.module.scss";
 
 const topicsPath = "/blog/temas";
-const topicsTitle = "Guias por tema";
-const topicsDescription =
-  "Artigos agrupados por problema para navegar com mais contexto.";
+const topicsTitle = "Temas";
+const topicsDescription = "Artigos agrupados por assunto.";
 
 export async function generateMetadata() {
-  const image = buildOgImage(topicsTitle, "artigos por problema");
+  const image = buildOgImage(topicsTitle, "blog");
   const generatedMeta = Meta.generate({
     title: topicsTitle,
     description: topicsDescription,
@@ -46,7 +46,7 @@ export default function BlogTopicsPage() {
         title={topicsTitle}
         description={topicsDescription}
         path={topicsPath}
-        image={`/api/og/generate?title=${encodeURIComponent(topicsTitle)}&subtitle=${encodeURIComponent("artigos por problema")}`}
+        image={`/api/og/generate?title=${encodeURIComponent(topicsTitle)}`}
         author={{
           name: person.name,
           url: `${baseURL}${topicsPath}`,
@@ -62,30 +62,21 @@ export default function BlogTopicsPage() {
       />
 
       <section className={styles.hero}>
-        <Text className={styles.kicker} variant="label-default-s" onBackground="brand-strong">
+        <Text className={styles.kicker} variant="label-default-s" onBackground="neutral-weak">
           Blog
         </Text>
         <Heading as="h1" variant="display-strong-l">
-          Guias por tema
+          Temas.
         </Heading>
         <Text className={styles.heroLead} onBackground="neutral-weak" variant="heading-default-m">
-          Trilhas curtas para chegar ao artigo certo.
+          Uma lista simples para encontrar artigos por assunto.
         </Text>
       </section>
 
       <section className={styles.gridSection}>
-        <div className={styles.sectionHeader}>
-          <Text className={styles.sectionLabel} variant="label-default-s" onBackground="brand-strong">
-            Problemas agrupados
-          </Text>
-          <Text className={styles.sectionLead} onBackground="neutral-weak" variant="body-default-s">
-            Cada guia reúne textos com aplicação próxima.
-          </Text>
-        </div>
-
         <div className={styles.grid}>
           {topics.map((topic) => (
-            <a className={styles.card} href={`/blog/temas/${topic.slug}`} key={topic.slug}>
+            <Link className={styles.card} href={`/blog/temas/${topic.slug}`} key={topic.slug}>
               <div className={styles.cardHeader}>
                 <Heading as="h2" className={styles.cardTitle} variant="heading-strong-m">
                   {topic.label}
@@ -94,10 +85,14 @@ export default function BlogTopicsPage() {
                   {topic.count} {topic.count === 1 ? "artigo" : "artigos"}
                 </span>
               </div>
-              <Text className={styles.cardSummary} onBackground="neutral-weak" variant="body-default-s">
+              <Text
+                className={styles.cardSummary}
+                onBackground="neutral-weak"
+                variant="body-default-s"
+              >
                 {topic.description}
               </Text>
-            </a>
+            </Link>
           ))}
         </div>
       </section>

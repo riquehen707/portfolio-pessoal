@@ -1,27 +1,13 @@
+import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Metadata } from "next";
 
-import {
-  Avatar,
-  Column,
-  Grid,
-  Heading,
-  Media,
-  Meta,
-  Row,
-  Schema,
-  SmartLink,
-  Tag,
-  Text,
-} from "@once-ui-system/core";
+import { Column, Heading, Meta, Schema, SmartLink, Text } from "@once-ui-system/core";
 
-import { CustomMDX, ScrollToHash } from "@/components";
 import { getBlogCollectionLabel, getBlogCollectionSlug } from "@/app/blog/postData";
-import { ArticleNativeCTA } from "@/components/blog/ArticleNativeCTA";
-import { ArticleTools } from "@/components/blog/ArticleTools";
+import { CustomMDX, ScrollToHash } from "@/components";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
-import { getKnowledgeContextForPost, type KnowledgeItem } from "@/lib/knowledge";
-import { baseURL, about, blog, person, work } from "@/resources";
+import { baseURL, blog, person } from "@/resources";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 import { type BlogFile, getPosts } from "@/utils/utils";
 
@@ -31,12 +17,8 @@ type PageProps = {
   params: Promise<{ slug: string | string[] }>;
 };
 
-const readingTrailLabels = ["Para aplicar", "Para aprofundar", "Relacionado"] as const;
-
 type ContinuationCard = {
-  label: string;
   title: string;
-  summary?: string;
   href: string;
 };
 
@@ -51,16 +33,6 @@ function toAbs(pathOrUrl?: string): string | undefined {
     return new URL(pathOrUrl, baseURL).toString();
   } catch {
     return pathOrUrl;
-  }
-}
-
-function toLocal(src?: string): string | undefined {
-  if (!src) return undefined;
-  try {
-    const u = new URL(src, baseURL);
-    return u.pathname + u.search;
-  } catch {
-    return src;
   }
 }
 
@@ -84,70 +56,22 @@ function getRelatedScore(current: BlogFile, candidate: BlogFile) {
   const categoryScore =
     candidateCategories.filter((category) => currentCategories.has(category)).length * 5;
   const tagScore = candidateTags.filter((tag) => currentTags.has(tag)).length * 3;
-  const primaryCategoryScore =
-    current.metadata.category && candidate.metadata.category === current.metadata.category ? 4 : 0;
 
-  return (
-    collectionScore + categoryScore + tagScore + primaryCategoryScore + getDateScore(candidate)
-  );
+  return collectionScore + categoryScore + tagScore + getDateScore(candidate);
 }
 
 function getReadingTrail(current: BlogFile, posts: BlogFile[]) {
   return posts
     .filter((candidate) => candidate.slug !== current.slug)
     .sort((left, right) => getRelatedScore(current, right) - getRelatedScore(current, left))
-    .slice(0, 4);
+    .slice(0, 3);
 }
 
-function toVisualTagLabel(tag: string) {
-  const normalized = tag.toLowerCase();
-
-  if (normalized.includes("seo") || normalized.includes("google") || normalized.includes("busca")) {
-    return "Encontrar no Google";
-  }
-  if (normalized.includes("whatsapp") || normalized.includes("contato"))
-    return "Contato mais direto";
-  if (normalized.includes("agenda") || normalized.includes("agendamento"))
-    return "Agenda mais clara";
-  if (normalized.includes("instagram") || normalized.includes("redes")) return "Prova social";
-  if (
-    normalized.includes("cliente") ||
-    normalized.includes("paciente") ||
-    normalized.includes("aluno")
-  ) {
-    return "Mais conversas certas";
-  }
-  if (normalized.includes("convers")) return "Decisão com menos atrito";
-  if (normalized.includes("conteúdo")) return "Conteúdo com função";
-  if (normalized.includes("operação")) return "Rotina mais organizada";
-  if (normalized.includes("tráfego") || normalized.includes("anúncio"))
-    return "Verba com mais critério";
-  if (normalized.includes("matrícula")) return "Captação mais previsível";
-
-  return tag;
-}
-
-function knowledgeItemToContinuation(
-  item: KnowledgeItem | undefined,
-  label: string,
-): ContinuationCard | null {
-  if (!item?.href) return null;
-
-  return {
-    label,
-    title: item.title,
-    summary: item.description,
-    href: item.href,
-  };
-}
-
-function postToContinuation(post: BlogFile | undefined, label: string): ContinuationCard | null {
+function postToContinuation(post: BlogFile | undefined): ContinuationCard | null {
   if (!post) return null;
 
   return {
-    label,
     title: post.metadata.title,
-    summary: post.metadata.summary,
     href: `${blog.path}/${post.slug}`,
   };
 }
@@ -206,22 +130,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       ...generatedMeta.twitter,
       images: absoluteImage ? [absoluteImage] : undefined,
     },
-    keywords: [
-      ...(post.metadata.categories ?? []),
-      ...(post.metadata.tags ?? []),
-      person.name,
-    ].filter((value): value is string => Boolean(value)),
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-        "max-video-preview": -1,
-      },
-    },
   };
 }
 
@@ -234,74 +142,17 @@ export default async function BlogPost({ params }: PageProps) {
 
   if (!post) notFound();
 
-  const authors =
-    post.metadata.team && post.metadata.team.length > 0
-      ? post.metadata.team.map((author) => {
-          const img = author.avatar || person.avatar;
-          const authorUrl = (author as { url?: string }).url;
-          return {
-            name: author.name || person.name,
-            url: toAbs(authorUrl || about.path)!,
-            imageAbs: toAbs(img)!,
-            imageLocal: toLocal(img)!,
-          };
-        })
-      : [
-          {
-            name: person.name,
-            url: toAbs(about.path)!,
-            imageAbs: toAbs(person.avatar)!,
-            imageLocal: toLocal(person.avatar)!,
-          },
-        ];
-
-  const metaImage =
-    post.metadata.image ||
-    buildOgImage(
-      post.metadata.title,
-      post.metadata.tag ?? post.metadata.tags?.[0] ?? post.metadata.categories?.[0] ?? "Blog",
-    );
-  const coverImage = post.metadata.image?.trim() || post.metadata.images?.[0];
-  const categories = post.metadata.categories ?? [];
-  const tags = post.metadata.tags ?? (post.metadata.tag ? [post.metadata.tag] : []);
-  const visualTags = Array.from(new Set(tags.map(toVisualTagLabel))).slice(0, 5);
   const collectionSlug = getBlogCollectionSlug(post);
   const collectionLabel = getBlogCollectionLabel(collectionSlug);
   const publishedDate = post.metadata.publishedAt
     ? new Date(post.metadata.publishedAt).toLocaleDateString("pt-BR")
-    : "Sem data definida";
-  const updatedDate = post.metadata.updatedAt
-    ? new Date(post.metadata.updatedAt).toLocaleDateString("pt-BR")
-    : publishedDate;
+    : undefined;
   const articlePath = `${blog.path}/${post.slug}`;
   const readingTrail = getReadingTrail(post, posts);
-  const knowledgeContext = getKnowledgeContextForPost(post.slug, posts);
-  const structuredContinuations = uniqueContinuations([
-    knowledgeItemToContinuation(knowledgeContext?.nextItem, "Proximo artigo da trilha"),
-    knowledgeItemToContinuation(knowledgeContext?.applicationItem, "Para aplicar"),
-    knowledgeItemToContinuation(knowledgeContext?.deepDiveItem, "Para aprofundar"),
-    knowledgeItemToContinuation(knowledgeContext?.relatedItems[0], "Relacionado"),
-    knowledgeContext
-      ? {
-          label: "Aplicacao pratica",
-          title: "Ver laboratorio",
-          summary: "Bastidores, decisoes e aprendizados que mostram a aplicacao dos conceitos.",
-          href: work.path,
-        }
-      : null,
-  ]);
-  const fallbackContinuations = uniqueContinuations([
-    postToContinuation(readingTrail[0], "Proximo passo"),
-    postToContinuation(readingTrail[1], readingTrailLabels[0]),
-    postToContinuation(readingTrail[2], readingTrailLabels[1]),
-    postToContinuation(readingTrail[3], readingTrailLabels[2]),
-  ]);
-  const continuationCards =
-    structuredContinuations.length > 0 ? structuredContinuations : fallbackContinuations;
-  const [primaryReading, ...secondaryReadings] = continuationCards;
+  const continuationCards = uniqueContinuations(readingTrail.map(postToContinuation));
 
   return (
-    <Column className={styles.page} maxWidth="l" paddingTop="24" gap="24">
+    <Column className={styles.page} paddingTop="24" gap="24">
       <Schema
         as="blogPosting"
         baseURL={baseURL}
@@ -310,215 +161,60 @@ export default async function BlogPost({ params }: PageProps) {
         description={post.metadata.summary ?? post.metadata.title}
         datePublished={post.metadata.publishedAt}
         dateModified={post.metadata.updatedAt ?? post.metadata.publishedAt}
-        image={toAbs(metaImage)}
+        image={toAbs(post.metadata.image)}
         author={{
-          name: authors[0].name,
-          url: authors[0].url,
-          image: authors[0].imageAbs,
+          name: person.name,
+          url: `${baseURL}${blog.path}`,
+          image: `${baseURL}${person.avatar}`,
         }}
       />
       <BreadcrumbJsonLd
         items={[
-          { name: "Home", url: baseURL },
+          { name: "Início", url: baseURL },
           { name: "Blog", url: `${baseURL}${blog.path}` },
           { name: post.metadata.title, url: `${baseURL}${blog.path}/${post.slug}` },
         ]}
       />
 
-      <Column className={styles.hero} gap="24">
-        <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="24">
-          <Column className={styles.heroMain} gap="20">
-            <SmartLink href="/blog">Voltar para o blog</SmartLink>
+      <header className={styles.hero}>
+        <SmartLink href="/blog">Blog</SmartLink>
+        <div className={styles.metaLine}>
+          {collectionSlug && collectionLabel ? (
+            <Link href={`/blog/temas/${collectionSlug}`}>{collectionLabel}</Link>
+          ) : null}
+          {publishedDate ? <span>{publishedDate}</span> : null}
+        </div>
+        <Heading as="h1" className={styles.heroTitle} variant="display-strong-l" wrap="balance">
+          {post.metadata.title}
+        </Heading>
+        {post.metadata.summary ? (
+          <Text
+            className={styles.heroLead}
+            onBackground="neutral-weak"
+            variant="heading-default-m"
+            wrap="balance"
+          >
+            {post.metadata.summary}
+          </Text>
+        ) : null}
+      </header>
 
-            <Row className={styles.eyebrowRow} gap="12" wrap>
-              {collectionSlug && collectionLabel ? (
-                <SmartLink href={`/blog/temas/${collectionSlug}`}>{collectionLabel}</SmartLink>
-              ) : null}
-              {categories.slice(0, 2).map((category) => (
-                <Text
-                  key={category}
-                  as="span"
-                  variant="label-default-s"
-                  onBackground="neutral-weak"
-                >
-                  {category}
-                </Text>
-              ))}
-            </Row>
-
-            <Heading as="h1" className={styles.heroTitle} variant="display-strong-l" wrap="balance">
-              {post.metadata.title}
-            </Heading>
-
-            {post.metadata.summary && (
-              <Text
-                className={styles.heroLead}
-                onBackground="neutral-weak"
-                variant="heading-default-m"
-                wrap="balance"
-              >
-                {post.metadata.summary}
-              </Text>
-            )}
-          </Column>
-
-          <aside className={styles.heroAside} aria-label="Metadados do artigo">
-            <div className={styles.byline}>
-              <Text
-                className={styles.metaLabel}
-                variant="label-default-s"
-                onBackground="neutral-weak"
-              >
-                Por
-              </Text>
-              <div className={styles.authorCard}>
-                <Avatar size="s" src={authors[0].imageLocal} />
-                <Text variant="body-strong-m">{authors[0].name}</Text>
-              </div>
-            </div>
-
-            <dl className={styles.metaList}>
-              <div>
-                <dt>Publicado</dt>
-                <dd>{publishedDate}</dd>
-              </div>
-              <div>
-                <dt>Atualizado</dt>
-                <dd>{updatedDate}</dd>
-              </div>
-            </dl>
-
-            {visualTags.length > 0 && (
-              <Row className={styles.tagRow} gap="8" wrap>
-                {visualTags.map((tag) => (
-                  <Tag key={tag} size="s" background="neutral-alpha-weak">
-                    {tag}
-                  </Tag>
-                ))}
-              </Row>
-            )}
-          </aside>
-        </Grid>
+      <Column className={styles.article} id="article-content" as="article">
+        <CustomMDX source={post.content} glossary={post.metadata.glossary ?? {}} />
       </Column>
 
-      {coverImage && (
-        <div className={styles.coverShell}>
-          <Media
-            src={toLocal(coverImage) ?? coverImage}
-            alt={post.metadata.title}
-            aspectRatio="16/9"
-            priority
-            sizes="(min-width: 768px) 100vw, 768px"
-            border="neutral-alpha-weak"
-            radius="l"
-          />
-        </div>
-      )}
-
-      {knowledgeContext?.area ? (
-        <section className={styles.knowledgeContext} aria-labelledby="knowledge-context-title">
-          <div className={styles.knowledgeContextHeader}>
-            <Text
-              className={styles.metaLabel}
-              variant="label-default-s"
-              onBackground="neutral-weak"
-            >
-              Onde este artigo entra
-            </Text>
-            <Heading id="knowledge-context-title" as="h2" variant="heading-strong-l">
-              {knowledgeContext.area.title}
-              {knowledgeContext.module ? ` / ${knowledgeContext.module.title}` : ""}
-            </Heading>
-          </div>
-
-          <div className={styles.knowledgeContextGrid}>
-            <div>
-              <span>Etapa</span>
-              <p>
-                {knowledgeContext.stage.label} / {knowledgeContext.roleLabel}
-              </p>
-            </div>
-            <div>
-              <span>Trilha</span>
-              <a href={`/trilhas/${knowledgeContext.area.slug}`}>Ver caminho completo</a>
-            </div>
-            {knowledgeContext.previousItem ? (
-              <div>
-                <span>Antes</span>
-                {knowledgeContext.previousItem.href ? (
-                  <a href={knowledgeContext.previousItem.href}>
-                    {knowledgeContext.previousItem.title}
-                  </a>
-                ) : (
-                  <p>{knowledgeContext.previousItem.title}</p>
-                )}
-              </div>
-            ) : null}
-            {knowledgeContext.nextItem ? (
-              <div>
-                <span>Proximo passo</span>
-                {knowledgeContext.nextItem.href ? (
-                  <a href={knowledgeContext.nextItem.href}>{knowledgeContext.nextItem.title}</a>
-                ) : (
-                  <p>{knowledgeContext.nextItem.title}</p>
-                )}
-              </div>
-            ) : null}
-          </div>
-        </section>
-      ) : null}
-
-      <div className={styles.articleShell}>
-        <ArticleNativeCTA theme={collectionLabel ?? categories[0]} />
-        <Column className={styles.article} id="article-content" as="article" maxWidth="s">
-          <CustomMDX source={post.content} glossary={post.metadata.glossary ?? {}} />
-        </Column>
-        <ArticleTools
-          title={post.metadata.title}
-          summary={post.metadata.summary}
-          readingTime={post.metadata.readingTime}
-          url={articlePath}
-        />
-      </div>
-
-      {primaryReading ? (
+      {continuationCards.length > 0 ? (
         <section className={styles.relatedPanel} aria-labelledby="reading-trail-title">
-          <div className={styles.relatedHeader}>
-            <Text
-              className={styles.metaLabel}
-              variant="label-default-s"
-              onBackground="neutral-weak"
-            >
-              Continue lendo
-            </Text>
-            <Heading id="reading-trail-title" as="h2" variant="heading-strong-xl">
-              Continue pela proxima decisao
-            </Heading>
+          <Heading id="reading-trail-title" as="h2" className={styles.relatedTitle}>
+            Continue lendo
+          </Heading>
+          <div className={styles.secondaryReadings}>
+            {continuationCards.map((item) => (
+              <Link className={styles.secondaryReading} href={item.href} key={item.href}>
+                {item.title}
+              </Link>
+            ))}
           </div>
-
-          <a className={styles.primaryReading} href={primaryReading.href}>
-            <span className={styles.readingLabel}>{primaryReading.label}</span>
-            <span className={styles.primaryReadingTitle}>{primaryReading.title}</span>
-            {primaryReading.summary ? (
-              <span className={styles.primaryReadingSummary}>{primaryReading.summary}</span>
-            ) : null}
-          </a>
-
-          {secondaryReadings.length > 0 ? (
-            <div className={styles.secondaryReadings}>
-              {secondaryReadings.slice(0, 3).map((item, index) => (
-                <a className={styles.secondaryReading} href={item.href} key={item.href}>
-                  <span className={styles.readingLabel}>
-                    {item.label ?? readingTrailLabels[index] ?? "Relacionado"}
-                  </span>
-                  <span className={styles.secondaryReadingTitle}>{item.title}</span>
-                  {item.summary ? (
-                    <span className={styles.secondaryReadingMeta}>{item.summary}</span>
-                  ) : null}
-                </a>
-              ))}
-            </div>
-          ) : null}
         </section>
       ) : null}
       <ScrollToHash />

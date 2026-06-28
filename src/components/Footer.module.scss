@@ -1,164 +1,46 @@
 @use "../styles/mixins" as mixins;
 
 .footer {
-  position: relative;
-  z-index: 1;
-  isolation: isolate;
   width: 100%;
-  padding: clamp(2.8rem, 6vw, 4.75rem) clamp(1rem, 3vw, 2rem) clamp(1.6rem, 3vw, 2.25rem);
-  border-top: 1px solid var(--line-subtle);
-  background:
-    linear-gradient(180deg, transparent, color-mix(in srgb, var(--surface-panel) 55%, transparent)),
-    var(--page-background);
+  padding: 2.5rem clamp(1rem, 3vw, 1.5rem);
 }
 
 .shell {
-  width: min(100%, var(--grid-max-width));
-  margin-inline: auto;
-  display: grid;
-  gap: clamp(1.5rem, 3vw, 2.4rem);
-}
-
-.groupTitle,
-.metaLink {
-  font-family: var(--font-label);
-  font-size: var(--type-technical-size);
-  font-weight: var(--type-weight-technical);
-  letter-spacing: var(--type-technical-tracking);
-  text-transform: uppercase;
-}
-
-.nav {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: clamp(0.9rem, 2.5vw, 1.7rem);
-  padding-block: clamp(1.25rem, 2.4vw, 1.8rem);
-  border-block: 1px solid var(--line-subtle);
-}
-
-.group {
-  min-width: 0;
-  display: grid;
-  align-content: start;
-  gap: 0.68rem;
-}
-
-.groupTitle {
-  margin: 0;
-  color: var(--neutral-on-background-weak);
-}
-
-.linkList {
-  display: grid;
-  gap: 0.46rem;
-}
-
-.link {
-  width: fit-content;
-  color: var(--neutral-on-background-medium);
-  font-size: 0.92rem;
-  line-height: 1.35;
-  text-decoration: none;
-  text-wrap: balance;
-  transition:
-    color var(--motion-fast),
-    transform var(--motion-fast);
-}
-
-.bottom {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  align-items: center;
+  width: min(100%, 760px);
+  margin-inline: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line-subtle);
+  color: var(--neutral-on-background-weak);
+  font-size: 0.9rem;
 }
 
-.copy {
-  max-width: 58rem;
-}
-
-.metaLinks {
+.links {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.85rem;
 }
 
-.metaLink {
-  color: var(--neutral-on-background-weak);
+.links a {
+  color: inherit;
   text-decoration: none;
 }
 
-.link:focus-visible,
-.metaLink:focus-visible {
-  outline: 2px solid color-mix(in srgb, var(--brand-on-background-medium) 42%, transparent);
-  outline-offset: 3px;
+.links a:focus-visible {
+  outline: 2px solid var(--neutral-on-background-weak);
+  outline-offset: 4px;
 }
 
 @include mixins.hover-fine {
-  .link:hover,
-  .metaLink:hover {
+  .links a:hover {
     color: var(--neutral-on-background-strong);
-  }
-
-  .link:hover,
-  .metaLink:hover {
-    transform: translateY(-1px);
-  }
-}
-
-@include mixins.m {
-  .nav {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 @include mixins.s {
-  .footer {
-    padding: 1.8rem 1rem 5.75rem;
-  }
-
   .shell {
-    gap: 1.1rem;
-  }
-
-  .group {
-    text-align: left;
-  }
-
-  .nav {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem 1.2rem;
-    padding-block: 1.05rem;
-  }
-
-  .bottom {
     display: grid;
-    gap: 0.7rem;
-  }
-
-  .linkList {
-    gap: 0.38rem;
-  }
-
-  .link {
-    font-size: 0.86rem;
-    line-height: 1.28;
-  }
-
-  .group:nth-child(2) .linkList .link:nth-child(n + 4),
-  .group:nth-child(3) .linkList .link:nth-child(n + 4),
-  .group:nth-child(4) .linkList .link:nth-child(n + 4) {
-    display: none;
-  }
-
-  .group:last-child {
-    grid-column: 1 / -1;
-  }
-
-  .group:last-child .linkList {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .metaLinks {
-    flex-wrap: wrap;
-    gap: 0.62rem;
   }
 }

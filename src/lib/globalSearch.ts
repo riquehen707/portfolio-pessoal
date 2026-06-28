@@ -1,43 +1,12 @@
 import {
-  getBlogCollectionIndex,
   getAllBlogPosts,
+  getBlogCollectionIndex,
   getBlogPostFormat,
   getBlogPrimaryCategory,
 } from "@/app/blog/postData";
-import {
-  getAllWorkProjects,
-  getWorkProjectCategory,
-  getWorkProjectPath,
-  getWorkProjectStack,
-} from "@/app/work/projectData";
-import { demoRegistry } from "@/features/demos/data/demo-registry";
-import { demoSegments } from "@/features/demos/data/demo-segments";
-import { modelsDescription, modelsPath, modelsTitle } from "@/features/demos/helpers/seo";
-import { publicTrailAreas } from "@/lib/knowledgeConfig";
-import {
-  about,
-  audiencePages,
-  blog,
-  contact,
-  home,
-  products,
-  productsPage,
-  services,
-  servicesPage,
-  simulationPage,
-  technicalApproach,
-  work,
-} from "@/resources";
+import { blog, home } from "@/resources";
 
-export type GlobalSearchItemType =
-  | "article"
-  | "topic"
-  | "page"
-  | "service"
-  | "audience"
-  | "project"
-  | "product"
-  | "demo";
+export type GlobalSearchItemType = "article" | "topic" | "page";
 
 export type GlobalSearchItem = {
   id: string;
@@ -105,84 +74,21 @@ export function getGlobalSearchItems(): GlobalSearchItem[] {
       title: home.title,
       description: home.description,
       href: home.path,
-      keywords: ["inicio", "portfolio", "henrique reis"],
-    }),
-    pageItem({
-      id: "page-work",
-      title: work.title,
-      description: work.description,
-      href: work.path,
-      keywords: ["projetos", "cases", "portfolio"],
-    }),
-    pageItem({
-      id: "page-about",
-      title: about.title,
-      description: about.description,
-      href: about.path,
-      keywords: ["sobre", "perfil", "experiencia"],
+      keywords: ["inicio", "biblioteca", "blog", "artigos"],
     }),
     pageItem({
       id: "page-blog",
       title: blog.title,
       description: blog.description,
       href: blog.path,
-      keywords: ["blog", "artigos", "guias", "insights"],
+      keywords: ["blog", "artigos", "guias", "biblioteca"],
     }),
     pageItem({
-      id: "page-knowledge-map",
-      title: "Mapa de Aprendizado",
-      description: "Base de conhecimento organizada por areas, modulos e ordem de leitura.",
-      href: "/mapa",
-      keywords: ["mapa", "aprendizado", "trilhas", "base de conhecimento"],
-    }),
-    pageItem({
-      id: "page-trails",
-      title: "Trilhas de Conteudo",
-      description: "Caminhos organizados por area para navegar pelos artigos em progressao.",
-      href: "/trilhas",
-      keywords: ["trilhas", "conteudo", "marketing", "design", "renda digital"],
-    }),
-    pageItem({
-      id: "page-models",
-      title: modelsTitle,
-      description: modelsDescription,
-      href: modelsPath,
-      keywords: ["modelos", "demos", "templates", "vitrines", "clinicas", "advocacia"],
-    }),
-    pageItem({
-      id: "page-services",
-      title: servicesPage.title,
-      description: servicesPage.description,
-      href: servicesPage.path,
-      keywords: ["servicos", "landing page", "site", "seo"],
-    }),
-    pageItem({
-      id: "page-products",
-      title: productsPage.title,
-      description: productsPage.description,
-      href: productsPage.path,
-      keywords: ["produtos", "auditoria", "consultoria"],
-    }),
-    pageItem({
-      id: "page-simulation",
-      title: simulationPage.title,
-      description: simulationPage.description,
-      href: simulationPage.path,
-      keywords: ["simulacao", "investimento", "retorno", "marketing"],
-    }),
-    pageItem({
-      id: "page-contact",
-      title: contact.title,
-      description: contact.description,
-      href: contact.path,
-      keywords: ["contato", "diagnostico", "proposta"],
-    }),
-    pageItem({
-      id: "page-technical-approach",
-      title: technicalApproach.title,
-      description: technicalApproach.description,
-      href: technicalApproach.path,
-      keywords: ["tecnica", "processo", "desenvolvimento"],
+      id: "page-blog-topics",
+      title: "Temas do blog",
+      description: "Artigos agrupados por problema para navegar com mais contexto.",
+      href: `${blog.path}/temas`,
+      keywords: ["temas", "categorias", "guias", "blog"],
     }),
   ];
 
@@ -222,148 +128,5 @@ export function getGlobalSearchItems(): GlobalSearchItem[] {
     keywords: uniq(["tema", "blog", topic.slug, topic.label, topic.description]),
   }));
 
-  const trailItems: GlobalSearchItem[] = publicTrailAreas.map((area) => ({
-    id: `trail-${area.slug}`,
-    type: "topic",
-    title: area.title,
-    description: area.description,
-    href: area.path,
-    label: "Trilha",
-    keywords: uniq([
-      "trilha",
-      "mapa",
-      "aprendizado",
-      area.slug,
-      area.title,
-      area.description,
-      ...area.modules.flatMap((module) => [module.title, module.description]),
-    ]),
-  }));
-
-  const demoSegmentItems: GlobalSearchItem[] = demoSegments.map((segment) => ({
-    id: `demo-segment-${segment.slug}`,
-    type: "demo",
-    title: segment.title,
-    description: segment.description,
-    href: `${modelsPath}/${segment.slug}`,
-    label: "Segmento",
-    keywords: uniq([
-      "modelo",
-      "demo",
-      "vitrine",
-      segment.name,
-      segment.audience,
-      ...segment.siteTypes,
-      ...segment.visualSignals,
-      ...segment.importantCtas,
-    ]),
-  }));
-
-  const demoItems: GlobalSearchItem[] = demoRegistry.map((demo) => ({
-    id: `demo-${demo.segment}-${demo.slug}`,
-    type: "demo",
-    title: demo.name,
-    description: demo.description,
-    href: demo.route,
-    label: "Demo",
-    keywords: uniq([
-      "modelo",
-      "demo",
-      "vitrine",
-      demo.segment,
-      demo.visualStyle,
-      demo.goal,
-      demo.audience,
-      demo.status,
-      demo.maturity,
-      ...demo.tags,
-      ...demo.components,
-    ]),
-  }));
-
-  const serviceItems: GlobalSearchItem[] = services.map((service) => ({
-    id: `service-${service.slug}`,
-    type: "service",
-    title: service.title,
-    description: service.summary,
-    href: `${servicesPage.path}/${service.slug}`,
-    label: service.badge,
-    keywords: uniq([
-      "servico",
-      service.audience,
-      service.hero.highlight,
-      service.hero.description,
-      ...(service.tags ?? []),
-      ...(service.keyPoints ?? []),
-      ...(service.seo?.keywords ?? []),
-    ]),
-  }));
-
-  const audienceItems: GlobalSearchItem[] = audiencePages.map((audience) => ({
-    id: `audience-${audience.slug}`,
-    type: "audience",
-    title: audience.title,
-    description: audience.description,
-    href: audience.path,
-    label: audience.label,
-    keywords: uniq([
-      "publico",
-      audience.label,
-      audience.eyebrow,
-      ...audience.fit,
-      ...audience.contentTips,
-      ...audience.metrics,
-    ]),
-  }));
-
-  const projectItems: GlobalSearchItem[] = getAllWorkProjects().map((project) => ({
-    id: `project-${project.slug}`,
-    type: "project",
-    title: project.metadata.title,
-    description: project.metadata.summary || project.metadata.objective || excerpt(project.content),
-    href: getWorkProjectPath(project.slug),
-    label: getWorkProjectCategory(project) ?? "Projeto",
-    date: project.metadata.updatedAt ?? project.metadata.publishedAt,
-    keywords: uniq([
-      "projeto",
-      "case",
-      project.metadata.objective,
-      project.metadata.tag,
-      project.metadata.category,
-      ...(project.metadata.tags ?? []),
-      ...(project.metadata.categories ?? []),
-      ...getWorkProjectStack(project),
-      excerpt(project.content, 260),
-    ]),
-  }));
-
-  const productItems: GlobalSearchItem[] = products.map((product) => ({
-    id: `product-${product.slug}`,
-    type: "product",
-    title: product.title,
-    description: product.summary,
-    href: product.link || `${productsPage.path}/${product.slug}`,
-    label: product.format,
-    keywords: uniq([
-      "produto",
-      product.category,
-      product.access,
-      product.status,
-      product.priceLabel,
-      ...product.highlights,
-    ]),
-  }));
-
-  return [
-    ...staticPages,
-    ...articleItems,
-    ...topicItems,
-    ...trailItems,
-    ...demoSegmentItems,
-    ...demoItems,
-    ...serviceItems,
-    ...audienceItems,
-    ...projectItems,
-    ...productItems,
-  ];
+  return [...staticPages, ...articleItems, ...topicItems];
 }

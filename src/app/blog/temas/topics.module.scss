@@ -1,114 +1,83 @@
 @use "../../../components/breakpoints.scss" as breakpoints;
 
 .page {
-  width: min(100%, var(--grid-max-width));
+  width: min(100%, 760px);
   margin-inline: auto;
-  gap: clamp(2.4rem, 5vw, 4rem);
+  gap: 2rem;
 }
 
 .hero,
 .feedSection,
-.gridSection {
+.gridSection,
+.sectionHeader {
   display: grid;
-  gap: 1.1rem;
-  width: 100%;
-}
-
-.hero {
-  max-width: 44rem;
-  padding-top: clamp(0.75rem, 2vw, 1.2rem);
+  gap: 0.8rem;
 }
 
 .kicker,
 .sectionLabel,
 .topicMeta {
   color: var(--neutral-on-background-weak);
-  font-family: var(--font-label);
-  font-size: var(--type-technical-size);
-  font-weight: var(--type-weight-technical);
-  letter-spacing: var(--type-technical-tracking);
-  text-transform: uppercase;
+  font-size: 0.9rem;
 }
 
 .heroLead,
-.sectionLead {
-  max-width: 29rem;
+.sectionLead,
+.cardSummary {
+  max-width: 42rem;
   color: var(--neutral-on-background-medium);
-  font-weight: var(--type-weight-body);
   line-height: 1.65;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  border-top: 1px solid var(--line-subtle);
 }
 
 .card {
   display: grid;
-  gap: 0.7rem;
-  padding: 1rem 0 0;
-  border: 0;
-  border-top: 1px solid var(--line-subtle);
-  border-radius: 0;
-  background: transparent;
+  gap: 0.25rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line-subtle);
   color: inherit;
   text-decoration: none;
-  transition:
-    border-color var(--motion-fast),
-    background var(--motion-fast);
-}
-
-.card:hover,
-.card:focus-visible {
-  border-color: rgba(184, 146, 18, 0.26);
-  background: transparent;
 }
 
 .cardHeader {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 0.8rem;
+  gap: 1rem;
 }
 
 .cardTitle {
-  font-weight: var(--type-weight-subtitle);
-  line-height: 1.08;
+  margin: 0;
+  color: var(--neutral-on-background-strong);
+  font-family: var(--font-body);
+  font-size: 1.08rem;
+  font-weight: 620;
+  letter-spacing: 0;
+  line-height: 1.3;
 }
 
 .cardSummary {
-  font-weight: var(--type-weight-body);
-  line-height: 1.6;
+  margin: 0;
+  font-size: 0.95rem;
 }
 
 .cardCount {
-  color: var(--color-accent-gold);
-  font-family: var(--font-label);
-  font-size: var(--type-technical-size);
-  font-weight: var(--type-weight-technical);
-  letter-spacing: var(--type-technical-tracking);
-  text-transform: uppercase;
+  color: var(--neutral-on-background-weak);
+  font-size: 0.9rem;
   white-space: nowrap;
 }
 
-.sectionHeader {
-  display: grid;
-  gap: 0.55rem;
-}
-
-.topicMeta {
-  color: var(--color-accent-gold);
-}
-
-@media (max-width: breakpoints.$m) {
-  .grid {
-    grid-template-columns: 1fr;
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .cardTitle {
+    color: var(--brand-on-background-strong);
   }
 }
 
 @media (max-width: breakpoints.$s) {
-  .card {
-    border-radius: 1.15rem;
+  .cardHeader {
+    display: grid;
   }
 }

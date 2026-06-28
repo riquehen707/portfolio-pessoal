@@ -1,173 +1,76 @@
-@use "../breakpoints.scss" as breakpoints;
-
 .root {
   display: grid;
-  gap: 1.15rem;
+  gap: 1rem;
   width: 100%;
 }
 
 .list {
   display: grid;
-  gap: 0.95rem;
-}
-
-.card[data-hidden="true"] {
-  display: none;
-}
-
-.card {
-  width: 100%;
+  border-top: 1px solid var(--line-subtle);
 }
 
 .link {
   display: grid;
-  grid-template-columns: minmax(12rem, 18rem) minmax(0, 1fr);
-  gap: 1.05rem;
-  align-items: stretch;
-  width: 100%;
-  padding: 0.9rem 0.2rem 0.9rem 0;
-  border-top: 1px solid var(--line-subtle);
+  gap: 0.28rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line-subtle);
   color: inherit;
   text-decoration: none;
-  transition:
-    border-color var(--motion-fast),
-    background var(--motion-fast),
-    transform var(--motion-fast);
-}
-
-.thumb {
-  overflow: hidden;
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-}
-
-.content {
-  display: grid;
-  gap: 0.7rem;
-  align-content: center;
-  min-width: 0;
 }
 
 .meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.55rem 0.85rem;
-  color: color-mix(in srgb, var(--neutral-on-background-strong) 58%, var(--neutral-on-background-weak));
-  font-family: var(--font-label);
-  font-size: var(--type-technical-size);
-  font-weight: var(--type-weight-technical);
-  letter-spacing: var(--type-technical-tracking);
-  text-transform: uppercase;
+  gap: 0.45rem;
+  color: var(--neutral-on-background-weak);
+  font-size: 0.82rem;
 }
 
-.tag {
-  color: var(--neutral-on-background-medium);
+.meta span + span::before {
+  margin-right: 0.45rem;
+  content: "/";
 }
 
 .title {
   margin: 0;
-  font-size: clamp(1.2rem, 2vw, 1.55rem);
-  font-weight: var(--type-weight-subtitle);
+  color: var(--neutral-on-background-strong);
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-weight: 620;
   letter-spacing: 0;
-  line-height: 1.08;
+  line-height: 1.3;
 }
 
 .summary {
-  max-width: var(--measure-body);
+  max-width: 42rem;
   margin: 0;
-  color: color-mix(in srgb, var(--neutral-on-background-strong) 72%, var(--neutral-on-background-medium));
-  font-weight: var(--type-weight-body);
-  line-height: 1.72;
-}
-
-.loadMoreWrap {
-  display: flex;
-  justify-content: center;
-  padding-top: 0.2rem;
+  color: var(--neutral-on-background-medium);
+  font-size: 0.95rem;
+  line-height: 1.55;
 }
 
 .loadMore {
-  min-height: 3rem;
-  padding: 0.8rem 1.3rem;
-  border: 1px solid rgba(184, 146, 18, 0.26);
-  border-radius: 999px;
+  justify-self: start;
+  padding: 0;
+  border: 0;
   background: transparent;
-  color: var(--color-accent-gold);
-  font: inherit;
+  color: var(--neutral-on-background-strong);
   cursor: pointer;
-  transition:
-    border-color var(--motion-fast),
-    background var(--motion-fast),
-    color var(--motion-fast);
-}
-
-.loadMore:hover,
-.loadMore:focus-visible {
-  border-color: rgba(184, 146, 18, 0.44);
-  background: rgba(184, 146, 18, 0.06);
+  font: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--line-muted);
+  text-underline-offset: 0.22em;
 }
 
 .link:focus-visible,
 .loadMore:focus-visible {
-  outline: 2px solid color-mix(in srgb, var(--brand-on-background-medium) 42%, transparent);
-  outline-offset: 3px;
+  outline: 2px solid var(--neutral-on-background-weak);
+  outline-offset: 4px;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .link:hover {
-    border-color: color-mix(in srgb, var(--brand-on-background-medium) 22%, var(--line-subtle));
-    background: color-mix(in srgb, var(--surface-panel-soft) 36%, transparent);
-    transform: translateX(2px);
-  }
-}
-
-@media (max-width: breakpoints.$s) {
-  .root {
-    gap: 1rem;
-  }
-
-  .list {
-    gap: 0.55rem;
-  }
-
-  .link {
-    grid-template-columns: 1fr;
-    gap: 0.65rem;
-    padding: 0.78rem 0;
-    transform: none;
-  }
-
-  .thumb {
-    display: none;
-  }
-
-  .content {
-    gap: 0.5rem;
-  }
-
-  .meta span:nth-child(n + 3) {
-    display: none;
-  }
-
-  .title {
-    font-size: 1.2rem;
-    line-height: 1.12;
-  }
-
-  .summary {
-    display: -webkit-box;
-    overflow: hidden;
-    font-size: 0.95rem;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-  }
-
-  .loadMoreWrap {
-    justify-content: flex-start;
-  }
-
-  .loadMore {
-    min-height: 2.7rem;
-    padding: 0.68rem 1rem;
+  .link:hover .title,
+  .loadMore:hover {
+    color: var(--brand-on-background-strong);
   }
 }

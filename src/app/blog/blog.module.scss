@@ -1,411 +1,171 @@
 @use "../../components/breakpoints.scss" as breakpoints;
 
 .page {
-  width: min(100%, var(--grid-max-width));
+  width: min(100%, 760px);
   margin-inline: auto;
-  gap: clamp(2rem, 4vw, 3.25rem);
+  gap: clamp(2rem, 4vw, 3rem);
 }
 
-.heroSection {
-  padding-top: clamp(0.35rem, 1.2vw, 0.75rem);
+.heroSection,
+.startSection,
+.feedSection,
+.featuredSection,
+.modeSection {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
 }
 
 .hero {
   display: grid;
-  gap: 0.8rem;
-  max-width: 46rem;
+  gap: 0.85rem;
+  padding-block: clamp(1rem, 3vw, 2rem) 0;
 }
 
 .kicker,
-.sectionLabel {
-  color: color-mix(in srgb, var(--neutral-on-background-strong) 68%, var(--neutral-on-background-weak));
-  font-family: var(--font-technical);
-  font-size: var(--type-technical-size);
-  font-weight: var(--type-weight-technical);
-  letter-spacing: var(--type-technical-tracking);
-  text-transform: uppercase;
+.sectionLabel,
+.startLabel,
+.modeLabel {
+  color: var(--neutral-on-background-weak);
+  font-family: var(--font-label);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
-.heroTitle {
-  max-width: 14ch;
+.heroTitle,
+.sectionTitle,
+.featuredTitle,
+.modeTitle {
+  max-width: 18ch;
+  margin: 0;
+  color: var(--neutral-on-background-strong);
+  font-family: var(--font-body);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 650;
+  letter-spacing: 0;
+  line-height: 1.04;
 }
 
-.heroLead {
-  max-width: 40rem;
-  color: color-mix(in srgb, var(--neutral-on-background-strong) 76%, var(--neutral-on-background-medium));
-  font-size: clamp(1rem, 1.25vw, 1.08rem);
-  font-weight: var(--type-weight-body);
-  line-height: 1.62;
+.sectionTitle,
+.featuredTitle,
+.modeTitle {
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+  line-height: 1.12;
+}
+
+.heroLead,
+.sectionLead,
+.featuredSummary,
+.startSummary,
+.modeValue {
+  max-width: 42rem;
+  color: var(--neutral-on-background-medium);
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
 .heroNav {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.55rem 0.9rem;
-  padding-top: 0.2rem;
+  gap: 0.75rem;
+  padding-top: 0.25rem;
+}
+
+.heroNav a,
+.startCard,
+.modeItem,
+.featuredLink {
+  color: inherit;
+  text-decoration: none;
 }
 
 .heroNav a {
   color: var(--neutral-on-background-medium);
-  font-family: var(--font-technical);
-  font-size: var(--type-technical-size);
-  font-weight: var(--type-weight-technical);
-  letter-spacing: var(--type-technical-tracking);
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: color var(--motion-fast);
+  font-size: 0.95rem;
+  text-decoration: underline;
+  text-decoration-color: var(--line-muted);
+  text-underline-offset: 0.22em;
 }
 
-.heroNav a:hover,
-.heroNav a:focus-visible {
-  color: var(--brand-on-background-strong);
-  outline: none;
-}
-
-.featuredSection,
-.modeSection,
-.startSection,
-.feedSection {
+.sectionHeader,
+.modeHeader,
+.featuredContent {
   display: grid;
-  gap: 1.2rem;
-  width: 100%;
+  gap: 0.4rem;
 }
 
-.sectionHeader {
+.startGrid,
+.topicGrid,
+.modeList {
   display: grid;
-  gap: 0.55rem;
-  max-width: 44rem;
+  gap: 0;
+  border-top: 1px solid var(--line-subtle);
 }
 
-.sectionTitle {
-  max-width: 16ch;
-  line-height: 1.04;
+.startCard,
+.modeItem,
+.featuredLink {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--line-subtle);
 }
 
-.sectionLead {
-  max-width: 30rem;
-  color: var(--neutral-on-background-medium);
-  line-height: 1.72;
+.startMarker,
+.startArrow,
+.startCount,
+.featuredMedia,
+.featuredBadge,
+.featuredMeta {
+  display: none;
+}
+
+.startCopy {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.startTitle {
+  margin: 0;
+  color: var(--neutral-on-background-strong);
+  font-family: var(--font-body);
+  font-size: 1.08rem;
+  font-weight: 620;
+  letter-spacing: 0;
+  line-height: 1.28;
+}
+
+.startSummary {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
 }
 
 .featuredCard {
   width: 100%;
 }
 
-.featuredLink {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.9fr);
-  gap: clamp(1rem, 3vw, 2rem);
-  align-items: stretch;
-  width: 100%;
-  padding-block: clamp(1rem, 2vw, 1.35rem);
-  border-top: 1px solid var(--line-subtle);
-  border-bottom: 1px solid var(--line-subtle);
-  background: transparent;
-  color: inherit;
-  text-decoration: none;
-  transition:
-    border-color var(--motion-fast),
-    background var(--motion-fast);
-}
-
-.featuredLink:hover,
-.featuredLink:focus-visible,
-.startCard:hover,
-.startCard:focus-visible {
-  border-color: color-mix(in srgb, var(--brand-on-background-medium) 24%, var(--line-subtle));
-  background: color-mix(in srgb, var(--surface-panel-soft) 42%, transparent);
-  outline: none;
-}
-
-.featuredMedia {
-  overflow: hidden;
-  border-radius: var(--radius-8);
-}
-
-.featuredContent {
-  display: grid;
-  gap: 0.95rem;
-  align-content: center;
-  min-width: 0;
-  padding: 0.45rem 0;
-}
-
-.featuredBadge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: fit-content;
-  min-height: 1.9rem;
-  padding: 0.3rem 0.7rem;
-  border: 1px solid var(--line-muted);
-  border-radius: 999px;
-  color: var(--neutral-on-background-medium);
-  background: color-mix(in srgb, var(--surface-panel-soft) 72%, transparent);
-  font-size: 0.74rem;
-  font-weight: var(--type-weight-caption);
-  letter-spacing: var(--type-technical-tracking);
-  text-transform: uppercase;
-}
-
-.featuredTitle {
-  max-width: 12ch;
-  line-height: 1.02;
-}
-
-.featuredSummary {
-  max-width: 28rem;
-  font-weight: var(--type-weight-body);
-  line-height: 1.72;
-}
-
-.featuredMeta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem 0.9rem;
-  color: color-mix(in srgb, var(--neutral-on-background-strong) 62%, var(--neutral-on-background-weak));
-  font-size: 0.78rem;
-  font-weight: var(--type-weight-caption);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.featuredTag {
-  color: var(--neutral-on-background-medium);
-}
-
-.modeSection {
-  grid-template-columns: minmax(0, 0.75fr) minmax(18rem, 1.25fr);
-  gap: clamp(1.2rem, 3vw, 2.4rem);
-  align-items: end;
-  padding-top: clamp(0.85rem, 1.6vw, 1.15rem);
-  border-top: 1px solid var(--line-subtle);
-}
-
-.modeHeader {
-  display: grid;
-  gap: 0.65rem;
-}
-
-.modeTitle {
-  max-width: 15ch;
-  margin: 0;
-  color: var(--neutral-on-background-strong);
-  font-family: var(--font-heading);
-  font-size: clamp(1.8rem, 3.2vw, 2.65rem);
-  font-weight: var(--type-weight-heading);
-  letter-spacing: 0;
-  line-height: 1.05;
-}
-
-.modeList {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 0;
-  border-top: 1px solid var(--line-muted);
-}
-
-.modeItem {
-  display: grid;
-  gap: 0.45rem;
-  padding: 1rem 1rem 0 0;
-  color: inherit;
-  text-decoration: none;
-}
-
-.modeItem + .modeItem {
-  padding-left: 1rem;
-  border-left: 1px solid var(--line-muted);
-}
-
-.modeLabel {
-  color: var(--neutral-on-background-strong);
-  font-family: var(--font-technical);
-  font-size: var(--type-technical-size);
-  font-weight: var(--type-weight-technical);
-  letter-spacing: var(--type-technical-tracking);
-  text-transform: uppercase;
-}
-
-.modeValue {
-  color: color-mix(in srgb, var(--neutral-on-background-strong) 72%, var(--neutral-on-background-medium));
-  line-height: 1.68;
+.feedSection {
+  padding-bottom: 1rem;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .modeItem:hover .modeLabel {
-    color: var(--brand-on-background-strong);
-  }
-}
-
-.startGrid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.9rem;
-}
-
-.topicGrid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 1.1rem;
-}
-
-.startCard {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 0.85rem;
-  align-items: start;
-  width: 100%;
-  min-height: 100%;
-  padding: 1rem 0;
-  border: 0;
-  border-top: 1px solid var(--line-muted);
-  border-radius: 0;
-  background: transparent;
-  color: inherit;
-  text-decoration: none;
-  transition:
-    border-color var(--motion-fast),
-    background var(--motion-fast);
-}
-
-.startMarker {
-  width: 0.5rem;
-  height: 0.5rem;
-  margin-top: 0.35rem;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--color-accent-gold) 58%, var(--neutral-on-background-medium));
-}
-
-.startCopy {
-  display: grid;
-  gap: 0.45rem;
-}
-
-.startLabel {
-  color: var(--neutral-on-background-weak);
-  font-family: var(--font-technical);
-  font-size: var(--type-technical-size);
-  font-weight: var(--type-weight-technical);
-  letter-spacing: var(--type-technical-tracking);
-  text-transform: uppercase;
-}
-
-.startTitle {
-  line-height: 1.1;
-}
-
-.startSummary {
-  font-weight: var(--type-weight-body);
-  line-height: 1.68;
-}
-
-.startArrow {
-  color: var(--neutral-on-background-medium);
-  font-size: 1rem;
-  line-height: 1;
-}
-
-.startCount {
-  align-self: start;
-  width: max-content;
-  max-width: 7rem;
-  color: var(--neutral-on-background-medium);
-  font-family: var(--font-label);
-  font-size: 0.78rem;
-  font-weight: 650;
-  line-height: 1.2;
-  text-align: right;
-}
-
-@media (max-width: breakpoints.$m) {
-  .featuredLink,
-  .modeSection,
-  .modeList,
-  .startGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .modeItem,
-  .modeItem + .modeItem {
-    padding: 0.9rem 0 0;
-    border-left: 0;
-    border-top: 1px solid var(--line-muted);
+  .heroNav a:hover,
+  .startCard:hover,
+  .modeItem:hover,
+  .featuredLink:hover {
+    color: var(--neutral-on-background-strong);
   }
 }
 
 @media (max-width: breakpoints.$s) {
   .page {
-    gap: 1.85rem;
-  }
-
-  .heroSection {
-    padding-top: 0.35rem;
-  }
-
-  .hero {
-    gap: 0.55rem;
+    gap: 2rem;
   }
 
   .heroTitle {
-    max-width: 12ch;
-  }
-
-  .heroLead {
-    max-width: 22rem;
-    font-size: 0.98rem;
-    line-height: 1.55;
-  }
-
-  .featuredLink,
-  .startCard {
-    border-radius: 0;
-  }
-
-  .featuredMedia {
-    display: none;
-  }
-
-  .featuredContent {
-    gap: 0.72rem;
-    padding: 0;
-  }
-
-  .featuredTitle {
-    max-width: 14ch;
-    font-size: 1.75rem;
-  }
-
-  .featuredSummary {
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-  }
-
-  .featuredMeta span:nth-child(n + 3) {
-    display: none;
-  }
-
-  .modeSection,
-  .startSection,
-  .feedSection {
-    gap: 0.9rem;
-  }
-
-  .modeTitle {
-    max-width: 14ch;
-    font-size: 1.85rem;
-  }
-
-  .startCard {
-    padding: 0.8rem 0;
-  }
-
-  .startSummary,
-  .sectionLead {
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    font-size: 2.2rem;
   }
 }

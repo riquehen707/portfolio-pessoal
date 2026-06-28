@@ -40,13 +40,7 @@ body {
 }
 
 .hr-site-main {
-  background:
-    linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--surface-panel-soft) 14%, transparent),
-      transparent 18rem
-    ),
-    var(--page-background);
+  background: var(--page-background);
 }
 
 .hr-font-system.hr-font-system {
@@ -81,9 +75,9 @@ select {
 .hr-site-main {
   width: 100%;
   padding:
-    clamp(5.75rem, 8vw, 6.75rem)
+    clamp(2.5rem, 6vw, 4rem)
     clamp(1rem, 3vw, 2rem)
-    clamp(4rem, 7vw, 6rem);
+    clamp(3rem, 7vw, 5rem);
 }
 
 .hr-site-content {
@@ -244,7 +238,7 @@ button:active {
   }
 
   .hr-site-main {
-    padding-top: clamp(7rem, 18vw, 8rem);
-    padding-bottom: clamp(6.5rem, 18vw, 7.25rem);
+    padding-top: 2rem;
+    padding-bottom: 3rem;
   }
 }

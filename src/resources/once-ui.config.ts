@@ -1,6 +1,6 @@
 import { Archivo_Black, Fugaz_One, IBM_Plex_Mono, Michroma, Source_Sans_3 } from "next/font/google";
 
-import {
+import type {
   DataStyleConfig,
   DisplayConfig,
   EffectsConfig,
@@ -21,20 +21,20 @@ const baseURL: string = process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://hen
 
 const routes: RoutesConfig = {
   "/": true,
-  "/saiba-mais": true,
-  "/about": true,
-  "/about/abordagem-tecnica": true,
-  "/work": true,
+  "/saiba-mais": false,
+  "/about": false,
+  "/about/abordagem-tecnica": false,
+  "/work": false,
   "/blog": true,
   "/blog/temas": true,
-  "/mapa": true,
-  "/trilhas": true,
-  "/modelos": true,
-  "/aulas-particulares": true,
+  "/mapa": false,
+  "/trilhas": false,
+  "/modelos": false,
+  "/aulas-particulares": false,
   "/contact": false,
-  "/servicos": true,
-  [simulationPage.path]: true,
-  [productsPage.path]: true,
+  "/servicos": false,
+  [simulationPage.path]: false,
+  [productsPage.path]: false,
 };
 
 const display: DisplayConfig = {
@@ -95,7 +95,7 @@ const fonts: FontsConfig = {
 };
 
 const style: StyleConfig = {
-  theme: "dark",
+  theme: "light",
   neutral: "custom",
   brand: "custom",
   accent: "custom",
