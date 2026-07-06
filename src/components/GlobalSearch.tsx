@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 
 import type { GlobalSearchItem, GlobalSearchItemType } from "@/lib/globalSearch";
-import { iconLibrary } from "@/resources/icons";
 
 import styles from "./GlobalSearch.module.scss";
 
@@ -18,7 +18,7 @@ type RankedItem = GlobalSearchItem & {
   reason: string;
 };
 
-const SearchIcon = iconLibrary.seo;
+const SearchIcon = HiOutlineMagnifyingGlass;
 
 const typeLabels: Record<GlobalSearchItemType, string> = {
   article: "Artigo",
@@ -203,7 +203,7 @@ export function GlobalSearch({ items }: GlobalSearchProps) {
           <SearchIcon className={styles.triggerIcon} />
         </span>
         <span className={styles.triggerText}>
-          <span className={styles.triggerLabel}>Buscar no blog</span>
+          <span className={styles.triggerLabel}>Buscar</span>
           <span className={styles.triggerHint}>Artigos, temas e guias</span>
         </span>
       </button>

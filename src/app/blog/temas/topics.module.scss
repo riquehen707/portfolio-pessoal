@@ -1,83 +1,182 @@
 @use "../../../components/breakpoints.scss" as breakpoints;
 
 .page {
-  width: min(100%, 760px);
+  width: min(100%, 1040px);
   margin-inline: auto;
-  gap: 2rem;
+  gap: clamp(2rem, 4vw, 3rem);
 }
 
 .hero,
-.feedSection,
-.gridSection,
-.sectionHeader {
+.gridSection {
   display: grid;
-  gap: 0.8rem;
+  gap: 0.9rem;
 }
 
-.kicker,
-.sectionLabel,
-.topicMeta {
+.hero {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  padding: clamp(1rem, 3vw, 1.4rem);
+  border: 1px solid var(--line-subtle);
+  border-radius: 1.05rem;
+  background: color-mix(in srgb, var(--page-background) 94%, var(--surface-panel-soft));
+}
+
+.heroIcon {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #ffd400;
+  color: #171300;
+}
+
+.heroIcon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.heroCopy {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.hero h1 {
+  max-width: 18ch;
+  margin: 0;
+  color: var(--neutral-on-background-strong);
+  font-family: var(--font-body);
+  font-size: clamp(2.15rem, 5vw, 4rem);
+  font-weight: 780;
+  letter-spacing: 0;
+  line-height: 0.98;
+}
+
+.heroMeta,
+.cardCount,
+.cardAction {
   color: var(--neutral-on-background-weak);
-  font-size: 0.9rem;
+  font-family: var(--font-label);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.heroMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.heroMeta span + span::before {
+  margin-right: 0.45rem;
+  content: "/";
 }
 
 .heroLead,
-.sectionLead,
 .cardSummary {
   max-width: 42rem;
   color: var(--neutral-on-background-medium);
-  line-height: 1.65;
+  line-height: 1.62;
 }
 
 .grid {
   display: grid;
-  border-top: 1px solid var(--line-subtle);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
 }
 
 .card {
   display: grid;
-  gap: 0.25rem;
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--line-subtle);
+  gap: 0.65rem;
+  min-height: 13rem;
+  padding: 1rem;
+  border: 1px solid var(--line-subtle);
+  border-radius: 0.92rem;
+  background: color-mix(in srgb, var(--page-background) 94%, var(--surface-panel-soft));
   color: inherit;
   text-decoration: none;
+  transition:
+    border-color var(--motion-fast),
+    background var(--motion-fast),
+    transform var(--motion-fast);
 }
 
 .cardHeader {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
+  align-items: center;
+}
+
+.cardNumber {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  background: #ffd400;
+  color: #171300;
+  font-size: 0.76rem;
+  font-weight: 800;
 }
 
 .cardTitle {
   margin: 0;
   color: var(--neutral-on-background-strong);
   font-family: var(--font-body);
-  font-size: 1.08rem;
-  font-weight: 620;
+  font-size: 1.16rem;
+  font-weight: 740;
   letter-spacing: 0;
-  line-height: 1.3;
+  line-height: 1.16;
 }
 
 .cardSummary {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 0.94rem;
+  line-height: 1.55;
 }
 
-.cardCount {
-  color: var(--neutral-on-background-weak);
-  font-size: 0.9rem;
-  white-space: nowrap;
+.cardAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  align-self: end;
+  color: var(--neutral-on-background-strong);
+}
+
+.cardAction svg {
+  width: 0.95rem;
+  height: 0.95rem;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .card:hover .cardTitle {
-    color: var(--brand-on-background-strong);
+  .card:hover {
+    border-color: color-mix(in srgb, #ffd400 56%, var(--line-subtle));
+    background: var(--page-background);
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: breakpoints.$m) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: breakpoints.$s) {
-  .cardHeader {
-    display: grid;
+  .hero,
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero,
+  .card {
+    border-radius: 0.85rem;
+  }
+
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .card {
+    min-height: 0;
   }
 }

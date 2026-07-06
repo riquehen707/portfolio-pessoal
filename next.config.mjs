@@ -17,6 +17,7 @@ const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 2678400,
+    localPatterns: [{ pathname: "/api/og/generate" }],
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com", pathname: "**" },
       { protocol: "https", hostname: "avatars.githubusercontent.com", pathname: "**" },

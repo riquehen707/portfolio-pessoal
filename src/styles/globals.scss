@@ -81,7 +81,7 @@ select {
 }
 
 .hr-site-content {
-  width: min(100%, var(--grid-max-width-wide));
+  width: min(100%, 1040px);
 }
 
 .hr-site-body:has(.demoCanvasRoot) > header,
@@ -148,6 +148,10 @@ li {
 
 p {
   color: var(--neutral-on-background-medium);
+}
+
+::marker {
+  color: var(--neutral-on-background-weak);
 }
 
 a {

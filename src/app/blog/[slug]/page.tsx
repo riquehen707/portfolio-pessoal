@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { HiOutlineBookOpen, HiOutlineClock, HiOutlineTag } from "react-icons/hi2";
 
 import { Column, Heading, Meta, Schema, SmartLink, Text } from "@once-ui-system/core";
 
 import { getBlogCollectionLabel, getBlogCollectionSlug } from "@/app/blog/postData";
 import { CustomMDX, ScrollToHash } from "@/components";
+import { ArticleTools } from "@/components/blog/ArticleTools";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { baseURL, blog, person } from "@/resources";
+import { formatDate } from "@/utils/formatDate";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 import { type BlogFile, getPosts } from "@/utils/utils";
 
@@ -20,6 +24,9 @@ type PageProps = {
 type ContinuationCard = {
   title: string;
   href: string;
+  summary?: string;
+  image?: string;
+  imageAlt?: string;
 };
 
 function normalizeSlug(slugParam: string | string[] | undefined): string {
@@ -51,8 +58,7 @@ function getRelatedScore(current: BlogFile, candidate: BlogFile) {
   const candidateCategories = candidate.metadata.categories ?? [];
   const candidateTags = candidate.metadata.tags ?? [];
 
-  const collectionScore =
-    current.collection && candidate.collection === current.collection ? 16 : 0;
+  const collectionScore = current.collection && candidate.collection === current.collection ? 16 : 0;
   const categoryScore =
     candidateCategories.filter((category) => currentCategories.has(category)).length * 5;
   const tagScore = candidateTags.filter((tag) => currentTags.has(tag)).length * 3;
@@ -73,6 +79,9 @@ function postToContinuation(post: BlogFile | undefined): ContinuationCard | null
   return {
     title: post.metadata.title,
     href: `${blog.path}/${post.slug}`,
+    summary: post.metadata.summary,
+    image: post.metadata.image,
+    imageAlt: post.metadata.imageAlt,
   };
 }
 
@@ -121,10 +130,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ...generatedMeta,
     openGraph: {
       ...generatedMeta.openGraph,
-      images: buildDiscoverImageMetadata(
-        absoluteImage,
-        post.metadata.imageAlt ?? post.metadata.title,
-      ),
+      images: buildDiscoverImageMetadata(absoluteImage, post.metadata.imageAlt ?? post.metadata.title),
     },
     twitter: {
       ...generatedMeta.twitter,
@@ -145,11 +151,12 @@ export default async function BlogPost({ params }: PageProps) {
   const collectionSlug = getBlogCollectionSlug(post);
   const collectionLabel = getBlogCollectionLabel(collectionSlug);
   const publishedDate = post.metadata.publishedAt
-    ? new Date(post.metadata.publishedAt).toLocaleDateString("pt-BR")
+    ? formatDate(post.metadata.publishedAt, false)
     : undefined;
   const articlePath = `${blog.path}/${post.slug}`;
   const readingTrail = getReadingTrail(post, posts);
   const continuationCards = uniqueContinuations(readingTrail.map(postToContinuation));
+  const visibleTags = (post.metadata.tags ?? post.metadata.categories ?? []).slice(0, 4);
 
   return (
     <Column className={styles.page} paddingTop="24" gap="24">
@@ -177,41 +184,105 @@ export default async function BlogPost({ params }: PageProps) {
       />
 
       <header className={styles.hero}>
-        <SmartLink href="/blog">Blog</SmartLink>
-        <div className={styles.metaLine}>
-          {collectionSlug && collectionLabel ? (
-            <Link href={`/blog/temas/${collectionSlug}`}>{collectionLabel}</Link>
+        <div className={styles.heroContent}>
+          <div className={styles.heroKicker}>
+            <span className={styles.brandSquare} aria-hidden="true" />
+            <SmartLink href="/blog">Painel editorial</SmartLink>
+          </div>
+          <div className={styles.metaLine}>
+            {collectionSlug && collectionLabel ? (
+              <Link href={`/blog/temas/${collectionSlug}`}>
+                <HiOutlineTag aria-hidden="true" />
+                {collectionLabel}
+              </Link>
+            ) : null}
+            {publishedDate ? <span>{publishedDate}</span> : null}
+            {post.metadata.readingTime ? (
+              <span>
+                <HiOutlineClock aria-hidden="true" />
+                {post.metadata.readingTime} min
+              </span>
+            ) : null}
+          </div>
+          <Heading as="h1" className={styles.heroTitle} variant="display-strong-l" wrap="balance">
+            {post.metadata.title}
+          </Heading>
+          {post.metadata.summary ? (
+            <Text
+              className={styles.heroLead}
+              onBackground="neutral-weak"
+              variant="heading-default-m"
+              wrap="balance"
+            >
+              {post.metadata.summary}
+            </Text>
           ) : null}
-          {publishedDate ? <span>{publishedDate}</span> : null}
+          {visibleTags.length > 0 ? (
+            <div className={styles.tagRow} aria-label="Marcadores do artigo">
+              <span className={styles.tagLead}>
+                <HiOutlineBookOpen aria-hidden="true" />
+                Nota de estudo
+              </span>
+              {visibleTags.map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
+            </div>
+          ) : null}
         </div>
-        <Heading as="h1" className={styles.heroTitle} variant="display-strong-l" wrap="balance">
-          {post.metadata.title}
-        </Heading>
-        {post.metadata.summary ? (
-          <Text
-            className={styles.heroLead}
-            onBackground="neutral-weak"
-            variant="heading-default-m"
-            wrap="balance"
-          >
-            {post.metadata.summary}
-          </Text>
-        ) : null}
+        <div className={styles.heroMedia}>
+          {post.metadata.image ? (
+            <Image
+              src={post.metadata.image}
+              alt={post.metadata.imageAlt ?? post.metadata.title}
+              fill
+              priority
+              unoptimized
+              sizes="(max-width: 960px) 100vw, 430px"
+            />
+          ) : (
+            <div className={styles.heroMediaFallback} aria-hidden="true" />
+          )}
+        </div>
       </header>
 
-      <Column className={styles.article} id="article-content" as="article">
-        <CustomMDX source={post.content} glossary={post.metadata.glossary ?? {}} />
-      </Column>
+      <div className={styles.articleShell}>
+        <Column className={styles.article} id="article-content" as="article">
+          <CustomMDX source={post.content} glossary={post.metadata.glossary ?? {}} />
+        </Column>
+        <ArticleTools
+          title={post.metadata.title}
+          summary={post.metadata.summary}
+          readingTime={post.metadata.readingTime}
+          url={articlePath}
+        />
+      </div>
 
       {continuationCards.length > 0 ? (
         <section className={styles.relatedPanel} aria-labelledby="reading-trail-title">
-          <Heading id="reading-trail-title" as="h2" className={styles.relatedTitle}>
-            Continue lendo
-          </Heading>
+          <div className={styles.relatedHeader}>
+            <span>Próximas leituras</span>
+            <Heading id="reading-trail-title" as="h2" className={styles.relatedTitle}>
+              Continue por assuntos próximos.
+            </Heading>
+          </div>
           <div className={styles.secondaryReadings}>
             {continuationCards.map((item) => (
               <Link className={styles.secondaryReading} href={item.href} key={item.href}>
-                {item.title}
+                <span className={styles.secondaryMedia}>
+                  {item.image ? (
+                    <Image
+                      src={item.image}
+                      alt={item.imageAlt ?? item.title}
+                      fill
+                      unoptimized
+                      sizes="(max-width: 768px) 100vw, 320px"
+                    />
+                  ) : null}
+                </span>
+                <span className={styles.secondaryContent}>
+                  <strong>{item.title}</strong>
+                  {item.summary ? <span>{item.summary}</span> : null}
+                </span>
               </Link>
             ))}
           </div>

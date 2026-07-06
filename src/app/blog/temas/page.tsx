@@ -1,5 +1,6 @@
 import { Column, Heading, Meta, Schema, Text } from "@once-ui-system/core";
 import Link from "next/link";
+import { HiOutlineArrowRight, HiOutlineSquares2X2 } from "react-icons/hi2";
 
 import { getBlogCollectionIndex } from "@/app/blog/postData";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
@@ -9,8 +10,8 @@ import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 import styles from "./topics.module.scss";
 
 const topicsPath = "/blog/temas";
-const topicsTitle = "Temas";
-const topicsDescription = "Artigos agrupados por assunto.";
+const topicsTitle = "Editorias";
+const topicsDescription = "Artigos agrupados por assunto e contexto de trabalho.";
 
 export async function generateMetadata() {
   const image = buildOgImage(topicsTitle, "blog");
@@ -62,29 +63,42 @@ export default function BlogTopicsPage() {
       />
 
       <section className={styles.hero}>
-        <Text className={styles.kicker} variant="label-default-s" onBackground="neutral-weak">
-          Blog
-        </Text>
-        <Heading as="h1" variant="display-strong-l">
-          Temas.
-        </Heading>
-        <Text className={styles.heroLead} onBackground="neutral-weak" variant="heading-default-m">
-          Uma lista simples para encontrar artigos por assunto.
-        </Text>
+        <div className={styles.heroIcon} aria-hidden="true">
+          <HiOutlineSquares2X2 />
+        </div>
+        <div className={styles.heroCopy}>
+          <div className={styles.heroMeta}>
+            <span>Mapa de estudos</span>
+            <span>{topics.length} caminhos de leitura</span>
+          </div>
+          <Heading as="h1" variant="display-strong-l">
+            Editorias para encontrar o tipo certo de pergunta.
+          </Heading>
+          <Text className={styles.heroLead} onBackground="neutral-weak" variant="heading-default-m">
+            Use cada editoria como uma gaveta de aprendizado: comunicação, aquisição, design,
+            operação e presença digital.
+          </Text>
+        </div>
       </section>
 
-      <section className={styles.gridSection}>
+      <section className={styles.gridSection} aria-label="Editorias do blog">
         <div className={styles.grid}>
-          {topics.map((topic) => (
-            <Link className={styles.card} href={`/blog/temas/${topic.slug}`} key={topic.slug}>
+          {topics.map((topic, index) => (
+            <Link
+              className={styles.card}
+              data-card-type="category"
+              href={`/blog/temas/${topic.slug}`}
+              key={topic.slug}
+            >
               <div className={styles.cardHeader}>
-                <Heading as="h2" className={styles.cardTitle} variant="heading-strong-m">
-                  {topic.label}
-                </Heading>
+                <span className={styles.cardNumber}>{String(index + 1).padStart(2, "0")}</span>
                 <span className={styles.cardCount}>
-                  {topic.count} {topic.count === 1 ? "artigo" : "artigos"}
+                  {topic.count} {topic.count === 1 ? "nota" : "notas"}
                 </span>
               </div>
+              <Heading as="h2" className={styles.cardTitle} variant="heading-strong-m">
+                {topic.label}
+              </Heading>
               <Text
                 className={styles.cardSummary}
                 onBackground="neutral-weak"
@@ -92,6 +106,10 @@ export default function BlogTopicsPage() {
               >
                 {topic.description}
               </Text>
+              <span className={styles.cardAction}>
+                Abrir editoria
+                <HiOutlineArrowRight aria-hidden="true" />
+              </span>
             </Link>
           ))}
         </div>

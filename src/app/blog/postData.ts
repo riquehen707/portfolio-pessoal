@@ -48,6 +48,43 @@ export const strategicBlogCategories = [
 
 const strategicCategorySet = new Set<string>(strategicBlogCategories);
 
+export const blogEntryCategories = {
+  criar: {
+    label: "Criar",
+    description: "Design, conteúdo e criatividade.",
+    longDescription:
+      "Leituras para transformar ideias em páginas, conteúdos e decisões visuais mais claras.",
+    categories: ["Design"],
+    keywords: ["conteúdo", "conteudo", "criatividade", "design", "postar", "ideias"],
+  },
+  vender: {
+    label: "Vender",
+    description: "Oferta, presença e conversão.",
+    longDescription:
+      "Artigos para melhorar aquisição, oferta, página, prova e decisão comercial.",
+    categories: ["Marketing", "Growth", "Conversão", "Negócios locais"],
+    keywords: ["vender", "clientes", "captação", "captar", "leads", "agenda"],
+  },
+  estudar: {
+    label: "Estudar",
+    description: "Conceitos, critérios e repertório.",
+    longDescription:
+      "Guias de base para revisar termos, critérios e fundamentos antes de executar.",
+    collections: ["fundamentos"],
+    keywords: ["termos", "conceitos", "fundamentos", "guia"],
+  },
+  ferramentas: {
+    label: "Ferramentas",
+    description: "Processos, tecnologia e rotina.",
+    longDescription:
+      "Notas sobre ferramentas, canais, operação e rotinas que deixam a execução mais organizada.",
+    categories: ["Tecnologia", "Operação"],
+    keywords: ["google", "instagram", "whatsapp", "ferramenta", "automação", "rotina"],
+  },
+} as const;
+
+type BlogEntryCategorySlug = keyof typeof blogEntryCategories;
+
 type TaxonomyCount = {
   key: string;
   count: number;
@@ -230,4 +267,66 @@ export function getBlogPostsByCollection(collectionSlug: string, posts = getAllB
   return sortBlogPostsByDate(
     posts.filter((post) => getBlogCollectionSlug(post) === collectionSlug),
   );
+}
+
+export function getBlogEntryCategory(slug?: string) {
+  if (!slug) {
+    return undefined;
+  }
+
+  return blogEntryCategories[slug as BlogEntryCategorySlug];
+}
+
+function normalizeSearchText(value: string) {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+}
+
+export function getBlogPostsByEntryCategory(categorySlug: string, posts = getAllBlogPosts()) {
+  const category = getBlogEntryCategory(categorySlug);
+
+  if (!category) {
+    return [];
+  }
+
+  const categorySet = new Set<string>("categories" in category ? category.categories : []);
+  const collectionSet = new Set<string>("collections" in category ? category.collections : []);
+  const keywords = category.keywords.map(normalizeSearchText);
+
+  return sortBlogPostsByDate(
+    posts.filter((post) => {
+      const collection = getBlogCollectionSlug(post);
+      const values = [post.metadata.category, ...(post.metadata.categories ?? [])].filter(
+        Boolean,
+      ) as string[];
+      const haystack = normalizeSearchText(
+        [
+          post.metadata.title,
+          post.metadata.summary,
+          post.metadata.tag,
+          ...(post.metadata.tags ?? []),
+        ]
+          .filter(Boolean)
+          .join(" "),
+      );
+
+      return (
+        Boolean(collection && collectionSet.has(collection)) ||
+        values.some((value) => categorySet.has(value)) ||
+        keywords.some((keyword) => haystack.includes(keyword))
+      );
+    }),
+  );
+}
+
+export function getBlogEntryCategoryIndex(posts = getAllBlogPosts()) {
+  return Object.entries(blogEntryCategories).map(([slug, category]) => ({
+    slug,
+    label: category.label,
+    description: category.description,
+    longDescription: category.longDescription,
+    count: getBlogPostsByEntryCategory(slug, posts).length,
+  }));
 }
