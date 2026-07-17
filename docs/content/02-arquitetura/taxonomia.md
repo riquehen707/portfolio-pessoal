@@ -48,6 +48,15 @@ Prefira `tags`. Quando preencher `tag`, repita-o como primeiro item de `tags`. T
 
 Campo legado para agrupamento temático amplo. Não introduzir em artigos novos até que exista uma lista oficial de pilares e uma interface que dependa deles. Nunca usar como substituto improvisado de linha editorial.
 
+### `featured` e `featuredHome`
+
+- `featured`: seleção editorial curta para superfícies de destaque do blog. Não representa qualidade, importância permanente nem artigo publicado recentemente.
+- `featuredHome`: subconjunto ainda mais restrito para promoção na página inicial. Todo artigo com `featuredHome: true` também deve usar `featured: true`.
+
+O padrão é `false`. Marque como destaque quando o artigo funcionar como hub, oferecer uma entrada única para uma linha ou representar uma intenção estratégica que não esteja coberta por outro destaque da mesma coleção.
+
+Como regra de manutenção, prefira um destaque por coleção de segmento. Exceções precisam representar intenções claramente diferentes. Revise a seleção quando mais de 25% do acervo estiver marcado como `featured`.
+
 ## Coleções
 
 A coleção é inferida pela primeira pasta abaixo de `src/app/blog/posts/`. Não existe campo `collection` no frontmatter.

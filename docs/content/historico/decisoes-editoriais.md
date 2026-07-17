@@ -65,3 +65,11 @@ Preservar identidade, ritmo e simplicidade de produção.
 
 Substituição:
 Escolher no máximo quatro tipos de bloco editorial por artigo, além de imagens, `QuickSummary`, `NextSection` e `NextSteps`.
+
+## 2026-07-17 — Destaques são uma seleção curta
+
+Motivo:
+Quando muitos artigos usam `featured`, o campo deixa de comunicar prioridade e as superfícies editoriais perdem hierarquia.
+
+Substituição:
+Usar `featured` principalmente para hubs e entradas estratégicas, preferindo um por coleção de segmento. `featuredHome` é um subconjunto de `featured`, e a seleção deve ser revista quando ultrapassar 25% do acervo.
