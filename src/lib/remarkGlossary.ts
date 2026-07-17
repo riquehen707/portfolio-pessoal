@@ -8,7 +8,7 @@ function escapeRegExp(str: string) {
 }
 
 // Cria um nó JSX do MDX: <GlossTerm term="x">children</GlossTerm>
-function makeGlossTermNode(term: string, value: string) {
+function makeGlossTermNode(term: string, value: string, note: string) {
   return {
     type: "mdxJsxTextElement",
     name: "GlossTerm",
@@ -17,6 +17,11 @@ function makeGlossTermNode(term: string, value: string) {
         type: "mdxJsxAttribute",
         name: "term",
         value: term,
+      },
+      {
+        type: "mdxJsxAttribute",
+        name: "note",
+        value: note,
       },
     ],
     children: [{ type: "text", value }],
@@ -81,7 +86,7 @@ const remarkGlossary: Plugin<[Options?]> = (options = {}) => {
         const replacement: any[] = [];
         if (before) replacement.push({ type: "text", value: before });
 
-        replacement.push(makeGlossTermNode(term, matchedText));
+        replacement.push(makeGlossTermNode(term, matchedText, glossary[term]));
         seen.add(term);
 
         if (after) replacement.push({ type: "text", value: after });

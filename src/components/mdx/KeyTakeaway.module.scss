@@ -1,0 +1,22 @@
+.root {
+  max-width: var(--measure-article);
+  margin: 1.75rem 0;
+  padding: 0.9rem 0 0.9rem 1rem;
+  border-left: 3px solid var(--line-accent);
+  color: var(--neutral-on-background-medium);
+}
+
+.label {
+  color: var(--neutral-on-background-weak);
+  font-family: var(--font-technical);
+  font-size: var(--type-technical-size);
+  letter-spacing: var(--type-technical-tracking);
+  text-transform: uppercase;
+}
+
+.root p {
+  margin: 0.35rem 0 0 !important;
+  color: var(--neutral-on-background-strong) !important;
+  font-size: 1.04rem;
+  line-height: 1.65;
+}

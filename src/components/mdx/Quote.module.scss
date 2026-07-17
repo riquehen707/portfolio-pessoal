@@ -8,6 +8,11 @@
   box-shadow: none;
 }
 
+.emphasis {
+  border-left: 4px solid #ffd400;
+  background: color-mix(in srgb, #ffd400 8%, var(--surface-panel-soft));
+}
+
 .blockquote {
   margin: 0;
   color: var(--neutral-on-background-medium);
@@ -34,15 +39,17 @@
   line-height: 1.55;
 }
 
-.author,
-.authorInteractive {
+.author {
   color: var(--neutral-on-background-strong);
   font-weight: var(--type-weight-caption);
 }
 
-.authorInteractive {
-  text-decoration: underline dotted currentColor;
-  text-underline-offset: 0.18em;
+
+.authorNote {
+  margin: 0.45rem 0 0;
+  color: var(--neutral-on-background-weak);
+  font-size: var(--type-caption);
+  line-height: 1.5;
 }
 
 .sourceLink {

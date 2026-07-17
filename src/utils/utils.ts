@@ -16,6 +16,7 @@ export type Metadata = {
   title: string;
   publishedAt?: string;
   updatedAt?: string;
+  reviewedAt?: string;
   summary?: string;
   image?: string;
   imageAlt?: string;
@@ -174,6 +175,7 @@ function safeReadFile(filePath: string, collection?: string): BlogFile | null {
       coerceDateToString(parsed.updated) ??
       coerceDateToString(parsed.publishedAt) ??
       coerceDateToString(parsed.date);
+    const reviewedAt = coerceDateToString(parsed.reviewedAt);
 
     const tag = typeof parsed.tag === "string" ? parsed.tag : undefined;
     const tags =
@@ -209,6 +211,7 @@ function safeReadFile(filePath: string, collection?: string): BlogFile | null {
       title: parsed.title ?? "",
       publishedAt,
       updatedAt,
+      reviewedAt,
       summary: (parsed.summary ?? parsed.description ?? "").trim(),
       image: image ?? cover ?? undefined,
       imageAlt,

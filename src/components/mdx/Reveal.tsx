@@ -20,6 +20,7 @@ type RevealProps = HeaderProps & {
   defaultOpen?: boolean;
   className?: string;
   tone?: "neutral" | "brand" | "warning" | "success" | "danger";
+  simple?: boolean;
 };
 
 export default function Reveal({
@@ -32,6 +33,7 @@ export default function Reveal({
   defaultOpen,
   className,
   tone = "brand",
+  simple = false,
 }: RevealProps) {
   const summaryRef = useRef<HTMLElement | null>(null);
   const [open, setOpen] = useState<boolean>(Boolean(defaultOpen));
@@ -52,7 +54,11 @@ export default function Reveal({
   }, []);
 
   return (
-    <details open={defaultOpen} className={clsx(styles.root, className)} data-tone={tone}>
+    <details
+      open={defaultOpen}
+      className={clsx(styles.root, simple && styles.simple, className)}
+      data-tone={tone}
+    >
       <summary ref={summaryRef} className={styles.summary}>
         {thumbnailSrc ? (
           <div className={styles.thumbnail}>
@@ -67,9 +73,9 @@ export default function Reveal({
         ) : null}
 
         <div className={styles.body}>
-          {kicker ? <p className={styles.kicker}>{kicker}</p> : null}
+          {!simple && kicker ? <p className={styles.kicker}>{kicker}</p> : null}
           <h3 className={styles.title}>{title}</h3>
-          {meta ? <p className={styles.meta}>{meta}</p> : null}
+          {!simple && meta ? <p className={styles.meta}>{meta}</p> : null}
         </div>
 
         <span aria-hidden className={styles.chevron} data-open={open ? "true" : "false"} />
