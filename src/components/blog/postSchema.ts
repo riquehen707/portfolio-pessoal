@@ -8,6 +8,7 @@ export const PostFrontmatterSchema = z.object({
 
   publishedAt: z.string().optional(),
   updatedAt: z.string().optional(),
+  reviewedAt: z.string().optional(),
   date: z.string().optional(),
   updated: z.string().optional(),
 

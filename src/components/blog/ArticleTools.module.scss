@@ -12,6 +12,24 @@
   scrollbar-width: thin;
 }
 
+.mobileToc {
+  display: none;
+}
+
+.progress {
+  position: fixed;
+  z-index: 80;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 2px;
+  background: #ffd400;
+  pointer-events: none;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 80ms linear;
+}
+
 .section {
   display: grid;
   gap: 0.65rem;
@@ -53,7 +71,9 @@
 }
 
 .tocLink {
-  display: block;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
   color: var(--neutral-on-background-weak);
   font-size: 0.82rem;
   line-height: 1.45;
@@ -75,8 +95,7 @@
   gap: 0.45rem;
 }
 
-.button,
-.stepperButton {
+.button {
   appearance: none;
   border: 1px solid var(--border-subtle);
   border-width: 0 0 1px;
@@ -100,32 +119,9 @@
 }
 
 .button:hover,
-.button:focus-visible,
-.stepperButton:hover,
-.stepperButton:focus-visible {
+.button:focus-visible {
   border-color: var(--border-strong);
   color: var(--neutral-on-background-strong);
-}
-
-.stepper {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-}
-
-.stepperButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
-}
-
-.scaleValue {
-  min-width: 3.2rem;
-  color: var(--neutral-on-background-weak);
-  font-size: 0.78rem;
-  text-align: center;
 }
 
 .status {
@@ -138,5 +134,29 @@
 @media (max-width: 1180px) {
   .rail {
     display: none;
+  }
+
+  .mobileToc {
+    display: block;
+    order: -1;
+    width: min(100%, 720px);
+    margin-inline: auto;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--line-subtle);
+    border-radius: 0.75rem;
+    background: var(--surface-panel-soft);
+  }
+
+  .mobileToc summary {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    cursor: pointer;
+    color: var(--neutral-on-background-strong);
+    font-weight: 700;
+  }
+
+  .mobileToc .toc {
+    margin-top: 0.8rem;
   }
 }

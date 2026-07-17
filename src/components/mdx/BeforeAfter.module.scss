@@ -1,0 +1,93 @@
+.root {
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.comparison {
+  position: relative;
+  width: 100%;
+  min-height: 16rem;
+  overflow: hidden;
+  border: 1px solid var(--line-subtle);
+  border-radius: 0.75rem;
+  background: var(--surface-panel-soft);
+}
+
+.comparison img {
+  object-fit: cover;
+}
+
+.before {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.divider {
+  position: absolute;
+  inset-block: 0;
+  width: 2px;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+  transform: translateX(-1px);
+}
+
+.badge {
+  position: absolute;
+  top: 0.75rem;
+  z-index: 2;
+  padding: 0.35rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.72);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.beforeBadge {
+  left: 0.75rem;
+}
+
+.afterBadge {
+  right: 0.75rem;
+}
+
+.range {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+}
+
+.range:focus-visible {
+  opacity: 1;
+  height: 44px;
+  top: 50%;
+  accent-color: #ffd400;
+  transform: translateY(-50%);
+}
+
+.instructions {
+  margin: 0.55rem 0 0 !important;
+  color: var(--neutral-on-background-weak) !important;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+  .comparison {
+    min-height: 13rem;
+  }
+}

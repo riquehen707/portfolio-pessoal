@@ -143,10 +143,18 @@
   width: 100%;
 }
 
+.reviewNotice {
+  width: min(100%, 720px);
+  margin: 0 auto;
+  color: var(--neutral-on-background-weak);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
 .article {
   width: min(100%, 720px);
   color: var(--neutral-on-background-medium);
-  font-size: calc(clamp(1.04rem, 1.2vw, 1.12rem) * var(--article-font-scale, 1));
+  font-size: clamp(1.04rem, 1.2vw, 1.12rem);
   line-height: 1.84;
 }
 
@@ -346,8 +354,12 @@
   }
 
   .article {
-    font-size: calc(1rem * var(--article-font-scale, 1));
-    line-height: 1.74;
+    font-size: 1.075rem;
+    line-height: 1.68;
+  }
+
+  .article :global(p) {
+    margin-block: 1rem;
   }
 
   .relatedPanel {

@@ -4,7 +4,9 @@
 
 import { Grid, Media } from "@once-ui-system/core";
 
-type Item = {
+import { MediaCredit, type MediaCreditProps } from "./MediaCredit";
+
+type Item = MediaCreditProps & {
   src: string;
   alt: string;
 };
@@ -24,15 +26,22 @@ export default function Gallery({
   return (
     <Grid columns={String(columns) as "1" | "2" | "3"} s={{ columns: 1 }} gap={gap} marginY="16">
       {items.map((it, i) => (
-        <Media
-          key={i}
-          src={it.src}
-          alt={it.alt}
-          radius={radius}
-          border="neutral-alpha-weak"
-          aspectRatio="16/9"
-          sizes="(min-width: 1024px) 960px, 100vw"
-        />
+        <figure key={`${it.src}-${i}`} style={{ margin: 0 }}>
+          <Media
+            src={it.src}
+            alt={it.alt}
+            radius={radius}
+            border="neutral-alpha-weak"
+            aspectRatio="16/9"
+            sizes="(min-width: 1024px) 960px, 100vw"
+          />
+          <MediaCredit
+            caption={it.caption}
+            source={it.source}
+            accessedAt={it.accessedAt}
+            sourceHref={it.sourceHref}
+          />
+        </figure>
       ))}
     </Grid>
   );

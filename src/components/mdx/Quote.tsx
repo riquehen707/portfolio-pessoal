@@ -3,8 +3,6 @@ import { ReactNode } from "react";
 import clsx from "clsx";
 
 import styles from "./Quote.module.scss";
-import { HoverNote } from "./HoverNote";
-
 type QuoteProps = {
   author?: string;
   source?: string;
@@ -13,6 +11,7 @@ type QuoteProps = {
   children: ReactNode;
   className?: string;
   quoteMarks?: "none" | "auto";
+  emphasis?: boolean;
 };
 
 export function Quote({
@@ -23,21 +22,14 @@ export function Quote({
   children,
   className,
   quoteMarks = "none",
+  emphasis = false,
 }: QuoteProps) {
   const text = quoteMarks === "auto" ? <span className={styles.autoQuote}>{children}</span> : <>{children}</>;
 
-  const authorNode = author ? (
-    authorNote ? (
-      <HoverNote note={authorNote}>
-        <span className={styles.authorInteractive}>{author}</span>
-      </HoverNote>
-    ) : (
-      <span className={styles.author}>{author}</span>
-    )
-  ) : null;
+  const authorNode = author ? <span className={styles.author}>{author}</span> : null;
 
   return (
-    <figure className={clsx(styles.root, className)}>
+    <figure className={clsx(styles.root, emphasis && styles.emphasis, className)}>
       <blockquote className={styles.blockquote}>{text}</blockquote>
       {(author || source) && (
         <figcaption className={styles.caption}>
@@ -54,6 +46,7 @@ export function Quote({
           ) : null}
         </figcaption>
       )}
+      {authorNote ? <p className={styles.authorNote}>{authorNote}</p> : null}
     </figure>
   );
 }

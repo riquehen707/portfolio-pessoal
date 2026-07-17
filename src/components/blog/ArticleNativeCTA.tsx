@@ -2,7 +2,6 @@ import styles from "./ArticleNativeCTA.module.scss";
 
 type ArticleNativeCTAProps = {
   theme?: string;
-  variant?: "rail" | "inline";
 };
 
 function getContext(theme?: string) {
@@ -43,12 +42,12 @@ function getContext(theme?: string) {
   };
 }
 
-export function ArticleNativeCTA({ theme, variant = "rail" }: ArticleNativeCTAProps) {
+export function ArticleNativeCTA({ theme }: ArticleNativeCTAProps) {
   const content = getContext(theme);
 
   return (
     <aside
-      className={variant === "inline" ? styles.inline : styles.rail}
+      className={styles.inline}
       aria-label="Recomendação contextual"
     >
       <span className={styles.label}>{content.label}</span>

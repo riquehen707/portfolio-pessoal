@@ -156,7 +156,7 @@ export default async function BlogPost({ params }: PageProps) {
   const articlePath = `${blog.path}/${post.slug}`;
   const readingTrail = getReadingTrail(post, posts);
   const continuationCards = uniqueContinuations(readingTrail.map(postToContinuation));
-  const visibleTags = (post.metadata.tags ?? post.metadata.categories ?? []).slice(0, 4);
+  const visibleTags = (post.metadata.tags ?? post.metadata.categories ?? []).slice(0, 3);
 
   return (
     <Column className={styles.page} paddingTop="24" gap="24">
@@ -167,7 +167,9 @@ export default async function BlogPost({ params }: PageProps) {
         title={post.metadata.title}
         description={post.metadata.summary ?? post.metadata.title}
         datePublished={post.metadata.publishedAt}
-        dateModified={post.metadata.updatedAt ?? post.metadata.publishedAt}
+        dateModified={
+          post.metadata.reviewedAt ?? post.metadata.updatedAt ?? post.metadata.publishedAt
+        }
         image={toAbs(post.metadata.image)}
         author={{
           name: person.name,
@@ -245,13 +247,18 @@ export default async function BlogPost({ params }: PageProps) {
         </div>
       </header>
 
+      {post.metadata.reviewedAt ? (
+        <p className={styles.reviewNotice}>
+          Revisado em {formatDate(post.metadata.reviewedAt, false)}.
+        </p>
+      ) : null}
+
       <div className={styles.articleShell}>
         <Column className={styles.article} id="article-content" as="article">
           <CustomMDX source={post.content} glossary={post.metadata.glossary ?? {}} />
         </Column>
         <ArticleTools
           title={post.metadata.title}
-          summary={post.metadata.summary}
           readingTime={post.metadata.readingTime}
           url={articlePath}
         />

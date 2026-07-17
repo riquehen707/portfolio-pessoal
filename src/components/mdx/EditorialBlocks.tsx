@@ -42,7 +42,7 @@ type EditorialTableProps = {
   rows?: TableRow[];
   children?: ReactNode;
   compact?: boolean;
-  mobileMode?: "cards" | "scroll";
+  mobileMode?: "auto" | "cards" | "scroll";
   highlightFirstColumn?: boolean;
 };
 
@@ -232,25 +232,12 @@ export function QuickSummary({
   children?: ReactNode;
 }) {
   return (
-    <EditorialBlock eyebrow="Resumo" title={title} className={styles.summaryBlock}>
-      {items?.length ? <EditorialList items={items} /> : children}
-    </EditorialBlock>
-  );
-}
-
-export function ArticleIndex({
-  title = "Neste artigo",
-  items = [],
-  children,
-}: {
-  title?: string;
-  items?: Item[];
-  children?: ReactNode;
-}) {
-  return (
-    <EditorialBlock eyebrow="Índice" title={title} compact className={styles.indexBlock}>
-      {items.length ? <EditorialList items={items} ordered /> : children}
-    </EditorialBlock>
+    <>
+      <EditorialBlock eyebrow="Resumo" title={title} className={styles.summaryBlock}>
+        {items?.length ? <EditorialList items={items} /> : children}
+      </EditorialBlock>
+      <div id="article-mobile-toc-slot" />
+    </>
   );
 }
 
@@ -403,12 +390,14 @@ export function EditorialTable({
   rows,
   children,
   compact,
-  mobileMode = "cards",
+  mobileMode = "auto",
   highlightFirstColumn = true,
 }: EditorialTableProps) {
   const tableData =
     columns?.length && rows?.length ? { columns, rows } : tableFromChildren(children);
-  const useCards = mobileMode === "cards" && !!tableData;
+  const useCards =
+    !!tableData &&
+    (mobileMode === "cards" || (mobileMode === "auto" && tableData.columns.length <= 3));
 
   if (!tableData) {
     return (
@@ -506,39 +495,22 @@ export function Diagnostic({
   children,
 }: {
   title?: string;
-  items?: Pair[];
+  items?: Array<Pair | Item>;
   children?: ReactNode;
 }) {
-  return (
-    <EditorialBlock eyebrow="Diagnóstico" title={title} className={styles.diagnosticBlock}>
-      {items.length ? (
-        <EditorialList
-          items={items.map((item) => (
-            <>
-              <strong>{item.label}:</strong> {item.value}
-            </>
-          ))}
-          variant="question"
-        />
-      ) : (
-        children
-      )}
-    </EditorialBlock>
+  const formattedItems = items.map((item) =>
+    typeof item === "object" && item !== null && "label" in item && "value" in item ? (
+      <>
+        <strong>{item.label}:</strong> {item.value}
+      </>
+    ) : (
+      item
+    ),
   );
-}
 
-export function DiagnosticQuestions({
-  title = "Perguntas de diagnóstico",
-  items = [],
-  children,
-}: {
-  title?: string;
-  items?: Item[];
-  children?: ReactNode;
-}) {
   return (
     <EditorialBlock eyebrow="Diagnóstico" title={title} className={styles.diagnosticBlock}>
-      {items.length ? <EditorialList items={items} variant="question" /> : children}
+      {formattedItems.length ? <EditorialList items={formattedItems} variant="question" /> : children}
     </EditorialBlock>
   );
 }
@@ -553,21 +525,6 @@ export function Insight({
   return (
     <EditorialBlock eyebrow="Insight" title={title} compact>
       {children}
-    </EditorialBlock>
-  );
-}
-
-export function FeaturedQuote({
-  quote,
-  source,
-}: {
-  quote: ReactNode;
-  source?: ReactNode;
-}) {
-  return (
-    <EditorialBlock eyebrow="Citação" compact>
-      <blockquote className={styles.quote}>{quote}</blockquote>
-      {source ? <footer className={styles.quoteFooter}>{source}</footer> : null}
     </EditorialBlock>
   );
 }
@@ -593,10 +550,10 @@ export function EditorialFAQ({
     <EditorialBlock eyebrow="FAQ" title={title}>
       <div className={styles.faq}>
         {items.map((item) => (
-          <div className={styles.faqItem} key={item.question}>
-            <strong className={styles.faqQuestion}>{item.question}</strong>
+          <details className={styles.faqItem} key={item.question}>
+            <summary className={styles.faqQuestion}>{item.question}</summary>
             <p className={styles.faqAnswer}>{item.answer}</p>
-          </div>
+          </details>
         ))}
       </div>
     </EditorialBlock>

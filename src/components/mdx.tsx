@@ -8,6 +8,7 @@ import remarkGfm from "remark-gfm";
 
 // ✅ plugin do seu glossário (já planejado por nós)
 import remarkGlossary from "@/lib/remarkGlossary";
+import remarkEditorialLimits from "@/lib/remarkEditorialLimits";
 
 import {
   Heading,
@@ -17,21 +18,12 @@ import {
   CodeBlock,
   TextProps,
   MediaProps,
-  Accordion,
-  AccordionGroup,
-  Feedback,
-  Button,
-  Card,
-  Grid,
   Row,
-  Column,
-  Icon,
   Media,
   SmartLink,
   List,
   ListItem,
   Line,
-  Meta as UIMeta,
   Badge,
 } from "@once-ui-system/core";
 import type { Language } from "@once-ui-system/core";
@@ -40,24 +32,20 @@ import type { Language } from "@once-ui-system/core";
 import Figure from "@/components/mdx/Figure";
 import Gallery from "@/components/mdx/Gallery";
 import GlossTerm from "@/components/mdx/GlossTerm";
-import { HoverNote } from "@/components/mdx/HoverNote";
 import { Callout } from "@/components/mdx/Callout";
 import { Quote } from "@/components/mdx/Quote";
 import { Highlight } from "@/components/mdx/Highlight";
 import { ArticleNativeCTA } from "@/components/blog/ArticleNativeCTA";
 import {
-  ArticleIndex,
   CommonMistake,
   CommonMistakes,
   Definition,
   Diagnostic,
-  DiagnosticQuestions,
   DecisionPoints,
   EditorialChecklist,
   EditorialComparison,
   EditorialFAQ,
   EditorialTable,
-  FeaturedQuote,
   Insight,
   NextSteps,
   NumberedContextList,
@@ -65,37 +53,14 @@ import {
   QuickSummary,
   RelatedArticles,
 } from "@/components/mdx/EditorialBlocks";
-import {
-  Collapsible,
-  CollapsibleTrigger,
-  CollapsibleContent,
-} from "@/components/mdx/Collapsible";
 import MindMap from "@/components/mdx/MindMap";
 import Reveal from "@/components/mdx/Reveal";
-
-// Charts (Client Components)
-import * as Charts from "@/components/mdx/ChartsClient";
+import { SimpleBarChart, SimpleLineChart } from "@/components/mdx/SimpleCharts";
+import { BeforeAfter } from "@/components/mdx/BeforeAfter";
+import { KeyTakeaway } from "@/components/mdx/KeyTakeaway";
+import { NextSection } from "@/components/mdx/NextSection";
 
 import { baseURL } from "@/resources";
-
-const {
-  ChartContainer,
-  ResponsiveContainer,
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  CartesianGrid,
-  Legend,
-  LineChart,
-  Line: ChartLine,
-  AreaChart,
-  Area,
-  PieChart,
-  Pie,
-  Cell,
-} = Charts;
 
 /* ========================== Helpers ========================== */
 
@@ -437,12 +402,6 @@ function CategoryBadge({ name }: { name: string }) {
   );
 }
 
-/* ========================== Wrapper seguro para <Meta /> ========================== */
-const MetaMDX = (props: any) => {
-  const MetaComp = UIMeta as unknown as React.ComponentType<any>;
-  return <MetaComp {...props} />;
-};
-
 /* ========================== Mapeamento MDX ========================== */
 
 export const baseMDXComponents: MDXComponents = {
@@ -467,40 +426,19 @@ export const baseMDXComponents: MDXComponents = {
   th: Th as any,
   td: Td as any,
 
-  // Once UI (seguros no MDX)
-  Heading,
-  Text,
-  CodeBlock,
-  InlineCode,
-  Accordion,
-  AccordionGroup,
-  Feedback,
-  Button,
-  Card,
-  Grid,
-  Row,
-  Column,
-  Icon,
-  Media,
-  SmartLink,
-  Meta: MetaMDX,
-
   // === componentes custom mapeados no MDX ===
   Figure,
   Gallery,
   GlossTerm,
-  HoverNote,
   Callout,
   Quote,
   Highlight,
   ArticleCTA: ArticleNativeCTA,
   QuickSummary,
-  ArticleIndex,
   Definition,
   CommonMistake,
   CommonMistakes,
   DecisionPoints,
-  DiagnosticQuestions,
   NumberedContextList,
   PracticalExample,
   EditorialChecklist,
@@ -508,33 +446,16 @@ export const baseMDXComponents: MDXComponents = {
   EditorialTable,
   Diagnostic,
   Insight,
-  FeaturedQuote,
   EditorialFAQ,
   NextSteps,
   RelatedArticles,
-  Collapsible,
-  CollapsibleTrigger,
-  CollapsibleContent,
   MindMap,
   Reveal,
-
-  // charts (client components)
-  ChartContainer,
-  ResponsiveContainer,
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  CartesianGrid,
-  Legend,
-  LineChart,
-  Line: ChartLine,
-  AreaChart,
-  Area,
-  PieChart,
-  Pie,
-  Cell,
+  SimpleBarChart,
+  SimpleLineChart,
+  BeforeAfter,
+  KeyTakeaway,
+  NextSection,
 
   // shortcodes
   PillarBadge,
@@ -574,6 +495,7 @@ export function CustomMDX(props: CustomMDXProps) {
 
             // ✅ seu glossário automático (com fallback seguro)
             [remarkGlossary, { glossary }],
+            remarkEditorialLimits,
           ],
         },
       }}
@@ -586,18 +508,15 @@ export {
   Figure,
   Gallery,
   GlossTerm,
-  HoverNote,
   Callout,
   Quote,
   Highlight,
   ArticleNativeCTA,
   QuickSummary,
-  ArticleIndex,
   Definition,
   CommonMistake,
   CommonMistakes,
   DecisionPoints,
-  DiagnosticQuestions,
   NumberedContextList,
   PracticalExample,
   EditorialChecklist,
@@ -605,31 +524,16 @@ export {
   EditorialTable,
   Diagnostic,
   Insight,
-  FeaturedQuote,
   EditorialFAQ,
   NextSteps,
   RelatedArticles,
-  Collapsible,
-  CollapsibleTrigger,
-  CollapsibleContent,
   MindMap,
   Reveal,
   PillarBadge,
   CategoryBadge,
-  ChartContainer,
-  ResponsiveContainer,
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  CartesianGrid,
-  Legend,
-  LineChart,
-  ChartLine as Line,
-  AreaChart,
-  Area,
-  PieChart,
-  Pie,
-  Cell,
+  SimpleBarChart,
+  SimpleLineChart,
+  BeforeAfter,
+  KeyTakeaway,
+  NextSection,
 };
