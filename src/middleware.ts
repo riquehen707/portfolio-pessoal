@@ -1,7 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server";
 
 const pausedPaths = [
-  "/about",
   "/abordagem-tecnica",
   "/aulas-particulares",
   "/contact",
@@ -33,7 +32,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/about/:path*",
     "/abordagem-tecnica/:path*",
     "/aulas-particulares/:path*",
     "/contact/:path*",

@@ -173,7 +173,7 @@ export default async function BlogPost({ params }: PageProps) {
         image={toAbs(post.metadata.image)}
         author={{
           name: person.name,
-          url: `${baseURL}${blog.path}`,
+          url: `${baseURL}/about`,
           image: `${baseURL}${person.avatar}`,
         }}
       />
@@ -209,6 +209,9 @@ export default async function BlogPost({ params }: PageProps) {
           <Heading as="h1" className={styles.heroTitle} variant="display-strong-l" wrap="balance">
             {post.metadata.title}
           </Heading>
+          <p className={styles.byline}>
+            Por <Link href="/about">{person.name}</Link>
+          </p>
           {post.metadata.summary ? (
             <Text
               className={styles.heroLead}
@@ -254,9 +257,31 @@ export default async function BlogPost({ params }: PageProps) {
       ) : null}
 
       <div className={styles.articleShell}>
-        <Column className={styles.article} id="article-content" as="article">
-          <CustomMDX source={post.content} glossary={post.metadata.glossary ?? {}} />
-        </Column>
+        <div className={styles.articleColumn}>
+          <Column className={styles.article} id="article-content" as="article">
+            <CustomMDX source={post.content} glossary={post.metadata.glossary ?? {}} />
+          </Column>
+          <aside className={styles.authorBox} aria-labelledby="about-author-title">
+            <Image
+              className={styles.authorAvatar}
+              src={person.avatar}
+              alt={person.name}
+              width={56}
+              height={56}
+            />
+            <div>
+              <span>Sobre o autor</span>
+              <Heading id="about-author-title" as="h2">
+                {person.name}
+              </Heading>
+              <p>
+                Henrique é estudante, freelancer e autor deste blog. Escreve sobre o que aprende,
+                desenvolve e gosta.
+              </p>
+              <Link href="/about">Conheça um pouco mais sobre mim</Link>
+            </div>
+          </aside>
+        </div>
         <ArticleTools
           title={post.metadata.title}
           readingTime={post.metadata.readingTime}

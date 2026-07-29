@@ -22,7 +22,7 @@ const baseURL: string = process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://hen
 const routes: RoutesConfig = {
   "/": true,
   "/saiba-mais": false,
-  "/about": false,
+  "/about": true,
   "/about/abordagem-tecnica": false,
   "/work": false,
   "/blog": true,

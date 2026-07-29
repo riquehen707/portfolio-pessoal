@@ -1,140 +1,46 @@
-import {
-  Avatar,
-  Button,
-  Column,
-  Grid,
-  Heading,
-  Icon,
-  Meta,
-  Row,
-  Schema,
-  SmartLink,
-  Text,
-} from "@once-ui-system/core";
+import { Meta, Schema } from "@once-ui-system/core";
+import Image from "next/image";
+import Link from "next/link";
+import { SiAdobephotoshop, SiFigma, SiNextdotjs, SiSupabase } from "react-icons/si";
 
-import { BrandSignature } from "@/components";
-import { AboutScrollButton } from "@/components/about/AboutSectionNav";
-import styles from "@/components/about/about.module.scss";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
-import { type IconName } from "@/resources/icons";
-import {
-  about,
-  baseURL,
-  blog,
-  contentStrategy,
-  person,
-  productsPage,
-  servicesPage,
-  work,
-} from "@/resources";
+import { about, baseURL, blog, person } from "@/resources";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 
-const aboutStrategy = contentStrategy.pages.about;
-const aboutPageDescription =
-  "Como Henrique Reis lê oferta, página, conteúdo e atendimento antes de recomendar mais volume.";
+import styles from "./page.module.scss";
 
-const profileFacts = [
-  {
-    label: "O que faço",
-    value: "Procuro onde a pessoa entende, desconfia ou abandona.",
-  },
-  {
-    label: "Como decido",
-    value: "Mexo no ponto que trava a próxima ação.",
-  },
-  {
-    label: "O que evito",
-    value: "Aumentar campanha quando a página ainda não explica.",
-  },
-] as const;
+const pageTitle = "Quem sou";
+const pageDescription =
+  "Um pouco sobre Henrique Reis, seus interesses, estudos, trabalho e os motivos para manter este blog.";
 
-const thoughtBlocks = [
-  "Prefiro corrigir uma oferta ruim antes de aumentar tráfego.",
-  "Se o atendimento quebra, marketing vira desperdício.",
-  "Nem todo negócio precisa postar mais. Às vezes precisa explicar melhor o que já vende.",
-] as const;
-
-const fitCards = [
+const tools = [
   {
-    icon: "person" as IconName,
-    title: "Oferta e mensagem",
-    description: "Quando a pessoa chega, mas não entende por que deveria escolher você.",
+    name: "Figma",
+    description: "Interfaces e protótipos",
+    icon: SiFigma,
   },
   {
-    icon: "calendar" as IconName,
-    title: "Página e conteúdo",
-    description: "Quando existe divulgação, mas a explicação não conduz para uma ação clara.",
+    name: "Next.js",
+    description: "Sites e aplicações",
+    icon: SiNextdotjs,
   },
   {
-    icon: "package" as IconName,
-    title: "Atendimento e rotina",
-    description: "Quando leads aparecem, mas se perdem no WhatsApp, agenda ou follow-up.",
-  },
-] as const;
-
-const methodBlocks = [
-  {
-    number: "01",
-    title: "Procurar o vazamento",
-    description: "A pessoa chega? Entende? Confia? Chama? Recebe resposta?",
-    items: ["Procura", "Página", "Conversa"],
+    name: "Supabase",
+    description: "Dados e autenticação",
+    icon: SiSupabase,
   },
   {
-    number: "02",
-    title: "Mexer no menor ponto útil",
-    description: "Uma oferta, uma seção da página, um CTA ou uma prova melhor.",
-    items: ["Oferta", "CTA", "Prova"],
-  },
-  {
-    number: "03",
-    title: "Só depois pensar em volume",
-    description: "Mais conteúdo, tráfego ou automação entram quando a base já responde melhor.",
-    items: ["Conteúdo", "Tráfego", "Automação"],
-  },
-] as const;
-
-const aboutNextLinks = [
-  { href: blog.path, label: "Ler biblioteca" },
-  { href: work.path, label: "Ver laboratório" },
-  { href: productsPage.path, label: "Ver ferramentas" },
-] as const;
-
-const aboutPathCards = [
-  {
-    label: "Raciocínio",
-    title: "Quero entender como Henrique pensa",
-    description: "Leia as opiniões que aparecem antes de qualquer escopo.",
-    href: "#como-penso",
-    cta: "Ver raciocínio",
-  },
-  {
-    label: "Processo",
-    title: "Quero ver exemplos práticos",
-    description: "Veja decisões pequenas, registros e aprendizados em andamento.",
-    href: work.path,
-    cta: "Ver laboratório",
-  },
-  {
-    label: "Estudo",
-    title: "Quero aprender antes de executar",
-    description: "Use a biblioteca para revisar o problema antes de agir.",
-    href: blog.path,
-    cta: "Ir para biblioteca",
-  },
-  {
-    label: "Ajuda",
-    title: "Quero avaliar contratação",
-    description: "Veja se o gargalo já pede ajuda externa.",
-    href: servicesPage.path,
-    cta: "Entender consultoria",
+    name: "Photoshop",
+    description: "Edição de imagens",
+    icon: SiAdobephotoshop,
   },
 ] as const;
 
 export async function generateMetadata() {
-  const image = buildOgImage(about.title);
+  const image = buildOgImage(pageTitle, "Henrique Reis");
   const generatedMeta = Meta.generate({
-    title: about.title,
-    description: aboutPageDescription,
+    title: `${pageTitle} | ${person.name}`,
+    description: pageDescription,
     baseURL,
     image,
     path: about.path,
@@ -144,26 +50,25 @@ export async function generateMetadata() {
     ...generatedMeta,
     openGraph: {
       ...generatedMeta.openGraph,
-      images: buildDiscoverImageMetadata(image, about.title),
+      images: buildDiscoverImageMetadata(image, `${pageTitle} — ${person.name}`),
     },
     twitter: {
       ...generatedMeta.twitter,
       images: [image],
     },
-    keywords: aboutStrategy.seo.keywords,
   };
 }
 
 export default function About() {
   return (
-    <Column className={styles.page} maxWidth="l" gap="48" paddingTop="8">
+    <main className={styles.page}>
       <Schema
         as="webPage"
         baseURL={baseURL}
-        title={about.title}
-        description={aboutPageDescription}
+        title={`${pageTitle} | ${person.name}`}
+        description={pageDescription}
         path={about.path}
-        image={`/api/og/generate?title=${encodeURIComponent(about.title)}`}
+        image={`/api/og/generate?title=${encodeURIComponent(pageTitle)}`}
         author={{
           name: person.name,
           url: `${baseURL}${about.path}`,
@@ -173,226 +78,170 @@ export default function About() {
       <BreadcrumbJsonLd
         items={[
           { name: "Início", url: baseURL },
-          { name: "Sobre", url: `${baseURL}${about.path}` },
+          { name: pageTitle, url: `${baseURL}${about.path}` },
         ]}
       />
 
-      <section className={styles.heroSection} id="sobre">
-        <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="24">
-          <Column className={styles.heroMain} gap="20">
-            <BrandSignature />
-            <Text className={styles.kicker} variant="label-default-s" onBackground="brand-strong">
-              Sobre
-            </Text>
-            <Heading as="h1" variant="display-strong-l" wrap="balance">
-              Sou Henrique Reis. Eu organizo o que acontece antes da venda.
-            </Heading>
-            <div className={styles.accentLine} />
-            <Text
-              className={styles.heroLead}
-              variant="heading-default-m"
-              onBackground="neutral-weak"
-              wrap="balance"
-            >
-              Olho para oferta, página, conteúdo e atendimento para descobrir onde a decisão trava.
-              Quase nunca começo perguntando qual canal falta.
-            </Text>
-            <AboutScrollButton targetId="caminhos">Escolher caminho</AboutScrollButton>
-          </Column>
+      <header className={styles.hero}>
+        <div className={styles.intro}>
+          <span className={styles.kicker}>Quem escreve por aqui</span>
+          <h1>Oi, meu nome é Henrique.</h1>
+          <p className={styles.lead}>
+            Tenho 23 anos, estudo Física, trabalho como freelancer e mantenho este blog para
+            registrar as coisas que estou aprendendo, desenvolvendo e descobrindo.
+          </p>
+        </div>
 
-          <div className={styles.profileCard}>
-            <Row className={styles.profileTop} gap="12" vertical="center">
-              <Avatar src={person.avatar} size="m" />
-              <Column className={styles.profileIdentity} gap="4">
-                <Text variant="label-strong-m">{person.name}</Text>
-                <Text variant="body-default-s" onBackground="neutral-weak">
-                  Bahia, Brasil
-                </Text>
-              </Column>
-            </Row>
+        <div className={styles.portrait}>
+          <Image
+            src={person.avatar}
+            alt="Henrique Reis"
+            fill
+            priority
+            sizes="(max-width: 720px) 78vw, 340px"
+          />
+        </div>
+      </header>
 
-            <div className={styles.profileFacts}>
-              {profileFacts.map((item) => (
-                <div className={styles.profileFact} key={item.label}>
-                  <Text
-                    className={styles.factLabel}
-                    variant="label-default-s"
-                    onBackground="neutral-weak"
-                  >
-                    {item.label}
-                  </Text>
-                  <Text
-                    className={styles.factValue}
-                    variant="body-default-m"
-                    onBackground="neutral-weak"
-                  >
-                    {item.value}
-                  </Text>
-                </div>
-              ))}
-            </div>
+      <article className={styles.story}>
+        <p>
+          Atualmente moro perto da universidade onde estudo. Gosto bastante de mangás, manhuas e
+          graphic novels. Também sou apaixonado por cinema e animações.
+        </p>
+        <p>
+          Ler livros nunca foi exatamente meu forte, mas estou começando a gostar. Então
+          provavelmente vou acabar escrevendo sobre algumas dessas descobertas por aqui.
+        </p>
+        <p>
+          Estou cursando BCT, o Bacharelado em Ciências Exatas e Tecnológicas, com terminalidade em
+          Física.
+        </p>
+        <p>
+          Para me sustentar — ou pelo menos tentar — trabalho como freelancer. Faço criação de
+          sites, gestão de tráfego e outros serviços relacionados a marketing, mas atualmente minha
+          principal ênfase está no desenvolvimento de sites.
+        </p>
+
+        <section className={styles.toolsSection} aria-labelledby="ferramentas">
+          <div className={styles.toolsHeading}>
+            <span>Parte da rotina</span>
+            <h2 id="ferramentas">Ferramentas que uso</h2>
           </div>
-        </Grid>
-      </section>
+          <div className={styles.toolsGrid}>
+            {tools.map((tool) => {
+              const ToolIcon = tool.icon;
 
-      <section className={styles.section} id="caminhos">
-        <div className={styles.sectionHeader}>
-          <Text
-            className={styles.sectionKicker}
-            variant="label-default-s"
-            onBackground="brand-strong"
-          >
-            Caminhos
-          </Text>
-          <Heading as="h2" variant="display-strong-s">
-            Escolha pelo que você quer entender.
-          </Heading>
-          <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
-            Sobre não precisa ser fim de navegação.
-          </Text>
-        </div>
-
-        <div className={styles.pathGrid}>
-          {aboutPathCards.map((item) => (
-            <a className={styles.pathCard} href={item.href} key={item.title}>
-              <span className={styles.pathLabel}>{item.label}</span>
-              <Heading as="h3" variant="heading-strong-m">
-                {item.title}
-              </Heading>
-              <Text variant="body-default-s" onBackground="neutral-weak">
-                {item.description}
-              </Text>
-              <span className={styles.pathCta}>{item.cta}</span>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      <section className={styles.section} id="como-penso">
-        <div className={styles.sectionHeader}>
-          <Text
-            className={styles.sectionKicker}
-            variant="label-default-s"
-            onBackground="brand-strong"
-          >
-            O que observo
-          </Text>
-          <Heading as="h2" variant="display-strong-s">
-            Algumas quebras aparecem o tempo todo.
-          </Heading>
-        </div>
-
-        <Grid className={styles.thoughtGrid} columns="3" m={{ columns: 1 }} gap="20">
-          {thoughtBlocks.map((item) => (
-            <div className={styles.thoughtBlock} key={item}>
-              <Text variant="body-default-m" onBackground="neutral-weak">
-                {item}
-              </Text>
-            </div>
-          ))}
-        </Grid>
-      </section>
-
-      <section className={styles.section} id="foco">
-        <div className={styles.sectionHeader}>
-          <Text
-            className={styles.sectionKicker}
-            variant="label-default-s"
-            onBackground="brand-strong"
-          >
-            Onde entro
-          </Text>
-          <Heading as="h2" variant="display-strong-s">
-            Quando mais procura não vira conversa boa.
-          </Heading>
-          <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
-            O gargalo costuma aparecer antes da venda.
-          </Text>
-        </div>
-
-        <Grid className={styles.fitGrid} columns="3" m={{ columns: 1 }} gap="20">
-          {fitCards.map((card) => (
-            <article className={styles.fitItem} key={card.title}>
-              <div className={styles.fitItemTop}>
-                <div className={styles.fitIcon}>
-                  <Icon name={card.icon} size="m" />
-                </div>
-                <Heading as="h3" variant="heading-strong-m">
-                  {card.title}
-                </Heading>
-              </div>
-              <Text variant="body-default-m" onBackground="neutral-weak">
-                {card.description}
-              </Text>
-            </article>
-          ))}
-        </Grid>
-      </section>
-
-      <section className={styles.section} id="metodo">
-        <div className={styles.sectionHeader}>
-          <Text
-            className={styles.sectionKicker}
-            variant="label-default-s"
-            onBackground="brand-strong"
-          >
-            Como penso
-          </Text>
-          <Heading as="h2" variant="display-strong-s">
-            Eu organizo antes de escalar.
-          </Heading>
-        </div>
-
-        <Grid className={styles.methodGrid} columns="3" m={{ columns: 1 }} gap="20">
-          {methodBlocks.map((item) => (
-            <article className={styles.methodItemBlock} key={item.title}>
-              <span className={styles.methodNumber}>{item.number}</span>
-              <Heading as="h3" variant="heading-strong-m">
-                {item.title}
-              </Heading>
-              <Text variant="body-default-m" onBackground="neutral-weak">
-                {item.description}
-              </Text>
-              <div className={styles.methodList}>
-                {item.items.map((entry) => (
-                  <span className={styles.methodListItem} key={entry}>
-                    {entry}
+              return (
+                <div className={styles.toolItem} key={tool.name}>
+                  <span className={styles.toolIcon} aria-hidden="true">
+                    <ToolIcon />
                   </span>
-                ))}
-              </div>
-            </article>
-          ))}
-        </Grid>
-      </section>
+                  <span className={styles.toolText}>
+                    <strong>{tool.name}</strong>
+                    <small>{tool.description}</small>
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </section>
 
-      <section className={styles.section} id="contato">
-        <div className={styles.sectionHeader}>
-          <Text
-            className={styles.sectionKicker}
-            variant="label-default-s"
-            onBackground="brand-strong"
-          >
-            Próximo passo
-          </Text>
-          <Heading as="h2" variant="display-strong-s">
-            Veja se o problema combina com meu jeito de trabalhar.
-          </Heading>
-          <Text className={styles.sectionLead} variant="body-default-s" onBackground="neutral-weak">
-            Se a trava está na oferta, página, conteúdo ou atendimento, comece pela consultoria.
-          </Text>
-        </div>
+        <section aria-labelledby="porque-blog">
+          <h2 id="porque-blog">Por que comecei este blog?</h2>
+          <p>No início, criei o blog pensando principalmente em ganhar dinheiro.</p>
+          <p>Só que, sendo bem sincero, não estava funcionando muito bem.</p>
+          <p>
+            Produzir conteúdo com esse objetivo começou a se tornar cansativo e consumia bastante
+            tempo. No fim, eu escrevia, estudava, cuidava do blog e não sobrava energia para
+            prospectar clientes, que é justamente o que poderia me ajudar financeiramente de maneira
+            mais imediata.
+          </p>
+          <p>Por isso, estou tentando encarar este espaço de outra forma.</p>
+          <p>
+            Quero transformar o blog em um hobby e também em uma ferramenta de estudo. Vou escrever
+            sobre o que estou aprendendo, sobre os projetos que estou desenvolvendo e,
+            principalmente, sobre as coisas das quais realmente gosto.
+          </p>
+          <p>
+            Acredito que assim será mais fácil criar uma rotina natural, sem precisar transformar
+            cada publicação em uma obrigação ou em uma estratégia perfeita.
+          </p>
+          <p>
+            Não sei exatamente no que este blog vai se transformar. Por enquanto, quero apenas
+            continuar escrevendo, aprendendo e encontrando pessoas que se interessem pelas mesmas
+            coisas.
+          </p>
+        </section>
 
-        <Row className={styles.ctaRow} gap="12" wrap>
-          <Button href={servicesPage.path} variant="primary" size="m" arrowIcon>
-            Entender consultoria
-          </Button>
-          {aboutNextLinks.map((link) => (
-            <SmartLink href={link.href} suffixIcon="arrowRight" key={link.href}>
-              {link.label}
-            </SmartLink>
-          ))}
-        </Row>
-      </section>
-    </Column>
+        <details className={styles.personalStory}>
+          <summary>
+            <span>
+              <small>Uma camada mais pessoal</small>
+              Minha história
+            </span>
+            <span className={styles.detailsAction} aria-hidden="true">
+              Abrir
+            </span>
+          </summary>
+          <div className={styles.personalStoryContent}>
+            <p>
+              Tenho 23 anos e não considero que exista algo especialmente grandioso para contar
+              sobre mim.
+            </p>
+            <p>
+              Fui criado pela minha mãe. Meu pai faleceu quando eu ainda era criança e,
+              recentemente, também perdi minha mãe.
+            </p>
+            <p>
+              Não tenho uma grande história de superação. Sou apenas um rapaz comum tentando viver
+              de maneira tranquila. Tenho meus defeitos, meus períodos de desmotivação e algumas
+              questões pessoais com as quais ainda estou aprendendo a lidar.
+            </p>
+            <p>
+              Em 2019, aos 17 anos, terminei o ensino médio e também um curso técnico no SENAI.
+              Naquela época, pretendia entrar na faculdade e cursar alguma engenharia, mas a
+              pandemia acabou mudando meus planos.
+            </p>
+            <p>
+              Durante esse período, tentei criar uma loja de dropshipping. Foi assim que comecei a
+              aprender sobre marketing, SEO, criação de sites e vendas pela internet.
+            </p>
+            <p>
+              Durante algum tempo, o projeto funcionou. Inclusive, consegui morar sozinho. Depois, a
+              vida tomou outros rumos e o tempo foi passando. Essa parte da história é mais pessoal
+              e prefiro não entrar em muitos detalhes.
+            </p>
+            <p>
+              Meu aniversário é no dia 15 de agosto. Em 2024, completei 22 anos e, no dia seguinte,
+              minha mãe faleceu ao meu lado no hospital.
+            </p>
+            <p>
+              Depois disso, voltei para minha casa em Alagoinhas. Consegui continuar me mantendo,
+              embora também tenha acumulado algumas dívidas. Aos poucos, estou organizando minha
+              vida e lidando com elas.
+            </p>
+            <p>
+              Em algum momento surgiu a oportunidade de entrar na universidade, e acabei me mudando
+              novamente.
+            </p>
+            <p>
+              Hoje moro em um quarto alugado próximo à faculdade. Estou estudando, trabalhando como
+              freelancer, pagando minhas dívidas e tentando construir uma carreira que permita
+              manter meus interesses, continuar estudando e ter uma vida tranquila.
+            </p>
+            <p>
+              Também estou lidando com a distimia e pretendo voltar a fazer acompanhamento com uma
+              psicóloga. Ainda existem dias difíceis, mas, de maneira geral, estou bem e tentando
+              resolver cada questão no seu tempo.
+            </p>
+          </div>
+        </details>
+
+        <footer className={styles.closing}>
+          <p>Se quiser continuar por aqui, a melhor porta de entrada é o que tenho escrito.</p>
+          <Link href={blog.path}>Conhecer o blog</Link>
+        </footer>
+      </article>
+    </main>
   );
 }
