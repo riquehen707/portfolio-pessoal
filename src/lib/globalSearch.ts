@@ -1,4 +1,5 @@
 import { getAllBlogPosts, getBlogPostFormat, getBlogPrimaryCategory } from "@/app/blog/postData";
+import { seoLibraryPath } from "@/app/blog/seo/seoLibraryData";
 import { blog, home } from "@/resources";
 
 export type GlobalSearchItemType = "article" | "page";
@@ -77,6 +78,22 @@ export function getGlobalSearchItems(): GlobalSearchItem[] {
       description: blog.description,
       href: blog.path,
       keywords: ["blog", "artigos", "guias", "biblioteca"],
+    }),
+    pageItem({
+      id: "page-seo-library",
+      title: "Biblioteca de SEO",
+      description:
+        "Aprenda como a busca funciona, construa estratégias melhores e desenvolva competências profissionais em SEO.",
+      href: seoLibraryPath,
+      keywords: [
+        "seo",
+        "busca",
+        "otimização",
+        "livros",
+        "indexação",
+        "relevância",
+        "search console",
+      ],
     }),
   ];
 

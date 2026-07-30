@@ -10,6 +10,7 @@ import {
   getFeaturedBlogPosts,
   getRecentBlogPosts,
 } from "@/app/blog/postData";
+import { seoLibraryPath } from "@/app/blog/seo/seoLibraryData";
 import { EditorialFeed, type EditorialFeedPost } from "@/components/blog/EditorialFeed";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { baseURL, blog, person } from "@/resources";
@@ -155,6 +156,25 @@ export default function Blog() {
             <strong>{totalReadingTime || "40+"} min</strong>
           </div>
         </div>
+      </section>
+
+      <section className={styles.seoGateway} aria-labelledby="seo-library-title">
+        <div className={styles.seoGatewayMark} aria-hidden="true">
+          SEO
+        </div>
+        <div className={styles.seoGatewayCopy}>
+          <span className={styles.sectionLabel}>Nova biblioteca temática</span>
+          <Heading id="seo-library-title" as="h2" className={styles.seoGatewayTitle}>
+            Entender a busca antes de otimizar páginas.
+          </Heading>
+          <Text onBackground="neutral-weak">
+            Uma entrada organizada para estudar fundamentos, relevância, medição e carreira em SEO.
+          </Text>
+        </div>
+        <Link className={styles.seoGatewayLink} href={seoLibraryPath}>
+          Abrir Biblioteca de SEO
+          <HiOutlineArrowRight aria-hidden="true" />
+        </Link>
       </section>
 
       <section className={styles.feedSection} id="artigos" aria-labelledby="blog-feed-title">

@@ -81,3 +81,11 @@ Séries manuais, trilhas, mapa e categorias de entrada heurísticas criavam cami
 
 Substituição:
 A navegação pública prioriza início, blog, artigos e busca. As coleções físicas e as rotas de Temas, trilhas, mapa e categorias de entrada ficam preservadas como infraestrutura interna, mas ocultas da navegação, busca e sitemap para análise ou migração futura, sem definir a arquitetura de Books.
+
+## 2026-07-30 — Biblioteca de SEO como piloto editorial
+
+Motivo:
+Criar uma entrada temática capaz de orientar o estudo de SEO sem reduzir a experiência a uma lista cronológica de artigos nem antecipar uma arquitetura geral de Books ainda não implementada.
+
+Substituição:
+A rota `/blog/seo` apresenta três livros planejados — Entender a busca, Construir relevância e Medir e desenvolver — além das futuras áreas Guia prático, Carreira em SEO e Mais sobre SEO. Enquanto capítulos e rotas próprias não existirem, os livros permanecem identificados como planejamento e não recebem links fictícios. Este piloto não altera schema, frontmatter, pastas MDX ou a taxonomia permanente do acervo.

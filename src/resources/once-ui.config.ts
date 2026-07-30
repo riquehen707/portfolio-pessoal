@@ -26,6 +26,7 @@ const routes: RoutesConfig = {
   "/about/abordagem-tecnica": false,
   "/work": false,
   "/blog": true,
+  "/blog/seo": true,
   "/blog/temas": false,
   "/mapa": false,
   "/trilhas": false,
