@@ -12,6 +12,8 @@ export default function robots(): MetadataRoute.Robots {
           "/about",
           "/abordagem-tecnica",
           "/aulas-particulares",
+          "/blog/categorias",
+          "/blog/temas",
           "/contact",
           "/mapa",
           "/modelos",

@@ -2,11 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { HiOutlineBookOpen, HiOutlineClock, HiOutlineTag } from "react-icons/hi2";
+import { HiOutlineBookOpen, HiOutlineClock } from "react-icons/hi2";
 
 import { Column, Heading, Meta, Schema, SmartLink, Text } from "@once-ui-system/core";
 
-import { getBlogCollectionLabel, getBlogCollectionSlug } from "@/app/blog/postData";
 import { CustomMDX, ScrollToHash } from "@/components";
 import { ArticleTools } from "@/components/blog/ArticleTools";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
@@ -58,7 +57,8 @@ function getRelatedScore(current: BlogFile, candidate: BlogFile) {
   const candidateCategories = candidate.metadata.categories ?? [];
   const candidateTags = candidate.metadata.tags ?? [];
 
-  const collectionScore = current.collection && candidate.collection === current.collection ? 16 : 0;
+  const collectionScore =
+    current.collection && candidate.collection === current.collection ? 16 : 0;
   const categoryScore =
     candidateCategories.filter((category) => currentCategories.has(category)).length * 5;
   const tagScore = candidateTags.filter((tag) => currentTags.has(tag)).length * 3;
@@ -130,7 +130,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ...generatedMeta,
     openGraph: {
       ...generatedMeta.openGraph,
-      images: buildDiscoverImageMetadata(absoluteImage, post.metadata.imageAlt ?? post.metadata.title),
+      images: buildDiscoverImageMetadata(
+        absoluteImage,
+        post.metadata.imageAlt ?? post.metadata.title,
+      ),
     },
     twitter: {
       ...generatedMeta.twitter,
@@ -148,8 +151,6 @@ export default async function BlogPost({ params }: PageProps) {
 
   if (!post) notFound();
 
-  const collectionSlug = getBlogCollectionSlug(post);
-  const collectionLabel = getBlogCollectionLabel(collectionSlug);
   const publishedDate = post.metadata.publishedAt
     ? formatDate(post.metadata.publishedAt, false)
     : undefined;
@@ -192,12 +193,6 @@ export default async function BlogPost({ params }: PageProps) {
             <SmartLink href="/blog">Painel editorial</SmartLink>
           </div>
           <div className={styles.metaLine}>
-            {collectionSlug && collectionLabel ? (
-              <Link href={`/blog/temas/${collectionSlug}`}>
-                <HiOutlineTag aria-hidden="true" />
-                {collectionLabel}
-              </Link>
-            ) : null}
             {publishedDate ? <span>{publishedDate}</span> : null}
             {post.metadata.readingTime ? (
               <span>

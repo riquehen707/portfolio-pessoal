@@ -1,12 +1,7 @@
-import {
-  getAllBlogPosts,
-  getBlogCollectionIndex,
-  getBlogPostFormat,
-  getBlogPrimaryCategory,
-} from "@/app/blog/postData";
+import { getAllBlogPosts, getBlogPostFormat, getBlogPrimaryCategory } from "@/app/blog/postData";
 import { blog, home } from "@/resources";
 
-export type GlobalSearchItemType = "article" | "topic" | "page";
+export type GlobalSearchItemType = "article" | "page";
 
 export type GlobalSearchItem = {
   id: string;
@@ -83,13 +78,6 @@ export function getGlobalSearchItems(): GlobalSearchItem[] {
       href: blog.path,
       keywords: ["blog", "artigos", "guias", "biblioteca"],
     }),
-    pageItem({
-      id: "page-blog-topics",
-      title: "Temas do blog",
-      description: "Artigos agrupados por problema para navegar com mais contexto.",
-      href: `${blog.path}/temas`,
-      keywords: ["temas", "categorias", "guias", "blog"],
-    }),
   ];
 
   const articleItems: GlobalSearchItem[] = getAllBlogPosts().map((post) => {
@@ -118,15 +106,5 @@ export function getGlobalSearchItems(): GlobalSearchItem[] {
     };
   });
 
-  const topicItems: GlobalSearchItem[] = getBlogCollectionIndex().map((topic) => ({
-    id: `topic-${topic.slug}`,
-    type: "topic",
-    title: topic.label,
-    description: topic.description,
-    href: `${blog.path}/temas/${topic.slug}`,
-    label: `${topic.count} artigos`,
-    keywords: uniq(["tema", "blog", topic.slug, topic.label, topic.description]),
-  }));
-
-  return [...staticPages, ...articleItems, ...topicItems];
+  return [...staticPages, ...articleItems];
 }

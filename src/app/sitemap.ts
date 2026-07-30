@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
 
-import { getBlogCollectionIndex } from "@/app/blog/postData";
 import { baseURL, blog, routes as routesConfig } from "@/resources";
 import { getPosts } from "@/utils/utils";
 
@@ -14,17 +13,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.72,
   }));
 
-  const blogTopics = getBlogCollectionIndex().map((topic) => ({
-    url: `${baseURL}${blog.path}/temas/${topic.slug}`,
-    lastModified: today,
-    changeFrequency: "monthly" as const,
-    priority: 0.68,
-  }));
-
   const routePriorities: Record<string, number> = {
     "/": 1,
     [blog.path]: 0.86,
-    [`${blog.path}/temas`]: 0.74,
   };
 
   const routes = Object.keys(routesConfig)
@@ -44,7 +35,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly" as const,
       priority: 0.4,
     },
-    ...blogTopics,
     ...blogPosts,
   ];
 }

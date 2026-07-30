@@ -208,7 +208,7 @@ const blog: Blog = {
   path: "/blog",
   label: "Biblioteca",
   title: `Biblioteca | ${person.name}`,
-  description: "Guias, trilhas, temas e artigos para estudar, aplicar e revisar com mais ordem.",
+  description: "Guias e artigos para estudar, aplicar e revisar com mais ordem.",
 };
 
 const work: Work = {

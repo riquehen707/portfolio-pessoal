@@ -73,3 +73,11 @@ Quando muitos artigos usam `featured`, o campo deixa de comunicar prioridade e a
 
 Substituição:
 Usar `featured` principalmente para hubs e entradas estratégicas, preferindo um por coleção de segmento. `featuredHome` é um subconjunto de `featured`, e a seleção deve ser revista quando ultrapassar 25% do acervo.
+
+## 2026-07-29 — Descoberta pública simplificada antes de Books
+
+Motivo:
+Séries manuais, trilhas, mapa e categorias de entrada heurísticas criavam caminhos concorrentes, contagens sem relação confiável com o acervo e resultados pouco previsíveis.
+
+Substituição:
+A navegação pública prioriza início, blog, artigos e busca. As coleções físicas e as rotas de Temas, trilhas, mapa e categorias de entrada ficam preservadas como infraestrutura interna, mas ocultas da navegação, busca e sitemap para análise ou migração futura, sem definir a arquitetura de Books.

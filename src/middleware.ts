@@ -3,6 +3,8 @@ import { type NextRequest, NextResponse } from "next/server";
 const pausedPaths = [
   "/abordagem-tecnica",
   "/aulas-particulares",
+  "/blog/categorias",
+  "/blog/temas",
   "/contact",
   "/mapa",
   "/modelos",
@@ -34,6 +36,8 @@ export const config = {
   matcher: [
     "/abordagem-tecnica/:path*",
     "/aulas-particulares/:path*",
+    "/blog/categorias/:path*",
+    "/blog/temas/:path*",
     "/contact/:path*",
     "/mapa/:path*",
     "/modelos/:path*",

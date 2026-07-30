@@ -22,13 +22,11 @@ const SearchIcon = HiOutlineMagnifyingGlass;
 
 const typeLabels: Record<GlobalSearchItemType, string> = {
   article: "Artigo",
-  topic: "Tema",
   page: "Página",
 };
 
 const typePriority: Record<GlobalSearchItemType, number> = {
   article: 8,
-  topic: 7,
   page: 5,
 };
 
@@ -111,7 +109,6 @@ export function GlobalSearch({ items }: GlobalSearchProps) {
   const results = useMemo(() => {
     if (!query.trim()) {
       return [...items]
-        .filter((item) => item.type === "article" || item.type === "topic" || item.type === "page")
         .slice(0, 8)
         .map((item, index) => ({
           ...item,

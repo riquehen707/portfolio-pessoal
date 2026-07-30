@@ -65,6 +65,8 @@ Exemplo: um arquivo em `posts/beleza-estetica/` pertence à coleção `beleza-es
 
 Coleção representa contexto de público ou acervo. Categoria representa assunto estratégico.
 
+As coleções continuam sendo inferidas internamente para leitura do acervo, mas não geram navegação pública nesta etapa.
+
 ## Mapa de conhecimento
 
 ### `area`
@@ -80,6 +82,8 @@ Conjunto coerente dentro da área, por exemplo `conversao-metricas`.
 Conceito ou unidade específica ocupada pelo artigo, por exemplo `otimizacao`.
 
 A relação é hierárquica: `area` → `module` → `node`. Não use esses campos como tags de SEO.
+
+Nesta etapa, essa hierarquia é infraestrutura interna e não deve criar entradas na navegação, busca ou sitemap. Preserve os campos existentes até a definição da arquitetura de Books.
 
 Campos complementares:
 

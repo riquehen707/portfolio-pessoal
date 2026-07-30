@@ -1,21 +1,10 @@
 import { Column, Heading, Meta, Schema, Text } from "@once-ui-system/core";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  HiOutlineAcademicCap,
-  HiOutlineArrowRight,
-  HiOutlineBookOpen,
-  HiOutlineMegaphone,
-  HiOutlinePaintBrush,
-  HiOutlineSquares2X2,
-  HiOutlineWrenchScrewdriver,
-} from "react-icons/hi2";
+import { HiOutlineArrowRight } from "react-icons/hi2";
 
 import {
-  blogEntryCategories,
   getAllBlogPosts,
-  getBlogCollectionIndex,
-  getBlogEntryCategoryIndex,
   getBlogPostFormat,
   getBlogPrimaryCategory,
   getFeaturedHomeBlogPost,
@@ -29,43 +18,9 @@ import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 
 import styles from "./page.module.scss";
 
-const homePageTitle = "Painel editorial de aprendizado";
+const homePageTitle = "Arquivo editorial";
 const homePageDescription =
   "Um arquivo organizado para estudar marketing, design, conteúdo, ferramentas e decisões práticas de presença digital.";
-
-const categoryIcons = {
-  criar: HiOutlinePaintBrush,
-  vender: HiOutlineMegaphone,
-  estudar: HiOutlineAcademicCap,
-  ferramentas: HiOutlineWrenchScrewdriver,
-} as const;
-
-const seriesCards = [
-  {
-    title: "Aprendendo SEO do zero",
-    description: "Testes práticos para entender busca, palavras-chave, páginas úteis e tráfego.",
-    href: "/blog/categorias/vender",
-    progressLabel: "3 de 10 posts",
-    progress: 3,
-    total: 10,
-  },
-  {
-    title: "Design para iniciantes",
-    description: "Critérios simples para ler interfaces, melhorar cards, ritmo visual e hierarquia.",
-    href: "/blog/categorias/criar",
-    progressLabel: "4 de 8 notas",
-    progress: 4,
-    total: 8,
-  },
-  {
-    title: "Ferramentas que estou testando",
-    description: "Rotinas, canais e tecnologia para publicar, organizar ideias e acompanhar resultados.",
-    href: "/blog/categorias/ferramentas",
-    progressLabel: "2 de 7 testes",
-    progress: 2,
-    total: 7,
-  },
-] as const;
 
 const referenceCards = [
   {
@@ -104,7 +59,7 @@ function toFeedPost(post: ReturnType<typeof getAllBlogPosts>[number]): Editorial
 }
 
 export async function generateMetadata() {
-  const image = buildOgImage("Painel editorial", "design, marketing e aprendizado prático");
+  const image = buildOgImage("Arquivo editorial", "design, conteúdo e decisões práticas");
   const generatedMeta = Meta.generate({
     title: homePageTitle,
     description: homePageDescription,
@@ -134,14 +89,7 @@ export default function Home() {
     .filter((post) => post.slug !== featuredPost?.slug)
     .slice(0, 9)
     .map(toFeedPost);
-  const timelinePosts = recentPosts
-    .filter((post) => post.slug !== featuredPost?.slug)
-    .slice(0, 5);
-  const entryCategories = getBlogEntryCategoryIndex(posts);
-  const collections = getBlogCollectionIndex(posts).slice(0, 6);
-  const totalReadingTime = posts.reduce((total, post) => total + (post.metadata.readingTime ?? 0), 0);
-  const averageReadingTime = posts.length ? Math.max(1, Math.round(totalReadingTime / posts.length)) : 0;
-
+  const timelinePosts = recentPosts.filter((post) => post.slug !== featuredPost?.slug).slice(0, 5);
   return (
     <Column className={styles.page} fillWidth gap="32">
       <Schema
@@ -158,59 +106,78 @@ export default function Home() {
       />
       <BreadcrumbJsonLd items={[{ name: "Início", url: baseURL }]} />
 
-      <section className={styles.workspace} aria-labelledby="home-title">
-        <div className={styles.workspaceHeader}>
+      <section className={styles.editorialHero} aria-labelledby="home-title">
+        <div className={styles.heroFolio}>
           <span className={styles.brandSquare} aria-hidden="true" />
           <span>henrique.dog</span>
-          <span>Painel editorial de aprendizado</span>
+          <span>arquivo autoral · edição contínua</span>
         </div>
 
-        <div className={styles.heroGrid}>
-          <div className={styles.heroIntro}>
-            <div className={styles.heroMeta}>
-              <span>Blog editorial</span>
-              <span>Dashboard leve</span>
-              <span>Caderno digital</span>
-            </div>
-            <Heading as="h1" className={styles.heroTitle} id="home-title" variant="display-strong-l">
-              Um lugar para estudar, testar e compartilhar descobertas práticas.
+        <div className={styles.heroComposition}>
+          <span className={`${styles.orbitWord} ${styles.orbitWordLeft}`} aria-hidden="true">
+            observar
+          </span>
+          <span className={`${styles.orbitWord} ${styles.orbitWordRight}`} aria-hidden="true">
+            publicar
+          </span>
+          <span className={styles.heroReticle} aria-hidden="true" />
+
+          <div className={styles.heroCopy}>
+            <span className={styles.heroKicker}>Notas sobre o que faz uma ideia funcionar</span>
+            <Heading
+              as="h1"
+              className={styles.heroTitle}
+              id="home-title"
+              variant="display-strong-l"
+            >
+              Ler o digital com mais critério.
             </Heading>
-            <Text className={styles.heroLead} onBackground="neutral-weak" variant="heading-default-m">
-              Marketing, design, conteúdo e ferramentas organizados em cards para você entrar por
-              tema, acompanhar séries e abrir leituras curtas sem cair em texto solto.
+            <Text
+              className={styles.heroLead}
+              onBackground="neutral-weak"
+              variant="heading-default-m"
+            >
+              Ensaios e guias sobre interfaces, conteúdo e decisões práticas — escritos enquanto as
+              perguntas ainda estão vivas.
             </Text>
-            <div className={styles.heroActions}>
-              <Link className={styles.primaryAction} href={blog.path}>
-                Comece pelo blog
-                <HiOutlineArrowRight />
-              </Link>
-              <Link className={styles.secondaryAction} href="#categorias">
-                Ver categorias
-              </Link>
-            </div>
+            <Link className={styles.primaryAction} href={blog.path}>
+              Abrir o arquivo
+              <HiOutlineArrowRight />
+            </Link>
           </div>
 
-          <aside className={styles.heroBoard} aria-label="Resumo do arquivo">
-            <div className={styles.boardCard}>
-              <span>Arquivo</span>
-              <strong>{posts.length}</strong>
-              <p>artigos publicados para consulta rápida.</p>
+          <div className={styles.heroFragments} aria-label="Fragmentos do arquivo editorial">
+            <div className={styles.featureFragment}>
+              <span className={styles.fragmentIndex}>em destaque · 01</span>
+              <strong>
+                {featuredPost?.metadata.title ?? "Uma leitura para começar o arquivo."}
+              </strong>
+              <span className={styles.fragmentRule} aria-hidden="true" />
+              <p>
+                {featuredPost?.metadata.summary ??
+                  "Uma nota aberta sobre presença digital, linguagem e decisões de projeto."}
+              </p>
             </div>
-            <div className={styles.boardCard}>
-              <span>Entrada</span>
-              <strong>{entryCategories.length}</strong>
-              <p>categorias principais para reduzir confusão.</p>
+
+            <aside className={styles.marginNote}>
+              <span>nota à margem</span>
+              <p>Referência boa não vira cópia. Vira pergunta, corte e critério.</p>
+            </aside>
+
+            <div className={styles.editorialMarks} aria-hidden="true">
+              <span>texto</span>
+              <i />
+              <span>interface</span>
+              <i />
+              <span>repertório</span>
             </div>
-            <div className={styles.boardCard}>
-              <span>Leitura média</span>
-              <strong>{averageReadingTime} min</strong>
-              <p>conteúdo curto para estudar sem perder ritmo.</p>
-            </div>
-            <div className={styles.boardNote}>
-              <HiOutlineSquares2X2 />
-              <span>Todo conteúdo entra no mesmo sistema: artigo, categoria, série ou destaque.</span>
-            </div>
-          </aside>
+          </div>
+        </div>
+
+        <div className={styles.heroFootnote}>
+          <span>{String(posts.length).padStart(2, "0")} textos publicados</span>
+          <span>design · conteúdo · trabalho</span>
+          <span>São Paulo, BR</span>
         </div>
       </section>
 
@@ -268,86 +235,6 @@ export default function Home() {
         </section>
       ) : null}
 
-      <section className={styles.categorySection} id="categorias">
-        <div className={styles.sectionHeader}>
-          <Text
-            className={styles.sectionLabel}
-            variant="label-default-s"
-            onBackground="neutral-weak"
-          >
-            Cards de categoria
-          </Text>
-          <Heading as="h2" className={styles.sectionTitle} variant="heading-strong-xl">
-            Quatro portas de entrada para navegar sem esforço.
-          </Heading>
-        </div>
-
-        <div className={styles.categoryGrid}>
-          {entryCategories.map((category) => {
-            const Icon = categoryIcons[category.slug as keyof typeof categoryIcons] ?? HiOutlineBookOpen;
-
-            return (
-              <Link
-                className={styles.categoryCard}
-                href={`${blog.path}/categorias/${category.slug}`}
-                key={category.slug}
-              >
-                <span className={styles.categoryIcon}>
-                  <Icon />
-                </span>
-                <strong>{category.label}</strong>
-                <span className={styles.categoryDescription}>
-                  {blogEntryCategories[category.slug as keyof typeof blogEntryCategories]?.description ??
-                    category.description}
-                </span>
-                <span className={styles.categoryFooter}>
-                  {category.count} artigo{category.count === 1 ? "" : "s"}
-                  <HiOutlineArrowRight />
-                </span>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className={styles.seriesSection} id="series">
-        <div className={styles.sectionHeader}>
-          <Text
-            className={styles.sectionLabel}
-            variant="label-default-s"
-            onBackground="neutral-weak"
-          >
-            Cards de série
-          </Text>
-          <Heading as="h2" className={styles.sectionTitle} variant="heading-strong-xl">
-            Trilhas simples para estudar temas por blocos.
-          </Heading>
-        </div>
-
-        <div className={styles.seriesGrid}>
-          {seriesCards.map((series) => (
-            <Link className={styles.seriesCard} href={series.href} key={series.title}>
-              <strong>{series.title}</strong>
-              <span>{series.description}</span>
-              <span className={styles.seriesProgress}>
-                <span className={styles.seriesProgressHeader}>
-                  {series.progressLabel}
-                  <HiOutlineArrowRight />
-                </span>
-                <span className={styles.seriesProgressBar} aria-hidden="true">
-                  {Array.from({ length: series.total }).map((_, index) => (
-                    <span
-                      className={index < series.progress ? styles.seriesStepActive : undefined}
-                      key={`${series.title}-${index}`}
-                    />
-                  ))}
-                </span>
-              </span>
-            </Link>
-          ))}
-        </div>
-      </section>
-
       <section className={styles.feedSection} id="artigos">
         <div className={styles.sectionHeader}>
           <Text
@@ -368,55 +255,22 @@ export default function Home() {
         <EditorialFeed posts={feedPosts} initialCount={6} step={3} />
       </section>
 
-      <section className={styles.studySection} id="estudos">
-        <div className={styles.collectionsPanel}>
-          <Text
-            className={styles.sectionLabel}
-            variant="label-default-s"
-            onBackground="neutral-weak"
-          >
-            Áreas de estudo
-          </Text>
-          <Heading as="h2" className={styles.sectionTitle} variant="heading-strong-xl">
-            Assuntos organizados por contexto.
-          </Heading>
-          <div className={styles.collectionGrid}>
-            {collections.map((collection) => (
-              <Link
-                className={styles.collectionCard}
-                href={`${blog.path}/temas/${collection.slug}`}
-                key={collection.slug}
-              >
-                <span>{collection.label}</span>
-                <strong>
-                  {collection.count} artigo{collection.count === 1 ? "" : "s"}
-                </strong>
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        <div className={styles.timelinePanel}>
-          <Text
-            className={styles.sectionLabel}
-            variant="label-default-s"
-            onBackground="neutral-weak"
-          >
-            Linha do tempo
-          </Text>
-          <div className={styles.timelineList}>
-            {timelinePosts.map((post) => (
-              <Link className={styles.timelineItem} href={postHref(post.slug)} key={post.slug}>
-                <span className={styles.timelineDate}>
-                  {post.metadata.publishedAt
-                    ? formatDate(post.metadata.publishedAt, false)
-                    : "Sem data"}
-                </span>
-                <span className={styles.timelineTitle}>{post.metadata.title}</span>
-                <span className={styles.timelineCategory}>{getBlogPrimaryCategory(post)}</span>
-              </Link>
-            ))}
-          </div>
+      <section className={styles.timelinePanel} id="linha-do-tempo">
+        <Text className={styles.sectionLabel} variant="label-default-s" onBackground="neutral-weak">
+          Linha do tempo
+        </Text>
+        <div className={styles.timelineList}>
+          {timelinePosts.map((post) => (
+            <Link className={styles.timelineItem} href={postHref(post.slug)} key={post.slug}>
+              <span className={styles.timelineDate}>
+                {post.metadata.publishedAt
+                  ? formatDate(post.metadata.publishedAt, false)
+                  : "Sem data"}
+              </span>
+              <span className={styles.timelineTitle}>{post.metadata.title}</span>
+              <span className={styles.timelineCategory}>{getBlogPrimaryCategory(post)}</span>
+            </Link>
+          ))}
         </div>
       </section>
 
