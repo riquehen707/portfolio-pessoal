@@ -1,5 +1,5 @@
 import { getAllBlogPosts, getBlogPostFormat, getBlogPrimaryCategory } from "@/app/blog/postData";
-import { seoLibraryPath } from "@/app/blog/seo/seoLibraryData";
+import { seoLibraryPath, understandSearchBookPath } from "@/app/blog/seo/seoLibraryData";
 import { blog, home } from "@/resources";
 
 export type GlobalSearchItemType = "article" | "page";
@@ -93,6 +93,22 @@ export function getGlobalSearchItems(): GlobalSearchItem[] {
         "indexação",
         "relevância",
         "search console",
+      ],
+    }),
+    pageItem({
+      id: "page-seo-book-understand-search",
+      title: "Entender a busca",
+      description:
+        "Livro introdutório sobre descoberta, rastreamento, indexação, intenção, classificação e arquitetura de sites.",
+      href: understandSearchBookPath,
+      keywords: [
+        "seo",
+        "livro de seo",
+        "mecanismos de busca",
+        "rastreamento",
+        "indexação",
+        "ranking",
+        "intenção de busca",
       ],
     }),
   ];

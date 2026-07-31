@@ -17,6 +17,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/": 1,
     [blog.path]: 0.86,
     [`${blog.path}/seo`]: 0.78,
+    [`${blog.path}/seo/entender-a-busca`]: 0.76,
   };
 
   const routes = Object.keys(routesConfig)

@@ -1,4 +1,5 @@
 export const seoLibraryPath = "/blog/seo";
+export const understandSearchBookPath = `${seoLibraryPath}/entender-a-busca`;
 
 export type SeoBookPreview = {
   number: string;
@@ -6,7 +7,8 @@ export type SeoBookPreview = {
   description: string;
   topics: string[];
   prerequisite?: string;
-  status: "planned";
+  status: "available" | "planned";
+  href?: string;
 };
 
 export const seoBooks: SeoBookPreview[] = [
@@ -21,7 +23,8 @@ export const seoBooks: SeoBookPreview[] = [
       "Arquitetura de sites",
       "Links internos e resultados de pesquisa",
     ],
-    status: "planned",
+    status: "available",
+    href: understandSearchBookPath,
   },
   {
     number: "02",
@@ -97,3 +100,111 @@ export const seoLibrarySections = [
     ],
   },
 ] as const;
+
+export type SeoBookChapter = {
+  number: string;
+  title: string;
+  description: string;
+  status: "planned" | "complementary";
+  href?: string;
+};
+
+export type SeoBookPart = {
+  number: string;
+  title: string;
+  description: string;
+  chapters: SeoBookChapter[];
+};
+
+export const understandSearchBookParts: SeoBookPart[] = [
+  {
+    number: "I",
+    title: "Descoberta",
+    description: "Como uma página entra no campo de visão de um mecanismo de busca.",
+    chapters: [
+      {
+        number: "01",
+        title: "O caminho entre publicar e aparecer",
+        description: "Uma visão geral do sistema e do percurso que será aprofundado no livro.",
+        status: "planned",
+      },
+      {
+        number: "02",
+        title: "Rastreamento e renderização",
+        description: "Como robôs encontram recursos e processam aquilo que uma página apresenta.",
+        status: "planned",
+      },
+      {
+        number: "03",
+        title: "Indexação",
+        description:
+          "Como documentos são compreendidos, selecionados e armazenados para recuperação.",
+        status: "planned",
+      },
+    ],
+  },
+  {
+    number: "II",
+    title: "Escolha",
+    description: "Como uma necessidade de busca se transforma em uma página de resultados.",
+    chapters: [
+      {
+        number: "04",
+        title: "Consultas, intenção e contexto",
+        description:
+          "O que uma pesquisa pode revelar — e o que não pode — sobre a necessidade de alguém.",
+        status: "planned",
+      },
+      {
+        number: "05",
+        title: "Classificação e resultados",
+        description: "Como relevância, qualidade e contexto participam da seleção dos resultados.",
+        status: "planned",
+      },
+    ],
+  },
+  {
+    number: "III",
+    title: "Estrutura",
+    description:
+      "Como páginas e relações internas ajudam pessoas e mecanismos a compreender um site.",
+    chapters: [
+      {
+        number: "06",
+        title: "Arquitetura de sites",
+        description: "Organização, profundidade e caminhos de navegação como decisões editoriais.",
+        status: "planned",
+      },
+      {
+        number: "07",
+        title: "Links internos e contexto",
+        description: "Como conexões entre páginas distribuem contexto e tornam o acervo navegável.",
+        status: "planned",
+      },
+    ],
+  },
+  {
+    number: "IV",
+    title: "Aplicações locais",
+    description:
+      "Leituras existentes que mostram parte desses princípios em contextos profissionais.",
+    chapters: [
+      {
+        number: "A",
+        title: "Como advogados podem aparecer no Google",
+        description:
+          "Aplicação introdutória de presença local, páginas, conteúdo e sinais de autoridade.",
+        status: "complementary",
+        href: "/blog/como-advogados-podem-aparecer-no-google",
+      },
+      {
+        number: "B",
+        title: "Como aparecer no Google sendo corretor de imóveis",
+        description:
+          "Estudo aplicado de perfil local, páginas regionais, termos e conversão do clique.",
+        status: "complementary",
+        href: "/blog/como-aparecer-no-google-sendo-corretor-de-imoveis",
+      },
+    ],
+  },
+];

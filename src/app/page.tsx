@@ -1,5 +1,4 @@
 import { Column, Heading, Meta, Schema, Text } from "@once-ui-system/core";
-import Image from "next/image";
 import Link from "next/link";
 import { HiOutlineArrowRight } from "react-icons/hi2";
 
@@ -7,42 +6,54 @@ import {
   getAllBlogPosts,
   getBlogPostFormat,
   getBlogPrimaryCategory,
-  getFeaturedHomeBlogPost,
   getRecentBlogPosts,
 } from "@/app/blog/postData";
+import {
+  seoLibraryPath,
+  understandSearchBookParts,
+  understandSearchBookPath,
+} from "@/app/blog/seo/seoLibraryData";
 import { EditorialFeed, type EditorialFeedPost } from "@/components/blog/EditorialFeed";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { baseURL, blog, home, person } from "@/resources";
-import { formatDate } from "@/utils/formatDate";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 
 import styles from "./page.module.scss";
 
-const homePageTitle = "Arquivo editorial";
+const homePageTitle = "Aprenda com mais organização";
 const homePageDescription =
-  "Um arquivo organizado para estudar marketing, design, conteúdo, ferramentas e decisões práticas de presença digital.";
+  "Guias, análises e explicações organizadas para ajudar você a entender um assunto, escolher um caminho e continuar aprendendo.";
 
-const referenceCards = [
+const subjectAreas: Array<{
+  number: string;
+  title: string;
+  description: string;
+  state: string;
+  href?: string;
+}> = [
   {
-    label: "Repertório",
-    title: "Interfaces simples costumam esconder boas decisões.",
-    text: "Notas sobre ritmo, densidade, contraste e detalhes que deixam uma tela menos cansativa.",
+    number: "01",
+    title: "Trabalho e negócios",
+    description:
+      "Design, marketing, SEO, produção de conteúdo, negócios digitais e outras formas de trabalhar e construir renda pela internet.",
+    state: "Conteúdos disponíveis",
+    href: blog.path,
   },
   {
-    label: "Criatividade",
-    title: "Referência boa não vira cópia: vira critério.",
-    text: "Como observar linguagem visual, intenção e contexto antes de transformar inspiração em solução.",
+    number: "02",
+    title: "Estudos acadêmicos",
+    description:
+      "Explicações e materiais sobre ciências exatas, tecnologia e assuntos estudados na universidade.",
+    state: "Acervo em formação",
   },
   {
-    label: "Prática",
-    title: "Projetos pequenos mostram problemas grandes com nitidez.",
-    text: "O que sites, páginas e fluxos enxutos revelam sobre oferta, atendimento e decisão.",
+    number: "03",
+    title: "Interesses pessoais",
+    description:
+      "Animes, mangás, animações, jogos e outros assuntos que fazem parte do repertório analisado neste site.",
+    state: "Acervo em formação",
   },
-] as const;
-
-function postHref(slug: string) {
-  return `${blog.path}/${slug}`;
-}
+];
 
 function toFeedPost(post: ReturnType<typeof getAllBlogPosts>[number]): EditorialFeedPost {
   return {
@@ -59,7 +70,7 @@ function toFeedPost(post: ReturnType<typeof getAllBlogPosts>[number]): Editorial
 }
 
 export async function generateMetadata() {
-  const image = buildOgImage("Arquivo editorial", "design, conteúdo e decisões práticas");
+  const image = buildOgImage("Aprenda com mais organização", "guias, análises e explicações");
   const generatedMeta = Meta.generate({
     title: homePageTitle,
     description: homePageDescription,
@@ -83,13 +94,9 @@ export async function generateMetadata() {
 
 export default function Home() {
   const posts = getAllBlogPosts();
-  const featuredPost = getFeaturedHomeBlogPost(posts);
-  const recentPosts = getRecentBlogPosts(14, posts);
-  const feedPosts = recentPosts
-    .filter((post) => post.slug !== featuredPost?.slug)
-    .slice(0, 9)
-    .map(toFeedPost);
-  const timelinePosts = recentPosts.filter((post) => post.slug !== featuredPost?.slug).slice(0, 5);
+  const feedPosts = getRecentBlogPosts(9, posts).map(toFeedPost);
+  const bookChapterCount = understandSearchBookParts.flatMap((part) => part.chapters).length;
+
   return (
     <Column className={styles.page} fillWidth gap="32">
       <Schema
@@ -106,197 +113,191 @@ export default function Home() {
       />
       <BreadcrumbJsonLd items={[{ name: "Início", url: baseURL }]} />
 
-      <section className={styles.editorialHero} aria-labelledby="home-title">
+      <section className={styles.hero} aria-labelledby="home-title">
         <div className={styles.heroFolio}>
           <span className={styles.brandSquare} aria-hidden="true" />
           <span>henrique.dog</span>
-          <span>arquivo autoral · edição contínua</span>
+          <span>Biblioteca aberta · edição contínua</span>
         </div>
 
-        <div className={styles.heroComposition}>
-          <span className={`${styles.orbitWord} ${styles.orbitWordLeft}`} aria-hidden="true">
-            observar
-          </span>
-          <span className={`${styles.orbitWord} ${styles.orbitWordRight}`} aria-hidden="true">
-            publicar
-          </span>
-          <span className={styles.heroReticle} aria-hidden="true" />
-
+        <div className={styles.heroBody}>
           <div className={styles.heroCopy}>
-            <span className={styles.heroKicker}>Notas sobre o que faz uma ideia funcionar</span>
+            <span className={styles.kicker}>Um ponto de partida para continuar aprendendo</span>
             <Heading
               as="h1"
               className={styles.heroTitle}
               id="home-title"
               variant="display-strong-l"
             >
-              Ler o digital com mais critério.
+              Aprenda sem precisar descobrir sozinho por onde começar.
             </Heading>
-            <Text
-              className={styles.heroLead}
-              onBackground="neutral-weak"
-              variant="heading-default-m"
-            >
-              Ensaios e guias sobre interfaces, conteúdo e decisões práticas — escritos enquanto as
-              perguntas ainda estão vivas.
+            <Text className={styles.heroLead} onBackground="neutral-weak">
+              Guias, análises e explicações organizadas para ajudar você a entender um assunto,
+              escolher um caminho e continuar aprendendo.
             </Text>
-            <Link className={styles.primaryAction} href={blog.path}>
-              Abrir o arquivo
-              <HiOutlineArrowRight />
+            <Link className={styles.primaryAction} href="#assuntos">
+              Explorar assuntos
+              <HiOutlineArrowRight aria-hidden="true" />
             </Link>
           </div>
 
-          <div className={styles.heroFragments} aria-label="Fragmentos do arquivo editorial">
-            <div className={styles.featureFragment}>
-              <span className={styles.fragmentIndex}>em destaque · 01</span>
-              <strong>
-                {featuredPost?.metadata.title ?? "Uma leitura para começar o arquivo."}
-              </strong>
-              <span className={styles.fragmentRule} aria-hidden="true" />
-              <p>
-                {featuredPost?.metadata.summary ??
-                  "Uma nota aberta sobre presença digital, linguagem e decisões de projeto."}
-              </p>
-            </div>
-
-            <aside className={styles.marginNote}>
-              <span>nota à margem</span>
-              <p>Referência boa não vira cópia. Vira pergunta, corte e critério.</p>
-            </aside>
-
-            <div className={styles.editorialMarks} aria-hidden="true">
-              <span>texto</span>
-              <i />
-              <span>interface</span>
-              <i />
-              <span>repertório</span>
-            </div>
+          <div className={styles.heroIndex} aria-label="Formas de explorar o site">
+            <span>Pesquisar</span>
+            <i aria-hidden="true" />
+            <span>Organizar</span>
+            <i aria-hidden="true" />
+            <span>Explicar</span>
           </div>
+
+          <aside className={styles.heroNote}>
+            <span>Nota editorial</span>
+            <p>Encontrar um caminho claro importa mais do que acumular informação.</p>
+          </aside>
         </div>
 
         <div className={styles.heroFootnote}>
-          <span>{String(posts.length).padStart(2, "0")} textos publicados</span>
-          <span>design · conteúdo · trabalho</span>
-          <span>São Paulo, BR</span>
+          <span>{String(posts.length).padStart(2, "0")} publicações</span>
+          <span>Guias · análises · explicações</span>
         </div>
       </section>
 
-      {featuredPost ? (
-        <section className={styles.featuredSection} id="destaque">
-          <div className={styles.sectionHeader}>
-            <Text
-              className={styles.sectionLabel}
-              variant="label-default-s"
-              onBackground="neutral-weak"
-            >
-              Card de destaque
-            </Text>
-            <Heading as="h2" className={styles.sectionTitle} variant="heading-strong-xl">
-              Uma leitura para abrir o arquivo.
-            </Heading>
-          </div>
-
-          <Link className={styles.featuredCard} href={postHref(featuredPost.slug)}>
-            <span className={styles.featuredContent}>
-              <span className={styles.featuredType}>{getBlogPrimaryCategory(featuredPost)}</span>
-              <span className={styles.featuredTitle}>{featuredPost.metadata.title}</span>
-              {featuredPost.metadata.summary ? (
-                <span className={styles.featuredText}>{featuredPost.metadata.summary}</span>
-              ) : null}
-              <span className={styles.featuredMeta}>
-                {featuredPost.metadata.publishedAt
-                  ? formatDate(featuredPost.metadata.publishedAt, false)
-                  : "Sem data"}
-                {featuredPost.metadata.readingTime
-                  ? ` · ${featuredPost.metadata.readingTime} min de leitura`
-                  : ""}
-              </span>
-              <span className={styles.featuredAction}>
-                Ler artigo
-                <HiOutlineArrowRight />
-              </span>
-            </span>
-
-            <span className={styles.featuredMedia}>
-              {featuredPost.metadata.image ? (
-                <Image
-                  src={featuredPost.metadata.image}
-                  alt={featuredPost.metadata.imageAlt ?? featuredPost.metadata.title}
-                  fill
-                  priority
-                  unoptimized
-                  sizes="(max-width: 768px) 100vw, 520px"
-                />
-              ) : (
-                <span className={styles.featuredFallback} aria-hidden="true" />
-              )}
-            </span>
-          </Link>
-        </section>
-      ) : null}
-
-      <section className={styles.feedSection} id="artigos">
-        <div className={styles.sectionHeader}>
-          <Text
-            className={styles.sectionLabel}
-            variant="label-default-s"
-            onBackground="neutral-weak"
-          >
-            Cards de artigo
-          </Text>
-          <Heading as="h2" className={styles.sectionTitle} variant="heading-strong-xl">
-            Leituras recentes em blocos limpos.
+      <section className={styles.introduction} aria-labelledby="introduction-title">
+        <span className={styles.kicker}>Sobre este lugar</span>
+        <div>
+          <Heading id="introduction-title" as="h2" className={styles.sectionTitle}>
+            Um lugar para aprender com mais organização.
           </Heading>
-          <Text className={styles.sectionLead} onBackground="neutral-weak" variant="body-default-s">
-            Cada card mostra imagem, categoria, tempo de leitura, título e resumo curto para decidir
-            rápido o que abrir.
-          </Text>
+          <p>
+            Este site começou como uma forma de organizar estudos e facilitar revisões. Com o tempo,
+            também se tornou um espaço para compartilhar esses caminhos com quem tem os mesmos
+            interesses.
+          </p>
+          <p>
+            O que conecta os assuntos não é um tema único, mas uma forma de trabalhar o conteúdo:
+            pesquisar, organizar e explicar.
+          </p>
+        </div>
+      </section>
+
+      <section className={styles.booksSection} aria-labelledby="books-title">
+        <div className={styles.sectionHeader}>
+          <span className={styles.kicker}>Comece por aqui</span>
+          <Heading id="books-title" as="h2" className={styles.sectionTitle}>
+            Guias completos em uma ordem que faça sentido.
+          </Heading>
+        </div>
+
+        <Link className={styles.bookFeature} href={understandSearchBookPath}>
+          <div className={styles.bookIdentity}>
+            <span>Biblioteca de SEO · Livro 01</span>
+            <strong>Entender a busca</strong>
+            <p>
+              Como mecanismos de busca encontram, interpretam e escolhem conteúdos antes de qualquer
+              otimização.
+            </p>
+            <span className={styles.bookAction}>
+              Abrir o sumário
+              <HiOutlineArrowRight aria-hidden="true" />
+            </span>
+          </div>
+          <div className={styles.bookMap} aria-hidden="true">
+            <span>descoberta</span>
+            <span>escolha</span>
+            <span>estrutura</span>
+            <strong>{String(bookChapterCount).padStart(2, "0")}</strong>
+            <small>capítulos e leituras no mapa editorial</small>
+          </div>
+        </Link>
+
+        <Link className={styles.libraryLink} href={seoLibraryPath}>
+          Conhecer a Biblioteca de SEO
+          <HiOutlineArrowRight aria-hidden="true" />
+        </Link>
+      </section>
+
+      <section className={styles.subjectsSection} id="assuntos" aria-labelledby="subjects-title">
+        <div className={styles.sectionHeader}>
+          <span className={styles.kicker}>Áreas principais</span>
+          <Heading id="subjects-title" as="h2" className={styles.sectionTitle}>
+            Explore por assunto.
+          </Heading>
+        </div>
+
+        <div className={styles.subjectList}>
+          {subjectAreas.map((area) => {
+            const content = (
+              <>
+                <span className={styles.subjectNumber}>{area.number}</span>
+                <div>
+                  <h3>{area.title}</h3>
+                  <p>{area.description}</p>
+                </div>
+                <span className={styles.subjectState}>{area.state}</span>
+              </>
+            );
+
+            return area.href ? (
+              <Link
+                className={`${styles.subject} ${styles.subjectLink}`}
+                href={area.href}
+                key={area.title}
+              >
+                {content}
+              </Link>
+            ) : (
+              <article className={styles.subject} key={area.title}>
+                {content}
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className={styles.feedSection} id="publicacoes" aria-labelledby="recent-title">
+        <div className={styles.sectionHeader}>
+          <span className={styles.kicker}>Arquivo em movimento</span>
+          <Heading id="recent-title" as="h2" className={styles.sectionTitle}>
+            Publicações recentes
+          </Heading>
         </div>
         <EditorialFeed posts={feedPosts} initialCount={6} step={3} />
       </section>
 
-      <section className={styles.timelinePanel} id="linha-do-tempo">
-        <Text className={styles.sectionLabel} variant="label-default-s" onBackground="neutral-weak">
-          Linha do tempo
-        </Text>
-        <div className={styles.timelineList}>
-          {timelinePosts.map((post) => (
-            <Link className={styles.timelineItem} href={postHref(post.slug)} key={post.slug}>
-              <span className={styles.timelineDate}>
-                {post.metadata.publishedAt
-                  ? formatDate(post.metadata.publishedAt, false)
-                  : "Sem data"}
-              </span>
-              <span className={styles.timelineTitle}>{post.metadata.title}</span>
-              <span className={styles.timelineCategory}>{getBlogPrimaryCategory(post)}</span>
-            </Link>
-          ))}
+      <section className={styles.positioning} aria-labelledby="positioning-title">
+        <span className={styles.positioningMark} aria-hidden="true">
+          ≠
+        </span>
+        <div>
+          <span className={styles.kicker}>Posicionamento editorial</span>
+          <Heading id="positioning-title" as="h2" className={styles.sectionTitle}>
+            Não existe um único caminho que funciona para todo mundo.
+          </Heading>
+        </div>
+        <div className={styles.positioningCopy}>
+          <p>
+            Os conteúdos são pesquisados e organizados para oferecer um ponto de partida mais claro.
+            Isso não significa que sejam a única forma de fazer alguma coisa — nem que seguir cada
+            etapa garanta um resultado.
+          </p>
+          <p>
+            A proposta é tornar o caminho mais compreensível e ajudar você a decidir com mais
+            critério. Os resultados ainda dependem de prática, consistência, contexto e tempo.
+          </p>
         </div>
       </section>
 
-      <section className={styles.referenceSection} id="repertorio">
-        <div className={styles.sectionHeader}>
-          <Text
-            className={styles.sectionLabel}
-            variant="label-default-s"
-            onBackground="neutral-weak"
-          >
-            Caderno criativo
-          </Text>
-          <Heading as="h2" className={styles.sectionTitle} variant="heading-strong-xl">
-            Repertório sem atrapalhar a leitura.
+      <section className={styles.archive} aria-labelledby="archive-title">
+        <div>
+          <span className={styles.kicker}>Arquivo</span>
+          <Heading id="archive-title" as="h2" className={styles.sectionTitle}>
+            Encontre o que procura.
           </Heading>
+          <p>Veja todas as publicações ou continue navegando pelas áreas de interesse.</p>
         </div>
-
-        <div className={styles.referenceGrid}>
-          {referenceCards.map((card) => (
-            <article className={styles.referenceCard} key={card.title}>
-              <span>{card.label}</span>
-              <h3>{card.title}</h3>
-              <p>{card.text}</p>
-            </article>
-          ))}
-        </div>
+        <Link className={styles.archiveAction} href={blog.path}>
+          Ver todas as publicações
+          <HiOutlineArrowRight aria-hidden="true" />
+        </Link>
       </section>
     </Column>
   );

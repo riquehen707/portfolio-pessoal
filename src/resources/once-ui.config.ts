@@ -27,6 +27,7 @@ const routes: RoutesConfig = {
   "/work": false,
   "/blog": true,
   "/blog/seo": true,
+  "/blog/seo/entender-a-busca": true,
   "/blog/temas": false,
   "/mapa": false,
   "/trilhas": false,

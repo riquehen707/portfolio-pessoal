@@ -7,11 +7,55 @@ import { baseURL, blog, person } from "@/resources";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 
 import styles from "./seo.module.scss";
-import { seoBooks, seoLibraryPath, seoLibrarySections } from "./seoLibraryData";
+import {
+  type SeoBookPreview,
+  seoBooks,
+  seoLibraryPath,
+  seoLibrarySections,
+} from "./seoLibraryData";
 
 const pageTitle = "Biblioteca de SEO";
 const pageDescription =
   "Aprenda como a busca funciona, construa estratégias melhores e desenvolva competências profissionais em SEO.";
+
+function BookPreview({ book }: { book: SeoBookPreview }) {
+  const content = (
+    <>
+      <div className={styles.bookHeader}>
+        <span className={styles.bookNumber}>{book.number}</span>
+        <span className={styles.plannedLabel}>
+          {book.status === "available" ? "Sumário disponível" : "Em planejamento"}
+        </span>
+      </div>
+      <Heading as="h3" className={styles.bookTitle}>
+        {book.title}
+      </Heading>
+      <p className={styles.bookDescription}>{book.description}</p>
+      <ul className={styles.topicList}>
+        {book.topics.map((topic) => (
+          <li key={topic}>{topic}</li>
+        ))}
+      </ul>
+      <p className={styles.bookFooter}>
+        {book.href
+          ? "Conhecer o livro e consultar o sumário."
+          : book.prerequisite
+            ? `Pré-requisito recomendado: ${book.prerequisite}.`
+            : "Ponto de entrada da coleção."}
+      </p>
+    </>
+  );
+
+  if (book.href) {
+    return (
+      <Link className={`${styles.book} ${styles.bookLink}`} href={book.href}>
+        {content}
+      </Link>
+    );
+  }
+
+  return <article className={styles.book}>{content}</article>;
+}
 
 export async function generateMetadata() {
   const image = buildOgImage(pageTitle, "busca, conteúdo e estratégia");
@@ -140,33 +184,15 @@ export default function SeoLibraryPage() {
             Uma formação construída em sequência.
           </Heading>
           <Text className={styles.sectionLead} onBackground="neutral-weak">
-            Cada volume parte dos conceitos anteriores e acrescenta uma nova camada de aplicação. Os
-            três livros ainda estão em planejamento editorial.
+            Cada volume parte dos conceitos anteriores e acrescenta uma nova camada de aplicação. O
+            primeiro livro já possui um sumário público; seus capítulos e os demais volumes
+            continuam em planejamento editorial.
           </Text>
         </div>
 
         <div className={styles.bookSequence}>
           {seoBooks.map((book) => (
-            <article className={styles.book} key={book.number}>
-              <div className={styles.bookHeader}>
-                <span className={styles.bookNumber}>{book.number}</span>
-                <span className={styles.plannedLabel}>Em planejamento</span>
-              </div>
-              <Heading as="h3" className={styles.bookTitle}>
-                {book.title}
-              </Heading>
-              <p className={styles.bookDescription}>{book.description}</p>
-              <ul className={styles.topicList}>
-                {book.topics.map((topic) => (
-                  <li key={topic}>{topic}</li>
-                ))}
-              </ul>
-              <p className={styles.bookFooter}>
-                {book.prerequisite
-                  ? `Pré-requisito recomendado: ${book.prerequisite}.`
-                  : "Ponto de entrada da coleção."}
-              </p>
-            </article>
+            <BookPreview book={book} key={book.number} />
           ))}
         </div>
       </section>

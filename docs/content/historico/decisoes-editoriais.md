@@ -89,3 +89,11 @@ Criar uma entrada temática capaz de orientar o estudo de SEO sem reduzir a expe
 
 Substituição:
 A rota `/blog/seo` apresenta três livros planejados — Entender a busca, Construir relevância e Medir e desenvolver — além das futuras áreas Guia prático, Carreira em SEO e Mais sobre SEO. Enquanto capítulos e rotas próprias não existirem, os livros permanecem identificados como planejamento e não recebem links fictícios. Este piloto não altera schema, frontmatter, pastas MDX ou a taxonomia permanente do acervo.
+
+## 2026-07-30 — Sumário piloto do Livro 1
+
+Motivo:
+Testar a experiência de uma obra progressiva antes de criar um sistema genérico de Books ou alterar os artigos existentes.
+
+Substituição:
+A rota `/blog/seo/entender-a-busca` funciona como apresentação e sumário do Livro 1. Seus sete capítulos fundamentais permanecem explicitamente planejados e sem links. Os dois guias existentes de SEO local aparecem somente como leituras complementares, preservando arquivos e URLs. A estrutura do piloto vive em dados locais da Biblioteca de SEO e ainda não define schema, frontmatter ou modelo obrigatório para futuros Books.
