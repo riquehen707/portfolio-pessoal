@@ -51,6 +51,7 @@ Não usar dois componentes para dizer a mesma coisa.
 - `Callout`: aviso contextual; variantes `info`, `warning`, `success`, `danger` e `neutral`.
 - `CommonMistake` ou `CommonMistakes`: erro recorrente e sua consequência.
 - `EditorialChecklist`: verificação executável.
+- `CompatibilityChecklist`: checklist interativo agrupado para conferir compatibilidade ou montagem; os rótulos permanecem legíveis sem interação e cada item pode ser marcado por teclado. No MDX, passe os grupos pelo atributo textual `data` em JSON, pois propriedades estruturadas não sobrevivem à pré-renderização atual.
 - `EditorialComparison`: contraste textual entre duas opções.
 - `EditorialTable`: dados estruturados; no mobile, até três colunas viram cards e tabelas maiores rolam horizontalmente.
 

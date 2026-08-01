@@ -21,6 +21,7 @@ const editorialBlocks = new Set([
   "Reveal",
   "MindMap",
   "KeyTakeaway",
+  "CompatibilityChecklist",
 ]);
 
 const visualBlocks = new Set([

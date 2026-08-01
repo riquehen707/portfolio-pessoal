@@ -59,6 +59,7 @@ import { SimpleBarChart, SimpleLineChart } from "@/components/mdx/SimpleCharts";
 import { BeforeAfter } from "@/components/mdx/BeforeAfter";
 import { KeyTakeaway } from "@/components/mdx/KeyTakeaway";
 import { NextSection } from "@/components/mdx/NextSection";
+import CompatibilityChecklist from "@/components/mdx/CompatibilityChecklist";
 
 import { baseURL } from "@/resources";
 
@@ -456,6 +457,7 @@ export const baseMDXComponents: MDXComponents = {
   BeforeAfter,
   KeyTakeaway,
   NextSection,
+  CompatibilityChecklist,
 
   // shortcodes
   PillarBadge,
@@ -536,4 +538,5 @@ export {
   BeforeAfter,
   KeyTakeaway,
   NextSection,
+  CompatibilityChecklist,
 };

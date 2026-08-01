@@ -29,3 +29,4 @@ export { SimpleBarChart, SimpleLineChart } from "./SimpleCharts";
 export { BeforeAfter } from "./BeforeAfter";
 export { KeyTakeaway } from "./KeyTakeaway";
 export { NextSection } from "./NextSection";
+export { default as CompatibilityChecklist } from "./CompatibilityChecklist";
