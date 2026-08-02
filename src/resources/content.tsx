@@ -41,7 +41,7 @@ const social: Social = [
   {
     name: "Instagram",
     icon: "instagram",
-    link: "https://www.instagram.com/riquehen",
+    link: "https://www.instagram.com/riquehen/",
   },
   {
     name: "WhatsApp",

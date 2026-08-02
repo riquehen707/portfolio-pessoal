@@ -118,6 +118,10 @@
 }
 
 .byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
   margin: -0.2rem 0 0;
   color: var(--neutral-on-background-weak);
   font-size: 0.9rem;
@@ -208,6 +212,18 @@
   color: var(--neutral-on-background-strong);
   font-family: var(--font-body);
   font-size: 1.2rem;
+}
+
+.authorIdentity {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.45rem 0.7rem;
+}
+
+.authorBox .authorIdentity a {
+  margin-top: 0;
+  font-size: 0.82rem;
 }
 
 .authorBox p {

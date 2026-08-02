@@ -9,7 +9,7 @@ import { Column, Heading, Meta, Schema, SmartLink, Text } from "@once-ui-system/
 import { CustomMDX, ScrollToHash } from "@/components";
 import { ArticleTools } from "@/components/blog/ArticleTools";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
-import { baseURL, blog, person } from "@/resources";
+import { baseURL, blog, person, social } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 import { type BlogFile, getPosts } from "@/utils/utils";
@@ -158,6 +158,9 @@ export default async function BlogPost({ params }: PageProps) {
   const readingTrail = getReadingTrail(post, posts);
   const continuationCards = uniqueContinuations(readingTrail.map(postToContinuation));
   const visibleTags = (post.metadata.tags ?? post.metadata.categories ?? []).slice(0, 3);
+  const instagramUrl =
+    social.find((item) => item.name === "Instagram")?.link ??
+    "https://www.instagram.com/riquehen/";
 
   return (
     <Column className={styles.page} paddingTop="24" gap="24">
@@ -206,6 +209,10 @@ export default async function BlogPost({ params }: PageProps) {
           </Heading>
           <p className={styles.byline}>
             Por <Link href="/about">{person.name}</Link>
+            <span aria-hidden="true">·</span>
+            <a href={instagramUrl} target="_blank" rel="noopener noreferrer">
+              @riquehen
+            </a>
           </p>
           {post.metadata.summary ? (
             <Text
@@ -266,9 +273,14 @@ export default async function BlogPost({ params }: PageProps) {
             />
             <div>
               <span>Sobre o autor</span>
-              <Heading id="about-author-title" as="h2">
-                {person.name}
-              </Heading>
+              <div className={styles.authorIdentity}>
+                <Heading id="about-author-title" as="h2">
+                  {person.name}
+                </Heading>
+                <a href={instagramUrl} target="_blank" rel="noopener noreferrer">
+                  @riquehen
+                </a>
+              </div>
               <p>
                 Henrique é estudante, freelancer e autor deste blog. Escreve sobre o que aprende,
                 desenvolve e gosta.
