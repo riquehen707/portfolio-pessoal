@@ -158,23 +158,47 @@ export default function Blog() {
         </div>
       </section>
 
-      <section className={styles.seoGateway} aria-labelledby="seo-library-title">
-        <div className={styles.seoGatewayMark} aria-hidden="true">
-          SEO
-        </div>
-        <div className={styles.seoGatewayCopy}>
-          <span className={styles.sectionLabel}>Nova biblioteca temática</span>
-          <Heading id="seo-library-title" as="h2" className={styles.seoGatewayTitle}>
-            Entender a busca antes de otimizar páginas.
+      <section className={styles.topicSection} aria-labelledby="study-paths-title">
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionLabel}>Caminhos de leitura</span>
+          <Heading id="study-paths-title" as="h2" className={styles.sectionTitle}>
+            Encontre um assunto antes de percorrer o arquivo.
           </Heading>
-          <Text onBackground="neutral-weak">
-            Uma entrada organizada para estudar fundamentos, relevância, medição e carreira em SEO.
-          </Text>
         </div>
-        <Link className={styles.seoGatewayLink} href={seoLibraryPath}>
-          Abrir Biblioteca de SEO
-          <HiOutlineArrowRight aria-hidden="true" />
-        </Link>
+        <div className={styles.topicGrid}>
+          {[
+            {
+              mark: "SEO",
+              title: "Biblioteca de SEO",
+              summary: "Busca, relevância, medição e desenvolvimento profissional em SEO.",
+              href: seoLibraryPath,
+            },
+            {
+              mark: "PRO",
+              title: "Carreiras digitais",
+              summary: "Compare sete profissões e descubra uma rota realista para começar.",
+              href: "/blog/melhores-profissoes-digitais",
+            },
+            {
+              mark: "CUL",
+              title: "Cultura",
+              summary: "Pensadores, estúdios e obras apresentados com contexto e fontes.",
+              href: "/blog/cultura",
+            },
+          ].map((path) => (
+            <Link className={styles.topicCard} href={path.href} key={path.href}>
+              <span className={styles.topicIcon}>{path.mark}</span>
+              <strong>{path.title}</strong>
+              <Text onBackground="neutral-weak" variant="body-default-s">
+                {path.summary}
+              </Text>
+              <span className={styles.seoGatewayLink}>
+                Abrir caminho
+                <HiOutlineArrowRight aria-hidden="true" />
+              </span>
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section className={styles.feedSection} id="artigos" aria-labelledby="blog-feed-title">

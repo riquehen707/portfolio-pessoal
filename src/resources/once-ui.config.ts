@@ -28,6 +28,7 @@ const routes: RoutesConfig = {
   "/blog": true,
   "/blog/seo": true,
   "/blog/seo/entender-a-busca": true,
+  "/blog/cultura": true,
   "/blog/temas": false,
   "/mapa": false,
   "/trilhas": false,

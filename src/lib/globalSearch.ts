@@ -111,6 +111,21 @@ export function getGlobalSearchItems(): GlobalSearchItem[] {
         "intenção de busca",
       ],
     }),
+    pageItem({
+      id: "page-culture",
+      title: "Cultura",
+      description:
+        "Perfis editoriais para entender pensadores, estúdios, obras e movimentos com contexto e fontes.",
+      href: "/blog/cultura",
+      keywords: [
+        "cultura",
+        "filosofia",
+        "cinema",
+        "animação",
+        "Friedrich Nietzsche",
+        "Studio Ghibli",
+      ],
+    }),
   ];
 
   const articleItems: GlobalSearchItem[] = getAllBlogPosts().map((post) => {
@@ -134,6 +149,8 @@ export function getGlobalSearchItems(): GlobalSearchItem[] {
         ...(post.metadata.tags ?? []),
         ...(post.metadata.categories ?? []),
         ...(post.metadata.keywords ?? []),
+        post.metadata.primaryKeyword,
+        ...(post.metadata.secondaryKeywords ?? []),
         excerpt(post.content, 320),
       ]),
     };
