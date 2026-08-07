@@ -13,7 +13,18 @@ const culturePath = "/blog/cultura";
 const cultureTitle = "Cultura";
 const cultureDescription =
   "Perfis editoriais para entender pensadores, estúdios, obras e movimentos com contexto e fontes.";
-const cultureSlugs = ["arthur-schopenhauer", "friedrich-nietzsche", "studio-ghibli"];
+const cultureSlugs = [
+  "judith-butler",
+  "frantz-fanon",
+  "simone-de-beauvoir",
+  "michel-foucault",
+  "hannah-arendt",
+  "byung-chul-han",
+  "platao",
+  "arthur-schopenhauer",
+  "friedrich-nietzsche",
+  "studio-ghibli",
+];
 
 export async function generateMetadata() {
   const image = buildOgImage(cultureTitle, "blog");
