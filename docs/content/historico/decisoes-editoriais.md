@@ -97,3 +97,11 @@ Testar a experiência de uma obra progressiva antes de criar um sistema genéric
 
 Substituição:
 A rota `/blog/seo/entender-a-busca` funciona como apresentação e sumário do Livro 1. Seus sete capítulos fundamentais permanecem explicitamente planejados e sem links. Os dois guias existentes de SEO local aparecem somente como leituras complementares, preservando arquivos e URLs. A estrutura do piloto vive em dados locais da Biblioteca de SEO e ainda não define schema, frontmatter ou modelo obrigatório para futuros Books.
+
+## 2026-08-08 — Demonstrações controladas de princípios visuais
+
+Motivo:
+Comparações de hierarquia, alinhamento, proximidade e contraste precisam isolar variáveis, adaptar-se ao modo escuro e permanecer legíveis sem imagens externas protegidas.
+
+Substituição:
+Usar `VisualPrinciplesDemo` somente nas variantes fechadas documentadas. O componente é estático, utiliza HTML semântico e tokens do site e não deve virar uma API genérica para composições livres dentro do MDX.

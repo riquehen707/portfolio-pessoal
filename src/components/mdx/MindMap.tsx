@@ -1,6 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useId } from "react";
+
+import styles from "./MindMap.module.scss";
 
 type Node = {
   id: string;
@@ -12,25 +14,62 @@ type Node = {
 type Edge = { from: string; to: string };
 
 type MindMapProps = {
-  nodes: Node[];
-  edges: Edge[];
+  nodes?: Node[];
+  edges?: Edge[];
+  data?: string;
   height?: number;
+  title?: string;
+  description?: string;
 };
 
-export default function MindMap({ nodes, edges, height = 320 }: MindMapProps) {
+export default function MindMap({
+  nodes,
+  edges,
+  data,
+  height = 320,
+  title = "Mapa de relações",
+  description = "As setas mostram como os elementos do mapa se conectam.",
+}: MindMapProps) {
   const W = 1000;
   const H = 1000; // coord virtual para calcular, depois escala
-  const stroke = "#94a3b8";
+  const markerPrefix = useId().replace(/:/g, "");
 
-  const find = (id: string) => nodes.find((n) => n.id === id)!;
+  let parsed: { nodes?: Node[]; edges?: Edge[] } = {};
+  if (data) {
+    try {
+      parsed = JSON.parse(data) as { nodes?: Node[]; edges?: Edge[] };
+    } catch {
+      parsed = {};
+    }
+  }
+
+  const resolvedNodes = nodes ?? parsed.nodes ?? [];
+  const resolvedEdges = edges ?? parsed.edges ?? [];
+
+  const find = (id: string) => resolvedNodes.find((node) => node.id === id);
 
   return (
-    <div style={{ width: "100%", height }}>
-      <svg viewBox={`0 0 ${W} ${H}`} width="100%" height="100%" role="img">
+    <figure className={styles.root}>
+      <div
+        className={styles.scroll}
+        tabIndex={0}
+        role="group"
+        aria-label={`${title}. Role horizontalmente para ver o diagrama completo em telas pequenas.`}
+      >
+        <svg
+          className={styles.diagram}
+          viewBox={`0 0 ${W} ${H}`}
+          style={{ height }}
+          role="img"
+          aria-labelledby={`${markerPrefix}-title ${markerPrefix}-description`}
+        >
+          <title id={`${markerPrefix}-title`}>{title}</title>
+          <desc id={`${markerPrefix}-description`}>{description}</desc>
         {/* edges */}
-        {edges.map((e, i) => {
+        {resolvedEdges.map((e, i) => {
           const a = find(e.from);
           const b = find(e.to);
+          if (!a || !b) return null;
           const x1 = a.x * W;
           const y1 = a.y * H;
           const x2 = b.x * W;
@@ -39,14 +78,14 @@ export default function MindMap({ nodes, edges, height = 320 }: MindMapProps) {
             <g key={i}>
               <defs>
                 <marker
-                  id={`arrow-${i}`}
+                  id={`${markerPrefix}-arrow-${i}`}
                   markerWidth="8"
                   markerHeight="8"
                   refX="6"
                   refY="3.5"
                   orient="auto"
                 >
-                  <polygon points="0 0, 7 3.5, 0 7" fill={stroke} />
+                  <polygon points="0 0, 7 3.5, 0 7" fill="var(--neutral-on-background-weak)" />
                 </marker>
               </defs>
               <line
@@ -54,9 +93,9 @@ export default function MindMap({ nodes, edges, height = 320 }: MindMapProps) {
                 y1={y1}
                 x2={x2}
                 y2={y2}
-                stroke={stroke}
+                stroke="var(--neutral-on-background-weak)"
                 strokeWidth={2}
-                markerEnd={`url(#arrow-${i})`}
+                markerEnd={`url(#${markerPrefix}-arrow-${i})`}
                 opacity={0.9}
               />
             </g>
@@ -64,7 +103,7 @@ export default function MindMap({ nodes, edges, height = 320 }: MindMapProps) {
         })}
 
         {/* nodes */}
-        {nodes.map((n) => {
+        {resolvedNodes.map((n) => {
           const x = n.x * W;
           const y = n.y * H;
           return (
@@ -76,10 +115,10 @@ export default function MindMap({ nodes, edges, height = 320 }: MindMapProps) {
                 ry={12}
                 width={280}
                 height={56}
-                fill="#ffffff"
-                stroke="#cbd5e1"
+                fill="var(--page-background)"
+                stroke="var(--line-subtle)"
                 strokeWidth={2}
-                filter="url(#shadow)"
+                filter={`url(#${markerPrefix}-shadow)`}
               />
               <text
                 x={0}
@@ -87,7 +126,7 @@ export default function MindMap({ nodes, edges, height = 320 }: MindMapProps) {
                 textAnchor="middle"
                 fontSize="16"
                 fontWeight={600}
-                fill="#0f172a"
+                fill="var(--neutral-on-background-strong)"
               >
                 {n.label}
               </text>
@@ -96,11 +135,19 @@ export default function MindMap({ nodes, edges, height = 320 }: MindMapProps) {
         })}
 
         <defs>
-          <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+          <filter
+            id={`${markerPrefix}-shadow`}
+            x="-20%"
+            y="-20%"
+            width="140%"
+            height="140%"
+          >
             <feDropShadow dx="0" dy="2" stdDeviation="2" floodOpacity="0.25" />
           </filter>
         </defs>
-      </svg>
-    </div>
+        </svg>
+      </div>
+      <figcaption className={styles.caption}>{description}</figcaption>
+    </figure>
   );
 }

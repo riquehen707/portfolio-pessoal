@@ -85,6 +85,14 @@ Conjunto de imagens. Cada item aceita seus próprios créditos. Não usar quando
 
 Comparador visual por arraste, toque e teclado, com textos alternativos independentes. Preferir para revisão de interface, design, site ou conteúdo visual.
 
+### `VisualPrinciplesDemo`
+
+Demonstração estática em HTML e CSS para isolar variáveis de composição sem depender de imagens externas. Aceita `kind="hierarchy"`, `kind="alignment-proximity"` ou `kind="contrast"`, além de `title` e `caption`. Use somente para explicar um princípio visual; não funciona como construtor genérico de layout.
+
+### `AccessibleFormDemo`
+
+Exemplo estático e reutilizável de formulário semântico, construído com os tokens visuais do site. Demonstra rótulos persistentes, instrução associada, preenchimento automático, ordem de foco nativa e ação específica. Use para explicar fundamentos de formulários e acessibilidade; o botão não envia dados e o bloco não representa uma auditoria completa de conformidade.
+
 ### `SimpleBarChart` e `SimpleLineChart`
 
 Recebem dados no formato `{ label, value }`. Não escrever Recharts diretamente no MDX.
@@ -104,7 +112,7 @@ Recebem dados no formato `{ label, value }`. Não escrever Recharts diretamente 
 
 ### `MindMap`
 
-Reservado a casos didáticos em que relações espaciais forem essenciais. Evitar em artigos comuns e sempre verificar leitura em tela pequena.
+Reservado a casos didáticos em que relações espaciais forem essenciais. Aceita `title` e `description` para nome e alternativa textual. No MDX, passe nós e arestas pelo atributo textual `data` em JSON, no formato `{"nodes": [...], "edges": [...]}`. Em telas pequenas, preserva o tamanho dos rótulos e oferece rolagem horizontal com foco visível; ainda assim, o texto do artigo deve explicar a relação principal sem depender exclusivamente do diagrama.
 
 ## Continuidade e conversão
 

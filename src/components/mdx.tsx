@@ -60,6 +60,8 @@ import { BeforeAfter } from "@/components/mdx/BeforeAfter";
 import { KeyTakeaway } from "@/components/mdx/KeyTakeaway";
 import { NextSection } from "@/components/mdx/NextSection";
 import CompatibilityChecklist from "@/components/mdx/CompatibilityChecklist";
+import { VisualPrinciplesDemo } from "@/components/mdx/VisualPrinciplesDemo";
+import { AccessibleFormDemo } from "@/components/mdx/AccessibleFormDemo";
 
 import { baseURL } from "@/resources";
 
@@ -458,6 +460,8 @@ export const baseMDXComponents: MDXComponents = {
   KeyTakeaway,
   NextSection,
   CompatibilityChecklist,
+  VisualPrinciplesDemo,
+  AccessibleFormDemo,
 
   // shortcodes
   PillarBadge,
@@ -539,4 +543,6 @@ export {
   KeyTakeaway,
   NextSection,
   CompatibilityChecklist,
+  VisualPrinciplesDemo,
+  AccessibleFormDemo,
 };

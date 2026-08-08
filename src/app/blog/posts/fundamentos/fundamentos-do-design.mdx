@@ -1,19 +1,21 @@
 ---
-title: "Fundamentos do design visual: como organizar informações com clareza"
+title: "Princípios do design visual: como criar hierarquia, clareza e consistência"
 slug: "fundamentos-do-design"
 publishedAt: "2026-07-31"
-summary: "Entenda como hierarquia, contraste, alinhamento, proximidade, ritmo e outros fundamentos ajudam a organizar informações e orientar decisões visuais."
-description: "Conheça os fundamentos do design e aprenda a avaliar hierarquia visual, contraste, alinhamento, proximidade, espaço, escala, equilíbrio, ritmo e unidade."
-image: "/api/og/generate?title=Fundamentos%20do%20design&subtitle=Como%20organizar%20informa%C3%A7%C3%B5es%20com%20clareza"
-imageAlt: "Capa editorial com o título Fundamentos do design"
+updatedAt: "2026-08-08"
+reviewedAt: "2026-08-08"
+summary: "Entenda como hierarquia, contraste, proximidade, alinhamento, tipografia e cor organizam percepção e significado em diferentes suportes."
+description: "Conheça os princípios do design visual e aprenda a criar hierarquia, clareza e consistência com exemplos controlados, critérios e acessibilidade."
+image: "/api/og/generate?title=Princ%C3%ADpios%20do%20design%20visual&subtitle=Hierarquia%2C%20clareza%20e%20consist%C3%AAncia"
+imageAlt: "Capa editorial com o título Princípios do design visual"
 format: "Guia"
 category: "Design"
 categories: ["Design", "Fundamentos"]
-tags: ["Fundamentos do design", "Hierarquia visual", "Contraste", "Composição visual", "Acessibilidade"]
+tags: ["Princípios do design visual", "Hierarquia visual", "Contraste", "Composição visual", "Acessibilidade"]
 kind: "study"
 featured: false
 featuredHome: false
-readingTime: 15
+readingTime: 22
 toc: true
 tocDepth: 2
 area: "design"
@@ -26,10 +28,10 @@ essential: true
 prerequisites: ["O que é design? Muito além de deixar algo bonito"]
 unlocks: ["Termos de design para compreender interfaces, marcas e peças visuais"]
 related: ["O que é design? Muito além de deixar algo bonito", "Como começar a trabalhar com design: habilidades, áreas e primeiros passos", "Termos de design para compreender interfaces, marcas e peças visuais"]
-estimatedReadingTime: 15
-primaryKeyword: "fundamentos do design"
-secondaryKeywords: ["princípios do design", "hierarquia visual", "contraste no design", "alinhamento e proximidade", "composição visual"]
-keywords: ["fundamentos do design", "princípios do design", "hierarquia visual", "contraste no design", "alinhamento", "proximidade", "composição visual"]
+estimatedReadingTime: 22
+primaryKeyword: "princípios do design visual"
+secondaryKeywords: ["visual design principles", "fundamentos do design", "hierarquia visual", "contraste no design", "alinhamento e proximidade", "composição visual"]
+keywords: ["princípios do design visual", "visual design principles", "fundamentos do design", "hierarquia visual", "contraste no design", "alinhamento", "proximidade", "composição visual"]
 mapVisibility: "trilha"
 references:
   - title: "What are the Gestalt Principles?"
@@ -41,6 +43,12 @@ references:
   - title: "Understanding Success Criterion 1.4.3: Contrast (Minimum)"
     author: "W3C Web Accessibility Initiative"
     url: "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum"
+  - title: "Understanding Success Criterion 1.4.8: Visual Presentation"
+    author: "W3C Web Accessibility Initiative"
+    url: "https://www.w3.org/WAI/WCAG22/Understanding/visual-presentation.html"
+  - title: "Understanding Success Criterion 1.4.12: Text Spacing"
+    author: "W3C Web Accessibility Initiative"
+    url: "https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html"
 status: "published"
 language: "pt-BR"
 ---
@@ -62,9 +70,7 @@ Esse desconforto costuma nascer das relações entre os elementos. Tamanho, posi
 
 Listas de princípios variam entre escolas, livros e áreas profissionais. Algumas combinam relações de composição, outras incorporam princípios da percepção e outras funcionam como modelos didáticos para iniciantes. Portanto, os dez fundamentos deste guia não constituem uma teoria universal nem uma receita fechada.
 
-<Definition term="Fundamentos do design">
-  Fundamentos do design são critérios usados para organizar elementos, orientar a atenção e comunicar relações visuais de acordo com um público, um objetivo, um conteúdo e um contexto.
-</Definition>
+**Princípios do design visual** são critérios usados para organizar elementos, orientar a atenção e comunicar relações de acordo com um público, um objetivo, um conteúdo e um contexto. A expressão inglesa *visual design principles* normalmente aponta para o mesmo conjunto de decisões, ainda que listas e nomes variem entre autores.
 
 Uma regra pode ser flexibilizada quando existe uma razão compreendida. Quebrá-la sem observar suas consequências tende a gerar arbitrariedade: um desalinhamento parece acidente, uma variação parece erro e uma diferença de tamanho chama atenção para o lugar errado.
 
@@ -108,6 +114,12 @@ O problema que a hierarquia resolve não é apenas “falta de destaque”. É a
 
 **Como avaliar:** observe a peça por poucos segundos e pergunte o que foi percebido primeiro, segundo e terceiro. Essa sequência corresponde à tarefa do leitor? Depois verifique se agrupamentos e ações continuam compreensíveis sem depender apenas do tamanho.
 
+<VisualPrinciplesDemo
+  kind="hierarchy"
+  title="Hierarquia muda a ordem percebida"
+  caption="A comparação mantém conteúdo, cor e estrutura geral. Apenas tamanho, peso e ordem tipográfica mudam, permitindo observar a hierarquia sem atribuir o efeito a várias decisões ao mesmo tempo."
+/>
+
 ## Contraste torna diferenças perceptíveis
 
 Contraste é a diferença perceptível entre elementos. Pode acontecer por tamanho, peso, cor, forma, espaço ou posição. Ele ajuda a destacar informações, separar funções, criar hierarquia, melhorar a leitura e indicar estados de uma interface.
@@ -119,6 +131,14 @@ Um preço em peso mais forte contrasta com a descrição. Um botão cercado por 
 **Como avaliar:** identifique cada diferença e nomeie sua função. Se uma variação não comunica prioridade, agrupamento, estado ou significado, ela pode ser ruído.
 
 Contraste visual também não é sinônimo de contraste de cor suficiente para acessibilidade. A WCAG 2.2 define critérios mensuráveis para texto e imagens de texto: em geral, pelo menos 4,5:1 para texto comum e 3:1 para texto grande. Além disso, [a cor não deve ser o único meio de transmitir informação](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html). Uma interface pode parecer vibrante e ainda ter texto difícil de ler, foco pouco visível ou estados diferenciados apenas por cor.
+
+<VisualPrinciplesDemo
+  kind="contrast"
+  title="Contraste compositivo não substitui contraste mensurável"
+  caption="As duas amostras usam o mesmo tamanho, peso, texto e fundo. A versão de 2,54:1 falha para texto comum; a de 10,31:1 supera o mínimo de 4,5:1 da WCAG 2.2. Os rótulos registram o resultado sem depender da percepção da cor."
+/>
+
+O número não escolhe a paleta nem garante que a composição inteira seja acessível. Ele responde a uma pergunta delimitada: a diferença de luminância entre duas cores atende ao critério aplicável? Estados, componentes, foco, reflow, ampliação e sequência de leitura exigem outras verificações.
 
 ## Alinhamento cria uma estrutura invisível
 
@@ -132,7 +152,7 @@ Grades ajudam a manter colunas, margens e intervalos coerentes. Não precisam fi
 
 **Como avaliar:** trace mentalmente linhas a partir das bordas e centros. Os elementos compartilham referências reconhecíveis? Quando algum deles rompe a estrutura, essa ruptura possui uma função clara?
 
-## Proximidade comunica agrupamento
+## Proximidade e agrupamento comunicam relações
 
 Elementos próximos tendem a ser percebidos como relacionados. Esse princípio de organização perceptiva ajuda a conectar título e texto, produto e preço, campo e rótulo, imagem e legenda, categoria e itens ou ações que pertencem à mesma tarefa.
 
@@ -140,7 +160,15 @@ Uma distância menor dentro do grupo e maior entre grupos muitas vezes comunica 
 
 **Erro comum:** usar intervalos idênticos em toda parte. Se a distância entre título e descrição é igual à distância até o próximo produto, a composição não deixa claro onde um grupo termina e outro começa.
 
-**Como avaliar:** cubra bordas, cores de fundo e divisórias. Os agrupamentos continuam perceptíveis apenas pela distância e pela ordem? Estudos introdutórios sobre [princípios de Gestalt](https://www.interaction-design.org/literature/topics/gestalt-principles) ajudam a explicar essa tendência de perceber elementos próximos ou semelhantes como conjuntos, mas não substituem a análise do significado real do conteúdo.
+**Como avaliar:** cubra bordas, cores de fundo e divisórias. Os agrupamentos continuam perceptíveis apenas pela distância e pela ordem? Estudos introdutórios sobre [princípios de Gestalt](https://www.interaction-design.org/literature/topics/gestalt-principles) ajudam a explicar tendências como proximidade e similaridade, mas não transformam percepção em destino. Conteúdo, convenções aprendidas e tarefa também influenciam a leitura.
+
+Agrupamento é o efeito; proximidade é um dos sinais que podem produzi-lo. Contorno, fundo, alinhamento, repetição e continuidade também agrupam. Empilhar todos esses sinais em cada bloco cria caixas dentro de caixas e pode enfraquecer a hierarquia em vez de reforçá-la.
+
+<VisualPrinciplesDemo
+  kind="alignment-proximity"
+  title="Alinhamento e proximidade, uma variável por vez"
+  caption="No primeiro experimento, só o alinhamento muda. No segundo, só os intervalos mudam. Separar as variáveis evita atribuir a melhora a uma combinação impossível de avaliar."
+/>
 
 ## Repetição e consistência criam previsibilidade
 
@@ -201,6 +229,80 @@ Unidade sem variedade torna tudo parecido demais. Variedade sem unidade produz u
 **Erro comum:** adicionar elementos decorativos diferentes para “dar criatividade” a cada parte.
 
 **Como avaliar:** identifique três ou quatro decisões que unem a composição e as diferenças que orientam a leitura. Cada variação possui papel reconhecível ou apenas evita repetição?
+
+## Tipografia organiza linguagem antes de decorar a página
+
+Tipografia participa da hierarquia por meio de tamanho, peso, largura, estilo, entrelinha, comprimento de linha e espaçamento. Ela não deve ser avaliada apenas pela personalidade da fonte. O sistema precisa permitir reconhecer títulos, corpo, legendas, dados e ações sem criar uma escala diferente para cada ocorrência.
+
+### Hierarquia tipográfica
+
+Uma boa hierarquia combina diferenças suficientes para separar funções com repetição suficiente para ensinar o padrão. Se título e subtítulo possuem quase o mesmo tamanho e peso, a diferença parece hesitação. Se cada nível muda família, cor, caixa, peso e alinhamento ao mesmo tempo, o sistema fica ruidoso.
+
+### Largura de linha e espaçamento
+
+Linhas muito extensas dificultam encontrar o início da linha seguinte; linhas muito curtas fragmentam o ritmo e aumentam quebras. Não existe um número universal para todos os alfabetos, fontes e suportes. Como referência de acessibilidade, o critério AAA de [Apresentação Visual da WCAG 2.2](https://www.w3.org/WAI/WCAG22/Understanding/visual-presentation.html) prevê mecanismo para limitar blocos a 80 caracteres, evitar justificação completa e permitir ajustes de apresentação.
+
+Entrelinha também depende de corpo, família, largura e idioma. O critério de [espaçamento de texto](https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html) não obriga o autor a adotar um valor visual fixo; exige que o conteúdo continue legível e funcional quando a pessoa substitui espaçamentos. Uma interface que corta rótulos quando o texto cresce falha mesmo que pareça equilibrada na captura original.
+
+### Legibilidade depende do contexto
+
+Contraste adequado não corrige uma fonte pequena demais. Corpo grande não corrige uma linha larga e densa. Negrito pode criar ênfase, mas perde efeito quando todo parágrafo está em negrito. Avalie a leitura no tamanho, dispositivo, iluminação e distância de uso previstos.
+
+## Cor comunica função, contexto e estado
+
+Cor pode estabelecer contraste, associar categorias, expressar identidade e indicar estados. Seu significado não é fixo. Vermelho pode representar erro em uma interface, promoção no varejo ou celebração em outro contexto cultural. A chamada “psicologia das cores” costuma simplificar relações que dependem de cultura, repertório, combinação, saturação, proporção e tarefa.
+
+Escolha primeiro a função: separar, enfatizar, informar estado ou sustentar identidade. Depois verifique se a informação sobrevive sem cor e se o contraste atende ao uso. Um campo inválido, por exemplo, pode combinar cor, ícone e mensagem textual. A WCAG determina que [cor não seja o único meio visual de transmitir informação](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html).
+
+Modo escuro não é inverter valores mecanicamente. Superfícies, bordas, texto, imagens, sombras e estados precisam manter relações perceptíveis sem brilho excessivo ou perda de contraste. As demonstrações deste artigo usam os tokens do próprio site nas estruturas e reservam cores fixas apenas ao teste explicitamente calculado de contraste.
+
+## Princípios interagem e podem entrar em conflito
+
+Aumentar um título fortalece hierarquia e contraste, mas pode quebrar uma linha, ocupar o espaço de uma ação ou desequilibrar um card. Aproximar legenda e imagem reforça agrupamento, mas pode reduzir a pausa entre seções. Repetir um padrão cria consistência, porém pode tornar itens de importância diferente visualmente equivalentes.
+
+Por isso, a revisão deve alterar uma variável por vez quando o objetivo é entender causa. Em seguida, precisa recompor o conjunto. Uma solução localmente correta pode prejudicar o percurso completo.
+
+Alguns conflitos comuns:
+
+- **clareza × expressão:** uma identidade marcante pode exigir mais variedade, mas funções ainda precisam ser reconhecíveis;
+- **densidade × respiração:** adicionar espaço melhora separação até começar a fragmentar relações ou esconder conteúdo;
+- **consistência × prioridade:** repetir tratamento ajuda a aprender o sistema, enquanto exceções bem escolhidas sinalizam importância;
+- **contraste × equilíbrio:** um elemento muito intenso orienta atenção, mas pode dominar além da sua função;
+- **escala × adaptação:** uma proporção eficaz no cartaz pode ocupar toda a primeira tela do celular.
+
+## O que muda entre editorial, interface, identidade e redes sociais
+
+### Design editorial
+
+O percurso acontece entre títulos, colunas, imagens, legendas, notas e páginas. Ritmo, largura de linha e hierarquia tipográfica sustentam leitura prolongada. Uma abertura expressiva não autoriza tornar o corpo difícil de acompanhar.
+
+### Interfaces
+
+Além de comunicar conteúdo, a composição precisa revelar estados e ações. Consistência reduz reaprendizado; contraste e proximidade conectam rótulos, campos e mensagens. Foco por teclado, ampliação, reflow e conteúdo dinâmico fazem parte da avaliação visual, não são uma camada posterior.
+
+### Identidade visual
+
+Repetição cria reconhecimento entre aplicações, mas identidade não significa congelar todas as peças. O sistema precisa definir o que permanece — tipografia, relações cromáticas, marca, linguagem — e onde a variação é permitida.
+
+### Peças para redes sociais
+
+O conteúdo aparece pequeno, entre distrações e em formatos diferentes. A mensagem principal precisa sobreviver à miniatura, mas isso não exige transformar todo texto em manchete enorme. Uma publicação pode orientar para legenda, sequência ou página completa quando o assunto pede profundidade.
+
+Minimalismo não é sinônimo de bom design em nenhuma dessas áreas. Remover elementos ajuda apenas quando preserva o conteúdo, a ação e as relações necessárias.
+
+## Quando quebrar uma convenção
+
+Uma convenção pode ser quebrada para criar surpresa, representar uma ideia, diferenciar uma seção ou mudar deliberadamente o ritmo. A ruptura funciona quando o público ainda consegue reconhecer o conteúdo e concluir a tarefa.
+
+Antes de quebrar:
+
+1. identifique a convenção e a expectativa que ela cria;
+2. nomeie o efeito pretendido;
+3. preserve sinais redundantes de função e sequência;
+4. teste no suporte e com pessoas compatíveis com o público;
+5. verifique se a ruptura parece intencional sem depender de explicação do designer.
+
+Desalinhamento pode gerar tensão expressiva, mas rótulo e campo ainda precisam ser relacionados. Um título pode atravessar a grade, mas a ordem de leitura deve permanecer clara. Criatividade não é a ausência de restrição; é escolher quais relações permanecerão reconhecíveis enquanto outra expectativa é alterada.
 
 ## Como os fundamentos trabalham juntos na prática
 

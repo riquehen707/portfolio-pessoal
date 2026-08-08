@@ -1,0 +1,478 @@
+---
+title: "Data warehouse design: princípios e arquiteturas para análise de dados"
+slug: "data-warehouse-design"
+publishedAt: "2026-08-08"
+reviewedAt: "2026-08-08"
+summary: "Entenda como perguntas de negócio, granularidade, histórico, qualidade, governança e custo orientam o desenho de um data warehouse sem arquitetura excessiva."
+description: "Data warehouse design: arquitetura analítica, ETL e ELT, modelagem dimensional, star schema, Kimball, Inmon, qualidade, segurança e custo."
+image: "/api/og/generate?title=Data%20warehouse%20design&subtitle=Princ%C3%ADpios%20e%20arquiteturas%20para%20an%C3%A1lise"
+imageAlt: "Fluxo de fontes de dados até um data warehouse e suas camadas de consumo"
+format: "Guia técnico"
+category: "Tecnologia"
+categories: ["Tecnologia", "Dados"]
+tags: ["Data warehouse", "Modelagem dimensional", "Arquitetura de dados", "Analytics", "SQL"]
+kind: "study"
+featured: false
+featuredHome: false
+readingTime: 29
+toc: true
+tocDepth: 3
+area: "tecnologia"
+module: "dados-e-backend"
+node: "data-warehouse-design"
+level: "intermediario"
+type: "guia"
+knowledgeStatus: "publicado"
+essential: true
+prerequisites: ["Database design patterns: padrões para modelar bancos de dados com clareza e escala"]
+unlocks: ["Modelagem dimensional", "Arquitetura analítica", "Qualidade de dados"]
+related: ["Database design patterns: padrões para modelar bancos de dados com clareza e escala", "Marketing orientado a dados: como tomar decisões melhores sem se perder nas métricas"]
+estimatedReadingTime: 29
+primaryKeyword: "data warehouse design"
+secondaryKeywords: ["arquitetura de data warehouse", "modelagem dimensional", "star schema", "projeto de data warehouse", "ETL e ELT"]
+keywords: ["data warehouse design", "arquitetura de data warehouse", "modelagem dimensional", "tabela fato", "tabela dimensão", "star schema", "snowflake schema", "Kimball", "Inmon"]
+mapVisibility: "trilha"
+faq:
+  - q: "Data warehouse precisa usar um banco diferente do sistema transacional?"
+    a: "Não obrigatoriamente no primeiro estágio de uma operação pequena, mas a separação de esquemas não isola recursos. Quando consultas analíticas prejudicam transações, segurança ou manutenção, separar cargas e infraestrutura passa a ser importante."
+  - q: "Qual deve ser a granularidade de uma tabela fato?"
+    a: "A menor unidade necessária para responder às perguntas previstas, declarada antes das dimensões e métricas. Misturar uma linha por pedido com uma linha por item ou pagamento cria ambiguidades e dupla contagem."
+  - q: "Star schema é sempre melhor que snowflake schema?"
+    a: "Não. O esquema estrela simplifica consumo e joins; o snowflake normaliza partes das dimensões e pode reduzir redundância ou centralizar hierarquias, ao custo de mais joins e de um modelo menos direto para usuários."
+  - q: "ETL e ELT produzem warehouses diferentes?"
+    a: "A sigla indica principalmente onde a transformação acontece. Em ETL, os dados são transformados antes da carga final; em ELT, são carregados e transformados no destino. Qualidade, testes, contratos e governança continuam necessários nos dois casos."
+references:
+  - title: "Dimensional Modeling Techniques"
+    author: "Kimball Group"
+    url: "https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/"
+  - title: "The Data Warehouse Toolkit, Third Edition"
+    author: "Ralph Kimball e Margy Ross"
+    year: 2013
+    url: "https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/books/data-warehouse-dw-toolkit/"
+  - title: "Building the Data Warehouse, Fourth Edition"
+    author: "William H. Inmon"
+    year: 2005
+    url: "https://www.wiley-vch.de/en/areas-interest/computing-computer-sciences/building-the-data-warehouse-978-0-7645-9944-6"
+  - title: "Dimensional modeling in Microsoft Fabric Warehouse"
+    author: "Microsoft"
+    url: "https://learn.microsoft.com/en-us/fabric/data-warehouse/dimensional-modeling-overview"
+  - title: "Extract, transform, and load (ETL)"
+    author: "Microsoft Azure Architecture Center"
+    url: "https://learn.microsoft.com/en-us/azure/architecture/data-guide/relational-data/etl"
+  - title: "Introduction to partitioned tables"
+    author: "Google Cloud"
+    year: 2026
+    url: "https://cloud.google.com/bigquery/docs/partitioned-tables"
+  - title: "Understanding Snowflake Table Structures"
+    author: "Snowflake"
+    url: "https://docs.snowflake.com/en/user-guide/tables-micro-partitions"
+  - title: "What is a data lakehouse?"
+    author: "Databricks"
+    year: 2026
+    url: "https://docs.databricks.com/aws/en/lakehouse/"
+  - title: "Materiais educativos e publicações"
+    author: "Autoridade Nacional de Proteção de Dados"
+    year: 2026
+    url: "https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes"
+status: "published"
+language: "pt-BR"
+---
+
+Dois relatórios exibem “receita mensal”, mas chegam a valores diferentes. Um usa a data do pedido; outro, a data do pagamento. Um desconta cancelamentos; outro mantém o valor original. O problema não será resolvido apenas migrando os dados para uma plataforma mais rápida. Antes, é preciso definir qual fato está sendo medido, em que granularidade, segundo qual regra e com qual histórico.
+
+**Data warehouse design** é esse trabalho de alinhar perguntas, fontes, regras, modelos e consumo. A arquitetura física importa, mas vem depois do entendimento do negócio. Um desenho modesto com grão explícito e métricas verificáveis pode ser mais útil que uma pilha sofisticada que apenas processa ambiguidades mais depressa.
+
+<QuickSummary title="O que orienta este guia">
+
+- Data warehouse integra e preserva dados para análise; não é apenas um banco transacional maior.
+- Arquitetura física, modelo lógico e camada semântica resolvem problemas diferentes.
+- O grão de uma tabela fato deve ser declarado antes de escolher dimensões e métricas.
+- Star schema e snowflake schema têm custos distintos; nenhum é vencedor universal.
+- ETL e ELT diferem principalmente pelo local da transformação, não pela obrigação de testar os dados.
+- Particionamento, clustering e índices dependem do mecanismo e das consultas reais.
+- Uma empresa pequena pode começar com um processo diário, poucas fontes e um único caso de uso confiável.
+
+</QuickSummary>
+
+## O que é um data warehouse?
+
+Um **data warehouse** é um repositório analítico que integra dados de uma ou mais fontes, aplica definições consistentes e preserva histórico para apoiar relatórios, exploração e decisões. A descrição clássica associada a William H. Inmon enfatiza dados orientados por assunto, integrados, variantes no tempo e não voláteis. Implementações atuais podem usar armazenamento local, serviços em nuvem ou formatos abertos, mas essas necessidades continuam reconhecíveis.
+
+O warehouse não precisa conter “todos os dados da empresa”. Precisa conter dados suficientes, documentados e governados para os processos analíticos assumidos. Uma operação pode começar por vendas e só depois incorporar estoque, atendimento ou marketing.
+
+### Warehouse e banco transacional
+
+Um banco **OLTP** sustenta operações: cadastrar cliente, registrar pedido, atualizar estoque e confirmar pagamento. Muitas transações curtas alteram poucas linhas e dependem de consistência e baixa latência.
+
+Uma carga analítica lê períodos extensos, agrega milhões de valores possíveis, cruza assuntos e compara histórico. Consultas são menos previsíveis e podem varrer muitas colunas ou partições. Replicar o modelo operacional sem adaptação costuma produzir joins difíceis, regras duplicadas e disputa de recursos com a aplicação.
+
+O [guia de padrões de banco de dados](/blog/database-design-patterns) explica constraints, normalização e índices no contexto transacional. No warehouse, esses fundamentos continuam úteis, mas o desenho também precisa facilitar leitura agregada e consistência semântica.
+
+### Data lake, lakehouse e data mart
+
+- **Data lake:** armazena dados estruturados, semiestruturados ou não estruturados, normalmente em arquivos e formatos variados. Pode preservar dados brutos e atender ciência de dados, processamento e exploração, mas não garante sozinho definições prontas para BI.
+- **Lakehouse:** padrão que combina armazenamento de lake com metadados, transações, governança e recursos analíticos. A [documentação da Databricks](https://docs.databricks.com/aws/en/lakehouse/) descreve sua própria implementação; isso é uma arquitetura de fornecedor, não definição universal de todo lakehouse.
+- **Data mart:** recorte orientado a uma área ou processo, como vendas. Pode depender de um warehouse integrado ou ser criado de forma independente. Marts independentes aceleram entregas locais, mas podem multiplicar definições incompatíveis.
+
+Essas categorias não precisam ser produtos separados. Um lake pode alimentar um warehouse; um lakehouse pode oferecer tabelas dimensionais; um warehouse pode publicar marts. O nome não substitui a descrição de onde estão os dados, que garantias existem e quem os consome.
+
+## Três níveis que não devem ser confundidos
+
+### Arquitetura física
+
+Define onde dados são armazenados e processados: banco, arquivos, engine, regiões, particionamento, recursos de computação, isolamento e recuperação. É onde custo e características específicas de fornecedor aparecem com mais força.
+
+### Modelo lógico
+
+Define fatos, dimensões, chaves, relacionamentos, histórico e granularidade independentemente do botão usado para criá-los. Um esquema estrela é uma decisão lógica, embora sua implementação tenha consequências físicas.
+
+### Camada semântica
+
+Define medidas e entidades para consumo: “receita líquida”, “cliente ativo”, calendário fiscal, moeda e regras de agregação. Uma camada semântica pode viver na ferramenta de BI, em modelos versionados ou em outro serviço. Ela não corrige uma tabela fato com grão ambíguo; organiza o significado sobre uma base confiável.
+
+Quando alguém diz “o modelo está lento”, é necessário localizar o nível. Pode ser um filtro que não elimina partições, um esquema com joins inadequados ou uma métrica que repete cálculo em cada dashboard. As soluções são diferentes.
+
+## Do sistema de origem ao consumo
+
+<MindMap
+  title="Fluxo lógico de uma arquitetura analítica"
+  description="Dados saem das fontes, passam por ingestão e staging, são transformados no warehouse, recebem definições semânticas e chegam a relatórios e análises. Testes, catálogo, segurança e observabilidade atravessam todo o fluxo."
+  height={300}
+  data='{"nodes":[{"id":"fontes","label":"Fontes","x":0.16,"y":0.5},{"id":"ingestao","label":"Ingestão","x":0.3,"y":0.25},{"id":"staging","label":"Staging","x":0.43,"y":0.5},{"id":"transformacao","label":"Transformação","x":0.57,"y":0.25},{"id":"warehouse","label":"Warehouse","x":0.7,"y":0.5},{"id":"consumo","label":"Semântica e consumo","x":0.84,"y":0.25}],"edges":[{"from":"fontes","to":"ingestao"},{"from":"ingestao","to":"staging"},{"from":"staging","to":"transformacao"},{"from":"transformacao","to":"warehouse"},{"from":"warehouse","to":"consumo"}]}'
+/>
+
+O fluxo acima é lógico. Uma plataforma pode fundir staging e armazenamento, executar transformações no mesmo mecanismo ou materializar a camada semântica como views. Mesmo assim, nomear responsabilidades ajuda a depurar falhas.
+
+1. **Fontes:** bancos operacionais, arquivos, SaaS e eventos. Cada uma possui dono, atraso, chave e semântica próprios.
+2. **Ingestão:** copia dados por lote, captura de mudanças ou streaming sem sobrecarregar a origem.
+3. **Staging:** oferece uma área controlada para recebimento, reconciliação e reprocessamento. Não é necessariamente permanente nem aberta a analistas.
+4. **Transformação:** padroniza tipos, deduplica, aplica regras, conforma dimensões e materializa fatos.
+5. **Warehouse:** guarda modelos analíticos e histórico de forma consultável.
+6. **Semântica e consumo:** oferece métricas, nomes, permissões e caminhos para BI, notebooks, exportações ou aplicações.
+
+Testes, catálogo, linhagem, controle de acesso e observabilidade não formam uma etapa final. Eles atravessam o percurso.
+
+## ETL versus ELT: onde a transformação acontece
+
+Em **ETL** — *extract, transform, load* — um mecanismo transforma os dados antes de carregá-los no destino analítico final. Em **ELT** — *extract, load, transform* — os dados são carregados e o próprio destino executa as transformações. O [Azure Architecture Center](https://learn.microsoft.com/en-us/azure/architecture/data-guide/relational-data/etl) usa essa diferença de localização como distinção central.
+
+ETL pode fazer sentido quando dados precisam chegar curados ao destino, quando a transformação usa um mecanismo especializado ou quando o warehouse não deve receber determinados campos. ELT pode simplificar a arquitetura quando o destino possui capacidade de processamento, mantém uma zona de acesso restrito e permite transformar com SQL próximo do consumo.
+
+A ordem das letras não responde:
+
+- se a cópia é completa ou incremental;
+- se dados brutos são retidos e por quanto tempo;
+- como falhas são reprocessadas sem duplicação;
+- onde dados pessoais são removidos ou protegidos;
+- como regras são testadas, versionadas e observadas;
+- quanto custa armazenar e recalcular cada camada.
+
+Escolher ELT porque é “moderno” ou ETL porque parece “mais seguro” não substitui essas decisões.
+
+## Modelagem dimensional começa pelo grão
+
+A modelagem dimensional organiza medições em **tabelas fato** e contexto em **tabelas dimensão**. A [biblioteca do Kimball Group](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/) apresenta um processo de quatro passos: escolher o processo de negócio, declarar o grão, identificar dimensões e identificar fatos.
+
+### Fatos
+
+Uma tabela fato registra ocorrências mensuráveis em um grão definido: uma linha por item vendido, uma linha por saldo diário de produto ou uma linha por ciclo de atendimento. Valores podem ser:
+
+- **aditivos:** somáveis em todas as dimensões relevantes, como quantidade por item;
+- **semiaditivos:** somáveis em algumas dimensões, mas não no tempo, como saldo de conta;
+- **não aditivos:** razões e percentuais que precisam ser recalculados a partir dos componentes.
+
+### Dimensões
+
+Dimensões descrevem o contexto: data, produto, cliente, loja, canal ou vendedor. A descrição legível normalmente pertence à dimensão; a medição e suas chaves pertencem ao fato.
+
+### Grão
+
+O **grão** é a frase que define o que cada linha representa. “Uma linha por venda” é insuficiente se uma venda possui itens, pagamentos e entregas. “Uma linha por item de pedido confirmado” é verificável.
+
+Depois de declarado, todo fato e toda chave deve ser compatível com esse nível. Uma coluna `frete_pedido` repetida em cada item não se torna fato do item só porque cabe na tabela.
+
+### Chaves substitutas e dimensões conformadas
+
+Uma **chave substituta** identifica internamente uma versão da dimensão sem depender da chave natural do sistema de origem. Isso permite integrar fontes e preservar mudanças históricas. A chave natural ainda precisa ser armazenada e governada para correspondência.
+
+Uma **dimensão conformada** possui significado, valores e regras compatíveis entre processos. Se vendas e devoluções compartilham a mesma dimensão de produto, análises podem cruzá-las sem cada mart redefinir categoria e marca.
+
+### Slowly changing dimensions
+
+**Slowly changing dimensions** tratam mudanças em atributos descritivos. As técnicas possuem vários tipos, mas dois resolvem boa parte dos casos iniciais:
+
+- **Tipo 1:** sobrescreve o valor. Serve quando o histórico anterior não precisa ser preservado, como correção ortográfica.
+- **Tipo 2:** cria nova linha de dimensão com período de validade. Permite que fatos antigos continuem associados à versão vigente no momento do evento.
+
+Não aplique Tipo 2 a todo campo. Cada versão aumenta linhas, joins, lógica de carga e risco de intervalos incorretos. Decida atributo por atributo conforme a pergunta histórica.
+
+## Esquema estrela de vendas
+
+Neste exemplo, o grão é explícito: **uma linha em `fact_sales_line` representa um item de pedido confirmado**. Quantidade, preço e desconto pertencem ao item. Frete total e situação do pagamento não pertencem automaticamente a esse grão.
+
+```text title="Esquema estrela — vendas por item"
+                 dim_date
+                    │
+dim_customer ─ fact_sales_line ─ dim_product
+                    │
+                 dim_channel
+
+Grão: uma linha por item de pedido confirmado.
+Chave degenerada: order_number identifica o pedido sem dimensão própria.
+Fatos: quantity, gross_amount, discount_amount, net_amount.
+```
+
+```sql title="DDL didático — adapte tipos e sintaxe à plataforma"
+CREATE TABLE dim_product (
+  product_key bigint PRIMARY KEY,
+  source_product_id varchar(100) NOT NULL,
+  product_name varchar(300) NOT NULL,
+  category_name varchar(200),
+  valid_from timestamp NOT NULL,
+  valid_to timestamp,
+  is_current boolean NOT NULL
+);
+
+CREATE TABLE fact_sales_line (
+  date_key integer NOT NULL,
+  product_key bigint NOT NULL,
+  customer_key bigint NOT NULL,
+  channel_key bigint NOT NULL,
+  order_number varchar(100) NOT NULL,
+  line_number integer NOT NULL,
+  quantity numeric(18, 3) NOT NULL,
+  gross_amount numeric(18, 2) NOT NULL,
+  discount_amount numeric(18, 2) NOT NULL,
+  net_amount numeric(18, 2) NOT NULL,
+  PRIMARY KEY (order_number, line_number)
+);
+```
+
+O exemplo usa SQL deliberadamente simples e não escolhe mecanismo. Alguns warehouses não aplicam `PRIMARY KEY` como bancos OLTP; outros aceitam constraints apenas como metadados. Testes de unicidade e relacionamentos continuam necessários mesmo quando o engine não os impõe.
+
+## Como a granularidade inadequada causa dupla contagem
+
+<PracticalExample title="Exemplo hipotético: frete repetido em cada item">
+
+O pedido `101` possui dois itens e frete total de R$ 30. Uma transformação cria duas linhas na fato de itens e copia `shipping_amount = 30` para ambas:
+
+| Pedido | Item | Receita líquida | Frete copiado |
+| --- | --- | ---: | ---: |
+| 101 | A | R$ 100 | R$ 30 |
+| 101 | B | R$ 50 | R$ 30 |
+
+`SUM(net_amount)` retorna corretamente R$ 150. `SUM(shipping_amount)` retorna R$ 60, embora o pedido tenha apenas R$ 30 de frete. Usar `MAX(shipping_amount)` agrupado por pedido pode corrigir este relatório específico, mas deixa a tabela perigosa para outras agregações.
+
+A correção estrutural é escolher uma destas semânticas:
+
+- guardar o frete uma única vez em uma fato com grão de pedido;
+- alocar o frete entre itens segundo uma regra documentada e armazenar `allocated_shipping_amount`;
+- não expor frete no modelo por item até que a necessidade esteja definida.
+
+O problema não é o `SUM`. É ter colocado um fato de pedido em linhas de item sem declarar alocação.
+
+</PracticalExample>
+
+## Star schema e snowflake schema
+
+No **star schema**, dimensões geralmente permanecem desnormalizadas ao redor da fato. Produto pode carregar categoria e departamento na mesma dimensão. Isso reduz joins e facilita exploração por pessoas e ferramentas de BI.
+
+No **snowflake schema**, partes da dimensão são normalizadas. Produto aponta para categoria, que pode apontar para departamento. A estrutura reduz repetição e pode centralizar certas hierarquias, mas adiciona joins e torna o caminho semântico menos direto.
+
+<EditorialTable
+  title="Decisão, benefício, custo e sinal de uso"
+  caption="São sinais para investigação. O mecanismo, o volume e o padrão de consulta podem mudar a decisão."
+  mobileMode="scroll"
+>
+
+| Decisão | Benefício procurado | Custo introduzido | Sinal de uso |
+| --- | --- | --- | --- |
+| Star schema | Consumo simples e menos joins dimensionais | Redundância descritiva e carga de dimensões mais ampla | Analistas exploram processos recorrentes por dimensões estáveis |
+| Snowflake schema | Centralizar hierarquias e reduzir repetição em dimensões | Mais joins e menor legibilidade para consumo direto | Hierarquia é compartilhada, grande ou administrada separadamente |
+| SCD Tipo 2 | Preservar contexto histórico | Mais linhas e lógica temporal | Perguntas precisam do atributo vigente no momento do fato |
+| Dimensão conformada | Comparar processos com o mesmo contexto | Coordenação e governança entre equipes | Vendas, devoluções e estoque precisam compartilhar produto ou calendário |
+| Carga incremental | Processar somente mudanças | Controle de cursor, atraso, exclusões e reprocessamento | Carga completa já custa tempo ou interfere na origem |
+| Particionamento | Eliminar segmentos e administrar retenção | Escolha rígida de chave e risco de partições pequenas | Consultas filtram períodos ou outra chave compatível de forma recorrente |
+| Pré-agregação | Reduzir trabalho de consultas repetidas | Atualização, armazenamento e possível defasagem | Mesma agregação cara é medida muitas vezes com requisito de atualização conhecido |
+| Camada semântica | Reutilizar métricas e regras de join | Governança, versão e dependência da ferramenta | A mesma métrica aparece com implementações divergentes em vários consumidores |
+
+</EditorialTable>
+
+Não normalize uma dimensão por reflexo transacional, nem a desnormalize apenas porque “warehouse é estrela”. Meça volume, frequência de mudança, reuso, experiência de consulta e capacidade da equipe.
+
+## Kimball e Inmon no contexto histórico e prático
+
+Ralph Kimball e William H. Inmon influenciaram duas formas clássicas de organizar programas de data warehouse. Elas são abordagens arquiteturais, não opções em uma tela de configuração.
+
+### Abordagem associada a Kimball
+
+Kimball parte de processos de negócio e entrega modelos dimensionais integrados por dimensões conformadas e por uma arquitetura de barramento. A abordagem favorece entregas incrementais: vendas pode ser o primeiro processo, desde que produto, data e cliente sejam projetados para integração coerente.
+
+O risco não é “ser bottom-up” por si só. É construir marts locais sem conformidade e chamá-los de Kimball. Sem definições compartilhadas, a organização apenas troca um monólito atrasado por vários silos rápidos.
+
+### Abordagem associada a Inmon
+
+Inmon descreve um enterprise data warehouse integrado, historizado e orientado a assuntos, normalmente associado a modelo normalizado, do qual derivam estruturas de consumo e data marts. A quarta edição de *Building the Data Warehouse*, publicada pela Wiley em 2005, registra essa tradição e discute arquitetura, dados não estruturados, monitoramento e testes.
+
+O benefício procurado é integrar conceitos empresariais antes de multiplicar apresentações departamentais. O custo pode ser maior coordenação inicial e distância entre o programa corporativo e uma primeira entrega útil.
+
+### Não transforme a comparação em torcida
+
+Arquiteturas reais combinam ideias. Uma empresa pode manter uma camada integrada e publicar estrelas para consumo. Outra pode começar por um processo dimensional e amadurecer a integração. Lakehouses e warehouses em nuvem mudaram mecanismos físicos, mas não eliminaram conflitos de definição, grão ou propriedade.
+
+A escolha deve considerar abrangência, urgência, dependências entre áreas, maturidade de governança e capacidade de operação. “Kimball versus Inmon” não decide sozinho formato de arquivo, engine, orquestração ou camada semântica.
+
+## Particionamento, clustering e indexação dependem do mecanismo
+
+O objetivo físico é evitar ler, mover ou recalcular dados desnecessários. O nome do recurso varia:
+
+- no BigQuery, [particionamento](https://cloud.google.com/bigquery/docs/partitioned-tables) separa a tabela por uma coluna ou tempo de ingestão, enquanto clustering organiza blocos por colunas e permite eliminar blocos relevantes;
+- no Snowflake, dados são organizados em micro-partições, e [chaves de clustering](https://docs.snowflake.com/en/user-guide/tables-clustering-keys) são uma decisão adicional indicada pela documentação para tabelas muito grandes e padrões específicos;
+- em bancos relacionais tradicionais, índices B-tree, BRIN, colunares ou materializações seguem regras e custos próprios.
+
+Portanto, “indexe todas as chaves estrangeiras” ou “particione por data” não são regras universais de warehouse. Antes de alterar o desenho físico, registre:
+
+1. consulta ou carga problemática;
+2. volume lido e volume retornado;
+3. filtros e joins dominantes;
+4. custo de manutenção e armazenamento;
+5. forma de verificar se a mudança ajudou.
+
+Não há benchmark neste guia porque resultados dependem de dados, distribuição, concorrência, cache, mecanismo e configuração. Um número sem esses elementos seria decoração.
+
+## Incrementalidade, qualidade, linhagem e observabilidade
+
+### Cargas incrementais
+
+Uma carga incremental precisa definir como reconhece inserção, alteração e exclusão. `updated_at`, CDC, log de eventos e comparação de snapshots possuem falhas diferentes. O processo deve ser idempotente: repetir o mesmo intervalo não pode duplicar fatos.
+
+Guarde o intervalo processado, a origem, a versão da transformação e a contagem de registros. Preveja *backfill* para correções históricas sem sobrescrever silenciosamente períodos já publicados.
+
+### Qualidade e testes
+
+Teste propriedades ligadas ao modelo:
+
+- unicidade da chave no grão declarado;
+- ausência de dimensões órfãs;
+- valores obrigatórios e domínios aceitos;
+- reconciliação com totais controlados da origem;
+- intervalos SCD sem sobreposição indevida;
+- atualização dentro do acordo de disponibilidade;
+- comportamento conhecido para dados atrasados e cancelamentos.
+
+Um teste “a tabela não está vazia” não prova que receita está correta. Qualidade deve se conectar à decisão que pode ser prejudicada.
+
+### Linhagem
+
+Linhagem registra de onde veio um campo, quais transformações o alteraram e quais consumidores serão afetados por uma mudança. Ela pode ser extraída do código e do catálogo, mas também precisa de contexto: dono, finalidade, granularidade e regra de negócio.
+
+### Observabilidade
+
+Observe execução, duração, atraso, volume, distribuição, schema e falhas de teste. Alertas devem levar a uma ação. Avisar sobre cada variação natural produz ruído; não avisar quando uma partição deixa de chegar produz confiança falsa.
+
+## Segurança, dados pessoais, acesso e custo
+
+Um warehouse concentra dados e amplia o impacto de acesso indevido. Copiar todas as colunas “para usar depois” aumenta risco, retenção e custo. Para dados pessoais, finalidade, necessidade, transparência, retenção e direitos dos titulares precisam ser avaliados com responsáveis adequados; este guia não substitui orientação jurídica.
+
+A [ANPD](https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes) mantém materiais sobre segurança da informação, agentes de tratamento e direitos. No desenho técnico:
+
+- remova campos sem finalidade analítica antes que se espalhem;
+- separe identificadores diretos de atributos necessários quando possível;
+- aplique menor privilégio por função e conjunto de dados;
+- proteja credenciais e dados em trânsito e repouso;
+- registre acessos administrativos e alterações relevantes;
+- defina retenção também para staging, backups, exportações e ambientes de teste;
+- teste como localizar, corrigir ou eliminar dados quando houver obrigação aplicável.
+
+Custo também é parte da arquitetura. Inclua ingestão, armazenamento, computação de transformação, consultas, BI, tráfego entre regiões, logs, retenção, ambientes e trabalho operacional. Separar armazenamento e computação pode dar controle, mas não torna consulta gratuita. Um dashboard que relê todo o histórico a cada atualização pode custar mais que a carga diária.
+
+## Projeto evolutivo para uma empresa pequena
+
+Considere uma loja com banco de pedidos, planilha de metas e exportação diária do meio de pagamento. A primeira pergunta é: “qual foi a receita líquida confirmada por dia e canal, considerando cancelamentos?”
+
+### Etapa 1: contrato da métrica
+
+Defina evento, data, status, moeda, cancelamento, fuso e grão. Reconcilie manualmente uma semana. Ainda não é preciso escolher streaming, lakehouse ou catálogo corporativo.
+
+### Etapa 2: carga diária reproduzível
+
+Copie somente campos necessários para uma área restrita de staging. Preserve identificador da origem, horário de extração e lote. Faça a carga reexecutável para o mesmo dia.
+
+### Etapa 3: primeiro modelo dimensional
+
+Crie `dim_date`, `dim_channel` e uma fato com o grão adequado — item, pedido ou pagamento conforme a pergunta. Não misture os três. Publique uma view semântica com `net_confirmed_revenue` e documentação.
+
+### Etapa 4: testes e operação
+
+Teste unicidade, relacionamentos, status aceitos e reconciliação por dia. Registre dono e procedimento para atraso. Monitore tempo, linhas e data máxima disponível.
+
+### Etapa 5: evoluir diante de evidência
+
+Adicione carga incremental quando a extração completa causar problema. Separe infraestrutura quando analytics competir com o sistema operacional. Adicione SCD Tipo 2 quando uma pergunta histórica exigir. Particione quando volume e consultas demonstrarem benefício. Incorpore nova fonte somente com caso de uso e responsável.
+
+Esse caminho pode começar em um banco relacional separado ou em um serviço gerenciado simples. A ferramenta muda quando os requisitos mudam; grão, qualidade e semântica precisam estar corretos desde o primeiro modelo.
+
+## Checklist de design e perguntas de descoberta
+
+<EditorialChecklist title="Antes de implementar ou ampliar o warehouse">
+
+### Perguntas de negócio
+
+- [ ] Qual decisão ou relatório será apoiado?
+- [ ] Qual evento representa o fato e qual frase declara o grão?
+- [ ] Quais datas possuem significados diferentes?
+- [ ] Como cancelamentos, atrasos, correções e moedas são tratados?
+- [ ] Quem aprova a definição da métrica?
+
+### Fontes e transformação
+
+- [ ] Qual sistema é responsável por cada campo?
+- [ ] Como inserções, alterações e exclusões serão reconhecidas?
+- [ ] A carga pode ser repetida sem duplicar dados?
+- [ ] Existe staging suficiente para reconciliar e reprocessar?
+- [ ] Regras e versões da transformação ficam rastreáveis?
+
+### Modelo e consumo
+
+- [ ] Fatos, dimensões e chaves respeitam o mesmo grão?
+- [ ] Dimensões conformadas são necessárias entre processos?
+- [ ] Cada atributo histórico tem política SCD deliberada?
+- [ ] Métricas aditivas e não aditivas estão documentadas?
+- [ ] A camada semântica evita definições concorrentes?
+
+### Operação, segurança e custo
+
+- [ ] Testes verificam unicidade, integridade, reconciliação e atualização?
+- [ ] Linhagem, dono e procedimento de incidente estão registrados?
+- [ ] Dados pessoais têm finalidade, acesso e retenção definidos?
+- [ ] Consultas analíticas estão isoladas do sistema transacional quando necessário?
+- [ ] Armazenamento, processamento, BI, tráfego e operação entram no orçamento?
+
+</EditorialChecklist>
+
+## Arquitetura suficiente é melhor que arquitetura ornamental
+
+Data warehouse design não começa com uma lista de serviços. Começa com uma pergunta que precisa de dados confiáveis, uma definição de grão e uma forma de verificar o resultado. A arquitetura deve tornar esse aprendizado reproduzível sem fechar caminhos desnecessariamente.
+
+Modele um processo, reconcilie-o e publique uma semântica clara. Depois use observações reais — novos consumidores, maior volume, atraso, custo, risco ou conflito de definições — para justificar a próxima camada. Assim, a evolução responde a requisitos, não à ansiedade de parecer preparado para uma escala que ainda não existe.
+
+<NextSteps
+  title="Continue pelo desenho e pelo uso das métricas"
+  description="Revise padrões relacionais e depois conecte métricas a decisões, hipóteses e contexto."
+  primaryHref="/blog/database-design-patterns"
+  primaryLabel="Estudar padrões de banco de dados"
+  secondaryHref="/blog/marketing-orientado-a-dados"
+  secondaryLabel="Entender decisões orientadas a dados"
+/>
+
+## Referências
+
+- [Kimball Group: Dimensional Modeling Techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/). Biblioteca de grão, fatos, dimensões conformadas e SCD. Acesso em 8 de agosto de 2026.
+- Kimball, Ralph; Ross, Margy. [*The Data Warehouse Toolkit*, 3ª ed.](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/books/data-warehouse-dw-toolkit/). Wiley, 2013.
+- Inmon, William H. [*Building the Data Warehouse*, 4ª ed.](https://www.wiley-vch.de/en/areas-interest/computing-computer-sciences/building-the-data-warehouse-978-0-7645-9944-6). Wiley, 2005.
+- [Microsoft Learn: Dimensional modeling in Fabric Warehouse](https://learn.microsoft.com/en-us/fabric/data-warehouse/dimensional-modeling-overview). Referência de star schema, fatos e dimensões. Acesso em 8 de agosto de 2026.
+- [Azure Architecture Center: Extract, transform, and load](https://learn.microsoft.com/en-us/azure/architecture/data-guide/relational-data/etl). Distinção entre ETL e ELT. Acesso em 8 de agosto de 2026.
+- [Google Cloud: Introduction to partitioned tables](https://cloud.google.com/bigquery/docs/partitioned-tables). Comportamento específico de particionamento e clustering no BigQuery. Acesso em 8 de agosto de 2026.
+- [Snowflake: Understanding table structures](https://docs.snowflake.com/en/user-guide/tables-micro-partitions) e [clustering keys](https://docs.snowflake.com/en/user-guide/tables-clustering-keys). Comportamento físico específico da plataforma. Acesso em 8 de agosto de 2026.
+- [Databricks: What is a data lakehouse?](https://docs.databricks.com/aws/en/lakehouse/). Definição e implementação do fornecedor. Acesso em 8 de agosto de 2026.
+- [ANPD: materiais educativos e publicações](https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes). Guias de segurança, agentes de tratamento e proteção de dados. Acesso em 8 de agosto de 2026.

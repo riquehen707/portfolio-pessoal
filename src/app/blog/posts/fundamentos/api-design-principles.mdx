@@ -1,0 +1,514 @@
+---
+title: "API design principles: princípios para criar APIs consistentes e evolutivas"
+slug: "api-design-principles"
+publishedAt: "2026-08-08"
+updatedAt: "2026-08-08"
+reviewedAt: "2026-08-08"
+summary: "Um guia técnico para projetar contratos de API claros, seguros e capazes de evoluir sem impor quebras desnecessárias aos clientes."
+description: "API design principles: recursos, semântica HTTP, erros, paginação, segurança, idempotência, concorrência, versionamento, OpenAPI e observabilidade."
+image: "/api/og/generate?title=API%20design%20principles&subtitle=APIs%20consistentes%20e%20evolutivas"
+imageAlt: "Capa editorial com o título API design principles"
+format: "Guia técnico"
+category: "Tecnologia"
+categories: ["Tecnologia", "Desenvolvimento"]
+tags: ["API design principles", "APIs HTTP", "REST", "OpenAPI", "Arquitetura de software"]
+kind: "study"
+featured: false
+featuredHome: false
+readingTime: 29
+toc: true
+tocDepth: 3
+area: "tecnologia"
+module: "dados-e-backend"
+node: "api-design-principles"
+level: "intermediario"
+type: "guia"
+knowledgeStatus: "publicado"
+essential: true
+prerequisites: ["Desenvolvimento web: o que é, como funciona e como começar"]
+unlocks: ["Database design patterns: padrões para modelar bancos de dados com clareza e escala", "Domain-driven design"]
+related: ["Desenvolvimento web: o que é, como funciona e como começar", "Database design patterns: padrões para modelar bancos de dados com clareza e escala", "Domain-driven design"]
+estimatedReadingTime: 29
+primaryKeyword: "api design principles"
+secondaryKeywords: ["princípios de design de API", "boas práticas para APIs", "design de APIs REST", "contrato de API", "API evolutiva"]
+keywords: ["api design principles", "princípios de design de API", "boas práticas para APIs", "REST API", "OpenAPI", "idempotência", "versionamento de API", "API security"]
+mapVisibility: "trilha"
+faq:
+  - q: "Toda API HTTP precisa ser REST?"
+    a: "Não. HTTP pode transportar interfaces orientadas a recursos, RPC, GraphQL e outros protocolos. O importante é não contradizer a semântica do protocolo e documentar claramente o contrato escolhido."
+  - q: "É obrigatório colocar a versão da API na URL?"
+    a: "Não. Versão no caminho é uma estratégia possível, mas cabeçalho, negociação de conteúdo e evolução sem versão explícita também existem. A escolha depende de consumidores, infraestrutura, suporte e política de migração."
+  - q: "POST nunca é idempotente?"
+    a: "POST não é definido como método idempotente pelo HTTP. Uma operação específica pode oferecer idempotência por contrato, por exemplo com uma chave que identifica tentativas equivalentes, mas isso precisa ser documentado e implementado no servidor."
+  - q: "OpenAPI garante que uma API está bem projetada?"
+    a: "Não. OpenAPI torna o contrato legível por ferramentas e pessoas, mas também consegue descrever uma interface inconsistente. Revisão, testes de contrato e exemplos válidos continuam necessários."
+references:
+  - title: "RFC 9110 — HTTP Semantics"
+    author: "IETF"
+    url: "https://www.rfc-editor.org/rfc/rfc9110"
+  - title: "RFC 9205 — Building Protocols with HTTP"
+    author: "IETF"
+    url: "https://www.rfc-editor.org/rfc/rfc9205"
+  - title: "RFC 9457 — Problem Details for HTTP APIs"
+    author: "IETF"
+    url: "https://www.rfc-editor.org/rfc/rfc9457"
+  - title: "RFC 9700 — Best Current Practice for OAuth 2.0 Security"
+    author: "IETF"
+    url: "https://www.rfc-editor.org/rfc/rfc9700"
+  - title: "RFC 9745 — The Deprecation HTTP Response Header Field"
+    author: "IETF"
+    url: "https://www.rfc-editor.org/rfc/rfc9745"
+  - title: "RFC 8594 — The Sunset HTTP Header Field"
+    author: "IETF"
+    url: "https://www.rfc-editor.org/rfc/rfc8594"
+  - title: "OpenAPI Specification 3.2.0"
+    author: "OpenAPI Initiative"
+    url: "https://spec.openapis.org/oas/v3.2.0.html"
+  - title: "Google API Improvement Proposals"
+    author: "Google"
+    url: "https://google.aip.dev/general"
+  - title: "Best practices for RESTful web API design"
+    author: "Microsoft"
+    url: "https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design"
+status: "published"
+language: "pt-BR"
+---
+
+Uma API parece simples quando cabe em um exemplo: uma URL, um verbo HTTP e um objeto JSON. A dificuldade aparece depois, quando clientes distintos dependem do contrato, uma operação precisa ser repetida com segurança, duas pessoas atualizam o mesmo recurso ou um campo antigo precisa desaparecer.
+
+**API design principles** são critérios para tomar essas decisões de maneira previsível. Bom design reduz ambiguidades para quem consome a interface e cria espaço para evolução. Isso exige mais do que seguir uma estética “RESTful”: casos de uso, semântica, contratos, segurança e operação precisam concordar.
+
+Este guia concentra os exemplos em **APIs HTTP com JSON**. Quando uma recomendação pertence ao HTTP ou a APIs orientadas a recursos, isso será indicado. Princípios como contrato explícito, mínimo privilégio, compatibilidade e observabilidade também se aplicam a GraphQL, RPC e eventos, embora a implementação mude.
+
+<QuickSummary title="O que orienta um bom design de API">
+
+- Comece por consumidores, casos de uso e invariantes; endpoints são consequência do contrato.
+- Use métodos e códigos segundo a semântica HTTP, sem tentar codificar toda regra de negócio no status.
+- Requests, respostas, erros, paginação e nomes precisam formar uma linguagem consistente.
+- Autenticação identifica uma entidade; autorização decide o que ela pode fazer em cada recurso.
+- Compatibilidade retroativa exige conhecer como clientes realmente interpretam o contrato.
+- Documentação, testes, telemetria e política de depreciação fazem parte da interface.
+
+</QuickSummary>
+
+## O que é design de API?
+
+Design de API é a definição deliberada das capacidades expostas, das representações aceitas, das respostas possíveis e das regras de evolução de uma interface entre sistemas. Inclui nomes e payloads, mas também comportamento: repetição, concorrência, autorização, falhas, limites e prazos.
+
+O contrato possui pelo menos três camadas:
+
+1. **Sintaxe:** operações, parâmetros, schemas e formatos.
+2. **Semântica:** o que cada dado significa e quais efeitos a operação produz.
+3. **Operação:** autenticação, limites, disponibilidade, rastreabilidade, depreciação e suporte.
+
+OpenAPI descreve muito bem partes da primeira camada e documenta elementos das demais. Não substitui decisões de domínio nem garante que duas implementações atribuam o mesmo significado a `status: "active"`.
+
+## Comece pelo caso de uso e pelo contrato
+
+“Precisamos de um endpoint de pedidos” ainda não é um requisito. Quem cria o pedido? É possível salvá-lo sem pagamento? O preço é recalculado? Uma nova tentativa pode duplicar cobrança? Quais campos o cliente precisa ler depois? Quem pode cancelar e até quando?
+
+Mapeie consumidores, tarefas, invariantes e falhas antes de escolher caminhos. Uma interface pequena pode partir de exemplos concretos:
+
+- criar um pedido com itens e endereço;
+- consultar o estado atual;
+- listar pedidos recentes em páginas estáveis;
+- cancelar um pedido ainda não processado;
+- distinguir validação inválida, falta de permissão e conflito de estado.
+
+Essa abordagem é *contract-first* quando o contrato é discutido antes da implementação. Não significa congelar um arquivo YAML cedo demais. Significa usar exemplos e schemas para tornar suposições revisáveis por produto, clientes, segurança e implementação.
+
+<EditorialTable
+  title="Princípio, problema evitado e custo"
+  caption="Os princípios orientam escolhas; cada custo precisa ser avaliado no contexto da API e de seus consumidores."
+  mobileMode="cards"
+  columns={[
+    { key: "principio", label: "Princípio" },
+    { key: "problema", label: "Problema evitado" },
+    { key: "tradeoff", label: "Trade-off" },
+  ]}
+  rows={[
+    { principio: "Casos de uso antes de endpoints", problema: "Operações que não resolvem uma tarefa completa", tradeoff: "Exige descoberta e participação dos consumidores" },
+    { principio: "Semântica do protocolo", problema: "Caches, retries e intermediários interpretando a operação incorretamente", tradeoff: "Nem toda ação do domínio cabe em CRUD simples" },
+    { principio: "Consistência", problema: "Cada recurso exigir um novo dialeto", tradeoff: "Uma convenção antiga pode precisar ser mantida por compatibilidade" },
+    { principio: "Mínimo privilégio", problema: "Token ou identidade com acesso amplo demais", tradeoff: "Políticas mais granulares aumentam modelagem e operação" },
+    { principio: "Evolução aditiva", problema: "Clientes quebrarem a cada lançamento", tradeoff: "Campos antigos e migrações coexistem por algum tempo" },
+    { principio: "Observabilidade segura", problema: "Falhas impossíveis de correlacionar", tradeoff: "Telemetria tem custo e exige retenção, acesso e redação de segredos" },
+  ]}
+/>
+
+## Modele recursos, nomes e relacionamentos
+
+Em uma API orientada a recursos, uma coleção representa entidades do mesmo tipo e um item tem identidade estável:
+
+```http title="Coleção e recurso"
+GET /orders
+GET /orders/ord_01J9M6P2JQ7X
+```
+
+Use substantivos que representem o domínio, não nomes de tabelas nem detalhes da interface atual. `orders` é mais estável do que `getOrderRows`. Mantenha uma convenção para plural, caixa, datas, dinheiro, IDs e ausência de valor.
+
+Relacionamentos podem aparecer como identificadores, links ou recursos aninhados. O aninhamento ajuda quando o filho só faz sentido no contexto do pai, mas caminhos profundos acoplam identidades e dificultam mudanças:
+
+```http title="Relação contextual sem aninhamento excessivo"
+GET /orders/ord_01J9M6P2JQ7X/items
+GET /customers/cus_01J8ZK3G/orders
+```
+
+Uma ação de domínio que não se encaixa honestamente em criar, substituir ou remover um recurso pode ser modelada como comando ou como recurso de processo. Não invente um `PUT` apenas para parecer RESTful:
+
+```http title="Ação explícita do domínio"
+POST /orders/ord_01J9M6P2JQ7X/cancellations
+```
+
+O resultado pode ser uma solicitação de cancelamento auditável. Outra API pode preferir `POST /orders/{id}:cancel`. Ambas exigem contrato claro; nenhuma nomenclatura é universalmente correta.
+
+## Semântica HTTP sem dogmatismo
+
+O [RFC 9110](https://www.rfc-editor.org/rfc/rfc9110) define significado dos métodos, propriedades como segurança e idempotência, e códigos de status. Essas propriedades afetam clientes, proxies, caches e retries.
+
+### Segurança e idempotência não são sinônimos
+
+Um método é **seguro** quando sua semântica solicitada é essencialmente leitura. `GET`, `HEAD`, `OPTIONS` e `TRACE` são definidos como seguros. Logs e métricas podem acontecer, mas um `GET` não deve confirmar pagamento ou excluir dados.
+
+Um método é **idempotente** quando várias requisições idênticas têm o mesmo efeito pretendido no servidor que uma única requisição. `PUT`, `DELETE` e métodos seguros possuem essa propriedade na semântica HTTP. Isso não obriga cada resposta a ser idêntica nem impede registros de auditoria.
+
+`POST` não é idempotente por definição. Uma operação específica pode acrescentar idempotência por contrato, como veremos adiante.
+
+### Métodos precisam representar o efeito
+
+- `GET` recupera uma representação sem solicitar mudança de estado.
+- `POST` envia dados para processamento conforme a semântica do recurso; costuma criar ou iniciar operações.
+- `PUT` cria ou substitui o estado do recurso identificado pela URI, conforme o contrato.
+- `PATCH` aplica uma modificação parcial segundo o formato de patch adotado.
+- `DELETE` solicita a remoção da associação entre o recurso e sua URI; detalhes de retenção interna pertencem ao contrato.
+
+### Códigos de status são uma camada, não o domínio inteiro
+
+Escolha o código que descreve o resultado HTTP e use o corpo para detalhes de domínio:
+
+- `200 OK` para uma resposta bem-sucedida com representação;
+- `201 Created` quando um novo recurso foi criado, idealmente com `Location`;
+- `202 Accepted` quando o processamento foi aceito, mas ainda não terminou;
+- `204 No Content` quando houve sucesso e não há conteúdo de resposta;
+- `400 Bad Request` para requisição malformada ou inválida segundo o contrato;
+- `401 Unauthorized` quando faltam credenciais válidas — apesar do nome histórico, refere-se a autenticação;
+- `403 Forbidden` quando a requisição é compreendida, mas não autorizada;
+- `404 Not Found` quando o recurso não foi encontrado ou sua existência não deve ser revelada;
+- `409 Conflict` quando a requisição conflita com o estado atual;
+- `412 Precondition Failed` quando uma precondição como `If-Match` falha;
+- `422 Unprocessable Content` quando a sintaxe é compreendida, mas as instruções não podem ser processadas;
+- `429 Too Many Requests` quando o cliente excedeu um limite aplicável;
+- `500 Internal Server Error` para falha inesperada do servidor, sem expor stack trace.
+
+Não crie uma tabela universal “erro X sempre usa status Y” fora do contexto. Uma busca sem resultados normalmente retorna uma coleção vazia com `200`; a consulta de um ID inexistente tende a retornar `404`.
+
+## Requests, respostas e erros consistentes
+
+Consistência reduz ramificações no cliente. Decida e documente:
+
+- nomes e formatos de campos;
+- datas e fusos, preferencialmente com formato inequívoco;
+- unidades e representação monetária;
+- distinção entre campo ausente e `null`;
+- IDs opacos e sua estabilidade;
+- envelope de coleções e metadados;
+- formato de erros e localização de falhas de validação.
+
+### Decisão frágil e versão melhorada
+
+<EditorialComparison
+  eyebrow="Uma variável central: contrato de erro"
+  title="De mensagem improvisada para erro estruturado"
+  columns={[
+    {
+      title: "Frágil",
+      items: [
+        "Retorna 200 mesmo quando a operação falha.",
+        "O cliente precisa procurar palavras dentro de message.",
+        "Cada endpoint escolhe nomes e formatos próprios.",
+        "Detalhes internos podem vazar para o consumidor.",
+      ],
+    },
+    {
+      title: "Melhorada",
+      items: [
+        "O status HTTP representa a classe da falha.",
+        "O tipo do problema possui identificador estável.",
+        "Campos de validação são dados estruturados.",
+        "A explicação orienta correção sem revelar implementação.",
+      ],
+    },
+  ]}
+/>
+
+O RFC 9457 define `application/problem+json` para detalhes de problemas em APIs HTTP. Ele não obriga toda API a adotá-lo e não deve virar canal de depuração interna.
+
+```http title="Erro de validação coerente com RFC 9457"
+HTTP/1.1 422 Unprocessable Content
+Content-Type: application/problem+json
+X-Request-Id: req_01J9M8XFCWYK
+
+{
+  "type": "https://api.example.com/problems/invalid-order",
+  "title": "Pedido inválido",
+  "status": 422,
+  "detail": "Corrija os campos indicados e envie novamente.",
+  "instance": "/problems/req_01J9M8XFCWYK",
+  "errors": [
+    {
+      "pointer": "/items/0/quantity",
+      "code": "must_be_positive"
+    }
+  ]
+}
+```
+
+Clientes devem interpretar `type`, `code` e campos documentados, não analisar a frase de `detail`, que pode mudar ou ser traduzida.
+
+## Exemplo evolutivo: uma API pequena de pedidos
+
+O exemplo abaixo mantém o mesmo vocabulário entre criação, leitura, erros e paginação. Valores e domínios são fictícios.
+
+### 1. Criar um pedido
+
+```http title="Request — criar pedido"
+POST /orders HTTP/1.1
+Host: api.example.com
+Authorization: Bearer <access-token>
+Content-Type: application/json
+Idempotency-Key: 2f6d0f4e-9fe2-4b54-a50e-38a22fc1d920
+
+{
+  "customerId": "cus_01J8ZK3G",
+  "currency": "BRL",
+  "items": [
+    { "productId": "prd_01J82QH4", "quantity": 2 }
+  ]
+}
+```
+
+```http title="Response — recurso criado"
+HTTP/1.1 201 Created
+Location: /orders/ord_01J9M6P2JQ7X
+Content-Type: application/json
+ETag: "7e91c9"
+X-Request-Id: req_01J9M8H99P8A
+
+{
+  "id": "ord_01J9M6P2JQ7X",
+  "customerId": "cus_01J8ZK3G",
+  "status": "pending",
+  "currency": "BRL",
+  "totalMinor": 15980,
+  "items": [
+    {
+      "productId": "prd_01J82QH4",
+      "quantity": 2,
+      "unitPriceMinor": 7990
+    }
+  ],
+  "createdAt": "2026-08-08T14:32:18Z"
+}
+```
+
+O cliente envia produto e quantidade; o servidor determina preços autorizados e total. Dinheiro usa unidade minoritária inteira e moeda explícita. O contrato deve dizer se descontos, impostos e frete aparecem como campos adicionais.
+
+### 2. Listar com paginação por cursor
+
+```http title="Request — filtrar, ordenar e paginar"
+GET /orders?status=pending&sort=-createdAt&limit=20&cursor=eyJpZCI6Im9yZF8wMUo5In0 HTTP/1.1
+Host: api.example.com
+Authorization: Bearer <access-token>
+```
+
+```json title="Response — coleção paginada"
+{
+  "data": [
+    {
+      "id": "ord_01J9M6P2JQ7X",
+      "status": "pending",
+      "currency": "BRL",
+      "totalMinor": 15980,
+      "createdAt": "2026-08-08T14:32:18Z"
+    }
+  ],
+  "page": {
+    "limit": 20,
+    "nextCursor": "eyJpZCI6Im9yZF8wMUo4In0"
+  }
+}
+```
+
+O cursor deve ser opaco para o cliente, vinculado à ordenação e validado pelo servidor. Paginação por offset é mais simples e pode ser suficiente em conjuntos pequenos ou estáveis; cursores tendem a lidar melhor com inserções concorrentes, mas complicam saltos e implementação.
+
+### 3. Atualizar com controle de concorrência
+
+```http title="Request — atualização condicional"
+PATCH /orders/ord_01J9M6P2JQ7X HTTP/1.1
+Host: api.example.com
+Authorization: Bearer <access-token>
+Content-Type: application/merge-patch+json
+If-Match: "7e91c9"
+
+{
+  "deliveryNote": "Entregar na portaria"
+}
+```
+
+Se outra atualização alterou a representação e o `ETag` não corresponde mais, o servidor pode retornar `412 Precondition Failed`. Isso evita sobrescrita silenciosa, mas exige que o cliente recarregue, compare ou apresente uma estratégia de resolução.
+
+## Validação, filtragem, ordenação e busca
+
+Valide tipo, formato, limites e regras de domínio no servidor. Rejeite campos desconhecidos quando isso fizer parte do contrato ou documente que serão ignorados; comportamento implícito dificulta detectar erro de digitação.
+
+Parâmetros também formam uma linguagem:
+
+```text title="Convenção possível"
+?status=pending
+?createdAfter=2026-08-01T00:00:00Z
+?sort=-createdAt,totalMinor
+?limit=20&cursor=<opaque-cursor>
+?q=termo
+```
+
+Filtro exato, busca textual e ordenação são capacidades diferentes. Documente operadores permitidos, campos pesquisáveis, collation, estabilidade da ordenação e limites. Não exponha diretamente uma linguagem de consulta do banco sem controle: isso acopla armazenamento, amplia superfície de abuso e torna custo imprevisível.
+
+## Autenticação, autorização e proteção contra abuso
+
+**Autenticação** estabelece quem é o cliente, usuário ou serviço. **Autorização** decide se aquela identidade pode executar uma ação naquele recurso. Um token válido não concede acesso universal.
+
+Princípio do mínimo privilégio significa conceder apenas recursos, ações e tempo necessários. Verifique autorização em cada operação, inclusive em IDs fornecidos pelo cliente; filtrar a lista e esquecer o acesso direto ao item cria falhas de autorização por objeto.
+
+Não envie tokens em URLs. Use TLS, mecanismos de autenticação adequados ao contexto e rotação/revogação quando aplicável. Para OAuth 2.0, o [RFC 9700](https://www.rfc-editor.org/rfc/rfc9700) é a prática de segurança vigente e atualiza recomendações antigas; implementar OAuth por exemplos avulsos é arriscado.
+
+### Dados sensíveis e segredos
+
+- aceite apenas dados necessários à operação;
+- evite reproduzir segredos em respostas, erros, logs e traces;
+- marque campos sensíveis e aplique redação antes da telemetria;
+- defina retenção e acesso aos registros;
+- não trate criptografia como substituto de autorização.
+
+### Rate limiting não é apenas um número
+
+Limites podem proteger capacidade, equidade e custo, mas devem considerar identidade, operação e risco. `429 Too Many Requests` comunica excesso de requisições; `Retry-After` pode indicar quando tentar novamente quando essa previsão for possível.
+
+Documente escopo e comportamento. Um limite global rígido pode impedir uma operação crítica por causa de tráfego irrelevante. Também não substitui validação, quotas de negócio, detecção de abuso, filas ou dimensionamento.
+
+## Idempotency keys em operações adequadas
+
+Uma conexão pode cair depois que o servidor criou um pagamento, antes que o cliente receba a resposta. Repetir um `POST` cegamente pode duplicar o efeito. Uma chave de idempotência permite reconhecer tentativas equivalentes dentro de um escopo e período definidos.
+
+O nome `Idempotency-Key` é uma convenção difundida, mas não faz parte da semântica básica definida pelo RFC 9110. A API precisa documentar:
+
+- quais operações aceitam a chave;
+- formato, escopo e período de retenção;
+- se chave igual com payload diferente é rejeitada;
+- qual status e resposta são repetidos;
+- comportamento enquanto a primeira tentativa ainda está em andamento.
+
+Não use a chave para esconder uma operação naturalmente mal modelada. Em `PUT /profiles/{id}`, a própria identidade do recurso pode oferecer a idempotência necessária.
+
+## Concorrência e consistência
+
+Duas escritas corretas isoladamente podem produzir resultado errado quando se sobrepõem. `ETag` e `If-Match` oferecem controle otimista em HTTP. No domínio, transações, constraints, locks, filas e operações atômicas podem continuar necessários.
+
+Consistência eventual também precisa aparecer no contrato. Se uma operação retorna `202 Accepted`, ofereça um recurso de status, webhook ou outro mecanismo para acompanhar conclusão e falha. “Aceito” não significa “concluído”.
+
+Não prometa leitura imediata se réplicas, índices ou caches podem atrasar. Explique a garantia que o cliente pode assumir: leitura após escrita, ordenação por chave, entrega pelo menos uma vez ou possibilidade de eventos duplicados, por exemplo.
+
+## Evolução, compatibilidade e depreciação
+
+Versionar é administrar contratos, não apenas acrescentar `/v2`. Uma mudança é quebradora quando um cliente correto segundo o contrato antigo deixa de funcionar ou passa a interpretar outra semântica.
+
+Mudanças frequentemente aditivas incluem novo endpoint, novo campo opcional e novo valor aceito em entrada. Ainda assim, adicionar um valor a um enum de resposta pode quebrar clientes que assumem conjunto fechado. Compatibilidade depende do contrato e do comportamento real dos consumidores.
+
+### Estratégias de versão
+
+- **Caminho**, como `/v1/orders`: visível e simples de rotear, mas pode incentivar cópias integrais.
+- **Cabeçalho ou media type:** separa versão da identidade do recurso, porém aumenta complexidade de teste, cache e descoberta.
+- **Evolução contínua:** mantém uma versão pública e usa mudanças compatíveis, mas exige disciplina, telemetria e política forte de depreciação.
+
+Não existe escolha universal. Evite versionar cada alteração e evite também mudanças silenciosas.
+
+### Deprecar é um processo observável
+
+Inventarie consumidores, anuncie a alternativa, ofereça documentação e prazo, acompanhe uso e só remova quando a política permitir. O [RFC 9745](https://www.rfc-editor.org/rfc/rfc9745) padroniza o campo HTTP `Deprecation`; o [RFC 8594](https://www.rfc-editor.org/rfc/rfc8594) define `Sunset` para informar quando se espera que um recurso deixe de responder. Cabeçalhos ajudam automação, mas não substituem comunicação e suporte.
+
+## Documentação como contrato
+
+A [OpenAPI Specification 3.2.0](https://spec.openapis.org/oas/v3.2.0.html), publicada em setembro de 2025, é a versão vigente verificada para este artigo. Ela descreve APIs HTTP de forma independente de linguagem e pode alimentar documentação, validação, testes e geração de clientes.
+
+Um bom documento inclui operações, parâmetros, schemas, obrigatoriedade, formatos, exemplos, respostas de erro e requisitos de segurança. Exemplos precisam passar pelo mesmo validador do schema; caso contrário, a documentação demonstra algo que a API rejeita.
+
+SDKs reduzem trabalho repetitivo, mas também criam outra superfície de compatibilidade: versões de linguagem, retries, serialização, erros e atualizações. Gere código quando isso ajuda, revise a ergonomia e não use o SDK para esconder um contrato incoerente.
+
+Testes de contrato podem confirmar que implementação e descrição concordam. Não provam significado de negócio nem desempenho, mas encontram divergências antes dos consumidores.
+
+## Observabilidade sem expor segredos
+
+Um `request ID` permite correlacionar resposta, gateway e serviço. Aceite um identificador confiável da infraestrutura ou gere um novo; não permita que texto arbitrário e ilimitado contamine logs.
+
+Registre informações úteis para responder: qual operação falhou, em que etapa, com que latência e sob qual versão. Não registre corpo completo por padrão. Tokens, cookies, credenciais, documentos, dados de pagamento e informações pessoais exigem exclusão ou redação.
+
+Métricas técnicas úteis incluem taxa por operação, latência em percentis, distribuição de códigos, saturação e retries. Métricas de contrato incluem uso de versões, campos depreciados e falhas de validação. Alta taxa de `400` pode indicar clientes ruins, documentação confusa ou mudança incompatível — o número não escolhe a causa.
+
+```text title="Responsabilidades no caminho de uma requisição"
+cliente ── contrato e credencial ──> gateway/API ── identidade e contexto ──> serviço
+   ^                                  │                                      │
+   └──── resposta + request ID ───────┴──── status, limites e telemetria ─────┘
+```
+
+O gateway pode aplicar autenticação inicial, limites e correlação. O serviço continua responsável por autorização de domínio, invariantes e resultados. Centralizar tudo no gateway cria uma falsa fronteira de segurança.
+
+## REST, GraphQL, RPC e eventos
+
+Essas opções não são uma escala de maturidade.
+
+- **REST/HTTP orientado a recursos** funciona bem quando recursos e semântica do protocolo combinam com os casos de uso, caches e intermediários.
+- **GraphQL** permite ao cliente selecionar um grafo tipado e pode reduzir combinações de endpoints; exige decisões próprias sobre autorização, custo, cache, erros e evolução do schema.
+- **RPC** expressa comandos e procedimentos diretamente; pode ser adequado quando operações dominam o modelo. Ainda precisa de contratos, compatibilidade, deadlines e idempotência.
+- **Eventos** desacoplam produtores e consumidores no tempo, mas introduzem entrega, ordenação, duplicação, schema e observabilidade distribuída.
+
+Uma arquitetura pode combinar estilos. O erro é escolher por moda ou simular um estilo enquanto ignora suas propriedades: uma API chamada REST que usa `GET` para alterar estado continua contrariando HTTP.
+
+## Checklist de revisão de contrato
+
+<EditorialChecklist title="Antes de publicar ou alterar uma API">
+
+- Consumidores, casos de uso, invariantes e falhas principais estão explícitos?
+- Recursos, comandos, nomes, IDs, datas, dinheiro e ausência de valor seguem convenções documentadas?
+- Métodos, segurança, idempotência e códigos respeitam a semântica HTTP aplicável?
+- Requests, respostas, coleções e erros mantêm estrutura consistente?
+- Validação informa campos e códigos sem exigir análise de mensagens humanas?
+- Paginação possui ordenação estável e comportamento definido durante mudanças no conjunto?
+- Filtros, busca e ordenação têm campos, operadores e limites documentados?
+- Autenticação e autorização estão separadas, com mínimo privilégio por recurso e ação?
+- Tokens, dados pessoais e segredos são excluídos de URLs, erros e telemetria?
+- Retries, idempotency keys, timeouts e operações assíncronas possuem contrato explícito?
+- Concorrência e consistência foram analisadas nas operações sujeitas a disputa?
+- Mudanças foram classificadas contra clientes reais, inclusive enums e validação mais restritiva?
+- Depreciação possui alternativa, prazo, comunicação e medição de uso?
+- OpenAPI, exemplos e implementação passam por testes de contrato?
+- Request IDs, logs e métricas permitem diagnóstico sem expor conteúdo sensível?
+
+</EditorialChecklist>
+
+O checklist não substitui threat modeling, revisão de domínio, testes de carga nem avaliação pelos consumidores. Ele serve para tornar omissões discutíveis antes de se transformarem em dependências difíceis de remover.
+
+## Bons princípios preservam opções
+
+Uma API consistente ensina seu vocabulário uma vez. Uma API evolutiva distingue detalhes internos de compromissos públicos e dá aos clientes tempo, evidência e caminhos de migração. Isso não exige uma única interpretação de REST; exige decisões coerentes e verificáveis.
+
+Comece pequeno, mas torne explícito o que já é contrato. Use o protocolo pelo significado, descreva exceções, proteja cada recurso e observe o uso real. A melhor API não é a que acumula mais padrões: é a que resolve casos de uso sem transferir ambiguidade e risco para todos os consumidores.
+
+Para aprofundar as estruturas persistidas por trás da interface, leia [Database design patterns](/blog/database-design-patterns). Para rever a base da aplicação web, consulte [Desenvolvimento web: o que é, como funciona e como começar](/blog/desenvolvimento-web).
+
+<NextSteps
+  title="Continue estudando"
+  items={[
+    { title: "Database design patterns", description: "Modele relacionamentos, histórico, temporalidade e consistência com trade-offs explícitos.", href: "/blog/database-design-patterns" },
+    { title: "Desenvolvimento web", description: "Revise como cliente, servidor, HTTP, dados e publicação se conectam.", href: "/blog/desenvolvimento-web" },
+    { title: "Domain-driven design", description: "Relacione linguagem, limites de domínio e decisões arquiteturais.", href: "/blog/domain-driven-design" },
+  ]}
+/>

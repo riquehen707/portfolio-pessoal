@@ -1,0 +1,39 @@
+.root {
+  width: 100%;
+  max-width: var(--measure-body);
+  margin: 2rem 0 2.5rem;
+}
+
+.scroll {
+  width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  border: 1px solid var(--line-subtle);
+  border-radius: 0.75rem;
+  background: var(--surface-panel-soft);
+  scrollbar-gutter: stable;
+}
+
+.scroll:focus-visible {
+  outline: 2px solid var(--brand-on-background-medium);
+  outline-offset: 3px;
+}
+
+.diagram {
+  display: block;
+  width: 100%;
+  min-width: 42rem;
+}
+
+.caption {
+  margin-top: 0.65rem;
+  color: var(--neutral-on-background-medium);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 700px) {
+  .diagram {
+    width: 42rem;
+  }
+}
