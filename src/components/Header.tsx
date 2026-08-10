@@ -14,6 +14,7 @@ const navItems = [
   { href: "/", label: "Início", key: "home" as const },
   { href: "/blog", label: "Blog", key: "blog" as const },
   { href: "/blog/cultura", label: "Estudos", key: "studies" as const },
+  { href: "/filmes", label: "Filmes", key: "movies" as const },
   { href: "/about", label: "Sobre", key: "about" as const },
 ] as const;
 

@@ -62,6 +62,8 @@ import { NextSection } from "@/components/mdx/NextSection";
 import CompatibilityChecklist from "@/components/mdx/CompatibilityChecklist";
 import { VisualPrinciplesDemo } from "@/components/mdx/VisualPrinciplesDemo";
 import { AccessibleFormDemo } from "@/components/mdx/AccessibleFormDemo";
+import { MovieCard } from "@/components/movies/MovieCard";
+import { MovieRankingJsonLd } from "@/components/seo/MovieRankingJsonLd";
 
 import { baseURL } from "@/resources";
 
@@ -245,6 +247,7 @@ function createCodeBlock(props: any) {
       <CodeBlock
         marginTop="16"
         marginBottom="24"
+        style={{ width: "100%", maxWidth: "100%", minWidth: 0 }}
         codes={[{ code: children, language: typedLanguage, label }]}
         copyButton
       />
@@ -333,7 +336,11 @@ function TableWrapper({ children }: { children: ReactNode }) {
   return (
     <div
       style={{
+        width: "100%",
+        maxWidth: "100%",
+        minWidth: 0,
         overflowX: "auto",
+        WebkitOverflowScrolling: "touch",
         margin: "20px 0 28px",
         borderTop: "1px solid var(--line-subtle)",
         borderBottom: "1px solid var(--line-subtle)",
@@ -342,7 +349,7 @@ function TableWrapper({ children }: { children: ReactNode }) {
         boxShadow: "none",
       }}
     >
-      <table style={{ width: "100%", borderCollapse: "collapse" }}>
+      <table style={{ width: "100%", minWidth: "max-content", borderCollapse: "collapse" }}>
         {children}
       </table>
     </div>
@@ -462,6 +469,8 @@ export const baseMDXComponents: MDXComponents = {
   CompatibilityChecklist,
   VisualPrinciplesDemo,
   AccessibleFormDemo,
+  MovieCard,
+  MovieRankingJsonLd,
 
   // shortcodes
   PillarBadge,

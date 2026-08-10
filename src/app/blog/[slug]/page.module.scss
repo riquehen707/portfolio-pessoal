@@ -2,6 +2,8 @@
 
 .page {
   width: min(100%, 1120px);
+  min-width: 0;
+  max-width: 100%;
   margin-inline: auto;
 }
 
@@ -157,6 +159,8 @@
   align-items: start;
   justify-content: center;
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .reviewNotice {
@@ -169,6 +173,8 @@
 
 .article {
   width: min(100%, 720px);
+  min-width: 0;
+  max-width: 100%;
   color: var(--neutral-on-background-medium);
   font-size: clamp(1.04rem, 1.2vw, 1.12rem);
   line-height: 1.84;
@@ -178,6 +184,24 @@
   display: grid;
   gap: clamp(2rem, 5vw, 3.5rem);
   width: min(100%, 720px);
+  min-width: 0;
+  max-width: 100%;
+}
+
+.article > :global(*) {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.article :global(pre) {
+  max-width: 100%;
+}
+
+.article :global(img),
+.article :global(video),
+.article :global(iframe),
+.article :global(svg) {
+  max-width: 100%;
 }
 
 .authorBox {

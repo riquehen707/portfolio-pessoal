@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 
 import { baseURL, blog, routes as routesConfig } from "@/resources";
 import { getPosts } from "@/utils/utils";
+import { getPublishedMovies } from "@/content/movies/movies";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const today = new Date().toISOString().split("T")[0];
@@ -13,12 +14,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.72,
   }));
 
+  const moviePages = getPublishedMovies().map((movie) => ({
+    url: `${baseURL}/filmes/${movie.slug}`,
+    lastModified: today,
+    changeFrequency: "monthly" as const,
+    priority: 0.64,
+  }));
+
   const routePriorities: Record<string, number> = {
     "/": 1,
     [blog.path]: 0.86,
     [`${blog.path}/seo`]: 0.78,
     [`${blog.path}/seo/entender-a-busca`]: 0.76,
     [`${blog.path}/cultura`]: 0.78,
+    "/filmes": 0.76,
   };
 
   const routes = Object.keys(routesConfig)
@@ -38,6 +47,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly" as const,
       priority: 0.4,
     },
+    ...moviePages,
     ...blogPosts,
   ];
 }
