@@ -15,11 +15,14 @@ function compileLocalContent() {
       path.join(root, "src/content/movies/movieSchema.ts"),
       path.join(root, "src/content/movies/movies.ts"),
       path.join(root, "src/content/movies/curations.ts"),
+      path.join(root, "src/content/movies/movieOffers.ts"),
       path.join(root, "src/content/creators/creatorSchema.ts"),
       path.join(root, "src/content/creators/creators.ts"),
       path.join(root, "src/content/works/workSchema.ts"),
       path.join(root, "src/content/works/works.ts"),
       path.join(root, "src/content/organizations/organizations.ts"),
+      path.join(root, "src/content/games/games.ts"),
+      path.join(root, "src/content/animationWorks/animationWorks.ts"),
     ],
     options: {
       esModuleInterop: true,
@@ -80,17 +83,20 @@ try {
   compileLocalContent();
   const compiledRoot = path.join(temporaryDirectory, "src/content/movies");
   const { movies } = require(path.join(compiledRoot, "movies.js"));
-  const { movieCurations } = require(path.join(compiledRoot, "curations.js"));
+  const { movieCurations, resolveMovieList } = require(path.join(compiledRoot, "curations.js"));
+  const { movieOffers } = require(path.join(compiledRoot, "movieOffers.js"));
   const { MovieBatchSchema } = require(path.join(compiledRoot, "movieSchema.js"));
   const { creators } = require(path.join(temporaryDirectory, "src/content/creators/creators.js"));
   const { editorialWorks } = require(path.join(temporaryDirectory, "src/content/works/works.js"));
   const { organizations } = require(path.join(temporaryDirectory, "src/content/organizations/organizations.js"));
+  const { games } = require(path.join(temporaryDirectory, "src/content/games/games.js"));
+  const { animationWorks } = require(path.join(temporaryDirectory, "src/content/animationWorks/animationWorks.js"));
   const articles = await getArticleRecords();
   const articleSlugs = articles.map((article) => article.slug);
-  const movieSlugs = new Set(movies.flatMap((movie) => [movie.slug, ...movie.aliases]));
+  const movieIds = new Set(movies.map((movie) => movie.id));
   const articleSlugSet = new Set(articleSlugs);
   const invalidRelationships = movieCurations.flatMap((curation) => [
-    ...curation.items.filter((item) => !movieSlugs.has(item.movie)).map((item) => ({ type: "missing_movie", from: curation.slug, to: item.movie })),
+    ...curation.items.filter((item) => !movieIds.has(item.movieId)).map((item) => ({ type: "missing_movie", from: curation.slug, to: item.movieId })),
     ...(!articleSlugSet.has(curation.href.replace(/^\/blog\//, "")) ? [{ type: "missing_article", from: curation.slug, to: curation.href }] : []),
   ]);
   const creatorIds = new Set(creators.map((creator) => creator.id));
@@ -104,11 +110,15 @@ try {
       ...work.organizationIds.filter((id) => !organizationIds.has(id)).map((id) => ({ type: "missing_organization", from: work.id, to: id })),
     ]),
     ...organizations.flatMap((organization) => organization.workIds.filter((id) => !workIds.has(id)).map((id) => ({ type: "missing_work", from: organization.id, to: id }))),
+    ...games.flatMap((game) => [...game.organizationIds.filter((id)=>!organizationIds.has(id)).map((id)=>({type:"missing_organization",from:game.id,to:id})),...game.contributors.filter((credit)=>!creatorIds.has(credit.personId)).map((credit)=>({type:"missing_creator",from:game.id,to:credit.personId}))]),
+    ...animationWorks.flatMap((work)=>work.relationships.filter((relation)=>!organizationIds.has(relation.organizationId)).map((relation)=>({type:"missing_organization",from:work.id,to:relation.organizationId}))),
+    ...movies.flatMap((movie)=>movie.organizationRelationships.filter((relation)=>!organizationIds.has(relation.organizationId)).map((relation)=>({type:"missing_organization",from:movie.id,to:relation.organizationId}))),
+    ...movieOffers.filter((offer)=>!movieIds.has(offer.movieId)).map((offer)=>({type:"missing_movie",from:offer.id,to:offer.movieId})),
   );
   const records = movies.map((movie) => ({
     ...movie,
     relationships: movieCurations
-      .filter((curation) => curation.items.some((item) => item.movie === movie.slug))
+      .filter((curation) => curation.items.some((item) => item.movieId === movie.id))
       .map((curation) => ({ type: "appears_in", contentType: "article", slug: curation.href.replace(/^\/blog\//, "") })),
   }));
   const exportPayload = { schemaVersion: 1, contentType: "movie", records };
@@ -131,19 +141,28 @@ try {
       creators: creators.length,
       editorialWorks: editorialWorks.length,
       organizations: organizations.length,
+      games: games.length,
+      animationWorks:animationWorks.length,
+      movieOffers: movieOffers.length,
       publishedMovies: movies.filter((movie) => movie.status === "published").length,
       draftMovies: movies.filter((movie) => movie.status === "draft").length,
     },
-    duplicates: { movieIds: duplicates(movies.map((movie) => movie.id)), movieSlugs: duplicates(movies.map((movie) => movie.slug)), articleSlugs: duplicates(articleSlugs), creatorIds: duplicates(creators.map((item) => item.id)), workIds: duplicates(editorialWorks.map((item) => item.id)), organizationIds: duplicates(organizations.map((item) => item.id)) },
+    duplicates: { movieIds: duplicates(movies.map((movie) => movie.id)), movieSlugs: duplicates(movies.map((movie) => movie.slug)), articleSlugs: duplicates(articleSlugs), creatorIds: duplicates(creators.map((item) => item.id)), workIds: duplicates(editorialWorks.map((item) => item.id)), organizationIds: duplicates(organizations.map((item) => item.id)), gameIds:duplicates(games.map((item)=>item.id)),gameSlugs:duplicates(games.flatMap((item)=>[item.slug,...item.aliases])),animationWorkIds:duplicates(animationWorks.map((item)=>item.id)),animationWorkSlugs:duplicates(animationWorks.map((item)=>item.slug)) },
     invalidRelationships,
     needsReview: {
       movies: movies.filter((movie) => !movie.poster || !movie.sources.length || (movie.status === "published" && !movie.editorial)).map((movie) => movie.id),
+      moviesWithoutOrganizations: movies.filter((movie) => !movie.organizationRelationships.length).map((movie) => movie.id),
       articlesWithoutPortableIdentity: articles.filter((article) => !article.migrationReady).map((article) => article.slug),
     },
     selfTests: {
       validBatchAccepted: MovieBatchSchema.safeParse(movies).success,
       duplicateRejected: !MovieBatchSchema.safeParse([...movies, movies[0]]).success,
       invalidRecordRejected: !MovieBatchSchema.safeParse([{ ...movies[0], id: "", createdAt: "data-invalida" }]).success,
+      automaticListResolved: resolveMovieList({ id:"test_auto",slug:"test-auto",title:"test",href:"/test",mode:"automatic",rules:{organizationId:"org_studio_ghibli"},items:[] }, movies).some((movie)=>movie.id==="mov_ghb_2023_kimitachi"),
+      editorialListPreservedOrder: resolveMovieList({ id:"test_editorial",slug:"test-editorial",title:"test",href:"/test",mode:"editorial",items:[{movieId:"mov_c71a05"},{movieId:"mov_7c1f3a"}] }, movies).map((movie)=>movie.id).join(",")==="mov_c71a05,mov_7c1f3a",
+      hybridListAppliedOverrides: resolveMovieList({ id:"test_hybrid",slug:"test-hybrid",title:"test",href:"/test",mode:"hybrid",rules:{organizationId:"org_studio_ghibli"},items:[{movieId:"mov_ghb_2023_kimitachi"}],excludeMovieIds:["mov_ghb_1986_laputa"] }, movies)[0]?.id==="mov_ghb_2023_kimitachi" && !resolveMovieList({ id:"test_hybrid",slug:"test-hybrid",title:"test",href:"/test",mode:"hybrid",rules:{organizationId:"org_studio_ghibli"},items:[{movieId:"mov_ghb_2023_kimitachi"}],excludeMovieIds:["mov_ghb_1986_laputa"] }, movies).some((movie)=>movie.id==="mov_ghb_1986_laputa"),
+      zeroOrganizationAccepted: MovieBatchSchema.safeParse([{...movies[0],id:"test_no_org",slug:"test-no-org",aliases:[],organizationRelationships:[]}]).success,
+      multipleOrganizationsAccepted: MovieBatchSchema.safeParse([{...movies[0],id:"test_multi_org",slug:"test-multi-org",aliases:[],organizationRelationships:[{organizationId:"org_studio_ghibli",roles:["production"],status:"published"},{organizationId:"org_laika",roles:["services"],status:"published"}]}]).success,
     },
   };
 

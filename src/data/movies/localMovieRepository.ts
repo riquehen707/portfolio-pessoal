@@ -6,7 +6,7 @@ const byId = new Map(movies.map((movie) => [movie.id, movie]));
 const bySlug = new Map(movies.flatMap((movie) => [movie.slug, ...movie.aliases].map((slug) => [slug, movie] as const)));
 
 const invalidCurationReferences = movieCurations.flatMap((curation) =>
-  curation.items.filter((item) => !bySlug.has(item.movie)).map((item) => `${curation.slug}:${item.movie}`),
+  curation.items.filter((item) => !byId.has(item.movieId)).map((item) => `${curation.slug}:${item.movieId}`),
 );
 
 if (invalidCurationReferences.length) {
@@ -23,7 +23,7 @@ export const localMovieRepository: MovieRepository = {
     const movie = byId.get(movieId);
     if (!movie) return [];
     return movieCurations.flatMap((curation) => {
-      const item = curation.items.find((entry) => entry.movie === movie.slug || movie.aliases.includes(entry.movie));
+      const item = curation.items.find((entry) => entry.movieId === movie.id);
       return item ? [{ curation, item }] : [];
     });
   },

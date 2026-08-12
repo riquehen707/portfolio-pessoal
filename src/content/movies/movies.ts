@@ -19,10 +19,11 @@ export type MovieSeed = Pick<
   | "experience"
   | "contentWarnings"
   | "sources"
-> & Partial<Pick<Movie, "internationalTitle" | "releaseDate" | "screenwriters" | "releaseType" | "studioRelation" | "studioIds" | "productionStatus">> & {
+> & Partial<Pick<Movie, "internationalTitle" | "releaseDate" | "screenwriters" | "credits" | "releaseType" | "productionStatus">> & {
   id?: string;
   aliases?: string[];
   poster?: Movie["poster"];
+  organizationRelationships?: Movie["organizationRelationships"];
 };
 
 const movieIds: Record<string, string> = {
@@ -91,15 +92,17 @@ const rawMovies = seeds.map((movie) => ({
   createdAt: "2026-08-10",
   updatedAt: "2026-08-11",
   relatedContentIds: [],
-  studioIds: movie.studioIds ?? [],
-  poster: movie.poster ?? (movie.studioRelation || movie.studioIds?.length ? undefined : {
+  format: "feature" as const,
+  credits: movie.credits ?? [],
+  organizationRelationships: movie.organizationRelationships ?? [],
+  poster: movie.poster ?? {
     src: `/images/movies/${movie.slug}.webp`,
     alt: `Capa editorial de ${movie.titleBr} (${movie.year})`,
     sourceUrl: `https://henrique.dog/filmes`,
     credit: "Capa editorial original de henrique.dog",
-  }),
+    rights: "original-editorial" as const,
+  },
   status: "draft" as const,
-  availabilityBr: [],
   seo: {
     title: `${movie.titleBr}: ficha e análise do filme`,
     description: `${movie.titleBr} (${movie.year}): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.`,

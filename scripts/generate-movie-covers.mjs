@@ -3,9 +3,14 @@ import path from "node:path";
 import sharp from "sharp";
 
 const root = process.cwd();
-const source = await readFile(path.join(root, "src/content/movies/movies.ts"), "utf8");
+const sources = await Promise.all([
+  "movies.ts",
+  "ghibliMovies.ts",
+  "laikaMovies.ts",
+].map((file) => readFile(path.join(root, "src/content/movies", file), "utf8")));
+const source = sources.join("\n");
 const output = path.join(root, "public/images/movies");
-const moviePattern = /\{ slug: "([^"]+)", titleBr: "([^"]+)", originalTitle: "([^"]+)", year: (\d{4})/g;
+const moviePattern = /\{[\s\S]*?slug: "([^"]+)",[\s\S]*?titleBr: "([^"]+)", originalTitle: "([^"]+)",[\s\S]*?year: (\d{4})/g;
 const palettes = [
   ["#111116", "#ffd400", "#f7f3e8"],
   ["#15110f", "#ef5b36", "#f8e9d4"],
@@ -46,7 +51,8 @@ for (const [, slug, title, originalTitle, year] of movies) {
   const lines = wrapTitle(title).map((line, index) =>
     `<text x="58" y="${420 + (index * 76)}" fill="${foreground}" font-family="Arial, sans-serif" font-size="64" font-weight="800">${escapeXml(line)}</text>`,
   ).join("");
-  const original = originalTitle !== title
+  const canRenderOriginalTitle = !/[^\u0000-\u024f]/.test(originalTitle);
+  const original = originalTitle !== title && canRenderOriginalTitle
     ? `<text x="60" y="${745}" fill="${foreground}" opacity="0.68" font-family="Arial, sans-serif" font-size="22">${escapeXml(originalTitle.slice(0, 42))}</text>`
     : "";
   const svg = `<svg width="600" height="900" viewBox="0 0 600 900" xmlns="http://www.w3.org/2000/svg">

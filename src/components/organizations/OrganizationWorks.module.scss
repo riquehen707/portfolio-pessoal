@@ -1,0 +1,13 @@
+.list { display: grid; gap: 0; margin-top: 2rem; border-top: 1px solid var(--neutral-alpha-medium); }
+.work { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: clamp(1.25rem, 4vw, 2.5rem); padding: 2rem 0; border-bottom: 1px solid var(--neutral-alpha-medium); color: inherit; text-decoration: none; }
+.poster { position: relative; width: 100%; aspect-ratio: 2 / 3; overflow: hidden; border-radius: var(--radius-m); background: var(--neutral-alpha-weak); }
+.poster img { object-fit: cover; }
+.poster > span { position: absolute; inset: 0; display: grid; place-items: center; color: var(--neutral-on-background-weak); font-size: 1.5rem; }
+.copy { align-self: center; min-width: 0; }
+.copy h3 { margin: .55rem 0 .25rem; font-size: clamp(1.65rem, 4vw, 2.65rem); line-height: 1.05; letter-spacing: -.035em; overflow-wrap: anywhere; }
+.copy p { max-width: 42rem; margin: .75rem 0; line-height: 1.65; }
+.copy .original { margin: 0; color: var(--neutral-on-background-weak); font-size: .9rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; color: var(--neutral-on-background-weak); font-size: .82rem; }
+.copy small { color: var(--neutral-on-background-weak); }
+a.work:hover h3 { color: var(--brand-on-background-strong); }
+@media (max-width: 560px) { .work { grid-template-columns: minmax(6.5rem, 34vw) minmax(0, 1fr); gap: 1rem; } .copy p:not(.original) { display: none; } .copy h3 { font-size: 1.4rem; } }

@@ -29,9 +29,6 @@ export function prepareMovieImport(input: unknown): MovieImportReport {
   const review = result.data.flatMap((movie) => {
     const items = [];
     if (!movie.poster) items.push(`${movie.slug}: pôster ausente; placeholder será usado.`);
-    if (!movie.availabilityBr.length) {
-      items.push(`${movie.slug}: disponibilidade no Brasil ainda não verificada.`);
-    }
     if (!movie.editorial) items.push(`${movie.slug}: página individual sem conteúdo editorial.`);
     return items;
   });

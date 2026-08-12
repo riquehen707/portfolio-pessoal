@@ -1,0 +1,3 @@
+.organizations { display: flex; flex-wrap: wrap; gap: .3rem .75rem; color: var(--neutral-on-background-weak); font-size: .72rem; line-height: 1.4; }
+.organizations a { color: inherit; font-weight: 700; text-underline-offset: .15em; }
+.organizations small { font-size: inherit; }

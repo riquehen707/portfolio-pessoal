@@ -306,6 +306,7 @@
     "title": "Nausicaä do Vale do Vento: ficha e análise do filme",
     "description": "Nausicaä do Vale do Vento (1984): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/nausicaa-do-vale-do-vento.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -315,6 +316,7 @@
     "title": "O Castelo no Céu: ficha e análise do filme",
     "description": "O Castelo no Céu (1986): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/o-castelo-no-ceu.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -324,6 +326,7 @@
     "title": "Túmulo dos Vagalumes: ficha e análise do filme",
     "description": "Túmulo dos Vagalumes (1988): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/tumulo-dos-vagalumes.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -333,6 +336,7 @@
     "title": "Meu Amigo Totoro: ficha e análise do filme",
     "description": "Meu Amigo Totoro (1988): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/meu-amigo-totoro.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -342,6 +346,7 @@
     "title": "O Serviço de Entregas da Kiki: ficha e análise do filme",
     "description": "O Serviço de Entregas da Kiki (1989): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/o-servico-de-entregas-da-kiki.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -351,6 +356,7 @@
     "title": "Memórias de Ontem: ficha e análise do filme",
     "description": "Memórias de Ontem (1991): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/memorias-de-ontem.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -360,6 +366,7 @@
     "title": "Porco Rosso: ficha e análise do filme",
     "description": "Porco Rosso (1992): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/porco-rosso.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -369,6 +376,7 @@
     "title": "Eu Posso Ouvir o Oceano: ficha e análise do filme",
     "description": "Eu Posso Ouvir o Oceano (1993): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/eu-posso-ouvir-o-oceano.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -378,6 +386,7 @@
     "title": "Pom Poko: ficha e análise do filme",
     "description": "Pom Poko (1994): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/pom-poko.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -387,6 +396,7 @@
     "title": "Sussurros do Coração: ficha e análise do filme",
     "description": "Sussurros do Coração (1995): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/sussurros-do-coracao.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -396,6 +406,7 @@
     "title": "Princesa Mononoke: ficha e análise do filme",
     "description": "Princesa Mononoke (1997): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/princesa-mononoke.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -405,6 +416,7 @@
     "title": "Meus Vizinhos, os Yamadas: ficha e análise do filme",
     "description": "Meus Vizinhos, os Yamadas (1999): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/meus-vizinhos-os-yamadas.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -414,6 +426,7 @@
     "title": "A Viagem de Chihiro: ficha e análise do filme",
     "description": "A Viagem de Chihiro (2001): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/a-viagem-de-chihiro.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -423,6 +436,7 @@
     "title": "O Reino dos Gatos: ficha e análise do filme",
     "description": "O Reino dos Gatos (2002): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/o-reino-dos-gatos.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -432,6 +446,7 @@
     "title": "O Castelo Animado: ficha e análise do filme",
     "description": "O Castelo Animado (2004): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/o-castelo-animado.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -441,6 +456,7 @@
     "title": "Contos de Terramar: ficha e análise do filme",
     "description": "Contos de Terramar (2006): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/contos-de-terramar.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -450,6 +466,7 @@
     "title": "Ponyo: ficha e análise do filme",
     "description": "Ponyo (2008): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/ponyo.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -459,6 +476,7 @@
     "title": "O Mundo dos Pequeninos: ficha e análise do filme",
     "description": "O Mundo dos Pequeninos (2010): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/o-mundo-dos-pequeninos.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -468,6 +486,7 @@
     "title": "Da Colina Kokuriko: ficha e análise do filme",
     "description": "Da Colina Kokuriko (2011): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/da-colina-kokuriko.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -477,6 +496,7 @@
     "title": "Vidas ao Vento: ficha e análise do filme",
     "description": "Vidas ao Vento (2013): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/vidas-ao-vento.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -486,6 +506,7 @@
     "title": "O Conto da Princesa Kaguya: ficha e análise do filme",
     "description": "O Conto da Princesa Kaguya (2013): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/o-conto-da-princesa-kaguya.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -495,6 +516,7 @@
     "title": "As Memórias de Marnie: ficha e análise do filme",
     "description": "As Memórias de Marnie (2014): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/as-memorias-de-marnie.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -504,6 +526,7 @@
     "title": "A Tartaruga Vermelha: ficha e análise do filme",
     "description": "A Tartaruga Vermelha (2016): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/a-tartaruga-vermelha.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -513,6 +536,7 @@
     "title": "Aya e a Bruxa: ficha e análise do filme",
     "description": "Aya e a Bruxa (2020): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/aya-e-a-bruxa.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -522,6 +546,7 @@
     "title": "O Menino e a Garça: ficha e análise do filme",
     "description": "O Menino e a Garça (2023): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/o-menino-e-a-garca.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -531,6 +556,7 @@
     "title": "Coraline e o Mundo Secreto: ficha e análise do filme",
     "description": "Coraline e o Mundo Secreto (2009): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/coraline-e-o-mundo-secreto.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -540,6 +566,7 @@
     "title": "ParaNorman: ficha e análise do filme",
     "description": "ParaNorman (2012): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/paranorman.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -549,6 +576,7 @@
     "title": "Os Boxtrolls: ficha e análise do filme",
     "description": "Os Boxtrolls (2014): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/os-boxtrolls.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -558,6 +586,7 @@
     "title": "Kubo e as Cordas Mágicas: ficha e análise do filme",
     "description": "Kubo e as Cordas Mágicas (2016): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/kubo-e-as-cordas-magicas.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -567,6 +596,7 @@
     "title": "Link Perdido: ficha e análise do filme",
     "description": "Link Perdido (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/link-perdido.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -576,6 +606,7 @@
     "title": "Wildwood: ficha e análise do filme",
     "description": "Wildwood (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/wildwood.webp",
     "structuredDataType": "Movie"
   }
 ]

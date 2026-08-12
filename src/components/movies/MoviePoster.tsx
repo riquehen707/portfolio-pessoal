@@ -12,7 +12,14 @@ export function MoviePoster({ movie, className, sizes, priority = false }: Movie
   return (
     <div className={className} data-placeholder={!movie.poster || undefined}>
       {movie.poster ? (
-        <Image alt={movie.poster.alt} fill priority={priority} quality={76} sizes={sizes} src={movie.poster.src} />
+        <Image
+          alt={movie.poster.alt}
+          fill
+          priority={priority}
+          sizes={sizes}
+          src={movie.poster.src}
+          unoptimized={movie.poster.src.startsWith("/images/movies/")}
+        />
       ) : (
         <span aria-label={`Sem capa para ${movie.titleBr}`}>{movie.year}</span>
       )}

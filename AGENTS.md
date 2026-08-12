@@ -1,5 +1,9 @@
 # Instruções do repositório
 
+## Arquitetura do site
+
+Para criar ou revisar tipos de página, rotas, modelos de dados, SEO, sitemap ou regras globais, consulte primeiro `docs/architecture/site-architecture.md`. Guias especializados continuam subordinados às fontes técnicas indicadas nesse documento.
+
 ## Escopo editorial
 
 Ao criar, revisar, classificar ou formatar artigos em `src/app/blog/posts/`, consulte primeiro `docs/content/README.md` e siga o roteiro correspondente à tarefa.

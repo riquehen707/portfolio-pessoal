@@ -1,28 +1,36 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { OrganizationWorks, getOrganizationMovies } from "@/components/organizations/OrganizationWorks";
+import { laika } from "@/content/organizations/organizations";
 import { laikaStudio } from "@/content/studios/studios";
-import { getMoviesByIds } from "@/data/movies";
 import { baseURL } from "@/resources";
 import styles from "./laika.module.scss";
 
 const path = "/estudios/laika";
-const title = "LAIKA: stop-motion, técnica e filmografia";
-const description = "Um perfil editorial da LAIKA: história, materialidade do stop-motion, processo híbrido e filmes do estúdio, de Coraline a Wildwood.";
+const title = "LAIKA: história, processo e filmografia";
+const description = "Perfil editorial da LAIKA: história, stop-motion, processo híbrido e filmografia relacionada ao estúdio, de Coraline a Wildwood.";
+const acceptedRoles = ["production", "animation", "co-production"] as const;
 
 export const metadata: Metadata = {
-  title, description, alternates: { canonical: `${baseURL}${path}` },
+  title,
+  description,
+  alternates: { canonical: `${baseURL}${path}` },
   openGraph: { title, description, type: "profile", url: `${baseURL}${path}` },
   twitter: { card: "summary", title, description },
 };
 
-export default async function LaikaPage() {
-  const films = await getMoviesByIds(laikaStudio.movieIds);
-  const released = films.filter((film) => film.productionStatus === "released");
-  const upcoming = films.filter((film) => film.productionStatus === "upcoming");
+export default function LaikaPage() {
+  const relatedMovies = getOrganizationMovies(laika.id, acceptedRoles);
+  const releasedCount = relatedMovies.filter((movie) => movie.productionStatus === "released").length;
   const jsonLd = {
-    "@context": "https://schema.org", "@type": "Organization", "@id": `${baseURL}${path}#organization`,
-    name: laikaStudio.name, legalName: laikaStudio.legalName, url: `${baseURL}${path}`, foundingDate: String(laikaStudio.founded),
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${baseURL}${path}#organization`,
+    name: laika.name,
+    legalName: laikaStudio.legalName,
+    url: `${baseURL}${path}`,
+    foundingDate: String(laikaStudio.founded),
     address: { "@type": "PostalAddress", addressLocality: "Hillsboro", addressRegion: "Oregon", addressCountry: "US" },
     sameAs: ["https://www.laika.com/"],
   };
@@ -31,61 +39,34 @@ export default async function LaikaPage() {
     <BreadcrumbJsonLd items={[{ name: "Início", url: baseURL }, { name: "Estúdios", url: `${baseURL}/estudios` }, { name: "LAIKA", url: `${baseURL}${path}` }]} />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-    <header className={styles.hero} data-hero-mode="abstract">
-      <div className={styles.workbench} aria-hidden="true"><i /><i /><i /><i /><i /></div>
+    <nav className={styles.breadcrumbs} aria-label="Navegação estrutural"><Link href="/">Início</Link><span aria-hidden="true">/</span><span>Estúdios</span><span aria-hidden="true">/</span><strong>LAIKA</strong></nav>
+
+    <header className={styles.hero}>
       <div className={styles.heroCopy}>
-        <span className={styles.eyebrow}>Perfil permanente · estúdio de animação</span>
+        <span className={styles.eyebrow}>Perfil de estúdio · animação</span>
         <h1>LAIKA</h1>
-        <p>Um estúdio que constrói o impossível em escala de mesa — e deixa madeira, tecido, metal, tinta e luz participarem da imagem.</p>
-        <dl><div><dt>Fundação</dt><dd>2005</dd></div><div><dt>Base</dt><dd>Oregon, EUA</dd></div><div><dt>Longas lançados</dt><dd>{released.length}</dd></div></dl>
+        <p>Stop-motion em escala de longa-metragem, construído entre matéria, fotografia e ferramentas digitais.</p>
+        <dl><div><dt>Fundação</dt><dd>2005</dd></div><div><dt>Base</dt><dd>Hillsboro, Oregon</dd></div><div><dt>Longas lançados</dt><dd>{releasedCount}</dd></div></dl>
       </div>
-      <p className={styles.heroCredit}>Composição abstrata original em CSS; nenhum personagem ou cenário foi reproduzido.</p>
+      <div className={styles.heroVisual} aria-hidden="true"><i /><i /><i /></div>
     </header>
 
-    <nav className={styles.index} aria-label="Nesta página">
-      <a href="#identidade">Identidade</a><a href="#processo">Processo</a><a href="#filmes">Filmografia</a><a href="#percursos">Por onde começar</a><a href="#fontes">Fontes</a>
-    </nav>
+    <nav className={styles.index} aria-label="Nesta página"><a href="#identidade">Identidade</a><a href="#processo">Processo</a><a href="#filmes">Filmografia</a><a href="#comecar">Por onde começar</a><a href="#fontes">Fontes</a></nav>
 
-    <section className={styles.intro} id="identidade">
-      <div><span>01 · Identidade</span><h2>Não é nostalgia por uma técnica antiga.</h2></div>
-      <div className={styles.prose}><p>A LAIKA nasceu em 2005 a partir da estrutura do antigo Will Vinton Studios, nos arredores de Portland. Seu primeiro longa próprio, <em>Coraline</em>, chegou em 2009 sob direção de Henry Selick. A continuidade do estúdio, porém, não depende de repetir aquele filme: cada produção muda escala, desenho, iluminação e proporção entre trabalho físico e digital.</p><p>O traço comum está menos numa “estética LAIKA” pronta do que numa decisão produtiva: personagens e cenários ocupam espaço real diante da câmera. Marcas de superfície, sombras e pequenas irregularidades não são decoração posterior; fazem parte da atuação.</p></div>
-    </section>
+    <section className={styles.split} id="identidade"><header><span className={styles.eyebrow}>História e identidade</span><h2>A técnica é antiga. A organização da imagem, não.</h2></header><div className={styles.prose}><p>A LAIKA surgiu em 2005 a partir da estrutura do antigo Will Vinton Studios, nos arredores de Portland. <em>Coraline</em>, dirigido por Henry Selick e lançado em 2009, foi seu primeiro longa.</p><p>Os filmes não repetem uma fórmula visual única. O elo está no modo de produção: personagens e cenários ocupam espaço diante da câmera, enquanto acabamento digital amplia possibilidades sem apagar peso, textura e luz.</p></div></section>
 
-    <section className={styles.process} id="processo">
-      <header><span>02 · Oficina híbrida</span><h2>O quadro começa na matéria, mas não termina nela.</h2><p>Stop-motion não significa ausência de computador. Na LAIKA, fabricação física e recursos digitais são partes coordenadas da mesma imagem.</p></header>
-      <ol>
-        <li><b>Estrutura</b><p>Armaduras articuladas sustentam poses repetíveis; espuma, silicone, resina, tecido e pintura constroem corpo e superfície.</p></li>
-        <li><b>Substituição</b><p>Expressões faciais podem usar peças intercambiáveis. Impressão 3D amplia a variedade, sem eliminar modelagem, acabamento e ajuste manual.</p></li>
-        <li><b>Palco</b><p>Cenários em miniatura recebem iluminação, câmera e efeitos físicos. Animadores alteram poses em incrementos mínimos entre fotografias.</p></li>
-        <li><b>Integração</b><p>Rig removal, composição, multidões, atmosfera e extensões digitais removem suportes e ampliam o que seria impraticável construir.</p></li>
-      </ol>
-      <aside><strong>O ponto não é esconder o digital.</strong><span>É fazê-lo preservar peso, textura e luz do que foi fotografado.</span></aside>
-    </section>
+    <section className={styles.process} id="processo"><header><span className={styles.eyebrow}>Processo e técnicas</span><h2>Uma oficina física com infraestrutura digital.</h2><p>Stop-motion não significa ausência de computador. Na LAIKA, as duas frentes são coordenadas para pertencer à mesma imagem.</p></header><ol><li><strong>Estrutura</strong><p>Armaduras articuladas, espuma, silicone, resina, tecido e pintura constroem corpo e superfície.</p></li><li><strong>Expressão</strong><p>Peças faciais intercambiáveis e impressão 3D ampliam variações, ainda dependentes de acabamento manual.</p></li><li><strong>Palco</strong><p>Cenários em miniatura recebem luz, câmera e efeitos físicos; poses mudam em incrementos entre fotografias.</p></li><li><strong>Integração</strong><p>Composição, remoção de suportes e extensões digitais ampliam o que seria impraticável construir.</p></li></ol></section>
 
-    <section className={styles.filmography} id="filmes">
-      <header><span>03 · Filmografia</span><h2>Seis longas, uma escala em expansão.</h2><p>A sequência é gerada por IDs permanentes do cadastro central. Obras sem perfil editorial completo continuam sem link.</p></header>
-      <div className={styles.timeline}>
-        {films.map((film, index) => <article key={film.id} className={styles.film} data-status={film.productionStatus}>
-          <div className={styles.frame} aria-label={`Sem capa registrada para ${film.titleBr}`}><span>{String(index + 1).padStart(2, "0")}</span><i /></div>
-          <div className={styles.filmCopy}><div className={styles.filmMeta}><span>{film.productionStatus === "upcoming" ? "Próximo lançamento" : film.year}</span><span>{film.directors.join(" · ")}</span></div><h3>{film.titleBr}</h3><p>{film.shortDescription}</p>{film.productionStatus === "upcoming" ? <small>Lançamento anunciado nos EUA: 23 de outubro de 2026. Avaliação editorial pendente.</small> : null}</div>
-        </article>)}
-      </div>
-      {upcoming.length ? <p className={styles.statusNote}><strong>Em produção confirmada:</strong> {upcoming.map((film) => film.titleBr).join(", ")}. Não é tratado como filme já lançado.</p> : null}
-    </section>
+    <section className={styles.filmography} id="filmes"><header><span className={styles.eyebrow}>Filmografia</span><h2>Longas lançados</h2><p>Esta lista vem dos relacionamentos publicados no cadastro central das obras. Uma página individual só recebe link quando seu conteúdo está pronto.</p></header><OrganizationWorks organizationId={laika.id} roles={acceptedRoles} /></section>
 
-    <section className={styles.paths} id="percursos">
-      <header><span>04 · Seleção editorial</span><h2>Escolha pela pergunta, não por uma nota.</h2></header>
-      <div><article><b>Para entender a identidade</b><h3>Coraline → ParaNorman</h3><p>Compare fantasia doméstica, terror familiar e como duas direções diferentes trabalham rostos e espaços.</p></article><article><b>Para observar escala</b><h3>Os Boxtrolls → Kubo</h3><p>Veja mecanismos, multidões e aventura ganharem amplitude sem perder a presença dos objetos.</p></article><article><b>Para uma entrada mais leve</b><h3>Link Perdido</h3><p>Viagem e comédia ocupam o primeiro plano, com cores mais abertas e menos ameaça gótica.</p></article></div>
-    </section>
+    <section className={styles.upcoming}><header><span className={styles.eyebrow}>Próximo lançamento</span><h2>Projeto confirmado, avaliação pendente</h2></header><OrganizationWorks organizationId={laika.id} roles={acceptedRoles} releaseStatus="upcoming" /></section>
 
-    <section className={styles.slate}>
-      <header><span>05 · Além da filmografia lançada</span><h2>Projetos anunciados não são estreias confirmadas.</h2></header>
-      {laikaStudio.announcedProjects.map((project) => <article key={project.title}><div><h3>{project.title}</h3><span>{project.kind}</span></div><p>{project.note}</p><strong>{project.state}</strong></article>)}
-      <p>Projetos de live action, publicidade, exposições e produtos não foram misturados à filmografia principal.</p>
-    </section>
+    <section className={styles.start} id="comecar"><header><span className={styles.eyebrow}>Por onde começar</span><h2>Três percursos, não uma ordem obrigatória.</h2></header><div><article><strong>Identidade</strong><h3>Coraline → ParaNorman</h3><p>Para comparar fantasia doméstica, terror familiar e duas direções distintas.</p></article><article><strong>Escala</strong><h3>Os Boxtrolls → Kubo</h3><p>Para observar mecanismos, multidões e aventura crescerem sem perder materialidade.</p></article><article><strong>Entrada mais leve</strong><h3>Link Perdido</h3><p>Comédia e viagem ocupam o primeiro plano, com menos ameaça gótica.</p></article></div></section>
 
-    <section className={styles.related}><span>06 · Relações</span><h2>Continue por técnica, estúdio ou atmosfera.</h2><div><Link href="/blog/studio-ghibli"><b>Studio Ghibli</b><span>Outra relação entre oficina, autoria e continuidade institucional.</span></Link><Link href="/blog/melhores-filmes-terror-seculo-21"><b>Terror no século XXI</b><span>Onde animação, fantasia sombria e horror encontram outros caminhos.</span></Link><Link href="/filmes"><b>Biblioteca de filmes</b><span>Consulte obras, técnicas, países e estados editoriais.</span></Link></div></section>
+    <section className={styles.people}><header><span className={styles.eyebrow}>Pessoas relacionadas</span><h2>Autoria muda de filme para filme.</h2></header><p>Henry Selick dirigiu <em>Coraline</em>; Sam Fell, Chris Butler, Graham Annable, Anthony Stacchi e Travis Knight aparecem na direção dos longas seguintes. Perfis individuais só serão ligados quando houver conteýo editorial suficiente.</p></section>
 
-    <footer className={styles.sources} id="fontes"><span>07 · Fontes e imagens</span><h2>O que sustenta este perfil.</h2><ul><li><a href="https://www.laika.com/" rel="noreferrer" target="_blank">Site oficial da LAIKA</a> — identidade, localização e atividades do estúdio.</li><li><a href="https://www.laika.com/our-films/" rel="noreferrer" target="_blank">Filmografia oficial</a> — referência primária; URL retornava 404 durante a revisão de 11 de agosto de 2026.</li><li><a href="https://wildwoodmovie.com/" rel="noreferrer" target="_blank">Site oficial de Wildwood</a> e anúncio de distribuição — estado e lançamento futuro.</li><li><a href="https://shop.laika.com/products/laika-the-magic-behind-a-stop-motion-dream-factory" rel="noreferrer" target="_blank">LAIKA: The Magic Behind a Stop-Motion Dream Factory</a> — materiais e processo.</li></ul><p><strong>Imagem do hero:</strong> nenhuma imagem promocional foi utilizada. A composição abstrata é original e feita em CSS. Capas e fotografias oficiais permanecem pendentes de licença ou autorização explícita.</p></footer>
+    <section className={styles.related}><span className={styles.eyebrow}>Continue explorando</span><div><Link href="/blog/studio-ghibli"><strong>Studio Ghibli</strong><span>Oficina, autoria e continuidade institucional em outra tradição.</span></Link><Link href="/estudios/cartoon-saloon"><strong>Cartoon Saloon</strong><span>Desenho, folclore e coprodução na animação irlandesa.</span></Link><Link href="/filmes"><strong>Biblioteca de filmes</strong><span>Obras, técnicas, países e estados editoriais.</span></Link></div></section>
+
+    <footer className={styles.sources} id="fontes"><span className={styles.eyebrow}>Fontes e imagens</span><h2>Referências principais</h2><ul><li><a href="https://www.laika.com/" rel="noreferrer" target="_blank">Site oficial da LAIKA</a> — identidade e atividades do estúdio.</li><li><a href="https://www.laika.com/our-films/" rel="noreferrer" target="_blank">Filmografia oficial</a> — catálogo primário; a rota permanecia indisponível na revisão.</li><li><a href="https://wildwoodmovie.com/" rel="noreferrer" target="_blank">Site oficial de Wildwood</a> — estado do projeto.</li><li><a href="https://shop.laika.com/products/laika-the-magic-behind-a-stop-motion-dream-factory" rel="noreferrer" target="_blank">LAIKA: The Magic Behind a Stop-Motion Dream Factory</a> — materiais e processo.</li></ul><p><strong>Imagens:</strong> nenhuma peça promocional foi reutilizada. O detalhe do hero é uma composição abstrata original em CSS; capas oficiais continuam pendentes de licença ou autorização.</p></footer>
   </main>;
 }

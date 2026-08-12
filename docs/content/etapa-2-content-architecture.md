@@ -1,5 +1,7 @@
 # Etapa 2 — Arquitetura de Conteúdo & Copy Strategy
 
+> **Documento histórico.** Este arquivo registra uma etapa inicial do antigo recorte de portfólio e não descreve todas as rotas atuais. A fonte principal da arquitetura do site é [`docs/architecture/site-architecture.md`](../architecture/site-architecture.md); as regras editoriais atuais começam em [`docs/content/README.md`](README.md).
+
 Base editorial da marca `Henrique Reis` aplicada ao produto.
 
 ## Princípio central

@@ -11,10 +11,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "Corra!",
       "originalTitle": "Get Out",
       "year": 2017,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 104,
       "countries": [
@@ -24,6 +25,7 @@
         "Jordan Peele"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror",
@@ -50,9 +52,9 @@
         "src": "/images/movies/corra.webp",
         "alt": "Capa editorial de Corra! (2017)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "Corra!: ficha e análise do filme",
@@ -81,10 +83,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "Hereditário",
       "originalTitle": "Hereditary",
       "year": 2018,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 127,
       "countries": [
@@ -94,6 +97,7 @@
         "Ari Aster"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror",
@@ -120,9 +124,9 @@
         "src": "/images/movies/hereditario.webp",
         "alt": "Capa editorial de Hereditário (2018)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "Hereditário: ficha e análise do filme",
@@ -151,10 +155,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "A Bruxa",
       "originalTitle": "The Witch: A New-England Folktale",
       "year": 2015,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 92,
       "countries": [
@@ -165,6 +170,7 @@
         "Robert Eggers"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror"
@@ -190,9 +196,9 @@
         "src": "/images/movies/a-bruxa.webp",
         "alt": "Capa editorial de A Bruxa (2015)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "A Bruxa: ficha e análise do filme",
@@ -221,10 +227,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "O Lamento",
       "originalTitle": "Goksung",
       "year": 2016,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 156,
       "countries": [
@@ -235,6 +242,7 @@
         "Na Hong-jin"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror",
@@ -261,9 +269,9 @@
         "src": "/images/movies/o-lamento.webp",
         "alt": "Capa editorial de O Lamento (2016)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "O Lamento: ficha e análise do filme",
@@ -292,10 +300,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "Deixe Ela Entrar",
       "originalTitle": "Låt den rätte komma in",
       "year": 2008,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 114,
       "countries": [
@@ -305,6 +314,7 @@
         "Tomas Alfredson"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror",
@@ -330,9 +340,9 @@
         "src": "/images/movies/deixe-ela-entrar.webp",
         "alt": "Capa editorial de Deixe Ela Entrar (2008)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "Deixe Ela Entrar: ficha e análise do filme",
@@ -361,10 +371,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "[REC]",
       "originalTitle": "[REC]",
       "year": 2007,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 78,
       "countries": [
@@ -375,6 +386,7 @@
         "Paco Plaza"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror"
@@ -399,9 +411,9 @@
         "src": "/images/movies/rec.webp",
         "alt": "Capa editorial de [REC] (2007)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "[REC]: ficha e análise do filme",
@@ -430,10 +442,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "Extermínio",
       "originalTitle": "28 Days Later…",
       "year": 2002,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 113,
       "countries": [
@@ -443,6 +456,7 @@
         "Danny Boyle"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror",
@@ -468,9 +482,9 @@
         "src": "/images/movies/exterminio.webp",
         "alt": "Capa editorial de Extermínio (2002)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "Extermínio: ficha e análise do filme",
@@ -499,10 +513,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "A Substância",
       "originalTitle": "The Substance",
       "year": 2024,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 141,
       "countries": [
@@ -514,6 +529,7 @@
         "Coralie Fargeat"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror",
@@ -539,9 +555,9 @@
         "src": "/images/movies/a-substancia.webp",
         "alt": "Capa editorial de A Substância (2024)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "A Substância: ficha e análise do filme",
@@ -570,10 +586,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "O Babadook",
       "originalTitle": "The Babadook",
       "year": 2014,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 94,
       "countries": [
@@ -584,6 +601,7 @@
         "Jennifer Kent"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror",
@@ -610,9 +628,9 @@
         "src": "/images/movies/o-babadook.webp",
         "alt": "Capa editorial de O Babadook (2014)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "O Babadook: ficha e análise do filme",
@@ -641,10 +659,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "Corrente do Mal",
       "originalTitle": "It Follows",
       "year": 2014,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 100,
       "countries": [
@@ -654,6 +673,7 @@
         "David Robert Mitchell"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror"
@@ -679,9 +699,9 @@
         "src": "/images/movies/corrente-do-mal.webp",
         "alt": "Capa editorial de Corrente do Mal (2014)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "Corrente do Mal: ficha e análise do filme",
@@ -710,10 +730,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "O Hospedeiro",
       "originalTitle": "Gwoemul",
       "year": 2006,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 120,
       "countries": [
@@ -723,6 +744,7 @@
         "Bong Joon-ho"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror",
@@ -750,9 +772,9 @@
         "src": "/images/movies/o-hospedeiro.webp",
         "alt": "Capa editorial de O Hospedeiro (2006)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "O Hospedeiro: ficha e análise do filme",
@@ -781,10 +803,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "Invasão Zumbi",
       "originalTitle": "Busanhaeng",
       "year": 2016,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 118,
       "countries": [
@@ -794,6 +817,7 @@
         "Yeon Sang-ho"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror",
@@ -820,9 +844,9 @@
         "src": "/images/movies/invasao-zumbi.webp",
         "alt": "Capa editorial de Invasão Zumbi (2016)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "Invasão Zumbi: ficha e análise do filme",
@@ -851,10 +875,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "Kairo",
       "originalTitle": "Kairo",
       "year": 2001,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 119,
       "countries": [
@@ -864,6 +889,7 @@
         "Kiyoshi Kurosawa"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror"
@@ -889,9 +915,9 @@
         "src": "/images/movies/kairo.webp",
         "alt": "Capa editorial de Kairo (2001)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "Kairo: ficha e análise do filme",
@@ -920,10 +946,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "Medo",
       "originalTitle": "Janghwa, Hongryeon",
       "year": 2003,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 115,
       "countries": [
@@ -933,6 +960,7 @@
         "Kim Jee-woon"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror",
@@ -959,9 +987,9 @@
         "src": "/images/movies/medo.webp",
         "alt": "Capa editorial de Medo (2003)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "Medo: ficha e análise do filme",
@@ -984,10 +1012,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "Abismo do Medo",
       "originalTitle": "The Descent",
       "year": 2005,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 99,
       "countries": [
@@ -997,6 +1026,7 @@
         "Neil Marshall"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror",
@@ -1023,9 +1053,9 @@
         "src": "/images/movies/abismo-do-medo.webp",
         "alt": "Capa editorial de Abismo do Medo (2005)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "Abismo do Medo: ficha e análise do filme",
@@ -1054,10 +1084,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "Mártires",
       "originalTitle": "Martyrs",
       "year": 2008,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 99,
       "countries": [
@@ -1068,6 +1099,7 @@
         "Pascal Laugier"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror"
@@ -1093,9 +1125,9 @@
         "src": "/images/movies/martires.webp",
         "alt": "Capa editorial de Mártires (2008)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "Mártires: ficha e análise do filme",
@@ -1118,10 +1150,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "Grave",
       "originalTitle": "Grave",
       "year": 2016,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 99,
       "countries": [
@@ -1132,6 +1165,7 @@
         "Julia Ducournau"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror",
@@ -1157,9 +1191,9 @@
         "src": "/images/movies/grave.webp",
         "alt": "Capa editorial de Grave (2016)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "Grave: ficha e análise do filme",
@@ -1188,10 +1222,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "O Segredo da Cabana",
       "originalTitle": "The Cabin in the Woods",
       "year": 2011,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 95,
       "countries": [
@@ -1201,6 +1236,7 @@
         "Drew Goddard"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror",
@@ -1227,9 +1263,9 @@
         "src": "/images/movies/o-segredo-da-cabana.webp",
         "alt": "Capa editorial de O Segredo da Cabana (2011)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "O Segredo da Cabana: ficha e análise do filme",
@@ -1252,10 +1288,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "O Homem Invisível",
       "originalTitle": "The Invisible Man",
       "year": 2020,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 124,
       "countries": [
@@ -1266,6 +1303,7 @@
         "Leigh Whannell"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror",
@@ -1292,9 +1330,9 @@
         "src": "/images/movies/o-homem-invisivel.webp",
         "alt": "Capa editorial de O Homem Invisível (2020)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "O Homem Invisível: ficha e análise do filme",
@@ -1317,10 +1355,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "Fale Comigo",
       "originalTitle": "Talk to Me",
       "year": 2022,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 95,
       "countries": [
@@ -1331,6 +1370,7 @@
         "Michael Philippou"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror"
@@ -1356,9 +1396,9 @@
         "src": "/images/movies/fale-comigo.webp",
         "alt": "Capa editorial de Fale Comigo (2022)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "Fale Comigo: ficha e análise do filme",
@@ -1381,10 +1421,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "Quando o Mal Espreita",
       "originalTitle": "Cuando acecha la maldad",
       "year": 2023,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 99,
       "countries": [
@@ -1395,6 +1436,7 @@
         "Demián Rugna"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror"
@@ -1420,9 +1462,9 @@
         "src": "/images/movies/quando-o-mal-espreita.webp",
         "alt": "Capa editorial de Quando o Mal Espreita (2023)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "Quando o Mal Espreita: ficha e análise do filme",
@@ -1451,10 +1493,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "Pecadores",
       "originalTitle": "Sinners",
       "year": 2025,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 137,
       "countries": [
@@ -1464,6 +1507,7 @@
         "Ryan Coogler"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror",
@@ -1491,9 +1535,9 @@
         "src": "/images/movies/pecadores.webp",
         "alt": "Capa editorial de Pecadores (2025)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "Pecadores: ficha e análise do filme",
@@ -1516,10 +1560,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "Atividade Paranormal",
       "originalTitle": "Paranormal Activity",
       "year": 2007,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 86,
       "countries": [
@@ -1529,6 +1574,7 @@
         "Oren Peli"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror"
@@ -1554,9 +1600,9 @@
         "src": "/images/movies/atividade-paranormal.webp",
         "alt": "Capa editorial de Atividade Paranormal (2007)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "Atividade Paranormal: ficha e análise do filme",
@@ -1579,10 +1625,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "Host",
       "originalTitle": "Host",
       "year": 2020,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 57,
       "countries": [
@@ -1592,6 +1639,7 @@
         "Rob Savage"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror"
@@ -1615,9 +1663,9 @@
         "src": "/images/movies/host-2020.webp",
         "alt": "Capa editorial de Host (2020)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "Host: ficha e análise do filme",
@@ -1646,10 +1694,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "X: A Marca da Morte",
       "originalTitle": "X",
       "year": 2022,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 106,
       "countries": [
@@ -1660,6 +1709,7 @@
         "Ti West"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror"
@@ -1684,9 +1734,9 @@
         "src": "/images/movies/x-a-marca-da-morte.webp",
         "alt": "Capa editorial de X: A Marca da Morte (2022)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "X: A Marca da Morte: ficha e análise do filme",
@@ -1715,10 +1765,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "As Boas Maneiras",
       "originalTitle": "As Boas Maneiras",
       "year": 2017,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 135,
       "countries": [
@@ -1730,6 +1781,7 @@
         "Marco Dutra"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror",
@@ -1757,9 +1809,9 @@
         "src": "/images/movies/as-boas-maneiras.webp",
         "alt": "Capa editorial de As Boas Maneiras (2017)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "As Boas Maneiras: ficha e análise do filme",
@@ -1788,10 +1840,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "One Cut of the Dead",
       "originalTitle": "Kamera o Tomeru na!",
       "year": 2017,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 96,
       "countries": [
@@ -1801,6 +1854,7 @@
         "Shinichiro Ueda"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror",
@@ -1825,9 +1879,9 @@
         "src": "/images/movies/one-cut-of-the-dead.webp",
         "alt": "Capa editorial de One Cut of the Dead (2017)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "One Cut of the Dead: ficha e análise do filme",
@@ -1856,10 +1910,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "O Que Ficou Para Trás",
       "originalTitle": "His House",
       "year": 2020,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 93,
       "countries": [
@@ -1869,6 +1924,7 @@
         "Remi Weekes"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror",
@@ -1895,9 +1951,9 @@
         "src": "/images/movies/o-que-ficou-para-tras.webp",
         "alt": "Capa editorial de O Que Ficou Para Trás (2020)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "O Que Ficou Para Trás: ficha e análise do filme",
@@ -1926,10 +1982,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "Jogos Mortais",
       "originalTitle": "Saw",
       "year": 2004,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 103,
       "countries": [
@@ -1939,6 +1996,7 @@
         "James Wan"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror",
@@ -1964,9 +2022,9 @@
         "src": "/images/movies/jogos-mortais.webp",
         "alt": "Capa editorial de Jogos Mortais (2004)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "Jogos Mortais: ficha e análise do filme",
@@ -1995,10 +2053,11 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "Sob a Pele",
       "originalTitle": "Under the Skin",
       "year": 2013,
+      "format": "feature",
       "productionStatus": "released",
       "durationMinutes": 108,
       "countries": [
@@ -2010,6 +2069,7 @@
         "Jonathan Glazer"
       ],
       "screenwriters": [],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Terror",
@@ -2035,9 +2095,9 @@
         "src": "/images/movies/sob-a-pele.webp",
         "alt": "Capa editorial de Sob a Pele (2013)",
         "sourceUrl": "https://henrique.dog/filmes",
-        "credit": "Capa editorial original de henrique.dog"
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
       },
-      "availabilityBr": [],
       "status": "draft",
       "seo": {
         "title": "Sob a Pele: ficha e análise do filme",
@@ -2068,11 +2128,12 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [],
       "titleBr": "Nausicaä do Vale do Vento",
       "originalTitle": "風の谷のナウシカ",
       "internationalTitle": "Nausicaä of the Valley of the Wind",
       "year": 1984,
+      "format": "feature",
       "releaseDate": "1984-03-11",
       "productionStatus": "released",
       "durationMinutes": 116,
@@ -2085,8 +2146,8 @@
       "screenwriters": [
         "Hayao Miyazaki"
       ],
+      "credits": [],
       "releaseType": "theatrical",
-      "studioRelation": "precursor-official-catalog",
       "genres": [
         "Animação",
         "Fantasia",
@@ -2108,7 +2169,13 @@
         "Violência",
         "Animais em perigo"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/nausicaa-do-vale-do-vento.webp",
+        "alt": "Capa editorial de Nausicaä do Vale do Vento (1984)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "Nausicaä do Vale do Vento: ficha e análise do filme",
@@ -2134,11 +2201,21 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_studio_ghibli",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
+      ],
       "titleBr": "O Castelo no Céu",
       "originalTitle": "天空の城ラピュタ",
       "internationalTitle": "Castle in the Sky",
       "year": 1986,
+      "format": "feature",
       "releaseDate": "1986-08-02",
       "productionStatus": "released",
       "durationMinutes": 124,
@@ -2151,8 +2228,8 @@
       "screenwriters": [
         "Hayao Miyazaki"
       ],
+      "credits": [],
       "releaseType": "theatrical",
-      "studioRelation": "studio-production",
       "genres": [
         "Animação",
         "Fantasia",
@@ -2173,7 +2250,13 @@
         "Violência de aventura",
         "Crianças em perigo"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/o-castelo-no-ceu.webp",
+        "alt": "Capa editorial de O Castelo no Céu (1986)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "O Castelo no Céu: ficha e análise do filme",
@@ -2198,11 +2281,21 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_studio_ghibli",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
+      ],
       "titleBr": "Túmulo dos Vagalumes",
       "originalTitle": "火垂るの墓",
       "internationalTitle": "Grave of the Fireflies",
       "year": 1988,
+      "format": "feature",
       "releaseDate": "1988-04-16",
       "productionStatus": "released",
       "durationMinutes": 88,
@@ -2215,8 +2308,8 @@
       "screenwriters": [
         "Isao Takahata"
       ],
+      "credits": [],
       "releaseType": "theatrical",
-      "studioRelation": "studio-production",
       "genres": [
         "Animação",
         "Drama",
@@ -2238,7 +2331,13 @@
         "Fome",
         "Guerra"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/tumulo-dos-vagalumes.webp",
+        "alt": "Capa editorial de Túmulo dos Vagalumes (1988)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "Túmulo dos Vagalumes: ficha e análise do filme",
@@ -2263,11 +2362,21 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_studio_ghibli",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
+      ],
       "titleBr": "Meu Amigo Totoro",
       "originalTitle": "となりのトトロ",
       "internationalTitle": "My Neighbor Totoro",
       "year": 1988,
+      "format": "feature",
       "releaseDate": "1988-04-16",
       "productionStatus": "released",
       "durationMinutes": 86,
@@ -2280,8 +2389,8 @@
       "screenwriters": [
         "Hayao Miyazaki"
       ],
+      "credits": [],
       "releaseType": "theatrical",
-      "studioRelation": "studio-production",
       "genres": [
         "Animação",
         "Fantasia",
@@ -2302,7 +2411,13 @@
         "Doença na família",
         "Criança perdida"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/meu-amigo-totoro.webp",
+        "alt": "Capa editorial de Meu Amigo Totoro (1988)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "Meu Amigo Totoro: ficha e análise do filme",
@@ -2327,11 +2442,21 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_studio_ghibli",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
+      ],
       "titleBr": "O Serviço de Entregas da Kiki",
       "originalTitle": "魔女の宅急便",
       "internationalTitle": "Kiki's Delivery Service",
       "year": 1989,
+      "format": "feature",
       "releaseDate": "1989-07-29",
       "productionStatus": "released",
       "durationMinutes": 102,
@@ -2344,8 +2469,8 @@
       "screenwriters": [
         "Hayao Miyazaki"
       ],
+      "credits": [],
       "releaseType": "theatrical",
-      "studioRelation": "studio-production",
       "genres": [
         "Animação",
         "Fantasia",
@@ -2366,7 +2491,13 @@
         "Acidente aéreo",
         "Ansiedade"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/o-servico-de-entregas-da-kiki.webp",
+        "alt": "Capa editorial de O Serviço de Entregas da Kiki (1989)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "O Serviço de Entregas da Kiki: ficha e análise do filme",
@@ -2391,11 +2522,21 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_studio_ghibli",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
+      ],
       "titleBr": "Memórias de Ontem",
       "originalTitle": "おもひでぽろぽろ",
       "internationalTitle": "Only Yesterday",
       "year": 1991,
+      "format": "feature",
       "releaseDate": "1991-07-20",
       "productionStatus": "released",
       "durationMinutes": 119,
@@ -2408,8 +2549,8 @@
       "screenwriters": [
         "Isao Takahata"
       ],
+      "credits": [],
       "releaseType": "theatrical",
-      "studioRelation": "studio-production",
       "genres": [
         "Animação",
         "Drama",
@@ -2430,7 +2571,13 @@
         "Pressão familiar",
         "Menstruação discutida"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/memorias-de-ontem.webp",
+        "alt": "Capa editorial de Memórias de Ontem (1991)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "Memórias de Ontem: ficha e análise do filme",
@@ -2453,11 +2600,21 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_studio_ghibli",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
+      ],
       "titleBr": "Porco Rosso",
       "originalTitle": "紅の豚",
       "internationalTitle": "Porco Rosso",
       "year": 1992,
+      "format": "feature",
       "releaseDate": "1992-07-18",
       "productionStatus": "released",
       "durationMinutes": 93,
@@ -2470,8 +2627,8 @@
       "screenwriters": [
         "Hayao Miyazaki"
       ],
+      "credits": [],
       "releaseType": "theatrical",
-      "studioRelation": "studio-production",
       "genres": [
         "Animação",
         "Aventura",
@@ -2492,7 +2649,13 @@
         "Violência de aventura",
         "Guerra mencionada"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/porco-rosso.webp",
+        "alt": "Capa editorial de Porco Rosso (1992)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "Porco Rosso: ficha e análise do filme",
@@ -2517,11 +2680,21 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_studio_ghibli",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
+      ],
       "titleBr": "Eu Posso Ouvir o Oceano",
       "originalTitle": "海がきこえる",
       "internationalTitle": "Ocean Waves",
       "year": 1993,
+      "format": "feature",
       "releaseDate": "1993-05-05",
       "productionStatus": "released",
       "durationMinutes": 72,
@@ -2534,8 +2707,8 @@
       "screenwriters": [
         "Kaori Nakamura"
       ],
+      "credits": [],
       "releaseType": "television",
-      "studioRelation": "studio-production",
       "genres": [
         "Animação",
         "Drama",
@@ -2557,7 +2730,13 @@
         "Conflitos familiares",
         "Agressão entre adolescentes"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/eu-posso-ouvir-o-oceano.webp",
+        "alt": "Capa editorial de Eu Posso Ouvir o Oceano (1993)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "Eu Posso Ouvir o Oceano: ficha e análise do filme",
@@ -2580,11 +2759,21 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_studio_ghibli",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
+      ],
       "titleBr": "Pom Poko",
       "originalTitle": "平成狸合戦ぽんぽこ",
       "internationalTitle": "Pom Poko",
       "year": 1994,
+      "format": "feature",
       "releaseDate": "1994-07-16",
       "productionStatus": "released",
       "durationMinutes": 119,
@@ -2597,8 +2786,8 @@
       "screenwriters": [
         "Isao Takahata"
       ],
+      "credits": [],
       "releaseType": "theatrical",
-      "studioRelation": "studio-production",
       "genres": [
         "Animação",
         "Fantasia",
@@ -2619,7 +2808,13 @@
         "Morte de animais",
         "Conflito ambiental"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/pom-poko.webp",
+        "alt": "Capa editorial de Pom Poko (1994)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "Pom Poko: ficha e análise do filme",
@@ -2644,11 +2839,21 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_studio_ghibli",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
+      ],
       "titleBr": "Sussurros do Coração",
       "originalTitle": "耳をすませば",
       "internationalTitle": "Whisper of the Heart",
       "year": 1995,
+      "format": "feature",
       "releaseDate": "1995-07-15",
       "productionStatus": "released",
       "durationMinutes": 111,
@@ -2661,8 +2866,8 @@
       "screenwriters": [
         "Hayao Miyazaki"
       ],
+      "credits": [],
       "releaseType": "theatrical",
-      "studioRelation": "studio-production",
       "genres": [
         "Animação",
         "Drama",
@@ -2682,7 +2887,13 @@
       "contentWarnings": [
         "Pressão escolar"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/sussurros-do-coracao.webp",
+        "alt": "Capa editorial de Sussurros do Coração (1995)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "Sussurros do Coração: ficha e análise do filme",
@@ -2707,11 +2918,21 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_studio_ghibli",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
+      ],
       "titleBr": "Princesa Mononoke",
       "originalTitle": "もののけ姫",
       "internationalTitle": "Princess Mononoke",
       "year": 1997,
+      "format": "feature",
       "releaseDate": "1997-07-12",
       "productionStatus": "released",
       "durationMinutes": 133,
@@ -2724,8 +2945,8 @@
       "screenwriters": [
         "Hayao Miyazaki"
       ],
+      "credits": [],
       "releaseType": "theatrical",
-      "studioRelation": "studio-production",
       "genres": [
         "Animação",
         "Fantasia",
@@ -2747,7 +2968,13 @@
         "Guerra",
         "Animais feridos"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/princesa-mononoke.webp",
+        "alt": "Capa editorial de Princesa Mononoke (1997)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "Princesa Mononoke: ficha e análise do filme",
@@ -2772,11 +2999,21 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_studio_ghibli",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
+      ],
       "titleBr": "Meus Vizinhos, os Yamadas",
       "originalTitle": "ホーホケキョ となりの山田くん",
       "internationalTitle": "My Neighbors the Yamadas",
       "year": 1999,
+      "format": "feature",
       "releaseDate": "1999-07-17",
       "productionStatus": "released",
       "durationMinutes": 104,
@@ -2789,8 +3026,8 @@
       "screenwriters": [
         "Isao Takahata"
       ],
+      "credits": [],
       "releaseType": "theatrical",
-      "studioRelation": "studio-production",
       "genres": [
         "Animação",
         "Comédia",
@@ -2809,7 +3046,13 @@
       "audienceProfile": "Para quem aprecia comédia cotidiana e experimentação visual sem trama contínua forte.",
       "experience": "Episódico, leve e inventivo",
       "contentWarnings": [],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/meus-vizinhos-os-yamadas.webp",
+        "alt": "Capa editorial de Meus Vizinhos, os Yamadas (1999)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "Meus Vizinhos, os Yamadas: ficha e análise do filme",
@@ -2834,11 +3077,21 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_studio_ghibli",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
+      ],
       "titleBr": "A Viagem de Chihiro",
       "originalTitle": "千と千尋の神隠し",
       "internationalTitle": "Spirited Away",
       "year": 2001,
+      "format": "feature",
       "releaseDate": "2001-07-20",
       "productionStatus": "released",
       "durationMinutes": 125,
@@ -2851,8 +3104,8 @@
       "screenwriters": [
         "Hayao Miyazaki"
       ],
+      "credits": [],
       "releaseType": "theatrical",
-      "studioRelation": "studio-production",
       "genres": [
         "Animação",
         "Fantasia",
@@ -2873,7 +3126,13 @@
         "Pais em perigo",
         "Criaturas assustadoras"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/a-viagem-de-chihiro.webp",
+        "alt": "Capa editorial de A Viagem de Chihiro (2001)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "A Viagem de Chihiro: ficha e análise do filme",
@@ -2898,11 +3157,21 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_studio_ghibli",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
+      ],
       "titleBr": "O Reino dos Gatos",
       "originalTitle": "猫の恩返し",
       "internationalTitle": "The Cat Returns",
       "year": 2002,
+      "format": "feature",
       "releaseDate": "2002-07-20",
       "productionStatus": "released",
       "durationMinutes": 75,
@@ -2915,8 +3184,8 @@
       "screenwriters": [
         "Reiko Yoshida"
       ],
+      "credits": [],
       "releaseType": "theatrical",
-      "studioRelation": "studio-production",
       "genres": [
         "Animação",
         "Fantasia",
@@ -2937,7 +3206,13 @@
         "Casamento forçado",
         "Perigo leve"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/o-reino-dos-gatos.webp",
+        "alt": "Capa editorial de O Reino dos Gatos (2002)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "O Reino dos Gatos: ficha e análise do filme",
@@ -2962,11 +3237,21 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_studio_ghibli",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
+      ],
       "titleBr": "O Castelo Animado",
       "originalTitle": "ハウルの動く城",
       "internationalTitle": "Howl's Moving Castle",
       "year": 2004,
+      "format": "feature",
       "releaseDate": "2004-11-20",
       "productionStatus": "released",
       "durationMinutes": 119,
@@ -2979,8 +3264,8 @@
       "screenwriters": [
         "Hayao Miyazaki"
       ],
+      "credits": [],
       "releaseType": "theatrical",
-      "studioRelation": "studio-production",
       "genres": [
         "Animação",
         "Fantasia",
@@ -3001,7 +3286,13 @@
         "Guerra",
         "Transformação corporal"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/o-castelo-animado.webp",
+        "alt": "Capa editorial de O Castelo Animado (2004)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "O Castelo Animado: ficha e análise do filme",
@@ -3026,11 +3317,21 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_studio_ghibli",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
+      ],
       "titleBr": "Contos de Terramar",
       "originalTitle": "ゲド戦記",
       "internationalTitle": "Tales from Earthsea",
       "year": 2006,
+      "format": "feature",
       "releaseDate": "2006-07-29",
       "productionStatus": "released",
       "durationMinutes": 115,
@@ -3044,8 +3345,8 @@
         "Gorō Miyazaki",
         "Keiko Niwa"
       ],
+      "credits": [],
       "releaseType": "theatrical",
-      "studioRelation": "studio-production",
       "genres": [
         "Animação",
         "Fantasia",
@@ -3067,7 +3368,13 @@
         "Violência",
         "Escravidão"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/contos-de-terramar.webp",
+        "alt": "Capa editorial de Contos de Terramar (2006)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "Contos de Terramar: ficha e análise do filme",
@@ -3092,11 +3399,21 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_studio_ghibli",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
+      ],
       "titleBr": "Ponyo",
       "originalTitle": "崖の上のポニョ",
       "internationalTitle": "Ponyo on the Cliff by the Sea",
       "year": 2008,
+      "format": "feature",
       "releaseDate": "2008-07-19",
       "productionStatus": "released",
       "durationMinutes": 101,
@@ -3109,8 +3426,8 @@
       "screenwriters": [
         "Hayao Miyazaki"
       ],
+      "credits": [],
       "releaseType": "theatrical",
-      "studioRelation": "studio-production",
       "genres": [
         "Animação",
         "Fantasia",
@@ -3131,7 +3448,13 @@
         "Tempestade",
         "Crianças em perigo"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/ponyo.webp",
+        "alt": "Capa editorial de Ponyo (2008)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "Ponyo: ficha e análise do filme",
@@ -3157,11 +3480,21 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_studio_ghibli",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
+      ],
       "titleBr": "O Mundo dos Pequeninos",
       "originalTitle": "借りぐらしのアリエッティ",
       "internationalTitle": "Arrietty",
       "year": 2010,
+      "format": "feature",
       "releaseDate": "2010-07-17",
       "productionStatus": "released",
       "durationMinutes": 94,
@@ -3175,8 +3508,8 @@
         "Hayao Miyazaki",
         "Keiko Niwa"
       ],
+      "credits": [],
       "releaseType": "theatrical",
-      "studioRelation": "studio-production",
       "genres": [
         "Animação",
         "Fantasia",
@@ -3197,7 +3530,13 @@
         "Doença",
         "Perseguição"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/o-mundo-dos-pequeninos.webp",
+        "alt": "Capa editorial de O Mundo dos Pequeninos (2010)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "O Mundo dos Pequeninos: ficha e análise do filme",
@@ -3222,11 +3561,21 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_studio_ghibli",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
+      ],
       "titleBr": "Da Colina Kokuriko",
       "originalTitle": "コクリコ坂から",
       "internationalTitle": "From Up on Poppy Hill",
       "year": 2011,
+      "format": "feature",
       "releaseDate": "2011-07-16",
       "productionStatus": "released",
       "durationMinutes": 91,
@@ -3240,8 +3589,8 @@
         "Hayao Miyazaki",
         "Keiko Niwa"
       ],
+      "credits": [],
       "releaseType": "theatrical",
-      "studioRelation": "studio-production",
       "genres": [
         "Animação",
         "Drama",
@@ -3262,7 +3611,13 @@
         "Luto de guerra",
         "Incerteza sobre parentesco"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/da-colina-kokuriko.webp",
+        "alt": "Capa editorial de Da Colina Kokuriko (2011)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "Da Colina Kokuriko: ficha e análise do filme",
@@ -3287,11 +3642,21 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_studio_ghibli",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
+      ],
       "titleBr": "Vidas ao Vento",
       "originalTitle": "風立ちぬ",
       "internationalTitle": "The Wind Rises",
       "year": 2013,
+      "format": "feature",
       "releaseDate": "2013-07-20",
       "productionStatus": "released",
       "durationMinutes": 126,
@@ -3304,8 +3669,8 @@
       "screenwriters": [
         "Hayao Miyazaki"
       ],
+      "credits": [],
       "releaseType": "theatrical",
-      "studioRelation": "studio-production",
       "genres": [
         "Animação",
         "Drama",
@@ -3327,7 +3692,13 @@
         "Doença terminal",
         "Terremoto"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/vidas-ao-vento.webp",
+        "alt": "Capa editorial de Vidas ao Vento (2013)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "Vidas ao Vento: ficha e análise do filme",
@@ -3352,11 +3723,21 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_studio_ghibli",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
+      ],
       "titleBr": "O Conto da Princesa Kaguya",
       "originalTitle": "かぐや姫の物語",
       "internationalTitle": "The Tale of the Princess Kaguya",
       "year": 2013,
+      "format": "feature",
       "releaseDate": "2013-11-23",
       "productionStatus": "released",
       "durationMinutes": 137,
@@ -3370,8 +3751,8 @@
         "Isao Takahata",
         "Riko Sakaguchi"
       ],
+      "credits": [],
       "releaseType": "theatrical",
-      "studioRelation": "studio-production",
       "genres": [
         "Animação",
         "Fantasia",
@@ -3394,7 +3775,13 @@
         "Assédio",
         "Separação"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/o-conto-da-princesa-kaguya.webp",
+        "alt": "Capa editorial de O Conto da Princesa Kaguya (2013)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "O Conto da Princesa Kaguya: ficha e análise do filme",
@@ -3419,11 +3806,21 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_studio_ghibli",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
+      ],
       "titleBr": "As Memórias de Marnie",
       "originalTitle": "思い出のマーニー",
       "internationalTitle": "When Marnie Was There",
       "year": 2014,
+      "format": "feature",
       "releaseDate": "2014-07-19",
       "productionStatus": "released",
       "durationMinutes": 103,
@@ -3438,8 +3835,8 @@
         "Masashi Ando",
         "Hiromasa Yonebayashi"
       ],
+      "credits": [],
       "releaseType": "theatrical",
-      "studioRelation": "studio-production",
       "genres": [
         "Animação",
         "Drama",
@@ -3461,7 +3858,13 @@
         "Luto",
         "Saúde mental"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/as-memorias-de-marnie.webp",
+        "alt": "Capa editorial de As Memórias de Marnie (2014)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "As Memórias de Marnie: ficha e análise do filme",
@@ -3486,11 +3889,20 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_studio_ghibli",
+          "roles": [
+            "co-production"
+          ],
+          "status": "published"
+        }
+      ],
       "titleBr": "A Tartaruga Vermelha",
       "originalTitle": "レッドタートル ある島の物語",
       "internationalTitle": "The Red Turtle",
       "year": 2016,
+      "format": "feature",
       "releaseDate": "2016-09-17",
       "productionStatus": "released",
       "durationMinutes": 81,
@@ -3506,8 +3918,8 @@
         "Michael Dudok de Wit",
         "Pascale Ferran"
       ],
+      "credits": [],
       "releaseType": "theatrical",
-      "studioRelation": "official-coproduction",
       "genres": [
         "Animação",
         "Fantasia",
@@ -3530,7 +3942,13 @@
         "Morte",
         "Ferimentos"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/a-tartaruga-vermelha.webp",
+        "alt": "Capa editorial de A Tartaruga Vermelha (2016)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "A Tartaruga Vermelha: ficha e análise do filme",
@@ -3555,11 +3973,21 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_studio_ghibli",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
+      ],
       "titleBr": "Aya e a Bruxa",
       "originalTitle": "アーヤと魔女",
       "internationalTitle": "Earwig and the Witch",
       "year": 2020,
+      "format": "feature",
       "releaseDate": "2020-12-30",
       "productionStatus": "released",
       "durationMinutes": 82,
@@ -3573,8 +4001,8 @@
         "Keiko Niwa",
         "Emi Gunji"
       ],
+      "credits": [],
       "releaseType": "television-and-theatrical",
-      "studioRelation": "studio-production",
       "genres": [
         "Animação",
         "Fantasia",
@@ -3596,7 +4024,13 @@
         "Abandono",
         "Tratamento hostil de criança"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/aya-e-a-bruxa.webp",
+        "alt": "Capa editorial de Aya e a Bruxa (2020)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "Aya e a Bruxa: ficha e análise do filme",
@@ -3621,11 +4055,21 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_studio_ghibli",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
+      ],
       "titleBr": "O Menino e a Garça",
       "originalTitle": "君たちはどう生きるか",
       "internationalTitle": "The Boy and the Heron",
       "year": 2023,
+      "format": "feature",
       "releaseDate": "2023-07-14",
       "productionStatus": "released",
       "durationMinutes": 124,
@@ -3638,8 +4082,8 @@
       "screenwriters": [
         "Hayao Miyazaki"
       ],
+      "credits": [],
       "releaseType": "theatrical",
-      "studioRelation": "studio-production",
       "genres": [
         "Animação",
         "Fantasia",
@@ -3661,7 +4105,13 @@
         "Guerra",
         "Violência fantástica"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/o-menino-e-a-garca.webp",
+        "alt": "Capa editorial de O Menino e a Garça (2023)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "O Menino e a Garça: ficha e análise do filme",
@@ -3686,12 +4136,20 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [
-        "stu_laika"
+      "organizationRelationships": [
+        {
+          "organizationId": "org_laika",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
       ],
       "titleBr": "Coraline e o Mundo Secreto",
       "originalTitle": "Coraline",
       "year": 2009,
+      "format": "feature",
       "releaseDate": "2009-02-06",
       "productionStatus": "released",
       "durationMinutes": 100,
@@ -3704,6 +4162,7 @@
       "screenwriters": [
         "Henry Selick"
       ],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Animação",
@@ -3726,7 +4185,13 @@
         "Criança em perigo",
         "Imagens assustadoras"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/coraline-e-o-mundo-secreto.webp",
+        "alt": "Capa editorial de Coraline e o Mundo Secreto (2009)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "Coraline e o Mundo Secreto: ficha e análise do filme",
@@ -3749,12 +4214,20 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [
-        "stu_laika"
+      "organizationRelationships": [
+        {
+          "organizationId": "org_laika",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
       ],
       "titleBr": "ParaNorman",
       "originalTitle": "ParaNorman",
       "year": 2012,
+      "format": "feature",
       "releaseDate": "2012-08-17",
       "productionStatus": "released",
       "durationMinutes": 92,
@@ -3768,6 +4241,7 @@
       "screenwriters": [
         "Chris Butler"
       ],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Animação",
@@ -3791,7 +4265,13 @@
         "Mortos-vivos",
         "Perseguição"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/paranorman.webp",
+        "alt": "Capa editorial de ParaNorman (2012)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "ParaNorman: ficha e análise do filme",
@@ -3816,12 +4296,20 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [
-        "stu_laika"
+      "organizationRelationships": [
+        {
+          "organizationId": "org_laika",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
       ],
       "titleBr": "Os Boxtrolls",
       "originalTitle": "The Boxtrolls",
       "year": 2014,
+      "format": "feature",
       "releaseDate": "2014-09-26",
       "productionStatus": "released",
       "durationMinutes": 96,
@@ -3836,6 +4324,7 @@
         "Irena Brignull",
         "Adam Pava"
       ],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Animação",
@@ -3857,7 +4346,13 @@
         "Perseguição",
         "Humor grotesco"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/os-boxtrolls.webp",
+        "alt": "Capa editorial de Os Boxtrolls (2014)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "Os Boxtrolls: ficha e análise do filme",
@@ -3880,12 +4375,20 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [
-        "stu_laika"
+      "organizationRelationships": [
+        {
+          "organizationId": "org_laika",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
       ],
       "titleBr": "Kubo e as Cordas Mágicas",
       "originalTitle": "Kubo and the Two Strings",
       "year": 2016,
+      "format": "feature",
       "releaseDate": "2016-08-19",
       "productionStatus": "released",
       "durationMinutes": 101,
@@ -3899,6 +4402,7 @@
         "Marc Haimes",
         "Chris Butler"
       ],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Animação",
@@ -3921,7 +4425,13 @@
         "Violência fantástica",
         "Criança em perigo"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/kubo-e-as-cordas-magicas.webp",
+        "alt": "Capa editorial de Kubo e as Cordas Mágicas (2016)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "Kubo e as Cordas Mágicas: ficha e análise do filme",
@@ -3944,12 +4454,20 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [
-        "stu_laika"
+      "organizationRelationships": [
+        {
+          "organizationId": "org_laika",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
       ],
       "titleBr": "Link Perdido",
       "originalTitle": "Missing Link",
       "year": 2019,
+      "format": "feature",
       "releaseDate": "2019-04-12",
       "productionStatus": "released",
       "durationMinutes": 94,
@@ -3962,6 +4480,7 @@
       "screenwriters": [
         "Chris Butler"
       ],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Animação",
@@ -3983,7 +4502,13 @@
         "Perseguição",
         "Violência cartunesca"
       ],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/link-perdido.webp",
+        "alt": "Capa editorial de Link Perdido (2019)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "Link Perdido: ficha e análise do filme",
@@ -4006,12 +4531,20 @@
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
-      "studioIds": [
-        "stu_laika"
+      "organizationRelationships": [
+        {
+          "organizationId": "org_laika",
+          "roles": [
+            "production",
+            "animation"
+          ],
+          "status": "published"
+        }
       ],
       "titleBr": "Wildwood",
       "originalTitle": "Wildwood",
       "year": 2026,
+      "format": "feature",
       "releaseDate": "2026-10-23",
       "productionStatus": "upcoming",
       "countries": [
@@ -4023,6 +4556,7 @@
       "screenwriters": [
         "Chris Butler"
       ],
+      "credits": [],
       "releaseType": "theatrical",
       "genres": [
         "Animação",
@@ -4041,7 +4575,13 @@
       "audienceProfile": "Projeto futuro para acompanhar; a avaliação editorial deve esperar o lançamento e a versão final.",
       "experience": "Ainda não avaliada",
       "contentWarnings": [],
-      "availabilityBr": [],
+      "poster": {
+        "src": "/images/movies/wildwood.webp",
+        "alt": "Capa editorial de Wildwood (2026)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog",
+        "rights": "original-editorial"
+      },
       "status": "draft",
       "seo": {
         "title": "Wildwood: ficha e análise do filme",

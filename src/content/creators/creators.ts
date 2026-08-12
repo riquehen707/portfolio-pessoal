@@ -33,4 +33,11 @@ export const kalpSanghvi: Creator = CreatorSchema.parse({
   createdAt: "2026-08-12", updatedAt: "2026-08-12",
 });
 
-export const creators = [shingoTamagawa, upamanyuBhattacharyya, kalpSanghvi];
+const teamCherryPeople:Creator[]=[
+  {id:"person_ari_gibson",slug:"ari-gibson",name:"Ari Gibson",kind:"person",status:"draft",summary:"Cofundador, artista, animador e designer da Team Cherry.",workIds:[],sources:[{title:"Team Cherry",url:"https://www.teamcherry.com.au/",kind:"primary"}],createdAt:"2026-08-12",updatedAt:"2026-08-12"},
+  {id:"person_william_pellen",slug:"william-pellen",name:"William Pellen",kind:"person",status:"draft",summary:"Cofundador, designer e programador da Team Cherry.",workIds:[],sources:[{title:"Team Cherry",url:"https://www.teamcherry.com.au/",kind:"primary"}],createdAt:"2026-08-12",updatedAt:"2026-08-12"},
+  {id:"person_jasmine_vine",slug:"jasmine-vine",name:"Jasmine Vine",kind:"person",status:"draft",summary:"Programadora de Hollow Knight: Silksong.",workIds:[],sources:[{title:"Hollow Knight: Silksong",url:"https://hollowknightsilksong.com/",kind:"primary"}],createdAt:"2026-08-12",updatedAt:"2026-08-12"},
+  {id:"person_christopher_larkin",slug:"christopher-larkin",name:"Christopher Larkin",kind:"person",status:"draft",summary:"Compositor de Hollow Knight e Hollow Knight: Silksong.",workIds:[],sources:[{title:"Hollow Knight: Silksong",url:"https://hollowknightsilksong.com/",kind:"primary"}],createdAt:"2026-08-12",updatedAt:"2026-08-12"},
+].map(item=>CreatorSchema.parse(item));
+const cartoonSaloonPeople:Creator[]=["Tomm Moore","Nora Twomey","Paul Young","Ross Stewart","Louise Bagnall"].map(name=>CreatorSchema.parse({id:`person_${name.toLowerCase().replaceAll(" ","_")}`,slug:name.toLowerCase().replaceAll(" ","-"),name,kind:"person",status:"draft",summary:`Profissional relacionado ao Cartoon Saloon.`,workIds:[],sources:[{title:"Cartoon Saloon — About",url:"https://www.cartoonsaloon.ie/irish-animation-studio/about/",kind:"primary"}],createdAt:"2026-08-12",updatedAt:"2026-08-12"}));
+export const creators = [shingoTamagawa, upamanyuBhattacharyya, kalpSanghvi,...teamCherryPeople,...cartoonSaloonPeople];

@@ -1,5 +1,7 @@
 # Sistema editorial
 
+Este guia é a fonte principal para produção de artigos. A visão geral de rotas, tipos de página, modelos, SEO e validações fica em [`docs/architecture/site-architecture.md`](../architecture/site-architecture.md).
+
 Esta pasta explica como transformar texto bruto em artigo publicado sem descaracterizar a voz do autor nem criar variações arbitrárias de estrutura.
 
 ## Autoridade das fontes

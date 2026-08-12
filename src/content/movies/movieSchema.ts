@@ -16,21 +16,38 @@ export const MovieSchema = z
     publishedAt: z.string().regex(isoDate, "data de publicação inválida").optional(),
     updatedAt: z.string().regex(isoDate, "data de alteração inválida"),
     relatedContentIds: z.array(z.string().min(1)).default([]),
-    studioIds: z.array(z.string().min(1)).default([]),
+    organizationRelationships: z
+      .array(
+        z.object({
+          organizationId: z.string().regex(/^org_[a-z0-9_]+$/),
+          roles: z.array(
+            z.enum([
+              "production",
+              "co-production",
+              "animation",
+              "distribution",
+              "licensing",
+              "collaboration",
+              "services",
+            ]),
+          ).min(1),
+          status: z.enum(["draft", "published"]),
+        }),
+      )
+      .default([]),
     titleBr: z.string().min(1),
     originalTitle: z.string().min(1),
     internationalTitle: z.string().min(1).optional(),
     year: z.number().int().min(1888).max(2100),
+    format: z.literal("feature"),
     releaseDate: z.string().regex(isoDate, "data de lançamento inválida").optional(),
     productionStatus: z.enum(["released", "upcoming", "in-development"]).default("released"),
     durationMinutes: z.number().int().positive().optional(),
     countries: z.array(z.string().min(1)).min(1),
     directors: z.array(z.string().min(1)).min(1),
     screenwriters: z.array(z.string().min(1)).default([]),
+    credits: z.array(z.object({ name: z.string().min(1), roles: z.array(z.string().min(1)).min(1) })).default([]),
     releaseType: z.enum(["theatrical", "television", "television-and-theatrical"]).default("theatrical"),
-    studioRelation: z
-      .enum(["studio-production", "official-coproduction", "precursor-official-catalog"])
-      .optional(),
     genres: z.array(z.string().min(1)).min(1),
     subgenres: z.array(z.string().min(1)).default([]),
     themes: z.array(z.string().min(1)).default([]),
@@ -44,17 +61,9 @@ export const MovieSchema = z
         alt: z.string().min(1),
         sourceUrl: z.string().url(),
         credit: z.string().min(1),
+        rights: z.enum(["original-editorial", "licensed", "permission-pending"]),
       })
       .optional(),
-    availabilityBr: z
-      .array(
-        z.object({
-          service: z.string().min(1),
-          url: z.string().url().optional(),
-          checkedAt: z.string().regex(isoDate, "data de disponibilidade inválida"),
-        }),
-      )
-      .default([]),
     status: MovieStatusSchema.default("draft"),
     seo: z.object({
       title: z.string().min(3).max(70),
