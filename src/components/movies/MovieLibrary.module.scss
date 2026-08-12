@@ -250,6 +250,19 @@
   line-height: 1.4;
 }
 
+.posterCredit {
+  margin: 1rem 0 0;
+  color: var(--neutral-on-background-weak);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.posterCredit a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
 @media (hover: hover) and (pointer: fine) {
   a.card:hover {
     border-color: color-mix(in srgb, #ffd400 62%, var(--line-subtle));

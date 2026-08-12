@@ -125,7 +125,7 @@ O inventário de arquivos não equivale ao sitemap público. A inclusão de rota
 - `src/app/sitemap.ts`, `src/app/robots.ts`, `src/middleware.ts`, `routes` e `src/lib/globalSearch.ts` são controles distintos. Uma nova rota pública pode exigir atualização em mais de um deles.
 - Conteúdo essencial deve existir no HTML do servidor; interação não pode ser requisito para indexação ou compreensão.
 - Imagens precisam de texto alternativo, origem e crédito quando o modelo os aceitar. Ausência de imagem deve ter fallback estável.
-- Capas editoriais locais em `/images/movies/` já são WebP leves e são servidas diretamente por `MoviePoster`; elas não dependem do endpoint de otimização da Vercel. Imagens de outras origens continuam seguindo a configuração global do Next.js.
+- Pôsteres promocionais existentes são mantidos localmente em `/images/movies/`, convertidos para WebP leve e servidos diretamente por `MoviePoster`; origem, crédito e situação de direitos ficam no registro central. Ativos sem licença comercial confirmada usam `permission-pending` e exigem revisão antes de reutilização comercial.
 - Status editorial controla publicação. Status de lançamento ou produção descreve a obra, não sua indexabilidade.
 - Relações usam IDs permanentes; slugs servem a URLs e aliases preservam caminhos anteriores quando suportados.
 

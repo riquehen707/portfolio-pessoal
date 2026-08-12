@@ -1,6 +1,7 @@
 import { MovieBatchSchema, type Movie } from "./movieSchema";
 import { ghibliMovieSeeds } from "./ghibliMovies";
 import { laikaMovieSeeds } from "./laikaMovies";
+import { posterCatalog } from "./posters";
 
 export type MovieSeed = Pick<
   Movie,
@@ -95,13 +96,7 @@ const rawMovies = seeds.map((movie) => ({
   format: "feature" as const,
   credits: movie.credits ?? [],
   organizationRelationships: movie.organizationRelationships ?? [],
-  poster: movie.poster ?? {
-    src: `/images/movies/${movie.slug}.webp`,
-    alt: `Capa editorial de ${movie.titleBr} (${movie.year})`,
-    sourceUrl: `https://henrique.dog/filmes`,
-    credit: "Capa editorial original de henrique.dog",
-    rights: "original-editorial" as const,
-  },
+  poster: movie.poster ?? posterCatalog[movie.slug as keyof typeof posterCatalog],
   status: "draft" as const,
   seo: {
     title: `${movie.titleBr}: ficha e análise do filme`,

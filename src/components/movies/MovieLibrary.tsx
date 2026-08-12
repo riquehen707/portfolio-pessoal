@@ -89,6 +89,10 @@ export function MovieLibrary({ movies }: { movies: readonly Movie[] }) {
       ) : (
         <div className={styles.empty}><strong>Nenhum filme combina com esses filtros.</strong><p>Tente remover uma opção ou buscar por um termo mais amplo.</p><button onClick={clearFilters} type="button">Mostrar todo o acervo</button></div>
       )}
+      <p className={styles.posterCredit}>
+        Pôsteres promocionais via <a href="https://www.themoviedb.org/" rel="noreferrer" target="_blank">TMDB</a>;
+        direitos pertencem aos respectivos titulares.
+      </p>
     </>
   );
 }
