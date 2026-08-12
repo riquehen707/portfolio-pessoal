@@ -4,21 +4,20 @@ import { notFound } from "next/navigation";
 
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { MovieJsonLd } from "@/components/seo/MovieJsonLd";
-import { getCurationsForMovie } from "@/content/movies/curations";
-import { getMovie, getPublishedMovies } from "@/content/movies/movies";
+import { getMovieBySlug, getMovieCurations, getPublishedMovies } from "@/data/movies";
 import { baseURL } from "@/resources";
 
 import styles from "./movie.module.scss";
 
 export const dynamicParams = false;
 
-export function generateStaticParams() {
-  return getPublishedMovies().map((movie) => ({ slug: movie.slug }));
+export async function generateStaticParams() {
+  return (await getPublishedMovies()).map((movie) => ({ slug: movie.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const movie = getMovie(slug);
+  const movie = await getMovieBySlug(slug);
 
   if (!movie || movie.status !== "published") {
     return { robots: { index: false, follow: false } };
@@ -36,11 +35,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function MoviePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const movie = getMovie(slug);
+  const movie = await getMovieBySlug(slug);
 
   if (!movie || movie.status !== "published" || !movie.editorial) notFound();
 
-  const curations = getCurationsForMovie(movie.slug);
+  const curations = await getMovieCurations(movie.id);
 
   return (
     <main className={styles.page}>
@@ -65,7 +64,7 @@ export default async function MoviePage({ params }: { params: Promise<{ slug: st
           <h2>Por que assistir</h2>
           <ul>{movie.editorial.reasonsToWatch.map((reason) => <li key={reason}>{reason}</li>)}</ul>
           {movie.editorial.limitations.length ? <><h2>Possíveis limitações</h2><ul>{movie.editorial.limitations.map((item) => <li key={item}>{item}</li>)}</ul></> : null}
-          {curations.length ? <><h2>Onde este filme aparece</h2>{curations.map(({ href, title, item }) => <p key={href}><Link href={href}>{title}</Link>{item.position ? ` — ${item.position}º lugar.` : "."}</p>)}</> : null}
+          {curations.length ? <><h2>Onde este filme aparece</h2>{curations.map(({ curation, item }) => <p key={curation.href}><Link href={curation.href}>{curation.title}</Link>{item.position ? ` — ${item.position}º lugar.` : "."}</p>)}</> : null}
         </article>
 
         <aside>

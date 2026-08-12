@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { MovieLibraryJsonLd } from "@/components/seo/MovieLibraryJsonLd";
 import { MovieLibrary } from "@/components/movies/MovieLibrary";
-import { getPublishedMovies, movies } from "@/content/movies/movies";
+import { getAllMovies, getPublishedMovies } from "@/data/movies";
 import { baseURL } from "@/resources";
 
 import styles from "./movies.module.scss";
@@ -18,12 +19,14 @@ export const metadata: Metadata = {
   openGraph: { title, description, url: `${baseURL}${path}`, type: "website" },
 };
 
-export default function MoviesPage() {
-  const publishedCount = getPublishedMovies().length;
+export default async function MoviesPage() {
+  const [movies, publishedMovies] = await Promise.all([getAllMovies(), getPublishedMovies()]);
+  const publishedCount = publishedMovies.length;
 
   return (
     <main className={styles.page}>
       <BreadcrumbJsonLd items={[{ name: "Início", url: baseURL }, { name: title, url: `${baseURL}${path}` }]} />
+      <MovieLibraryJsonLd movies={publishedMovies} />
 
       <header className={styles.hero}>
         <div className={styles.heroMain}>
@@ -48,7 +51,7 @@ export default function MoviesPage() {
       <section className={styles.library} aria-labelledby="movie-library-title">
         <div className={styles.sectionHeader}>
           <h2 id="movie-library-title">Acervo inicial</h2>
-          <p>Explore por vertente. Perfis em preparação aparecem sem link até receberem análise própria.</p>
+          <p>Combine busca e filtros. As imagens são capas editoriais próprias; perfis em preparação aparecem sem link.</p>
         </div>
         <MovieLibrary movies={movies} />
       </section>

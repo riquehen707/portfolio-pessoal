@@ -8,13 +8,29 @@ export const MovieStatusSchema = z.enum(["draft", "review", "published"]);
 export const MovieSchema = z
   .object({
     id: z.string().min(1),
+    contentType: z.literal("movie"),
+    schemaVersion: z.number().int().positive(),
     slug: z.string().regex(slugPattern, "slug inválido"),
+    aliases: z.array(z.string().regex(slugPattern, "alias inválido")).default([]),
+    createdAt: z.string().regex(isoDate, "data de criação inválida"),
+    publishedAt: z.string().regex(isoDate, "data de publicação inválida").optional(),
+    updatedAt: z.string().regex(isoDate, "data de alteração inválida"),
+    relatedContentIds: z.array(z.string().min(1)).default([]),
+    studioIds: z.array(z.string().min(1)).default([]),
     titleBr: z.string().min(1),
     originalTitle: z.string().min(1),
+    internationalTitle: z.string().min(1).optional(),
     year: z.number().int().min(1888).max(2100),
+    releaseDate: z.string().regex(isoDate, "data de lançamento inválida").optional(),
+    productionStatus: z.enum(["released", "upcoming", "in-development"]).default("released"),
     durationMinutes: z.number().int().positive().optional(),
     countries: z.array(z.string().min(1)).min(1),
     directors: z.array(z.string().min(1)).min(1),
+    screenwriters: z.array(z.string().min(1)).default([]),
+    releaseType: z.enum(["theatrical", "television", "television-and-theatrical"]).default("theatrical"),
+    studioRelation: z
+      .enum(["studio-production", "official-coproduction", "precursor-official-catalog"])
+      .optional(),
     genres: z.array(z.string().min(1)).min(1),
     subgenres: z.array(z.string().min(1)).default([]),
     themes: z.array(z.string().min(1)).default([]),
@@ -66,6 +82,12 @@ export const MovieSchema = z
         message: "filmes publicados precisam de conteúdo editorial próprio",
       });
     }
+    if (movie.status === "published" && !movie.publishedAt) {
+      ctx.addIssue({ code: "custom", path: ["publishedAt"], message: "filmes publicados precisam de data de publicação" });
+    }
+    if (movie.aliases.includes(movie.slug)) {
+      ctx.addIssue({ code: "custom", path: ["aliases"], message: "o slug atual não pode ser também um alias" });
+    }
   });
 
 export type Movie = z.infer<typeof MovieSchema>;
@@ -74,17 +96,24 @@ export type MovieStatus = z.infer<typeof MovieStatusSchema>;
 export const MovieBatchSchema = z.array(MovieSchema).superRefine((movies, ctx) => {
   const seenIds = new Set<string>();
   const seenSlugs = new Set<string>();
+  const seenAliases = new Set<string>();
 
   movies.forEach((movie, index) => {
     if (seenIds.has(movie.id)) {
       ctx.addIssue({ code: "custom", path: [index, "id"], message: `id duplicado: ${movie.id}` });
     }
-    if (seenSlugs.has(movie.slug)) {
+    if (seenSlugs.has(movie.slug) || seenAliases.has(movie.slug)) {
       ctx.addIssue({
         code: "custom",
         path: [index, "slug"],
         message: `slug duplicado: ${movie.slug}`,
       });
+    }
+    for (const alias of movie.aliases) {
+      if (seenSlugs.has(alias) || seenAliases.has(alias)) {
+        ctx.addIssue({ code: "custom", path: [index, "aliases"], message: `alias duplicado ou em conflito: ${alias}` });
+      }
+      seenAliases.add(alias);
     }
     seenIds.add(movie.id);
     seenSlugs.add(movie.slug);

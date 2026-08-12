@@ -1,0 +1,12 @@
+.video { margin: 2rem 0; border: 1px solid rgba(104, 91, 83, .3); background: #17191d; color: #f4efe8; overflow: hidden; }
+.video iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; }
+.placeholder { min-height: min(62vw, 34rem); display: grid; place-items: center; position: relative; padding: clamp(2rem, 7vw, 6rem); text-align: center; background: radial-gradient(circle at 50% 42%, #75636b 0 4%, transparent 4.5%), radial-gradient(circle at 50% 42%, #30343c 0 24%, transparent 24.5%), linear-gradient(145deg, #23262d, #121418); }
+.placeholder > span { position: absolute; width: min(46vw, 18rem); aspect-ratio: 1; border: 1px solid rgba(255,255,255,.16); border-radius: 50%; }
+.placeholder div { position: relative; max-width: 30rem; }
+.placeholder strong { display: block; font-size: clamp(1.25rem, 3vw, 2rem); }
+.placeholder p, .note { color: #c9c3bc; }
+.placeholder button { margin-top: .5rem; padding: .8rem 1.2rem; border: 1px solid #eee4db; background: transparent; color: inherit; cursor: pointer; }
+.placeholder button:hover, .placeholder button:focus-visible { background: #eee4db; color: #17191d; }
+.note { margin: 0; padding: .75rem 1rem; font-size: .78rem; }
+.note a, .video noscript a { color: #fff; }
+@media (prefers-reduced-motion: reduce) { .placeholder button { transition: none; } }

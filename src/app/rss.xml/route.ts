@@ -1,4 +1,4 @@
-import { getPosts } from "@/utils/utils";
+import { getAllArticles } from "@/data/articles";
 import { baseURL, blog, person } from "@/resources";
 
 export const revalidate = 3600;
@@ -18,7 +18,7 @@ function escapeXml(value: string) {
 }
 
 export async function GET() {
-  const posts = getPosts(["src", "app", "blog", "posts"]);
+  const posts = getAllArticles();
   const items = posts
     .map((post) => {
       const title = post.metadata.title;

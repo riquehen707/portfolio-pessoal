@@ -1,6 +1,8 @@
 import { MovieBatchSchema, type Movie } from "./movieSchema";
+import { ghibliMovieSeeds } from "./ghibliMovies";
+import { laikaMovieSeeds } from "./laikaMovies";
 
-type MovieSeed = Pick<
+export type MovieSeed = Pick<
   Movie,
   | "slug"
   | "titleBr"
@@ -17,7 +19,24 @@ type MovieSeed = Pick<
   | "experience"
   | "contentWarnings"
   | "sources"
->;
+> & Partial<Pick<Movie, "internationalTitle" | "releaseDate" | "screenwriters" | "releaseType" | "studioRelation" | "studioIds" | "productionStatus">> & {
+  id?: string;
+  aliases?: string[];
+  poster?: Movie["poster"];
+};
+
+const movieIds: Record<string, string> = {
+  "corra": "mov_7c1f3a", "hereditario": "mov_b40e92", "a-bruxa": "mov_2d815f",
+  "o-lamento": "mov_ae39c4", "deixe-ela-entrar": "mov_91f72b", "rec": "mov_3c085e",
+  "exterminio": "mov_d12a77", "a-substancia": "mov_68be30", "o-babadook": "mov_f51942",
+  "corrente-do-mal": "mov_0b84dd", "o-hospedeiro": "mov_c71a05", "invasao-zumbi": "mov_46ed93",
+  "kairo": "mov_823fa1", "medo": "mov_19c6be", "abismo-do-medo": "mov_e4507c",
+  "martires": "mov_5a2d91", "grave": "mov_a38f04", "o-segredo-da-cabana": "mov_6d90ce",
+  "o-homem-invisivel": "mov_14eb79", "fale-comigo": "mov_b731d8", "quando-o-mal-espreita": "mov_97a260",
+  "pecadores": "mov_30cf85", "atividade-paranormal": "mov_dd418e", "host-2020": "mov_75b3ac",
+  "x-a-marca-da-morte": "mov_08e6f1", "as-boas-maneiras": "mov_ca273d", "one-cut-of-the-dead": "mov_4f9b62",
+  "o-que-ficou-para-tras": "mov_62d0a9", "jogos-mortais": "mov_eb8514", "sob-a-pele": "mov_1a74cf",
+};
 
 const bfiHorror = "https://www.bfi.org.uk/lists/great-horror-film-from-every-year-from-1922-now";
 const bfiModern = "https://www.bfi.org.uk/lists/10-great-horror-films-2010s";
@@ -59,11 +78,26 @@ const seeds: MovieSeed[] = [
   { slug: "o-que-ficou-para-tras", titleBr: "O Que Ficou Para Trás", originalTitle: "His House", year: 2020, durationMinutes: 93, countries: ["Reino Unido"], directors: ["Remi Weekes"], genres: ["Terror", "Drama"], subgenres: ["Casa assombrada", "Sobrenatural"], themes: ["Refúgio", "Culpa", "Burocracia"], shortDescription: "Um casal refugiado enfrenta uma nova casa, a burocracia britânica e aquilo que trouxe consigo.", audienceProfile: "Para quem busca horror sobrenatural com conflito político e emocional concreto.", experience: "Sombrio, íntimo e moralmente difícil", contentWarnings: ["Guerra", "Morte de criança", "Luto"], sources: source("His House — BFI", "https://www.bfi.org.uk/lists/10-great-supernatural-horror-films-21st-century") },
   { slug: "jogos-mortais", titleBr: "Jogos Mortais", originalTitle: "Saw", year: 2004, durationMinutes: 103, countries: ["Estados Unidos"], directors: ["James Wan"], genres: ["Terror", "Suspense"], subgenres: ["Armadilhas"], themes: ["Sobrevivência", "Culpa", "Punição"], shortDescription: "Duas pessoas acordam presas em um banheiro e precisam compreender um jogo de punição construído ao redor delas.", audienceProfile: "Para fãs de mistério macabro que aceitam violência e estética marcada pelos anos 2000.", experience: "Nervoso, fechado e gráfico", contentWarnings: ["Tortura", "Automutilação", "Violência gráfica"], sources: source("Saw — Sundance Institute", sundanceHorror) },
   { slug: "sob-a-pele", titleBr: "Sob a Pele", originalTitle: "Under the Skin", year: 2013, durationMinutes: 108, countries: ["Reino Unido", "Estados Unidos", "Suíça"], directors: ["Jonathan Glazer"], genres: ["Terror", "Ficção científica"], subgenres: ["Experimental"], themes: ["Corpo", "Desejo", "Humanidade"], shortDescription: "Um olhar não humano percorre a Escócia e aprende a observar, atrair e habitar corpos.", audienceProfile: "Para quem aceita narrativa rarefeita, diálogos escassos e forte experimentação audiovisual.", experience: "Abstrato, lento e alienígena", contentWarnings: ["Nudez", "Violência sexual", "Afogamento"], sources: source("Under the Skin — BFI", "https://www.bfi.org.uk/film/155d7690-bc57-50ef-8d2f-eaf1e7102ae9/under-the-skin") },
+  ...ghibliMovieSeeds,
+  ...laikaMovieSeeds,
 ];
 
 const rawMovies = seeds.map((movie) => ({
   ...movie,
-  id: movie.slug,
+  id: movie.id ?? movieIds[movie.slug],
+  contentType: "movie" as const,
+  schemaVersion: 1,
+  aliases: movie.aliases ?? [],
+  createdAt: "2026-08-10",
+  updatedAt: "2026-08-11",
+  relatedContentIds: [],
+  studioIds: movie.studioIds ?? [],
+  poster: movie.poster ?? (movie.studioRelation || movie.studioIds?.length ? undefined : {
+    src: `/images/movies/${movie.slug}.webp`,
+    alt: `Capa editorial de ${movie.titleBr} (${movie.year})`,
+    sourceUrl: `https://henrique.dog/filmes`,
+    credit: "Capa editorial original de henrique.dog",
+  }),
   status: "draft" as const,
   availabilityBr: [],
   seo: {

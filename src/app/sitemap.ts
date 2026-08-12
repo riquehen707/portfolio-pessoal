@@ -1,22 +1,22 @@
 import type { MetadataRoute } from "next";
 
 import { baseURL, blog, routes as routesConfig } from "@/resources";
-import { getPosts } from "@/utils/utils";
-import { getPublishedMovies } from "@/content/movies/movies";
+import { getAllArticles } from "@/data/articles";
+import { getPublishedMovies } from "@/data/movies";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const today = new Date().toISOString().split("T")[0];
 
-  const blogPosts = getPosts(["src", "app", "blog", "posts"]).map((post) => ({
+  const blogPosts = getAllArticles().map((post) => ({
     url: `${baseURL}${blog.path}/${post.slug}`,
     lastModified: post.metadata.updatedAt || post.metadata.publishedAt || today,
     changeFrequency: "monthly" as const,
     priority: 0.72,
   }));
 
-  const moviePages = getPublishedMovies().map((movie) => ({
+  const moviePages = (await getPublishedMovies()).map((movie) => ({
     url: `${baseURL}/filmes/${movie.slug}`,
-    lastModified: today,
+    lastModified: movie.updatedAt,
     changeFrequency: "monthly" as const,
     priority: 0.64,
   }));
@@ -49,5 +49,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     ...moviePages,
     ...blogPosts,
+    { url: `${baseURL}/estudios/laika`, lastModified: "2026-08-11", changeFrequency: "monthly" as const, priority: 0.74 },
+    { url: `${baseURL}/obras/puparia`, lastModified: "2026-08-12", changeFrequency: "monthly" as const, priority: 0.72 },
+    { url: `${baseURL}/obras/wade`, lastModified: "2026-08-12", changeFrequency: "monthly" as const, priority: 0.72 },
+    { url: `${baseURL}/criadores/shingo-tamagawa`, lastModified: "2026-08-12", changeFrequency: "monthly" as const, priority: 0.68 },
   ];
 }

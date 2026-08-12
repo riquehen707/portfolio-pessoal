@@ -1,8 +1,6 @@
 import { cache } from "react";
 
-import { type BlogFile, getPosts } from "@/utils/utils";
-
-const BLOG_POSTS_PATH = ["src", "app", "blog", "posts"] as const;
+import { getAllArticles, type BlogFile } from "@/data/articles";
 
 export const blogCollections = {
   fundamentos: {
@@ -90,7 +88,7 @@ type TaxonomyCount = {
   count: number;
 };
 
-export const getAllBlogPosts = cache(() => getPosts([...BLOG_POSTS_PATH]));
+export const getAllBlogPosts = cache(() => getAllArticles());
 
 export function getBlogCollectionSlug(post: BlogFile) {
   return post.collection?.trim();

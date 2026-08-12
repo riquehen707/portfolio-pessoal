@@ -12,7 +12,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { baseURL, blog, person, social } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
-import { type BlogFile, getPosts } from "@/utils/utils";
+import { getAllArticles, getArticleBySlug, type BlogFile } from "@/data/articles";
 
 import styles from "./page.module.scss";
 
@@ -96,7 +96,7 @@ function uniqueContinuations(cards: Array<ContinuationCard | null>) {
 }
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const posts = getPosts(["src", "app", "blog", "posts"]);
+  const posts = getAllArticles();
   return posts.map((post) => ({
     slug: post.slug,
   }));
@@ -106,8 +106,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const slugPath = normalizeSlug(slug);
 
-  const posts = getPosts(["src", "app", "blog", "posts"]);
-  const post = posts.find((item) => item.slug === slugPath);
+  const post = getArticleBySlug(slugPath);
 
   if (!post) return {};
 
@@ -128,6 +127,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     ...generatedMeta,
+    alternates: {
+      ...generatedMeta.alternates,
+      canonical: post.metadata.canonical ?? `${baseURL}${blog.path}/${post.slug}`,
+    },
     openGraph: {
       ...generatedMeta.openGraph,
       images: buildDiscoverImageMetadata(
@@ -146,8 +149,8 @@ export default async function BlogPost({ params }: PageProps) {
   const { slug } = await params;
   const slugPath = normalizeSlug(slug);
 
-  const posts = getPosts(["src", "app", "blog", "posts"]);
-  const post = posts.find((item) => item.slug === slugPath);
+  const posts = getAllArticles();
+  const post = getArticleBySlug(slugPath);
 
   if (!post) notFound();
 

@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 
-import { getMovie } from "@/content/movies/movies";
+import { getMovieBySlug } from "@/data/movies";
+import { MoviePoster } from "./MoviePoster";
 
 import styles from "./MovieCard.module.scss";
 
@@ -10,10 +10,11 @@ type MovieCardProps = {
   context: string;
   position?: number;
   compact?: boolean;
+  showAction?: boolean;
 };
 
-export function MovieCard({ movie: slug, context, position, compact = false }: MovieCardProps) {
-  const movie = getMovie(slug);
+export async function MovieCard({ movie: slug, context, position, compact = false, showAction = true }: MovieCardProps) {
+  const movie = await getMovieBySlug(slug);
 
   if (!movie) {
     throw new Error(`MovieCard recebeu um slug inexistente: ${slug}`);
@@ -28,22 +29,7 @@ export function MovieCard({ movie: slug, context, position, compact = false }: M
 
   return (
     <article className={styles.card} data-compact={compact || undefined}>
-      <div className={styles.poster} data-placeholder={!movie.poster || undefined}>
-        {movie.poster ? (
-          <Image
-            src={movie.poster.src}
-            alt={movie.poster.alt}
-            fill
-            sizes="(max-width: 520px) 72px, 112px"
-          />
-        ) : (
-          <>
-            <span className={styles.posterLabel} aria-hidden="true">filme</span>
-            <span className={styles.posterMark} aria-hidden="true" />
-            <span className={styles.posterYear} aria-hidden="true">{movie.year}</span>
-          </>
-        )}
-      </div>
+      <MoviePoster className={styles.poster} movie={movie} sizes="(max-width: 520px) 72px, 112px" />
 
       <div className={styles.content}>
         <header className={styles.header}>
@@ -63,7 +49,7 @@ export function MovieCard({ movie: slug, context, position, compact = false }: M
         {!compact ? <p className={styles.description}>{movie.shortDescription}</p> : null}
         <p className={styles.context}>{context}</p>
 
-        {isPublished ? <Link className={styles.action} href={`/filmes/${movie.slug}`}>Ver página do filme</Link> : null}
+        {showAction && isPublished ? <Link className={styles.action} href={`/filmes/${movie.slug}`}>Ver página do filme</Link> : null}
       </div>
     </article>
   );

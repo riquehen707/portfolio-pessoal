@@ -1,0 +1,3972 @@
+{
+  "schemaVersion": 1,
+  "contentType": "article",
+  "records": [
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-advogados-podem-aparecer-no-google",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-05-16",
+      "seo": {
+        "title": "Como advogados podem aparecer no Google com presença local mais clara",
+        "description": "Organize perfil, páginas, conteúdo informativo e sinais de autoridade para ser encontrado sem comunicação apelativa.",
+        "canonical": "/blog/como-advogados-podem-aparecer-no-google"
+      },
+      "relationships": {
+        "related": [
+          "Como atrair clientes para escritório de advocacia com autoridade e clareza",
+          "Marketing jurídico: o que pode, o que evitar e como comunicar melhor",
+          "Ideias de conteúdo para advogados explicarem valor sem prometer resultado"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/juridico/como-advogados-podem-aparecer-no-google.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-atrair-clientes-para-escritorio-de-advocacia",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-07-17",
+      "seo": {
+        "title": "Como atrair clientes para escritório de advocacia com autoridade e clareza",
+        "description": "Veja como alinhar busca, conteúdo jurídico, página e atendimento para gerar demanda com sobriedade.",
+        "canonical": "/blog/como-atrair-clientes-para-escritorio-de-advocacia"
+      },
+      "relationships": {
+        "related": [
+          "Marketing jurídico: o que pode, o que evitar e como comunicar melhor",
+          "Como advogados podem aparecer no Google com presença local mais clara",
+          "Ideias de conteúdo para advogados explicarem valor sem prometer resultado"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/juridico/como-atrair-clientes-para-escritorio-de-advocacia.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "ideias-de-conteudo-para-advogados",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-05-16",
+      "seo": {
+        "title": "Ideias de conteúdo para advogados explicarem valor sem prometer resultado",
+        "description": "Temas para orientar o público, reduzir dúvidas e construir confiança respeitando limites da comunicação jurídica.",
+        "canonical": "/blog/ideias-de-conteudo-para-advogados"
+      },
+      "relationships": {
+        "related": [
+          "Marketing jurídico: o que pode, o que evitar e como comunicar melhor",
+          "Como advogados podem aparecer no Google com presença local mais clara",
+          "Como atrair clientes para escritório de advocacia com autoridade e clareza"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/juridico/ideias-de-conteudo-para-advogados.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "marketing-juridico-o-que-pode-e-o-que-nao-pode",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-05-16",
+      "seo": {
+        "title": "Marketing jurídico: o que pode, o que evitar e como comunicar melhor",
+        "description": "Entenda como estruturar presença, conteúdo e autoridade sem transformar a comunicação em captação irregular.",
+        "canonical": "/blog/marketing-juridico-o-que-pode-e-o-que-nao-pode"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/juridico/marketing-juridico-o-que-pode-e-o-que-nao-pode.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-aparecer-no-google-sendo-corretor-de-imoveis",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-05-16",
+      "seo": {
+        "title": "Como aparecer no Google sendo corretor de imóveis com presença local",
+        "description": "Ajuste perfil, páginas, conteúdo local e sinais de confiança para ser encontrado por compradores mais próximos da decisão.",
+        "canonical": "/blog/como-aparecer-no-google-sendo-corretor-de-imoveis"
+      },
+      "relationships": {
+        "related": [
+          "Como atrair mais clientes para uma imobiliária com captação local",
+          "Marketing imobiliário para captar compradores com mais intenção",
+          "Como corretores de imóveis podem gerar leads sem depender só de portais"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/imobiliario/como-aparecer-no-google-sendo-corretor-de-imoveis.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-atrair-mais-clientes-para-uma-imobiliaria",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-05-16",
+      "seo": {
+        "title": "Como atrair mais clientes para uma imobiliária com captação local",
+        "description": "Veja como combinar Google, páginas, conteúdo de bairro e atendimento rápido para transformar procura em conversas reais.",
+        "canonical": "/blog/como-atrair-mais-clientes-para-uma-imobiliaria"
+      },
+      "relationships": {
+        "related": [
+          "Como aparecer no Google sendo corretor de imóveis com presença local",
+          "Como vender mais imóveis usando marketing digital e acompanhamento comercial",
+          "Como corretores de imóveis podem gerar leads sem depender só de portais",
+          "Marketing imobiliário para captar compradores com mais intenção"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/imobiliario/como-atrair-mais-clientes-para-uma-imobiliaria.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-corretores-de-imoveis-podem-gerar-mais-leads",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-05-16",
+      "seo": {
+        "title": "Como corretores de imóveis podem gerar leads sem depender só de portais",
+        "description": "Organize canais próprios, páginas, conteúdo local e follow-up para captar contatos com mais controle comercial.",
+        "canonical": "/blog/como-corretores-de-imoveis-podem-gerar-mais-leads"
+      },
+      "relationships": {
+        "related": [
+          "Como atrair mais clientes para uma imobiliária com captação local",
+          "Como vender mais imóveis usando marketing digital e acompanhamento comercial",
+          "Como divulgar imóveis nas redes sociais com contexto e intenção"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/imobiliario/como-corretores-de-imoveis-podem-gerar-mais-leads.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-divulgar-imoveis-nas-redes-sociais",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-05-16",
+      "seo": {
+        "title": "Como divulgar imóveis nas redes sociais com contexto e intenção",
+        "description": "Mostre localização, rotina, diferenciais e próximo passo para transformar visualizações em visitas qualificadas.",
+        "canonical": "/blog/como-divulgar-imoveis-nas-redes-sociais"
+      },
+      "relationships": {
+        "related": [
+          "O que postar no Instagram de uma imobiliária além dos imóveis disponíveis",
+          "Ideias de conteúdo para corretores de imóveis gerarem confiança local",
+          "Como vender mais imóveis usando marketing digital e acompanhamento comercial"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/imobiliario/como-divulgar-imoveis-nas-redes-sociais.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-vender-mais-imoveis-usando-marketing-digital",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-07-17",
+      "seo": {
+        "title": "Como vender mais imóveis usando marketing digital e acompanhamento comercial",
+        "description": "Use página, busca, redes sociais e follow-up para conduzir o comprador da procura à visita e da visita à proposta.",
+        "canonical": "/blog/como-vender-mais-imoveis-usando-marketing-digital"
+      },
+      "relationships": {
+        "related": [
+          "O que postar no Instagram de uma imobiliária além dos imóveis disponíveis",
+          "Como atrair mais clientes para uma imobiliária com captação local",
+          "Como divulgar imóveis nas redes sociais com contexto e intenção",
+          "Como aparecer no Google sendo corretor de imóveis com presença local"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/imobiliario/como-vender-mais-imoveis-usando-marketing-digital.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "ideias-de-conteudo-para-corretores-de-imoveis",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-07-17",
+      "seo": {
+        "title": "Ideias de conteúdo para corretores de imóveis gerarem confiança local",
+        "description": "Temas para mostrar bairros, imóveis, bastidores e critérios de compra sem virar apenas vitrine de anúncios.",
+        "canonical": "/blog/ideias-de-conteudo-para-corretores-de-imoveis"
+      },
+      "relationships": {
+        "related": [
+          "O que postar no Instagram de uma imobiliária além dos imóveis disponíveis",
+          "Como divulgar imóveis nas redes sociais com contexto e intenção",
+          "Marketing imobiliário para captar compradores com mais intenção"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/imobiliario/ideias-de-conteudo-para-corretores-de-imoveis.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "marketing-imobiliario-estrategias-para-captar-compradores",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-05-16",
+      "seo": {
+        "title": "Marketing imobiliário para captar compradores com mais intenção",
+        "description": "Estruture busca, conteúdo, página e atendimento para atrair pessoas mais próximas de visitar ou negociar.",
+        "canonical": "/blog/marketing-imobiliario-estrategias-para-captar-compradores"
+      },
+      "relationships": {
+        "related": [
+          "Como vender mais imóveis usando marketing digital e acompanhamento comercial",
+          "Como atrair mais clientes para uma imobiliária com captação local",
+          "Como aparecer no Google sendo corretor de imóveis com presença local"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/imobiliario/marketing-imobiliario-estrategias-para-captar-compradores.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "o-que-postar-no-instagram-de-uma-imobiliaria",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-07-17",
+      "seo": {
+        "title": "O que postar no Instagram de uma imobiliária além dos imóveis disponíveis",
+        "description": "Organize conteúdos sobre bairros, dúvidas, bastidores e oportunidades para construir confiança antes do contato.",
+        "canonical": "/blog/o-que-postar-no-instagram-de-uma-imobiliaria"
+      },
+      "relationships": {
+        "related": [
+          "Ideias de conteúdo para corretores de imóveis gerarem confiança local",
+          "Como divulgar imóveis nas redes sociais com contexto e intenção",
+          "Como corretores de imóveis podem gerar leads sem depender só de portais"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/imobiliario/o-que-postar-no-instagram-de-uma-imobiliaria.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "9-kings-jogo-indie-brasileiro-sucesso-internacional",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-07-31",
+      "updatedAt": null,
+      "seo": {
+        "title": "9 Kings: como um jogo indie brasileiro se tornou um sucesso internacional",
+        "description": "Como o jogo brasileiro 9 Kings transformou uma ideia clara, um loop acessível e milhares de combinações em mais de 1 milhão de cópias vendidas.",
+        "canonical": "/blog/9-kings-jogo-indie-brasileiro-sucesso-internacional"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/9-kings-jogo-indie-brasileiro-sucesso-internacional.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "api-design-principles",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": "2026-08-08",
+      "seo": {
+        "title": "API design principles: princípios para criar APIs consistentes e evolutivas",
+        "description": "API design principles: recursos, semântica HTTP, erros, paginação, segurança, idempotência, concorrência, versionamento, OpenAPI e observabilidade.",
+        "canonical": "/blog/api-design-principles"
+      },
+      "relationships": {
+        "related": [
+          "Desenvolvimento web: o que é, como funciona e como começar",
+          "Database design patterns: padrões para modelar bancos de dados com clareza e escala",
+          "Domain-driven design"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/api-design-principles.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "arthur-schopenhauer",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-05",
+      "updatedAt": null,
+      "seo": {
+        "title": "Arthur Schopenhauer: vida, filosofia, obras e por onde começar",
+        "description": "Conheça Arthur Schopenhauer, suas principais ideias e obras, as críticas ao seu sistema e diferentes caminhos para começar a leitura.",
+        "canonical": "/blog/arthur-schopenhauer"
+      },
+      "relationships": {
+        "related": [
+          "Friedrich Nietzsche: vida, ideias, obras e por onde começar",
+          "Como começar a ler: um guia possível para criar o hábito"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/arthur-schopenhauer.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "augusto-cury-clubes-empreendedorismo",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-09",
+      "updatedAt": "2026-08-09",
+      "seo": {
+        "title": "Augusto Cury quer criar 10 mil clubes de empreendedorismo: a proposta funcionaria?",
+        "description": "Os 10 mil clubes de empreendedorismo de Augusto Cury funcionariam? Veja a matemática, os riscos do crédito e como medir renda e sobrevivência.",
+        "canonical": "/blog/augusto-cury-clubes-empreendedorismo"
+      },
+      "relationships": {
+        "related": [
+          "Augusto Cury nas eleições de 2026",
+          "Empreendedorismo resolve desemprego e pobreza?"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/augusto-cury-clubes-empreendedorismo.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "augusto-cury-eleicoes-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-09",
+      "updatedAt": "2026-08-09",
+      "seo": {
+        "title": "Augusto Cury nas eleições de 2026: pré-candidatura, propostas e críticas",
+        "description": "Augusto Cury nas eleições de 2026: status da pré-candidatura, propostas para saúde mental e educação, experiência, evidências e críticas.",
+        "canonical": "/blog/augusto-cury-eleicoes-2026"
+      },
+      "relationships": {
+        "related": [
+          "Romeu Zema nas eleições de 2026",
+          "Renan Santos nas eleições de 2026",
+          "Ronaldo Caiado nas eleições de 2026"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/augusto-cury-eleicoes-2026.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "blockchain-emendas-parlamentares-transparencia",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-10",
+      "updatedAt": "2026-08-10",
+      "seo": {
+        "title": "Blockchain nas emendas parlamentares: transparência real ou solução tecnológica para um problema político?",
+        "description": "Blockchain tornaria as emendas parlamentares transparentes? Entenda o ciclo do dinheiro, os sistemas atuais, o problema do oráculo e as alternativas.",
+        "canonical": "/blog/blockchain-emendas-parlamentares-transparencia"
+      },
+      "relationships": {
+        "related": [
+          "Renan Santos nas eleições de 2026: propostas, trajetória e críticas",
+          "Reserva nacional de Bitcoin: estratégia financeira ou especulação com dinheiro público?"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/blockchain-emendas-parlamentares-transparencia.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "brasil-sair-brics-proposta-zema",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-09",
+      "updatedAt": "2026-08-09",
+      "seo": {
+        "title": "O Brasil deveria sair do BRICS? Argumentos, custos e efeitos da proposta de Zema",
+        "description": "O Brasil deveria sair do BRICS, como propõe Romeu Zema? Entenda comércio, China, Novo Banco de Desenvolvimento, custos e três cenários.",
+        "canonical": "/blog/brasil-sair-brics-proposta-zema"
+      },
+      "relationships": {
+        "related": [
+          "Romeu Zema nas eleições de 2026",
+          "Lula colocou a soberania no centro do programa de 2026"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/brasil-sair-brics-proposta-zema.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "byung-chul-han",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-05",
+      "updatedAt": null,
+      "seo": {
+        "title": "Byung-Chul Han: conceitos, obras, críticas e por onde começar",
+        "description": "Conheça os conceitos e livros de Byung-Chul Han, suas influências, limitações e percursos de leitura por problema.",
+        "canonical": "/blog/byung-chul-han"
+      },
+      "relationships": {
+        "related": [
+          "Friedrich Nietzsche: vida, ideias, obras e por onde começar",
+          "Como começar a ler: um guia possível para criar o hábito"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/byung-chul-han.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "cad-computer-aided-design",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": "2026-08-08",
+      "seo": {
+        "title": "CAD (computer-aided design): o que é, aplicações e como começar",
+        "description": "CAD (computer-aided design): entenda desenho 2D, modelagem 3D, CAD paramétrico, CAE, CAM e BIM, aplicações, softwares e como começar.",
+        "canonical": "/blog/cad-computer-aided-design"
+      },
+      "relationships": {
+        "related": [
+          "O que é design? Muito além de deixar algo bonito",
+          "Fundamentos do design visual: como organizar informações com clareza",
+          "Como começar a trabalhar com design: habilidades, áreas e primeiros passos",
+          "Termos de design para compreender interfaces, marcas e peças visuais"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/cad-computer-aided-design.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "caiado-cameras-corporais-policiais-evidencias",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-09",
+      "updatedAt": "2026-08-09",
+      "seo": {
+        "title": "Caiado é contra câmeras corporais em policiais: o que mostram as evidências?",
+        "description": "Caiado é contra câmeras corporais em policiais. Veja o que estudos mostram sobre letalidade, segurança dos agentes, provas, produtividade, custos e limites.",
+        "canonical": "/blog/caiado-cameras-corporais-policiais-evidencias"
+      },
+      "relationships": {
+        "related": [
+          "Ronaldo Caiado nas eleições de 2026",
+          "Decisões monocráticas e eleição de 2026",
+          "Crimes no Discord e responsabilidade das plataformas"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/caiado-cameras-corporais-policiais-evidencias.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "cameras-ruas-uniformes-policiais-contradicao",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-09",
+      "updatedAt": "2026-08-09",
+      "seo": {
+        "title": "Câmeras nas ruas, mas não nos uniformes policiais: há contradição?",
+        "description": "Há contradição entre câmeras nas ruas e rejeição às câmeras corporais? Compare bodycams, CCTV, reconhecimento facial e leitura de placas.",
+        "canonical": "/blog/cameras-ruas-uniformes-policiais-contradicao"
+      },
+      "relationships": {
+        "related": [
+          "Caiado é contra câmeras corporais em policiais: o que mostram as evidências?",
+          "Ronaldo Caiado nas eleições de 2026",
+          "Flávio Bolsonaro nas eleições de 2026"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/cameras-ruas-uniformes-policiais-contradicao.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "castracao-quimica-violencia-sexual-evidencias",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": "2026-08-08",
+      "seo": {
+        "title": "Castração química reduz a violência sexual? Evidências, limites e riscos da proposta",
+        "description": "Castração química reduz violência sexual? Entenda medicamentos, evidências sobre reincidência, PL 3.127/2019, consentimento, efeitos adversos e limites.",
+        "canonical": "/blog/castracao-quimica-violencia-sexual-evidencias"
+      },
+      "relationships": {
+        "related": [
+          "Flávio Bolsonaro nas eleições de 2026: propostas, trajetória e críticas"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/castracao-quimica-violencia-sexual-evidencias.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "clt-opcional-zema-trabalho-por-hora",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": "2026-08-08",
+      "seo": {
+        "title": "CLT opcional de Zema: trabalho por hora amplia a liberdade ou reduz a proteção?",
+        "description": "A CLT opcional de Zema ampliaria a liberdade ou precarizaria o trabalho? Entenda a PEC 12/2026, os direitos proporcionais e as salvaguardas ausentes.",
+        "canonical": "/blog/clt-opcional-zema-trabalho-por-hora"
+      },
+      "relationships": {
+        "related": [
+          "Romeu Zema nas eleições de 2026: propostas, resultados e críticas"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/clt-opcional-zema-trabalho-por-hora.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-comecar-a-ler",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-02",
+      "updatedAt": "2026-08-02",
+      "seo": {
+        "title": "Como começar a ler e sentir prazer na leitura",
+        "description": "Entenda a dificuldade para ler e como prazer, progressão e escolhas compatíveis ajudam a criar o hábito de leitura.",
+        "canonical": "/blog/como-comecar-a-ler"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-comecar-a-ler.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-comecar-a-trabalhar-com-design",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-07-31",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como começar a trabalhar com design: habilidades, áreas e primeiros passos",
+        "description": "Aprenda como começar a trabalhar com design, quais áreas conhecer, o que estudar, como montar um portfólio e buscar os primeiros projetos profissionais.",
+        "canonical": "/blog/como-comecar-a-trabalhar-com-design"
+      },
+      "relationships": {
+        "related": [
+          "Termos de design para compreender interfaces, marcas e peças visuais",
+          "Como ganhar dinheiro na internet de forma honesta e comprovada",
+          "O que você precisa aprender para ser um bom social media?"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-comecar-a-trabalhar-com-design.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-conseguir-clientes-como-designer-grafico-freelancer",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como conseguir clientes como designer gráfico freelancer",
+        "description": "Veja como conseguir clientes como designer gráfico freelancer com canais, roteiro de prospecção, plano de 14 dias e qualificação.",
+        "canonical": "/blog/como-conseguir-clientes-como-designer-grafico-freelancer"
+      },
+      "relationships": {
+        "related": [
+          "Guia prático: como trabalhar com design gráfico e identidade visual",
+          "O que publicar sendo designer gráfico",
+          "Networking: o que é?"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-conseguir-clientes-como-designer-grafico-freelancer.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-conseguir-clientes-como-gestor-de-trafego",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como conseguir clientes como gestor de tráfego",
+        "description": "Veja como conseguir clientes como gestor de tráfego com canais, prospecção contextual, diagnóstico, proposta e responsabilidades claras.",
+        "canonical": "/blog/como-conseguir-clientes-como-gestor-de-trafego"
+      },
+      "relationships": {
+        "related": [
+          "Guia prático: como trabalhar como gestor de tráfego pago",
+          "Marketing de aquisição: o que é e quais estratégias podem atrair novos clientes?",
+          "Networking: o que é?"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-conseguir-clientes-como-gestor-de-trafego.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-conseguir-clientes-de-seo",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como conseguir clientes de SEO",
+        "description": "Veja como conseguir clientes de SEO com canais, prospecção contextual, diagnóstico, proposta e responsabilidades bem delimitadas.",
+        "canonical": "/blog/como-conseguir-clientes-de-seo"
+      },
+      "relationships": {
+        "related": [
+          "Guia prático: como trabalhar com SEO",
+          "Marketing de aquisição: o que é e quais estratégias podem atrair novos clientes?",
+          "Networking: o que é?"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-conseguir-clientes-de-seo.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-conseguir-clientes-para-criacao-de-sites",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como conseguir clientes para criação de sites",
+        "description": "Veja como conseguir clientes para criação de sites com portfólio, networking, prospecção contextual, qualificação e proposta bem delimitada.",
+        "canonical": "/blog/como-conseguir-clientes-para-criacao-de-sites"
+      },
+      "relationships": {
+        "related": [
+          "Guia prático: como trabalhar com criação de sites",
+          "Marketing de aquisição: o que é e quais estratégias podem atrair novos clientes?",
+          "Networking: o que é, quais são os benefícios e como construir sua rede"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-conseguir-clientes-para-criacao-de-sites.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-conseguir-os-primeiros-clientes-como-social-media",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como conseguir os primeiros clientes como social media",
+        "description": "Veja como conseguir os primeiros clientes como social media com portfólio, networking, prospecção selecionada, qualificação e proposta bem delimitada.",
+        "canonical": "/blog/como-conseguir-os-primeiros-clientes-como-social-media"
+      },
+      "relationships": {
+        "related": [
+          "Guia prático: como trabalhar como social media",
+          "Networking: o que é, quais são os benefícios e como construir sua rede",
+          "Marketing de aquisição: o que é e quais estratégias podem atrair novos clientes?"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-conseguir-os-primeiros-clientes-como-social-media.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-entender-receita-margem-custos-e-volume",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-07-17",
+      "seo": {
+        "title": "Como entender receita, margem e volume antes de colocar mais verba",
+        "description": "Use uma leitura simples de margem, custo e capacidade para decidir se o marketing pode crescer agora.",
+        "canonical": "/blog/como-entender-receita-margem-custos-e-volume"
+      },
+      "relationships": {
+        "related": [
+          "Termos de publicidade para entender para onde a verba está indo",
+          "Como vender cursos online com página, oferta e acompanhamento mais claros",
+          "Como vender mais imóveis usando marketing digital e acompanhamento comercial"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-entender-receita-margem-custos-e-volume.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-escolher-uma-forma-de-ganhar-dinheiro-na-internet",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-02",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como escolher entre estratégias de curto, médio e longo prazo para ganhar dinheiro na internet",
+        "description": "Um modelo para combinar geração de caixa, desenvolvimento profissional e projetos de longo prazo conforme sua situação financeira e suas evidências.",
+        "canonical": "/blog/como-escolher-uma-forma-de-ganhar-dinheiro-na-internet"
+      },
+      "relationships": {
+        "related": [
+          "Como ganhar dinheiro na internet no curto prazo: caminhos honestos e realistas",
+          "Como ganhar dinheiro na internet no longo prazo: ativos, distribuição e negócios sustentáveis",
+          "Como entender receita, margem e volume antes de colocar mais verba"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-escolher-uma-forma-de-ganhar-dinheiro-na-internet.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-escrever-um-estudo-de-caso-de-ux",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como escrever um estudo de caso de UX",
+        "description": "Aprenda como escrever um estudo de caso de UX claro, escaneável e honesto, com exemplos de problema, pesquisa, decisão, resultado e limitações.",
+        "canonical": "/blog/como-escrever-um-estudo-de-caso-de-ux"
+      },
+      "relationships": {
+        "related": [
+          "Guia prático: como trabalhar com UI/UX Design",
+          "O que são soft skills? Entenda as habilidades comportamentais no trabalho",
+          "Termos de design para avaliar páginas com mais critério"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-escrever-um-estudo-de-caso-de-ux.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-ganhar-dinheiro-na-internet-de-forma-honesta-e-comprovada",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-30",
+      "updatedAt": "2026-08-02",
+      "seo": {
+        "title": "Formas honestas de ganhar dinheiro na internet: possibilidades reais para começar",
+        "description": "Um guia realista para comparar formas de renda online e escolher um caminho de acordo com sua urgência, habilidades, tempo, recursos e tolerância ao risco.",
+        "canonical": "/blog/como-ganhar-dinheiro-na-internet-de-forma-honesta-e-comprovada"
+      },
+      "relationships": {
+        "related": [
+          "Como entender receita, margem e volume antes de colocar mais verba",
+          "O que são soft skills? 16 exemplos para desenvolver no trabalho",
+          "Networking: o que é, quais são os benefícios e como fazer na prática"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-ganhar-dinheiro-na-internet-de-forma-honesta-e-comprovada.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-ganhar-dinheiro-na-internet-no-curto-prazo",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-02",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como ganhar dinheiro na internet no curto prazo: caminhos honestos e realistas",
+        "description": "Um guia para identificar recursos disponíveis, montar uma oferta simples e buscar a primeira receita online sem promessas de dinheiro fácil.",
+        "canonical": "/blog/como-ganhar-dinheiro-na-internet-no-curto-prazo"
+      },
+      "relationships": {
+        "related": [
+          "Como começar a trabalhar com design: habilidades, áreas e primeiros passos",
+          "Networking: o que é, quais são os benefícios e como fazer na prática",
+          "O que são soft skills? 16 exemplos para desenvolver no trabalho"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-ganhar-dinheiro-na-internet-no-curto-prazo.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-ganhar-dinheiro-na-internet-no-longo-prazo",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-02",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como ganhar dinheiro na internet no longo prazo: ativos, distribuição e negócios sustentáveis",
+        "description": "Um guia para transformar trabalho e competências em ofertas, distribuição e estruturas que preservem valor sem depender da fantasia da renda passiva.",
+        "canonical": "/blog/como-ganhar-dinheiro-na-internet-no-longo-prazo"
+      },
+      "relationships": {
+        "related": [
+          "Como ganhar dinheiro na internet no curto prazo: caminhos honestos e realistas",
+          "Como entender receita, margem e volume antes de colocar mais verba",
+          "Marketing de aquisição: o que é e quais estratégias usar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-ganhar-dinheiro-na-internet-no-longo-prazo.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-melhorar-o-retorno-com-pequenos-ajustes",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-07-17",
+      "seo": {
+        "title": "Como melhorar o retorno com pequenos ajustes antes de investir mais",
+        "description": "Revise ticket, margem, recorrência e acompanhamento para ganhar eficiência antes de aumentar a verba.",
+        "canonical": "/blog/como-melhorar-o-retorno-com-pequenos-ajustes"
+      },
+      "relationships": {
+        "related": [
+          "Termos de marketing para decidir melhor antes de investir",
+          "Termos de publicidade para entender para onde a verba está indo",
+          "Como lotar a agenda de uma manicure com retorno e rotina comercial",
+          "Como aumentar o agendamento de consultas reduzindo atrito no atendimento",
+          "Como vender cursos online com página, oferta e acompanhamento mais claros",
+          "Como vender mais imóveis usando marketing digital e acompanhamento comercial"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-melhorar-o-retorno-com-pequenos-ajustes.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-montar-um-pc",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-01",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como montar um PC: guia completo do orçamento ao primeiro boot",
+        "description": "Aprenda como montar um PC: defina o orçamento, escolha peças compatíveis, faça a montagem e configure o computador até o primeiro boot.",
+        "canonical": "/blog/como-montar-um-pc"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-montar-um-pc.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-montar-um-portfolio-de-desenvolvimento-web-sem-clientes",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como montar um portfólio de desenvolvimento web sem clientes",
+        "description": "Aprenda como montar um portfólio de desenvolvimento web sem clientes com projetos autorais, evidências técnicas, código e estudos de projeto.",
+        "canonical": "/blog/como-montar-um-portfolio-de-desenvolvimento-web-sem-clientes"
+      },
+      "relationships": {
+        "related": [
+          "Guia prático: como trabalhar com criação de sites",
+          "Como começar a trabalhar com design: habilidades, áreas e primeiros passos",
+          "Como escrever um estudo de caso de UX"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-montar-um-portfolio-de-desenvolvimento-web-sem-clientes.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-montar-um-portfolio-de-identidade-visual-sem-clientes",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como montar um portfólio de identidade visual sem clientes",
+        "description": "Aprenda como montar um portfólio de identidade visual sem clientes, com estrutura de case, projeto autoral, mockups e checklist.",
+        "canonical": "/blog/como-montar-um-portfolio-de-identidade-visual-sem-clientes"
+      },
+      "relationships": {
+        "related": [
+          "Guia prático: como trabalhar com design gráfico e identidade visual",
+          "O que publicar sendo designer gráfico",
+          "Fundamentos do design"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-montar-um-portfolio-de-identidade-visual-sem-clientes.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-montar-um-portfolio-de-seo-sem-clientes",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como montar um portfólio de SEO sem clientes",
+        "description": "Aprenda como montar um portfólio de SEO sem clientes com projetos autorais, case reutilizável, evidências e checklist de transparência.",
+        "canonical": "/blog/como-montar-um-portfolio-de-seo-sem-clientes"
+      },
+      "relationships": {
+        "related": [
+          "Guia prático: como trabalhar com SEO",
+          "Entender a busca",
+          "Como montar um portfólio de desenvolvimento web sem clientes"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-montar-um-portfolio-de-seo-sem-clientes.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-montar-um-portfolio-de-social-media-sem-clientes",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como montar um portfólio de social media sem clientes",
+        "description": "Aprenda como montar um portfólio de social media sem clientes usando projetos autorais, briefing simulado e estudos de caso baseados em processo.",
+        "canonical": "/blog/como-montar-um-portfolio-de-social-media-sem-clientes"
+      },
+      "relationships": {
+        "related": [
+          "Guia prático: como trabalhar como social media",
+          "Como começar a trabalhar com design: habilidades, áreas e primeiros passos",
+          "O que são soft skills? Entenda as habilidades comportamentais no trabalho"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-montar-um-portfolio-de-social-media-sem-clientes.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-montar-um-portfolio-de-trafego-pago-sem-clientes",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como montar um portfólio de tráfego pago sem clientes",
+        "description": "Aprenda como montar um portfólio de tráfego pago sem clientes, com projeto simulado, estrutura reutilizável e checklist de transparência.",
+        "canonical": "/blog/como-montar-um-portfolio-de-trafego-pago-sem-clientes"
+      },
+      "relationships": {
+        "related": [
+          "Guia prático: como trabalhar como gestor de tráfego pago",
+          "Termos de publicidade para entender para onde a verba está indo",
+          "Como entender receita, margem, custos e volume antes de colocar mais verba"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-montar-um-portfolio-de-trafego-pago-sem-clientes.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-montar-um-portfolio-de-ux-sem-experiencia",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como montar um portfólio de UX sem experiência",
+        "description": "Aprenda como montar um portfólio de UX sem experiência com projetos autorais, evidências honestas, estudos de caso e adaptação ao tipo de vaga.",
+        "canonical": "/blog/como-montar-um-portfolio-de-ux-sem-experiencia"
+      },
+      "relationships": {
+        "related": [
+          "Guia prático: como trabalhar com UI/UX Design",
+          "Como começar a trabalhar com design: habilidades, áreas e primeiros passos",
+          "Networking: o que é, quais são os benefícios e como construir sua rede"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-montar-um-portfolio-de-ux-sem-experiencia.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-vender-na-shopee",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-02",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como vender na Shopee: guia para começar com planejamento",
+        "description": "Um guia para avaliar produtos, calcular custos, montar anúncios e operar uma loja na Shopee sem confundir acesso ao marketplace com lucro garantido.",
+        "canonical": "/blog/como-vender-na-shopee"
+      },
+      "relationships": {
+        "related": [
+          "Como entender receita, margem e volume antes de colocar mais verba",
+          "Como escolher entre estratégias de curto, médio e longo prazo para ganhar dinheiro na internet",
+          "Marketing de aquisição: o que é e quais estratégias usar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-vender-na-shopee.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "construir-mais-presidios-faccoes-criminosas",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-09",
+      "updatedAt": "2026-08-09",
+      "seo": {
+        "title": "Construir mais presídios enfraquece ou fortalece as facções criminosas?",
+        "description": "Construir mais presídios reduz o poder das facções? Entenda déficit de vagas, superlotação, recrutamento, custos e os cenários da proposta de Flávio Bolsonaro.",
+        "canonical": "/blog/construir-mais-presidios-faccoes-criminosas"
+      },
+      "relationships": {
+        "related": [
+          "Flávio Bolsonaro propõe presídios ‘Treva’",
+          "Flávio Bolsonaro nas eleições de 2026",
+          "Redução da maioridade penal"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/construir-mais-presidios-faccoes-criminosas.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "crimes-no-discord-responsabilidade-moderacao",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": "2026-08-08",
+      "seo": {
+        "title": "Crimes no Discord: quem deve ser responsabilizado e até onde deve ir a moderação?",
+        "description": "Crimes no Discord: entenda responsabilidades de usuários, plataforma, famílias, escolas e Estado, além dos limites da moderação e da verificação de idade.",
+        "canonical": "/blog/crimes-no-discord-responsabilidade-moderacao"
+      },
+      "relationships": {
+        "related": [
+          "Hannah Arendt: responsabilidade, julgamento e política",
+          "Michel Foucault: poder, vigilância e produção de sujeitos"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/crimes-no-discord-responsabilidade-moderacao.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "data-centers-desenvolvimento-brasil",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-11",
+      "updatedAt": "2026-08-11",
+      "seo": {
+        "title": "Data centers geram desenvolvimento? Empregos, incentivos, energia e riscos para o Brasil",
+        "description": "Data centers geram desenvolvimento no Brasil? Entenda o Redata, os empregos, a energia, a água, os incentivos e as condições para benefício público.",
+        "canonical": "/blog/data-centers-desenvolvimento-brasil"
+      },
+      "relationships": {
+        "related": [
+          "Renan Santos nas eleições de 2026: propostas, trajetória e críticas"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/data-centers-desenvolvimento-brasil.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "data-warehouse-design",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": "2026-08-08",
+      "seo": {
+        "title": "Data warehouse design: princípios e arquiteturas para análise de dados",
+        "description": "Data warehouse design: arquitetura analítica, ETL e ELT, modelagem dimensional, star schema, Kimball, Inmon, qualidade, segurança e custo.",
+        "canonical": "/blog/data-warehouse-design"
+      },
+      "relationships": {
+        "related": [
+          "Database design patterns: padrões para modelar bancos de dados com clareza e escala",
+          "Marketing orientado a dados: como tomar decisões melhores sem se perder nas métricas"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/data-warehouse-design.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "database-design-patterns",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": "2026-08-08",
+      "seo": {
+        "title": "Database design patterns: padrões para modelar bancos de dados com clareza e escala",
+        "description": "Database design patterns em PostgreSQL: relacionamentos N:N, hierarquias, histórico, dados temporais, multi-tenant, outbox, JSONB e pré-agregação.",
+        "canonical": "/blog/database-design-patterns"
+      },
+      "relationships": {
+        "related": [
+          "Desenvolvimento web: o que é, como funciona e como começar",
+          "Marketing orientado a dados: como tomar decisões melhores sem se perder nas métricas"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/database-design-patterns.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "decisoes-monocraticas-eleicao-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": "2026-08-08",
+      "seo": {
+        "title": "Decisões monocráticas: o que são e por que viraram tema da eleição de 2026",
+        "description": "Entenda as decisões monocráticas no STF, a Emenda Regimental 58, a PEC 8/2021 e as propostas eleitorais de 2026, com argumentos e critérios para formar uma opinião.",
+        "canonical": "/blog/decisoes-monocraticas-eleicao-2026"
+      },
+      "relationships": {
+        "related": [
+          "Hannah Arendt: política, responsabilidade e julgamento",
+          "Platão: democracia, poder e conhecimento"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/decisoes-monocraticas-eleicao-2026.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "desenvolvimento-web",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-06",
+      "updatedAt": null,
+      "seo": {
+        "title": "Desenvolvimento web: o que é, como funciona e como começar",
+        "description": "Entenda o que é desenvolvimento web, como sites funcionam, front-end, back-end, tecnologias essenciais e um roteiro prático para começar.",
+        "canonical": "/blog/desenvolvimento-web"
+      },
+      "relationships": {
+        "related": [
+          "Guia prático: como trabalhar com criação de sites",
+          "Como montar um portfólio de desenvolvimento web sem clientes",
+          "As melhores profissões digitais e como iniciar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/desenvolvimento-web.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "design-thinking-process",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": "2026-08-08",
+      "seo": {
+        "title": "Design thinking process: etapas, ferramentas e limites do processo",
+        "description": "Design thinking process: conheça etapas, técnicas, evidências, limites e um roteiro prático para aplicar o processo com pesquisa e iteração.",
+        "canonical": "/blog/design-thinking-process"
+      },
+      "relationships": {
+        "related": [
+          "O que é design? Muito além de deixar algo bonito",
+          "Princípios do design visual: como criar hierarquia, clareza e consistência",
+          "Como escrever um estudo de caso de UX",
+          "Guia prático: como trabalhar com UI e UX Design"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/design-thinking-process.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "desvalorizacao-medico-veterinario",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-07-28",
+      "updatedAt": null,
+      "seo": {
+        "title": "R$ 180 por 12 horas: por que o trabalho veterinário vale tão pouco?",
+        "description": "Entenda por que plantões veterinários mal remunerados envolvem informalidade, custos clínicos, renda das famílias e poder de negociação no Brasil.",
+        "canonical": "/blog/desvalorizacao-medico-veterinario"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/desvalorizacao-medico-veterinario.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "domain-driven-design",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-01",
+      "updatedAt": null,
+      "seo": {
+        "title": "Domain-Driven Design: o que é DDD e quando faz sentido usar",
+        "description": "Entenda o que é Domain-Driven Design, seus conceitos estratégicos e táticos, quando aplicar DDD e quando uma solução mais simples é suficiente.",
+        "canonical": "/blog/domain-driven-design"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/domain-driven-design.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "empreendedorismo-desemprego-pobreza-evidencias",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": "2026-08-08",
+      "seo": {
+        "title": "Empreendedorismo resolve desemprego e pobreza? O que as evidências mostram",
+        "description": "Empreendedorismo resolve desemprego e pobreza? Veja evidências sobre cursos, crédito, MEI, trabalho por conta própria, renda e geração de empregos.",
+        "canonical": "/blog/empreendedorismo-desemprego-pobreza-evidencias"
+      },
+      "relationships": {
+        "related": [
+          "Augusto Cury nas eleições de 2026: pré-candidatura, propostas e críticas",
+          "As melhores profissões digitais e como iniciar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/empreendedorismo-desemprego-pobreza-evidencias.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "estrategias-de-marketing-viral",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": null,
+      "seo": {
+        "title": "Estratégias de marketing viral: como aumentar as chances de compartilhamento",
+        "description": "Conheça estratégias de marketing viral, entenda por que pessoas compartilham e aprenda a testar campanhas sem prometer alcance ou confundir exposição com resultado.",
+        "canonical": "/blog/estrategias-de-marketing-viral"
+      },
+      "relationships": {
+        "related": [
+          "Marketing de aquisição: o que é e quais estratégias podem atrair novos clientes?",
+          "Guia prático: como trabalhar como social media",
+          "Marketing de afiliados realmente funciona? Estratégias para obter resultados"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/estrategias-de-marketing-viral.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "fim-escala-6x1-empregos-evidencias",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-09",
+      "updatedAt": "2026-08-09",
+      "seo": {
+        "title": "O fim da escala 6x1 destruiria empregos? O que as evidências permitem concluir",
+        "description": "O fim da escala 6x1 destruiria empregos? Entenda custos, cenários, diferenças setoriais e o que estudos brasileiros realmente demonstram.",
+        "canonical": "/blog/fim-escala-6x1-empregos-evidencias"
+      },
+      "relationships": {
+        "related": [
+          "Zema e o fim da escala 6x1",
+          "CLT opcional de Zema"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/fim-escala-6x1-empregos-evidencias.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "flavio-bolsonaro-eleicoes-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": "2026-08-08",
+      "seo": {
+        "title": "Flávio Bolsonaro nas eleições de 2026: propostas, trajetória e críticas",
+        "description": "Flávio Bolsonaro em 2026: propostas, trajetória parlamentar, autonomia em relação a Jair Bolsonaro, limites de execução e análise crítica.",
+        "canonical": "/blog/flavio-bolsonaro-eleicoes-2026"
+      },
+      "relationships": {
+        "related": [
+          "Lula nas eleições de 2026",
+          "Decisões monocráticas e eleição de 2026"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/flavio-bolsonaro-eleicoes-2026.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "flavio-bolsonaro-presidios-treva-faccoes",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-09",
+      "updatedAt": "2026-08-09",
+      "seo": {
+        "title": "Flávio Bolsonaro propõe presídios ‘Treva’: eles enfraqueceriam as facções?",
+        "description": "Os presídios Treva de Flávio Bolsonaro enfraqueceriam facções? Entenda capacidade, custos, isolamento de líderes e limites do modelo de El Salvador.",
+        "canonical": "/blog/flavio-bolsonaro-presidios-treva-faccoes"
+      },
+      "relationships": {
+        "related": [
+          "Flávio Bolsonaro nas eleições de 2026",
+          "Expansão prisional e criminalidade"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/flavio-bolsonaro-presidios-treva-faccoes.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "flavio-bolsonaro-reducao-maioridade-penal",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-09",
+      "updatedAt": "2026-08-09",
+      "seo": {
+        "title": "Flávio Bolsonaro quer reduzir a maioridade penal: a medida diminuiria a criminalidade?",
+        "description": "Reduzir a maioridade penal diminuiria a criminalidade? Entenda a PEC 32/2019, a responsabilização atual e as evidências sobre prisão adulta.",
+        "canonical": "/blog/flavio-bolsonaro-reducao-maioridade-penal"
+      },
+      "relationships": {
+        "related": [
+          "Flávio Bolsonaro nas eleições de 2026",
+          "Presídios Treva e facções"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/flavio-bolsonaro-reducao-maioridade-penal.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "frantz-fanon",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-06",
+      "updatedAt": null,
+      "seo": {
+        "title": "Frantz Fanon: colonialismo, racismo, obras e por onde começar",
+        "description": "Conheça Frantz Fanon, os conceitos de sociogenia e descolonização, suas obras, a prática psiquiátrica, críticas e percursos de leitura.",
+        "canonical": "/blog/frantz-fanon"
+      },
+      "relationships": {
+        "related": [
+          "Simone de Beauvoir: filosofia, obras, feminismo e por onde começar",
+          "Michel Foucault: ideias, obras, métodos e por onde começar",
+          "Hannah Arendt: ideias, obras, controvérsias e por onde começar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/frantz-fanon.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "friedrich-nietzsche",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-05",
+      "updatedAt": null,
+      "seo": {
+        "title": "Friedrich Nietzsche: vida, ideias, obras e por onde começar",
+        "description": "Conheça Friedrich Nietzsche, suas principais ideias e obras, as controvérsias de sua recepção e diferentes caminhos para começar a leitura.",
+        "canonical": "/blog/friedrich-nietzsche"
+      },
+      "relationships": {
+        "related": [
+          "Como começar a ler: um guia possível para criar o hábito"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/friedrich-nietzsche.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "fundamentos-do-design",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-07-31",
+      "updatedAt": "2026-08-08",
+      "seo": {
+        "title": "Princípios do design visual: como criar hierarquia, clareza e consistência",
+        "description": "Conheça os princípios do design visual e aprenda a criar hierarquia, clareza e consistência com exemplos controlados, critérios e acessibilidade.",
+        "canonical": "/blog/fundamentos-do-design"
+      },
+      "relationships": {
+        "related": [
+          "O que é design? Muito além de deixar algo bonito",
+          "Como começar a trabalhar com design: habilidades, áreas e primeiros passos",
+          "Termos de design para compreender interfaces, marcas e peças visuais"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/fundamentos-do-design.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "graphic-design-software",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": "2026-08-08",
+      "seo": {
+        "title": "Graphic design software: como escolher o programa de design gráfico adequado",
+        "description": "Graphic design software: compare programas para vetor, imagem raster, diagramação, UI, ilustração e peças rápidas e escolha pela necessidade real.",
+        "canonical": "/blog/graphic-design-software"
+      },
+      "relationships": {
+        "related": [
+          "Como começar a trabalhar com design",
+          "Guia prático: como trabalhar com design gráfico e identidade visual",
+          "Guia prático: como trabalhar com UI e UX Design",
+          "Princípios do design visual: como criar hierarquia, clareza e consistência"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/graphic-design-software.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "guia-pratico-como-trabalhar-com-automacao-de-marketing-e-crm",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-05",
+      "updatedAt": null,
+      "seo": {
+        "title": "Guia prático: como trabalhar com automação de marketing e CRM",
+        "description": "Guia da carreira de automação de marketing e CRM: rotina, habilidades, ferramentas, remuneração, LGPD, IA e primeiros projetos.",
+        "canonical": "/blog/guia-pratico-como-trabalhar-com-automacao-de-marketing-e-crm"
+      },
+      "relationships": {
+        "related": [
+          "Melhores profissões digitais: 7 carreiras e como começar",
+          "O que é um lead?",
+          "Marketing de aquisição"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/guia-pratico-como-trabalhar-com-automacao-de-marketing-e-crm.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "guia-pratico-como-trabalhar-com-criacao-de-sites",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-05",
+      "updatedAt": null,
+      "seo": {
+        "title": "Guia prático: como trabalhar com criação de sites",
+        "description": "Guia da carreira em criação de sites: funções, habilidades, ferramentas, dificuldade, remuneração, IA, especializações e como começar.",
+        "canonical": "/blog/guia-pratico-como-trabalhar-com-criacao-de-sites"
+      },
+      "relationships": {
+        "related": [
+          "Melhores profissões digitais: 7 carreiras e como começar",
+          "Como começar a trabalhar com design",
+          "Marketing de aquisição"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/guia-pratico-como-trabalhar-com-criacao-de-sites.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "guia-pratico-como-trabalhar-com-design-grafico-e-identidade-visual",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-05",
+      "updatedAt": null,
+      "seo": {
+        "title": "Guia prático: como trabalhar com design gráfico e identidade visual",
+        "description": "Guia da carreira em design gráfico e identidade visual: rotina, ferramentas, dificuldade, remuneração, especializações, IA e como começar.",
+        "canonical": "/blog/guia-pratico-como-trabalhar-com-design-grafico-e-identidade-visual"
+      },
+      "relationships": {
+        "related": [
+          "Melhores profissões digitais: 7 carreiras e como começar",
+          "Fundamentos do design",
+          "Termos de design"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/guia-pratico-como-trabalhar-com-design-grafico-e-identidade-visual.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "guia-pratico-como-trabalhar-com-seo",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-05",
+      "updatedAt": null,
+      "seo": {
+        "title": "Guia prático: como trabalhar com SEO",
+        "description": "Guia da carreira de SEO: rotina, especializações, ferramentas, remuneração, portfólio, inteligência artificial e primeiros passos.",
+        "canonical": "/blog/guia-pratico-como-trabalhar-com-seo"
+      },
+      "relationships": {
+        "related": [
+          "Melhores profissões digitais: 7 carreiras e como começar",
+          "Entender a busca",
+          "Marketing de aquisição"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/guia-pratico-como-trabalhar-com-seo.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "guia-pratico-como-trabalhar-com-ui-ux-design",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-05",
+      "updatedAt": null,
+      "seo": {
+        "title": "Guia prático: como trabalhar com UI e UX Design",
+        "description": "Guia da carreira em UI e UX Design: áreas, habilidades, ferramentas, dificuldade, renda, IA, portfólio e como começar.",
+        "canonical": "/blog/guia-pratico-como-trabalhar-com-ui-ux-design"
+      },
+      "relationships": {
+        "related": [
+          "Melhores profissões digitais: 7 carreiras e como começar",
+          "Fundamentos do design",
+          "O que são soft skills?"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/guia-pratico-como-trabalhar-com-ui-ux-design.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "guia-pratico-como-trabalhar-como-gestor-de-trafego-pago",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-05",
+      "updatedAt": null,
+      "seo": {
+        "title": "Guia prático: como trabalhar como gestor de tráfego pago",
+        "description": "Guia da carreira de gestor de tráfego pago: atividades, habilidades, ferramentas, renda, especializações, IA e primeiros projetos.",
+        "canonical": "/blog/guia-pratico-como-trabalhar-como-gestor-de-trafego-pago"
+      },
+      "relationships": {
+        "related": [
+          "Melhores profissões digitais: 7 carreiras e como começar",
+          "Marketing de aquisição",
+          "Termos de publicidade"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/guia-pratico-como-trabalhar-como-gestor-de-trafego-pago.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "guia-pratico-como-trabalhar-como-social-media",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-05",
+      "updatedAt": null,
+      "seo": {
+        "title": "Guia prático: como trabalhar como social media",
+        "description": "Guia da carreira de social media: o que faz, habilidades, ferramentas, dificuldade, renda, especializações, inteligência artificial e como começar.",
+        "canonical": "/blog/guia-pratico-como-trabalhar-como-social-media"
+      },
+      "relationships": {
+        "related": [
+          "Melhores profissões digitais: 7 carreiras e como começar",
+          "O que você precisa aprender para ser um bom social media?",
+          "Networking: o que é?"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/guia-pratico-como-trabalhar-como-social-media.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "hannah-arendt",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-05",
+      "updatedAt": null,
+      "seo": {
+        "title": "Hannah Arendt: ideias, obras, controvérsias e por onde começar",
+        "description": "Conheça a filosofia política de Hannah Arendt, seus principais conceitos e livros, as controvérsias de sua obra e percursos de leitura.",
+        "canonical": "/blog/hannah-arendt"
+      },
+      "relationships": {
+        "related": [
+          "Byung-Chul Han: conceitos, obras, críticas e por onde começar",
+          "Platão: ideias, obras, críticas e por onde começar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/hannah-arendt.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "influencer-marketing",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": null,
+      "seo": {
+        "title": "Influencer marketing: como planejar campanhas com criadores de conteúdo",
+        "description": "Aprenda a avaliar criadores, escolher modelos de parceria, preparar briefing, contratar direitos, identificar publicidade e medir campanhas de influencer marketing.",
+        "canonical": "/blog/influencer-marketing"
+      },
+      "relationships": {
+        "related": [
+          "Social media marketing: o que é, como funciona e como criar uma estratégia",
+          "Marketing de afiliados realmente funciona? Estratégias para obter resultados",
+          "Estratégias de marketing viral: como aumentar as chances de compartilhamento"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/influencer-marketing.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "judith-butler",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-06",
+      "updatedAt": null,
+      "seo": {
+        "title": "Judith Butler: performatividade, obras, críticas e por onde começar",
+        "description": "Conheça a filosofia de Judith Butler, performatividade de gênero, teoria queer, principais livros, críticas e percursos de leitura.",
+        "canonical": "/blog/judith-butler"
+      },
+      "relationships": {
+        "related": [
+          "Simone de Beauvoir: filosofia, obras, feminismo e por onde começar",
+          "Michel Foucault: ideias, obras, métodos e por onde começar",
+          "Frantz Fanon: colonialismo, racismo, obras e por onde começar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/judith-butler.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "lula-eleicoes-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": "2026-08-08",
+      "seo": {
+        "title": "Lula nas eleições de 2026: propostas, resultados e críticas",
+        "description": "Lula em 2026: análise das propostas, resultados do governo, promessas, contradições, viabilidade fiscal e consistência do projeto para 2027–2030.",
+        "canonical": "/blog/lula-eleicoes-2026"
+      },
+      "relationships": {
+        "related": [
+          "Decisões monocráticas e eleição de 2026",
+          "Hannah Arendt: política, responsabilidade e julgamento"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/lula-eleicoes-2026.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "lula-rever-emendas-parlamentares-controle-orcamento",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-09",
+      "updatedAt": "2026-08-09",
+      "seo": {
+        "title": "Lula quer rever as emendas parlamentares: o governo pode recuperar o controle do orçamento?",
+        "description": "Lula pode reduzir as emendas parlamentares e recuperar o controle do orçamento? Entenda modalidades, valores, execução, transparência e limites jurídicos.",
+        "canonical": "/blog/lula-rever-emendas-parlamentares-controle-orcamento"
+      },
+      "relationships": {
+        "related": [
+          "Lula nas eleições de 2026: propostas, resultados e críticas",
+          "Lula colocou a soberania no centro do programa de 2026"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/lula-rever-emendas-parlamentares-controle-orcamento.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "lula-soberania-programa-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-09",
+      "updatedAt": "2026-08-09",
+      "seo": {
+        "title": "Lula colocou a soberania no centro do programa de 2026: o que isso significa na prática?",
+        "description": "O que soberania significa no programa de Lula em 2026: indústria, tecnologia, energia, alimentos, saúde, defesa, política externa, resultados e contradições.",
+        "canonical": "/blog/lula-soberania-programa-2026"
+      },
+      "relationships": {
+        "related": [
+          "Lula nas eleições de 2026: propostas, resultados e críticas",
+          "Decisões monocráticas: por que entram no debate eleitoral de 2026?"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/lula-soberania-programa-2026.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "marketing-de-afiliados-realmente-funciona",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": null,
+      "seo": {
+        "title": "Marketing de afiliados realmente funciona? Estratégias para obter resultados",
+        "description": "Entenda se marketing de afiliados funciona, como começar sem promessas fáceis, quais estratégias usar e como validar o modelo em 90 dias.",
+        "canonical": "/blog/marketing-de-afiliados-realmente-funciona"
+      },
+      "relationships": {
+        "related": [
+          "Como ganhar dinheiro na internet de forma honesta e comprovada",
+          "Marketing de aquisição: o que é e quais estratégias podem atrair novos clientes?",
+          "Guia prático: como trabalhar com SEO"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/marketing-de-afiliados-realmente-funciona.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "marketing-de-aquisicao",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-07-31",
+      "updatedAt": null,
+      "seo": {
+        "title": "Marketing de aquisição: o que é e quais estratégias podem atrair novos clientes?",
+        "description": "Entenda o que é marketing de aquisição, conheça estratégias para conquistar novos clientes e saiba como avaliar canais, CAC, conversão e sustentabilidade.",
+        "canonical": "/blog/marketing-de-aquisicao"
+      },
+      "relationships": {
+        "related": [
+          "Termos de marketing para decidir melhor antes de investir",
+          "Como entender receita, margem, custos e volume antes de colocar mais verba",
+          "Como ganhar dinheiro na internet de forma honesta e comprovada"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/marketing-de-aquisicao.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "marketing-orientado-a-dados",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": null,
+      "seo": {
+        "title": "Marketing orientado a dados: como tomar decisões melhores sem se perder nas métricas",
+        "description": "Entenda data-driven marketing, métricas por etapa, atribuição, incrementalidade, qualidade dos dados, LGPD e uma implantação viável para pequenos negócios.",
+        "canonical": "/blog/marketing-orientado-a-dados"
+      },
+      "relationships": {
+        "related": [
+          "Marketing de aquisição: o que é e quais estratégias podem atrair novos clientes?",
+          "Termos de marketing para decidir melhor antes de investir",
+          "Guia prático: como trabalhar com automação de marketing e CRM"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/marketing-orientado-a-dados.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "melhores-filmes-terror-seculo-21",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-10",
+      "updatedAt": null,
+      "seo": {
+        "title": "23 melhores filmes de terror do século XXI até agora",
+        "description": "Conheça 23 dos melhores filmes de terror do século XXI, com obras psicológicas, sobrenaturais, slasher, zumbis, folk horror e body horror.",
+        "canonical": "/blog/melhores-filmes-terror-seculo-21"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-terror-seculo-21.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "melhores-maquininhas-de-cartao",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-02",
+      "updatedAt": "2026-08-02",
+      "seo": {
+        "title": "Melhores maquininhas de cartão: compare taxas, preços e recursos",
+        "description": "Compare maquininhas por custo total, prazo de recebimento, conexão, comprovante, vouchers e perfil de vendas — sem confundir promoção com taxa regular.",
+        "canonical": "/blog/melhores-maquininhas-de-cartao"
+      },
+      "relationships": {
+        "related": [
+          "Como entender receita, margem e volume antes de colocar mais verba",
+          "Como ganhar dinheiro na internet no curto prazo"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-maquininhas-de-cartao.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "melhores-profissoes-digitais",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-05",
+      "updatedAt": null,
+      "seo": {
+        "title": "Melhores profissões digitais: 7 carreiras e como começar",
+        "description": "Conheça sete profissões digitais, entenda o perfil indicado para cada carreira e veja como começar com projetos práticos e expectativas realistas.",
+        "canonical": "/blog/melhores-profissoes-digitais"
+      },
+      "relationships": {
+        "related": [
+          "Como ganhar dinheiro na internet de forma honesta e comprovada",
+          "O que são soft skills?",
+          "Networking: o que é?"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-profissoes-digitais.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "michel-foucault",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-05",
+      "updatedAt": null,
+      "seo": {
+        "title": "Michel Foucault: ideias, obras, métodos e por onde começar",
+        "description": "Conheça a filosofia de Michel Foucault, seus conceitos e livros, os métodos arqueológico e genealógico, críticas e percursos de leitura.",
+        "canonical": "/blog/michel-foucault"
+      },
+      "relationships": {
+        "related": [
+          "Hannah Arendt: ideias, obras, controvérsias e por onde começar",
+          "Friedrich Nietzsche: vida, ideias, obras e por onde começar",
+          "Byung-Chul Han: conceitos, obras, críticas e por onde começar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/michel-foucault.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "mito-da-genialidade-sucesso-financeiro-e-merito",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-02",
+      "updatedAt": null,
+      "seo": {
+        "title": "O mito da genialidade: por que sucesso financeiro não prova mérito extraordinário",
+        "description": "Uma análise de como competência, decisões, ambiente, escala, vantagens acumuladas e acaso interagem em trajetórias de sucesso financeiro.",
+        "canonical": "/blog/mito-da-genialidade-sucesso-financeiro-e-merito"
+      },
+      "relationships": {
+        "related": [
+          "Formas honestas de ganhar dinheiro na internet: possibilidades reais para começar",
+          "Networking: o que é, quais são os benefícios e como fazer na prática",
+          "Como entender receita, margem e volume antes de colocar mais verba"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/mito-da-genialidade-sucesso-financeiro-e-merito.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "networking-o-que-e",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-07-31",
+      "updatedAt": null,
+      "seo": {
+        "title": "Networking: o que é, quais são os benefícios e como construir sua rede",
+        "description": "Entenda o que é networking, quais benefícios uma rede profissional pode oferecer e como construir relações de forma ética e realista.",
+        "canonical": "/blog/networking-o-que-e"
+      },
+      "relationships": {
+        "related": [
+          "Como começar a trabalhar com design: habilidades, áreas e primeiros passos",
+          "Como ganhar dinheiro na internet de forma honesta e comprovada"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/networking-o-que-e.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "o-que-e-design",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-07-31",
+      "updatedAt": null,
+      "seo": {
+        "title": "O que é design? Muito além de deixar algo bonito",
+        "description": "Entenda o que é design, como forma e função trabalham juntas, como funciona o processo de design e quais critérios ajudam a avaliar uma solução.",
+        "canonical": "/blog/o-que-e-design"
+      },
+      "relationships": {
+        "related": [
+          "Como começar a trabalhar com design: habilidades, áreas e primeiros passos",
+          "Termos de design para compreender interfaces, marcas e peças visuais"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/o-que-e-design.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "o-que-e-marketing",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-07-31",
+      "updatedAt": null,
+      "seo": {
+        "title": "O que é marketing? Muito além de anúncios e redes sociais",
+        "description": "Entenda o que é marketing, por que ele vai além de anúncios e redes sociais e como produto, preço, distribuição, comunicação e relacionamento fazem parte do processo.",
+        "canonical": "/blog/o-que-e-marketing"
+      },
+      "relationships": {
+        "related": [
+          "Termos de marketing para decidir melhor antes de investir",
+          "Termos de publicidade para entender para onde a verba está indo",
+          "Como melhorar o retorno com pequenos ajustes antes de investir mais"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/o-que-e-marketing.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "o-que-e-um-lead",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-07-31",
+      "updatedAt": null,
+      "seo": {
+        "title": "O que é um lead? Entenda quem realmente pode se tornar cliente",
+        "description": "Entenda o que é um lead, como diferenciá-lo de visitante, contato e cliente e quais critérios ajudam a reconhecer e qualificar oportunidades reais.",
+        "canonical": "/blog/o-que-e-um-lead"
+      },
+      "relationships": {
+        "related": [
+          "Termos de marketing para decidir melhor antes de investir",
+          "Como melhorar o retorno com pequenos ajustes antes de investir mais",
+          "Como entender receita, margem, custos e volume antes de colocar mais verba"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/o-que-e-um-lead.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "o-que-publicar-no-instagram-sendo-social-media",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "O que publicar no Instagram sendo social media",
+        "description": "Veja o que publicar no Instagram sendo social media, como definir pilares, demonstrar processo e montar um calendário editorial adaptável.",
+        "canonical": "/blog/o-que-publicar-no-instagram-sendo-social-media"
+      },
+      "relationships": {
+        "related": [
+          "Guia prático: como trabalhar como social media",
+          "Termos de marketing para decidir melhor antes de investir",
+          "Como começar a trabalhar com design: habilidades, áreas e primeiros passos"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/o-que-publicar-no-instagram-sendo-social-media.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "o-que-publicar-sendo-designer-grafico",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "O que publicar sendo designer gráfico",
+        "description": "Veja o que publicar sendo designer gráfico, com matriz editorial, ideias por especialidade e um calendário de conteúdo de duas semanas.",
+        "canonical": "/blog/o-que-publicar-sendo-designer-grafico"
+      },
+      "relationships": {
+        "related": [
+          "Guia prático: como trabalhar com design gráfico e identidade visual",
+          "Termos de design para avaliar páginas com mais critério",
+          "Fundamentos do design"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/o-que-publicar-sendo-designer-grafico.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "o-que-publicar-sendo-gestor-de-trafego",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "O que publicar sendo gestor de tráfego",
+        "description": "Veja o que publicar sendo gestor de tráfego, com matriz editorial, ideias por competência, calendário e checklist para conteúdos responsáveis.",
+        "canonical": "/blog/o-que-publicar-sendo-gestor-de-trafego"
+      },
+      "relationships": {
+        "related": [
+          "Guia prático: como trabalhar como gestor de tráfego pago",
+          "Marketing de aquisição: o que é e quais estratégias podem atrair novos clientes?",
+          "O que é um lead?"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/o-que-publicar-sendo-gestor-de-trafego.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "o-que-publicar-sendo-profissional-de-seo",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "O que publicar sendo profissional de SEO",
+        "description": "Veja o que publicar sendo profissional de SEO, com matriz editorial, ideias por competência, calendário e checklist de confiabilidade.",
+        "canonical": "/blog/o-que-publicar-sendo-profissional-de-seo"
+      },
+      "relationships": {
+        "related": [
+          "Guia prático: como trabalhar com SEO",
+          "Marketing de aquisição: o que é e quais estratégias podem atrair novos clientes?",
+          "Termos de marketing para decidir melhor antes de investir"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/o-que-publicar-sendo-profissional-de-seo.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "o-que-publicar-sendo-ui-ux-designer",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "O que publicar sendo UI/UX designer",
+        "description": "Veja o que publicar sendo UI/UX designer e como transformar pesquisa, fluxos, interfaces, acessibilidade e aprendizados em conteúdo profissional.",
+        "canonical": "/blog/o-que-publicar-sendo-ui-ux-designer"
+      },
+      "relationships": {
+        "related": [
+          "Guia prático: como trabalhar com UI/UX Design",
+          "Termos de design para avaliar páginas com mais critério",
+          "O que são soft skills? Entenda as habilidades comportamentais no trabalho"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/o-que-publicar-sendo-ui-ux-designer.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "o-que-publicar-sendo-web-designer-ou-desenvolvedor-freelancer",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "O que publicar sendo web designer ou desenvolvedor freelancer",
+        "description": "Veja o que publicar sendo web designer ou desenvolvedor freelancer e como demonstrar processo, decisões técnicas e valor para diferentes públicos.",
+        "canonical": "/blog/o-que-publicar-sendo-web-designer-ou-desenvolvedor-freelancer"
+      },
+      "relationships": {
+        "related": [
+          "Guia prático: como trabalhar com criação de sites",
+          "Termos de design para avaliar páginas com mais critério",
+          "Marketing de aquisição: o que é e quais estratégias podem atrair novos clientes?"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/o-que-publicar-sendo-web-designer-ou-desenvolvedor-freelancer.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "o-que-sao-soft-skills",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-01",
+      "updatedAt": null,
+      "seo": {
+        "title": "O que são soft skills? 16 exemplos para desenvolver e cursos grátis",
+        "description": "Entenda o que são soft skills, conheça 16 competências profissionais, veja como desenvolvê-las e encontre cursos gratuitos verificados.",
+        "canonical": "/blog/o-que-sao-soft-skills"
+      },
+      "relationships": {
+        "related": [
+          "Networking: o que é, quais são os benefícios e como construir sua rede",
+          "Como começar a trabalhar com design: habilidades, áreas e primeiros passos"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/o-que-sao-soft-skills.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "o-que-voce-precisa-aprender-para-ser-um-bom-social-media",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-07-16",
+      "updatedAt": "2026-07-17",
+      "seo": {
+        "title": "O que você precisa aprender para ser um bom social media?",
+        "description": "Um guia introdutório sobre a função de social media, os limites do serviço e a realidade de atender pequenos negócios.",
+        "canonical": "/blog/o-que-voce-precisa-aprender-para-ser-um-bom-social-media"
+      },
+      "relationships": {
+        "related": [
+          "Termos de design para avaliar páginas com mais critério",
+          "Como entender receita, margem e volume antes de colocar mais verba"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/o-que-voce-precisa-aprender-para-ser-um-bom-social-media.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "planos-seguranca-publica-candidatos-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-09",
+      "updatedAt": "2026-08-09",
+      "seo": {
+        "title": "Quem tem o plano de segurança pública mais consistente nas eleições de 2026?",
+        "description": "Compare os planos de segurança pública de Lula, Flávio Bolsonaro, Caiado, Zema, Renan Santos e Augusto Cury nas eleições de 2026.",
+        "canonical": "/blog/planos-seguranca-publica-candidatos-2026"
+      },
+      "relationships": {
+        "related": [
+          "Flávio Bolsonaro nas eleições de 2026",
+          "Ronaldo Caiado nas eleições de 2026",
+          "Câmeras nas ruas, mas não nos uniformes policiais"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/planos-seguranca-publica-candidatos-2026.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "platao",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-05",
+      "updatedAt": null,
+      "seo": {
+        "title": "Platão: vida, diálogos, filosofia e por onde começar",
+        "description": "Conheça Platão, seus principais diálogos e problemas filosóficos, a relação com Sócrates e caminhos para começar a leitura.",
+        "canonical": "/blog/platao"
+      },
+      "relationships": {
+        "related": [
+          "Arthur Schopenhauer: vida, filosofia, obras e por onde começar",
+          "Friedrich Nietzsche: vida, ideias, obras e por onde começar",
+          "Como começar a ler: um guia possível para criar o hábito"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/platao.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "policia-sul-americana-caiado-viabilidade",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-09",
+      "updatedAt": "2026-08-09",
+      "seo": {
+        "title": "A “polícia sul-americana” proposta por Caiado seria realmente possível?",
+        "description": "A polícia sul-americana proposta por Caiado seria viável? Entenda o que já existe, os poderes da Europol e os obstáculos jurídicos e operacionais.",
+        "canonical": "/blog/policia-sul-americana-caiado-viabilidade"
+      },
+      "relationships": {
+        "related": [
+          "Ronaldo Caiado nas eleições de 2026",
+          "Caiado e câmeras corporais",
+          "Decisões monocráticas e eleição de 2026"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/policia-sul-americana-caiado-viabilidade.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "por-que-existem-cotas-objetivo-estrutural",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-09",
+      "updatedAt": "2026-08-09",
+      "seo": {
+        "title": "Por que existem cotas? O objetivo estrutural além do acesso imediato",
+        "description": "Entenda por que existem cotas raciais e sociais, seu objetivo estrutural, o efeito da representatividade, as evidências brasileiras e os limites da política.",
+        "canonical": "/blog/por-que-existem-cotas-objetivo-estrutural"
+      },
+      "relationships": {
+        "related": [
+          "Renan Santos quer acabar com as cotas",
+          "Desigualdade, representação e mobilidade social"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/por-que-existem-cotas-objetivo-estrutural.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "principal-component-analysis-pca",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-01",
+      "updatedAt": null,
+      "seo": {
+        "title": "Principal Component Analysis: o que é PCA e como interpretar",
+        "description": "Entenda o que é PCA, como funcionam as componentes principais, quando padronizar os dados e como interpretar a variância explicada.",
+        "canonical": "/blog/principal-component-analysis-pca"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/principal-component-analysis-pca.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "programa-lula-2026-arcabouco-fiscal",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": "2026-08-08",
+      "seo": {
+        "title": "O programa de Lula para 2026 cabe no arcabouço fiscal?",
+        "description": "O programa de Lula para 2026 cabe no arcabouço fiscal? Veja promessas, custos disponíveis, metas primárias, dívida e cenários para 2027–2030.",
+        "canonical": "/blog/programa-lula-2026-arcabouco-fiscal"
+      },
+      "relationships": {
+        "related": [
+          "Lula nas eleições de 2026: propostas, resultados e críticas",
+          "Lula quer rever as emendas parlamentares"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/programa-lula-2026-arcabouco-fiscal.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "reconhecimento-facial-seguranca-publica",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-09",
+      "updatedAt": "2026-08-09",
+      "seo": {
+        "title": "Reconhecimento facial na segurança pública funciona? Benefícios, erros e riscos",
+        "description": "Reconhecimento facial na segurança pública funciona? Veja benefícios, falsos positivos, Smart Sampa, LGPD, riscos e salvaguardas para a Muralha Brasileira.",
+        "canonical": "/blog/reconhecimento-facial-seguranca-publica"
+      },
+      "relationships": {
+        "related": [
+          "Câmeras nas ruas, mas não nos uniformes policiais",
+          "Flávio Bolsonaro nas eleições de 2026"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/reconhecimento-facial-seguranca-publica.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "regulacao-redes-sociais-liberdade-expressao",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": "2026-08-08",
+      "seo": {
+        "title": "Regulação das redes sociais: proteção contra abusos ou risco à liberdade de expressão?",
+        "description": "A regulação das redes sociais combate golpes e violência ou amplia riscos de censura? Entenda os decretos de 2026, o Marco Civil, a decisão do STF e os limites jurídicos.",
+        "canonical": "/blog/regulacao-redes-sociais-liberdade-expressao"
+      },
+      "relationships": {
+        "related": [
+          "Lula nas eleições de 2026: propostas, resultados e críticas",
+          "Crimes no Discord: quem deve ser responsabilizado?"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/regulacao-redes-sociais-liberdade-expressao.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "renan-santos-acabar-cotas-consequencias",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-09",
+      "updatedAt": "2026-08-09",
+      "seo": {
+        "title": "Renan Santos quer acabar com as cotas: quais seriam as consequências?",
+        "description": "Renan Santos quer acabar com as cotas. Entenda como a política funciona, quem perderia acesso e o que as evidências mostram sobre mérito e desempenho.",
+        "canonical": "/blog/renan-santos-acabar-cotas-consequencias"
+      },
+      "relationships": {
+        "related": [
+          "Renan Santos nas eleições de 2026",
+          "Renan Santos quer desfavelizar o Brasil"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/renan-santos-acabar-cotas-consequencias.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "renan-santos-bolsa-familia-frentes-trabalho",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-09",
+      "updatedAt": "2026-08-09",
+      "seo": {
+        "title": "Renan Santos quer substituir o Bolsa Família por frentes de trabalho: a proposta funcionaria?",
+        "description": "A proposta de Renan Santos para substituir o Bolsa Família por frentes de trabalho funcionaria? Veja desenho, direitos, custos, evidências e lacunas.",
+        "canonical": "/blog/renan-santos-bolsa-familia-frentes-trabalho"
+      },
+      "relationships": {
+        "related": [
+          "Renan Santos nas eleições de 2026: propostas, trajetória e críticas",
+          "Lula nas eleições de 2026: propostas, resultados e críticas"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/renan-santos-bolsa-familia-frentes-trabalho.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "renan-santos-desfavelizar-brasil",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": "2026-08-08",
+      "seo": {
+        "title": "Renan Santos quer ‘desfavelizar’ o Brasil em dez anos: a proposta é viável?",
+        "description": "A proposta de Renan Santos para desfavelizar o Brasil em dez anos é viável? Entenda escala, custos, urbanização, regularização, remoções e riscos.",
+        "canonical": "/blog/renan-santos-desfavelizar-brasil"
+      },
+      "relationships": {
+        "related": [
+          "Renan Santos nas eleições de 2026: propostas, trajetória e críticas",
+          "Renan Santos quer substituir o Bolsa Família por frentes de trabalho"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/renan-santos-desfavelizar-brasil.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "renan-santos-eleicoes-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-09",
+      "updatedAt": "2026-08-09",
+      "seo": {
+        "title": "Renan Santos nas eleições de 2026: propostas, trajetória e críticas",
+        "description": "Renan Santos nas eleições de 2026: propostas, trajetória no MBL, Livro Amarelo, segurança, reformas do Estado e análise crítica.",
+        "canonical": "/blog/renan-santos-eleicoes-2026"
+      },
+      "relationships": {
+        "related": [
+          "Romeu Zema nas eleições de 2026",
+          "Flávio Bolsonaro nas eleições de 2026",
+          "Decisões monocráticas e eleição de 2026"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/renan-santos-eleicoes-2026.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "reserva-nacional-bitcoin-estrategia-especulacao",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-09",
+      "updatedAt": "2026-08-09",
+      "seo": {
+        "title": "Reserva nacional de Bitcoin: estratégia financeira ou especulação com dinheiro público?",
+        "description": "Uma reserva nacional de Bitcoin seria estratégia ou especulação pública? Entenda a proposta, os riscos, os cenários e o que uma lei precisaria definir.",
+        "canonical": "/blog/reserva-nacional-bitcoin-estrategia-especulacao"
+      },
+      "relationships": {
+        "related": [
+          "Renan Santos nas eleições de 2026: propostas, trajetória e críticas"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/reserva-nacional-bitcoin-estrategia-especulacao.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "romeu-zema-eleicoes-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": "2026-08-08",
+      "seo": {
+        "title": "Romeu Zema nas eleições de 2026: propostas, resultados e críticas",
+        "description": "Romeu Zema nas eleições de 2026: propostas, resultados em Minas Gerais, dívida, privatizações, serviços públicos e análise crítica.",
+        "canonical": "/blog/romeu-zema-eleicoes-2026"
+      },
+      "relationships": {
+        "related": [
+          "Ronaldo Caiado nas eleições de 2026",
+          "Flávio Bolsonaro nas eleições de 2026",
+          "Lula nas eleições de 2026"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/romeu-zema-eleicoes-2026.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "ronaldo-caiado-eleicoes-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": "2026-08-08",
+      "seo": {
+        "title": "Ronaldo Caiado nas eleições de 2026: propostas, resultados e críticas",
+        "description": "Ronaldo Caiado nas eleições de 2026: propostas, resultados em Goiás, segurança, gestão fiscal, capacidade de execução e análise crítica.",
+        "canonical": "/blog/ronaldo-caiado-eleicoes-2026"
+      },
+      "relationships": {
+        "related": [
+          "Lula nas eleições de 2026",
+          "Flávio Bolsonaro nas eleições de 2026",
+          "Decisões monocráticas e eleição de 2026"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/ronaldo-caiado-eleicoes-2026.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "simone-de-beauvoir",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-05",
+      "updatedAt": null,
+      "seo": {
+        "title": "Simone de Beauvoir: filosofia, obras, feminismo e por onde começar",
+        "description": "Conheça a filosofia de Simone de Beauvoir, O segundo sexo, a ética da ambiguidade, suas obras, controvérsias e percursos de leitura.",
+        "canonical": "/blog/simone-de-beauvoir"
+      },
+      "relationships": {
+        "related": [
+          "Hannah Arendt: ideias, obras, controvérsias e por onde começar",
+          "Michel Foucault: ideias, obras, métodos e por onde começar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/simone-de-beauvoir.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "social-media-marketing",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": null,
+      "seo": {
+        "title": "Social media marketing: o que é, como funciona e como criar uma estratégia",
+        "description": "Entenda o que é social media marketing, como escolher canais, definir objetivos, organizar a operação, medir resultados e criar um plano viável de 30 dias.",
+        "canonical": "/blog/social-media-marketing"
+      },
+      "relationships": {
+        "related": [
+          "Guia prático: como trabalhar como social media",
+          "O que você precisa aprender para ser um bom social media?",
+          "Marketing de aquisição: o que é e quais estratégias podem atrair novos clientes?"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/social-media-marketing.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "studio-ghibli",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-05",
+      "updatedAt": null,
+      "seo": {
+        "title": "Studio Ghibli: história, filmes, criadores e por onde começar",
+        "description": "Conheça o Studio Ghibli, seus filmes e criadores, entenda como o estúdio trabalha e escolha um percurso para começar a assistir.",
+        "canonical": "/blog/studio-ghibli"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/studio-ghibli.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "termos-de-design",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-14",
+      "updatedAt": "2026-07-17",
+      "seo": {
+        "title": "Termos de design para avaliar páginas com mais critério",
+        "description": "Entenda hierarquia, grid, contraste, dobra, UI e UX para julgar se uma página realmente facilita a decisão.",
+        "canonical": "/blog/termos-de-design"
+      },
+      "relationships": {
+        "related": [
+          "Termos de marketing para decidir melhor antes de investir",
+          "O que você precisa aprender para ser um bom social media?"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/termos-de-design.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "termos-de-marketing",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-15",
+      "updatedAt": "2026-07-17",
+      "seo": {
+        "title": "Termos de marketing para decidir melhor antes de investir",
+        "description": "Entenda CAC, ticket, margem, recorrência e conversão para ler oportunidades sem depender de jargão.",
+        "canonical": "/blog/termos-de-marketing"
+      },
+      "relationships": {
+        "related": [
+          "Como melhorar o retorno com pequenos ajustes antes de investir mais",
+          "O que você precisa aprender para ser um bom social media?",
+          "Marketing para clínicas: por onde começar antes de investir em anúncios",
+          "Marketing educacional para aumentar matrículas com mais previsibilidade",
+          "Marketing imobiliário para captar compradores com mais intenção"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/termos-de-marketing.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "termos-de-publicidade",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-13",
+      "updatedAt": "2026-07-17",
+      "seo": {
+        "title": "Termos de publicidade para entender para onde a verba está indo",
+        "description": "Leia CPC, CPM, CTR, frequência, saturação e ROAS com mais segurança antes de aumentar orçamento.",
+        "canonical": "/blog/termos-de-publicidade"
+      },
+      "relationships": {
+        "related": [
+          "Como melhorar o retorno com pequenos ajustes antes de investir mais",
+          "Como entender receita, margem e volume antes de colocar mais verba",
+          "Marketing para clínicas: por onde começar antes de investir em anúncios",
+          "Marketing imobiliário para captar compradores com mais intenção"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/termos-de-publicidade.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "trade-marketing",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": null,
+      "seo": {
+        "title": "Trade marketing: o que é, como funciona e exemplos de estratégias",
+        "description": "Entenda o que é trade marketing, sell-in e sell-out, indicadores, estratégias no varejo físico e digital e como planejar uma operação viável.",
+        "canonical": "/blog/trade-marketing"
+      },
+      "relationships": {
+        "related": [
+          "O que é marketing? Muito além de anúncios e redes sociais",
+          "Marketing de aquisição: o que é e quais estratégias podem atrair novos clientes?",
+          "Como entender receita, margem, custos e volume antes de colocar mais verba"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/trade-marketing.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "user-interface-design",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": "2026-08-08",
+      "seo": {
+        "title": "User interface design: princípios para criar interfaces claras e acessíveis",
+        "description": "Guia de user interface design sobre hierarquia, componentes, estados, formulários, responsividade, microcopy, acessibilidade e processo de UI design.",
+        "canonical": "/blog/user-interface-design"
+      },
+      "relationships": {
+        "related": [
+          "Princípios do design visual: como criar hierarquia, clareza e consistência",
+          "Guia prático: como trabalhar com UI e UX Design",
+          "Como escrever um estudo de caso de UX"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/user-interface-design.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "zema-fim-escala-6x1-populismo",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-09",
+      "updatedAt": "2026-08-09",
+      "seo": {
+        "title": "Zema chama o fim da escala 6x1 de populismo: a crítica procede?",
+        "description": "Zema chamou o fim da escala 6x1 de populismo. A crítica procede? Veja o que a PEC 221/2019 prevê e o que as evidências permitem concluir.",
+        "canonical": "/blog/zema-fim-escala-6x1-populismo"
+      },
+      "relationships": {
+        "related": [
+          "CLT opcional de Zema",
+          "Romeu Zema nas eleições de 2026"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/zema-fim-escala-6x1-populismo.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "zema-privatizar-petrobras-caixa-banco-do-brasil",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-09",
+      "updatedAt": "2026-08-09",
+      "seo": {
+        "title": "Zema quer privatizar Petrobras, Caixa e Banco do Brasil: quais seriam os efeitos?",
+        "description": "Zema quer privatizar Petrobras, Caixa e Banco do Brasil. Entenda efeitos sobre dívida, dividendos, combustíveis, habitação, crédito rural e concorrência.",
+        "canonical": "/blog/zema-privatizar-petrobras-caixa-banco-do-brasil"
+      },
+      "relationships": {
+        "related": [
+          "Romeu Zema nas eleições de 2026",
+          "Marketing orientado a dados",
+          "Trade marketing"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/zema-privatizar-petrobras-caixa-banco-do-brasil.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-atrair-mais-alunos-para-uma-escola",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-05-16",
+      "seo": {
+        "title": "Como atrair mais alunos para uma escola com proposta e matrícula mais claras",
+        "description": "Veja como alinhar presença local, página, conteúdo e atendimento para transformar interesse em matrículas.",
+        "canonical": "/blog/como-atrair-mais-alunos-para-uma-escola"
+      },
+      "relationships": {
+        "related": [
+          "Marketing educacional para aumentar matrículas com mais previsibilidade",
+          "Como captar alunos pela internet com canais e oferta melhor organizados",
+          "Ideias de conteúdo para escolas e cursos mostrarem valor antes da matrícula"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/educacao/como-atrair-mais-alunos-para-uma-escola.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-captar-alunos-pela-internet",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-07-17",
+      "seo": {
+        "title": "Como captar alunos pela internet com canais e oferta melhor organizados",
+        "description": "Organize página, Google, redes sociais e atendimento para atrair alunos certos e conduzir melhor a decisão.",
+        "canonical": "/blog/como-captar-alunos-pela-internet"
+      },
+      "relationships": {
+        "related": [
+          "Como atrair mais alunos para uma escola com proposta e matrícula mais claras",
+          "Como vender cursos online com página, oferta e acompanhamento mais claros",
+          "Como usar redes sociais para vender cursos sem depender só de promoção"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/educacao/como-captar-alunos-pela-internet.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-divulgar-uma-escola-de-idiomas",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-05-16",
+      "seo": {
+        "title": "Como divulgar uma escola de idiomas destacando método, rotina e resultado",
+        "description": "Mostre diferenciais, experiência de aula, evolução dos alunos e caminho de matrícula sem depender só de promoção.",
+        "canonical": "/blog/como-divulgar-uma-escola-de-idiomas"
+      },
+      "relationships": {
+        "related": [
+          "Como captar alunos pela internet com canais e oferta melhor organizados",
+          "Ideias de conteúdo para escolas e cursos mostrarem valor antes da matrícula",
+          "Marketing educacional para aumentar matrículas com mais previsibilidade"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/educacao/como-divulgar-uma-escola-de-idiomas.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-usar-redes-sociais-para-vender-cursos",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-05-16",
+      "seo": {
+        "title": "Como usar redes sociais para vender cursos sem depender só de promoção",
+        "description": "Transforme conteúdo em confiança, prova e conversa comercial para vender cursos com mais consistência.",
+        "canonical": "/blog/como-usar-redes-sociais-para-vender-cursos"
+      },
+      "relationships": {
+        "related": [
+          "Como vender cursos online com página, oferta e acompanhamento mais claros",
+          "Ideias de conteúdo para escolas e cursos mostrarem valor antes da matrícula",
+          "Como captar alunos pela internet com canais e oferta melhor organizados"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/educacao/como-usar-redes-sociais-para-vender-cursos.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-vender-cursos-online-com-marketing-digital",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-07-17",
+      "seo": {
+        "title": "Como vender cursos online com página, oferta e acompanhamento mais claros",
+        "description": "Veja como estruturar oferta, página, conteúdo e follow-up para transformar audiência em compra.",
+        "canonical": "/blog/como-vender-cursos-online-com-marketing-digital"
+      },
+      "relationships": {
+        "related": [
+          "Como usar redes sociais para vender cursos sem depender só de promoção",
+          "Como captar alunos pela internet com canais e oferta melhor organizados",
+          "Marketing educacional para aumentar matrículas com mais previsibilidade"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/educacao/como-vender-cursos-online-com-marketing-digital.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "ideias-de-conteudo-para-escolas-e-cursos",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-07-17",
+      "seo": {
+        "title": "Ideias de conteúdo para escolas e cursos mostrarem valor antes da matrícula",
+        "description": "Temas para explicar método, rotina, resultados e diferenciais sem cair em postagens genéricas.",
+        "canonical": "/blog/ideias-de-conteudo-para-escolas-e-cursos"
+      },
+      "relationships": {
+        "related": [
+          "Como atrair mais alunos para uma escola com proposta e matrícula mais claras",
+          "Como divulgar uma escola de idiomas destacando método, rotina e resultado",
+          "Como usar redes sociais para vender cursos sem depender só de promoção"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/educacao/ideias-de-conteudo-para-escolas-e-cursos.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "marketing-educacional-estrategias-para-aumentar-matriculas",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-05-16",
+      "seo": {
+        "title": "Marketing educacional para aumentar matrículas com mais previsibilidade",
+        "description": "Organize proposta, canais, conteúdo e atendimento para reduzir improviso e melhorar a conversão de interessados.",
+        "canonical": "/blog/marketing-educacional-estrategias-para-aumentar-matriculas"
+      },
+      "relationships": {
+        "related": [
+          "Como atrair mais alunos para uma escola com proposta e matrícula mais claras",
+          "Como captar alunos pela internet com canais e oferta melhor organizados",
+          "Como divulgar uma escola de idiomas destacando método, rotina e resultado"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/educacao/marketing-educacional-estrategias-para-aumentar-matriculas.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-atrair-clientes-para-escritorio-de-contabilidade",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-07-17",
+      "seo": {
+        "title": "Como atrair clientes para escritório de contabilidade com uma proposta mais clara",
+        "description": "Organize nicho, presença local, conteúdo e atendimento para transformar empresas interessadas em conversas comerciais.",
+        "canonical": "/blog/como-atrair-clientes-para-escritorio-de-contabilidade"
+      },
+      "relationships": {
+        "related": [
+          "Como divulgar serviços contábeis sem parecer igual a todo escritório",
+          "Como atrair clientes para escritório de advocacia com autoridade e clareza"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/contabilidade/como-atrair-clientes-para-escritorio-de-contabilidade.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-divulgar-servicos-contabeis",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-05-16",
+      "seo": {
+        "title": "Como divulgar serviços contábeis sem parecer igual a todo escritório",
+        "description": "Mostre especialidade, rotina, benefícios práticos e próximos passos para sair da comunicação genérica.",
+        "canonical": "/blog/como-divulgar-servicos-contabeis"
+      },
+      "relationships": {
+        "related": [
+          "Como atrair clientes para escritório de contabilidade com uma proposta mais clara"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/contabilidade/como-divulgar-servicos-contabeis.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-atrair-pacientes-para-uma-clinica",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-05-16",
+      "seo": {
+        "title": "Como atrair pacientes para uma clínica com presença local e confiança",
+        "description": "Estruture Google, página, conteúdo e atendimento para transformar procura qualificada em consultas marcadas.",
+        "canonical": "/blog/como-atrair-pacientes-para-uma-clinica"
+      },
+      "relationships": {
+        "related": [
+          "Como melhorar a presença digital de uma clínica sem poluir a comunicação",
+          "Marketing para clínicas: por onde começar antes de investir em anúncios",
+          "Como aumentar o agendamento de consultas reduzindo atrito no atendimento",
+          "O que postar no Instagram de uma clínica de saúde para gerar confiança"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/clinicas-saude/como-atrair-pacientes-para-uma-clinica.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-aumentar-o-agendamento-de-consultas",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-07-17",
+      "seo": {
+        "title": "Como aumentar o agendamento de consultas reduzindo atrito no atendimento",
+        "description": "Veja como melhorar página, WhatsApp, confirmação e follow-up para converter interesse em agenda real.",
+        "canonical": "/blog/como-aumentar-o-agendamento-de-consultas"
+      },
+      "relationships": {
+        "related": [
+          "Como atrair pacientes para uma clínica com presença local e confiança",
+          "Como melhorar a presença digital de uma clínica sem poluir a comunicação",
+          "Marketing para clínicas: por onde começar antes de investir em anúncios"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/clinicas-saude/como-aumentar-o-agendamento-de-consultas.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-conseguir-mais-pacientes-para-consultorio-odontologico",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como conseguir mais pacientes para um consultório odontológico",
+        "description": "Um método para identificar gargalos entre descoberta, confiança, contato e comparecimento antes de investir em mais divulgação odontológica.",
+        "canonical": "/blog/como-conseguir-mais-pacientes-para-consultorio-odontologico"
+      },
+      "relationships": {
+        "related": [
+          "SEO local: como ser encontrado na sua região",
+          "Como transformar contatos em agendamentos sem pressionar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/clinicas-saude/como-conseguir-mais-pacientes-para-consultorio-odontologico.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-conseguir-mais-pacientes-particulares",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como conseguir mais pacientes particulares no consultório médico",
+        "description": "Um diagnóstico para melhorar descoberta, confiança, agendamento e continuidade sem prometer agenda cheia nem depender apenas de anúncios.",
+        "canonical": "/blog/como-conseguir-mais-pacientes-particulares"
+      },
+      "relationships": {
+        "related": [
+          "Como atrair pacientes para uma clínica com presença local e confiança",
+          "Como aumentar o agendamento de consultas reduzindo atrito no atendimento",
+          "Marketing para clínicas: por onde começar antes de investir em anúncios"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/clinicas-saude/como-conseguir-mais-pacientes-particulares.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-conseguir-pacientes-para-psicologo",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como conseguir mais pacientes para psicólogos de forma ética",
+        "description": "Um diagnóstico para psicólogos organizarem descoberta, credibilidade, encaminhamentos e primeiro contato sem promessas ou disputa baseada em preço.",
+        "canonical": "/blog/como-conseguir-pacientes-para-psicologo"
+      },
+      "relationships": {
+        "related": [
+          "Como atrair pacientes para uma clínica com presença local e confiança",
+          "Como aumentar o agendamento de consultas reduzindo atrito no atendimento"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/clinicas-saude/como-conseguir-pacientes-para-psicologo.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-divulgar-clinica-odontologica",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como divulgar uma clínica odontológica de forma ética",
+        "description": "Organize Google, site, indicação, conteúdo e atendimento respeitando identificação profissional, privacidade e regras da publicidade odontológica.",
+        "canonical": "/blog/como-divulgar-clinica-odontologica"
+      },
+      "relationships": {
+        "related": [
+          "Marketing para clínicas: por onde começar antes de investir em anúncios",
+          "Como melhorar a presença digital de uma clínica sem poluir a comunicação",
+          "Como atrair pacientes para uma clínica com presença local e confiança"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/clinicas-saude/como-divulgar-clinica-odontologica.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-divulgar-consultorio-de-psicologia",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como divulgar um consultório de psicologia de forma ética",
+        "description": "Organize indicação, Google, site, conteúdo e contato inicial respeitando sigilo, identificação profissional e limites da publicidade em Psicologia.",
+        "canonical": "/blog/como-divulgar-consultorio-de-psicologia"
+      },
+      "relationships": {
+        "related": [
+          "Como melhorar a presença digital de uma clínica sem poluir a comunicação",
+          "Marketing para clínicas: por onde começar antes de investir em anúncios"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/clinicas-saude/como-divulgar-consultorio-de-psicologia.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-divulgar-uma-clinica-medica-sem-ferir-normas-eticas",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-08-04",
+      "seo": {
+        "title": "Como divulgar um consultório médico de forma ética",
+        "description": "Um guia para organizar Google, site, conteúdo, indicações e atendimento sem transformar a publicidade médica em promessa ou espetáculo.",
+        "canonical": "/blog/como-divulgar-uma-clinica-medica-sem-ferir-normas-eticas"
+      },
+      "relationships": {
+        "related": [
+          "Marketing para clínicas: por onde começar antes de investir em anúncios",
+          "Como melhorar a presença digital de uma clínica sem poluir a comunicação",
+          "Como atrair pacientes para uma clínica com presença local e confiança"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/clinicas-saude/como-divulgar-uma-clinica-medica-sem-ferir-normas-eticas.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-melhorar-a-presenca-digital-de-uma-clinica",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-05-16",
+      "seo": {
+        "title": "Como melhorar a presença digital de uma clínica sem poluir a comunicação",
+        "description": "Revise Google, site, redes sociais e atendimento para criar uma experiência mais confiável antes da consulta.",
+        "canonical": "/blog/como-melhorar-a-presenca-digital-de-uma-clinica"
+      },
+      "relationships": {
+        "related": [
+          "Como atrair pacientes para uma clínica com presença local e confiança",
+          "O que postar no Instagram de uma clínica de saúde para gerar confiança",
+          "Como aumentar o agendamento de consultas reduzindo atrito no atendimento"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/clinicas-saude/como-melhorar-a-presenca-digital-de-uma-clinica.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "ideias-de-conteudo-para-medicos-nas-redes-sociais",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-08-04",
+      "seo": {
+        "title": "O que publicar no Instagram para médicos",
+        "description": "Um método para transformar dúvidas do consultório em conteúdo médico útil, com exemplos, calendário possível e revisão ética antes de publicar.",
+        "canonical": "/blog/ideias-de-conteudo-para-medicos-nas-redes-sociais"
+      },
+      "relationships": {
+        "related": [
+          "O que postar no Instagram de uma clínica de saúde para gerar confiança",
+          "Como melhorar a presença digital de uma clínica sem poluir a comunicação"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/clinicas-saude/ideias-de-conteudo-para-medicos-nas-redes-sociais.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "landing-page-para-clinicas-odontologicas",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "Landing Page para clínicas odontológicas: quando faz sentido?",
+        "description": "Critérios para decidir quando uma página focada ajuda campanhas odontológicas e quando site, Google ou atendimento precisam ser corrigidos primeiro.",
+        "canonical": "/blog/landing-page-para-clinicas-odontologicas"
+      },
+      "relationships": {
+        "related": [
+          "Landing page: estrutura, mensagem e conversão",
+          "Geração de leads para negócios locais"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/clinicas-saude/landing-page-para-clinicas-odontologicas.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "landing-page-para-medicos",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "Landing page para médicos: quando faz sentido?",
+        "description": "Entenda quando uma página focada ajuda uma campanha médica, o que ela precisa explicar e quando site, Google ou agenda direta são suficientes.",
+        "canonical": "/blog/landing-page-para-medicos"
+      },
+      "relationships": {
+        "related": [
+          "Como aumentar o agendamento de consultas reduzindo atrito no atendimento",
+          "Como melhorar a presença digital de uma clínica sem poluir a comunicação",
+          "Como conseguir mais pacientes particulares no consultório médico"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/clinicas-saude/landing-page-para-medicos.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "landing-page-para-psicologos",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "Landing page para psicólogos: quando faz sentido?",
+        "description": "Entenda quando uma página focada ajuda a apresentar atendimento psicológico, quais informações incluir e quando site, Google ou agenda direta bastam.",
+        "canonical": "/blog/landing-page-para-psicologos"
+      },
+      "relationships": {
+        "related": [
+          "Como conseguir mais pacientes para psicólogos de forma ética",
+          "Como melhorar a presença digital de uma clínica sem poluir a comunicação",
+          "Como aumentar o agendamento de consultas reduzindo atrito no atendimento"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/clinicas-saude/landing-page-para-psicologos.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "marketing-medico",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-08",
+      "updatedAt": "2026-08-08",
+      "seo": {
+        "title": "Marketing médico: estratégias permitidas, limites éticos e como construir confiança",
+        "description": "Entenda as regras do marketing médico no Brasil, identificação, imagens, depoimentos, preços, canais, LGPD, métricas responsáveis e um plano para consultórios e clínicas.",
+        "canonical": "/blog/marketing-medico"
+      },
+      "relationships": {
+        "related": [
+          "Como divulgar um consultório médico de forma ética",
+          "Marketing para clínicas: por onde começar antes de investir em anúncios",
+          "Como melhorar a presença digital de uma clínica sem poluir a comunicação"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/clinicas-saude/marketing-medico.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "marketing-para-clinicas-por-onde-comecar",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-05-16",
+      "seo": {
+        "title": "Marketing para clínicas: por onde começar antes de investir em anúncios",
+        "description": "Entenda a ordem certa para organizar presença, oferta, atendimento e canais antes de aumentar a verba.",
+        "canonical": "/blog/marketing-para-clinicas-por-onde-comecar"
+      },
+      "relationships": {
+        "related": [
+          "Como atrair pacientes para uma clínica com presença local e confiança",
+          "Como aumentar o agendamento de consultas reduzindo atrito no atendimento",
+          "Como divulgar uma clínica médica com sobriedade e respeito às normas"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/clinicas-saude/marketing-para-clinicas-por-onde-comecar.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "o-que-postar-no-instagram-de-uma-clinica-de-saude",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-05-16",
+      "seo": {
+        "title": "O que postar no Instagram de uma clínica de saúde para gerar confiança",
+        "description": "Organize temas educativos, bastidores, dúvidas e orientações para deixar o perfil mais útil para o paciente.",
+        "canonical": "/blog/o-que-postar-no-instagram-de-uma-clinica-de-saude"
+      },
+      "relationships": {
+        "related": [
+          "Ideias de conteúdo para médicos publicarem com clareza e responsabilidade",
+          "Como divulgar uma clínica médica com sobriedade e respeito às normas",
+          "Como melhorar a presença digital de uma clínica sem poluir a comunicação"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/clinicas-saude/o-que-postar-no-instagram-de-uma-clinica-de-saude.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "o-que-publicar-no-instagram-para-dentistas",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "O que publicar no Instagram para dentistas",
+        "description": "Pilares, exemplos e um roteiro mensal para produzir conteúdo odontológico útil sem depender de tendências, promessas ou exposição indevida de pacientes.",
+        "canonical": "/blog/o-que-publicar-no-instagram-para-dentistas"
+      },
+      "relationships": {
+        "related": [
+          "Como divulgar uma clínica odontológica de forma ética",
+          "Marketing de conteúdo: como transformar dúvidas reais em pauta"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/clinicas-saude/o-que-publicar-no-instagram-para-dentistas.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "o-que-publicar-no-instagram-para-psicologos",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "O que publicar no Instagram para psicólogos",
+        "description": "Um método para transformar dúvidas sobre psicoterapia em conteúdo psicoeducativo sem diagnóstico, exposição de pacientes ou promessa de transformação.",
+        "canonical": "/blog/o-que-publicar-no-instagram-para-psicologos"
+      },
+      "relationships": {
+        "related": [
+          "O que postar no Instagram de uma clínica de saúde para gerar confiança",
+          "Como melhorar a presença digital de uma clínica sem poluir a comunicação"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/clinicas-saude/o-que-publicar-no-instagram-para-psicologos.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "redes-sociais-para-dentistas-vale-a-pena",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "Vale a pena investir em redes sociais para dentistas?",
+        "description": "Critérios para decidir se Instagram e outras redes merecem investimento ou se Google, site, avaliações e indicação devem vir primeiro.",
+        "canonical": "/blog/redes-sociais-para-dentistas-vale-a-pena"
+      },
+      "relationships": {
+        "related": [
+          "Como melhorar a presença digital de uma clínica sem poluir a comunicação",
+          "Marketing para clínicas: por onde começar antes de investir em anúncios"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/clinicas-saude/redes-sociais-para-dentistas-vale-a-pena.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "redes-sociais-para-medicos-vale-a-pena",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "Vale a pena um médico investir em redes sociais?",
+        "description": "Critérios para decidir se Instagram e outras redes merecem tempo e investimento ou se Google, site e indicações devem vir primeiro.",
+        "canonical": "/blog/redes-sociais-para-medicos-vale-a-pena"
+      },
+      "relationships": {
+        "related": [
+          "Como melhorar a presença digital de uma clínica sem poluir a comunicação",
+          "Marketing para clínicas: por onde começar antes de investir em anúncios"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/clinicas-saude/redes-sociais-para-medicos-vale-a-pena.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "redes-sociais-para-psicologos-vale-a-pena",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-04",
+      "updatedAt": null,
+      "seo": {
+        "title": "Vale a pena um psicólogo investir em redes sociais?",
+        "description": "Critérios para decidir se Instagram e outras redes merecem tempo e investimento ou se site, Google e encaminhamentos devem vir primeiro.",
+        "canonical": "/blog/redes-sociais-para-psicologos-vale-a-pena"
+      },
+      "relationships": {
+        "related": [
+          "Como melhorar a presença digital de uma clínica sem poluir a comunicação",
+          "Marketing para clínicas: por onde começar antes de investir em anúncios"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/clinicas-saude/redes-sociais-para-psicologos-vale-a-pena.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-atrair-clientes-para-salao-de-beleza",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-05-16",
+      "seo": {
+        "title": "Como atrair clientes para salão de beleza com uma oferta mais clara",
+        "description": "Veja como organizar presença local, prova social, atendimento e oferta para transformar interesse em agendamentos.",
+        "canonical": "/blog/como-atrair-clientes-para-salao-de-beleza"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/beleza-estetica/como-atrair-clientes-para-salao-de-beleza.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-conseguir-mais-clientes-para-design-de-sobrancelhas",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-05-16",
+      "seo": {
+        "title": "Como conseguir mais clientes para design de sobrancelhas com prova visual",
+        "description": "Organize fotos, rotina de conteúdo, WhatsApp e retorno para transformar interesse em horários marcados.",
+        "canonical": "/blog/como-conseguir-mais-clientes-para-design-de-sobrancelhas"
+      },
+      "relationships": {
+        "related": [
+          "Como divulgar serviços de estética no Instagram com mais prova e contexto",
+          "Ideias de conteúdo para clínicas de estética gerarem mais confiança",
+          "Como divulgar procedimentos estéticos sem parecer genérico"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/beleza-estetica/como-conseguir-mais-clientes-para-design-de-sobrancelhas.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-divulgar-procedimentos-esteticos",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-07-17",
+      "seo": {
+        "title": "Como divulgar procedimentos estéticos sem parecer genérico",
+        "description": "Veja como explicar benefícios, cuidados, indicações e próximos passos para gerar confiança antes do agendamento.",
+        "canonical": "/blog/como-divulgar-procedimentos-esteticos"
+      },
+      "relationships": {
+        "related": [
+          "Como divulgar serviços de estética no Instagram com mais prova e contexto",
+          "Ideias de conteúdo para clínicas de estética gerarem mais confiança",
+          "Como atrair clientes para salão de beleza com uma oferta mais clara"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/beleza-estetica/como-divulgar-procedimentos-esteticos.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-divulgar-servicos-de-estetica-no-instagram",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-05-16",
+      "seo": {
+        "title": "Como divulgar serviços de estética no Instagram com mais prova e contexto",
+        "description": "Use bastidores, resultados, explicações e chamadas claras para transformar o perfil em uma vitrine de confiança.",
+        "canonical": "/blog/como-divulgar-servicos-de-estetica-no-instagram"
+      },
+      "relationships": {
+        "related": [
+          "Ideias de conteúdo para clínicas de estética gerarem mais confiança",
+          "Como divulgar procedimentos estéticos sem parecer genérico",
+          "Como lotar a agenda de uma manicure com retorno e rotina comercial"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/beleza-estetica/como-divulgar-servicos-de-estetica-no-instagram.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-lotar-a-agenda-de-uma-manicure",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-07-17",
+      "seo": {
+        "title": "Como lotar a agenda de uma manicure com retorno e rotina comercial",
+        "description": "Organize presença local, lembretes, conteúdo e atendimento para reduzir horários vazios sem depender só de promoção.",
+        "canonical": "/blog/como-lotar-a-agenda-de-uma-manicure"
+      },
+      "relationships": {
+        "related": [
+          "Como atrair clientes para salão de beleza com uma oferta mais clara",
+          "Como divulgar serviços de estética no Instagram com mais prova e contexto",
+          "Como conseguir mais clientes para design de sobrancelhas com prova visual"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/beleza-estetica/como-lotar-a-agenda-de-uma-manicure.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "ideias-de-conteudo-para-clinicas-de-estetica",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-07-17",
+      "seo": {
+        "title": "Ideias de conteúdo para clínicas de estética gerarem mais confiança",
+        "description": "Temas para explicar procedimentos, mostrar autoridade, reduzir dúvidas e aproximar pacientes sem comunicação apelativa.",
+        "canonical": "/blog/ideias-de-conteudo-para-clinicas-de-estetica"
+      },
+      "relationships": {
+        "related": [
+          "Como divulgar serviços de estética no Instagram com mais prova e contexto",
+          "Como divulgar procedimentos estéticos sem parecer genérico",
+          "Como conseguir mais clientes para design de sobrancelhas com prova visual"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/beleza-estetica/ideias-de-conteudo-para-clinicas-de-estetica.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "marketing-para-barbearias-estrategias-simples",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-05-16",
+      "updatedAt": "2026-05-16",
+      "seo": {
+        "title": "Marketing para barbearias com agenda, recorrência e presença local",
+        "description": "Veja como usar Google, conteúdo, indicação e recompra para manter movimento constante sem complicar a rotina.",
+        "canonical": "/blog/marketing-para-barbearias-estrategias-simples"
+      },
+      "relationships": {
+        "related": [
+          "Como atrair clientes para salão de beleza com uma oferta mais clara",
+          "Como lotar a agenda de uma manicure com retorno e rotina comercial",
+          "Como divulgar procedimentos estéticos sem parecer genérico"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/beleza-estetica/marketing-para-barbearias-estrategias-simples.mdx",
+      "migrationReady": false
+    }
+  ]
+}

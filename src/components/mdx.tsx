@@ -63,6 +63,7 @@ import CompatibilityChecklist from "@/components/mdx/CompatibilityChecklist";
 import { VisualPrinciplesDemo } from "@/components/mdx/VisualPrinciplesDemo";
 import { AccessibleFormDemo } from "@/components/mdx/AccessibleFormDemo";
 import { MovieCard } from "@/components/movies/MovieCard";
+import { MovieFilmography } from "@/components/movies/MovieFilmography";
 import { MovieRankingJsonLd } from "@/components/seo/MovieRankingJsonLd";
 
 import { baseURL } from "@/resources";
@@ -470,6 +471,7 @@ export const baseMDXComponents: MDXComponents = {
   VisualPrinciplesDemo,
   AccessibleFormDemo,
   MovieCard,
+  MovieFilmography,
   MovieRankingJsonLd,
 
   // shortcodes

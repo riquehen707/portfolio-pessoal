@@ -1,0 +1,4059 @@
+{
+  "schemaVersion": 1,
+  "contentType": "movie",
+  "records": [
+    {
+      "id": "mov_7c1f3a",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "corra",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Corra!",
+      "originalTitle": "Get Out",
+      "year": 2017,
+      "productionStatus": "released",
+      "durationMinutes": 104,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Jordan Peele"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror",
+        "Suspense"
+      ],
+      "subgenres": [
+        "Terror social",
+        "Psicológico"
+      ],
+      "themes": [
+        "Racismo",
+        "Apropriação",
+        "Identidade"
+      ],
+      "shortDescription": "Uma visita familiar transforma códigos sociais aparentemente cordiais em uma ameaça construída sobre controle e apropriação.",
+      "audienceProfile": "Boa entrada para quem prefere suspense, sátira e comentário social a violência constante.",
+      "experience": "Tensão crescente, humor desconfortável e mistério",
+      "contentWarnings": [
+        "Racismo",
+        "Violência",
+        "Procedimentos médicos"
+      ],
+      "poster": {
+        "src": "/images/movies/corra.webp",
+        "alt": "Capa editorial de Corra! (2017)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Corra!: ficha e análise do filme",
+        "description": "Corra! (2017): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Get Out — BFI",
+          "url": "https://www.bfi.org.uk/lists/10-great-horror-films-2010s"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-terror-seculo-21"
+        }
+      ]
+    },
+    {
+      "id": "mov_b40e92",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "hereditario",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Hereditário",
+      "originalTitle": "Hereditary",
+      "year": 2018,
+      "productionStatus": "released",
+      "durationMinutes": 127,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Ari Aster"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror",
+        "Drama"
+      ],
+      "subgenres": [
+        "Sobrenatural",
+        "Psicológico"
+      ],
+      "themes": [
+        "Luto",
+        "Família",
+        "Herança"
+      ],
+      "shortDescription": "O luto de uma família abre espaço para conflitos antigos e uma ameaça sobrenatural observada com rigor formal.",
+      "audienceProfile": "Para quem aceita uma construção lenta e emocionalmente pesada antes do horror mais explícito.",
+      "experience": "Opresso, gradual e perturbador",
+      "contentWarnings": [
+        "Luto",
+        "Morte de criança",
+        "Automutilação"
+      ],
+      "poster": {
+        "src": "/images/movies/hereditario.webp",
+        "alt": "Capa editorial de Hereditário (2018)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Hereditário: ficha e análise do filme",
+        "description": "Hereditário (2018): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Hereditary — BFI",
+          "url": "https://www.bfi.org.uk/film/e397cbb2-d8e4-5138-9f5d-12d49deef199/hereditary"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-terror-seculo-21"
+        }
+      ]
+    },
+    {
+      "id": "mov_2d815f",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "a-bruxa",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "A Bruxa",
+      "originalTitle": "The Witch: A New-England Folktale",
+      "year": 2015,
+      "productionStatus": "released",
+      "durationMinutes": 92,
+      "countries": [
+        "Estados Unidos",
+        "Canadá"
+      ],
+      "directors": [
+        "Robert Eggers"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror"
+      ],
+      "subgenres": [
+        "Folk horror",
+        "Histórico"
+      ],
+      "themes": [
+        "Religião",
+        "Repressão",
+        "Família"
+      ],
+      "shortDescription": "Uma família puritana isolada interpreta sua ruína material e afetiva por meio das crenças do século XVII.",
+      "audienceProfile": "Para quem gosta de atmosfera, linguagem de época e terror de combustão lenta.",
+      "experience": "Austero, lento e atmosférico",
+      "contentWarnings": [
+        "Morte infantil",
+        "Fanatismo religioso",
+        "Violência contra animais"
+      ],
+      "poster": {
+        "src": "/images/movies/a-bruxa.webp",
+        "alt": "Capa editorial de A Bruxa (2015)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "A Bruxa: ficha e análise do filme",
+        "description": "A Bruxa (2015): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "The Witch — BFI",
+          "url": "https://whatson.bfi.org.uk/imax/Online/default.asp?BOparam%3A%3AWScontent%3A%3AloadArticle%3A%3Apermalink=witch-imax"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-terror-seculo-21"
+        }
+      ]
+    },
+    {
+      "id": "mov_ae39c4",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "o-lamento",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "O Lamento",
+      "originalTitle": "Goksung",
+      "year": 2016,
+      "productionStatus": "released",
+      "durationMinutes": 156,
+      "countries": [
+        "Coreia do Sul",
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Na Hong-jin"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror",
+        "Suspense"
+      ],
+      "subgenres": [
+        "Folk horror",
+        "Possessão"
+      ],
+      "themes": [
+        "Rumor",
+        "Fé",
+        "Preconceito"
+      ],
+      "shortDescription": "Uma investigação rural mistura doença, ritual e suspeita enquanto cada explicação corrói a anterior.",
+      "audienceProfile": "Para espectadores pacientes que apreciam ambiguidade e mudanças de tom.",
+      "experience": "Longo, febril e desorientador",
+      "contentWarnings": [
+        "Violência",
+        "Doença",
+        "Criança em sofrimento"
+      ],
+      "poster": {
+        "src": "/images/movies/o-lamento.webp",
+        "alt": "Capa editorial de O Lamento (2016)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "O Lamento: ficha e análise do filme",
+        "description": "O Lamento (2016): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Goksung — Festival de Cannes",
+          "url": "https://www.festival-cannes.com/en/f/goksung/"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-terror-seculo-21"
+        }
+      ]
+    },
+    {
+      "id": "mov_91f72b",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "deixe-ela-entrar",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Deixe Ela Entrar",
+      "originalTitle": "Låt den rätte komma in",
+      "year": 2008,
+      "productionStatus": "released",
+      "durationMinutes": 114,
+      "countries": [
+        "Suécia"
+      ],
+      "directors": [
+        "Tomas Alfredson"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror",
+        "Drama"
+      ],
+      "subgenres": [
+        "Vampiro"
+      ],
+      "themes": [
+        "Solidão",
+        "Dependência",
+        "Infância"
+      ],
+      "shortDescription": "A aproximação entre duas crianças renova o mito do vampiro com afeto, violência e ambiguidade moral.",
+      "audienceProfile": "Para quem prefere atmosfera e relações complexas a ação constante.",
+      "experience": "Melancólico, frio e íntimo",
+      "contentWarnings": [
+        "Bullying",
+        "Violência envolvendo crianças",
+        "Abuso"
+      ],
+      "poster": {
+        "src": "/images/movies/deixe-ela-entrar.webp",
+        "alt": "Capa editorial de Deixe Ela Entrar (2008)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Deixe Ela Entrar: ficha e análise do filme",
+        "description": "Deixe Ela Entrar (2008): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Let the Right One In — BFI",
+          "url": "https://www.bfi.org.uk/lists/10-great-horror-films-21st-century"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-terror-seculo-21"
+        }
+      ]
+    },
+    {
+      "id": "mov_3c085e",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "rec",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "[REC]",
+      "originalTitle": "[REC]",
+      "year": 2007,
+      "productionStatus": "released",
+      "durationMinutes": 78,
+      "countries": [
+        "Espanha"
+      ],
+      "directors": [
+        "Jaume Balagueró",
+        "Paco Plaza"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror"
+      ],
+      "subgenres": [
+        "Found footage",
+        "Possessão"
+      ],
+      "themes": [
+        "Contaminação",
+        "Confinamento"
+      ],
+      "shortDescription": "Uma equipe de reportagem fica presa em um edifício onde uma emergência sanitária muda rapidamente de natureza.",
+      "audienceProfile": "Para quem busca found footage curto, intenso e sem pausas longas.",
+      "experience": "Urgente, claustrofóbico e instável",
+      "contentWarnings": [
+        "Câmera trêmula",
+        "Violência",
+        "Contaminação"
+      ],
+      "poster": {
+        "src": "/images/movies/rec.webp",
+        "alt": "Capa editorial de [REC] (2007)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "[REC]: ficha e análise do filme",
+        "description": "[REC] (2007): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "[REC] — BFI",
+          "url": "https://www.bfi.org.uk/lists/great-horror-film-from-every-year-from-1922-now"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-terror-seculo-21"
+        }
+      ]
+    },
+    {
+      "id": "mov_d12a77",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "exterminio",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Extermínio",
+      "originalTitle": "28 Days Later…",
+      "year": 2002,
+      "productionStatus": "released",
+      "durationMinutes": 113,
+      "countries": [
+        "Reino Unido"
+      ],
+      "directors": [
+        "Danny Boyle"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror",
+        "Ficção científica"
+      ],
+      "subgenres": [
+        "Infectados",
+        "Apocalipse"
+      ],
+      "themes": [
+        "Colapso social",
+        "Sobrevivência"
+      ],
+      "shortDescription": "Uma epidemia esvazia Londres e força sobreviventes a enfrentar tanto infectados velozes quanto novas formas de violência organizada.",
+      "audienceProfile": "Para fãs de apocalipse que valorizam personagens e comentário social.",
+      "experience": "Áspero, urgente e melancólico",
+      "contentWarnings": [
+        "Violência",
+        "Ameaça sexual",
+        "Epidemia"
+      ],
+      "poster": {
+        "src": "/images/movies/exterminio.webp",
+        "alt": "Capa editorial de Extermínio (2002)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Extermínio: ficha e análise do filme",
+        "description": "Extermínio (2002): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "28 Days Later — BFI",
+          "url": "https://www.bfi.org.uk/lists/great-horror-film-from-every-year-from-1922-now"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-terror-seculo-21"
+        }
+      ]
+    },
+    {
+      "id": "mov_68be30",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "a-substancia",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "A Substância",
+      "originalTitle": "The Substance",
+      "year": 2024,
+      "productionStatus": "released",
+      "durationMinutes": 141,
+      "countries": [
+        "Reino Unido",
+        "Estados Unidos",
+        "França"
+      ],
+      "directors": [
+        "Coralie Fargeat"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror",
+        "Sátira"
+      ],
+      "subgenres": [
+        "Body horror"
+      ],
+      "themes": [
+        "Envelhecimento",
+        "Imagem corporal",
+        "Indústria do entretenimento"
+      ],
+      "shortDescription": "Uma promessa de juventude perfeita leva a cobrança sobre o corpo até uma escala grotesca e deliberadamente excessiva.",
+      "audienceProfile": "Para quem aprecia sátira frontal e efeitos corporais extremos.",
+      "experience": "Excessivo, tátil e cômico",
+      "contentWarnings": [
+        "Gore extremo",
+        "Nudez",
+        "Distorção corporal"
+      ],
+      "poster": {
+        "src": "/images/movies/a-substancia.webp",
+        "alt": "Capa editorial de A Substância (2024)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "A Substância: ficha e análise do filme",
+        "description": "A Substância (2024): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "The Substance — Festival de Cannes",
+          "url": "https://www.festival-cannes.com/f/the-substance/"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-terror-seculo-21"
+        }
+      ]
+    },
+    {
+      "id": "mov_f51942",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "o-babadook",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "O Babadook",
+      "originalTitle": "The Babadook",
+      "year": 2014,
+      "productionStatus": "released",
+      "durationMinutes": 94,
+      "countries": [
+        "Austrália",
+        "Canadá"
+      ],
+      "directors": [
+        "Jennifer Kent"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror",
+        "Drama"
+      ],
+      "subgenres": [
+        "Psicológico",
+        "Sobrenatural"
+      ],
+      "themes": [
+        "Luto",
+        "Maternidade",
+        "Exaustão"
+      ],
+      "shortDescription": "Um livro infantil perturbador materializa tensões de uma mãe exausta e de seu filho em luto.",
+      "audienceProfile": "Para quem gosta de monstros ligados a conflitos emocionais sem explicação redutora.",
+      "experience": "Claustrofóbico e emocional",
+      "contentWarnings": [
+        "Luto",
+        "Violência doméstica",
+        "Ameaça a criança e animal"
+      ],
+      "poster": {
+        "src": "/images/movies/o-babadook.webp",
+        "alt": "Capa editorial de O Babadook (2014)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "O Babadook: ficha e análise do filme",
+        "description": "O Babadook (2014): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "The Babadook — BFI",
+          "url": "https://www.bfi.org.uk/lists/10-great-supernatural-horror-films-21st-century"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-terror-seculo-21"
+        }
+      ]
+    },
+    {
+      "id": "mov_0b84dd",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "corrente-do-mal",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Corrente do Mal",
+      "originalTitle": "It Follows",
+      "year": 2014,
+      "productionStatus": "released",
+      "durationMinutes": 100,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "David Robert Mitchell"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror"
+      ],
+      "subgenres": [
+        "Sobrenatural",
+        "Perseguição"
+      ],
+      "themes": [
+        "Sexualidade",
+        "Ansiedade",
+        "Responsabilidade"
+      ],
+      "shortDescription": "Uma ameaça transmitida sexualmente transforma figuras ao fundo do quadro em fontes permanentes de dúvida.",
+      "audienceProfile": "Para quem prefere ansiedade contínua e metáforas abertas a explicações fechadas.",
+      "experience": "Hipnótico, suburbano e inquieto",
+      "contentWarnings": [
+        "Coerção sexual",
+        "Nudez",
+        "Imagens perturbadoras"
+      ],
+      "poster": {
+        "src": "/images/movies/corrente-do-mal.webp",
+        "alt": "Capa editorial de Corrente do Mal (2014)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Corrente do Mal: ficha e análise do filme",
+        "description": "Corrente do Mal (2014): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "It Follows — BFI",
+          "url": "https://www.bfi.org.uk/lists/great-horror-film-from-every-year-from-1922-now"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-terror-seculo-21"
+        }
+      ]
+    },
+    {
+      "id": "mov_c71a05",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "o-hospedeiro",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "O Hospedeiro",
+      "originalTitle": "Gwoemul",
+      "year": 2006,
+      "productionStatus": "released",
+      "durationMinutes": 120,
+      "countries": [
+        "Coreia do Sul"
+      ],
+      "directors": [
+        "Bong Joon-ho"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror",
+        "Ação",
+        "Comédia"
+      ],
+      "subgenres": [
+        "Monstro",
+        "Terror social"
+      ],
+      "themes": [
+        "Família",
+        "Desastre",
+        "Instituições"
+      ],
+      "shortDescription": "Uma criatura no rio Han obriga uma família desajustada a agir em meio à incompetência institucional.",
+      "audienceProfile": "Para quem gosta de monstros, ação e sátira convivendo com melodrama familiar.",
+      "experience": "Dinâmico, estranho e emotivo",
+      "contentWarnings": [
+        "Morte",
+        "Violência contra crianças",
+        "Doença"
+      ],
+      "poster": {
+        "src": "/images/movies/o-hospedeiro.webp",
+        "alt": "Capa editorial de O Hospedeiro (2006)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "O Hospedeiro: ficha e análise do filme",
+        "description": "O Hospedeiro (2006): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "The Host — Korean Film Archive",
+          "url": "https://www.koreanfilm.or.kr/eng/films/index/filmsView.jsp?movieCd=20060151"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-terror-seculo-21"
+        }
+      ]
+    },
+    {
+      "id": "mov_46ed93",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "invasao-zumbi",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Invasão Zumbi",
+      "originalTitle": "Busanhaeng",
+      "year": 2016,
+      "productionStatus": "released",
+      "durationMinutes": 118,
+      "countries": [
+        "Coreia do Sul"
+      ],
+      "directors": [
+        "Yeon Sang-ho"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror",
+        "Ação"
+      ],
+      "subgenres": [
+        "Zumbi",
+        "Sobrevivência"
+      ],
+      "themes": [
+        "Família",
+        "Solidariedade",
+        "Classe"
+      ],
+      "shortDescription": "Uma epidemia dentro de um trem combina ação legível, infectados velozes e decisões coletivas com peso emocional.",
+      "audienceProfile": "Entrada acessível para quem quer tensão contínua e personagens claros.",
+      "experience": "Veloz, físico e emotivo",
+      "contentWarnings": [
+        "Violência intensa",
+        "Mortes",
+        "Crianças em perigo"
+      ],
+      "poster": {
+        "src": "/images/movies/invasao-zumbi.webp",
+        "alt": "Capa editorial de Invasão Zumbi (2016)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Invasão Zumbi: ficha e análise do filme",
+        "description": "Invasão Zumbi (2016): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Train to Busan — Festival de Cannes",
+          "url": "https://www.festival-cannes.com/en/retrospective/2016/"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-terror-seculo-21"
+        }
+      ]
+    },
+    {
+      "id": "mov_823fa1",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "kairo",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Kairo",
+      "originalTitle": "Kairo",
+      "year": 2001,
+      "productionStatus": "released",
+      "durationMinutes": 119,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Kiyoshi Kurosawa"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror"
+      ],
+      "subgenres": [
+        "J-horror",
+        "Tecnológico"
+      ],
+      "themes": [
+        "Solidão",
+        "Internet",
+        "Desaparecimento"
+      ],
+      "shortDescription": "Fantasmas e conexões digitais espalham uma solidão que parece contaminar gradualmente o mundo físico.",
+      "audienceProfile": "Para quem aceita ritmo lento, tecnologia datada e lógica de pesadelo.",
+      "experience": "Lento, vazio e profundamente melancólico",
+      "contentWarnings": [
+        "Suicídio",
+        "Depressão",
+        "Desesperança"
+      ],
+      "poster": {
+        "src": "/images/movies/kairo.webp",
+        "alt": "Capa editorial de Kairo (2001)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Kairo: ficha e análise do filme",
+        "description": "Kairo (2001): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Pulse — BFI",
+          "url": "https://www.bfi.org.uk/lists/10-great-horror-films-21st-century"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-terror-seculo-21"
+        }
+      ]
+    },
+    {
+      "id": "mov_19c6be",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "medo",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Medo",
+      "originalTitle": "Janghwa, Hongryeon",
+      "year": 2003,
+      "productionStatus": "released",
+      "durationMinutes": 115,
+      "countries": [
+        "Coreia do Sul"
+      ],
+      "directors": [
+        "Kim Jee-woon"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror",
+        "Drama"
+      ],
+      "subgenres": [
+        "Gótico",
+        "Psicológico"
+      ],
+      "themes": [
+        "Família",
+        "Memória",
+        "Culpa"
+      ],
+      "shortDescription": "Duas irmãs retornam para casa e encontram relações familiares atravessadas por memória, hostilidade e assombração.",
+      "audienceProfile": "Para quem gosta de melodrama gótico, composição visual e narrativa fragmentada.",
+      "experience": "Elegante, triste e ambíguo",
+      "contentWarnings": [
+        "Luto",
+        "Violência familiar",
+        "Saúde mental"
+      ],
+      "poster": {
+        "src": "/images/movies/medo.webp",
+        "alt": "Capa editorial de Medo (2003)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Medo: ficha e análise do filme",
+        "description": "Medo (2003): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "A Tale of Two Sisters — Korean Film Archive",
+          "url": "https://www.koreanfilm.or.kr/eng/films/index/filmsView.jsp?movieCd=20030046"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_e4507c",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "abismo-do-medo",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Abismo do Medo",
+      "originalTitle": "The Descent",
+      "year": 2005,
+      "productionStatus": "released",
+      "durationMinutes": 99,
+      "countries": [
+        "Reino Unido"
+      ],
+      "directors": [
+        "Neil Marshall"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror",
+        "Aventura"
+      ],
+      "subgenres": [
+        "Sobrevivência",
+        "Criatura"
+      ],
+      "themes": [
+        "Luto",
+        "Confinamento",
+        "Amizade"
+      ],
+      "shortDescription": "Uma expedição subterrânea transforma geografia, escuridão e fraturas entre amigas em ameaça física.",
+      "audienceProfile": "Para fãs de sobrevivência, criaturas e claustrofobia intensa.",
+      "experience": "Claustrofóbico e brutal",
+      "contentWarnings": [
+        "Violência gráfica",
+        "Luto",
+        "Confinamento extremo"
+      ],
+      "poster": {
+        "src": "/images/movies/abismo-do-medo.webp",
+        "alt": "Capa editorial de Abismo do Medo (2005)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Abismo do Medo: ficha e análise do filme",
+        "description": "Abismo do Medo (2005): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "The Descent — BFI",
+          "url": "https://player.bfi.org.uk/subscription/film/watch-the-descent-2005-online"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-terror-seculo-21"
+        }
+      ]
+    },
+    {
+      "id": "mov_5a2d91",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "martires",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Mártires",
+      "originalTitle": "Martyrs",
+      "year": 2008,
+      "productionStatus": "released",
+      "durationMinutes": 99,
+      "countries": [
+        "França",
+        "Canadá"
+      ],
+      "directors": [
+        "Pascal Laugier"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror"
+      ],
+      "subgenres": [
+        "Extremo",
+        "Body horror"
+      ],
+      "themes": [
+        "Trauma",
+        "Violência",
+        "Transcendência"
+      ],
+      "shortDescription": "Uma busca por vingança conduz a um projeto de violência sistemática e a uma pergunta extrema sobre sofrimento.",
+      "audienceProfile": "Recomendação restrita a espectadores preparados para violência prolongada.",
+      "experience": "Implacável, gráfico e desesperador",
+      "contentWarnings": [
+        "Tortura extrema",
+        "Automutilação",
+        "Abuso infantil"
+      ],
+      "poster": {
+        "src": "/images/movies/martires.webp",
+        "alt": "Capa editorial de Mártires (2008)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Mártires: ficha e análise do filme",
+        "description": "Mártires (2008): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Martyrs — BFI",
+          "url": "https://www.bfi.org.uk/lists/10-great-horror-films-21st-century"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_a38f04",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "grave",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Grave",
+      "originalTitle": "Grave",
+      "year": 2016,
+      "productionStatus": "released",
+      "durationMinutes": 99,
+      "countries": [
+        "França",
+        "Bélgica"
+      ],
+      "directors": [
+        "Julia Ducournau"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror",
+        "Drama"
+      ],
+      "subgenres": [
+        "Body horror"
+      ],
+      "themes": [
+        "Desejo",
+        "Identidade",
+        "Amadurecimento"
+      ],
+      "shortDescription": "A entrada numa faculdade de veterinária desperta um apetite que aproxima corpo, desejo e transformação.",
+      "audienceProfile": "Boa porta para o body horror contemporâneo, desde que sangue não seja um limite.",
+      "experience": "Físico, sensual e desconfortável",
+      "contentWarnings": [
+        "Canibalismo",
+        "Ferimentos",
+        "Trotes violentos"
+      ],
+      "poster": {
+        "src": "/images/movies/grave.webp",
+        "alt": "Capa editorial de Grave (2016)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Grave: ficha e análise do filme",
+        "description": "Grave (2016): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Raw — Festival de Cannes",
+          "url": "https://www.festival-cannes.com/en/f/grave/"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-terror-seculo-21"
+        }
+      ]
+    },
+    {
+      "id": "mov_6d90ce",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "o-segredo-da-cabana",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "O Segredo da Cabana",
+      "originalTitle": "The Cabin in the Woods",
+      "year": 2011,
+      "productionStatus": "released",
+      "durationMinutes": 95,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Drew Goddard"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror",
+        "Comédia"
+      ],
+      "subgenres": [
+        "Metalinguagem",
+        "Slasher"
+      ],
+      "themes": [
+        "Controle",
+        "Rituais",
+        "Convenções de gênero"
+      ],
+      "shortDescription": "Uma viagem de jovens a uma cabana desmonta, com humor e escala crescente, as engrenagens do terror comercial.",
+      "audienceProfile": "Funciona melhor para quem já conhece convenções e arquétipos do gênero.",
+      "experience": "Irônico, acelerado e expansivo",
+      "contentWarnings": [
+        "Violência gráfica",
+        "Drogas",
+        "Mortes em massa"
+      ],
+      "poster": {
+        "src": "/images/movies/o-segredo-da-cabana.webp",
+        "alt": "Capa editorial de O Segredo da Cabana (2011)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "O Segredo da Cabana: ficha e análise do filme",
+        "description": "O Segredo da Cabana (2011): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "The Cabin in the Woods — BFI",
+          "url": "https://www.bfi.org.uk/film/5ef8954e-0988-5f4d-8d9b-7552cc913e40/the-cabin-in-the-woods"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_14eb79",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "o-homem-invisivel",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "O Homem Invisível",
+      "originalTitle": "The Invisible Man",
+      "year": 2020,
+      "productionStatus": "released",
+      "durationMinutes": 124,
+      "countries": [
+        "Estados Unidos",
+        "Austrália"
+      ],
+      "directors": [
+        "Leigh Whannell"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror",
+        "Ficção científica"
+      ],
+      "subgenres": [
+        "Perseguição",
+        "Psicológico"
+      ],
+      "themes": [
+        "Abuso",
+        "Controle",
+        "Descrédito"
+      ],
+      "shortDescription": "A invisibilidade transforma abuso e vigilância em ameaça espacial, explorando o que o quadro aparentemente vazio pode esconder.",
+      "audienceProfile": "Para quem busca suspense acessível com tensão sustentada e tema de abuso coercitivo.",
+      "experience": "Tenso, preciso e paranoico",
+      "contentWarnings": [
+        "Abuso doméstico",
+        "Suicídio",
+        "Violência"
+      ],
+      "poster": {
+        "src": "/images/movies/o-homem-invisivel.webp",
+        "alt": "Capa editorial de O Homem Invisível (2020)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "O Homem Invisível: ficha e análise do filme",
+        "description": "O Homem Invisível (2020): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "The Invisible Man — Universal Pictures",
+          "url": "https://www.universalpictures.com/movies/the-invisible-man"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_b731d8",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "fale-comigo",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Fale Comigo",
+      "originalTitle": "Talk to Me",
+      "year": 2022,
+      "productionStatus": "released",
+      "durationMinutes": 95,
+      "countries": [
+        "Austrália"
+      ],
+      "directors": [
+        "Danny Philippou",
+        "Michael Philippou"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror"
+      ],
+      "subgenres": [
+        "Possessão",
+        "Adolescente"
+      ],
+      "themes": [
+        "Luto",
+        "Pressão social",
+        "Vício"
+      ],
+      "shortDescription": "Adolescentes transformam possessão em ritual social até que o jogo atravesse limites afetivos e físicos.",
+      "audienceProfile": "Para quem quer horror contemporâneo direto, com personagens jovens e consequências reais.",
+      "experience": "Enérgico, físico e emocional",
+      "contentWarnings": [
+        "Automutilação",
+        "Luto",
+        "Violência envolvendo menores"
+      ],
+      "poster": {
+        "src": "/images/movies/fale-comigo.webp",
+        "alt": "Capa editorial de Fale Comigo (2022)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Fale Comigo: ficha e análise do filme",
+        "description": "Fale Comigo (2022): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Talk to Me — Screen Australia",
+          "url": "https://www.screenaustralia.gov.au/the-screen-guide/t/talk-to-me-2022/40332/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_97a260",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "quando-o-mal-espreita",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Quando o Mal Espreita",
+      "originalTitle": "Cuando acecha la maldad",
+      "year": 2023,
+      "productionStatus": "released",
+      "durationMinutes": 99,
+      "countries": [
+        "Argentina",
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Demián Rugna"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror"
+      ],
+      "subgenres": [
+        "Possessão",
+        "Horror rural"
+      ],
+      "themes": [
+        "Contaminação",
+        "Comunidade",
+        "Regras"
+      ],
+      "shortDescription": "Uma forma de possessão se espalha por uma comunidade rural onde todos conhecem regras incompletas.",
+      "audienceProfile": "Para espectadores atrás de horror agressivo, cruel e imprevisível.",
+      "experience": "Brutal, rural e desesperado",
+      "contentWarnings": [
+        "Violência extrema",
+        "Animais",
+        "Crianças em perigo"
+      ],
+      "poster": {
+        "src": "/images/movies/quando-o-mal-espreita.webp",
+        "alt": "Capa editorial de Quando o Mal Espreita (2023)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Quando o Mal Espreita: ficha e análise do filme",
+        "description": "Quando o Mal Espreita (2023): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "When Evil Lurks — Sitges",
+          "url": "https://sitgesfilmfestival.com/en/film/2023/cuando-acecha-la-maldad"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-terror-seculo-21"
+        }
+      ]
+    },
+    {
+      "id": "mov_30cf85",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "pecadores",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Pecadores",
+      "originalTitle": "Sinners",
+      "year": 2025,
+      "productionStatus": "released",
+      "durationMinutes": 137,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Ryan Coogler"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror",
+        "Drama",
+        "Musical"
+      ],
+      "subgenres": [
+        "Vampiro",
+        "Gótico sulista"
+      ],
+      "themes": [
+        "Música",
+        "Comunidade",
+        "Apropriação cultural"
+      ],
+      "shortDescription": "Dois irmãos abrem um clube no Mississippi e encontram uma ameaça vampírica ligada à música, à comunidade e à história.",
+      "audienceProfile": "Para quem aceita mistura ampla de drama histórico, música, ação e horror.",
+      "experience": "Musical, expansivo e sangrento",
+      "contentWarnings": [
+        "Violência gráfica",
+        "Racismo",
+        "Morte"
+      ],
+      "poster": {
+        "src": "/images/movies/pecadores.webp",
+        "alt": "Capa editorial de Pecadores (2025)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Pecadores: ficha e análise do filme",
+        "description": "Pecadores (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Sinners — Warner Bros.",
+          "url": "https://www.warnerbros.com/movies/sinners"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_dd418e",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "atividade-paranormal",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Atividade Paranormal",
+      "originalTitle": "Paranormal Activity",
+      "year": 2007,
+      "productionStatus": "released",
+      "durationMinutes": 86,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Oren Peli"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror"
+      ],
+      "subgenres": [
+        "Found footage",
+        "Sobrenatural"
+      ],
+      "themes": [
+        "Vigilância",
+        "Casa",
+        "Relacionamento"
+      ],
+      "shortDescription": "Câmeras domésticas registram pequenas alterações noturnas que transformam repetição e espera em ameaça.",
+      "audienceProfile": "Para quem aceita minimalismo, poucos efeitos e tensão baseada em antecipação.",
+      "experience": "Minimalista, repetitivo e crescente",
+      "contentWarnings": [
+        "Possessão",
+        "Violência doméstica",
+        "Sustos repentinos"
+      ],
+      "poster": {
+        "src": "/images/movies/atividade-paranormal.webp",
+        "alt": "Capa editorial de Atividade Paranormal (2007)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Atividade Paranormal: ficha e análise do filme",
+        "description": "Atividade Paranormal (2007): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Paranormal Activity — Sundance Institute",
+          "url": "https://www.sundance.org/blogs/from-the-blair-witch-project-to-hereditary-how-the-sundance-film-festival-defined-modern-horror/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_75b3ac",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "host-2020",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Host",
+      "originalTitle": "Host",
+      "year": 2020,
+      "productionStatus": "released",
+      "durationMinutes": 57,
+      "countries": [
+        "Reino Unido"
+      ],
+      "directors": [
+        "Rob Savage"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror"
+      ],
+      "subgenres": [
+        "Screenlife",
+        "Sobrenatural"
+      ],
+      "themes": [
+        "Isolamento",
+        "Tecnologia"
+      ],
+      "shortDescription": "Uma sessão espírita por chamada de vídeo usa os limites da tela como espaço de assombração.",
+      "audienceProfile": "Para quem procura uma sessão curta e sustos bem preparados.",
+      "experience": "Curto, direto e digital",
+      "contentWarnings": [
+        "Sustos repentinos",
+        "Ferimentos"
+      ],
+      "poster": {
+        "src": "/images/movies/host-2020.webp",
+        "alt": "Capa editorial de Host (2020)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Host: ficha e análise do filme",
+        "description": "Host (2020): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Host — BFI",
+          "url": "https://www.bfi.org.uk/sight-and-sound/reviews/host-zoom-horror-lockdown"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-terror-seculo-21"
+        }
+      ]
+    },
+    {
+      "id": "mov_08e6f1",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "x-a-marca-da-morte",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "X: A Marca da Morte",
+      "originalTitle": "X",
+      "year": 2022,
+      "productionStatus": "released",
+      "durationMinutes": 106,
+      "countries": [
+        "Estados Unidos",
+        "Canadá"
+      ],
+      "directors": [
+        "Ti West"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror"
+      ],
+      "subgenres": [
+        "Slasher"
+      ],
+      "themes": [
+        "Envelhecimento",
+        "Desejo",
+        "Imagem"
+      ],
+      "shortDescription": "Uma produção adulta numa fazenda recupera o slasher rural para confrontar juventude, desejo e envelhecimento.",
+      "audienceProfile": "Para fãs de slashers que aceitam uma primeira metade deliberada.",
+      "experience": "Paciente e depois sangrento",
+      "contentWarnings": [
+        "Violência gráfica",
+        "Sexo",
+        "Envelhecimento"
+      ],
+      "poster": {
+        "src": "/images/movies/x-a-marca-da-morte.webp",
+        "alt": "Capa editorial de X: A Marca da Morte (2022)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "X: A Marca da Morte: ficha e análise do filme",
+        "description": "X: A Marca da Morte (2022): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "X — A24",
+          "url": "https://a24films.com/films/x"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-terror-seculo-21"
+        }
+      ]
+    },
+    {
+      "id": "mov_ca273d",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "as-boas-maneiras",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "As Boas Maneiras",
+      "originalTitle": "As Boas Maneiras",
+      "year": 2017,
+      "productionStatus": "released",
+      "durationMinutes": 135,
+      "countries": [
+        "Brasil",
+        "França"
+      ],
+      "directors": [
+        "Juliana Rojas",
+        "Marco Dutra"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror",
+        "Drama",
+        "Musical"
+      ],
+      "subgenres": [
+        "Fantástico",
+        "Criatura"
+      ],
+      "themes": [
+        "Classe",
+        "Maternidade",
+        "Desejo"
+      ],
+      "shortDescription": "Uma fábula paulistana combina trabalho doméstico, romance, maternidade e uma criatura clássica.",
+      "audienceProfile": "Para quem prefere fantasia sombria e melodrama a sustos constantes.",
+      "experience": "Contemplativo, fabuloso e afetivo",
+      "contentWarnings": [
+        "Gravidez",
+        "Sangue",
+        "Crianças em perigo"
+      ],
+      "poster": {
+        "src": "/images/movies/as-boas-maneiras.webp",
+        "alt": "Capa editorial de As Boas Maneiras (2017)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "As Boas Maneiras: ficha e análise do filme",
+        "description": "As Boas Maneiras (2017): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "As Boas Maneiras — ANCINE",
+          "url": "https://www.gov.br/ancine/pt-br/assuntos/noticias/ancine-apoia-presenca-de-18-filmes-em-14-eventos-internacionais-em-outubro"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-terror-seculo-21"
+        }
+      ]
+    },
+    {
+      "id": "mov_4f9b62",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "one-cut-of-the-dead",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "One Cut of the Dead",
+      "originalTitle": "Kamera o Tomeru na!",
+      "year": 2017,
+      "productionStatus": "released",
+      "durationMinutes": 96,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Shinichiro Ueda"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror",
+        "Comédia"
+      ],
+      "subgenres": [
+        "Zumbi",
+        "Metalinguagem"
+      ],
+      "themes": [
+        "Cinema",
+        "Trabalho coletivo",
+        "Improviso"
+      ],
+      "shortDescription": "Uma filmagem de zumbis aparentemente desastrada revela uma engenharia cômica sobre colaboração e improviso.",
+      "audienceProfile": "Para quem tolera uma abertura irregular em troca de uma grande mudança de perspectiva.",
+      "experience": "Inventivo, alegre e metalinguístico",
+      "contentWarnings": [
+        "Violência caricatural"
+      ],
+      "poster": {
+        "src": "/images/movies/one-cut-of-the-dead.webp",
+        "alt": "Capa editorial de One Cut of the Dead (2017)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "One Cut of the Dead: ficha e análise do filme",
+        "description": "One Cut of the Dead (2017): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "One Cut of the Dead — BFI",
+          "url": "https://www.bfi.org.uk/lists/10-great-horror-films-2010s"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-terror-seculo-21"
+        }
+      ]
+    },
+    {
+      "id": "mov_62d0a9",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "o-que-ficou-para-tras",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "O Que Ficou Para Trás",
+      "originalTitle": "His House",
+      "year": 2020,
+      "productionStatus": "released",
+      "durationMinutes": 93,
+      "countries": [
+        "Reino Unido"
+      ],
+      "directors": [
+        "Remi Weekes"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror",
+        "Drama"
+      ],
+      "subgenres": [
+        "Casa assombrada",
+        "Sobrenatural"
+      ],
+      "themes": [
+        "Refúgio",
+        "Culpa",
+        "Burocracia"
+      ],
+      "shortDescription": "Um casal refugiado enfrenta uma nova casa, a burocracia britânica e aquilo que trouxe consigo.",
+      "audienceProfile": "Para quem busca horror sobrenatural com conflito político e emocional concreto.",
+      "experience": "Sombrio, íntimo e moralmente difícil",
+      "contentWarnings": [
+        "Guerra",
+        "Morte de criança",
+        "Luto"
+      ],
+      "poster": {
+        "src": "/images/movies/o-que-ficou-para-tras.webp",
+        "alt": "Capa editorial de O Que Ficou Para Trás (2020)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "O Que Ficou Para Trás: ficha e análise do filme",
+        "description": "O Que Ficou Para Trás (2020): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "His House — BFI",
+          "url": "https://www.bfi.org.uk/lists/10-great-supernatural-horror-films-21st-century"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-terror-seculo-21"
+        }
+      ]
+    },
+    {
+      "id": "mov_eb8514",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "jogos-mortais",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Jogos Mortais",
+      "originalTitle": "Saw",
+      "year": 2004,
+      "productionStatus": "released",
+      "durationMinutes": 103,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "James Wan"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror",
+        "Suspense"
+      ],
+      "subgenres": [
+        "Armadilhas"
+      ],
+      "themes": [
+        "Sobrevivência",
+        "Culpa",
+        "Punição"
+      ],
+      "shortDescription": "Duas pessoas acordam presas em um banheiro e precisam compreender um jogo de punição construído ao redor delas.",
+      "audienceProfile": "Para fãs de mistério macabro que aceitam violência e estética marcada pelos anos 2000.",
+      "experience": "Nervoso, fechado e gráfico",
+      "contentWarnings": [
+        "Tortura",
+        "Automutilação",
+        "Violência gráfica"
+      ],
+      "poster": {
+        "src": "/images/movies/jogos-mortais.webp",
+        "alt": "Capa editorial de Jogos Mortais (2004)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Jogos Mortais: ficha e análise do filme",
+        "description": "Jogos Mortais (2004): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Saw — Sundance Institute",
+          "url": "https://www.sundance.org/blogs/from-the-blair-witch-project-to-hereditary-how-the-sundance-film-festival-defined-modern-horror/"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-terror-seculo-21"
+        }
+      ]
+    },
+    {
+      "id": "mov_1a74cf",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "sob-a-pele",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Sob a Pele",
+      "originalTitle": "Under the Skin",
+      "year": 2013,
+      "productionStatus": "released",
+      "durationMinutes": 108,
+      "countries": [
+        "Reino Unido",
+        "Estados Unidos",
+        "Suíça"
+      ],
+      "directors": [
+        "Jonathan Glazer"
+      ],
+      "screenwriters": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror",
+        "Ficção científica"
+      ],
+      "subgenres": [
+        "Experimental"
+      ],
+      "themes": [
+        "Corpo",
+        "Desejo",
+        "Humanidade"
+      ],
+      "shortDescription": "Um olhar não humano percorre a Escócia e aprende a observar, atrair e habitar corpos.",
+      "audienceProfile": "Para quem aceita narrativa rarefeita, diálogos escassos e forte experimentação audiovisual.",
+      "experience": "Abstrato, lento e alienígena",
+      "contentWarnings": [
+        "Nudez",
+        "Violência sexual",
+        "Afogamento"
+      ],
+      "poster": {
+        "src": "/images/movies/sob-a-pele.webp",
+        "alt": "Capa editorial de Sob a Pele (2013)",
+        "sourceUrl": "https://henrique.dog/filmes",
+        "credit": "Capa editorial original de henrique.dog"
+      },
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Sob a Pele: ficha e análise do filme",
+        "description": "Sob a Pele (2013): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Under the Skin — BFI",
+          "url": "https://www.bfi.org.uk/film/155d7690-bc57-50ef-8d2f-eaf1e7102ae9/under-the-skin"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-terror-seculo-21"
+        }
+      ]
+    },
+    {
+      "id": "mov_ghb_1984_nausicaa",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "nausicaa-do-vale-do-vento",
+      "aliases": [
+        "nausicaa"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Nausicaä do Vale do Vento",
+      "originalTitle": "風の谷のナウシカ",
+      "internationalTitle": "Nausicaä of the Valley of the Wind",
+      "year": 1984,
+      "releaseDate": "1984-03-11",
+      "productionStatus": "released",
+      "durationMinutes": 116,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Hayao Miyazaki"
+      ],
+      "screenwriters": [
+        "Hayao Miyazaki"
+      ],
+      "releaseType": "theatrical",
+      "studioRelation": "precursor-official-catalog",
+      "genres": [
+        "Animação",
+        "Fantasia",
+        "Aventura"
+      ],
+      "subgenres": [
+        "Ficção científica"
+      ],
+      "themes": [
+        "Natureza",
+        "Guerra",
+        "Responsabilidade"
+      ],
+      "shortDescription": "Uma jovem mediadora tenta impedir que guerra e medo destruam o equilíbrio entre comunidades humanas e um ecossistema transformado.",
+      "audienceProfile": "Para quem procura aventura ecológica com conflito político e criaturas fantásticas.",
+      "experience": "Épico, inquieto e contemplativo",
+      "contentWarnings": [
+        "Guerra",
+        "Violência",
+        "Animais em perigo"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Nausicaä do Vale do Vento: ficha e análise do filme",
+        "description": "Nausicaä do Vale do Vento (1984): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Nausicaä do Vale do Vento — Studio Ghibli",
+          "url": "https://www.ghibli.jp/works/nausicaa/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_ghb_1986_laputa",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "o-castelo-no-ceu",
+      "aliases": [
+        "castle-in-the-sky",
+        "laputa-castle-in-the-sky"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "O Castelo no Céu",
+      "originalTitle": "天空の城ラピュタ",
+      "internationalTitle": "Castle in the Sky",
+      "year": 1986,
+      "releaseDate": "1986-08-02",
+      "productionStatus": "released",
+      "durationMinutes": 124,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Hayao Miyazaki"
+      ],
+      "screenwriters": [
+        "Hayao Miyazaki"
+      ],
+      "releaseType": "theatrical",
+      "studioRelation": "studio-production",
+      "genres": [
+        "Animação",
+        "Fantasia",
+        "Aventura"
+      ],
+      "subgenres": [
+        "Steampunk"
+      ],
+      "themes": [
+        "Tecnologia",
+        "Poder",
+        "Amizade"
+      ],
+      "shortDescription": "Duas crianças atravessam perseguições aéreas enquanto procuram uma cidade suspensa disputada por piratas e forças militares.",
+      "audienceProfile": "Boa entrada para famílias e fãs de aventura clássica com máquinas imaginárias.",
+      "experience": "Aventureiro, expansivo e caloroso",
+      "contentWarnings": [
+        "Violência de aventura",
+        "Crianças em perigo"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "O Castelo no Céu: ficha e análise do filme",
+        "description": "O Castelo no Céu (1986): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "O Castelo no Céu — Studio Ghibli",
+          "url": "https://www.ghibli.jp/works/laputa/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_ghb_1988_hotaru",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "tumulo-dos-vagalumes",
+      "aliases": [
+        "grave-of-the-fireflies"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Túmulo dos Vagalumes",
+      "originalTitle": "火垂るの墓",
+      "internationalTitle": "Grave of the Fireflies",
+      "year": 1988,
+      "releaseDate": "1988-04-16",
+      "productionStatus": "released",
+      "durationMinutes": 88,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Isao Takahata"
+      ],
+      "screenwriters": [
+        "Isao Takahata"
+      ],
+      "releaseType": "theatrical",
+      "studioRelation": "studio-production",
+      "genres": [
+        "Animação",
+        "Drama",
+        "Guerra"
+      ],
+      "subgenres": [
+        "Drama histórico"
+      ],
+      "themes": [
+        "Sobrevivência",
+        "Infância",
+        "Luto"
+      ],
+      "shortDescription": "Dois irmãos tentam sobreviver no Japão em guerra enquanto o colapso material reduz progressivamente suas alternativas.",
+      "audienceProfile": "Para público preparado para um drama de guerra duro e centrado em crianças.",
+      "experience": "Íntimo, austero e devastador",
+      "contentWarnings": [
+        "Morte infantil",
+        "Fome",
+        "Guerra"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Túmulo dos Vagalumes: ficha e análise do filme",
+        "description": "Túmulo dos Vagalumes (1988): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Túmulo dos Vagalumes — Studio Ghibli",
+          "url": "https://www.ghibli.jp/works/hotarunohaka/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_ghb_1988_totoro",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "meu-amigo-totoro",
+      "aliases": [
+        "my-neighbor-totoro"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Meu Amigo Totoro",
+      "originalTitle": "となりのトトロ",
+      "internationalTitle": "My Neighbor Totoro",
+      "year": 1988,
+      "releaseDate": "1988-04-16",
+      "productionStatus": "released",
+      "durationMinutes": 86,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Hayao Miyazaki"
+      ],
+      "screenwriters": [
+        "Hayao Miyazaki"
+      ],
+      "releaseType": "theatrical",
+      "studioRelation": "studio-production",
+      "genres": [
+        "Animação",
+        "Fantasia",
+        "Família"
+      ],
+      "subgenres": [
+        "Fantasia cotidiana"
+      ],
+      "themes": [
+        "Infância",
+        "Natureza",
+        "Família"
+      ],
+      "shortDescription": "Duas irmãs descobrem presenças fantásticas no campo enquanto lidam com mudança, espera e a doença da mãe.",
+      "audienceProfile": "Uma das entradas mais acessíveis para crianças, famílias e novos espectadores do estúdio.",
+      "experience": "Sereno, curioso e acolhedor",
+      "contentWarnings": [
+        "Doença na família",
+        "Criança perdida"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Meu Amigo Totoro: ficha e análise do filme",
+        "description": "Meu Amigo Totoro (1988): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Meu Amigo Totoro — Studio Ghibli",
+          "url": "https://www.ghibli.jp/works/totoro/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_ghb_1989_kiki",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "o-servico-de-entregas-da-kiki",
+      "aliases": [
+        "kikis-delivery-service"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "O Serviço de Entregas da Kiki",
+      "originalTitle": "魔女の宅急便",
+      "internationalTitle": "Kiki's Delivery Service",
+      "year": 1989,
+      "releaseDate": "1989-07-29",
+      "productionStatus": "released",
+      "durationMinutes": 102,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Hayao Miyazaki"
+      ],
+      "screenwriters": [
+        "Hayao Miyazaki"
+      ],
+      "releaseType": "theatrical",
+      "studioRelation": "studio-production",
+      "genres": [
+        "Animação",
+        "Fantasia",
+        "Família"
+      ],
+      "subgenres": [
+        "Amadurecimento"
+      ],
+      "themes": [
+        "Trabalho",
+        "Autonomia",
+        "Criatividade"
+      ],
+      "shortDescription": "Uma jovem bruxa muda de cidade e transforma sua habilidade de voar em trabalho enquanto aprende a viver com insegurança e independência.",
+      "audienceProfile": "Para quem gosta de amadurecimento, rotina e fantasia com conflitos reconhecíveis.",
+      "experience": "Leve, urbano e afetuoso",
+      "contentWarnings": [
+        "Acidente aéreo",
+        "Ansiedade"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "O Serviço de Entregas da Kiki: ficha e análise do filme",
+        "description": "O Serviço de Entregas da Kiki (1989): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "O Serviço de Entregas da Kiki — Studio Ghibli",
+          "url": "https://www.ghibli.jp/works/majo/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_ghb_1991_omoide",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "memorias-de-ontem",
+      "aliases": [
+        "only-yesterday"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Memórias de Ontem",
+      "originalTitle": "おもひでぽろぽろ",
+      "internationalTitle": "Only Yesterday",
+      "year": 1991,
+      "releaseDate": "1991-07-20",
+      "productionStatus": "released",
+      "durationMinutes": 119,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Isao Takahata"
+      ],
+      "screenwriters": [
+        "Isao Takahata"
+      ],
+      "releaseType": "theatrical",
+      "studioRelation": "studio-production",
+      "genres": [
+        "Animação",
+        "Drama",
+        "Romance"
+      ],
+      "subgenres": [
+        "Drama cotidiano"
+      ],
+      "themes": [
+        "Memória",
+        "Trabalho",
+        "Vida adulta"
+      ],
+      "shortDescription": "Uma viagem ao campo faz uma mulher adulta reconsiderar escolhas presentes por meio de lembranças muito concretas da infância.",
+      "audienceProfile": "Para espectadores interessados em memória, vida adulta e ritmo observacional.",
+      "experience": "Reflexivo, delicado e terrestre",
+      "contentWarnings": [
+        "Pressão familiar",
+        "Menstruação discutida"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Memórias de Ontem: ficha e análise do filme",
+        "description": "Memórias de Ontem (1991): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Memórias de Ontem — Studio Ghibli",
+          "url": "https://www.ghibli.jp/works/omoide/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_ghb_1992_porco",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "porco-rosso",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Porco Rosso",
+      "originalTitle": "紅の豚",
+      "internationalTitle": "Porco Rosso",
+      "year": 1992,
+      "releaseDate": "1992-07-18",
+      "productionStatus": "released",
+      "durationMinutes": 93,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Hayao Miyazaki"
+      ],
+      "screenwriters": [
+        "Hayao Miyazaki"
+      ],
+      "releaseType": "theatrical",
+      "studioRelation": "studio-production",
+      "genres": [
+        "Animação",
+        "Aventura",
+        "Comédia"
+      ],
+      "subgenres": [
+        "Aviação"
+      ],
+      "themes": [
+        "Fascismo",
+        "Melancolia",
+        "Liberdade"
+      ],
+      "shortDescription": "Um aviador amaldiçoado caça piratas no Adriático enquanto evita vínculos, autoridades fascistas e perguntas sobre o próprio passado.",
+      "audienceProfile": "Para quem prefere aventura adulta, aviação e melancolia política.",
+      "experience": "Elegante, irônico e melancólico",
+      "contentWarnings": [
+        "Violência de aventura",
+        "Guerra mencionada"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Porco Rosso: ficha e análise do filme",
+        "description": "Porco Rosso (1992): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Porco Rosso — Studio Ghibli",
+          "url": "https://www.ghibli.jp/works/porco/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_ghb_1993_umi",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "eu-posso-ouvir-o-oceano",
+      "aliases": [
+        "ocean-waves"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Eu Posso Ouvir o Oceano",
+      "originalTitle": "海がきこえる",
+      "internationalTitle": "Ocean Waves",
+      "year": 1993,
+      "releaseDate": "1993-05-05",
+      "productionStatus": "released",
+      "durationMinutes": 72,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Tomomi Mochizuki"
+      ],
+      "screenwriters": [
+        "Kaori Nakamura"
+      ],
+      "releaseType": "television",
+      "studioRelation": "studio-production",
+      "genres": [
+        "Animação",
+        "Drama",
+        "Romance"
+      ],
+      "subgenres": [
+        "Telefilme",
+        "Adolescente"
+      ],
+      "themes": [
+        "Amizade",
+        "Primeiro amor",
+        "Memória"
+      ],
+      "shortDescription": "Um universitário recorda uma colega recém-chegada e o triângulo afetivo que tensionou uma amizade durante o ensino médio.",
+      "audienceProfile": "Para quem busca um drama juvenil contido, sem fantasia e com duração curta.",
+      "experience": "Contido, nostálgico e agridoce",
+      "contentWarnings": [
+        "Conflitos familiares",
+        "Agressão entre adolescentes"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Eu Posso Ouvir o Oceano: ficha e análise do filme",
+        "description": "Eu Posso Ouvir o Oceano (1993): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Eu Posso Ouvir o Oceano — Studio Ghibli",
+          "url": "https://www.ghibli.jp/works/umi/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_ghb_1994_pompoko",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "pom-poko",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Pom Poko",
+      "originalTitle": "平成狸合戦ぽんぽこ",
+      "internationalTitle": "Pom Poko",
+      "year": 1994,
+      "releaseDate": "1994-07-16",
+      "productionStatus": "released",
+      "durationMinutes": 119,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Isao Takahata"
+      ],
+      "screenwriters": [
+        "Isao Takahata"
+      ],
+      "releaseType": "theatrical",
+      "studioRelation": "studio-production",
+      "genres": [
+        "Animação",
+        "Fantasia",
+        "Comédia"
+      ],
+      "subgenres": [
+        "Fábula ambiental"
+      ],
+      "themes": [
+        "Urbanização",
+        "Natureza",
+        "Comunidade"
+      ],
+      "shortDescription": "Tanukis recorrem a transformação, espetáculo e resistência coletiva diante da expansão urbana sobre seu território.",
+      "audienceProfile": "Para quem aceita humor amplo junto de perda ambiental e comentário social.",
+      "experience": "Cômico, coletivo e melancólico",
+      "contentWarnings": [
+        "Morte de animais",
+        "Conflito ambiental"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Pom Poko: ficha e análise do filme",
+        "description": "Pom Poko (1994): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Pom Poko — Studio Ghibli",
+          "url": "https://www.ghibli.jp/works/tanuki/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_ghb_1995_mimi",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "sussurros-do-coracao",
+      "aliases": [
+        "whisper-of-the-heart"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Sussurros do Coração",
+      "originalTitle": "耳をすませば",
+      "internationalTitle": "Whisper of the Heart",
+      "year": 1995,
+      "releaseDate": "1995-07-15",
+      "productionStatus": "released",
+      "durationMinutes": 111,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Yoshifumi Kondō"
+      ],
+      "screenwriters": [
+        "Hayao Miyazaki"
+      ],
+      "releaseType": "theatrical",
+      "studioRelation": "studio-production",
+      "genres": [
+        "Animação",
+        "Drama",
+        "Romance"
+      ],
+      "subgenres": [
+        "Amadurecimento"
+      ],
+      "themes": [
+        "Escrita",
+        "Vocação",
+        "Juventude"
+      ],
+      "shortDescription": "Uma estudante segue rastros deixados em livros de biblioteca e começa a testar o próprio desejo de escrever.",
+      "audienceProfile": "Para quem gosta de romance juvenil e processos criativos tratados sem idealização fácil.",
+      "experience": "Íntimo, esperançoso e artesanal",
+      "contentWarnings": [
+        "Pressão escolar"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Sussurros do Coração: ficha e análise do filme",
+        "description": "Sussurros do Coração (1995): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Sussurros do Coração — Studio Ghibli",
+          "url": "https://www.ghibli.jp/works/mimi/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_ghb_1997_mononoke",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "princesa-mononoke",
+      "aliases": [
+        "princess-mononoke"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Princesa Mononoke",
+      "originalTitle": "もののけ姫",
+      "internationalTitle": "Princess Mononoke",
+      "year": 1997,
+      "releaseDate": "1997-07-12",
+      "productionStatus": "released",
+      "durationMinutes": 133,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Hayao Miyazaki"
+      ],
+      "screenwriters": [
+        "Hayao Miyazaki"
+      ],
+      "releaseType": "theatrical",
+      "studioRelation": "studio-production",
+      "genres": [
+        "Animação",
+        "Fantasia",
+        "Aventura"
+      ],
+      "subgenres": [
+        "Fantasia histórica"
+      ],
+      "themes": [
+        "Natureza",
+        "Industrialização",
+        "Conflito"
+      ],
+      "shortDescription": "Um jovem amaldiçoado atravessa a guerra entre uma comunidade industrial e forças da floresta sem encontrar inocência simples em nenhum lado.",
+      "audienceProfile": "Para público mais velho que busca fantasia épica, política e violência concreta.",
+      "experience": "Épico, ambíguo e intenso",
+      "contentWarnings": [
+        "Violência gráfica",
+        "Guerra",
+        "Animais feridos"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Princesa Mononoke: ficha e análise do filme",
+        "description": "Princesa Mononoke (1997): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Princesa Mononoke — Studio Ghibli",
+          "url": "https://www.ghibli.jp/works/mononoke/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_ghb_1999_yamada",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "meus-vizinhos-os-yamadas",
+      "aliases": [
+        "my-neighbors-the-yamadas"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Meus Vizinhos, os Yamadas",
+      "originalTitle": "ホーホケキョ となりの山田くん",
+      "internationalTitle": "My Neighbors the Yamadas",
+      "year": 1999,
+      "releaseDate": "1999-07-17",
+      "productionStatus": "released",
+      "durationMinutes": 104,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Isao Takahata"
+      ],
+      "screenwriters": [
+        "Isao Takahata"
+      ],
+      "releaseType": "theatrical",
+      "studioRelation": "studio-production",
+      "genres": [
+        "Animação",
+        "Comédia",
+        "Família"
+      ],
+      "subgenres": [
+        "Episódico",
+        "Experimental"
+      ],
+      "themes": [
+        "Cotidiano",
+        "Casamento",
+        "Família"
+      ],
+      "shortDescription": "Vinhetas familiares observam pequenas disputas, distrações e afetos por meio de desenho econômico e estrutura episódica.",
+      "audienceProfile": "Para quem aprecia comédia cotidiana e experimentação visual sem trama contínua forte.",
+      "experience": "Episódico, leve e inventivo",
+      "contentWarnings": [],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Meus Vizinhos, os Yamadas: ficha e análise do filme",
+        "description": "Meus Vizinhos, os Yamadas (1999): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Meus Vizinhos, os Yamadas — Studio Ghibli",
+          "url": "https://www.ghibli.jp/works/yamada/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_ghb_2001_chihiro",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "a-viagem-de-chihiro",
+      "aliases": [
+        "spirited-away"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "A Viagem de Chihiro",
+      "originalTitle": "千と千尋の神隠し",
+      "internationalTitle": "Spirited Away",
+      "year": 2001,
+      "releaseDate": "2001-07-20",
+      "productionStatus": "released",
+      "durationMinutes": 125,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Hayao Miyazaki"
+      ],
+      "screenwriters": [
+        "Hayao Miyazaki"
+      ],
+      "releaseType": "theatrical",
+      "studioRelation": "studio-production",
+      "genres": [
+        "Animação",
+        "Fantasia",
+        "Aventura"
+      ],
+      "subgenres": [
+        "Amadurecimento"
+      ],
+      "themes": [
+        "Trabalho",
+        "Identidade",
+        "Consumo"
+      ],
+      "shortDescription": "Uma menina precisa trabalhar num balneário de espíritos para recuperar os pais e preservar o próprio nome.",
+      "audienceProfile": "Entrada central para quem quer fantasia rica, transformação e leitura possível em várias idades.",
+      "experience": "Imaginativo, estranho e emotivo",
+      "contentWarnings": [
+        "Pais em perigo",
+        "Criaturas assustadoras"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "A Viagem de Chihiro: ficha e análise do filme",
+        "description": "A Viagem de Chihiro (2001): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "A Viagem de Chihiro — Studio Ghibli",
+          "url": "https://www.ghibli.jp/works/chihiro/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_ghb_2002_neko",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "o-reino-dos-gatos",
+      "aliases": [
+        "the-cat-returns"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "O Reino dos Gatos",
+      "originalTitle": "猫の恩返し",
+      "internationalTitle": "The Cat Returns",
+      "year": 2002,
+      "releaseDate": "2002-07-20",
+      "productionStatus": "released",
+      "durationMinutes": 75,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Hiroyuki Morita"
+      ],
+      "screenwriters": [
+        "Reiko Yoshida"
+      ],
+      "releaseType": "theatrical",
+      "studioRelation": "studio-production",
+      "genres": [
+        "Animação",
+        "Fantasia",
+        "Aventura"
+      ],
+      "subgenres": [
+        "Comédia fantástica"
+      ],
+      "themes": [
+        "Autonomia",
+        "Identidade",
+        "Gatos"
+      ],
+      "shortDescription": "Depois de salvar um gato, uma adolescente é levada a um reino que tenta decidir casamento e futuro por ela.",
+      "audienceProfile": "Para famílias e quem procura uma aventura curta, cômica e pouco pesada.",
+      "experience": "Ágil, absurdo e divertido",
+      "contentWarnings": [
+        "Casamento forçado",
+        "Perigo leve"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "O Reino dos Gatos: ficha e análise do filme",
+        "description": "O Reino dos Gatos (2002): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "O Reino dos Gatos — Studio Ghibli",
+          "url": "https://www.ghibli.jp/works/baron/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_ghb_2004_howl",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "o-castelo-animado",
+      "aliases": [
+        "howls-moving-castle"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "O Castelo Animado",
+      "originalTitle": "ハウルの動く城",
+      "internationalTitle": "Howl's Moving Castle",
+      "year": 2004,
+      "releaseDate": "2004-11-20",
+      "productionStatus": "released",
+      "durationMinutes": 119,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Hayao Miyazaki"
+      ],
+      "screenwriters": [
+        "Hayao Miyazaki"
+      ],
+      "releaseType": "theatrical",
+      "studioRelation": "studio-production",
+      "genres": [
+        "Animação",
+        "Fantasia",
+        "Romance"
+      ],
+      "subgenres": [
+        "Aventura"
+      ],
+      "themes": [
+        "Guerra",
+        "Envelhecimento",
+        "Afeto"
+      ],
+      "shortDescription": "Uma jovem transformada em idosa entra num castelo ambulante e encontra uma casa instável atravessada pela guerra.",
+      "audienceProfile": "Para quem aceita narrativa densa em troca de fantasia visual e romance incomum.",
+      "experience": "Romântico, caótico e encantado",
+      "contentWarnings": [
+        "Guerra",
+        "Transformação corporal"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "O Castelo Animado: ficha e análise do filme",
+        "description": "O Castelo Animado (2004): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "O Castelo Animado — Studio Ghibli",
+          "url": "https://www.ghibli.jp/works/howl/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_ghb_2006_ged",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "contos-de-terramar",
+      "aliases": [
+        "tales-from-earthsea"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Contos de Terramar",
+      "originalTitle": "ゲド戦記",
+      "internationalTitle": "Tales from Earthsea",
+      "year": 2006,
+      "releaseDate": "2006-07-29",
+      "productionStatus": "released",
+      "durationMinutes": 115,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Gorō Miyazaki"
+      ],
+      "screenwriters": [
+        "Gorō Miyazaki",
+        "Keiko Niwa"
+      ],
+      "releaseType": "theatrical",
+      "studioRelation": "studio-production",
+      "genres": [
+        "Animação",
+        "Fantasia",
+        "Aventura"
+      ],
+      "subgenres": [
+        "Fantasia sombria"
+      ],
+      "themes": [
+        "Morte",
+        "Equilíbrio",
+        "Poder"
+      ],
+      "shortDescription": "Um príncipe em fuga acompanha um mago por um mundo cujo equilíbrio está se desfazendo sob medo e ambição.",
+      "audienceProfile": "Para fãs de fantasia sombria dispostos a uma adaptação livre e de recepção dividida.",
+      "experience": "Sombrio, solene e irregular",
+      "contentWarnings": [
+        "Parricídio",
+        "Violência",
+        "Escravidão"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Contos de Terramar: ficha e análise do filme",
+        "description": "Contos de Terramar (2006): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Contos de Terramar — Studio Ghibli",
+          "url": "https://www.ghibli.jp/works/ged/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_ghb_2008_ponyo",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "ponyo",
+      "aliases": [
+        "ponyo-uma-amizade-que-veio-do-mar"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Ponyo",
+      "originalTitle": "崖の上のポニョ",
+      "internationalTitle": "Ponyo on the Cliff by the Sea",
+      "year": 2008,
+      "releaseDate": "2008-07-19",
+      "productionStatus": "released",
+      "durationMinutes": 101,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Hayao Miyazaki"
+      ],
+      "screenwriters": [
+        "Hayao Miyazaki"
+      ],
+      "releaseType": "theatrical",
+      "studioRelation": "studio-production",
+      "genres": [
+        "Animação",
+        "Fantasia",
+        "Família"
+      ],
+      "subgenres": [
+        "Aventura marítima"
+      ],
+      "themes": [
+        "Infância",
+        "Mar",
+        "Transformação"
+      ],
+      "shortDescription": "Uma criatura marinha decide viver como menina e desencadeia um desequilíbrio que aproxima duas famílias e o próprio oceano.",
+      "audienceProfile": "Especialmente acessível para crianças pequenas acompanhadas e famílias.",
+      "experience": "Aquático, exuberante e infantil",
+      "contentWarnings": [
+        "Tempestade",
+        "Crianças em perigo"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Ponyo: ficha e análise do filme",
+        "description": "Ponyo (2008): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Ponyo — Studio Ghibli",
+          "url": "https://www.ghibli.jp/works/ponyo/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_ghb_2010_arrietty",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "o-mundo-dos-pequeninos",
+      "aliases": [
+        "arrietty",
+        "the-secret-world-of-arrietty"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "O Mundo dos Pequeninos",
+      "originalTitle": "借りぐらしのアリエッティ",
+      "internationalTitle": "Arrietty",
+      "year": 2010,
+      "releaseDate": "2010-07-17",
+      "productionStatus": "released",
+      "durationMinutes": 94,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Hiromasa Yonebayashi"
+      ],
+      "screenwriters": [
+        "Hayao Miyazaki",
+        "Keiko Niwa"
+      ],
+      "releaseType": "theatrical",
+      "studioRelation": "studio-production",
+      "genres": [
+        "Animação",
+        "Fantasia",
+        "Família"
+      ],
+      "subgenres": [
+        "Aventura em miniatura"
+      ],
+      "themes": [
+        "Casa",
+        "Fragilidade",
+        "Amizade"
+      ],
+      "shortDescription": "Uma jovem de uma família minúscula rompe regras de sobrevivência ao criar vínculo com um menino humano.",
+      "audienceProfile": "Para famílias e espectadores atraídos por escala, objetos cotidianos e aventura delicada.",
+      "experience": "Minucioso, sereno e tenso",
+      "contentWarnings": [
+        "Doença",
+        "Perseguição"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "O Mundo dos Pequeninos: ficha e análise do filme",
+        "description": "O Mundo dos Pequeninos (2010): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "O Mundo dos Pequeninos — Studio Ghibli",
+          "url": "https://www.ghibli.jp/works/karigurashi/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_ghb_2011_kokuriko",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "da-colina-kokuriko",
+      "aliases": [
+        "from-up-on-poppy-hill"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Da Colina Kokuriko",
+      "originalTitle": "コクリコ坂から",
+      "internationalTitle": "From Up on Poppy Hill",
+      "year": 2011,
+      "releaseDate": "2011-07-16",
+      "productionStatus": "released",
+      "durationMinutes": 91,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Gorō Miyazaki"
+      ],
+      "screenwriters": [
+        "Hayao Miyazaki",
+        "Keiko Niwa"
+      ],
+      "releaseType": "theatrical",
+      "studioRelation": "studio-production",
+      "genres": [
+        "Animação",
+        "Drama",
+        "Romance"
+      ],
+      "subgenres": [
+        "Drama histórico"
+      ],
+      "themes": [
+        "Memória",
+        "Comunidade",
+        "Juventude"
+      ],
+      "shortDescription": "Estudantes tentam preservar um clube escolar antigo enquanto uma relação afetiva encontra questões familiares não resolvidas.",
+      "audienceProfile": "Para quem prefere romance, memória urbana e conflito comunitário sem fantasia.",
+      "experience": "Nostálgico, comunitário e delicado",
+      "contentWarnings": [
+        "Luto de guerra",
+        "Incerteza sobre parentesco"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Da Colina Kokuriko: ficha e análise do filme",
+        "description": "Da Colina Kokuriko (2011): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Da Colina Kokuriko — Studio Ghibli",
+          "url": "https://www.ghibli.jp/works/kokurikozaka/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_ghb_2013_kaze",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "vidas-ao-vento",
+      "aliases": [
+        "the-wind-rises"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Vidas ao Vento",
+      "originalTitle": "風立ちぬ",
+      "internationalTitle": "The Wind Rises",
+      "year": 2013,
+      "releaseDate": "2013-07-20",
+      "productionStatus": "released",
+      "durationMinutes": 126,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Hayao Miyazaki"
+      ],
+      "screenwriters": [
+        "Hayao Miyazaki"
+      ],
+      "releaseType": "theatrical",
+      "studioRelation": "studio-production",
+      "genres": [
+        "Animação",
+        "Drama",
+        "Histórico"
+      ],
+      "subgenres": [
+        "Biografia ficcional"
+      ],
+      "themes": [
+        "Criação",
+        "Guerra",
+        "Responsabilidade"
+      ],
+      "shortDescription": "A carreira de um engenheiro aeronáutico liga beleza técnica, ambição e as consequências históricas de seu trabalho.",
+      "audienceProfile": "Para público adulto interessado em criação artística, aviação e ambiguidade moral.",
+      "experience": "Elegíaco, adulto e contemplativo",
+      "contentWarnings": [
+        "Guerra",
+        "Doença terminal",
+        "Terremoto"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Vidas ao Vento: ficha e análise do filme",
+        "description": "Vidas ao Vento (2013): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Vidas ao Vento — Studio Ghibli",
+          "url": "https://www.ghibli.jp/works/kazetachinu/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_ghb_2013_kaguya",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "o-conto-da-princesa-kaguya",
+      "aliases": [
+        "the-tale-of-the-princess-kaguya"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "O Conto da Princesa Kaguya",
+      "originalTitle": "かぐや姫の物語",
+      "internationalTitle": "The Tale of the Princess Kaguya",
+      "year": 2013,
+      "releaseDate": "2013-11-23",
+      "productionStatus": "released",
+      "durationMinutes": 137,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Isao Takahata"
+      ],
+      "screenwriters": [
+        "Isao Takahata",
+        "Riko Sakaguchi"
+      ],
+      "releaseType": "theatrical",
+      "studioRelation": "studio-production",
+      "genres": [
+        "Animação",
+        "Fantasia",
+        "Drama"
+      ],
+      "subgenres": [
+        "Conto tradicional",
+        "Experimental"
+      ],
+      "themes": [
+        "Liberdade",
+        "Classe",
+        "Feminilidade"
+      ],
+      "shortDescription": "Uma menina encontrada num bambu cresce sob expectativas sociais que transformam prosperidade em confinamento.",
+      "audienceProfile": "Para quem aceita longa duração, desenho expressivo e uma história emocionalmente amarga.",
+      "experience": "Lírico, livre e doloroso",
+      "contentWarnings": [
+        "Controle familiar",
+        "Assédio",
+        "Separação"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "O Conto da Princesa Kaguya: ficha e análise do filme",
+        "description": "O Conto da Princesa Kaguya (2013): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "O Conto da Princesa Kaguya — Studio Ghibli",
+          "url": "https://www.ghibli.jp/works/kaguyahime/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_ghb_2014_marnie",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "as-memorias-de-marnie",
+      "aliases": [
+        "when-marnie-was-there"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "As Memórias de Marnie",
+      "originalTitle": "思い出のマーニー",
+      "internationalTitle": "When Marnie Was There",
+      "year": 2014,
+      "releaseDate": "2014-07-19",
+      "productionStatus": "released",
+      "durationMinutes": 103,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Hiromasa Yonebayashi"
+      ],
+      "screenwriters": [
+        "Keiko Niwa",
+        "Masashi Ando",
+        "Hiromasa Yonebayashi"
+      ],
+      "releaseType": "theatrical",
+      "studioRelation": "studio-production",
+      "genres": [
+        "Animação",
+        "Drama",
+        "Mistério"
+      ],
+      "subgenres": [
+        "Fantasia"
+      ],
+      "themes": [
+        "Memória",
+        "Solidão",
+        "Família"
+      ],
+      "shortDescription": "Uma adolescente isolada conhece uma menina numa casa à beira do pântano e passa a investigar a ligação entre encontro e memória.",
+      "audienceProfile": "Para quem gosta de drama íntimo, mistério afetivo e ritmo paciente.",
+      "experience": "Melancólico, íntimo e misterioso",
+      "contentWarnings": [
+        "Abandono",
+        "Luto",
+        "Saúde mental"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "As Memórias de Marnie: ficha e análise do filme",
+        "description": "As Memórias de Marnie (2014): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "As Memórias de Marnie — Studio Ghibli",
+          "url": "https://www.ghibli.jp/works/marnie/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_ghb_2016_turtle",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "a-tartaruga-vermelha",
+      "aliases": [
+        "the-red-turtle"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "A Tartaruga Vermelha",
+      "originalTitle": "レッドタートル ある島の物語",
+      "internationalTitle": "The Red Turtle",
+      "year": 2016,
+      "releaseDate": "2016-09-17",
+      "productionStatus": "released",
+      "durationMinutes": 81,
+      "countries": [
+        "França",
+        "Bélgica",
+        "Japão"
+      ],
+      "directors": [
+        "Michael Dudok de Wit"
+      ],
+      "screenwriters": [
+        "Michael Dudok de Wit",
+        "Pascale Ferran"
+      ],
+      "releaseType": "theatrical",
+      "studioRelation": "official-coproduction",
+      "genres": [
+        "Animação",
+        "Fantasia",
+        "Drama"
+      ],
+      "subgenres": [
+        "Sem diálogos",
+        "Experimental"
+      ],
+      "themes": [
+        "Natureza",
+        "Vida",
+        "Solidão"
+      ],
+      "shortDescription": "Um náufrago tenta deixar uma ilha até que uma tartaruga muda o curso de sua sobrevivência e de sua vida.",
+      "audienceProfile": "Para quem aprecia animação sem diálogos, contemplação e narrativa simbólica.",
+      "experience": "Silencioso, elementar e meditativo",
+      "contentWarnings": [
+        "Naufrágio",
+        "Morte",
+        "Ferimentos"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "A Tartaruga Vermelha: ficha e análise do filme",
+        "description": "A Tartaruga Vermelha (2016): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "A Tartaruga Vermelha — Studio Ghibli",
+          "url": "https://www.ghibli.jp/works/red-turtle/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_ghb_2020_aya",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "aya-e-a-bruxa",
+      "aliases": [
+        "earwig-and-the-witch"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "Aya e a Bruxa",
+      "originalTitle": "アーヤと魔女",
+      "internationalTitle": "Earwig and the Witch",
+      "year": 2020,
+      "releaseDate": "2020-12-30",
+      "productionStatus": "released",
+      "durationMinutes": 82,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Gorō Miyazaki"
+      ],
+      "screenwriters": [
+        "Keiko Niwa",
+        "Emi Gunji"
+      ],
+      "releaseType": "television-and-theatrical",
+      "studioRelation": "studio-production",
+      "genres": [
+        "Animação",
+        "Fantasia",
+        "Família"
+      ],
+      "subgenres": [
+        "3DCG",
+        "Telefilme"
+      ],
+      "themes": [
+        "Autonomia",
+        "Magia",
+        "Família"
+      ],
+      "shortDescription": "Uma órfã determinada passa a viver com uma bruxa e procura transformar uma casa hostil por negociação, música e insistência.",
+      "audienceProfile": "Para curiosos sobre a experiência integral do estúdio com animação 3D.",
+      "experience": "Curto, travesso e visualmente distinto",
+      "contentWarnings": [
+        "Abandono",
+        "Tratamento hostil de criança"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Aya e a Bruxa: ficha e análise do filme",
+        "description": "Aya e a Bruxa (2020): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Aya e a Bruxa — Studio Ghibli",
+          "url": "https://www.ghibli.jp/works/aya/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_ghb_2023_kimitachi",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "o-menino-e-a-garca",
+      "aliases": [
+        "the-boy-and-the-heron"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [],
+      "titleBr": "O Menino e a Garça",
+      "originalTitle": "君たちはどう生きるか",
+      "internationalTitle": "The Boy and the Heron",
+      "year": 2023,
+      "releaseDate": "2023-07-14",
+      "productionStatus": "released",
+      "durationMinutes": 124,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Hayao Miyazaki"
+      ],
+      "screenwriters": [
+        "Hayao Miyazaki"
+      ],
+      "releaseType": "theatrical",
+      "studioRelation": "studio-production",
+      "genres": [
+        "Animação",
+        "Fantasia",
+        "Drama"
+      ],
+      "subgenres": [
+        "Amadurecimento"
+      ],
+      "themes": [
+        "Luto",
+        "Criação",
+        "Legado"
+      ],
+      "shortDescription": "Após perder a mãe, um menino segue uma garça para um mundo instável ligado à família, à morte e à ideia de herança.",
+      "audienceProfile": "Para quem aceita fantasia densa, simbolismo e uma experiência menos explicativa.",
+      "experience": "Enigmático, intenso e autobiográfico",
+      "contentWarnings": [
+        "Luto materno",
+        "Guerra",
+        "Violência fantástica"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "O Menino e a Garça: ficha e análise do filme",
+        "description": "O Menino e a Garça (2023): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "O Menino e a Garça — Studio Ghibli",
+          "url": "https://www.ghibli.jp/works/kimitachi/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_lai_2009_coraline",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "coraline-e-o-mundo-secreto",
+      "aliases": [
+        "coraline"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [
+        "stu_laika"
+      ],
+      "titleBr": "Coraline e o Mundo Secreto",
+      "originalTitle": "Coraline",
+      "year": 2009,
+      "releaseDate": "2009-02-06",
+      "productionStatus": "released",
+      "durationMinutes": 100,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Henry Selick"
+      ],
+      "screenwriters": [
+        "Henry Selick"
+      ],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Fantasia",
+        "Terror"
+      ],
+      "subgenres": [
+        "Stop-motion",
+        "Fantasia sombria"
+      ],
+      "themes": [
+        "Curiosidade",
+        "Família",
+        "Autonomia"
+      ],
+      "shortDescription": "Uma menina atravessa uma passagem doméstica sedutora e descobre que atenção perfeita também pode ser uma forma de controle.",
+      "audienceProfile": "A melhor porta de entrada para quem aceita fantasia infantil com imagens genuinamente inquietantes.",
+      "experience": "Tátil, sombria e precisa",
+      "contentWarnings": [
+        "Criança em perigo",
+        "Imagens assustadoras"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Coraline e o Mundo Secreto: ficha e análise do filme",
+        "description": "Coraline e o Mundo Secreto (2009): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Coraline — filmografia oficial da LAIKA",
+          "url": "https://www.laika.com/our-films/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_lai_2012_paranorman",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "paranorman",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [
+        "stu_laika"
+      ],
+      "titleBr": "ParaNorman",
+      "originalTitle": "ParaNorman",
+      "year": 2012,
+      "releaseDate": "2012-08-17",
+      "productionStatus": "released",
+      "durationMinutes": 92,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Sam Fell",
+        "Chris Butler"
+      ],
+      "screenwriters": [
+        "Chris Butler"
+      ],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Comédia",
+        "Fantasia"
+      ],
+      "subgenres": [
+        "Stop-motion",
+        "Terror familiar"
+      ],
+      "themes": [
+        "Preconceito",
+        "Luto",
+        "Empatia"
+      ],
+      "shortDescription": "Um garoto que conversa com mortos precisa enfrentar uma maldição e a hostilidade de uma cidade mais assustada do que deseja admitir.",
+      "audienceProfile": "Para quem gosta de humor macabro, aventura e um conflito moral mais complexo do que a aparência sugere.",
+      "experience": "Ágil, macabra e afetuosa",
+      "contentWarnings": [
+        "Bullying",
+        "Mortos-vivos",
+        "Perseguição"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "ParaNorman: ficha e análise do filme",
+        "description": "ParaNorman (2012): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "ParaNorman — filmografia oficial da LAIKA",
+          "url": "https://www.laika.com/our-films/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_lai_2014_boxtrolls",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "os-boxtrolls",
+      "aliases": [
+        "boxtrolls"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [
+        "stu_laika"
+      ],
+      "titleBr": "Os Boxtrolls",
+      "originalTitle": "The Boxtrolls",
+      "year": 2014,
+      "releaseDate": "2014-09-26",
+      "productionStatus": "released",
+      "durationMinutes": 96,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Graham Annable",
+        "Anthony Stacchi"
+      ],
+      "screenwriters": [
+        "Irena Brignull",
+        "Adam Pava"
+      ],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Comédia",
+        "Fantasia"
+      ],
+      "subgenres": [
+        "Stop-motion"
+      ],
+      "themes": [
+        "Classe",
+        "Família",
+        "Reputação"
+      ],
+      "shortDescription": "Criaturas subterrâneas transformadas em ameaça pública revelam uma cidade organizada por medo, status e embalagens enganosas.",
+      "audienceProfile": "Funciona para quem prefere comédia grotesca, invenção visual e sátira social mais barulhenta.",
+      "experience": "Excêntrica, mecânica e movimentada",
+      "contentWarnings": [
+        "Perseguição",
+        "Humor grotesco"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Os Boxtrolls: ficha e análise do filme",
+        "description": "Os Boxtrolls (2014): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "The Boxtrolls — filmografia oficial da LAIKA",
+          "url": "https://www.laika.com/our-films/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_lai_2016_kubo",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "kubo-e-as-cordas-magicas",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [
+        "stu_laika"
+      ],
+      "titleBr": "Kubo e as Cordas Mágicas",
+      "originalTitle": "Kubo and the Two Strings",
+      "year": 2016,
+      "releaseDate": "2016-08-19",
+      "productionStatus": "released",
+      "durationMinutes": 101,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Travis Knight"
+      ],
+      "screenwriters": [
+        "Marc Haimes",
+        "Chris Butler"
+      ],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Fantasia",
+        "Aventura"
+      ],
+      "subgenres": [
+        "Stop-motion"
+      ],
+      "themes": [
+        "Memória",
+        "Família",
+        "Narrativa"
+      ],
+      "shortDescription": "Um contador de histórias parte em busca de uma armadura familiar enquanto aprende a diferença entre herança, memória e destino.",
+      "audienceProfile": "Para quem procura a produção mais épica e emocional do estúdio antes de Wildwood.",
+      "experience": "Épica, melancólica e artesanal",
+      "contentWarnings": [
+        "Luto",
+        "Violência fantástica",
+        "Criança em perigo"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Kubo e as Cordas Mágicas: ficha e análise do filme",
+        "description": "Kubo e as Cordas Mágicas (2016): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Kubo and the Two Strings — filmografia oficial da LAIKA",
+          "url": "https://www.laika.com/our-films/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_lai_2019_missinglink",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "link-perdido",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [
+        "stu_laika"
+      ],
+      "titleBr": "Link Perdido",
+      "originalTitle": "Missing Link",
+      "year": 2019,
+      "releaseDate": "2019-04-12",
+      "productionStatus": "released",
+      "durationMinutes": 94,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Chris Butler"
+      ],
+      "screenwriters": [
+        "Chris Butler"
+      ],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Comédia",
+        "Aventura"
+      ],
+      "subgenres": [
+        "Stop-motion"
+      ],
+      "themes": [
+        "Pertencimento",
+        "Exploração",
+        "Vaidade"
+      ],
+      "shortDescription": "Um explorador e uma criatura solitária atravessam continentes numa aventura que questiona quem decide o que conta como descoberta.",
+      "audienceProfile": "A opção mais leve para famílias e para quem prefere viagem, comédia e cores abertas ao terror gótico.",
+      "experience": "Luminosa, viajante e cômica",
+      "contentWarnings": [
+        "Perseguição",
+        "Violência cartunesca"
+      ],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Link Perdido: ficha e análise do filme",
+        "description": "Link Perdido (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Missing Link — filmografia oficial da LAIKA",
+          "url": "https://www.laika.com/our-films/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_lai_2026_wildwood",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "wildwood",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "studioIds": [
+        "stu_laika"
+      ],
+      "titleBr": "Wildwood",
+      "originalTitle": "Wildwood",
+      "year": 2026,
+      "releaseDate": "2026-10-23",
+      "productionStatus": "upcoming",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Travis Knight"
+      ],
+      "screenwriters": [
+        "Chris Butler"
+      ],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Fantasia",
+        "Aventura"
+      ],
+      "subgenres": [
+        "Stop-motion"
+      ],
+      "themes": [
+        "Floresta",
+        "Família",
+        "Resgate"
+      ],
+      "shortDescription": "A primeira produção da LAIKA desde 2019 amplia a escala física do estúdio numa fantasia ambientada no entorno mítico de Portland.",
+      "audienceProfile": "Projeto futuro para acompanhar; a avaliação editorial deve esperar o lançamento e a versão final.",
+      "experience": "Ainda não avaliada",
+      "contentWarnings": [],
+      "availabilityBr": [],
+      "status": "draft",
+      "seo": {
+        "title": "Wildwood: ficha e análise do filme",
+        "description": "Wildwood (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Wildwood — site oficial",
+          "url": "https://wildwoodmovie.com/"
+        }
+      ],
+      "relationships": []
+    }
+  ]
+}
