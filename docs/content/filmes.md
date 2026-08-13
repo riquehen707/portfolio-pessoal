@@ -6,17 +6,18 @@
 - `src/content/movies/movies.ts`: registros permanentes dos filmes.
 - `src/content/movies/curations.ts`: relações e comentários específicos de cada lista.
 - `src/content/movies/movieImport.ts`: preparação de lotes futuros, sempre como rascunho.
-- `scripts/generate-movie-covers.mjs`: gera capas editoriais locais em WebP a partir do cadastro.
+- `src/content/movies/posters.ts`: registra origem, crédito, texto alternativo e situação de direitos dos pôsteres.
+- `scripts/fetch-movie-posters.mjs`: sincroniza pôsteres existentes, converte-os para WebP local e atualiza o registro; exige revisão das correspondências e dos direitos antes de publicar.
 - `src/data/movies/`: contrato estável e adaptador que lê os arquivos locais.
 
-Um filme deve existir uma única vez em `movies.ts`. Ano, direção, países, duração, gêneros, alertas, fontes, pôster e disponibilidade pertencem ao registro permanente. Posição e justificativa pertencem à curadoria.
+Um filme deve existir uma única vez no catálogo agregado por `movies.ts`. Ano, direção, países, duração, gêneros, alertas, fontes e pôster pertencem ao registro permanente. Posição e justificativa pertencem à curadoria; disponibilidade comercial fica separada em `movieOffers.ts`.
 
 Páginas, cards, sitemap e componentes SEO devem usar as funções de `src/data/movies/`, nunca importar o array diretamente. O ID é permanente e não deve mudar junto com título, arquivo ou slug. Slugs antigos pertencem a `aliases`.
 
 ## Adicionar um filme
 
 1. Acrescente um objeto em `seeds`, usando slug único e pelo menos uma fonte verificável.
-2. Rode `npm run generate:movie-covers` para criar ou atualizar a capa editorial local. Um pôster externo só pode substituir essa capa com autorização, texto alternativo, URL de origem e crédito.
+2. Registre o pôster somente após conferir a obra, a origem, o crédito, o texto alternativo e a situação de direitos. `permission-pending` não equivale a autorização comercial.
 3. Registre disponibilidade somente com região Brasil e `checkedAt` no formato `AAAA-MM-DD`.
 4. Mantenha `status: draft` durante pesquisa e escrita. O lote atual aplica esse status automaticamente.
 5. Antes de usar `published`, acrescente `editorial` com introdução, experiência, motivos para assistir e limitações relevantes.
@@ -58,7 +59,7 @@ A lista de `movies` no JSON-LD deve estar do primeiro ao último lugar. O compon
 
 ## Imagens e streaming
 
-O lote inicial usa capas editoriais próprias, não pôsteres oficiais. Elas são geradas em 600 × 900, exportadas em WebP e novamente dimensionadas pelo `next/image` conforme o viewport. O texto alternativo identifica explicitamente a imagem como capa editorial.
+O catálogo atual usa pôsteres promocionais existentes, armazenados localmente em WebP. A origem, o crédito e a situação de direitos pertencem ao objeto `poster`; ativos marcados como `permission-pending` exigem revisão antes de reutilização comercial. `MoviePoster` mantém fallback quando a imagem não existe.
 
 Para uma integração futura com API, use variável de ambiente no servidor, baixe ou transforme imagens somente conforme os termos da fonte e registre atribuição no objeto `poster`. Nunca adicione chave ao repositório. O uso de imagens do TMDB, por exemplo, exige atribuição e licença comercial quando o produto tem finalidade de receita.
 

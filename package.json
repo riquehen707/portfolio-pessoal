@@ -2,7 +2,7 @@
   "name": "@once-ui-system/magic-portfolio",
   "version": "2.3.0",
   "scripts": {
-    "generate:movie-covers": "node scripts/generate-movie-covers.mjs",
+    "sync:movie-posters": "node scripts/fetch-movie-posters.mjs",
     "audit:content": "node scripts/audit-content.mjs",
     "dev": "next dev",
     "export": "next export",

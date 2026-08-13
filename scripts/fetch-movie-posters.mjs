@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { access, mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
 import * as cheerio from "cheerio";
@@ -8,20 +8,28 @@ const sourceFiles = ["movies.ts", "ghibliMovies.ts", "laikaMovies.ts"];
 const source = (await Promise.all(sourceFiles.map((file) =>
   readFile(path.join(root, "src/content/movies", file), "utf8"),
 ))).join("\n");
-const moviePattern = /\{[\s\S]*?slug: "([^"]+)",[\s\S]*?titleBr: "([^"]+)", originalTitle: "([^"]+)",(?: internationalTitle: "([^"]+)",)?[\s\S]*?year: (\d{4})/g;
+const moviePattern = /\{[\s\S]*?slug:\s*"([^"]+)",[\s\S]*?titleBr:\s*"([^"]+)",\s*originalTitle:\s*"([^"]+)",(?:\s*internationalTitle:\s*"([^"]+)",)?[\s\S]*?year:\s*(\d{4})/g;
 const movies = [...source.matchAll(moviePattern)].map(([, slug, titleBr, originalTitle, internationalTitle, year]) => ({
   slug, titleBr, originalTitle, internationalTitle, year: Number(year),
 }));
 const output = path.join(root, "public/images/movies");
-const manifest = {};
+const posterSourcePath = path.join(root, "src/content/movies/posters.ts");
+const posterSource = await readFile(posterSourcePath, "utf8");
+const manifestMatch = posterSource.match(/export const posterCatalog = ([\s\S]+) as const;/);
+const manifest = manifestMatch ? JSON.parse(manifestMatch[1]) : {};
 const wait = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 const titleOverrides = {
   "a-bruxa": "The Witch", "deixe-ela-entrar": "Let the Right One In",
+  "o-orfanato": "The Orphanage", "a-pele-que-habito": "The Skin I Live In",
   "atividade-paranormal": "Paranormal Activity",
   "o-lamento": "The Wailing", "o-hospedeiro": "The Host", "invasao-zumbi": "Train to Busan",
   "kairo": "Pulse", "medo": "A Tale of Two Sisters", "grave": "Raw",
   "quando-o-mal-espreita": "When Evil Lurks", "as-boas-maneiras": "Good Manners",
   "one-cut-of-the-dead": "One Cut of the Dead",
+  "homem-com-h": "Latin Blood The Ballad of Ney Matogrosso",
+  "a-sociedade-da-neve": "Society of the Snow",
+  "apocalipse-nos-tropicos": "Apocalypse in the Tropics",
+  "edificio-master": "Master, a Building in Copacabana",
   "nausicaa-do-vale-do-vento": "Warriors of the Wind",
   "o-castelo-no-ceu": "Castle in the Sky", "meu-amigo-totoro": "My Neighbor Totoro",
   "o-servico-de-entregas-da-kiki": "Kiki's Delivery Service", "memorias-de-ontem": "Only Yesterday",
@@ -44,6 +52,14 @@ async function fetchWithRetry(url, attempts = 4) {
 await mkdir(output, { recursive: true });
 
 for (const movie of movies) {
+  if (manifest[movie.slug]) {
+    try {
+      await access(path.join(root, "public", manifest[movie.slug].src.replace(/^\//, "")));
+      continue;
+    } catch {
+      // O registro existe, mas o arquivo sumiu: buscar novamente.
+    }
+  }
   await wait(1200);
   const searchTitle = titleOverrides[movie.slug] ?? movie.internationalTitle ?? movie.originalTitle;
   const query = encodeURIComponent(`${searchTitle} y:${movie.year}`);

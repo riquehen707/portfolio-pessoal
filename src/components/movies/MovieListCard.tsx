@@ -16,8 +16,8 @@ type Props = {
 
 export function MovieListCard({ movie, variant = "library", context, position, priority, compact, showAction = true }: Props) {
   const published = movie.status === "published";
-  return <article className={styles.card} data-compact={compact || undefined} data-variant={variant} id={movie.slug}>
-    <MoviePoster className={styles.poster} movie={movie} priority={priority} sizes="(max-width: 520px) 84px, 128px" />
+  return <article className={styles.card} data-compact={compact || undefined} data-has-poster={movie.poster ? "true" : "false"} data-variant={variant} id={movie.slug}>
+    <MoviePoster className={styles.poster} movie={movie} priority={priority} sizes="(max-width: 520px) 116px, 128px" />
     <div className={styles.content}>
       <header className={styles.header}>
         {position ? <span className={styles.position} aria-label={`${position}º lugar`}>{position}</span> : null}
@@ -31,7 +31,7 @@ export function MovieListCard({ movie, variant = "library", context, position, p
         {movie.durationMinutes ? <span>{movie.durationMinutes} min</span> : null}
         {variant === "organization" ? <span>{movie.directors.join(" · ")}</span> : null}
       </div>
-      <MovieOrganizations movie={movie} />
+      {variant !== "organization" ? <MovieOrganizations movie={movie} /> : null}
       {!compact ? <p className={styles.description}>{movie.shortDescription}</p> : null}
       {context ? <p className={styles.context}>{context}</p> : null}
       {variant === "library" ? <><div className={styles.tags}>{[...movie.genres, ...movie.subgenres].slice(0, 3).map((item) => <span key={item}>{item}</span>)}</div><small>{movie.countries.join(" · ")}</small></> : null}
