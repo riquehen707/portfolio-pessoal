@@ -4,6 +4,8 @@
 
 O site continua publicando por arquivos locais, MDX, Git e deploy na Vercel. Não há cliente Supabase, projeto remoto, autenticação, painel, tabela, webhook ou credencial. A preparação atual cria contratos portáveis e pontos únicos de acesso sem trocar o fluxo editorial.
 
+O domínio de leitura usa um catálogo central em `src/content/reading/` e uma fachada em `src/data/reading/`. Livros, light novels, quadrinhos, mangás, manhwas, manhuas e webtoons não criam fontes paralelas; a camada de domínio decide a rota canônica `/livros/[slug]` ou `/quadrinhos/[slug]` a partir da classificação estruturada.
+
 ## Arquitetura encontrada
 
 - Artigos: frontmatter validado por Zod e corpo em MDX dentro de `src/app/blog/posts/`.
@@ -16,6 +18,7 @@ O site continua publicando por arquivos locais, MDX, Git e deploy na Vercel. Nã
 | Conteúdo | Contrato público | Implementação atual | Situação futura |
 | --- | --- | --- | --- |
 | Filmes | `src/data/movies/` | adaptador local assíncrono | outro adaptador poderá consultar o Supabase |
+| Obras de leitura | `src/data/reading/` | adaptador local assíncrono sobre `src/content/reading/` | preserva a separação entre obra, série, volume, edição e oferta |
 | Artigos | `src/data/articles/` | fachada local síncrona para MDX | continua local até o custo do build justificar nova estratégia |
 
 Rotas, cards, sitemap e componentes SEO não devem importar `movies.ts`, `curations.ts` ou conhecer um fornecedor. O contrato de filmes já retorna `Promise`, mesmo usando memória local, para que uma fonte remota não obrigue consumidores a mudar de assinatura.
@@ -44,6 +47,9 @@ O comando valida os dados locais, referências de curadoria e a existência do a
 - `exports/content/articles-index.v1.json`: índice de frontmatter e prontidão dos MDX;
 - `exports/content/audit.v1.json`: contagens, duplicações, relações inválidas e pendências;
 - `exports/content/seo-contract.v1.json`: rota, canonical, title, description, imagem e indexabilidade esperados.
+- `exports/content/reading.v1.json`: catálogo de leitura e curadorias por referência; pode estar vazio até o primeiro lote validado.
+
+O auditor também verifica IDs, slugs e aliases duplicados no acervo de leitura e a integridade entre obras, séries, volumes, edições, pessoas, organizações, ofertas e itens de lista. Antes de cadastrar em lote, monte candidatos por ID, slug, título original, título brasileiro, romanização e aliases; edições com ISBN diferente continuam ligadas à mesma obra ou volume e não viram uma nova obra por conveniência.
 
 O contrato SEO deverá ser comparado antes e depois de qualquer troca de origem. A comparação precisa cobrir também HTML renderizado, `h1`, breadcrumbs, links internos, JSON-LD, robots, sitemap e códigos HTTP de uma amostra publicada, um rascunho e um alias.
 

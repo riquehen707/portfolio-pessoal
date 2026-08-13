@@ -3,6 +3,7 @@ import type { MetadataRoute } from "next";
 import { baseURL, blog, routes as routesConfig } from "@/resources";
 import { getAllArticles } from "@/data/articles";
 import { getPublishedMovies } from "@/data/movies";
+import { getPublishedBooks, getPublishedComics } from "@/data/reading";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const today = new Date().toISOString().split("T")[0];
@@ -20,6 +21,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: "monthly" as const,
     priority: 0.64,
   }));
+  const readingPages = (await getPublishedBooks()).map((work) => ({ url:`${baseURL}/livros/${work.slug}`,lastModified:work.updatedAt,changeFrequency:"monthly" as const,priority:0.62 }));
+  const comicPages = (await getPublishedComics()).map((work) => ({ url:`${baseURL}/quadrinhos/${work.slug}`,lastModified:work.updatedAt,changeFrequency:"monthly" as const,priority:0.62 }));
 
   const routePriorities: Record<string, number> = {
     "/": 1,
@@ -48,10 +51,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.4,
     },
     ...moviePages,
+    ...readingPages,
+    ...comicPages,
     ...blogPosts,
-    { url: `${baseURL}/estudios/laika`, lastModified: "2026-08-11", changeFrequency: "monthly" as const, priority: 0.74 },
+    { url: `${baseURL}/estudios/studio-ghibli`, lastModified: "2026-08-13", changeFrequency: "monthly" as const, priority: 0.76 },
+    { url: `${baseURL}/estudios/aardman`, lastModified: "2026-08-13", changeFrequency: "monthly" as const, priority: 0.75 },
+    { url: `${baseURL}/estudios/science-saru`, lastModified: "2026-08-13", changeFrequency: "monthly" as const, priority: 0.75 },
+    { url: `${baseURL}/estudios/kyoto-animation`, lastModified: "2026-08-13", changeFrequency: "monthly" as const, priority: 0.75 },
+    { url: `${baseURL}/estudios/laika`, lastModified: "2026-08-13", changeFrequency: "monthly" as const, priority: 0.74 },
     { url: `${baseURL}/estudios/team-cherry`, lastModified: "2026-08-12", changeFrequency: "monthly" as const, priority: 0.74 },
-    { url: `${baseURL}/estudios/cartoon-saloon`, lastModified: "2026-08-12", changeFrequency: "monthly" as const, priority: 0.74 },
+    { url: `${baseURL}/estudios/cartoon-saloon`, lastModified: "2026-08-13", changeFrequency: "monthly" as const, priority: 0.74 },
     { url: `${baseURL}/obras/puparia`, lastModified: "2026-08-12", changeFrequency: "monthly" as const, priority: 0.72 },
     { url: `${baseURL}/obras/wade`, lastModified: "2026-08-12", changeFrequency: "monthly" as const, priority: 0.72 },
     { url: `${baseURL}/criadores/shingo-tamagawa`, lastModified: "2026-08-12", changeFrequency: "monthly" as const, priority: 0.68 },

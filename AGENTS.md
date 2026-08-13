@@ -4,6 +4,8 @@
 
 Para criar ou revisar tipos de página, rotas, modelos de dados, SEO, sitemap ou regras globais, consulte primeiro `docs/architecture/site-architecture.md`. Guias especializados continuam subordinados às fontes técnicas indicadas nesse documento.
 
+Para criar ou revisar um perfil permanente de estúdio de animação, consulte também `docs/editorial/templates/animation-studio-profile.md` antes de implementar a página.
+
 ## Escopo editorial
 
 Ao criar, revisar, classificar ou formatar artigos em `src/app/blog/posts/`, consulte primeiro `docs/content/README.md` e siga o roteiro correspondente à tarefa.

@@ -1,4 +1,11 @@
 export const posterCatalog = {
+  "1922": {
+    "src": "/images/movies/1922.webp",
+    "alt": "Pôster de 1922 (2017)",
+    "sourceUrl": "https://www.themoviedb.org/movie/452507-1922",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
   "corra": {
     "src": "/images/movies/corra.webp",
     "alt": "Pôster de Corra! (2017)",
@@ -990,6 +997,587 @@ export const posterCatalog = {
     "src": "/images/movies/tangerine.webp",
     "alt": "Pôster de Tangerine (2015)",
     "sourceUrl": "https://www.themoviedb.org/movie/308084-tangerine",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "fjord": {
+    "src": "/images/movies/fjord.webp",
+    "alt": "Pôster de Fjord (2026)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1401459-fjord",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "all-of-a-sudden": {
+    "src": "/images/movies/all-of-a-sudden.webp",
+    "alt": "Pôster de All of a Sudden (2026)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1476614",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "fatherland": {
+    "src": "/images/movies/fatherland.webp",
+    "alt": "Pôster de Fatherland (2026)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1437696-fatherland",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "the-beloved": {
+    "src": "/images/movies/the-beloved.webp",
+    "alt": "Pôster de The Beloved (2026)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1074074-el-ser-querido",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "teenage-sex-and-death-at-camp-miasma": {
+    "src": "/images/movies/teenage-sex-and-death-at-camp-miasma.webp",
+    "alt": "Pôster de Teenage Sex and Death at Camp Miasma (2026)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1240889-teenage-sex-and-death-at-camp-miasma",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "paper-tiger": {
+    "src": "/images/movies/paper-tiger.webp",
+    "alt": "Pôster de Paper Tiger (2026)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1381273-paper-tiger",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "club-kid": {
+    "src": "/images/movies/club-kid.webp",
+    "alt": "Pôster de Club Kid (2026)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1585239-club-kid",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "clarissa": {
+    "src": "/images/movies/clarissa.webp",
+    "alt": "Pôster de Clarissa (2026)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1630464-clarissa",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "minotaur": {
+    "src": "/images/movies/minotaur.webp",
+    "alt": "Pôster de Minotaur (2026)",
+    "sourceUrl": "https://www.themoviedb.org/movie/848700-minotaure",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "atonement-2026": {
+    "src": "/images/movies/atonement-2026.webp",
+    "alt": "Pôster de Atonement (2026)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1484085-atonement",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "project-hail-mary": {
+    "src": "/images/movies/project-hail-mary.webp",
+    "alt": "Pôster de Project Hail Mary (2026)",
+    "sourceUrl": "https://www.themoviedb.org/movie/687163-project-hail-mary",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "the-odyssey-2026": {
+    "src": "/images/movies/the-odyssey-2026.webp",
+    "alt": "Pôster de The Odyssey (2026)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1368337-the-odyssey",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "supergirl-2026": {
+    "src": "/images/movies/supergirl-2026.webp",
+    "alt": "Pôster de Supergirl (2026)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1081003-supergirl",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "toy-story-5": {
+    "src": "/images/movies/toy-story-5.webp",
+    "alt": "Pôster de Toy Story 5 (2026)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1084244-toy-story-5",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "the-dog-stars": {
+    "src": "/images/movies/the-dog-stars.webp",
+    "alt": "Pôster de The Dog Stars (2026)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1384216-the-dog-stars",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "clayface": {
+    "src": "/images/movies/clayface.webp",
+    "alt": "Pôster de Clayface (2026)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1400940-clayface",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "the-social-reckoning": {
+    "src": "/images/movies/the-social-reckoning.webp",
+    "alt": "Pôster de The Social Reckoning (2026)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1281331-the-social-reckoning",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "sunrise-on-the-reaping": {
+    "src": "/images/movies/sunrise-on-the-reaping.webp",
+    "alt": "Pôster de The Hunger Games: Sunrise on the Reaping (2026)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1300968-the-hunger-games-sunrise-on-the-reaping",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "dune-part-three": {
+    "src": "/images/movies/dune-part-three.webp",
+    "alt": "Pôster de Dune: Part Three (2026)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1170608-dune-part-three",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "werwulf": {
+    "src": "/images/movies/werwulf.webp",
+    "alt": "Pôster de Werwulf (2026)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1421903-werwulf",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "resident-evil-2026": {
+    "src": "/images/movies/resident-evil-2026.webp",
+    "alt": "Pôster de Resident Evil (2026)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1423191-resident-evil",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "whalefall": {
+    "src": "/images/movies/whalefall.webp",
+    "alt": "Pôster de Whalefall (2026)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1255833-whalefall",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "o-despertar-de-um-homem": {
+    "src": "/images/movies/o-despertar-de-um-homem.webp",
+    "alt": "Pôster de O Despertar de um Homem (1993)",
+    "sourceUrl": "https://www.themoviedb.org/movie/8092-this-boy-s-life",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "gilbert-grape-aprendiz-de-sonhador": {
+    "src": "/images/movies/gilbert-grape-aprendiz-de-sonhador.webp",
+    "alt": "Pôster de Gilbert Grape: Aprendiz de Sonhador (1993)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1587-what-s-eating-gilbert-grape",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "titanic": {
+    "src": "/images/movies/titanic.webp",
+    "alt": "Pôster de Titanic (1997)",
+    "sourceUrl": "https://www.themoviedb.org/movie/597-titanic",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "prenda-me-se-for-capaz": {
+    "src": "/images/movies/prenda-me-se-for-capaz.webp",
+    "alt": "Pôster de Prenda-me Se For Capaz (2002)",
+    "sourceUrl": "https://www.themoviedb.org/movie/640-catch-me-if-you-can",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "o-aviador": {
+    "src": "/images/movies/o-aviador.webp",
+    "alt": "Pôster de O Aviador (2004)",
+    "sourceUrl": "https://www.themoviedb.org/movie/2567-the-aviator",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "os-infiltrados": {
+    "src": "/images/movies/os-infiltrados.webp",
+    "alt": "Pôster de Os Infiltrados (2006)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1422-the-departed",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "foi-apenas-um-sonho": {
+    "src": "/images/movies/foi-apenas-um-sonho.webp",
+    "alt": "Pôster de Foi Apenas um Sonho (2008)",
+    "sourceUrl": "https://www.themoviedb.org/movie/4148-revolutionary-road",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "ilha-do-medo": {
+    "src": "/images/movies/ilha-do-medo.webp",
+    "alt": "Pôster de Ilha do Medo (2010)",
+    "sourceUrl": "https://www.themoviedb.org/movie/11324-shutter-island",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "a-origem": {
+    "src": "/images/movies/a-origem.webp",
+    "alt": "Pôster de A Origem (2010)",
+    "sourceUrl": "https://www.themoviedb.org/movie/27205-inception",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "django-livre": {
+    "src": "/images/movies/django-livre.webp",
+    "alt": "Pôster de Django Livre (2012)",
+    "sourceUrl": "https://www.themoviedb.org/movie/68718-django-unchained",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "o-lobo-de-wall-street": {
+    "src": "/images/movies/o-lobo-de-wall-street.webp",
+    "alt": "Pôster de O Lobo de Wall Street (2013)",
+    "sourceUrl": "https://www.themoviedb.org/movie/106646-the-wolf-of-wall-street",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "o-regresso": {
+    "src": "/images/movies/o-regresso.webp",
+    "alt": "Pôster de O Regresso (2015)",
+    "sourceUrl": "https://www.themoviedb.org/movie/281957-the-revenant",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "era-uma-vez-em-hollywood": {
+    "src": "/images/movies/era-uma-vez-em-hollywood.webp",
+    "alt": "Pôster de Era uma Vez em... Hollywood (2019)",
+    "sourceUrl": "https://www.themoviedb.org/movie/466272-once-upon-a-time-in-hollywood",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "assassinos-da-lua-das-flores": {
+    "src": "/images/movies/assassinos-da-lua-das-flores.webp",
+    "alt": "Pôster de Assassinos da Lua das Flores (2023)",
+    "sourceUrl": "https://www.themoviedb.org/movie/466420-killers-of-the-flower-moon",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "tubarao": {
+    "src": "/images/movies/tubarao.webp",
+    "alt": "Pôster de Tubarão (1975)",
+    "sourceUrl": "https://www.themoviedb.org/movie/578-jaws",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "mar-aberto": {
+    "src": "/images/movies/mar-aberto.webp",
+    "alt": "Pôster de Mar Aberto (2003)",
+    "sourceUrl": "https://www.themoviedb.org/movie/83-open-water",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "animais-perigosos": {
+    "src": "/images/movies/animais-perigosos.webp",
+    "alt": "Pôster de Animais Perigosos (2025)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1285965-dangerous-animals",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "aguas-rasas": {
+    "src": "/images/movies/aguas-rasas.webp",
+    "alt": "Pôster de Águas Rasas (2016)",
+    "sourceUrl": "https://www.themoviedb.org/movie/332567-the-shallows",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "do-fundo-do-mar": {
+    "src": "/images/movies/do-fundo-do-mar.webp",
+    "alt": "Pôster de Do Fundo do Mar (1999)",
+    "sourceUrl": "https://www.themoviedb.org/movie/8914-deep-blue-sea",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "perigo-em-alto-mar": {
+    "src": "/images/movies/perigo-em-alto-mar.webp",
+    "alt": "Pôster de Perigo em Alto Mar (2010)",
+    "sourceUrl": "https://www.themoviedb.org/movie/49787-the-reef",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "tubarao-2": {
+    "src": "/images/movies/tubarao-2.webp",
+    "alt": "Pôster de Tubarão 2 (1978)",
+    "sourceUrl": "https://www.themoviedb.org/movie/579-jaws-2",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "medo-profundo": {
+    "src": "/images/movies/medo-profundo.webp",
+    "alt": "Pôster de Medo Profundo (2017)",
+    "sourceUrl": "https://www.themoviedb.org/movie/403119-47-meters-down",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "a-isca": {
+    "src": "/images/movies/a-isca.webp",
+    "alt": "Pôster de A Isca (2012)",
+    "sourceUrl": "https://www.themoviedb.org/movie/118957-bait",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "megatubarao": {
+    "src": "/images/movies/megatubarao.webp",
+    "alt": "Pôster de Megatubarão (2018)",
+    "sourceUrl": "https://www.themoviedb.org/movie/345940-the-meg",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "sob-as-aguas-do-sena": {
+    "src": "/images/movies/sob-as-aguas-do-sena.webp",
+    "alt": "Pôster de Sob as Águas do Sena (2024)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1001311-sous-la-seine",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "sharknado": {
+    "src": "/images/movies/sharknado.webp",
+    "alt": "Pôster de Sharknado (2013)",
+    "sourceUrl": "https://www.themoviedb.org/movie/205321-sharknado",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "the-reef-stalked": {
+    "src": "/images/movies/the-reef-stalked.webp",
+    "alt": "Pôster de The Reef: Stalked (2022)",
+    "sourceUrl": "https://www.themoviedb.org/movie/730167-the-reef-stalked",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "desespero-profundo": {
+    "src": "/images/movies/desespero-profundo.webp",
+    "alt": "Pôster de Desespero Profundo (2024)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1096197-no-way-up",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "jogo-perigoso": {
+    "src": "/images/movies/jogo-perigoso.webp",
+    "alt": "Pôster de Jogo Perigoso (2017)",
+    "sourceUrl": "https://www.themoviedb.org/movie/343674-gerald-s-game",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "apostolo": {
+    "src": "/images/movies/apostolo.webp",
+    "alt": "Pôster de Apóstolo (2018)",
+    "sourceUrl": "https://www.themoviedb.org/movie/424121-apostle",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "a-perfeicao": {
+    "src": "/images/movies/a-perfeicao.webp",
+    "alt": "Pôster de A Perfeição (2019)",
+    "sourceUrl": "https://www.themoviedb.org/movie/529962-the-perfection",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "marcas-da-maldicao": {
+    "src": "/images/movies/marcas-da-maldicao.webp",
+    "alt": "Pôster de Marcas da Maldição (2022)",
+    "sourceUrl": "https://www.themoviedb.org/movie/864370",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "a-ligacao": {
+    "src": "/images/movies/a-ligacao.webp",
+    "alt": "Pôster de A Ligação (2020)",
+    "sourceUrl": "https://www.themoviedb.org/movie/746817-the-call",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "ninguem-sai-vivo": {
+    "src": "/images/movies/ninguem-sai-vivo.webp",
+    "alt": "Pôster de Ninguém Sai Vivo (2021)",
+    "sourceUrl": "https://www.themoviedb.org/movie/740925-no-one-gets-out-alive",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "ceu-vermelho-sangue": {
+    "src": "/images/movies/ceu-vermelho-sangue.webp",
+    "alt": "Pôster de Céu Vermelho-Sangue (2021)",
+    "sourceUrl": "https://www.themoviedb.org/movie/760883-blood-red-sky",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "the-trip": {
+    "src": "/images/movies/the-trip.webp",
+    "alt": "Pôster de The Trip (2021)",
+    "sourceUrl": "https://www.themoviedb.org/movie/701451-the-trip",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "la-fora": {
+    "src": "/images/movies/la-fora.webp",
+    "alt": "Pôster de Lá Fora (2024)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1306764-outside",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "com-unhas-e-dentes": {
+    "src": "/images/movies/com-unhas-e-dentes.webp",
+    "alt": "Pôster de Com Unhas e Dentes (2025)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1429744",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "irma-morte": {
+    "src": "/images/movies/irma-morte.webp",
+    "alt": "Pôster de Irmã Morte (2023)",
+    "sourceUrl": "https://www.themoviedb.org/movie/955531-hermana-muerte",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "el-conde": {
+    "src": "/images/movies/el-conde.webp",
+    "alt": "Pôster de El Conde (2023)",
+    "sourceUrl": "https://www.themoviedb.org/movie/991708-el-conde",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "cargo-2018": {
+    "src": "/images/movies/cargo-2018.webp",
+    "alt": "Pôster de Cargo (2018)",
+    "sourceUrl": "https://www.themoviedb.org/movie/425972-cargo",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "alive-2020": {
+    "src": "/images/movies/alive-2020.webp",
+    "alt": "Pôster de #Alive (2020)",
+    "sourceUrl": "https://www.themoviedb.org/movie/614696",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "rua-do-medo-1994": {
+    "src": "/images/movies/rua-do-medo-1994.webp",
+    "alt": "Pôster de Rua do Medo: 1994 — Parte 1 (2021)",
+    "sourceUrl": "https://www.themoviedb.org/movie/591273-fear-street-1994",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "rua-do-medo-1978": {
+    "src": "/images/movies/rua-do-medo-1978.webp",
+    "alt": "Pôster de Rua do Medo: 1978 — Parte 2 (2021)",
+    "sourceUrl": "https://www.themoviedb.org/movie/591274-fear-street-1978",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "rua-do-medo-1666": {
+    "src": "/images/movies/rua-do-medo-1666.webp",
+    "alt": "Pôster de Rua do Medo: 1666 — Parte 3 (2021)",
+    "sourceUrl": "https://www.themoviedb.org/movie/591275-fear-street-1666",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "perdi-meu-corpo": {
+    "src": "/images/movies/perdi-meu-corpo.webp",
+    "alt": "Pôster de Perdi meu Corpo (2019)",
+    "sourceUrl": "https://www.themoviedb.org/movie/586940-j-ai-perdu-mon-corps",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "guerreiras-do-k-pop": {
+    "src": "/images/movies/guerreiras-do-k-pop.webp",
+    "alt": "Pôster de Guerreiras do K-Pop (2025)",
+    "sourceUrl": "https://www.themoviedb.org/movie/803796-kpop-demon-hunters",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "wallace-e-gromit-avenganca": {
+    "src": "/images/movies/wallace-e-gromit-avenganca.webp",
+    "alt": "Pôster de Wallace & Gromit: Avengança (2024)",
+    "sourceUrl": "https://www.themoviedb.org/movie/929204-wallace-gromit-vengeance-most-fowl",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "o-dragao-do-meu-pai": {
+    "src": "/images/movies/o-dragao-do-meu-pai.webp",
+    "alt": "Pôster de O Dragão do Meu Pai (2022)",
+    "sourceUrl": "https://www.themoviedb.org/movie/560052-my-father-s-dragon",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "a-fera-do-mar": {
+    "src": "/images/movies/a-fera-do-mar.webp",
+    "alt": "Pôster de A Fera do Mar (2022)",
+    "sourceUrl": "https://www.themoviedb.org/movie/560057-the-sea-beast",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "wendell-e-wild": {
+    "src": "/images/movies/wendell-e-wild.webp",
+    "alt": "Pôster de Wendell & Wild (2022)",
+    "sourceUrl": "https://www.themoviedb.org/movie/511817-wendell-wild",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "a-fuga-das-galinhas-a-ameaca-dos-nuggets": {
+    "src": "/images/movies/a-fuga-das-galinhas-a-ameaca-dos-nuggets.webp",
+    "alt": "Pôster de A Fuga das Galinhas: A Ameaça dos Nuggets (2023)",
+    "sourceUrl": "https://www.themoviedb.org/movie/520758-chicken-run-dawn-of-the-nugget",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "ultraman-a-ascensao": {
+    "src": "/images/movies/ultraman-a-ascensao.webp",
+    "alt": "Pôster de Ultraman: A Ascensão (2024)",
+    "sourceUrl": "https://www.themoviedb.org/movie/829402-ultraman-rising",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "orion-e-o-escuro": {
+    "src": "/images/movies/orion-e-o-escuro.webp",
+    "alt": "Pôster de Orion e o Escuro (2024)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1139829-orion-and-the-dark",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "the-house-2022": {
+    "src": "/images/movies/the-house-2022.webp",
+    "alt": "Pôster de The House (2022)",
+    "sourceUrl": "https://www.themoviedb.org/movie/926899-the-house",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "a-caminho-da-lua": {
+    "src": "/images/movies/a-caminho-da-lua.webp",
+    "alt": "Pôster de A Caminho da Lua (2020)",
+    "sourceUrl": "https://www.themoviedb.org/movie/560050-over-the-moon",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "a-jornada-de-vivo": {
+    "src": "/images/movies/a-jornada-de-vivo.webp",
+    "alt": "Pôster de A Jornada de Vivo (2021)",
+    "sourceUrl": "https://www.themoviedb.org/movie/449406-vivo",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "os-irmaos-willoughby": {
+    "src": "/images/movies/os-irmaos-willoughby.webp",
+    "alt": "Pôster de Os Irmãos Willoughby (2020)",
+    "sourceUrl": "https://www.themoviedb.org/movie/560044-the-willoughbys",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "a-elefanta-do-magico": {
+    "src": "/images/movies/a-elefanta-do-magico.webp",
+    "alt": "Pôster de A Elefanta do Mágico (2023)",
+    "sourceUrl": "https://www.themoviedb.org/movie/776835-the-magician-s-elephant",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "leo-2023": {
+    "src": "/images/movies/leo-2023.webp",
+    "alt": "Pôster de Leo (2023)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1075794-leo",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending"
+  },
+  "apollo-10-e-meio": {
+    "src": "/images/movies/apollo-10-e-meio.webp",
+    "alt": "Pôster de Apollo 10 e Meio: Aventura na Era Espacial (2022)",
+    "sourceUrl": "https://www.themoviedb.org/movie/664996-apollo-10-a-space-age-childhood",
     "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
     "rights": "permission-pending"
   }

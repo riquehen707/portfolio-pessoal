@@ -23,6 +23,9 @@ function compileLocalContent() {
       path.join(root, "src/content/organizations/organizations.ts"),
       path.join(root, "src/content/games/games.ts"),
       path.join(root, "src/content/animationWorks/animationWorks.ts"),
+      path.join(root, "src/content/reading/readingSchema.ts"),
+      path.join(root, "src/content/reading/reading.ts"),
+      path.join(root, "src/content/reading/curations.ts"),
     ],
     options: {
       esModuleInterop: true,
@@ -91,6 +94,10 @@ try {
   const { organizations } = require(path.join(temporaryDirectory, "src/content/organizations/organizations.js"));
   const { games } = require(path.join(temporaryDirectory, "src/content/games/games.js"));
   const { animationWorks } = require(path.join(temporaryDirectory, "src/content/animationWorks/animationWorks.js"));
+  const readingRoot = path.join(temporaryDirectory, "src/content/reading");
+  const { readingCatalog } = require(path.join(readingRoot, "reading.js"));
+  const { readingCurations } = require(path.join(readingRoot, "curations.js"));
+  const { ReadingCatalogSchema, ReadingEditionSchema } = require(path.join(readingRoot, "readingSchema.js"));
   const articles = await getArticleRecords();
   const articleSlugs = articles.map((article) => article.slug);
   const movieIds = new Set(movies.map((movie) => movie.id));
@@ -102,6 +109,13 @@ try {
   const creatorIds = new Set(creators.map((creator) => creator.id));
   const workIds = new Set(editorialWorks.map((work) => work.id));
   const organizationIds = new Set(organizations.map((organization) => organization.id));
+  const readingWorkIds = new Set(readingCatalog.works.map((work) => work.id));
+  const readingSeriesIds = new Set(readingCatalog.series.map((series) => series.id));
+  const readingVolumeIds = new Set(readingCatalog.volumes.map((volume) => volume.id));
+  const readingInstallmentIds = new Set(readingCatalog.installments.map((item) => item.id));
+  const readingEditionIds = new Set(readingCatalog.editions.map((edition) => edition.id));
+  const readingIsbn10 = readingCatalog.editions.flatMap((edition) => edition.isbn10 ? [edition.isbn10] : []);
+  const readingIsbn13 = readingCatalog.editions.flatMap((edition) => edition.isbn13 ? [edition.isbn13] : []);
   invalidRelationships.push(
     ...creators.flatMap((creator) => creator.workIds.filter((id) => !workIds.has(id)).map((id) => ({ type: "missing_work", from: creator.id, to: id }))),
     ...editorialWorks.flatMap((work) => [
@@ -114,6 +128,33 @@ try {
     ...animationWorks.flatMap((work)=>work.relationships.filter((relation)=>!organizationIds.has(relation.organizationId)).map((relation)=>({type:"missing_organization",from:work.id,to:relation.organizationId}))),
     ...movies.flatMap((movie)=>movie.organizationRelationships.filter((relation)=>!organizationIds.has(relation.organizationId)).map((relation)=>({type:"missing_organization",from:movie.id,to:relation.organizationId}))),
     ...movieOffers.filter((offer)=>!movieIds.has(offer.movieId)).map((offer)=>({type:"missing_movie",from:offer.id,to:offer.movieId})),
+    ...readingCatalog.works.flatMap((work) => [
+      ...work.credits.filter((credit) => !creatorIds.has(credit.personId)).map((credit) => ({ type: "missing_creator", from: work.id, to: credit.personId })),
+      ...work.organizationRelationships.filter((relation) => !organizationIds.has(relation.organizationId)).map((relation) => ({ type: "missing_organization", from: work.id, to: relation.organizationId })),
+      ...work.seriesMemberships.filter((item) => !readingSeriesIds.has(item.seriesId)).map((item) => ({ type: "missing_reading_series", from: work.id, to: item.seriesId })),
+      ...work.relatedWorks.filter((item) => !readingWorkIds.has(item.workId)).map((item) => ({ type: "missing_reading_work", from: work.id, to: item.workId })),
+    ]),
+    ...readingCatalog.volumes.flatMap((volume) => [
+      ...(!readingWorkIds.has(volume.workId) ? [{ type: "missing_reading_work", from: volume.id, to: volume.workId }] : []),
+      ...(volume.seriesId && !readingSeriesIds.has(volume.seriesId) ? [{ type: "missing_reading_series", from: volume.id, to: volume.seriesId }] : []),
+      ...volume.installmentIds.filter((id) => !readingInstallmentIds.has(id)).map((id) => ({ type: "missing_reading_installment", from: volume.id, to: id })),
+    ]),
+    ...readingCatalog.installments.flatMap((item) => [
+      ...(!readingWorkIds.has(item.workId) ? [{ type: "missing_reading_work", from: item.id, to: item.workId }] : []),
+      ...(item.seriesId && !readingSeriesIds.has(item.seriesId) ? [{ type: "missing_reading_series", from: item.id, to: item.seriesId }] : []),
+    ]),
+    ...readingCatalog.editions.flatMap((edition) => [
+      ...(edition.workId && !readingWorkIds.has(edition.workId) ? [{ type: "missing_reading_work", from: edition.id, to: edition.workId }] : []),
+      ...(edition.volumeId && !readingVolumeIds.has(edition.volumeId) ? [{ type: "missing_reading_volume", from: edition.id, to: edition.volumeId }] : []),
+      ...(!organizationIds.has(edition.publisherId) ? [{ type: "missing_organization", from: edition.id, to: edition.publisherId }] : []),
+      ...(edition.imprintId && !organizationIds.has(edition.imprintId) ? [{ type: "missing_organization", from: edition.id, to: edition.imprintId }] : []),
+      ...edition.translationCredits.filter((credit) => !creatorIds.has(credit.personId)).map((credit) => ({ type: "missing_creator", from: edition.id, to: credit.personId })),
+    ]),
+    ...readingCatalog.offers.filter((offer) => !readingEditionIds.has(offer.editionId)).map((offer) => ({ type: "missing_reading_edition", from: offer.id, to: offer.editionId })),
+    ...readingCurations.flatMap((list) => list.items.flatMap((item) => [
+      ...(!readingWorkIds.has(item.workId) ? [{ type: "missing_reading_work", from: list.id, to: item.workId }] : []),
+      ...(item.startingPointEditionId && !readingEditionIds.has(item.startingPointEditionId) ? [{ type: "missing_reading_edition", from: list.id, to: item.startingPointEditionId }] : []),
+    ])),
   );
   const records = movies.map((movie) => ({
     ...movie,
@@ -144,15 +185,23 @@ try {
       games: games.length,
       animationWorks:animationWorks.length,
       movieOffers: movieOffers.length,
+      readingWorks: readingCatalog.works.length,
+      readingSeries: readingCatalog.series.length,
+      readingVolumes: readingCatalog.volumes.length,
+      readingInstallments: readingCatalog.installments.length,
+      readingEditions: readingCatalog.editions.length,
+      readingOffers: readingCatalog.offers.length,
+      readingCurations: readingCurations.length,
       publishedMovies: movies.filter((movie) => movie.status === "published").length,
       draftMovies: movies.filter((movie) => movie.status === "draft").length,
     },
-    duplicates: { movieIds: duplicates(movies.map((movie) => movie.id)), movieSlugs: duplicates(movies.map((movie) => movie.slug)), articleSlugs: duplicates(articleSlugs), creatorIds: duplicates(creators.map((item) => item.id)), workIds: duplicates(editorialWorks.map((item) => item.id)), organizationIds: duplicates(organizations.map((item) => item.id)), gameIds:duplicates(games.map((item)=>item.id)),gameSlugs:duplicates(games.flatMap((item)=>[item.slug,...item.aliases])),animationWorkIds:duplicates(animationWorks.map((item)=>item.id)),animationWorkSlugs:duplicates(animationWorks.map((item)=>item.slug)) },
+    duplicates: { movieIds: duplicates(movies.map((movie) => movie.id)), movieSlugs: duplicates(movies.map((movie) => movie.slug)), articleSlugs: duplicates(articleSlugs), creatorIds: duplicates(creators.map((item) => item.id)), workIds: duplicates(editorialWorks.map((item) => item.id)), organizationIds: duplicates(organizations.map((item) => item.id)), gameIds:duplicates(games.map((item)=>item.id)),gameSlugs:duplicates(games.flatMap((item)=>[item.slug,...item.aliases])),animationWorkIds:duplicates(animationWorks.map((item)=>item.id)),animationWorkSlugs:duplicates(animationWorks.map((item)=>item.slug)),readingWorkIds:duplicates(readingCatalog.works.map((item)=>item.id)),readingWorkSlugsAndAliases:duplicates(readingCatalog.works.flatMap((item)=>[item.slug,...item.aliases])),readingSeriesIds:duplicates(readingCatalog.series.map((item)=>item.id)),readingInstallmentIds:duplicates(readingCatalog.installments.map((item)=>item.id)),readingVolumeIds:duplicates(readingCatalog.volumes.map((item)=>item.id)),readingEditionIds:duplicates(readingCatalog.editions.map((item)=>item.id)),readingOfferIds:duplicates(readingCatalog.offers.map((item)=>item.id)),readingIsbn10:duplicates(readingIsbn10),readingIsbn13:duplicates(readingIsbn13) },
     invalidRelationships,
     needsReview: {
       movies: movies.filter((movie) => !movie.poster || !movie.sources.length || (movie.status === "published" && !movie.editorial)).map((movie) => movie.id),
       moviesWithoutOrganizations: movies.filter((movie) => !movie.organizationRelationships.length).map((movie) => movie.id),
       articlesWithoutPortableIdentity: articles.filter((article) => !article.migrationReady).map((article) => article.slug),
+      readingWorksWithoutImages: readingCatalog.works.filter((work) => !work.image).map((work) => work.id),
     },
     selfTests: {
       validBatchAccepted: MovieBatchSchema.safeParse(movies).success,
@@ -163,6 +212,8 @@ try {
       hybridListAppliedOverrides: resolveMovieList({ id:"test_hybrid",slug:"test-hybrid",title:"test",href:"/test",mode:"hybrid",rules:{organizationId:"org_studio_ghibli"},items:[{movieId:"mov_ghb_2023_kimitachi"}],excludeMovieIds:["mov_ghb_1986_laputa"] }, movies)[0]?.id==="mov_ghb_2023_kimitachi" && !resolveMovieList({ id:"test_hybrid",slug:"test-hybrid",title:"test",href:"/test",mode:"hybrid",rules:{organizationId:"org_studio_ghibli"},items:[{movieId:"mov_ghb_2023_kimitachi"}],excludeMovieIds:["mov_ghb_1986_laputa"] }, movies).some((movie)=>movie.id==="mov_ghb_1986_laputa"),
       zeroOrganizationAccepted: MovieBatchSchema.safeParse([{...movies[0],id:"test_no_org",slug:"test-no-org",aliases:[],organizationRelationships:[]}]).success,
       multipleOrganizationsAccepted: MovieBatchSchema.safeParse([{...movies[0],id:"test_multi_org",slug:"test-multi-org",aliases:[],organizationRelationships:[{organizationId:"org_studio_ghibli",roles:["production"],status:"published"},{organizationId:"org_laika",roles:["services"],status:"published"}]}]).success,
+      emptyReadingCatalogAccepted: ReadingCatalogSchema.safeParse(readingCatalog).success,
+      readingEditionRequiresOneTarget: !ReadingEditionSchema.safeParse({ id:"read_edition_test", title:"Teste", publisherId:"org_test", country:"Brasil", language:"pt-BR", medium:"paperback", availabilityStatus:"unknown", status:"draft", sources:[{title:"Fonte",url:"https://example.com"}], createdAt:"2026-08-13", updatedAt:"2026-08-13" }).success,
     },
   };
 
@@ -176,8 +227,9 @@ try {
     writeFile(path.join(outputDirectory, "articles-index.v1.json"), `${JSON.stringify({ schemaVersion: 1, contentType: "article", records: articles }, null, 2)}\n`),
     writeFile(path.join(outputDirectory, "audit.v1.json"), `${JSON.stringify(audit, null, 2)}\n`),
     writeFile(path.join(outputDirectory, "seo-contract.v1.json"), `${JSON.stringify(seoContract, null, 2)}\n`),
+    writeFile(path.join(outputDirectory, "reading.v1.json"), `${JSON.stringify({ schemaVersion: 1, contentType: "reading-catalog", ...readingCatalog, curations: readingCurations }, null, 2)}\n`),
   ]);
-  console.log(`Exportados ${movies.length} filmes; ${invalidRelationships.length} relações inválidas; testes de contrato aprovados.`);
+  console.log(`Exportados ${movies.length} filmes e ${readingCatalog.works.length} obras de leitura; ${invalidRelationships.length} relações inválidas; testes de contrato aprovados.`);
 } finally {
   await rm(temporaryDirectory, { recursive: true, force: true });
 }

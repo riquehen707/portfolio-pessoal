@@ -3,6 +3,7 @@ import type { Movie } from "@/content/movies/movieSchema";
 import { MovieOrganizations } from "./MovieOrganizations";
 import { MoviePoster } from "./MoviePoster";
 import styles from "./MovieListCard.module.scss";
+import { MovieAvailability } from "./MovieAvailability";
 
 type Props = {
   movie: Movie;
@@ -34,6 +35,7 @@ export function MovieListCard({ movie, variant = "library", context, position, p
       {variant !== "organization" ? <MovieOrganizations movie={movie} /> : null}
       {!compact ? <p className={styles.description}>{movie.shortDescription}</p> : null}
       {context ? <p className={styles.context}>{context}</p> : null}
+      {variant === "editorial" ? <MovieAvailability movie={movie} /> : null}
       {variant === "library" ? <><div className={styles.tags}>{[...movie.genres, ...movie.subgenres].slice(0, 3).map((item) => <span key={item}>{item}</span>)}</div><small>{movie.countries.join(" · ")}</small></> : null}
       {showAction && published && variant === "editorial" ? <Link className={styles.action} href={`/filmes/${movie.slug}`}>Ver página do filme</Link> : null}
     </div>

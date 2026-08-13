@@ -126,6 +126,48 @@ export function getGlobalSearchItems(): GlobalSearchItem[] {
         "Studio Ghibli",
       ],
     }),
+    pageItem({
+      id: "page-studio-ghibli",
+      title: "Studio Ghibli",
+      description: "Perfil permanente do estúdio: identidade, pessoas centrais, filmografia e caminhos para começar.",
+      href: "/estudios/studio-ghibli",
+      keywords: ["Studio Ghibli", "animação japonesa", "Hayao Miyazaki", "Isao Takahata", "filmes do Studio Ghibli"],
+    }),
+    pageItem({
+      id: "page-laika",
+      title: "LAIKA",
+      description: "Perfil permanente do estúdio: stop-motion, processo híbrido, filmografia e caminhos para começar.",
+      href: "/estudios/laika",
+      keywords: ["LAIKA", "stop-motion", "Coraline", "Kubo", "Wildwood", "estúdio de animação"],
+    }),
+    pageItem({
+      id: "page-cartoon-saloon",
+      title: "Cartoon Saloon",
+      description: "Perfil permanente do estúdio: animação 2D, folclore, coproduções, pessoas e obras.",
+      href: "/estudios/cartoon-saloon",
+      keywords: ["Cartoon Saloon", "animação irlandesa", "Tomm Moore", "Nora Twomey", "Song of the Sea", "WolfWalkers"],
+    }),
+    pageItem({
+      id: "page-aardman",
+      title: "Aardman",
+      description: "Perfil permanente do estúdio: stop-motion, comédia visual, produção artesanal, pessoas e obras.",
+      href: "/estudios/aardman",
+      keywords: ["Aardman", "stop-motion", "Wallace e Gromit", "Shaun the Sheep", "Chicken Run", "Nick Park"],
+    }),
+    pageItem({
+      id: "page-science-saru",
+      title: "Science SARU",
+      description: "Perfil permanente do estúdio: desenho expressivo, produção digital, pessoas, fases e obras.",
+      href: "/estudios/science-saru",
+      keywords: ["Science SARU", "anime", "Masaaki Yuasa", "Eunyoung Choi", "DAN DA DAN", "Eizouken", "Inu-Oh"],
+    }),
+    pageItem({
+      id: "page-kyoto-animation",
+      title: "Kyoto Animation",
+      description: "Perfil permanente do estúdio: história, formação, linguagem visual, pessoas e obras essenciais.",
+      href: "/estudios/kyoto-animation",
+      keywords: ["Kyoto Animation", "KyoAni", "anime", "A Silent Voice", "Violet Evergarden", "K-ON!", "Hyōka"],
+    }),
   ];
 
   const articleItems: GlobalSearchItem[] = getAllBlogPosts().map((post) => {

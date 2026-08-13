@@ -1842,6 +1842,27 @@
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
+      "slug": "historia-de-warhammer",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-13",
+      "updatedAt": null,
+      "seo": {
+        "title": "A história de Warhammer: como um jogo de miniaturas se transformou em vários universos",
+        "description": "A história de Warhammer, de Fantasy Battles e Rogue Trader a Age of Sigmar, The Old World, livros, RPGs e jogos digitais — com um ponto de entrada para iniciantes.",
+        "canonical": "/blog/historia-de-warhammer"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/historia-de-warhammer.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
       "slug": "influencer-marketing",
       "aliases": [],
       "status": "published",
@@ -2036,25 +2057,240 @@
       "migrationReady": false
     },
     {
-      "id": null,
+      "id": "article_melhores_filmes_animacao_netflix_br",
       "contentType": "article",
-      "schemaVersion": null,
+      "schemaVersion": 1,
+      "slug": "melhores-filmes-animacao-netflix",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
+      "updatedAt": "2026-08-13",
+      "seo": {
+        "title": "23 melhores filmes de animação disponíveis na Netflix Brasil agora",
+        "description": "Veja 23 dos melhores filmes de animação disponíveis na Netflix Brasil em 13 de agosto de 2026, com Nimona em destaque e opções para diferentes idades.",
+        "canonical": "/blog/melhores-filmes-animacao-netflix"
+      },
+      "relationships": {
+        "related": [
+          "melhores-filmes-netflix",
+          "melhores-filmes-de-2025"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-animacao-netflix.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_melhores_filmes_2025",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-filmes-de-2025",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
+      "updatedAt": null,
+      "seo": {
+        "title": "23 melhores filmes de 2025",
+        "description": "Conheça 23 dos melhores filmes de 2025, com cinema brasileiro, grandes produções, animação, terror e destaques dos principais festivais.",
+        "canonical": "/blog/melhores-filmes-de-2025"
+      },
+      "relationships": {
+        "related": [
+          "melhores-filmes-terror-seculo-21"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-de-2025.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_melhores_filmes_2026",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-filmes-de-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
+      "updatedAt": null,
+      "seo": {
+        "title": "23 melhores filmes de 2026 até agora e os próximos lançamentos",
+        "description": "Conheça os melhores filmes de 2026 já exibidos e os lançamentos mais promissores até dezembro, com datas, critérios e expectativas sem avaliações antecipadas.",
+        "canonical": "/blog/melhores-filmes-de-2026"
+      },
+      "relationships": {
+        "related": [
+          "melhores-filmes-de-2025",
+          "melhores-filmes-terror-seculo-21"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-de-2026.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_melhores_filmes_tubarao",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-filmes-de-tubarao",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
+      "updatedAt": null,
+      "seo": {
+        "title": "15 melhores filmes de tubarão",
+        "description": "Conheça 15 ótimos filmes de tubarão, com terror, suspense, aventura, sobrevivência e produções trash organizadas pela proposta de cada obra.",
+        "canonical": "/blog/melhores-filmes-de-tubarao"
+      },
+      "relationships": {
+        "related": [
+          "melhores-filmes-terror-seculo-21",
+          "melhores-filmes-netflix"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-de-tubarao.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_melhores_filmes_vampiro",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-filmes-de-vampiro",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
+      "updatedAt": "2026-08-13",
+      "seo": {
+        "title": "Melhores filmes de vampiro e onde assistir no Brasil",
+        "description": "Conheça 25 dos melhores filmes de vampiro, organizados por épocas e abordagens, e veja onde assistir legalmente no Brasil em agosto de 2026.",
+        "canonical": "/blog/melhores-filmes-de-vampiro"
+      },
+      "relationships": {
+        "related": [
+          "melhores-filmes-terror-seculo-21",
+          "melhores-filmes-terror-netflix"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-de-vampiro.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_melhores_filmes_leonardo_dicaprio",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-filmes-leonardo-dicaprio",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
+      "updatedAt": null,
+      "seo": {
+        "title": "15 melhores filmes de Leonardo DiCaprio",
+        "description": "Conheça os 15 melhores filmes de Leonardo DiCaprio, do início da carreira às grandes colaborações, com comentários sobre cada atuação.",
+        "canonical": "/blog/melhores-filmes-leonardo-dicaprio"
+      },
+      "relationships": {
+        "related": [
+          "melhores-filmes-de-2025",
+          "melhores-filmes-de-2026"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-leonardo-dicaprio.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_melhores_filmes_netflix_br",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-filmes-netflix",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
+      "updatedAt": "2026-08-13",
+      "seo": {
+        "title": "23 melhores filmes disponíveis na Netflix Brasil agora",
+        "description": "Veja 23 dos melhores filmes disponíveis na Netflix Brasil em 13 de agosto de 2026, com opções de drama, animação, suspense, terror e documentário.",
+        "canonical": "/blog/melhores-filmes-netflix"
+      },
+      "relationships": {
+        "related": [
+          "melhores-filmes-terror-seculo-21",
+          "melhores-filmes-de-2025"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-netflix.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_melhores_filmes_prime_video_br",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-filmes-prime-video",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
+      "updatedAt": "2026-08-13",
+      "seo": {
+        "title": "23 melhores filmes disponíveis no Prime Video Brasil agora",
+        "description": "Veja 23 dos melhores filmes disponíveis no Prime Video Brasil em 13 de agosto de 2026, organizados por interesse e com recomendações comentadas.",
+        "canonical": "/blog/melhores-filmes-prime-video"
+      },
+      "relationships": {
+        "related": [
+          "melhores-filmes-netflix",
+          "melhores-filmes-terror-seculo-21"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-prime-video.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_melhores_filmes_terror_netflix_br",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-filmes-terror-netflix",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
+      "updatedAt": "2026-08-13",
+      "seo": {
+        "title": "23 melhores filmes de terror disponíveis na Netflix Brasil agora",
+        "description": "Veja 23 dos melhores filmes de terror disponíveis na Netflix Brasil em 13 de agosto de 2026, separados por tipo de experiência e com avisos de conteúdo.",
+        "canonical": "/blog/melhores-filmes-terror-netflix"
+      },
+      "relationships": {
+        "related": [
+          "melhores-filmes-netflix",
+          "melhores-filmes-terror-seculo-21"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-terror-netflix.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_melhores_filmes_terror_seculo_21",
+      "contentType": "article",
+      "schemaVersion": 1,
       "slug": "melhores-filmes-terror-seculo-21",
       "aliases": [],
       "status": "published",
-      "createdAt": null,
+      "createdAt": "2026-08-10",
       "publishedAt": "2026-08-10",
-      "updatedAt": null,
+      "updatedAt": "2026-08-13",
       "seo": {
-        "title": "23 melhores filmes de terror do século XXI até agora",
-        "description": "Conheça 23 dos melhores filmes de terror do século XXI, com obras psicológicas, sobrenaturais, slasher, zumbis, folk horror e body horror.",
+        "title": "31 melhores filmes de terror do século XXI",
+        "description": "Conheça 31 dos melhores filmes de terror do século XXI, do terror psicológico e sobrenatural ao body horror, found footage, vampiros e zumbis.",
         "canonical": "/blog/melhores-filmes-terror-seculo-21"
       },
       "relationships": {
         "related": []
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-terror-seculo-21.mdx",
-      "migrationReady": false
+      "migrationReady": true
     },
     {
       "id": null,

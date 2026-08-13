@@ -8,6 +8,14 @@ Comece com Markdown. Use um componente somente quando ele comunicar uma função
 
 ## Orientação
 
+### `ReadingWorkCard`
+
+Apresenta uma obra do acervo central por `workId`. Aceita `variant="compact"` ou `variant="editorial"` e um comentário opcional. Não passe título, autoria, capa, edição ou oferta manualmente no MDX; um ID inexistente interrompe a validação.
+
+```mdx
+<ReadingWorkCard workId="read_work_exemplo" variant="editorial" comment="Por que esta obra pertence à seleção." />
+```
+
 ### `QuickSummary`
 
 Resumo manual das ideias úteis para decidir se e como ler. Use no início; não repetir o `summary` do frontmatter.

@@ -63,8 +63,10 @@ import CompatibilityChecklist from "@/components/mdx/CompatibilityChecklist";
 import { VisualPrinciplesDemo } from "@/components/mdx/VisualPrinciplesDemo";
 import { AccessibleFormDemo } from "@/components/mdx/AccessibleFormDemo";
 import { MovieCard } from "@/components/movies/MovieCard";
+import { MovieAvailabilityIndex } from "@/components/movies/MovieAvailabilityIndex";
 import { MovieFilmography } from "@/components/movies/MovieFilmography";
 import { MovieRankingJsonLd } from "@/components/seo/MovieRankingJsonLd";
+import { ReadingWorkCard } from "@/components/reading/ReadingWorkCard";
 
 import { baseURL } from "@/resources";
 
@@ -471,8 +473,10 @@ export const baseMDXComponents: MDXComponents = {
   VisualPrinciplesDemo,
   AccessibleFormDemo,
   MovieCard,
+  MovieAvailabilityIndex,
   MovieFilmography,
   MovieRankingJsonLd,
+  ReadingWorkCard,
 
   // shortcodes
   PillarBadge,

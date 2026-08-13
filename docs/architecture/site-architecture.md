@@ -5,6 +5,9 @@ Este documento é a fonte principal para entender **quais páginas existem, como
 Para regras especializadas, consulte também:
 
 - [sistema editorial](../content/README.md), para artigos MDX;
+- [listas de filmes](../editorial/templates/movie-list.md), para o fluxo obrigatório entre catálogo, curadoria e artigo;
+- [listas de leitura](../editorial/templates/reading-list.md), para o fluxo entre acervo central, edições, ofertas e artigos;
+- [perfis de estúdios de animação](../editorial/templates/animation-studio-profile.md), para cadastro, filmografia, composição editorial e validação desse tipo de página;
 - [fontes de conteúdo](content-data-sources.md), para persistência local, exportação e migração futura;
 - [`AGENTS.md`](../../AGENTS.md), para regras de trabalho no repositório.
 
@@ -23,7 +26,11 @@ Em caso de divergência, schemas, componentes e rotas executáveis prevalecem so
 │  └─ /blog/temas[/[slug]]            índices pausados
 ├─ /filmes
 │  └─ /filmes/[slug]                  somente filmes publicados
-├─ /estudios/{laika,team-cherry,cartoon-saloon}
+├─ /livros                             preparado e pausado enquanto o acervo estiver vazio
+│  └─ /livros/[slug]                  somente obras de leitura publicadas
+├─ /quadrinhos                         preparado e pausado enquanto o acervo estiver vazio
+│  └─ /quadrinhos/[slug]              única rota canônica de obras gráficas publicadas
+├─ /estudios/{studio-ghibli,laika,aardman,science-saru,kyoto-animation,team-cherry,cartoon-saloon}
 ├─ /criadores/shingo-tamagawa
 ├─ /obras/{puparia,wade}
 ├─ /about
@@ -82,7 +89,9 @@ O inventário de arquivos não equivale ao sitemap público. A inclusão de rota
 
 ### Perfil de organização ou estúdio
 
-- **Rotas atuais:** `/estudios/laika`, `/estudios/team-cherry` e `/estudios/cartoon-saloon`.
+Para estúdios de animação, aplique o [modelo editorial especializado](../editorial/templates/animation-studio-profile.md).
+
+- **Rotas atuais:** `/estudios/studio-ghibli`, `/estudios/laika`, `/estudios/aardman`, `/estudios/science-saru`, `/estudios/kyoto-animation`, `/estudios/team-cherry` e `/estudios/cartoon-saloon`.
 - **Finalidade:** perfil editorial permanente, não artigo nem ficha comercial.
 - **Dados:** organizações em `src/content/organizations/`; filmes, jogos ou obras animadas em seus catálogos centrais. `src/content/studios/` ainda contém dados legados da LAIKA.
 - **Seções recorrentes confirmadas:** hero, apresentação/história, processo ou linguagem, obras, orientação editorial, relações e fontes.
@@ -108,6 +117,16 @@ O inventário de arquivos não equivale ao sitemap público. A inclusão de rota
 - **Componentes:** `ConsentVideo`, breadcrumbs e composição específica da rota.
 - **SEO:** metadata, canonical, Open Graph `video.movie` e JSON-LD audiovisual; inclusão manual no sitemap.
 - **Variações:** imagem pode estar ausente; o vídeo oficial usa carregamento mediante interação. Não existe rota dinâmica `/obras/[slug]`.
+
+### Acervo de leitura (sem rota pública)
+
+- **Finalidade:** sustentar livros, mangás, manhwas, manhuas, webtoons, graphic novels, quadrinhos e light novels sem duplicar dados em artigos.
+- **Dados:** schemas e registros em `src/content/reading/`; fachada assíncrona em `src/data/reading/`.
+- **Entidades:** obra intelectual, série, volume, edição concreta e oferta comercial. Pessoas continuam em `content/creators/` e organizações em `content/organizations/`.
+- **Componentes:** `ReadingCard`, `ReadingList`, `ReadingEditionInfo`, `ReadingAuthors`, `ReadingOffers`, `ReadingRelations` e `ReadingWorkCard` para MDX por `workId`.
+- **Relações:** listas armazenam referências; ISBN, páginas, editora, tradução, capa comercial e disponibilidade pertencem à edição. Ofertas apontam exclusivamente para uma edição.
+- **SEO e publicação:** nenhuma rota, sitemap, metadata ou JSON-LD foi criada nesta etapa. Registros podem existir como rascunho sem produzir páginas vazias.
+- **Variações:** cards compactos ou editoriais, com fallback quando faltarem capa, edição brasileira ou oferta.
 
 ### Páginas institucionais, comerciais, demonstrações e projetos
 
@@ -140,9 +159,10 @@ O inventário de arquivos não equivale ao sitemap público. A inclusão de rota
 | Organizações | `content/organizations/organizations.ts` | importação local direta | schema não é exportado |
 | Jogos | `content/games/games.ts` | importação local direta | schema local ao arquivo |
 | Obras animadas | `content/animationWorks/animationWorks.ts` | importação local direta | schema local e vocabulário próprio |
+| Livros, quadrinhos e obras de leitura | `content/reading/readingSchema.ts` | `data/reading/` | catálogo único; livros/light novels usam `/livros`, obras com `comicTradition` e `comicFormat` usam `/quadrinhos`; série, unidade serializada opcional, volume, edição e oferta permanecem compartilhados |
 | Estúdios legados | `content/studios/studios.ts` | importação local direta | sobreposição parcial com organizações |
 
-Filmes não armazenam listas de estúdio nem disponibilidade comercial permanente. Ofertas opcionais ficam em `content/movies/movieOffers.ts`, relacionadas por `movieId`, com provedor, tipo, URL, região, afiliado/aviso e data de verificação. A ausência de oferta não altera cards ou fichas.
+Filmes não armazenam listas de estúdio nem disponibilidade comercial permanente. Ofertas opcionais ficam em `content/movies/movieOffers.ts`, relacionadas por `movieId`, com provedor, tipo (`stream`, `free-with-ads`, `rent`, `buy` ou `physical`), URL, região, afiliado/aviso e data de verificação. `MovieAvailability` mostra essas ofertas somente na variação editorial do card e explicita a ausência de disponibilidade confirmada; `MovieAvailabilityIndex` agrupa uma seleção por provedor e gera âncoras para os cards. Verificações com mais de 45 dias são marcadas como vencidas.
 
 Listas de filmes usam `MovieList` em `content/movies/curations.ts` e guardam somente IDs:
 
@@ -181,6 +201,8 @@ JSON-LD deve refletir somente conteúdo visível e confirmado. Os tipos já usad
 
 ## Pendências registradas
 
+- Validar o domínio de leitura com o primeiro lote real, especialmente obras serializadas que mudam de publicação, edições omnibus, adaptações entre catálogos e organizações que acumulam papéis.
+- Criar índices filtrados de mangás, manhwas, manhuas ou graphic novels somente após o acervo publicado sustentar páginas úteis; não criar rotas vazias ou catálogos derivados.
 - Consolidar os modelos paralelos de organização/obra somente com plano de migração e auditoria de consumidores.
 - Tornar sitemap, robots, middleware, configuração de rotas e busca menos sujeitos a divergência manual.
 - Criar índices `/estudios`, `/criadores` e `/obras` antes de tratá-los como níveis navegáveis reais.

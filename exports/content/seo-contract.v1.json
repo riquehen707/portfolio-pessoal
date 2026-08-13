@@ -1,5 +1,1293 @@
 [
   {
+    "id": "mov_netflix_roma",
+    "route": "/filmes/roma",
+    "canonical": "https://henrique.dog/filmes/roma",
+    "title": "ROMA: ficha e análise do filme",
+    "description": "ROMA (2018): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/roma.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_netflix_irishman",
+    "route": "/filmes/o-irlandes",
+    "canonical": "https://henrique.dog/filmes/o-irlandes",
+    "title": "O Irlandês: ficha e análise do filme",
+    "description": "O Irlandês (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/o-irlandes.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_netflix_marriage_story",
+    "route": "/filmes/historia-de-um-casamento",
+    "canonical": "https://henrique.dog/filmes/historia-de-um-casamento",
+    "title": "História de um Casamento: ficha e análise do filme",
+    "description": "História de um Casamento (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/historia-de-um-casamento.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_netflix_power_dog",
+    "route": "/filmes/ataque-dos-caes",
+    "canonical": "https://henrique.dog/filmes/ataque-dos-caes",
+    "title": "Ataque dos Cães: ficha e análise do filme",
+    "description": "Ataque dos Cães (2021): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/ataque-dos-caes.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_netflix_pinocchio",
+    "route": "/filmes/pinoquio-por-guillermo-del-toro",
+    "canonical": "https://henrique.dog/filmes/pinoquio-por-guillermo-del-toro",
+    "title": "Pinóquio por Guillermo del Toro: ficha e análise do filme",
+    "description": "Pinóquio por Guillermo del Toro (2022): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/pinoquio-por-guillermo-del-toro.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_netflix_beasts_no_nation",
+    "route": "/filmes/beasts-of-no-nation",
+    "canonical": "https://henrique.dog/filmes/beasts-of-no-nation",
+    "title": "Beasts of No Nation: ficha e análise do filme",
+    "description": "Beasts of No Nation (2015): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/beasts-of-no-nation.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_netflix_lost_daughter",
+    "route": "/filmes/a-filha-perdida",
+    "canonical": "https://henrique.dog/filmes/a-filha-perdida",
+    "title": "A Filha Perdida: ficha e análise do filme",
+    "description": "A Filha Perdida (2021): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/a-filha-perdida.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_netflix_all_quiet",
+    "route": "/filmes/nada-de-novo-no-front",
+    "canonical": "https://henrique.dog/filmes/nada-de-novo-no-front",
+    "title": "Nada de Novo no Front: ficha e análise do filme",
+    "description": "Nada de Novo no Front (2022): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/nada-de-novo-no-front.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_netflix_society_snow",
+    "route": "/filmes/a-sociedade-da-neve",
+    "canonical": "https://henrique.dog/filmes/a-sociedade-da-neve",
+    "title": "A Sociedade da Neve: ficha e análise do filme",
+    "description": "A Sociedade da Neve (2023): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/a-sociedade-da-neve.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_netflix_mitchells",
+    "route": "/filmes/os-mitchell-contra-as-maquinas",
+    "canonical": "https://henrique.dog/filmes/os-mitchell-contra-as-maquinas",
+    "title": "Os Mitchell contra as Máquinas: ficha e análise do filme",
+    "description": "Os Mitchell contra as Máquinas (2021): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/os-mitchell-contra-as-maquinas.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_netflix_klaus",
+    "route": "/filmes/klaus",
+    "canonical": "https://henrique.dog/filmes/klaus",
+    "title": "Klaus: ficha e análise do filme",
+    "description": "Klaus (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/klaus.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_netflix_nimona",
+    "route": "/filmes/nimona",
+    "canonical": "https://henrique.dog/filmes/nimona",
+    "title": "Nimona: ficha e análise do filme",
+    "description": "Nimona (2023): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/nimona.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_netflix_glass_onion",
+    "route": "/filmes/glass-onion",
+    "canonical": "https://henrique.dog/filmes/glass-onion",
+    "title": "Glass Onion: Um Mistério Knives Out: ficha e análise do filme",
+    "description": "Glass Onion: Um Mistério Knives Out (2022): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/glass-onion.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_netflix_rebel_ridge",
+    "route": "/filmes/rebel-ridge",
+    "canonical": "https://henrique.dog/filmes/rebel-ridge",
+    "title": "Rebel Ridge: ficha e análise do filme",
+    "description": "Rebel Ridge (2024): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/rebel-ridge.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_netflix_apocalypse_tropics",
+    "route": "/filmes/apocalipse-nos-tropicos",
+    "canonical": "https://henrique.dog/filmes/apocalipse-nos-tropicos",
+    "title": "Apocalipse nos Trópicos: ficha e análise do filme",
+    "description": "Apocalipse nos Trópicos (2024): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/apocalipse-nos-tropicos.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_netflix_two_popes",
+    "route": "/filmes/dois-papas",
+    "canonical": "https://henrique.dog/filmes/dois-papas",
+    "title": "Dois Papas: ficha e análise do filme",
+    "description": "Dois Papas (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/dois-papas.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_netflix_okja",
+    "route": "/filmes/okja",
+    "canonical": "https://henrique.dog/filmes/okja",
+    "title": "Okja: ficha e análise do filme",
+    "description": "Okja (2017): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/okja.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_netflix_thinking_ending",
+    "route": "/filmes/estou-pensando-em-acabar-com-tudo",
+    "canonical": "https://henrique.dog/filmes/estou-pensando-em-acabar-com-tudo",
+    "title": "Estou Pensando em Acabar com Tudo: ficha e análise do filme",
+    "description": "Estou Pensando em Acabar com Tudo (2020): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/estou-pensando-em-acabar-com-tudo.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_netflix_platform",
+    "route": "/filmes/o-poco",
+    "canonical": "https://henrique.dog/filmes/o-poco",
+    "title": "O Poço: ficha e análise do filme",
+    "description": "O Poço (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/o-poco.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_netflix_edge_democracy",
+    "route": "/filmes/democracia-em-vertigem",
+    "canonical": "https://henrique.dog/filmes/democracia-em-vertigem",
+    "title": "Democracia em Vertigem: ficha e análise do filme",
+    "description": "Democracia em Vertigem (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/democracia-em-vertigem.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_netflix_edificio_master",
+    "route": "/filmes/edificio-master",
+    "canonical": "https://henrique.dog/filmes/edificio-master",
+    "title": "Edifício Master: ficha e análise do filme",
+    "description": "Edifício Master (2002): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/edificio-master.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_na_lost_body",
+    "route": "/filmes/perdi-meu-corpo",
+    "canonical": "https://henrique.dog/filmes/perdi-meu-corpo",
+    "title": "Perdi meu Corpo: ficha e análise do filme",
+    "description": "Perdi meu Corpo (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/perdi-meu-corpo.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_na_kpop_demon_hunters",
+    "route": "/filmes/guerreiras-do-k-pop",
+    "canonical": "https://henrique.dog/filmes/guerreiras-do-k-pop",
+    "title": "Guerreiras do K-Pop: ficha e análise do filme",
+    "description": "Guerreiras do K-Pop (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/guerreiras-do-k-pop.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_na_wallace_gromit_vengeance",
+    "route": "/filmes/wallace-e-gromit-avenganca",
+    "canonical": "https://henrique.dog/filmes/wallace-e-gromit-avenganca",
+    "title": "Wallace & Gromit: Avengança: ficha e análise do filme",
+    "description": "Wallace & Gromit: Avengança (2024): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/wallace-e-gromit-avenganca.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_na_my_fathers_dragon",
+    "route": "/filmes/o-dragao-do-meu-pai",
+    "canonical": "https://henrique.dog/filmes/o-dragao-do-meu-pai",
+    "title": "O Dragão do Meu Pai: ficha e análise do filme",
+    "description": "O Dragão do Meu Pai (2022): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/o-dragao-do-meu-pai.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_na_sea_beast",
+    "route": "/filmes/a-fera-do-mar",
+    "canonical": "https://henrique.dog/filmes/a-fera-do-mar",
+    "title": "A Fera do Mar: ficha e análise do filme",
+    "description": "A Fera do Mar (2022): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/a-fera-do-mar.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_na_apollo_10_half",
+    "route": "/filmes/apollo-10-e-meio",
+    "canonical": "https://henrique.dog/filmes/apollo-10-e-meio",
+    "title": "Apollo 10 e Meio: Aventura na Era Espacial: ficha e análise do filme",
+    "description": "Apollo 10 e Meio: Aventura na Era Espacial (2022): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/apollo-10-e-meio.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_na_wendell_wild",
+    "route": "/filmes/wendell-e-wild",
+    "canonical": "https://henrique.dog/filmes/wendell-e-wild",
+    "title": "Wendell & Wild: ficha e análise do filme",
+    "description": "Wendell & Wild (2022): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/wendell-e-wild.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_na_chicken_run_nugget",
+    "route": "/filmes/a-fuga-das-galinhas-a-ameaca-dos-nuggets",
+    "canonical": "https://henrique.dog/filmes/a-fuga-das-galinhas-a-ameaca-dos-nuggets",
+    "title": "A Fuga das Galinhas: A Ameaça dos Nuggets: ficha e análise do filme",
+    "description": "A Fuga das Galinhas: A Ameaça dos Nuggets (2023): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/a-fuga-das-galinhas-a-ameaca-dos-nuggets.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_na_ultraman_rising",
+    "route": "/filmes/ultraman-a-ascensao",
+    "canonical": "https://henrique.dog/filmes/ultraman-a-ascensao",
+    "title": "Ultraman: A Ascensão: ficha e análise do filme",
+    "description": "Ultraman: A Ascensão (2024): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/ultraman-a-ascensao.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_na_orion_dark",
+    "route": "/filmes/orion-e-o-escuro",
+    "canonical": "https://henrique.dog/filmes/orion-e-o-escuro",
+    "title": "Orion e o Escuro: ficha e análise do filme",
+    "description": "Orion e o Escuro (2024): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/orion-e-o-escuro.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_na_the_house",
+    "route": "/filmes/the-house-2022",
+    "canonical": "https://henrique.dog/filmes/the-house-2022",
+    "title": "The House: ficha e análise do filme",
+    "description": "The House (2022): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/the-house-2022.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_na_over_moon",
+    "route": "/filmes/a-caminho-da-lua",
+    "canonical": "https://henrique.dog/filmes/a-caminho-da-lua",
+    "title": "A Caminho da Lua: ficha e análise do filme",
+    "description": "A Caminho da Lua (2020): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/a-caminho-da-lua.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_na_vivo",
+    "route": "/filmes/a-jornada-de-vivo",
+    "canonical": "https://henrique.dog/filmes/a-jornada-de-vivo",
+    "title": "A Jornada de Vivo: ficha e análise do filme",
+    "description": "A Jornada de Vivo (2021): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/a-jornada-de-vivo.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_na_willoughbys",
+    "route": "/filmes/os-irmaos-willoughby",
+    "canonical": "https://henrique.dog/filmes/os-irmaos-willoughby",
+    "title": "Os Irmãos Willoughby: ficha e análise do filme",
+    "description": "Os Irmãos Willoughby (2020): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/os-irmaos-willoughby.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_na_magicians_elephant",
+    "route": "/filmes/a-elefanta-do-magico",
+    "canonical": "https://henrique.dog/filmes/a-elefanta-do-magico",
+    "title": "A Elefanta do Mágico: ficha e análise do filme",
+    "description": "A Elefanta do Mágico (2023): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/a-elefanta-do-magico.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_na_leo",
+    "route": "/filmes/leo-2023",
+    "canonical": "https://henrique.dog/filmes/leo-2023",
+    "title": "Leo: ficha e análise do filme",
+    "description": "Leo (2023): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/leo-2023.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_prime_manchester",
+    "route": "/filmes/manchester-a-beira-mar",
+    "canonical": "https://henrique.dog/filmes/manchester-a-beira-mar",
+    "title": "Manchester à Beira-Mar: ficha e análise do filme",
+    "description": "Manchester à Beira-Mar (2016): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/manchester-a-beira-mar.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_prime_argentina_1985",
+    "route": "/filmes/argentina-1985",
+    "canonical": "https://henrique.dog/filmes/argentina-1985",
+    "title": "Argentina, 1985: ficha e análise do filme",
+    "description": "Argentina, 1985 (2022): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/argentina-1985.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_prime_one_night_miami",
+    "route": "/filmes/uma-noite-em-miami",
+    "canonical": "https://henrique.dog/filmes/uma-noite-em-miami",
+    "title": "Uma Noite em Miami...: ficha e análise do filme",
+    "description": "Uma Noite em Miami... (2020): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/uma-noite-em-miami.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_prime_a_hero",
+    "route": "/filmes/um-heroi",
+    "canonical": "https://henrique.dog/filmes/um-heroi",
+    "title": "Um Herói: ficha e análise do filme",
+    "description": "Um Herói (2021): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/um-heroi.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_prime_time",
+    "route": "/filmes/time-2020",
+    "canonical": "https://henrique.dog/filmes/time-2020",
+    "title": "Time: ficha e análise do filme",
+    "description": "Time (2020): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/time-2020.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_prime_paterson",
+    "route": "/filmes/paterson",
+    "canonical": "https://henrique.dog/filmes/paterson",
+    "title": "Paterson: ficha e análise do filme",
+    "description": "Paterson (2016): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/paterson.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_prime_cold_war",
+    "route": "/filmes/cold-war",
+    "canonical": "https://henrique.dog/filmes/cold-war",
+    "title": "Cold War: ficha e análise do filme",
+    "description": "Cold War (2018): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/cold-war.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_prime_my_old_ass",
+    "route": "/filmes/my-old-ass",
+    "canonical": "https://henrique.dog/filmes/my-old-ass",
+    "title": "My Old Ass: ficha e análise do filme",
+    "description": "My Old Ass (2024): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/my-old-ass.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_prime_nickel_boys",
+    "route": "/filmes/nickel-boys",
+    "canonical": "https://henrique.dog/filmes/nickel-boys",
+    "title": "Nickel Boys: ficha e análise do filme",
+    "description": "Nickel Boys (2024): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/nickel-boys.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_prime_burial",
+    "route": "/filmes/o-proprio-enterro",
+    "canonical": "https://henrique.dog/filmes/o-proprio-enterro",
+    "title": "O Próprio Enterro: ficha e análise do filme",
+    "description": "O Próprio Enterro (2023): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/o-proprio-enterro.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_prime_blow_man_down",
+    "route": "/filmes/blow-the-man-down",
+    "canonical": "https://henrique.dog/filmes/blow-the-man-down",
+    "title": "Blow the Man Down: ficha e análise do filme",
+    "description": "Blow the Man Down (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/blow-the-man-down.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_prime_brittany",
+    "route": "/filmes/brittany-runs-a-marathon",
+    "canonical": "https://henrique.dog/filmes/brittany-runs-a-marathon",
+    "title": "Brittany Runs a Marathon: ficha e análise do filme",
+    "description": "Brittany Runs a Marathon (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/brittany-runs-a-marathon.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_prime_honey_boy",
+    "route": "/filmes/honey-boy",
+    "canonical": "https://henrique.dog/filmes/honey-boy",
+    "title": "Honey Boy: ficha e análise do filme",
+    "description": "Honey Boy (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/honey-boy.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_prime_report",
+    "route": "/filmes/o-relatorio",
+    "canonical": "https://henrique.dog/filmes/o-relatorio",
+    "title": "O Relatório: ficha e análise do filme",
+    "description": "O Relatório (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/o-relatorio.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_prime_uncle_frank",
+    "route": "/filmes/uncle-frank",
+    "canonical": "https://henrique.dog/filmes/uncle-frank",
+    "title": "Uncle Frank: ficha e análise do filme",
+    "description": "Uncle Frank (2020): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/uncle-frank.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_prime_catherine_birdy",
+    "route": "/filmes/catherine-called-birdy",
+    "canonical": "https://henrique.dog/filmes/catherine-called-birdy",
+    "title": "Catherine Called Birdy: ficha e análise do filme",
+    "description": "Catherine Called Birdy (2022): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/catherine-called-birdy.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_prime_air",
+    "route": "/filmes/air-a-historia-por-tras-do-logo",
+    "canonical": "https://henrique.dog/filmes/air-a-historia-por-tras-do-logo",
+    "title": "Air: A História por Trás do Logo: ficha e análise do filme",
+    "description": "Air: A História por Trás do Logo (2023): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/air-a-historia-por-tras-do-logo.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_prime_saltburn",
+    "route": "/filmes/saltburn",
+    "canonical": "https://henrique.dog/filmes/saltburn",
+    "title": "Saltburn: ficha e análise do filme",
+    "description": "Saltburn (2023): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/saltburn.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_prime_thirteen_lives",
+    "route": "/filmes/treze-vidas",
+    "canonical": "https://henrique.dog/filmes/treze-vidas",
+    "title": "Treze Vidas: ficha e análise do filme",
+    "description": "Treze Vidas (2022): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/treze-vidas.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_prime_big_sick",
+    "route": "/filmes/doentes-de-amor",
+    "canonical": "https://henrique.dog/filmes/doentes-de-amor",
+    "title": "Doentes de Amor: ficha e análise do filme",
+    "description": "Doentes de Amor (2017): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/doentes-de-amor.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_prime_handmaiden",
+    "route": "/filmes/a-criada",
+    "canonical": "https://henrique.dog/filmes/a-criada",
+    "title": "A Criada: ficha e análise do filme",
+    "description": "A Criada (2016): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/a-criada.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_prime_tangerine",
+    "route": "/filmes/tangerine",
+    "canonical": "https://henrique.dog/filmes/tangerine",
+    "title": "Tangerine: ficha e análise do filme",
+    "description": "Tangerine (2015): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/tangerine.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2026_fjord",
+    "route": "/filmes/fjord",
+    "canonical": "https://henrique.dog/filmes/fjord",
+    "title": "Fjord: ficha e análise do filme",
+    "description": "Fjord (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/fjord.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2026_all_of_a_sudden",
+    "route": "/filmes/all-of-a-sudden",
+    "canonical": "https://henrique.dog/filmes/all-of-a-sudden",
+    "title": "All of a Sudden: ficha e análise do filme",
+    "description": "All of a Sudden (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/all-of-a-sudden.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2026_fatherland",
+    "route": "/filmes/fatherland",
+    "canonical": "https://henrique.dog/filmes/fatherland",
+    "title": "Fatherland: ficha e análise do filme",
+    "description": "Fatherland (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/fatherland.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2026_the_beloved",
+    "route": "/filmes/the-beloved",
+    "canonical": "https://henrique.dog/filmes/the-beloved",
+    "title": "The Beloved: ficha e análise do filme",
+    "description": "The Beloved (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/the-beloved.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2026_camp_miasma",
+    "route": "/filmes/teenage-sex-and-death-at-camp-miasma",
+    "canonical": "https://henrique.dog/filmes/teenage-sex-and-death-at-camp-miasma",
+    "title": "Teenage Sex and Death at Camp Miasma: ficha e análise do filme",
+    "description": "Teenage Sex and Death at Camp Miasma (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/teenage-sex-and-death-at-camp-miasma.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2026_paper_tiger",
+    "route": "/filmes/paper-tiger",
+    "canonical": "https://henrique.dog/filmes/paper-tiger",
+    "title": "Paper Tiger: ficha e análise do filme",
+    "description": "Paper Tiger (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/paper-tiger.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2026_club_kid",
+    "route": "/filmes/club-kid",
+    "canonical": "https://henrique.dog/filmes/club-kid",
+    "title": "Club Kid: ficha e análise do filme",
+    "description": "Club Kid (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/club-kid.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2026_clarissa",
+    "route": "/filmes/clarissa",
+    "canonical": "https://henrique.dog/filmes/clarissa",
+    "title": "Clarissa: ficha e análise do filme",
+    "description": "Clarissa (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/clarissa.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2026_minotaur",
+    "route": "/filmes/minotaur",
+    "canonical": "https://henrique.dog/filmes/minotaur",
+    "title": "Minotaur: ficha e análise do filme",
+    "description": "Minotaur (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/minotaur.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2026_atonement",
+    "route": "/filmes/atonement-2026",
+    "canonical": "https://henrique.dog/filmes/atonement-2026",
+    "title": "Atonement: ficha e análise do filme",
+    "description": "Atonement (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/atonement-2026.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2026_project_hail_mary",
+    "route": "/filmes/project-hail-mary",
+    "canonical": "https://henrique.dog/filmes/project-hail-mary",
+    "title": "Project Hail Mary: ficha e análise do filme",
+    "description": "Project Hail Mary (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/project-hail-mary.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2026_odyssey",
+    "route": "/filmes/the-odyssey-2026",
+    "canonical": "https://henrique.dog/filmes/the-odyssey-2026",
+    "title": "The Odyssey: ficha e análise do filme",
+    "description": "The Odyssey (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/the-odyssey-2026.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2026_supergirl",
+    "route": "/filmes/supergirl-2026",
+    "canonical": "https://henrique.dog/filmes/supergirl-2026",
+    "title": "Supergirl: ficha e análise do filme",
+    "description": "Supergirl (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/supergirl-2026.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2026_toy_story_5",
+    "route": "/filmes/toy-story-5",
+    "canonical": "https://henrique.dog/filmes/toy-story-5",
+    "title": "Toy Story 5: ficha e análise do filme",
+    "description": "Toy Story 5 (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/toy-story-5.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2026_dog_stars",
+    "route": "/filmes/the-dog-stars",
+    "canonical": "https://henrique.dog/filmes/the-dog-stars",
+    "title": "The Dog Stars: ficha e análise do filme",
+    "description": "The Dog Stars (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/the-dog-stars.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2026_resident_evil",
+    "route": "/filmes/resident-evil-2026",
+    "canonical": "https://henrique.dog/filmes/resident-evil-2026",
+    "title": "Resident Evil: ficha e análise do filme",
+    "description": "Resident Evil (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/resident-evil-2026.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2026_whalefall",
+    "route": "/filmes/whalefall",
+    "canonical": "https://henrique.dog/filmes/whalefall",
+    "title": "Whalefall: ficha e análise do filme",
+    "description": "Whalefall (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/whalefall.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2026_clayface",
+    "route": "/filmes/clayface",
+    "canonical": "https://henrique.dog/filmes/clayface",
+    "title": "Clayface: ficha e análise do filme",
+    "description": "Clayface (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/clayface.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2026_social_reckoning",
+    "route": "/filmes/the-social-reckoning",
+    "canonical": "https://henrique.dog/filmes/the-social-reckoning",
+    "title": "The Social Reckoning: ficha e análise do filme",
+    "description": "The Social Reckoning (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/the-social-reckoning.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2026_sunrise_reaping",
+    "route": "/filmes/sunrise-on-the-reaping",
+    "canonical": "https://henrique.dog/filmes/sunrise-on-the-reaping",
+    "title": "The Hunger Games: Sunrise on the Reaping: ficha e análise do filme",
+    "description": "The Hunger Games: Sunrise on the Reaping (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/sunrise-on-the-reaping.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2026_narnia",
+    "route": "/filmes/narnia-2026",
+    "canonical": "https://henrique.dog/filmes/narnia-2026",
+    "title": "Narnia: ficha e análise do filme",
+    "description": "Narnia (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2026_dune_three",
+    "route": "/filmes/dune-part-three",
+    "canonical": "https://henrique.dog/filmes/dune-part-three",
+    "title": "Dune: Part Three: ficha e análise do filme",
+    "description": "Dune: Part Three (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/dune-part-three.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2026_werwulf",
+    "route": "/filmes/werwulf",
+    "canonical": "https://henrique.dog/filmes/werwulf",
+    "title": "Werwulf: ficha e análise do filme",
+    "description": "Werwulf (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/werwulf.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_dicaprio_this_boys_life",
+    "route": "/filmes/o-despertar-de-um-homem",
+    "canonical": "https://henrique.dog/filmes/o-despertar-de-um-homem",
+    "title": "O Despertar de um Homem: ficha e análise do filme",
+    "description": "O Despertar de um Homem (1993): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/o-despertar-de-um-homem.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_dicaprio_gilbert_grape",
+    "route": "/filmes/gilbert-grape-aprendiz-de-sonhador",
+    "canonical": "https://henrique.dog/filmes/gilbert-grape-aprendiz-de-sonhador",
+    "title": "Gilbert Grape: Aprendiz de Sonhador: ficha e análise do filme",
+    "description": "Gilbert Grape: Aprendiz de Sonhador (1993): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/gilbert-grape-aprendiz-de-sonhador.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_dicaprio_titanic",
+    "route": "/filmes/titanic",
+    "canonical": "https://henrique.dog/filmes/titanic",
+    "title": "Titanic: ficha e análise do filme",
+    "description": "Titanic (1997): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/titanic.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_dicaprio_catch_me",
+    "route": "/filmes/prenda-me-se-for-capaz",
+    "canonical": "https://henrique.dog/filmes/prenda-me-se-for-capaz",
+    "title": "Prenda-me Se For Capaz: ficha e análise do filme",
+    "description": "Prenda-me Se For Capaz (2002): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/prenda-me-se-for-capaz.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_dicaprio_aviator",
+    "route": "/filmes/o-aviador",
+    "canonical": "https://henrique.dog/filmes/o-aviador",
+    "title": "O Aviador: ficha e análise do filme",
+    "description": "O Aviador (2004): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/o-aviador.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_dicaprio_departed",
+    "route": "/filmes/os-infiltrados",
+    "canonical": "https://henrique.dog/filmes/os-infiltrados",
+    "title": "Os Infiltrados: ficha e análise do filme",
+    "description": "Os Infiltrados (2006): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/os-infiltrados.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_dicaprio_revolutionary_road",
+    "route": "/filmes/foi-apenas-um-sonho",
+    "canonical": "https://henrique.dog/filmes/foi-apenas-um-sonho",
+    "title": "Foi Apenas um Sonho: ficha e análise do filme",
+    "description": "Foi Apenas um Sonho (2008): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/foi-apenas-um-sonho.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_dicaprio_shutter_island",
+    "route": "/filmes/ilha-do-medo",
+    "canonical": "https://henrique.dog/filmes/ilha-do-medo",
+    "title": "Ilha do Medo: ficha e análise do filme",
+    "description": "Ilha do Medo (2010): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/ilha-do-medo.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_dicaprio_inception",
+    "route": "/filmes/a-origem",
+    "canonical": "https://henrique.dog/filmes/a-origem",
+    "title": "A Origem: ficha e análise do filme",
+    "description": "A Origem (2010): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/a-origem.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_dicaprio_django",
+    "route": "/filmes/django-livre",
+    "canonical": "https://henrique.dog/filmes/django-livre",
+    "title": "Django Livre: ficha e análise do filme",
+    "description": "Django Livre (2012): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/django-livre.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_dicaprio_wolf_wall_street",
+    "route": "/filmes/o-lobo-de-wall-street",
+    "canonical": "https://henrique.dog/filmes/o-lobo-de-wall-street",
+    "title": "O Lobo de Wall Street: ficha e análise do filme",
+    "description": "O Lobo de Wall Street (2013): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/o-lobo-de-wall-street.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_dicaprio_revenant",
+    "route": "/filmes/o-regresso",
+    "canonical": "https://henrique.dog/filmes/o-regresso",
+    "title": "O Regresso: ficha e análise do filme",
+    "description": "O Regresso (2015): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/o-regresso.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_dicaprio_once_hollywood",
+    "route": "/filmes/era-uma-vez-em-hollywood",
+    "canonical": "https://henrique.dog/filmes/era-uma-vez-em-hollywood",
+    "title": "Era uma Vez em... Hollywood: ficha e análise do filme",
+    "description": "Era uma Vez em... Hollywood (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/era-uma-vez-em-hollywood.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_dicaprio_killers_flower_moon",
+    "route": "/filmes/assassinos-da-lua-das-flores",
+    "canonical": "https://henrique.dog/filmes/assassinos-da-lua-das-flores",
+    "title": "Assassinos da Lua das Flores: ficha e análise do filme",
+    "description": "Assassinos da Lua das Flores (2023): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/assassinos-da-lua-das-flores.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_shark_jaws",
+    "route": "/filmes/tubarao",
+    "canonical": "https://henrique.dog/filmes/tubarao",
+    "title": "Tubarão: ficha e análise do filme",
+    "description": "Tubarão (1975): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/tubarao.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_shark_open_water",
+    "route": "/filmes/mar-aberto",
+    "canonical": "https://henrique.dog/filmes/mar-aberto",
+    "title": "Mar Aberto: ficha e análise do filme",
+    "description": "Mar Aberto (2003): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/mar-aberto.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_shark_dangerous_animals",
+    "route": "/filmes/animais-perigosos",
+    "canonical": "https://henrique.dog/filmes/animais-perigosos",
+    "title": "Animais Perigosos: ficha e análise do filme",
+    "description": "Animais Perigosos (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/animais-perigosos.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_shark_shallows",
+    "route": "/filmes/aguas-rasas",
+    "canonical": "https://henrique.dog/filmes/aguas-rasas",
+    "title": "Águas Rasas: ficha e análise do filme",
+    "description": "Águas Rasas (2016): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/aguas-rasas.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_shark_deep_blue_sea",
+    "route": "/filmes/do-fundo-do-mar",
+    "canonical": "https://henrique.dog/filmes/do-fundo-do-mar",
+    "title": "Do Fundo do Mar: ficha e análise do filme",
+    "description": "Do Fundo do Mar (1999): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/do-fundo-do-mar.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_shark_reef",
+    "route": "/filmes/perigo-em-alto-mar",
+    "canonical": "https://henrique.dog/filmes/perigo-em-alto-mar",
+    "title": "Perigo em Alto Mar: ficha e análise do filme",
+    "description": "Perigo em Alto Mar (2010): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/perigo-em-alto-mar.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_shark_jaws_2",
+    "route": "/filmes/tubarao-2",
+    "canonical": "https://henrique.dog/filmes/tubarao-2",
+    "title": "Tubarão 2: ficha e análise do filme",
+    "description": "Tubarão 2 (1978): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/tubarao-2.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_shark_47_meters",
+    "route": "/filmes/medo-profundo",
+    "canonical": "https://henrique.dog/filmes/medo-profundo",
+    "title": "Medo Profundo: ficha e análise do filme",
+    "description": "Medo Profundo (2017): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/medo-profundo.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_shark_bait",
+    "route": "/filmes/a-isca",
+    "canonical": "https://henrique.dog/filmes/a-isca",
+    "title": "A Isca: ficha e análise do filme",
+    "description": "A Isca (2012): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/a-isca.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_shark_meg",
+    "route": "/filmes/megatubarao",
+    "canonical": "https://henrique.dog/filmes/megatubarao",
+    "title": "Megatubarão: ficha e análise do filme",
+    "description": "Megatubarão (2018): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/megatubarao.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_shark_under_paris",
+    "route": "/filmes/sob-as-aguas-do-sena",
+    "canonical": "https://henrique.dog/filmes/sob-as-aguas-do-sena",
+    "title": "Sob as Águas do Sena: ficha e análise do filme",
+    "description": "Sob as Águas do Sena (2024): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/sob-as-aguas-do-sena.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_shark_sharknado",
+    "route": "/filmes/sharknado",
+    "canonical": "https://henrique.dog/filmes/sharknado",
+    "title": "Sharknado: ficha e análise do filme",
+    "description": "Sharknado (2013): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/sharknado.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_shark_reef_stalked",
+    "route": "/filmes/the-reef-stalked",
+    "canonical": "https://henrique.dog/filmes/the-reef-stalked",
+    "title": "The Reef: Stalked: ficha e análise do filme",
+    "description": "The Reef: Stalked (2022): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/the-reef-stalked.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_shark_no_way_up",
+    "route": "/filmes/desespero-profundo",
+    "canonical": "https://henrique.dog/filmes/desespero-profundo",
+    "title": "Desespero Profundo: ficha e análise do filme",
+    "description": "Desespero Profundo (2024): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/desespero-profundo.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_shark_mega_octopus",
+    "route": "/filmes/mega-shark-vs-giant-octopus",
+    "canonical": "https://henrique.dog/filmes/mega-shark-vs-giant-octopus",
+    "title": "Mega Shark vs. Giant Octopus: ficha e análise do filme",
+    "description": "Mega Shark vs. Giant Octopus (2009): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_nh_geralds_game",
+    "route": "/filmes/jogo-perigoso",
+    "canonical": "https://henrique.dog/filmes/jogo-perigoso",
+    "title": "Jogo Perigoso: ficha e análise do filme",
+    "description": "Jogo Perigoso (2017): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/jogo-perigoso.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_nh_apostle",
+    "route": "/filmes/apostolo",
+    "canonical": "https://henrique.dog/filmes/apostolo",
+    "title": "Apóstolo: ficha e análise do filme",
+    "description": "Apóstolo (2018): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/apostolo.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_nh_1922",
+    "route": "/filmes/1922",
+    "canonical": "https://henrique.dog/filmes/1922",
+    "title": "1922: ficha e análise do filme",
+    "description": "1922 (2017): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/1922.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_nh_perfection",
+    "route": "/filmes/a-perfeicao",
+    "canonical": "https://henrique.dog/filmes/a-perfeicao",
+    "title": "A Perfeição: ficha e análise do filme",
+    "description": "A Perfeição (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/a-perfeicao.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_nh_incantation",
+    "route": "/filmes/marcas-da-maldicao",
+    "canonical": "https://henrique.dog/filmes/marcas-da-maldicao",
+    "title": "Marcas da Maldição: ficha e análise do filme",
+    "description": "Marcas da Maldição (2022): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/marcas-da-maldicao.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_nh_call",
+    "route": "/filmes/a-ligacao",
+    "canonical": "https://henrique.dog/filmes/a-ligacao",
+    "title": "A Ligação: ficha e análise do filme",
+    "description": "A Ligação (2020): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/a-ligacao.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_nh_no_one_gets_out_alive",
+    "route": "/filmes/ninguem-sai-vivo",
+    "canonical": "https://henrique.dog/filmes/ninguem-sai-vivo",
+    "title": "Ninguém Sai Vivo: ficha e análise do filme",
+    "description": "Ninguém Sai Vivo (2021): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/ninguem-sai-vivo.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_nh_blood_red_sky",
+    "route": "/filmes/ceu-vermelho-sangue",
+    "canonical": "https://henrique.dog/filmes/ceu-vermelho-sangue",
+    "title": "Céu Vermelho-Sangue: ficha e análise do filme",
+    "description": "Céu Vermelho-Sangue (2021): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/ceu-vermelho-sangue.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_nh_fear_street_1994",
+    "route": "/filmes/rua-do-medo-1994",
+    "canonical": "https://henrique.dog/filmes/rua-do-medo-1994",
+    "title": "Rua do Medo: 1994 — Parte 1: ficha e análise do filme",
+    "description": "Rua do Medo: 1994 — Parte 1 (2021): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/rua-do-medo-1994.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_nh_fear_street_1978",
+    "route": "/filmes/rua-do-medo-1978",
+    "canonical": "https://henrique.dog/filmes/rua-do-medo-1978",
+    "title": "Rua do Medo: 1978 — Parte 2: ficha e análise do filme",
+    "description": "Rua do Medo: 1978 — Parte 2 (2021): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/rua-do-medo-1978.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_nh_fear_street_1666",
+    "route": "/filmes/rua-do-medo-1666",
+    "canonical": "https://henrique.dog/filmes/rua-do-medo-1666",
+    "title": "Rua do Medo: 1666 — Parte 3: ficha e análise do filme",
+    "description": "Rua do Medo: 1666 — Parte 3 (2021): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/rua-do-medo-1666.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_nh_trip",
+    "route": "/filmes/the-trip",
+    "canonical": "https://henrique.dog/filmes/the-trip",
+    "title": "The Trip: ficha e análise do filme",
+    "description": "The Trip (2021): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/the-trip.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_nh_outside",
+    "route": "/filmes/la-fora",
+    "canonical": "https://henrique.dog/filmes/la-fora",
+    "title": "Lá Fora: ficha e análise do filme",
+    "description": "Lá Fora (2024): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/la-fora.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_nh_ziam",
+    "route": "/filmes/com-unhas-e-dentes",
+    "canonical": "https://henrique.dog/filmes/com-unhas-e-dentes",
+    "title": "Com Unhas e Dentes: ficha e análise do filme",
+    "description": "Com Unhas e Dentes (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/com-unhas-e-dentes.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_nh_sister_death",
+    "route": "/filmes/irma-morte",
+    "canonical": "https://henrique.dog/filmes/irma-morte",
+    "title": "Irmã Morte: ficha e análise do filme",
+    "description": "Irmã Morte (2023): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/irma-morte.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_nh_el_conde",
+    "route": "/filmes/el-conde",
+    "canonical": "https://henrique.dog/filmes/el-conde",
+    "title": "El Conde: ficha e análise do filme",
+    "description": "El Conde (2023): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/el-conde.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_nh_cargo",
+    "route": "/filmes/cargo-2018",
+    "canonical": "https://henrique.dog/filmes/cargo-2018",
+    "title": "Cargo: ficha e análise do filme",
+    "description": "Cargo (2018): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/cargo-2018.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_nh_alive",
+    "route": "/filmes/alive-2020",
+    "canonical": "https://henrique.dog/filmes/alive-2020",
+    "title": "#Alive: ficha e análise do filme",
+    "description": "#Alive (2020): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/alive-2020.webp",
+    "structuredDataType": "Movie"
+  },
+  {
     "id": "mov_7c1f3a",
     "route": "/filmes/corra",
     "canonical": "https://henrique.dog/filmes/corra",
@@ -203,8 +1491,8 @@
     "id": "mov_97a260",
     "route": "/filmes/quando-o-mal-espreita",
     "canonical": "https://henrique.dog/filmes/quando-o-mal-espreita",
-    "title": "Quando o Mal Espreita: ficha e análise do filme",
-    "description": "Quando o Mal Espreita (2023): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "title": "O Mal que Nos Habita: ficha e análise do filme",
+    "description": "O Mal que Nos Habita (2023): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
     "image": "/images/movies/quando-o-mal-espreita.webp",
     "structuredDataType": "Movie"
@@ -297,6 +1585,386 @@
     "description": "Sob a Pele (2013): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
     "image": "/images/movies/sob-a-pele.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_hor_2006_bug",
+    "route": "/filmes/possuidos-2006",
+    "canonical": "https://henrique.dog/filmes/possuidos-2006",
+    "title": "Possuídos: ficha e análise do filme",
+    "description": "Possuídos (2006): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/possuidos-2006.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_hor_2007_orfanato",
+    "route": "/filmes/o-orfanato",
+    "canonical": "https://henrique.dog/filmes/o-orfanato",
+    "title": "O Orfanato: ficha e análise do filme",
+    "description": "O Orfanato (2007): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/o-orfanato.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_hor_2008_lake_mungo",
+    "route": "/filmes/o-segredo-do-lago-mungo",
+    "canonical": "https://henrique.dog/filmes/o-segredo-do-lago-mungo",
+    "title": "O Segredo do Lago Mungo: ficha e análise do filme",
+    "description": "O Segredo do Lago Mungo (2008): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/o-segredo-do-lago-mungo.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_hor_2010_black_swan",
+    "route": "/filmes/cisne-negro",
+    "canonical": "https://henrique.dog/filmes/cisne-negro",
+    "title": "Cisne Negro: ficha e análise do filme",
+    "description": "Cisne Negro (2010): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/cisne-negro.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_hor_2011_kill_list",
+    "route": "/filmes/kill-list",
+    "canonical": "https://henrique.dog/filmes/kill-list",
+    "title": "Kill List: ficha e análise do filme",
+    "description": "Kill List (2011): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/kill-list.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_hor_2011_piel",
+    "route": "/filmes/a-pele-que-habito",
+    "canonical": "https://henrique.dog/filmes/a-pele-que-habito",
+    "title": "A Pele que Habito: ficha e análise do filme",
+    "description": "A Pele que Habito (2011): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/a-pele-que-habito.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_hor_2013_conjuring",
+    "route": "/filmes/invocacao-do-mal",
+    "canonical": "https://henrique.dog/filmes/invocacao-do-mal",
+    "title": "Invocação do Mal: ficha e análise do filme",
+    "description": "Invocação do Mal (2013): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/invocacao-do-mal.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_hor_2015_invitation",
+    "route": "/filmes/o-convite-2015",
+    "canonical": "https://henrique.dog/filmes/o-convite-2015",
+    "title": "O Convite: ficha e análise do filme",
+    "description": "O Convite (2015): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/o-convite-2015.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_hor_2018_suspiria",
+    "route": "/filmes/suspiria-2018",
+    "canonical": "https://henrique.dog/filmes/suspiria-2018",
+    "title": "Suspiria: ficha e análise do filme",
+    "description": "Suspiria (2018): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/suspiria-2018.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_hor_2019_midsommar",
+    "route": "/filmes/midsommar",
+    "canonical": "https://henrique.dog/filmes/midsommar",
+    "title": "Midsommar: O Mal Não Espera a Noite: ficha e análise do filme",
+    "description": "Midsommar: O Mal Não Espera a Noite (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/midsommar.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_hor_2019_lighthouse",
+    "route": "/filmes/o-farol",
+    "canonical": "https://henrique.dog/filmes/o-farol",
+    "title": "O Farol: ficha e análise do filme",
+    "description": "O Farol (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/o-farol.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_hor_2019_saint_maud",
+    "route": "/filmes/saint-maud",
+    "canonical": "https://henrique.dog/filmes/saint-maud",
+    "title": "Saint Maud: ficha e análise do filme",
+    "description": "Saint Maud (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/saint-maud.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_hor_2021_titane",
+    "route": "/filmes/titane",
+    "canonical": "https://henrique.dog/filmes/titane",
+    "title": "Titane: ficha e análise do filme",
+    "description": "Titane (2021): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/titane.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_hor_2022_barbarian",
+    "route": "/filmes/noites-brutais",
+    "canonical": "https://henrique.dog/filmes/noites-brutais",
+    "title": "Noites Brutais: ficha e análise do filme",
+    "description": "Noites Brutais (2022): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/noites-brutais.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_hor_2024_exhuma",
+    "route": "/filmes/exhuma",
+    "canonical": "https://henrique.dog/filmes/exhuma",
+    "title": "Exhuma: ficha e análise do filme",
+    "description": "Exhuma (2024): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/exhuma.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_hor_2024_nosferatu",
+    "route": "/filmes/nosferatu-2024",
+    "canonical": "https://henrique.dog/filmes/nosferatu-2024",
+    "title": "Nosferatu: ficha e análise do filme",
+    "description": "Nosferatu (2024): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/nosferatu-2024.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_hor_2025_weapons",
+    "route": "/filmes/a-hora-do-mal",
+    "canonical": "https://henrique.dog/filmes/a-hora-do-mal",
+    "title": "A Hora do Mal: ficha e análise do filme",
+    "description": "A Hora do Mal (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/a-hora-do-mal.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2025_one_battle_after_another",
+    "route": "/filmes/uma-batalha-apos-a-outra",
+    "canonical": "https://henrique.dog/filmes/uma-batalha-apos-a-outra",
+    "title": "Uma Batalha Após a Outra: ficha e análise do filme",
+    "description": "Uma Batalha Após a Outra (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/uma-batalha-apos-a-outra.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2025_secret_agent",
+    "route": "/filmes/o-agente-secreto",
+    "canonical": "https://henrique.dog/filmes/o-agente-secreto",
+    "title": "O Agente Secreto: ficha e análise do filme",
+    "description": "O Agente Secreto (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/o-agente-secreto.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2025_sentimental_value",
+    "route": "/filmes/valor-sentimental",
+    "canonical": "https://henrique.dog/filmes/valor-sentimental",
+    "title": "Valor Sentimental: ficha e análise do filme",
+    "description": "Valor Sentimental (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/valor-sentimental.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2025_it_was_just_an_accident",
+    "route": "/filmes/foi-apenas-um-acidente",
+    "canonical": "https://henrique.dog/filmes/foi-apenas-um-acidente",
+    "title": "Foi Apenas um Acidente: ficha e análise do filme",
+    "description": "Foi Apenas um Acidente (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/foi-apenas-um-acidente.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2025_marty_supreme",
+    "route": "/filmes/marty-supreme",
+    "canonical": "https://henrique.dog/filmes/marty-supreme",
+    "title": "Marty Supreme: ficha e análise do filme",
+    "description": "Marty Supreme (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/marty-supreme.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2025_no_other_choice",
+    "route": "/filmes/a-unica-saida",
+    "canonical": "https://henrique.dog/filmes/a-unica-saida",
+    "title": "A Única Saída: ficha e análise do filme",
+    "description": "A Única Saída (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/a-unica-saida.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2025_sirat",
+    "route": "/filmes/sirat",
+    "canonical": "https://henrique.dog/filmes/sirat",
+    "title": "Sirât: ficha e análise do filme",
+    "description": "Sirât (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/sirat.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2025_blue_trail",
+    "route": "/filmes/o-ultimo-azul",
+    "canonical": "https://henrique.dog/filmes/o-ultimo-azul",
+    "title": "O Último Azul: ficha e análise do filme",
+    "description": "O Último Azul (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/o-ultimo-azul.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2025_hamnet",
+    "route": "/filmes/hamnet",
+    "canonical": "https://henrique.dog/filmes/hamnet",
+    "title": "Hamnet: A Vida Antes de Hamlet: ficha e análise do filme",
+    "description": "Hamnet: A Vida Antes de Hamlet (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/hamnet.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2025_mastermind",
+    "route": "/filmes/the-mastermind",
+    "canonical": "https://henrique.dog/filmes/the-mastermind",
+    "title": "The Mastermind: ficha e análise do filme",
+    "description": "The Mastermind (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/the-mastermind.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2025_sound_of_falling",
+    "route": "/filmes/sound-of-falling",
+    "canonical": "https://henrique.dog/filmes/sound-of-falling",
+    "title": "Sound of Falling: ficha e análise do filme",
+    "description": "Sound of Falling (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/sound-of-falling.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2025_resurrection",
+    "route": "/filmes/resurrection-2025",
+    "canonical": "https://henrique.dog/filmes/resurrection-2025",
+    "title": "Resurrection: ficha e análise do filme",
+    "description": "Resurrection (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/resurrection-2025.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2025_voice_hind_rajab",
+    "route": "/filmes/a-voz-de-hind-rajab",
+    "canonical": "https://henrique.dog/filmes/a-voz-de-hind-rajab",
+    "title": "A Voz de Hind Rajab: ficha e análise do filme",
+    "description": "A Voz de Hind Rajab (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/a-voz-de-hind-rajab.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2025_frankenstein",
+    "route": "/filmes/frankenstein-2025",
+    "canonical": "https://henrique.dog/filmes/frankenstein-2025",
+    "title": "Frankenstein: ficha e análise do filme",
+    "description": "Frankenstein (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/frankenstein-2025.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2025_sorry_baby",
+    "route": "/filmes/sorry-baby",
+    "canonical": "https://henrique.dog/filmes/sorry-baby",
+    "title": "Sorry, Baby: ficha e análise do filme",
+    "description": "Sorry, Baby (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/sorry-baby.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2025_arco",
+    "route": "/filmes/arco",
+    "canonical": "https://henrique.dog/filmes/arco",
+    "title": "Arco: ficha e análise do filme",
+    "description": "Arco (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/arco.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2025_best_mother",
+    "route": "/filmes/a-melhor-mae-do-mundo",
+    "canonical": "https://henrique.dog/filmes/a-melhor-mae-do-mundo",
+    "title": "A Melhor Mãe do Mundo: ficha e análise do filme",
+    "description": "A Melhor Mãe do Mundo (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/a-melhor-mae-do-mundo.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2025_black_bag",
+    "route": "/filmes/codigo-preto",
+    "canonical": "https://henrique.dog/filmes/codigo-preto",
+    "title": "Código Preto: ficha e análise do filme",
+    "description": "Código Preto (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/codigo-preto.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2025_28_years_later",
+    "route": "/filmes/exterminio-a-evolucao",
+    "canonical": "https://henrique.dog/filmes/exterminio-a-evolucao",
+    "title": "Extermínio: A Evolução: ficha e análise do filme",
+    "description": "Extermínio: A Evolução (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/exterminio-a-evolucao.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2025_superman",
+    "route": "/filmes/superman-2025",
+    "canonical": "https://henrique.dog/filmes/superman-2025",
+    "title": "Superman: ficha e análise do filme",
+    "description": "Superman (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/superman-2025.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_2025_homem_com_h",
+    "route": "/filmes/homem-com-h",
+    "canonical": "https://henrique.dog/filmes/homem-com-h",
+    "title": "Homem com H: ficha e análise do filme",
+    "description": "Homem com H (2025): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/homem-com-h.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -607,6 +2275,195 @@
     "description": "Wildwood (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
     "image": "/images/movies/wildwood.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_vamp_nosferatu_1922",
+    "route": "/filmes/nosferatu-1922",
+    "canonical": "https://henrique.dog/filmes/nosferatu-1922",
+    "title": "Nosferatu: ficha e análise do filme",
+    "description": "Nosferatu (1922): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_vamp_dracula_1931",
+    "route": "/filmes/dracula-1931",
+    "canonical": "https://henrique.dog/filmes/dracula-1931",
+    "title": "Drácula: ficha e análise do filme",
+    "description": "Drácula (1931): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_vamp_vampyr_1932",
+    "route": "/filmes/vampiro-1932",
+    "canonical": "https://henrique.dog/filmes/vampiro-1932",
+    "title": "Vampiro: ficha e análise do filme",
+    "description": "Vampiro (1932): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_vamp_horror_dracula_1958",
+    "route": "/filmes/o-vampiro-da-noite-1958",
+    "canonical": "https://henrique.dog/filmes/o-vampiro-da-noite-1958",
+    "title": "O Vampiro da Noite: ficha e análise do filme",
+    "description": "O Vampiro da Noite (1958): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_vamp_daughters_darkness",
+    "route": "/filmes/as-filhas-das-trevas",
+    "canonical": "https://henrique.dog/filmes/as-filhas-das-trevas",
+    "title": "As Filhas das Trevas: ficha e análise do filme",
+    "description": "As Filhas das Trevas (1971): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_vamp_ganja_hess",
+    "route": "/filmes/ganja-e-hess",
+    "canonical": "https://henrique.dog/filmes/ganja-e-hess",
+    "title": "Ganja & Hess: ficha e análise do filme",
+    "description": "Ganja & Hess (1973): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_vamp_martin_1977",
+    "route": "/filmes/martin-1977",
+    "canonical": "https://henrique.dog/filmes/martin-1977",
+    "title": "Martin: ficha e análise do filme",
+    "description": "Martin (1977): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_vamp_nosferatu_1979",
+    "route": "/filmes/nosferatu-o-vampiro-da-noite-1979",
+    "canonical": "https://henrique.dog/filmes/nosferatu-o-vampiro-da-noite-1979",
+    "title": "Nosferatu: O Vampiro da Noite: ficha e análise do filme",
+    "description": "Nosferatu: O Vampiro da Noite (1979): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_vamp_hunger_1983",
+    "route": "/filmes/fome-de-viver",
+    "canonical": "https://henrique.dog/filmes/fome-de-viver",
+    "title": "Fome de Viver: ficha e análise do filme",
+    "description": "Fome de Viver (1983): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_vamp_fright_night_1985",
+    "route": "/filmes/a-hora-do-espanto-1985",
+    "canonical": "https://henrique.dog/filmes/a-hora-do-espanto-1985",
+    "title": "A Hora do Espanto: ficha e análise do filme",
+    "description": "A Hora do Espanto (1985): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_vamp_lost_boys",
+    "route": "/filmes/os-garotos-perdidos",
+    "canonical": "https://henrique.dog/filmes/os-garotos-perdidos",
+    "title": "Os Garotos Perdidos: ficha e análise do filme",
+    "description": "Os Garotos Perdidos (1987): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_vamp_dracula_1992",
+    "route": "/filmes/dracula-de-bram-stoker",
+    "canonical": "https://henrique.dog/filmes/dracula-de-bram-stoker",
+    "title": "Drácula de Bram Stoker: ficha e análise do filme",
+    "description": "Drácula de Bram Stoker (1992): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_vamp_cronos",
+    "route": "/filmes/cronos-1993",
+    "canonical": "https://henrique.dog/filmes/cronos-1993",
+    "title": "Cronos: ficha e análise do filme",
+    "description": "Cronos (1993): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_vamp_interview",
+    "route": "/filmes/entrevista-com-o-vampiro",
+    "canonical": "https://henrique.dog/filmes/entrevista-com-o-vampiro",
+    "title": "Entrevista com o Vampiro: ficha e análise do filme",
+    "description": "Entrevista com o Vampiro (1994): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_vamp_blade",
+    "route": "/filmes/blade-o-cacador-de-vampiros",
+    "canonical": "https://henrique.dog/filmes/blade-o-cacador-de-vampiros",
+    "title": "Blade: O Caçador de Vampiros: ficha e análise do filme",
+    "description": "Blade: O Caçador de Vampiros (1998): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_vamp_shadow",
+    "route": "/filmes/a-sombra-do-vampiro",
+    "canonical": "https://henrique.dog/filmes/a-sombra-do-vampiro",
+    "title": "A Sombra do Vampiro: ficha e análise do filme",
+    "description": "A Sombra do Vampiro (2000): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_vamp_hunter_d",
+    "route": "/filmes/vampire-hunter-d-bloodlust",
+    "canonical": "https://henrique.dog/filmes/vampire-hunter-d-bloodlust",
+    "title": "Vampire Hunter D: Bloodlust: ficha e análise do filme",
+    "description": "Vampire Hunter D: Bloodlust (2000): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_vamp_thirst",
+    "route": "/filmes/sede-de-sangue-2009",
+    "canonical": "https://henrique.dog/filmes/sede-de-sangue-2009",
+    "title": "Sede de Sangue: ficha e análise do filme",
+    "description": "Sede de Sangue (2009): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_vamp_only_lovers",
+    "route": "/filmes/amantes-eternos",
+    "canonical": "https://henrique.dog/filmes/amantes-eternos",
+    "title": "Amantes Eternos: ficha e análise do filme",
+    "description": "Amantes Eternos (2013): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_vamp_what_we_do",
+    "route": "/filmes/o-que-fazemos-nas-sombras",
+    "canonical": "https://henrique.dog/filmes/o-que-fazemos-nas-sombras",
+    "title": "O Que Fazemos nas Sombras: ficha e análise do filme",
+    "description": "O Que Fazemos nas Sombras (2014): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_vamp_girl_walks",
+    "route": "/filmes/garota-sombria-caminha-pela-noite",
+    "canonical": "https://henrique.dog/filmes/garota-sombria-caminha-pela-noite",
+    "title": "Garota Sombria Caminha pela Noite: ficha e análise do filme",
+    "description": "Garota Sombria Caminha pela Noite (2014): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
     "structuredDataType": "Movie"
   }
 ]

@@ -2,6 +2,10 @@
 
 Registre somente decisões permanentes do sistema, com motivo e substituição. Não registrar preferências temporárias de uma pauta.
 
+## 2026-08-13 — Acervo central de obras de leitura
+
+Livros, mangás, manhwas, manhuas, webtoons, graphic novels, quadrinhos e light novels usam uma base compartilhada, mas preservam o formato próprio. Obra intelectual, série, volume, edição e oferta são entidades separadas; ISBN, páginas, editora, tradução, capa comercial e disponibilidade pertencem à edição. Listas e MDX referenciam obras por ID. A infraestrutura nasceu vazia e sem rotas públicas para que o primeiro lote real valide o contrato antes de qualquer publicação.
+
 ## 2026-07-16 — Índice manual descontinuado
 
 Motivo:

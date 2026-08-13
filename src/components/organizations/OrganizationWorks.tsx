@@ -18,10 +18,12 @@ type Props = {
   organizationId: string;
   roles: readonly OrganizationRole[];
   releaseStatus?: Movie["productionStatus"];
+  limit?: number;
 };
 
-export function OrganizationWorks({ organizationId, roles, releaseStatus = "released" }: Props) {
-  const works = getOrganizationMovies(organizationId, roles).filter((movie) => movie.productionStatus === releaseStatus);
+export function OrganizationWorks({ organizationId, roles, releaseStatus = "released", limit }: Props) {
+  const relatedWorks = getOrganizationMovies(organizationId, roles).filter((movie) => movie.productionStatus === releaseStatus);
+  const works = typeof limit === "number" ? relatedWorks.slice(0, limit) : relatedWorks;
 
   if (!works.length) return null;
 

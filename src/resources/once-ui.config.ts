@@ -30,6 +30,8 @@ const routes: RoutesConfig = {
   "/blog/seo/entender-a-busca": true,
   "/blog/cultura": true,
   "/filmes": true,
+  "/livros": false,
+  "/quadrinhos": false,
   "/blog/temas": false,
   "/mapa": false,
   "/trilhas": false,
