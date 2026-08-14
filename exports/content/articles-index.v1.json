@@ -1910,6 +1910,31 @@
       "migrationReady": false
     },
     {
+      "id": "article_books_after_welcome_to_derry",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "livros-para-quem-gostou-de-it-bem-vindos-a-derry",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
+      "updatedAt": "2026-08-13",
+      "seo": {
+        "title": "20 melhores livros para quem gostou de It: Bem-Vindos a Derry",
+        "description": "Conheça 20 livros para quem gostou de It: Bem-Vindos a Derry, com terror de cidade pequena, amadurecimento, desaparecimentos e edições brasileiras verificadas.",
+        "canonical": "/blog/livros-para-quem-gostou-de-it-bem-vindos-a-derry"
+      },
+      "relationships": {
+        "related": [
+          "melhores-livros-de-terror",
+          "series-para-quem-gostou-de-it-bem-vindos-a-derry",
+          "melhores-series-de-terror"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/livros-para-quem-gostou-de-it-bem-vindos-a-derry.mdx",
+      "migrationReady": true
+    },
+    {
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
@@ -2293,6 +2318,81 @@
       "migrationReady": true
     },
     {
+      "id": "article_best_horror_books_by_reader",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-livros-de-terror",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
+      "updatedAt": "2026-08-13",
+      "seo": {
+        "title": "25 melhores livros de terror para diferentes tipos de leitor",
+        "description": "Conheça 25 dos melhores livros de terror, organizados por perfil de leitor, com clássicos, obras contemporâneas e edições brasileiras verificadas.",
+        "canonical": "/blog/melhores-livros-de-terror"
+      },
+      "relationships": {
+        "related": [
+          "melhores-livros-de-vampiro",
+          "melhores-series-de-terror",
+          "melhores-filmes-terror-seculo-21"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-livros-de-terror.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_best_vampire_books",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-livros-de-vampiro",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
+      "updatedAt": "2026-08-13",
+      "seo": {
+        "title": "26 melhores livros de vampiro: dos clássicos às releituras atuais",
+        "description": "Conheça 26 dos melhores livros de vampiro, de Drácula e Carmilla a releituras contemporâneas, com edições brasileiras verificadas.",
+        "canonical": "/blog/melhores-livros-de-vampiro"
+      },
+      "relationships": {
+        "related": [
+          "melhores-series-de-vampiro",
+          "melhores-filmes-de-vampiro",
+          "melhores-series-de-terror"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-livros-de-vampiro.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_romance_manga_entry_for_men",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-mangas-de-romance-para-homens",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
+      "updatedAt": "2026-08-13",
+      "seo": {
+        "title": "19 melhores mangás de romance para homens que querem começar",
+        "description": "Conheça 19 mangás de romance para homens que querem começar no gênero, sem limitar recomendações a shōnen ou seinen.",
+        "canonical": "/blog/melhores-mangas-de-romance-para-homens"
+      },
+      "relationships": {
+        "related": [
+          "melhores-quadrinhos-mangas-de-terror",
+          "melhores-quadrinhos-mangas-de-vampiro",
+          "melhores-livros-de-terror"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-mangas-de-romance-para-homens.mdx",
+      "migrationReady": true
+    },
+    {
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
@@ -2340,6 +2440,105 @@
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-profissoes-digitais.mdx",
       "migrationReady": false
+    },
+    {
+      "id": "article_best_horror_comics_manga",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-quadrinhos-mangas-de-terror",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
+      "updatedAt": "2026-08-13",
+      "seo": {
+        "title": "24 melhores quadrinhos e mangás de terror",
+        "description": "Conheça 24 dos melhores quadrinhos e mangás de terror, com obras ocidentais, brasileiras e asiáticas organizadas por tipo de experiência.",
+        "canonical": "/blog/melhores-quadrinhos-mangas-de-terror"
+      },
+      "relationships": {
+        "related": [
+          "melhores-quadrinhos-mangas-de-vampiro",
+          "melhores-livros-de-terror",
+          "melhores-filmes-terror-seculo-21"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-quadrinhos-mangas-de-terror.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_best_vampire_comics_manga",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-quadrinhos-mangas-de-vampiro",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
+      "updatedAt": "2026-08-13",
+      "seo": {
+        "title": "18 melhores quadrinhos e mangás de vampiro",
+        "description": "Conheça 18 dos melhores quadrinhos e mangás de vampiro, de A Tumba de Drácula e Hellsing a Happiness, Vampeerz e graphic novels autorais.",
+        "canonical": "/blog/melhores-quadrinhos-mangas-de-vampiro"
+      },
+      "relationships": {
+        "related": [
+          "melhores-livros-de-vampiro",
+          "melhores-series-de-vampiro",
+          "melhores-filmes-de-vampiro"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-quadrinhos-mangas-de-vampiro.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_series_horror_essentials",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-series-de-terror",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
+      "updatedAt": "2026-08-13",
+      "seo": {
+        "title": "23 melhores séries de terror para assistir",
+        "description": "Conheça 23 das melhores séries de terror para assistir, de clássicos a It: Bem-Vindos a Derry, com opções de streaming no Brasil.",
+        "canonical": "/blog/melhores-series-de-terror"
+      },
+      "relationships": {
+        "related": [
+          "melhores-series-de-vampiro",
+          "melhores-filmes-terror-seculo-21",
+          "melhores-filmes-terror-netflix"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-series-de-terror.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_series_vampire_br",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-series-de-vampiro",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
+      "updatedAt": "2026-08-13",
+      "seo": {
+        "title": "Melhores séries de vampiro: 19 opções e onde assistir",
+        "description": "Conheça 19 das melhores séries de vampiro e veja onde assistir no Brasil, com terror, romance, comédia, anime e opções internacionais.",
+        "canonical": "/blog/melhores-series-de-vampiro"
+      },
+      "relationships": {
+        "related": [
+          "melhores-filmes-de-vampiro",
+          "melhores-filmes-terror-seculo-21"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-series-de-vampiro.mdx",
+      "migrationReady": true
     },
     {
       "id": null,
@@ -3048,6 +3247,31 @@
       },
       "sourceFile": "src/app/blog/posts/fundamentos/ronaldo-caiado-eleicoes-2026.mdx",
       "migrationReady": false
+    },
+    {
+      "id": "article_series_after_derry",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "series-para-quem-gostou-de-it-bem-vindos-a-derry",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
+      "updatedAt": "2026-08-13",
+      "seo": {
+        "title": "15 melhores séries para quem gostou de It: Bem-Vindos a Derry",
+        "description": "Veja 15 séries para quem gostou de It: Bem-Vindos a Derry, entenda a conexão de cada uma e confira onde assistir no Brasil.",
+        "canonical": "/blog/series-para-quem-gostou-de-it-bem-vindos-a-derry"
+      },
+      "relationships": {
+        "related": [
+          "melhores-series-de-terror",
+          "melhores-series-de-vampiro",
+          "melhores-filmes-terror-seculo-21"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/series-para-quem-gostou-de-it-bem-vindos-a-derry.mdx",
+      "migrationReady": true
     },
     {
       "id": null,

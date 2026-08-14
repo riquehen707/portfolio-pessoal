@@ -1,0 +1,2949 @@
+{
+  "schemaVersion": 1,
+  "contentType": "series-catalog",
+  "records": [
+    {
+      "id": "ser_buffy",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "buffy-a-caca-vampiros",
+      "aliases": [],
+      "titleBr": "Buffy: A Caça-Vampiros",
+      "originalTitle": "Buffy the Vampire Slayer",
+      "startYear": 1997,
+      "endYear": 2003,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Joss Whedon"
+      ],
+      "seasons": 7,
+      "genres": [
+        "Terror",
+        "Drama",
+        "Comédia"
+      ],
+      "themes": [],
+      "shortDescription": "Uma adolescente escolhida para caçar vampiros atravessa escola, amadurecimento e apocalipses sem separar monstros de problemas cotidianos.",
+      "audienceProfile": "Para quem aceita efeitos datados em troca de personagens, humor e uma série decisiva para a TV de gênero.",
+      "experience": "Ágil, afetiva e progressivamente sombria",
+      "contentWarnings": [
+        "Violência",
+        "Morte",
+        "Relacionamentos abusivos"
+      ],
+      "sources": [
+        {
+          "title": "Buffy: A Caça-Vampiros — Disney+ Brasil",
+          "url": "https://www.disneyplus.com/pt-br/browse/entity-f2c277c5-62b4-417c-b277-8435b70176dd"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_angel",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "angel",
+      "aliases": [],
+      "titleBr": "Angel",
+      "originalTitle": "Angel",
+      "startYear": 1999,
+      "endYear": 2004,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "David Greenwalt",
+        "Joss Whedon"
+      ],
+      "seasons": 5,
+      "genres": [
+        "Terror",
+        "Drama",
+        "Ação"
+      ],
+      "themes": [],
+      "shortDescription": "Um vampiro com consciência tenta construir uma prática de redenção em Los Angeles enquanto casos sobrenaturais se tornam dilemas morais.",
+      "audienceProfile": "Para quem quer um drama urbano mais adulto e serializado depois de Buffy.",
+      "experience": "Noir sobrenatural com humor amargo",
+      "contentWarnings": [],
+      "sources": [
+        {
+          "title": "Angel — Disney+ Brasil",
+          "url": "https://www.disneyplus.com/pt-br/browse/entity-8034c900-f242-4cea-96ba-1c6f61f812af"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_true_blood",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "true-blood",
+      "aliases": [
+        "sangue-fresco"
+      ],
+      "titleBr": "True Blood",
+      "originalTitle": "True Blood",
+      "startYear": 2008,
+      "endYear": 2014,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Alan Ball"
+      ],
+      "seasons": 7,
+      "genres": [
+        "Drama",
+        "Terror",
+        "Romance"
+      ],
+      "themes": [],
+      "shortDescription": "A existência pública dos vampiros transforma uma cidade da Louisiana em campo de disputa por desejo, direitos, religião e poder.",
+      "audienceProfile": "Para adultos que gostam de melodrama, sexo, política e excesso deliberado.",
+      "experience": "Erótica, sangrenta e satírica",
+      "contentWarnings": [
+        "Sexo explícito",
+        "Violência gráfica",
+        "Discriminação"
+      ],
+      "sources": [
+        {
+          "title": "True Blood — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/serie/sangue-fresco"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_vampire_diaries",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "diarios-do-vampiro",
+      "aliases": [],
+      "titleBr": "Diários do Vampiro",
+      "originalTitle": "The Vampire Diaries",
+      "startYear": 2009,
+      "endYear": 2017,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Kevin Williamson",
+        "Julie Plec"
+      ],
+      "seasons": 8,
+      "genres": [
+        "Drama",
+        "Romance",
+        "Fantasia"
+      ],
+      "themes": [],
+      "shortDescription": "Dois irmãos vampiros entram na vida de uma adolescente e ampliam um romance escolar até uma mitologia familiar de séculos.",
+      "audienceProfile": "Para quem procura romance sobrenatural viciante e aceita muitas reviravoltas.",
+      "experience": "Novelesca, romântica e veloz",
+      "contentWarnings": [],
+      "sources": [
+        {
+          "title": "Diários do Vampiro — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/serie/diarios-de-um-vampiro"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_originals",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "os-originais",
+      "aliases": [],
+      "titleBr": "Os Originais",
+      "originalTitle": "The Originals",
+      "startYear": 2013,
+      "endYear": 2018,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Julie Plec"
+      ],
+      "seasons": 5,
+      "genres": [
+        "Drama",
+        "Fantasia",
+        "Terror"
+      ],
+      "themes": [],
+      "shortDescription": "A família dos vampiros originais retorna a Nova Orleans e converte imortalidade em guerra dinástica, paternidade e disputa territorial.",
+      "audienceProfile": "Para quem prefere intriga familiar e política sobrenatural ao triângulo adolescente.",
+      "experience": "Barroca, familiar e conflituosa",
+      "contentWarnings": [],
+      "sources": [
+        {
+          "title": "Os Originais — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/serie/the-originals"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_interview",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "entrevista-com-o-vampiro-serie",
+      "aliases": [],
+      "titleBr": "Entrevista com o Vampiro",
+      "originalTitle": "Interview with the Vampire",
+      "startYear": 2022,
+      "status": "returning",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Rolin Jones"
+      ],
+      "seasons": 3,
+      "genres": [
+        "Drama",
+        "Terror gótico",
+        "Romance"
+      ],
+      "themes": [],
+      "shortDescription": "Louis narra sua vida com Lestat e expõe como memória, desejo e abuso alteram uma história contada mais de uma vez.",
+      "audienceProfile": "Para adultos interessados em drama queer, performances intensas e reinvenção literária.",
+      "experience": "Luxuosa, trágica e emocionalmente feroz",
+      "contentWarnings": [
+        "Relacionamento abusivo",
+        "Violência gráfica",
+        "Suicídio"
+      ],
+      "sources": [
+        {
+          "title": "Entrevista com o Vampiro — Prime Video Brasil",
+          "url": "https://www.primevideo.com/-/pt/detail/0TS257OBLLNSZJ9UK4Q2MLXYLE"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_midnight_mass",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "missa-da-meia-noite",
+      "aliases": [],
+      "titleBr": "Missa da Meia-Noite",
+      "originalTitle": "Midnight Mass",
+      "startYear": 2021,
+      "endYear": 2021,
+      "status": "limited",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Mike Flanagan"
+      ],
+      "seasons": 1,
+      "genres": [
+        "Terror",
+        "Drama"
+      ],
+      "themes": [],
+      "shortDescription": "Milagres numa ilha isolada aproximam fé, dependência e vampirismo sem transformar religião em resposta simples.",
+      "audienceProfile": "Para quem gosta de terror lento, diálogos longos e conflito espiritual.",
+      "experience": "Contemplativa, trágica e crescente",
+      "contentWarnings": [
+        "Fanatismo religioso",
+        "Alcoolismo",
+        "Suicídio",
+        "Violência"
+      ],
+      "sources": [
+        {
+          "title": "Missa da Meia-Noite — Netflix Brasil",
+          "url": "https://www.netflix.com/br/title/81083626"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_what_shadows",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "o-que-fazemos-nas-sombras-serie",
+      "aliases": [],
+      "titleBr": "O Que Fazemos nas Sombras",
+      "originalTitle": "What We Do in the Shadows",
+      "startYear": 2019,
+      "endYear": 2024,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Jemaine Clement"
+      ],
+      "seasons": 6,
+      "genres": [
+        "Comédia",
+        "Terror"
+      ],
+      "themes": [],
+      "shortDescription": "Um documentário acompanha vampiros centenários que dividem casa e fracassam repetidamente nas tarefas mais banais da vida noturna.",
+      "audienceProfile": "Para quem quer começar com comédia e conhecer as regras do gênero pela paródia.",
+      "experience": "Absurda, calorosa e muito engraçada",
+      "contentWarnings": [],
+      "sources": [
+        {
+          "title": "What We Do in the Shadows — Disney+ Brasil",
+          "url": "https://www.disneyplus.com/pt-br/browse/entity-0b10c46a-12f0-4357-8a00-547057b49bac"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_castlevania",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "castlevania",
+      "aliases": [],
+      "titleBr": "Castlevania",
+      "originalTitle": "Castlevania",
+      "startYear": 2017,
+      "endYear": 2021,
+      "status": "ended",
+      "format": "animation",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Warren Ellis"
+      ],
+      "seasons": 4,
+      "genres": [
+        "Animação",
+        "Terror",
+        "Ação"
+      ],
+      "themes": [],
+      "shortDescription": "A vingança de Drácula contra a humanidade reúne um caçador, uma maga e o filho do próprio vampiro numa guerra de grande escala.",
+      "audienceProfile": "Para adultos que procuram animação violenta, fantasia sombria e personagens fortes.",
+      "experience": "Sangrenta, dinâmica e melancólica",
+      "contentWarnings": [
+        "Violência gráfica",
+        "Abuso religioso"
+      ],
+      "sources": [
+        {
+          "title": "Castlevania — Netflix Brasil",
+          "url": "https://www.netflix.com/br/title/80095241"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_castlevania_nocturne",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "castlevania-noturno",
+      "aliases": [],
+      "titleBr": "Castlevania: Noturno",
+      "originalTitle": "Castlevania: Nocturne",
+      "startYear": 2023,
+      "endYear": 2025,
+      "status": "ended",
+      "format": "animation",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Clive Bradley"
+      ],
+      "seasons": 2,
+      "genres": [
+        "Animação",
+        "Terror",
+        "Ação"
+      ],
+      "themes": [],
+      "shortDescription": "A Revolução Francesa vira cenário para uma nova geração de caçadores enfrentar aristocratas vampiros e colonialismo.",
+      "audienceProfile": "Para quem já gosta do universo ou quer ação animada com conflito histórico.",
+      "experience": "Operística, política e violenta",
+      "contentWarnings": [
+        "Violência gráfica",
+        "Escravidão"
+      ],
+      "sources": [
+        {
+          "title": "Castlevania: Noturno — Netflix Brasil",
+          "url": "https://www.netflix.com/br/title/81436901"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_vampire_garden",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "vampire-in-the-garden",
+      "aliases": [],
+      "titleBr": "Vampire in the Garden",
+      "originalTitle": "Vampire in the Garden",
+      "startYear": 2022,
+      "endYear": 2022,
+      "status": "limited",
+      "format": "anime",
+      "countries": [
+        "Japão"
+      ],
+      "originalLanguages": [
+        "Japonês"
+      ],
+      "creators": [
+        "Ryotaro Makihara"
+      ],
+      "seasons": 1,
+      "episodes": 5,
+      "genres": [
+        "Anime",
+        "Drama",
+        "Fantasia"
+      ],
+      "themes": [],
+      "shortDescription": "Uma garota humana e uma rainha vampira fogem de sociedades em guerra procurando um lugar onde música e convivência ainda sejam possíveis.",
+      "audienceProfile": "Para quem quer uma minissérie animada curta, melancólica e centrada em afeto.",
+      "experience": "Íntima, pós-apocalíptica e triste",
+      "contentWarnings": [],
+      "sources": [
+        {
+          "title": "Vampire in the Garden — Netflix Brasil",
+          "url": "https://www.netflix.com/br/title/80996247"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_sirius",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "sirius-the-jaeger",
+      "aliases": [],
+      "titleBr": "Sirius the Jaeger",
+      "originalTitle": "Tenrō: Sirius the Jaeger",
+      "startYear": 2018,
+      "endYear": 2018,
+      "status": "limited",
+      "format": "anime",
+      "countries": [
+        "Japão"
+      ],
+      "originalLanguages": [
+        "Japonês"
+      ],
+      "creators": [
+        "Masahiro Ando"
+      ],
+      "seasons": 1,
+      "genres": [
+        "Anime",
+        "Ação",
+        "Fantasia"
+      ],
+      "themes": [],
+      "shortDescription": "Caçadores perseguem vampiros na Tóquio imperial enquanto um jovem lobisomem enfrenta o passado de sua família.",
+      "audienceProfile": "Para quem prefere ação compacta, monstros clássicos e animação japonesa.",
+      "experience": "Rápida, elegante e pulp",
+      "contentWarnings": [],
+      "sources": [
+        {
+          "title": "Sirius the Jaeger — Netflix Brasil",
+          "url": "https://www.netflix.com/br/title/80997339"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_dracula_2020",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "dracula-2020",
+      "aliases": [],
+      "titleBr": "Drácula",
+      "originalTitle": "Dracula",
+      "startYear": 2020,
+      "endYear": 2020,
+      "status": "limited",
+      "format": "live-action",
+      "countries": [
+        "Reino Unido"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Mark Gatiss",
+        "Steven Moffat"
+      ],
+      "seasons": 1,
+      "episodes": 3,
+      "genres": [
+        "Terror",
+        "Drama",
+        "Gótico"
+      ],
+      "themes": [],
+      "shortDescription": "Três episódios longos reconfiguram encontros clássicos com Drácula e mudam radicalmente tempo, espaço e adversários.",
+      "audienceProfile": "Para quem aceita uma adaptação irregular, espirituosa e cheia de desvios.",
+      "experience": "Gótica, autoconsciente e provocadora",
+      "contentWarnings": [
+        "Violência",
+        "Sangue"
+      ],
+      "sources": [
+        {
+          "title": "Drácula — Netflix Brasil",
+          "url": "https://www.netflix.com/br/title/80997687"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_strain",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "the-strain",
+      "aliases": [],
+      "titleBr": "The Strain",
+      "originalTitle": "The Strain",
+      "startYear": 2014,
+      "endYear": 2017,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Guillermo del Toro",
+        "Chuck Hogan"
+      ],
+      "seasons": 4,
+      "genres": [
+        "Terror",
+        "Suspense",
+        "Ficção científica"
+      ],
+      "themes": [],
+      "shortDescription": "Uma investigação epidemiológica trata vampirismo como parasita e transforma Nova York em zona de contágio e cerco.",
+      "audienceProfile": "Para quem quer monstros repulsivos, ritmo de thriller e horror corporal.",
+      "experience": "Urgente, grotesca e apocalíptica",
+      "contentWarnings": [
+        "Horror corporal",
+        "Violência gráfica",
+        "Epidemia"
+      ],
+      "sources": [
+        {
+          "title": "The Strain — Disney+ Brasil",
+          "url": "https://www.disneyplus.com/pt-br/browse/entity-d424ff74-760e-4070-a490-73b89d180fc4"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_being_human_uk",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "being-human-uk",
+      "aliases": [],
+      "titleBr": "Being Human",
+      "originalTitle": "Being Human",
+      "startYear": 2008,
+      "endYear": 2013,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Reino Unido"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Toby Whithouse"
+      ],
+      "seasons": 5,
+      "genres": [
+        "Drama",
+        "Terror",
+        "Comédia"
+      ],
+      "themes": [],
+      "shortDescription": "Um vampiro, um lobisomem e uma fantasma dividem casa e tentam praticar humanidade apesar dos impulsos e sistemas que os cercam.",
+      "audienceProfile": "Para quem valoriza convivência, humor britânico e consequências emocionais.",
+      "experience": "Doméstica, espirituosa e dolorosa",
+      "contentWarnings": [],
+      "sources": [
+        {
+          "title": "Being Human — BBC",
+          "url": "https://www.bbc.co.uk/programmes/b00hqlc4"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_carmilla",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "carmilla-webserie",
+      "aliases": [],
+      "titleBr": "Carmilla",
+      "originalTitle": "Carmilla",
+      "startYear": 2014,
+      "endYear": 2016,
+      "status": "ended",
+      "format": "web-series",
+      "countries": [
+        "Canadá"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Jordan Hall"
+      ],
+      "seasons": 3,
+      "genres": [
+        "Comédia",
+        "Romance",
+        "Mistério"
+      ],
+      "themes": [],
+      "shortDescription": "Uma estudante investiga desaparecimentos no campus enquanto sua enigmática colega de quarto aproxima a novela de Sheridan Le Fanu da cultura de vlog.",
+      "audienceProfile": "Para quem quer romance queer, episódios curtos e produção independente assumidamente modesta.",
+      "experience": "Leve, inventiva e íntima",
+      "contentWarnings": [],
+      "sources": [
+        {
+          "title": "Carmilla — temporada 1 oficial, KindaTV",
+          "url": "https://www.youtube.com/watch?v=3uPd3g5wi1A"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_first_kill",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "first-kill",
+      "aliases": [],
+      "titleBr": "First Kill",
+      "originalTitle": "First Kill",
+      "startYear": 2022,
+      "endYear": 2022,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "V. E. Schwab"
+      ],
+      "seasons": 1,
+      "episodes": 8,
+      "genres": [
+        "Romance",
+        "Drama",
+        "Fantasia"
+      ],
+      "themes": [],
+      "shortDescription": "Uma vampira e uma caçadora adolescentes se apaixonam enquanto as famílias exigem que cada uma cumpra o papel herdado.",
+      "audienceProfile": "Para quem quer romance queer juvenil e aceita uma história cancelada sem conclusão.",
+      "experience": "Novelesca, romântica e incompleta",
+      "contentWarnings": [
+        "Violência",
+        "Cancelada após uma temporada"
+      ],
+      "sources": [
+        {
+          "title": "First Kill — Netflix",
+          "url": "https://www.netflix.com/title/81213653"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_immortals_tr",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "imortais-serie-turca",
+      "aliases": [],
+      "titleBr": "Imortais",
+      "originalTitle": "Yaşamayanlar",
+      "startYear": 2018,
+      "endYear": 2018,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Turquia"
+      ],
+      "originalLanguages": [
+        "Turco"
+      ],
+      "creators": [
+        "Alphan Eşeli"
+      ],
+      "seasons": 1,
+      "episodes": 8,
+      "genres": [
+        "Drama",
+        "Terror",
+        "Fantasia"
+      ],
+      "themes": [],
+      "shortDescription": "Transformada contra a vontade, Mia retorna a Istambul para matar o vampiro que roubou sua humanidade e disputar um artefato de poder.",
+      "audienceProfile": "Para quem busca uma variação turca compacta e aceita acabamento irregular.",
+      "experience": "Sombria, urbana e movida por vingança",
+      "contentWarnings": [],
+      "sources": [
+        {
+          "title": "Immortals — Netflix",
+          "url": "https://www.netflix.com/title/81026095"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_discovery_witches",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "a-noite-de-todas-as-almas",
+      "aliases": [
+        "a-descoberta-das-bruxas"
+      ],
+      "titleBr": "A Noite de Todas as Almas",
+      "originalTitle": "A Discovery of Witches",
+      "startYear": 2018,
+      "endYear": 2022,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Reino Unido"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Kate Brooke"
+      ],
+      "seasons": 3,
+      "genres": [
+        "Drama",
+        "Romance",
+        "Fantasia"
+      ],
+      "themes": [],
+      "shortDescription": "Uma historiadora bruxa e um vampiro geneticista formam uma aliança que atravessa bibliotecas, linhagens e conflitos entre espécies.",
+      "audienceProfile": "Para quem quer romance adulto, fantasia histórica e ritmo deliberado.",
+      "experience": "Romântica, elegante e expositiva",
+      "contentWarnings": [],
+      "sources": [
+        {
+          "title": "A Discovery of Witches — Prime Video Brasil",
+          "url": "https://www.primevideo.com/-/pt/detail/0MC2YPA38DSTPZJUSP5H4IC7TE"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_vwars",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "v-wars",
+      "aliases": [],
+      "titleBr": "V Wars",
+      "originalTitle": "V Wars",
+      "startYear": 2019,
+      "endYear": 2019,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Canadá"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "William Laurin",
+        "Glenn Davis"
+      ],
+      "seasons": 1,
+      "episodes": 10,
+      "genres": [
+        "Ficção científica",
+        "Terror",
+        "Suspense"
+      ],
+      "themes": [],
+      "shortDescription": "Uma doença transforma parte da população e rompe a amizade entre um cientista e o líder emergente dos chamados Bloods.",
+      "audienceProfile": "Para quem gosta de conspiração e epidemia, sabendo que a história foi cancelada cedo.",
+      "experience": "Distópica, direta e incompleta",
+      "contentWarnings": [
+        "Epidemia",
+        "Violência",
+        "Cancelada após uma temporada"
+      ],
+      "sources": [
+        {
+          "title": "V Wars — Netflix Brasil",
+          "url": "https://www.netflix.com/br/title/80236118"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_twilight_zone",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "alem-da-imaginacao-1959",
+      "aliases": [
+        "alem-da-imaginacao"
+      ],
+      "titleBr": "Além da Imaginação",
+      "originalTitle": "The Twilight Zone",
+      "startYear": 1959,
+      "endYear": 1964,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Rod Serling"
+      ],
+      "seasons": 5,
+      "genres": [
+        "Antologia",
+        "Terror",
+        "Ficção científica"
+      ],
+      "themes": [],
+      "shortDescription": "Histórias independentes usam o fantástico, a paranoia e a ironia para deslocar medos sociais e escolhas morais para uma zona sem regras estáveis.",
+      "audienceProfile": "Para quem aceita televisão clássica e quer conhecer a gramática da antologia moderna.",
+      "experience": "Concisa, imaginativa e moralmente inquieta",
+      "contentWarnings": [],
+      "sources": [
+        {
+          "title": "The Twilight Zone — Britannica",
+          "url": "https://www.britannica.com/topic/The-Twilight-Zone-American-television-program"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_twin_peaks",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "twin-peaks",
+      "aliases": [],
+      "titleBr": "Twin Peaks",
+      "originalTitle": "Twin Peaks",
+      "startYear": 1990,
+      "endYear": 2017,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "David Lynch",
+        "Mark Frost"
+      ],
+      "seasons": 3,
+      "genres": [
+        "Mistério",
+        "Terror",
+        "Drama"
+      ],
+      "themes": [],
+      "shortDescription": "A investigação da morte de Laura Palmer revela uma cidade em que melodrama, violência doméstica, sonho e forças sobrenaturais ocupam a mesma paisagem.",
+      "audienceProfile": "Para quem aceita desvios, humor excêntrico e uma terceira temporada radicalmente experimental.",
+      "experience": "Onírica, engraçada e profundamente perturbadora",
+      "contentWarnings": [
+        "Violência sexual",
+        "Abuso doméstico",
+        "Assassinato"
+      ],
+      "sources": [
+        {
+          "title": "Twin Peaks — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/serie/twin-peaks"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_hannibal",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "hannibal-serie",
+      "aliases": [],
+      "titleBr": "Hannibal",
+      "originalTitle": "Hannibal",
+      "startYear": 2013,
+      "endYear": 2015,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Bryan Fuller"
+      ],
+      "seasons": 3,
+      "genres": [
+        "Terror psicológico",
+        "Crime",
+        "Drama"
+      ],
+      "themes": [],
+      "shortDescription": "A relação entre o profiler Will Graham e Hannibal Lecter transforma investigação criminal em sedução, manipulação e horror corporal de composição minuciosa.",
+      "audienceProfile": "Para adultos interessados em linguagem visual extrema e relações obsessivas.",
+      "experience": "Elegante, operística e grotesca",
+      "contentWarnings": [
+        "Canibalismo",
+        "Violência gráfica",
+        "Manipulação psicológica"
+      ],
+      "sources": [
+        {
+          "title": "Hannibal — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/serie/hannibal"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_penny_dreadful",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "penny-dreadful",
+      "aliases": [],
+      "titleBr": "Penny Dreadful",
+      "originalTitle": "Penny Dreadful",
+      "startYear": 2014,
+      "endYear": 2016,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos",
+        "Reino Unido"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "John Logan"
+      ],
+      "seasons": 3,
+      "genres": [
+        "Terror gótico",
+        "Drama",
+        "Fantasia"
+      ],
+      "themes": [],
+      "shortDescription": "Vanessa Ives cruza a Londres vitoriana de Frankenstein, Drácula, Dorian Gray e outras figuras literárias sem reduzir o encontro a catálogo de referências.",
+      "audienceProfile": "Para quem quer gótico adulto, atuações intensas e horror literário.",
+      "experience": "Suntuosa, trágica e teatral",
+      "contentWarnings": [
+        "Sexo",
+        "Violência",
+        "Possessão"
+      ],
+      "sources": [
+        {
+          "title": "Penny Dreadful — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/serie/penny-dreadful"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_channel_zero",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "channel-zero",
+      "aliases": [],
+      "titleBr": "Channel Zero",
+      "originalTitle": "Channel Zero",
+      "startYear": 2016,
+      "endYear": 2018,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos",
+        "Canadá"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Nick Antosca"
+      ],
+      "seasons": 4,
+      "genres": [
+        "Antologia",
+        "Terror sobrenatural",
+        "Surrealismo"
+      ],
+      "themes": [],
+      "shortDescription": "Cada temporada transforma uma creepypasta em seis episódios, usando imagens da internet como ponto de partida para traumas e mundos próprios.",
+      "audienceProfile": "Para quem procura conceitos estranhos, temporadas curtas e horror menos domesticado.",
+      "experience": "Inventiva, desconfortável e irregular",
+      "contentWarnings": [
+        "Violência",
+        "Horror corporal",
+        "Crianças em perigo"
+      ],
+      "sources": [
+        {
+          "title": "Channel Zero — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/serie/channel-zero"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_the_terror",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "the-terror",
+      "aliases": [],
+      "titleBr": "The Terror",
+      "originalTitle": "The Terror",
+      "startYear": 2018,
+      "status": "returning",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês",
+        "Japonês"
+      ],
+      "creators": [
+        "David Kajganich",
+        "Alexander Woo"
+      ],
+      "seasons": 3,
+      "genres": [
+        "Antologia",
+        "Terror histórico",
+        "Sobrevivência"
+      ],
+      "themes": [],
+      "shortDescription": "Temporadas independentes aproximam acontecimentos históricos de presenças sobrenaturais, isolamento e instituições que ampliam o medo.",
+      "audienceProfile": "Para quem gosta de ritmo lento, ambientes hostis e horror histórico.",
+      "experience": "Gélida, paciente e opressiva",
+      "contentWarnings": [
+        "Canibalismo",
+        "Violência",
+        "Racismo",
+        "Confinamento"
+      ],
+      "sources": [
+        {
+          "title": "The Terror — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/serie/the-terror"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_hill_house",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "a-maldicao-da-residencia-hill",
+      "aliases": [],
+      "titleBr": "A Maldição da Residência Hill",
+      "originalTitle": "The Haunting of Hill House",
+      "startYear": 2018,
+      "endYear": 2018,
+      "status": "limited",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Mike Flanagan"
+      ],
+      "seasons": 1,
+      "episodes": 10,
+      "genres": [
+        "Terror sobrenatural",
+        "Drama",
+        "Casa assombrada"
+      ],
+      "themes": [],
+      "shortDescription": "Uma família revive a casa que desorganizou infância, memória e vínculos, enquanto fantasmas visíveis e ocultos ocupam passado e presente.",
+      "audienceProfile": "Para quem quer terror emocional, estrutura temporal e episódios de grande elaboração formal.",
+      "experience": "Melancólica, assustadora e familiar",
+      "contentWarnings": [
+        "Suicídio",
+        "Dependência química",
+        "Luto"
+      ],
+      "sources": [
+        {
+          "title": "A Maldição da Residência Hill — Netflix Brasil",
+          "url": "https://www.netflix.com/br/title/80189221"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_marianne",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "marianne",
+      "aliases": [],
+      "titleBr": "Marianne",
+      "originalTitle": "Marianne",
+      "startYear": 2019,
+      "endYear": 2019,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "França"
+      ],
+      "originalLanguages": [
+        "Francês"
+      ],
+      "creators": [
+        "Samuel Bodin"
+      ],
+      "seasons": 1,
+      "episodes": 8,
+      "genres": [
+        "Terror sobrenatural",
+        "Bruxaria",
+        "Drama"
+      ],
+      "themes": [],
+      "shortDescription": "Uma escritora retorna à cidade natal quando a bruxa de seus livros começa a invadir corpos, casas e lembranças que ela tentou abandonar.",
+      "audienceProfile": "Para quem procura uma temporada direta, imagens agressivas e terror francês.",
+      "experience": "Maliciosa, física e sombria",
+      "contentWarnings": [
+        "Suicídio",
+        "Violência",
+        "Morte de animais"
+      ],
+      "sources": [
+        {
+          "title": "Marianne — Netflix Brasil",
+          "url": "https://www.netflix.com/br/title/80217779"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_kingdom",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "kingdom-serie-coreana",
+      "aliases": [],
+      "titleBr": "Kingdom",
+      "originalTitle": "Kingdom",
+      "startYear": 2019,
+      "endYear": 2020,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Coreia do Sul"
+      ],
+      "originalLanguages": [
+        "Coreano"
+      ],
+      "creators": [
+        "Kim Eun-hee"
+      ],
+      "seasons": 2,
+      "genres": [
+        "Terror",
+        "Zumbis",
+        "Drama histórico"
+      ],
+      "themes": [],
+      "shortDescription": "Uma epidemia de mortos famintos atravessa a Coreia Joseon enquanto sucessão real, fome e corrupção impedem respostas simples à catástrofe.",
+      "audienceProfile": "Para quem quer zumbis rápidos, intriga política e ação histórica muito clara.",
+      "experience": "Urgente, política e visualmente precisa",
+      "contentWarnings": [
+        "Violência gráfica",
+        "Epidemia",
+        "Fome"
+      ],
+      "sources": [
+        {
+          "title": "Kingdom — Netflix Brasil",
+          "url": "https://www.netflix.com/br/title/80180171"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_yellowjackets",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "yellowjackets",
+      "aliases": [],
+      "titleBr": "Yellowjackets",
+      "originalTitle": "Yellowjackets",
+      "startYear": 2021,
+      "status": "returning",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Ashley Lyle",
+        "Bart Nickerson"
+      ],
+      "seasons": 4,
+      "genres": [
+        "Terror psicológico",
+        "Sobrevivência",
+        "Drama"
+      ],
+      "themes": [],
+      "shortDescription": "Sobreviventes de um acidente aéreo carregam para a vida adulta versões incompatíveis do que aconteceu na floresta e do que escolheram acreditar.",
+      "audienceProfile": "Para quem gosta de mistério prolongado, personagens falhas e ambiguidade sobrenatural.",
+      "experience": "Febril, fragmentada e canibal",
+      "contentWarnings": [
+        "Canibalismo",
+        "Automutilação",
+        "Violência"
+      ],
+      "sources": [
+        {
+          "title": "Yellowjackets — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/serie/yellowjackets"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_from",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "from-a-origem-do-mal",
+      "aliases": [
+        "from"
+      ],
+      "titleBr": "From: A Origem do Mal",
+      "originalTitle": "From",
+      "startYear": 2022,
+      "status": "returning",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "John Griffin"
+      ],
+      "seasons": 4,
+      "genres": [
+        "Terror sobrenatural",
+        "Mistério",
+        "Sobrevivência"
+      ],
+      "themes": [],
+      "shortDescription": "Uma cidade sem saída obriga moradores a criar regras contra criaturas noturnas enquanto cada tentativa de fuga abre um novo nível do enigma.",
+      "audienceProfile": "Para quem gosta de mitologia serializada e aceita respostas graduais.",
+      "experience": "Tensa, viciante e cheia de perguntas",
+      "contentWarnings": [],
+      "sources": [
+        {
+          "title": "From — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/serie/from"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_it_derry",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "it-bem-vindos-a-derry",
+      "aliases": [],
+      "titleBr": "It: Bem-Vindos a Derry",
+      "originalTitle": "It: Welcome to Derry",
+      "startYear": 2025,
+      "status": "returning",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Andy Muschietti",
+        "Barbara Muschietti",
+        "Jason Fuchs"
+      ],
+      "seasons": 1,
+      "episodes": 8,
+      "genres": [
+        "Terror sobrenatural",
+        "Horror cósmico",
+        "Drama histórico"
+      ],
+      "themes": [],
+      "shortDescription": "Derry em 1962 revela como violência racial, silêncio comunitário e ciclos de desaparecimento preparam terreno para o retorno da entidade conhecida como Pennywise.",
+      "audienceProfile": "Para quem quer horror contemporâneo de grande escala e aceita efeitos digitais e ritmos desiguais.",
+      "experience": "Ambiciosa, histórica e visualmente macabra",
+      "contentWarnings": [
+        "Violência contra crianças",
+        "Racismo",
+        "Violência gráfica"
+      ],
+      "sources": [
+        {
+          "title": "It: Bem-Vindos a Derry — HBO Max Brasil",
+          "url": "https://www.youtube.com/watch?v=hdCIZK2zcYw"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_chucky",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "chucky-serie",
+      "aliases": [],
+      "titleBr": "Chucky",
+      "originalTitle": "Chucky",
+      "startYear": 2021,
+      "endYear": 2024,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Don Mancini"
+      ],
+      "seasons": 3,
+      "genres": [
+        "Slasher",
+        "Comédia de terror",
+        "Drama adolescente"
+      ],
+      "themes": [],
+      "shortDescription": "O boneco assassino chega a uma cidade pequena e conecta novos adolescentes à continuidade acumulada da franquia sem abandonar humor e gore.",
+      "audienceProfile": "Para quem quer slasher autoconsciente, personagens queer e continuidade de longa duração.",
+      "experience": "Sangrenta, irreverente e surpreendentemente afetiva",
+      "contentWarnings": [
+        "Violência gráfica",
+        "Bullying"
+      ],
+      "sources": [
+        {
+          "title": "Chucky — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/serie/chucky"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_30_coins",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "30-moedas",
+      "aliases": [],
+      "titleBr": "30 Moedas",
+      "originalTitle": "30 monedas",
+      "startYear": 2020,
+      "endYear": 2023,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Espanha"
+      ],
+      "originalLanguages": [
+        "Espanhol"
+      ],
+      "creators": [
+        "Álex de la Iglesia"
+      ],
+      "seasons": 2,
+      "genres": [
+        "Terror religioso",
+        "Fantasia",
+        "Mistério"
+      ],
+      "themes": [],
+      "shortDescription": "Uma moeda de Judas leva um padre, uma veterinária e um prefeito a uma conspiração católica que cresce do horror rural ao apocalipse delirante.",
+      "audienceProfile": "Para quem gosta de monstros, conspiração e excesso espanhol sem sobriedade obrigatória.",
+      "experience": "Barroca, blasfema e descontrolada",
+      "contentWarnings": [
+        "Violência gráfica",
+        "Temas religiosos",
+        "Horror corporal"
+      ],
+      "sources": [
+        {
+          "title": "30 Moedas — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/serie/30-monedas"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_joko_nightmares",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "pesadelos-e-devaneios-de-joko-anwar",
+      "aliases": [],
+      "titleBr": "Pesadelos e Devaneios de Joko Anwar",
+      "originalTitle": "Joko Anwar's Nightmares and Daydreams",
+      "startYear": 2024,
+      "endYear": 2024,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Indonésia"
+      ],
+      "originalLanguages": [
+        "Indonésio"
+      ],
+      "creators": [
+        "Joko Anwar"
+      ],
+      "seasons": 1,
+      "episodes": 7,
+      "genres": [
+        "Antologia",
+        "Terror",
+        "Ficção científica"
+      ],
+      "themes": [],
+      "shortDescription": "Sete histórias conectam exploração econômica, fenômenos sobrenaturais e ficção científica por bairros e comunidades da Indonésia contemporânea.",
+      "audienceProfile": "Para quem quer ampliar a geografia do gênero e aceita conexões mais ambiciosas que conclusivas.",
+      "experience": "Social, surreal e expansiva",
+      "contentWarnings": [],
+      "sources": [
+        {
+          "title": "Pesadelos e Devaneios — Netflix Brasil",
+          "url": "https://www.netflix.com/br/title/81582069"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_juon_origins",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "ju-on-origens",
+      "aliases": [],
+      "titleBr": "Ju-On: Origens",
+      "originalTitle": "Ju-On: Origins",
+      "startYear": 2020,
+      "endYear": 2020,
+      "status": "limited",
+      "format": "live-action",
+      "countries": [
+        "Japão"
+      ],
+      "originalLanguages": [
+        "Japonês"
+      ],
+      "creators": [
+        "Hiroshi Takahashi"
+      ],
+      "seasons": 1,
+      "episodes": 6,
+      "genres": [
+        "Terror sobrenatural",
+        "Drama",
+        "Maldição"
+      ],
+      "themes": [],
+      "shortDescription": "Casos separados convergem numa casa marcada por violência, deslocando a franquia para uma crueldade humana mais seca e serializada.",
+      "audienceProfile": "Para adultos que querem horror japonês severo e não dependem dos fantasmas mais conhecidos da franquia.",
+      "experience": "Sombria, fragmentada e cruel",
+      "contentWarnings": [
+        "Violência sexual",
+        "Violência doméstica",
+        "Morte infantil"
+      ],
+      "sources": [
+        {
+          "title": "Ju-On: Origins — Netflix",
+          "url": "https://www.netflix.com/title/81059942"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_gannibal",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "gannibal",
+      "aliases": [
+        "canibal-serie-japonesa"
+      ],
+      "titleBr": "Canibal",
+      "originalTitle": "Gannibal",
+      "startYear": 2022,
+      "endYear": 2025,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Japão"
+      ],
+      "originalLanguages": [
+        "Japonês"
+      ],
+      "creators": [
+        "Takamasa Oe"
+      ],
+      "seasons": 2,
+      "genres": [
+        "Folk horror",
+        "Mistério",
+        "Crime"
+      ],
+      "themes": [],
+      "shortDescription": "Um policial deslocado para uma vila montanhosa suspeita que a família dominante protege uma prática de canibalismo e uma ordem social própria.",
+      "audienceProfile": "Para quem procura horror rural japonês, investigação e violência contida até explodir.",
+      "experience": "Paranoica, rural e brutal",
+      "contentWarnings": [
+        "Canibalismo",
+        "Violência gráfica",
+        "Crianças em perigo"
+      ],
+      "sources": [
+        {
+          "title": "Gannibal — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/serie/gannibal"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_cabinet",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "gabinete-de-curiosidades-guillermo-del-toro",
+      "aliases": [],
+      "titleBr": "O Gabinete de Curiosidades de Guillermo del Toro",
+      "originalTitle": "Guillermo del Toro's Cabinet of Curiosities",
+      "startYear": 2022,
+      "endYear": 2022,
+      "status": "limited",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Guillermo del Toro"
+      ],
+      "seasons": 1,
+      "episodes": 8,
+      "genres": [
+        "Antologia",
+        "Terror sobrenatural",
+        "Horror corporal"
+      ],
+      "themes": [],
+      "shortDescription": "Oito diretores recebem espaço para explorar criaturas, ocultismo, adaptação literária e estranheza sem buscar uma identidade visual única.",
+      "audienceProfile": "Para quem quer experimentar vertentes e cineastas diferentes em episódios independentes.",
+      "experience": "Variada, artesanal e grotesca",
+      "contentWarnings": [
+        "Violência gráfica",
+        "Horror corporal"
+      ],
+      "sources": [
+        {
+          "title": "Gabinete de Curiosidades — Netflix Brasil",
+          "url": "https://www.netflix.com/br/title/80209229"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_last_of_us",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "the-last-of-us-serie",
+      "aliases": [],
+      "titleBr": "The Last of Us",
+      "originalTitle": "The Last of Us",
+      "startYear": 2023,
+      "status": "returning",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Craig Mazin",
+        "Neil Druckmann"
+      ],
+      "seasons": 2,
+      "genres": [
+        "Terror pós-apocalíptico",
+        "Drama",
+        "Ficção científica"
+      ],
+      "themes": [],
+      "shortDescription": "Uma travessia por uma sociedade destruída por fungos infectantes coloca vínculo, violência e escolhas morais acima da simples sobrevivência.",
+      "audienceProfile": "Para quem aceita que o drama humano frequentemente ocupe mais espaço que as criaturas.",
+      "experience": "Dolorosa, íntima e brutal",
+      "contentWarnings": [
+        "Violência gráfica",
+        "Suicídio",
+        "Luto"
+      ],
+      "sources": [
+        {
+          "title": "The Last of Us — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/serie/the-last-of-us"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_desalma",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "desalma",
+      "aliases": [],
+      "titleBr": "Desalma",
+      "originalTitle": "Desalma",
+      "startYear": 2020,
+      "endYear": 2022,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Brasil"
+      ],
+      "originalLanguages": [
+        "Português"
+      ],
+      "creators": [
+        "Ana Paula Maia"
+      ],
+      "seasons": 2,
+      "genres": [
+        "Folk horror",
+        "Drama",
+        "Terror sobrenatural"
+      ],
+      "themes": [],
+      "shortDescription": "Numa colônia ucraniana do sul do Brasil, o retorno de uma festa tradicional reabre desaparecimentos, rituais e memórias familiares.",
+      "audienceProfile": "Para quem quer folk horror brasileiro, atmosfera fria e ritmo contemplativo.",
+      "experience": "Rural, melancólica e ritualística",
+      "contentWarnings": [
+        "Violência",
+        "Luto",
+        "Rituais"
+      ],
+      "sources": [
+        {
+          "title": "Desalma — Globoplay",
+          "url": "https://globoplay.globo.com/desalma/t/9KrqC8HqTp/"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_stranger_things",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "stranger-things",
+      "aliases": [],
+      "titleBr": "Stranger Things",
+      "originalTitle": "Stranger Things",
+      "startYear": 2016,
+      "endYear": 2025,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Matt Duffer",
+        "Ross Duffer"
+      ],
+      "seasons": 5,
+      "episodes": 42,
+      "genres": [
+        "Terror sobrenatural",
+        "Ficção científica",
+        "Drama adolescente"
+      ],
+      "themes": [
+        "Amadurecimento",
+        "Desaparecimentos",
+        "Cidade pequena"
+      ],
+      "shortDescription": "O desaparecimento de um garoto expõe experiências secretas, uma dimensão hostil e a vulnerabilidade de Hawkins a invasões que atravessam gerações.",
+      "audienceProfile": "Para quem quer amizade juvenil, aventura e monstros em escala crescente.",
+      "experience": "Nostálgica, afetiva e espetacular",
+      "contentWarnings": [
+        "Violência contra crianças e adolescentes",
+        "Luto",
+        "Horror corporal"
+      ],
+      "sources": [
+        {
+          "title": "Stranger Things — Netflix Brasil",
+          "url": "https://www.netflix.com/br/title/80057281"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_dark",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "dark",
+      "aliases": [],
+      "titleBr": "Dark",
+      "originalTitle": "Dark",
+      "startYear": 2017,
+      "endYear": 2020,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "creators": [
+        "Baran bo Odar",
+        "Jantje Friese"
+      ],
+      "seasons": 3,
+      "episodes": 26,
+      "genres": [
+        "Mistério",
+        "Ficção científica",
+        "Terror psicológico"
+      ],
+      "themes": [
+        "Horror cíclico",
+        "Desaparecimentos",
+        "Segredos familiares"
+      ],
+      "shortDescription": "O desaparecimento de uma criança revela como quatro famílias de Winden estão presas a uma história que atravessa gerações e desafia a ordem do tempo.",
+      "audienceProfile": "Para quem gosta de enigmas densos, árvores familiares e narrativas que exigem atenção.",
+      "experience": "Sombria, cerebral e fatalista",
+      "contentWarnings": [
+        "Suicídio",
+        "Morte de crianças",
+        "Violência"
+      ],
+      "sources": [
+        {
+          "title": "Dark — Netflix Brasil",
+          "url": "https://www.netflix.com/br/title/80100172"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_castle_rock",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "castle-rock",
+      "aliases": [],
+      "titleBr": "Castle Rock",
+      "originalTitle": "Castle Rock",
+      "startYear": 2018,
+      "endYear": 2019,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Sam Shaw",
+        "Dustin Thomason"
+      ],
+      "seasons": 2,
+      "episodes": 20,
+      "genres": [
+        "Terror psicológico",
+        "Mistério",
+        "Drama"
+      ],
+      "themes": [
+        "Cidade pequena",
+        "Trauma coletivo",
+        "Segredos históricos"
+      ],
+      "shortDescription": "Histórias autônomas usam a cidade fictícia de Stephen King como um organismo de memórias violentas, famílias marcadas e instituições que enterram seus crimes.",
+      "audienceProfile": "Para quem conhece King, mas aceita uma mitologia nova em vez de adaptação direta.",
+      "experience": "Labiríntica, sombria e literária",
+      "contentWarnings": [
+        "Violência",
+        "Abuso infantil",
+        "Demência"
+      ],
+      "sources": [
+        {
+          "title": "Castle Rock — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/serie/castle-rock"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_archive_81",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "arquivo-81",
+      "aliases": [],
+      "titleBr": "Arquivo 81",
+      "originalTitle": "Archive 81",
+      "startYear": 2022,
+      "endYear": 2022,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Rebecca Sonnenshine"
+      ],
+      "seasons": 1,
+      "episodes": 8,
+      "genres": [
+        "Terror sobrenatural",
+        "Mistério",
+        "Found footage"
+      ],
+      "themes": [
+        "Segredos históricos",
+        "Desaparecimentos",
+        "Ocultismo"
+      ],
+      "shortDescription": "A restauração de fitas gravadas num edifício desaparecido aproxima um arquivista de uma investigação antiga, um culto e camadas incompatíveis do tempo.",
+      "audienceProfile": "Para quem gosta de arquivos, mídia analógica e mistérios que avançam por fragmentos.",
+      "experience": "Hipnótica, conspiratória e incompleta",
+      "contentWarnings": [
+        "Suicídio",
+        "Incêndio",
+        "Cancelada após uma temporada"
+      ],
+      "sources": [
+        {
+          "title": "Arquivo 81 — Netflix Brasil",
+          "url": "https://www.netflix.com/br/title/80222802"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_equinox",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "equinox",
+      "aliases": [],
+      "titleBr": "Equinox",
+      "originalTitle": "Equinox",
+      "startYear": 2020,
+      "endYear": 2020,
+      "status": "limited",
+      "format": "live-action",
+      "countries": [
+        "Dinamarca"
+      ],
+      "originalLanguages": [
+        "Dinamarquês"
+      ],
+      "creators": [
+        "Tea Lindeburg"
+      ],
+      "seasons": 1,
+      "episodes": 6,
+      "genres": [
+        "Mistério",
+        "Terror sobrenatural",
+        "Folk horror"
+      ],
+      "themes": [
+        "Desaparecimentos",
+        "Trauma coletivo",
+        "Horror cíclico"
+      ],
+      "shortDescription": "Décadas depois do desaparecimento de uma turma inteira, uma radialista retorna às visões da infância e ao ritual que a comunidade preferiu não compreender.",
+      "audienceProfile": "Para quem procura um mistério nórdico curto, folclórico e deliberadamente ambíguo.",
+      "experience": "Fria, ritualística e melancólica",
+      "contentWarnings": [
+        "Suicídio",
+        "Adolescentes em perigo",
+        "Luto"
+      ],
+      "sources": [
+        {
+          "title": "Equinox — Netflix Brasil",
+          "url": "https://www.netflix.com/br/title/81075958"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_locke_key",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "locke-e-key",
+      "aliases": [],
+      "titleBr": "Locke & Key",
+      "originalTitle": "Locke & Key",
+      "startYear": 2020,
+      "endYear": 2022,
+      "status": "ended",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos",
+        "Canadá"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Carlton Cuse",
+        "Meredith Averill",
+        "Aron Eli Coleite"
+      ],
+      "seasons": 3,
+      "episodes": 28,
+      "genres": [
+        "Fantasia sombria",
+        "Drama adolescente",
+        "Mistério"
+      ],
+      "themes": [
+        "Amadurecimento",
+        "Segredos familiares",
+        "Casa ancestral"
+      ],
+      "shortDescription": "Três irmãos encontram chaves mágicas na casa ancestral da família e descobrem que os adultos apagaram da memória uma guerra sobrenatural iniciada na juventude.",
+      "audienceProfile": "Para quem prefere fantasia juvenil, mistério familiar e terror menos intenso.",
+      "experience": "Inventiva, acessível e aventuresca",
+      "contentWarnings": [
+        "Luto",
+        "Violência contra adolescentes"
+      ],
+      "sources": [
+        {
+          "title": "Locke & Key — Netflix Brasil",
+          "url": "https://www.netflix.com/br/title/80241239"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_the_outsider",
+      "contentType": "series",
+      "schemaVersion": 1,
+      "slug": "the-outsider-serie",
+      "aliases": [],
+      "titleBr": "The Outsider",
+      "originalTitle": "The Outsider",
+      "startYear": 2020,
+      "endYear": 2020,
+      "status": "limited",
+      "format": "live-action",
+      "countries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "creators": [
+        "Richard Price"
+      ],
+      "seasons": 1,
+      "episodes": 10,
+      "genres": [
+        "Terror sobrenatural",
+        "Crime",
+        "Mistério"
+      ],
+      "themes": [
+        "Trauma coletivo",
+        "Monstros",
+        "Violência comunitária"
+      ],
+      "shortDescription": "Um crime contra uma criança parece ter provas incompatíveis até que a investigação admite uma entidade capaz de explorar luto, descrença e suspeita comunitária.",
+      "audienceProfile": "Para quem gosta de investigação paciente e sobrenatural tratado com sobriedade.",
+      "experience": "Austera, dolorosa e inquietante",
+      "contentWarnings": [
+        "Assassinato de criança",
+        "Luto",
+        "Violência"
+      ],
+      "sources": [
+        {
+          "title": "The Outsider — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/serie/the-outsider"
+        }
+      ],
+      "editorialStatus": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    }
+  ],
+  "offers": [
+    {
+      "id": "ser_offer_disney_buffy",
+      "seriesId": "ser_buffy",
+      "provider": "Disney+",
+      "offerType": "stream",
+      "url": "https://www.disneyplus.com/pt-br/browse/entity-f2c277c5-62b4-417c-b277-8435b70176dd",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 7,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_disney_angel",
+      "seriesId": "ser_angel",
+      "provider": "Disney+",
+      "offerType": "stream",
+      "url": "https://www.disneyplus.com/pt-br/browse/entity-8034c900-f242-4cea-96ba-1c6f61f812af",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 5,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_max_trueblood",
+      "seriesId": "ser_true_blood",
+      "provider": "HBO Max",
+      "offerType": "stream",
+      "url": "https://www.justwatch.com/br/serie/sangue-fresco",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 7,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_netflix_tvd",
+      "seriesId": "ser_vampire_diaries",
+      "provider": "Netflix",
+      "offerType": "stream",
+      "url": "https://www.justwatch.com/br/serie/diarios-de-um-vampiro",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 8,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_prime_tvd",
+      "seriesId": "ser_vampire_diaries",
+      "provider": "Prime Video",
+      "offerType": "stream",
+      "url": "https://www.justwatch.com/br/serie/diarios-de-um-vampiro",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 8,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_max_tvd",
+      "seriesId": "ser_vampire_diaries",
+      "provider": "HBO Max",
+      "offerType": "stream",
+      "url": "https://www.justwatch.com/br/serie/diarios-de-um-vampiro",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 8,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_prime_originals",
+      "seriesId": "ser_originals",
+      "provider": "Prime Video",
+      "offerType": "stream",
+      "url": "https://www.justwatch.com/br/serie/the-originals",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 5,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_max_originals",
+      "seriesId": "ser_originals",
+      "provider": "HBO Max",
+      "offerType": "stream",
+      "url": "https://www.justwatch.com/br/serie/the-originals",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 5,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_netflix_interview",
+      "seriesId": "ser_interview",
+      "provider": "Netflix",
+      "offerType": "stream",
+      "url": "https://www.netflix.com/br/title/81663145",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 1,
+      "checkedAt": "2026-08-13",
+      "note": "Apenas a 1ª temporada confirmada."
+    },
+    {
+      "id": "ser_offer_prime_interview",
+      "seriesId": "ser_interview",
+      "provider": "AMC+ via Prime Video",
+      "offerType": "stream",
+      "url": "https://www.primevideo.com/-/pt/detail/0TS257OBLLNSZJ9UK4Q2MLXYLE",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 2,
+      "checkedAt": "2026-08-13",
+      "note": "Temporadas 1 e 2; a 3ª não foi confirmada em streaming no Brasil."
+    },
+    {
+      "id": "ser_offer_netflix_mass",
+      "seriesId": "ser_midnight_mass",
+      "provider": "Netflix",
+      "offerType": "stream",
+      "url": "https://www.netflix.com/br/title/81083626",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 1,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_disney_shadows",
+      "seriesId": "ser_what_shadows",
+      "provider": "Disney+",
+      "offerType": "stream",
+      "url": "https://www.disneyplus.com/pt-br/browse/entity-0b10c46a-12f0-4357-8a00-547057b49bac",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 6,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_netflix_castlevania",
+      "seriesId": "ser_castlevania",
+      "provider": "Netflix",
+      "offerType": "stream",
+      "url": "https://www.netflix.com/br/title/80095241",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 4,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_netflix_nocturne",
+      "seriesId": "ser_castlevania_nocturne",
+      "provider": "Netflix",
+      "offerType": "stream",
+      "url": "https://www.netflix.com/br/title/81436901",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 2,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_netflix_garden",
+      "seriesId": "ser_vampire_garden",
+      "provider": "Netflix",
+      "offerType": "stream",
+      "url": "https://www.netflix.com/br/title/80996247",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 1,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_netflix_sirius",
+      "seriesId": "ser_sirius",
+      "provider": "Netflix",
+      "offerType": "stream",
+      "url": "https://www.netflix.com/br/title/80997339",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 1,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_netflix_dracula",
+      "seriesId": "ser_dracula_2020",
+      "provider": "Netflix",
+      "offerType": "stream",
+      "url": "https://www.netflix.com/br/title/80997687",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 1,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_disney_strain",
+      "seriesId": "ser_strain",
+      "provider": "Disney+",
+      "offerType": "stream",
+      "url": "https://www.disneyplus.com/pt-br/browse/entity-d424ff74-760e-4070-a490-73b89d180fc4",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 4,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_youtube_carmilla",
+      "seriesId": "ser_carmilla",
+      "provider": "YouTube (KindaTV)",
+      "offerType": "free",
+      "url": "https://www.youtube.com/watch?v=3uPd3g5wi1A",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 3,
+      "checkedAt": "2026-08-13",
+      "note": "Compilações oficiais gratuitas."
+    },
+    {
+      "id": "ser_offer_netflix_firstkill",
+      "seriesId": "ser_first_kill",
+      "provider": "Netflix",
+      "offerType": "stream",
+      "url": "https://www.netflix.com/title/81213653",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 1,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_netflix_immortals",
+      "seriesId": "ser_immortals_tr",
+      "provider": "Netflix",
+      "offerType": "stream",
+      "url": "https://www.netflix.com/title/81026095",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 1,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_prime_discovery",
+      "seriesId": "ser_discovery_witches",
+      "provider": "AMC+ via Prime Video",
+      "offerType": "stream",
+      "url": "https://www.primevideo.com/-/pt/detail/0MC2YPA38DSTPZJUSP5H4IC7TE",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 3,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_netflix_vwars",
+      "seriesId": "ser_vwars",
+      "provider": "Netflix",
+      "offerType": "stream",
+      "url": "https://www.netflix.com/br/title/80236118",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 1,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_paramount_penny",
+      "seriesId": "ser_penny_dreadful",
+      "provider": "Paramount+",
+      "offerType": "stream",
+      "url": "https://www.justwatch.com/br/serie/penny-dreadful",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 3,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_claro_terror",
+      "seriesId": "ser_the_terror",
+      "provider": "Claro video",
+      "offerType": "stream",
+      "url": "https://www.justwatch.com/br/serie/the-terror",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 2,
+      "checkedAt": "2026-08-13",
+      "note": "A 3ª temporada não estava incluída na assinatura verificada."
+    },
+    {
+      "id": "ser_offer_netflix_hill",
+      "seriesId": "ser_hill_house",
+      "provider": "Netflix",
+      "offerType": "stream",
+      "url": "https://www.netflix.com/br/title/80189221",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 1,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_netflix_marianne",
+      "seriesId": "ser_marianne",
+      "provider": "Netflix",
+      "offerType": "stream",
+      "url": "https://www.netflix.com/br/title/80217779",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 1,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_netflix_kingdom",
+      "seriesId": "ser_kingdom",
+      "provider": "Netflix",
+      "offerType": "stream",
+      "url": "https://www.netflix.com/br/title/80180171",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 2,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_paramount_yellow",
+      "seriesId": "ser_yellowjackets",
+      "provider": "Paramount+",
+      "offerType": "stream",
+      "url": "https://www.justwatch.com/br/serie/yellowjackets",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 3,
+      "checkedAt": "2026-08-13",
+      "note": "A 4ª temporada estava anunciada para 2026, mas ainda não constava no catálogo verificado."
+    },
+    {
+      "id": "ser_offer_globoplay_from",
+      "seriesId": "ser_from",
+      "provider": "Globoplay",
+      "offerType": "stream",
+      "url": "https://www.justwatch.com/br/serie/from",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 4,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_max_derry",
+      "seriesId": "ser_it_derry",
+      "provider": "HBO Max",
+      "offerType": "stream",
+      "url": "https://www.justwatch.com/br/serie/welcome-to-derry",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 1,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_disney_chucky",
+      "seriesId": "ser_chucky",
+      "provider": "Disney+",
+      "offerType": "stream",
+      "url": "https://www.justwatch.com/br/serie/chucky",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 3,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_max_30coins",
+      "seriesId": "ser_30_coins",
+      "provider": "HBO Max",
+      "offerType": "stream",
+      "url": "https://www.justwatch.com/br/serie/30-monedas",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 2,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_netflix_joko",
+      "seriesId": "ser_joko_nightmares",
+      "provider": "Netflix",
+      "offerType": "stream",
+      "url": "https://www.netflix.com/br/title/81582069",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 1,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_netflix_juon",
+      "seriesId": "ser_juon_origins",
+      "provider": "Netflix",
+      "offerType": "stream",
+      "url": "https://www.netflix.com/title/81059942",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 1,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_disney_gannibal",
+      "seriesId": "ser_gannibal",
+      "provider": "Disney+",
+      "offerType": "stream",
+      "url": "https://www.justwatch.com/br/serie/gannibal",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 2,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_netflix_cabinet",
+      "seriesId": "ser_cabinet",
+      "provider": "Netflix",
+      "offerType": "stream",
+      "url": "https://www.netflix.com/br/title/80209229",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 1,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_max_lastofus",
+      "seriesId": "ser_last_of_us",
+      "provider": "HBO Max",
+      "offerType": "stream",
+      "url": "https://www.justwatch.com/br/serie/the-last-of-us",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 2,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_globoplay_desalma",
+      "seriesId": "ser_desalma",
+      "provider": "Globoplay",
+      "offerType": "stream",
+      "url": "https://globoplay.globo.com/desalma/t/9KrqC8HqTp/",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 2,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_netflix_strangerthings",
+      "seriesId": "ser_stranger_things",
+      "provider": "Netflix",
+      "offerType": "stream",
+      "url": "https://www.netflix.com/br/title/80057281",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 5,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_netflix_dark",
+      "seriesId": "ser_dark",
+      "provider": "Netflix",
+      "offerType": "stream",
+      "url": "https://www.netflix.com/br/title/80100172",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 3,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_netflix_archive81",
+      "seriesId": "ser_archive_81",
+      "provider": "Netflix",
+      "offerType": "stream",
+      "url": "https://www.netflix.com/br/title/80222802",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 1,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_netflix_equinox",
+      "seriesId": "ser_equinox",
+      "provider": "Netflix",
+      "offerType": "stream",
+      "url": "https://www.netflix.com/br/title/81075958",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 1,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_netflix_lockekey",
+      "seriesId": "ser_locke_key",
+      "provider": "Netflix",
+      "offerType": "stream",
+      "url": "https://www.netflix.com/br/title/80241239",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 3,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_max_outsider",
+      "seriesId": "ser_the_outsider",
+      "provider": "HBO Max",
+      "offerType": "stream",
+      "url": "https://www.justwatch.com/br/serie/the-outsider",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 1,
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "id": "ser_offer_claro_outsider",
+      "seriesId": "ser_the_outsider",
+      "provider": "Claro tv+",
+      "offerType": "stream",
+      "url": "https://www.justwatch.com/br/serie/the-outsider",
+      "region": "BR",
+      "seasonFrom": 1,
+      "seasonTo": 1,
+      "checkedAt": "2026-08-13"
+    }
+  ],
+  "curations": [
+    {
+      "id": "series_vampire_br",
+      "slug": "melhores-series-de-vampiro",
+      "title": "Melhores séries de vampiro e onde assistir no Brasil",
+      "href": "/blog/melhores-series-de-vampiro",
+      "mode": "editorial",
+      "items": [
+        {
+          "seriesId": "ser_buffy",
+          "context": "O ponto de partida histórico: fez horror, comédia e amadurecimento sustentarem uma linguagem televisiva própria."
+        },
+        {
+          "seriesId": "ser_angel",
+          "context": "Expande a pergunta sobre redenção e transforma o vampiro em investigador noir e adulto."
+        },
+        {
+          "seriesId": "ser_interview",
+          "context": "A reinvenção contemporânea mais rica de Anne Rice, interessada em memória, desejo, raça e poder."
+        },
+        {
+          "seriesId": "ser_true_blood",
+          "context": "Assume sexo, política e sátira para imaginar vampiros vivendo publicamente entre humanos."
+        },
+        {
+          "seriesId": "ser_midnight_mass",
+          "context": "Usa o vampiro com parcimônia para pensar fé, milagre, dependência e contágio comunitário."
+        },
+        {
+          "seriesId": "ser_what_shadows",
+          "context": "A melhor comédia do recorte porque conhece profundamente as regras que ridiculariza."
+        },
+        {
+          "seriesId": "ser_castlevania",
+          "context": "Dá escala trágica e ação extraordinária a Drácula sem tratar animação como gênero infantil."
+        },
+        {
+          "seriesId": "ser_castlevania_nocturne",
+          "context": "Leva a guerra vampírica à Revolução Francesa e confronta aristocracia e colonialismo."
+        },
+        {
+          "seriesId": "ser_vampire_diaries",
+          "context": "O melodrama juvenil mais influente do ciclo recente, mesmo com sua propensão ao excesso."
+        },
+        {
+          "seriesId": "ser_originals",
+          "context": "Troca o colégio pela disputa de uma família imortal pelo poder em Nova Orleans."
+        },
+        {
+          "seriesId": "ser_dracula_2020",
+          "context": "Uma adaptação compacta e divisiva que prefere testar o mito a reverenciá-lo."
+        },
+        {
+          "seriesId": "ser_strain",
+          "context": "Faz do vampiro uma infestação biológica repulsiva e recupera o medo físico da criatura."
+        },
+        {
+          "seriesId": "ser_being_human_uk",
+          "context": "Encontra drama e humor no esforço cotidiano de um vampiro para não repetir seus impulsos."
+        },
+        {
+          "seriesId": "ser_carmilla",
+          "context": "Mostra como poucos recursos, episódios curtos e perspectiva queer podem renovar um texto gótico."
+        },
+        {
+          "seriesId": "ser_vampire_garden",
+          "context": "Uma tragédia animada curta sobre convivência, música e fuga num mundo dividido."
+        },
+        {
+          "seriesId": "ser_sirius",
+          "context": "Oferece uma rota japonesa mais pulp, com caçadores e vampiros na Tóquio dos anos 1930."
+        },
+        {
+          "seriesId": "ser_first_kill",
+          "context": "Romance queer juvenil de premissa forte, recomendado com o aviso de cancelamento precoce."
+        },
+        {
+          "seriesId": "ser_immortals_tr",
+          "context": "Desloca a guerra vampírica para Istambul e amplia a geografia predominantemente anglófona da lista."
+        },
+        {
+          "seriesId": "ser_discovery_witches",
+          "context": "Representa o romance fantástico adulto, com vampiros ligados a ciência, linhagem e história."
+        }
+      ]
+    },
+    {
+      "id": "series_horror_essentials",
+      "slug": "melhores-series-de-terror",
+      "title": "Melhores séries de terror para assistir",
+      "href": "/blog/melhores-series-de-terror",
+      "mode": "editorial",
+      "items": [
+        {
+          "seriesId": "ser_twilight_zone",
+          "context": "A matriz da antologia moderna: usa fantasia e horror para comprimir dilemas morais em imagens duradouras."
+        },
+        {
+          "seriesId": "ser_twin_peaks",
+          "context": "Transformou o mal doméstico, o melodrama e o surrealismo em uma linguagem televisiva ainda difícil de domesticar."
+        },
+        {
+          "seriesId": "ser_buffy",
+          "context": "Fez o horror acompanhar personagens por anos sem perder humor, risco ou capacidade de experimentar."
+        },
+        {
+          "seriesId": "ser_hannibal",
+          "context": "Converte crime procedural em romance macabro, horror corporal e composição visual de precisão incomum."
+        },
+        {
+          "seriesId": "ser_penny_dreadful",
+          "context": "Reúne o gótico literário em torno de personagens feridos, especialmente a extraordinária Vanessa Ives."
+        },
+        {
+          "seriesId": "ser_channel_zero",
+          "context": "Mostra como creepypastas podem sustentar temporadas autorais sem virar apenas referências de internet."
+        },
+        {
+          "seriesId": "ser_the_terror",
+          "context": "A primeira temporada transforma frio, fome, hierarquia e isolamento em um horror histórico quase tátil."
+        },
+        {
+          "seriesId": "ser_hill_house",
+          "context": "Equilibra casa assombrada, luto familiar e invenção formal numa minissérie acessível sem ser rasa."
+        },
+        {
+          "seriesId": "ser_marianne",
+          "context": "Entrega bruxaria e imagens agressivas com uma malícia física que diferencia o terror francês recente."
+        },
+        {
+          "seriesId": "ser_kingdom",
+          "context": "Faz zumbis, fome e disputa sucessória participarem do mesmo mecanismo político."
+        },
+        {
+          "seriesId": "ser_midnight_mass",
+          "context": "Constrói terror religioso por conversa, comunidade e escolhas, não apenas por revelações sobrenaturais."
+        },
+        {
+          "seriesId": "ser_yellowjackets",
+          "context": "Mantém o sobrenatural em disputa enquanto trauma, fome e versões do passado corroem o grupo."
+        },
+        {
+          "seriesId": "ser_from",
+          "context": "Usa regras de sobrevivência claras para sustentar uma mitologia serializada deliberadamente labiríntica."
+        },
+        {
+          "seriesId": "ser_interview",
+          "context": "Reformula o gótico de Anne Rice por memória, desejo queer e narradores que disputam a própria história."
+        },
+        {
+          "seriesId": "ser_it_derry",
+          "context": "Uma produção contemporânea ambiciosa que torna a história social de Derry parte do ciclo de horror de Pennywise."
+        },
+        {
+          "seriesId": "ser_chucky",
+          "context": "Prova que um slasher pode acumular continuidade, humor e personagens adolescentes sem perder violência."
+        },
+        {
+          "seriesId": "ser_30_coins",
+          "context": "Representa o terror religioso espanhol em chave barroca, monstruosa e assumidamente excessiva."
+        },
+        {
+          "seriesId": "ser_joko_nightmares",
+          "context": "Leva antologia e ficção científica sobrenatural a conflitos sociais da Indonésia contemporânea."
+        },
+        {
+          "seriesId": "ser_juon_origins",
+          "context": "Reduz a ornamentação para encontrar uma crueldade doméstica severa dentro da franquia japonesa."
+        },
+        {
+          "seriesId": "ser_gannibal",
+          "context": "Faz o isolamento rural e uma família dominante sustentarem folk horror japonês de combustão lenta."
+        },
+        {
+          "seriesId": "ser_cabinet",
+          "context": "Funciona como porta de entrada para oito autores e várias tradições do conto macabro."
+        },
+        {
+          "seriesId": "ser_last_of_us",
+          "context": "Usa o apocalipse fúngico para perguntar o que vínculo e proteção autorizam alguém a destruir."
+        },
+        {
+          "seriesId": "ser_desalma",
+          "context": "Coloca ritual, imigração e paisagem do sul do Brasil no centro de um folk horror próprio."
+        }
+      ]
+    },
+    {
+      "id": "series_after_derry",
+      "slug": "series-para-quem-gostou-de-it-bem-vindos-a-derry",
+      "title": "Melhores séries para quem gostou de It: Bem-Vindos a Derry",
+      "href": "/blog/series-para-quem-gostou-de-it-bem-vindos-a-derry",
+      "mode": "editorial",
+      "items": [
+        {
+          "seriesId": "ser_castle_rock",
+          "context": "A recomendação mais diretamente ligada a Stephen King: uma cidade que acumula histórias violentas e parece participar delas."
+        },
+        {
+          "seriesId": "ser_twin_peaks",
+          "context": "Outra comunidade em que o crime contra uma jovem rompe a fachada cordial e revela um mal simultaneamente humano e sobrenatural."
+        },
+        {
+          "seriesId": "ser_stranger_things",
+          "context": "Compartilha o grupo juvenil, o desaparecimento e a cidade contaminada, mas troca a crueldade histórica de Derry por aventura e amizade."
+        },
+        {
+          "seriesId": "ser_dark",
+          "context": "Leva desaparecimentos, famílias e repetição histórica a um extremo temporal: Winden também não consegue escapar do próprio passado."
+        },
+        {
+          "seriesId": "ser_from",
+          "context": "Transforma a cidade em armadilha literal, com regras noturnas, crianças enigmáticas e monstros que se alimentam da desorientação coletiva."
+        },
+        {
+          "seriesId": "ser_marianne",
+          "context": "Uma criadora retorna à cidade natal e encontra a bruxa, os amigos e os pactos que julgava ter deixado na adolescência."
+        },
+        {
+          "seriesId": "ser_hill_house",
+          "context": "A ameaça está concentrada numa casa, mas o movimento é semelhante: crianças sobrevivem e adultos descobrem que sobreviver não encerrou o trauma."
+        },
+        {
+          "seriesId": "ser_yellowjackets",
+          "context": "O passado adolescente continua sendo reescrito por adultas que não concordam sobre o que viveram, esconderam ou invocaram."
+        },
+        {
+          "seriesId": "ser_equinox",
+          "context": "Um desaparecimento coletivo de estudantes retorna décadas depois como ferida familiar, segredo comunitário e possível ciclo ritual."
+        },
+        {
+          "seriesId": "ser_archive_81",
+          "context": "Investiga um lugar apagado por meio de registros incompletos e encontra uma história de culto, repetição e pessoas desaparecidas."
+        },
+        {
+          "seriesId": "ser_the_outsider",
+          "context": "Parte da violência contra uma criança para observar como uma entidade explora descrença, luto e suspeita numa comunidade."
+        },
+        {
+          "seriesId": "ser_channel_zero",
+          "context": "A primeira temporada, Candle Cove, aproxima programa infantil, memória falha, desaparecimentos e o retorno de um adulto à cidade natal."
+        },
+        {
+          "seriesId": "ser_chucky",
+          "context": "Usa adolescentes e uma pequena cidade para um slasher mais irreverente, mas atento a bullying, família e adultos que não enxergam o perigo."
+        },
+        {
+          "seriesId": "ser_locke_key",
+          "context": "Oferece uma versão mais leve do amadurecimento sobrenatural: irmãos herdam uma casa, segredos e consequências esquecidas pelos adultos."
+        },
+        {
+          "seriesId": "ser_midnight_mass",
+          "context": "Substitui o grupo de crianças por uma ilha inteira e pergunta por que uma comunidade prefere chamar o perigo de milagre."
+        }
+      ]
+    }
+  ]
+}

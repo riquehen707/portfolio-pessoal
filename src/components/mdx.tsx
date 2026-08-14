@@ -67,6 +67,8 @@ import { MovieAvailabilityIndex } from "@/components/movies/MovieAvailabilityInd
 import { MovieFilmography } from "@/components/movies/MovieFilmography";
 import { MovieRankingJsonLd } from "@/components/seo/MovieRankingJsonLd";
 import { ReadingWorkCard } from "@/components/reading/ReadingWorkCard";
+import { SeriesCard } from "@/components/series/SeriesCard";
+import { SeriesAvailabilityIndex } from "@/components/series/SeriesAvailabilityIndex";
 
 import { baseURL } from "@/resources";
 
@@ -474,6 +476,8 @@ export const baseMDXComponents: MDXComponents = {
   AccessibleFormDemo,
   MovieCard,
   MovieAvailabilityIndex,
+  SeriesCard,
+  SeriesAvailabilityIndex,
   MovieFilmography,
   MovieRankingJsonLd,
   ReadingWorkCard,

@@ -6,6 +6,7 @@ Para regras especializadas, consulte também:
 
 - [sistema editorial](../content/README.md), para artigos MDX;
 - [listas de filmes](../editorial/templates/movie-list.md), para o fluxo obrigatório entre catálogo, curadoria e artigo;
+- [listas de séries](../editorial/templates/series-list.md), para catálogo, curadoria e disponibilidade por temporada;
 - [listas de leitura](../editorial/templates/reading-list.md), para o fluxo entre acervo central, edições, ofertas e artigos;
 - [perfis de estúdios de animação](../editorial/templates/animation-studio-profile.md), para cadastro, filmografia, composição editorial e validação desse tipo de página;
 - [fontes de conteúdo](content-data-sources.md), para persistência local, exportação e migração futura;
@@ -154,6 +155,7 @@ Para estúdios de animação, aplique o [modelo editorial especializado](../edit
 | --- | --- | --- | --- |
 | Artigos | `components/blog/postSchema.ts` | `data/articles/` | corpo permanece em MDX |
 | Filmes | `content/movies/movieSchema.ts` | `data/movies/` | cadastro único; inclui identidade, formato, créditos, relações, imagem/direitos, fontes e estado editorial |
+| Séries | `content/series/seriesSchema.ts` | importação local direta | catálogo central sem páginas individuais; ofertas temporais são separadas por plataforma, região e intervalo de temporadas |
 | Pessoas | `content/creators/creatorSchema.ts` | importação local direta | fachada ainda não existe |
 | Obras editoriais | `content/works/workSchema.ts` | importação local direta | curtas e documentários |
 | Organizações | `content/organizations/organizations.ts` | importação local direta | schema não é exportado |

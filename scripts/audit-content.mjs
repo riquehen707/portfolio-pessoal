@@ -26,6 +26,10 @@ function compileLocalContent() {
       path.join(root, "src/content/reading/readingSchema.ts"),
       path.join(root, "src/content/reading/reading.ts"),
       path.join(root, "src/content/reading/curations.ts"),
+      path.join(root, "src/content/series/seriesSchema.ts"),
+      path.join(root, "src/content/series/series.ts"),
+      path.join(root, "src/content/series/seriesOffers.ts"),
+      path.join(root, "src/content/series/curations.ts"),
     ],
     options: {
       esModuleInterop: true,
@@ -98,6 +102,11 @@ try {
   const { readingCatalog } = require(path.join(readingRoot, "reading.js"));
   const { readingCurations } = require(path.join(readingRoot, "curations.js"));
   const { ReadingCatalogSchema, ReadingEditionSchema } = require(path.join(readingRoot, "readingSchema.js"));
+  const seriesRoot = path.join(temporaryDirectory, "src/content/series");
+  const { seriesCatalog } = require(path.join(seriesRoot, "series.js"));
+  const { SeriesBatchSchema } = require(path.join(seriesRoot, "seriesSchema.js"));
+  const { seriesOffers } = require(path.join(seriesRoot, "seriesOffers.js"));
+  const { seriesCurations } = require(path.join(seriesRoot, "curations.js"));
   const articles = await getArticleRecords();
   const articleSlugs = articles.map((article) => article.slug);
   const movieIds = new Set(movies.map((movie) => movie.id));
@@ -114,6 +123,7 @@ try {
   const readingVolumeIds = new Set(readingCatalog.volumes.map((volume) => volume.id));
   const readingInstallmentIds = new Set(readingCatalog.installments.map((item) => item.id));
   const readingEditionIds = new Set(readingCatalog.editions.map((edition) => edition.id));
+  const seriesIds = new Set(seriesCatalog.map((item) => item.id));
   const readingIsbn10 = readingCatalog.editions.flatMap((edition) => edition.isbn10 ? [edition.isbn10] : []);
   const readingIsbn13 = readingCatalog.editions.flatMap((edition) => edition.isbn13 ? [edition.isbn13] : []);
   invalidRelationships.push(
@@ -155,6 +165,12 @@ try {
       ...(!readingWorkIds.has(item.workId) ? [{ type: "missing_reading_work", from: list.id, to: item.workId }] : []),
       ...(item.startingPointEditionId && !readingEditionIds.has(item.startingPointEditionId) ? [{ type: "missing_reading_edition", from: list.id, to: item.startingPointEditionId }] : []),
     ])),
+    ...seriesOffers.flatMap((offer) => [
+      ...(!seriesIds.has(offer.seriesId) ? [{ type: "missing_series", from: offer.id, to: offer.seriesId }] : []),
+      ...(offer.seasonFrom > offer.seasonTo ? [{ type: "invalid_season_range", from: offer.id, to: `${offer.seasonFrom}-${offer.seasonTo}` }] : []),
+      ...(seriesCatalog.find((item) => item.id === offer.seriesId)?.seasons < offer.seasonTo ? [{ type: "season_out_of_range", from: offer.id, to: String(offer.seasonTo) }] : []),
+    ]),
+    ...seriesCurations.flatMap((list) => list.items.filter((item) => !seriesIds.has(item.seriesId)).map((item) => ({ type:"missing_series", from:list.id, to:item.seriesId }))),
   );
   const records = movies.map((movie) => ({
     ...movie,
@@ -192,10 +208,13 @@ try {
       readingEditions: readingCatalog.editions.length,
       readingOffers: readingCatalog.offers.length,
       readingCurations: readingCurations.length,
+      series: seriesCatalog.length,
+      seriesOffers: seriesOffers.length,
+      seriesCurations: seriesCurations.length,
       publishedMovies: movies.filter((movie) => movie.status === "published").length,
       draftMovies: movies.filter((movie) => movie.status === "draft").length,
     },
-    duplicates: { movieIds: duplicates(movies.map((movie) => movie.id)), movieSlugs: duplicates(movies.map((movie) => movie.slug)), articleSlugs: duplicates(articleSlugs), creatorIds: duplicates(creators.map((item) => item.id)), workIds: duplicates(editorialWorks.map((item) => item.id)), organizationIds: duplicates(organizations.map((item) => item.id)), gameIds:duplicates(games.map((item)=>item.id)),gameSlugs:duplicates(games.flatMap((item)=>[item.slug,...item.aliases])),animationWorkIds:duplicates(animationWorks.map((item)=>item.id)),animationWorkSlugs:duplicates(animationWorks.map((item)=>item.slug)),readingWorkIds:duplicates(readingCatalog.works.map((item)=>item.id)),readingWorkSlugsAndAliases:duplicates(readingCatalog.works.flatMap((item)=>[item.slug,...item.aliases])),readingSeriesIds:duplicates(readingCatalog.series.map((item)=>item.id)),readingInstallmentIds:duplicates(readingCatalog.installments.map((item)=>item.id)),readingVolumeIds:duplicates(readingCatalog.volumes.map((item)=>item.id)),readingEditionIds:duplicates(readingCatalog.editions.map((item)=>item.id)),readingOfferIds:duplicates(readingCatalog.offers.map((item)=>item.id)),readingIsbn10:duplicates(readingIsbn10),readingIsbn13:duplicates(readingIsbn13) },
+    duplicates: { movieIds: duplicates(movies.map((movie) => movie.id)), movieSlugs: duplicates(movies.map((movie) => movie.slug)), articleSlugs: duplicates(articleSlugs), creatorIds: duplicates(creators.map((item) => item.id)), workIds: duplicates(editorialWorks.map((item) => item.id)), organizationIds: duplicates(organizations.map((item) => item.id)), gameIds:duplicates(games.map((item)=>item.id)),gameSlugs:duplicates(games.flatMap((item)=>[item.slug,...item.aliases])),animationWorkIds:duplicates(animationWorks.map((item)=>item.id)),animationWorkSlugs:duplicates(animationWorks.map((item)=>item.slug)),readingWorkIds:duplicates(readingCatalog.works.map((item)=>item.id)),readingWorkSlugsAndAliases:duplicates(readingCatalog.works.flatMap((item)=>[item.slug,...item.aliases])),readingSeriesIds:duplicates(readingCatalog.series.map((item)=>item.id)),readingInstallmentIds:duplicates(readingCatalog.installments.map((item)=>item.id)),readingVolumeIds:duplicates(readingCatalog.volumes.map((item)=>item.id)),readingEditionIds:duplicates(readingCatalog.editions.map((item)=>item.id)),readingOfferIds:duplicates(readingCatalog.offers.map((item)=>item.id)),readingIsbn10:duplicates(readingIsbn10),readingIsbn13:duplicates(readingIsbn13),seriesIds:duplicates(seriesCatalog.map((item)=>item.id)),seriesSlugsAndAliases:duplicates(seriesCatalog.flatMap((item)=>[item.slug,...item.aliases])),seriesOfferIds:duplicates(seriesOffers.map((item)=>item.id)) },
     invalidRelationships,
     needsReview: {
       movies: movies.filter((movie) => !movie.poster || !movie.sources.length || (movie.status === "published" && !movie.editorial)).map((movie) => movie.id),
@@ -213,6 +232,7 @@ try {
       zeroOrganizationAccepted: MovieBatchSchema.safeParse([{...movies[0],id:"test_no_org",slug:"test-no-org",aliases:[],organizationRelationships:[]}]).success,
       multipleOrganizationsAccepted: MovieBatchSchema.safeParse([{...movies[0],id:"test_multi_org",slug:"test-multi-org",aliases:[],organizationRelationships:[{organizationId:"org_studio_ghibli",roles:["production"],status:"published"},{organizationId:"org_laika",roles:["services"],status:"published"}]}]).success,
       emptyReadingCatalogAccepted: ReadingCatalogSchema.safeParse(readingCatalog).success,
+      seriesBatchAccepted: SeriesBatchSchema.safeParse(seriesCatalog).success,
       readingEditionRequiresOneTarget: !ReadingEditionSchema.safeParse({ id:"read_edition_test", title:"Teste", publisherId:"org_test", country:"Brasil", language:"pt-BR", medium:"paperback", availabilityStatus:"unknown", status:"draft", sources:[{title:"Fonte",url:"https://example.com"}], createdAt:"2026-08-13", updatedAt:"2026-08-13" }).success,
     },
   };
@@ -228,8 +248,9 @@ try {
     writeFile(path.join(outputDirectory, "audit.v1.json"), `${JSON.stringify(audit, null, 2)}\n`),
     writeFile(path.join(outputDirectory, "seo-contract.v1.json"), `${JSON.stringify(seoContract, null, 2)}\n`),
     writeFile(path.join(outputDirectory, "reading.v1.json"), `${JSON.stringify({ schemaVersion: 1, contentType: "reading-catalog", ...readingCatalog, curations: readingCurations }, null, 2)}\n`),
+    writeFile(path.join(outputDirectory, "series.v1.json"), `${JSON.stringify({ schemaVersion: 1, contentType: "series-catalog", records: seriesCatalog, offers: seriesOffers, curations: seriesCurations }, null, 2)}\n`),
   ]);
-  console.log(`Exportados ${movies.length} filmes e ${readingCatalog.works.length} obras de leitura; ${invalidRelationships.length} relações inválidas; testes de contrato aprovados.`);
+  console.log(`Exportados ${movies.length} filmes, ${seriesCatalog.length} séries e ${readingCatalog.works.length} obras de leitura; ${invalidRelationships.length} relações inválidas; testes de contrato aprovados.`);
 } finally {
   await rm(temporaryDirectory, { recursive: true, force: true });
 }

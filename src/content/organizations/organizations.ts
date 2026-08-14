@@ -144,7 +144,25 @@ export const movieStudios = [
   movieStudio("org_proximity_media", "proximity-media", "Proximity Media"),
 ];
 
-export const organizations = [ghostAnimation,teamCherry,cartoonSaloon,aardman,scienceSaru,kyotoAnimation,laika,studioGhibli,nipponTelevision,toho,...movieStudios];
+const readingPublishers = [
+  ["org_darkside_books","darkside-books","DarkSide Books","publisher"],
+  ["org_suma","suma","Suma","imprint"],
+  ["org_editora_aleph","editora-aleph","Editora Aleph","publisher"],
+  ["org_intrinseca","intrinseca","Intrínseca","publisher"],
+  ["org_rocco","rocco","Rocco","publisher"],
+  ["org_companhia_das_letras","companhia-das-letras","Companhia das Letras","publisher"],
+  ["org_alfaguara","alfaguara","Alfaguara","imprint"],
+  ["org_record","record","Editora Record","publisher"],
+  ["org_jbc","jbc","Editora JBC","publisher"],
+  ["org_panini_brasil","panini-brasil","Panini Brasil","publisher"],
+  ["org_newpop","newpop","NewPOP","publisher"],
+  ["org_devir","devir","Devir","publisher"],
+  ["org_pipoca_nanquim","pipoca-e-nanquim","Pipoca & Nanquim","publisher"],
+  ["org_red_dragon","red-dragon-publisher","Red Dragon Publisher","publisher"],
+  ["org_lpm","l-e-pm","L&PM Editores","publisher"],
+].map(([id,slug,name,kind])=>OrganizationSchema.parse({id,slug,name,kind,status:"draft",workIds:[],summary:`Editora ou selo relacionado a edições brasileiras do acervo: ${name}.`,createdAt:"2026-08-13",updatedAt:"2026-08-13"}));
+
+export const organizations = [ghostAnimation,teamCherry,cartoonSaloon,aardman,scienceSaru,kyotoAnimation,laika,studioGhibli,nipponTelevision,toho,...movieStudios,...readingPublishers];
 
 export type Organization = z.infer<typeof OrganizationSchema>;
 export const organizationsById = new Map(organizations.map((organization) => [organization.id, organization]));

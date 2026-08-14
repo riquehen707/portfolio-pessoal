@@ -8,6 +8,7 @@
 .eyebrow, .meta { color: var(--neutral-on-background-medium); font-size: .75rem; }
 .title { margin: .2rem 0 .35rem; font-size: 1.15rem; line-height: 1.2; }
 .description { margin: .65rem 0 0; }
+.editionState { margin: .55rem 0 0; color: var(--neutral-on-background-medium); font-size: .76rem; line-height: 1.45; }
 .credits, .offers, .relations, .edition { display: grid; gap: .4rem; }
 .list { display: grid; gap: 1rem; padding: 0; list-style: none; }
 .notice { padding: .75rem; border-left: 2px solid var(--brand-solid-strong); color: var(--neutral-on-background-medium); }
