@@ -18,6 +18,7 @@ Em caso de divergência, schemas, componentes e rotas executáveis prevalecem so
 
 ```text
 /
+├─ /acervo                              entrada pública dos catálogos e curadorias
 ├─ /blog
 │  ├─ /blog/[slug]                    artigos MDX
 │  ├─ /blog/cultura                   índice editorial
@@ -59,10 +60,10 @@ O inventário de arquivos não equivale ao sitemap público. A inclusão de rota
 
 ### Índices editoriais
 
-- **Rotas:** `/blog`, `/blog/cultura`, `/blog/seo`, `/blog/seo/entender-a-busca`, `/filmes` e, quando reativados, temas, categorias e trilhas.
+- **Rotas:** `/blog`, `/blog/cultura`, `/blog/seo`, `/blog/seo/entender-a-busca`, `/acervo`, `/filmes` e, quando reativados, temas, categorias e trilhas.
 - **Finalidade:** organizar coleções, áreas ou sequências de estudo.
 - **Dados:** fachadas em `src/data/articles/` e `src/data/movies/`, mais arquivos específicos próximos das rotas.
-- **Estrutura confirmada:** título/apresentação, navegação ou feed, relações e breadcrumbs conforme cada implementação.
+- **Estrutura confirmada:** título/apresentação, navegação ou feed, relações e breadcrumbs conforme cada implementação. `/acervo` funciona como entrada transversal: aponta para bibliotecas quando seus registros estão publicados e, enquanto um domínio permanece em revisão, oferece suas curadorias públicas sem abrir índices vazios.
 - **Componentes:** `EditorialFeed`, `Posts`, `MovieLibrary`, cards e `BreadcrumbJsonLd`.
 - **SEO:** metadata por rota; `/filmes` usa `MovieLibraryJsonLd`. Páginas pausadas não devem ser tratadas como publicadas apenas porque possuem arquivo.
 - **Variações:** índices especializados podem ter composição própria, preservando container, navegação e tokens globais.
@@ -145,6 +146,7 @@ Para estúdios de animação, aplique o [modelo editorial especializado](../edit
 - `src/app/sitemap.ts`, `src/app/robots.ts`, `src/middleware.ts`, `routes` e `src/lib/globalSearch.ts` são controles distintos. Uma nova rota pública pode exigir atualização em mais de um deles.
 - Conteúdo essencial deve existir no HTML do servidor; interação não pode ser requisito para indexação ou compreensão.
 - Imagens precisam de texto alternativo, origem e crédito quando o modelo os aceitar. Ausência de imagem deve ter fallback estável.
+- Capas de leitura pertencem à edição ou ao volume que efetivamente representam. `ReadingCard` pode usar a capa da edição brasileira confirmada como apresentação visual quando a obra universal não possui imagem, sem copiar essa capa para `ReadingWork`.
 - Pôsteres promocionais existentes são mantidos localmente em `/images/movies/`, convertidos para WebP leve e servidos diretamente por `MoviePoster`; origem, crédito e situação de direitos ficam no registro central. Ativos sem licença comercial confirmada usam `permission-pending` e exigem revisão antes de reutilização comercial.
 - Status editorial controla publicação. Status de lançamento ou produção descreve a obra, não sua indexabilidade.
 - Relações usam IDs permanentes; slugs servem a URLs e aliases preservam caminhos anteriores quando suportados.

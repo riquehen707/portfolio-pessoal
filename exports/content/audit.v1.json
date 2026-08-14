@@ -50,29 +50,7 @@
   "invalidRelationships": [],
   "needsReview": {
     "movies": [
-      "mov_2026_narnia",
-      "mov_shark_mega_octopus",
-      "mov_vamp_nosferatu_1922",
-      "mov_vamp_dracula_1931",
-      "mov_vamp_vampyr_1932",
-      "mov_vamp_horror_dracula_1958",
-      "mov_vamp_daughters_darkness",
-      "mov_vamp_ganja_hess",
-      "mov_vamp_martin_1977",
-      "mov_vamp_nosferatu_1979",
-      "mov_vamp_hunger_1983",
-      "mov_vamp_fright_night_1985",
-      "mov_vamp_lost_boys",
-      "mov_vamp_dracula_1992",
-      "mov_vamp_cronos",
-      "mov_vamp_interview",
-      "mov_vamp_blade",
-      "mov_vamp_shadow",
-      "mov_vamp_hunter_d",
-      "mov_vamp_thirst",
-      "mov_vamp_only_lovers",
-      "mov_vamp_what_we_do",
-      "mov_vamp_girl_walks"
+      "mov_2026_narnia"
     ],
     "moviesWithoutOrganizations": [
       "mov_netflix_roma",

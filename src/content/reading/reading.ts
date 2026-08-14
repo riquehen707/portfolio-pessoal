@@ -1,3 +1,4 @@
+import { readingEditionCovers } from "./readingCovers";
 import { ReadingCatalogSchema, type ReadingEdition, type ReadingSeries, type ReadingVolume, type ReadingWork } from "./readingSchema";
 
 const checked = "2026-08-13";
@@ -183,7 +184,12 @@ const editions:ReadingEdition[]=[
   edition("read_edition_solanin_lpm","read_work_solanin","Solanin — volume único","org_lpm","omnibus","https://www.lpm-editores.com.br/downloads/Arquivos/mangas_l_p_m.pdf",{publicationDate:"2023-06-05",availabilityStatus:"unknown",availabilityCheckedAt:undefined}),
 ];
 
-export const readingCatalog = ReadingCatalogSchema.parse({works,series,installments:[],volumes,editions,offers:[]});
+const editionsWithCovers = editions.map((item) => ({
+  ...item,
+  cover: item.cover ?? readingEditionCovers[item.id],
+}));
+
+export const readingCatalog = ReadingCatalogSchema.parse({works,series,installments:[],volumes,editions:editionsWithCovers,offers:[]});
 export const readingWorks=readingCatalog.works;
 export const readingSeries=readingCatalog.series;
 export const readingVolumes=readingCatalog.volumes;

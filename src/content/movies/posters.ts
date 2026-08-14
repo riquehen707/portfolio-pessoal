@@ -1,3 +1,11 @@
+const wikipediaPoster = (src: string, alt: string, sourceUrl: string) => ({
+  src,
+  alt,
+  sourceUrl,
+  credit: "Pôster promocional reproduzido na Wikipedia; direitos dos respectivos titulares",
+  rights: "permission-pending" as const,
+});
+
 export const posterCatalog = {
   "1922": {
     "src": "/images/movies/1922.webp",
@@ -1580,5 +1588,27 @@ export const posterCatalog = {
     "sourceUrl": "https://www.themoviedb.org/movie/664996-apollo-10-a-space-age-childhood",
     "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
     "rights": "permission-pending"
-  }
+  },
+  "nosferatu-1922": wikipediaPoster("/images/movies/nosferatu-1922.webp", "Pôster de Nosferatu (1922)", "https://en.wikipedia.org/wiki/Nosferatu"),
+  "dracula-1931": wikipediaPoster("/images/movies/dracula-1931.webp", "Pôster de Drácula (1931)", "https://en.wikipedia.org/wiki/Dracula_(1931_English-language_film)"),
+  "vampiro-1932": wikipediaPoster("/images/movies/vampiro-1932.webp", "Pôster de Vampiro (1932)", "https://en.wikipedia.org/wiki/Vampyr"),
+  "o-vampiro-da-noite-1958": wikipediaPoster("/images/movies/o-vampiro-da-noite-1958.webp", "Pôster de O Vampiro da Noite (1958)", "https://en.wikipedia.org/wiki/Dracula_(1958_film)"),
+  "as-filhas-das-trevas": wikipediaPoster("/images/movies/as-filhas-das-trevas.webp", "Pôster de As Filhas das Trevas (1971)", "https://en.wikipedia.org/wiki/Daughters_of_Darkness"),
+  "ganja-e-hess": wikipediaPoster("/images/movies/ganja-e-hess.webp", "Pôster de Ganja & Hess (1973)", "https://en.wikipedia.org/wiki/Ganja_%26_Hess"),
+  "martin-1977": wikipediaPoster("/images/movies/martin-1977.webp", "Pôster de Martin (1977)", "https://en.wikipedia.org/wiki/Martin_(1977_film)"),
+  "nosferatu-o-vampiro-da-noite-1979": wikipediaPoster("/images/movies/nosferatu-1979.webp", "Pôster de Nosferatu: O Vampiro da Noite (1979)", "https://en.wikipedia.org/wiki/Nosferatu_the_Vampyre"),
+  "fome-de-viver": wikipediaPoster("/images/movies/fome-de-viver.webp", "Pôster de Fome de Viver (1983)", "https://en.wikipedia.org/wiki/The_Hunger_(1983_film)"),
+  "a-hora-do-espanto-1985": wikipediaPoster("/images/movies/a-hora-do-espanto-1985.webp", "Pôster de A Hora do Espanto (1985)", "https://en.wikipedia.org/wiki/Fright_Night"),
+  "os-garotos-perdidos": wikipediaPoster("/images/movies/os-garotos-perdidos.webp", "Pôster de Os Garotos Perdidos (1987)", "https://en.wikipedia.org/wiki/The_Lost_Boys"),
+  "dracula-de-bram-stoker": wikipediaPoster("/images/movies/dracula-de-bram-stoker.webp", "Pôster de Drácula de Bram Stoker (1992)", "https://en.wikipedia.org/wiki/Bram_Stoker%27s_Dracula_(1992_film)"),
+  "cronos-1993": wikipediaPoster("/images/movies/cronos-1993.webp", "Pôster de Cronos (1993)", "https://en.wikipedia.org/wiki/Cronos_(film)"),
+  "entrevista-com-o-vampiro": wikipediaPoster("/images/movies/entrevista-com-o-vampiro.webp", "Pôster de Entrevista com o Vampiro (1994)", "https://en.wikipedia.org/wiki/Interview_with_the_Vampire_(film)"),
+  "blade-o-cacador-de-vampiros": wikipediaPoster("/images/movies/blade-o-cacador-de-vampiros.webp", "Pôster de Blade: O Caçador de Vampiros (1998)", "https://en.wikipedia.org/wiki/Blade_(1998_film)"),
+  "a-sombra-do-vampiro": wikipediaPoster("/images/movies/a-sombra-do-vampiro.webp", "Pôster de A Sombra do Vampiro (2000)", "https://en.wikipedia.org/wiki/Shadow_of_the_Vampire"),
+  "vampire-hunter-d-bloodlust": wikipediaPoster("/images/movies/vampire-hunter-d-bloodlust.webp", "Pôster de Vampire Hunter D: Bloodlust (2000)", "https://en.wikipedia.org/wiki/Vampire_Hunter_D:_Bloodlust"),
+  "sede-de-sangue-2009": wikipediaPoster("/images/movies/sede-de-sangue-2009.webp", "Pôster de Sede de Sangue (2009)", "https://en.wikipedia.org/wiki/Thirst_(2009_film)"),
+  "amantes-eternos": wikipediaPoster("/images/movies/amantes-eternos.webp", "Pôster de Amantes Eternos (2013)", "https://en.wikipedia.org/wiki/Only_Lovers_Left_Alive"),
+  "o-que-fazemos-nas-sombras": wikipediaPoster("/images/movies/o-que-fazemos-nas-sombras.webp", "Pôster de O Que Fazemos nas Sombras (2014)", "https://en.wikipedia.org/wiki/What_We_Do_in_the_Shadows"),
+  "garota-sombria-caminha-pela-noite": wikipediaPoster("/images/movies/garota-sombria-caminha-pela-noite.webp", "Pôster de Garota Sombria Caminha pela Noite (2014)", "https://en.wikipedia.org/wiki/A_Girl_Walks_Home_Alone_at_Night"),
+  "mega-shark-vs-giant-octopus": wikipediaPoster("/images/movies/mega-shark-vs-giant-octopus.webp", "Pôster de Mega Shark vs. Giant Octopus (2009)", "https://en.wikipedia.org/wiki/Mega_Shark_Versus_Giant_Octopus")
 } as const;

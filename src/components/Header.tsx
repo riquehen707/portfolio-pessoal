@@ -12,9 +12,9 @@ import styles from "./Header.module.scss";
 
 const navItems = [
   { href: "/", label: "Início", key: "home" as const },
-  { href: "/blog", label: "Blog", key: "blog" as const },
+  { href: "/acervo", label: "Acervo", key: "collection" as const },
+  { href: "/blog", label: "Artigos", key: "blog" as const },
   { href: "/blog/cultura", label: "Estudos", key: "studies" as const },
-  { href: "/filmes", label: "Filmes", key: "movies" as const },
   { label: "Loja", key: "store" as const, disabled: true },
   { href: "/about", label: "Sobre", key: "about" as const },
 ] as const;
@@ -32,6 +32,11 @@ export function Header({ searchItems }: HeaderProps) {
     if (item.key === "home") return pathname === "/";
     if (item.key === "blog") {
       return pathname.startsWith("/blog") && !pathname.startsWith("/blog/cultura");
+    }
+    if (item.key === "collection") {
+      return ["/acervo", "/filmes", "/livros", "/quadrinhos", "/series"].some(
+        (path) => pathname === path || pathname.startsWith(`${path}/`),
+      );
     }
     return pathname.startsWith(item.href);
   };

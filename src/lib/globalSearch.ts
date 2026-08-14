@@ -80,6 +80,21 @@ export function getGlobalSearchItems(): GlobalSearchItem[] {
       keywords: ["blog", "artigos", "guias", "biblioteca"],
     }),
     pageItem({
+      id: "page-collection",
+      title: "Acervo cultural",
+      description:
+        "Filmes, livros, mangás, quadrinhos e séries organizados em bibliotecas e curadorias editoriais.",
+      href: "/acervo",
+      keywords: ["acervo", "filmes", "livros", "mangas", "quadrinhos", "series", "curadorias"],
+    }),
+    pageItem({
+      id: "page-movies",
+      title: "Biblioteca de filmes",
+      description: "Filmes pesquisados, relacionados e reutilizados nas curadorias do site.",
+      href: "/filmes",
+      keywords: ["cinema", "filmes", "terror", "animação", "diretores", "estudios"],
+    }),
+    pageItem({
       id: "page-seo-library",
       title: "Biblioteca de SEO",
       description:

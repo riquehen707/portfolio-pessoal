@@ -29,6 +29,7 @@ const routes: RoutesConfig = {
   "/blog/seo": true,
   "/blog/seo/entender-a-busca": true,
   "/blog/cultura": true,
+  "/acervo": true,
   "/filmes": true,
   "/livros": false,
   "/quadrinhos": false,
