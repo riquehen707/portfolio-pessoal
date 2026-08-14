@@ -164,6 +164,7 @@ Para estúdios de animação, aplique o [modelo editorial especializado](../edit
 | Jogos | `content/games/games.ts` | importação local direta | schema local ao arquivo |
 | Obras animadas | `content/animationWorks/animationWorks.ts` | importação local direta | schema local e vocabulário próprio |
 | Livros, quadrinhos e obras de leitura | `content/reading/readingSchema.ts` | `data/reading/` | catálogo único; livros/light novels usam `/livros`, obras com `comicTradition` e `comicFormat` usam `/quadrinhos`; série, unidade serializada opcional, volume, edição e oferta permanecem compartilhados |
+| Personalidades | `content/creators/creatorSchema.ts` | `data/personalities/` | entidade única para ocupações diversas; obras são descobertas por relações reversas nos acervos, sem filmografias ou bibliografias copiadas para o perfil |
 | Estúdios legados | `content/studios/studios.ts` | importação local direta | sobreposição parcial com organizações |
 
 Filmes não armazenam listas de estúdio nem disponibilidade comercial permanente. Ofertas opcionais ficam em `content/movies/movieOffers.ts`, relacionadas por `movieId`, com provedor, tipo (`stream`, `free-with-ads`, `rent`, `buy` ou `physical`), URL, região, afiliado/aviso e data de verificação. `MovieAvailability` mostra essas ofertas somente na variação editorial do card e explicita a ausência de disponibilidade confirmada; `MovieAvailabilityIndex` agrupa uma seleção por provedor e gera âncoras para os cards. Verificações com mais de 45 dias são marcadas como vencidas.
@@ -189,6 +190,8 @@ Uma página pública deve ser conferida em cinco superfícies independentes:
 5. inclusão na busca global ou navegação quando a descoberta interna for necessária.
 
 JSON-LD deve refletir somente conteúdo visível e confirmado. Os tipos já usados incluem `Organization`, `Person`, `Movie`, coleção de filmes, obra audiovisual e breadcrumbs.
+
+Perfis de personalidades usam `/personalidades/[slug]`, metadata própria, canonical, breadcrumbs e JSON-LD `Person`. Somente registros publicados com biografia suficiente entram nos parâmetros estáticos e no sitemap; o padrão editorial permanente está em `docs/content/personality-pages.md`.
 
 ## Como adicionar ou revisar um tipo de página
 

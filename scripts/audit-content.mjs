@@ -124,10 +124,15 @@ try {
   const readingInstallmentIds = new Set(readingCatalog.installments.map((item) => item.id));
   const readingEditionIds = new Set(readingCatalog.editions.map((edition) => edition.id));
   const seriesIds = new Set(seriesCatalog.map((item) => item.id));
+  const personalityWorkIds = new Set([...workIds, ...movieIds, ...readingWorkIds, ...seriesIds]);
   const readingIsbn10 = readingCatalog.editions.flatMap((edition) => edition.isbn10 ? [edition.isbn10] : []);
   const readingIsbn13 = readingCatalog.editions.flatMap((edition) => edition.isbn13 ? [edition.isbn13] : []);
   invalidRelationships.push(
-    ...creators.flatMap((creator) => creator.workIds.filter((id) => !workIds.has(id)).map((id) => ({ type: "missing_work", from: creator.id, to: id }))),
+    ...creators.flatMap((creator) => [
+      ...creator.workIds.filter((id) => !workIds.has(id)).map((id) => ({ type: "missing_work", from: creator.id, to: id })),
+      ...creator.startingPoints.filter((item) => !personalityWorkIds.has(item.workId)).map((item) => ({ type: "missing_starting_point", from: creator.id, to: item.workId })),
+      ...creator.relatedPersonIds.filter((id) => !creatorIds.has(id)).map((id) => ({ type: "missing_related_person", from: creator.id, to: id })),
+    ]),
     ...editorialWorks.flatMap((work) => [
       ...work.contributors.filter((credit) => !creatorIds.has(credit.personId)).map((credit) => ({ type: "missing_creator", from: work.id, to: credit.personId })),
       ...work.relatedWorkIds.filter((id) => !workIds.has(id)).map((id) => ({ type: "missing_related_work", from: work.id, to: id })),
@@ -136,7 +141,10 @@ try {
     ...organizations.flatMap((organization) => organization.workIds.filter((id) => !workIds.has(id)).map((id) => ({ type: "missing_work", from: organization.id, to: id }))),
     ...games.flatMap((game) => [...game.organizationIds.filter((id)=>!organizationIds.has(id)).map((id)=>({type:"missing_organization",from:game.id,to:id})),...game.contributors.filter((credit)=>!creatorIds.has(credit.personId)).map((credit)=>({type:"missing_creator",from:game.id,to:credit.personId}))]),
     ...animationWorks.flatMap((work)=>work.relationships.filter((relation)=>!organizationIds.has(relation.organizationId)).map((relation)=>({type:"missing_organization",from:work.id,to:relation.organizationId}))),
-    ...movies.flatMap((movie)=>movie.organizationRelationships.filter((relation)=>!organizationIds.has(relation.organizationId)).map((relation)=>({type:"missing_organization",from:movie.id,to:relation.organizationId}))),
+    ...movies.flatMap((movie)=>[
+      ...movie.organizationRelationships.filter((relation)=>!organizationIds.has(relation.organizationId)).map((relation)=>({type:"missing_organization",from:movie.id,to:relation.organizationId})),
+      ...movie.personRelationships.filter((relation)=>!creatorIds.has(relation.personId)).map((relation)=>({type:"missing_creator",from:movie.id,to:relation.personId})),
+    ]),
     ...movieOffers.filter((offer)=>!movieIds.has(offer.movieId)).map((offer)=>({type:"missing_movie",from:offer.id,to:offer.movieId})),
     ...readingCatalog.works.flatMap((work) => [
       ...work.credits.filter((credit) => !creatorIds.has(credit.personId)).map((credit) => ({ type: "missing_creator", from: work.id, to: credit.personId })),
@@ -171,6 +179,7 @@ try {
       ...(seriesCatalog.find((item) => item.id === offer.seriesId)?.seasons < offer.seasonTo ? [{ type: "season_out_of_range", from: offer.id, to: String(offer.seasonTo) }] : []),
     ]),
     ...seriesCurations.flatMap((list) => list.items.filter((item) => !seriesIds.has(item.seriesId)).map((item) => ({ type:"missing_series", from:list.id, to:item.seriesId }))),
+    ...seriesCatalog.flatMap((series) => series.personRelationships.filter((relation) => !creatorIds.has(relation.personId)).map((relation) => ({ type:"missing_creator", from:series.id, to:relation.personId }))),
   );
   const records = movies.map((movie) => ({
     ...movie,

@@ -45,9 +45,46 @@ const ghibliPeople:Creator[] = [
   { id:"person_isao_takahata", slug:"isao-takahata", name:"Isao Takahata", summary:"Diretor, produtor e participante da fundação do Studio Ghibli." },
   { id:"person_toshio_suzuki", slug:"toshio-suzuki", name:"Toshio Suzuki", summary:"Produtor e articulador editorial que participou da fundação e continuidade do Studio Ghibli." },
 ].map(person=>CreatorSchema.parse({
-  ...person, kind:"person", status:"draft", workIds:[],
-  sources:[{title:"História oficial — Studio Ghibli",url:"https://www.ghibli.jp/history/",kind:"primary"}],
-  createdAt:"2026-08-13",updatedAt:"2026-08-13",
+  ...person, kind:"person", status:person.id === "person_hayao_miyazaki" ? "published" : "draft", workIds:[],
+  ...(person.id === "person_hayao_miyazaki" ? {
+    originalName:"宮崎 駿",
+    image:{
+      src:"/images/personalities/hayao-miyazaki.webp",
+      alt:"Hayao Miyazaki no Festival de Cinema de Veneza de 2008",
+      credit:"Thomas Schulz",
+      sourceUrl:"https://commons.wikimedia.org/wiki/File:Hayao_Miyazaki.jpg",
+      license:"CC BY-SA 2.0",
+      licenseUrl:"https://creativecommons.org/licenses/by-sa/2.0/",
+    },
+    birthDate:"1941-01-05",
+    birthPlace:"Tóquio, Japão",
+    countryOrRegion:"Japão",
+    occupations:["Diretor", "Animador", "Roteirista", "Mangaká"],
+    biography:[
+      "Hayao Miyazaki nasceu em Tóquio, em 1941. Depois de se formar em Ciência Política e Economia na Universidade Gakushuin, entrou na Toei Animation em 1963 e desenvolveu parte importante de sua formação profissional ao lado de Isao Takahata.",
+      "Sua estreia na direção de longas ocorreu com O Castelo de Cagliostro, em 1979. Após escrever e dirigir Nausicaä do Vale do Vento, participou da fundação do Studio Ghibli em 1985 e consolidou uma obra em que aventura, cotidiano, trabalho manual, guerra e natureza raramente oferecem respostas simples.",
+    ],
+    themes:["Natureza e tecnologia", "Infância e autonomia", "Trabalho e criação", "Aviação", "Guerra e responsabilidade"],
+    startingPoints:[
+      {workId:"mov_ghb_2001_chihiro",note:"A entrada mais abrangente: fantasia, trabalho, consumo e amadurecimento organizados numa aventura acessível a diferentes idades."},
+      {workId:"mov_ghb_1988_totoro",note:"Para conhecer seu interesse pelo cotidiano infantil, pela espera e por uma natureza fantástica que não existe apenas para ameaçar."},
+      {workId:"mov_ghb_1997_mononoke",note:"A escolha para quem prefere conflito político, violência concreta e uma relação entre indústria e natureza sem lados inteiramente puros."},
+    ],
+    relatedLinks:[
+      {label:"Perfil permanente do Studio Ghibli",href:"/estudios/studio-ghibli",kind:"studio"},
+      {label:"Studio Ghibli: história, filmes e por onde começar",href:"/blog/studio-ghibli",kind:"article"},
+    ],
+    sources:[
+      {title:"Hayao Miyazaki — Academy of Motion Picture Arts and Sciences",url:"https://www.oscars.org/governors-awards/2014/hayao-miyazaki",kind:"secondary"},
+      {title:"História oficial — Studio Ghibli",url:"https://www.ghibli.jp/history/",kind:"primary"},
+      {title:"Hayao Miyazaki no Festival de Veneza — Wikimedia Commons",url:"https://commons.wikimedia.org/wiki/File:Hayao_Miyazaki.jpg",kind:"secondary"},
+    ],
+    updatedAt:"2026-08-14",
+  } : {
+    sources:[{title:"História oficial — Studio Ghibli",url:"https://www.ghibli.jp/history/",kind:"primary"}],
+    updatedAt:"2026-08-13",
+  }),
+  createdAt:"2026-08-13",
 }));
 const laikaPeople:Creator[] = [CreatorSchema.parse({
   id:"person_travis_knight",slug:"travis-knight",name:"Travis Knight",kind:"person",status:"draft",
@@ -205,5 +242,104 @@ const vampireBookAuthors: Creator[] = [
   ["person_natsuki_kizu","natsuki-kizu","Natsuki Kizu","Mangaká japonesa."],
   ["person_nio_nakatani","nio-nakatani","Nio Nakatani","Mangaká japonesa."],
   ["person_tomoko_ninomiya","tomoko-ninomiya","Tomoko Ninomiya","Mangaká japonesa."],
-].map(([id,slug,name,summary])=>CreatorSchema.parse({id,slug,name,summary,kind:"person",status:"draft",workIds:[],sources:[{title:`Página oficial ou bibliográfica — ${name}`,url:`https://openlibrary.org/search/authors?q=${encodeURIComponent(name)}`,kind:"secondary"}],createdAt:"2026-08-13",updatedAt:"2026-08-13"}));
-export const creators = [shingoTamagawa, upamanyuBhattacharyya, kalpSanghvi,...teamCherryPeople,...cartoonSaloonPeople,...ghibliPeople,...laikaPeople,...aardmanPeople,...scienceSaruPeople,...kyotoAnimationPeople,...vampireBookAuthors];
+].map(([id,slug,name,summary])=>CreatorSchema.parse({
+  id, slug, name, summary, kind:"person", workIds:[],
+  status:id === "person_stephen_king" ? "published" : "draft",
+  ...(id === "person_stephen_king" ? {
+    fullName:"Stephen Edwin King",
+    image:{
+      src:"/images/personalities/stephen-king.webp",
+      alt:"Stephen King durante o Festival Internacional de Cinema de Toronto de 2024",
+      credit:"Kevin Payravi, Wikimedia Commons",
+      sourceUrl:"https://commons.wikimedia.org/wiki/File:Stephen_King_at_the_2024_Toronto_International_Film_Festival_2.jpg",
+      license:"CC BY-SA 4.0",
+      licenseUrl:"https://creativecommons.org/licenses/by-sa/4.0/",
+    },
+    birthDate:"1947-09-21",
+    birthPlace:"Portland, Maine, Estados Unidos",
+    countryOrRegion:"Estados Unidos",
+    occupations:["Escritor", "Roteirista"],
+    biography:[
+      "Stephen King nasceu em Portland, no estado do Maine, e começou a publicar profissionalmente ainda nos anos 1960. Depois de estudar inglês e trabalhar como professor, passou a escrever em tempo integral após a publicação de Carrie.",
+      "Sua importância não se limita à frequência com que foi adaptado. King aproximou o terror de famílias, cidades pequenas, trabalho, infância e instituições reconhecíveis, fazendo o sobrenatural conviver com violências que já estavam presentes nas comunidades.",
+    ],
+    themes:["Terror cotidiano", "Cidades pequenas", "Infância e amadurecimento", "Memória", "Violência comunitária"],
+    startingPoints:[
+      {workId:"read_work_it",note:"A porta de entrada mais ampla para seus temas recorrentes: infância, memória, amizade e uma cidade que aprende a ignorar o horror."},
+      {workId:"read_work_shining",note:"Uma escolha mais concentrada, indicada para conhecer como isolamento, dependência e violência familiar atravessam o sobrenatural."},
+      {workId:"read_work_salem_lot",note:"Para observar a cidade pequena como organismo social antes e durante a chegada de uma ameaça vampírica."},
+    ],
+    relatedLinks:[
+      {label:"Melhores livros de terror para diferentes leitores",href:"/blog/melhores-livros-de-terror",kind:"list"},
+      {label:"Livros para quem gostou de It: Bem-Vindos a Derry",href:"/blog/livros-para-quem-gostou-de-it-bem-vindos-a-derry",kind:"list"},
+    ],
+    sources:[
+      {title:"Stephen King — biografia oficial",url:"https://stephenking.com/the-author/",kind:"primary"},
+      {title:"Stephen King no TIFF 2024 — Wikimedia Commons",url:"https://commons.wikimedia.org/wiki/File:Stephen_King_at_the_2024_Toronto_International_Film_Festival_2.jpg",kind:"secondary"},
+    ],
+    updatedAt:"2026-08-14",
+  } : {
+    sources:[{title:`Página oficial ou bibliográfica — ${name}`,url:`https://openlibrary.org/search/authors?q=${encodeURIComponent(name)}`,kind:"secondary"}],
+    updatedAt:"2026-08-13",
+  }),
+  createdAt:"2026-08-13",
+}));
+const nietzschePeople: Creator[] = [
+  CreatorSchema.parse({
+    id:"person_friedrich_nietzsche",slug:"friedrich-nietzsche",name:"Friedrich Nietzsche",fullName:"Friedrich Wilhelm Nietzsche",kind:"person",status:"published",
+    image:{
+      src:"/images/personalities/friedrich-nietzsche.webp",
+      alt:"Retrato de perfil de Friedrich Nietzsche fotografado em 1882",
+      credit:"Gustav-Adolf Schultze; digitalização tratada por Anton (2005)",
+      sourceUrl:"https://commons.wikimedia.org/wiki/File:Nietzsche1882.jpg",
+      license:"Domínio público",
+      licenseUrl:"https://commons.wikimedia.org/wiki/Commons:Public_domain",
+    },
+    birthDate:"1844-10-15",deathDate:"1900-08-25",birthPlace:"Röcken, Prússia (atual Alemanha)",countryOrRegion:"Alemanha",
+    occupations:["Filósofo", "Filólogo clássico", "Escritor", "Crítico cultural"],
+    summary:"Filósofo e filólogo alemão que investigou como valores são criados, herdados e transformados diante da crise da moral e da religião europeias.",
+    biography:[
+      "Nietzsche nasceu em Röcken e se formou em filologia clássica. Em 1869, ainda jovem, assumiu uma cátedra na Universidade da Basileia; o estudo rigoroso dos textos antigos continuaria presente mesmo quando sua escrita se afastou do formato acadêmico.",
+      "Depois de deixar a universidade por problemas de saúde em 1879, viveu de forma itinerante e escreveu livros que alternam aforismo, ensaio, genealogia e narrativa filosófica. Sua crítica à moral, à religião e aos valores tradicionais pergunta de onde eles vêm, a que formas de vida servem e o que acontece quando perdem autoridade.",
+      "Após seu colapso em 1889, a irmã Elisabeth Förster-Nietzsche controlou o arquivo e interferiu na organização póstuma dos fragmentos, especialmente na compilação conhecida como A Vontade de Poder. Sua promoção nacionalista e antissemita favoreceu uma associação posterior e indevida da obra ao nazismo. Nietzsche morreu em 1900, antes do regime, e havia se manifestado contra o antissemitismo e o nacionalismo alemão; isso não elimina os aspectos elitistas e controversos que ainda exigem leitura crítica.",
+    ],
+    themes:["Crítica da moral", "Religião e crise dos valores", "Genealogia", "Arte e cultura", "Afirmação da vida"],
+    ideas:[
+      {title:"Niilismo",description:"É o diagnóstico da perda de força dos valores considerados superiores e da crise de sentido que se segue. Nietzsche não propõe simplesmente o vazio: boa parte de seu trabalho procura atravessar o niilismo e perguntar como criar avaliações afirmadoras da vida."},
+      {title:"Além-do-homem",description:"Apresentado sobretudo em Assim Falou Zaratustra, é uma figura de autossuperação e criação de valores, não uma raça biologicamente superior. O conceito funciona como horizonte exigente, e sua interpretação permanece debatida."},
+      {title:"Eterno retorno",description:"A ideia pergunta como viveríamos diante da possibilidade de cada instante retornar incontáveis vezes. Pode ser lida como desafio de afirmação radical da vida; leituras cosmológicas e existenciais continuam em disputa."},
+      {title:"Vontade de poder",description:"Nomeia, em diferentes contextos, relações de força, interpretação, crescimento e superação. Não deve ser reduzida a desejo de domínio político nem tratada como um sistema fechado a partir da compilação póstuma organizada por seus editores."},
+      {title:"Perspectivismo",description:"Conhecemos a partir de posições, interesses e capacidades situadas. Isso não significa que qualquer opinião valha tanto quanto outra: perspectivas podem ser comparadas pelo alcance, pela coerência e pelo que conseguem tornar visível."},
+      {title:"Moral de senhores e moral de escravos",description:"Na Genealogia da Moral, são categorias para investigar como valores se formam. A primeira parte da autoafirmação; a segunda surge reativamente, marcada pelo ressentimento. É uma análise genealógica controversa, não uma instrução política literal."},
+    ],
+    workIds:[],
+    startingPoints:[
+      {workId:"read_work_twilight_idols",note:"Introdução mais curta e direta à crítica dos ídolos filosóficos e culturais — uma boa forma de conhecer o tom sem começar pela obra mais simbólica."},
+      {workId:"read_work_gay_science",note:"Reúne aforismos sobre conhecimento, moral, arte, morte de Deus e eterno retorno, oferecendo contato com vários temas centrais."},
+      {workId:"read_work_beyond_good_evil",note:"Aprofunda a crítica à filosofia dogmática, à moral e às pretensões de neutralidade; funciona melhor depois de uma primeira familiaridade com seu vocabulário."},
+      {workId:"read_work_genealogy_morality",note:"Investiga a formação histórica e psicológica dos valores, do ressentimento, da culpa e do ideal ascético em três ensaios conectados."},
+      {workId:"read_work_thus_spoke_zarathustra",note:"A entrada mais literária, simbólica e exigente desta trilha. Vale chegar a ela sem esperar um manual nem uma explicação definitiva dos conceitos."},
+    ],
+    relatedPersonIds:["person_arthur_schopenhauer","person_richard_wagner","person_elisabeth_forster_nietzsche"],
+    relatedLinks:[
+      {label:"Friedrich Nietzsche: vida, ideias, obras e por onde começar",href:"/blog/friedrich-nietzsche",kind:"article"},
+      {label:"Arthur Schopenhauer: vida, filosofia, obras e por onde começar",href:"/blog/arthur-schopenhauer",kind:"article"},
+    ],
+    sources:[
+      {title:"Nietzsche’s Life and Works — Stanford Encyclopedia of Philosophy",url:"https://plato.stanford.edu/entries/nietzsche-life-works/",kind:"secondary"},
+      {title:"Nietzsche’s Moral and Political Philosophy — Stanford Encyclopedia of Philosophy",url:"https://plato.stanford.edu/entries/nietzsche-moral-political/",kind:"secondary"},
+      {title:"Friedrich Nietzsche — Internet Encyclopedia of Philosophy",url:"https://iep.utm.edu/nietzsch/",kind:"secondary"},
+      {title:"Digital Critical Edition of Nietzsche’s Works and Letters",url:"https://doc.nietzschesource.org/en/ekgwb",kind:"primary"},
+      {title:"Nietzsche's political misappropriation — Cambridge University Press",url:"https://www.cambridge.org/core/books/cambridge-companion-to-nietzsche/nietzsches-political-misappropriation/1B8D0FFB378250F08C950775F98261CE",kind:"secondary"},
+      {title:"Retrato de Friedrich Nietzsche, 1882 — Wikimedia Commons",url:"https://commons.wikimedia.org/wiki/File:Nietzsche1882.jpg",kind:"secondary"},
+    ],
+    createdAt:"2026-08-14",updatedAt:"2026-08-14",
+  }),
+  ...[
+    {id:"person_arthur_schopenhauer",slug:"arthur-schopenhauer",name:"Arthur Schopenhauer",summary:"Filósofo alemão cuja reflexão sobre vontade, sofrimento e arte influenciou o jovem Nietzsche."},
+    {id:"person_richard_wagner",slug:"richard-wagner",name:"Richard Wagner",summary:"Compositor alemão, primeiro aliado e depois alvo importante da crítica cultural de Nietzsche."},
+    {id:"person_elisabeth_forster_nietzsche",slug:"elisabeth-forster-nietzsche",name:"Elisabeth Förster-Nietzsche",summary:"Irmã de Nietzsche e dirigente do arquivo que moldou a edição e a recepção pública póstuma de seus escritos."},
+  ].map((person)=>CreatorSchema.parse({...person,kind:"person",status:"draft",workIds:[],sources:[{title:"Nietzsche’s Life and Works — Stanford Encyclopedia of Philosophy",url:"https://plato.stanford.edu/entries/nietzsche-life-works/",kind:"secondary"}],createdAt:"2026-08-14",updatedAt:"2026-08-14"})),
+];
+
+export const creators = [shingoTamagawa, upamanyuBhattacharyya, kalpSanghvi,...teamCherryPeople,...cartoonSaloonPeople,...ghibliPeople,...laikaPeople,...aardmanPeople,...scienceSaruPeople,...kyotoAnimationPeople,...vampireBookAuthors,...nietzschePeople];

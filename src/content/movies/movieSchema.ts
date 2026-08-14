@@ -47,6 +47,10 @@ export const MovieSchema = z
     directors: z.array(z.string().min(1)).min(1),
     screenwriters: z.array(z.string().min(1)).default([]),
     credits: z.array(z.object({ name: z.string().min(1), roles: z.array(z.string().min(1)).min(1) })).default([]),
+    personRelationships: z.array(z.object({
+      personId: z.string().regex(/^person_[a-z0-9_]+$/),
+      roles: z.array(z.string().min(1)).min(1),
+    })).default([]),
     releaseType: z.enum(["theatrical", "television", "television-and-theatrical"]).default("theatrical"),
     genres: z.array(z.string().min(1)).min(1),
     subgenres: z.array(z.string().min(1)).default([]),

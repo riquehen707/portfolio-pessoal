@@ -1969,6 +1969,15 @@
     "structuredDataType": "Movie"
   },
   {
+    "id": "mov_miyazaki_1979_cagliostro",
+    "route": "/filmes/o-castelo-de-cagliostro",
+    "canonical": "https://henrique.dog/filmes/o-castelo-de-cagliostro",
+    "title": "O Castelo de Cagliostro: ficha e análise do filme",
+    "description": "O Castelo de Cagliostro (1979): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
     "id": "mov_ghb_1984_nausicaa",
     "route": "/filmes/nausicaa-do-vale-do-vento",
     "canonical": "https://henrique.dog/filmes/nausicaa-do-vale-do-vento",

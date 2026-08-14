@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "counts": {
-    "movies": 249,
+    "movies": 250,
     "articles": 181,
     "curations": 10,
-    "creators": 147,
+    "creators": 151,
     "editorialWorks": 3,
     "organizations": 54,
     "games": 2,
     "animationWorks": 34,
     "movieOffers": 98,
-    "readingWorks": 111,
+    "readingWorks": 121,
     "readingSeries": 3,
     "readingVolumes": 9,
     "readingInstallments": 0,
@@ -21,7 +21,7 @@
     "seriesOffers": 46,
     "seriesCurations": 3,
     "publishedMovies": 0,
-    "draftMovies": 249
+    "draftMovies": 235
   },
   "duplicates": {
     "movieIds": [],
@@ -50,7 +50,8 @@
   "invalidRelationships": [],
   "needsReview": {
     "movies": [
-      "mov_2026_narnia"
+      "mov_2026_narnia",
+      "mov_miyazaki_1979_cagliostro"
     ],
     "moviesWithoutOrganizations": [
       "mov_netflix_roma",
@@ -219,6 +220,7 @@
       "mov_2025_28_years_later",
       "mov_2025_superman",
       "mov_2025_homem_com_h",
+      "mov_miyazaki_1979_cagliostro",
       "mov_ghb_1984_nausicaa",
       "mov_vamp_nosferatu_1922",
       "mov_vamp_dracula_1931",
@@ -407,6 +409,16 @@
       "marketing-para-barbearias-estrategias-simples"
     ],
     "readingWorksWithoutImages": [
+      "read_work_birth_tragedy",
+      "read_work_human_all_too_human",
+      "read_work_dawn_nietzsche",
+      "read_work_gay_science",
+      "read_work_thus_spoke_zarathustra",
+      "read_work_beyond_good_evil",
+      "read_work_genealogy_morality",
+      "read_work_twilight_idols",
+      "read_work_antichrist_nietzsche",
+      "read_work_ecce_homo",
       "read_work_the_vampyre",
       "read_work_carmilla",
       "read_work_dracula",

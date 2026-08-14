@@ -4,6 +4,7 @@ import { baseURL, blog, routes as routesConfig } from "@/resources";
 import { getAllArticles } from "@/data/articles";
 import { getPublishedMovies } from "@/data/movies";
 import { getPublishedBooks, getPublishedComics } from "@/data/reading";
+import { getPublishedPersonalities } from "@/data/personalities";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const today = new Date().toISOString().split("T")[0];
@@ -23,6 +24,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
   const readingPages = (await getPublishedBooks()).map((work) => ({ url:`${baseURL}/livros/${work.slug}`,lastModified:work.updatedAt,changeFrequency:"monthly" as const,priority:0.62 }));
   const comicPages = (await getPublishedComics()).map((work) => ({ url:`${baseURL}/quadrinhos/${work.slug}`,lastModified:work.updatedAt,changeFrequency:"monthly" as const,priority:0.62 }));
+  const personalityPages = getPublishedPersonalities().map((person) => ({ url:`${baseURL}/personalidades/${person.slug}`,lastModified:person.updatedAt,changeFrequency:"monthly" as const,priority:0.66 }));
 
   const routePriorities: Record<string, number> = {
     "/": 1,
@@ -53,6 +55,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...moviePages,
     ...readingPages,
     ...comicPages,
+    ...personalityPages,
     ...blogPosts,
     { url: `${baseURL}/estudios/studio-ghibli`, lastModified: "2026-08-13", changeFrequency: "monthly" as const, priority: 0.76 },
     { url: `${baseURL}/estudios/aardman`, lastModified: "2026-08-13", changeFrequency: "monthly" as const, priority: 0.75 },

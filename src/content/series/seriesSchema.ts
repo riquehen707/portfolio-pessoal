@@ -9,6 +9,7 @@ export const SeriesSchema = z.object({
   titleBr: z.string().min(1), originalTitle: z.string().min(1), startYear: z.number().int(), endYear: z.number().int().optional(),
   status: z.enum(["ended", "returning", "limited"]), format: z.enum(["live-action", "animation", "anime", "web-series"]),
   countries: z.array(z.string()).min(1), originalLanguages: z.array(z.string()).min(1), creators: z.array(z.string()).min(1),
+  personRelationships: z.array(z.object({ personId: z.string().regex(/^person_[a-z0-9_]+$/), roles: z.array(z.string().min(1)).min(1) })).default([]),
   seasons: z.number().int().positive(), episodes: z.number().int().positive().optional(), genres: z.array(z.string()).min(1),
   themes: z.array(z.string()).default([]), shortDescription: z.string().min(20).max(320),
   audienceProfile: z.string().min(10).max(240), experience: z.string().min(3).max(120), contentWarnings: z.array(z.string()).default([]),

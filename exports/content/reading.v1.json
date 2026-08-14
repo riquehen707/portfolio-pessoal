@@ -3,6 +3,588 @@
   "contentType": "reading-catalog",
   "works": [
     {
+      "id": "read_work_birth_tragedy",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "o-nascimento-da-tragedia",
+      "aliases": [
+        "the-birth-of-tragedy"
+      ],
+      "originalTitle": "Die Geburt der Tragödie aus dem Geiste der Musik",
+      "titleBr": "O Nascimento da Tragédia",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_friedrich_nietzsche",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1872",
+      "publicationEnd": "1872",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia",
+        "Estética"
+      ],
+      "themes": [
+        "Tragédia grega",
+        "Arte",
+        "Cultura"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Nietzsche confronta as forças apolínea e dionisíaca para pensar a tragédia grega, a arte e a saúde de uma cultura.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Digital Critical Edition of Nietzsche’s Works and Letters",
+          "url": "https://doc.nietzschesource.org/en/ekgwb"
+        }
+      ],
+      "status": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_work_human_all_too_human",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "humano-demasiado-humano",
+      "aliases": [
+        "human-all-too-human"
+      ],
+      "originalTitle": "Menschliches, Allzumenschliches. Ein Buch für freie Geister",
+      "titleBr": "Humano, Demasiado Humano",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_friedrich_nietzsche",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1878",
+      "publicationEnd": "1880",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia",
+        "Aforismo"
+      ],
+      "themes": [
+        "Espírito livre",
+        "Moral",
+        "Conhecimento"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Aforismos submetem convicções metafísicas, morais e artísticas a uma investigação histórica e psicológica.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Digital Critical Edition of Nietzsche’s Works and Letters",
+          "url": "https://doc.nietzschesource.org/en/ekgwb"
+        }
+      ],
+      "status": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_work_dawn_nietzsche",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "aurora-nietzsche",
+      "aliases": [
+        "dawn",
+        "daybreak"
+      ],
+      "originalTitle": "Morgenröte. Gedanken über die moralischen Vorurteile",
+      "titleBr": "Aurora",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_friedrich_nietzsche",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1881",
+      "publicationEnd": "1881",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia",
+        "Aforismo"
+      ],
+      "themes": [
+        "Preconceitos morais",
+        "Costumes",
+        "Psicologia"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Uma investigação aforística questiona a origem e a autoridade de sentimentos e hábitos morais tratados como evidentes.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Digital Critical Edition of Nietzsche’s Works and Letters",
+          "url": "https://doc.nietzschesource.org/en/ekgwb"
+        }
+      ],
+      "status": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_work_gay_science",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "a-gaia-ciencia",
+      "aliases": [
+        "the-gay-science"
+      ],
+      "originalTitle": "Die fröhliche Wissenschaft",
+      "titleBr": "A Gaia Ciência",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_friedrich_nietzsche",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1882",
+      "publicationEnd": "1887",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia",
+        "Aforismo"
+      ],
+      "themes": [
+        "Conhecimento",
+        "Morte de Deus",
+        "Eterno retorno"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Aforismos, poemas e experimentos de pensamento aproximam conhecimento, arte, crítica moral e afirmação da vida.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Digital Critical Edition of Nietzsche’s Works and Letters",
+          "url": "https://doc.nietzschesource.org/en/ekgwb"
+        }
+      ],
+      "status": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_work_thus_spoke_zarathustra",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "assim-falou-zaratustra",
+      "aliases": [
+        "thus-spoke-zarathustra"
+      ],
+      "originalTitle": "Also sprach Zarathustra. Ein Buch für Alle und Keinen",
+      "titleBr": "Assim Falou Zaratustra",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_friedrich_nietzsche",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1883",
+      "publicationEnd": "1885",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia",
+        "Prosa poética"
+      ],
+      "themes": [
+        "Autossuperação",
+        "Além-do-homem",
+        "Eterno retorno"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Discursos, parábolas e cenas simbólicas acompanham Zaratustra em torno da criação de valores e da afirmação da existência.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Digital Critical Edition of Nietzsche’s Works and Letters",
+          "url": "https://doc.nietzschesource.org/en/ekgwb"
+        }
+      ],
+      "status": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_work_beyond_good_evil",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "alem-do-bem-e-do-mal",
+      "aliases": [
+        "beyond-good-and-evil"
+      ],
+      "originalTitle": "Jenseits von Gut und Böse. Vorspiel einer Philosophie der Zukunft",
+      "titleBr": "Além do Bem e do Mal",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_friedrich_nietzsche",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1886",
+      "publicationEnd": "1886",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia",
+        "Aforismo"
+      ],
+      "themes": [
+        "Moral",
+        "Perspectivismo",
+        "Filosofia futura"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Nietzsche critica pressupostos dogmáticos da filosofia e examina as forças e avaliações que atravessam conhecimento e moral.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Digital Critical Edition of Nietzsche’s Works and Letters",
+          "url": "https://doc.nietzschesource.org/en/ekgwb"
+        }
+      ],
+      "status": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_work_genealogy_morality",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "genealogia-da-moral",
+      "aliases": [
+        "on-the-genealogy-of-morality",
+        "a-genealogia-da-moral"
+      ],
+      "originalTitle": "Zur Genealogie der Moral. Eine Streitschrift",
+      "titleBr": "Genealogia da Moral",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_friedrich_nietzsche",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1887",
+      "publicationEnd": "1887",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia",
+        "Genealogia"
+      ],
+      "themes": [
+        "Ressentimento",
+        "Culpa",
+        "Ideal ascético"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Três ensaios investigam como valores morais, consciência de culpa e ideais ascéticos ganharam forma e autoridade.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Digital Critical Edition of Nietzsche’s Works and Letters",
+          "url": "https://doc.nietzschesource.org/en/ekgwb"
+        }
+      ],
+      "status": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_work_twilight_idols",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "crepusculo-dos-idolos",
+      "aliases": [
+        "twilight-of-the-idols"
+      ],
+      "originalTitle": "Götzen-Dämmerung oder Wie man mit dem Hammer philosophiert",
+      "titleBr": "Crepúsculo dos Ídolos",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_friedrich_nietzsche",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1889",
+      "publicationEnd": "1889",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia",
+        "Aforismo"
+      ],
+      "themes": [
+        "Crítica cultural",
+        "Moral",
+        "Metafísica"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Um livro breve e incisivo testa ídolos filosóficos e culturais e condensa temas da obra madura.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Digital Critical Edition of Nietzsche’s Works and Letters",
+          "url": "https://doc.nietzschesource.org/en/ekgwb"
+        }
+      ],
+      "status": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_work_antichrist_nietzsche",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "o-anticristo-nietzsche",
+      "aliases": [
+        "the-antichrist"
+      ],
+      "originalTitle": "Der Antichrist. Fluch auf das Christenthum",
+      "titleBr": "O Anticristo",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_friedrich_nietzsche",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1895",
+      "publicationEnd": "1895",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia",
+        "Crítica da religião"
+      ],
+      "themes": [
+        "Cristianismo",
+        "Moral",
+        "Valores"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Uma polêmica concentrada contra o cristianismo e os valores que Nietzsche entende como hostis à afirmação da vida.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Digital Critical Edition of Nietzsche’s Works and Letters",
+          "url": "https://doc.nietzschesource.org/en/ekgwb"
+        }
+      ],
+      "status": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_work_ecce_homo",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "ecce-homo-nietzsche",
+      "aliases": [
+        "ecce-homo-how-one-becomes-what-one-is"
+      ],
+      "originalTitle": "Ecce homo. Wie man wird, was man ist",
+      "titleBr": "Ecce Homo",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_friedrich_nietzsche",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1908",
+      "publicationEnd": "1908",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia",
+        "Autobiografia intelectual"
+      ],
+      "themes": [
+        "Autointerpretação",
+        "Estilo",
+        "Obra"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Nietzsche relê a própria trajetória e seus livros em uma autobiografia intelectual irônica, provocadora e pouco adequada como biografia imparcial.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Digital Critical Edition of Nietzsche’s Works and Letters",
+          "url": "https://doc.nietzschesource.org/en/ekgwb"
+        }
+      ],
+      "status": "review",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
       "id": "read_work_the_vampyre",
       "contentType": "reading-work",
       "schemaVersion": 1,

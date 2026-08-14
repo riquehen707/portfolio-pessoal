@@ -21,7 +21,7 @@ export type MovieSeed = Pick<
   | "experience"
   | "contentWarnings"
   | "sources"
-> & Partial<Pick<Movie, "internationalTitle" | "releaseDate" | "screenwriters" | "credits" | "releaseType" | "productionStatus">> & {
+> & Partial<Pick<Movie, "internationalTitle" | "releaseDate" | "screenwriters" | "credits" | "personRelationships" | "releaseType" | "productionStatus">> & {
   id?: string;
   aliases?: string[];
   poster?: Movie["poster"];
@@ -408,6 +408,7 @@ const seeds: MovieSeed[] = [
   { slug: "exterminio-a-evolucao", aliases: ["28-years-later"], titleBr: "Extermínio: A Evolução", originalTitle: "28 Years Later", year: 2025, releaseDate: "2025-06-20", durationMinutes: 115, countries: ["Reino Unido", "Estados Unidos"], directors: ["Danny Boyle"], screenwriters: ["Alex Garland"], genres: ["Terror", "Ficção científica"], subgenres: ["Infectados", "Pós-apocalíptico"], themes: ["Família", "Morte", "Isolamento"], shortDescription: "Décadas após o surto, um jovem deixa uma comunidade isolada e encontra novas formas de sobrevivência, violência e convivência com os infectados.", audienceProfile: "Para quem aceita mudanças de tom, imagens digitais agressivas e uma continuação menos nostálgica do que parece.", experience: "Frenético, estranho e melancólico", contentWarnings: ["Violência gráfica", "Morte", "Nudez"], sources: source("28 Years Later — Sony Pictures", "https://www.sonypictures.com/movies/28yearslater") },
   { slug: "superman-2025", aliases: ["superman-james-gunn"], titleBr: "Superman", originalTitle: "Superman", year: 2025, releaseDate: "2025-07-11", durationMinutes: 129, countries: ["Estados Unidos"], directors: ["James Gunn"], screenwriters: ["James Gunn"], genres: ["Ação", "Aventura", "Fantasia"], subgenres: ["Super-herói"], themes: ["Bondade", "Imigração", "Responsabilidade"], shortDescription: "Superman tenta preservar uma ideia de bondade num mundo saturado de conflitos, propaganda, vigilantes e interesses corporativos.", audienceProfile: "Para quem procura aventura de super-herói colorida, movimentada e assumidamente sentimental.", experience: "Pop, acelerado e otimista", contentWarnings: ["Violência fantástica", "Crianças em perigo"], sources: source("Superman — Warner Bros.", "https://www.warnerbros.com/movies/superman") },
   { slug: "homem-com-h", titleBr: "Homem com H", originalTitle: "Homem com H", year: 2025, releaseDate: "2025-05-01", durationMinutes: 129, countries: ["Brasil"], directors: ["Esmir Filho"], screenwriters: ["Esmir Filho"], genres: ["Drama", "Musical", "Biografia"], subgenres: ["Cinebiografia"], themes: ["Música", "Identidade", "Performance"], shortDescription: "A trajetória de Ney Matogrosso atravessa repressão familiar, ditadura, desejo e criação de uma presença de palco impossível de domesticar.", audienceProfile: "Para quem gosta de cinebiografias musicais conduzidas por performance e transformação visual.", experience: "Musical, físico e exuberante", contentWarnings: ["Homofobia", "Violência", "Sexo"], sources: source("Homem com H — Paris Filmes", "https://www.parisfilmes.com.br/homem-com-h/") },
+  { id:"mov_miyazaki_1979_cagliostro", slug:"o-castelo-de-cagliostro", aliases:["lupin-iii-o-castelo-de-cagliostro","the-castle-of-cagliostro"], titleBr:"O Castelo de Cagliostro", originalTitle:"ルパン三世 カリオストロの城", internationalTitle:"The Castle of Cagliostro", year:1979, releaseDate:"1979-12-15", durationMinutes:100, countries:["Japão"], directors:["Hayao Miyazaki"], screenwriters:["Hayao Miyazaki","Haruya Yamazaki"], genres:["Animação","Aventura","Comédia"], subgenres:["Filme de assalto"], themes:["Falsificação","Liberdade","Resgate"], shortDescription:"Lupin segue o rastro de dinheiro falsificado até um pequeno principado e transforma a investigação numa operação de resgate dentro de um castelo fortificado.", audienceProfile:"Para quem quer conhecer a estreia de Miyazaki em longas por uma aventura rápida, cômica e ligada ao universo de Lupin III.", experience:"Ágil, inventivo e aventureiro", contentWarnings:["Violência de aventura","Casamento forçado"], sources:[{title:"Hayao Miyazaki — Academy of Motion Picture Arts and Sciences",url:"https://www.oscars.org/governors-awards/2014/hayao-miyazaki"},{title:"O Castelo de Cagliostro — Festival do Rio",url:"https://www.festivaldorio.com.br/br/filmes/o-castelo-de-cagliostro"}] },
   ...ghibliMovieSeeds,
   ...laikaMovieSeeds,
   ...vampireMovieSeeds,
@@ -416,6 +417,14 @@ const seeds: MovieSeed[] = [
 const rawMovies = seeds.map((seed) => {
   const movie = { ...seed, ...catalogCorrections[seed.slug] };
   const primaryOrganizationId = primaryProductionBySlug[movie.slug];
+  const miyazakiRoles = [
+    ...(movie.directors.includes("Hayao Miyazaki") ? ["direction"] : []),
+    ...(movie.screenwriters?.includes("Hayao Miyazaki") ? ["screenplay"] : []),
+  ];
+  const personRelationships = movie.personRelationships ?? (miyazakiRoles.length ? [{
+    personId:"person_hayao_miyazaki",
+    roles:miyazakiRoles,
+  }] : []);
   return ({
   ...movie,
   id: movie.id ?? movieIds[movie.slug],
@@ -423,17 +432,18 @@ const rawMovies = seeds.map((seed) => {
   schemaVersion: 1,
   aliases: movie.aliases ?? [],
   createdAt: "2026-08-10",
-  updatedAt: primaryOrganizationId ? "2026-08-13" : "2026-08-11",
+  updatedAt: personRelationships.length ? "2026-08-14" : primaryOrganizationId ? "2026-08-13" : "2026-08-11",
   relatedContentIds: [],
   format: "feature" as const,
   credits: movie.credits ?? [],
+  personRelationships,
   organizationRelationships: movie.organizationRelationships ?? (primaryOrganizationId ? [{
     organizationId: primaryOrganizationId,
     roles: ["production" as const],
     status: "draft" as const,
   }] : []),
   poster: movie.poster ?? posterCatalog[movie.slug as keyof typeof posterCatalog],
-  status: "draft" as const,
+  status: personRelationships.length ? "review" as const : "draft" as const,
   seo: {
     title: `${movie.titleBr}: ficha e análise do filme`,
     description: `${movie.titleBr} (${movie.year}): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.`,
