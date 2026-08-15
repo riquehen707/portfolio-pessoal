@@ -50,14 +50,28 @@
       "seriesMemberships": [],
       "relatedWorks": [],
       "adaptations": [],
+      "image": {
+        "src": "/images/reading/nietzsche/o-nascimento-da-tragedia.webp",
+        "alt": "Capa histórica da primeira edição de O Nascimento da Tragédia, de 1872",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Geburt_der_Trag%C3%B6die.jpg",
+        "credit": "Leopold Rau; reprodução histórica no Wikimedia Commons",
+        "rights": "public-domain",
+        "width": 640,
+        "height": 960
+      },
       "sources": [
         {
           "title": "Digital Critical Edition of Nietzsche’s Works and Letters",
           "url": "https://doc.nietzschesource.org/en/ekgwb"
+        },
+        {
+          "title": "Capa da primeira edição — Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/File:Geburt_der_Trag%C3%B6die.jpg"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -108,14 +122,28 @@
       "seriesMemberships": [],
       "relatedWorks": [],
       "adaptations": [],
+      "image": {
+        "src": "/images/reading/nietzsche/humano-demasiado-humano.webp",
+        "alt": "Folha de rosto da primeira edição de Humano, Demasiado Humano, de 1878",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Menschliches_Allzumenschliches_1878.gif",
+        "credit": "Ernst Schmeitzner e Friedrich Nietzsche; reprodução histórica",
+        "rights": "public-domain",
+        "width": 640,
+        "height": 960
+      },
       "sources": [
         {
           "title": "Digital Critical Edition of Nietzsche’s Works and Letters",
           "url": "https://doc.nietzschesource.org/en/ekgwb"
+        },
+        {
+          "title": "Primeira edição — Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/File:Menschliches_Allzumenschliches_1878.gif"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -167,14 +195,28 @@
       "seriesMemberships": [],
       "relatedWorks": [],
       "adaptations": [],
+      "image": {
+        "src": "/images/reading/nietzsche/aurora.webp",
+        "alt": "Folha de rosto da primeira edição de Aurora, de 1881",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nietzsche_-_Morgenr%C3%B6the%2C_1881%2C_p._001.jpg",
+        "credit": "Ernst Schmeitzner; digitalização Nietzsche Source",
+        "rights": "public-domain",
+        "width": 640,
+        "height": 960
+      },
       "sources": [
         {
           "title": "Digital Critical Edition of Nietzsche’s Works and Letters",
           "url": "https://doc.nietzschesource.org/en/ekgwb"
+        },
+        {
+          "title": "Primeira edição — Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/File:Nietzsche_-_Morgenr%C3%B6the%2C_1881%2C_p._001.jpg"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -225,14 +267,28 @@
       "seriesMemberships": [],
       "relatedWorks": [],
       "adaptations": [],
+      "image": {
+        "src": "/images/reading/nietzsche/a-gaia-ciencia.webp",
+        "alt": "Capa da primeira edição de A Gaia Ciência, de 1882",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:FW82.jpg",
+        "credit": "E. W. Fritzsch; reprodução histórica",
+        "rights": "public-domain",
+        "width": 640,
+        "height": 960
+      },
       "sources": [
         {
           "title": "Digital Critical Edition of Nietzsche’s Works and Letters",
           "url": "https://doc.nietzschesource.org/en/ekgwb"
+        },
+        {
+          "title": "Capa da primeira edição — Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/File:FW82.jpg"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -283,14 +339,28 @@
       "seriesMemberships": [],
       "relatedWorks": [],
       "adaptations": [],
+      "image": {
+        "src": "/images/reading/nietzsche/assim-falou-zaratustra.webp",
+        "alt": "Capa da primeira edição da primeira parte de Assim Falou Zaratustra, de 1883",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Also_sprach_Zarathustra_%281883%29.png",
+        "credit": "Friedrich Nietzsche; reprodução histórica",
+        "rights": "public-domain",
+        "width": 640,
+        "height": 960
+      },
       "sources": [
         {
           "title": "Digital Critical Edition of Nietzsche’s Works and Letters",
           "url": "https://doc.nietzschesource.org/en/ekgwb"
+        },
+        {
+          "title": "Capa da primeira edição — Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/File:Also_sprach_Zarathustra_%281883%29.png"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -341,14 +411,28 @@
       "seriesMemberships": [],
       "relatedWorks": [],
       "adaptations": [],
+      "image": {
+        "src": "/images/reading/nietzsche/alem-do-bem-e-do-mal.webp",
+        "alt": "Folha de rosto da primeira edição de Além do Bem e do Mal, de 1886",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jenseits_von_Gut_und_B%C3%B6se_-_1886.jpg",
+        "credit": "C. G. Naumann; reprodução histórica",
+        "rights": "public-domain",
+        "width": 640,
+        "height": 960
+      },
       "sources": [
         {
           "title": "Digital Critical Edition of Nietzsche’s Works and Letters",
           "url": "https://doc.nietzschesource.org/en/ekgwb"
+        },
+        {
+          "title": "Primeira edição — Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/File:Jenseits_von_Gut_und_B%C3%B6se_-_1886.jpg"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -400,14 +484,28 @@
       "seriesMemberships": [],
       "relatedWorks": [],
       "adaptations": [],
+      "image": {
+        "src": "/images/reading/nietzsche/genealogia-da-moral.webp",
+        "alt": "Folha de rosto da primeira edição de Genealogia da Moral, de 1887",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Genealogie_der_Moral%2C_1887_-_cover.jpg",
+        "credit": "C. G. Naumann; reprodução histórica",
+        "rights": "public-domain",
+        "width": 640,
+        "height": 960
+      },
       "sources": [
         {
           "title": "Digital Critical Edition of Nietzsche’s Works and Letters",
           "url": "https://doc.nietzschesource.org/en/ekgwb"
+        },
+        {
+          "title": "Primeira edição — Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/File:Genealogie_der_Moral%2C_1887_-_cover.jpg"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -458,14 +556,28 @@
       "seriesMemberships": [],
       "relatedWorks": [],
       "adaptations": [],
+      "image": {
+        "src": "/images/reading/nietzsche/crepusculo-dos-idolos.webp",
+        "alt": "Capa da primeira edição de Crepúsculo dos Ídolos, de 1889",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:G%C3%B6tzen-D%C3%A4mmerung_%281889%29.gif",
+        "credit": "C. G. Naumann e Friedrich Nietzsche; reprodução histórica",
+        "rights": "public-domain",
+        "width": 640,
+        "height": 960
+      },
       "sources": [
         {
           "title": "Digital Critical Edition of Nietzsche’s Works and Letters",
           "url": "https://doc.nietzschesource.org/en/ekgwb"
+        },
+        {
+          "title": "Capa da primeira edição — Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/File:G%C3%B6tzen-D%C3%A4mmerung_%281889%29.gif"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -516,14 +628,28 @@
       "seriesMemberships": [],
       "relatedWorks": [],
       "adaptations": [],
+      "image": {
+        "src": "/images/reading/nietzsche/o-anticristo.webp",
+        "alt": "Folhas de rosto manuscritas preservadas de O Anticristo",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nietzsche_AC_Titel.JPG",
+        "credit": "Friedrich Nietzsche; fac-símile do manuscrito",
+        "rights": "public-domain",
+        "width": 640,
+        "height": 960
+      },
       "sources": [
         {
           "title": "Digital Critical Edition of Nietzsche’s Works and Letters",
           "url": "https://doc.nietzschesource.org/en/ekgwb"
+        },
+        {
+          "title": "Manuscrito — Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/File:Nietzsche_AC_Titel.JPG"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -574,14 +700,28 @@
       "seriesMemberships": [],
       "relatedWorks": [],
       "adaptations": [],
+      "image": {
+        "src": "/images/reading/nietzsche/ecce-homo.webp",
+        "alt": "Folha de rosto do manuscrito de Ecce Homo",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eh_Titel.JPG",
+        "credit": "Friedrich Nietzsche; fac-símile do manuscrito",
+        "rights": "public-domain",
+        "width": 640,
+        "height": 960
+      },
       "sources": [
         {
           "title": "Digital Critical Edition of Nietzsche’s Works and Letters",
           "url": "https://doc.nietzschesource.org/en/ekgwb"
+        },
+        {
+          "title": "Manuscrito — Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/File:Eh_Titel.JPG"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -635,8 +775,9 @@
           "url": "https://openlibrary.org/search?q=The%20Vampyre&author=john%20polidori"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -698,8 +839,9 @@
           "url": "https://openlibrary.org/search?q=Carmilla&author=sheridan%20le%20fanu"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -762,8 +904,9 @@
           "url": "https://openlibrary.org/search?q=Dracula&author=bram%20stoker"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -827,8 +970,9 @@
           "url": "https://openlibrary.org/search?q=I%20Am%20Legend&author=richard%20matheson"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -891,8 +1035,9 @@
           "url": "https://openlibrary.org/search?q='Salem's%20Lot&author=stephen%20king"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -959,8 +1104,9 @@
           "url": "https://openlibrary.org/search?q=Interview%20with%20the%20Vampire&author=anne%20rice"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -1014,8 +1160,9 @@
           "url": "https://openlibrary.org/search?q=The%20Vampire%20Tapestry&author=suzy%20mckee%20charnas"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -1069,8 +1216,9 @@
           "url": "https://openlibrary.org/search?q=Fevre%20Dream&author=george%20r%20r%20martin"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -1125,8 +1273,9 @@
           "url": "https://openlibrary.org/search?q=Vampire%20Junction&author=s%20p%20somtow"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -1180,8 +1329,9 @@
           "url": "https://openlibrary.org/search?q=Black%20Ambrosia&author=elizabeth%20engstrom"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -1236,8 +1386,9 @@
           "url": "https://openlibrary.org/search?q=The%20Gilda%20Stories&author=jewelle%20gomez"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -1291,8 +1442,9 @@
           "url": "https://openlibrary.org/search?q=Sunshine&author=robin%20mckinley"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -1356,8 +1508,9 @@
           "url": "https://openlibrary.org/search?q=L%C3%A5t%20den%20r%C3%A4tte%20komma%20in&author=john%20ajvide%20lindqvist"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -1411,8 +1564,9 @@
           "url": "https://openlibrary.org/search?q=Fledgling&author=octavia%20e%20butler"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -1467,8 +1621,9 @@
           "url": "https://openlibrary.org/search?q=The%20Historian&author=elizabeth%20kostova"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -1536,8 +1691,9 @@
           "url": "https://openlibrary.org/search?q=The%20Passage&author=justin%20cronin"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -1592,8 +1748,9 @@
           "url": "https://openlibrary.org/search?q=The%20Coldest%20Girl%20in%20Coldtown&author=holly%20black"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -1647,8 +1804,9 @@
           "url": "https://openlibrary.org/search?q=The%20Lesser%20Dead&author=christopher%20buehlman"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -1703,8 +1861,9 @@
           "url": "https://openlibrary.org/search?q=Certain%20Dark%20Things&author=silvia%20moreno%20garcia"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -1766,8 +1925,9 @@
           "url": "https://openlibrary.org/search?q=La%20ruta%20del%20hielo%20y%20la%20sal&author=jose%20luis%20zarate"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -1830,8 +1990,9 @@
           "url": "https://openlibrary.org/search?q=The%20Southern%20Book%20Club's%20Guide%20to%20Slaying%20Vampires&author=grady%20hendrix"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -1886,8 +2047,9 @@
           "url": "https://openlibrary.org/search?q=A%20Dowry%20of%20Blood&author=s%20t%20gibson"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -1941,8 +2103,9 @@
           "url": "https://openlibrary.org/search?q=Woman%2C%20Eating&author=claire%20kohda"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -1997,8 +2160,9 @@
           "url": "https://openlibrary.org/search?q=House%20of%20Hunger&author=alexis%20henderson"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -2053,8 +2217,9 @@
           "url": "https://openlibrary.org/search?q=Vampires%20of%20El%20Norte&author=isabel%20canas"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -2114,8 +2279,9 @@
           "url": "https://openlibrary.org/search?q=An%20Education%20in%20Malice&author=s%20t%20gibson"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -2179,8 +2345,9 @@
           "url": "https://openlibrary.org/search?q=Frankenstein%3B%20or%2C%20The%20Modern%20Prometheus&author=mary%20shelley"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -2235,8 +2402,9 @@
           "url": "https://openlibrary.org/search?q=The%20Turn%20of%20the%20Screw&author=henry%20james"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -2300,8 +2468,9 @@
           "url": "https://openlibrary.org/search?q=The%20Haunting%20of%20Hill%20House&author=shirley%20jackson"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -2356,8 +2525,9 @@
           "url": "https://openlibrary.org/search?q=We%20Have%20Always%20Lived%20in%20the%20Castle&author=shirley%20jackson"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -2412,8 +2582,9 @@
           "url": "https://openlibrary.org/search?q=Rosemary's%20Baby&author=ira%20levin"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -2468,8 +2639,9 @@
           "url": "https://openlibrary.org/search?q=The%20Shining&author=stephen%20king"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -2533,8 +2705,9 @@
           "url": "https://openlibrary.org/search?q=Beloved&author=toni%20morrison"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -2597,8 +2770,9 @@
           "url": "https://openlibrary.org/search?q=Ring&author=koji%20suzuki"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -2667,8 +2841,9 @@
           "url": "https://openlibrary.org/search?q=Annihilation&author=jeff%20vandermeer"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -2722,8 +2897,9 @@
           "url": "https://openlibrary.org/search?q=The%20Fisherman&author=john%20langan"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -2778,8 +2954,9 @@
           "url": "https://openlibrary.org/search?q=Mexican%20Gothic&author=silvia%20moreno%20garcia"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -2835,8 +3012,9 @@
           "url": "https://openlibrary.org/search?q=Cad%C3%A1ver%20exquisito&author=agustina%20bazterrica"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -2892,8 +3070,9 @@
           "url": "https://openlibrary.org/search?q=Nuestra%20parte%20de%20noche&author=mariana%20enriquez"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -2947,8 +3126,9 @@
           "url": "https://openlibrary.org/search?q=The%20Only%20Good%20Indians&author=stephen%20graham%20jones"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -3002,8 +3182,9 @@
           "url": "https://openlibrary.org/search?q=The%20Good%20House&author=tananarive%20due"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -3059,8 +3240,9 @@
           "url": "https://openlibrary.org/search?q=Ring%20Shout&author=p%20djeli%20clark"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -3116,8 +3298,9 @@
           "url": "https://openlibrary.org/search?q=Cursed%20Bunny&author=bora%20chung"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -3173,8 +3356,9 @@
           "url": "https://openlibrary.org/search?q=Jantar%20Secreto&author=raphael%20montes"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -3229,8 +3413,9 @@
           "url": "https://openlibrary.org/search?q=The%20Reformatory&author=tananarive%20due"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -3306,8 +3491,9 @@
           "url": "https://www.companhiadasletras.com.br/livro/9788560280940/it-a-coisa"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -3371,8 +3557,9 @@
           "url": "https://n.companhiadasletras.com.br/livro/9788556510853/o-instituto"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -3426,8 +3613,9 @@
           "url": "https://openlibrary.org/search?q=Summer%20of%20Night&author=dan%20simmons"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -3482,8 +3670,9 @@
           "url": "https://openlibrary.org/search?q=Boy's%20Life&author=robert%20mccammon"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -3538,8 +3727,9 @@
           "url": "https://www.record.com.br/products/algo-sinistro-vem-por-ai"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -3594,8 +3784,9 @@
           "url": "https://www.record.com.br/products/amigo-imaginario/"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -3651,8 +3842,9 @@
           "url": "https://loja.intrinseca.com.br/o-homem-de-giz/"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -3709,8 +3901,9 @@
           "url": "https://intrinseca.com.br/livro/o-que-aconteceu-com-annie/"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -3764,8 +3957,9 @@
           "url": "https://openlibrary.org/search?q=Disappearance%20at%20Devil's%20Rock&author=paul%20tremblay"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -3819,8 +4013,9 @@
           "url": "https://titanbooks.com/70774-black-mouth/"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -3874,8 +4069,9 @@
           "url": "https://openlibrary.org/search?q=The%20Saturday%20Night%20Ghost%20Club&author=craig%20davidson"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -3929,8 +4125,9 @@
           "url": "https://openlibrary.org/search?q=Bad%20Cree&author=jessica%20johns"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -3992,8 +4189,9 @@
           "url": "https://openlibrary.org/search?q=Clown%20in%20a%20Cornfield&author=adam%20cesare"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -4057,8 +4255,9 @@
           "url": "https://openlibrary.org/search?q=The%20Tomb%20of%20Dracula&author=marv%20wolfman"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -4119,8 +4318,9 @@
           "url": "https://openlibrary.org/search?q=P%C5%8D%20no%20Ichizoku&author=moto%20hagio"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -4188,8 +4388,9 @@
           "url": "https://openlibrary.org/search?q=Petit%20Vampire&author=joann%20sfar"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -4259,8 +4460,9 @@
           "url": "https://openlibrary.org/search?q=Vampire%20Knight&author=matsuri%20hino"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -4330,8 +4532,9 @@
           "url": "https://editorajbc.com.br/mangas/colecao/hellsing-esp/"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -4403,8 +4606,9 @@
           "url": "https://openlibrary.org/search?q=30%20Days%20of%20Night&author=steve%20niles"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -4468,8 +4672,9 @@
           "url": "https://openlibrary.org/search?q=American%20Vampire&author=scott%20snyder"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -4540,8 +4745,9 @@
           "url": "https://openlibrary.org/search?q=Baltimore&author=mike%20mignola"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -4611,8 +4817,9 @@
           "url": "https://openlibrary.org/search?q=Life%20Sucks&author=jessica%20abel"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -4670,8 +4877,9 @@
           "url": "https://openlibrary.org/search?q=Fangs&author=sarah%20andersen"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -4736,8 +4944,9 @@
           "url": "https://openlibrary.org/search?q=Dracula%2C%20Motherf**ker!&author=alex%20de%20campi"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -4801,8 +5010,9 @@
           "url": "https://openlibrary.org/search?q=These%20Savage%20Shores&author=ram%20v"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -4865,8 +5075,9 @@
           "url": "https://openlibrary.org/search?q=Killadelphia&author=rodney%20barnes"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -4928,8 +5139,9 @@
           "url": "https://www.lojanewpop.com.br/happiness-vol-4"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -4997,8 +5209,9 @@
           "url": "https://panini.com.br/as-memorias-de-vanitas-07"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -5069,8 +5282,9 @@
           "url": "https://openlibrary.org/search?q=Yofukashi%20no%20Uta&author=kotoyama"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -5132,8 +5346,9 @@
           "url": "https://editorajbc.com.br/mangas/colecao/vampeerz/"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -5193,8 +5408,9 @@
           "url": "https://openlibrary.org/search?q=White%20Blood&author=lina%20im"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -5261,8 +5477,9 @@
           "url": "https://openlibrary.org/search?q=Uzumaki&author=junji%20ito"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -5321,8 +5538,9 @@
           "url": "https://openlibrary.org/search?q=Tomie&author=junji%20ito"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -5383,8 +5601,9 @@
           "url": "https://openlibrary.org/search?q=Hy%C5%8Dry%C5%AB%20Ky%C5%8Dshitsu&author=kazuo%20umezz"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -5443,8 +5662,9 @@
           "url": "https://openlibrary.org/search?q=K%C5%8Dish%C5%8D%20Rajio&author=masaaki%20nakayama"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -5514,8 +5734,9 @@
           "url": "https://openlibrary.org/search?q=Kiseij%C5%AB&author=hitoshi%20iwaaki"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -5576,8 +5797,9 @@
           "url": "https://openlibrary.org/search?q=Homunculus&author=hideo%20yamamoto"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -5644,8 +5866,9 @@
           "url": "https://openlibrary.org/search?q=Hikaru%20ga%20Shinda%20Natsu&author=mokumokuren"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -5717,8 +5940,9 @@
           "url": "https://openlibrary.org/search?q=Sweet%20Home&author=carnby%20kim"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -5782,8 +6006,9 @@
           "url": "https://openlibrary.org/search?q=From%20Hell&author=alan%20moore"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -5842,8 +6067,9 @@
           "url": "https://openlibrary.org/search?q=Black%20Hole&author=charles%20burns"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -5915,8 +6141,9 @@
           "url": "https://openlibrary.org/search?q=Locke%20%26%20Key&author=joe%20hill"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -5980,8 +6207,9 @@
           "url": "https://pipocaenanquim.com.br/infiel.html"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -6047,8 +6275,9 @@
           "url": "https://openlibrary.org/search?q=The%20Nice%20House%20on%20the%20Lake&author=james%20tynion%20iv"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -6113,8 +6342,9 @@
           "url": "https://openlibrary.org/search?q=Gideon%20Falls&author=jeff%20lemire"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -6173,8 +6403,9 @@
           "url": "https://openlibrary.org/search?q=Carni%C3%A7a%20e%20a%20Blindagem%20M%C3%ADstica&author=shiko"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -6238,8 +6469,9 @@
           "url": "https://reddragonpublisher.com/quadrinhos/lua-negra/"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -6315,8 +6547,9 @@
           "url": "https://pipocaenanquim.com.br/a-propria-carne-escrito-com-sangue.html"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -6375,8 +6608,9 @@
           "url": "https://openlibrary.org/search?q=Tr%C3%AAs%20Buracos&author=shiko"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -6436,8 +6670,9 @@
           "url": "https://editorajbc.com.br/mangas/colecao/blue-box/vol/blue-box-01/"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -6496,8 +6731,9 @@
           "url": "https://venda.panini.com.br/kaguya-sama-love-is-war-vol-1-akagu001r"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -6557,8 +6793,9 @@
           "url": "https://openlibrary.org/search?q=Wotaku%20ni%20Koi%20wa%20Muzukashii&author=fujita"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -6617,8 +6854,9 @@
           "url": "https://openlibrary.org/search?q=Nana&author=ai%20yazawa"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -6680,8 +6918,9 @@
           "url": "https://openlibrary.org/search?q=Fruits%20Basket&author=natsuki%20takaya"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -6747,8 +6986,9 @@
           "url": "https://openlibrary.org/search?q=Horimiya&author=hero"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -6808,8 +7048,9 @@
           "url": "https://openlibrary.org/search?q=Sono%20Bisque%20Doll%20wa%20Koi%20wo%20Suru&author=shinichi%20fukuda"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -6872,8 +7113,9 @@
           "url": "https://openlibrary.org/search?q=Kimi%20wa%20H%C5%8Dkago%20Insomnia&author=makoto%20ojiro"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -6932,8 +7174,9 @@
           "url": "https://openlibrary.org/search?q=Skip%20to%20Loafer&author=misaki%20takamatsu"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -6992,8 +7235,9 @@
           "url": "https://openlibrary.org/search?q=Yubisaki%20to%20Renren&author=suu%20morishita"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -7055,8 +7299,9 @@
           "url": "https://openlibrary.org/search?q=Ase%20to%20Sekken&author=kintetsu%20yamada"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -7117,8 +7362,9 @@
           "url": "https://openlibrary.org/search?q=Maison%20Ikkoku&author=rumiko%20takahashi"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -7180,8 +7426,9 @@
           "url": "https://www.lpm-editores.com.br/downloads/Arquivos/mangas_l_p_m.pdf"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -7248,8 +7495,9 @@
           "url": "https://openlibrary.org/search?q=Ore%20Monogatari!!&author=kazune%20kawahara"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -7311,8 +7559,9 @@
           "url": "https://openlibrary.org/search?q=Given&author=natsuki%20kizu"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -7374,8 +7623,9 @@
           "url": "https://openlibrary.org/search?q=Yagate%20Kimi%20ni%20Naru&author=nio%20nakatani"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     },
     {
@@ -7437,8 +7687,9 @@
           "url": "https://openlibrary.org/search?q=Nodame%20Cantabile&author=tomoko%20ninomiya"
         }
       ],
-      "status": "review",
+      "status": "published",
       "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
       "updatedAt": "2026-08-13"
     }
   ],
@@ -7454,7 +7705,7 @@
       "summary": "Série de Anne Rice sobre vampiros que narram desejo, memória, culpa e sobrevivência através de diferentes épocas.",
       "kind": "narrative",
       "publicationStatus": "completed",
-      "status": "review",
+      "status": "draft",
       "sources": [
         {
           "title": "Anne Rice — The Vampire Chronicles",
@@ -7477,7 +7728,7 @@
       "publicationStatus": "completed",
       "confirmedVolumeCount": 3,
       "volumeCountCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "draft",
       "sources": [
         {
           "title": "Justin Cronin — The Passage Trilogy",
@@ -7498,7 +7749,7 @@
       "summary": "Série de Jeff VanderMeer sobre expedições, instituições e transformações ligadas à região incompreensível conhecida como Área X.",
       "kind": "narrative",
       "publicationStatus": "ongoing",
-      "status": "review",
+      "status": "draft",
       "sources": [
         {
           "title": "Comando Sul — Intrínseca",
@@ -7517,7 +7768,7 @@
       "number": 1,
       "label": "Hellsing Especial #01",
       "installmentIds": [],
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Hellsing Especial #01 — volume 1",
@@ -7533,7 +7784,7 @@
       "number": 1,
       "label": "Happiness #01",
       "installmentIds": [],
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Happiness #01 — volume 1",
@@ -7549,7 +7800,7 @@
       "number": 1,
       "label": "As Memórias de Vanitas #01",
       "installmentIds": [],
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "As Memórias de Vanitas #01 — volume 1",
@@ -7565,7 +7816,7 @@
       "number": 1,
       "label": "Call of the Night: Canções da Noite #01",
       "installmentIds": [],
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Call of the Night: Canções da Noite #01 — volume 1",
@@ -7581,7 +7832,7 @@
       "number": 1,
       "label": "Vampeerz #01",
       "installmentIds": [],
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Vampeerz #01 — volume 1",
@@ -7597,7 +7848,7 @@
       "number": 1,
       "label": "Parasyte #01",
       "installmentIds": [],
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Parasyte #01 — volume 1",
@@ -7613,7 +7864,7 @@
       "number": 1,
       "label": "O Verão em que Hikaru Morreu #01",
       "installmentIds": [],
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "O Verão em que Hikaru Morreu #01 — volume 1",
@@ -7629,7 +7880,7 @@
       "number": 1,
       "label": "Blue Box #01",
       "installmentIds": [],
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Blue Box #01 — volume 1",
@@ -7645,7 +7896,7 @@
       "number": 1,
       "label": "Kaguya-sama: Love Is War #01",
       "installmentIds": [],
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Kaguya-sama: Love Is War #01 — volume 1",
@@ -7679,7 +7930,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Carmilla — edição brasileira",
@@ -7700,7 +7951,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Drácula — Dark Edition — edição brasileira",
@@ -7721,7 +7972,7 @@
       "translationCredits": [],
       "availabilityStatus": "unavailable",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Eu Sou a Lenda — edição brasileira",
@@ -7754,7 +8005,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Salem — edição brasileira",
@@ -7776,7 +8027,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Manual das Donas de Casa Caçadoras de Vampiros — edição brasileira",
@@ -7808,7 +8059,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Frankenstein — edição brasileira",
@@ -7838,7 +8089,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "A Assombração da Casa da Colina — edição brasileira",
@@ -7871,7 +8122,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Sempre Vivemos no Castelo — edição brasileira",
@@ -7903,7 +8154,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "O Bebê de Rosemary — edição brasileira",
@@ -7936,7 +8187,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "O Iluminado — edição brasileira",
@@ -7969,7 +8220,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Amada — edição brasileira",
@@ -7993,7 +8244,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Aniquilação — edição brasileira",
@@ -8026,7 +8277,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Coelho Maldito — edição brasileira",
@@ -8059,7 +8310,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Jantar Secreto — edição brasileira",
@@ -8089,7 +8340,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Gótico Mexicano — edição brasileira",
@@ -8122,7 +8373,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Saboroso Cadáver — edição brasileira",
@@ -8155,7 +8406,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Nossa Parte de Noite — edição brasileira",
@@ -8179,7 +8430,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Ring Shout: Grito de Liberdade — edição brasileira",
@@ -8212,7 +8463,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "It: A Coisa — edição brasileira",
@@ -8245,7 +8496,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "O Instituto — edição brasileira",
@@ -8278,7 +8529,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Algo Sinistro Vem por Aí — edição brasileira",
@@ -8311,7 +8562,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Amigo Imaginário — edição brasileira",
@@ -8344,7 +8595,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "O Homem de Giz — edição brasileira",
@@ -8377,7 +8628,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "O Que Aconteceu com Annie — edição brasileira",
@@ -8400,7 +8651,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Hellsing Especial #01 — edição brasileira",
@@ -8420,7 +8671,7 @@
       "medium": "paperback",
       "translationCredits": [],
       "availabilityStatus": "unknown",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Happiness #01 — edição brasileira",
@@ -8441,7 +8692,7 @@
       "publicationDate": "2023-03-29",
       "translationCredits": [],
       "availabilityStatus": "unknown",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "As Memórias de Vanitas #01 — edição brasileira",
@@ -8462,7 +8713,7 @@
       "publicationDate": "2023-04-01",
       "translationCredits": [],
       "availabilityStatus": "unknown",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Call of the Night: Canções da Noite #01 — edição brasileira",
@@ -8495,7 +8746,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Vampeerz #01 — edição brasileira",
@@ -8515,7 +8766,7 @@
       "medium": "paperback",
       "translationCredits": [],
       "availabilityStatus": "unknown",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Parasyte #01 — edição brasileira",
@@ -8535,7 +8786,7 @@
       "medium": "paperback",
       "translationCredits": [],
       "availabilityStatus": "unknown",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "O Verão em que Hikaru Morreu #01 — edição brasileira",
@@ -8565,7 +8816,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Infiel — edição brasileira",
@@ -8589,7 +8840,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Lua Negra — 2ª edição — edição brasileira",
@@ -8621,7 +8872,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "A Própria Carne: Escrito com Sangue — edição brasileira",
@@ -8654,7 +8905,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Blue Box #01 — edição brasileira",
@@ -8675,7 +8926,7 @@
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Kaguya-sama: Love Is War #01 — edição brasileira",
@@ -8696,7 +8947,7 @@
       "publicationDate": "2023-06-05",
       "translationCredits": [],
       "availabilityStatus": "unknown",
-      "status": "review",
+      "status": "published",
       "sources": [
         {
           "title": "Solanin — volume único — edição brasileira",

@@ -21,8 +21,8 @@ const formatLabels = { feature: "Longa", short: "Curta", series: "Série" } as c
 
 export default function KyotoAnimationPage() {
   const works = animationWorks.filter((work) => work.relationships.some((relationship) => relationship.organizationId === kyotoAnimation.id));
-  const releasedWorks = works.filter((work) => work.status === "released");
-  const upcomingWorks = works.filter((work) => work.status === "upcoming");
+  const releasedWorks = works.filter((work) => work.releaseStatus === "released");
+  const upcomingWorks = works.filter((work) => work.releaseStatus === "upcoming");
   const founders = kyotoAnimation.founderIds.map((id) => creators.find((creator) => creator.id === id)).filter((creator) => creator !== undefined);
   const leaders = kyotoAnimation.keyPeopleIds.map((id) => creators.find((creator) => creator.id === id)).filter((creator) => creator !== undefined);
   const jsonLd = {

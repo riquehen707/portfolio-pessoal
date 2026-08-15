@@ -67,8 +67,11 @@ import { MovieAvailabilityIndex } from "@/components/movies/MovieAvailabilityInd
 import { MovieFilmography } from "@/components/movies/MovieFilmography";
 import { MovieRankingJsonLd } from "@/components/seo/MovieRankingJsonLd";
 import { ReadingWorkCard } from "@/components/reading/ReadingWorkCard";
+import { BookCard } from "@/components/reading/BookCard";
+import { MangaCard } from "@/components/reading/MangaCard";
 import { SeriesCard } from "@/components/series/SeriesCard";
 import { SeriesAvailabilityIndex } from "@/components/series/SeriesAvailabilityIndex";
+import { PersonCard, StudioCard } from "@/components/entities";
 
 import { baseURL } from "@/resources";
 
@@ -481,6 +484,10 @@ export const baseMDXComponents: MDXComponents = {
   MovieFilmography,
   MovieRankingJsonLd,
   ReadingWorkCard,
+  BookCard,
+  MangaCard,
+  PersonCard,
+  StudioCard,
 
   // shortcodes
   PillarBadge,

@@ -5,6 +5,8 @@ import { getAllArticles } from "@/data/articles";
 import { getPublishedMovies } from "@/data/movies";
 import { getPublishedBooks, getPublishedComics } from "@/data/reading";
 import { getPublishedPersonalities } from "@/data/personalities";
+import { getPublishedStudios } from "@/data/organizations";
+import { getPublishedSeries } from "@/data/series";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const today = new Date().toISOString().split("T")[0];
@@ -24,7 +26,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
   const readingPages = (await getPublishedBooks()).map((work) => ({ url:`${baseURL}/livros/${work.slug}`,lastModified:work.updatedAt,changeFrequency:"monthly" as const,priority:0.62 }));
   const comicPages = (await getPublishedComics()).map((work) => ({ url:`${baseURL}/quadrinhos/${work.slug}`,lastModified:work.updatedAt,changeFrequency:"monthly" as const,priority:0.62 }));
-  const personalityPages = getPublishedPersonalities().map((person) => ({ url:`${baseURL}/personalidades/${person.slug}`,lastModified:person.updatedAt,changeFrequency:"monthly" as const,priority:0.66 }));
+  const personalityPages = getPublishedPersonalities().map((person) => ({ url:`${baseURL}${person.profilePath}`,lastModified:person.updatedAt,changeFrequency:"monthly" as const,priority:0.66 }));
+  const studioPages = getPublishedStudios().map((studio) => ({ url:`${baseURL}${studio.profilePath}`,lastModified:studio.updatedAt,changeFrequency:"monthly" as const,priority:0.74 }));
+  const seriesPages = (await getPublishedSeries()).map((series) => ({
+    url: `${baseURL}/series/${series.slug}`,
+    lastModified: series.updatedAt,
+    changeFrequency: "monthly" as const,
+    priority: 0.64,
+  }));
 
   const routePriorities: Record<string, number> = {
     "/": 1,
@@ -33,6 +42,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     [`${blog.path}/seo/entender-a-busca`]: 0.76,
     [`${blog.path}/cultura`]: 0.78,
     "/filmes": 0.76,
+    "/series": 0.76,
+    "/livros": 0.76,
+    "/quadrinhos": 0.76,
+    "/personalidades": 0.74,
+    "/estudios": 0.74,
   };
 
   const routes = Object.keys(routesConfig)
@@ -56,14 +70,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...readingPages,
     ...comicPages,
     ...personalityPages,
+    ...studioPages,
+    ...seriesPages,
     ...blogPosts,
-    { url: `${baseURL}/estudios/studio-ghibli`, lastModified: "2026-08-13", changeFrequency: "monthly" as const, priority: 0.76 },
-    { url: `${baseURL}/estudios/aardman`, lastModified: "2026-08-13", changeFrequency: "monthly" as const, priority: 0.75 },
-    { url: `${baseURL}/estudios/science-saru`, lastModified: "2026-08-13", changeFrequency: "monthly" as const, priority: 0.75 },
-    { url: `${baseURL}/estudios/kyoto-animation`, lastModified: "2026-08-13", changeFrequency: "monthly" as const, priority: 0.75 },
-    { url: `${baseURL}/estudios/laika`, lastModified: "2026-08-13", changeFrequency: "monthly" as const, priority: 0.74 },
-    { url: `${baseURL}/estudios/team-cherry`, lastModified: "2026-08-12", changeFrequency: "monthly" as const, priority: 0.74 },
-    { url: `${baseURL}/estudios/cartoon-saloon`, lastModified: "2026-08-13", changeFrequency: "monthly" as const, priority: 0.74 },
     { url: `${baseURL}/obras/puparia`, lastModified: "2026-08-12", changeFrequency: "monthly" as const, priority: 0.72 },
     { url: `${baseURL}/obras/wade`, lastModified: "2026-08-12", changeFrequency: "monthly" as const, priority: 0.72 },
     { url: `${baseURL}/criadores/shingo-tamagawa`, lastModified: "2026-08-12", changeFrequency: "monthly" as const, priority: 0.68 },

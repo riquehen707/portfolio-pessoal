@@ -1,0 +1,39 @@
+@use "../entertainment/card-tokens" as card;
+
+.card {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 10rem minmax(0, 1fr);
+  gap: 1.15rem;
+  width: 100%;
+  max-width: min(42rem, calc(100vw - 1.5rem));
+  padding: 1rem;
+  overflow: hidden;
+  border: 1px solid var(--line-subtle);
+  border-top: 4px solid #ffd400;
+  border-radius: .45rem;
+  background: var(--page-background);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--line-subtle) 40%, transparent);
+}
+
+.identity { position: relative; display: grid; min-width: 0; min-height: 8rem; place-items: center; overflow: hidden; border: 1px solid var(--line-subtle); border-radius: .2rem; background: repeating-linear-gradient(90deg, transparent 0 1.45rem, color-mix(in srgb, var(--line-subtle) 45%, transparent) 1.45rem 1.5rem), var(--surface-panel-soft); }
+.identity img { object-fit: contain; padding: .7rem; }
+.identity > span { color: var(--neutral-on-background-weak); font-size: 2rem; font-weight: 820; letter-spacing: -.08em; }
+.content { @include card.content; align-content: center; }
+.eyebrow { color: var(--neutral-on-background-weak); font-size: .65rem; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; }
+.content h3 { @include card.title; font-size: clamp(1.35rem, 3vw, 1.8rem); text-transform: uppercase; letter-spacing: -.03em; }
+.content h3 a { color: inherit; }
+.meta { @include card.meta; }
+.meta span + span::before { margin-right: .6rem; content: "/"; color: var(--line-muted); }
+.specialty { margin: 0; font-size: .8rem; font-weight: 750; }
+.summary { margin: .15rem 0 0; color: var(--neutral-on-background-medium); font-size: .84rem; line-height: 1.48; }
+
+@media (max-width: 520px) {
+  .card { grid-template-columns: 6.7rem minmax(0, 1fr); gap: .75rem; max-width: calc(100vw - 3rem); padding: .72rem; }
+  .identity { min-height: 7.8rem; }
+  .content { gap: .42rem; }
+  .content h3 { font-size: clamp(1.08rem, 5vw, 1.3rem); }
+  .summary { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+}
+
+@media (max-width: 360px) { .card { grid-template-columns: 6.05rem minmax(0, 1fr); gap: .62rem; } }

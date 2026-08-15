@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import type { GlobalSearchItem } from "@/lib/globalSearch";
 import { blog, person } from "@/resources";
@@ -10,60 +10,69 @@ import { blog, person } from "@/resources";
 import { GlobalSearch } from "./GlobalSearch";
 import styles from "./Header.module.scss";
 
-const navItems = [
-  { href: "/", label: "Início", key: "home" as const },
-  { href: "/acervo", label: "Acervo", key: "collection" as const },
-  { href: "/blog", label: "Artigos", key: "blog" as const },
-  { href: "/blog/cultura", label: "Estudos", key: "studies" as const },
-  { label: "Loja", key: "store" as const, disabled: true },
-  { href: "/about", label: "Sobre", key: "about" as const },
+const contentLinks = [
+  { href: "/blog", label: "Artigos" },
+  { href: "/filmes", label: "Filmes", collection: true },
+  { href: "/series", label: "Séries", collection: true },
+  { href: "/livros", label: "Livros", collection: true },
+  { href: "/quadrinhos", label: "Quadrinhos e mangás", collection: true },
+  { href: "/personalidades", label: "Personalidades", collection: true },
+  { href: "/estudios", label: "Estúdios", collection: true },
+  { href: "/servicos/produtos", label: "Ferramentas" },
 ] as const;
 
-type HeaderProps = {
-  searchItems: GlobalSearchItem[];
-};
+const henriqueLinks = [
+  { href: "/work", label: "Portfólio" },
+  { href: "/servicos", label: "Serviços", exact: true },
+  { href: "/about", label: "Sobre mim" },
+] as const;
+
+type HeaderProps = { searchItems: GlobalSearchItem[] };
+type MenuLink = (typeof contentLinks)[number] | (typeof henriqueLinks)[number];
+
+function isCurrentPath(pathname: string, item: MenuLink) {
+  if ("exact" in item && item.exact) return pathname === item.href;
+  return pathname === item.href || pathname.startsWith(`${item.href}/`);
+}
 
 export function Header({ searchItems }: HeaderProps) {
   const pathname = usePathname() ?? "";
   const [menuOpen, setMenuOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
 
-  const getIsActive = (item: (typeof navItems)[number]) => {
-    if (!("href" in item)) return false;
-    if (item.key === "home") return pathname === "/";
-    if (item.key === "blog") {
-      return pathname.startsWith("/blog") && !pathname.startsWith("/blog/cultura");
-    }
-    if (item.key === "collection") {
-      return ["/acervo", "/filmes", "/livros", "/quadrinhos", "/series"].some(
-        (path) => pathname === path || pathname.startsWith(`${path}/`),
-      );
-    }
-    return pathname.startsWith(item.href);
-  };
+  useEffect(() => setMenuOpen(false), [pathname]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        headerRef.current?.querySelector<HTMLButtonElement>("[aria-controls='main-navigation']")?.focus();
+      }
+    };
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [menuOpen]);
+
+  const renderLink = (item: MenuLink) => (
+    <Link
+      aria-current={isCurrentPath(pathname, item) ? "page" : undefined}
+      className={styles.menuLink}
+      data-active={isCurrentPath(pathname, item)}
+      href={item.href}
+      key={item.href}
+      onClick={() => setMenuOpen(false)}
+    >
+      {item.label}
+    </Link>
+  );
 
   return (
-    <header className={styles.position}>
-      <Link className={styles.brand} href={blog.path}>
+    <header className={styles.position} ref={headerRef}>
+      <Link className={styles.brand} href={blog.path} onClick={() => setMenuOpen(false)}>
         <span className={styles.brandMark} aria-hidden="true" />
         <span className={styles.brandText}>{person.name}</span>
       </Link>
-
-      <nav
-        className={styles.navShell}
-        data-open={menuOpen}
-        id="main-navigation"
-        aria-label="Menu principal"
-      >
-        {navItems.map((item) => "href" in item ? (
-          <Link className={styles.navButton} data-active={getIsActive(item)} href={item.href} key={item.key} onClick={() => setMenuOpen(false)}>
-            {item.label}
-          </Link>
-        ) : (
-          <span className={styles.navButton} data-disabled="true" aria-disabled="true" title="Em breve" key={item.key}>
-            {item.label}<small>Em breve</small>
-          </span>
-        ))}
-      </nav>
 
       <div className={styles.actions}>
         <GlobalSearch items={searchItems} />
@@ -74,9 +83,28 @@ export function Header({ searchItems }: HeaderProps) {
           aria-controls="main-navigation"
           onClick={() => setMenuOpen((current) => !current)}
         >
-          Menu
+          {menuOpen ? "Fechar" : "Menu"}
         </button>
       </div>
+
+      <nav
+        className={styles.navShell}
+        data-open={menuOpen}
+        id="main-navigation"
+        aria-label="Menu principal"
+      >
+        <section className={styles.menuGroup} aria-labelledby="menu-content-title">
+          <h2 id="menu-content-title">Conteúdo</h2>
+          <div className={styles.primaryLinks}>{renderLink(contentLinks[0])}</div>
+          <p className={styles.subgroupLabel}>Acervos</p>
+          <div className={styles.collectionLinks}>{contentLinks.slice(1, 7).map(renderLink)}</div>
+          <div className={styles.primaryLinks}>{renderLink(contentLinks[7])}</div>
+        </section>
+        <section className={styles.menuGroup} aria-labelledby="menu-henrique-title">
+          <h2 id="menu-henrique-title">Henrique</h2>
+          <div className={styles.primaryLinks}>{henriqueLinks.map(renderLink)}</div>
+        </section>
+      </nav>
     </header>
   );
 }

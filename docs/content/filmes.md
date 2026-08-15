@@ -52,7 +52,8 @@ A lista de `movies` no JSON-LD deve estar do primeiro ao último lugar. O compon
 
 ## Publicação e indexação
 
-- `draft` e `review`: não geram rota estática individual, não entram no sitemap e não recebem link no card.
+- `draft`: registro em preparação ou revisão; não gera rota estática individual, não entra no sitemap e não recebe link no card.
+- `published`: registro pronto para uso público.
 - `published`: exige conteúdo editorial, gera `/filmes/[slug]`, canonical, robots indexável e JSON-LD `Movie`.
 - `/filmes` pode mostrar registros em preparação, mas sem transformar fichas incompletas em páginas indexáveis.
 - Combinações de gênero, país, tema e plataforma não criam rotas automáticas.

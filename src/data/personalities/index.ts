@@ -22,7 +22,14 @@ export async function getWorksForPerson(personId: string) {
   return {
     movies: movies.filter((work) => work.status !== "draft" && work.personRelationships.some((relation) => relation.personId === personId)),
     reading: reading.filter((work) => work.status !== "draft" && work.credits.some((credit) => credit.personId === personId)),
-    series: seriesCatalog.filter((work) => work.editorialStatus !== "draft" && work.personRelationships.some((relation) => relation.personId === personId)),
+    series: seriesCatalog.filter((work) => work.status === "published" && work.personRelationships.some((relation) => relation.personId === personId)),
     editorial: editorialWorks.filter((work) => work.status === "published" && work.contributors.some((credit) => credit.personId === personId)),
   };
+}
+
+export async function getFilmographyForPerson(personId: string) {
+  const movies = await getAllMovies();
+  return movies
+    .filter((movie) => movie.personRelationships.some((relation) => relation.personId === personId))
+    .sort((a, b) => a.year - b.year || a.titleBr.localeCompare(b.titleBr, "pt-BR"));
 }

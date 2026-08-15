@@ -24,8 +24,8 @@ const roleLabels = { "primary-production": "Produção principal", "co-productio
 
 export default function ScienceSaruPage() {
   const works = animationWorks.filter((work) => work.relationships.some((relationship) => relationship.organizationId === scienceSaru.id));
-  const releasedWorks = works.filter((work) => work.status === "released");
-  const upcomingWorks = works.filter((work) => work.status === "upcoming");
+  const releasedWorks = works.filter((work) => work.releaseStatus === "released");
+  const upcomingWorks = works.filter((work) => work.releaseStatus === "upcoming");
   const founders = scienceSaru.founderIds.map((id) => creators.find((creator) => creator.id === id)).filter((creator) => creator !== undefined);
   const currentLeaders = scienceSaru.keyPeopleIds.map((id) => creators.find((creator) => creator.id === id)).filter((creator) => creator !== undefined);
   const parent = scienceSaru.parentOrganizationId ? organizationsById.get(scienceSaru.parentOrganizationId) : undefined;

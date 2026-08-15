@@ -95,6 +95,41 @@ export function getGlobalSearchItems(): GlobalSearchItem[] {
       keywords: ["cinema", "filmes", "terror", "animação", "diretores", "estudios"],
     }),
     pageItem({
+      id: "page-series",
+      title: "Biblioteca de séries",
+      description: "Séries pesquisadas, relacionadas e reutilizadas nas curadorias do site.",
+      href: "/series",
+      keywords: ["televisão", "séries", "minisséries", "terror", "animação", "streaming"],
+    }),
+    pageItem({
+      id: "page-books",
+      title: "Biblioteca de livros",
+      description: "Livros e light novels organizados por obra, autoria, edição e disponibilidade.",
+      href: "/livros",
+      keywords: ["livros", "light novels", "autores", "leitura", "edições"],
+    }),
+    pageItem({
+      id: "page-comics",
+      title: "Biblioteca de quadrinhos e mangás",
+      description: "Mangás, manhwas, manhuas, HQs e graphic novels no catálogo central de leitura.",
+      href: "/quadrinhos",
+      keywords: ["quadrinhos", "mangas", "manhwas", "manhuas", "hqs", "graphic novels"],
+    }),
+    pageItem({
+      id: "page-personalities",
+      title: "Acervo de personalidades",
+      description: "Escritores, filósofos, cineastas e artistas relacionados às obras do acervo.",
+      href: "/personalidades",
+      keywords: ["personalidades", "autores", "diretores", "filósofos", "mangakás", "roteiristas"],
+    }),
+    pageItem({
+      id: "page-studios",
+      title: "Acervo de estúdios",
+      description: "Estúdios criativos organizados por país, especialidade e período de atividade.",
+      href: "/estudios",
+      keywords: ["estúdios", "animação", "cinema", "produtoras", "organizações"],
+    }),
+    pageItem({
       id: "page-seo-library",
       title: "Biblioteca de SEO",
       description:

@@ -1,0 +1,46 @@
+@use "../entertainment/card-tokens" as card;
+
+.card {
+  @include card.shell;
+  display: grid;
+  grid-template-columns: 7.6rem minmax(0, 1fr);
+  gap: card.$card-gap;
+  max-width: min(var(--measure-article), calc(100vw - 1.5rem));
+  border-left: 4px solid color-mix(in srgb, #ffd400 75%, var(--line-subtle));
+}
+
+.cover {
+  @include card.media-frame;
+  aspect-ratio: 2 / 3;
+  background: var(--surface-panel-soft);
+}
+
+.cover img { object-fit: cover; }
+.fallback { display: grid; align-content: end; height: 100%; padding: .68rem; background: repeating-linear-gradient(135deg, transparent 0 1rem, color-mix(in srgb, var(--neutral-alpha-weak) 70%, transparent) 1rem 1.08rem), var(--surface-panel-soft); font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; }
+.content { @include card.content; }
+.content h3 { @include card.title; }
+.content h3 a { color: inherit; }
+.kicker { display: flex; flex-wrap: wrap; gap: .3rem; }
+.kicker span { padding: .18rem .4rem; border: 1px solid var(--line-subtle); border-radius: .25rem; font-size: .66rem; font-weight: 750; text-transform: uppercase; letter-spacing: .05em; }
+.original { margin: -.2rem 0 0; color: var(--neutral-on-background-weak); font-size: .78rem; }
+.authors { margin: 0; font-size: .82rem; font-weight: 700; }
+.meta { @include card.meta; }
+.meta span + span::before { margin-right: .6rem; content: "/"; color: var(--line-muted); }
+.comment { @include card.comment; }
+.offers { display: flex; flex-wrap: wrap; align-items: baseline; gap: .35rem .65rem; padding-top: .52rem; border-top: 1px solid var(--line-subtle); font-size: .76rem; }
+.offers strong { flex-basis: 100%; font-size: .68rem; text-transform: uppercase; letter-spacing: .07em; }
+.offers a { font-weight: 700; }
+
+.card[data-variant="compact"] { grid-template-columns: 4.75rem minmax(0, 1fr); margin-block: 0; }
+.card[data-variant="compact"] .comment { display: none; }
+.card[data-variant="library"] { max-width: none; margin: 0; }
+.card[data-variant="library"] .comment { display: none; }
+
+@media (max-width: 520px) {
+  .card { grid-template-columns: 7rem minmax(0, 1fr); gap: card.$mobile-gap; padding: card.$mobile-padding; }
+  .content { gap: .46rem; }
+  .content h3 { font-size: clamp(1.08rem, 5.2vw, 1.3rem); }
+}
+
+@media (max-width: 390px) { .card { grid-template-columns: 6.55rem minmax(0, 1fr); gap: .7rem; } }
+@media (max-width: 360px) { .card { grid-template-columns: 6.05rem minmax(0, 1fr); gap: .62rem; } }

@@ -1,1 +1,10 @@
-.page{box-sizing:border-box;display:grid;gap:clamp(2.5rem,7vw,5rem);width:min(100%,1120px);min-width:0;margin-inline:auto;padding:clamp(1rem,3vw,2rem)}.hero{display:grid;gap:1rem;padding:clamp(1.25rem,5vw,3.5rem);border:1px solid var(--line-subtle);border-radius:1rem;background:var(--surface-panel-soft)}.hero span,.empty span{color:var(--neutral-on-background-weak);font-family:var(--font-technical);font-size:.72rem;font-weight:700;text-transform:uppercase}.hero h1,.hero p,.empty h2,.empty p,.page section>h2{margin:0}.hero h1{max-width:17ch;font-size:clamp(2.2rem,6vw,4.5rem);line-height:.98}.hero p{max-width:46rem;color:var(--neutral-on-background-medium);font-size:1.05rem;line-height:1.65}.page section{display:grid;gap:1.25rem;min-width:0}.empty{max-width:42rem;padding:2rem 0;border-top:1px solid var(--line-subtle)}.empty p{color:var(--neutral-on-background-medium);line-height:1.65}@media(max-width:480px){.page{padding-inline:.75rem}.hero{padding:1.15rem}.hero h1{font-size:2.25rem}}
+.page{box-sizing:border-box;display:grid;gap:clamp(2.5rem,7vw,5rem);width:100%;max-width:1120px;min-width:0;margin-inline:auto;padding:clamp(1rem,3vw,2rem)}
+.hero{display:grid;gap:1rem;padding:clamp(1.25rem,5vw,3.5rem);border:1px solid var(--line-subtle);border-radius:1rem;background:var(--surface-panel-soft)}
+.hero span,.empty span{color:var(--neutral-on-background-weak);font-family:var(--font-technical);font-size:.72rem;font-weight:700;text-transform:uppercase}
+.hero h1,.hero p,.empty h2,.empty p,.page section>h2{margin:0}
+.hero h1{max-width:17ch;overflow-wrap:anywhere;font-size:clamp(2.2rem,6vw,4.5rem);line-height:.98}
+.hero p,.sectionIntro{max-width:46rem;margin:0;color:var(--neutral-on-background-medium);font-size:1.05rem;line-height:1.65}
+.page section{display:grid;gap:1.25rem;min-width:0}
+.empty{max-width:42rem;padding:2rem 0;border-top:1px solid var(--line-subtle)}
+.empty p{color:var(--neutral-on-background-medium);line-height:1.65}
+@media(max-width:480px){.page{padding-inline:.75rem}.hero{padding:1.15rem}.hero h1{font-size:2.25rem}}

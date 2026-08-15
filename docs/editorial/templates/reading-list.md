@@ -24,10 +24,13 @@ Pergunte somente quando uma ambiguidade alterar materialmente a seleção. Em �
 
 ## Fluxo obrigatório
 
-Siga duas etapas, nesta ordem:
+Siga esta ordem:
 
-1. revisar ou cadastrar as obras no acervo central;
-2. montar a lista usando referências a essas obras.
+1. defina as obras e pessoas que aparecerão;
+2. procure cada entidade no acervo correspondente;
+3. cadastre somente as entidades ausentes;
+4. valide os registros;
+5. utilize `BookCard` para livros e light novels ou `MangaCard` para obras gráficas, sempre por `workId`.
 
 Antes de cadastrar, procure por ID, slug, título original, títulos brasileiros e aliases. Reutilize registros, complete lacunas confirmadas e evite duplicações por tradução, romanização ou edição. Uma obra pode alimentar cards e listas sem possuir imediatamente uma página editorial pública.
 
@@ -124,7 +127,9 @@ Popularidade, vendas, prêmio ou adaptação em anime não provam qualidade por 
 
 ## Componentes e apresentação
 
-Use os componentes em `src/components/reading/`. Em MDX, `ReadingWorkCard` recebe `workId` e resolve o registro central; um ID inexistente interrompe o build em vez de renderizar dados inventados.
+Use os componentes em `src/components/reading/`. Em MDX novo, `BookCard` atende livros e light novels; `MangaCard` atende mangás, manhwas, manhuas, HQs, webtoons e graphic novels. Ambos recebem `workId` e, opcionalmente, `comment`, resolvendo os demais dados no acervo central. Um ID inexistente ou incompatível com o card interrompe o build em vez de renderizar dados inventados.
+
+`ReadingWorkCard` permanece disponível apenas como adaptador temporário para artigos existentes. Ele identifica a natureza da obra no registro central e delega a apresentação a `BookCard` ou `MangaCard`; não use esse adaptador em novos artigos.
 
 Os componentes compartilhados recebem uma entidade tipada ou referência estruturada e devem continuar funcionando:
 

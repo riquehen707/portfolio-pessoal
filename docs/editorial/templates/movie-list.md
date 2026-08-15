@@ -8,11 +8,13 @@ Quando a seleção for guiada principalmente por uma tese, atmosfera ou percurso
 
 ## Fluxo obrigatório
 
-Crie a lista em três etapas, nesta ordem:
+Crie a lista nesta ordem:
 
-1. defina e pesquise a seleção editorial;
-2. audite e complete o catálogo central;
-3. monte a lista com referências aos filmes cadastrados.
+1. defina os filmes que aparecerão;
+2. procure cada filme no acervo correspondente;
+3. cadastre somente os filmes ausentes;
+4. valide os registros;
+5. utilize `MovieCard` no artigo, referenciando cada filme por ID.
 
 Não escreva os itens antes de concluir a curadoria e verificar o acervo. O usuário não precisa fornecer manualmente todos os títulos que entrarão na lista.
 
@@ -89,9 +91,9 @@ Não trate distribuição como produção, não atribua automaticamente a obra �
 
 Preserve entidades distintas dentro de grupos empresariais. Uma lista pode reuni-las editorialmente, mas o catálogo deve registrar a organização que exerceu cada papel. Relações compatíveis alimentam automaticamente `OrganizationWorks`; páginas de estúdio não mantêm filmografia manual.
 
-## 5. Modelar a lista
+## 5. Modelar a lista quando necessário
 
-O contrato implementado está em `src/content/movies/curations.ts`:
+Curadorias estruturadas são opcionais. Quando uma seleção precisar ser reutilizada fora do artigo, o contrato disponível está em `src/content/movies/curations.ts`:
 
 ```ts
 const list: MovieList = {
@@ -120,7 +122,7 @@ Modos disponíveis:
 - `editorial`: preserva a ordem de `items`;
 - `hybrid`: coloca primeiro os `items`, completa com as regras automáticas e respeita `excludeMovieIds`.
 
-O modelo atual não possui campos separados `highlight` ou `commentary`; use `context`. Evolua o contrato compartilhado somente quando uma necessidade recorrente justificar a migração.
+Nas curadorias estruturadas, `context` continua sendo o campo de justificativa da seleção. No MDX, novos usos do card devem preferir a prop `comment`; a prop `context` e a resolução por slug permanecem aceitas apenas para compatibilidade com artigos existentes.
 
 ## 6. Escrever o artigo
 
@@ -132,13 +134,13 @@ O comentário de cada filme deve explicar por que ele pertence à seleção, o q
 
 ## 7. Renderizar com componentes compartilhados
 
-Em MDX, use `MovieCard`, que resolve o filme pelo **slug** e exige `context`:
+Em MDX, use `MovieCard`, que resolve o filme pelo **ID permanente** e recebe apenas o comentário editorial próprio da lista:
 
 ```mdx
 <MovieCard
-  movie="corra"
+  movieId="mov_7c1f3a"
   position={2}
-  context="Faz a sátira racial operar como mecanismo do suspense."
+  comment="Faz a sátira racial operar como mecanismo do suspense."
 />
 ```
 
@@ -153,7 +155,7 @@ Para rankings visíveis, mantenha a mesma ordem no JSON-LD:
 />
 ```
 
-Aqui há uma distinção intencional: `curations.ts` referencia IDs permanentes; `MovieCard` e `MovieRankingJsonLd` recebem slugs por serem APIs de autoria em MDX.
+`MovieRankingJsonLd` ainda recebe slugs para compor URLs. Isso não muda o contrato do card: conteúdo novo usa `movieId`. A propriedade antiga `movie` permanece apenas para manter os artigos existentes funcionando, sem migração obrigatória nesta etapa.
 
 ## 8. SEO e monetização
 

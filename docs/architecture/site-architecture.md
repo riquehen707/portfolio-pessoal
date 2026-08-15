@@ -28,24 +28,32 @@ Em caso de divergência, schemas, componentes e rotas executáveis prevalecem so
 │  └─ /blog/temas[/[slug]]            índices pausados
 ├─ /filmes
 │  └─ /filmes/[slug]                  somente filmes publicados
-├─ /livros                             preparado e pausado enquanto o acervo estiver vazio
+├─ /series
+│  └─ /series/[slug]                  somente séries publicadas
+├─ /livros                             biblioteca pública de livros e light novels
 │  └─ /livros/[slug]                  somente obras de leitura publicadas
-├─ /quadrinhos                         preparado e pausado enquanto o acervo estiver vazio
+├─ /quadrinhos                         biblioteca pública de obras gráficas
 │  └─ /quadrinhos/[slug]              única rota canônica de obras gráficas publicadas
-├─ /estudios/{studio-ghibli,laika,aardman,science-saru,kyoto-animation,team-cherry,cartoon-saloon}
+├─ /personalidades                      índice público de pessoas
+│  └─ /personalidades/[slug]            perfis publicados; rotas históricas preservadas
+├─ /estudios                            índice público de estúdios
+│  └─ /estudios/[slug]                  perfis publicados, especializados ou genéricos
 ├─ /criadores/shingo-tamagawa
 ├─ /obras/{puparia,wade}
 ├─ /about
+├─ /work                                portfólio público
+├─ /servicos                            apresentação pública de serviços
+│  └─ /servicos/produtos                ferramentas e recursos publicados
 ├─ /rss.xml
 └─ rotas pausadas → redirecionam temporariamente para /blog
-   ├─ /work, /servicos, /modelos, /publicos e /trilhas
+   ├─ /modelos, /publicos e /trilhas
    ├─ /contact, /mapa, /simulacao e /saiba-mais
    └─ /abordagem-tecnica e /aulas-particulares
 ```
 
-O inventário de arquivos não equivale ao sitemap público. A inclusão de rotas estáticas é controlada por `routes` em `src/resources/once-ui.config.ts`; artigos e filmes publicados são acrescentados por `src/app/sitemap.ts`. `src/middleware.ts` controla acesso às rotas pausadas, enquanto `src/app/robots.ts` controla rastreamento. Essas três listas ainda são manuais e podem divergir.
+O inventário de arquivos não equivale ao sitemap público. A inclusão de rotas estáticas é controlada por `routes` em `src/resources/once-ui.config.ts`; artigos, filmes e séries publicados são acrescentados por `src/app/sitemap.ts`. `src/middleware.ts` controla acesso às rotas pausadas, enquanto `src/app/robots.ts` controla rastreamento. Essas três listas ainda são manuais e podem divergir.
 
-**Pendência:** não existem índices públicos `/estudios`, `/criadores` ou `/obras`, embora breadcrumbs apontem conceitualmente para esses níveis.
+**Pendência:** não existem índices públicos `/criadores` ou `/obras`. O perfil histórico de Shingo Tamagawa permanece em `/criadores/shingo-tamagawa` e é descoberto pelo índice de personalidades sem criar URL duplicada.
 
 ## Tipos de página
 
@@ -60,12 +68,12 @@ O inventário de arquivos não equivale ao sitemap público. A inclusão de rota
 
 ### Índices editoriais
 
-- **Rotas:** `/blog`, `/blog/cultura`, `/blog/seo`, `/blog/seo/entender-a-busca`, `/acervo`, `/filmes` e, quando reativados, temas, categorias e trilhas.
+- **Rotas:** `/blog`, `/blog/cultura`, `/blog/seo`, `/blog/seo/entender-a-busca`, `/acervo`, `/filmes`, `/series`, `/livros`, `/quadrinhos`, `/personalidades`, `/estudios` e, quando reativados, temas, categorias e trilhas.
 - **Finalidade:** organizar coleções, áreas ou sequências de estudo.
-- **Dados:** fachadas em `src/data/articles/` e `src/data/movies/`, mais arquivos específicos próximos das rotas.
+- **Dados:** fachadas em `src/data/articles/`, `src/data/movies/`, `src/data/series/`, `src/data/reading/`, `src/data/personalities/` e `src/data/organizations/`, mais arquivos específicos próximos das rotas.
 - **Estrutura confirmada:** título/apresentação, navegação ou feed, relações e breadcrumbs conforme cada implementação. `/acervo` funciona como entrada transversal: aponta para bibliotecas quando seus registros estão publicados e, enquanto um domínio permanece em revisão, oferece suas curadorias públicas sem abrir índices vazios.
-- **Componentes:** `EditorialFeed`, `Posts`, `MovieLibrary`, cards e `BreadcrumbJsonLd`.
-- **SEO:** metadata por rota; `/filmes` usa `MovieLibraryJsonLd`. Páginas pausadas não devem ser tratadas como publicadas apenas porque possuem arquivo.
+- **Componentes:** `EditorialFeed`, `Posts`, `MovieLibrary`, `SeriesLibrary`, `PersonLibrary`, `StudioLibrary`, controles compartilhados de catálogo, cards e `BreadcrumbJsonLd`.
+- **SEO:** metadata por rota; `/filmes` usa `MovieLibraryJsonLd` e `/series` usa `SeriesLibraryJsonLd`. Páginas pausadas não devem ser tratadas como publicadas apenas porque possuem arquivo.
 - **Variações:** índices especializados podem ter composição própria, preservando container, navegação e tokens globais.
 
 ### Artigo MDX
@@ -89,26 +97,39 @@ O inventário de arquivos não equivale ao sitemap público. A inclusão de rota
 - **SEO:** somente registros com `status: published` geram páginas estáticas indexáveis e entram no sitemap; ausentes ou incompletos recebem `noindex`/404 conforme a rota.
 - **Variações:** capa é opcional; o componente deve manter fallback. Estados de produção não substituem o estado editorial.
 
-### Perfil de organização ou estúdio
+### Biblioteca e página de série
+
+- **Rotas:** `/series` e `/series/[slug]`.
+- **Dados:** `SeriesSchema`, registros em `src/content/series/`, ofertas temporais em `seriesOffers.ts` e fachada assíncrona `src/data/series/`.
+- **Biblioteca:** busca por título brasileiro e original; filtros por gênero, país, década, formato e disponibilidade; ordenação por título, lançamento e cadastro; contador, estado vazio e carregamento progressivo de doze cards.
+- **Seções da ficha:** imagem ou fallback, títulos, período, formato, gêneros, países, criação, temporadas, episódios, descrição, disponibilidade por temporada, relações estruturadas, artigos relacionados e fontes.
+- **Componentes:** `SeriesLibrary`, `SeriesCard`, controles compartilhados de catálogo, `SeriesJsonLd`, `SeriesLibraryJsonLd` e breadcrumbs.
+- **Relações:** pessoas usam `personRelationships`; organizações usam `organizationRelationships` com papéis explícitos. Disponibilidade permanece fora do registro principal e aponta para intervalos de temporadas.
+- **SEO:** somente registros com `status: published` geram parâmetros estáticos, páginas indexáveis e entradas no sitemap. A biblioteca possui metadata, canonical e JSON-LD `CollectionPage`; cada ficha usa `TVSeries`.
+- **Variações:** imagem e relações são opcionais e não geram seções vazias; o fallback visual não inventa capa. `seriesStatus` descreve a situação narrativa e não controla publicação.
+
+### Biblioteca e perfil de organização ou estúdio
 
 Para estúdios de animação, aplique o [modelo editorial especializado](../editorial/templates/animation-studio-profile.md).
 
-- **Rotas atuais:** `/estudios/studio-ghibli`, `/estudios/laika`, `/estudios/aardman`, `/estudios/science-saru`, `/estudios/kyoto-animation`, `/estudios/team-cherry` e `/estudios/cartoon-saloon`.
+- **Rotas:** `/estudios` e `/estudios/[slug]`. Os sete perfis atuais preservam composições especializadas na mesma família de rota.
 - **Finalidade:** perfil editorial permanente, não artigo nem ficha comercial.
 - **Dados:** organizações em `src/content/organizations/`; filmes, jogos ou obras animadas em seus catálogos centrais. `src/content/studios/` ainda contém dados legados da LAIKA.
 - **Seções recorrentes confirmadas:** hero, apresentação/história, processo ou linguagem, obras, orientação editorial, relações e fontes.
-- **Componentes:** layout global, `BreadcrumbJsonLd` e, para filmes relacionados, `OrganizationWorks`.
+- **Biblioteca:** busca por nome; filtros por país, especialidade, tipo e década de início; ordem alfabética, contador, estado vazio e carregamento progressivo. Usa `StudioCard`, com fallback institucional quando não há imagem licenciada.
+- **Componentes:** `StudioLibrary`, `StudioCard`, layout global, `BreadcrumbJsonLd`, `OrganizationRelatedWorks` e componentes especializados já existentes.
 - **Relações:** IDs permanentes entre organização e obra; o papel da organização deve ser explícito quando o schema permitir.
-- **SEO:** metadata própria, canonical, Open Graph `profile`, breadcrumb e JSON-LD `Organization`; inclusão manual no sitemap atual.
+- **SEO:** o índice usa metadata, canonical e JSON-LD `CollectionPage`; perfis usam metadata própria, canonical, Open Graph `profile`, breadcrumb e JSON-LD `Organization`. Rotas publicadas são derivadas dos registros no sitemap.
 - **Variações:** cor de destaque e composição visual limitada. Não existe ainda um `ProfileHero` ou schema de tema compartilhado.
 
-### Perfil de pessoa
+### Biblioteca e perfil de pessoa
 
-- **Rota atual:** `/criadores/shingo-tamagawa`.
+- **Rotas:** `/personalidades` e `/personalidades/[slug]`; `/criadores/shingo-tamagawa` é uma rota histórica canônica preservada e apontada pelo registro.
 - **Dados:** `CreatorSchema` e `src/content/creators/creators.ts`.
 - **Seções confirmadas:** introdução, trajetória verificável, processo/ideias, trabalhos relacionados e fontes.
-- **Componentes e relações:** layout próprio, `BreadcrumbJsonLd`, IDs de obras em `workIds` e créditos nas obras.
-- **SEO:** metadata, canonical, Open Graph `profile` e JSON-LD `Person`; inclusão manual no sitemap.
+- **Biblioteca:** busca por nome; filtros por ocupação, país/região e século de nascimento; ordem alfabética, contador, estado vazio e carregamento progressivo. Usa `PersonCard`, com fallback biográfico quando não há retrato licenciado.
+- **Componentes e relações:** `PersonLibrary`, `PersonCard`, layout próprio, `BreadcrumbJsonLd` e relações derivadas dos créditos presentes em filmes, séries, leituras e obras editoriais.
+- **SEO:** o índice usa metadata, canonical e JSON-LD `CollectionPage`; perfis usam metadata, canonical, Open Graph `profile` e JSON-LD `Person`. Somente registros publicados e com conteúdo suficiente entram no sitemap.
 - **Variações:** conteúdo deve acompanhar a disponibilidade de fatos; não há template compartilhado de perfil.
 
 ### Obra audiovisual editorial
@@ -120,20 +141,21 @@ Para estúdios de animação, aplique o [modelo editorial especializado](../edit
 - **SEO:** metadata, canonical, Open Graph `video.movie` e JSON-LD audiovisual; inclusão manual no sitemap.
 - **Variações:** imagem pode estar ausente; o vídeo oficial usa carregamento mediante interação. Não existe rota dinâmica `/obras/[slug]`.
 
-### Acervo de leitura (sem rota pública)
+### Bibliotecas e páginas de leitura
 
-- **Finalidade:** sustentar livros, mangás, manhwas, manhuas, webtoons, graphic novels, quadrinhos e light novels sem duplicar dados em artigos.
+- **Rotas:** `/livros`, `/livros/[slug]`, `/quadrinhos` e `/quadrinhos/[slug]`.
+- **Finalidade:** publicar livros, mangás, manhwas, manhuas, webtoons, graphic novels, quadrinhos e light novels sem duplicar dados entre bibliotecas ou artigos.
 - **Dados:** schemas e registros em `src/content/reading/`; fachada assíncrona em `src/data/reading/`.
 - **Entidades:** obra intelectual, série, volume, edição concreta e oferta comercial. Pessoas continuam em `content/creators/` e organizações em `content/organizations/`.
-- **Componentes:** `ReadingCard`, `ReadingList`, `ReadingEditionInfo`, `ReadingAuthors`, `ReadingOffers`, `ReadingRelations` e `ReadingWorkCard` para MDX por `workId`.
+- **Bibliotecas e componentes:** ambas reutilizam `ReadingCatalogLibrary` e os controles dos demais acervos. Livros filtram gênero, autoria, país, formato, ano e disponibilidade; quadrinhos filtram gênero, autoria, tradição, demografia, situação da publicação, país e disponibilidade. `BookCard` apresenta livros e light novels; `MangaCard` apresenta mangás, manhwas, manhuas, HQs e graphic novels. `ReadingWorkCard` permanece como adaptador temporário para artigos existentes.
 - **Relações:** listas armazenam referências; ISBN, páginas, editora, tradução, capa comercial e disponibilidade pertencem à edição. Ofertas apontam exclusivamente para uma edição.
-- **SEO e publicação:** nenhuma rota, sitemap, metadata ou JSON-LD foi criada nesta etapa. Registros podem existir como rascunho sem produzir páginas vazias.
+- **SEO e publicação:** apenas obras `published` geram páginas estáticas e sitemap. Índices e fichas possuem metadata, canonical, breadcrumbs e JSON-LD `CollectionPage`/`Book`; registros `draft` permanecem fora das rotas públicas.
 - **Variações:** cards compactos ou editoriais, com fallback quando faltarem capa, edição brasileira ou oferta.
 
 ### Páginas institucionais, comerciais, demonstrações e projetos
 
-- **Rotas:** `/about`; arquivos implementados sob `/work`, `/servicos`, `/modelos`, `/publicos`, `/contact`, `/simulacao` e rotas auxiliares.
-- **Estado:** somente `/about` está habilitada em `routes`; as demais famílias são pausadas pelo middleware ou pela configuração atual.
+- **Rotas:** `/about`, `/work`, `/servicos` e `/servicos/produtos`; arquivos também existem sob `/modelos`, `/publicos`, `/contact`, `/simulacao` e rotas auxiliares.
+- **Estado:** `/about`, `/work`, `/servicos` e `/servicos/produtos` estão habilitadas em `routes`; as demais famílias permanecem pausadas pelo middleware ou pela configuração atual.
 - **Dados e componentes:** recursos em `src/resources/`, `src/data/segments/`, `src/components/services/`, `src/components/work/` e arquivos próximos às rotas.
 - **SEO:** varia por rota; demonstrações podem declarar `noindex`. Não inferir publicação pela existência do componente.
 - **Pendência:** não há um schema único nem template canônico para esse grupo; documentar cada família quando ela voltar ao escopo público.
@@ -143,13 +165,31 @@ Para estúdios de animação, aplique o [modelo editorial especializado](../edit
 - `src/app/layout.tsx` fornece idioma, metadata-base, identidade tipográfica, fundo, `Header`, `Footer`, busca global e estrutura de largura.
 - `src/styles/globals.scss` e Once UI fornecem tokens, container e comportamento responsivo. Páginas temáticas não devem substituir esse sistema.
 - `BreadcrumbJsonLd` é o componente compartilhado para breadcrumbs estruturados; breadcrumbs visuais continuam implementados por página.
+- `PersonCard` e `StudioCard` resolvem pessoas e estúdios por IDs permanentes. O primeiro usa o acervo de criadores e enfatiza contexto biográfico; o segundo usa organizações e enfatiza identidade institucional. Imagens só aparecem quando origem e licença estão registradas, e links dependem de `profilePath` público. A rota `/dev/entity-cards` oferece exemplos somente em desenvolvimento, com `noindex`, e responde como não encontrada em produção.
 - `src/app/sitemap.ts`, `src/app/robots.ts`, `src/middleware.ts`, `routes` e `src/lib/globalSearch.ts` são controles distintos. Uma nova rota pública pode exigir atualização em mais de um deles.
 - Conteúdo essencial deve existir no HTML do servidor; interação não pode ser requisito para indexação ou compreensão.
 - Imagens precisam de texto alternativo, origem e crédito quando o modelo os aceitar. Ausência de imagem deve ter fallback estável.
 - Capas de leitura pertencem à edição ou ao volume que efetivamente representam. `ReadingCard` pode usar a capa da edição brasileira confirmada como apresentação visual quando a obra universal não possui imagem, sem copiar essa capa para `ReadingWork`.
 - Pôsteres promocionais existentes são mantidos localmente em `/images/movies/`, convertidos para WebP leve e servidos diretamente por `MoviePoster`; origem, crédito e situação de direitos ficam no registro central. Ativos sem licença comercial confirmada usam `permission-pending` e exigem revisão antes de reutilização comercial.
+- Imagens do acervo de leitura registram origem, crédito e situação de direitos no próprio registro. Reproduções comprovadamente em domínio público usam `public-domain`; o card deve distingui-las de capas de edições brasileiras comerciais quando forem folhas de rosto, manuscritos ou capas históricas.
 - Status editorial controla publicação. Status de lançamento ou produção descreve a obra, não sua indexabilidade.
 - Relações usam IDs permanentes; slugs servem a URLs e aliases preservam caminhos anteriores quando suportados.
+
+### Fluxo obrigatório para conteúdo de entretenimento
+
+Antes de publicar qualquer artigo sobre filmes, séries, livros, light novels, quadrinhos, mangás, manhwas, manhuas, pessoas ou estúdios:
+
+1. defina as obras, pessoas ou estúdios que aparecerão;
+2. procure cada entidade no acervo correspondente por ID, slug, títulos e aliases;
+3. cadastre somente as entidades ausentes;
+4. valide os registros e suas relações;
+5. utilize no MDX os cards correspondentes, referenciando cada entidade por ID.
+
+Os artigos continuam sendo MDX e participando normalmente do blog, da página inicial e de “todos os artigos”. Uma curadoria central estruturada pode existir quando for útil, mas não é requisito para publicar um artigo e não substitui os cards escritos no MDX.
+
+Cards recebem apenas o ID e informações próprias do contexto editorial, como posição ou justificativa. Capas, títulos, datas, autoria, gêneros, países, organizações, sinopses e outros dados permanentes são resolvidos no acervo. As propriedades antigas por slug permanecem temporariamente aceitas apenas para compatibilidade com artigos existentes e não devem ser usadas em conteúdo novo.
+
+Todos os acervos usam somente `status: "draft" | "published"` como estado editorial. `draft` inclui preparação e revisão; `published` indica registro pronto para uso público. Situações narrativas ou institucionais permanecem em campos próprios, como `productionStatus`, `seriesStatus` e `publicationStatus`.
 
 ## Modelos de dados confirmados
 
@@ -157,7 +197,7 @@ Para estúdios de animação, aplique o [modelo editorial especializado](../edit
 | --- | --- | --- | --- |
 | Artigos | `components/blog/postSchema.ts` | `data/articles/` | corpo permanece em MDX |
 | Filmes | `content/movies/movieSchema.ts` | `data/movies/` | cadastro único; inclui identidade, formato, créditos, relações, imagem/direitos, fontes e estado editorial |
-| Séries | `content/series/seriesSchema.ts` | importação local direta | catálogo central sem páginas individuais; ofertas temporais são separadas por plataforma, região e intervalo de temporadas |
+| Séries | `content/series/seriesSchema.ts` | `data/series/` | catálogo público em `/series`; ofertas temporais são separadas por plataforma, região e intervalo de temporadas |
 | Pessoas | `content/creators/creatorSchema.ts` | importação local direta | fachada ainda não existe |
 | Obras editoriais | `content/works/workSchema.ts` | importação local direta | curtas e documentários |
 | Organizações | `content/organizations/organizations.ts` | importação local direta | schema não é exportado |
@@ -189,7 +229,7 @@ Uma página pública deve ser conferida em cinco superfícies independentes:
 4. inclusão no sitemap quando indexável;
 5. inclusão na busca global ou navegação quando a descoberta interna for necessária.
 
-JSON-LD deve refletir somente conteúdo visível e confirmado. Os tipos já usados incluem `Organization`, `Person`, `Movie`, coleção de filmes, obra audiovisual e breadcrumbs.
+JSON-LD deve refletir somente conteúdo visível e confirmado. Os tipos já usados incluem `Organization`, `Person`, `Movie`, `TVSeries`, coleções de filmes e séries, obra audiovisual e breadcrumbs.
 
 Perfis de personalidades usam `/personalidades/[slug]`, metadata própria, canonical, breadcrumbs e JSON-LD `Person`. Somente registros publicados com biografia suficiente entram nos parâmetros estáticos e no sitemap; o padrão editorial permanente está em `docs/content/personality-pages.md`.
 
@@ -212,7 +252,7 @@ Perfis de personalidades usam `/personalidades/[slug]`, metadata própria, canon
 - Criar índices filtrados de mangás, manhwas, manhuas ou graphic novels somente após o acervo publicado sustentar páginas úteis; não criar rotas vazias ou catálogos derivados.
 - Consolidar os modelos paralelos de organização/obra somente com plano de migração e auditoria de consumidores.
 - Tornar sitemap, robots, middleware, configuração de rotas e busca menos sujeitos a divergência manual.
-- Criar índices `/estudios`, `/criadores` e `/obras` antes de tratá-los como níveis navegáveis reais.
+- Criar índices `/criadores` e `/obras` somente se houver uma função distinta de `/personalidades` e conteúdo público suficiente.
 - Definir componentes compartilhados para hero de perfil, fontes e relações apenas após comparar mais páginas; hoje a recorrência existe, mas as APIs ainda não estão estabilizadas.
 - Ampliar `audit:content` para validar metadata, sitemap e relações de todos os domínios, não apenas o contrato completo de filmes e referências básicas dos demais.
 - Documentar famílias comerciais e demonstrações quando forem reativadas; o código existente não representa necessariamente a arquitetura pública futura.

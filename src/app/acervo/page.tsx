@@ -5,6 +5,10 @@ import { HiOutlineArrowRight } from "react-icons/hi2";
 import { getAllBlogPosts } from "@/app/blog/postData";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { getAllMovies, getPublishedMovies } from "@/data/movies";
+import { getAllSeries, getPublishedSeries } from "@/data/series";
+import { getPublishedBooks, getPublishedComics } from "@/data/reading";
+import { getPublishedPersonalities } from "@/data/personalities";
+import { getPublishedStudios } from "@/data/organizations";
 import { baseURL } from "@/resources";
 
 import styles from "./page.module.scss";
@@ -37,8 +41,9 @@ const sections = [
     index: "02",
     title: "Livros",
     description:
-      "Obras, autores, séries e edições brasileiras separados corretamente. Por enquanto, a entrada pública acontece pelas curadorias.",
-    action: "Ver curadorias de livros",
+      "Obras, autores, séries e edições brasileiras separados corretamente em uma biblioteca pública.",
+    href: "/livros",
+    action: "Explorar livros",
     slugs: ["melhores-livros-de-terror", "melhores-livros-de-vampiro", "livros-para-quem-gostou-de-it-bem-vindos-a-derry"],
   },
   {
@@ -47,7 +52,8 @@ const sections = [
     title: "Mangás e quadrinhos",
     description:
       "Mangás, HQs, graphic novels, manhwas e webtoons convivem no mesmo modelo, sem confundir formato, tradição e demografia.",
-    action: "Ver curadorias gráficas",
+    href: "/quadrinhos",
+    action: "Explorar quadrinhos",
     slugs: ["melhores-mangas-de-romance-para-homens", "melhores-quadrinhos-mangas-de-terror", "melhores-quadrinhos-mangas-de-vampiro"],
   },
   {
@@ -55,15 +61,43 @@ const sections = [
     index: "04",
     title: "Séries",
     description:
-      "Seleções por experiência, tema e disponibilidade no Brasil, apoiadas por registros centrais ainda em revisão.",
-    action: "Ver curadorias de séries",
+      "Uma biblioteca navegável por título, período, país, gênero, formato e disponibilidade por temporada.",
+    href: "/series",
+    action: "Explorar séries",
     slugs: ["melhores-series-de-terror", "melhores-series-de-vampiro", "series-para-quem-gostou-de-it-bem-vindos-a-derry"],
+  },
+  {
+    id: "personalidades",
+    index: "05",
+    title: "Personalidades",
+    description: "Autores, cineastas, artistas e pensadores conectados automaticamente às obras que integram o acervo.",
+    href: "/personalidades",
+    action: "Explorar personalidades",
+    slugs: [],
+  },
+  {
+    id: "estudios",
+    index: "06",
+    title: "Estúdios",
+    description: "Organizações criativas com identidade, especialidades e obras derivadas dos relacionamentos centrais.",
+    href: "/estudios",
+    action: "Explorar estúdios",
+    slugs: [],
   },
 ] as const;
 
 export default async function CollectionPage() {
-  const [movies, publishedMovies] = await Promise.all([getAllMovies(), getPublishedMovies()]);
+  const [movies, publishedMovies, series, publishedSeries, books, comics] = await Promise.all([
+    getAllMovies(),
+    getPublishedMovies(),
+    getAllSeries(),
+    getPublishedSeries(),
+    getPublishedBooks(),
+    getPublishedComics(),
+  ]);
   const postBySlug = new Map(getAllBlogPosts().map((post) => [post.slug, post]));
+  const personalities = getPublishedPersonalities();
+  const studios = getPublishedStudios();
 
   return (
     <main className={styles.page}>
@@ -93,6 +127,11 @@ export default async function CollectionPage() {
             return post ? [post] : [];
           });
           const isMovies = section.id === "filmes";
+          const isSeries = section.id === "series";
+          const isBooks = section.id === "livros";
+          const isComics = section.id === "quadrinhos";
+          const isPersonalities = section.id === "personalidades";
+          const isStudios = section.id === "estudios";
 
           return (
             <article className={styles.area} id={section.id} key={section.id}>
@@ -105,6 +144,16 @@ export default async function CollectionPage() {
                 <div className={styles.state}>
                   {isMovies ? (
                     <><strong>{movies.length}</strong><span>filmes cadastrados · {publishedMovies.length} perfis publicados</span></>
+                  ) : isSeries ? (
+                    <><strong>{series.length}</strong><span>séries cadastradas · {publishedSeries.length} perfis publicados</span></>
+                  ) : isBooks ? (
+                    <><strong>{books.length}</strong><span>livros e light novels publicados</span></>
+                  ) : isComics ? (
+                    <><strong>{comics.length}</strong><span>quadrinhos e mangás publicados</span></>
+                  ) : isPersonalities ? (
+                    <><strong>{personalities.length}</strong><span>perfis públicos com conteúdo suficiente</span></>
+                  ) : isStudios ? (
+                    <><strong>{studios.length}</strong><span>perfis institucionais publicados</span></>
                   ) : (
                     <><strong>{posts.length}</strong><span>curadorias publicadas · biblioteca em revisão</span></>
                   )}

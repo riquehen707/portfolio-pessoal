@@ -5,7 +5,7 @@ const slug = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const source = z.object({ title: z.string().min(1), url: z.string().url() });
 const image = z.object({
   src: z.string().min(1), alt: z.string().min(1), sourceUrl: z.string().url(), credit: z.string().min(1),
-  rights: z.enum(["original-editorial", "licensed", "permission-pending"]), width: z.number().int().positive(), height: z.number().int().positive(),
+  rights: z.enum(["original-editorial", "licensed", "public-domain", "permission-pending"]), width: z.number().int().positive(), height: z.number().int().positive(),
 });
 
 export const ReadingFormatSchema = z.enum(["book", "manga", "manhwa", "manhua", "webtoon", "graphic-novel", "comic", "light-novel", "serialized-series", "one-shot", "comic-strip", "anthology"]);
@@ -13,7 +13,7 @@ export const BookCategorySchema = z.enum(["fiction", "non-fiction", "philosophy"
 export const ComicTraditionSchema = z.enum(["manga", "manhwa", "manhua", "western-comics", "brazilian-comics", "other"]);
 export const ComicFormatSchema = z.enum(["serialized-series", "graphic-novel", "one-shot", "webtoon", "comic-strip", "anthology"]);
 export const ReadingPublicationStatusSchema = z.enum(["announced", "ongoing", "completed", "hiatus", "cancelled", "out-of-print"]);
-export const ReadingEditorialStatusSchema = z.enum(["draft", "review", "published"]);
+export const ReadingEditorialStatusSchema = z.enum(["draft", "published"]);
 
 export const ReadingCreditSchema = z.object({
   personId: z.string().regex(/^person_[a-z0-9_]+$/),

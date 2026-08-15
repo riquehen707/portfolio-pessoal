@@ -90,7 +90,7 @@ export const movieCurations: MovieList[] = [{
 }, {
   id: "list_best_movies_2025",
   slug: "melhores-filmes-de-2025",
-  title: "23 melhores filmes de 2025",
+  title: "Os melhores filmes de 2025 que ainda valem a pena assistir",
   href: "/blog/melhores-filmes-de-2025",
   mode: "editorial",
   items: [

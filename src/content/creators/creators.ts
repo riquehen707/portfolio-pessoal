@@ -6,6 +6,7 @@ export const shingoTamagawa: Creator = CreatorSchema.parse({
   name: "Shingo Tamagawa",
   kind: "person",
   status: "published",
+  profilePath: "/criadores/shingo-tamagawa",
   birthYear: 1987,
   birthPlace: "Nara, Japão",
   summary: "Animador e realizador japonês, autor do curta independente Puparia.",
@@ -47,6 +48,7 @@ const ghibliPeople:Creator[] = [
 ].map(person=>CreatorSchema.parse({
   ...person, kind:"person", status:person.id === "person_hayao_miyazaki" ? "published" : "draft", workIds:[],
   ...(person.id === "person_hayao_miyazaki" ? {
+    profilePath:"/personalidades/hayao-miyazaki",
     originalName:"宮崎 駿",
     image:{
       src:"/images/personalities/hayao-miyazaki.webp",
@@ -63,8 +65,15 @@ const ghibliPeople:Creator[] = [
     biography:[
       "Hayao Miyazaki nasceu em Tóquio, em 1941. Depois de se formar em Ciência Política e Economia na Universidade Gakushuin, entrou na Toei Animation em 1963 e desenvolveu parte importante de sua formação profissional ao lado de Isao Takahata.",
       "Sua estreia na direção de longas ocorreu com O Castelo de Cagliostro, em 1979. Após escrever e dirigir Nausicaä do Vale do Vento, participou da fundação do Studio Ghibli em 1985 e consolidou uma obra em que aventura, cotidiano, trabalho manual, guerra e natureza raramente oferecem respostas simples.",
+      "No Studio Ghibli, Miyazaki alternou projetos voltados à infância, aventuras de grande escala e dramas históricos. Mesmo quando outras pessoas assumiram a direção, ele também trabalhou em roteiro e desenvolvimento de obras do estúdio; por isso, a filmografia abaixo separa direção de colaboração, em vez de atribuir todos os filmes a uma única função.",
     ],
     themes:["Natureza e tecnologia", "Infância e autonomia", "Trabalho e criação", "Aviação", "Guerra e responsabilidade"],
+    ideas:[
+      {title:"Natureza sem pureza fácil",description:"Florestas, mares e criaturas possuem agência, mas seus filmes evitam reduzir conflitos ambientais a uma oposição simples entre natureza inocente e humanidade maligna."},
+      {title:"Trabalho como formação",description:"Oficinas, cozinhas, entregas e tarefas cotidianas organizam relações. Aprender a fazer algo costuma ser também uma maneira de conquistar autonomia e participar de uma comunidade."},
+      {title:"Voo, técnica e ambivalência",description:"A aviação aparece como fascínio visual e conquista técnica, mas permanece ligada à guerra, à indústria e às consequências do que se constrói."},
+      {title:"Infância com capacidade de agir",description:"Crianças não funcionam apenas como símbolos de inocência: observam, trabalham, erram e tomam decisões diante de mundos que os adultos não controlam por completo."},
+    ],
     startingPoints:[
       {workId:"mov_ghb_2001_chihiro",note:"A entrada mais abrangente: fantasia, trabalho, consumo e amadurecimento organizados numa aventura acessível a diferentes idades."},
       {workId:"mov_ghb_1988_totoro",note:"Para conhecer seu interesse pelo cotidiano infantil, pela espera e por uma natureza fantástica que não existe apenas para ameaçar."},
@@ -246,6 +255,7 @@ const vampireBookAuthors: Creator[] = [
   id, slug, name, summary, kind:"person", workIds:[],
   status:id === "person_stephen_king" ? "published" : "draft",
   ...(id === "person_stephen_king" ? {
+    profilePath:"/personalidades/stephen-king",
     fullName:"Stephen Edwin King",
     image:{
       src:"/images/personalities/stephen-king.webp",
@@ -287,6 +297,7 @@ const vampireBookAuthors: Creator[] = [
 const nietzschePeople: Creator[] = [
   CreatorSchema.parse({
     id:"person_friedrich_nietzsche",slug:"friedrich-nietzsche",name:"Friedrich Nietzsche",fullName:"Friedrich Wilhelm Nietzsche",kind:"person",status:"published",
+    profilePath:"/personalidades/friedrich-nietzsche",
     image:{
       src:"/images/personalities/friedrich-nietzsche.webp",
       alt:"Retrato de perfil de Friedrich Nietzsche fotografado em 1882",

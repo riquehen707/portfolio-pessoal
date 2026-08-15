@@ -9,6 +9,12 @@ const OrganizationSchema = z.object({
   founderIds: z.array(z.string().regex(/^person_[a-z0-9_]+$/)).default([]),
   keyPeopleIds: z.array(z.string().regex(/^person_[a-z0-9_]+$/)).default([]),
   website: z.string().url().optional(),
+  activeUntil: z.number().int().optional(),
+  specialties: z.array(z.string().min(1)).default([]),
+  image: z.object({
+    src: z.string().min(1), alt: z.string().min(1), credit: z.string().min(1), sourceUrl: z.string().url(),
+    license: z.string().min(1), licenseUrl: z.string().url().optional(),
+  }).optional(),
   parentOrganizationId: z.string().regex(/^org_[a-z0-9_]+$/).optional(),
   sources: z.array(z.object({ title: z.string(), url: z.string().url() })).default([]),
   status: z.enum(["draft", "published"]), profilePath: z.string().startsWith("/").optional(), workIds: z.array(z.string()), summary: z.string(), createdAt: z.string(), updatedAt: z.string(),
@@ -18,9 +24,10 @@ export const ghostAnimation = OrganizationSchema.parse({
   id: "org_ghost_animation", slug: "ghost-animation", name: "Ghost Animation", kind: "collective", status: "draft",
   workIds: ["work_wade_2019"], summary: "Coletivo de animação sediado em Kolkata e produtor de Wade.", createdAt: "2026-08-12", updatedAt: "2026-08-12",
 });
-export const teamCherry = OrganizationSchema.parse({id:"org_team_cherry",slug:"team-cherry",name:"Team Cherry",kind:"studio",status:"published",workIds:[],summary:"Estúdio independente de jogos sediado em Adelaide, Austrália do Sul.",createdAt:"2026-08-12",updatedAt:"2026-08-12"});
+export const teamCherry = OrganizationSchema.parse({id:"org_team_cherry",slug:"team-cherry",name:"Team Cherry",kind:"studio",founded:2014,location:{city:"Adelaide",region:"Austrália do Sul",country:"Austrália"},specialties:["Jogos independentes","Animação 2D"],status:"published",profilePath:"/estudios/team-cherry",workIds:[],summary:"Estúdio independente de jogos sediado em Adelaide, Austrália do Sul.",sources:[{title:"Team Cherry — site oficial",url:"https://www.teamcherry.com.au/"}],createdAt:"2026-08-12",updatedAt:"2026-08-14"});
 export const cartoonSaloon=OrganizationSchema.parse({
   id:"org_cartoon_saloon",slug:"cartoon-saloon",aliases:["Cartoon Saloon Ltd."],name:"Cartoon Saloon",kind:"studio",
+  specialties:["Animação 2D","Longas autorais"],
   founded:1999,location:{city:"Kilkenny",country:"Irlanda"},
   founderIds:["person_tomm_moore","person_nora_twomey","person_paul_young"],
   keyPeopleIds:["person_tomm_moore","person_nora_twomey","person_paul_young"],
@@ -32,6 +39,7 @@ export const cartoonSaloon=OrganizationSchema.parse({
 });
 export const aardman = OrganizationSchema.parse({
   id:"org_aardman",slug:"aardman",aliases:["Aardman Animations"],name:"Aardman",kind:"studio",
+  specialties:["Stop-motion","Comédia de personagens"],
   founded:1976,location:{city:"Bristol",country:"Reino Unido"},
   founderIds:["person_peter_lord","person_david_sproxton"],keyPeopleIds:["person_peter_lord","person_david_sproxton","person_nick_park"],
   website:"https://www.aardman.com/",sources:[
@@ -44,6 +52,7 @@ export const aardman = OrganizationSchema.parse({
 });
 export const scienceSaru = OrganizationSchema.parse({
   id:"org_science_saru",slug:"science-saru",aliases:["Science SARU Inc.","株式会社サイエンスSARU"],name:"Science SARU",legalName:"Science SARU Inc.",kind:"studio",
+  specialties:["Animação 2D","Fluxos digitais"],
   founded:2013,location:{city:"Musashino",region:"Tóquio",country:"Japão"},
   founderIds:["person_masaaki_yuasa","person_eunyoung_choi"],keyPeopleIds:["person_masanori_fujita"],
   website:"https://sciencesaru.com/en",parentOrganizationId:"org_toho",sources:[
@@ -56,6 +65,7 @@ export const scienceSaru = OrganizationSchema.parse({
 });
 export const kyotoAnimation = OrganizationSchema.parse({
   id:"org_kyoto_animation",slug:"kyoto-animation",aliases:["Kyoto Animation Co., Ltd.","KyoAni","株式会社京都アニメーション","京アニ"],name:"Kyoto Animation",legalName:"Kyoto Animation Co., Ltd.",kind:"studio",
+  specialties:["Animação 2D","Produção e formação integradas"],
   founded:1981,location:{city:"Uji",region:"Kyoto",country:"Japão"},
   founderIds:["person_yoko_hatta","person_hideaki_hatta"],keyPeopleIds:["person_shinichiro_hatta"],
   website:"https://www.kyotoanimation.co.jp/en/",sources:[
@@ -70,6 +80,7 @@ export const kyotoAnimation = OrganizationSchema.parse({
 });
 export const laika = OrganizationSchema.parse({
   id:"org_laika",slug:"laika",aliases:["LAIKA Studios","LAIKA Entertainment"],name:"LAIKA",legalName:"LAIKA, LLC",kind:"studio",
+  specialties:["Stop-motion","Impressão 3D"],
   founded:2005,location:{city:"Hillsboro",region:"Oregon",country:"Estados Unidos"},keyPeopleIds:["person_travis_knight"],
   website:"https://www.laika.com/",sources:[
     {title:"Site oficial da LAIKA",url:"https://www.laika.com/"},
@@ -80,6 +91,7 @@ export const laika = OrganizationSchema.parse({
 });
 export const studioGhibli = OrganizationSchema.parse({
   id:"org_studio_ghibli", slug:"studio-ghibli", aliases:["Studio Ghibli Inc.","株式会社スタジオジブリ"],
+  specialties:["Animação 2D","Longas autorais"],
   name:"Studio Ghibli", legalName:"Studio Ghibli Inc.", kind:"studio", founded:1985,
   location:{city:"Koganei",region:"Tóquio",country:"Japão"},
   founderIds:["person_hayao_miyazaki","person_isao_takahata","person_toshio_suzuki"],

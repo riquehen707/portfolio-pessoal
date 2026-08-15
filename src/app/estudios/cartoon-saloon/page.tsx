@@ -35,7 +35,7 @@ export default function CartoonSaloonPage() {
   const founders = cartoonSaloon.founderIds
     .map((id) => creators.find((creator) => creator.id === id))
     .filter((creator) => creator !== undefined);
-  const featureCount = works.filter((work) => work.format === "feature" && work.status === "released").length;
+  const featureCount = works.filter((work) => work.format === "feature" && work.releaseStatus === "released").length;
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",

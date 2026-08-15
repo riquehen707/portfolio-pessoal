@@ -10,7 +10,7 @@ const dateLabel = (value: string) => new Intl.DateTimeFormat("pt-BR", { timeZone
 
 export function MovieAvailability({ movie }: { movie: Pick<Movie, "id"> }) {
   const offers = getMovieOffers(movie.id);
-  if (!offers.length) return <div className={styles.box}><strong>Onde assistir</strong><span>Sem disponibilidade legal confirmada no Brasil.</span></div>;
+  if (!offers.length) return null;
   const checkedAt = offers.map((item) => item.checkedAt).sort().at(-1)!;
   return <div className={styles.box}>
     <strong>Onde assistir</strong>

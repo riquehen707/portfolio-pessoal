@@ -32,8 +32,12 @@ export function MovieListCard({ movie, variant = "library", context, position, p
         {movie.durationMinutes ? <span>{movie.durationMinutes} min</span> : null}
         {variant === "organization" ? <span>{movie.directors.join(" · ")}</span> : null}
       </div>
-      {variant !== "organization" ? <MovieOrganizations movie={movie} /> : null}
-      {!compact ? <p className={styles.description}>{movie.shortDescription}</p> : null}
+      {variant === "library" ? <MovieOrganizations movie={movie} /> : null}
+      {variant === "editorial" ? <div className={styles.details} aria-label="Informações do filme">
+        {movie.genres.slice(0, 2).map((genre) => <span key={genre}>{genre}</span>)}
+        <span>{movie.countries.join(" · ")}</span>
+      </div> : null}
+      {!compact && (!context || variant !== "editorial") ? <p className={styles.description}>{movie.shortDescription}</p> : null}
       {context ? <p className={styles.context}>{context}</p> : null}
       {variant === "editorial" ? <MovieAvailability movie={movie} /> : null}
       {variant === "library" ? <><div className={styles.tags}>{[...movie.genres, ...movie.subgenres].slice(0, 3).map((item) => <span key={item}>{item}</span>)}</div><small>{movie.countries.join(" · ")}</small></> : null}

@@ -10,10 +10,8 @@ const pausedPaths = [
   "/modelos",
   "/publicos",
   "/saiba-mais",
-  "/servicos",
   "/simulacao",
   "/trilhas",
-  "/work",
 ] as const;
 
 function isPausedPath(pathname: string) {
@@ -43,9 +41,7 @@ export const config = {
     "/modelos/:path*",
     "/publicos/:path*",
     "/saiba-mais/:path*",
-    "/servicos/:path*",
     "/simulacao/:path*",
     "/trilhas/:path*",
-    "/work/:path*",
   ],
 };

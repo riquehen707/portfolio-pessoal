@@ -9,7 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "*",
         allow: "/",
         disallow: [
-          "/about",
           "/abordagem-tecnica",
           "/aulas-particulares",
           "/blog/categorias",
@@ -19,10 +18,8 @@ export default function robots(): MetadataRoute.Robots {
           "/modelos",
           "/publicos",
           "/saiba-mais",
-          "/servicos",
           "/simulacao",
           "/trilhas",
-          "/work",
         ],
       },
     ],

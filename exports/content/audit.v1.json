@@ -9,7 +9,7 @@
     "organizations": 54,
     "games": 2,
     "animationWorks": 34,
-    "movieOffers": 98,
+    "movieOffers": 117,
     "readingWorks": 121,
     "readingSeries": 3,
     "readingVolumes": 9,
@@ -21,7 +21,7 @@
     "seriesOffers": 46,
     "seriesCurations": 3,
     "publishedMovies": 0,
-    "draftMovies": 235
+    "draftMovies": 250
   },
   "duplicates": {
     "movieIds": [],
@@ -409,16 +409,6 @@
       "marketing-para-barbearias-estrategias-simples"
     ],
     "readingWorksWithoutImages": [
-      "read_work_birth_tragedy",
-      "read_work_human_all_too_human",
-      "read_work_dawn_nietzsche",
-      "read_work_gay_science",
-      "read_work_thus_spoke_zarathustra",
-      "read_work_beyond_good_evil",
-      "read_work_genealogy_morality",
-      "read_work_twilight_idols",
-      "read_work_antichrist_nietzsche",
-      "read_work_ecce_homo",
       "read_work_the_vampyre",
       "read_work_carmilla",
       "read_work_dracula",

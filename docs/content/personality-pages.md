@@ -34,6 +34,6 @@ Não mantenha uma bibliografia ou filmografia manual na página. Leituras usam `
 
 ## SEO e publicação
 
-Perfis públicos precisam de `status: "published"`, biografia suficiente e ao menos uma fonte confiável. A rota gera título, descrição, canonical, Open Graph, breadcrumbs e JSON-LD `Person` apenas com dados visíveis. Perfis incompletos continuam como rascunho, fora dos parâmetros estáticos e do sitemap. Obras em revisão podem aparecer como cards sem link para uma página individual; rascunhos não aparecem.
+Perfis públicos precisam de `status: "published"`, biografia suficiente e ao menos uma fonte confiável. A rota gera título, descrição, canonical, Open Graph, breadcrumbs e JSON-LD `Person` apenas com dados visíveis. Perfis incompletos continuam como rascunho, fora dos parâmetros estáticos e do sitemap. Bibliografias usam somente obras publicadas. Uma filmografia factual pode projetar registros centrais ainda em revisão quando o vínculo profissional estiver confirmado e o card permanecer sem link para página individual; a apresentação deve separar funções como direção e roteiro. Registros sem crédito confirmado não aparecem.
 
 Antes de publicar, confirme nomes e datas, papéis nas obras, direitos da imagem, links internos e ausência de seções vazias. Execute auditoria de conteúdo, TypeScript, lint, build e `git diff --check`.

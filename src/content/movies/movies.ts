@@ -443,7 +443,7 @@ const rawMovies = seeds.map((seed) => {
     status: "draft" as const,
   }] : []),
   poster: movie.poster ?? posterCatalog[movie.slug as keyof typeof posterCatalog],
-  status: personRelationships.length ? "review" as const : "draft" as const,
+  status: "draft" as const,
   seo: {
     title: `${movie.titleBr}: ficha e análise do filme`,
     description: `${movie.titleBr} (${movie.year}): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.`,

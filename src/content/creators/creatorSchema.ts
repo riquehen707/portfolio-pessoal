@@ -8,6 +8,7 @@ export const CreatorSchema = z.object({
   originalName: z.string().min(1).optional(),
   kind: z.literal("person"),
   status: z.enum(["draft", "published"]),
+  profilePath: z.string().startsWith("/").optional(),
   image: z.object({
     src: z.string().min(1),
     alt: z.string().min(1),
