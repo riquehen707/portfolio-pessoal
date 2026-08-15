@@ -2989,6 +2989,27 @@
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
+      "slug": "power-rangers-historia-atualidades-curiosidades",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-15",
+      "updatedAt": "2026-08-15",
+      "seo": {
+        "title": "Power Rangers: história, bastidores, curiosidades e o futuro da franquia",
+        "description": "Conheça a história de Power Rangers, sua relação com Super Sentai, as principais fases, curiosidades de produção e a situação atual da franquia em 2026.",
+        "canonical": "/blog/power-rangers-historia-atualidades-curiosidades"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/power-rangers-historia-atualidades-curiosidades.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
       "slug": "principal-component-analysis-pca",
       "aliases": [],
       "status": "published",
