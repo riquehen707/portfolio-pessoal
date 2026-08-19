@@ -129,7 +129,7 @@ export async function generateMetadata() {
 }
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const searchItems = getGlobalSearchItems();
+  const searchItems = await getGlobalSearchItems();
 
   return (
     <Flex

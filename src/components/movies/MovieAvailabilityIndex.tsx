@@ -16,7 +16,13 @@ export function MovieAvailabilityIndex({ slugs }: { slugs: string }) {
     const offers = getMovieOffers(movie.id);
     checkedAtValues.push(...offers.map((offer) => offer.checkedAt));
     if (!offers.length) add("Sem disponibilidade confirmada", movie);
-    for (const offer of offers) add(["rent","buy","physical"].includes(offer.offerType) ? "Aluguel ou compra" : offer.provider, movie);
+    for (const offer of offers) add(
+      offer.offerType === "rent" ? "Aluguel" :
+      offer.offerType === "buy" ? "Compra digital" :
+      offer.offerType === "physical" ? "Mídia física" :
+      offer.provider,
+      movie,
+    );
   }
   return <nav className={styles.index} aria-label="Índice de onde assistir">
     <strong>Onde assistir no Brasil</strong>

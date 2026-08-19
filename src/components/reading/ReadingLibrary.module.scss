@@ -10,7 +10,13 @@
 .description { margin: .65rem 0 0; }
 .editionState { margin: .55rem 0 0; color: var(--neutral-on-background-medium); font-size: .76rem; line-height: 1.45; }
 .credits, .offers, .relations, .edition { display: grid; gap: .4rem; }
+.credits { color: var(--neutral-on-background-medium); font-size: .86rem; line-height: 1.5; }
+.credits strong { color: var(--neutral-on-background-strong); }
+.edition { grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; }
+.edition div { min-width: 0; padding: .35rem 0; }
+.edition dt { color: var(--neutral-on-background-weak); font-size: .68rem; font-weight: 700; text-transform: uppercase; }
+.edition dd { margin: .2rem 0 0; overflow-wrap: anywhere; line-height: 1.45; }
 .list { display: grid; gap: 1rem; padding: 0; list-style: none; }
 .notice { padding: .75rem; border-left: 2px solid var(--brand-solid-strong); color: var(--neutral-on-background-medium); }
-@media (max-width: 600px) { .editorial { grid-template-columns: minmax(6.5rem, 34vw) minmax(0, 1fr); } .card { gap: .8rem; padding: .8rem; } }
+@media (max-width: 600px) { .editorial { grid-template-columns: minmax(6.5rem, 34vw) minmax(0, 1fr); } .card { gap: .8rem; padding: .8rem; } .edition { grid-template-columns: 1fr; } }
 .library{display:grid;gap:1rem}.filters{display:grid;grid-template-columns:minmax(14rem,2fr) repeat(3,minmax(9rem,1fr));gap:.75rem}.filters label{display:grid;gap:.3rem;color:var(--neutral-on-background-medium);font-size:.72rem;font-weight:700}.filters input,.filters select{box-sizing:border-box;width:100%;min-height:2.65rem;padding:.65rem .75rem;border:1px solid var(--line-subtle);border-radius:.65rem;background:var(--page-background);color:var(--neutral-on-background-strong);font:inherit}.resultCount{margin:0;color:var(--neutral-on-background-weak);font-size:.78rem}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}@media(max-width:800px){.filters{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}}@media(max-width:480px){.filters{grid-template-columns:1fr}.compact{grid-template-columns:5.5rem minmax(0,1fr)}}

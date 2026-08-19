@@ -2,13 +2,14 @@
 
 ## Decisão atual
 
-O site continua publicando por arquivos locais, MDX, Git e deploy na Vercel. Não há cliente Supabase, projeto remoto, autenticação, painel, tabela, webhook ou credencial. A preparação atual cria contratos portáveis e pontos únicos de acesso sem trocar o fluxo editorial.
+O conteúdo editorial continua sendo publicado por arquivos locais, MDX, Git e deploy na Vercel. Não há projeto remoto ou credencial Supabase versionada. Comentários de fichas de leitura possuem uma integração opcional preparada em `src/app/api/comments/`, com migração em `supabase/migrations/`; ela permanece inativa até que um projeto seja conectado, a migração seja aplicada e os segredos sejam configurados.
 
 O domínio de leitura usa um catálogo central em `src/content/reading/` e uma fachada em `src/data/reading/`. Livros, light novels, quadrinhos, mangás, manhwas, manhuas e webtoons não criam fontes paralelas; a camada de domínio decide a rota canônica `/livros/[slug]` ou `/quadrinhos/[slug]` a partir da classificação estruturada.
 
 ## Arquitetura encontrada
 
 - Artigos: frontmatter validado por Zod e corpo em MDX dentro de `src/app/blog/posts/`.
+- Ideias: registros estruturados e histórico validado por Zod em `src/content/ideas/`.
 - Filmes: registros estruturados validados por Zod em `src/content/movies/`, separados das relações de curadoria.
 - Rotas, metadata, JSON-LD e sitemap são produzidos no servidor pelo Next.js.
 - O acoplamento principal estava nas importações diretas de arrays e caminhos físicos pelos consumidores.
@@ -20,6 +21,7 @@ O domínio de leitura usa um catálogo central em `src/content/reading/` e uma f
 | Filmes | `src/data/movies/` | adaptador local assíncrono | outro adaptador poderá consultar o Supabase |
 | Obras de leitura | `src/data/reading/` | adaptador local assíncrono sobre `src/content/reading/` | preserva a separação entre obra, série, volume, edição e oferta |
 | Artigos | `src/data/articles/` | fachada local síncrona para MDX | continua local até o custo do build justificar nova estratégia |
+| Ideias | `src/data/ideas/` | adaptador local assíncrono | outro adaptador poderá manter o contrato ao migrar para Supabase |
 
 Rotas, cards, sitemap e componentes SEO não devem importar `movies.ts`, `curations.ts` ou conhecer um fornecedor. O contrato de filmes já retorna `Promise`, mesmo usando memória local, para que uma fonte remota não obrigue consumidores a mudar de assinatura.
 
@@ -27,7 +29,7 @@ Não foi criado um repositório universal. Cada novo catálogo deverá ter schem
 
 ## Identidade e portabilidade
 
-Filmes possuem ID permanente independente do slug, `contentType`, `schemaVersion`, slug atual, aliases, status, datas, SEO, imagem desacoplada e relações exportáveis. Alterar um slug exige preservar o ID e adicionar o caminho anterior em `aliases`. Antes de publicar um alias, deve-se configurar redirecionamento permanente e verificar canonical e status HTTP.
+Filmes e ideias possuem ID permanente independente do slug, `contentType`, `schemaVersion`, slug atual, aliases, status, datas, SEO, imagem desacoplada e relações exportáveis. Alterar um slug exige preservar o ID e adicionar o caminho anterior em `aliases`. Antes de publicar um alias, deve-se configurar redirecionamento permanente e verificar canonical e status HTTP.
 
 O schema de artigos passou a aceitar gradualmente `contentId`, `contentType`, `schemaVersion`, `aliases` e `createdAt`, mas esses campos não foram impostos retroativamente aos MDX. O auditor registra os artigos ainda sem identidade portável; preencher 161 arquivos agora teria custo alto e nenhuma utilidade imediata.
 

@@ -101,7 +101,58 @@ export const movieOffers: MovieOffer[] = [
   { id:"offer_max_br_2025_superman",movieId:"mov_2025_superman",provider:"HBO Max",offerType:"stream",url:"https://www.justwatch.com/br/filme/superman-legacy",region:"BR",checkedAt:"2026-07-29" },
   { id:"offer_max_br_2025_weapons",movieId:"mov_hor_2025_weapons",provider:"HBO Max",offerType:"stream",url:"https://www.justwatch.com/br/filme/weapons-2025",region:"BR",checkedAt:"2026-08-14" },
   { id:"offer_netflix_br_2025_homem_h",movieId:"mov_2025_homem_com_h",provider:"Netflix",offerType:"stream",url:"https://www.justwatch.com/br/filme/homem-com-h",region:"BR",checkedAt:"2026-07-29" },
+  { id:"offer_mubi_br_end_sacrifice",movieId:"mov_end_sacrifice_1986",provider:"MUBI",offerType:"stream",url:"https://www.justwatch.com/br/filme/offret",region:"BR",checkedAt:"2026-08-19" },
+  { id:"offer_bloodstream_br_end_threads",movieId:"mov_end_threads",provider:"Bloodstream",offerType:"free-with-ads",url:"https://www.justwatch.com/br/filme/threads",region:"BR",checkedAt:"2026-08-19" },
+  { id:"offer_store_br_end_war_worlds",movieId:"mov_end_war_worlds_1953",provider:"Apple TV Store / Amazon Video",offerType:"rent",url:"https://www.justwatch.com/br/filme/guerra-dos-mundos",region:"BR",checkedAt:"2026-08-19" },
+  { id:"offer_store_br_end_worlds_end",movieId:"mov_end_worlds_end",provider:"Claro video / Apple TV Store / Amazon Video",offerType:"rent",url:"https://www.justwatch.com/br/filme/the-worlds-end",region:"BR",checkedAt:"2026-08-19" },
+  { id:"offer_max_br_end_exterminio",movieId:"mov_d12a77",provider:"HBO Max",offerType:"stream",url:"https://www.justwatch.com/br/filme/exterminio",region:"BR",checkedAt:"2026-08-19" },
+  { id:"offer_prime_br_end_contagion",movieId:"mov_end_contagion",provider:"Prime Video",offerType:"stream",url:"https://www.justwatch.com/br/filme/contagio",region:"BR",checkedAt:"2026-08-19" },
+  { id:"offer_store_br_end_children_men",movieId:"mov_end_children_men",provider:"Claro video / Apple TV Store / Amazon Video",offerType:"rent",url:"https://www.justwatch.com/br/filme/filhos-da-esperanca",region:"BR",checkedAt:"2026-08-19" },
+  { id:"offer_mubi_br_end_snowpiercer",movieId:"mov_end_snowpiercer",provider:"MUBI",offerType:"stream",url:"https://www.justwatch.com/br/filme/expresso-do-amanha",region:"BR",checkedAt:"2026-08-19" },
+  { id:"offer_max_br_end_fury_road",movieId:"mov_end_fury_road",provider:"HBO Max",offerType:"stream",url:"https://www.justwatch.com/br/filme/mad-max-estrada-da-furia",region:"BR",checkedAt:"2026-08-19" },
+  { id:"offer_prime_br_end_road",movieId:"mov_end_road",provider:"Prime Video",offerType:"stream",url:"https://www.justwatch.com/br/filme/a-estrada",region:"BR",checkedAt:"2026-08-19" },
+  { id:"offer_disney_br_end_wall_e",movieId:"mov_end_wall_e",provider:"Disney+",offerType:"stream",url:"https://www.justwatch.com/br/filme/wall-e",region:"BR",checkedAt:"2026-08-19" },
+  { id:"offer_mubi_br_end_melancholia",movieId:"mov_end_melancholia",provider:"MUBI",offerType:"stream",url:"https://www.justwatch.com/br/filme/melancholia",region:"BR",checkedAt:"2026-08-19" },
+  { id:"offer_store_br_end_aniara",movieId:"mov_end_aniara",provider:"Apple TV Store",offerType:"rent",url:"https://www.justwatch.com/br/filme/aniara",region:"BR",checkedAt:"2026-08-19" },
+  { id:"offer_netflix_br_end_take_shelter",movieId:"mov_end_take_shelter",provider:"Netflix",offerType:"stream",url:"https://www.justwatch.com/br/filme/o-abrigo",region:"BR",checkedAt:"2026-08-19" },
 ]);
+
+const batmanStoreTitles = [
+  ["mov_bat_hush","batman-hush"],
+  ["mov_bat_batwoman_mystery","batman-o-misterio-da-mulher-morcego"],
+  ["mov_bat_son","o-filho-do-batman"],
+  ["mov_bat_bad_blood","batman-sangue-ruim"],
+  ["mov_bat_vs_robin","batman-vs-robin"],
+  ["mov_bat_soul_dragon","batman-soul-of-the-dragon"],
+  ["mov_bat_doom_gotham","batman-the-doom-that-came-to-gotham"],
+  ["mov_bat_gaslight","batman-gotham-by-gaslight"],
+  ["mov_bat_caped_crusaders","batman-return-of-the-caped-crusaders"],
+  ["mov_bat_ninja","batman-ninja"],
+  ["mov_bat_tmnt","batman-vs-teenage-mutant-ninja-turtles"],
+  ["mov_bat_assault_arkham","dcu-batman-assault-on-arkham"],
+  ["mov_bat_gotham_knight","batman-o-cavaleiro-de-gotham"],
+  ["mov_bat_long_halloween_2","batman-the-long-halloween-part-two"],
+  ["mov_bat_long_halloween_1","batman-the-long-halloween-part-one"],
+  ["mov_bat_subzero","batman-e-mr-freeze-abaixo-de-zero"],
+  ["mov_bat_year_one","batman-ano-um"],
+  ["mov_bat_lego_movie","lego-batman-o-filme"],
+  ["mov_bat_dkr_1","batman-o-cavaleiro-das-trevas-parte-1"],
+  ["mov_bat_dkr_2","batman-the-dark-knight-returns-part-two"],
+  ["mov_bat_red_hood","batman-contra-o-capuz-vermelho"],
+  ["mov_bat_beyond_joker","batman-do-futuro-o-retorno-do-coringa"],
+  ["mov_bat_phantasm","batman-a-mascara-do-fantasma"],
+] as const;
+
+movieOffers.push(...batmanStoreTitles.flatMap(([movieId, slug]) => [
+  { id:`offer_store_rent_br_${movieId.replace(/^mov_/,"")}`,movieId,provider:"Apple TV Store / Amazon Video",offerType:"rent" as const,url:`https://www.justwatch.com/br/filme/${slug}`,region:"BR",checkedAt:"2026-08-19" },
+  { id:`offer_store_buy_br_${movieId.replace(/^mov_/,"")}`,movieId,provider:"Apple TV Store / Amazon Video",offerType:"buy" as const,url:`https://www.justwatch.com/br/filme/${slug}`,region:"BR",checkedAt:"2026-08-19" },
+]));
+
+movieOffers.push(
+  { id:"offer_max_br_bat_lego_movie",movieId:"mov_bat_lego_movie",provider:"HBO Max",offerType:"stream",url:"https://www.justwatch.com/br/filme/lego-batman-o-filme",region:"BR",checkedAt:"2026-08-19" },
+  { id:"offer_max_br_bat_dkr_1",movieId:"mov_bat_dkr_1",provider:"HBO Max",offerType:"stream",url:"https://www.justwatch.com/br/filme/batman-o-cavaleiro-das-trevas-parte-1",region:"BR",checkedAt:"2026-08-19" },
+  { id:"offer_max_br_bat_red_hood",movieId:"mov_bat_red_hood",provider:"HBO Max",offerType:"stream",url:"https://www.justwatch.com/br/filme/batman-contra-o-capuz-vermelho",region:"BR",checkedAt:"2026-08-19" },
+);
 
 export function getMovieOffers(movieId: string, region = "BR") {
   return movieOffers.filter((offer) => offer.movieId === movieId && offer.region === region);

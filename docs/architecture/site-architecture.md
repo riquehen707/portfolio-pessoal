@@ -6,10 +6,14 @@ Para regras especializadas, consulte também:
 
 - [sistema editorial](../content/README.md), para artigos MDX;
 - [listas de filmes](../editorial/templates/movie-list.md), para o fluxo obrigatório entre catálogo, curadoria e artigo;
+- [fichas permanentes de filmes](../editorial/templates/movie-profile.md), para pesquisa, conteúdo editorial, pôsteres e publicação em `/filmes/[slug]`;
 - [listas de séries](../editorial/templates/series-list.md), para catálogo, curadoria e disponibilidade por temporada;
 - [listas de leitura](../editorial/templates/reading-list.md), para o fluxo entre acervo central, edições, ofertas e artigos;
+- [fichas permanentes de livros](../editorial/templates/reading-work-profile.md), para pesquisa, normalização, capas, sinopses e avaliações em `/livros/[slug]`;
+- [comentários nas fichas de leitura](reading-comments.md), para persistência, moderação, privacidade, segurança e ativação do Supabase;
 - [perfis de estúdios de animação](../editorial/templates/animation-studio-profile.md), para cadastro, filmografia, composição editorial e validação desse tipo de página;
 - [fontes de conteúdo](content-data-sources.md), para persistência local, exportação e migração futura;
+- [registros públicos de ideias](../editorial/templates/idea-record.md), para cadastro, atualização e preservação do histórico;
 - [`AGENTS.md`](../../AGENTS.md), para regras de trabalho no repositório.
 
 Em caso de divergência, schemas, componentes e rotas executáveis prevalecem sobre a documentação.
@@ -26,6 +30,8 @@ Em caso de divergência, schemas, componentes e rotas executáveis prevalecem so
 │  │  └─ /blog/seo/entender-a-busca  livro/piloto editorial
 │  ├─ /blog/categorias/[slug]         índice dinâmico pausado
 │  └─ /blog/temas[/[slug]]            índices pausados
+├─ /ideias                              caderno público de ideias
+│  └─ /ideias/[slug]                    registro e histórico de uma ideia publicada
 ├─ /filmes
 │  └─ /filmes/[slug]                  somente filmes publicados
 ├─ /series
@@ -68,7 +74,7 @@ O inventário de arquivos não equivale ao sitemap público. A inclusão de rota
 
 ### Índices editoriais
 
-- **Rotas:** `/blog`, `/blog/cultura`, `/blog/seo`, `/blog/seo/entender-a-busca`, `/acervo`, `/filmes`, `/series`, `/livros`, `/quadrinhos`, `/personalidades`, `/estudios` e, quando reativados, temas, categorias e trilhas.
+- **Rotas:** `/blog`, `/blog/cultura`, `/blog/seo`, `/blog/seo/entender-a-busca`, `/ideias`, `/acervo`, `/filmes`, `/series`, `/livros`, `/quadrinhos`, `/personalidades`, `/estudios` e, quando reativados, temas, categorias e trilhas.
 - **Finalidade:** organizar coleções, áreas ou sequências de estudo.
 - **Dados:** fachadas em `src/data/articles/`, `src/data/movies/`, `src/data/series/`, `src/data/reading/`, `src/data/personalities/` e `src/data/organizations/`, mais arquivos específicos próximos das rotas.
 - **Estrutura confirmada:** título/apresentação, navegação ou feed, relações e breadcrumbs conforme cada implementação. `/acervo` funciona como entrada transversal: aponta para bibliotecas quando seus registros estão publicados e, enquanto um domínio permanece em revisão, oferece suas curadorias públicas sem abrir índices vazios.
@@ -86,6 +92,15 @@ O inventário de arquivos não equivale ao sitemap público. A inclusão de rota
 - **Relações:** taxonomia, pré-requisitos, desbloqueios, relacionados e curadorias de filmes quando preenchidos.
 - **SEO:** metadata, canonical natural ou explícito, Open Graph, breadcrumbs e dados estruturados produzidos pela rota. Artigos entram no sitemap pela fachada de dados.
 - **Variações:** controladas pelo frontmatter e pelas linhas editoriais. O schema aceita campos legados; isso não os torna recomendados.
+
+### Caderno e registro de ideia
+
+- **Rotas:** `/ideias` e `/ideias/[slug]`.
+- **Finalidade:** documentar propostas, experimentos, decisões e aprendizados em público, sem simular um quadro de tarefas.
+- **Dados:** `IdeaSchema`, registros versionados em `src/content/ideas/` e fachada assíncrona em `src/data/ideas/`.
+- **Estrutura:** o índice destaca ideias recentes ou em desenvolvimento e oferece filtros por estado e categoria; a ficha apresenta ideia, motivação, estado atual, próximos passos e histórico em ordem cronológica inversa.
+- **Relações:** IDs permanentes para outras ideias e slugs para artigos ou projetos já publicados. Tags e categorias ajudam a sugerir relações sem substituir referências explícitas.
+- **SEO e publicação:** `publicationStatus` controla indexação e sitemap; `status` descreve a evolução da ideia. Cada página possui canonical, Open Graph e JSON-LD com conteúdo essencial renderizado no servidor.
 
 ### Biblioteca e página de filme
 
@@ -146,8 +161,8 @@ Para estúdios de animação, aplique o [modelo editorial especializado](../edit
 - **Rotas:** `/livros`, `/livros/[slug]`, `/quadrinhos` e `/quadrinhos/[slug]`.
 - **Finalidade:** publicar livros, mangás, manhwas, manhuas, webtoons, graphic novels, quadrinhos e light novels sem duplicar dados entre bibliotecas ou artigos.
 - **Dados:** schemas e registros em `src/content/reading/`; fachada assíncrona em `src/data/reading/`.
-- **Entidades:** obra intelectual, série, volume, edição concreta e oferta comercial. Pessoas continuam em `content/creators/` e organizações em `content/organizations/`.
-- **Bibliotecas e componentes:** ambas reutilizam `ReadingCatalogLibrary` e os controles dos demais acervos. Livros filtram gênero, autoria, país, formato, ano e disponibilidade; quadrinhos filtram gênero, autoria, tradição, demografia, situação da publicação, país e disponibilidade. `BookCard` apresenta livros e light novels; `MangaCard` apresenta mangás, manhwas, manhuas, HQs e graphic novels. `ReadingWorkCard` permanece como adaptador temporário para artigos existentes.
+- **Entidades:** obra intelectual, série, volume, edição concreta e oferta comercial. A obra pode receber uma avaliação editorial opcional, com autoria, texto, veredito, critérios, data, spoilers, edição lida e nota opcional. Pessoas continuam em `content/creators/` e organizações em `content/organizations/`.
+- **Bibliotecas e componentes:** ambas reutilizam `ReadingCatalogLibrary` e os controles dos demais acervos. `/livros` apresenta totais derivados do catálogo, caminhos para `/acervo` e `/quadrinhos`, busca por título, autoria, tema, país, gênero e sinopse, além de filtros por gênero, autoria, país, formato, ano e disponibilidade. Quadrinhos filtram gênero, autoria, tradição, demografia, situação da publicação, país e disponibilidade. `BookCard` apresenta livros e light novels com sinopse e estado da edição na variante de biblioteca; `MangaCard` apresenta mangás, manhwas, manhuas, HQs e graphic novels. `ReadingWorkCard` permanece como adaptador temporário para artigos existentes.
 - **Relações:** listas armazenam referências; ISBN, páginas, editora, tradução, capa comercial e disponibilidade pertencem à edição. Ofertas apontam exclusivamente para uma edição.
 - **SEO e publicação:** apenas obras `published` geram páginas estáticas e sitemap. Índices e fichas possuem metadata, canonical, breadcrumbs e JSON-LD `CollectionPage`/`Book`; registros `draft` permanecem fora das rotas públicas.
 - **Variações:** cards compactos ou editoriais, com fallback quando faltarem capa, edição brasileira ou oferta.
@@ -196,6 +211,7 @@ Todos os acervos usam somente `status: "draft" | "published"` como estado editor
 | Domínio | Fonte técnica | Acesso recomendado | Observação |
 | --- | --- | --- | --- |
 | Artigos | `components/blog/postSchema.ts` | `data/articles/` | corpo permanece em MDX |
+| Ideias | `content/ideas/ideaSchema.ts` | `data/ideas/` | ID permanente independente do slug; histórico acrescentado em `updates`; estado da ideia separado da publicação editorial |
 | Filmes | `content/movies/movieSchema.ts` | `data/movies/` | cadastro único; inclui identidade, formato, créditos, relações, imagem/direitos, fontes e estado editorial |
 | Séries | `content/series/seriesSchema.ts` | `data/series/` | catálogo público em `/series`; ofertas temporais são separadas por plataforma, região e intervalo de temporadas |
 | Pessoas | `content/creators/creatorSchema.ts` | importação local direta | fachada ainda não existe |

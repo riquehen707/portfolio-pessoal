@@ -26,6 +26,18 @@ export const ReadingOrganizationRelationshipSchema = z.object({
   roles: z.array(z.enum(["original-publisher", "publisher", "imprint", "magazine", "platform", "licensor", "distributor"])).min(1),
 });
 
+export const ReadingEditorialEvaluationSchema = z.object({
+  author: z.string().min(1),
+  text: z.string().min(80).max(2400),
+  verdict: z.string().min(20).max(320),
+  criteria: z.array(z.object({ label: z.string().min(1), comment: z.string().min(20).max(480) })).min(1).max(5),
+  reviewedAt: z.string().regex(isoDate),
+  updatedAt: z.string().regex(isoDate).optional(),
+  containsSpoilers: z.boolean().default(false),
+  editionId: z.string().regex(/^read_edition_[a-z0-9_]+$/).optional(),
+  score: z.number().min(0).max(5).multipleOf(0.5).optional(),
+});
+
 export const ReadingSeriesSchema = z.object({
   id: z.string().regex(/^read_series_[a-z0-9_]+$/), slug: z.string().regex(slug), aliases: z.array(z.string().regex(slug)).default([]),
   title: z.string().min(1), originalTitle: z.string().min(1).optional(), summary: z.string().min(20).max(320),
@@ -43,7 +55,7 @@ export const ReadingWorkSchema = z.object({
   publicationStatus: ReadingPublicationStatusSchema, categories: z.array(BookCategorySchema).min(1), genres: z.array(z.string().min(1)).default([]), themes: z.array(z.string().min(1)).default([]),
   confirmedVolumeCount: z.number().int().positive().optional(), volumeCountCheckedAt: z.string().regex(isoDate).optional(), episodeCount: z.number().int().positive().optional(), seasonCount: z.number().int().positive().optional(),
   demographics: z.array(z.enum(["children", "middle-grade", "young-adult", "adult", "shonen", "shojo", "seinen", "josei", "general"])).default([]),
-  audienceProfile: z.string().min(10).max(240).optional(), shortDescription: z.string().min(20).max(320), seriesMemberships: z.array(z.object({ seriesId: z.string().regex(/^read_series_[a-z0-9_]+$/), position: z.number().positive().optional(), label: z.string().min(1).optional() })).default([]),
+  audienceProfile: z.string().min(10).max(240).optional(), shortDescription: z.string().min(20).max(320), editorialEvaluation: ReadingEditorialEvaluationSchema.optional(), seriesMemberships: z.array(z.object({ seriesId: z.string().regex(/^read_series_[a-z0-9_]+$/), position: z.number().positive().optional(), label: z.string().min(1).optional() })).default([]),
   relatedWorks: z.array(z.object({ workId: z.string().regex(/^read_work_[a-z0-9_]+$/), relationship: z.enum(["continuation", "retelling", "inspired-by", "spin-off", "companion", "other"]) })).default([]),
   adaptations: z.array(z.object({ contentId: z.string().min(1).optional(), relationship: z.enum(["adaptation", "inspired-by", "retelling"]), kind: z.enum(["film", "series", "animation", "manga", "comic", "game", "stage", "audio", "other"]), title: z.string().min(1), status: z.enum(["confirmed", "released"]), sourceUrl: z.string().url() })).default([]),
   image: image.optional(), sources: z.array(source).min(1), status: ReadingEditorialStatusSchema,
@@ -104,4 +116,9 @@ export const ReadingCatalogSchema = z.object({ works: z.array(ReadingWorkSchema)
   unique(catalog.installments.map((item) => item.id), "installments");
   unique(catalog.editions.map((item) => item.id), "editions");
   unique(catalog.offers.map((item) => item.id), "offers");
+  const editionIds = new Set(catalog.editions.map((item) => item.id));
+  catalog.works.forEach((work, index) => {
+    const editionId = work.editorialEvaluation?.editionId;
+    if (editionId && !editionIds.has(editionId)) ctx.addIssue({ code: "custom", path: ["works", index, "editorialEvaluation", "editionId"], message: `avaliação referencia edição inexistente: ${editionId}` });
+  });
 });

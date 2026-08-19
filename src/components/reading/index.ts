@@ -4,6 +4,7 @@ export { MangaCard } from "./MangaCard";
 export { ReadingCard } from "./ReadingCard";
 export { ReadingCover } from "./ReadingCover";
 export { ReadingEditionInfo } from "./ReadingEditionInfo";
+export { ReadingEditorialEvaluation } from "./ReadingEditorialEvaluation";
 export { ReadingList } from "./ReadingList";
 export { ReadingOffers } from "./ReadingOffers";
 export { ReadingRelations } from "./ReadingRelations";

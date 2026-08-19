@@ -2,6 +2,8 @@
 
 Este é o padrão obrigatório para listas, rankings, favoritos, recomendações e seleções de filmes por estúdio, direção, gênero, país, período, público ou ocasião. Ele também orienta listas comparativas, automáticas e híbridas.
 
+Para criar ou revisar a página permanente de um filme em `/filmes/[slug]`, use [`movie-profile.md`](movie-profile.md). Lista e ficha têm contratos diferentes: a lista guarda o contexto daquela seleção; a ficha reúne os dados e o conteúdo editorial permanentes.
+
 Use-o com as regras gerais do [sistema editorial](../../content/README.md) e com a [arquitetura do site](../../architecture/site-architecture.md). O `global-standards.md` citado no planejamento editorial ainda não existe no repositório; até sua implementação, esses dois documentos exercem essa função. Não replique aqui regras gerais de voz, pesquisa, frontmatter, MDX ou aprovação.
 
 Quando a seleção for guiada principalmente por uma tese, atmosfera ou percurso autoral, aplique também o futuro template de curadoria. **Pendência:** esse template ainda não está implementado.

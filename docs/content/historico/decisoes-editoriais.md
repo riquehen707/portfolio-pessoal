@@ -1,6 +1,38 @@
 # Decisões editoriais
 
+## 2026-08-19 — Ideias como arquivo público versionado
+
+Motivo:
+Registrar propostas e experimentos com contexto e continuidade, sem transformar a experiência pública em um quadro operacional ou apagar versões anteriores.
+
+Substituição:
+A área `/ideias` usa registros locais validados por Zod, ID permanente independente do slug e uma fachada assíncrona preparada para outra fonte de dados. `status` descreve a evolução da ideia; `publicationStatus` controla sua exposição pública. Mudanças relevantes entram como novos itens em `updates`, preservados em ordem histórica e exibidos do mais recente para o mais antigo.
+
 Registre somente decisões permanentes do sistema, com motivo e substituição. Não registrar preferências temporárias de uma pauta.
+
+## 2026-08-18 — Listas e fichas de filmes têm diretrizes distintas
+
+Motivo:
+Listas guardam seleção, posição e justificativa contextual, enquanto fichas permanentes precisam disciplinar identidade, sinopse, editorial, relações, pôster, fontes, SEO e publicação. Um único guia tornava os dois fluxos ambíguos.
+
+Substituição:
+Manter `movie-list.md` para listas e curadorias e usar `movie-profile.md` para `/filmes/[slug]`. Os dois fluxos compartilham o catálogo central e IDs permanentes, mas não duplicam seus dados nem seus critérios editoriais.
+
+## 2026-08-18 — Comentários de livros mediados pelo servidor
+
+Motivo:
+Comentários precisam permanecer portáveis por ID da obra, moderáveis e independentes de publicidade ou rastreamento de widgets externos, sem expor privilégios do banco no navegador.
+
+Substituição:
+Usar Supabase somente como persistência e `/api/comments` como superfície pública. Envios entram como `pending`; apenas `published` é exibido. A tabela não concede acesso aos papéis cliente, a chave secreta fica no servidor e o sistema só aparece depois da configuração completa. Moderação segue `docs/architecture/reading-comments.md`.
+
+## 2026-08-18 — Fichas permanentes de livros em lotes verificáveis
+
+Motivo:
+As páginas de livros publicadas precisam evoluir de fichas bibliográficas muito curtas para referências úteis, sem preencher contagem de palavras artificialmente nem misturar obra, edição, oferta, avaliação editorial e participação de leitores.
+
+Substituição:
+Revisar até 20 obras por lote conforme `docs/editorial/templates/reading-work-profile.md`, preservando URLs e o catálogo normalizado. Sinopse factual, avaliação editorial e futuros comentários de leitores permanecem conceitos distintos; capas comerciais pertencem à edição que representam. A diretriz será revista depois dos lotes e da auditoria, antes de seus aprendizados experimentais virarem regras permanentes.
 
 ## 2026-08-13 — Acervo central de obras de leitura
 

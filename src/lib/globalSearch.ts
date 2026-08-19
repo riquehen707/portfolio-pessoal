@@ -1,8 +1,9 @@
 import { getAllBlogPosts, getBlogPostFormat, getBlogPrimaryCategory } from "@/app/blog/postData";
 import { seoLibraryPath, understandSearchBookPath } from "@/app/blog/seo/seoLibraryData";
 import { blog, home } from "@/resources";
+import { getPublishedIdeas } from "@/data/ideas";
 
-export type GlobalSearchItemType = "article" | "page";
+export type GlobalSearchItemType = "article" | "idea" | "page";
 
 export type GlobalSearchItem = {
   id: string;
@@ -63,7 +64,8 @@ function pageItem({
   };
 }
 
-export function getGlobalSearchItems(): GlobalSearchItem[] {
+export async function getGlobalSearchItems(): Promise<GlobalSearchItem[]> {
+  const ideas = await getPublishedIdeas();
   const staticPages: GlobalSearchItem[] = [
     pageItem({
       id: "page-home",
@@ -78,6 +80,13 @@ export function getGlobalSearchItems(): GlobalSearchItem[] {
       description: blog.description,
       href: blog.path,
       keywords: ["blog", "artigos", "guias", "biblioteca"],
+    }),
+    pageItem({
+      id: "page-ideas",
+      title: "Ideias",
+      description: "Caderno público de ideias, experimentos, decisões e aprendizados em andamento.",
+      href: "/ideias",
+      keywords: ["ideias", "experimentos", "laboratório", "arquivo público", "aprendizados"],
     }),
     pageItem({
       id: "page-collection",
@@ -248,5 +257,25 @@ export function getGlobalSearchItems(): GlobalSearchItem[] {
     };
   });
 
-  return [...staticPages, ...articleItems];
+  const ideaItems: GlobalSearchItem[] = ideas.map((idea) => ({
+    id: `idea-${idea.id}`,
+    type: "idea",
+    title: idea.title,
+    description: idea.description,
+    href: `/ideias/${idea.slug}`,
+    label: "Ideia",
+    date: idea.updatedAt,
+    keywords: uniq([...idea.categories, ...idea.tags, ideaStatusLabelsForSearch[idea.status]]),
+  }));
+
+  return [...staticPages, ...ideaItems, ...articleItems];
 }
+
+const ideaStatusLabelsForSearch = {
+  rascunho: "rascunho",
+  explorando: "explorando",
+  "em-desenvolvimento": "em desenvolvimento",
+  pausada: "pausada",
+  concluida: "concluída",
+  abandonada: "abandonada",
+} as const;

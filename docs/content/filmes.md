@@ -1,5 +1,7 @@
 # Biblioteca de filmes
 
+Use [`../editorial/templates/movie-list.md`](../editorial/templates/movie-list.md) para listas e curadorias e [`../editorial/templates/movie-profile.md`](../editorial/templates/movie-profile.md) para fichas permanentes em `/filmes/[slug]`.
+
 ## Onde ficam os dados
 
 - `src/content/movies/movieSchema.ts`: contrato Zod e validação de lotes.

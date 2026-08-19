@@ -3,6 +3,8 @@ import { ghibliMovieSeeds } from "./ghibliMovies";
 import { laikaMovieSeeds } from "./laikaMovies";
 import { posterCatalog } from "./posters";
 import { vampireMovieSeeds } from "./vampireMovies";
+import { endOfWorldMovieSeeds } from "./endOfWorldMovies";
+import { batmanAnimatedMovieSeeds } from "./batmanAnimatedMovies";
 
 export type MovieSeed = Pick<
   Movie,
@@ -412,6 +414,8 @@ const seeds: MovieSeed[] = [
   ...ghibliMovieSeeds,
   ...laikaMovieSeeds,
   ...vampireMovieSeeds,
+  ...endOfWorldMovieSeeds,
+  ...batmanAnimatedMovieSeeds,
 ];
 
 const rawMovies = seeds.map((seed) => {

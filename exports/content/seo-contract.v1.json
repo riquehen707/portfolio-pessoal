@@ -2496,5 +2496,401 @@
     "indexable": false,
     "image": "/images/movies/garota-sombria-caminha-pela-noite.webp",
     "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_end_dr_strangelove",
+    "route": "/filmes/dr-fantastico",
+    "canonical": "https://henrique.dog/filmes/dr-fantastico",
+    "title": "Dr. Fantástico: ficha e análise do filme",
+    "description": "Dr. Fantástico (1964): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_end_war_worlds_1953",
+    "route": "/filmes/a-guerra-dos-mundos-1953",
+    "canonical": "https://henrique.dog/filmes/a-guerra-dos-mundos-1953",
+    "title": "A Guerra dos Mundos: ficha e análise do filme",
+    "description": "A Guerra dos Mundos (1953): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_end_body_snatchers_1978",
+    "route": "/filmes/invasores-de-corpos-1978",
+    "canonical": "https://henrique.dog/filmes/invasores-de-corpos-1978",
+    "title": "Os Invasores de Corpos: ficha e análise do filme",
+    "description": "Os Invasores de Corpos (1978): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_end_sacrifice_1986",
+    "route": "/filmes/o-sacrificio-1986",
+    "canonical": "https://henrique.dog/filmes/o-sacrificio-1986",
+    "title": "O Sacrifício: ficha e análise do filme",
+    "description": "O Sacrifício (1986): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_end_threads",
+    "route": "/filmes/catastrofe-nuclear",
+    "canonical": "https://henrique.dog/filmes/catastrofe-nuclear",
+    "title": "Catástrofe Nuclear: ficha e análise do filme",
+    "description": "Catástrofe Nuclear (1984): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_end_when_wind_blows",
+    "route": "/filmes/quando-o-vento-sopra",
+    "canonical": "https://henrique.dog/filmes/quando-o-vento-sopra",
+    "title": "Quando o Vento Sopra: ficha e análise do filme",
+    "description": "Quando o Vento Sopra (1986): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_end_last_night_1998",
+    "route": "/filmes/last-night-1998",
+    "canonical": "https://henrique.dog/filmes/last-night-1998",
+    "title": "Last Night: ficha e análise do filme",
+    "description": "Last Night (1998): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_end_rapture_1991",
+    "route": "/filmes/o-arrebatamento-1991",
+    "canonical": "https://henrique.dog/filmes/o-arrebatamento-1991",
+    "title": "O Arrebatamento: ficha e análise do filme",
+    "description": "O Arrebatamento (1991): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_end_quiet_earth",
+    "route": "/filmes/a-terra-silenciosa",
+    "canonical": "https://henrique.dog/filmes/a-terra-silenciosa",
+    "title": "A Terra Silenciosa: ficha e análise do filme",
+    "description": "A Terra Silenciosa (1985): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_end_children_men",
+    "route": "/filmes/filhos-da-esperanca",
+    "canonical": "https://henrique.dog/filmes/filhos-da-esperanca",
+    "title": "Filhos da Esperança: ficha e análise do filme",
+    "description": "Filhos da Esperança (2006): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_end_wall_e",
+    "route": "/filmes/wall-e",
+    "canonical": "https://henrique.dog/filmes/wall-e",
+    "title": "WALL-E: ficha e análise do filme",
+    "description": "WALL-E (2008): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_end_road",
+    "route": "/filmes/a-estrada-2009",
+    "canonical": "https://henrique.dog/filmes/a-estrada-2009",
+    "title": "A Estrada: ficha e análise do filme",
+    "description": "A Estrada (2009): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_end_contagion",
+    "route": "/filmes/contagio",
+    "canonical": "https://henrique.dog/filmes/contagio",
+    "title": "Contágio: ficha e análise do filme",
+    "description": "Contágio (2011): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_end_take_shelter",
+    "route": "/filmes/procurem-abrigo",
+    "canonical": "https://henrique.dog/filmes/procurem-abrigo",
+    "title": "Procurem Abrigo: ficha e análise do filme",
+    "description": "Procurem Abrigo (2011): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_end_seeking_friend",
+    "route": "/filmes/procura-se-um-amigo-para-o-fim-do-mundo",
+    "canonical": "https://henrique.dog/filmes/procura-se-um-amigo-para-o-fim-do-mundo",
+    "title": "Procura-se um Amigo para o Fim do Mundo: ficha e análise do filme",
+    "description": "Procura-se um Amigo para o Fim do Mundo (2012): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_end_worlds_end",
+    "route": "/filmes/e-o-fim-do-mundo",
+    "canonical": "https://henrique.dog/filmes/e-o-fim-do-mundo",
+    "title": "É o Fim do Mundo: ficha e análise do filme",
+    "description": "É o Fim do Mundo (2013): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_end_snowpiercer",
+    "route": "/filmes/expresso-do-amanha",
+    "canonical": "https://henrique.dog/filmes/expresso-do-amanha",
+    "title": "Expresso do Amanhã: ficha e análise do filme",
+    "description": "Expresso do Amanhã (2013): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_end_final_hours",
+    "route": "/filmes/these-final-hours",
+    "canonical": "https://henrique.dog/filmes/these-final-hours",
+    "title": "These Final Hours: ficha e análise do filme",
+    "description": "These Final Hours (2013): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_end_fury_road",
+    "route": "/filmes/mad-max-estrada-da-furia",
+    "canonical": "https://henrique.dog/filmes/mad-max-estrada-da-furia",
+    "title": "Mad Max: Estrada da Fúria: ficha e análise do filme",
+    "description": "Mad Max: Estrada da Fúria (2015): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_end_melancholia",
+    "route": "/filmes/melancolia",
+    "canonical": "https://henrique.dog/filmes/melancolia",
+    "title": "Melancolia: ficha e análise do filme",
+    "description": "Melancolia (2011): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_end_aniara",
+    "route": "/filmes/aniara",
+    "canonical": "https://henrique.dog/filmes/aniara",
+    "title": "Aniara: A Viagem de Uma Vida: ficha e análise do filme",
+    "description": "Aniara: A Viagem de Uma Vida (2018): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_bat_hush",
+    "route": "/filmes/batman-silencio",
+    "canonical": "https://henrique.dog/filmes/batman-silencio",
+    "title": "Batman: Silêncio: ficha e análise do filme",
+    "description": "Batman: Silêncio (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_bat_batwoman_mystery",
+    "route": "/filmes/batman-o-misterio-da-mulher-morcego",
+    "canonical": "https://henrique.dog/filmes/batman-o-misterio-da-mulher-morcego",
+    "title": "Batman: O Mistério da Mulher-Morcego: ficha e análise do filme",
+    "description": "Batman: O Mistério da Mulher-Morcego (2003): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_bat_son",
+    "route": "/filmes/o-filho-do-batman",
+    "canonical": "https://henrique.dog/filmes/o-filho-do-batman",
+    "title": "O Filho do Batman: ficha e análise do filme",
+    "description": "O Filho do Batman (2014): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_bat_bad_blood",
+    "route": "/filmes/batman-sangue-ruim",
+    "canonical": "https://henrique.dog/filmes/batman-sangue-ruim",
+    "title": "Batman: Sangue Ruim: ficha e análise do filme",
+    "description": "Batman: Sangue Ruim (2016): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_bat_vs_robin",
+    "route": "/filmes/batman-vs-robin",
+    "canonical": "https://henrique.dog/filmes/batman-vs-robin",
+    "title": "Batman vs. Robin: ficha e análise do filme",
+    "description": "Batman vs. Robin (2015): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_bat_soul_dragon",
+    "route": "/filmes/batman-alma-do-dragao",
+    "canonical": "https://henrique.dog/filmes/batman-alma-do-dragao",
+    "title": "Batman: Alma do Dragão: ficha e análise do filme",
+    "description": "Batman: Alma do Dragão (2021): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_bat_doom_gotham",
+    "route": "/filmes/batman-a-perdicao-chegou-a-gotham",
+    "canonical": "https://henrique.dog/filmes/batman-a-perdicao-chegou-a-gotham",
+    "title": "Batman: A Perdição Chegou a Gotham: ficha e análise do filme",
+    "description": "Batman: A Perdição Chegou a Gotham (2023): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_bat_gaslight",
+    "route": "/filmes/batman-gotham-by-gaslight",
+    "canonical": "https://henrique.dog/filmes/batman-gotham-by-gaslight",
+    "title": "Batman: Gotham by Gaslight: ficha e análise do filme",
+    "description": "Batman: Gotham by Gaslight (2018): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_bat_caped_crusaders",
+    "route": "/filmes/batman-o-retorno-da-dupla-dinamica",
+    "canonical": "https://henrique.dog/filmes/batman-o-retorno-da-dupla-dinamica",
+    "title": "Batman: O Retorno da Dupla Dinâmica: ficha e análise do filme",
+    "description": "Batman: O Retorno da Dupla Dinâmica (2016): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_bat_ninja",
+    "route": "/filmes/batman-ninja",
+    "canonical": "https://henrique.dog/filmes/batman-ninja",
+    "title": "Batman Ninja: ficha e análise do filme",
+    "description": "Batman Ninja (2018): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_bat_tmnt",
+    "route": "/filmes/batman-vs-tartarugas-ninja",
+    "canonical": "https://henrique.dog/filmes/batman-vs-tartarugas-ninja",
+    "title": "Batman vs. As Tartarugas Ninja: ficha e análise do filme",
+    "description": "Batman vs. As Tartarugas Ninja (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_bat_assault_arkham",
+    "route": "/filmes/batman-assalto-em-arkham",
+    "canonical": "https://henrique.dog/filmes/batman-assalto-em-arkham",
+    "title": "Batman: Ataque ao Arkham: ficha e análise do filme",
+    "description": "Batman: Ataque ao Arkham (2014): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_bat_gotham_knight",
+    "route": "/filmes/batman-cavaleiro-de-gotham",
+    "canonical": "https://henrique.dog/filmes/batman-cavaleiro-de-gotham",
+    "title": "Batman: O Cavaleiro de Gotham: ficha e análise do filme",
+    "description": "Batman: O Cavaleiro de Gotham (2008): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_bat_long_halloween_2",
+    "route": "/filmes/batman-o-longo-dia-das-bruxas-parte-2",
+    "canonical": "https://henrique.dog/filmes/batman-o-longo-dia-das-bruxas-parte-2",
+    "title": "Batman: O Longo Dia das Bruxas — Parte 2: ficha e análise do filme",
+    "description": "Batman: O Longo Dia das Bruxas — Parte 2 (2021): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_bat_long_halloween_1",
+    "route": "/filmes/batman-o-longo-dia-das-bruxas-parte-1",
+    "canonical": "https://henrique.dog/filmes/batman-o-longo-dia-das-bruxas-parte-1",
+    "title": "Batman: O Longo Dia das Bruxas — Parte 1: ficha e análise do filme",
+    "description": "Batman: O Longo Dia das Bruxas — Parte 1 (2021): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_bat_subzero",
+    "route": "/filmes/batman-e-mr-freeze-abaixo-de-zero",
+    "canonical": "https://henrique.dog/filmes/batman-e-mr-freeze-abaixo-de-zero",
+    "title": "Batman e Mr. Freeze: Abaixo de Zero: ficha e análise do filme",
+    "description": "Batman e Mr. Freeze: Abaixo de Zero (1998): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_bat_year_one",
+    "route": "/filmes/batman-ano-um",
+    "canonical": "https://henrique.dog/filmes/batman-ano-um",
+    "title": "Batman: Ano Um: ficha e análise do filme",
+    "description": "Batman: Ano Um (2011): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_bat_lego_movie",
+    "route": "/filmes/lego-batman-o-filme",
+    "canonical": "https://henrique.dog/filmes/lego-batman-o-filme",
+    "title": "LEGO Batman: O Filme: ficha e análise do filme",
+    "description": "LEGO Batman: O Filme (2017): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_bat_dkr_1",
+    "route": "/filmes/batman-o-cavaleiro-das-trevas-parte-1",
+    "canonical": "https://henrique.dog/filmes/batman-o-cavaleiro-das-trevas-parte-1",
+    "title": "Batman: O Cavaleiro das Trevas — Parte 1: ficha e análise do filme",
+    "description": "Batman: O Cavaleiro das Trevas — Parte 1 (2012): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_bat_dkr_2",
+    "route": "/filmes/batman-o-cavaleiro-das-trevas-parte-2",
+    "canonical": "https://henrique.dog/filmes/batman-o-cavaleiro-das-trevas-parte-2",
+    "title": "Batman: O Cavaleiro das Trevas — Parte 2: ficha e análise do filme",
+    "description": "Batman: O Cavaleiro das Trevas — Parte 2 (2013): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_bat_red_hood",
+    "route": "/filmes/batman-contra-o-capuz-vermelho",
+    "canonical": "https://henrique.dog/filmes/batman-contra-o-capuz-vermelho",
+    "title": "Batman Contra o Capuz Vermelho: ficha e análise do filme",
+    "description": "Batman Contra o Capuz Vermelho (2010): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_bat_beyond_joker",
+    "route": "/filmes/batman-do-futuro-o-retorno-do-coringa",
+    "canonical": "https://henrique.dog/filmes/batman-do-futuro-o-retorno-do-coringa",
+    "title": "Batman do Futuro: O Retorno do Coringa: ficha e análise do filme",
+    "description": "Batman do Futuro: O Retorno do Coringa (2000): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_bat_phantasm",
+    "route": "/filmes/batman-a-mascara-do-fantasma",
+    "canonical": "https://henrique.dog/filmes/batman-a-mascara-do-fantasma",
+    "title": "Batman: A Máscara do Fantasma: ficha e análise do filme",
+    "description": "Batman: A Máscara do Fantasma (1993): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
   }
 ]

@@ -7,6 +7,7 @@ import { getPublishedBooks, getPublishedComics } from "@/data/reading";
 import { getPublishedPersonalities } from "@/data/personalities";
 import { getPublishedStudios } from "@/data/organizations";
 import { getPublishedSeries } from "@/data/series";
+import { getPublishedIdeas } from "@/data/ideas";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const today = new Date().toISOString().split("T")[0];
@@ -34,10 +35,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: "monthly" as const,
     priority: 0.64,
   }));
+  const ideaPages = (await getPublishedIdeas()).map((idea) => ({
+    url: `${baseURL}/ideias/${idea.slug}`,
+    lastModified: idea.updatedAt,
+    changeFrequency: "monthly" as const,
+    priority: 0.68,
+  }));
 
   const routePriorities: Record<string, number> = {
     "/": 1,
     [blog.path]: 0.86,
+    "/ideias": 0.8,
     [`${blog.path}/seo`]: 0.78,
     [`${blog.path}/seo/entender-a-busca`]: 0.76,
     [`${blog.path}/cultura`]: 0.78,
@@ -72,6 +80,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...personalityPages,
     ...studioPages,
     ...seriesPages,
+    ...ideaPages,
     ...blogPosts,
     { url: `${baseURL}/obras/puparia`, lastModified: "2026-08-12", changeFrequency: "monthly" as const, priority: 0.72 },
     { url: `${baseURL}/obras/wade`, lastModified: "2026-08-12", changeFrequency: "monthly" as const, priority: 0.72 },

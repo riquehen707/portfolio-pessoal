@@ -1,0 +1,24 @@
+.comments { display: grid; gap: 1.5rem; padding-block: clamp(1.5rem, 4vw, 3rem); border-top: 1px solid var(--line-subtle); }
+.comments header { display: grid; gap: .55rem; }
+.comments header span { color: var(--neutral-on-background-weak); font-family: var(--font-technical); font-size: .7rem; font-weight: 700; text-transform: uppercase; }
+.comments h2, .comments p { margin: 0; }
+.comments header p { max-width: 68ch; color: var(--neutral-on-background-medium); line-height: 1.65; }
+.layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, .85fr); gap: clamp(1.5rem, 5vw, 4rem); align-items: start; }
+.list { display: grid; gap: 1rem; margin: 0; padding: 0; list-style: none; }
+.list li { display: grid; gap: .65rem; padding: 1rem; border: 1px solid var(--line-subtle); border-radius: .8rem; }
+.list li > div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; }
+.list time { color: var(--neutral-on-background-weak); font-size: .72rem; }
+.list p { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.65; }
+.form { display: grid; gap: 1rem; padding: 1rem; border: 1px solid var(--line-subtle); border-radius: .85rem; background: var(--surface-panel-soft); }
+.form label { display: grid; gap: .4rem; color: var(--neutral-on-background-medium); font-size: .78rem; font-weight: 700; }
+.form input, .form textarea { box-sizing: border-box; width: 100%; padding: .7rem .8rem; border: 1px solid var(--line-subtle); border-radius: .6rem; background: var(--page-background); color: var(--neutral-on-background-strong); font: inherit; font-weight: 400; }
+.form textarea { resize: vertical; line-height: 1.55; }
+.consent { grid-template-columns: auto 1fr; align-items: start; font-weight: 400 !important; line-height: 1.5; }
+.consent input { width: 1rem; margin-top: .15rem; }
+.formFooter { display: grid; gap: .75rem; }
+.formFooter small { color: var(--neutral-on-background-weak); line-height: 1.45; }
+.formFooter button { justify-self: start; min-height: 2.7rem; padding: .65rem 1rem; border: 0; border-radius: 999px; background: var(--neutral-on-background-strong); color: var(--page-background); font: inherit; font-weight: 700; cursor: pointer; }
+.formFooter button:disabled { cursor: wait; opacity: .65; }
+.message { color: var(--neutral-on-background-medium); font-size: .8rem; }
+.honeypot { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
+@media(max-width:760px){.layout{grid-template-columns:1fr}}

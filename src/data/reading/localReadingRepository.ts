@@ -18,10 +18,12 @@ export const localReadingRepository: ReadingRepository = {
   async getSeries() { return readingCatalog.series; },
   async getSeriesById(id) { return readingCatalog.series.find((series) => series.id === id); },
   async getVolumesForWork(workId) { return readingCatalog.volumes.filter((volume) => volume.workId === workId); },
+  async getVolumes() { return readingCatalog.volumes; },
   async getInstallmentsForWork(workId) { return readingCatalog.installments.filter((item) => item.workId === workId); },
   async getEditionsForWork(workId) {
     const volumeIds = new Set(readingCatalog.volumes.filter((volume) => volume.workId === workId).map((volume) => volume.id));
     return readingCatalog.editions.filter((edition) => edition.workId === workId || (edition.volumeId && volumeIds.has(edition.volumeId)));
   },
+  async getEditions() { return readingCatalog.editions; },
   async getOffersForEdition(editionId) { return readingCatalog.offers.filter((offer) => offer.editionId === editionId); },
 };

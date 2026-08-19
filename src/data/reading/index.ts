@@ -12,8 +12,10 @@ export const getReadingWorkBySlug = (slug: string) => readingRepository.getWorkB
 export const getReadingSeries = () => readingRepository.getSeries();
 export const getReadingSeriesById = (id: string) => readingRepository.getSeriesById(id);
 export const getReadingVolumesForWork = (workId: string) => readingRepository.getVolumesForWork(workId);
+export const getReadingVolumes = () => readingRepository.getVolumes();
 export const getReadingInstallmentsForWork = (workId: string) => readingRepository.getInstallmentsForWork(workId);
 export const getReadingEditionsForWork = (workId: string) => readingRepository.getEditionsForWork(workId);
+export const getReadingEditions = () => readingRepository.getEditions();
 export const getReadingOffersForEdition = (editionId: string) => readingRepository.getOffersForEdition(editionId);
 export const getReadingCurationsForWork = (workId: string) => readingCurations.flatMap((curation) => {
   const item = curation.items.find((entry) => entry.workId === workId);

@@ -1445,6 +1445,30 @@
       "migrationReady": false
     },
     {
+      "id": "article_filmes_fim_do_mundo",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "filmes-sobre-o-fim-do-mundo",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-19",
+      "publishedAt": "2026-08-19",
+      "updatedAt": "2026-08-19",
+      "seo": {
+        "title": "23 filmes sobre o fim do mundo que realmente valem a pena",
+        "description": "Conheça 23 filmes sobre o fim do mundo que tratam pandemias, guerra nuclear, invasões, colapso social e ameaças cósmicas de maneiras realmente diferentes.",
+        "canonical": "/blog/filmes-sobre-o-fim-do-mundo"
+      },
+      "relationships": {
+        "related": [
+          "melhores-filmes-terror-seculo-21",
+          "melhores-filmes-de-vampiro"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/filmes-sobre-o-fim-do-mundo.mdx",
+      "migrationReady": true
+    },
+    {
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
@@ -2103,6 +2127,30 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-animacao-netflix.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_melhores_filmes_animados_batman",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-filmes-animados-do-batman",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-19",
+      "publishedAt": "2026-08-19",
+      "updatedAt": "2026-08-19",
+      "seo": {
+        "title": "Os 23 melhores filmes animados do Batman, do bom ao essencial",
+        "description": "Conheça os 23 melhores filmes animados do Batman, do bom ao essencial, e veja onde assistir, alugar ou comprar no Brasil.",
+        "canonical": "/blog/melhores-filmes-animados-do-batman"
+      },
+      "relationships": {
+        "related": [
+          "melhores-filmes-animacao-netflix",
+          "melhores-filmes-de-2025"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-animados-do-batman.mdx",
       "migrationReady": true
     },
     {

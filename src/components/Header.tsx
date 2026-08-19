@@ -10,16 +10,21 @@ import { blog, person } from "@/resources";
 import { GlobalSearch } from "./GlobalSearch";
 import styles from "./Header.module.scss";
 
-const contentLinks = [
+const primaryContentLinks = [
   { href: "/blog", label: "Artigos" },
+  { href: "/ideias", label: "Ideias" },
+] as const;
+
+const collectionLinks = [
   { href: "/filmes", label: "Filmes", collection: true },
   { href: "/series", label: "Séries", collection: true },
   { href: "/livros", label: "Livros", collection: true },
   { href: "/quadrinhos", label: "Quadrinhos e mangás", collection: true },
   { href: "/personalidades", label: "Personalidades", collection: true },
   { href: "/estudios", label: "Estúdios", collection: true },
-  { href: "/servicos/produtos", label: "Ferramentas" },
 ] as const;
+
+const toolsLink = { href: "/servicos/produtos", label: "Ferramentas" } as const;
 
 const henriqueLinks = [
   { href: "/work", label: "Portfólio" },
@@ -28,7 +33,7 @@ const henriqueLinks = [
 ] as const;
 
 type HeaderProps = { searchItems: GlobalSearchItem[] };
-type MenuLink = (typeof contentLinks)[number] | (typeof henriqueLinks)[number];
+type MenuLink = (typeof primaryContentLinks)[number] | (typeof collectionLinks)[number] | typeof toolsLink | (typeof henriqueLinks)[number];
 
 function isCurrentPath(pathname: string, item: MenuLink) {
   if ("exact" in item && item.exact) return pathname === item.href;
@@ -95,10 +100,10 @@ export function Header({ searchItems }: HeaderProps) {
       >
         <section className={styles.menuGroup} aria-labelledby="menu-content-title">
           <h2 id="menu-content-title">Conteúdo</h2>
-          <div className={styles.primaryLinks}>{renderLink(contentLinks[0])}</div>
+          <div className={styles.primaryLinks}>{primaryContentLinks.map(renderLink)}</div>
           <p className={styles.subgroupLabel}>Acervos</p>
-          <div className={styles.collectionLinks}>{contentLinks.slice(1, 7).map(renderLink)}</div>
-          <div className={styles.primaryLinks}>{renderLink(contentLinks[7])}</div>
+          <div className={styles.collectionLinks}>{collectionLinks.map(renderLink)}</div>
+          <div className={styles.primaryLinks}>{renderLink(toolsLink)}</div>
         </section>
         <section className={styles.menuGroup} aria-labelledby="menu-henrique-title">
           <h2 id="menu-henrique-title">Henrique</h2>

@@ -22,11 +22,13 @@ const SearchIcon = HiOutlineMagnifyingGlass;
 
 const typeLabels: Record<GlobalSearchItemType, string> = {
   article: "Artigo",
+  idea: "Ideia",
   page: "Página",
 };
 
 const typePriority: Record<GlobalSearchItemType, number> = {
   article: 8,
+  idea: 7,
   page: 5,
 };
 

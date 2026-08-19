@@ -11,7 +11,9 @@ export interface ReadingRepository {
   getSeries(): Promise<readonly ReadingSeries[]>;
   getSeriesById(id: string): Promise<ReadingSeries | undefined>;
   getVolumesForWork(workId: string): Promise<readonly ReadingVolume[]>;
+  getVolumes(): Promise<readonly ReadingVolume[]>;
   getInstallmentsForWork(workId: string): Promise<readonly import("@/content/reading/readingSchema").ReadingInstallment[]>;
   getEditionsForWork(workId: string): Promise<readonly ReadingEdition[]>;
+  getEditions(): Promise<readonly ReadingEdition[]>;
   getOffersForEdition(editionId: string): Promise<readonly ReadingOffer[]>;
 }

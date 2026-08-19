@@ -10391,6 +10391,11 @@
           "type": "appears_in",
           "contentType": "article",
           "slug": "melhores-filmes-terror-seculo-21"
+        },
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "filmes-sobre-o-fim-do-mundo"
         }
       ]
     },
@@ -10831,6 +10836,11 @@
           "type": "appears_in",
           "contentType": "article",
           "slug": "melhores-filmes-netflix"
+        },
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "filmes-sobre-o-fim-do-mundo"
         }
       ]
     },
@@ -19622,6 +19632,3082 @@
           "type": "appears_in",
           "contentType": "article",
           "slug": "melhores-filmes-de-vampiro"
+        }
+      ]
+    },
+    {
+      "id": "mov_end_dr_strangelove",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "dr-fantastico",
+      "aliases": [
+        "dr-strangelove"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Dr. Fantástico",
+      "originalTitle": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",
+      "year": 1964,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 95,
+      "countries": [
+        "Reino Unido",
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Stanley Kubrick"
+      ],
+      "screenwriters": [
+        "Stanley Kubrick",
+        "Terry Southern",
+        "Peter George"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Comédia",
+        "Guerra"
+      ],
+      "subgenres": [
+        "Sátira política"
+      ],
+      "themes": [
+        "Guerra nuclear",
+        "Poder",
+        "Militarismo"
+      ],
+      "shortDescription": "Uma falha humana dentro da cadeia militar coloca o planeta à beira da guerra nuclear enquanto autoridades tentam recuperar o controle.",
+      "audienceProfile": "Para quem aceita humor muito sombrio, diálogos rápidos e uma sátira cuja ameaça permanece concreta.",
+      "experience": "Ácido, claustrofóbico e absurdo",
+      "contentWarnings": [
+        "Ameaça nuclear",
+        "Linguagem discriminatória"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Dr. Fantástico: ficha e análise do filme",
+        "description": "Dr. Fantástico (1964): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Dr. Fantástico — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/doutor-fantastico"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "filmes-sobre-o-fim-do-mundo"
+        }
+      ]
+    },
+    {
+      "id": "mov_end_war_worlds_1953",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "a-guerra-dos-mundos-1953",
+      "aliases": [
+        "the-war-of-the-worlds-1953"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "A Guerra dos Mundos",
+      "originalTitle": "The War of the Worlds",
+      "year": 1953,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 85,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Byron Haskin"
+      ],
+      "screenwriters": [
+        "Barré Lyndon"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Ficção científica",
+        "Ação"
+      ],
+      "subgenres": [
+        "Invasão alienígena"
+      ],
+      "themes": [
+        "Invasão",
+        "Sobrevivência",
+        "Tecnologia"
+      ],
+      "shortDescription": "Máquinas vindas de Marte atravessam as defesas humanas e transformam a invasão alienígena em espetáculo de destruição em escala planetária.",
+      "audienceProfile": "Para quem quer conhecer a ficção científica de estúdio dos anos 1950 e seus efeitos ainda expressivos.",
+      "experience": "Clássico, direto e espetacular",
+      "contentWarnings": [
+        "Violência de guerra",
+        "Destruição em massa"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "A Guerra dos Mundos: ficha e análise do filme",
+        "description": "A Guerra dos Mundos (1953): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "A Guerra dos Mundos — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/guerra-dos-mundos"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "filmes-sobre-o-fim-do-mundo"
+        }
+      ]
+    },
+    {
+      "id": "mov_end_body_snatchers_1978",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "invasores-de-corpos-1978",
+      "aliases": [
+        "invasion-of-the-body-snatchers-1978"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Os Invasores de Corpos",
+      "originalTitle": "Invasion of the Body Snatchers",
+      "year": 1978,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 115,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Philip Kaufman"
+      ],
+      "screenwriters": [
+        "W. D. Richter"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Ficção científica",
+        "Terror"
+      ],
+      "subgenres": [
+        "Invasão alienígena",
+        "Paranoia"
+      ],
+      "themes": [
+        "Identidade",
+        "Assimilação",
+        "Desconfiança"
+      ],
+      "shortDescription": "Habitantes de São Francisco são substituídos por cópias sem emoção, fazendo a invasão avançar por intimidade, rotina e desconfiança.",
+      "audienceProfile": "Para quem gosta de paranoia crescente, efeitos práticos e ficção científica sem heroísmo confortável.",
+      "experience": "Paranoico, viscoso e implacável",
+      "contentWarnings": [
+        "Horror corporal",
+        "Violência",
+        "Nudez"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Os Invasores de Corpos: ficha e análise do filme",
+        "description": "Os Invasores de Corpos (1978): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Os Invasores de Corpos — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/invasores-de-corpos-1978"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "filmes-sobre-o-fim-do-mundo"
+        }
+      ]
+    },
+    {
+      "id": "mov_end_sacrifice_1986",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "o-sacrificio-1986",
+      "aliases": [
+        "offret"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "O Sacrifício",
+      "originalTitle": "Offret",
+      "internationalTitle": "The Sacrifice",
+      "year": 1986,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 142,
+      "countries": [
+        "Suécia",
+        "França",
+        "Reino Unido"
+      ],
+      "directors": [
+        "Andrei Tarkovsky"
+      ],
+      "screenwriters": [
+        "Andrei Tarkovsky"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Drama"
+      ],
+      "subgenres": [
+        "Drama espiritual"
+      ],
+      "themes": [
+        "Guerra nuclear",
+        "Fé",
+        "Sacrifício"
+      ],
+      "shortDescription": "Diante do anúncio de uma guerra nuclear, um homem promete abandonar tudo o que ama se Deus impedir o fim do mundo.",
+      "audienceProfile": "Para quem aceita planos longos, simbolismo religioso e uma crise apocalíptica tratada como experiência espiritual.",
+      "experience": "Contemplativo, solene e angustiante",
+      "contentWarnings": [
+        "Ameaça nuclear",
+        "Sofrimento emocional"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "O Sacrifício: ficha e análise do filme",
+        "description": "O Sacrifício (1986): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "O Sacrifício — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/offret"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "filmes-sobre-o-fim-do-mundo"
+        }
+      ]
+    },
+    {
+      "id": "mov_end_threads",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "catastrofe-nuclear",
+      "aliases": [
+        "threads"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Catástrofe Nuclear",
+      "originalTitle": "Threads",
+      "year": 1984,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 117,
+      "countries": [
+        "Reino Unido"
+      ],
+      "directors": [
+        "Mick Jackson"
+      ],
+      "screenwriters": [
+        "Barry Hines"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Drama",
+        "Guerra"
+      ],
+      "subgenres": [
+        "Docudrama"
+      ],
+      "themes": [
+        "Guerra nuclear",
+        "Colapso social",
+        "Sobrevivência"
+      ],
+      "shortDescription": "Um ataque nuclear atinge Sheffield e o filme acompanha, sem atalhos heroicos, a destruição prolongada da vida civil e institucional.",
+      "audienceProfile": "Para adultos preparados para uma representação extremamente dura das consequências sociais de uma guerra nuclear.",
+      "experience": "Brutal, sóbrio e devastador",
+      "contentWarnings": [
+        "Violência nuclear",
+        "Doença",
+        "Morte infantil",
+        "Imagens perturbadoras"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Catástrofe Nuclear: ficha e análise do filme",
+        "description": "Catástrofe Nuclear (1984): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Catástrofe Nuclear — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/threads"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "filmes-sobre-o-fim-do-mundo"
+        }
+      ]
+    },
+    {
+      "id": "mov_end_when_wind_blows",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "quando-o-vento-sopra",
+      "aliases": [
+        "when-the-wind-blows"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Quando o Vento Sopra",
+      "originalTitle": "When the Wind Blows",
+      "year": 1986,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 84,
+      "countries": [
+        "Reino Unido"
+      ],
+      "directors": [
+        "Jimmy T. Murakami"
+      ],
+      "screenwriters": [
+        "Raymond Briggs"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Drama"
+      ],
+      "subgenres": [
+        "Drama de guerra"
+      ],
+      "themes": [
+        "Guerra nuclear",
+        "Velhice",
+        "Propaganda"
+      ],
+      "shortDescription": "Um casal idoso segue instruções oficiais depois de uma explosão nuclear sem compreender que o cotidiano anterior não voltará.",
+      "audienceProfile": "Para adultos interessados em animação política e numa tragédia doméstica deliberadamente sem espetáculo.",
+      "experience": "Terno, irônico e arrasador",
+      "contentWarnings": [
+        "Radiação",
+        "Doença",
+        "Morte"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Quando o Vento Sopra: ficha e análise do filme",
+        "description": "Quando o Vento Sopra (1986): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Quando o Vento Sopra — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/quando-o-vento-sopra"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "filmes-sobre-o-fim-do-mundo"
+        }
+      ]
+    },
+    {
+      "id": "mov_end_last_night_1998",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "last-night-1998",
+      "aliases": [
+        "a-ultima-noite-1998"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Last Night",
+      "originalTitle": "Last Night",
+      "year": 1998,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 95,
+      "countries": [
+        "Canadá",
+        "França"
+      ],
+      "directors": [
+        "Don McKellar"
+      ],
+      "screenwriters": [
+        "Don McKellar"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Drama",
+        "Comédia"
+      ],
+      "subgenres": [
+        "Fim do mundo"
+      ],
+      "themes": [
+        "Morte",
+        "Solidão",
+        "Intimidade"
+      ],
+      "shortDescription": "Moradores de Toronto escolhem como passar as últimas horas antes de um fim do mundo conhecido, inevitável e nunca explicado.",
+      "audienceProfile": "Para quem prefere personagens, humor melancólico e escolhas íntimas a qualquer explicação sobre a catástrofe.",
+      "experience": "Humano, estranho e melancólico",
+      "contentWarnings": [
+        "Suicídio",
+        "Violência",
+        "Temas sexuais"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Last Night: ficha e análise do filme",
+        "description": "Last Night (1998): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Last Night — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/last-night-1998"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "filmes-sobre-o-fim-do-mundo"
+        }
+      ]
+    },
+    {
+      "id": "mov_end_rapture_1991",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "o-arrebatamento-1991",
+      "aliases": [
+        "the-rapture-1991"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "O Arrebatamento",
+      "originalTitle": "The Rapture",
+      "year": 1991,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 100,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Michael Tolkin"
+      ],
+      "screenwriters": [
+        "Michael Tolkin"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Drama",
+        "Fantasia"
+      ],
+      "subgenres": [
+        "Apocalipse religioso"
+      ],
+      "themes": [
+        "Fé",
+        "Juízo final",
+        "Livre-arbítrio"
+      ],
+      "shortDescription": "Uma mulher convertida passa a interpretar sinais do fim dos tempos literalmente e enfrenta uma ideia de salvação que não oferece conforto simples.",
+      "audienceProfile": "Para adultos interessados numa abordagem séria, desconfortável e não devocional do apocalipse cristão.",
+      "experience": "Austero, provocador e inquietante",
+      "contentWarnings": [
+        "Morte infantil",
+        "Suicídio",
+        "Fanatismo religioso"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "O Arrebatamento: ficha e análise do filme",
+        "description": "O Arrebatamento (1991): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "O Arrebatamento — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/the-rapture-1991"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "filmes-sobre-o-fim-do-mundo"
+        }
+      ]
+    },
+    {
+      "id": "mov_end_quiet_earth",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "a-terra-silenciosa",
+      "aliases": [
+        "the-quiet-earth"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "A Terra Silenciosa",
+      "originalTitle": "The Quiet Earth",
+      "year": 1985,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 91,
+      "countries": [
+        "Nova Zelândia"
+      ],
+      "directors": [
+        "Geoff Murphy"
+      ],
+      "screenwriters": [
+        "Bill Baer",
+        "Bruno Lawrence",
+        "Sam Pillsbury"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Ficção científica",
+        "Drama"
+      ],
+      "subgenres": [
+        "Pós-apocalíptico"
+      ],
+      "themes": [
+        "Solidão",
+        "Ciência",
+        "Responsabilidade"
+      ],
+      "shortDescription": "Um cientista acorda numa cidade vazia e tenta entender o evento que parece ter removido quase toda a humanidade.",
+      "audienceProfile": "Para quem gosta de ficção científica de poucos personagens, mistério e imagens abertas à interpretação.",
+      "experience": "Solitário, cerebral e estranho",
+      "contentWarnings": [
+        "Suicídio",
+        "Nudez",
+        "Armas"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "A Terra Silenciosa: ficha e análise do filme",
+        "description": "A Terra Silenciosa (1985): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "A Terra Silenciosa — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/the-quiet-earth"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "filmes-sobre-o-fim-do-mundo"
+        }
+      ]
+    },
+    {
+      "id": "mov_end_children_men",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "filhos-da-esperanca",
+      "aliases": [
+        "children-of-men",
+        "os-filhos-do-homem"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Filhos da Esperança",
+      "originalTitle": "Children of Men",
+      "year": 2006,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 109,
+      "countries": [
+        "Reino Unido",
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Alfonso Cuarón"
+      ],
+      "screenwriters": [
+        "Alfonso Cuarón",
+        "Timothy J. Sexton",
+        "David Arata",
+        "Mark Fergus",
+        "Hawk Ostby"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Ficção científica",
+        "Drama"
+      ],
+      "subgenres": [
+        "Distopia"
+      ],
+      "themes": [
+        "Infertilidade",
+        "Refugiados",
+        "Autoritarismo"
+      ],
+      "shortDescription": "Num mundo sem novos nascimentos, um homem precisa proteger uma mulher grávida enquanto o Estado transforma crise e migração em violência.",
+      "audienceProfile": "Para quem busca ficção científica política, ação imersiva e esperança sem sentimentalismo fácil.",
+      "experience": "Urgente, sombrio e profundamente humano",
+      "contentWarnings": [
+        "Violência",
+        "Guerra",
+        "Parto",
+        "Perseguição a refugiados"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Filhos da Esperança: ficha e análise do filme",
+        "description": "Filhos da Esperança (2006): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Filhos da Esperança — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/filhos-da-esperanca"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "filmes-sobre-o-fim-do-mundo"
+        }
+      ]
+    },
+    {
+      "id": "mov_end_wall_e",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "wall-e",
+      "aliases": [
+        "walle"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "WALL-E",
+      "originalTitle": "WALL·E",
+      "year": 2008,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 98,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Andrew Stanton"
+      ],
+      "screenwriters": [
+        "Andrew Stanton",
+        "Jim Reardon"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Ficção científica"
+      ],
+      "subgenres": [
+        "Pós-apocalíptico"
+      ],
+      "themes": [
+        "Consumo",
+        "Meio ambiente",
+        "Cuidado"
+      ],
+      "shortDescription": "Um robô compactador continua trabalhando numa Terra abandonada e coberta por lixo até encontrar uma nova possibilidade de vida.",
+      "audienceProfile": "Para famílias e adultos que querem ficção científica visualmente clara sem reduzir consumo e abandono ambiental a mero cenário.",
+      "experience": "Visual, afetuoso e esperançoso",
+      "contentWarnings": [
+        "Perigo leve",
+        "Colapso ambiental"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "WALL-E: ficha e análise do filme",
+        "description": "WALL-E (2008): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "WALL-E — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/wall-e"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "filmes-sobre-o-fim-do-mundo"
+        }
+      ]
+    },
+    {
+      "id": "mov_end_road",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "a-estrada-2009",
+      "aliases": [
+        "the-road-2009"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "A Estrada",
+      "originalTitle": "The Road",
+      "year": 2009,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 111,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "John Hillcoat"
+      ],
+      "screenwriters": [
+        "Joe Penhall"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Drama",
+        "Ficção científica"
+      ],
+      "subgenres": [
+        "Pós-apocalíptico"
+      ],
+      "themes": [
+        "Paternidade",
+        "Sobrevivência",
+        "Moralidade"
+      ],
+      "shortDescription": "Pai e filho atravessam uma paisagem devastada tentando sobreviver sem abandonar inteiramente a ideia de decência.",
+      "audienceProfile": "Para adultos dispostos a enfrentar um drama lento, desolador e concentrado no vínculo entre pai e filho.",
+      "experience": "Árido, íntimo e doloroso",
+      "contentWarnings": [
+        "Canibalismo",
+        "Suicídio",
+        "Morte",
+        "Criança em perigo"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "A Estrada: ficha e análise do filme",
+        "description": "A Estrada (2009): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "A Estrada — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/a-estrada"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "filmes-sobre-o-fim-do-mundo"
+        }
+      ]
+    },
+    {
+      "id": "mov_end_contagion",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "contagio",
+      "aliases": [
+        "contagion"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Contágio",
+      "originalTitle": "Contagion",
+      "year": 2011,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 106,
+      "countries": [
+        "Estados Unidos",
+        "Emirados Árabes Unidos"
+      ],
+      "directors": [
+        "Steven Soderbergh"
+      ],
+      "screenwriters": [
+        "Scott Z. Burns"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Drama",
+        "Suspense"
+      ],
+      "subgenres": [
+        "Pandemia"
+      ],
+      "themes": [
+        "Saúde pública",
+        "Desinformação",
+        "Cooperação"
+      ],
+      "shortDescription": "Um vírus letal se espalha por redes globais enquanto cientistas, governos e famílias tentam compreender e conter a pandemia.",
+      "audienceProfile": "Para quem prefere procedimento, múltiplos pontos de vista e tensão construída por decisões institucionais.",
+      "experience": "Clínico, tenso e preciso",
+      "contentWarnings": [
+        "Pandemia",
+        "Morte",
+        "Doença"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Contágio: ficha e análise do filme",
+        "description": "Contágio (2011): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Contágio — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/contagio"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "filmes-sobre-o-fim-do-mundo"
+        }
+      ]
+    },
+    {
+      "id": "mov_end_take_shelter",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "procurem-abrigo",
+      "aliases": [
+        "take-shelter",
+        "o-abrigo"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Procurem Abrigo",
+      "originalTitle": "Take Shelter",
+      "year": 2011,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 120,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Jeff Nichols"
+      ],
+      "screenwriters": [
+        "Jeff Nichols"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Drama",
+        "Suspense"
+      ],
+      "subgenres": [
+        "Drama psicológico"
+      ],
+      "themes": [
+        "Ansiedade",
+        "Família",
+        "Catástrofe natural"
+      ],
+      "shortDescription": "Visões de uma tempestade impossível levam um homem a construir um abrigo e a colocar em risco trabalho, casamento e confiança.",
+      "audienceProfile": "Para quem aceita ambiguidade e quer um possível apocalipse observado através de ansiedade, cuidado e vida familiar.",
+      "experience": "Contido, atmosférico e ambíguo",
+      "contentWarnings": [
+        "Sofrimento psicológico",
+        "Convulsão",
+        "Ameaça climática"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Procurem Abrigo: ficha e análise do filme",
+        "description": "Procurem Abrigo (2011): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Procurem Abrigo — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/o-abrigo"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "filmes-sobre-o-fim-do-mundo"
+        }
+      ]
+    },
+    {
+      "id": "mov_end_seeking_friend",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "procura-se-um-amigo-para-o-fim-do-mundo",
+      "aliases": [
+        "seeking-a-friend-for-the-end-of-the-world"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Procura-se um Amigo para o Fim do Mundo",
+      "originalTitle": "Seeking a Friend for the End of the World",
+      "year": 2012,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 101,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Lorene Scafaria"
+      ],
+      "screenwriters": [
+        "Lorene Scafaria"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Comédia",
+        "Drama",
+        "Romance"
+      ],
+      "subgenres": [
+        "Fim do mundo"
+      ],
+      "themes": [
+        "Afeto",
+        "Arrependimento",
+        "Morte"
+      ],
+      "shortDescription": "Com um asteroide prestes a destruir a Terra, dois vizinhos atravessam o caos tentando resolver vínculos que deixaram para depois.",
+      "audienceProfile": "Para quem procura romance melancólico e humor amargo dentro de uma catástrofe inevitável.",
+      "experience": "Doce, triste e irregular",
+      "contentWarnings": [
+        "Suicídio",
+        "Drogas",
+        "Violência"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Procura-se um Amigo para o Fim do Mundo: ficha e análise do filme",
+        "description": "Procura-se um Amigo para o Fim do Mundo (2012): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Procura-se um Amigo para o Fim do Mundo — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/procura-se-um-amigo-para-o-fim-do-mundo"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "filmes-sobre-o-fim-do-mundo"
+        }
+      ]
+    },
+    {
+      "id": "mov_end_worlds_end",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "e-o-fim-do-mundo",
+      "aliases": [
+        "the-worlds-end"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "É o Fim do Mundo",
+      "originalTitle": "The World's End",
+      "year": 2013,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 109,
+      "countries": [
+        "Reino Unido",
+        "Estados Unidos",
+        "Japão"
+      ],
+      "directors": [
+        "Edgar Wright"
+      ],
+      "screenwriters": [
+        "Simon Pegg",
+        "Edgar Wright"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Comédia",
+        "Ficção científica"
+      ],
+      "subgenres": [
+        "Invasão alienígena"
+      ],
+      "themes": [
+        "Amizade",
+        "Alcoolismo",
+        "Conformismo"
+      ],
+      "shortDescription": "Uma reunião de amigos em doze bares encontra uma cidade substituída por cópias obedientes e transforma nostalgia em invasão alienígena.",
+      "audienceProfile": "Para quem quer ação cômica, diálogos rápidos e um apocalipse ligado a amizade, vício e recusa em amadurecer.",
+      "experience": "Engraçado, acelerado e melancólico",
+      "contentWarnings": [
+        "Abuso de álcool",
+        "Violência",
+        "Suicídio mencionado"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "É o Fim do Mundo: ficha e análise do filme",
+        "description": "É o Fim do Mundo (2013): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "É o Fim do Mundo — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/the-worlds-end"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "filmes-sobre-o-fim-do-mundo"
+        }
+      ]
+    },
+    {
+      "id": "mov_end_snowpiercer",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "expresso-do-amanha",
+      "aliases": [
+        "snowpiercer"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Expresso do Amanhã",
+      "originalTitle": "Snowpiercer",
+      "year": 2013,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 126,
+      "countries": [
+        "Coreia do Sul",
+        "República Tcheca"
+      ],
+      "directors": [
+        "Bong Joon Ho"
+      ],
+      "screenwriters": [
+        "Bong Joon Ho",
+        "Kelly Masterson"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Ficção científica",
+        "Ação"
+      ],
+      "subgenres": [
+        "Distopia",
+        "Pós-apocalíptico"
+      ],
+      "themes": [
+        "Classe",
+        "Autoritarismo",
+        "Crise climática"
+      ],
+      "shortDescription": "Após uma tentativa de conter o aquecimento congelar o planeta, sobreviventes vivem num trem dividido por uma hierarquia brutal.",
+      "audienceProfile": "Para quem gosta de alegoria social frontal, ação inventiva e mudanças bruscas de tom.",
+      "experience": "Cinético, grotesco e político",
+      "contentWarnings": [
+        "Violência gráfica",
+        "Canibalismo mencionado",
+        "Crianças em perigo"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Expresso do Amanhã: ficha e análise do filme",
+        "description": "Expresso do Amanhã (2013): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Expresso do Amanhã — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/expresso-do-amanha"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "filmes-sobre-o-fim-do-mundo"
+        }
+      ]
+    },
+    {
+      "id": "mov_end_final_hours",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "these-final-hours",
+      "aliases": [
+        "as-ultimas-horas"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "These Final Hours",
+      "originalTitle": "These Final Hours",
+      "year": 2013,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 87,
+      "countries": [
+        "Austrália"
+      ],
+      "directors": [
+        "Zak Hilditch"
+      ],
+      "screenwriters": [
+        "Zak Hilditch"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Drama",
+        "Suspense"
+      ],
+      "subgenres": [
+        "Fim do mundo"
+      ],
+      "themes": [
+        "Responsabilidade",
+        "Violência social",
+        "Redenção"
+      ],
+      "shortDescription": "Com uma onda de fogo a poucas horas de alcançar a Austrália, um homem abandona a última festa para ajudar uma menina a encontrar a família.",
+      "audienceProfile": "Para adultos que querem urgência física e uma pequena escolha moral dentro de um fim inevitável.",
+      "experience": "Tenso, brutal e redentor",
+      "contentWarnings": [
+        "Violência",
+        "Drogas",
+        "Abuso sexual ameaçado",
+        "Criança em perigo"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "These Final Hours: ficha e análise do filme",
+        "description": "These Final Hours (2013): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "These Final Hours — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/these-final-hours"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "filmes-sobre-o-fim-do-mundo"
+        }
+      ]
+    },
+    {
+      "id": "mov_end_fury_road",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "mad-max-estrada-da-furia",
+      "aliases": [
+        "mad-max-fury-road"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Mad Max: Estrada da Fúria",
+      "originalTitle": "Mad Max: Fury Road",
+      "year": 2015,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 120,
+      "countries": [
+        "Austrália",
+        "Estados Unidos"
+      ],
+      "directors": [
+        "George Miller"
+      ],
+      "screenwriters": [
+        "George Miller",
+        "Brendan McCarthy",
+        "Nick Lathouris"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Ação",
+        "Ficção científica"
+      ],
+      "subgenres": [
+        "Pós-apocalíptico"
+      ],
+      "themes": [
+        "Escassez",
+        "Autoritarismo",
+        "Libertação"
+      ],
+      "shortDescription": "Uma fuga através do deserto transforma água, corpos e combustível em campos de disputa contra um regime pós-apocalíptico.",
+      "audienceProfile": "Para quem quer ação de grande escala construída com geografia clara, efeitos físicos e personagens econômicos.",
+      "experience": "Físico, ensurdecedor e eufórico",
+      "contentWarnings": [
+        "Violência intensa",
+        "Escravidão",
+        "Abuso reprodutivo"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Mad Max: Estrada da Fúria: ficha e análise do filme",
+        "description": "Mad Max: Estrada da Fúria (2015): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Mad Max: Estrada da Fúria — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/mad-max-estrada-da-furia"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "filmes-sobre-o-fim-do-mundo"
+        }
+      ]
+    },
+    {
+      "id": "mov_end_melancholia",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "melancolia",
+      "aliases": [
+        "melancholia"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Melancolia",
+      "originalTitle": "Melancholia",
+      "year": 2011,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 136,
+      "countries": [
+        "Dinamarca",
+        "Suécia",
+        "França",
+        "Alemanha"
+      ],
+      "directors": [
+        "Lars von Trier"
+      ],
+      "screenwriters": [
+        "Lars von Trier"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Drama",
+        "Ficção científica"
+      ],
+      "subgenres": [
+        "Ameaça cósmica"
+      ],
+      "themes": [
+        "Depressão",
+        "Família",
+        "Extinção"
+      ],
+      "shortDescription": "Enquanto um planeta se aproxima da Terra, duas irmãs enfrentam a catástrofe de maneiras moldadas por depressão, medo e ressentimento.",
+      "audienceProfile": "Para adultos que aceitam ritmo contemplativo, imagens grandiosas e uma abordagem emocionalmente pesada da extinção.",
+      "experience": "Belo, opressivo e terminal",
+      "contentWarnings": [
+        "Depressão",
+        "Suicídio mencionado",
+        "Morte infantil"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Melancolia: ficha e análise do filme",
+        "description": "Melancolia (2011): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Melancolia — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/melancholia"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "filmes-sobre-o-fim-do-mundo"
+        }
+      ]
+    },
+    {
+      "id": "mov_end_aniara",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "aniara",
+      "aliases": [
+        "aniara-a-viagem-de-uma-vida"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Aniara: A Viagem de Uma Vida",
+      "originalTitle": "Aniara",
+      "year": 2018,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 106,
+      "countries": [
+        "Suécia",
+        "Dinamarca"
+      ],
+      "directors": [
+        "Pella Kågerman",
+        "Hugo Lilja"
+      ],
+      "screenwriters": [
+        "Pella Kågerman",
+        "Hugo Lilja"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Ficção científica",
+        "Drama"
+      ],
+      "subgenres": [
+        "Ameaça cósmica"
+      ],
+      "themes": [
+        "Isolamento",
+        "Crise climática",
+        "Sentido da vida"
+      ],
+      "shortDescription": "Uma nave que transportava humanos para Marte perde a rota e converte uma viagem comercial numa deriva sem horizonte.",
+      "audienceProfile": "Para adultos interessados em ficção científica existencial, desesperança e consequências que atravessam anos.",
+      "experience": "Frio, existencial e sufocante",
+      "contentWarnings": [
+        "Suicídio",
+        "Violência sexual",
+        "Nudez",
+        "Morte infantil"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Aniara: A Viagem de Uma Vida: ficha e análise do filme",
+        "description": "Aniara: A Viagem de Uma Vida (2018): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Aniara — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/aniara"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "filmes-sobre-o-fim-do-mundo"
+        }
+      ]
+    },
+    {
+      "id": "mov_bat_hush",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "batman-silencio",
+      "aliases": [
+        "batman-hush"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Batman: Silêncio",
+      "originalTitle": "Batman: Hush",
+      "year": 2019,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 82,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Justin Copeland"
+      ],
+      "screenwriters": [
+        "Ernie Altbacker"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Ação"
+      ],
+      "subgenres": [
+        "Super-herói",
+        "Mistério"
+      ],
+      "themes": [
+        "Identidade",
+        "Confiança",
+        "Relacionamentos"
+      ],
+      "shortDescription": "Uma figura que conhece os segredos de Bruce Wayne coordena antigos inimigos enquanto Batman tenta sustentar sua relação com Selina Kyle.",
+      "audienceProfile": "Para quem quer uma adaptação acessível da fase moderna dos quadrinhos e aceita mudanças importantes no mistério original.",
+      "experience": "Ágil, romântico e irregular",
+      "contentWarnings": [
+        "Violência de fantasia"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Batman: Silêncio: ficha e análise do filme",
+        "description": "Batman: Silêncio (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Batman: Silêncio — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/batman-hush"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-animados-do-batman"
+        }
+      ]
+    },
+    {
+      "id": "mov_bat_batwoman_mystery",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "batman-o-misterio-da-mulher-morcego",
+      "aliases": [
+        "batman-mystery-of-the-batwoman"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Batman: O Mistério da Mulher-Morcego",
+      "originalTitle": "Batman: Mystery of the Batwoman",
+      "year": 2003,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 75,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Curt Geda"
+      ],
+      "screenwriters": [
+        "Alan Burnett",
+        "Michael Reaves"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Ação"
+      ],
+      "subgenres": [
+        "Super-herói",
+        "Mistério"
+      ],
+      "themes": [
+        "Identidade",
+        "Vigilantismo",
+        "Legado"
+      ],
+      "shortDescription": "Uma nova vigilante usa métodos mais agressivos contra o crime de Gotham, obrigando Batman a descobrir quem ocupa o uniforme.",
+      "audienceProfile": "Para fãs do universo animado clássico interessados numa história tardia, leve e centrada em investigação.",
+      "experience": "Clássico, compacto e elegante",
+      "contentWarnings": [
+        "Violência de fantasia"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Batman: O Mistério da Mulher-Morcego: ficha e análise do filme",
+        "description": "Batman: O Mistério da Mulher-Morcego (2003): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Batman: O Mistério da Mulher-Morcego — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/batman-o-misterio-da-mulher-morcego"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-animados-do-batman"
+        }
+      ]
+    },
+    {
+      "id": "mov_bat_son",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "o-filho-do-batman",
+      "aliases": [
+        "son-of-batman"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "O Filho do Batman",
+      "originalTitle": "Son of Batman",
+      "year": 2014,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 74,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Ethan Spaulding"
+      ],
+      "screenwriters": [
+        "Joe R. Lansdale"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Ação"
+      ],
+      "subgenres": [
+        "Super-herói",
+        "Artes marciais"
+      ],
+      "themes": [
+        "Paternidade",
+        "Legado",
+        "Liga dos Assassinos"
+      ],
+      "shortDescription": "Bruce Wayne descobre que tem um filho treinado pela Liga dos Assassinos e precisa ensinar limites a um herdeiro que já sabe matar.",
+      "audienceProfile": "Para quem quer conhecer Damian Wayne e aceita uma adaptação acelerada do material de Grant Morrison.",
+      "experience": "Direto, violento e introdutório",
+      "contentWarnings": [
+        "Violência de fantasia"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "O Filho do Batman: ficha e análise do filme",
+        "description": "O Filho do Batman (2014): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "O Filho do Batman — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/o-filho-do-batman"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-animados-do-batman"
+        }
+      ]
+    },
+    {
+      "id": "mov_bat_bad_blood",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "batman-sangue-ruim",
+      "aliases": [
+        "batman-bad-blood"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Batman: Sangue Ruim",
+      "originalTitle": "Batman: Bad Blood",
+      "year": 2016,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 72,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Jay Oliva"
+      ],
+      "screenwriters": [
+        "J. M. DeMatteis"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Ação"
+      ],
+      "subgenres": [
+        "Super-herói"
+      ],
+      "themes": [
+        "Batfamília",
+        "Legado",
+        "Controle mental"
+      ],
+      "shortDescription": "O desaparecimento de Batman força Asa Noturna, Robin, Batwoman e Batwing a proteger Gotham e investigar uma conspiração familiar.",
+      "audienceProfile": "Para quem prefere a Batfamília em ação conjunta e aceita uma trama curta com muitos personagens.",
+      "experience": "Dinâmico, coletivo e movimentado",
+      "contentWarnings": [
+        "Violência de fantasia"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Batman: Sangue Ruim: ficha e análise do filme",
+        "description": "Batman: Sangue Ruim (2016): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Batman: Sangue Ruim — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/batman-sangue-ruim"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-animados-do-batman"
+        }
+      ]
+    },
+    {
+      "id": "mov_bat_vs_robin",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "batman-vs-robin",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Batman vs. Robin",
+      "originalTitle": "Batman vs. Robin",
+      "year": 2015,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 72,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Jay Oliva"
+      ],
+      "screenwriters": [
+        "J. M. DeMatteis"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Ação"
+      ],
+      "subgenres": [
+        "Super-herói",
+        "Conspiração"
+      ],
+      "themes": [
+        "Paternidade",
+        "Corte das Corujas",
+        "Livre-arbítrio"
+      ],
+      "shortDescription": "Damian é atraído pela Corte das Corujas enquanto sua resistência às regras de Bruce transforma parceria e paternidade em conflito.",
+      "audienceProfile": "Para quem se interessa pela relação entre Bruce e Damian e pela mitologia recente da Corte das Corujas.",
+      "experience": "Sombrio, físico e conflituoso",
+      "contentWarnings": [
+        "Violência de fantasia"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Batman vs. Robin: ficha e análise do filme",
+        "description": "Batman vs. Robin (2015): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Batman vs. Robin — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/batman-vs-robin"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-animados-do-batman"
+        }
+      ]
+    },
+    {
+      "id": "mov_bat_soul_dragon",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "batman-alma-do-dragao",
+      "aliases": [
+        "batman-soul-of-the-dragon"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Batman: Alma do Dragão",
+      "originalTitle": "Batman: Soul of the Dragon",
+      "year": 2021,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 83,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Sam Liu"
+      ],
+      "screenwriters": [
+        "Jeremy Adams"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Ação"
+      ],
+      "subgenres": [
+        "Artes marciais",
+        "Fantasia"
+      ],
+      "themes": [
+        "Amizade",
+        "Treinamento",
+        "Ocultismo"
+      ],
+      "shortDescription": "Bruce reencontra antigos colegas de treinamento para impedir que um culto abra uma passagem sobrenatural.",
+      "audienceProfile": "Para quem gosta de cinema de artes marciais dos anos 1970 e aceita Batman como parte de um conjunto.",
+      "experience": "Colorido, marcial e despretensioso",
+      "contentWarnings": [
+        "Violência de fantasia"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Batman: Alma do Dragão: ficha e análise do filme",
+        "description": "Batman: Alma do Dragão (2021): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Batman: Alma do Dragão — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/batman-soul-of-the-dragon"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-animados-do-batman"
+        }
+      ]
+    },
+    {
+      "id": "mov_bat_doom_gotham",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "batman-a-perdicao-chegou-a-gotham",
+      "aliases": [
+        "batman-the-doom-that-came-to-gotham"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Batman: A Perdição Chegou a Gotham",
+      "originalTitle": "Batman: The Doom That Came to Gotham",
+      "year": 2023,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 86,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Christopher Berkeley",
+        "Sam Liu"
+      ],
+      "screenwriters": [
+        "Jase Ricci"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Ação"
+      ],
+      "subgenres": [
+        "Horror cósmico",
+        "Elseworlds"
+      ],
+      "themes": [
+        "Destino",
+        "Ocultismo",
+        "Gotham"
+      ],
+      "shortDescription": "Num universo dos anos 1920, Bruce Wayne enfrenta cultos e criaturas antigas ligados à própria fundação de Gotham.",
+      "audienceProfile": "Para quem quer uma releitura sobrenatural, atmosfera de horror e liberdade maior em relação ao cânone.",
+      "experience": "Gótico, monstruoso e fatalista",
+      "contentWarnings": [
+        "Horror corporal",
+        "Violência"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Batman: A Perdição Chegou a Gotham: ficha e análise do filme",
+        "description": "Batman: A Perdição Chegou a Gotham (2023): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Batman: A Perdição Chegou a Gotham — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/batman-the-doom-that-came-to-gotham"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-animados-do-batman"
+        }
+      ]
+    },
+    {
+      "id": "mov_bat_gaslight",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "batman-gotham-by-gaslight",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Batman: Gotham by Gaslight",
+      "originalTitle": "Batman: Gotham by Gaslight",
+      "year": 2018,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 78,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Sam Liu"
+      ],
+      "screenwriters": [
+        "James Krieg"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Ação"
+      ],
+      "subgenres": [
+        "Mistério",
+        "Elseworlds"
+      ],
+      "themes": [
+        "Era vitoriana",
+        "Investigação",
+        "Jack, o Estripador"
+      ],
+      "shortDescription": "Uma Gotham vitoriana transforma Batman em investigador de uma série de assassinatos atribuídos a Jack, o Estripador.",
+      "audienceProfile": "Para quem procura cenário histórico, investigação e uma adaptação que expande bastante a graphic novel.",
+      "experience": "Atmosférico, investigativo e sombrio",
+      "contentWarnings": [
+        "Assassinato",
+        "Violência contra mulheres"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Batman: Gotham by Gaslight: ficha e análise do filme",
+        "description": "Batman: Gotham by Gaslight (2018): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Batman: Gotham by Gaslight — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/batman-gotham-by-gaslight"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-animados-do-batman"
+        }
+      ]
+    },
+    {
+      "id": "mov_bat_caped_crusaders",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "batman-o-retorno-da-dupla-dinamica",
+      "aliases": [
+        "batman-return-of-the-caped-crusaders"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Batman: O Retorno da Dupla Dinâmica",
+      "originalTitle": "Batman: Return of the Caped Crusaders",
+      "year": 2016,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 78,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Rick Morales"
+      ],
+      "screenwriters": [
+        "Michael Jelenic",
+        "James Tucker"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Ação"
+      ],
+      "subgenres": [
+        "Comédia",
+        "Super-herói"
+      ],
+      "themes": [
+        "Série de 1966",
+        "Dupla dinâmica",
+        "Paródia"
+      ],
+      "shortDescription": "Batman e Robin enfrentam quatro vilões numa continuação animada que recupera elenco, humor e invenção visual da série de 1966.",
+      "audienceProfile": "Para quem entende que leveza e cores também fazem parte da história do personagem.",
+      "experience": "Pop, espirituoso e nostálgico",
+      "contentWarnings": [
+        "Violência de fantasia"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Batman: O Retorno da Dupla Dinâmica: ficha e análise do filme",
+        "description": "Batman: O Retorno da Dupla Dinâmica (2016): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Batman: O Retorno da Dupla Dinâmica — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/batman-return-of-the-caped-crusaders"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-animados-do-batman"
+        }
+      ]
+    },
+    {
+      "id": "mov_bat_ninja",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "batman-ninja",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Batman Ninja",
+      "originalTitle": "ニンジャバットマン",
+      "internationalTitle": "Batman Ninja",
+      "year": 2018,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 85,
+      "countries": [
+        "Japão",
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Junpei Mizusaki"
+      ],
+      "screenwriters": [
+        "Kazuki Nakashima"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Ação"
+      ],
+      "subgenres": [
+        "Anime",
+        "Viagem no tempo"
+      ],
+      "themes": [
+        "Japão feudal",
+        "Tecnologia",
+        "Reinvenção"
+      ],
+      "shortDescription": "Batman e seus inimigos são lançados no Japão feudal, onde tecnologia, clãs e iconografia samurai reorganizam Gotham.",
+      "audienceProfile": "Para quem prioriza invenção visual e aceita uma narrativa que troca coerência sóbria por excesso de anime.",
+      "experience": "Exuberante, caótico e inventivo",
+      "contentWarnings": [
+        "Violência de fantasia"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Batman Ninja: ficha e análise do filme",
+        "description": "Batman Ninja (2018): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Batman Ninja — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/batman-ninja"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-animados-do-batman"
+        }
+      ]
+    },
+    {
+      "id": "mov_bat_tmnt",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "batman-vs-tartarugas-ninja",
+      "aliases": [
+        "batman-vs-teenage-mutant-ninja-turtles"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Batman vs. As Tartarugas Ninja",
+      "originalTitle": "Batman vs. Teenage Mutant Ninja Turtles",
+      "year": 2019,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 87,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Jake Castorena"
+      ],
+      "screenwriters": [
+        "Marley Halpern-Graser"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Ação"
+      ],
+      "subgenres": [
+        "Crossover",
+        "Comédia"
+      ],
+      "themes": [
+        "Parceria",
+        "Mutação",
+        "Família"
+      ],
+      "shortDescription": "A investigação de um roubo coloca Batman e as Tartarugas Ninja em conflito antes de uni-los contra Destruidor e Ra's al Ghul.",
+      "audienceProfile": "Para fãs de crossover que querem humor, ação bem coreografada e antagonistas usados com propósito.",
+      "experience": "Divertido, enérgico e surpreendentemente brutal",
+      "contentWarnings": [
+        "Violência de fantasia"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Batman vs. As Tartarugas Ninja: ficha e análise do filme",
+        "description": "Batman vs. As Tartarugas Ninja (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Batman vs. As Tartarugas Ninja — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/batman-vs-teenage-mutant-ninja-turtles"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-animados-do-batman"
+        }
+      ]
+    },
+    {
+      "id": "mov_bat_assault_arkham",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "batman-assalto-em-arkham",
+      "aliases": [
+        "batman-assault-on-arkham"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Batman: Ataque ao Arkham",
+      "originalTitle": "Batman: Assault on Arkham",
+      "year": 2014,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 76,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Jay Oliva",
+        "Ethan Spaulding"
+      ],
+      "screenwriters": [
+        "Heath Corson"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Ação"
+      ],
+      "subgenres": [
+        "Crime",
+        "Super-herói"
+      ],
+      "themes": [
+        "Esquadrão Suicida",
+        "Arkham",
+        "Manipulação"
+      ],
+      "shortDescription": "O Esquadrão Suicida invade o Asilo Arkham enquanto Batman tenta impedir uma ameaça maior ligada ao Coringa.",
+      "audienceProfile": "Para adultos que aceitam Batman como força lateral numa história criminal centrada em vilões.",
+      "experience": "Rápido, violento e irreverente",
+      "contentWarnings": [
+        "Violência",
+        "Conteúdo sexual"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Batman: Ataque ao Arkham: ficha e análise do filme",
+        "description": "Batman: Ataque ao Arkham (2014): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Batman: Ataque ao Arkham — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/batman-assault-on-arkham"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-animados-do-batman"
+        }
+      ]
+    },
+    {
+      "id": "mov_bat_gotham_knight",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "batman-cavaleiro-de-gotham",
+      "aliases": [
+        "batman-gotham-knight"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Batman: O Cavaleiro de Gotham",
+      "originalTitle": "Batman: Gotham Knight",
+      "year": 2008,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 76,
+      "countries": [
+        "Estados Unidos",
+        "Japão",
+        "Coreia do Sul"
+      ],
+      "directors": [
+        "Yasuhiro Aoki",
+        "Futoshi Higashide",
+        "Hiroshi Morioka",
+        "Jong-Sik Nam",
+        "Shōjirō Nishimi",
+        "Toshiyuki Kubooka"
+      ],
+      "screenwriters": [
+        "Brian Azzarello",
+        "Alan Burnett",
+        "Jordan Goldberg",
+        "David S. Goyer",
+        "Josh Olson",
+        "Greg Rucka"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Ação"
+      ],
+      "subgenres": [
+        "Antologia",
+        "Anime"
+      ],
+      "themes": [
+        "Mito",
+        "Percepção",
+        "Gotham"
+      ],
+      "shortDescription": "Seis estúdios e equipes narram episódios distintos da trajetória de Batman entre os filmes de Christopher Nolan.",
+      "audienceProfile": "Para quem aceita uma antologia desigual em troca de estilos de animação e interpretações incomuns do herói.",
+      "experience": "Variado, experimental e atmosférico",
+      "contentWarnings": [
+        "Violência de fantasia"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Batman: O Cavaleiro de Gotham: ficha e análise do filme",
+        "description": "Batman: O Cavaleiro de Gotham (2008): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Batman: O Cavaleiro de Gotham — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/batman-gotham-knight"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-animados-do-batman"
+        }
+      ]
+    },
+    {
+      "id": "mov_bat_long_halloween_2",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "batman-o-longo-dia-das-bruxas-parte-2",
+      "aliases": [
+        "batman-the-long-halloween-part-two"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Batman: O Longo Dia das Bruxas — Parte 2",
+      "originalTitle": "Batman: The Long Halloween, Part Two",
+      "year": 2021,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 87,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Chris Palmer"
+      ],
+      "screenwriters": [
+        "Tim Sheridan"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Ação"
+      ],
+      "subgenres": [
+        "Mistério",
+        "Crime"
+      ],
+      "themes": [
+        "Máfia",
+        "Identidade",
+        "Transformação"
+      ],
+      "shortDescription": "A investigação do assassino Feriado converge com a ascensão dos vilões fantásticos e a queda de Harvey Dent.",
+      "audienceProfile": "Para quem viu a primeira parte e quer a conclusão mais trágica e expansiva da investigação.",
+      "experience": "Trágico, sombrio e conclusivo",
+      "contentWarnings": [
+        "Violência de fantasia"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Batman: O Longo Dia das Bruxas — Parte 2: ficha e análise do filme",
+        "description": "Batman: O Longo Dia das Bruxas — Parte 2 (2021): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Batman: O Longo Dia das Bruxas — Parte 2 — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/batman-the-long-halloween-part-two"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-animados-do-batman"
+        }
+      ]
+    },
+    {
+      "id": "mov_bat_long_halloween_1",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "batman-o-longo-dia-das-bruxas-parte-1",
+      "aliases": [
+        "batman-the-long-halloween-part-one"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Batman: O Longo Dia das Bruxas — Parte 1",
+      "originalTitle": "Batman: The Long Halloween, Part One",
+      "year": 2021,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 85,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Chris Palmer"
+      ],
+      "screenwriters": [
+        "Tim Sheridan"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Ação"
+      ],
+      "subgenres": [
+        "Mistério",
+        "Crime"
+      ],
+      "themes": [
+        "Máfia",
+        "Investigação",
+        "Alianças"
+      ],
+      "shortDescription": "No início da carreira, Batman investiga assassinatos cometidos em feriados enquanto Gotham passa do crime organizado aos supervilões.",
+      "audienceProfile": "Para quem prefere o Batman detetive, ritmo paciente e relações que precisam de duas partes para amadurecer.",
+      "experience": "Investigativo, elegante e gradual",
+      "contentWarnings": [
+        "Violência de fantasia"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Batman: O Longo Dia das Bruxas — Parte 1: ficha e análise do filme",
+        "description": "Batman: O Longo Dia das Bruxas — Parte 1 (2021): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Batman: O Longo Dia das Bruxas — Parte 1 — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/batman-the-long-halloween-part-one"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-animados-do-batman"
+        }
+      ]
+    },
+    {
+      "id": "mov_bat_subzero",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "batman-e-mr-freeze-abaixo-de-zero",
+      "aliases": [
+        "batman-and-mr-freeze-subzero"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Batman e Mr. Freeze: Abaixo de Zero",
+      "originalTitle": "Batman & Mr. Freeze: SubZero",
+      "year": 1998,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 70,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Boyd Kirkland"
+      ],
+      "screenwriters": [
+        "Boyd Kirkland",
+        "Randy Rogel"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Ação"
+      ],
+      "subgenres": [
+        "Super-herói",
+        "Drama"
+      ],
+      "themes": [
+        "Amor",
+        "Doença",
+        "Limites morais"
+      ],
+      "shortDescription": "Mr. Freeze sequestra Barbara Gordon para tentar salvar Nora, levando Batman e Robin a uma operação de resgate no Ártico.",
+      "audienceProfile": "Para fãs da série animada que valorizam antagonistas trágicos e narrativa econômica.",
+      "experience": "Emotivo, conciso e clássico",
+      "contentWarnings": [
+        "Violência de fantasia"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Batman e Mr. Freeze: Abaixo de Zero: ficha e análise do filme",
+        "description": "Batman e Mr. Freeze: Abaixo de Zero (1998): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Batman e Mr. Freeze: Abaixo de Zero — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/batman-e-mr-freeze-abaixo-de-zero"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-animados-do-batman"
+        }
+      ]
+    },
+    {
+      "id": "mov_bat_year_one",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "batman-ano-um",
+      "aliases": [
+        "batman-year-one"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Batman: Ano Um",
+      "originalTitle": "Batman: Year One",
+      "year": 2011,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 64,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Sam Liu",
+        "Lauren Montgomery"
+      ],
+      "screenwriters": [
+        "Tab Murphy"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Ação"
+      ],
+      "subgenres": [
+        "Crime",
+        "Super-herói"
+      ],
+      "themes": [
+        "Origem",
+        "Corrupção",
+        "Gotham"
+      ],
+      "shortDescription": "Bruce Wayne inicia sua atuação como Batman enquanto James Gordon enfrenta a corrupção dentro da polícia de Gotham.",
+      "audienceProfile": "Para quem quer uma adaptação curta, sóbria e muito próxima da estrutura dos quadrinhos de Frank Miller e David Mazzucchelli.",
+      "experience": "Sóbrio, urbano e preciso",
+      "contentWarnings": [
+        "Violência de fantasia"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Batman: Ano Um: ficha e análise do filme",
+        "description": "Batman: Ano Um (2011): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Batman: Ano Um — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/batman-ano-um"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-animados-do-batman"
+        }
+      ]
+    },
+    {
+      "id": "mov_bat_lego_movie",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "lego-batman-o-filme",
+      "aliases": [
+        "the-lego-batman-movie"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "LEGO Batman: O Filme",
+      "originalTitle": "The Lego Batman Movie",
+      "year": 2017,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 104,
+      "countries": [
+        "Estados Unidos",
+        "Dinamarca",
+        "Austrália"
+      ],
+      "directors": [
+        "Chris McKay"
+      ],
+      "screenwriters": [
+        "Seth Grahame-Smith",
+        "Chris McKenna",
+        "Erik Sommers",
+        "Jared Stern",
+        "John Whittington"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Comédia",
+        "Ação"
+      ],
+      "subgenres": [
+        "Super-herói",
+        "LEGO"
+      ],
+      "themes": [
+        "Família",
+        "Solidão",
+        "Legado"
+      ],
+      "shortDescription": "Um Batman convencido de que trabalha melhor sozinho precisa admitir que acumulou uma família e uma relação de dependência com o Coringa.",
+      "audienceProfile": "Para crianças, adultos e fãs capazes de rir do personagem sem confundir comédia com desprezo pelo material.",
+      "experience": "Veloz, afetuoso e referencial",
+      "contentWarnings": [
+        "Violência de fantasia"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "LEGO Batman: O Filme: ficha e análise do filme",
+        "description": "LEGO Batman: O Filme (2017): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "LEGO Batman: O Filme — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/lego-batman-o-filme"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-animados-do-batman"
+        }
+      ]
+    },
+    {
+      "id": "mov_bat_dkr_1",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "batman-o-cavaleiro-das-trevas-parte-1",
+      "aliases": [
+        "batman-the-dark-knight-returns-part-one"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Batman: O Cavaleiro das Trevas — Parte 1",
+      "originalTitle": "Batman: The Dark Knight Returns, Part 1",
+      "year": 2012,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 76,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Jay Oliva"
+      ],
+      "screenwriters": [
+        "Bob Goodman"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Ação"
+      ],
+      "subgenres": [
+        "Distopia",
+        "Super-herói"
+      ],
+      "themes": [
+        "Envelhecimento",
+        "Violência",
+        "Retorno"
+      ],
+      "shortDescription": "Um Bruce Wayne envelhecido abandona a aposentadoria quando Gotham mergulha em violência e apatia.",
+      "audienceProfile": "Para adultos interessados numa interpretação física, envelhecida e politicamente incômoda do Batman.",
+      "experience": "Pesado, seco e vigoroso",
+      "contentWarnings": [
+        "Violência de fantasia"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Batman: O Cavaleiro das Trevas — Parte 1: ficha e análise do filme",
+        "description": "Batman: O Cavaleiro das Trevas — Parte 1 (2012): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "O Retorno do Cavaleiro das Trevas — Parte 1 — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/batman-o-cavaleiro-das-trevas-parte-1"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-animados-do-batman"
+        }
+      ]
+    },
+    {
+      "id": "mov_bat_dkr_2",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "batman-o-cavaleiro-das-trevas-parte-2",
+      "aliases": [
+        "batman-the-dark-knight-returns-part-two"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Batman: O Cavaleiro das Trevas — Parte 2",
+      "originalTitle": "Batman: The Dark Knight Returns, Part 2",
+      "year": 2013,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 76,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Jay Oliva"
+      ],
+      "screenwriters": [
+        "Bob Goodman"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Ação"
+      ],
+      "subgenres": [
+        "Distopia",
+        "Super-herói"
+      ],
+      "themes": [
+        "Autoridade",
+        "Legado",
+        "Confronto"
+      ],
+      "shortDescription": "O retorno de Batman provoca confrontos definitivos com Coringa, Superman e um governo que não aceita sua autonomia.",
+      "audienceProfile": "Para quem viu a primeira parte e quer a escalada mais operística e controversa da adaptação.",
+      "experience": "Operístico, brutal e monumental",
+      "contentWarnings": [
+        "Violência de fantasia"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Batman: O Cavaleiro das Trevas — Parte 2: ficha e análise do filme",
+        "description": "Batman: O Cavaleiro das Trevas — Parte 2 (2013): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "O Retorno do Cavaleiro das Trevas — Parte 2 — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/batman-the-dark-knight-returns-part-two"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-animados-do-batman"
+        }
+      ]
+    },
+    {
+      "id": "mov_bat_red_hood",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "batman-contra-o-capuz-vermelho",
+      "aliases": [
+        "batman-under-the-red-hood"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Batman Contra o Capuz Vermelho",
+      "originalTitle": "Batman: Under the Red Hood",
+      "year": 2010,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 75,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Brandon Vietti"
+      ],
+      "screenwriters": [
+        "Judd Winick"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Ação"
+      ],
+      "subgenres": [
+        "Crime",
+        "Super-herói"
+      ],
+      "themes": [
+        "Luto",
+        "Vingança",
+        "Limites morais"
+      ],
+      "shortDescription": "Um novo vigilante assume o controle do crime de Gotham e força Batman a enfrentar uma perda que nunca conseguiu reparar.",
+      "audienceProfile": "Para quem quer um conflito emocional forte, ação clara e um antagonista que conhece o ponto fraco moral de Bruce.",
+      "experience": "Tenso, trágico e emocional",
+      "contentWarnings": [
+        "Violência de fantasia"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Batman Contra o Capuz Vermelho: ficha e análise do filme",
+        "description": "Batman Contra o Capuz Vermelho (2010): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Batman Contra o Capuz Vermelho — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/batman-contra-o-capuz-vermelho"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-animados-do-batman"
+        }
+      ]
+    },
+    {
+      "id": "mov_bat_beyond_joker",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "batman-do-futuro-o-retorno-do-coringa",
+      "aliases": [
+        "batman-beyond-return-of-the-joker"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Batman do Futuro: O Retorno do Coringa",
+      "originalTitle": "Batman Beyond: Return of the Joker",
+      "year": 2000,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 77,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Curt Geda"
+      ],
+      "screenwriters": [
+        "Paul Dini"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Ação"
+      ],
+      "subgenres": [
+        "Ficção científica",
+        "Super-herói"
+      ],
+      "themes": [
+        "Trauma",
+        "Legado",
+        "Identidade"
+      ],
+      "shortDescription": "O reaparecimento do Coringa obriga Terry McGinnis a investigar o trauma que encerrou a parceria entre Bruce Wayne e Tim Drake.",
+      "audienceProfile": "Para fãs do universo animado ou para quem quer uma história de legado que também funciona como confronto final com o Coringa.",
+      "experience": "Sombrio, futurista e doloroso",
+      "contentWarnings": [
+        "Tortura",
+        "Violência"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Batman do Futuro: O Retorno do Coringa: ficha e análise do filme",
+        "description": "Batman do Futuro: O Retorno do Coringa (2000): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Batman do Futuro: O Retorno do Coringa — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/batman-do-futuro-o-retorno-do-coringa"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-animados-do-batman"
+        }
+      ]
+    },
+    {
+      "id": "mov_bat_phantasm",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "batman-a-mascara-do-fantasma",
+      "aliases": [
+        "batman-mask-of-the-phantasm"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Batman: A Máscara do Fantasma",
+      "originalTitle": "Batman: Mask of the Phantasm",
+      "year": 1993,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 76,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Eric Radomski",
+        "Bruce Timm"
+      ],
+      "screenwriters": [
+        "Alan Burnett",
+        "Paul Dini",
+        "Martin Pasko",
+        "Michael Reaves"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Animação",
+        "Ação"
+      ],
+      "subgenres": [
+        "Mistério",
+        "Super-herói"
+      ],
+      "themes": [
+        "Amor",
+        "Luto",
+        "Escolha"
+      ],
+      "shortDescription": "Uma figura ligada ao passado de Bruce mata criminosos de Gotham enquanto o retorno de um antigo amor reabre a possibilidade de outra vida.",
+      "audienceProfile": "Para quem quer a síntese mais completa entre investigação, romance trágico, antagonistas e a interpretação de Kevin Conroy.",
+      "experience": "Noir, trágico e essencial",
+      "contentWarnings": [
+        "Violência de fantasia"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Batman: A Máscara do Fantasma: ficha e análise do filme",
+        "description": "Batman: A Máscara do Fantasma (1993): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Batman: A Máscara do Fantasma — JustWatch Brasil",
+          "url": "https://www.justwatch.com/br/filme/batman-a-mascara-do-fantasma"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "appears_in",
+          "contentType": "article",
+          "slug": "melhores-filmes-animados-do-batman"
         }
       ]
     }
