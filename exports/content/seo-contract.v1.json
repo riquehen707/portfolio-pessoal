@@ -2892,5 +2892,113 @@
     "description": "Batman: A Máscara do Fantasma (1993): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
     "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_br_midnight_soul",
+    "route": "/filmes/a-meia-noite-levarei-sua-alma",
+    "canonical": "https://henrique.dog/filmes/a-meia-noite-levarei-sua-alma",
+    "title": "À Meia-Noite Levarei Sua Alma: ficha e análise do filme",
+    "description": "À Meia-Noite Levarei Sua Alma (1964): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_br_tonight_corpse",
+    "route": "/filmes/esta-noite-encarnarei-no-teu-cadaver",
+    "canonical": "https://henrique.dog/filmes/esta-noite-encarnarei-no-teu-cadaver",
+    "title": "Esta Noite Encarnarei no Teu Cadáver: ficha e análise do filme",
+    "description": "Esta Noite Encarnarei no Teu Cadáver (1967): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_br_embodiment_evil",
+    "route": "/filmes/encarnacao-do-demonio",
+    "canonical": "https://henrique.dog/filmes/encarnacao-do-demonio",
+    "title": "Encarnação do Demônio: ficha e análise do filme",
+    "description": "Encarnação do Demônio (2008): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_br_hard_labour",
+    "route": "/filmes/trabalhar-cansa",
+    "canonical": "https://henrique.dog/filmes/trabalhar-cansa",
+    "title": "Trabalhar Cansa: ficha e análise do filme",
+    "description": "Trabalhar Cansa (2011): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_br_when_alive",
+    "route": "/filmes/quando-eu-era-vivo",
+    "canonical": "https://henrique.dog/filmes/quando-eu-era-vivo",
+    "title": "Quando Eu Era Vivo: ficha e análise do filme",
+    "description": "Quando Eu Era Vivo (2014): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_br_kill_me_please",
+    "route": "/filmes/mate-me-por-favor",
+    "canonical": "https://henrique.dog/filmes/mate-me-por-favor",
+    "title": "Mate-me Por Favor: ficha e análise do filme",
+    "description": "Mate-me Por Favor (2015): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_br_friendly_animal",
+    "route": "/filmes/o-animal-cordial",
+    "canonical": "https://henrique.dog/filmes/o-animal-cordial",
+    "title": "O Animal Cordial: ficha e análise do filme",
+    "description": "O Animal Cordial (2017): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_br_nightshifter",
+    "route": "/filmes/morto-nao-fala",
+    "canonical": "https://henrique.dog/filmes/morto-nao-fala",
+    "title": "Morto Não Fala: ficha e análise do filme",
+    "description": "Morto Não Fala (2018): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_br_fathers_shadow",
+    "route": "/filmes/a-sombra-do-pai",
+    "canonical": "https://henrique.dog/filmes/a-sombra-do-pai",
+    "title": "A Sombra do Pai: ficha e análise do filme",
+    "description": "A Sombra do Pai (2018): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_br_medusa",
+    "route": "/filmes/medusa-anita-rocha",
+    "canonical": "https://henrique.dog/filmes/medusa-anita-rocha",
+    "title": "Medusa: ficha e análise do filme",
+    "description": "Medusa (2021): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_br_property",
+    "route": "/filmes/propriedade",
+    "canonical": "https://henrique.dog/filmes/propriedade",
+    "title": "Propriedade: ficha e análise do filme",
+    "description": "Propriedade (2022): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_br_bury_dead",
+    "route": "/filmes/enterre-seus-mortos",
+    "canonical": "https://henrique.dog/filmes/enterre-seus-mortos",
+    "title": "Enterre Seus Mortos: ficha e análise do filme",
+    "description": "Enterre Seus Mortos (2024): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "structuredDataType": "Movie"
   }
 ]

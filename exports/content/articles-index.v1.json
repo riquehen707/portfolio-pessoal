@@ -322,6 +322,76 @@
       "migrationReady": false
     },
     {
+      "id": "article_absolute_batman_o_que_e",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "absolute-batman-o-que-e",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-20",
+      "publishedAt": "2026-08-20",
+      "updatedAt": null,
+      "seo": {
+        "title": "Absolute Batman: o que é, qual a história e por que esse Batman é tão diferente?",
+        "description": "Absolute Batman explicado sem spoilers importantes: origem editorial, premissa, personagens, diferenças, equipe criativa e como começar a ler.",
+        "canonical": "/blog/absolute-batman-o-que-e"
+      },
+      "relationships": {
+        "related": [
+          "Os 23 melhores filmes animados do Batman, do bom ao essencial"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/absolute-batman-o-que-e.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_agostinho_de_hipona",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "agostinho-de-hipona",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-20",
+      "publishedAt": "2026-08-20",
+      "updatedAt": null,
+      "seo": {
+        "title": "Agostinho de Hipona: quem foi, principais ideias e sua influência na filosofia",
+        "description": "Um guia completo sobre Agostinho de Hipona, suas principais ideias, Confissões, Cidade de Deus, platonismo, livre-arbítrio e influência.",
+        "canonical": "/blog/agostinho-de-hipona"
+      },
+      "relationships": {
+        "related": [
+          "Platão: vida, diálogos, filosofia e por onde começar",
+          "Hannah Arendt: ideias, obras, controvérsias e por onde começar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/agostinho-de-hipona.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_amor_fati_significado_nietzsche",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "amor-fati-significado-nietzsche",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-20",
+      "publishedAt": "2026-08-20",
+      "updatedAt": null,
+      "seo": {
+        "title": "Amor fati: o que significa e o que Nietzsche realmente queria dizer",
+        "description": "Entenda amor fati em Nietzsche, as passagens de A Gaia Ciência e Ecce Homo, a relação com eterno retorno, estoicismo, sofrimento e ação.",
+        "canonical": "/blog/amor-fati-significado-nietzsche"
+      },
+      "relationships": {
+        "related": [
+          "Friedrich Nietzsche: vida, ideias, obras e por onde começar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/amor-fati-significado-nietzsche.mdx",
+      "migrationReady": true
+    },
+    {
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
@@ -565,6 +635,31 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/cameras-ruas-uniformes-policiais-contradicao.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "carl-jung",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-20",
+      "updatedAt": null,
+      "seo": {
+        "title": "Carl Jung: quem foi, principais ideias e sua influência",
+        "description": "Conheça Carl Jung, a psicologia analítica, inconsciente coletivo, arquétipos, individuação, sonhos, sincronicidade, obras e críticas.",
+        "canonical": "/blog/carl-jung"
+      },
+      "relationships": {
+        "related": [
+          "O que é arquétipo? De Carl Jung ao uso popular do conceito",
+          "O que é angústia? Da experiência cotidiana à filosofia",
+          "Friedrich Nietzsche: vida, ideias, obras e por onde começar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/carl-jung.mdx",
       "migrationReady": false
     },
     {
@@ -1638,6 +1733,29 @@
       "migrationReady": false
     },
     {
+      "id": "article_funko_pop_demon_slayer",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "funko-pop-demon-slayer",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-20",
+      "publishedAt": "2026-08-20",
+      "updatedAt": "2026-08-20",
+      "seo": {
+        "title": "Funko Pop de Demon Slayer: personagens, versões e quais valem a pena colecionar",
+        "description": "Conheça os principais Funkos de Demon Slayer, diferenças entre versões, exclusividades, chases e critérios para escolher e evitar falsificações.",
+        "canonical": "/blog/funko-pop-demon-slayer"
+      },
+      "relationships": {
+        "related": [
+          "O que é mangá? Origem, tipos, como ler e por onde começar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/funko-pop-demon-slayer.mdx",
+      "migrationReady": true
+    },
+    {
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
@@ -1881,6 +1999,31 @@
         "related": []
       },
       "sourceFile": "src/app/blog/posts/fundamentos/historia-de-warhammer.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "identidade-visual",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-20",
+      "updatedAt": null,
+      "seo": {
+        "title": "Identidade visual: o que é e como construir uma marca visualmente consistente",
+        "description": "Entenda o que é identidade visual, seus elementos, a relação com branding e um processo flexível para construir sistemas consistentes.",
+        "canonical": "/blog/identidade-visual"
+      },
+      "relationships": {
+        "related": [
+          "Rebranding: o que é, quando fazer e por que tantas marcas erram",
+          "O que é design? Muito além de deixar algo bonito",
+          "Princípios do design visual: como criar hierarquia, clareza e consistência"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/identidade-visual.mdx",
       "migrationReady": false
     },
     {
@@ -2321,6 +2464,31 @@
       "migrationReady": true
     },
     {
+      "id": "article_best_brazilian_horror_movies",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-filmes-terror-brasileiros",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-20",
+      "publishedAt": "2026-08-20",
+      "updatedAt": null,
+      "seo": {
+        "title": "Os melhores filmes de terror brasileiros para conhecer o horror nacional",
+        "description": "Conheça filmes de terror brasileiros essenciais, dos clássicos de José Mojica Marins a As Boas Maneiras, Medusa e Propriedade.",
+        "canonical": "/blog/melhores-filmes-terror-brasileiros"
+      },
+      "relationships": {
+        "related": [
+          "Melhores filmes de vampiro e onde assistir no Brasil",
+          "24 melhores quadrinhos e mangás de terror",
+          "25 melhores livros de terror para diferentes tipos de leitor"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-terror-brasileiros.mdx",
+      "migrationReady": true
+    },
+    {
       "id": "article_melhores_filmes_terror_netflix_br",
       "contentType": "article",
       "schemaVersion": 1,
@@ -2663,6 +2831,78 @@
       "migrationReady": false
     },
     {
+      "id": "article_o_que_e_angustia",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "o-que-e-angustia",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-20",
+      "publishedAt": "2026-08-20",
+      "updatedAt": null,
+      "seo": {
+        "title": "O que é angústia? Da experiência cotidiana à filosofia",
+        "description": "Entenda o significado de angústia, a diferença para medo e como Kierkegaard, Heidegger e Sartre transformaram o conceito.",
+        "canonical": "/blog/o-que-e-angustia"
+      },
+      "relationships": {
+        "related": [
+          "O que é niilismo? De Nietzsche ao significado que usamos hoje",
+          "Simone de Beauvoir: filosofia, obras, feminismo e por onde começar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/o-que-e-angustia.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "o-que-e-arquetipo",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-20",
+      "updatedAt": null,
+      "seo": {
+        "title": "O que é arquétipo? De Carl Jung ao uso popular do conceito",
+        "description": "Entenda o que é arquétipo, como Jung empregou o conceito e como ele mudou na literatura, no cinema, no marketing e na cultura popular.",
+        "canonical": "/blog/o-que-e-arquetipo"
+      },
+      "relationships": {
+        "related": [
+          "Carl Jung: quem foi, principais ideias e sua influência",
+          "O que é literatura? Conceito, características e por que é tão difícil defini-la"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/o-que-e-arquetipo.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "o-que-e-curadoria",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-20",
+      "updatedAt": null,
+      "seo": {
+        "title": "O que é curadoria? Como selecionar, organizar e dar contexto à informação",
+        "description": "Entenda o que é curadoria em arte, conteúdo, produtos e ambientes digitais, como definir critérios e onde humanos, algoritmos e IA contribuem.",
+        "canonical": "/blog/o-que-e-curadoria"
+      },
+      "relationships": {
+        "related": [
+          "O que é marketing? Muito além de anúncios e redes sociais",
+          "Marketing orientado a dados: como tomar decisões melhores sem se perder nas métricas"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/o-que-e-curadoria.mdx",
+      "migrationReady": false
+    },
+    {
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
@@ -2685,6 +2925,55 @@
       },
       "sourceFile": "src/app/blog/posts/fundamentos/o-que-e-design.mdx",
       "migrationReady": false
+    },
+    {
+      "id": "article_o_que_e_literatura",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "o-que-e-literatura",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-20",
+      "publishedAt": "2026-08-20",
+      "updatedAt": null,
+      "seo": {
+        "title": "O que é literatura? Conceito, características e por que é tão difícil defini-la",
+        "description": "Entenda o que é literatura, suas características, gêneros, linguagem, oralidade, cânone e os debates que impedem uma definição absoluta.",
+        "canonical": "/blog/o-que-e-literatura"
+      },
+      "relationships": {
+        "related": [
+          "Como começar a ler e sentir prazer na leitura",
+          "O que é mangá? Origem, tipos, como ler e por onde começar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/o-que-e-literatura.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_o_que_e_manga",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "o-que-e-manga",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-20",
+      "publishedAt": "2026-08-20",
+      "updatedAt": null,
+      "seo": {
+        "title": "O que é mangá? Origem, tipos, como ler e por onde começar",
+        "description": "Entenda o que é mangá, como ler, o que são tankōbon, shōnen, shōjo, seinen e josei e como escolher seu primeiro mangá.",
+        "canonical": "/blog/o-que-e-manga"
+      },
+      "relationships": {
+        "related": [
+          "19 melhores mangás de romance para homens que querem começar",
+          "24 melhores quadrinhos e mangás de terror",
+          "18 melhores quadrinhos e mangás de vampiro"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/o-que-e-manga.mdx",
+      "migrationReady": true
     },
     {
       "id": null,
@@ -2710,6 +2999,31 @@
       },
       "sourceFile": "src/app/blog/posts/fundamentos/o-que-e-marketing.mdx",
       "migrationReady": false
+    },
+    {
+      "id": "article_o_que_e_niilismo",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "o-que-e-niilismo",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-20",
+      "publishedAt": "2026-08-20",
+      "updatedAt": null,
+      "seo": {
+        "title": "O que é niilismo? De Nietzsche ao significado que usamos hoje",
+        "description": "Entenda o que é niilismo, sua origem, a morte de Deus em Nietzsche, niilismo passivo e ativo e os usos contemporâneos do termo.",
+        "canonical": "/blog/o-que-e-niilismo"
+      },
+      "relationships": {
+        "related": [
+          "Friedrich Nietzsche: vida, ideias, obras e por onde começar",
+          "Amor fati: o que significa e o que Nietzsche realmente queria dizer",
+          "Arthur Schopenhauer: vida, filosofia, obras e por onde começar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/o-que-e-niilismo.mdx",
+      "migrationReady": true
     },
     {
       "id": null,
@@ -2935,6 +3249,53 @@
       "migrationReady": false
     },
     {
+      "id": "article_perpetuos_de_sandman",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "perpetuos-de-sandman",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-20",
+      "publishedAt": "2026-08-20",
+      "updatedAt": null,
+      "seo": {
+        "title": "Os Perpétuos de Sandman: quem são e o que cada um representa",
+        "description": "Entenda quem são os Perpétuos de Sandman, o que cada Endless representa, suas relações familiares e as diferenças nas adaptações.",
+        "canonical": "/blog/perpetuos-de-sandman"
+      },
+      "relationships": {
+        "related": [
+          "24 melhores quadrinhos e mangás de terror"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/perpetuos-de-sandman.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_personagens_negros_marcantes",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "personagens-negros-marcantes",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-20",
+      "publishedAt": "2026-08-20",
+      "updatedAt": null,
+      "seo": {
+        "title": "Personagens negros marcantes dos quadrinhos, animações, filmes e games",
+        "description": "Conheça personagens negros marcantes como Tempestade, Static, Miles Morales, Garnet, Blade, Okoye, Lee Everett, Barret e Bayek.",
+        "canonical": "/blog/personagens-negros-marcantes"
+      },
+      "relationships": {
+        "related": [
+          "Frantz Fanon: colonialismo, racismo, obras e por onde começar",
+          "Os 23 melhores filmes animados do Batman, do bom ao essencial"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/personagens-negros-marcantes.mdx",
+      "migrationReady": true
+    },
+    {
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
@@ -3058,6 +3419,32 @@
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
+      "slug": "principais-filosofos-da-historia",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-20",
+      "updatedAt": null,
+      "seo": {
+        "title": "Os principais filósofos da história e as ideias que você deveria conhecer",
+        "description": "Conheça os principais filósofos da história, suas ideias, os problemas que enfrentaram e por onde começar a estudar filosofia.",
+        "canonical": "/blog/principais-filosofos-da-historia"
+      },
+      "relationships": {
+        "related": [
+          "Platão: vida, diálogos, filosofia e por onde começar",
+          "Agostinho de Hipona: quem foi, principais ideias e sua influência na filosofia",
+          "Friedrich Nietzsche: vida, ideias, obras e por onde começar",
+          "Hannah Arendt: ideias, obras, controvérsias e por onde começar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/principais-filosofos-da-historia.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
       "slug": "principal-component-analysis-pca",
       "aliases": [],
       "status": "published",
@@ -3097,6 +3484,31 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/programa-lula-2026-arcabouco-fiscal.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "rebranding-o-que-e",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-20",
+      "updatedAt": null,
+      "seo": {
+        "title": "Rebranding: o que é, quando fazer e por que tantas marcas erram",
+        "description": "Entenda o que é rebranding, a diferença entre redesign, refresh e reposicionamento, quando mudar uma marca e o que aprender com casos reais.",
+        "canonical": "/blog/rebranding-o-que-e"
+      },
+      "relationships": {
+        "related": [
+          "Identidade visual: o que é e como construir uma marca visualmente consistente",
+          "O que é design? Muito além de deixar algo bonito",
+          "Marketing orientado a dados: como tomar decisões melhores sem se perder nas métricas"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/rebranding-o-que-e.mdx",
       "migrationReady": false
     },
     {
@@ -3390,6 +3802,30 @@
       },
       "sourceFile": "src/app/blog/posts/fundamentos/social-media-marketing.mdx",
       "migrationReady": false
+    },
+    {
+      "id": "article_sociedade_do_cansaco_resumo",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "sociedade-do-cansaco-resumo",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-20",
+      "publishedAt": "2026-08-20",
+      "updatedAt": null,
+      "seo": {
+        "title": "Sociedade do Cansaço: resumo, principais ideias e críticas ao livro",
+        "description": "Entenda Sociedade do Cansaço, seus conceitos centrais, exemplos contemporâneos, críticas e equívocos comuns sem tratar o ensaio como diagnóstico clínico.",
+        "canonical": "/blog/sociedade-do-cansaco-resumo"
+      },
+      "relationships": {
+        "related": [
+          "Byung-Chul Han: conceitos, obras, críticas e por onde começar",
+          "Michel Foucault: ideias, obras, métodos e por onde começar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/sociedade-do-cansaco-resumo.mdx",
+      "migrationReady": true
     },
     {
       "id": null,

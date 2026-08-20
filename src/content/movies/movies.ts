@@ -5,6 +5,7 @@ import { posterCatalog } from "./posters";
 import { vampireMovieSeeds } from "./vampireMovies";
 import { endOfWorldMovieSeeds } from "./endOfWorldMovies";
 import { batmanAnimatedMovieSeeds } from "./batmanAnimatedMovies";
+import { brazilianHorrorMovieSeeds } from "./brazilianHorrorMovies";
 
 export type MovieSeed = Pick<
   Movie,
@@ -416,6 +417,7 @@ const seeds: MovieSeed[] = [
   ...vampireMovieSeeds,
   ...endOfWorldMovieSeeds,
   ...batmanAnimatedMovieSeeds,
+  ...brazilianHorrorMovieSeeds,
 ];
 
 const rawMovies = seeds.map((seed) => {

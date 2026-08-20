@@ -7,6 +7,7 @@ const cover = (src: string, alt: string, sourceUrl: string, credit: string, widt
 });
 
 export const readingEditionCovers: Record<string, ReadingCover> = {
+  read_edition_burnout_society_vozes: cover("/images/reading/sociedade-do-cansaco-vozes.png", "Capa da edição brasileira de Sociedade do Cansaço publicada pela Editora Vozes", "https://books.google.com/books/about/Sociedade_do_cansa%C3%A7o.html?id=IYWZCgAAQBAJ", "Editora Vozes via Google Books", 300, 513),
   read_edition_carmilla_darkside: cover("/images/reading/carmilla-darkside.webp", "Capa da edição brasileira de Carmilla publicada pela DarkSide Books", "https://www.darksidebooks.com.br/carmilla--brinde-exclusivo-43665/p", "DarkSide Books", 448, 671),
   read_edition_frankenstein_darkside: cover("/images/reading/frankenstein-darkside.webp", "Capa da edição brasileira de Frankenstein publicada pela DarkSide Books", "https://www.darksidebooks.com.br/frankenstein/p", "DarkSide Books", 215, 322),
   read_edition_rosemary_darkside: cover("/images/reading/bebe-rosemary-darkside.webp", "Capa da edição brasileira de O Bebê de Rosemary publicada pela DarkSide Books", "https://www.darksidebooks.com.br/o-bebe-de-rosemary--brindes-exclusivos/p", "DarkSide Books", 215, 322),

@@ -98,7 +98,7 @@ O inventário de arquivos não equivale ao sitemap público. A inclusão de rota
 - **Rotas:** `/ideias` e `/ideias/[slug]`.
 - **Finalidade:** documentar propostas, experimentos, decisões e aprendizados em público, sem simular um quadro de tarefas.
 - **Dados:** `IdeaSchema`, registros versionados em `src/content/ideas/` e fachada assíncrona em `src/data/ideas/`.
-- **Estrutura:** o índice destaca ideias recentes ou em desenvolvimento e oferece filtros por estado e categoria; a ficha apresenta ideia, motivação, estado atual, próximos passos e histórico em ordem cronológica inversa.
+- **Estrutura:** o índice destaca ideias recentes e organiza o arquivo em desenvolvimento, exploração, papel e outros caminhos, com filtros por estado, categoria e tipo; a ficha apresenta um núcleo comum, seções editoriais flexíveis, próximos passos, relações e histórico em ordem cronológica inversa.
 - **Relações:** IDs permanentes para outras ideias e slugs para artigos ou projetos já publicados. Tags e categorias ajudam a sugerir relações sem substituir referências explícitas.
 - **SEO e publicação:** `publicationStatus` controla indexação e sitemap; `status` descreve a evolução da ideia. Cada página possui canonical, Open Graph e JSON-LD com conteúdo essencial renderizado no servidor.
 
@@ -211,7 +211,7 @@ Todos os acervos usam somente `status: "draft" | "published"` como estado editor
 | Domínio | Fonte técnica | Acesso recomendado | Observação |
 | --- | --- | --- | --- |
 | Artigos | `components/blog/postSchema.ts` | `data/articles/` | corpo permanece em MDX |
-| Ideias | `content/ideas/ideaSchema.ts` | `data/ideas/` | ID permanente independente do slug; histórico acrescentado em `updates`; estado da ideia separado da publicação editorial |
+| Ideias | `content/ideas/ideaSchema.ts` | `data/ideas/` | ID permanente independente do slug; `type` organiza ideias, projetos, experimentos, negócios e pesquisas; histórico em `updates`; estado separado da publicação editorial |
 | Filmes | `content/movies/movieSchema.ts` | `data/movies/` | cadastro único; inclui identidade, formato, créditos, relações, imagem/direitos, fontes e estado editorial |
 | Séries | `content/series/seriesSchema.ts` | `data/series/` | catálogo público em `/series`; ofertas temporais são separadas por plataforma, região e intervalo de temporadas |
 | Pessoas | `content/creators/creatorSchema.ts` | importação local direta | fachada ainda não existe |

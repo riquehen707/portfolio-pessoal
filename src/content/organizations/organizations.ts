@@ -172,6 +172,8 @@ const readingPublishers = [
   ["org_pipoca_nanquim","pipoca-e-nanquim","Pipoca & Nanquim","publisher"],
   ["org_red_dragon","red-dragon-publisher","Red Dragon Publisher","publisher"],
   ["org_lpm","l-e-pm","L&PM Editores","publisher"],
+  ["org_dc_comics","dc-comics","DC Comics","publisher"],
+  ["org_vozes","editora-vozes","Editora Vozes","publisher"],
 ].map(([id,slug,name,kind])=>OrganizationSchema.parse({id,slug,name,kind,status:"draft",workIds:[],summary:`Editora ou selo relacionado a edições brasileiras do acervo: ${name}.`,createdAt:"2026-08-13",updatedAt:"2026-08-13"}));
 
 export const organizations = [ghostAnimation,teamCherry,cartoonSaloon,aardman,scienceSaru,kyotoAnimation,laika,studioGhibli,nipponTelevision,toho,...movieStudios,...readingPublishers];

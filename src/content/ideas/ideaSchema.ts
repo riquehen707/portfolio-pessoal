@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 const isoDate = /^\d{4}-\d{2}-\d{2}$/;
+const historicalDate = /^\d{4}(?:-\d{2}(?:-\d{2})?)?$/;
 const slug = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 export const IdeaStatusSchema = z.enum([
@@ -13,7 +14,7 @@ export const IdeaStatusSchema = z.enum([
 ]);
 
 export const IdeaUpdateSchema = z.object({
-  date: z.string().regex(isoDate),
+  date: z.string().regex(historicalDate),
   title: z.string().min(3).max(100).optional(),
   content: z.array(z.string().min(1)).min(1),
   links: z.array(z.object({ label: z.string().min(1), href: z.string().min(1) })).default([]),
@@ -24,6 +25,14 @@ export const IdeaUpdateSchema = z.object({
       height: z.number().int().positive(),
       caption: z.string().min(1).optional(),
     }).optional(),
+});
+
+export const IdeaSectionSchema = z.object({
+  id: z.string().regex(slug),
+  title: z.string().min(2).max(100),
+  content: z.array(z.string().min(1)).min(1),
+  items: z.array(z.string().min(1)).default([]),
+  tone: z.enum(["default", "hypothesis", "goal"]).default("default"),
 });
 
 export const IdeaSchema = z.object({
@@ -37,15 +46,18 @@ export const IdeaSchema = z.object({
   createdAt: z.string().regex(isoDate),
   updatedAt: z.string().regex(isoDate),
   status: IdeaStatusSchema,
+  visibility: z.enum(["public", "private"]),
   publicationStatus: z.enum(["draft", "published"]).default("draft"),
+  type: z.enum(["idea", "project", "experiment", "business", "research"]),
   categories: z.array(z.string().min(1)).min(1),
   tags: z.array(z.string().min(1)).default([]),
   progress: z.number().int().min(0).max(100).optional(),
   idea: z.array(z.string().min(1)).min(1),
-  motivation: z.array(z.string().min(1)).min(1),
-  currentState: z.array(z.string().min(1)).min(1),
+  motivation: z.array(z.string().min(1)).default([]),
+  currentState: z.array(z.string().min(1)).default([]),
+  sections: z.array(IdeaSectionSchema).default([]),
   nextSteps: z.array(z.string().min(1)).default([]),
-  updates: z.array(IdeaUpdateSchema).min(1),
+  updates: z.array(IdeaUpdateSchema).default([]),
   relatedIdeaIds: z.array(z.string().regex(/^idea_[a-z0-9_]+$/)).default([]),
   relatedArticleSlugs: z.array(z.string().regex(slug)).default([]),
   relatedProjectSlugs: z.array(z.string().regex(slug)).default([]),

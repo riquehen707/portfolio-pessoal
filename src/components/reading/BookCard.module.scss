@@ -14,7 +14,7 @@
   background: color-mix(in srgb, var(--surface-panel-soft) 88%, #d8c9ad);
 }
 
-.cover img { object-fit: cover; }
+.cover img { object-fit: contain; padding: .3rem; }
 .fallback { display: grid; align-content: end; height: 100%; padding: .68rem; background: linear-gradient(155deg, transparent 45%, color-mix(in srgb, #ffd400 22%, transparent) 45.5%), var(--surface-panel-soft); font-size: .7rem; font-weight: 750; text-transform: uppercase; letter-spacing: .05em; }
 .content { @include card.content; }
 .content h3 { @include card.title; }

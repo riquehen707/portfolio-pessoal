@@ -3,6 +3,240 @@
   "contentType": "reading-catalog",
   "works": [
     {
+      "id": "read_work_sandman",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "sandman-neil-gaiman",
+      "aliases": [],
+      "originalTitle": "The Sandman",
+      "titleBr": "Sandman",
+      "format": "comic",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "comicTradition": "western-comics",
+      "comicFormat": "serialized-series",
+      "readingDirection": "left-to-right",
+      "credits": [
+        {
+          "personId": "person_neil_gaiman",
+          "roles": [
+            "writer",
+            "original-creator"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_dc_comics",
+          "roles": [
+            "original-publisher"
+          ]
+        },
+        {
+          "organizationId": "org_panini_brasil",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "1989",
+      "publicationEnd": "1996",
+      "publicationStatus": "completed",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Fantasia sombria",
+        "Mitologia",
+        "Terror"
+      ],
+      "themes": [
+        "Sonhos",
+        "Histórias",
+        "Mudança",
+        "Família"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Após décadas aprisionado, Sonho reconstrói seu reino e confronta as consequências de antigas escolhas numa saga sobre histórias, responsabilidade e mudança.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [
+        {
+          "relationship": "adaptation",
+          "kind": "series",
+          "title": "The Sandman",
+          "status": "released",
+          "sourceUrl": "https://www.netflix.com/tudum/articles/sandman-new-episodes"
+        }
+      ],
+      "sources": [
+        {
+          "title": "The Sandman Book One — DC",
+          "url": "https://www.dc.com/graphic-novels/the-sandman-book-one"
+        },
+        {
+          "title": "Sandman — Edição Definitiva Vol. 1 — Panini",
+          "url": "https://panini.com.br/sandman-edicao-definitiva-vol-1-aveas001r3"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
+      "updatedAt": "2026-08-20"
+    },
+    {
+      "id": "read_work_absolute_batman",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "absolute-batman",
+      "aliases": [],
+      "originalTitle": "Absolute Batman",
+      "format": "comic",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "comicTradition": "western-comics",
+      "comicFormat": "serialized-series",
+      "readingDirection": "left-to-right",
+      "credits": [
+        {
+          "personId": "person_scott_snyder",
+          "roles": [
+            "writer"
+          ]
+        },
+        {
+          "personId": "person_nick_dragotta",
+          "roles": [
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_dc_comics",
+          "roles": [
+            "original-publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2024",
+      "publicationStatus": "ongoing",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Super-heróis",
+        "Ação",
+        "Crime"
+      ],
+      "themes": [
+        "Desigualdade",
+        "Violência urbana",
+        "Reinvenção"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Sem a fortuna e a estrutura tradicional dos Wayne, um jovem Bruce enfrenta a violência de Gotham com conhecimento técnico, força física e recursos improvisados.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "DC All In — iniciativa e Universo Absolute",
+          "url": "https://www.dc.com/allin"
+        },
+        {
+          "title": "Absolute Batman Vol. 1: The Zoo — DC",
+          "url": "https://www.dc.com/graphic-novels/absolute-batman-2024/absolute-batman-vol-1-the-zoo"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_work_burnout_society",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "sociedade-do-cansaco",
+      "aliases": [],
+      "originalTitle": "Müdigkeitsgesellschaft",
+      "titleBr": "Sociedade do Cansaço",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2010",
+      "publicationEnd": "2010",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Desempenho",
+        "Autoexploração",
+        "Cansaço",
+        "Atenção"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Byung-Chul Han interpreta o excesso de desempenho, estímulo e positividade como mecanismos de autoexploração e esgotamento na sociedade contemporânea.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Burnout Society — Stanford University Press",
+          "url": "https://www.sup.org/books/theory-and-philosophy/burnout-society"
+        },
+        {
+          "title": "Byung-Chul Han — Editora Vozes",
+          "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-13",
+      "publishedAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
       "id": "read_work_birth_tragedy",
       "contentType": "reading-work",
       "schemaVersion": 1,
@@ -7908,6 +8142,40 @@
     }
   ],
   "editions": [
+    {
+      "id": "read_edition_burnout_society_vozes",
+      "workId": "read_work_burnout_society",
+      "title": "Sociedade do Cansaço",
+      "publisherId": "org_vozes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2015-11-26",
+      "isbn10": "853265083X",
+      "isbn13": "9788532650832",
+      "pageCount": 80,
+      "cover": {
+        "src": "/images/reading/sociedade-do-cansaco-vozes.png",
+        "alt": "Capa da edição brasileira de Sociedade do Cansaço publicada pela Editora Vozes",
+        "sourceUrl": "https://books.google.com/books/about/Sociedade_do_cansa%C3%A7o.html?id=IYWZCgAAQBAJ",
+        "credit": "Editora Vozes via Google Books",
+        "rights": "permission-pending",
+        "width": 300,
+        "height": 513
+      },
+      "translationCredits": [],
+      "availabilityStatus": "available",
+      "availabilityCheckedAt": "2026-08-13",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Sociedade do Cansaço — edição brasileira",
+          "url": "https://books.google.com/books/about/Sociedade_do_cansa%C3%A7o.html?id=IYWZCgAAQBAJ"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
     {
       "id": "read_edition_carmilla_darkside",
       "workId": "read_work_carmilla",

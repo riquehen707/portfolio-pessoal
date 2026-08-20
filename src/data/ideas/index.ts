@@ -16,9 +16,8 @@ export async function getRelatedIdeas(id: string) {
     .map((candidate) => ({ candidate, score: (explicit.has(candidate.id) ? 100 : 0) + candidate.tags.filter((tag) => idea.tags.includes(tag)).length * 2 + candidate.categories.filter((category) => idea.categories.includes(category)).length }))
     .filter(({ score }) => score > 0)
     .sort((a, b) => b.score - a.score || b.candidate.updatedAt.localeCompare(a.candidate.updatedAt))
-    .slice(0, 3)
+    .slice(0, 6)
     .map(({ candidate }) => candidate);
 }
 
 export type { Idea, IdeaStatus } from "@/content/ideas/ideaSchema";
-

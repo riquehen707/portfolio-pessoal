@@ -22710,6 +22710,782 @@
           "slug": "melhores-filmes-animados-do-batman"
         }
       ]
+    },
+    {
+      "id": "mov_br_midnight_soul",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "a-meia-noite-levarei-sua-alma",
+      "aliases": [
+        "at-midnight-ill-take-your-soul"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "À Meia-Noite Levarei Sua Alma",
+      "originalTitle": "À Meia-Noite Levarei Sua Alma",
+      "year": 1964,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 81,
+      "countries": [
+        "Brasil"
+      ],
+      "directors": [
+        "José Mojica Marins"
+      ],
+      "screenwriters": [
+        "José Mojica Marins"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror"
+      ],
+      "subgenres": [
+        "Horror gótico",
+        "Cinema independente"
+      ],
+      "themes": [
+        "Superstição",
+        "Violência",
+        "Morte"
+      ],
+      "shortDescription": "Zé do Caixão desafia crenças e aterroriza uma comunidade enquanto procura a mulher que considera capaz de gerar seu herdeiro.",
+      "audienceProfile": "Para conhecer a origem de Zé do Caixão e um terror brasileiro artesanal, agressivo e historicamente decisivo.",
+      "experience": "Bruto, inventivo e profano",
+      "contentWarnings": [
+        "Violência",
+        "Misoginia",
+        "Crueldade"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "À Meia-Noite Levarei Sua Alma: ficha e análise do filme",
+        "description": "À Meia-Noite Levarei Sua Alma (1964): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "À Meia-Noite Levarei Sua Alma — Cinemateca Brasileira",
+          "url": "https://bases.cinemateca.org.br/cgi-bin/wxis.exe/iah/?IsisScript=iah%2Fiah.xis&base=FILMOGRAFIA&exprSearch=ID%3D017630&format=detailed.pft&lang=p&nextAction=lnk"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_br_tonight_corpse",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "esta-noite-encarnarei-no-teu-cadaver",
+      "aliases": [
+        "this-night-ill-possess-your-corpse"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Esta Noite Encarnarei no Teu Cadáver",
+      "originalTitle": "Esta Noite Encarnarei no Teu Cadáver",
+      "year": 1967,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 108,
+      "countries": [
+        "Brasil"
+      ],
+      "directors": [
+        "José Mojica Marins"
+      ],
+      "screenwriters": [
+        "José Mojica Marins"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror"
+      ],
+      "subgenres": [
+        "Horror gótico",
+        "Fantástico"
+      ],
+      "themes": [
+        "Censura",
+        "Inferno",
+        "Obsessão"
+      ],
+      "shortDescription": "Zé do Caixão retorna à busca por um herdeiro e enfrenta uma visão infernal que rompe o preto e branco do filme.",
+      "audienceProfile": "Para quem quer ver Mojica ampliar escala, imaginação visual e conflito com a censura sem suavizar a violência.",
+      "experience": "Delirante, cruel e visualmente audacioso",
+      "contentWarnings": [
+        "Sadismo",
+        "Violência contra mulheres",
+        "Tortura"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Esta Noite Encarnarei no Teu Cadáver: ficha e análise do filme",
+        "description": "Esta Noite Encarnarei no Teu Cadáver (1967): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Esta Noite Encarnarei no Teu Cadáver — Cinemateca Brasileira",
+          "url": "https://bases.cinemateca.org.br/cgi-bin/wxis.exe/iah/?IsisScript=iah%2Fiah.xis&base=FILMOGRAFIA&exprSearch=ID%3D003320&format=detailed.pft&lang=p&nextAction=lnk"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_br_embodiment_evil",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "encarnacao-do-demonio",
+      "aliases": [
+        "embodiment-of-evil"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Encarnação do Demônio",
+      "originalTitle": "Encarnação do Demônio",
+      "year": 2008,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 94,
+      "countries": [
+        "Brasil"
+      ],
+      "directors": [
+        "José Mojica Marins"
+      ],
+      "screenwriters": [
+        "José Mojica Marins",
+        "Dennison Ramalho"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror"
+      ],
+      "subgenres": [
+        "Horror corporal",
+        "Gore"
+      ],
+      "themes": [
+        "Legado",
+        "Obsessão",
+        "Velhice"
+      ],
+      "shortDescription": "Depois de décadas preso, Zé do Caixão volta às ruas de São Paulo para concluir sua busca por continuidade sanguínea.",
+      "audienceProfile": "Para adultos interessados no encerramento tardio da trilogia e preparados para violência gráfica intensa.",
+      "experience": "Excessivo, sangrento e testamentário",
+      "contentWarnings": [
+        "Gore extremo",
+        "Tortura",
+        "Violência sexual"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Encarnação do Demônio: ficha e análise do filme",
+        "description": "Encarnação do Demônio (2008): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Encarnação do Demônio — Cinemateca Brasileira, Relatório 2009",
+          "url": "https://cinemateca.org.br/wp-content/uploads/2024/07/relatorio_anual_2009.pdf"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_br_hard_labour",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "trabalhar-cansa",
+      "aliases": [
+        "hard-labour"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Trabalhar Cansa",
+      "originalTitle": "Trabalhar Cansa",
+      "year": 2011,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 99,
+      "countries": [
+        "Brasil"
+      ],
+      "directors": [
+        "Juliana Rojas",
+        "Marco Dutra"
+      ],
+      "screenwriters": [
+        "Juliana Rojas",
+        "Marco Dutra"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Drama",
+        "Terror"
+      ],
+      "subgenres": [
+        "Fantástico",
+        "Terror social"
+      ],
+      "themes": [
+        "Trabalho",
+        "Classe",
+        "Família"
+      ],
+      "shortDescription": "Uma mulher abre um pequeno mercado quando o marido perde o emprego, enquanto sinais físicos de algo errado ocupam o comércio.",
+      "audienceProfile": "Para quem prefere horror lento, cotidiano e ligado à precariedade do trabalho a explicações sobrenaturais completas.",
+      "experience": "Contido, opressivo e material",
+      "contentWarnings": [
+        "Precariedade",
+        "Animal morto",
+        "Tensão familiar"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Trabalhar Cansa: ficha e análise do filme",
+        "description": "Trabalhar Cansa (2011): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Trabalhar Cansa — Festival de Cannes",
+          "url": "https://www.festival-cannes.com/en/2011/trabalhar-cansa-hard-labour-the-fruit-of-a-long-collaboration/"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_br_when_alive",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "quando-eu-era-vivo",
+      "aliases": [
+        "when-i-was-alive"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Quando Eu Era Vivo",
+      "originalTitle": "Quando Eu Era Vivo",
+      "year": 2014,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 108,
+      "countries": [
+        "Brasil"
+      ],
+      "directors": [
+        "Marco Dutra"
+      ],
+      "screenwriters": [
+        "Marco Dutra",
+        "Gabriela Amaral Almeida"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror",
+        "Drama"
+      ],
+      "subgenres": [
+        "Sobrenatural",
+        "Psicológico"
+      ],
+      "themes": [
+        "Família",
+        "Memória",
+        "Obsessão"
+      ],
+      "shortDescription": "Um homem retorna à casa do pai e encontra objetos da mãe falecida, transformando lembranças familiares em obsessão e ameaça.",
+      "audienceProfile": "Para quem gosta de casas carregadas de memória, narradores instáveis e terror familiar de combustão lenta.",
+      "experience": "Doméstico, melancólico e inquietante",
+      "contentWarnings": [
+        "Luto",
+        "Sofrimento psíquico",
+        "Violência"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Quando Eu Era Vivo: ficha e análise do filme",
+        "description": "Quando Eu Era Vivo (2014): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Quando Eu Era Vivo — Festival do Rio",
+          "url": "https://www.festivaldorio.com.br/br/noticias/festival-do-rio-recomenda-filmes-de-terror-brasileiros-para-assistir-no-streaming"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_br_kill_me_please",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "mate-me-por-favor",
+      "aliases": [
+        "kill-me-please"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Mate-me Por Favor",
+      "originalTitle": "Mate-me Por Favor",
+      "year": 2015,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 104,
+      "countries": [
+        "Brasil",
+        "Argentina"
+      ],
+      "directors": [
+        "Anita Rocha da Silveira"
+      ],
+      "screenwriters": [
+        "Anita Rocha da Silveira"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Drama",
+        "Terror"
+      ],
+      "subgenres": [
+        "Coming of age",
+        "Psicológico"
+      ],
+      "themes": [
+        "Adolescência",
+        "Desejo",
+        "Morte"
+      ],
+      "shortDescription": "Assassinatos de jovens cercam a rotina de adolescentes da Barra da Tijuca, aproximando curiosidade, desejo e medo.",
+      "audienceProfile": "Para quem aceita humor estranho, juventude e horror sugerido em vez de uma investigação criminal convencional.",
+      "experience": "Pop, mórbido e adolescente",
+      "contentWarnings": [
+        "Assassinato",
+        "Violência sexual sugerida",
+        "Adolescentes em perigo"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Mate-me Por Favor: ficha e análise do filme",
+        "description": "Mate-me Por Favor (2015): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Mate-me Por Favor — Festival do Rio",
+          "url": "https://www.festivaldorio.com.br/br/noticias/festival-do-rio-recomenda-filmes-de-terror-brasileiros-para-assistir-no-streaming"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_br_friendly_animal",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "o-animal-cordial",
+      "aliases": [
+        "friendly-beast"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "O Animal Cordial",
+      "originalTitle": "O Animal Cordial",
+      "year": 2017,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 98,
+      "countries": [
+        "Brasil"
+      ],
+      "directors": [
+        "Gabriela Amaral Almeida"
+      ],
+      "screenwriters": [
+        "Gabriela Amaral Almeida"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror",
+        "Suspense"
+      ],
+      "subgenres": [
+        "Slasher",
+        "Terror social"
+      ],
+      "themes": [
+        "Classe",
+        "Masculinidade",
+        "Trabalho"
+      ],
+      "shortDescription": "Um assalto fecha funcionários, clientes e criminosos dentro de um restaurante e libera violências que já organizavam aquele espaço.",
+      "audienceProfile": "Para quem busca um slasher brasileiro concentrado em relações de classe, poder patronal e ressentimento.",
+      "experience": "Claustrofóbico, ácido e sangrento",
+      "contentWarnings": [
+        "Violência gráfica",
+        "Assédio",
+        "Humilhação"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "O Animal Cordial: ficha e análise do filme",
+        "description": "O Animal Cordial (2017): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "O Animal Cordial — Festival do Rio",
+          "url": "https://www.festivaldorio.com.br/br/noticias/explodir-com-o-mundo-para-comecar-um-novo"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_br_nightshifter",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "morto-nao-fala",
+      "aliases": [
+        "the-nightshifter"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Morto Não Fala",
+      "originalTitle": "Morto Não Fala",
+      "year": 2018,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 110,
+      "countries": [
+        "Brasil"
+      ],
+      "directors": [
+        "Dennison Ramalho"
+      ],
+      "screenwriters": [
+        "Dennison Ramalho",
+        "Cláudia Jouvin"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror",
+        "Suspense"
+      ],
+      "subgenres": [
+        "Sobrenatural",
+        "Horror urbano"
+      ],
+      "themes": [
+        "Morte",
+        "Culpa",
+        "Trabalho noturno"
+      ],
+      "shortDescription": "Um plantonista de necrotério capaz de ouvir cadáveres usa o dom para interferir na própria vida e desencadeia consequências violentas.",
+      "audienceProfile": "Para quem procura terror sobrenatural direto, atmosfera de necrotério e uma escalada de culpa e vingança.",
+      "experience": "Sombrio, físico e urbano",
+      "contentWarnings": [
+        "Cadáveres",
+        "Gore",
+        "Violência doméstica"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Morto Não Fala: ficha e análise do filme",
+        "description": "Morto Não Fala (2018): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Morto Não Fala — Festival do Rio",
+          "url": "https://www.festivaldorio.com.br/en/films/morto-nao-fala"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_br_fathers_shadow",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "a-sombra-do-pai",
+      "aliases": [
+        "the-fathers-shadow"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "A Sombra do Pai",
+      "originalTitle": "A Sombra do Pai",
+      "year": 2018,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 92,
+      "countries": [
+        "Brasil"
+      ],
+      "directors": [
+        "Gabriela Amaral Almeida"
+      ],
+      "screenwriters": [
+        "Gabriela Amaral Almeida"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Drama",
+        "Terror"
+      ],
+      "subgenres": [
+        "Sobrenatural",
+        "Fantástico"
+      ],
+      "themes": [
+        "Luto",
+        "Infância",
+        "Trabalho"
+      ],
+      "shortDescription": "Uma menina enlutada recorre a rituais para lidar com a ausência da mãe enquanto o pai é consumido pelo trabalho e pelo isolamento.",
+      "audienceProfile": "Para quem prefere uma assombração íntima observada pela infância e ligada ao desgaste material da família.",
+      "experience": "Triste, doméstico e assombrado",
+      "contentWarnings": [
+        "Luto materno",
+        "Negligência",
+        "Criança em perigo"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "A Sombra do Pai: ficha e análise do filme",
+        "description": "A Sombra do Pai (2018): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "A Sombra do Pai — Festival do Rio",
+          "url": "https://www.festivaldorio.com.br/br/noticias/festival-do-rio-recomenda-filmes-de-terror-brasileiros-para-assistir-no-streaming"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_br_medusa",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "medusa-anita-rocha",
+      "aliases": [
+        "medusa-2021"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Medusa",
+      "originalTitle": "Medusa",
+      "year": 2021,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 127,
+      "countries": [
+        "Brasil"
+      ],
+      "directors": [
+        "Anita Rocha da Silveira"
+      ],
+      "screenwriters": [
+        "Anita Rocha da Silveira"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Drama",
+        "Terror",
+        "Fantasia"
+      ],
+      "subgenres": [
+        "Horror corporal",
+        "Sátira"
+      ],
+      "themes": [
+        "Religião",
+        "Controle do corpo",
+        "Conservadorismo"
+      ],
+      "shortDescription": "Jovens religiosas patrulham outras mulheres à noite até que uma agressão desorganiza a disciplina estética e moral do grupo.",
+      "audienceProfile": "Para quem aceita cores artificiais, sátira religiosa e horror corporal numa narrativa deliberadamente excessiva.",
+      "experience": "Neon, satírico e corporal",
+      "contentWarnings": [
+        "Violência contra mulheres",
+        "Fanatismo religioso",
+        "Horror corporal"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Medusa: ficha e análise do filme",
+        "description": "Medusa (2021): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Medusa — Festival do Rio",
+          "url": "https://www.festivaldorio.com.br/br/noticias/festival-do-rio-recomenda-filmes-de-terror-brasileiros-para-assistir-no-streaming"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_br_property",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "propriedade",
+      "aliases": [
+        "property-2022"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Propriedade",
+      "originalTitle": "Propriedade",
+      "internationalTitle": "Property",
+      "year": 2022,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 100,
+      "countries": [
+        "Brasil"
+      ],
+      "directors": [
+        "Daniel Bandeira"
+      ],
+      "screenwriters": [
+        "Daniel Bandeira"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Suspense",
+        "Terror"
+      ],
+      "subgenres": [
+        "Cerco",
+        "Terror social"
+      ],
+      "themes": [
+        "Classe",
+        "Terra",
+        "Violência"
+      ],
+      "shortDescription": "Uma mulher se refugia num carro blindado quando trabalhadores de uma propriedade rural se revoltam contra os patrões.",
+      "audienceProfile": "Para quem busca tensão física sem saída confortável e um conflito de classe que recusa vítimas perfeitamente inocentes.",
+      "experience": "Seco, tenso e politicamente corrosivo",
+      "contentWarnings": [
+        "Violência gráfica",
+        "Conflito de classe",
+        "Cativeiro"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Propriedade: ficha e análise do filme",
+        "description": "Propriedade (2022): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Propriedade — Berlinale 2023",
+          "url": "https://www.berlinale.de/media/download/presse/dossier/pressedossier-2023.pdf"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_br_bury_dead",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "enterre-seus-mortos",
+      "aliases": [
+        "bury-your-dead"
+      ],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Enterre Seus Mortos",
+      "originalTitle": "Enterre Seus Mortos",
+      "internationalTitle": "Bury Your Dead",
+      "year": 2024,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 128,
+      "countries": [
+        "Brasil"
+      ],
+      "directors": [
+        "Marco Dutra"
+      ],
+      "screenwriters": [
+        "Marco Dutra",
+        "Caetano Gotardo"
+      ],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror",
+        "Ficção científica",
+        "Drama"
+      ],
+      "subgenres": [
+        "Distopia",
+        "Horror rural"
+      ],
+      "themes": [
+        "Morte",
+        "Trabalho",
+        "Colapso social"
+      ],
+      "shortDescription": "Um removedor de animais mortos atravessa estradas de uma região em decomposição enquanto sinais de catástrofe se acumulam.",
+      "audienceProfile": "Para quem procura uma distopia brasileira árida, religiosa e interessada no trabalho cotidiano diante do fim.",
+      "experience": "Apocalíptico, rural e febril",
+      "contentWarnings": [
+        "Animais mortos",
+        "Violência",
+        "Apocalipse religioso"
+      ],
+      "status": "draft",
+      "seo": {
+        "title": "Enterre Seus Mortos: ficha e análise do filme",
+        "description": "Enterre Seus Mortos (2024): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Enterre Seus Mortos — Festival do Rio",
+          "url": "https://www.festivaldorio.com.br/br/noticias/festival-do-rio-recomenda-filmes-de-terror-brasileiros-para-assistir-no-streaming"
+        }
+      ],
+      "relationships": []
     }
   ]
 }

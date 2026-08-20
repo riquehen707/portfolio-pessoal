@@ -128,6 +128,50 @@ const kyotoAnimationPeople:Creator[] = [
   sources:[{title:"Corporate Profile — Kyoto Animation",url:"https://www.kyotoanimation.co.jp/en/company/profile/",kind:"primary"}],
   createdAt:"2026-08-13",updatedAt:"2026-08-13",
 }));
+const creatorVisuals: Partial<Record<string, Pick<Creator, "image" | "countryOrRegion" | "occupations" | "birthDate" | "birthYear" | "deathDate">>> = {
+  person_byung_chul_han: {
+    image: {
+      src: "/images/personalities/byung-chul-han.jpg",
+      alt: "Retrato de Byung-Chul Han durante o Prix Bristol des Lumières de 2015",
+      credit: "ActuaLitté; recorte de MRCLD, Wikimedia Commons",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Byung-Chul_Han.jpg",
+      license: "CC BY-SA 4.0",
+      licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+    },
+    countryOrRegion: "Coreia do Sul / Alemanha",
+    occupations: ["Filósofo", "Ensaísta", "Professor"],
+    birthYear: 1959,
+  },
+  person_hannah_arendt: {
+    image: {
+      src: "/images/personalities/hannah-arendt.jpg",
+      alt: "Retrato de Hannah Arendt em 1924",
+      credit: "Autor desconhecido; reprodução preservada no Wikimedia Commons",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Hannah_Arendt_1924.jpg",
+      license: "Domínio público nos Estados Unidos; situação territorial descrita na fonte",
+      licenseUrl: "https://commons.wikimedia.org/wiki/File:Hannah_Arendt_1924.jpg#Licensing",
+    },
+    countryOrRegion: "Alemanha / Estados Unidos",
+    occupations: ["Filósofa", "Teórica política", "Escritora"],
+    birthDate: "1906-10-14",
+    deathDate: "1975-12-04",
+  },
+  person_agostinho_hipona: {
+    image: {
+      src: "/images/personalities/agostinho-de-hipona.jpg",
+      alt: "Retrato histórico de Agostinho de Hipona na Basílica de São João de Latrão, em Roma",
+      credit: "Mosaico do século VI; reprodução no Wikimedia Commons",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:AugustineLateran.jpg",
+      license: "Domínio público",
+      licenseUrl: "https://commons.wikimedia.org/wiki/Commons:Public_domain",
+    },
+    countryOrRegion: "Norte da África romana",
+    occupations: ["Filósofo", "Teólogo", "Bispo de Hipona"],
+    birthDate: "0354-11-13",
+    deathDate: "0430-08-28",
+  },
+};
+
 const vampireBookAuthors: Creator[] = [
   ["person_john_polidori","john-polidori","John Polidori","Autor britânico de O Vampiro."],
   ["person_sheridan_le_fanu","sheridan-le-fanu","Sheridan Le Fanu","Escritor irlandês e autor de Carmilla."],
@@ -188,6 +232,8 @@ const vampireBookAuthors: Creator[] = [
   ["person_steve_niles","steve-niles","Steve Niles","Roteirista norte-americano de quadrinhos de terror."],
   ["person_ben_templesmith","ben-templesmith","Ben Templesmith","Artista australiano de quadrinhos."],
   ["person_scott_snyder","scott-snyder","Scott Snyder","Roteirista norte-americano de quadrinhos."],
+  ["person_nick_dragotta","nick-dragotta","Nick Dragotta","Desenhista e cocriador norte-americano de quadrinhos."],
+  ["person_neil_gaiman","neil-gaiman","Neil Gaiman","Escritor e roteirista britânico de romances, contos e quadrinhos."],
   ["person_rafael_albuquerque","rafael-albuquerque","Rafael Albuquerque","Quadrinista brasileiro."],
   ["person_mike_mignola","mike-mignola","Mike Mignola","Quadrinista norte-americano e criador de Hellboy e Baltimore."],
   ["person_christopher_golden","christopher-golden","Christopher Golden","Escritor e roteirista norte-americano."],
@@ -253,6 +299,7 @@ const vampireBookAuthors: Creator[] = [
   ["person_tomoko_ninomiya","tomoko-ninomiya","Tomoko Ninomiya","Mangaká japonesa."],
 ].map(([id,slug,name,summary])=>CreatorSchema.parse({
   id, slug, name, summary, kind:"person", workIds:[],
+  ...creatorVisuals[id],
   status:id === "person_stephen_king" ? "published" : "draft",
   ...(id === "person_stephen_king" ? {
     profilePath:"/personalidades/stephen-king",
@@ -334,6 +381,8 @@ const nietzschePeople: Creator[] = [
     relatedPersonIds:["person_arthur_schopenhauer","person_richard_wagner","person_elisabeth_forster_nietzsche"],
     relatedLinks:[
       {label:"Friedrich Nietzsche: vida, ideias, obras e por onde começar",href:"/blog/friedrich-nietzsche",kind:"article"},
+      {label:"O que é niilismo? De Nietzsche ao uso atual",href:"/blog/o-que-e-niilismo",kind:"article"},
+      {label:"Amor fati: o que Nietzsche queria dizer",href:"/blog/amor-fati-significado-nietzsche",kind:"article"},
       {label:"Arthur Schopenhauer: vida, filosofia, obras e por onde começar",href:"/blog/arthur-schopenhauer",kind:"article"},
     ],
     sources:[
@@ -353,4 +402,96 @@ const nietzschePeople: Creator[] = [
   ].map((person)=>CreatorSchema.parse({...person,kind:"person",status:"draft",workIds:[],sources:[{title:"Nietzsche’s Life and Works — Stanford Encyclopedia of Philosophy",url:"https://plato.stanford.edu/entries/nietzsche-life-works/",kind:"secondary"}],createdAt:"2026-08-14",updatedAt:"2026-08-14"})),
 ];
 
-export const creators = [shingoTamagawa, upamanyuBhattacharyya, kalpSanghvi,...teamCherryPeople,...cartoonSaloonPeople,...ghibliPeople,...laikaPeople,...aardmanPeople,...scienceSaruPeople,...kyotoAnimationPeople,...vampireBookAuthors,...nietzschePeople];
+const jungPeople: Creator[] = [
+  CreatorSchema.parse({
+    id:"person_carl_jung",slug:"carl-jung",name:"Carl Jung",fullName:"Carl Gustav Jung",kind:"person",status:"published",profilePath:"/personalidades/carl-jung",
+    image:{
+      src:"/images/personalities/carl-jung.jpg",
+      alt:"Retrato de corpo inteiro de Carl Gustav Jung no Burghölzli, por volta de 1909",
+      credit:"Autor desconhecido; Library of Congress / Wikimedia Commons",
+      sourceUrl:"https://commons.wikimedia.org/wiki/File:Jung_1910.jpg",
+      license:"Domínio público nos Estados Unidos; situação territorial descrita na fonte",
+      licenseUrl:"https://commons.wikimedia.org/wiki/File:Jung_1910.jpg#Licensing",
+    },
+    birthDate:"1875-07-26",deathDate:"1961-06-06",birthPlace:"Kesswil, Suíça",countryOrRegion:"Suíça",
+    occupations:["Psiquiatra", "Psicoterapeuta", "Ensaísta"],
+    summary:"Psiquiatra suíço que fundou a psicologia analítica e desenvolveu conceitos como inconsciente coletivo, arquétipos, individuação e tipos psicológicos.",
+    biography:[
+      "Jung formou-se em medicina e trabalhou no hospital Burghölzli, em Zurique, sob Eugen Bleuler. Seus experimentos de associação de palavras contribuíram para a investigação dos complexos e aproximaram-no da psicanálise.",
+      "A colaboração com Sigmund Freud tornou Jung uma figura central do movimento psicanalítico internacional. Divergências sobre libido, religião, mito e a extensão do inconsciente levaram ao rompimento entre 1912 e 1914.",
+      "Nas décadas seguintes, Jung chamou seu projeto de psicologia analítica. Sua obra circulou pela psicoterapia, estudos da religião, literatura e artes, mas conceitos centrais continuam sujeitos a disputas interpretativas e críticas científicas.",
+    ],
+    themes:["Psicologia analítica", "Inconsciente", "Arquétipos", "Individuação", "Sonhos e símbolos"],
+    ideas:[
+      {title:"Inconsciente coletivo",description:"Camada hipotética da psique que não deriva apenas da experiência pessoal e cujas disposições estruturais Jung chamou de arquétipos."},
+      {title:"Individuação",description:"Processo de diferenciação e integração pelo qual a pessoa se relaciona com aspectos conscientes e inconscientes sem reduzir o Self ao ego."},
+      {title:"Tipos psicológicos",description:"Modelo de atitudes e funções psíquicas que influenciou tipologias posteriores, embora estas não sejam equivalentes à teoria original."},
+    ],
+    workIds:[],startingPoints:[],relatedPersonIds:[],
+    relatedLinks:[
+      {label:"Carl Jung: quem foi, principais ideias e sua influência",href:"/blog/carl-jung",kind:"article"},
+      {label:"O que é arquétipo? De Carl Jung ao uso popular",href:"/blog/o-que-e-arquetipo",kind:"article"},
+    ],
+    sources:[
+      {title:"Jungian Psychology Lectures — IAAP",url:"https://www.iaap.org/wp-content/uploads/2021/10/Jungian-Psychotherapy-origin-history-and-contemporary-forms-part-I-2.pdf",kind:"secondary"},
+      {title:"Retrato de Carl Jung, c. 1909 — Library of Congress",url:"https://www.loc.gov/pictures/item/98514811/",kind:"primary"},
+    ],
+    createdAt:"2026-08-20",updatedAt:"2026-08-20",
+  }),
+];
+
+const philosophyPeople: Creator[] = [
+  CreatorSchema.parse({
+    id:"person_byung_chul_han",slug:"byung-chul-han",name:"Byung-Chul Han",kind:"person",status:"published",profilePath:"/personalidades/byung-chul-han",
+    image:creatorVisuals.person_byung_chul_han!.image,birthYear:1959,countryOrRegion:"Coreia do Sul / Alemanha",occupations:["Filósofo", "Ensaísta", "Professor"],
+    summary:"Filósofo e ensaísta sul-coreano radicado na Alemanha que investiga desempenho, tecnologia, atenção, transparência e formas contemporâneas de poder.",
+    biography:[
+      "Nascido em Seul, Byung-Chul Han estudou metalurgia antes de mudar-se para a Alemanha, onde estudou filosofia, literatura alemã e teologia católica. Doutorou-se em Freiburg com uma pesquisa sobre Martin Heidegger.",
+      "Sua circulação pública está ligada a ensaios breves que descrevem autoexploração, excesso de positividade, transparência, psicopolítica e perda da contemplação. A concisão torna os problemas acessíveis, mas também exige distinguir diagnóstico filosófico, metáfora e evidência empírica.",
+    ],
+    themes:["Sociedade do desempenho", "Tecnologia e poder", "Atenção", "Cansaço", "Contemplação"],
+    ideas:[
+      {title:"Sociedade do desempenho",description:"Forma social em que a exigência aparece como iniciativa, otimização e projeto pessoal, favorecendo autoexploração."},
+      {title:"Excesso de positividade",description:"Acúmulo de estímulos, comunicação e possibilidades que reduz espaço para limite, pausa e alteridade."},
+      {title:"Psicopolítica",description:"Poder que mobiliza liberdade, desejo, dados e participação em vez de depender apenas de proibição externa."},
+      {title:"Atenção e contemplação",description:"Práticas de demora e receptividade que resistem à fragmentação produtiva do tempo."},
+    ],
+    workIds:[],startingPoints:[{workId:"read_work_burnout_society",note:"Entrada curta para compreender desempenho, autoexploração e cansaço, acompanhada de leitura crítica das generalizações."}],relatedPersonIds:["person_hannah_arendt"],
+    relatedLinks:[{label:"Byung-Chul Han: conceitos, obras, críticas e por onde começar",href:"/blog/byung-chul-han",kind:"article"},{label:"Sociedade do Cansaço: resumo, ideias e críticas",href:"/blog/sociedade-do-cansaco-resumo",kind:"article"}],
+    sources:[{title:"Byung-Chul Han — University of the Arts Berlin",url:"https://www.udk-berlin.de/person/byung-chul-han/",kind:"primary"},{title:"The Burnout Society — Stanford University Press",url:"https://www.sup.org/books/theory-and-philosophy/burnout-society",kind:"secondary"},{title:"Retrato de Byung-Chul Han — Wikimedia Commons",url:"https://commons.wikimedia.org/wiki/File:Byung-Chul_Han.jpg",kind:"secondary"}],createdAt:"2026-08-20",updatedAt:"2026-08-20",
+  }),
+  CreatorSchema.parse({
+    id:"person_hannah_arendt",slug:"hannah-arendt",name:"Hannah Arendt",fullName:"Johanna Arendt",kind:"person",status:"published",profilePath:"/personalidades/hannah-arendt",
+    image:creatorVisuals.person_hannah_arendt!.image,birthDate:"1906-10-14",deathDate:"1975-12-04",birthPlace:"Linden, Hanôver, Império Alemão",countryOrRegion:"Alemanha / Estados Unidos",occupations:["Teórica política", "Filósofa", "Escritora"],
+    summary:"Pensadora política germano-americana que investigou totalitarismo, ação, liberdade, responsabilidade e as condições de um mundo comum.",
+    biography:["Nascida numa família judaica alemã, Arendt estudou com Martin Heidegger e Karl Jaspers e escreveu sua tese sobre o amor em Agostinho. Fugiu da Alemanha em 1933, viveu em Paris e chegou aos Estados Unidos em 1941.","Sua obra examina experiências políticas do século XX sem formar um sistema fechado. Totalitarismo, ação, pluralidade, julgamento e responsabilidade conectam história, filosofia e atenção às instituições."],
+    themes:["Totalitarismo", "Ação e pluralidade", "Liberdade política", "Julgamento", "Mundo comum"],
+    ideas:[{title:"Ação",description:"Atividade política pela qual pessoas iniciam algo e aparecem umas diante das outras em condição de pluralidade."},{title:"Banalidade do mal",description:"Formulação ligada ao julgamento de Eichmann sobre irreflexão, responsabilidade e funcionamento burocrático; não significa que o mal seja pequeno."},{title:"Poder e violência",description:"Poder nasce da ação conjunta e não é idêntico à violência, embora ambos possam se combinar historicamente."},{title:"Pluralidade",description:"Condição de igualdade e diferença que torna possível falar, agir e compartilhar um mundo."}],
+    workIds:[],startingPoints:[],relatedPersonIds:["person_agostinho_hipona"],
+    relatedLinks:[{label:"Hannah Arendt: ideias, obras e controvérsias",href:"/blog/hannah-arendt",kind:"article"},{label:"Os principais filósofos da história",href:"/blog/principais-filosofos-da-historia",kind:"article"}],
+    sources:[{title:"Hannah Arendt — Stanford Encyclopedia of Philosophy",url:"https://plato.stanford.edu/entries/arendt/",kind:"secondary"},{title:"Hannah Arendt Papers — Library of Congress",url:"https://www.loc.gov/collections/hannah-arendt-papers/",kind:"primary"},{title:"Retrato de Hannah Arendt — Wikimedia Commons",url:"https://commons.wikimedia.org/wiki/File:Hannah_Arendt_1924.jpg",kind:"secondary"}],createdAt:"2026-08-20",updatedAt:"2026-08-20",
+  }),
+  CreatorSchema.parse({
+    id:"person_agostinho_hipona",slug:"agostinho-de-hipona",name:"Agostinho de Hipona",fullName:"Aurélio Agostinho",originalName:"Aurelius Augustinus",kind:"person",status:"published",profilePath:"/personalidades/agostinho-de-hipona",
+    image:creatorVisuals.person_agostinho_hipona!.image,birthDate:"0354-11-13",deathDate:"0430-08-28",birthPlace:"Tagaste, África romana",countryOrRegion:"Norte da África romana",occupations:["Filósofo", "Teólogo", "Bispo de Hipona"],
+    summary:"Filósofo e teólogo da Antiguidade tardia que articulou cristianismo, platonismo e investigação da vontade, do mal, da memória, do tempo e da história.",
+    biography:["Agostinho nasceu em Tagaste, no Norte da África romana, estudou e ensinou retórica. Após passagens pelo maniqueísmo e pelo ceticismo acadêmico, aproximou-se de leituras platônicas e converteu-se ao cristianismo em Milão.","De volta à África, tornou-se presbítero e bispo de Hipona. Seus escritos unem controvérsia teológica, interpretação bíblica e investigação filosófica; separá-los completamente segundo disciplinas modernas distorce o projeto."],
+    themes:["Vontade e liberdade", "Problema do mal", "Memória e interioridade", "Tempo", "Filosofia da história"],
+    ideas:[{title:"Mal como privação",description:"O mal não é uma substância rival do bem; descreve corrupção ou falta numa realidade criada."},{title:"Livre-arbítrio e graça",description:"A responsabilidade da vontade e a dependência da graça formam uma tensão central, desenvolvida de maneiras diferentes ao longo da obra."},{title:"Tempo",description:"A experiência temporal conecta memória do passado, atenção ao presente e expectativa do futuro."},{title:"Interioridade",description:"O retorno à mente não é isolamento: procura verdade, memória, vontade e relação com Deus."}],
+    workIds:[],startingPoints:[],relatedPersonIds:["person_hannah_arendt"],relatedLinks:[{label:"Agostinho de Hipona: vida, ideias e influência",href:"/blog/agostinho-de-hipona",kind:"article"},{label:"Os principais filósofos da história",href:"/blog/principais-filosofos-da-historia",kind:"article"}],
+    sources:[{title:"Augustine of Hippo — Stanford Encyclopedia of Philosophy",url:"https://plato.stanford.edu/entries/augustine/",kind:"secondary"},{title:"Obras de Agostinho — Augustinus.it",url:"https://www.augustinus.it/",kind:"primary"},{title:"Representação de Agostinho no Latrão — Wikimedia Commons",url:"https://commons.wikimedia.org/wiki/File:AugustineLateran.jpg",kind:"secondary"}],createdAt:"2026-08-20",updatedAt:"2026-08-20",
+  }),
+  CreatorSchema.parse({
+    id:"person_thomas_hobbes",slug:"thomas-hobbes",name:"Thomas Hobbes",kind:"person",status:"published",profilePath:"/personalidades/thomas-hobbes",
+    image:{src:"/images/personalities/thomas-hobbes.jpg",alt:"Retrato de Thomas Hobbes pintado por John Michael Wright por volta de 1669–1670",credit:"John Michael Wright; National Portrait Gallery / Wikimedia Commons",sourceUrl:"https://commons.wikimedia.org/wiki/File:Thomas_Hobbes_by_John_Michael_Wright.jpg",license:"Domínio público",licenseUrl:"https://creativecommons.org/publicdomain/mark/1.0/"},
+    birthDate:"1588-04-05",deathDate:"1679-12-04",birthPlace:"Westport, Wiltshire, Inglaterra",countryOrRegion:"Inglaterra",occupations:["Filósofo", "Historiador", "Tradutor"],
+    summary:"Filósofo inglês que investigou linguagem, matéria, liberdade e a autoridade política necessária para escapar da insegurança do estado de natureza.",
+    biography:["Hobbes estudou em Oxford e trabalhou por décadas com a família Cavendish, relação que lhe deu acesso a bibliotecas e redes intelectuais europeias. Traduziu Tucídides e participou de debates sobre ciência, religião e política.","Escreveu durante conflitos que culminaram nas guerras civis inglesas. Leviatã organiza uma teoria materialista da pessoa, do pacto e da soberania; reduzir Hobbes à defesa de um governante cruel apaga o problema da paz civil que orienta o argumento."],
+    themes:["Contrato social", "Soberania", "Medo e autopreservação", "Liberdade e necessidade", "Materialismo"],
+    ideas:[{title:"Estado de natureza",description:"Situação teórica sem poder comum capaz de garantir pactos, marcada por insegurança mesmo quando não há combate contínuo."},{title:"Contrato e soberania",description:"Pessoas autorizam um poder comum para tornar possível a paz; a extensão e os limites dessa autorização permanecem debatidos."},{title:"Liberdade",description:"Ausência de impedimentos externos, compatível em sua teoria com causas necessárias e obrigações civis."},{title:"Representação",description:"O soberano age em nome da pessoa artificial do Estado criada pela autorização dos indivíduos."}],
+    workIds:[],startingPoints:[],relatedPersonIds:[],relatedLinks:[{label:"Os principais filósofos da história",href:"/blog/principais-filosofos-da-historia",kind:"article"}],
+    sources:[{title:"Thomas Hobbes — Stanford Encyclopedia of Philosophy",url:"https://plato.stanford.edu/entries/hobbes/",kind:"secondary"},{title:"Hobbes’s Moral and Political Philosophy — Stanford Encyclopedia of Philosophy",url:"https://plato.stanford.edu/entries/hobbes-moral/",kind:"secondary"},{title:"Retrato de Thomas Hobbes — Wikimedia Commons",url:"https://commons.wikimedia.org/wiki/File:Thomas_Hobbes_by_John_Michael_Wright.jpg",kind:"secondary"}],createdAt:"2026-08-20",updatedAt:"2026-08-20",
+  }),
+];
+
+export const creators = [shingoTamagawa, upamanyuBhattacharyya, kalpSanghvi,...teamCherryPeople,...cartoonSaloonPeople,...ghibliPeople,...laikaPeople,...aardmanPeople,...scienceSaruPeople,...kyotoAnimationPeople,...vampireBookAuthors,...nietzschePeople,...jungPeople,...philosophyPeople];

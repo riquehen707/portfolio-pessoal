@@ -1,4 +1,5 @@
 import { creators } from "@/content/creators/creators";
+import { organizationsById } from "@/content/organizations/organizations";
 import { readingEditions, readingOffers, readingVolumes, readingWorks } from "@/content/reading/reading";
 import type { ReadingEdition, ReadingOffer, ReadingWork } from "@/content/reading/readingSchema";
 
@@ -38,3 +39,4 @@ export function getReadingCreditNames(work: ReadingWork) {
 
 export const readingTitle = (work: ReadingWork) => work.titleBr ?? work.originalTitle;
 export const readingYear = (work: ReadingWork) => work.publicationStart?.slice(0, 4);
+export const readingPublisher = (edition?: ReadingEdition) => edition ? organizationsById.get(edition.publisherId)?.name : undefined;

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ReadingCardMedia } from "./ReadingCardMedia";
-import { getReadingCardEdition, getReadingCardOffers, getReadingCreditNames, getReadingWorkOrThrow, isGraphicReadingWork, readingTitle, readingYear } from "./readingCardData";
+import { getReadingCardEdition, getReadingCardOffers, getReadingCreditNames, getReadingWorkOrThrow, isGraphicReadingWork, readingPublisher, readingTitle, readingYear } from "./readingCardData";
 import styles from "./BookCard.module.scss";
 
 const categoryLabels: Record<string, string> = {
@@ -14,6 +14,7 @@ export function BookCard({ workId, comment, variant = "editorial", priority = fa
   const offers = getReadingCardOffers(edition);
   const title = readingTitle(work);
   const authors = getReadingCreditNames(work);
+  const publisher = readingPublisher(edition);
   const category = work.format === "light-novel" ? "Light novel" : work.genres[0] ?? categoryLabels[work.categories[0]];
   const titleNode = work.status === "published" ? <Link href={`/livros/${work.slug}`}>{title}</Link> : title;
 
@@ -23,7 +24,7 @@ export function BookCard({ workId, comment, variant = "editorial", priority = fa
       {work.format === "light-novel" ? <span className={styles.badge}>Light novel</span> : null}
       <h3>{titleNode}</h3>
       {authors.length ? <p className={styles.authors}>{authors.join(" · ")}</p> : null}
-      <div className={styles.meta}>{readingYear(work) ? <span>{readingYear(work)}</span> : null}{category ? <span>{category}</span> : null}</div>
+      <div className={styles.meta}>{readingYear(work) ? <span>{readingYear(work)}</span> : null}{category ? <span>{category}</span> : null}{publisher ? <span>{publisher}</span> : null}</div>
       {variant === "library" ? <p className={styles.description}>{work.shortDescription}</p> : null}
       {variant === "library" ? <p className={styles.editionState}>{edition ? `Edição cadastrada: ${edition.title}` : "Edição brasileira ainda não confirmada"}</p> : null}
       {comment ? <p className={styles.comment}>{comment}</p> : null}

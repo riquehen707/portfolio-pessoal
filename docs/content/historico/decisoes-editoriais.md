@@ -8,6 +8,22 @@ Registrar propostas e experimentos com contexto e continuidade, sem transformar 
 Substituição:
 A área `/ideias` usa registros locais validados por Zod, ID permanente independente do slug e uma fachada assíncrona preparada para outra fonte de dados. `status` descreve a evolução da ideia; `publicationStatus` controla sua exposição pública. Mudanças relevantes entram como novos itens em `updates`, preservados em ordem histórica e exibidos do mais recente para o mais antigo.
 
+## 2026-08-20 — Visibilidade não substitui armazenamento privado
+
+Motivo:
+Permitir que o domínio reconheça ideias privadas sem expor vantagem competitiva em um repositório versionado, no bundle ou em superfícies públicas.
+
+Substituição:
+`visibility` passa a distinguir registros `public` e `private`, mas o catálogo local aceita como prática editorial somente conteúdo público. Ideias privadas só serão cadastradas em uma fonte segura futura, consultada no servidor. Rota, busca, sitemap e JSON-LD usam exclusivamente registros que sejam ao mesmo tempo públicos e publicados.
+
+## 2026-08-20 — Tipos e estágios organizam sem virar dashboard
+
+Motivo:
+O arquivo passou a reunir pensamentos, projetos implementados, experimentos, negócios e pesquisas em estágios diferentes.
+
+Substituição:
+`type` usa o vocabulário `idea`, `project`, `experiment`, `business` e `research`; relações continuam normalizadas por IDs permanentes em `relatedIdeaIds`. O índice agrupa registros por estágio editorial — em desenvolvimento, explorando, no papel e outros caminhos — dentro dos filtros existentes, sem métricas operacionais, kanban ou narrativa obrigatória de sucesso.
+
 Registre somente decisões permanentes do sistema, com motivo e substituição. Não registrar preferências temporárias de uma pauta.
 
 ## 2026-08-18 — Listas e fichas de filmes têm diretrizes distintas

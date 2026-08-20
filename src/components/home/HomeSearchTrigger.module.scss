@@ -1,0 +1,43 @@
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: min(100%, 44rem);
+  min-height: 3.75rem;
+  margin-top: 1.5rem;
+  padding: 0 1.1rem;
+  border: 1px solid var(--line-subtle);
+  border-radius: 1.1rem;
+  background: var(--surface-panel-soft);
+  color: var(--neutral-on-background-medium);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.trigger svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: 0 0 auto;
+}
+.trigger span {
+  flex: 1;
+}
+.trigger kbd {
+  padding: 0.25rem 0.45rem;
+  border: 1px solid var(--line-subtle);
+  border-radius: 0.4rem;
+  font-size: 0.68rem;
+}
+.trigger:focus-visible {
+  outline: 2px solid var(--neutral-on-background-strong);
+  outline-offset: 3px;
+}
+@media (max-width: 520px) {
+  .trigger {
+    min-height: 3.5rem;
+    font-size: 0.85rem;
+  }
+  .trigger kbd {
+    display: none;
+  }
+}

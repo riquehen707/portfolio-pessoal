@@ -82,7 +82,7 @@ export default async function PersonalityPage({ params }: Props) {
     "@context":"https://schema.org", "@type":"Person", "@id":`${baseURL}${path}#person`,
     name:person.name, alternateName:[person.fullName,person.originalName].filter(Boolean), description:person.summary,
     birthDate:person.birthDate, deathDate:person.deathDate, birthPlace:person.birthPlace ? {"@type":"Place",name:person.birthPlace} : undefined,
-    nationality:person.countryOrRegion, jobTitle:person.occupations, image:person.image?`${baseURL}${person.image.src}`:undefined, url:`${baseURL}${path}`,
+    nationality:person.countryOrRegion, jobTitle:person.occupations, knowsAbout:person.themes, image:person.image?`${baseURL}${person.image.src}`:undefined, url:`${baseURL}${path}`,
   };
 
   return <main className={styles.page}>

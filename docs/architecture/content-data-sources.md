@@ -27,6 +27,8 @@ Rotas, cards, sitemap e componentes SEO não devem importar `movies.ts`, `curati
 
 Não foi criado um repositório universal. Cada novo catálogo deverá ter schema e interface próprios quando existir uma necessidade real.
 
+O contrato de ideias possui `visibility`, mas o adaptador local versionado armazena apenas conteúdo público. Registros privados exigem uma fonte segura, autenticada e consultada somente no servidor; `draft` não é mecanismo de confidencialidade. As consultas usadas por páginas, busca, sitemap e dados estruturados filtram simultaneamente `visibility: "public"` e `publicationStatus: "published"`.
+
 ## Identidade e portabilidade
 
 Filmes e ideias possuem ID permanente independente do slug, `contentType`, `schemaVersion`, slug atual, aliases, status, datas, SEO, imagem desacoplada e relações exportáveis. Alterar um slug exige preservar o ID e adicionar o caminho anterior em `aliases`. Antes de publicar um alias, deve-se configurar redirecionamento permanente e verificar canonical e status HTTP.
