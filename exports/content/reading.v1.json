@@ -8245,15 +8245,355 @@
       "publisherId": "org_editora_aleph",
       "country": "Brasil",
       "language": "Português",
-      "medium": "paperback",
+      "medium": "hardcover",
+      "publicationDate": "2026-06-23",
+      "isbn13": "9788576578086",
+      "pageCount": 280,
+      "cover": {
+        "src": "/images/reading/eu-sou-a-lenda-aleph-2026.webp",
+        "alt": "Capa da edição brasileira de 2026 de Eu Sou a Lenda publicada pela Editora Aleph",
+        "sourceUrl": "https://aleph.com.br/products/eu-sou-a-lenda-capa-dura",
+        "credit": "Editora Aleph",
+        "rights": "permission-pending",
+        "width": 700,
+        "height": 1000
+      },
       "translationCredits": [],
-      "availabilityStatus": "unavailable",
+      "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
       "status": "published",
       "sources": [
         {
           "title": "Eu Sou a Lenda — edição brasileira",
-          "url": "https://editoraaleph.com.br/pages/richard-matheson"
+          "url": "https://aleph.com.br/products/eu-sou-a-lenda-capa-dura"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_birth_tragedy_companhia",
+      "workId": "read_work_birth_tragedy",
+      "title": "O Nascimento da Tragédia",
+      "publisherId": "org_companhia_de_bolso",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2020-03-23",
+      "isbn13": "9788535933093",
+      "pageCount": 184,
+      "cover": {
+        "src": "/images/reading/o-nascimento-da-tragedia-companhia.webp",
+        "alt": "Capa da edição brasileira de O Nascimento da Tragédia publicada pela Companhia de Bolso",
+        "sourceUrl": "https://www.companhiadasletras.com.br/livro/9788535933093/o-nascimento-da-tragedia",
+        "credit": "Companhia de Bolso",
+        "rights": "permission-pending",
+        "width": 451,
+        "height": 650
+      },
+      "translationCredits": [],
+      "availabilityStatus": "available",
+      "availabilityCheckedAt": "2026-08-13",
+      "status": "published",
+      "sources": [
+        {
+          "title": "O Nascimento da Tragédia — edição brasileira",
+          "url": "https://www.companhiadasletras.com.br/livro/9788535933093/o-nascimento-da-tragedia"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_human_all_too_human_companhia",
+      "workId": "read_work_human_all_too_human",
+      "title": "Humano, Demasiado Humano",
+      "publisherId": "org_companhia_de_bolso",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2005-12-07",
+      "isbn13": "9788535907629",
+      "pageCount": 320,
+      "cover": {
+        "src": "/images/reading/humano-demasiado-humano-companhia.webp",
+        "alt": "Capa da edição brasileira de Humano, Demasiado Humano publicada pela Companhia de Bolso",
+        "sourceUrl": "https://www.companhiadasletras.com.br/livro/9788535907629/humano-demasiado-humano",
+        "credit": "Companhia de Bolso",
+        "rights": "permission-pending",
+        "width": 448,
+        "height": 650
+      },
+      "translationCredits": [],
+      "availabilityStatus": "available",
+      "availabilityCheckedAt": "2026-08-13",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Humano, Demasiado Humano — edição brasileira",
+          "url": "https://www.companhiadasletras.com.br/livro/9788535907629/humano-demasiado-humano"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_dawn_nietzsche_companhia",
+      "workId": "read_work_dawn_nietzsche",
+      "title": "Aurora",
+      "publisherId": "org_companhia_de_bolso",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2016-11-04",
+      "isbn13": "9788535928181",
+      "pageCount": 312,
+      "cover": {
+        "src": "/images/reading/aurora-companhia.webp",
+        "alt": "Capa da edição brasileira de Aurora publicada pela Companhia de Bolso",
+        "sourceUrl": "https://www.companhiadasletras.com.br/livro/9788535928181/aurora",
+        "credit": "Companhia de Bolso",
+        "rights": "permission-pending",
+        "width": 445,
+        "height": 650
+      },
+      "translationCredits": [],
+      "availabilityStatus": "available",
+      "availabilityCheckedAt": "2026-08-13",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Aurora — edição brasileira",
+          "url": "https://www.companhiadasletras.com.br/livro/9788535928181/aurora"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_gay_science_companhia",
+      "workId": "read_work_gay_science",
+      "title": "A Gaia Ciência",
+      "publisherId": "org_companhia_de_bolso",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2012-03-28",
+      "isbn13": "9788535920666",
+      "pageCount": 344,
+      "cover": {
+        "src": "/images/reading/a-gaia-ciencia-companhia.webp",
+        "alt": "Capa da edição brasileira de A Gaia Ciência publicada pela Companhia de Bolso",
+        "sourceUrl": "https://www.companhiadasletras.com.br/livro/9788535920666/a-gaia-ciencia",
+        "credit": "Companhia de Bolso",
+        "rights": "permission-pending",
+        "width": 454,
+        "height": 650
+      },
+      "translationCredits": [],
+      "availabilityStatus": "available",
+      "availabilityCheckedAt": "2026-08-13",
+      "status": "published",
+      "sources": [
+        {
+          "title": "A Gaia Ciência — edição brasileira",
+          "url": "https://www.companhiadasletras.com.br/livro/9788535920666/a-gaia-ciencia"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_zarathustra_companhia",
+      "workId": "read_work_thus_spoke_zarathustra",
+      "title": "Assim Falou Zaratustra",
+      "publisherId": "org_companhia_de_bolso",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2018-02-09",
+      "isbn13": "9788535930481",
+      "pageCount": 360,
+      "cover": {
+        "src": "/images/reading/assim-falou-zaratustra-companhia.webp",
+        "alt": "Capa da edição brasileira de Assim Falou Zaratustra publicada pela Companhia de Bolso",
+        "sourceUrl": "https://www.companhiadasletras.com.br/livro/9788535930481/assim-falou-zaratustra",
+        "credit": "Companhia de Bolso",
+        "rights": "permission-pending",
+        "width": 451,
+        "height": 650
+      },
+      "translationCredits": [],
+      "availabilityStatus": "available",
+      "availabilityCheckedAt": "2026-08-13",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Assim Falou Zaratustra — edição brasileira",
+          "url": "https://www.companhiadasletras.com.br/livro/9788535930481/assim-falou-zaratustra"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_beyond_good_evil_companhia",
+      "workId": "read_work_beyond_good_evil",
+      "title": "Além do Bem e do Mal",
+      "publisherId": "org_companhia_de_bolso",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2005-05-06",
+      "isbn13": "9788535906417",
+      "pageCount": 248,
+      "cover": {
+        "src": "/images/reading/alem-do-bem-e-do-mal-companhia.webp",
+        "alt": "Capa da edição brasileira de Além do Bem e do Mal publicada pela Companhia de Bolso",
+        "sourceUrl": "https://www.companhiadasletras.com.br/livro/9788535906417/alem-do-bem-e-do-mal-edicao-de-bolso",
+        "credit": "Companhia de Bolso",
+        "rights": "permission-pending",
+        "width": 447,
+        "height": 650
+      },
+      "translationCredits": [],
+      "availabilityStatus": "available",
+      "availabilityCheckedAt": "2026-08-13",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Além do Bem e do Mal — edição brasileira",
+          "url": "https://www.companhiadasletras.com.br/livro/9788535906417/alem-do-bem-e-do-mal-edicao-de-bolso"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_genealogy_morality_companhia",
+      "workId": "read_work_genealogy_morality",
+      "title": "Genealogia da Moral",
+      "publisherId": "org_companhia_de_bolso",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2009-05-19",
+      "isbn13": "9788535914566",
+      "pageCount": 176,
+      "cover": {
+        "src": "/images/reading/genealogia-da-moral-companhia.webp",
+        "alt": "Capa da edição brasileira de Genealogia da Moral publicada pela Companhia de Bolso",
+        "sourceUrl": "https://www.companhiadasletras.com.br/livro/9788535914566/genealogia-da-moral",
+        "credit": "Companhia de Bolso",
+        "rights": "permission-pending",
+        "width": 451,
+        "height": 650
+      },
+      "translationCredits": [],
+      "availabilityStatus": "available",
+      "availabilityCheckedAt": "2026-08-13",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Genealogia da Moral — edição brasileira",
+          "url": "https://www.companhiadasletras.com.br/livro/9788535914566/genealogia-da-moral"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_twilight_idols_companhia",
+      "workId": "read_work_twilight_idols",
+      "title": "Crepúsculo dos Ídolos",
+      "publisherId": "org_companhia_de_bolso",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "isbn13": "9788535928587",
+      "cover": {
+        "src": "/images/reading/crepusculo-dos-idolos-companhia.webp",
+        "alt": "Capa da edição brasileira de Crepúsculo dos Ídolos publicada pela Companhia de Bolso",
+        "sourceUrl": "https://www.companhiadasletras.com.br/livro/9788535928587/crepusculo-dos-idolos",
+        "credit": "Companhia de Bolso",
+        "rights": "permission-pending",
+        "width": 451,
+        "height": 650
+      },
+      "translationCredits": [],
+      "availabilityStatus": "available",
+      "availabilityCheckedAt": "2026-08-13",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Crepúsculo dos Ídolos — edição brasileira",
+          "url": "https://www.companhiadasletras.com.br/livro/9788535928587/crepusculo-dos-idolos"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_antichrist_companhia",
+      "workId": "read_work_antichrist_nietzsche",
+      "title": "O Anticristo / Ditirambos de Dionísio",
+      "publisherId": "org_companhia_de_bolso",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2016-10-31",
+      "isbn13": "9788535928174",
+      "pageCount": 168,
+      "cover": {
+        "src": "/images/reading/o-anticristo-companhia.webp",
+        "alt": "Capa da edição brasileira de O Anticristo / Ditirambos de Dionísio publicada pela Companhia de Bolso",
+        "sourceUrl": "https://www.companhiadasletras.com.br/livro/9788535928174/o-anticristo-ditirambos-de-dionisio",
+        "credit": "Companhia de Bolso",
+        "rights": "permission-pending",
+        "width": 451,
+        "height": 650
+      },
+      "translationCredits": [],
+      "availabilityStatus": "available",
+      "availabilityCheckedAt": "2026-08-13",
+      "status": "published",
+      "sources": [
+        {
+          "title": "O Anticristo / Ditirambos de Dionísio — edição brasileira",
+          "url": "https://www.companhiadasletras.com.br/livro/9788535928174/o-anticristo-ditirambos-de-dionisio"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_ecce_homo_companhia",
+      "workId": "read_work_ecce_homo",
+      "title": "Ecce Homo",
+      "publisherId": "org_companhia_de_bolso",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2008-03-18",
+      "isbn13": "9788535911954",
+      "pageCount": 144,
+      "cover": {
+        "src": "/images/reading/ecce-homo-companhia.webp",
+        "alt": "Capa da edição brasileira de Ecce Homo publicada pela Companhia de Bolso",
+        "sourceUrl": "https://www.companhiadasletras.com.br/livro/9788535911954/ecce-homo",
+        "credit": "Companhia de Bolso",
+        "rights": "permission-pending",
+        "width": 433,
+        "height": 650
+      },
+      "translationCredits": [],
+      "availabilityStatus": "available",
+      "availabilityCheckedAt": "2026-08-13",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Ecce Homo — edição brasileira",
+          "url": "https://www.companhiadasletras.com.br/livro/9788535911954/ecce-homo"
         }
       ],
       "createdAt": "2026-08-13",
@@ -8301,6 +8641,15 @@
       "language": "Português",
       "medium": "paperback",
       "publicationDate": "2025-07-02",
+      "cover": {
+        "src": "/images/reading/manual-donas-casa-vampiros.webp",
+        "alt": "Capa da edição brasileira de Manual das Donas de Casa Caçadoras de Vampiros publicada pela Intrínseca",
+        "sourceUrl": "https://loja.intrinseca.com.br/leia-um-trecho-em-pdf-manual-das-donas-de-casa-cacadoras-de-vampiros/",
+        "credit": "Intrínseca",
+        "rights": "permission-pending",
+        "width": 700,
+        "height": 1072
+      },
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
@@ -8518,6 +8867,15 @@
       "publicationDate": "2014-01-01",
       "isbn13": "9788580575637",
       "pageCount": 200,
+      "cover": {
+        "src": "/images/reading/aniquilacao-intrinseca.jpg",
+        "alt": "Capa da edição brasileira de Aniquilação publicada pela Intrínseca",
+        "sourceUrl": "https://www.intrinseca.com.br/comandosul/aniquilacao/",
+        "credit": "Intrínseca via Open Library",
+        "rights": "permission-pending",
+        "width": 333,
+        "height": 500
+      },
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
@@ -8704,6 +9062,15 @@
       "publicationDate": "2022-01-01",
       "isbn13": "9786555981742",
       "pageCount": 176,
+      "cover": {
+        "src": "/images/reading/ring-shout-darkside.png",
+        "alt": "Capa da edição brasileira de Ring Shout: Grito de Liberdade publicada pela DarkSide Books",
+        "sourceUrl": "https://www.darksidebooks.com.br/ring-shout-grito-de-liberdade--brinde-exclusivo/p",
+        "credit": "DarkSide Books",
+        "rights": "permission-pending",
+        "width": 215,
+        "height": 322
+      },
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
@@ -9274,6 +9641,1206 @@
         {
           "title": "Solanin — volume único — edição brasileira",
           "url": "https://www.lpm-editores.com.br/downloads/Arquivos/mangas_l_p_m.pdf"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_vampyre_woodstock",
+      "workId": "read_work_the_vampyre",
+      "title": "The Vampyre",
+      "publisherId": "org_woodstock_books",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "1991-01-01",
+      "isbn10": "1854770535",
+      "isbn13": "9781854770530",
+      "pageCount": 90,
+      "cover": {
+        "src": "/images/reading/o-vampiro-polidori.jpg",
+        "alt": "Capa da edição de The Vampyre publicada pela Woodstock Books",
+        "sourceUrl": "https://openlibrary.org/books/OL8990858M",
+        "credit": "Woodstock Books via Open Library",
+        "rights": "permission-pending",
+        "width": 128,
+        "height": 199
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Vampyre — registro da edição",
+          "url": "https://openlibrary.org/books/OL8990858M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_interview_knopf",
+      "workId": "read_work_interview_vampire",
+      "title": "Interview with the Vampire",
+      "publisherId": "org_alfred_a_knopf",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "hardcover",
+      "publicationDate": "1994-10-01",
+      "isbn10": "0394498216",
+      "pageCount": 340,
+      "cover": {
+        "src": "/images/reading/entrevista-com-o-vampiro.jpg",
+        "alt": "Capa da edição de Interview with the Vampire publicada pela Alfred A. Knopf",
+        "sourceUrl": "https://openlibrary.org/books/OL631433M",
+        "credit": "Alfred A. Knopf via Open Library",
+        "rights": "permission-pending",
+        "width": 336,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Interview with the Vampire — registro da edição",
+          "url": "https://openlibrary.org/books/OL631433M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_vampire_tapestry_living_batch",
+      "workId": "read_work_vampire_tapestry",
+      "title": "The Vampire Tapestry",
+      "publisherId": "org_living_batch_press",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "1980-12-31",
+      "isbn10": "0945953054",
+      "isbn13": "9780945953050",
+      "pageCount": 285,
+      "cover": {
+        "src": "/images/reading/a-tapecaria-do-vampiro.jpg",
+        "alt": "Capa da edição de The Vampire Tapestry publicada pela Living Batch Press",
+        "sourceUrl": "https://openlibrary.org/books/OL8449752M",
+        "credit": "Living Batch Press via Open Library",
+        "rights": "permission-pending",
+        "width": 326,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Vampire Tapestry — registro da edição",
+          "url": "https://openlibrary.org/books/OL8449752M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_fevre_dream_poseidon",
+      "workId": "read_work_fevre_dream",
+      "title": "Fevre Dream",
+      "publisherId": "org_poseidon_press",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "hardcover",
+      "publicationDate": "1982-01-01",
+      "cover": {
+        "src": "/images/reading/sonho-febril.jpg",
+        "alt": "Capa da edição de Fevre Dream publicada pela Poseidon Press",
+        "sourceUrl": "https://openlibrary.org/books/OL60296795M",
+        "credit": "Poseidon Press via Open Library",
+        "rights": "permission-pending",
+        "width": 317,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Fevre Dream — registro da edição",
+          "url": "https://openlibrary.org/books/OL60296795M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_vampire_junction_diplodocus",
+      "workId": "read_work_vampire_junction",
+      "title": "Vampire Junction",
+      "publisherId": "org_diplodocus_press",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2005-10-31",
+      "isbn10": "0977134636",
+      "isbn13": "9780977134632",
+      "pageCount": 292,
+      "cover": {
+        "src": "/images/reading/vampire-junction.jpg",
+        "alt": "Capa da edição de Vampire Junction publicada pela Diplodocus Press",
+        "sourceUrl": "https://openlibrary.org/books/OL8590105M",
+        "credit": "Diplodocus Press via Open Library",
+        "rights": "permission-pending",
+        "width": 333,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Vampire Junction — registro da edição",
+          "url": "https://openlibrary.org/books/OL8590105M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_black_ambrosia_valancourt",
+      "workId": "read_work_black_ambrosia",
+      "title": "Black Ambrosia",
+      "publisherId": "org_valancourt_books",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2021-01-01",
+      "isbn13": "9781948405942",
+      "pageCount": 240,
+      "cover": {
+        "src": "/images/reading/black-ambrosia.jpg",
+        "alt": "Capa da edição de Black Ambrosia publicada pela Valancourt Books",
+        "sourceUrl": "https://openlibrary.org/books/OL34976597M",
+        "credit": "Valancourt Books via Open Library",
+        "rights": "permission-pending",
+        "width": 292,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Black Ambrosia — registro da edição",
+          "url": "https://openlibrary.org/books/OL34976597M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_gilda_stories_firebrand",
+      "workId": "read_work_gilda_stories",
+      "title": "The Gilda Stories",
+      "publisherId": "org_firebrand_books",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "1991-01-01",
+      "isbn10": "0932379958",
+      "pageCount": 252,
+      "cover": {
+        "src": "/images/reading/as-historias-de-gilda.jpg",
+        "alt": "Capa da edição de The Gilda Stories publicada pela Firebrand Books",
+        "sourceUrl": "https://openlibrary.org/books/OL1533923M",
+        "credit": "Firebrand Books via Open Library",
+        "rights": "permission-pending",
+        "width": 128,
+        "height": 199
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Gilda Stories — registro da edição",
+          "url": "https://openlibrary.org/books/OL1533923M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_sunshine_jove",
+      "workId": "read_work_sunshine",
+      "title": "Sunshine",
+      "publisherId": "org_jove",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2004-11-30",
+      "isbn10": "0515138819",
+      "isbn13": "9780515138818",
+      "pageCount": 416,
+      "cover": {
+        "src": "/images/reading/sunshine-robin-mckinley.jpg",
+        "alt": "Capa da edição de Sunshine publicada pela Jove",
+        "sourceUrl": "https://openlibrary.org/books/OL7657814M",
+        "credit": "Jove via Open Library",
+        "rights": "permission-pending",
+        "width": 296,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Sunshine — registro da edição",
+          "url": "https://openlibrary.org/books/OL7657814M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_let_right_one_espasa",
+      "workId": "read_work_let_right_one_in",
+      "title": "Déjame entrar",
+      "publisherId": "org_espasa",
+      "country": "Espanha",
+      "language": "Espanhol",
+      "medium": "paperback",
+      "publicationDate": "2009-11-10",
+      "isbn10": "6070702379",
+      "isbn13": "9786070702372",
+      "pageCount": 455,
+      "cover": {
+        "src": "/images/reading/deixe-ela-entrar-livro.jpg",
+        "alt": "Capa da edição em espanhol de Deixe Ela Entrar publicada pela Espasa",
+        "sourceUrl": "https://openlibrary.org/books/OL46006026M",
+        "credit": "Espasa via Open Library",
+        "rights": "permission-pending",
+        "width": 308,
+        "height": 475
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Déjame entrar — registro da edição",
+          "url": "https://openlibrary.org/books/OL46006026M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_fledgling_seven_stories",
+      "workId": "read_work_fledgling",
+      "title": "Fledgling",
+      "publisherId": "org_seven_stories_press",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "hardcover",
+      "publicationDate": "2005-01-01",
+      "isbn10": "1583226907",
+      "isbn13": "9781583226902",
+      "pageCount": 317,
+      "cover": {
+        "src": "/images/reading/fledgling.jpg",
+        "alt": "Capa da edição de Fledgling publicada pela Seven Stories Press",
+        "sourceUrl": "https://openlibrary.org/books/OL3394577M",
+        "credit": "Seven Stories Press via Open Library",
+        "rights": "permission-pending",
+        "width": 338,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Fledgling — registro da edição",
+          "url": "https://openlibrary.org/books/OL3394577M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_historian_little_brown",
+      "workId": "read_work_historian",
+      "title": "The Historian",
+      "publisherId": "org_little_brown",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "hardcover",
+      "publicationDate": "2005-01-01",
+      "isbn10": "0316011770",
+      "pageCount": 642,
+      "cover": {
+        "src": "/images/reading/a-historiadora.jpg",
+        "alt": "Capa da edição de The Historian publicada pela Little, Brown",
+        "sourceUrl": "https://openlibrary.org/books/OL17172456M",
+        "credit": "Little, Brown via Open Library",
+        "rights": "permission-pending",
+        "width": 328,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Historian — registro da edição",
+          "url": "https://openlibrary.org/books/OL17172456M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_passage_ballantine",
+      "workId": "read_work_passage",
+      "title": "The Passage",
+      "publisherId": "org_ballantine_books",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "hardcover",
+      "publicationDate": "2010-01-01",
+      "isbn10": "0345504968",
+      "isbn13": "9780345504968",
+      "pageCount": 766,
+      "cover": {
+        "src": "/images/reading/a-passagem-justin-cronin.jpg",
+        "alt": "Capa da edição de The Passage publicada pela Ballantine Books",
+        "sourceUrl": "https://openlibrary.org/books/OL24349317M",
+        "credit": "Ballantine Books via Open Library",
+        "rights": "permission-pending",
+        "width": 331,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Passage — registro da edição",
+          "url": "https://openlibrary.org/books/OL24349317M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_coldest_girl_little_brown",
+      "workId": "read_work_coldest_girl",
+      "title": "The Coldest Girl in Coldtown",
+      "publisherId": "org_little_brown",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "hardcover",
+      "publicationDate": "2013-01-01",
+      "isbn10": "0316213101",
+      "isbn13": "9780316213103",
+      "pageCount": 419,
+      "cover": {
+        "src": "/images/reading/a-garota-mais-fria-de-coldtown.jpg",
+        "alt": "Capa da edição de The Coldest Girl in Coldtown publicada pela Little, Brown",
+        "sourceUrl": "https://openlibrary.org/books/OL26889060M",
+        "credit": "Little, Brown via Open Library",
+        "rights": "permission-pending",
+        "width": 325,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Coldest Girl in Coldtown — registro da edição",
+          "url": "https://openlibrary.org/books/OL26889060M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_lesser_dead_berkley",
+      "workId": "read_work_lesser_dead",
+      "title": "The Lesser Dead",
+      "publisherId": "org_berkley",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2015-10-06",
+      "isbn10": "0425272621",
+      "isbn13": "9780425272626",
+      "pageCount": 368,
+      "cover": {
+        "src": "/images/reading/os-mortos-menores.jpg",
+        "alt": "Capa da edição de The Lesser Dead publicada pela Berkley",
+        "sourceUrl": "https://openlibrary.org/books/OL27496156M",
+        "credit": "Berkley via Open Library",
+        "rights": "permission-pending",
+        "width": 333,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Lesser Dead — registro da edição",
+          "url": "https://openlibrary.org/books/OL27496156M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_certain_dark_macmillan",
+      "workId": "read_work_certain_dark_things",
+      "title": "Certain Dark Things",
+      "publisherId": "org_macmillan",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "hardcover",
+      "publicationDate": "2016-01-01",
+      "isbn10": "1250099080",
+      "isbn13": "9781250099082",
+      "pageCount": 323,
+      "cover": {
+        "src": "/images/reading/certas-coisas-sombrias.jpg",
+        "alt": "Capa da edição de Certain Dark Things publicada pela Macmillan",
+        "sourceUrl": "https://openlibrary.org/books/OL27219686M",
+        "credit": "Macmillan via Open Library",
+        "rights": "permission-pending",
+        "width": 325,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Certain Dark Things — registro da edição",
+          "url": "https://openlibrary.org/books/OL27219686M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_dowry_blood_redhook",
+      "workId": "read_work_dowry_blood",
+      "title": "A Dowry of Blood",
+      "publisherId": "org_redhook",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2023-07-25",
+      "isbn10": "0316501182",
+      "isbn13": "9780316501187",
+      "pageCount": 304,
+      "cover": {
+        "src": "/images/reading/um-dote-de-sangue.jpg",
+        "alt": "Capa da edição de A Dowry of Blood publicada pela Redhook",
+        "sourceUrl": "https://openlibrary.org/books/OL40337552M",
+        "credit": "Redhook via Open Library",
+        "rights": "permission-pending",
+        "width": 333,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "A Dowry of Blood — registro da edição",
+          "url": "https://openlibrary.org/books/OL40337552M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_woman_eating_harpervia",
+      "workId": "read_work_woman_eating",
+      "title": "Woman, Eating",
+      "publisherId": "org_harpervia",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "hardcover",
+      "publicationDate": "2022-04-12",
+      "isbn10": "0063140888",
+      "isbn13": "9780063140882",
+      "pageCount": 272,
+      "cover": {
+        "src": "/images/reading/woman-eating.jpg",
+        "alt": "Capa da edição de Woman, Eating publicada pela HarperVia",
+        "sourceUrl": "https://openlibrary.org/books/OL33879804M",
+        "credit": "HarperVia via Open Library",
+        "rights": "permission-pending",
+        "width": 333,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Woman, Eating — registro da edição",
+          "url": "https://openlibrary.org/books/OL33879804M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_house_hunger_penguin",
+      "workId": "read_work_house_hunger",
+      "title": "House of Hunger",
+      "publisherId": "org_penguin_publishing_group",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "hardcover",
+      "publicationDate": "2022-01-01",
+      "isbn13": "9780593438466",
+      "cover": {
+        "src": "/images/reading/a-casa-da-fome.jpg",
+        "alt": "Capa da edição de House of Hunger publicada pelo Penguin Publishing Group",
+        "sourceUrl": "https://openlibrary.org/books/OL37495459M",
+        "credit": "Penguin Publishing Group via Open Library",
+        "rights": "permission-pending",
+        "width": 331,
+        "height": 499
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "House of Hunger — registro da edição",
+          "url": "https://openlibrary.org/books/OL37495459M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_vampires_norte_penguin",
+      "workId": "read_work_vampires_norte",
+      "title": "Vampires of El Norte",
+      "publisherId": "org_penguin_publishing_group",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "hardcover",
+      "publicationDate": "2023-01-01",
+      "isbn13": "9780593436721",
+      "cover": {
+        "src": "/images/reading/vampiros-de-el-norte.jpg",
+        "alt": "Capa da edição de Vampires of El Norte publicada pelo Penguin Publishing Group",
+        "sourceUrl": "https://openlibrary.org/books/OL46117773M",
+        "credit": "Penguin Publishing Group via Open Library",
+        "rights": "permission-pending",
+        "width": 331,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Vampires of El Norte — registro da edição",
+          "url": "https://openlibrary.org/books/OL46117773M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_education_malice_little_brown",
+      "workId": "read_work_education_malice",
+      "title": "An Education in Malice",
+      "publisherId": "org_little_brown",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2024-01-01",
+      "isbn13": "9780356519333",
+      "cover": {
+        "src": "/images/reading/uma-educacao-em-maldade.jpg",
+        "alt": "Capa da edição de An Education in Malice publicada pela Little, Brown",
+        "sourceUrl": "https://openlibrary.org/books/OL51039028M",
+        "credit": "Little, Brown via Open Library",
+        "rights": "permission-pending",
+        "width": 325,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "An Education in Malice — registro da edição",
+          "url": "https://openlibrary.org/books/OL51039028M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_route_ice_salt_fce",
+      "workId": "read_work_route_ice_salt",
+      "title": "La ruta del hielo y la sal",
+      "publisherId": "org_fondo_cultura_economica",
+      "country": "México",
+      "language": "Espanhol",
+      "medium": "paperback",
+      "publicationDate": "2020-01-01",
+      "isbn13": "9786071667762",
+      "pageCount": 125,
+      "cover": {
+        "src": "/images/reading/a-rota-do-gelo-e-do-sal.jpg",
+        "alt": "Capa da edição mexicana de La ruta del hielo y la sal publicada pelo Fondo de Cultura Económica",
+        "sourceUrl": "https://www.fondodeculturaeconomica.com/Ficha/9786071667762/F",
+        "credit": "Fondo de Cultura Económica",
+        "rights": "permission-pending",
+        "width": 323,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "La ruta del hielo y la sal — registro da edição",
+          "url": "https://openlibrary.org/books/OL3745105M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_turn_screw_bedford",
+      "workId": "read_work_turn_screw",
+      "title": "The Turn of the Screw",
+      "publisherId": "org_bedford_st_martins",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2003-11-06",
+      "isbn10": "0312406916",
+      "isbn13": "9780312406912",
+      "pageCount": 386,
+      "cover": {
+        "src": "/images/reading/a-volta-do-parafuso.jpg",
+        "alt": "Capa da edição de The Turn of the Screw publicada pela Bedford/St. Martin's",
+        "sourceUrl": "https://openlibrary.org/books/OL9492220M",
+        "credit": "Bedford/St. Martin's via Open Library",
+        "rights": "permission-pending",
+        "width": 316,
+        "height": 475
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Turn of the Screw — registro da edição",
+          "url": "https://openlibrary.org/books/OL9492220M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_ring_vertical",
+      "workId": "read_work_ring",
+      "title": "Ring",
+      "publisherId": "org_vertical",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2003-05-01",
+      "isbn10": "1932234004",
+      "isbn13": "9781932234008",
+      "pageCount": 288,
+      "cover": {
+        "src": "/images/reading/ring-koji-suzuki.jpg",
+        "alt": "Capa da edição de Ring publicada pela Vertical",
+        "sourceUrl": "https://openlibrary.org/books/OL8807779M",
+        "credit": "Vertical via Open Library",
+        "rights": "permission-pending",
+        "width": 328,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Ring — registro da edição",
+          "url": "https://openlibrary.org/books/OL8807779M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_fisherman_wordhorde",
+      "workId": "read_work_fisherman",
+      "title": "The Fisherman",
+      "publisherId": "org_wordhorde",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2016-01-01",
+      "isbn13": "9781939905222",
+      "cover": {
+        "src": "/images/reading/o-pescador-john-langan.jpg",
+        "alt": "Capa da edição de The Fisherman publicada pela Word Horde",
+        "sourceUrl": "https://openlibrary.org/books/OL25945534M",
+        "credit": "Word Horde via Open Library",
+        "rights": "permission-pending",
+        "width": 333,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Fisherman — registro da edição",
+          "url": "https://openlibrary.org/books/OL25945534M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_only_good_indians_saga",
+      "workId": "read_work_only_good_indians",
+      "title": "The Only Good Indians",
+      "publisherId": "org_saga_press",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "hardcover",
+      "publicationDate": "2020-01-01",
+      "isbn10": "1982136456",
+      "isbn13": "9781982136451",
+      "pageCount": 305,
+      "cover": {
+        "src": "/images/reading/os-unicos-indios-bons.jpg",
+        "alt": "Capa da edição de The Only Good Indians publicada pela Saga Press",
+        "sourceUrl": "https://openlibrary.org/books/OL28087222M",
+        "credit": "Saga Press via Open Library",
+        "rights": "permission-pending",
+        "width": 224,
+        "height": 346
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Only Good Indians — registro da edição",
+          "url": "https://openlibrary.org/books/OL28087222M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_good_house_atria",
+      "workId": "read_work_good_house",
+      "title": "The Good House",
+      "publisherId": "org_atria_books",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2003-01-01",
+      "isbn10": "0743449002",
+      "pageCount": 482,
+      "cover": {
+        "src": "/images/reading/the-good-house.jpg",
+        "alt": "Capa da edição de The Good House publicada pela Atria Books",
+        "sourceUrl": "https://openlibrary.org/books/OL3324549M",
+        "credit": "Atria Books via Open Library",
+        "rights": "permission-pending",
+        "width": 313,
+        "height": 475
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Good House — registro da edição",
+          "url": "https://openlibrary.org/books/OL3324549M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_reformatory_saga",
+      "workId": "read_work_reformatory",
+      "title": "The Reformatory",
+      "publisherId": "org_saga_press",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "hardcover",
+      "publicationDate": "2023-10-31",
+      "isbn13": "9781982188344",
+      "pageCount": 576,
+      "cover": {
+        "src": "/images/reading/the-reformatory.jpg",
+        "alt": "Capa da edição de The Reformatory publicada pela Saga Press",
+        "sourceUrl": "https://openlibrary.org/books/OL42771878M",
+        "credit": "Saga Press via Open Library",
+        "rights": "permission-pending",
+        "width": 331,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Reformatory — registro da edição",
+          "url": "https://openlibrary.org/books/OL42771878M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_summer_night_lgf",
+      "workId": "read_work_summer_night",
+      "title": "Summer of Night",
+      "publisherId": "org_lgf",
+      "country": "França",
+      "language": "Francês",
+      "medium": "paperback",
+      "publicationDate": "1995-11-01",
+      "isbn10": "2253138622",
+      "isbn13": "9782253138624",
+      "pageCount": 597,
+      "cover": {
+        "src": "/images/reading/verao-da-noite.jpg",
+        "alt": "Capa da edição francesa de Summer of Night publicada pela LGF",
+        "sourceUrl": "https://openlibrary.org/books/OL8888058M",
+        "credit": "LGF via Open Library",
+        "rights": "permission-pending",
+        "width": 294,
+        "height": 475
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Summer of Night — registro da edição",
+          "url": "https://openlibrary.org/books/OL8888058M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_boys_life_pocket",
+      "workId": "read_work_boys_life",
+      "title": "Boy's Life",
+      "publisherId": "org_pocket_books",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "1991-01-01",
+      "isbn10": "0671742264",
+      "isbn13": "9780671742263",
+      "pageCount": 440,
+      "cover": {
+        "src": "/images/reading/boys-life-robert-mccammon.jpg",
+        "alt": "Capa da edição de Boy's Life publicada pela Pocket Books",
+        "sourceUrl": "https://openlibrary.org/books/OL2026841M",
+        "credit": "Pocket Books via Open Library",
+        "rights": "permission-pending",
+        "width": 128,
+        "height": 206
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Boy's Life — registro da edição",
+          "url": "https://openlibrary.org/books/OL2026841M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_disappearance_morrow",
+      "workId": "read_work_disappearance_devils_rock",
+      "title": "Disappearance at Devil's Rock",
+      "publisherId": "org_william_morrow",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2017-03-14",
+      "isbn10": "0062363271",
+      "isbn13": "9780062363275",
+      "pageCount": 368,
+      "cover": {
+        "src": "/images/reading/disappearance-at-devils-rock.jpg",
+        "alt": "Capa da edição de Disappearance at Devil's Rock publicada pela William Morrow",
+        "sourceUrl": "https://openlibrary.org/books/OL27381966M",
+        "credit": "William Morrow via Open Library",
+        "rights": "permission-pending",
+        "width": 332,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Disappearance at Devil's Rock — registro da edição",
+          "url": "https://openlibrary.org/books/OL27381966M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_black_mouth_titan",
+      "workId": "read_work_black_mouth",
+      "title": "Black Mouth",
+      "publisherId": "org_titan_books",
+      "country": "Reino Unido",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2022-01-01",
+      "isbn13": "9781789098655",
+      "cover": {
+        "src": "/images/reading/black-mouth.jpg",
+        "alt": "Capa da edição de Black Mouth publicada pela Titan Books",
+        "sourceUrl": "https://openlibrary.org/books/OL36113441M",
+        "credit": "Titan Books via Open Library",
+        "rights": "permission-pending",
+        "width": 295,
+        "height": 450
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Black Mouth — registro da edição",
+          "url": "https://openlibrary.org/books/OL36113441M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_saturday_ghost_knopf_canada",
+      "workId": "read_work_saturday_night_ghost_club",
+      "title": "The Saturday Night Ghost Club",
+      "publisherId": "org_knopf_canada",
+      "country": "Canadá",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2018-08-14",
+      "isbn10": "0735274827",
+      "isbn13": "9780735274822",
+      "pageCount": 272,
+      "cover": {
+        "src": "/images/reading/the-saturday-night-ghost-club.jpg",
+        "alt": "Capa da edição de The Saturday Night Ghost Club publicada pela Knopf Canada",
+        "sourceUrl": "https://openlibrary.org/books/OL28363068M",
+        "credit": "Knopf Canada via Open Library",
+        "rights": "permission-pending",
+        "width": 326,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Saturday Night Ghost Club — registro da edição",
+          "url": "https://openlibrary.org/books/OL28363068M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_bad_cree_anchor",
+      "workId": "read_work_bad_cree",
+      "title": "Bad Cree",
+      "publisherId": "org_anchor_books",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2023-12-05",
+      "isbn10": "0593467949",
+      "isbn13": "9780593467947",
+      "pageCount": 256,
+      "cover": {
+        "src": "/images/reading/bad-cree.jpg",
+        "alt": "Capa da edição de Bad Cree publicada pela Anchor Books",
+        "sourceUrl": "https://openlibrary.org/books/OL47315031M",
+        "credit": "Anchor Books via Open Library",
+        "rights": "permission-pending",
+        "width": 329,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Bad Cree — registro da edição",
+          "url": "https://openlibrary.org/books/OL47315031M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_clown_cornfield_harperteen",
+      "workId": "read_work_clown_cornfield",
+      "title": "Clown in a Cornfield",
+      "publisherId": "org_harperteen",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2021-12-28",
+      "isbn10": "0062854607",
+      "isbn13": "9780062854605",
+      "pageCount": 368,
+      "cover": {
+        "src": "/images/reading/clown-in-a-cornfield.jpg",
+        "alt": "Capa da edição de Clown in a Cornfield publicada pela HarperTeen",
+        "sourceUrl": "https://openlibrary.org/books/OL33088461M",
+        "credit": "HarperTeen via Open Library",
+        "rights": "permission-pending",
+        "width": 332,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Clown in a Cornfield — registro da edição",
+          "url": "https://openlibrary.org/books/OL33088461M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_sandman_vertigo",
+      "workId": "read_work_sandman",
+      "title": "The Sandman",
+      "publisherId": "org_vertigo",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2016-11-15",
+      "isbn10": "1401265197",
+      "isbn13": "9781401265199",
+      "pageCount": 224,
+      "cover": {
+        "src": "/images/reading/sandman-neil-gaiman.jpg",
+        "alt": "Capa da edição de The Sandman publicada pela Vertigo",
+        "sourceUrl": "https://openlibrary.org/books/OL27724387M",
+        "credit": "Vertigo via Open Library",
+        "rights": "permission-pending",
+        "width": 322,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Sandman — registro da edição",
+          "url": "https://openlibrary.org/books/OL27724387M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_absolute_batman_dc",
+      "workId": "read_work_absolute_batman",
+      "title": "Absolute Batman",
+      "publisherId": "org_dc_comics",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2025-08-05",
+      "isbn13": "9781799505259",
+      "pageCount": 192,
+      "cover": {
+        "src": "/images/reading/absolute-batman.jpg",
+        "alt": "Capa da edição de Absolute Batman publicada pela DC Comics",
+        "sourceUrl": "https://openlibrary.org/books/OL59836869M",
+        "credit": "DC Comics via Open Library",
+        "rights": "permission-pending",
+        "width": 325,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Absolute Batman — registro da edição",
+          "url": "https://openlibrary.org/books/OL59836869M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_tomb_dracula_marvel",
+      "workId": "read_work_tomb_dracula",
+      "title": "The Tomb of Dracula",
+      "publisherId": "org_marvel_comics",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2004-04-21",
+      "isbn10": "0785114610",
+      "isbn13": "9780785114611",
+      "pageCount": 592,
+      "cover": {
+        "src": "/images/reading/a-tumba-de-dracula.jpg",
+        "alt": "Capa da edição de The Tomb of Dracula publicada pela Marvel Comics",
+        "sourceUrl": "https://openlibrary.org/books/OL8098785M",
+        "credit": "Marvel Comics via Open Library",
+        "rights": "permission-pending",
+        "width": 128,
+        "height": 193
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Tomb of Dracula — registro da edição",
+          "url": "https://openlibrary.org/books/OL8098785M"
         }
       ],
       "createdAt": "2026-08-13",

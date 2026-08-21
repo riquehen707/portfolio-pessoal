@@ -958,6 +958,32 @@
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
+      "slug": "como-fazer-projecao-de-vendas",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-21",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como fazer uma projeção de vendas: do zero a uma previsão realmente consistente",
+        "description": "Guia completo para fazer projeção de vendas: histórico, funil, e-commerce, serviços, SaaS, pipeline, cenários, erros, planilha e forecast contínuo.",
+        "canonical": "/blog/como-fazer-projecao-de-vendas"
+      },
+      "relationships": {
+        "related": [
+          "Como entender receita, margem e volume antes de colocar mais verba",
+          "Marketing orientado a dados: como tomar decisões melhores sem se perder nas métricas",
+          "Marketing de aquisição: o que é e quais estratégias podem atrair novos clientes?",
+          "E-commerce com dropshipping: como funciona, custos, riscos e o que saber antes de começar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-fazer-projecao-de-vendas.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
       "slug": "como-ganhar-dinheiro-na-internet-de-forma-honesta-e-comprovada",
       "aliases": [],
       "status": "published",
@@ -1488,6 +1514,32 @@
         "related": []
       },
       "sourceFile": "src/app/blog/posts/fundamentos/domain-driven-design.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "e-commerce-dropshipping-como-funciona",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-21",
+      "updatedAt": null,
+      "seo": {
+        "title": "E-commerce com dropshipping: como funciona, custos, riscos e o que saber antes de começar",
+        "description": "Um guia realista sobre e-commerce com dropshipping: operação, margem, fornecedores, logística, aquisição, métricas, riscos e obrigações no Brasil.",
+        "canonical": "/blog/e-commerce-dropshipping-como-funciona"
+      },
+      "relationships": {
+        "related": [
+          "Como entender receita, margem e volume antes de colocar mais verba",
+          "Como vender na Shopee: guia para começar com planejamento",
+          "Marketing orientado a dados: como tomar decisões melhores sem se perder nas métricas",
+          "Guia prático: como trabalhar com automação de marketing e CRM"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/e-commerce-dropshipping-como-funciona.mdx",
       "migrationReady": false
     },
     {

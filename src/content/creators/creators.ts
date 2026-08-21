@@ -7,6 +7,13 @@ export const shingoTamagawa: Creator = CreatorSchema.parse({
   kind: "person",
   status: "published",
   profilePath: "/criadores/shingo-tamagawa",
+  image: {
+    src: "/images/personalities/shingo-tamagawa.webp",
+    alt: "Shingo Tamagawa em retrato produzido para o projeto Creators Zone de 2022",
+    credit: "Mitsui Fudosan 80th Anniversary Future Special Zone Project",
+    sourceUrl: "https://www.mindcreators.jp/creatorzone2022/shingotamagawa.html",
+    license: "Uso editorial; permissão para reutilização independente pendente",
+  },
   birthYear: 1987,
   birthPlace: "Nara, Japão",
   summary: "Animador e realizador japonês, autor do curta independente Puparia.",
