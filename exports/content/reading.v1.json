@@ -8216,6 +8216,15 @@
       "country": "Brasil",
       "language": "Português",
       "medium": "hardcover",
+      "cover": {
+        "src": "/images/reading/dracula-dark-edition.jpg",
+        "alt": "Capa da edição brasileira Drácula — Dark Edition publicada pela DarkSide Books",
+        "sourceUrl": "https://www.darksidebooks.com.br/dracula---dark-edition/p",
+        "credit": "DarkSide Books",
+        "rights": "permission-pending",
+        "width": 604,
+        "height": 905
+      },
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
@@ -8223,7 +8232,7 @@
       "sources": [
         {
           "title": "Drácula — Dark Edition — edição brasileira",
-          "url": "https://www.darksidebooks.com.br/livros/ficcao"
+          "url": "https://www.darksidebooks.com.br/dracula---dark-edition/p"
         }
       ],
       "createdAt": "2026-08-13",
@@ -8916,6 +8925,15 @@
       "medium": "paperback",
       "isbn13": "9786555949070",
       "pageCount": 208,
+      "cover": {
+        "src": "/images/reading/hellsing-especial-01.jpg",
+        "alt": "Capa de Hellsing Especial volume 1 publicado pela Editora JBC",
+        "sourceUrl": "https://editorajbc.com.br/mangas/colecao/hellsing-esp/vol/hellsing-especial-01/",
+        "credit": "Editora JBC",
+        "rights": "permission-pending",
+        "width": 494,
+        "height": 750
+      },
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
@@ -8958,13 +8976,22 @@
       "language": "Português",
       "medium": "paperback",
       "publicationDate": "2023-03-29",
+      "cover": {
+        "src": "/images/reading/vanitas-01.webp",
+        "alt": "Capa de As Memórias de Vanitas volume 1 publicado pela Panini Brasil",
+        "sourceUrl": "https://venda.panini.com.br/as-memorias-de-vanitas-01-avani001r",
+        "credit": "Panini Brasil",
+        "rights": "permission-pending",
+        "width": 340,
+        "height": 500
+      },
       "translationCredits": [],
       "availabilityStatus": "unknown",
       "status": "published",
       "sources": [
         {
           "title": "As Memórias de Vanitas #01 — edição brasileira",
-          "url": "https://panini.com.br/as-memorias-de-vanitas-07"
+          "url": "https://venda.panini.com.br/as-memorias-de-vanitas-01-avani001r"
         }
       ],
       "createdAt": "2026-08-13",
@@ -9032,13 +9059,22 @@
       "country": "Brasil",
       "language": "Português",
       "medium": "paperback",
+      "cover": {
+        "src": "/images/reading/parasyte-01.jpg",
+        "alt": "Capa de Parasyte volume 1 publicado pela Editora JBC",
+        "sourceUrl": "https://editorajbc.com.br/mangas/colecao/parasyte/vol/parasyte-01/",
+        "credit": "Editora JBC",
+        "rights": "permission-pending",
+        "width": 200,
+        "height": 305
+      },
       "translationCredits": [],
       "availabilityStatus": "unknown",
       "status": "published",
       "sources": [
         {
           "title": "Parasyte #01 — edição brasileira",
-          "url": "https://editorajbc.com.br/mangas/colecao/parasyte/"
+          "url": "https://editorajbc.com.br/mangas/colecao/parasyte/vol/parasyte-01/"
         }
       ],
       "createdAt": "2026-08-13",
@@ -9052,13 +9088,22 @@
       "country": "Brasil",
       "language": "Português",
       "medium": "paperback",
+      "cover": {
+        "src": "/images/reading/hikaru-01.webp",
+        "alt": "Capa de O Verão em que Hikaru Morreu volume 1 publicado pela Panini Brasil",
+        "sourceUrl": "https://panini.com.br/o-verao-em-que-hikaru-morreu-01-ahika001r3",
+        "credit": "Panini Brasil",
+        "rights": "permission-pending",
+        "width": 340,
+        "height": 488
+      },
       "translationCredits": [],
       "availabilityStatus": "unknown",
       "status": "published",
       "sources": [
         {
           "title": "O Verão em que Hikaru Morreu #01 — edição brasileira",
-          "url": "https://panini.com.br/o-ver-o-em-que-hikaru-morreu-01"
+          "url": "https://panini.com.br/o-verao-em-que-hikaru-morreu-01-ahika001r3"
         }
       ],
       "createdAt": "2026-08-13",
@@ -9191,6 +9236,15 @@
       "country": "Brasil",
       "language": "Português",
       "medium": "paperback",
+      "cover": {
+        "src": "/images/reading/kaguya-sama-01.webp",
+        "alt": "Capa de Kaguya-sama: Love Is War volume 1 publicado pela Panini Brasil",
+        "sourceUrl": "https://venda.panini.com.br/kaguya-sama-love-is-war-vol-1-akagu001r",
+        "credit": "Panini Brasil",
+        "rights": "permission-pending",
+        "width": 340,
+        "height": 495
+      },
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
