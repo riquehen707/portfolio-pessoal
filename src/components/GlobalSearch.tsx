@@ -2,16 +2,12 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 
 import type { GlobalSearchItem, GlobalSearchItemType } from "@/lib/globalSearch";
 
 import styles from "./GlobalSearch.module.scss";
-
-type GlobalSearchProps = {
-  items: GlobalSearchItem[];
-};
 
 type RankedItem = GlobalSearchItem & {
   score: number;
@@ -101,12 +97,52 @@ function formatDate(value?: string) {
   }).format(date);
 }
 
-export function GlobalSearch({ items }: GlobalSearchProps) {
+type SearchIndexResponse = {
+  items: GlobalSearchItem[];
+};
+
+type LoadingState = "idle" | "loading" | "ready" | "error";
+
+export function GlobalSearch() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
+  const [items, setItems] = useState<GlobalSearchItem[]>([]);
+  const [loadingState, setLoadingState] = useState<LoadingState>("idle");
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const requestRef = useRef<Promise<void> | null>(null);
   const router = useRouter();
+
+  const loadSearchIndex = useCallback(() => {
+    if (loadingState === "ready") return Promise.resolve();
+    if (requestRef.current) return requestRef.current;
+
+    setLoadingState("loading");
+    const request = fetch("/api/search-index", {
+      headers: { Accept: "application/json" },
+    })
+      .then(async (response) => {
+        if (!response.ok) throw new Error(`Busca indisponivel (${response.status})`);
+        const payload = (await response.json()) as SearchIndexResponse;
+        if (!Array.isArray(payload.items)) throw new Error("Indice de busca invalido");
+        setItems(payload.items);
+        setLoadingState("ready");
+      })
+      .catch(() => {
+        setLoadingState("error");
+      })
+      .finally(() => {
+        requestRef.current = null;
+      });
+
+    requestRef.current = request;
+    return request;
+  }, [loadingState]);
+
+  const openSearch = useCallback(() => {
+    setOpen(true);
+    void loadSearchIndex();
+  }, [loadSearchIndex]);
 
   const results = useMemo(() => {
     if (!query.trim()) {
@@ -134,19 +170,19 @@ export function GlobalSearch({ items }: GlobalSearchProps) {
 
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
         event.preventDefault();
-        setOpen(true);
+        openSearch();
         return;
       }
 
       if (!isTyping && event.key === "/" && !open) {
         event.preventDefault();
-        setOpen(true);
+        openSearch();
       }
     };
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [open]);
+  }, [open, openSearch]);
 
   useEffect(() => {
     if (!open) return;
@@ -194,7 +230,7 @@ export function GlobalSearch({ items }: GlobalSearchProps) {
       <button
         className={styles.trigger}
         type="button"
-        onClick={() => setOpen(true)}
+        onClick={openSearch}
         aria-label="Buscar no blog"
         aria-keyshortcuts="Control+K Meta+K"
       >
@@ -265,7 +301,20 @@ export function GlobalSearch({ items }: GlobalSearchProps) {
             </div>
 
             <div className={styles.results} aria-label="Resultados da busca">
-              {results.length > 0 ? (
+              {loadingState === "loading" || loadingState === "idle" ? (
+                <div className={styles.searchStatus} role="status">
+                  <strong>Preparando a busca...</strong>
+                  <span>Carregando o índice editorial.</span>
+                </div>
+              ) : loadingState === "error" ? (
+                <div className={styles.searchStatus} role="alert">
+                  <strong>Não foi possível carregar a busca.</strong>
+                  <span>Confira sua conexão e tente novamente.</span>
+                  <button type="button" className={styles.retryButton} onClick={() => void loadSearchIndex()}>
+                    Tentar novamente
+                  </button>
+                </div>
+              ) : results.length > 0 ? (
                 results.map((item, index) => (
                   <Link
                     className={styles.result}

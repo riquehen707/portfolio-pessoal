@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
-import type { GlobalSearchItem } from "@/lib/globalSearch";
 import { blog, person } from "@/resources";
 
 import { GlobalSearch } from "./GlobalSearch";
@@ -32,7 +31,6 @@ const henriqueLinks = [
   { href: "/about", label: "Sobre mim" },
 ] as const;
 
-type HeaderProps = { searchItems: GlobalSearchItem[] };
 type MenuLink = (typeof primaryContentLinks)[number] | (typeof collectionLinks)[number] | typeof toolsLink | (typeof henriqueLinks)[number];
 
 function isCurrentPath(pathname: string, item: MenuLink) {
@@ -40,7 +38,7 @@ function isCurrentPath(pathname: string, item: MenuLink) {
   return pathname === item.href || pathname.startsWith(`${item.href}/`);
 }
 
-export function Header({ searchItems }: HeaderProps) {
+export function Header() {
   const pathname = usePathname() ?? "";
   const [menuOpen, setMenuOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
@@ -80,7 +78,7 @@ export function Header({ searchItems }: HeaderProps) {
       </Link>
 
       <div className={styles.actions}>
-        <GlobalSearch items={searchItems} />
+        <GlobalSearch />
         <button
           className={styles.menuButton}
           type="button"
