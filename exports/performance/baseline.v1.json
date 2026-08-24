@@ -1,0 +1,246 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-24T13:57:23.478Z",
+  "environment": {
+    "commit": "9c652529df6052fd590450834349e0c5d343fcc9",
+    "node": "v24.11.1",
+    "next": "^15.5.9",
+    "platform": "win32-x64"
+  },
+  "methodology": {
+    "buildRequired": true,
+    "byteValues": "Tamanhos brutos no disco; nao equivalem a transferencia comprimida.",
+    "buildDuration": "Cronometrar externamente `npm run build`; o Next nao grava a duracao no manifesto.",
+    "lighthouse": "Nao coletado por este comando; requer servidor de producao e navegador separado."
+  },
+  "pages": {
+    "prerenderedRoutes": 553,
+    "dynamicRouteDefinitions": 16,
+    "manifestRoutes": 4
+  },
+  "sourceGroups": [
+    {
+      "path": "src/app/blog/posts",
+      "files": 218,
+      "bytes": 3987335
+    },
+    {
+      "path": "src/content",
+      "files": 52,
+      "bytes": 975773
+    },
+    {
+      "path": "src/data",
+      "files": 19,
+      "bytes": 18641
+    },
+    {
+      "path": "public/images",
+      "files": 615,
+      "bytes": 31754980
+    }
+  ],
+  "buildGroups": [
+    {
+      "path": ".next/static",
+      "files": 775,
+      "bytes": 7168059
+    },
+    {
+      "path": ".next/server",
+      "files": 2490,
+      "bytes": 387142794
+    },
+    {
+      "path": ".next/cache",
+      "files": 182,
+      "bytes": 2153848791
+    }
+  ],
+  "clientBundlesByRoute": [
+    {
+      "route": "/layout",
+      "files": 4,
+      "rawClientBytes": 0
+    },
+    {
+      "route": "/not-found",
+      "files": 4,
+      "rawClientBytes": 0
+    },
+    {
+      "route": "/page",
+      "files": 4,
+      "rawClientBytes": 0
+    },
+    {
+      "route": "/personalidades/[slug]/page",
+      "files": 4,
+      "rawClientBytes": 0
+    }
+  ],
+  "largestClientChunks": [
+    {
+      "path": ".next/static/chunks/69729-14c379b3981b28ff.js",
+      "bytes": 946234
+    },
+    {
+      "path": ".next/static/chunks/51856-6118b362f69b1b87.js",
+      "bytes": 357814
+    },
+    {
+      "path": ".next/static/chunks/82699-62dcc7a17460131f.js",
+      "bytes": 221794
+    },
+    {
+      "path": ".next/static/chunks/framework-76e98d7b8ad44551.js",
+      "bytes": 189788
+    },
+    {
+      "path": ".next/static/chunks/4bd1b696-bad92808725a934a.js",
+      "bytes": 173026
+    },
+    {
+      "path": ".next/static/chunks/31255-675ea469c8dc0052.js",
+      "bytes": 172820
+    },
+    {
+      "path": ".next/static/chunks/main-a56c28aefe63e290.js",
+      "bytes": 123539
+    },
+    {
+      "path": ".next/static/chunks/polyfills-42372ed130431b0a.js",
+      "bytes": 112594
+    },
+    {
+      "path": ".next/static/chunks/app/series/page-a481f4659253e1f0.js",
+      "bytes": 107844
+    },
+    {
+      "path": ".next/static/chunks/44947-1f1b6191114339a0.js",
+      "bytes": 88903
+    },
+    {
+      "path": ".next/static/chunks/app/simulacao/page-b9304e37643f0759.js",
+      "bytes": 77909
+    },
+    {
+      "path": ".next/static/chunks/32099-14b844a0ec92124d.js",
+      "bytes": 65246
+    },
+    {
+      "path": ".next/static/chunks/10350-881d02aad1ef8b23.js",
+      "bytes": 58074
+    },
+    {
+      "path": ".next/static/chunks/app/servicos/[slug]/page-9bf3a0127c9455ce.js",
+      "bytes": 55162
+    },
+    {
+      "path": ".next/static/chunks/app/personalidades/page-eb213e38df8d50b0.js",
+      "bytes": 52328
+    },
+    {
+      "path": ".next/static/chunks/app/ideias/page-b1ad60b74428fd2e.js",
+      "bytes": 52101
+    },
+    {
+      "path": ".next/static/chunks/99762-95dd6cc9719d1c7e.js",
+      "bytes": 51746
+    },
+    {
+      "path": ".next/static/chunks/app/blog/page-90b2a10522cfb6b7.js",
+      "bytes": 48889
+    },
+    {
+      "path": ".next/static/chunks/94956-ef9932c8684d7593.js",
+      "bytes": 48096
+    },
+    {
+      "path": ".next/static/chunks/app/work/gerenciamento/page-bdbc95b78fd266b4.js",
+      "bytes": 47815
+    }
+  ],
+  "largestGeneratedHtml": [
+    {
+      "path": ".next/server/app/filmes.html",
+      "bytes": 1007928
+    },
+    {
+      "path": ".next/server/app/blog/landing-page-o-que-e-como-criar.html",
+      "bytes": 683722
+    },
+    {
+      "path": ".next/server/app/blog/dashboard-o-que-e-como-criar.html",
+      "bytes": 669261
+    },
+    {
+      "path": ".next/server/app/blog/como-fazer-projecao-de-vendas.html",
+      "bytes": 662805
+    },
+    {
+      "path": ".next/server/app/blog/crm-o-que-e-como-funciona.html",
+      "bytes": 646799
+    },
+    {
+      "path": ".next/server/app/blog/database-design-patterns.html",
+      "bytes": 604880
+    },
+    {
+      "path": ".next/server/app/blog/e-commerce-dropshipping-como-funciona.html",
+      "bytes": 589946
+    },
+    {
+      "path": ".next/server/app/blog/principal-component-analysis-pca.html",
+      "bytes": 589564
+    },
+    {
+      "path": ".next/server/app/blog/data-warehouse-design.html",
+      "bytes": 579195
+    },
+    {
+      "path": ".next/server/app/blog/api-design-principles.html",
+      "bytes": 563705
+    },
+    {
+      "path": ".next/server/app/blog/trade-marketing.html",
+      "bytes": 551737
+    },
+    {
+      "path": ".next/server/app/blog/marketing-medico.html",
+      "bytes": 548514
+    },
+    {
+      "path": ".next/server/app/blog/como-montar-um-pc.html",
+      "bytes": 543662
+    },
+    {
+      "path": ".next/server/app/blog/domain-driven-design.html",
+      "bytes": 542656
+    },
+    {
+      "path": ".next/server/app/blog/marketing-orientado-a-dados.html",
+      "bytes": 541432
+    },
+    {
+      "path": ".next/server/app/blog/influencer-marketing.html",
+      "bytes": 537914
+    },
+    {
+      "path": ".next/server/app/blog/crimes-no-discord-responsabilidade-moderacao.html",
+      "bytes": 537259
+    },
+    {
+      "path": ".next/server/app/blog/melhores-maquininhas-de-cartao.html",
+      "bytes": 532687
+    },
+    {
+      "path": ".next/server/app/blog/como-ganhar-dinheiro-na-internet-no-curto-prazo.html",
+      "bytes": 527434
+    },
+    {
+      "path": ".next/server/app/quadrinhos.html",
+      "bytes": 526943
+    }
+  ]
+}

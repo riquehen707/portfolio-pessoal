@@ -8,6 +8,7 @@
     "fetch:reading-work-covers": "node scripts/fetch-reading-work-covers.mjs",
     "fetch:reading-google-covers": "node scripts/fetch-reading-google-covers.mjs",
     "audit:content": "node scripts/audit-content.mjs",
+    "audit:performance": "node scripts/audit-performance-baseline.mjs",
     "audit:media": "node scripts/audit-media-assets.mjs",
     "audit:media:remote": "node scripts/audit-media-assets.mjs --check-remote",
     "dev": "next dev",
