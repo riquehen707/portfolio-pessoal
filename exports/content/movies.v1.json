@@ -6060,17 +6060,18 @@
       "schemaVersion": 1,
       "slug": "narnia-2026",
       "aliases": [
-        "narnia-greta-gerwig"
+        "narnia-greta-gerwig",
+        "narnia-the-magicians-nephew"
       ],
       "createdAt": "2026-08-10",
       "updatedAt": "2026-08-11",
       "relatedContentIds": [],
       "organizationRelationships": [],
-      "titleBr": "Narnia",
-      "originalTitle": "Narnia",
-      "year": 2026,
+      "titleBr": "Narnia: The Magician's Nephew",
+      "originalTitle": "Narnia: The Magician's Nephew",
+      "year": 2027,
       "format": "feature",
-      "releaseDate": "2026-11-26",
+      "releaseDate": "2027-02-12",
       "productionStatus": "upcoming",
       "countries": [
         "Estados Unidos",
@@ -6095,19 +6096,19 @@
         "Fé",
         "Infância"
       ],
-      "shortDescription": "Greta Gerwig inicia uma nova adaptação cinematográfica do universo fantástico criado por C. S. Lewis.",
+      "shortDescription": "Greta Gerwig adapta O Sobrinho do Mago em uma aventura sobre a criação de Nárnia, com lançamento mundial nos cinemas antes da estreia na Netflix.",
       "audienceProfile": "Para famílias e leitores curiosos sobre como uma diretora autoral negociará mito, infância e grande produção.",
       "experience": "Promessa de fantasia literária em grande formato",
       "contentWarnings": [],
       "status": "draft",
       "seo": {
-        "title": "Narnia: ficha e análise do filme",
-        "description": "Narnia (2026): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+        "title": "Narnia: The Magician's Nephew: ficha e análise do filme",
+        "description": "Narnia: The Magician's Nephew (2027): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
       },
       "sources": [
         {
-          "title": "2026 Movie Release Schedule — TheWrap",
-          "url": "https://www.thewrap.com/creative-content/movies/2026-movie-release-dates-calendar/"
+          "title": "Narnia: The Magician's Nephew — Netflix Tudum",
+          "url": "https://www.netflix.com/tudum/articles/narnia-release-date"
         }
       ],
       "relationships": [

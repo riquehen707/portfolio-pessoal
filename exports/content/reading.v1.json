@@ -4480,6 +4480,1084 @@
       "updatedAt": "2026-08-24"
     },
     {
+      "id": "read_work_psychopolitics",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "psicopolitica",
+      "aliases": [],
+      "originalTitle": "Psychopolitik: Neoliberalismus und die neuen Machttechniken",
+      "titleBr": "Psicopolítica",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2014",
+      "publicationEnd": "2014",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Neoliberalismo",
+        "Dados",
+        "Liberdade",
+        "Poder"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Para quem já conhece a sociedade do desempenho e quer relacioná-la a vigilância, dados e neoliberalismo.",
+      "shortDescription": "Han descreve formas de poder que mobilizam liberdade, participação, emoção e dados para orientar condutas e converter autoexpressão em controle.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Psicopolítica — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Psychopolitik: Neoliberalismus und die neuen Machttechniken — edição original",
+          "url": "https://www.fischerverlage.de/buch/byung-chul-han-psychopolitik-9783104030609"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_transparency_society",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "sociedade-da-transparencia",
+      "aliases": [],
+      "originalTitle": "Transparenzgesellschaft",
+      "titleBr": "Sociedade da Transparência",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2012",
+      "publicationEnd": "2012",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Transparência",
+        "Exposição",
+        "Confiança",
+        "Controle"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitura breve para interessados em exposição digital, confiança pública e limites da transparência como ideal absoluto.",
+      "shortDescription": "O imperativo de tornar tudo visível é analisado como pressão sistêmica que acelera processos, enfraquece confiança e amplia formas de controle.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Sociedade da Transparência — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Transparenzgesellschaft — edição original",
+          "url": "https://www.matthes-seitz-berlin.de/buch/transparenzgesellschaft.html"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_in_the_swarm",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "no-enxame",
+      "aliases": [],
+      "originalTitle": "Im Schwarm: Ansichten des Digitalen",
+      "titleBr": "No Enxame",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2013",
+      "publicationEnd": "2013",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Comunicação digital",
+        "Redes sociais",
+        "Indignação",
+        "Ação coletiva"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Entrada acessível para leitores interessados em redes sociais, comunicação pública e comportamento digital.",
+      "shortDescription": "O ensaio examina como comunicação digital, exposição e reações fragmentadas alteram atenção, espaço público e capacidade de ação coletiva.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "No Enxame — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Im Schwarm: Ansichten des Digitalen — edição original",
+          "url": "https://www.matthes-seitz-berlin.de/buch/im-schwarm.html"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_agony_of_eros",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "a-agonia-do-eros",
+      "aliases": [],
+      "originalTitle": "Agonie des Eros",
+      "titleBr": "A Agonia do Eros",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2012",
+      "publicationEnd": "2012",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Eros",
+        "Alteridade",
+        "Narcisismo",
+        "Desejo"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Para quem deseja explorar alteridade e desejo; ganha contexto depois de Sociedade da Transparência.",
+      "shortDescription": "Han relaciona a erosão do desejo à dificuldade de encontrar o outro como diferença irredutível num ambiente dominado por consumo e autorreferência.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "A Agonia do Eros — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Agonie des Eros — edição original",
+          "url": "https://www.matthes-seitz-berlin.de/buch/agonie-des-eros.html"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_topology_violence",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "topologia-da-violencia",
+      "aliases": [],
+      "originalTitle": "Topologie der Gewalt",
+      "titleBr": "Topologia da Violência",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2011",
+      "publicationEnd": "2011",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Violência",
+        "Disciplina",
+        "Desempenho",
+        "Autoexploração"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Obra mais densa, indicada para quem quer aprofundar a relação entre violência, disciplina e desempenho.",
+      "shortDescription": "Uma cartografia das transformações da violência, da coerção visível às pressões internalizadas que aparecem como desempenho, culpa e esgotamento.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Topologia da Violência — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Topologie der Gewalt — edição original",
+          "url": "https://www.matthes-seitz-berlin.de/buch/topologie-der-gewalt.html"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_scent_time",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "o-aroma-do-tempo",
+      "aliases": [],
+      "originalTitle": "Duft der Zeit: Ein philosophischer Essay zur Kunst des Verweilens",
+      "titleBr": "O Aroma do Tempo",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2009",
+      "publicationEnd": "2009",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Tempo",
+        "Duração",
+        "Contemplação",
+        "Aceleração"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Boa entrada para quem procura uma reflexão sobre tempo, atenção e contemplação além da produtividade.",
+      "shortDescription": "O problema do tempo contemporâneo é apresentado menos como simples aceleração e mais como perda de duração, orientação e capacidade de demora.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "O Aroma do Tempo — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Duft der Zeit: Ein philosophischer Essay zur Kunst des Verweilens — edição original",
+          "url": "https://books.google.com/books/about/Duft_der_Zeit.html?id=QHcrvgAACAAJ"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_expulsion_other",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "a-expulsao-do-outro",
+      "aliases": [],
+      "originalTitle": "Die Austreibung des Anderen: Gesellschaft, Wahrnehmung und Kommunikation heute",
+      "titleBr": "A Expulsão do Outro",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2016",
+      "publicationEnd": "2016",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Alteridade",
+        "Narcisismo",
+        "Globalização",
+        "Comunicação"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Para leitores interessados em alteridade, identidade e os efeitos sociais da comunicação orientada por semelhança.",
+      "shortDescription": "Han investiga como a proliferação do igual enfraquece encontro, sedução e experiência do outro em ambientes de hipercomunicação e consumo.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "A Expulsão do Outro — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Die Austreibung des Anderen: Gesellschaft, Wahrnehmung und Kommunikation heute — edição original",
+          "url": "https://www.fischerverlage.de/buch/byung-chul-han-die-austreibung-des-anderen-9783103972122"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_vita_contemplativa",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "vita-contemplativa",
+      "aliases": [],
+      "originalTitle": "Vita contemplativa: Oder von der Untätigkeit",
+      "titleBr": "Vita Contemplativa ou Sobre a Inatividade",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2022",
+      "publicationEnd": "2022",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Inatividade",
+        "Contemplação",
+        "Festa",
+        "Natureza"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Ponto de chegada produtivo para quem começou por Sociedade do Cansaço e busca as respostas propostas por Han.",
+      "shortDescription": "A inatividade aparece como capacidade própria, e não simples ausência de trabalho, capaz de abrir tempo para contemplação, festa e relação não exploratória com o mundo.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Vita Contemplativa ou Sobre a Inatividade — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Vita contemplativa: Oder von der Untätigkeit — edição original",
+          "url": "https://www.ullstein.de/werke/vita-contemplativa/hardcover/9783550202230"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_non_things",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "nao-coisas",
+      "aliases": [],
+      "originalTitle": "Undinge: Umbrüche der Lebenswelt",
+      "titleBr": "Não-Coisas",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2021",
+      "publicationEnd": "2021",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Informação",
+        "Smartphone",
+        "Inteligência artificial",
+        "Materialidade"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitura acessível para interessados em tecnologia, cultura digital, objetos e transformação da experiência cotidiana.",
+      "shortDescription": "O livro contrapõe coisas e informação para discutir smartphone, inteligência artificial, memória, silêncio e perda de vínculo com o mundo material.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Não-Coisas — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Undinge: Umbrüche der Lebenswelt — edição original",
+          "url": "https://www.ullstein.de/werke/undinge/hardcover/9783550201431"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_infocracy",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "infocracia",
+      "aliases": [],
+      "originalTitle": "Infokratie: Digitalisierung und die Krise der Demokratie",
+      "titleBr": "Infocracia",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2021",
+      "publicationEnd": "2021",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Democracia",
+        "Informação",
+        "Algoritmos",
+        "Esfera pública"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Para quem busca conectar tecnologia, informação, verdade e democracia depois de No Enxame e Psicopolítica.",
+      "shortDescription": "Han relaciona excesso de informação, personalização algorítmica e fragmentação da atenção à crise do discurso público e das instituições democráticas.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Infocracia — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Infokratie: Digitalisierung und die Krise der Demokratie — edição original",
+          "url": "https://www.matthes-seitz-berlin.de/buch/infokratie.html"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_capitalism_death_drive",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "capitalismo-e-impulso-de-morte",
+      "aliases": [],
+      "originalTitle": "Kapitalismus und Todestrieb: Essays und Interviews",
+      "titleBr": "Capitalismo e Impulso de Morte",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2019",
+      "publicationEnd": "2019",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Capitalismo",
+        "Crescimento",
+        "Destruição",
+        "Trabalho"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Coletânea indicada a quem já conhece os conceitos centrais e quer observá-los em intervenções mais variadas.",
+      "shortDescription": "Ensaios e entrevistas aproximam crescimento, produção e autodestruição para questionar a expansão ilimitada do capitalismo contemporâneo.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Capitalismo e Impulso de Morte — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Kapitalismus und Todestrieb: Essays und Interviews — edição original",
+          "url": "https://www.matthes-seitz-berlin.de/buch/kapitalismus-und-todestrieb.html"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_crisis_narration",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "a-crise-da-narracao",
+      "aliases": [],
+      "originalTitle": "Die Krise der Narration",
+      "titleBr": "A Crise da Narração",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2023",
+      "publicationEnd": "2023",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Narração",
+        "Informação",
+        "Experiência",
+        "Comunidade"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitura breve para interessados em narrativa, experiência e cultura digital; dialoga diretamente com Infocracia.",
+      "shortDescription": "O ensaio distingue narrativa de informação e storytelling comercial para discutir continuidade da experiência, escuta e formação de comunidade.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "A Crise da Narração — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Die Krise der Narration — edição original",
+          "url": "https://www.matthes-seitz-berlin.de/buch/die-krise-der-narration.html"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_close_eyes",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "favor-fechar-os-olhos",
+      "aliases": [],
+      "originalTitle": "Bitte Augen schließen: Auf der Suche nach einer anderen Zeit",
+      "titleBr": "Favor Fechar os Olhos",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2013",
+      "publicationEnd": "2013",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Tempo",
+        "Atenção",
+        "Duração",
+        "Ritmo"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Para leitores atraídos por tempo e atenção; funciona como complemento breve a O Aroma do Tempo.",
+      "shortDescription": "Textos breves procuram outra experiência temporal diante de um presente reduzido à atualização contínua, sem duração ou força de ligação.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Favor Fechar os Olhos — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Bitte Augen schließen: Auf der Suche nach einer anderen Zeit — edição original",
+          "url": "https://www.matthes-seitz-berlin.de/buch/bitte-augen-schliessen.html"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_disappearance_rituals",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "o-desaparecimento-dos-rituais",
+      "aliases": [],
+      "originalTitle": "Vom Verschwinden der Rituale: Eine Topologie der Gegenwart",
+      "titleBr": "O Desaparecimento dos Rituais",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2019",
+      "publicationEnd": "2019",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Rituais",
+        "Comunidade",
+        "Repetição",
+        "Símbolos"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Para quem quer estudar repetição, comunidade e tempo sem tomar o diagnóstico do livro como simples nostalgia.",
+      "shortDescription": "Rituais são tratados como técnicas simbólicas que organizam tempo, pertencimento e comunidade, servindo de contraste às relações instáveis do presente.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "O Desaparecimento dos Rituais — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Vom Verschwinden der Rituale: Eine Topologie der Gegenwart — edição original",
+          "url": "https://www.ullstein.de/werke/vom-verschwinden-der-rituale/hardcover/9783550050718"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
       "id": "read_work_sandman",
       "contentType": "reading-work",
       "schemaVersion": 1,
@@ -13201,6 +14279,38 @@
       ],
       "createdAt": "2026-08-13",
       "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_volume_insomniacs_1",
+      "workId": "read_work_insomniacs",
+      "number": 1,
+      "label": "Insomniacs After School #01",
+      "installmentIds": [],
+      "status": "published",
+      "sources": [
+        {
+          "title": "Insomniacs After School #01 — volume 1",
+          "url": "https://www.viz.com/manga-books/manga/insomniacs-after-school-volume-1/product/7387"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_volume_nodame_1",
+      "workId": "read_work_nodame",
+      "number": 1,
+      "label": "Nodame Cantabile #01",
+      "installmentIds": [],
+      "status": "published",
+      "sources": [
+        {
+          "title": "Nodame Cantabile #01 — volume 1",
+          "url": "https://openlibrary.org/books/OL26453246M"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
     }
   ],
   "editions": [
@@ -14127,6 +15237,423 @@
         {
           "title": "The Library at Mount Char — edição verificada",
           "url": "https://www.penguinrandomhouse.com/books/240942/the-library-at-mount-char-by-scott-hawkins/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_psychopolitics_vozes",
+      "workId": "read_work_psychopolitics",
+      "title": "Psicopolítica",
+      "publisherId": "org_ayine",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2018-01-01",
+      "isbn13": "9788592649395",
+      "pageCount": 102,
+      "cover": {
+        "src": "/images/reading/byung-chul-han/psicopolitica.webp",
+        "alt": "Capa da edição brasileira de Psicopolítica publicada pela Editora Âyiné",
+        "sourceUrl": "https://www.ayine.com.br/products/psicopolitica",
+        "credit": "Editora Âyiné",
+        "rights": "permission-pending",
+        "width": 762,
+        "height": 1181
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Psicopolítica — Editora Âyiné",
+          "url": "https://www.ayine.com.br/products/psicopolitica"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_transparency_society_vozes",
+      "workId": "read_work_transparency_society",
+      "title": "Sociedade da Transparência",
+      "publisherId": "org_vozes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "isbn13": "9788532654717",
+      "cover": {
+        "src": "/images/reading/byung-chul-han/sociedade-da-transparencia.webp",
+        "alt": "Capa da edição brasileira de Sociedade da Transparência publicada pela Editora Vozes",
+        "sourceUrl": "https://openlibrary.org/books/OL44870870M",
+        "credit": "Editora Vozes via Open Library",
+        "rights": "permission-pending",
+        "width": 292,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Sociedade da Transparência — catálogo da Editora Vozes",
+          "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_in_the_swarm_vozes",
+      "workId": "read_work_in_the_swarm",
+      "title": "No Enxame",
+      "publisherId": "org_vozes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "cover": {
+        "src": "/images/reading/byung-chul-han/no-enxame.webp",
+        "alt": "Capa da edição brasileira de No Enxame publicada pela Editora Vozes",
+        "sourceUrl": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han",
+        "credit": "Editora Vozes",
+        "rights": "permission-pending",
+        "width": 384,
+        "height": 669
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "No Enxame — catálogo da Editora Vozes",
+          "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_agony_eros_vozes",
+      "workId": "read_work_agony_of_eros",
+      "title": "A Agonia do Eros",
+      "publisherId": "org_vozes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "cover": {
+        "src": "/images/reading/byung-chul-han/a-agonia-do-eros.webp",
+        "alt": "Capa da edição brasileira de A Agonia do Eros publicada pela Editora Vozes",
+        "sourceUrl": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han",
+        "credit": "Editora Vozes",
+        "rights": "permission-pending",
+        "width": 393,
+        "height": 669
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "A Agonia do Eros — catálogo da Editora Vozes",
+          "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_topology_violence_vozes",
+      "workId": "read_work_topology_violence",
+      "title": "Topologia da Violência",
+      "publisherId": "org_vozes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "cover": {
+        "src": "/images/reading/byung-chul-han/topologia-da-violencia.webp",
+        "alt": "Capa da edição brasileira de Topologia da Violência publicada pela Editora Vozes",
+        "sourceUrl": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han",
+        "credit": "Editora Vozes",
+        "rights": "permission-pending",
+        "width": 385,
+        "height": 669
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Topologia da Violência — catálogo da Editora Vozes",
+          "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_scent_time_vozes",
+      "workId": "read_work_scent_time",
+      "title": "O Aroma do Tempo",
+      "publisherId": "org_relogio_dagua",
+      "country": "Portugal",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2016-02-22",
+      "isbn13": "9789896415877",
+      "pageCount": 144,
+      "cover": {
+        "src": "/images/reading/byung-chul-han/o-aroma-do-tempo.webp",
+        "alt": "Capa da edição portuguesa de O Aroma do Tempo publicada pela Relógio D’Água",
+        "sourceUrl": "https://www.relogiodagua.pt/produto/o-aroma-do-tempo/",
+        "credit": "Relógio D’Água Editores; arquivo obtido via Martins Fontes Paulista",
+        "rights": "permission-pending",
+        "width": 654,
+        "height": 1000
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "O Aroma do Tempo — Relógio D’Água",
+          "url": "https://www.relogiodagua.pt/produto/o-aroma-do-tempo/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_expulsion_other_vozes",
+      "workId": "read_work_expulsion_other",
+      "title": "A Expulsão do Outro",
+      "publisherId": "org_vozes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "isbn13": "9786557133507",
+      "cover": {
+        "src": "/images/reading/byung-chul-han/a-expulsao-do-outro.webp",
+        "alt": "Capa da edição brasileira de A Expulsão do Outro publicada pela Editora Vozes",
+        "sourceUrl": "https://vozes.com.br/storage/links/files/RHOoJv3bCsKvGSwR1W64ByfLxHsLftJmTuSAG1K3.pdf",
+        "credit": "Editora Vozes via Open Library",
+        "rights": "permission-pending",
+        "width": 278,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "A Expulsão do Outro — catálogo da Editora Vozes",
+          "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_vita_contemplativa_vozes",
+      "workId": "read_work_vita_contemplativa",
+      "title": "Vita Contemplativa ou Sobre a Inatividade",
+      "publisherId": "org_vozes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "cover": {
+        "src": "/images/reading/byung-chul-han/vita-contemplativa.webp",
+        "alt": "Capa da edição brasileira de Vita Contemplativa ou Sobre a Inatividade publicada pela Editora Vozes",
+        "sourceUrl": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han",
+        "credit": "Editora Vozes",
+        "rights": "permission-pending",
+        "width": 390,
+        "height": 669
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Vita Contemplativa ou Sobre a Inatividade — catálogo da Editora Vozes",
+          "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_non_things_vozes",
+      "workId": "read_work_non_things",
+      "title": "Não-Coisas",
+      "publisherId": "org_vozes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "cover": {
+        "src": "/images/reading/byung-chul-han/nao-coisas.webp",
+        "alt": "Capa da edição brasileira de Não-Coisas publicada pela Editora Vozes",
+        "sourceUrl": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han",
+        "credit": "Editora Vozes",
+        "rights": "permission-pending",
+        "width": 390,
+        "height": 669
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Não-Coisas — catálogo da Editora Vozes",
+          "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_infocracy_vozes",
+      "workId": "read_work_infocracy",
+      "title": "Infocracia",
+      "publisherId": "org_vozes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "cover": {
+        "src": "/images/reading/byung-chul-han/infocracia.webp",
+        "alt": "Capa da edição brasileira de Infocracia publicada pela Editora Vozes",
+        "sourceUrl": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han",
+        "credit": "Editora Vozes",
+        "rights": "permission-pending",
+        "width": 390,
+        "height": 669
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Infocracia — catálogo da Editora Vozes",
+          "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_capitalism_death_drive_vozes",
+      "workId": "read_work_capitalism_death_drive",
+      "title": "Capitalismo e Impulso de Morte",
+      "publisherId": "org_vozes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "cover": {
+        "src": "/images/reading/byung-chul-han/capitalismo-e-impulso-de-morte.webp",
+        "alt": "Capa da edição brasileira de Capitalismo e Impulso de Morte publicada pela Editora Vozes",
+        "sourceUrl": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han",
+        "credit": "Editora Vozes",
+        "rights": "permission-pending",
+        "width": 390,
+        "height": 669
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Capitalismo e Impulso de Morte — catálogo da Editora Vozes",
+          "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_crisis_narration_vozes",
+      "workId": "read_work_crisis_narration",
+      "title": "A Crise da Narração",
+      "publisherId": "org_vozes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2023-11-08",
+      "isbn13": "9788532665690",
+      "pageCount": 136,
+      "cover": {
+        "src": "/images/reading/byung-chul-han/a-crise-da-narracao.webp",
+        "alt": "Capa da edição brasileira de A Crise da Narração publicada pela Editora Vozes",
+        "sourceUrl": "https://vozes.com.br/storage/links/files/RHOoJv3bCsKvGSwR1W64ByfLxHsLftJmTuSAG1K3.pdf",
+        "credit": "Editora Vozes via Open Library",
+        "rights": "permission-pending",
+        "width": 322,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "A Crise da Narração — catálogo da Editora Vozes",
+          "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_close_eyes_vozes",
+      "workId": "read_work_close_eyes",
+      "title": "Favor Fechar os Olhos",
+      "publisherId": "org_vozes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "cover": {
+        "src": "/images/reading/byung-chul-han/favor-fechar-os-olhos.webp",
+        "alt": "Capa da edição brasileira de Favor Fechar os Olhos publicada pela Editora Vozes",
+        "sourceUrl": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han",
+        "credit": "Editora Vozes",
+        "rights": "permission-pending",
+        "width": 373,
+        "height": 669
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Favor Fechar os Olhos — catálogo da Editora Vozes",
+          "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_disappearance_rituals_vozes",
+      "workId": "read_work_disappearance_rituals",
+      "title": "O Desaparecimento dos Rituais",
+      "publisherId": "org_vozes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "cover": {
+        "src": "/images/reading/byung-chul-han/o-desaparecimento-dos-rituais.webp",
+        "alt": "Capa da edição brasileira de O Desaparecimento dos Rituais publicada pela Editora Vozes",
+        "sourceUrl": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han",
+        "credit": "Editora Vozes",
+        "rights": "permission-pending",
+        "width": 375,
+        "height": 669
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "O Desaparecimento dos Rituais — catálogo da Editora Vozes",
+          "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
         }
       ],
       "createdAt": "2026-08-24",
@@ -15312,13 +16839,25 @@
       "country": "Brasil",
       "language": "Português",
       "medium": "paperback",
+      "isbn13": "9788583621966",
+      "pageCount": 192,
+      "cover": {
+        "src": "/images/reading/manga/happiness-01.webp",
+        "alt": "Capa de Happiness volume 1 publicado pela NewPOP",
+        "sourceUrl": "https://www.lojanewpop.com.br/happiness-vol-1",
+        "credit": "NewPOP",
+        "rights": "permission-pending",
+        "width": 800,
+        "height": 1190
+      },
       "translationCredits": [],
-      "availabilityStatus": "unknown",
+      "availabilityStatus": "unavailable",
+      "availabilityCheckedAt": "2026-08-24",
       "status": "published",
       "sources": [
         {
           "title": "Happiness #01 — edição brasileira",
-          "url": "https://www.lojanewpop.com.br/happiness-vol-4"
+          "url": "https://www.lojanewpop.com.br/happiness-vol-1"
         }
       ],
       "createdAt": "2026-08-13",
@@ -15362,7 +16901,18 @@
       "country": "Brasil",
       "language": "Português",
       "medium": "paperback",
-      "publicationDate": "2023-04-01",
+      "publicationDate": "2023-04-07",
+      "isbn13": "9786525911571",
+      "pageCount": 192,
+      "cover": {
+        "src": "/images/reading/manga/call-of-the-night-01.webp",
+        "alt": "Capa de Call of the Night: Canções da Noite volume 1 publicado pela Panini Brasil",
+        "sourceUrl": "https://aplicacoes.agenciagreenhouse.com.br/img/pdfs/052023P/paniniCatalogoManga.pdf",
+        "credit": "Panini Brasil via Google Books",
+        "rights": "permission-pending",
+        "width": 513,
+        "height": 800
+      },
       "translationCredits": [],
       "availabilityStatus": "unknown",
       "status": "published",
@@ -15507,6 +17057,15 @@
       "publicationDate": "2021-12-01",
       "isbn13": "9786589662075",
       "pageCount": 80,
+      "cover": {
+        "src": "/images/reading/comics/lua-negra.webp",
+        "alt": "Capa da segunda edição de Lua Negra publicada pela Red Dragon Publisher",
+        "sourceUrl": "https://reddragonpublisher.com/quadrinhos/lua-negra/",
+        "credit": "Red Dragon Publisher",
+        "rights": "permission-pending",
+        "width": 709,
+        "height": 1002
+      },
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
@@ -15530,6 +17089,15 @@
       "medium": "hardcover",
       "isbn13": "9786554482363",
       "pageCount": 116,
+      "cover": {
+        "src": "/images/reading/comics/a-propria-carne-escrito-com-sangue.webp",
+        "alt": "Capa de A Própria Carne: Escrito com Sangue publicada pela Pipoca & Nanquim",
+        "sourceUrl": "https://pipocaenanquim.com.br/a-propria-carne-escrito-com-sangue.html",
+        "credit": "Pipoca & Nanquim",
+        "rights": "permission-pending",
+        "width": 700,
+        "height": 1000
+      },
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",
@@ -15538,6 +17106,105 @@
         {
           "title": "A Própria Carne: Escrito com Sangue — edição brasileira",
           "url": "https://pipocaenanquim.com.br/a-propria-carne-escrito-com-sangue.html"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_baltimore_dark_horse_omnibus_1",
+      "workId": "read_work_baltimore",
+      "title": "Baltimore Omnibus Volume 1",
+      "publisherId": "org_dark_horse_books",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2023-09-05",
+      "isbn13": "9781506735696",
+      "pageCount": 568,
+      "cover": {
+        "src": "/images/reading/comics/baltimore-omnibus-volume-1.webp",
+        "alt": "Capa de Baltimore Omnibus Volume 1 publicado pela Dark Horse Books",
+        "sourceUrl": "https://www.penguinrandomhouse.com/books/610681/baltimore-omnibus-volume-1-by-written-by-mike-mignola-and-christopher-golden-art-by-ben-stenbeck-colors-by-dave-stewart/",
+        "credit": "Dark Horse Books / Penguin Random House",
+        "rights": "permission-pending",
+        "width": 293,
+        "height": 450
+      },
+      "translationCredits": [],
+      "availabilityStatus": "available",
+      "availabilityCheckedAt": "2026-08-13",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Baltimore Omnibus Volume 1 — Dark Horse Books",
+          "url": "https://www.penguinrandomhouse.com/books/610681/baltimore-omnibus-volume-1-by-written-by-mike-mignola-and-christopher-golden-art-by-ben-stenbeck-colors-by-dave-stewart/"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_carnica_independente_1",
+      "workId": "read_work_carnica_blindagem",
+      "title": "Carniça e a Blindagem Mística — Parte Um",
+      "publisherId": "org_shiko_independente",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2020-01-01",
+      "isbn13": "9786500136432",
+      "cover": {
+        "src": "/images/reading/comics/carnica-e-a-blindagem-mistica-parte-1.webp",
+        "alt": "Capa de Carniça e a Blindagem Mística — Parte 1: É Bonito o Meu Punhal, de Shiko",
+        "sourceUrl": "https://www.ugrapress.com.br/produtos/carnica-e-a-blindagem-mistica-pt-01/",
+        "credit": "Shiko via Ugra Press",
+        "rights": "permission-pending",
+        "width": 640,
+        "height": 640
+      },
+      "translationCredits": [],
+      "availabilityStatus": "available",
+      "availabilityCheckedAt": "2026-08-13",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Carniça e a Blindagem Mística — Parte 1",
+          "url": "https://www.itaucultural.org.br/secoes/colunistas/carnica-blindagem-mistica-melhores-hqs-shiko"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_tres_buracos_mino",
+      "workId": "read_work_tres_buracos",
+      "title": "Três Buracos",
+      "publisherId": "org_mino",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "hardcover",
+      "publicationDate": "2019-08-22",
+      "isbn10": "8569032463",
+      "isbn13": "9788569032465",
+      "pageCount": 136,
+      "cover": {
+        "src": "/images/reading/comics/tres-buracos.webp",
+        "alt": "Capa de Três Buracos publicada pela Editora Mino",
+        "sourceUrl": "https://www.martinsfontespaulista.com.br/tres-buracos-879254/p?idsku=879254",
+        "credit": "Editora Mino via Martins Fontes Paulista",
+        "rights": "permission-pending",
+        "width": 720,
+        "height": 1000
+      },
+      "translationCredits": [],
+      "availabilityStatus": "available",
+      "availabilityCheckedAt": "2026-08-13",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Três Buracos — edição brasileira",
+          "url": "https://www.comix.com.br/tres-buracos.html"
         }
       ],
       "createdAt": "2026-08-13",
@@ -15614,14 +17281,90 @@
       "country": "Brasil",
       "language": "Português",
       "medium": "omnibus",
-      "publicationDate": "2023-06-05",
+      "publicationDate": "2023-05-01",
+      "isbn13": "9786556663395",
+      "pageCount": 472,
+      "cover": {
+        "src": "/images/reading/manga/solanin-volume-unico.webp",
+        "alt": "Capa da edição em volume único de Solanin publicada pela L&PM",
+        "sourceUrl": "https://www.lpm.com.br/site/default.asp?ID=846366&Template=../livros/layout_produto.asp",
+        "credit": "L&PM Editores",
+        "rights": "permission-pending",
+        "width": 800,
+        "height": 1120
+      },
+      "translationCredits": [],
+      "availabilityStatus": "available",
+      "availabilityCheckedAt": "2026-08-24",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Solanin — volume único — edição brasileira",
+          "url": "https://www.lpm.com.br/site/default.asp?ID=846366&Template=../livros/layout_produto.asp"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_insomniacs_viz_1",
+      "volumeId": "read_volume_insomniacs_1",
+      "title": "Insomniacs After School, Vol. 1",
+      "publisherId": "org_viz_media",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2023-03-21",
+      "isbn13": "9781974736577",
+      "pageCount": 192,
+      "cover": {
+        "src": "/images/reading/manga/insomniacs-after-school-01.webp",
+        "alt": "Capa de Insomniacs After School volume 1 publicado pela VIZ Media",
+        "sourceUrl": "https://www.viz.com/manga-books/manga/insomniacs-after-school-volume-1/product/7387",
+        "credit": "VIZ Media / Shogakukan",
+        "rights": "permission-pending",
+        "width": 1400,
+        "height": 2000
+      },
       "translationCredits": [],
       "availabilityStatus": "unknown",
       "status": "published",
       "sources": [
         {
-          "title": "Solanin — volume único — edição brasileira",
-          "url": "https://www.lpm-editores.com.br/downloads/Arquivos/mangas_l_p_m.pdf"
+          "title": "Insomniacs After School, Vol. 1 — edição verificada",
+          "url": "https://www.viz.com/manga-books/manga/insomniacs-after-school-volume-1/product/7387"
+        }
+      ],
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-13"
+    },
+    {
+      "id": "read_edition_nodame_kodansha_1",
+      "volumeId": "read_volume_nodame_1",
+      "title": "のだめカンタービレ #1",
+      "publisherId": "org_kodansha",
+      "country": "Japão",
+      "language": "Japonês",
+      "medium": "paperback",
+      "publicationDate": "2002-01-01",
+      "isbn10": "4063259684",
+      "isbn13": "9784063259681",
+      "cover": {
+        "src": "/images/reading/manga/nodame-cantabile-01.webp",
+        "alt": "Capa de Nodame Cantabile volume 1 publicado pela Kodansha",
+        "sourceUrl": "https://openlibrary.org/books/OL26453246M",
+        "credit": "Kodansha via Open Library",
+        "rights": "permission-pending",
+        "width": 324,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "のだめカンタービレ #1 — edição verificada",
+          "url": "https://openlibrary.org/books/OL26453246M"
         }
       ],
       "createdAt": "2026-08-13",
