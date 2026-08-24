@@ -227,7 +227,7 @@ const creatorVisuals: Partial<Record<string, Partial<Pick<Creator, "image" | "co
   person_ken_akamatsu: commonsPortrait("ken-akamatsu","Ken Akamatsu","Ken_Akamatsu,_Parliamentary_Vice-Minister_for_Education,_Culture,_Sports,_Science_and_Technology.jpg","Cabinet Public Relations Office of Japan / Wikimedia Commons","CC BY 4.0","https://creativecommons.org/licenses/by/4.0/"),
   person_byung_chul_han: {
     image: {
-      src: "/images/personalities/byung-chul-han.jpg",
+      src: "/images/personalities/byung-chul-han.webp",
       alt: "Fotografia de Byung-Chul Han",
       credit: "ActuaLitté; recorte de MRCLD, Wikimedia Commons",
       sourceUrl: "https://commons.wikimedia.org/wiki/File:Byung-Chul_Han.jpg",
