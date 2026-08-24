@@ -2,6 +2,12 @@
 
 O catálogo técnico definitivo é [`mdx.tsx`](../../../src/components/mdx.tsx). Componentes removidos do mapeamento não podem ser reintroduzidos por documentação ou exemplo antigo.
 
+## Carregamento técnico
+
+Componentes interativos raros, como gráficos, mapas mentais, galerias, comparadores, conteúdo recolhível e checklists, são divididos em módulos próprios. Os nomes usados no MDX não mudam e a renderização no servidor permanece ativa: o conteúdo essencial continua no HTML, enquanto cada artigo hidrata somente os recursos que realmente utiliza.
+
+Essa divisão é uma decisão de entrega, não uma autorização para esconder conteúdo indispensável em componentes interativos. Texto, contexto, fontes e conclusões devem continuar compreensíveis sem interação.
+
 ## Princípio de escolha
 
 Comece com Markdown. Use um componente somente quando ele comunicar uma função editorial distinta. Cada artigo pode usar no máximo quatro tipos de bloco editorial, além de imagens, resumo e próximos passos.

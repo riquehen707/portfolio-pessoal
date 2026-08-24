@@ -1,6 +1,7 @@
 // src/components/mdx.tsx
 
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
+import dynamic from "next/dynamic";
 import React, { ReactNode } from "react";
 import type { MDXComponents } from "mdx/types";
 import { slugify as transliterate } from "transliteration";
@@ -29,8 +30,6 @@ import {
 import type { Language } from "@once-ui-system/core";
 
 // === seus componentes MDX (custom) ===
-import Figure from "@/components/mdx/Figure";
-import Gallery from "@/components/mdx/Gallery";
 import GlossTerm from "@/components/mdx/GlossTerm";
 import { Callout } from "@/components/mdx/Callout";
 import { Quote } from "@/components/mdx/Quote";
@@ -53,13 +52,8 @@ import {
   QuickSummary,
   RelatedArticles,
 } from "@/components/mdx/EditorialBlocks";
-import MindMap from "@/components/mdx/MindMap";
-import Reveal from "@/components/mdx/Reveal";
-import { SimpleBarChart, SimpleLineChart } from "@/components/mdx/SimpleCharts";
-import { BeforeAfter } from "@/components/mdx/BeforeAfter";
 import { KeyTakeaway } from "@/components/mdx/KeyTakeaway";
 import { NextSection } from "@/components/mdx/NextSection";
-import CompatibilityChecklist from "@/components/mdx/CompatibilityChecklist";
 import { VisualPrinciplesDemo } from "@/components/mdx/VisualPrinciplesDemo";
 import { AccessibleFormDemo } from "@/components/mdx/AccessibleFormDemo";
 import { MovieCard } from "@/components/movies/MovieCard";
@@ -74,6 +68,24 @@ import { SeriesAvailabilityIndex } from "@/components/series/SeriesAvailabilityI
 import { PersonCard, StudioCard } from "@/components/entities";
 
 import { baseURL } from "@/resources";
+
+// Componentes client raros ficam em chunks separados. O SSR permanece ativo:
+// o artigo continua entregando HTML completo, mas cada rota hidrata somente os
+// recursos interativos que aparecem em seu próprio MDX.
+const Figure = dynamic(() => import("@/components/mdx/Figure"));
+const Gallery = dynamic(() => import("@/components/mdx/Gallery"));
+const MindMap = dynamic(() => import("@/components/mdx/MindMap"));
+const Reveal = dynamic(() => import("@/components/mdx/Reveal"));
+const SimpleBarChart = dynamic(() =>
+  import("@/components/mdx/SimpleCharts").then((module) => module.SimpleBarChart),
+);
+const SimpleLineChart = dynamic(() =>
+  import("@/components/mdx/SimpleCharts").then((module) => module.SimpleLineChart),
+);
+const BeforeAfter = dynamic(() =>
+  import("@/components/mdx/BeforeAfter").then((module) => module.BeforeAfter),
+);
+const CompatibilityChecklist = dynamic(() => import("@/components/mdx/CompatibilityChecklist"));
 
 /* ========================== Helpers ========================== */
 
