@@ -2680,5 +2680,518 @@ export const posterCatalog = {
     "rights": "permission-pending",
     "width": 500,
     "height": 750
+  },
+  "o-castelo-de-cagliostro": {
+    "src": "/images/movies/o-castelo-de-cagliostro.webp",
+    "alt": "Pôster de O Castelo de Cagliostro (1979)",
+    "sourceUrl": "https://www.themoviedb.org/movie/15371",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "dr-fantastico": {
+    "src": "/images/movies/dr-fantastico.webp",
+    "alt": "Pôster de Dr. Fantástico (1964)",
+    "sourceUrl": "https://www.themoviedb.org/movie/935-dr-strangelove-or-how-i-learned-to-stop-worrying-and-love-the-bomb",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "a-guerra-dos-mundos-1953": {
+    "src": "/images/movies/a-guerra-dos-mundos-1953.webp",
+    "alt": "Pôster de A Guerra dos Mundos (1953)",
+    "sourceUrl": "https://www.themoviedb.org/movie/8974-the-war-of-the-worlds",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "invasores-de-corpos-1978": {
+    "src": "/images/movies/invasores-de-corpos-1978.webp",
+    "alt": "Pôster de Os Invasores de Corpos (1978)",
+    "sourceUrl": "https://www.themoviedb.org/movie/11850-invasion-of-the-body-snatchers",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "o-sacrificio-1986": {
+    "src": "/images/movies/o-sacrificio-1986.webp",
+    "alt": "Pôster de O Sacrifício (1986)",
+    "sourceUrl": "https://www.themoviedb.org/movie/24657-offret",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "catastrofe-nuclear": {
+    "src": "/images/movies/catastrofe-nuclear.webp",
+    "alt": "Pôster de Catástrofe Nuclear (1984)",
+    "sourceUrl": "https://www.themoviedb.org/movie/17835-threads",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "quando-o-vento-sopra": {
+    "src": "/images/movies/quando-o-vento-sopra.webp",
+    "alt": "Pôster de Quando o Vento Sopra (1986)",
+    "sourceUrl": "https://www.themoviedb.org/movie/10857-when-the-wind-blows",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "last-night-1998": {
+    "src": "/images/movies/last-night-1998.webp",
+    "alt": "Pôster de Last Night (1998)",
+    "sourceUrl": "https://www.themoviedb.org/movie/16129-last-night",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "o-arrebatamento-1991": {
+    "src": "/images/movies/o-arrebatamento-1991.webp",
+    "alt": "Pôster de O Arrebatamento (1991)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1411-the-rapture",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "a-terra-silenciosa": {
+    "src": "/images/movies/a-terra-silenciosa.webp",
+    "alt": "Pôster de A Terra Silenciosa (1985)",
+    "sourceUrl": "https://www.themoviedb.org/movie/10176-the-quiet-earth",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "filhos-da-esperanca": {
+    "src": "/images/movies/filhos-da-esperanca.webp",
+    "alt": "Pôster de Filhos da Esperança (2006)",
+    "sourceUrl": "https://www.themoviedb.org/movie/9693-children-of-men",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "wall-e": {
+    "src": "/images/movies/wall-e.webp",
+    "alt": "Pôster de WALL-E (2008)",
+    "sourceUrl": "https://www.themoviedb.org/movie/10681-wall-e",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "a-estrada-2009": {
+    "src": "/images/movies/a-estrada-2009.webp",
+    "alt": "Pôster de A Estrada (2009)",
+    "sourceUrl": "https://www.themoviedb.org/movie/20766-the-road",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "contagio": {
+    "src": "/images/movies/contagio.webp",
+    "alt": "Pôster de Contágio (2011)",
+    "sourceUrl": "https://www.themoviedb.org/movie/39538-contagion",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "procurem-abrigo": {
+    "src": "/images/movies/procurem-abrigo.webp",
+    "alt": "Pôster de Procurem Abrigo (2011)",
+    "sourceUrl": "https://www.themoviedb.org/movie/64720-take-shelter",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "procura-se-um-amigo-para-o-fim-do-mundo": {
+    "src": "/images/movies/procura-se-um-amigo-para-o-fim-do-mundo.webp",
+    "alt": "Pôster de Procura-se um Amigo para o Fim do Mundo (2012)",
+    "sourceUrl": "https://www.themoviedb.org/movie/88005-seeking-a-friend-for-the-end-of-the-world",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "e-o-fim-do-mundo": {
+    "src": "/images/movies/e-o-fim-do-mundo.webp",
+    "alt": "Pôster de É o Fim do Mundo (2013)",
+    "sourceUrl": "https://www.themoviedb.org/movie/107985-the-world-s-end",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "expresso-do-amanha": {
+    "src": "/images/movies/expresso-do-amanha.webp",
+    "alt": "Pôster de Expresso do Amanhã (2013)",
+    "sourceUrl": "https://www.themoviedb.org/movie/110415",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "these-final-hours": {
+    "src": "/images/movies/these-final-hours.webp",
+    "alt": "Pôster de These Final Hours (2013)",
+    "sourceUrl": "https://www.themoviedb.org/movie/199575-these-final-hours",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 713
+  },
+  "mad-max-estrada-da-furia": {
+    "src": "/images/movies/mad-max-estrada-da-furia.webp",
+    "alt": "Pôster de Mad Max: Estrada da Fúria (2015)",
+    "sourceUrl": "https://www.themoviedb.org/movie/76341-mad-max-fury-road",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "melancolia": {
+    "src": "/images/movies/melancolia.webp",
+    "alt": "Pôster de Melancolia (2011)",
+    "sourceUrl": "https://www.themoviedb.org/movie/62215-melancholia",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "aniara": {
+    "src": "/images/movies/aniara.webp",
+    "alt": "Pôster de Aniara: A Viagem de Uma Vida (2018)",
+    "sourceUrl": "https://www.themoviedb.org/movie/496743-aniara",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "batman-silencio": {
+    "src": "/images/movies/batman-silencio.webp",
+    "alt": "Pôster de Batman: Silêncio (2019)",
+    "sourceUrl": "https://www.themoviedb.org/movie/537056-batman-hush",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "batman-o-misterio-da-mulher-morcego": {
+    "src": "/images/movies/batman-o-misterio-da-mulher-morcego.webp",
+    "alt": "Pôster de Batman: O Mistério da Mulher-Morcego (2003)",
+    "sourceUrl": "https://www.themoviedb.org/movie/21683-batman-mystery-of-the-batwoman",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "o-filho-do-batman": {
+    "src": "/images/movies/o-filho-do-batman.webp",
+    "alt": "Pôster de O Filho do Batman (2014)",
+    "sourceUrl": "https://www.themoviedb.org/movie/251519-son-of-batman",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "batman-sangue-ruim": {
+    "src": "/images/movies/batman-sangue-ruim.webp",
+    "alt": "Pôster de Batman: Sangue Ruim (2016)",
+    "sourceUrl": "https://www.themoviedb.org/movie/366924-batman-bad-blood",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "batman-vs-robin": {
+    "src": "/images/movies/batman-vs-robin.webp",
+    "alt": "Pôster de Batman vs. Robin (2015)",
+    "sourceUrl": "https://www.themoviedb.org/movie/321528-batman-vs-robin",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "batman-alma-do-dragao": {
+    "src": "/images/movies/batman-alma-do-dragao.webp",
+    "alt": "Pôster de Batman: Alma do Dragão (2021)",
+    "sourceUrl": "https://www.themoviedb.org/movie/732450-batman-soul-of-the-dragon",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "batman-a-perdicao-chegou-a-gotham": {
+    "src": "/images/movies/batman-a-perdicao-chegou-a-gotham.webp",
+    "alt": "Pôster de Batman: A Perdição Chegou a Gotham (2023)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1003579-batman-the-doom-that-came-to-gotham",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 742
+  },
+  "batman-gotham-by-gaslight": {
+    "src": "/images/movies/batman-gotham-by-gaslight.webp",
+    "alt": "Pôster de Batman: Gotham by Gaslight (2018)",
+    "sourceUrl": "https://www.themoviedb.org/movie/471474-batman-gotham-by-gaslight",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "batman-o-retorno-da-dupla-dinamica": {
+    "src": "/images/movies/batman-o-retorno-da-dupla-dinamica.webp",
+    "alt": "Pôster de Batman: O Retorno da Dupla Dinâmica (2016)",
+    "sourceUrl": "https://www.themoviedb.org/movie/411736-batman-return-of-the-caped-crusaders",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "batman-ninja": {
+    "src": "/images/movies/batman-ninja.webp",
+    "alt": "Pôster de Batman Ninja (2018)",
+    "sourceUrl": "https://www.themoviedb.org/movie/485942",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "batman-vs-tartarugas-ninja": {
+    "src": "/images/movies/batman-vs-tartarugas-ninja.webp",
+    "alt": "Pôster de Batman vs. As Tartarugas Ninja (2019)",
+    "sourceUrl": "https://www.themoviedb.org/movie/581997-batman-vs-teenage-mutant-ninja-turtles",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "batman-assalto-em-arkham": {
+    "src": "/images/movies/batman-assalto-em-arkham.webp",
+    "alt": "Pôster de Batman: Ataque ao Arkham (2014)",
+    "sourceUrl": "https://www.themoviedb.org/movie/242643-batman-assault-on-arkham",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "batman-cavaleiro-de-gotham": {
+    "src": "/images/movies/batman-cavaleiro-de-gotham.webp",
+    "alt": "Pôster de Batman: O Cavaleiro de Gotham (2008)",
+    "sourceUrl": "https://www.themoviedb.org/movie/13851-batman-gotham-knight",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "batman-o-longo-dia-das-bruxas-parte-2": {
+    "src": "/images/movies/batman-o-longo-dia-das-bruxas-parte-2.webp",
+    "alt": "Pôster de Batman: O Longo Dia das Bruxas — Parte 2 (2021)",
+    "sourceUrl": "https://www.themoviedb.org/movie/736074-batman-the-long-halloween-part-two",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "batman-o-longo-dia-das-bruxas-parte-1": {
+    "src": "/images/movies/batman-o-longo-dia-das-bruxas-parte-1.webp",
+    "alt": "Pôster de Batman: O Longo Dia das Bruxas — Parte 1 (2021)",
+    "sourceUrl": "https://www.themoviedb.org/movie/736073-batman-the-long-halloween-part-one",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "batman-e-mr-freeze-abaixo-de-zero": {
+    "src": "/images/movies/batman-e-mr-freeze-abaixo-de-zero.webp",
+    "alt": "Pôster de Batman e Mr. Freeze: Abaixo de Zero (1998)",
+    "sourceUrl": "https://www.themoviedb.org/movie/15805-batman-mr-freeze-subzero",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "batman-ano-um": {
+    "src": "/images/movies/batman-ano-um.webp",
+    "alt": "Pôster de Batman: Ano Um (2011)",
+    "sourceUrl": "https://www.themoviedb.org/movie/69735-batman-year-one",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "lego-batman-o-filme": {
+    "src": "/images/movies/lego-batman-o-filme.webp",
+    "alt": "Pôster de LEGO Batman: O Filme (2017)",
+    "sourceUrl": "https://www.themoviedb.org/movie/324849-the-lego-batman-movie",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "batman-o-cavaleiro-das-trevas-parte-1": {
+    "src": "/images/movies/batman-o-cavaleiro-das-trevas-parte-1.webp",
+    "alt": "Pôster de Batman: O Cavaleiro das Trevas — Parte 1 (2012)",
+    "sourceUrl": "https://www.themoviedb.org/movie/123025-batman-the-dark-knight-returns-part-1",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "batman-o-cavaleiro-das-trevas-parte-2": {
+    "src": "/images/movies/batman-o-cavaleiro-das-trevas-parte-2.webp",
+    "alt": "Pôster de Batman: O Cavaleiro das Trevas — Parte 2 (2013)",
+    "sourceUrl": "https://www.themoviedb.org/movie/142061-batman-the-dark-knight-returns-part-2",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "batman-contra-o-capuz-vermelho": {
+    "src": "/images/movies/batman-contra-o-capuz-vermelho.webp",
+    "alt": "Pôster de Batman Contra o Capuz Vermelho (2010)",
+    "sourceUrl": "https://www.themoviedb.org/movie/40662-batman-under-the-red-hood",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "batman-do-futuro-o-retorno-do-coringa": {
+    "src": "/images/movies/batman-do-futuro-o-retorno-do-coringa.webp",
+    "alt": "Pôster de Batman do Futuro: O Retorno do Coringa (2000)",
+    "sourceUrl": "https://www.themoviedb.org/movie/16234-batman-beyond-return-of-the-joker",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "batman-a-mascara-do-fantasma": {
+    "src": "/images/movies/batman-a-mascara-do-fantasma.webp",
+    "alt": "Pôster de Batman: A Máscara do Fantasma (1993)",
+    "sourceUrl": "https://www.themoviedb.org/movie/14919-batman-mask-of-the-phantasm",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "medusa-anita-rocha": {
+    "src": "/images/movies/medusa-anita-rocha.webp",
+    "alt": "Pôster de Medusa (2021)",
+    "sourceUrl": "https://www.themoviedb.org/movie/761563-medusa",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "propriedade": {
+    "src": "/images/movies/propriedade.webp",
+    "alt": "Pôster de Propriedade (2022)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1030571-propriedade",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "enterre-seus-mortos": {
+    "src": "/images/movies/enterre-seus-mortos.webp",
+    "alt": "Pôster de Enterre Seus Mortos (2024)",
+    "sourceUrl": "https://www.themoviedb.org/movie/951305-enterre-seus-mortos",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 320,
+    "height": 480
+  },
+  "a-meia-noite-levarei-sua-alma": {
+    "src": "/images/movies/a-meia-noite-levarei-sua-alma.webp",
+    "alt": "Pôster de À Meia-Noite Levarei Sua Alma (1964)",
+    "sourceUrl": "https://www.themoviedb.org/movie/30913-a-meia-noite-levarei-sua-alma",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "esta-noite-encarnarei-no-teu-cadaver": {
+    "src": "/images/movies/esta-noite-encarnarei-no-teu-cadaver.webp",
+    "alt": "Pôster de Esta Noite Encarnarei no Teu Cadáver (1967)",
+    "sourceUrl": "https://www.themoviedb.org/movie/30914-esta-noite-encarnarei-no-teu-cadaver",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "encarnacao-do-demonio": {
+    "src": "/images/movies/encarnacao-do-demonio.webp",
+    "alt": "Pôster de Encarnação do Demônio (2008)",
+    "sourceUrl": "https://www.themoviedb.org/movie/23508-encarnacao-do-demonio",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "trabalhar-cansa": {
+    "src": "/images/movies/trabalhar-cansa.webp",
+    "alt": "Pôster de Trabalhar Cansa (2011)",
+    "sourceUrl": "https://www.themoviedb.org/movie/96001-trabalhar-cansa",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 692
+  },
+  "quando-eu-era-vivo": {
+    "src": "/images/movies/quando-eu-era-vivo.webp",
+    "alt": "Pôster de Quando Eu Era Vivo (2014)",
+    "sourceUrl": "https://www.themoviedb.org/movie/230714-quando-eu-era-vivo",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "mate-me-por-favor": {
+    "src": "/images/movies/mate-me-por-favor.webp",
+    "alt": "Pôster de Mate-me Por Favor (2015)",
+    "sourceUrl": "https://www.themoviedb.org/movie/359429-mate-me-por-favor",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 739
+  },
+  "o-animal-cordial": {
+    "src": "/images/movies/o-animal-cordial.webp",
+    "alt": "Pôster de O Animal Cordial (2017)",
+    "sourceUrl": "https://www.themoviedb.org/movie/461774-o-animal-cordial",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 742
+  },
+  "morto-nao-fala": {
+    "src": "/images/movies/morto-nao-fala.webp",
+    "alt": "Pôster de Morto Não Fala (2018)",
+    "sourceUrl": "https://www.themoviedb.org/movie/515908-morto-nao-fala",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "a-sombra-do-pai": {
+    "src": "/images/movies/a-sombra-do-pai.webp",
+    "alt": "Pôster de A Sombra do Pai (2018)",
+    "sourceUrl": "https://www.themoviedb.org/movie/540020-a-sombra-do-pai",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
   }
 } as const;

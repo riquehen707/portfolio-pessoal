@@ -1,4 +1,5 @@
 import { readingEditionCovers } from "./readingCovers";
+import { readingWorkCovers } from "./readingWorkCovers";
 import { ReadingCatalogSchema, type ReadingEdition, type ReadingSeries, type ReadingVolume, type ReadingWork } from "./readingSchema";
 import { haremMangaWorks } from "./haremManga";
 import { actionRomanceComicWorks } from "./actionRomanceComics";
@@ -274,12 +275,17 @@ const editions:ReadingEdition[]=[
   catalogEdition("read_edition_tomb_dracula_marvel","read_work_tomb_dracula","The Tomb of Dracula","org_marvel_comics","OL8098785M",{publicationDate:"2004-04-21",isbn13:"9780785114611",isbn10:"0785114610",pageCount:592}),
 ];
 
+const worksWithCovers = works.map((item) => ({
+  ...item,
+  image: item.image ?? readingWorkCovers[item.id],
+}));
+
 const editionsWithCovers = editions.map((item) => ({
   ...item,
   cover: item.cover ?? readingEditionCovers[item.id],
 }));
 
-export const readingCatalog = ReadingCatalogSchema.parse({works,series,installments:[],volumes,editions:editionsWithCovers,offers:[]});
+export const readingCatalog = ReadingCatalogSchema.parse({works:worksWithCovers,series,installments:[],volumes,editions:editionsWithCovers,offers:[]});
 export const readingWorks=readingCatalog.works;
 export const readingSeries=readingCatalog.series;
 export const readingVolumes=readingCatalog.volumes;

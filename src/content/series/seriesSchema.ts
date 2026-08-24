@@ -14,7 +14,7 @@ export const SeriesSchema = z.object({
   seasons: z.number().int().positive(), episodes: z.number().int().positive().optional(), genres: z.array(z.string()).min(1),
   themes: z.array(z.string()).default([]), shortDescription: z.string().min(20).max(320),
   audienceProfile: z.string().min(10).max(240), experience: z.string().min(3).max(120), contentWarnings: z.array(z.string()).default([]),
-  image: z.object({ src:z.string().min(1), alt:z.string().min(1), sourceUrl:z.string().url(), credit:z.string().min(1), rights:z.enum(["original-editorial","licensed","permission-pending"]) }).optional(),
+  image: z.object({ src:z.string().min(1), alt:z.string().min(1), sourceUrl:z.string().url(), credit:z.string().min(1), rights:z.enum(["original-editorial","licensed","permission-pending"]), width:z.number().int().positive().optional(), height:z.number().int().positive().optional() }).optional(),
   sources: z.array(z.object({ title: z.string().min(1), url: z.string().url() })).min(1),
   status: z.enum(["draft", "published"]).default("draft"), createdAt: z.string().regex(date), updatedAt: z.string().regex(date),
 });

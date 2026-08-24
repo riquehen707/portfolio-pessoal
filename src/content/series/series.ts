@@ -1,9 +1,10 @@
 import { SeriesBatchSchema, type Series } from "./seriesSchema";
+import { seriesPosterCatalog } from "./posters";
 
 const checked = "2026-08-13";
 const source = (title:string, url:string) => [{ title, url }];
 const make = (id:string, slug:string, titleBr:string, originalTitle:string, startYear:number, endYear:number|undefined, seasons:number, format:Series["format"], countries:string[], languages:string[], creators:string[], genres:string[], description:string, audience:string, experience:string, sources:Series["sources"], extra:Partial<Series> = {}):Series => ({
-  id, contentType:"series", schemaVersion:1, slug, aliases:[], titleBr, originalTitle, startYear, endYear, seasons, format, countries, originalLanguages:languages, creators, personRelationships:[], organizationRelationships:[], genres, themes:[], shortDescription:description, audienceProfile:audience, experience, contentWarnings:[], sources, seriesStatus:endYear ? "ended" : "returning", status:"published", createdAt:checked, updatedAt:checked, ...extra,
+  id, contentType:"series", schemaVersion:1, slug, aliases:[], titleBr, originalTitle, startYear, endYear, seasons, format, countries, originalLanguages:languages, creators, personRelationships:[], organizationRelationships:[], genres, themes:[], shortDescription:description, audienceProfile:audience, experience, contentWarnings:[], sources, image: seriesPosterCatalog[slug as keyof typeof seriesPosterCatalog], seriesStatus:endYear ? "ended" : "returning", status:"published", createdAt:checked, updatedAt:checked, ...extra,
 });
 
 export const seriesCatalog: Series[] = SeriesBatchSchema.parse([

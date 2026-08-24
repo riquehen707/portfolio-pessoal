@@ -5,13 +5,9 @@ import * as cheerio from "cheerio";
 
 const root = process.cwd();
 const normalizeExistingOnly = process.argv.includes("--normalize-existing");
-const sourceFiles = ["movies.ts", "ghibliMovies.ts", "laikaMovies.ts", "scienceFictionMovies.ts", "monsterMovies.ts", "naturalDisasterMovies.ts"];
-const source = (await Promise.all(sourceFiles.map((file) =>
-  readFile(path.join(root, "src/content/movies", file), "utf8"),
-))).join("\n");
-const moviePattern = /\{[\s\S]*?slug:\s*"([^"]+)",[\s\S]*?titleBr:\s*"([^"]+)",\s*originalTitle:\s*"([^"]+)",(?:\s*internationalTitle:\s*"([^"]+)",)?[\s\S]*?year:\s*(\d{4})/g;
-const movies = [...source.matchAll(moviePattern)].map(([, slug, titleBr, originalTitle, internationalTitle, year]) => ({
-  slug, titleBr, originalTitle, internationalTitle, year: Number(year),
+const movieExport = JSON.parse(await readFile(path.join(root, "exports/content/movies.v1.json"), "utf8"));
+const movies = movieExport.records.map(({ slug, titleBr, originalTitle, internationalTitle, year }) => ({
+  slug, titleBr, originalTitle, internationalTitle, year,
 }));
 const output = path.join(root, "public/images/movies");
 const posterSourcePath = path.join(root, "src/content/movies/posters.ts");
@@ -54,6 +50,15 @@ const titleOverrides = {
   "o-conto-da-princesa-kaguya": "The Tale of the Princess Kaguya",
   "o-cacador-de-troll": "Troll Hunter",
   "japao-submerso-1973": "Submersion of Japan",
+  "a-meia-noite-levarei-sua-alma": "At Midnight I'll Take Your Soul",
+  "esta-noite-encarnarei-no-teu-cadaver": "This Night I'll Possess Your Corpse",
+  "encarnacao-do-demonio": "Embodiment of Evil",
+  "trabalhar-cansa": "Hard Labor",
+  "quando-eu-era-vivo": "When I Was Alive",
+  "mate-me-por-favor": "Kill Me Please",
+  "o-animal-cordial": "Friendly Beast",
+  "morto-nao-fala": "The Nightshifter",
+  "a-sombra-do-pai": "The Father's Shadow",
 };
 const normalize = (value) => value.normalize("NFD").replace(/\p{Diacritic}/gu, "").replace(/[^a-z0-9]+/gi, " ").trim().toLowerCase();
 

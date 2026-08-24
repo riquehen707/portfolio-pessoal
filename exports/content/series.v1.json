@@ -40,6 +40,15 @@
         "Morte",
         "Relacionamentos abusivos"
       ],
+      "image": {
+        "src": "/images/series/buffy-a-caca-vampiros.webp",
+        "alt": "Pôster de Buffy: A Caça-Vampiros (1997)",
+        "sourceUrl": "https://www.themoviedb.org/tv/95-buffy-the-vampire-slayer",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Buffy: A Caça-Vampiros — Disney+ Brasil",
@@ -85,6 +94,15 @@
       "audienceProfile": "Para quem quer um drama urbano mais adulto e serializado depois de Buffy.",
       "experience": "Noir sobrenatural com humor amargo",
       "contentWarnings": [],
+      "image": {
+        "src": "/images/series/angel.webp",
+        "alt": "Pôster de Angel (1999)",
+        "sourceUrl": "https://www.themoviedb.org/tv/2426-angel",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Angel — Disney+ Brasil",
@@ -135,6 +153,15 @@
         "Violência gráfica",
         "Discriminação"
       ],
+      "image": {
+        "src": "/images/series/true-blood.webp",
+        "alt": "Pôster de True Blood (2008)",
+        "sourceUrl": "https://www.themoviedb.org/tv/10545-true-blood",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "True Blood — JustWatch Brasil",
@@ -180,6 +207,15 @@
       "audienceProfile": "Para quem procura romance sobrenatural viciante e aceita muitas reviravoltas.",
       "experience": "Novelesca, romântica e veloz",
       "contentWarnings": [],
+      "image": {
+        "src": "/images/series/diarios-do-vampiro.webp",
+        "alt": "Pôster de Diários do Vampiro (2009)",
+        "sourceUrl": "https://www.themoviedb.org/tv/18165-the-vampire-diaries",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 735
+      },
       "sources": [
         {
           "title": "Diários do Vampiro — JustWatch Brasil",
@@ -224,6 +260,15 @@
       "audienceProfile": "Para quem prefere intriga familiar e política sobrenatural ao triângulo adolescente.",
       "experience": "Barroca, familiar e conflituosa",
       "contentWarnings": [],
+      "image": {
+        "src": "/images/series/os-originais.webp",
+        "alt": "Pôster de Os Originais (2013)",
+        "sourceUrl": "https://www.themoviedb.org/tv/46896-the-originals",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Os Originais — JustWatch Brasil",
@@ -271,6 +316,15 @@
         "Violência gráfica",
         "Suicídio"
       ],
+      "image": {
+        "src": "/images/series/entrevista-com-o-vampiro-serie.webp",
+        "alt": "Pôster de Entrevista com o Vampiro (2022)",
+        "sourceUrl": "https://www.themoviedb.org/tv/128098-interview-with-the-vampire",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Entrevista com o Vampiro — Prime Video Brasil",
@@ -319,6 +373,15 @@
         "Suicídio",
         "Violência"
       ],
+      "image": {
+        "src": "/images/series/missa-da-meia-noite.webp",
+        "alt": "Pôster de Missa da Meia-Noite (2021)",
+        "sourceUrl": "https://www.themoviedb.org/tv/97400-midnight-mass",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Missa da Meia-Noite — Netflix Brasil",
@@ -362,6 +425,15 @@
       "audienceProfile": "Para quem quer começar com comédia e conhecer as regras do gênero pela paródia.",
       "experience": "Absurda, calorosa e muito engraçada",
       "contentWarnings": [],
+      "image": {
+        "src": "/images/series/o-que-fazemos-nas-sombras-serie.webp",
+        "alt": "Pôster de O Que Fazemos nas Sombras (2019)",
+        "sourceUrl": "https://www.themoviedb.org/tv/83631-what-we-do-in-the-shadows",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "What We Do in the Shadows — Disney+ Brasil",
@@ -409,6 +481,15 @@
         "Violência gráfica",
         "Abuso religioso"
       ],
+      "image": {
+        "src": "/images/series/castlevania.webp",
+        "alt": "Pôster de Castlevania (2017)",
+        "sourceUrl": "https://www.themoviedb.org/tv/71024-castlevania",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Castlevania — Netflix Brasil",
@@ -456,6 +537,15 @@
         "Violência gráfica",
         "Escravidão"
       ],
+      "image": {
+        "src": "/images/series/castlevania-noturno.webp",
+        "alt": "Pôster de Castlevania: Noturno (2023)",
+        "sourceUrl": "https://www.themoviedb.org/tv/123548-castlevania-nocturne",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 751
+      },
       "sources": [
         {
           "title": "Castlevania: Noturno — Netflix Brasil",
@@ -501,6 +591,15 @@
       "audienceProfile": "Para quem quer uma minissérie animada curta, melancólica e centrada em afeto.",
       "experience": "Íntima, pós-apocalíptica e triste",
       "contentWarnings": [],
+      "image": {
+        "src": "/images/series/vampire-in-the-garden.webp",
+        "alt": "Pôster de Vampire in the Garden (2022)",
+        "sourceUrl": "https://www.themoviedb.org/tv/99772",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 741
+      },
       "sources": [
         {
           "title": "Vampire in the Garden — Netflix Brasil",
@@ -545,6 +644,15 @@
       "audienceProfile": "Para quem prefere ação compacta, monstros clássicos e animação japonesa.",
       "experience": "Rápida, elegante e pulp",
       "contentWarnings": [],
+      "image": {
+        "src": "/images/series/sirius-the-jaeger.webp",
+        "alt": "Pôster de Sirius the Jaeger (2018)",
+        "sourceUrl": "https://www.themoviedb.org/tv/80560-sirius-the-jaeger",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Sirius the Jaeger — Netflix Brasil",
@@ -594,6 +702,15 @@
         "Violência",
         "Sangue"
       ],
+      "image": {
+        "src": "/images/series/dracula-2020.webp",
+        "alt": "Pôster de Drácula (2020)",
+        "sourceUrl": "https://www.themoviedb.org/tv/86850-dracula",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Drácula — Netflix Brasil",
@@ -643,6 +760,15 @@
         "Violência gráfica",
         "Epidemia"
       ],
+      "image": {
+        "src": "/images/series/the-strain.webp",
+        "alt": "Pôster de The Strain (2014)",
+        "sourceUrl": "https://www.themoviedb.org/tv/47640-the-strain",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "The Strain — Disney+ Brasil",
@@ -687,6 +813,15 @@
       "audienceProfile": "Para quem valoriza convivência, humor britânico e consequências emocionais.",
       "experience": "Doméstica, espirituosa e dolorosa",
       "contentWarnings": [],
+      "image": {
+        "src": "/images/series/being-human-uk.webp",
+        "alt": "Pôster de Being Human (2008)",
+        "sourceUrl": "https://www.themoviedb.org/tv/7087-being-human",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 714
+      },
       "sources": [
         {
           "title": "Being Human — BBC",
@@ -731,6 +866,15 @@
       "audienceProfile": "Para quem quer romance queer, episódios curtos e produção independente assumidamente modesta.",
       "experience": "Leve, inventiva e íntima",
       "contentWarnings": [],
+      "image": {
+        "src": "/images/series/carmilla-webserie.webp",
+        "alt": "Pôster de Carmilla (2014)",
+        "sourceUrl": "https://www.themoviedb.org/tv/65353-carmilla",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Carmilla — temporada 1 oficial, KindaTV",
@@ -779,6 +923,15 @@
         "Violência",
         "Cancelada após uma temporada"
       ],
+      "image": {
+        "src": "/images/series/first-kill.webp",
+        "alt": "Pôster de First Kill (2022)",
+        "sourceUrl": "https://www.themoviedb.org/tv/111616-first-kill",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 697
+      },
       "sources": [
         {
           "title": "First Kill — Netflix",
@@ -824,6 +977,15 @@
       "audienceProfile": "Para quem busca uma variação turca compacta e aceita acabamento irregular.",
       "experience": "Sombria, urbana e movida por vingança",
       "contentWarnings": [],
+      "image": {
+        "src": "/images/series/imortais-serie-turca.webp",
+        "alt": "Pôster de Imortais (2018)",
+        "sourceUrl": "https://www.themoviedb.org/tv/82007-yasamayanlar",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 713
+      },
       "sources": [
         {
           "title": "Immortals — Netflix",
@@ -870,6 +1032,15 @@
       "audienceProfile": "Para quem quer romance adulto, fantasia histórica e ritmo deliberado.",
       "experience": "Romântica, elegante e expositiva",
       "contentWarnings": [],
+      "image": {
+        "src": "/images/series/a-noite-de-todas-as-almas.webp",
+        "alt": "Pôster de A Noite de Todas as Almas (2018)",
+        "sourceUrl": "https://www.themoviedb.org/tv/77236-a-discovery-of-witches",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "A Discovery of Witches — Prime Video Brasil",
@@ -920,6 +1091,15 @@
         "Violência",
         "Cancelada após uma temporada"
       ],
+      "image": {
+        "src": "/images/series/v-wars.webp",
+        "alt": "Pôster de V Wars (2019)",
+        "sourceUrl": "https://www.themoviedb.org/tv/81559-v-wars",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 735
+      },
       "sources": [
         {
           "title": "V Wars — Netflix Brasil",
@@ -966,6 +1146,15 @@
       "audienceProfile": "Para quem aceita televisão clássica e quer conhecer a gramática da antologia moderna.",
       "experience": "Concisa, imaginativa e moralmente inquieta",
       "contentWarnings": [],
+      "image": {
+        "src": "/images/series/alem-da-imaginacao-1959.webp",
+        "alt": "Pôster de Além da Imaginação (1959)",
+        "sourceUrl": "https://www.themoviedb.org/tv/6357-the-twilight-zone",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "The Twilight Zone — Britannica",
@@ -1015,6 +1204,15 @@
         "Abuso doméstico",
         "Assassinato"
       ],
+      "image": {
+        "src": "/images/series/twin-peaks.webp",
+        "alt": "Pôster de Twin Peaks (1990)",
+        "sourceUrl": "https://www.themoviedb.org/tv/1920-twin-peaks",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Twin Peaks — JustWatch Brasil",
@@ -1063,6 +1261,15 @@
         "Violência gráfica",
         "Manipulação psicológica"
       ],
+      "image": {
+        "src": "/images/series/hannibal-serie.webp",
+        "alt": "Pôster de Hannibal (2013)",
+        "sourceUrl": "https://www.themoviedb.org/tv/40008-hannibal",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Hannibal — JustWatch Brasil",
@@ -1112,6 +1319,15 @@
         "Violência",
         "Possessão"
       ],
+      "image": {
+        "src": "/images/series/penny-dreadful.webp",
+        "alt": "Pôster de Penny Dreadful (2014)",
+        "sourceUrl": "https://www.themoviedb.org/tv/54671-penny-dreadful",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Penny Dreadful — JustWatch Brasil",
@@ -1161,6 +1377,15 @@
         "Horror corporal",
         "Crianças em perigo"
       ],
+      "image": {
+        "src": "/images/series/channel-zero.webp",
+        "alt": "Pôster de Channel Zero (2016)",
+        "sourceUrl": "https://www.themoviedb.org/tv/67752-channel-zero",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Channel Zero — JustWatch Brasil",
@@ -1211,6 +1436,15 @@
         "Racismo",
         "Confinamento"
       ],
+      "image": {
+        "src": "/images/series/the-terror.webp",
+        "alt": "Pôster de The Terror (2018)",
+        "sourceUrl": "https://www.themoviedb.org/tv/75191-the-terror",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "The Terror — JustWatch Brasil",
@@ -1260,6 +1494,15 @@
         "Dependência química",
         "Luto"
       ],
+      "image": {
+        "src": "/images/series/a-maldicao-da-residencia-hill.webp",
+        "alt": "Pôster de A Maldição da Residência Hill (2018)",
+        "sourceUrl": "https://www.themoviedb.org/tv/72844-the-haunting-of-hill-house",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "A Maldição da Residência Hill — Netflix Brasil",
@@ -1309,6 +1552,15 @@
         "Violência",
         "Morte de animais"
       ],
+      "image": {
+        "src": "/images/series/marianne.webp",
+        "alt": "Pôster de Marianne (2019)",
+        "sourceUrl": "https://www.themoviedb.org/tv/92916-marianne",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Marianne — Netflix Brasil",
@@ -1357,6 +1609,15 @@
         "Epidemia",
         "Fome"
       ],
+      "image": {
+        "src": "/images/series/kingdom-serie-coreana.webp",
+        "alt": "Pôster de Kingdom (2019)",
+        "sourceUrl": "https://www.themoviedb.org/tv/70593",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Kingdom — Netflix Brasil",
@@ -1405,6 +1666,15 @@
         "Automutilação",
         "Violência"
       ],
+      "image": {
+        "src": "/images/series/yellowjackets.webp",
+        "alt": "Pôster de Yellowjackets (2021)",
+        "sourceUrl": "https://www.themoviedb.org/tv/117488-yellowjackets",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Yellowjackets — JustWatch Brasil",
@@ -1450,6 +1720,15 @@
       "audienceProfile": "Para quem gosta de mitologia serializada e aceita respostas graduais.",
       "experience": "Tensa, viciante e cheia de perguntas",
       "contentWarnings": [],
+      "image": {
+        "src": "/images/series/from-a-origem-do-mal.webp",
+        "alt": "Pôster de From: A Origem do Mal (2022)",
+        "sourceUrl": "https://www.themoviedb.org/tv/124364-from",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "From — JustWatch Brasil",
@@ -1500,6 +1779,15 @@
         "Racismo",
         "Violência gráfica"
       ],
+      "image": {
+        "src": "/images/series/it-bem-vindos-a-derry.webp",
+        "alt": "Pôster de It: Bem-Vindos a Derry (2025)",
+        "sourceUrl": "https://www.themoviedb.org/tv/200875-welcome-to-derry",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "It: Bem-Vindos a Derry — HBO Max Brasil",
@@ -1547,6 +1835,15 @@
         "Violência gráfica",
         "Bullying"
       ],
+      "image": {
+        "src": "/images/series/chucky-serie.webp",
+        "alt": "Pôster de Chucky (2021)",
+        "sourceUrl": "https://www.themoviedb.org/tv/90462-chucky",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Chucky — JustWatch Brasil",
@@ -1595,6 +1892,15 @@
         "Temas religiosos",
         "Horror corporal"
       ],
+      "image": {
+        "src": "/images/series/30-moedas.webp",
+        "alt": "Pôster de 30 Moedas (2020)",
+        "sourceUrl": "https://www.themoviedb.org/tv/89844-30-monedas",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "30 Moedas — JustWatch Brasil",
@@ -1640,6 +1946,15 @@
       "audienceProfile": "Para quem quer ampliar a geografia do gênero e aceita conexões mais ambiciosas que conclusivas.",
       "experience": "Social, surreal e expansiva",
       "contentWarnings": [],
+      "image": {
+        "src": "/images/series/pesadelos-e-devaneios-de-joko-anwar.webp",
+        "alt": "Pôster de Pesadelos e Devaneios de Joko Anwar (2024)",
+        "sourceUrl": "https://www.themoviedb.org/tv/228958-nightmares-daydreams",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 741
+      },
       "sources": [
         {
           "title": "Pesadelos e Devaneios — Netflix Brasil",
@@ -1689,6 +2004,15 @@
         "Violência doméstica",
         "Morte infantil"
       ],
+      "image": {
+        "src": "/images/series/ju-on-origens.webp",
+        "alt": "Pôster de Ju-On: Origens (2020)",
+        "sourceUrl": "https://www.themoviedb.org/tv/103445",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Ju-On: Origins — Netflix",
@@ -1739,6 +2063,15 @@
         "Violência gráfica",
         "Crianças em perigo"
       ],
+      "image": {
+        "src": "/images/series/gannibal.webp",
+        "alt": "Pôster de Canibal (2022)",
+        "sourceUrl": "https://www.themoviedb.org/tv/210213",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Gannibal — JustWatch Brasil",
@@ -1787,6 +2120,15 @@
         "Violência gráfica",
         "Horror corporal"
       ],
+      "image": {
+        "src": "/images/series/gabinete-de-curiosidades-guillermo-del-toro.webp",
+        "alt": "Pôster de O Gabinete de Curiosidades de Guillermo del Toro (2022)",
+        "sourceUrl": "https://www.themoviedb.org/tv/83659-guillermo-del-toro-s-cabinet-of-curiosities",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Gabinete de Curiosidades — Netflix Brasil",
@@ -1835,6 +2177,15 @@
         "Suicídio",
         "Luto"
       ],
+      "image": {
+        "src": "/images/series/the-last-of-us-serie.webp",
+        "alt": "Pôster de The Last of Us (2023)",
+        "sourceUrl": "https://www.themoviedb.org/tv/100088-the-last-of-us",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "The Last of Us — JustWatch Brasil",
@@ -1883,6 +2234,15 @@
         "Luto",
         "Rituais"
       ],
+      "image": {
+        "src": "/images/series/desalma.webp",
+        "alt": "Pôster de Desalma (2020)",
+        "sourceUrl": "https://www.themoviedb.org/tv/97711-desalma",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Desalma — Globoplay",
@@ -1937,6 +2297,15 @@
         "Luto",
         "Horror corporal"
       ],
+      "image": {
+        "src": "/images/series/stranger-things.webp",
+        "alt": "Pôster de Stranger Things (2016)",
+        "sourceUrl": "https://www.themoviedb.org/tv/66732-stranger-things",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Stranger Things — Netflix Brasil",
@@ -1991,6 +2360,15 @@
         "Morte de crianças",
         "Violência"
       ],
+      "image": {
+        "src": "/images/series/dark.webp",
+        "alt": "Pôster de Dark (2017)",
+        "sourceUrl": "https://www.themoviedb.org/tv/70523-dark",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Dark — Netflix Brasil",
@@ -2045,6 +2423,15 @@
         "Abuso infantil",
         "Demência"
       ],
+      "image": {
+        "src": "/images/series/castle-rock.webp",
+        "alt": "Pôster de Castle Rock (2018)",
+        "sourceUrl": "https://www.themoviedb.org/tv/71116-castle-rock",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Castle Rock — JustWatch Brasil",
@@ -2098,6 +2485,15 @@
         "Incêndio",
         "Cancelada após uma temporada"
       ],
+      "image": {
+        "src": "/images/series/arquivo-81.webp",
+        "alt": "Pôster de Arquivo 81 (2022)",
+        "sourceUrl": "https://www.themoviedb.org/tv/112314-archive-81",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Arquivo 81 — Netflix Brasil",
@@ -2151,6 +2547,15 @@
         "Adolescentes em perigo",
         "Luto"
       ],
+      "image": {
+        "src": "/images/series/equinox.webp",
+        "alt": "Pôster de Equinox (2020)",
+        "sourceUrl": "https://www.themoviedb.org/tv/113600-equinox",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Equinox — Netflix Brasil",
@@ -2206,6 +2611,15 @@
         "Luto",
         "Violência contra adolescentes"
       ],
+      "image": {
+        "src": "/images/series/locke-e-key.webp",
+        "alt": "Pôster de Locke & Key (2020)",
+        "sourceUrl": "https://www.themoviedb.org/tv/86423-locke-key",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "Locke & Key — Netflix Brasil",
@@ -2259,6 +2673,15 @@
         "Luto",
         "Violência"
       ],
+      "image": {
+        "src": "/images/series/the-outsider-serie.webp",
+        "alt": "Pôster de The Outsider (2020)",
+        "sourceUrl": "https://www.themoviedb.org/tv/84661-the-outsider",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "sources": [
         {
           "title": "The Outsider — JustWatch Brasil",
