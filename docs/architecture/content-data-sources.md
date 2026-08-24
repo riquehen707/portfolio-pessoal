@@ -59,6 +59,8 @@ O contrato SEO deverá ser comparado antes e depois de qualquer troca de origem.
 
 ## Caminho futuro para Supabase
 
+A decisão medida após a otimização do build está em [`supabase-migration-decision.md`](supabase-migration-decision.md). O passo 6 concluiu que uma migração imediata não tem relação custo-benefício; este caminho permanece como gate para um piloto futuro, não como trabalho já autorizado.
+
 Somente quando os indicadores abaixo justificarem:
 
 1. modelar primeiro catálogos estruturados, preservando IDs, slugs, aliases, datas e relações;

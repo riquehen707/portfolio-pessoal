@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 
+import { trackEvent } from "@/components/analytics/analytics";
 import type { GlobalSearchItem, GlobalSearchItemType } from "@/lib/globalSearch";
 
 import styles from "./GlobalSearch.module.scss";
@@ -111,6 +112,7 @@ export function GlobalSearch() {
   const [loadingState, setLoadingState] = useState<LoadingState>("idle");
   const inputRef = useRef<HTMLInputElement | null>(null);
   const requestRef = useRef<Promise<void> | null>(null);
+  const searchOpenedAtRef = useRef<number | null>(null);
   const router = useRouter();
 
   const loadSearchIndex = useCallback(() => {
@@ -118,6 +120,7 @@ export function GlobalSearch() {
     if (requestRef.current) return requestRef.current;
 
     setLoadingState("loading");
+    const startedAt = performance.now();
     const request = fetch("/api/search-index", {
       headers: { Accept: "application/json" },
     })
@@ -127,9 +130,16 @@ export function GlobalSearch() {
         if (!Array.isArray(payload.items)) throw new Error("Indice de busca invalido");
         setItems(payload.items);
         setLoadingState("ready");
+        trackEvent("search_index_loaded", {
+          duration_ms: Math.round(performance.now() - startedAt),
+          item_count: payload.items.length,
+        });
       })
       .catch(() => {
         setLoadingState("error");
+        trackEvent("search_index_error", {
+          duration_ms: Math.round(performance.now() - startedAt),
+        });
       })
       .finally(() => {
         requestRef.current = null;
@@ -139,8 +149,10 @@ export function GlobalSearch() {
     return request;
   }, [loadingState]);
 
-  const openSearch = useCallback(() => {
+  const openSearch = useCallback((source: "button" | "keyboard") => {
+    searchOpenedAtRef.current = performance.now();
     setOpen(true);
+    trackEvent("search_open", { source });
     void loadSearchIndex();
   }, [loadSearchIndex]);
 
@@ -170,19 +182,38 @@ export function GlobalSearch() {
 
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
         event.preventDefault();
-        openSearch();
+        openSearch("keyboard");
         return;
       }
 
       if (!isTyping && event.key === "/" && !open) {
         event.preventDefault();
-        openSearch();
+        openSearch("keyboard");
       }
     };
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open, openSearch]);
+
+  useEffect(() => {
+    const normalizedQuery = query.trim();
+    if (!open || loadingState !== "ready" || normalizedQuery.length < 2) return;
+
+    const timeout = window.setTimeout(() => {
+      trackEvent("search_results", {
+        query_length: normalizedQuery.length,
+        query_token_count: tokenize(normalizedQuery).length,
+        result_count: results.length,
+        has_results: results.length > 0,
+        time_since_open_ms: searchOpenedAtRef.current
+          ? Math.round(performance.now() - searchOpenedAtRef.current)
+          : undefined,
+      });
+    }, 600);
+
+    return () => window.clearTimeout(timeout);
+  }, [loadingState, open, query, results.length]);
 
   useEffect(() => {
     if (!open) return;
@@ -199,8 +230,23 @@ export function GlobalSearch() {
   function goToActive() {
     const item = results[activeIndex];
     if (!item) return;
+    trackSearchSelection(item, activeIndex, "keyboard");
     closeSearch();
     router.push(item.href);
+  }
+
+  function trackSearchSelection(
+    item: RankedItem,
+    index: number,
+    source: "click" | "keyboard",
+  ) {
+    trackEvent("search_result_click", {
+      source,
+      result_type: item.type,
+      result_position: index + 1,
+      match_reason: item.reason,
+      had_query: Boolean(query.trim()),
+    });
   }
 
   function handleDialogKeyDown(event: React.KeyboardEvent) {
@@ -230,7 +276,7 @@ export function GlobalSearch() {
       <button
         className={styles.trigger}
         type="button"
-        onClick={openSearch}
+        onClick={() => openSearch("button")}
         aria-label="Buscar no blog"
         aria-keyshortcuts="Control+K Meta+K"
       >
@@ -286,7 +332,12 @@ export function GlobalSearch() {
                   className={styles.quickChip}
                   type="button"
                   key={item}
-                  onClick={() => setQuery(item)}
+                  onClick={() => {
+                    setQuery(item);
+                    trackEvent("search_suggestion_click", {
+                      suggestion_position: quickQueries.indexOf(item) + 1,
+                    });
+                  }}
                 >
                   {item}
                 </button>
@@ -322,7 +373,10 @@ export function GlobalSearch() {
                     href={item.href}
                     key={item.id}
                     onMouseEnter={() => setActiveIndex(index)}
-                    onClick={closeSearch}
+                    onClick={() => {
+                      trackSearchSelection(item, index, "click");
+                      closeSearch();
+                    }}
                   >
                     <span className={styles.resultType}>
                       <span className={styles.typeDot} aria-hidden />

@@ -74,3 +74,19 @@ O segundo comando grava `exports/performance/baseline.v1.json`. O JSON contém i
 ## Limite desta etapa
 
 Não há ainda uma medição confiável de experiência real de usuários. Lighthouse local e Core Web Vitals de campo devem ser adicionados antes de definir orçamentos finais; números locais servem para comparação de regressões, não como substitutos de dados reais.
+
+## Passo 7 — proteção contra regressões
+
+Após as otimizações, o projeto passou a ter um orçamento provisório em `config/performance-budget.v1.json`. Ele não afirma que os limites representam experiência ideal; sua função é impedir que o build volte silenciosamente ao estado anterior enquanto ainda não há dados de campo.
+
+Execute depois do build e da atualização do baseline:
+
+```bash
+npm run build
+npm run audit:performance
+npm run audit:performance:budget
+```
+
+A auditoria falha quando excede 400 rotas pré-renderizadas, 800 KiB no maior HTML, 1 MiB no maior chunk cliente, 110 MiB em `.next/server` ou 7,5 MiB em `.next/static`. A partir de 90% há aviso preventivo. Uma mudança de limite precisa registrar a causa e uma nova medição; aumentar o número apenas para fazer a verificação passar invalida o propósito do controle.
+
+Esses limites protegem artefatos locais. Core Web Vitals, compressão, cache CDN, latência de origem e experiência da busca continuam exigindo medição própria em produção.

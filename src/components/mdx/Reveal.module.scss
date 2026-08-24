@@ -105,7 +105,7 @@
   transition: transform var(--motion-fast), color var(--motion-fast);
 }
 
-.chevron[data-open="true"] {
+.root[open] .chevron {
   transform: rotate(-135deg) translate(-0.08rem, -0.08rem);
   color: var(--color-accent-gold);
 }

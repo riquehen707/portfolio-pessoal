@@ -4,7 +4,7 @@ O catálogo técnico definitivo é [`mdx.tsx`](../../../src/components/mdx.tsx).
 
 ## Carregamento técnico
 
-Componentes interativos raros, como gráficos, mapas mentais, galerias, comparadores, conteúdo recolhível e checklists, são divididos em módulos próprios. Os nomes usados no MDX não mudam e a renderização no servidor permanece ativa: o conteúdo essencial continua no HTML, enquanto cada artigo hidrata somente os recursos que realmente utiliza.
+Recursos visuais raros são mantidos fora da hidratação sempre que HTML, CSS e SVG nativos cumprem a mesma função. Somente comparadores e checklists, que precisam guardar estado no navegador, mantêm uma fronteira cliente. Os nomes usados no MDX não mudam e a renderização no servidor permanece ativa.
 
 Essa divisão é uma decisão de entrega, não uma autorização para esconder conteúdo indispensável em componentes interativos. Texto, contexto, fontes e conclusões devem continuar compreensíveis sem interação.
 
@@ -109,16 +109,14 @@ Exemplo estático e reutilizável de formulário semântico, construído com os 
 
 ### `SimpleBarChart` e `SimpleLineChart`
 
-Recebem dados no formato `{ label, value }`. Não escrever Recharts diretamente no MDX.
+Recebem dados no formato `{ label, value }`, serializados no atributo textual `values` em JSON. Não escrever Recharts diretamente no MDX.
+Os gráficos não carregam uma biblioteca de visualização e repetem rótulos e valores exatos em uma lista acessível. O HTML renderizado no servidor não depende de tooltip para comunicar os dados; um componente cliente pequeno preserva a passagem dos dados estruturados já usada pelos artigos.
 
 ```mdx
 <SimpleBarChart
   title="Contatos por canal"
   valueLabel="Contatos"
-  data={[
-    { label: "Google", value: 40 },
-    { label: "Instagram", value: 25 },
-  ]}
+  values='[{"label":"Google","value":40},{"label":"Instagram","value":25}]'
   source="Relatório interno"
   accessedAt="16 de julho de 2026"
 />

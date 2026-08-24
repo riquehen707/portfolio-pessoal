@@ -3,7 +3,6 @@ import { Column, Heading, Meta, Schema, Text } from "@once-ui-system/core";
 
 import {
   getBlogCollectionDescription,
-  getBlogCollectionIndex,
   getBlogCollectionLabel,
   getBlogPostsByCollection,
   getBlogPostFormat,
@@ -22,12 +21,6 @@ type PageProps = {
 
 function getTopicPath(slug: string) {
   return `/blog/temas/${slug}`;
-}
-
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  return getBlogCollectionIndex().map((topic) => ({
-    slug: topic.slug,
-  }));
 }
 
 export async function generateMetadata({ params }: PageProps) {

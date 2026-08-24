@@ -9,12 +9,14 @@ import { ReadingWorkJsonLd } from "@/components/seo/ReadingWorkJsonLd";
 import { organizationsById } from "@/content/organizations/organizations";
 import { isComicWork } from "@/content/reading/readingDomain";
 import { getPublishedBooks, getReadingCurationsForWork, getReadingEditionsForWork, getReadingOffersForEdition, getReadingVolumesForWork, getReadingWorkBySlug, getReadingWorks } from "@/data/reading";
+import { selectReadingPrerenderWorks } from "@/data/reading/prerender";
 import { baseURL } from "@/resources";
 import { commentsConfigured } from "@/lib/comments/supabaseComments";
 import styles from "../reading.module.scss";
 
-export const dynamicParams = false;
-export async function generateStaticParams() { return (await getPublishedBooks()).map((work) => ({ slug: work.slug })); }
+export const dynamicParams = true;
+export const revalidate = 86400;
+export async function generateStaticParams() { return selectReadingPrerenderWorks(await getPublishedBooks()).map((work) => ({ slug: work.slug })); }
 async function findBook(slug: string) { const work = await getReadingWorkBySlug(slug); return work && work.status === "published" && !isComicWork(work) ? work : undefined; }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {

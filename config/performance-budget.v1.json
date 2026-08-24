@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "status": "provisional-regression-guard",
+  "limits": {
+    "prerenderedRoutes": 400,
+    "largestGeneratedHtmlBytes": 819200,
+    "largestClientChunkBytes": 1048576,
+    "serverBuildBytes": 115343360,
+    "staticBuildBytes": 7864320
+  },
+  "warningRatio": 0.9
+}

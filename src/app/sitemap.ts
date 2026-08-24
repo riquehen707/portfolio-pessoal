@@ -8,6 +8,7 @@ import { getPublishedPersonalities } from "@/data/personalities";
 import { getPublishedStudios } from "@/data/organizations";
 import { getPublishedSeries } from "@/data/series";
 import { getPublishedIdeas } from "@/data/ideas";
+import { isPausedRoute } from "@/config/routePolicy";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const today = new Date().toISOString().split("T")[0];
@@ -58,7 +59,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   };
 
   const routes = Object.keys(routesConfig)
-    .filter((route) => routesConfig[route as keyof typeof routesConfig])
+    .filter(
+      (route) =>
+        routesConfig[route as keyof typeof routesConfig] && !isPausedRoute(route),
+    )
     .map((route) => ({
       url: `${baseURL}${route !== "/" ? route : ""}`,
       lastModified: today,

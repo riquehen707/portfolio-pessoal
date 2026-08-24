@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { demoRegistry } from "@/features/demos/data/demo-registry";
 import { getDemoBySlug, getDemoSegment } from "@/features/demos/helpers/getDemo";
 import { getDemoDescription, getDemoTitle, modelsPath, modelsTitle } from "@/features/demos/helpers/seo";
 import { baseURL } from "@/resources";
@@ -12,13 +11,6 @@ import styles from "./demo.module.scss";
 type DemoPageProps = {
   params: Promise<{ segmento: string; slug: string }>;
 };
-
-export function generateStaticParams() {
-  return demoRegistry.map((demo) => ({
-    segmento: demo.segment,
-    slug: demo.slug,
-  }));
-}
 
 export async function generateMetadata({ params }: DemoPageProps) {
   const { segmento, slug } = await params;

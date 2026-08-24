@@ -54,6 +54,11 @@ import {
 } from "@/components/mdx/EditorialBlocks";
 import { KeyTakeaway } from "@/components/mdx/KeyTakeaway";
 import { NextSection } from "@/components/mdx/NextSection";
+import Figure from "@/components/mdx/Figure";
+import Gallery from "@/components/mdx/Gallery";
+import MindMap from "@/components/mdx/MindMap";
+import Reveal from "@/components/mdx/Reveal";
+import { SimpleBarChart, SimpleLineChart } from "@/components/mdx/SimpleCharts";
 import { VisualPrinciplesDemo } from "@/components/mdx/VisualPrinciplesDemo";
 import { AccessibleFormDemo } from "@/components/mdx/AccessibleFormDemo";
 import { MovieCard } from "@/components/movies/MovieCard";
@@ -69,19 +74,8 @@ import { PersonCard, StudioCard } from "@/components/entities";
 
 import { baseURL } from "@/resources";
 
-// Componentes client raros ficam em chunks separados. O SSR permanece ativo:
-// o artigo continua entregando HTML completo, mas cada rota hidrata somente os
-// recursos interativos que aparecem em seu próprio MDX.
-const Figure = dynamic(() => import("@/components/mdx/Figure"));
-const Gallery = dynamic(() => import("@/components/mdx/Gallery"));
-const MindMap = dynamic(() => import("@/components/mdx/MindMap"));
-const Reveal = dynamic(() => import("@/components/mdx/Reveal"));
-const SimpleBarChart = dynamic(() =>
-  import("@/components/mdx/SimpleCharts").then((module) => module.SimpleBarChart),
-);
-const SimpleLineChart = dynamic(() =>
-  import("@/components/mdx/SimpleCharts").then((module) => module.SimpleLineChart),
-);
+// Somente os recursos que precisam guardar estado no navegador mantêm uma
+// fronteira client. O SSR permanece ativo para preservar HTML e acessibilidade.
 const BeforeAfter = dynamic(() =>
   import("@/components/mdx/BeforeAfter").then((module) => module.BeforeAfter),
 );

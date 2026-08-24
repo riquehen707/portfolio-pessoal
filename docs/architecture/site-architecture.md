@@ -11,6 +11,7 @@ Para regras especializadas, consulte também:
 - [listas de leitura](../editorial/templates/reading-list.md), para o fluxo entre acervo central, edições, ofertas e artigos;
 - [fichas permanentes de livros](../editorial/templates/reading-work-profile.md), para pesquisa, normalização, capas, sinopses e avaliações em `/livros/[slug]`;
 - [comentários nas fichas de leitura](reading-comments.md), para persistência, moderação, privacidade, segurança e ativação do Supabase;
+- [decisão de migração para Supabase](supabase-migration-decision.md), para evidências, gate de adoção e preservação do contrato SEO;
 - [perfis de estúdios de animação](../editorial/templates/animation-studio-profile.md), para cadastro, filmografia, composição editorial e validação desse tipo de página;
 - [fontes de conteúdo](content-data-sources.md), para persistência local, exportação e migração futura;
 - [registros públicos de ideias](../editorial/templates/idea-record.md), para cadastro, atualização e preservação do histórico;
@@ -57,7 +58,7 @@ Em caso de divergência, schemas, componentes e rotas executáveis prevalecem so
    └─ /abordagem-tecnica e /aulas-particulares
 ```
 
-O inventário de arquivos não equivale ao sitemap público. A inclusão de rotas estáticas é controlada por `routes` em `src/resources/once-ui.config.ts`; artigos, filmes e séries publicados são acrescentados por `src/app/sitemap.ts`. `src/middleware.ts` controla acesso às rotas pausadas, enquanto `src/app/robots.ts` controla rastreamento. Essas três listas ainda são manuais e podem divergir.
+O inventário de arquivos não equivale ao sitemap público. A inclusão de rotas estáticas é controlada por `routes` em `src/resources/once-ui.config.ts`; artigos, filmes e séries publicados são acrescentados por `src/app/sitemap.ts`. `src/config/routePolicy.ts` é a fonte central das famílias pausadas e alimenta middleware, robots e a exclusão defensiva do sitemap. Como o Next.js exige matchers literais no middleware, `npm run audit:route-policy` verifica essa única duplicação inevitável. Layouts dinâmicos nas famílias pausadas evitam gerar suas páginas durante o build.
 
 **Pendência:** não existem índices públicos `/criadores` ou `/obras`. O perfil histórico de Shingo Tamagawa permanece em `/criadores/shingo-tamagawa` e é descoberto pelo índice de personalidades sem criar URL duplicada.
 
@@ -164,7 +165,7 @@ Para estúdios de animação, aplique o [modelo editorial especializado](../edit
 - **Entidades:** obra intelectual, série, volume, edição concreta e oferta comercial. A obra pode receber uma avaliação editorial opcional, com autoria, texto, veredito, critérios, data, spoilers, edição lida e nota opcional. Pessoas continuam em `content/creators/` e organizações em `content/organizations/`.
 - **Bibliotecas e componentes:** ambas reutilizam `ReadingCatalogLibrary` e os controles dos demais acervos. `/livros` apresenta totais derivados do catálogo, caminhos para `/acervo` e `/quadrinhos`, busca por título, autoria, tema, país, gênero e sinopse, além de filtros por gênero, autoria, país, formato, ano e disponibilidade. Quadrinhos filtram gênero, autoria, tradição, demografia, situação da publicação, país e disponibilidade. `BookCard` apresenta livros e light novels com sinopse e estado da edição na variante de biblioteca; `MangaCard` apresenta mangás, manhwas, manhuas, HQs e graphic novels. `ReadingWorkCard` permanece como adaptador temporário para artigos existentes.
 - **Relações:** listas armazenam referências; ISBN, páginas, editora, tradução, capa comercial e disponibilidade pertencem à edição. Ofertas apontam exclusivamente para uma edição.
-- **SEO e publicação:** apenas obras `published` geram páginas estáticas e sitemap. Índices e fichas possuem metadata, canonical, breadcrumbs e JSON-LD `CollectionPage`/`Book`; registros `draft` permanecem fora das rotas públicas.
+- **SEO e publicação:** apenas obras `published` possuem páginas públicas e entram no sitemap. O build pré-renderiza um lote determinístico das 24 fichas mais recentemente atualizadas de cada biblioteca; as demais são renderizadas no primeiro acesso e armazenadas por 24 horas. Índices e fichas possuem metadata, canonical, breadcrumbs e JSON-LD `CollectionPage`/`Book`; registros `draft` permanecem fora das rotas públicas.
 - **Variações:** cards compactos ou editoriais, com fallback quando faltarem capa, edição brasileira ou oferta.
 
 ### Páginas institucionais, comerciais, demonstrações e projetos
@@ -181,7 +182,7 @@ Para estúdios de animação, aplique o [modelo editorial especializado](../edit
 - `src/styles/globals.scss` e Once UI fornecem tokens, container e comportamento responsivo. Páginas temáticas não devem substituir esse sistema.
 - `BreadcrumbJsonLd` é o componente compartilhado para breadcrumbs estruturados; breadcrumbs visuais continuam implementados por página.
 - `PersonCard` e `StudioCard` resolvem pessoas e estúdios por IDs permanentes. O primeiro usa o acervo de criadores e enfatiza contexto biográfico; o segundo usa organizações e enfatiza identidade institucional. Imagens só aparecem quando origem e licença estão registradas, e links dependem de `profilePath` público. A rota `/dev/entity-cards` oferece exemplos somente em desenvolvimento, com `noindex`, e responde como não encontrada em produção.
-- `src/app/sitemap.ts`, `src/app/robots.ts`, `src/middleware.ts`, `routes` e `src/lib/globalSearch.ts` são controles distintos. Uma nova rota pública pode exigir atualização em mais de um deles.
+- `src/config/routePolicy.ts` centraliza rotas pausadas para middleware, robots e sitemap. `routes` e a busca interna continuam controles explícitos porque representam, respectivamente, publicação e descoberta; uma nova rota pública pode exigir atualização neles.
 - Conteúdo essencial deve existir no HTML do servidor; interação não pode ser requisito para indexação ou compreensão.
 - Imagens precisam de texto alternativo, origem e crédito quando o modelo os aceitar. Ausência de imagem deve ter fallback estável.
 - Capas de leitura pertencem à edição ou ao volume que efetivamente representam. `ReadingCard` pode usar a capa da edição brasileira confirmada como apresentação visual quando a obra universal não possui imagem, sem copiar essa capa para `ReadingWork`.
@@ -267,7 +268,7 @@ Perfis de personalidades usam `/personalidades/[slug]`, metadata própria, canon
 - Validar o domínio de leitura com o primeiro lote real, especialmente obras serializadas que mudam de publicação, edições omnibus, adaptações entre catálogos e organizações que acumulam papéis.
 - Criar índices filtrados de mangás, manhwas, manhuas ou graphic novels somente após o acervo publicado sustentar páginas úteis; não criar rotas vazias ou catálogos derivados.
 - Consolidar os modelos paralelos de organização/obra somente com plano de migração e auditoria de consumidores.
-- Tornar sitemap, robots, middleware, configuração de rotas e busca menos sujeitos a divergência manual.
+- Integrar gradualmente `routes` e a busca interna a um registro público único; a política de rotas pausadas já está centralizada em `src/config/routePolicy.ts`.
 - Criar índices `/criadores` e `/obras` somente se houver uma função distinta de `/personalidades` e conteúdo público suficiente.
 - Definir componentes compartilhados para hero de perfil, fontes e relações apenas após comparar mais páginas; hoje a recorrência existe, mas as APIs ainda não estão estabilizadas.
 - Ampliar `audit:content` para validar metadata, sitemap e relações de todos os domínios, não apenas o contrato completo de filmes e referências básicas dos demais.

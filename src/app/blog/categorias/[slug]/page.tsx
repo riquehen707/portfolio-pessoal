@@ -4,7 +4,6 @@ import { HiOutlineSquares2X2 } from "react-icons/hi2";
 
 import {
   getBlogEntryCategory,
-  getBlogEntryCategoryIndex,
   getBlogPostsByEntryCategory,
   getBlogPostFormat,
   getBlogPrimaryCategory,
@@ -22,12 +21,6 @@ type PageProps = {
 
 function getCategoryPath(slug: string) {
   return `/blog/categorias/${slug}`;
-}
-
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  return getBlogEntryCategoryIndex().map((category) => ({
-    slug: category.slug,
-  }));
 }
 
 export async function generateMetadata({ params }: PageProps) {

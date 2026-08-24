@@ -1,36 +1,23 @@
 import { type NextRequest, NextResponse } from "next/server";
-
-const pausedPaths = [
-  "/abordagem-tecnica",
-  "/aulas-particulares",
-  "/blog/categorias",
-  "/blog/temas",
-  "/contact",
-  "/mapa",
-  "/modelos",
-  "/publicos",
-  "/saiba-mais",
-  "/simulacao",
-  "/trilhas",
-] as const;
-
-function isPausedPath(pathname: string) {
-  return pausedPaths.some((path) => pathname === path || pathname.startsWith(`${path}/`));
-}
+import { getPausedRoutePolicy } from "@/config/routePolicy";
 
 export function middleware(request: NextRequest) {
-  if (!isPausedPath(request.nextUrl.pathname)) {
+  const policy = getPausedRoutePolicy(request.nextUrl.pathname);
+
+  if (!policy) {
     return NextResponse.next();
   }
 
   const url = request.nextUrl.clone();
-  url.pathname = "/blog";
+  url.pathname = policy.redirectTo;
   url.search = "";
 
   return NextResponse.redirect(url, 307);
 }
 
 export const config = {
+  // O Next.js exige matchers literais para analisá-los no build. Esta lista é
+  // verificada contra routePolicy.ts pelo script audit:route-policy.
   matcher: [
     "/abordagem-tecnica/:path*",
     "/aulas-particulares/:path*",
