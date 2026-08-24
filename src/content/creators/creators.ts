@@ -1,4 +1,12 @@
 import { CreatorSchema, type Creator } from "./creatorSchema";
+import { haremMangaCreators } from "./haremMangaCreators";
+import { actionRomanceComicCreators } from "./actionRomanceComicCreators";
+import { regressionManhwaCreators } from "./regressionManhwaCreators";
+import { systemManhwaCreators } from "./systemManhwaCreators";
+import { overpowerManhwaCreators } from "./overpowerManhwaCreators";
+import { fantasyRomanceAuthors } from "./fantasyRomanceAuthors";
+import { scienceFictionAuthors } from "./scienceFictionAuthors";
+import { darkFantasyAuthors } from "./darkFantasyAuthors";
 
 export const shingoTamagawa: Creator = CreatorSchema.parse({
   id: "person_shingo_tamagawa",
@@ -501,4 +509,4 @@ const philosophyPeople: Creator[] = [
   }),
 ];
 
-export const creators = [shingoTamagawa, upamanyuBhattacharyya, kalpSanghvi,...teamCherryPeople,...cartoonSaloonPeople,...ghibliPeople,...laikaPeople,...aardmanPeople,...scienceSaruPeople,...kyotoAnimationPeople,...vampireBookAuthors,...nietzschePeople,...jungPeople,...philosophyPeople];
+export const creators = [shingoTamagawa, upamanyuBhattacharyya, kalpSanghvi,...teamCherryPeople,...cartoonSaloonPeople,...ghibliPeople,...laikaPeople,...aardmanPeople,...scienceSaruPeople,...kyotoAnimationPeople,...vampireBookAuthors,...nietzschePeople,...jungPeople,...philosophyPeople,...haremMangaCreators,...actionRomanceComicCreators,...regressionManhwaCreators,...systemManhwaCreators,...overpowerManhwaCreators,...fantasyRomanceAuthors,...scienceFictionAuthors,...darkFantasyAuthors];

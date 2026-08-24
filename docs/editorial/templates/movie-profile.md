@@ -29,6 +29,7 @@ O catálogo em `src/content/movies/` é a fonte permanente:
 | Entidade | Responsabilidade |
 | --- | --- |
 | Filme | identidade, títulos, lançamento, duração, países, créditos, gêneros, temas, sinopse, experiência, alertas, SEO, editorial, pôster e fontes |
+| Franquia | relação opcional por `franchiseId`; o identificador agrupa filmes do mesmo universo sem atribuir a todos o mesmo peso editorial |
 | Pessoa | identidade permanente de criadores e profissionais relacionados por ID |
 | Organização | produção, coprodução, animação, distribuição, licenciamento, colaboração ou serviços com papel explícito |
 | Curadoria | posição e comentário exclusivos de uma lista |

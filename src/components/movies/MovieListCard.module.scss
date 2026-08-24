@@ -24,9 +24,9 @@
 .poster[data-placeholder] {
   display: grid;
   padding: .7rem;
-  background:
-    linear-gradient(155deg, transparent 44%, color-mix(in srgb, #ffd400 28%, transparent) 44.5%, transparent 72%),
-    var(--surface-panel-soft);
+  border: 1px dashed var(--line-subtle);
+  background: var(--surface-panel-soft);
+  color: var(--neutral-on-background-weak);
 }
 
 .content,

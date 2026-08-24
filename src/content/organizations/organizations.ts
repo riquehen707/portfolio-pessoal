@@ -207,6 +207,10 @@ const readingPublishers = [
   ["org_harperteen","harperteen","HarperTeen","imprint"],
   ["org_vertigo","vertigo","Vertigo","imprint"],
   ["org_marvel_comics","marvel-comics","Marvel Comics","publisher"],
+  ["org_entangled_publishing","entangled-publishing","Entangled Publishing","publisher"],
+  ["org_beacon_press","beacon-press","Beacon Press","publisher"],
+  ["org_chicago_review_press","chicago-review-press","Chicago Review Press","publisher"],
+  ["org_prometheus_books","prometheus-books","Prometheus Books","publisher"],
 ].map(([id,slug,name,kind])=>OrganizationSchema.parse({id,slug,name,kind,status:"draft",workIds:[],summary:`Editora ou selo relacionado a edições verificadas do acervo: ${name}.`,createdAt:"2026-08-13",updatedAt:"2026-08-21"}));
 
 export const organizations = [ghostAnimation,teamCherry,cartoonSaloon,aardman,scienceSaru,kyotoAnimation,laika,studioGhibli,nipponTelevision,toho,...movieStudios,...readingPublishers];

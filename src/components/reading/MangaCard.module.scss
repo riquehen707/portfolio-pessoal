@@ -16,7 +16,7 @@
 }
 
 .cover img { object-fit: contain; padding: .24rem; }
-.fallback { display: grid; align-content: end; height: 100%; padding: .68rem; background: repeating-linear-gradient(135deg, transparent 0 1rem, color-mix(in srgb, var(--neutral-alpha-weak) 70%, transparent) 1rem 1.08rem), var(--surface-panel-soft); font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; }
+.fallback { display: grid; align-content: end; height: 100%; padding: .68rem; border: 1px dashed var(--line-subtle); background: var(--surface-panel-soft); color: var(--neutral-on-background-weak); font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; }
 .content { @include card.content; }
 .content h3 { @include card.title; }
 .content h3 a { color: inherit; }

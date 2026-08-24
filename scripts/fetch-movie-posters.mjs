@@ -4,7 +4,8 @@ import sharp from "sharp";
 import * as cheerio from "cheerio";
 
 const root = process.cwd();
-const sourceFiles = ["movies.ts", "ghibliMovies.ts", "laikaMovies.ts"];
+const normalizeExistingOnly = process.argv.includes("--normalize-existing");
+const sourceFiles = ["movies.ts", "ghibliMovies.ts", "laikaMovies.ts", "scienceFictionMovies.ts", "monsterMovies.ts", "naturalDisasterMovies.ts"];
 const source = (await Promise.all(sourceFiles.map((file) =>
   readFile(path.join(root, "src/content/movies", file), "utf8"),
 ))).join("\n");
@@ -16,7 +17,16 @@ const output = path.join(root, "public/images/movies");
 const posterSourcePath = path.join(root, "src/content/movies/posters.ts");
 const posterSource = await readFile(posterSourcePath, "utf8");
 const manifestMatch = posterSource.match(/export const posterCatalog = ([\s\S]+) as const;/);
-const manifest = manifestMatch ? JSON.parse(manifestMatch[1]) : {};
+const wikipediaPoster = (src, alt, sourceUrl) => ({
+  src,
+  alt,
+  sourceUrl,
+  credit: "Pôster promocional reproduzido na Wikipedia; direitos dos respectivos titulares",
+  rights: "permission-pending",
+});
+const manifest = manifestMatch
+  ? Function("wikipediaPoster", `return (${manifestMatch[1]})`)(wikipediaPoster)
+  : {};
 const wait = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 const titleOverrides = {
   "a-bruxa": "The Witch", "deixe-ela-entrar": "Let the Right One In",
@@ -42,6 +52,8 @@ const titleOverrides = {
   "meus-vizinhos-os-yamadas": "My Neighbors the Yamadas", "ponyo": "Ponyo",
   "o-mundo-dos-pequeninos": "The Secret World of Arrietty", "da-colina-kokuriko": "From Up on Poppy Hill",
   "o-conto-da-princesa-kaguya": "The Tale of the Princess Kaguya",
+  "o-cacador-de-troll": "Troll Hunter",
+  "japao-submerso-1973": "Submersion of Japan",
 };
 const normalize = (value) => value.normalize("NFD").replace(/\p{Diacritic}/gu, "").replace(/[^a-z0-9]+/gi, " ").trim().toLowerCase();
 
@@ -58,12 +70,16 @@ await mkdir(output, { recursive: true });
 for (const movie of movies) {
   if (manifest[movie.slug]) {
     try {
-      await access(path.join(root, "public", manifest[movie.slug].src.replace(/^\//, "")));
+      const existingPath = path.join(root, "public", manifest[movie.slug].src.replace(/^\//, ""));
+      await access(existingPath);
+      const metadata = await sharp(existingPath).metadata();
+      manifest[movie.slug] = { ...manifest[movie.slug], width: metadata.width, height: metadata.height };
       continue;
     } catch {
       // O registro existe, mas o arquivo sumiu: buscar novamente.
     }
   }
+  if (normalizeExistingOnly) continue;
   await wait(1200);
   const searchTitle = titleOverrides[movie.slug] ?? movie.internationalTitle ?? movie.originalTitle;
   const query = encodeURIComponent(`${searchTitle} y:${movie.year}`);
@@ -99,7 +115,7 @@ for (const movie of movies) {
     if (!response.ok) throw new Error(`Imagem TMDB ${response.status}: ${movie.slug}`);
     return Buffer.from(await response.arrayBuffer());
   });
-  await sharp(image).resize({ width: 500, withoutEnlargement: true }).webp({ quality: 78, effort: 6 })
+  const written = await sharp(image).resize({ width: 500, withoutEnlargement: true }).webp({ quality: 78, effort: 6 })
     .toFile(path.join(output, `${movie.slug}.webp`));
   manifest[movie.slug] = {
     src: `/images/movies/${movie.slug}.webp`,
@@ -107,8 +123,20 @@ for (const movie of movies) {
     sourceUrl: `https://www.themoviedb.org${selected.href}`,
     credit: "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
     rights: "permission-pending",
+    width: written.width,
+    height: written.height,
   };
   console.log(`${movie.slug} <- ${selected.href}`);
+}
+
+for (const [slug, poster] of Object.entries(manifest)) {
+  try {
+    const existingPath = path.join(root, "public", poster.src.replace(/^\//, ""));
+    const metadata = await sharp(existingPath).metadata();
+    manifest[slug] = { ...poster, width: metadata.width, height: metadata.height };
+  } catch {
+    // A auditoria de mídia registrará referências locais ausentes ou ilegíveis.
+  }
 }
 
 await writeFile(

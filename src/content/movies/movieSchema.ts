@@ -16,6 +16,7 @@ export const MovieSchema = z
     publishedAt: z.string().regex(isoDate, "data de publicação inválida").optional(),
     updatedAt: z.string().regex(isoDate, "data de alteração inválida"),
     relatedContentIds: z.array(z.string().min(1)).default([]),
+    franchiseId: z.string().regex(/^franchise_[a-z0-9_]+$/).optional(),
     organizationRelationships: z
       .array(
         z.object({
@@ -64,8 +65,10 @@ export const MovieSchema = z
         src: z.string().min(1),
         alt: z.string().min(1),
         sourceUrl: z.string().url(),
-        credit: z.string().min(1),
-        rights: z.enum(["original-editorial", "licensed", "permission-pending"]),
+          credit: z.string().min(1),
+          rights: z.enum(["original-editorial", "licensed", "permission-pending"]),
+          width: z.number().int().positive().optional(),
+          height: z.number().int().positive().optional(),
       })
       .optional(),
     status: MovieStatusSchema.default("draft"),

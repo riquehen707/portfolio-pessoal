@@ -31,9 +31,7 @@
   grid-template-rows: auto 1fr auto;
   padding: 0.65rem;
   border: 1px solid var(--line-subtle);
-  background:
-    linear-gradient(155deg, transparent 44%, color-mix(in srgb, #ffd400 28%, transparent) 44.5%, transparent 72%),
-    var(--surface-panel-soft);
+  background: var(--surface-panel-soft);
 }
 
 .posterLabel,
@@ -48,9 +46,8 @@
 .posterMark {
   align-self: center;
   width: 1rem;
-  height: 1rem;
-  background: #ffd400;
-  transform: rotate(45deg);
+  height: 1px;
+  background: var(--line-subtle);
 }
 
 .posterYear {

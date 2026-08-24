@@ -6,6 +6,9 @@ import { vampireMovieSeeds } from "./vampireMovies";
 import { endOfWorldMovieSeeds } from "./endOfWorldMovies";
 import { batmanAnimatedMovieSeeds } from "./batmanAnimatedMovies";
 import { brazilianHorrorMovieSeeds } from "./brazilianHorrorMovies";
+import { scienceFictionMovieSeeds } from "./scienceFictionMovies";
+import { monsterMovieSeeds } from "./monsterMovies";
+import { naturalDisasterMovieSeeds } from "./naturalDisasterMovies";
 
 export type MovieSeed = Pick<
   Movie,
@@ -24,7 +27,7 @@ export type MovieSeed = Pick<
   | "experience"
   | "contentWarnings"
   | "sources"
-> & Partial<Pick<Movie, "internationalTitle" | "releaseDate" | "screenwriters" | "credits" | "personRelationships" | "releaseType" | "productionStatus">> & {
+> & Partial<Pick<Movie, "internationalTitle" | "releaseDate" | "screenwriters" | "credits" | "personRelationships" | "releaseType" | "productionStatus" | "franchiseId">> & {
   id?: string;
   aliases?: string[];
   poster?: Movie["poster"];
@@ -147,6 +150,14 @@ const primaryProductionBySlug: Record<string, string> = {
   "quando-o-mal-espreita": "org_machaco_films", "exhuma": "org_pinetown_production",
   "a-substancia": "org_working_title_films", "nosferatu-2024": "org_studio_8",
   "pecadores": "org_proximity_media", "a-hora-do-mal": "org_new_line_cinema",
+};
+
+const franchiseBySlug: Record<string, string> = {
+  "alien-o-oitavo-passageiro": "franchise_alien",
+  "aliens-o-resgate": "franchise_alien",
+  "prometheus": "franchise_alien",
+  "alien-covenant": "franchise_alien",
+  "alien-romulus": "franchise_alien",
 };
 
 const bfiHorror = "https://www.bfi.org.uk/lists/great-horror-film-from-every-year-from-1922-now";
@@ -418,6 +429,9 @@ const seeds: MovieSeed[] = [
   ...endOfWorldMovieSeeds,
   ...batmanAnimatedMovieSeeds,
   ...brazilianHorrorMovieSeeds,
+  ...scienceFictionMovieSeeds,
+  ...monsterMovieSeeds,
+  ...naturalDisasterMovieSeeds,
 ];
 
 const rawMovies = seeds.map((seed) => {
@@ -440,6 +454,7 @@ const rawMovies = seeds.map((seed) => {
   createdAt: "2026-08-10",
   updatedAt: personRelationships.length ? "2026-08-14" : primaryOrganizationId ? "2026-08-13" : "2026-08-11",
   relatedContentIds: [],
+  franchiseId: movie.franchiseId ?? franchiseBySlug[movie.slug],
   format: "feature" as const,
   credits: movie.credits ?? [],
   personRelationships,
@@ -451,7 +466,9 @@ const rawMovies = seeds.map((seed) => {
   poster: movie.poster ?? posterCatalog[movie.slug as keyof typeof posterCatalog],
   status: "draft" as const,
   seo: {
-    title: `${movie.titleBr}: ficha e análise do filme`,
+    title: `${movie.titleBr}: ficha e análise do filme`.length <= 70
+      ? `${movie.titleBr}: ficha e análise do filme`
+      : `${movie.titleBr}: ficha do filme`,
     description: `${movie.titleBr} (${movie.year}): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.`,
   },
   });

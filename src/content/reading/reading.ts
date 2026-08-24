@@ -1,5 +1,13 @@
 import { readingEditionCovers } from "./readingCovers";
 import { ReadingCatalogSchema, type ReadingEdition, type ReadingSeries, type ReadingVolume, type ReadingWork } from "./readingSchema";
+import { haremMangaWorks } from "./haremManga";
+import { actionRomanceComicWorks } from "./actionRomanceComics";
+import { regressionManhwaWorks } from "./regressionManhwas";
+import { systemManhwaWorks } from "./systemManhwas";
+import { overpowerManhwaWorks } from "./overpowerManhwas";
+import { fantasyRomanceEditions, fantasyRomanceSeries, fantasyRomanceWorks } from "./fantasyRomanceBooks";
+import { scienceFictionEditions, scienceFictionSeries, scienceFictionWorks } from "./scienceFictionBooks";
+import { darkFantasyEditions, darkFantasySeries, darkFantasyWorks } from "./darkFantasyBooks";
 
 const checked = "2026-08-13";
 const nietzscheCover = (slug:string, alt:string, sourceUrl:string, credit:string):ReadingWork["image"] => ({
@@ -14,12 +22,23 @@ const comicWork = (id:string,slug:string,originalTitle:string,titleBr:string|und
 });
 
 const series:ReadingSeries[]=[
+ ...fantasyRomanceSeries,
+ ...scienceFictionSeries,
+ ...darkFantasySeries,
  {id:"read_series_vampire_chronicles",slug:"cronicas-vampirescas",aliases:["the-vampire-chronicles"],title:"Crônicas Vampirescas",originalTitle:"The Vampire Chronicles",summary:"Série de Anne Rice sobre vampiros que narram desejo, memória, culpa e sobrevivência através de diferentes épocas.",kind:"narrative",publicationStatus:"completed",sources:[{title:"Anne Rice — The Vampire Chronicles",url:"https://www.annerice.com/Bookshelf-VampireChronicles.html"}],status:"draft",createdAt:checked,updatedAt:checked},
  {id:"read_series_passage",slug:"trilogia-a-passagem",aliases:["the-passage-trilogy"],title:"Trilogia A Passagem",originalTitle:"The Passage Trilogy",summary:"Trilogia de Justin Cronin que acompanha uma epidemia vampírica e sociedades reorganizadas ao longo de gerações.",kind:"narrative",publicationStatus:"completed",confirmedVolumeCount:3,volumeCountCheckedAt:checked,sources:[{title:"Justin Cronin — The Passage Trilogy",url:"https://www.penguinrandomhouse.com/series/PSG/the-passage-trilogy/"}],status:"draft",createdAt:checked,updatedAt:checked},
  {id:"read_series_southern_reach",slug:"comando-sul",aliases:["southern-reach"],title:"Comando Sul",originalTitle:"Southern Reach",summary:"Série de Jeff VanderMeer sobre expedições, instituições e transformações ligadas à região incompreensível conhecida como Área X.",kind:"narrative",publicationStatus:"ongoing",sources:[{title:"Comando Sul — Intrínseca",url:"https://www.intrinseca.com.br/comandosul/"}],status:"draft",createdAt:checked,updatedAt:checked},
 ];
 
 const works:ReadingWork[]=[
+ ...actionRomanceComicWorks,
+ ...regressionManhwaWorks,
+ ...systemManhwaWorks,
+ ...overpowerManhwaWorks,
+ ...fantasyRomanceWorks,
+ ...scienceFictionWorks,
+ ...darkFantasyWorks,
+ ...haremMangaWorks,
  comicWork("read_work_sandman","sandman-neil-gaiman","The Sandman","Sandman","1989","1996","Estados Unidos","Inglês",[{personId:"person_neil_gaiman",roles:["writer","original-creator"]}],"western-comics","serialized-series",["Fantasia sombria","Mitologia","Terror"],["Sonhos","Histórias","Mudança","Família"],"Após décadas aprisionado, Sonho reconstrói seu reino e confronta as consequências de antigas escolhas numa saga sobre histórias, responsabilidade e mudança.",{organizationRelationships:[{organizationId:"org_dc_comics",roles:["original-publisher"]},{organizationId:"org_panini_brasil",roles:["publisher"]}],demographics:["adult"],adaptations:[{relationship:"adaptation",kind:"series",title:"The Sandman",status:"released",sourceUrl:"https://www.netflix.com/tudum/articles/sandman-new-episodes"}],sources:[{title:"The Sandman Book One — DC",url:"https://www.dc.com/graphic-novels/the-sandman-book-one"},{title:"Sandman — Edição Definitiva Vol. 1 — Panini",url:"https://panini.com.br/sandman-edicao-definitiva-vol-1-aveas001r3"}],updatedAt:"2026-08-20"}),
  comicWork("read_work_absolute_batman","absolute-batman","Absolute Batman",undefined,"2024",undefined,"Estados Unidos","Inglês",[{personId:"person_scott_snyder",roles:["writer"]},{personId:"person_nick_dragotta",roles:["artist"]}],"western-comics","serialized-series",["Super-heróis","Ação","Crime"],["Desigualdade","Violência urbana","Reinvenção"],"Sem a fortuna e a estrutura tradicional dos Wayne, um jovem Bruce enfrenta a violência de Gotham com conhecimento técnico, força física e recursos improvisados.",{organizationRelationships:[{organizationId:"org_dc_comics",roles:["original-publisher"]}],demographics:["adult"],sources:[{title:"DC All In — iniciativa e Universo Absolute",url:"https://www.dc.com/allin"},{title:"Absolute Batman Vol. 1: The Zoo — DC",url:"https://www.dc.com/graphic-novels/absolute-batman-2024/absolute-batman-vol-1-the-zoo"}]}),
  work("read_work_burnout_society","sociedade-do-cansaco","Müdigkeitsgesellschaft","Sociedade do Cansaço","2010","Alemanha","Alemão","person_byung_chul_han",["Filosofia","Crítica cultural"],["Desempenho","Autoexploração","Cansaço","Atenção"],"Byung-Chul Han interpreta o excesso de desempenho, estímulo e positividade como mecanismos de autoexploração e esgotamento na sociedade contemporânea.",{categories:["philosophy","essay"],organizationRelationships:[{organizationId:"org_vozes",roles:["publisher"]}],sources:[{title:"The Burnout Society — Stanford University Press",url:"https://www.sup.org/books/theory-and-philosophy/burnout-society"},{title:"Byung-Chul Han — Editora Vozes",url:"https://www.vozes.com.br/autor/133/byung-chul-han"}]}),
@@ -165,6 +184,9 @@ const catalogEdition = (id:string,workId:string,title:string,publisherId:string,
   sources:[{title:`${title} — registro da edição`,url:`https://openlibrary.org/books/${editionKey}`}],createdAt:checked,updatedAt:checked,...extra,translationCredits:extra.translationCredits??[],
 });
 const editions:ReadingEdition[]=[
+  ...fantasyRomanceEditions,
+  ...scienceFictionEditions,
+  ...darkFantasyEditions,
  edition("read_edition_burnout_society_vozes","read_work_burnout_society","Sociedade do Cansaço","org_vozes","paperback","https://books.google.com/books/about/Sociedade_do_cansa%C3%A7o.html?id=IYWZCgAAQBAJ",{publicationDate:"2015-11-26",isbn10:"853265083X",isbn13:"9788532650832",pageCount:80}),
  edition("read_edition_carmilla_darkside","read_work_carmilla","Carmilla","org_darkside_books","hardcover","https://www.darksidebooks.com.br/carmilla--brinde-exclusivo-43665/p",{publicationDate:"2022-01-01",isbn13:"9788567566665"}),
  edition("read_edition_dracula_darkside","read_work_dracula","Drácula — Dark Edition","org_darkside_books","hardcover","https://www.darksidebooks.com.br/dracula---dark-edition/p"),

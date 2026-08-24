@@ -3,6 +3,4483 @@
   "contentType": "reading-catalog",
   "works": [
     {
+      "id": "read_work_doom_breaker",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "doom-breaker",
+      "aliases": [],
+      "originalTitle": "투신전생기",
+      "titleBr": "Doom Breaker",
+      "romanizedTitle": "Tusinjeonsaenggi",
+      "format": "manhwa",
+      "originCountries": [
+        "Coreia do Sul"
+      ],
+      "originalLanguages": [
+        "Coreano"
+      ],
+      "comicTradition": "manhwa",
+      "comicFormat": "webtoon",
+      "readingDirection": "vertical",
+      "credits": [
+        {
+          "personId": "person_blue_deep",
+          "roles": [
+            "writer",
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2021",
+      "publicationStatus": "hiatus",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Ação",
+        "Fantasia",
+        "Regressão"
+      ],
+      "themes": [
+        "Vingança",
+        "Segunda chance",
+        "Romance"
+      ],
+      "demographics": [
+        "young-adult",
+        "adult"
+      ],
+      "shortDescription": "O último guerreiro da humanidade retorna dez anos no tempo para enfrentar o deus que destruiu o mundo e impedir a morte da mulher que ama.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/action-romance/doom-breaker-cover.jpg",
+        "alt": "Capa ou arte promocional oficial de Doom Breaker",
+        "sourceUrl": "https://www.webtoons.com/en/action/doom-breaker/list?title_no=3197",
+        "credit": "WEBTOON / Blue-Deep",
+        "rights": "licensed",
+        "width": 480,
+        "height": 540
+      },
+      "sources": [
+        {
+          "title": "Doom Breaker — publicação oficial",
+          "url": "https://www.webtoons.com/en/action/doom-breaker/list?title_no=3197"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_ending_maker",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "ending-maker",
+      "aliases": [],
+      "originalTitle": "엔딩메이커",
+      "titleBr": "Ending Maker",
+      "romanizedTitle": "Ending Maker",
+      "format": "manhwa",
+      "originCountries": [
+        "Coreia do Sul"
+      ],
+      "originalLanguages": [
+        "Coreano"
+      ],
+      "comicTradition": "manhwa",
+      "comicFormat": "webtoon",
+      "readingDirection": "vertical",
+      "credits": [
+        {
+          "personId": "person_chwiryong",
+          "roles": [
+            "original-creator",
+            "writer"
+          ]
+        },
+        {
+          "personId": "person_does",
+          "roles": [
+            "artist",
+            "adapter"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2022",
+      "publicationStatus": "hiatus",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Ação",
+        "Fantasia",
+        "Romance",
+        "Isekai"
+      ],
+      "themes": [
+        "Sistema de jogo",
+        "Parceria",
+        "Apocalipse"
+      ],
+      "demographics": [
+        "young-adult",
+        "adult"
+      ],
+      "shortDescription": "Dois rivais do ranking de um RPG acordam como personagens prometidos em casamento e combinam conhecimento do jogo para impedir o final apocalíptico.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/action-romance/ending-maker-cover.jpg",
+        "alt": "Capa ou arte promocional oficial de Ending Maker",
+        "sourceUrl": "https://tapas.io/series/ending-maker/info",
+        "credit": "Tapas / CARROTOON",
+        "rights": "licensed",
+        "width": 400,
+        "height": 600
+      },
+      "sources": [
+        {
+          "title": "Ending Maker — publicação oficial",
+          "url": "https://tapas.io/series/ending-maker/info"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_infinite_mage",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "the-infinite-mage",
+      "aliases": [],
+      "originalTitle": "무한의 마법사",
+      "titleBr": "The Infinite Mage",
+      "romanizedTitle": "Muhan-ui Mabeopsa",
+      "format": "manhwa",
+      "originCountries": [
+        "Coreia do Sul"
+      ],
+      "originalLanguages": [
+        "Coreano"
+      ],
+      "comicTradition": "manhwa",
+      "comicFormat": "webtoon",
+      "readingDirection": "vertical",
+      "credits": [
+        {
+          "personId": "person_kim_chi_woo",
+          "roles": [
+            "original-creator",
+            "writer"
+          ]
+        },
+        {
+          "personId": "person_themis",
+          "roles": [
+            "adapter"
+          ]
+        },
+        {
+          "personId": "person_kiraz",
+          "roles": [
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2022",
+      "publicationStatus": "hiatus",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Ação",
+        "Fantasia",
+        "Academia"
+      ],
+      "themes": [
+        "Magia",
+        "Mobilidade social",
+        "Amadurecimento"
+      ],
+      "demographics": [
+        "young-adult",
+        "adult"
+      ],
+      "shortDescription": "Um órfão criado por caçadores transforma curiosidade científica e domínio da zona espiritual em caminho para entrar no mundo aristocrático da magia.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/action-romance/infinite-mage-cover.jpg",
+        "alt": "Capa ou arte promocional oficial de The Infinite Mage",
+        "sourceUrl": "https://tapas.io/series/the-infinite-mage/info",
+        "credit": "Tapas / REDICE STUDIO",
+        "rights": "licensed",
+        "width": 400,
+        "height": 600
+      },
+      "sources": [
+        {
+          "title": "The Infinite Mage — publicação oficial",
+          "url": "https://tapas.io/series/the-infinite-mage/info"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_lazy_lord_sword",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "the-lazy-lord-masters-the-sword",
+      "aliases": [],
+      "originalTitle": "나태 공자, 노력 천재 되다",
+      "titleBr": "The Lazy Lord Masters the Sword",
+      "romanizedTitle": "Natae Gongja, Noryeok Cheonjae Doeda",
+      "format": "manhwa",
+      "originCountries": [
+        "Coreia do Sul"
+      ],
+      "originalLanguages": [
+        "Coreano"
+      ],
+      "comicTradition": "manhwa",
+      "comicFormat": "webtoon",
+      "readingDirection": "vertical",
+      "credits": [
+        {
+          "personId": "person_second_star",
+          "roles": [
+            "original-creator"
+          ]
+        },
+        {
+          "personId": "person_dodomoon",
+          "roles": [
+            "writer",
+            "adapter"
+          ]
+        },
+        {
+          "personId": "person_doip",
+          "roles": [
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2021",
+      "publicationStatus": "hiatus",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Ação",
+        "Fantasia",
+        "Drama"
+      ],
+      "themes": [
+        "Treinamento",
+        "Trauma",
+        "Companheirismo"
+      ],
+      "demographics": [
+        "young-adult",
+        "adult"
+      ],
+      "shortDescription": "Um jovem paralisado pelo luto encontra no sonho de um espadachim a disciplina para reconstruir corpo, identidade e vínculos com outros aprendizes.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/action-romance/lazy-lord-cover.jpg",
+        "alt": "Capa ou arte promocional oficial de The Lazy Lord Masters the Sword",
+        "sourceUrl": "https://www.tappytoon.com/en/book/367",
+        "credit": "Tappytoon / Jakga Company",
+        "rights": "licensed",
+        "width": 294,
+        "height": 427
+      },
+      "sources": [
+        {
+          "title": "The Lazy Lord Masters the Sword — publicação oficial",
+          "url": "https://www.tappytoon.com/en/book/367"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_sss_class_revival_hunter",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "sss-class-revival-hunter",
+      "aliases": [],
+      "originalTitle": "SSS급 죽어야 사는 헌터",
+      "titleBr": "SSS-Class Revival Hunter",
+      "romanizedTitle": "SSS-geup Jugeoya Saneun Hunter",
+      "format": "manhwa",
+      "originCountries": [
+        "Coreia do Sul"
+      ],
+      "originalLanguages": [
+        "Coreano"
+      ],
+      "comicTradition": "manhwa",
+      "comicFormat": "webtoon",
+      "readingDirection": "vertical",
+      "credits": [
+        {
+          "personId": "person_bill_k",
+          "roles": [
+            "original-creator"
+          ]
+        },
+        {
+          "personId": "person_sinnoa",
+          "roles": [
+            "writer",
+            "adapter"
+          ]
+        },
+        {
+          "personId": "person_neida",
+          "roles": [
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2020",
+      "publicationStatus": "hiatus",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Ação",
+        "Fantasia",
+        "Sistema",
+        "Regressão"
+      ],
+      "themes": [
+        "Torre",
+        "Morte",
+        "Empatia"
+      ],
+      "demographics": [
+        "young-adult",
+        "adult"
+      ],
+      "shortDescription": "Um caçador copia habilidades e retorna um dia no tempo sempre que morre, usando a repetição para subir uma torre cujos andares mudam de gênero e lógica.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/action-romance/sss-class-revival-hunter-cover.jpg",
+        "alt": "Capa ou arte promocional oficial de SSS-Class Revival Hunter",
+        "sourceUrl": "https://tapas.io/series/sss-class-revival-hunter/info",
+        "credit": "Tapas / Kakao Entertainment",
+        "rights": "licensed",
+        "width": 400,
+        "height": 600
+      },
+      "sources": [
+        {
+          "title": "SSS-Class Revival Hunter — publicação oficial",
+          "url": "https://tapas.io/series/sss-class-revival-hunter/info"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_jungle_juice",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "jungle-juice",
+      "aliases": [],
+      "originalTitle": "정글쥬스",
+      "titleBr": "Jungle Juice",
+      "romanizedTitle": "Jeonggeuljyuseu",
+      "format": "manhwa",
+      "originCountries": [
+        "Coreia do Sul"
+      ],
+      "originalLanguages": [
+        "Coreano"
+      ],
+      "comicTradition": "manhwa",
+      "comicFormat": "webtoon",
+      "readingDirection": "vertical",
+      "credits": [
+        {
+          "personId": "person_hyeong_eun",
+          "roles": [
+            "writer"
+          ]
+        },
+        {
+          "personId": "person_juder",
+          "roles": [
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2020",
+      "publicationStatus": "ongoing",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Ação",
+        "Fantasia urbana",
+        "Sobrevivência"
+      ],
+      "themes": [
+        "Insetos",
+        "Academia",
+        "Identidade"
+      ],
+      "demographics": [
+        "young-adult",
+        "adult"
+      ],
+      "shortDescription": "Um universitário com asas de libélula entra numa sociedade de humanos-inseto em que anatomia, cadeia alimentar e experimentos determinam poderes e conflitos.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/action-romance/jungle-juice-cover.jpg",
+        "alt": "Capa ou arte promocional oficial de Jungle Juice",
+        "sourceUrl": "https://www.webtoons.com/en/action/jungle-juice/list?title_no=2480",
+        "credit": "WEBTOON / YLAB",
+        "rights": "licensed",
+        "width": 480,
+        "height": 540
+      },
+      "sources": [
+        {
+          "title": "Jungle Juice — publicação oficial",
+          "url": "https://www.webtoons.com/en/action/jungle-juice/list?title_no=2480"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_legend_asura_poison_dragon",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "legend-of-an-asura-the-poison-dragon",
+      "aliases": [],
+      "originalTitle": "수라전설 독룡",
+      "titleBr": "Legend of an Asura: The Poison Dragon",
+      "romanizedTitle": "Surajeonseol Dongnyong",
+      "format": "manhwa",
+      "originCountries": [
+        "Coreia do Sul"
+      ],
+      "originalLanguages": [
+        "Coreano"
+      ],
+      "comicTradition": "manhwa",
+      "comicFormat": "webtoon",
+      "readingDirection": "vertical",
+      "credits": [
+        {
+          "personId": "person_yk_sinier",
+          "roles": [
+            "original-creator",
+            "writer"
+          ]
+        },
+        {
+          "personId": "person_antstudio",
+          "roles": [
+            "artist",
+            "adapter"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2021",
+      "publicationStatus": "hiatus",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Ação",
+        "Murim",
+        "Drama"
+      ],
+      "themes": [
+        "Veneno",
+        "Vingança",
+        "Sobrevivência"
+      ],
+      "demographics": [
+        "young-adult",
+        "adult"
+      ],
+      "shortDescription": "Único sobrevivente de uma facção medicinal exterminada, Jin Ja-kang converte o veneno usado para torturá-lo em método marcial e arma de vingança.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/action-romance/legend-asura-poison-dragon-cover.jpg",
+        "alt": "Capa ou arte promocional oficial de Legend of an Asura: The Poison Dragon",
+        "sourceUrl": "https://tapas.io/series/legend-of-an-asura-the-poison-dragon/info",
+        "credit": "Tapas / Dreamtoon",
+        "rights": "licensed",
+        "width": 400,
+        "height": 600
+      },
+      "sources": [
+        {
+          "title": "Legend of an Asura: The Poison Dragon — publicação oficial",
+          "url": "https://tapas.io/series/legend-of-an-asura-the-poison-dragon/info"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_tales_demons_gods",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "tales-of-demons-and-gods",
+      "aliases": [],
+      "originalTitle": "妖神记",
+      "titleBr": "Tales of Demons and Gods",
+      "romanizedTitle": "Yao Shen Ji",
+      "format": "manhua",
+      "originCountries": [
+        "China"
+      ],
+      "originalLanguages": [
+        "Chinês"
+      ],
+      "comicTradition": "manhua",
+      "comicFormat": "webtoon",
+      "readingDirection": "vertical",
+      "credits": [
+        {
+          "personId": "person_mad_snail",
+          "roles": [
+            "original-creator",
+            "writer"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2015",
+      "publicationStatus": "ongoing",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Ação",
+        "Cultivo",
+        "Fantasia",
+        "Regressão"
+      ],
+      "themes": [
+        "Espíritos demoníacos",
+        "Segunda chance",
+        "Proteção"
+      ],
+      "demographics": [
+        "young-adult",
+        "adult"
+      ],
+      "shortDescription": "Nie Li retorna à adolescência com séculos de conhecimento e usa cultivo, alquimia e espíritos demoníacos para salvar sua cidade e reencontrar seu amor.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/action-romance/tales-demons-gods-cover.webp",
+        "alt": "Capa ou arte promocional oficial de Tales of Demons and Gods",
+        "sourceUrl": "https://comics.inkr.com/title/480-tales-of-demons-and-gods",
+        "credit": "INKR / Ruohong Culture / Taxue Comics",
+        "rights": "licensed",
+        "width": 462,
+        "height": 693
+      },
+      "sources": [
+        {
+          "title": "Tales of Demons and Gods — publicação oficial",
+          "url": "https://comics.inkr.com/title/480-tales-of-demons-and-gods"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_soul_land_ii",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "soul-land-ii-the-unrivaled-tang-sect",
+      "aliases": [],
+      "originalTitle": "斗罗大陆II绝世唐门",
+      "titleBr": "Soul Land II: The Unrivaled Tang Sect",
+      "romanizedTitle": "Douluo Dalu II: Jueshi Tangmen",
+      "format": "manhua",
+      "originCountries": [
+        "China"
+      ],
+      "originalLanguages": [
+        "Chinês"
+      ],
+      "comicTradition": "manhua",
+      "comicFormat": "webtoon",
+      "readingDirection": "vertical",
+      "credits": [
+        {
+          "personId": "person_tang_jia_san_shao",
+          "roles": [
+            "original-creator",
+            "writer"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2012",
+      "publicationStatus": "ongoing",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Ação",
+        "Cultivo",
+        "Fantasia",
+        "Academia"
+      ],
+      "themes": [
+        "Espíritos marciais",
+        "Equipe",
+        "Romance"
+      ],
+      "demographics": [
+        "young-adult",
+        "adult"
+      ],
+      "shortDescription": "Huo Yuhao ingressa na Academia Shrek e desenvolve espíritos, anéis e fusões marciais ao lado de Wang Dong, numa parceria que muda de significado com o tempo.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/action-romance/soul-land-ii-cover.webp",
+        "alt": "Capa ou arte promocional oficial de Soul Land II: The Unrivaled Tang Sect",
+        "sourceUrl": "https://comics.inkr.com/title/766-soul-land-ii-the-unrivaled-tang-sect",
+        "credit": "INKR / Changsha Angel Culture / Magic Comic",
+        "rights": "licensed",
+        "width": 462,
+        "height": 693
+      },
+      "sources": [
+        {
+          "title": "Soul Land II: The Unrivaled Tang Sect — publicação oficial",
+          "url": "https://comics.inkr.com/title/766-soul-land-ii-the-unrivaled-tang-sect"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_star_martial_god_technique",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "star-martial-god-technique",
+      "aliases": [],
+      "originalTitle": "星武神诀",
+      "titleBr": "Star Martial God Technique",
+      "romanizedTitle": "Xing Wu Shen Jue",
+      "format": "manhua",
+      "originCountries": [
+        "China"
+      ],
+      "originalLanguages": [
+        "Chinês"
+      ],
+      "comicTradition": "manhua",
+      "comicFormat": "webtoon",
+      "readingDirection": "vertical",
+      "credits": [
+        {
+          "personId": "person_fa_shu_de_woniu",
+          "roles": [
+            "original-creator",
+            "writer"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2016",
+      "publicationStatus": "ongoing",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Ação",
+        "Cultivo",
+        "Artes marciais",
+        "Fantasia"
+      ],
+      "themes": [
+        "Técnicas estelares",
+        "Clãs",
+        "Ascensão"
+      ],
+      "demographics": [
+        "young-adult",
+        "adult"
+      ],
+      "shortDescription": "Ye Xinghe desperta uma rara técnica marcial estelar e usa seu crescimento para desafiar hierarquias, proteger o clã e aproximar-se de duas figuras centrais.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/action-romance/star-martial-god-technique-cover.webp",
+        "alt": "Capa ou arte promocional oficial de Star Martial God Technique",
+        "sourceUrl": "https://comics.inkr.com/title/239-star-martial-god-technique",
+        "credit": "INKR / Ruohong Culture / Taxue Comic",
+        "rights": "licensed",
+        "width": 462,
+        "height": 693
+      },
+      "sources": [
+        {
+          "title": "Star Martial God Technique — publicação oficial",
+          "url": "https://comics.inkr.com/title/239-star-martial-god-technique"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_regressed_mercenary_plan",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "the-regressed-mercenary-has-a-plan",
+      "aliases": [],
+      "originalTitle": "회귀한 용병은 다 계획이 있다",
+      "titleBr": "The Regressed Mercenary Has a Plan",
+      "format": "manhwa",
+      "originCountries": [
+        "Coreia do Sul"
+      ],
+      "originalLanguages": [
+        "Coreano"
+      ],
+      "comicTradition": "manhwa",
+      "comicFormat": "webtoon",
+      "readingDirection": "vertical",
+      "credits": [
+        {
+          "personId": "person_gold_haeng",
+          "roles": [
+            "original-creator"
+          ]
+        },
+        {
+          "personId": "person_jjjsss",
+          "roles": [
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2024",
+      "publicationStatus": "ongoing",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Ação",
+        "Fantasia",
+        "Regressão"
+      ],
+      "themes": [
+        "Vingança",
+        "Estratégia",
+        "Gestão territorial"
+      ],
+      "demographics": [
+        "young-adult",
+        "adult"
+      ],
+      "shortDescription": "Um rei mercenário morto antes de vingar a família desperta como seu eu adolescente e usa experiência militar para impedir a ruína de sua casa.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/regression/regressed-mercenary-cover.jpg",
+        "alt": "Capa ou arte promocional oficial de The Regressed Mercenary Has a Plan",
+        "sourceUrl": "https://www.webtoons.com/en/action/the-regressed-mercenary-has-a-plan/list?title_no=7261",
+        "credit": "WEBTOON / Gold Haeng / JJJSSS",
+        "rights": "licensed",
+        "width": 540,
+        "height": 540
+      },
+      "sources": [
+        {
+          "title": "The Regressed Mercenary Has a Plan — publicação oficial",
+          "url": "https://www.webtoons.com/en/action/the-regressed-mercenary-has-a-plan/list?title_no=7261"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_returners_magic_special",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "a-returners-magic-should-be-special",
+      "aliases": [],
+      "originalTitle": "귀환자의 마법은 특별해야 합니다",
+      "titleBr": "A Returner's Magic Should Be Special",
+      "format": "manhwa",
+      "originCountries": [
+        "Coreia do Sul"
+      ],
+      "originalLanguages": [
+        "Coreano"
+      ],
+      "comicTradition": "manhwa",
+      "comicFormat": "webtoon",
+      "readingDirection": "vertical",
+      "credits": [
+        {
+          "personId": "person_usonan",
+          "roles": [
+            "original-creator"
+          ]
+        },
+        {
+          "personId": "person_wookjakga",
+          "roles": [
+            "artist",
+            "adapter"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2018",
+      "publicationEnd": "2024",
+      "publicationStatus": "completed",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Ação",
+        "Fantasia",
+        "Regressão",
+        "Academia"
+      ],
+      "themes": [
+        "Magia",
+        "Estratégia",
+        "Apocalipse"
+      ],
+      "demographics": [
+        "young-adult",
+        "adult"
+      ],
+      "shortDescription": "Após dez anos no Labirinto das Sombras, Desir retorna treze anos à época da academia e prepara seus companheiros para a catástrofe que conhece.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/regression/returners-magic-cover.jpg",
+        "alt": "Capa ou arte promocional oficial de A Returner's Magic Should Be Special",
+        "sourceUrl": "https://tapas.io/series/a-returners-magic-should-be-special/info",
+        "credit": "Tapas / D&C MEDIA",
+        "rights": "licensed",
+        "width": 400,
+        "height": 600
+      },
+      "sources": [
+        {
+          "title": "A Returner's Magic Should Be Special — publicação oficial",
+          "url": "https://tapas.io/series/a-returners-magic-should-be-special/info"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_return_to_player",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "return-to-player",
+      "aliases": [],
+      "originalTitle": "리턴 투 플레이어",
+      "titleBr": "Return to Player",
+      "format": "manhwa",
+      "originCountries": [
+        "Coreia do Sul"
+      ],
+      "originalLanguages": [
+        "Coreano"
+      ],
+      "comicTradition": "manhwa",
+      "comicFormat": "webtoon",
+      "readingDirection": "vertical",
+      "credits": [
+        {
+          "personId": "person_index_return_player",
+          "roles": [
+            "original-creator"
+          ]
+        },
+        {
+          "personId": "person_umky",
+          "roles": [
+            "writer",
+            "adapter"
+          ]
+        },
+        {
+          "personId": "person_sehon",
+          "roles": [
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2020",
+      "publicationEnd": "2026",
+      "publicationStatus": "completed",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Ação",
+        "Fantasia urbana",
+        "Regressão",
+        "Sistema"
+      ],
+      "themes": [
+        "Apocalipse",
+        "Deuses",
+        "Sobrevivência"
+      ],
+      "demographics": [
+        "young-adult",
+        "adult"
+      ],
+      "shortDescription": "Único sobrevivente de um jogo mortal imposto por deuses, Sehan volta ao início da partida para alterar a rota que exterminou a humanidade.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/regression/return-to-player-cover.jpg",
+        "alt": "Capa ou arte promocional oficial de Return to Player",
+        "sourceUrl": "https://www.webtoons.com/en/action/return-to-player/list?title_no=2574",
+        "credit": "WEBTOON / INDEX / UMKY / SEHON",
+        "rights": "licensed",
+        "width": 540,
+        "height": 540
+      },
+      "sources": [
+        {
+          "title": "Return to Player — publicação oficial",
+          "url": "https://www.webtoons.com/en/action/return-to-player/list?title_no=2574"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_absolute_regression",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "absolute-regression",
+      "aliases": [],
+      "originalTitle": "절대회귀",
+      "titleBr": "Absolute Regression",
+      "format": "manhwa",
+      "originCountries": [
+        "Coreia do Sul"
+      ],
+      "originalLanguages": [
+        "Coreano"
+      ],
+      "comicTradition": "manhwa",
+      "comicFormat": "webtoon",
+      "readingDirection": "vertical",
+      "credits": [
+        {
+          "personId": "person_yh_jang",
+          "roles": [
+            "original-creator"
+          ]
+        },
+        {
+          "personId": "person_jp_absolute",
+          "roles": [
+            "writer"
+          ]
+        },
+        {
+          "personId": "person_park_jin_hwan",
+          "roles": [
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2024",
+      "publicationStatus": "ongoing",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Ação",
+        "Murim",
+        "Regressão"
+      ],
+      "themes": [
+        "Redenção",
+        "Família",
+        "Artes marciais"
+      ],
+      "demographics": [
+        "young-adult",
+        "adult"
+      ],
+      "shortDescription": "O filho do Demônio Celestial usa um ritual proibido para voltar ao próprio passado, reunir aliados e preparar o Murim para um inimigo invencível.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/regression/absolute-regression-cover.jpg",
+        "alt": "Capa ou arte promocional oficial de Absolute Regression",
+        "sourceUrl": "https://www.webtoons.com/en/fantasy/absolute-regression/list?title_no=7004",
+        "credit": "WEBTOON / Y.H.JANG / JP / PARK JIN HWAN",
+        "rights": "licensed",
+        "width": 540,
+        "height": 540
+      },
+      "sources": [
+        {
+          "title": "Absolute Regression — publicação oficial",
+          "url": "https://www.webtoons.com/en/fantasy/absolute-regression/list?title_no=7004"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_knight_only_lives_today",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "the-knight-only-lives-today",
+      "aliases": [],
+      "originalTitle": "오늘만 사는 기사",
+      "titleBr": "The Knight Only Lives Today",
+      "format": "manhwa",
+      "originCountries": [
+        "Coreia do Sul"
+      ],
+      "originalLanguages": [
+        "Coreano"
+      ],
+      "comicTradition": "manhwa",
+      "comicFormat": "webtoon",
+      "readingDirection": "vertical",
+      "credits": [
+        {
+          "personId": "person_soulpung",
+          "roles": [
+            "original-creator"
+          ]
+        },
+        {
+          "personId": "person_lee_hyun_min",
+          "roles": [
+            "writer",
+            "adapter"
+          ]
+        },
+        {
+          "personId": "person_kanara",
+          "roles": [
+            "adapter"
+          ]
+        },
+        {
+          "personId": "person_ian_knight",
+          "roles": [
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2024",
+      "publicationStatus": "ongoing",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Ação",
+        "Fantasia",
+        "Regressão"
+      ],
+      "themes": [
+        "Loop temporal",
+        "Treinamento",
+        "Guerra"
+      ],
+      "demographics": [
+        "young-adult",
+        "adult"
+      ],
+      "shortDescription": "Um soldado que sonha ser cavaleiro retorna ao começo do mesmo dia sempre que morre e transforma repetição em treinamento deliberado.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/regression/knight-only-lives-today-cover.jpg",
+        "alt": "Capa ou arte promocional oficial de The Knight Only Lives Today",
+        "sourceUrl": "https://www.webtoons.com/en/fantasy/the-knight-only-lives-today/list?title_no=6672",
+        "credit": "WEBTOON / SOULPUNG / IAN",
+        "rights": "licensed",
+        "width": 540,
+        "height": 540
+      },
+      "sources": [
+        {
+          "title": "The Knight Only Lives Today — publicação oficial",
+          "url": "https://www.webtoons.com/en/fantasy/the-knight-only-lives-today/list?title_no=6672"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_solo_leveling",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "solo-leveling",
+      "aliases": [],
+      "originalTitle": "나 혼자만 레벨업",
+      "titleBr": "Solo Leveling",
+      "format": "manhwa",
+      "originCountries": [
+        "Coreia do Sul"
+      ],
+      "originalLanguages": [
+        "Coreano"
+      ],
+      "comicTradition": "manhwa",
+      "comicFormat": "webtoon",
+      "readingDirection": "vertical",
+      "credits": [
+        {
+          "personId": "person_chugong",
+          "roles": [
+            "original-creator"
+          ]
+        },
+        {
+          "personId": "person_h_goon",
+          "roles": [
+            "writer",
+            "adapter"
+          ]
+        },
+        {
+          "personId": "person_dubu",
+          "roles": [
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2018",
+      "publicationEnd": "2023",
+      "publicationStatus": "completed",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Ação",
+        "Fantasia urbana",
+        "Sistema",
+        "Dungeon"
+      ],
+      "themes": [
+        "Leveling",
+        "Hunters",
+        "Classes",
+        "Quests"
+      ],
+      "demographics": [
+        "young-adult",
+        "adult"
+      ],
+      "shortDescription": "Um caçador de rank E recebe acesso exclusivo a uma interface que permite cumprir missões, distribuir atributos, equipar itens e subir de nível.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/system/solo-leveling-cover.jpg",
+        "alt": "Capa ou arte promocional oficial de Solo Leveling",
+        "sourceUrl": "https://tapas.io/series/solo-leveling-comic/info",
+        "credit": "Tapas / D&C WEBTOON Biz / REDICE STUDIO",
+        "rights": "licensed",
+        "width": 400,
+        "height": 600
+      },
+      "sources": [
+        {
+          "title": "Solo Leveling — publicação oficial",
+          "url": "https://tapas.io/series/solo-leveling-comic/info"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_omniscient_reader",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "omniscient-reader",
+      "aliases": [],
+      "originalTitle": "전지적 독자 시점",
+      "titleBr": "Omniscient Reader",
+      "format": "manhwa",
+      "originCountries": [
+        "Coreia do Sul"
+      ],
+      "originalLanguages": [
+        "Coreano"
+      ],
+      "comicTradition": "manhwa",
+      "comicFormat": "webtoon",
+      "readingDirection": "vertical",
+      "credits": [
+        {
+          "personId": "person_singsong",
+          "roles": [
+            "original-creator"
+          ]
+        },
+        {
+          "personId": "person_umi_orv",
+          "roles": [
+            "writer",
+            "adapter"
+          ]
+        },
+        {
+          "personId": "person_sleepy_c",
+          "roles": [
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2020",
+      "publicationStatus": "hiatus",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Ação",
+        "Fantasia urbana",
+        "Sistema",
+        "Apocalipse"
+      ],
+      "themes": [
+        "Cenários",
+        "Constelações",
+        "Skills",
+        "Probabilidade"
+      ],
+      "demographics": [
+        "young-adult",
+        "adult"
+      ],
+      "shortDescription": "Quando uma web novel vira realidade, Kim Dokja usa conhecimento dos cenários, recompensas e personagens para sobreviver às missões impostas por seres que assistem ao apocalipse.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/system/omniscient-reader-cover.jpg",
+        "alt": "Capa ou arte promocional oficial de Omniscient Reader",
+        "sourceUrl": "https://www.webtoons.com/en/action/omniscient-reader/list?title_no=2154",
+        "credit": "WEBTOON / singNsong / UMI / Sleepy-C",
+        "rights": "licensed",
+        "width": 540,
+        "height": 540
+      },
+      "sources": [
+        {
+          "title": "Omniscient Reader — publicação oficial",
+          "url": "https://www.webtoons.com/en/action/omniscient-reader/list?title_no=2154"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_log_in_murim",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "log-in-murim",
+      "aliases": [],
+      "originalTitle": "로그인 무림",
+      "titleBr": "Log-in Murim",
+      "format": "manhwa",
+      "originCountries": [
+        "Coreia do Sul"
+      ],
+      "originalLanguages": [
+        "Coreano"
+      ],
+      "comicTradition": "manhwa",
+      "comicFormat": "webtoon",
+      "readingDirection": "vertical",
+      "credits": [
+        {
+          "personId": "person_zero_big",
+          "roles": [
+            "original-creator"
+          ]
+        },
+        {
+          "personId": "person_iron_wall",
+          "roles": [
+            "artist",
+            "adapter"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2020",
+      "publicationStatus": "hiatus",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Ação",
+        "Murim",
+        "Sistema",
+        "Dungeon"
+      ],
+      "themes": [
+        "Leveling",
+        "Hunters",
+        "Quests",
+        "Realidade virtual"
+      ],
+      "demographics": [
+        "young-adult",
+        "adult"
+      ],
+      "shortDescription": "Um hunter de baixo rank entra num mundo de Murim por um console e descobre que níveis, quests e treino marcial atravessam a fronteira entre jogo e realidade.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/system/log-in-murim-cover.jpg",
+        "alt": "Capa ou arte promocional oficial de Log-in Murim",
+        "sourceUrl": "https://tapas.io/series/log-in-murim/info",
+        "credit": "Tapas / KENAZ / Iron wall / Zero-BIG",
+        "rights": "licensed",
+        "width": 400,
+        "height": 600
+      },
+      "sources": [
+        {
+          "title": "Log-in Murim — publicação oficial",
+          "url": "https://tapas.io/series/log-in-murim/info"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_surviving_game_barbarian",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "surviving-the-game-as-a-barbarian",
+      "aliases": [],
+      "originalTitle": "게임 속 바바리안으로 살아남기",
+      "titleBr": "Surviving the Game as a Barbarian",
+      "format": "manhwa",
+      "originCountries": [
+        "Coreia do Sul"
+      ],
+      "originalLanguages": [
+        "Coreano"
+      ],
+      "comicTradition": "manhwa",
+      "comicFormat": "webtoon",
+      "readingDirection": "vertical",
+      "credits": [
+        {
+          "personId": "person_jung_yoon_kang",
+          "roles": [
+            "original-creator"
+          ]
+        },
+        {
+          "personId": "person_team_the_jick",
+          "roles": [
+            "writer",
+            "adapter"
+          ]
+        },
+        {
+          "personId": "person_midnight_studio",
+          "roles": [
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2023",
+      "publicationStatus": "hiatus",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Ação",
+        "Fantasia",
+        "Sistema",
+        "Sobrevivência"
+      ],
+      "themes": [
+        "Dungeon",
+        "RPG",
+        "Equipamentos",
+        "Build"
+      ],
+      "demographics": [
+        "young-adult",
+        "adult"
+      ],
+      "shortDescription": "Um veterano de um RPG difícil desperta como um bárbaro dentro do jogo e precisa transformar conhecimento de builds, monstros e recursos numa estratégia de sobrevivência.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/system/surviving-game-barbarian-cover.jpg",
+        "alt": "Capa ou arte promocional oficial de Surviving the Game as a Barbarian",
+        "sourceUrl": "https://www.webtoons.com/en/fantasy/surviving-the-game-as-a-barbarian/list?title_no=5515",
+        "credit": "WEBTOON / Jung Yoon-kang / Team the JICK / MIDNIGHT STUDIO",
+        "rights": "licensed",
+        "width": 540,
+        "height": 540
+      },
+      "sources": [
+        {
+          "title": "Surviving the Game as a Barbarian — publicação oficial",
+          "url": "https://www.webtoons.com/en/fantasy/surviving-the-game-as-a-barbarian/list?title_no=5515"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_advanced_player_tutorial_tower",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "the-advanced-player-of-the-tutorial-tower",
+      "aliases": [],
+      "originalTitle": "튜토리얼 탑의 고인물",
+      "titleBr": "The Advanced Player of the Tutorial Tower",
+      "format": "manhwa",
+      "originCountries": [
+        "Coreia do Sul"
+      ],
+      "originalLanguages": [
+        "Coreano"
+      ],
+      "comicTradition": "manhwa",
+      "comicFormat": "webtoon",
+      "readingDirection": "vertical",
+      "credits": [
+        {
+          "personId": "person_bangguseok_gimssi",
+          "roles": [
+            "original-creator"
+          ]
+        },
+        {
+          "personId": "person_juyeong_hwang",
+          "roles": [
+            "writer",
+            "adapter"
+          ]
+        },
+        {
+          "personId": "person_topp",
+          "roles": [
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2020",
+      "publicationEnd": "2023",
+      "publicationStatus": "completed",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Ação",
+        "Fantasia urbana",
+        "Sistema"
+      ],
+      "themes": [
+        "Torre",
+        "Overpower",
+        "Vingança",
+        "Humor"
+      ],
+      "demographics": [
+        "young-adult",
+        "adult"
+      ],
+      "shortDescription": "Após doze anos preso numa torre de monstros regenerativos, Hyeonu retorna tão acima da escala humana que vencer lutas deixa de ser seu principal problema.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/overpower/advanced-player-tutorial-tower-cover.jpg",
+        "alt": "Capa ou arte promocional oficial de The Advanced Player of the Tutorial Tower",
+        "sourceUrl": "https://www.webtoons.com/en/action/the-advanced-player-of-the-tutorial-tower/list?title_no=2409",
+        "credit": "WEBTOON / Bangguseok Gimssi / Topp",
+        "rights": "licensed",
+        "width": 540,
+        "height": 540
+      },
+      "sources": [
+        {
+          "title": "The Advanced Player of the Tutorial Tower — publicação oficial",
+          "url": "https://www.webtoons.com/en/action/the-advanced-player-of-the-tutorial-tower/list?title_no=2409"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_max_level_hero_strikes_back",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "the-max-level-hero-strikes-back",
+      "aliases": [],
+      "originalTitle": "만렙 영웅님께서 귀환하신다!",
+      "titleBr": "The Max Level Hero Strikes Back",
+      "format": "manhwa",
+      "originCountries": [
+        "Coreia do Sul"
+      ],
+      "originalLanguages": [
+        "Coreano"
+      ],
+      "comicTradition": "manhwa",
+      "comicFormat": "webtoon",
+      "readingDirection": "vertical",
+      "credits": [
+        {
+          "personId": "person_devils_tail",
+          "roles": [
+            "original-creator"
+          ]
+        },
+        {
+          "personId": "person_yudo",
+          "roles": [
+            "artist",
+            "adapter"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2020",
+      "publicationStatus": "hiatus",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Ação",
+        "Fantasia",
+        "Reencarnação"
+      ],
+      "themes": [
+        "Overpower",
+        "Política",
+        "Treinamento",
+        "Reino"
+      ],
+      "demographics": [
+        "young-adult",
+        "adult"
+      ],
+      "shortDescription": "A alma de um príncipe impotente treina por mil anos no Salão dos Heróis e retorna ao próprio corpo com técnicas de mestres de várias áreas.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/overpower/max-level-hero-cover.jpg",
+        "alt": "Capa ou arte promocional oficial de The Max Level Hero Strikes Back",
+        "sourceUrl": "https://tapas.io/series/the-max-level-hero-strikes-back/info",
+        "credit": "Tapas / Golem Factory / Yudo / Devil's tail",
+        "rights": "licensed",
+        "width": 400,
+        "height": 600
+      },
+      "sources": [
+        {
+          "title": "The Max Level Hero Strikes Back — publicação oficial",
+          "url": "https://tapas.io/series/the-max-level-hero-strikes-back/info"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_academys_undercover_professor",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "the-academys-undercover-professor",
+      "aliases": [],
+      "originalTitle": "아카데미에 위장취업당했다",
+      "titleBr": "The Academy's Undercover Professor",
+      "format": "manhwa",
+      "originCountries": [
+        "Coreia do Sul"
+      ],
+      "originalLanguages": [
+        "Coreano"
+      ],
+      "comicTradition": "manhwa",
+      "comicFormat": "webtoon",
+      "readingDirection": "vertical",
+      "credits": [
+        {
+          "personId": "person_sayren",
+          "roles": [
+            "original-creator"
+          ]
+        },
+        {
+          "personId": "person_tana_undercover",
+          "roles": [
+            "writer",
+            "adapter"
+          ]
+        },
+        {
+          "personId": "person_wag",
+          "roles": [
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2022",
+      "publicationEnd": "2026",
+      "publicationStatus": "completed",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Ação",
+        "Fantasia",
+        "Academia",
+        "Mistério"
+      ],
+      "themes": [
+        "Identidade secreta",
+        "Magia",
+        "Overpower",
+        "Conspiração"
+      ],
+      "demographics": [
+        "young-adult",
+        "adult"
+      ],
+      "shortDescription": "Um mago de muitas identidades assume por acidente o nome de um professor e precisa ocultar força, passado e objetivos entre academia e sociedade secreta.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/overpower/academys-undercover-professor-cover.jpg",
+        "alt": "Capa ou arte promocional oficial de The Academy's Undercover Professor",
+        "sourceUrl": "https://www.webtoons.com/en/fantasy/the-academys-undercover-professor/list?title_no=4636",
+        "credit": "WEBTOON / sayren / Tana / WAG",
+        "rights": "licensed",
+        "width": 540,
+        "height": 540
+      },
+      "sources": [
+        {
+          "title": "The Academy's Undercover Professor — publicação oficial",
+          "url": "https://www.webtoons.com/en/fantasy/the-academys-undercover-professor/list?title_no=4636"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_return_blossoming_blade",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "return-of-the-blossoming-blade",
+      "aliases": [],
+      "originalTitle": "화산귀환",
+      "titleBr": "Return of the Blossoming Blade",
+      "format": "manhwa",
+      "originCountries": [
+        "Coreia do Sul"
+      ],
+      "originalLanguages": [
+        "Coreano"
+      ],
+      "comicTradition": "manhwa",
+      "comicFormat": "webtoon",
+      "readingDirection": "vertical",
+      "credits": [
+        {
+          "personId": "person_biga",
+          "roles": [
+            "original-creator"
+          ]
+        },
+        {
+          "personId": "person_lico",
+          "roles": [
+            "artist",
+            "adapter"
+          ]
+        },
+        {
+          "personId": "person_arche",
+          "roles": [
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2021",
+      "publicationStatus": "ongoing",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Ação",
+        "Murim",
+        "Reencarnação",
+        "Comédia"
+      ],
+      "themes": [
+        "Mestre renascido",
+        "Seita",
+        "Overpower",
+        "Reconstrução"
+      ],
+      "demographics": [
+        "young-adult",
+        "adult"
+      ],
+      "shortDescription": "O mestre Cheongmyeong desperta um século após sua morte e usa memória marcial, disciplina brutal e astúcia para reconstruir a decadente seita Mount Hua.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/overpower/return-blossoming-blade-cover.jpg",
+        "alt": "Capa ou arte promocional oficial de Return of the Blossoming Blade",
+        "sourceUrl": "https://www.webtoons.com/en/action/return-of-the-blossoming-blade/list?title_no=2849",
+        "credit": "WEBTOON / LICO / ARCHE",
+        "rights": "licensed",
+        "width": 540,
+        "height": 540
+      },
+      "sources": [
+        {
+          "title": "Return of the Blossoming Blade — publicação oficial",
+          "url": "https://www.webtoons.com/en/action/return-of-the-blossoming-blade/list?title_no=2849"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_kushiels_dart",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "kushiels-dart",
+      "aliases": [],
+      "originalTitle": "Kushiel's Dart",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_jacqueline_carey",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2001",
+      "publicationEnd": "2001",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Fantasia épica",
+        "Fantasia política",
+        "Romance"
+      ],
+      "themes": [
+        "Espionagem",
+        "Religião",
+        "BDSM",
+        "Guerra"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Uma cortesã treinada como espiã descobre uma conspiração contra Terre d'Ange e constrói uma relação difícil com o guerreiro celibatário encarregado de protegê-la.",
+      "seriesMemberships": [
+        {
+          "seriesId": "read_series_kushiels_legacy",
+          "position": 1
+        }
+      ],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Kushiel's Dart — editora",
+          "url": "https://us.macmillan.com/books/9781250213068/kushielsdart/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_daughter_forest",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "daughter-of-the-forest",
+      "aliases": [],
+      "originalTitle": "Daughter of the Forest",
+      "titleBr": "A Filha da Floresta",
+      "format": "book",
+      "originCountries": [
+        "Austrália"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_juliet_marillier",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1999",
+      "publicationEnd": "1999",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Fantasia histórica",
+        "Conto de fadas",
+        "Romance"
+      ],
+      "themes": [
+        "Mitologia celta",
+        "Família",
+        "Maldição",
+        "Slow burn"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Sorcha precisa permanecer em silêncio e cumprir uma tarefa dolorosa para libertar seis irmãos enfeitiçados, mesmo quando é levada para a terra dos inimigos e se apaixona.",
+      "seriesMemberships": [
+        {
+          "seriesId": "read_series_sevenwaters",
+          "position": 1
+        }
+      ],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Daughter of the Forest — editora",
+          "url": "https://us.macmillan.com/books/9781250238665/daughteroftheforest/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_tress_emerald_sea",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "tress-of-the-emerald-sea",
+      "aliases": [],
+      "originalTitle": "Tress of the Emerald Sea",
+      "titleBr": "Tress, a Garota do Mar Esmeralda",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_brandon_sanderson",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2023",
+      "publicationEnd": "2023",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Fantasia",
+        "Aventura",
+        "Romance"
+      ],
+      "themes": [
+        "Piratas",
+        "Cosmere",
+        "Magia de esporos",
+        "Resgate"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Tress abandona uma ilha segura e atravessa oceanos de esporos mortais para resgatar Charlie, aprendendo navegação, liderança e magia durante a viagem.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Tress of the Emerald Sea — editora",
+          "url": "https://us.macmillan.com/books/9781250899651/tressoftheemeraldsea/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_uprooted",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "uprooted-naomi-novik",
+      "aliases": [],
+      "originalTitle": "Uprooted",
+      "titleBr": "Enraizados",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_naomi_novik",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2015",
+      "publicationEnd": "2015",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Fantasia sombria",
+        "Conto de fadas",
+        "Romance"
+      ],
+      "themes": [
+        "Floresta corrompida",
+        "Magia",
+        "Mestre e aprendiz",
+        "Guerra"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Agnieszka é escolhida por um mago recluso para servi-lo por dez anos e descobre uma magia incompatível com a dele enquanto uma floresta corrompida avança.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Uprooted — editora",
+          "url": "https://www.penguinrandomhouse.com/books/236925/uprooted-by-naomi-novik/9780804179041/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_jasmine_throne",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "the-jasmine-throne",
+      "aliases": [],
+      "originalTitle": "The Jasmine Throne",
+      "titleBr": "O Trono de Jasmim",
+      "format": "book",
+      "originCountries": [
+        "Reino Unido"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_tasha_suri",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2021",
+      "publicationEnd": "2021",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Fantasia épica",
+        "Fantasia política",
+        "Romance sáfico"
+      ],
+      "themes": [
+        "Império",
+        "Rebelião",
+        "Magia vegetal",
+        "Identidade"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Uma princesa aprisionada e uma criada com magia proibida tornam-se aliadas, amantes e forças políticas com projetos nem sempre compatíveis para o império.",
+      "seriesMemberships": [
+        {
+          "seriesId": "read_series_burning_kingdoms",
+          "position": 1
+        }
+      ],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Jasmine Throne — editora",
+          "url": "https://www.hachettebookgroup.com/titles/tasha-suri/the-jasmine-throne/9780316538510/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_night_circus",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "the-night-circus",
+      "aliases": [],
+      "originalTitle": "The Night Circus",
+      "titleBr": "O Circo da Noite",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_erin_morgenstern",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2011",
+      "publicationEnd": "2011",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Fantasia histórica",
+        "Romance",
+        "Realismo mágico"
+      ],
+      "themes": [
+        "Circo",
+        "Duelo mágico",
+        "Atmosfera",
+        "Amor proibido"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Dois magos treinados desde a infância para um duelo prolongado se apaixonam dentro de um circo noturno construído como campo de competição.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Night Circus — editora",
+          "url": "https://www.penguinrandomhouse.com/books/211964/the-night-circus-by-erin-morgenstern/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_fourth_wing",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "fourth-wing",
+      "aliases": [],
+      "originalTitle": "Fourth Wing",
+      "titleBr": "Quarta Asa",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_rebecca_yarros",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2023",
+      "publicationEnd": "2023",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Romantasy",
+        "Fantasia militar",
+        "Romance"
+      ],
+      "themes": [
+        "Dragões",
+        "Academia militar",
+        "Rivais",
+        "Guerra"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Violet entra à força numa academia letal de cavaleiros de dragão e se aproxima de Xaden enquanto treinamento, conspiração militar e vínculo dracônico redefinem sua sobrevivência.",
+      "seriesMemberships": [
+        {
+          "seriesId": "read_series_empyrean",
+          "position": 1
+        }
+      ],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Fourth Wing — editora",
+          "url": "https://www.entangledpublishing.com/books/fourth-wing"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_revelation_space",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "revelation-space",
+      "aliases": [],
+      "originalTitle": "Revelation Space",
+      "format": "book",
+      "originCountries": [
+        "Reino Unido"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_alastair_reynolds",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2000",
+      "publicationEnd": "2000",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Ficção científica",
+        "Space opera",
+        "Horror espacial"
+      ],
+      "themes": [
+        "Arqueologia extraterrestre",
+        "Civilizações antigas",
+        "Pós-humanismo",
+        "Isolamento"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Uma arqueóloga investiga a extinção de uma civilização alienígena enquanto uma nave interestelar procura a tecnologia capaz de salvar seu capitão.",
+      "seriesMemberships": [
+        {
+          "seriesId": "read_series_inhibitor_sequence",
+          "position": 1
+        }
+      ],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Revelation Space — editora",
+          "url": "https://www.hachettebookgroup.com/titles/alastair-reynolds/revelation-space/9780316462440/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_leviathan_wakes",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "leviathan-wakes",
+      "aliases": [],
+      "originalTitle": "Leviathan Wakes",
+      "titleBr": "O Despertar do Leviatã",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_james_s_a_corey",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2011",
+      "publicationEnd": "2011",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Ficção científica",
+        "Space opera",
+        "Thriller"
+      ],
+      "themes": [
+        "Sistema Solar",
+        "Primeiro contato",
+        "Política",
+        "Horror corporal"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "O desaparecimento de uma jovem liga uma tripulação civil e um detetive a uma conspiração capaz de romper o equilíbrio entre Terra, Marte e o Cinturão.",
+      "seriesMemberships": [
+        {
+          "seriesId": "read_series_the_expanse",
+          "position": 1
+        }
+      ],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Leviathan Wakes — editora",
+          "url": "https://www.hachettebookgroup.com/titles/james-s-a-corey/leviathan-wakes/9780316129084/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_children_time",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "children-of-time",
+      "aliases": [],
+      "originalTitle": "Children of Time",
+      "titleBr": "Filhos do Tempo",
+      "format": "book",
+      "originCountries": [
+        "Reino Unido"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_adrian_tchaikovsky",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2015",
+      "publicationEnd": "2015",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Ficção científica",
+        "Space opera",
+        "Biotecnologia"
+      ],
+      "themes": [
+        "Evolução dirigida",
+        "Aranhas",
+        "Terraformação",
+        "Civilização"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Os últimos humanos encontram um planeta terraformado onde um experimento evolutivo criou uma civilização que não estava nos planos de seus criadores.",
+      "seriesMemberships": [
+        {
+          "seriesId": "read_series_children_time",
+          "position": 1
+        }
+      ],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Children of Time — editora",
+          "url": "https://www.hachettebookgroup.com/titles/adrian-tchaikovsky/children-of-time/9780316452502/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_blindsight",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "blindsight-peter-watts",
+      "aliases": [],
+      "originalTitle": "Blindsight",
+      "format": "book",
+      "originCountries": [
+        "Canadá"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_peter_watts",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2006",
+      "publicationEnd": "2006",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Ficção científica",
+        "Primeiro contato",
+        "Horror espacial"
+      ],
+      "themes": [
+        "Consciência",
+        "Pós-humanismo",
+        "Alienígenas",
+        "Isolamento"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Uma equipe de humanos radicalmente modificados viaja até um objeto desconhecido para descobrir se inteligência e consciência são realmente a mesma coisa.",
+      "seriesMemberships": [
+        {
+          "seriesId": "read_series_firefall",
+          "position": 1
+        }
+      ],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Blindsight — editora",
+          "url": "https://us.macmillan.com/books/9781250237484/blindsight/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_mountain_sea",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "the-mountain-in-the-sea",
+      "aliases": [],
+      "originalTitle": "The Mountain in the Sea",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_ray_nayler",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2022",
+      "publicationEnd": "2022",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Ficção científica",
+        "Thriller",
+        "Biotecnologia"
+      ],
+      "themes": [
+        "Inteligência não humana",
+        "Polvos",
+        "IA",
+        "Ecologia"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Uma bióloga marinha investiga uma população de polvos com linguagem própria numa reserva controlada por uma corporação tecnológica.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Mountain in the Sea — editora",
+          "url": "https://us.macmillan.com/books/9780374605964/themountaininthesea/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_ancillary_justice",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "ancillary-justice",
+      "aliases": [],
+      "originalTitle": "Ancillary Justice",
+      "titleBr": "Justiça Ancilar",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_ann_leckie",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2013",
+      "publicationEnd": "2013",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Ficção científica",
+        "Space opera",
+        "Ficção científica militar"
+      ],
+      "themes": [
+        "Inteligência artificial",
+        "Império",
+        "Identidade",
+        "Vingança"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "A consciência que antes ocupava uma nave militar e milhares de corpos sobrevive agora em apenas um corpo humano e procura acertar contas com o império que serviu.",
+      "seriesMemberships": [
+        {
+          "seriesId": "read_series_imperial_radch",
+          "position": 1
+        }
+      ],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Ancillary Justice — editora",
+          "url": "https://www.hachettebookgroup.com/titles/ann-leckie/ancillary-justice/9780316246637/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_neuromancer",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "neuromancer",
+      "aliases": [],
+      "originalTitle": "Neuromancer",
+      "titleBr": "Neuromancer",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_william_gibson",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1984",
+      "publicationEnd": "1984",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Ficção científica",
+        "Cyberpunk",
+        "Distopia"
+      ],
+      "themes": [
+        "Ciberespaço",
+        "Inteligência artificial",
+        "Corporações",
+        "Pós-humanismo"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Um hacker impedido de acessar o ciberespaço aceita um último trabalho que o coloca entre mercenários, corporações e inteligências artificiais com objetivos próprios.",
+      "seriesMemberships": [
+        {
+          "seriesId": "read_series_sprawl",
+          "position": 1
+        }
+      ],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Neuromancer — editora",
+          "url": "https://www.penguinrandomhouse.com/books/538861/neuromancer-by-william-gibson/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_kindred",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "kindred-octavia-butler",
+      "aliases": [],
+      "originalTitle": "Kindred",
+      "titleBr": "Kindred: Laços de Sangue",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_octavia_e_butler",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1979",
+      "publicationEnd": "1979",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Ficção científica",
+        "Viagem no tempo",
+        "Ficção histórica"
+      ],
+      "themes": [
+        "Escravidão",
+        "Ancestralidade",
+        "Poder",
+        "Sobrevivência"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Uma escritora negra de 1976 é repetidamente transportada para uma plantação no século XIX e precisa sobreviver à relação perigosa com um antepassado branco.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Kindred — editora",
+          "url": "https://www.beacon.org/Kindred-P2085.aspx"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_three_body_problem",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "the-three-body-problem",
+      "aliases": [],
+      "originalTitle": "三体",
+      "titleBr": "O Problema dos Três Corpos",
+      "format": "book",
+      "originCountries": [
+        "China"
+      ],
+      "originalLanguages": [
+        "Chinês"
+      ],
+      "credits": [
+        {
+          "personId": "person_cixin_liu",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2008",
+      "publicationEnd": "2008",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Ficção científica",
+        "Primeiro contato",
+        "Ficção científica filosófica"
+      ],
+      "themes": [
+        "Astrofísica",
+        "Civilização extraterrestre",
+        "História",
+        "Escala cósmica"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Uma investigação sobre mortes de cientistas revela conexões entre a Revolução Cultural, um estranho jogo e um contato capaz de redefinir o futuro humano.",
+      "seriesMemberships": [
+        {
+          "seriesId": "read_series_remembrance_earths_past",
+          "position": 1
+        }
+      ],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "三体 — editora",
+          "url": "https://us.macmillan.com/books/9780765382030/thethreebodyproblem/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_roadside_picnic",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "roadside-picnic",
+      "aliases": [],
+      "originalTitle": "Пикник на обочине",
+      "titleBr": "Piquenique na Estrada",
+      "format": "book",
+      "originCountries": [
+        "União Soviética"
+      ],
+      "originalLanguages": [
+        "Russo"
+      ],
+      "credits": [
+        {
+          "personId": "person_arkady_strugatsky",
+          "roles": [
+            "author"
+          ]
+        },
+        {
+          "personId": "person_boris_strugatsky",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1972",
+      "publicationEnd": "1972",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Ficção científica",
+        "Ficção científica filosófica",
+        "Distopia"
+      ],
+      "themes": [
+        "Artefatos alienígenas",
+        "Zona interditada",
+        "Desconhecido",
+        "Desejo"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Após uma visita extraterrestre incompreensível, um contrabandista entra numa Zona proibida para recuperar artefatos cujas funções ninguém entende.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Пикник на обочине — editora",
+          "url": "https://www.chicagoreviewpress.com/roadside-picnic-products-9781613743416.php"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_blade_itself",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "the-blade-itself",
+      "aliases": [],
+      "originalTitle": "The Blade Itself",
+      "format": "book",
+      "originCountries": [
+        "Reino Unido"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_joe_abercrombie",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2006",
+      "publicationEnd": "2006",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Fantasia sombria",
+        "Grimdark",
+        "Fantasia épica"
+      ],
+      "themes": [
+        "Guerra",
+        "Tortura",
+        "Ambiguidade moral",
+        "Política"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Um bárbaro cansado, um nobre vaidoso e um inquisidor mutilado convergem enquanto guerras e planos de um antigo mago reorganizam a União.",
+      "seriesMemberships": [
+        {
+          "seriesId": "read_series_first_law_trilogy",
+          "position": 1
+        }
+      ],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Blade Itself — editora",
+          "url": "https://www.hachettebookgroup.com/titles/joe-abercrombie/the-blade-itself/9780316609821/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_before_hanged",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "before-they-are-hanged",
+      "aliases": [],
+      "originalTitle": "Before They Are Hanged",
+      "format": "book",
+      "originCountries": [
+        "Reino Unido"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_joe_abercrombie",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2007",
+      "publicationEnd": "2007",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Fantasia sombria",
+        "Grimdark",
+        "Fantasia militar"
+      ],
+      "themes": [
+        "Cerco",
+        "Guerra",
+        "Ruínas",
+        "Traição"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "A guerra divide o elenco entre um cerco, uma campanha desastrosa e uma expedição às ruínas do passado.",
+      "seriesMemberships": [
+        {
+          "seriesId": "read_series_first_law_trilogy",
+          "position": 2
+        }
+      ],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Before They Are Hanged — editora",
+          "url": "https://www.hachettebookgroup.com/titles/joe-abercrombie/before-they-are-hanged/9780316610032/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_last_argument_kings",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "last-argument-of-kings",
+      "aliases": [],
+      "originalTitle": "Last Argument of Kings",
+      "format": "book",
+      "originCountries": [
+        "Reino Unido"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_joe_abercrombie",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2008",
+      "publicationEnd": "2008",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Fantasia sombria",
+        "Grimdark",
+        "Fantasia épica"
+      ],
+      "themes": [
+        "Guerra",
+        "Poder",
+        "Revolta",
+        "Consequências"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Guerras externas e disputas pela sucessão obrigam os personagens a pagar pelo poder que perseguiram.",
+      "seriesMemberships": [
+        {
+          "seriesId": "read_series_first_law_trilogy",
+          "position": 3
+        }
+      ],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Last Argument of Kings — editora",
+          "url": "https://www.hachettebookgroup.com/titles/joe-abercrombie/last-argument-of-kings/9780316610070/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_prince_thorns",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "prince-of-thorns",
+      "aliases": [],
+      "originalTitle": "Prince of Thorns",
+      "format": "book",
+      "originCountries": [
+        "Reino Unido"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_mark_lawrence",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2011",
+      "publicationEnd": "2011",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Fantasia sombria",
+        "Grimdark",
+        "Fantasia pós-apocalíptica"
+      ],
+      "themes": [
+        "Vingança",
+        "Crueldade",
+        "Magia",
+        "Ruínas"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Um príncipe adolescente lidera saqueadores e retorna ao castelo do pai decidido a conquistar pela violência aquilo que considera seu.",
+      "seriesMemberships": [
+        {
+          "seriesId": "read_series_broken_empire",
+          "position": 1
+        }
+      ],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Prince of Thorns — editora",
+          "url": "https://www.penguinrandomhouse.com/books/308315/prince-of-thorns-by-mark-lawrence/paperback/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_king_thorns",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "king-of-thorns",
+      "aliases": [],
+      "originalTitle": "King of Thorns",
+      "format": "book",
+      "originCountries": [
+        "Reino Unido"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_mark_lawrence",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2012",
+      "publicationEnd": "2012",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Fantasia sombria",
+        "Grimdark",
+        "Fantasia pós-apocalíptica"
+      ],
+      "themes": [
+        "Cerco",
+        "Estratégia",
+        "Trauma",
+        "Tecnologia antiga"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Já no trono, Jorg precisa defender um reino pequeno usando memória, manipulação e artefatos que parecem mágicos.",
+      "seriesMemberships": [
+        {
+          "seriesId": "read_series_broken_empire",
+          "position": 2
+        }
+      ],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "King of Thorns — editora",
+          "url": "https://www.penguinrandomhouse.com/books/308316/king-of-thorns-by-mark-lawrence/paperback/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_emperor_thorns",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "emperor-of-thorns",
+      "aliases": [],
+      "originalTitle": "Emperor of Thorns",
+      "format": "book",
+      "originCountries": [
+        "Reino Unido"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_mark_lawrence",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2013",
+      "publicationEnd": "2013",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Fantasia sombria",
+        "Grimdark",
+        "Fantasia pós-apocalíptica"
+      ],
+      "themes": [
+        "Império",
+        "Política",
+        "Mortos",
+        "Ambição"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Jorg procura tornar-se imperador enquanto forças sobrenaturais e vestígios do passado ameaçam consumir o mundo que deseja governar.",
+      "seriesMemberships": [
+        {
+          "seriesId": "read_series_broken_empire",
+          "position": 3
+        }
+      ],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Emperor of Thorns — editora",
+          "url": "https://www.penguinrandomhouse.com/books/308317/emperor-of-thorns-by-mark-lawrence/paperback/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_black_company_book",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "the-black-company",
+      "aliases": [],
+      "originalTitle": "The Black Company",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_glen_cook",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1984",
+      "publicationEnd": "1984",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Fantasia sombria",
+        "Grimdark",
+        "Fantasia militar"
+      ],
+      "themes": [
+        "Mercenários",
+        "Guerra",
+        "Necromancia",
+        "Lealdade"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Os registros de um médico acompanham uma companhia mercenária contratada por uma soberana e seus servos sobrenaturais.",
+      "seriesMemberships": [
+        {
+          "seriesId": "read_series_black_company",
+          "position": 1
+        }
+      ],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Black Company — editora",
+          "url": "https://us.macmillan.com/books/9781250781208/theblackcompany/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_shadows_linger",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "shadows-linger",
+      "aliases": [],
+      "originalTitle": "Shadows Linger",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_glen_cook",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1984",
+      "publicationEnd": "1984",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Fantasia sombria",
+        "Fantasia militar",
+        "Horror fantástico"
+      ],
+      "themes": [
+        "Corrupção",
+        "Cerco",
+        "Mercenários",
+        "Monstros"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "A Companhia descobre que a figura capaz de desafiar sua empregadora pode estar sob sua própria proteção.",
+      "seriesMemberships": [
+        {
+          "seriesId": "read_series_black_company",
+          "position": 2
+        }
+      ],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Shadows Linger — editora",
+          "url": "https://us.macmillan.com/books/9781466831100/shadowslinger/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_white_rose",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "the-white-rose-glen-cook",
+      "aliases": [],
+      "originalTitle": "The White Rose",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_glen_cook",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1985",
+      "publicationEnd": "1985",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Fantasia sombria",
+        "Fantasia militar",
+        "Horror fantástico"
+      ],
+      "themes": [
+        "Rebelião",
+        "Magia",
+        "Tiranos",
+        "Lealdade"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "A Companhia precisa escolher entre contratos, sobrevivência e uma rebelião contra poderes que tratavam como inevitáveis.",
+      "seriesMemberships": [
+        {
+          "seriesId": "read_series_black_company",
+          "position": 3
+        }
+      ],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The White Rose — editora",
+          "url": "https://us.macmillan.com/series/chroniclesoftheblackcompany"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_between_two_fires",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "between-two-fires-christopher-buehlman",
+      "aliases": [],
+      "originalTitle": "Between Two Fires",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_christopher_buehlman",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2012",
+      "publicationEnd": "2012",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Fantasia sombria",
+        "Horror histórico",
+        "Horror religioso"
+      ],
+      "themes": [
+        "Peste Negra",
+        "Demônios",
+        "Redenção",
+        "Monstros"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Durante a Peste Negra, um cavaleiro desacreditado escolta uma menina por uma França onde a epidemia acompanha uma guerra sobrenatural.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Between Two Fires — editora",
+          "url": "https://us.macmillan.com/books/9781250439208/betweentwofires/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_perdido_street_station",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "perdido-street-station",
+      "aliases": [],
+      "originalTitle": "Perdido Street Station",
+      "format": "book",
+      "originCountries": [
+        "Reino Unido"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_china_mieville",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2000",
+      "publicationEnd": "2000",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Fantasia sombria",
+        "New Weird",
+        "Horror fantástico"
+      ],
+      "themes": [
+        "Cidade industrial",
+        "Monstros",
+        "Corrupção",
+        "Ciência e magia"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Uma pesquisa clandestina liberta predadores capazes de devastar a cidade industrial e autoritária de New Crobuzon.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Perdido Street Station — editora",
+          "url": "https://www.penguinrandomhouse.com/books/114262/perdido-street-station-by-china-mieville/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_library_mount_char",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "the-library-at-mount-char",
+      "aliases": [],
+      "originalTitle": "The Library at Mount Char",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_scott_hawkins",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2015",
+      "publicationEnd": "2015",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Fantasia sombria",
+        "Horror fantástico",
+        "Fantasia contemporânea"
+      ],
+      "themes": [
+        "Família abusiva",
+        "Conhecimento",
+        "Divindade",
+        "Violência"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Após o desaparecimento do homem que os criou como discípulos, filhos adotivos com conhecimentos impossíveis disputam acesso à biblioteca dele.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Library at Mount Char — editora",
+          "url": "https://www.penguinrandomhouse.com/books/240942/the-library-at-mount-char-by-scott-hawkins/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_quintessential_quintuplets",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "the-quintessential-quintuplets",
+      "aliases": [],
+      "originalTitle": "五等分の花嫁",
+      "titleBr": "The Quintessential Quintuplets",
+      "romanizedTitle": "Go-Tōbun no Hanayome",
+      "format": "comic",
+      "originCountries": [
+        "Japão"
+      ],
+      "originalLanguages": [
+        "Japonês"
+      ],
+      "comicTradition": "manga",
+      "comicFormat": "serialized-series",
+      "readingDirection": "right-to-left",
+      "credits": [
+        {
+          "personId": "person_negi_haruba",
+          "roles": [
+            "writer",
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2017",
+      "publicationEnd": "2020",
+      "publicationStatus": "completed",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Comédia romântica",
+        "Harém",
+        "Drama escolar"
+      ],
+      "themes": [
+        "Escolha romântica",
+        "Irmãs",
+        "Amadurecimento"
+      ],
+      "confirmedVolumeCount": 14,
+      "volumeCountCheckedAt": "2026-08-24",
+      "demographics": [
+        "shonen"
+      ],
+      "shortDescription": "Um estudante endividado passa a dar aulas para cinco irmãs e precisa construir uma relação diferente com cada uma enquanto o mistério da futura noiva avança.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/harem/quintessential-quintuplets-01.webp",
+        "alt": "Capa oficial do primeiro volume de The Quintessential Quintuplets",
+        "sourceUrl": "https://kodansha.us/series/the-quintessential-quintuplets/",
+        "credit": "Kodansha / Negi Haruba",
+        "rights": "licensed",
+        "width": 800,
+        "height": 1200
+      },
+      "sources": [
+        {
+          "title": "The Quintessential Quintuplets — Kodansha",
+          "url": "https://kodansha.us/series/the-quintessential-quintuplets/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_100_girlfriends",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "100-girlfriends",
+      "aliases": [],
+      "originalTitle": "君のことが大大大大大好きな100人の彼女",
+      "titleBr": "The 100 Girlfriends Who Really, Really, Really, Really, Really Love You",
+      "romanizedTitle": "Kimi no Koto ga Dai Dai Dai Dai Daisuki na 100-nin no Kanojo",
+      "format": "comic",
+      "originCountries": [
+        "Japão"
+      ],
+      "originalLanguages": [
+        "Japonês"
+      ],
+      "comicTradition": "manga",
+      "comicFormat": "serialized-series",
+      "readingDirection": "right-to-left",
+      "credits": [
+        {
+          "personId": "person_rikito_nakamura",
+          "roles": [
+            "writer"
+          ]
+        },
+        {
+          "personId": "person_yukiko_nozawa",
+          "roles": [
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2019",
+      "publicationStatus": "ongoing",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Comédia romântica",
+        "Harém",
+        "Paródia"
+      ],
+      "themes": [
+        "Poliamor",
+        "Absurdo",
+        "Afeto"
+      ],
+      "demographics": [
+        "shonen"
+      ],
+      "shortDescription": "Após descobrir que possui cem almas gêmeas, Rentaro decide corresponder a todas e transforma a premissa num harém assumido, coletivo e deliberadamente absurdo.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/harem/100-girlfriends-01.jpg",
+        "alt": "Capa oficial do primeiro volume de The 100 Girlfriends Who Really, Really, Really, Really, Really Love You",
+        "sourceUrl": "https://sevenseasentertainment.com/series/the-100-girlfriends-who-really-really-really-really-really-love-you/",
+        "credit": "Seven Seas / Shueisha",
+        "rights": "licensed",
+        "width": 320,
+        "height": 452
+      },
+      "sources": [
+        {
+          "title": "The 100 Girlfriends — Seven Seas",
+          "url": "https://sevenseasentertainment.com/series/the-100-girlfriends-who-really-really-really-really-really-love-you/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_we_never_learn",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "we-never-learn",
+      "aliases": [],
+      "originalTitle": "ぼくたちは勉強ができない",
+      "titleBr": "We Never Learn",
+      "romanizedTitle": "Bokutachi wa Benkyō ga Dekinai",
+      "format": "comic",
+      "originCountries": [
+        "Japão"
+      ],
+      "originalLanguages": [
+        "Japonês"
+      ],
+      "comicTradition": "manga",
+      "comicFormat": "serialized-series",
+      "readingDirection": "right-to-left",
+      "credits": [
+        {
+          "personId": "person_taishi_tsutsui",
+          "roles": [
+            "writer",
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2017",
+      "publicationEnd": "2020",
+      "publicationStatus": "completed",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Comédia romântica",
+        "Harém",
+        "Drama escolar"
+      ],
+      "themes": [
+        "Estudo",
+        "Escolhas",
+        "Futuros alternativos"
+      ],
+      "confirmedVolumeCount": 21,
+      "volumeCountCheckedAt": "2026-08-24",
+      "demographics": [
+        "shonen"
+      ],
+      "shortDescription": "Um aluno que busca bolsa integral orienta colegas brilhantes justamente nas matérias em que elas fracassam, e o vínculo acadêmico se torna romântico.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/harem/we-never-learn-01.jpg",
+        "alt": "Capa oficial do primeiro volume de We Never Learn",
+        "sourceUrl": "https://www.viz.com/we-never-learn",
+        "credit": "VIZ Media / Shueisha",
+        "rights": "licensed",
+        "width": 320,
+        "height": 480
+      },
+      "sources": [
+        {
+          "title": "We Never Learn — VIZ",
+          "url": "https://www.viz.com/we-never-learn"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_nisekoi",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "nisekoi-false-love",
+      "aliases": [],
+      "originalTitle": "ニセコイ",
+      "titleBr": "Nisekoi: False Love",
+      "romanizedTitle": "Nisekoi",
+      "format": "comic",
+      "originCountries": [
+        "Japão"
+      ],
+      "originalLanguages": [
+        "Japonês"
+      ],
+      "comicTradition": "manga",
+      "comicFormat": "serialized-series",
+      "readingDirection": "right-to-left",
+      "credits": [
+        {
+          "personId": "person_naoshi_komi",
+          "roles": [
+            "writer",
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2011",
+      "publicationEnd": "2016",
+      "publicationStatus": "completed",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Comédia romântica",
+        "Harém",
+        "Drama escolar"
+      ],
+      "themes": [
+        "Amor de infância",
+        "Identidade",
+        "Promessa"
+      ],
+      "confirmedVolumeCount": 25,
+      "volumeCountCheckedAt": "2026-08-24",
+      "demographics": [
+        "shonen"
+      ],
+      "shortDescription": "Herdeiros de grupos criminosos rivais precisam fingir namoro, enquanto um medalhão e várias possíveis donas de uma chave ampliam a disputa amorosa.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/harem/nisekoi-01.jpg",
+        "alt": "Capa oficial do primeiro volume de Nisekoi: False Love",
+        "sourceUrl": "https://www.viz.com/nisekoi-false-love",
+        "credit": "VIZ Media / Shueisha",
+        "rights": "licensed",
+        "width": 300,
+        "height": 450
+      },
+      "sources": [
+        {
+          "title": "Nisekoi: False Love — VIZ",
+          "url": "https://www.viz.com/nisekoi-false-love"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_love_hina",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "love-hina",
+      "aliases": [],
+      "originalTitle": "ラブひな",
+      "titleBr": "Love Hina",
+      "romanizedTitle": "Rabu Hina",
+      "format": "comic",
+      "originCountries": [
+        "Japão"
+      ],
+      "originalLanguages": [
+        "Japonês"
+      ],
+      "comicTradition": "manga",
+      "comicFormat": "serialized-series",
+      "readingDirection": "right-to-left",
+      "credits": [
+        {
+          "personId": "person_ken_akamatsu",
+          "roles": [
+            "writer",
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1998",
+      "publicationEnd": "2001",
+      "publicationStatus": "completed",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Comédia romântica",
+        "Harém"
+      ],
+      "themes": [
+        "Pensão",
+        "Vestibular",
+        "Promessa de infância"
+      ],
+      "confirmedVolumeCount": 14,
+      "volumeCountCheckedAt": "2026-08-24",
+      "demographics": [
+        "shonen"
+      ],
+      "shortDescription": "Um vestibulando torna-se administrador de uma pensão feminina e tenta cumprir uma promessa de infância em meio a convivência caótica e romance físico.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/harem/love-hina-omnibus-01.webp",
+        "alt": "Capa oficial do primeiro volume de Love Hina",
+        "sourceUrl": "https://kodansha.us/series/love-hina-omnibus/",
+        "credit": "Kodansha / Ken Akamatsu",
+        "rights": "licensed",
+        "width": 800,
+        "height": 1200
+      },
+      "sources": [
+        {
+          "title": "Love Hina Omnibus — Kodansha",
+          "url": "https://kodansha.us/series/love-hina-omnibus/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_negima",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "negima-magister-negi-magi",
+      "aliases": [],
+      "originalTitle": "魔法先生ネギま!",
+      "titleBr": "Negima! Magister Negi Magi",
+      "romanizedTitle": "Mahō Sensei Negima!",
+      "format": "comic",
+      "originCountries": [
+        "Japão"
+      ],
+      "originalLanguages": [
+        "Japonês"
+      ],
+      "comicTradition": "manga",
+      "comicFormat": "serialized-series",
+      "readingDirection": "right-to-left",
+      "credits": [
+        {
+          "personId": "person_ken_akamatsu",
+          "roles": [
+            "writer",
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2003",
+      "publicationEnd": "2012",
+      "publicationStatus": "completed",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Fantasia",
+        "Ação",
+        "Comédia harém"
+      ],
+      "themes": [
+        "Magia",
+        "Torneios",
+        "Laços mágicos"
+      ],
+      "confirmedVolumeCount": 38,
+      "volumeCountCheckedAt": "2026-08-24",
+      "demographics": [
+        "shonen"
+      ],
+      "shortDescription": "Um jovem mago assume uma turma feminina e a comédia escolar gradualmente abre espaço para batalhas, mundos mágicos e alianças com várias heroínas.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/harem/negima-omnibus-01.webp",
+        "alt": "Capa oficial do primeiro volume de Negima! Magister Negi Magi",
+        "sourceUrl": "https://kodansha.us/series/negima/",
+        "credit": "Kodansha / Ken Akamatsu",
+        "rights": "licensed",
+        "width": 800,
+        "height": 1200
+      },
+      "sources": [
+        {
+          "title": "Negima! — Kodansha",
+          "url": "https://kodansha.us/series/negima/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_to_love_ru",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "to-love-ru",
+      "aliases": [],
+      "originalTitle": "To LOVEる -とらぶる-",
+      "titleBr": "To Love Ru",
+      "format": "comic",
+      "originCountries": [
+        "Japão"
+      ],
+      "originalLanguages": [
+        "Japonês"
+      ],
+      "comicTradition": "manga",
+      "comicFormat": "serialized-series",
+      "readingDirection": "right-to-left",
+      "credits": [
+        {
+          "personId": "person_saki_hasemi",
+          "roles": [
+            "writer"
+          ]
+        },
+        {
+          "personId": "person_kentaro_yabuki",
+          "roles": [
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2006",
+      "publicationEnd": "2009",
+      "publicationStatus": "completed",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Comédia",
+        "Harém",
+        "Ficção científica",
+        "Ecchi"
+      ],
+      "themes": [
+        "Alienígenas",
+        "Noivado",
+        "Fanservice"
+      ],
+      "confirmedVolumeCount": 18,
+      "volumeCountCheckedAt": "2026-08-24",
+      "demographics": [
+        "shonen"
+      ],
+      "shortDescription": "Uma princesa alienígena transforma a vida e a paixão escolar de Rito numa sucessão de noivados, invenções e acidentes corporais; a continuação Darkness explicita o projeto de harém.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/harem/to-love-ru-01-02.jpg",
+        "alt": "Capa oficial do primeiro volume de To Love Ru",
+        "sourceUrl": "https://sevenseasentertainment.com/series/to-love-ru/",
+        "credit": "Seven Seas / Shueisha",
+        "rights": "licensed",
+        "width": 320,
+        "height": 456
+      },
+      "sources": [
+        {
+          "title": "To Love Ru — Seven Seas",
+          "url": "https://sevenseasentertainment.com/series/to-love-ru/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_yuuna",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "yuuna-and-the-haunted-hot-springs",
+      "aliases": [],
+      "originalTitle": "ゆらぎ荘の幽奈さん",
+      "titleBr": "Yuuna and the Haunted Hot Springs",
+      "romanizedTitle": "Yuragi-sō no Yūna-san",
+      "format": "comic",
+      "originCountries": [
+        "Japão"
+      ],
+      "originalLanguages": [
+        "Japonês"
+      ],
+      "comicTradition": "manga",
+      "comicFormat": "serialized-series",
+      "readingDirection": "right-to-left",
+      "credits": [
+        {
+          "personId": "person_tadahiro_miura",
+          "roles": [
+            "writer",
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2016",
+      "publicationEnd": "2020",
+      "publicationStatus": "completed",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Comédia sobrenatural",
+        "Harém",
+        "Ecchi"
+      ],
+      "themes": [
+        "Fantasmas",
+        "Pensão",
+        "Exorcismo"
+      ],
+      "confirmedVolumeCount": 24,
+      "volumeCountCheckedAt": "2026-08-24",
+      "demographics": [
+        "shonen"
+      ],
+      "shortDescription": "Um médium sem dinheiro vive numa antiga pousada termal e tenta ajudar o fantasma Yuuna enquanto moradoras sobrenaturais ganham arcos afetivos e de ação.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/harem/yuuna-01.jpg",
+        "alt": "Capa oficial do primeiro volume de Yuuna and the Haunted Hot Springs",
+        "sourceUrl": "https://sevenseasentertainment.com/series/yuuna-and-the-haunted-hot-springs/",
+        "credit": "Seven Seas / Shueisha",
+        "rights": "licensed",
+        "width": 320,
+        "height": 451
+      },
+      "sources": [
+        {
+          "title": "Yuuna and the Haunted Hot Springs — Seven Seas",
+          "url": "https://sevenseasentertainment.com/series/yuuna-and-the-haunted-hot-springs/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_girlfriend_girlfriend",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "girlfriend-girlfriend",
+      "aliases": [],
+      "originalTitle": "カノジョも彼女",
+      "titleBr": "Girlfriend, Girlfriend",
+      "romanizedTitle": "Kanojo mo Kanojo",
+      "format": "comic",
+      "originCountries": [
+        "Japão"
+      ],
+      "originalLanguages": [
+        "Japonês"
+      ],
+      "comicTradition": "manga",
+      "comicFormat": "serialized-series",
+      "readingDirection": "right-to-left",
+      "credits": [
+        {
+          "personId": "person_hiroyuki_mangaka",
+          "roles": [
+            "writer",
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2020",
+      "publicationEnd": "2023",
+      "publicationStatus": "completed",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Comédia romântica",
+        "Harém"
+      ],
+      "themes": [
+        "Não monogamia",
+        "Honestidade",
+        "Convivência"
+      ],
+      "confirmedVolumeCount": 16,
+      "volumeCountCheckedAt": "2026-08-24",
+      "demographics": [
+        "shonen"
+      ],
+      "shortDescription": "Naoya pede à namorada autorização para iniciar um segundo relacionamento, colocando negociação e convivência no centro de uma comédia de decisões extremas.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/harem/girlfriend-girlfriend-01.webp",
+        "alt": "Capa oficial do primeiro volume de Girlfriend, Girlfriend",
+        "sourceUrl": "https://kodansha.us/series/girlfriend-girlfriend/",
+        "credit": "Kodansha / Hiroyuki",
+        "rights": "licensed",
+        "width": 800,
+        "height": 1140
+      },
+      "sources": [
+        {
+          "title": "Girlfriend, Girlfriend — Kodansha",
+          "url": "https://kodansha.us/series/girlfriend-girlfriend/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_cafe_terrace",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "the-cafe-terrace-and-its-goddesses",
+      "aliases": [],
+      "originalTitle": "女神のカフェテラス",
+      "titleBr": "The Café Terrace and Its Goddesses",
+      "romanizedTitle": "Megami no Café Terrace",
+      "format": "comic",
+      "originCountries": [
+        "Japão"
+      ],
+      "originalLanguages": [
+        "Japonês"
+      ],
+      "comicTradition": "manga",
+      "comicFormat": "serialized-series",
+      "readingDirection": "right-to-left",
+      "credits": [
+        {
+          "personId": "person_kouji_seo",
+          "roles": [
+            "writer",
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2021",
+      "publicationEnd": "2025",
+      "publicationStatus": "completed",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Comédia romântica",
+        "Harém"
+      ],
+      "themes": [
+        "Café",
+        "Família escolhida",
+        "Trabalho"
+      ],
+      "confirmedVolumeCount": 22,
+      "volumeCountCheckedAt": "2026-08-24",
+      "demographics": [
+        "shonen"
+      ],
+      "shortDescription": "Ao herdar um café litorâneo, Hayato passa a trabalhar e morar com cinco jovens ligadas à sua avó; a rotina profissional sustenta a aproximação romântica.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/harem/cafe-terrace-01.webp",
+        "alt": "Capa oficial do primeiro volume de The Café Terrace and Its Goddesses",
+        "sourceUrl": "https://kodansha.us/book/the-cafe-terrace-and-its-goddesses/",
+        "credit": "Kodansha / Kouji Seo",
+        "rights": "licensed",
+        "width": 800,
+        "height": 1200
+      },
+      "sources": [
+        {
+          "title": "The Café Terrace and Its Goddesses — Kodansha",
+          "url": "https://kodansha.us/book/the-cafe-terrace-and-its-goddesses/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_monster_musume",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "monster-musume",
+      "aliases": [],
+      "originalTitle": "モンスター娘のいる日常",
+      "titleBr": "Monster Musume",
+      "romanizedTitle": "Monster Musume no Iru Nichijō",
+      "format": "comic",
+      "originCountries": [
+        "Japão"
+      ],
+      "originalLanguages": [
+        "Japonês"
+      ],
+      "comicTradition": "manga",
+      "comicFormat": "serialized-series",
+      "readingDirection": "right-to-left",
+      "credits": [
+        {
+          "personId": "person_okayado",
+          "roles": [
+            "writer",
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2012",
+      "publicationStatus": "ongoing",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Comédia",
+        "Harém",
+        "Fantasia",
+        "Ecchi"
+      ],
+      "themes": [
+        "Garotas-monstro",
+        "Intercâmbio cultural",
+        "Convivência"
+      ],
+      "demographics": [
+        "shonen"
+      ],
+      "shortDescription": "Um programa governamental instala garotas de espécies fantásticas na casa de Kimihito e transforma diferenças corporais e culturais em comédia romântica explícita.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/harem/monster-musume-01.jpg",
+        "alt": "Capa oficial do primeiro volume de Monster Musume",
+        "sourceUrl": "https://sevenseasentertainment.com/series/monster-musume/",
+        "credit": "Seven Seas / Tokuma Shoten",
+        "rights": "licensed",
+        "width": 320,
+        "height": 450
+      },
+      "sources": [
+        {
+          "title": "Monster Musume — Seven Seas",
+          "url": "https://sevenseasentertainment.com/series/monster-musume/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
       "id": "read_work_sandman",
       "contentType": "reading-work",
       "schemaVersion": 1,
@@ -7929,6 +12406,258 @@
   ],
   "series": [
     {
+      "id": "read_series_kushiels_legacy",
+      "slug": "kushiels-legacy",
+      "aliases": [],
+      "title": "Kushiel's Legacy",
+      "summary": "Saga de fantasia política em Terre d'Ange, acompanhando espionagem, religião, desejo e relações que atravessam conflitos de Estado.",
+      "kind": "narrative",
+      "publicationStatus": "completed",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Kushiel's Legacy — editora",
+          "url": "https://us.macmillan.com/books/9781250213068/kushielsdart/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_series_sevenwaters",
+      "slug": "sevenwaters",
+      "aliases": [],
+      "title": "Sevenwaters",
+      "summary": "Saga de fantasia histórica inspirada em mitos celtas, organizada em torno de família, magia feérica, sacrifício e vínculos amorosos.",
+      "kind": "narrative",
+      "publicationStatus": "completed",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Sevenwaters — editora",
+          "url": "https://us.macmillan.com/books/9781250238665/daughteroftheforest/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_series_burning_kingdoms",
+      "slug": "burning-kingdoms",
+      "aliases": [],
+      "title": "The Burning Kingdoms",
+      "summary": "Trilogia épica inspirada na história e nos épicos da Índia, com império, magia vegetal, rebelião e romance sáfico.",
+      "kind": "narrative",
+      "publicationStatus": "completed",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Burning Kingdoms — editora",
+          "url": "https://www.hachettebookgroup.com/titles/tasha-suri/the-jasmine-throne/9780316538510/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_series_empyrean",
+      "slug": "empyrean",
+      "aliases": [],
+      "title": "The Empyrean",
+      "summary": "Série de romantasy militar sobre cavaleiros de dragão, guerra, segredos de Estado e relações formadas sob competição letal.",
+      "kind": "narrative",
+      "publicationStatus": "ongoing",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Empyrean — editora",
+          "url": "https://www.entangledpublishing.com/books/fourth-wing"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_series_inhibitor_sequence",
+      "slug": "inhibitor-sequence",
+      "aliases": [],
+      "title": "Inhibitor Sequence",
+      "summary": "Ciclo de space opera e arqueologia cósmica em que ruínas alienígenas e máquinas antigas condicionam o futuro humano.",
+      "kind": "narrative",
+      "publicationStatus": "completed",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Inhibitor Sequence — editora",
+          "url": "https://www.hachettebookgroup.com/series/alastair-reynolds/revelation-space/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_series_the_expanse",
+      "slug": "the-expanse",
+      "aliases": [],
+      "title": "The Expanse",
+      "summary": "Série de space opera sobre a expansão humana pelo Sistema Solar, conflitos políticos e uma tecnologia extraterrestre que altera sua escala.",
+      "kind": "narrative",
+      "publicationStatus": "completed",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Expanse — editora",
+          "url": "https://www.hachettebookgroup.com/series/james-s-a-corey/the-expanse/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_series_children_time",
+      "slug": "children-time",
+      "aliases": [],
+      "title": "Children of Time",
+      "summary": "Série sobre evolução dirigida, ecologias não humanas e encontros entre civilizações com modos incompatíveis de perceber o mundo.",
+      "kind": "narrative",
+      "publicationStatus": "ongoing",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Children of Time — editora",
+          "url": "https://www.hachettebookgroup.com/series/adrian-tchaikovsky/children-of-time/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_series_firefall",
+      "slug": "firefall",
+      "aliases": [],
+      "title": "Firefall",
+      "summary": "Dilogia de ficção científica pós-humana sobre inteligência, consciência e contato com algo que pode não pensar como nós.",
+      "kind": "narrative",
+      "publicationStatus": "completed",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Firefall — editora",
+          "url": "https://us.macmillan.com/series/firefall"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_series_imperial_radch",
+      "slug": "imperial-radch",
+      "aliases": [],
+      "title": "Imperial Radch",
+      "summary": "Trilogia de space opera sobre uma inteligência de nave confinada a um corpo, império, identidade e vingança.",
+      "kind": "narrative",
+      "publicationStatus": "completed",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Imperial Radch — editora",
+          "url": "https://www.hachettebookgroup.com/series/ann-leckie/imperial-radch/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_series_sprawl",
+      "slug": "sprawl",
+      "aliases": [],
+      "title": "Sprawl",
+      "summary": "Trilogia cyberpunk de William Gibson sobre inteligências artificiais, corporações e vidas conectadas ao ciberespaço.",
+      "kind": "narrative",
+      "publicationStatus": "completed",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Sprawl — editora",
+          "url": "https://www.penguinrandomhouse.com/series/ZSW/sprawl-trilogy/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_series_remembrance_earths_past",
+      "slug": "remembrance-earths-past",
+      "aliases": [],
+      "title": "Remembrance of Earth's Past",
+      "summary": "Trilogia de primeiro contato que amplia um problema científico terrestre até escalas históricas e cosmológicas.",
+      "kind": "narrative",
+      "publicationStatus": "completed",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Remembrance of Earth's Past — editora",
+          "url": "https://us.macmillan.com/series/thethreebodyproblemseries"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_series_first_law_trilogy",
+      "slug": "first-law-trilogy",
+      "aliases": [],
+      "title": "The First Law Trilogy",
+      "summary": "Trilogia grimdark sobre guerra, poder e personagens que raramente correspondem aos papéis heroicos que imaginam ocupar.",
+      "kind": "narrative",
+      "publicationStatus": "completed",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The First Law Trilogy — editora",
+          "url": "https://www.hachettebookgroup.com/titles/joe-abercrombie/the-first-law-trilogy/9780316361194/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_series_broken_empire",
+      "slug": "broken-empire",
+      "aliases": [],
+      "title": "The Broken Empire",
+      "summary": "Trilogia de fantasia sombria e pós-apocalíptica acompanhando a ascensão violenta de Jorg Ancrath.",
+      "kind": "narrative",
+      "publicationStatus": "completed",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Broken Empire — editora",
+          "url": "https://www.penguinrandomhouse.com/books/308315/prince-of-thorns-by-mark-lawrence/paperback/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_series_black_company",
+      "slug": "black-company",
+      "aliases": [],
+      "title": "Chronicles of the Black Company",
+      "summary": "Série de fantasia militar narrada pelos cronistas de uma companhia mercenária que serve poderes moralmente indefensáveis.",
+      "kind": "narrative",
+      "publicationStatus": "ongoing",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Chronicles of the Black Company — editora",
+          "url": "https://us.macmillan.com/series/chroniclesoftheblackcompany"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
       "id": "read_series_vampire_chronicles",
       "slug": "cronicas-vampirescas",
       "aliases": [
@@ -8142,6 +12871,934 @@
     }
   ],
   "editions": [
+    {
+      "id": "read_edition_kushiels_dart_tor",
+      "workId": "read_work_kushiels_dart",
+      "title": "Kushiel's Dart",
+      "publisherId": "org_macmillan",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "hardcover",
+      "publicationDate": "2001-06-15",
+      "isbn13": "9780312872380",
+      "pageCount": 704,
+      "cover": {
+        "src": "/images/reading/fantasy-romance/kushiels-dart.jpg",
+        "alt": "Capa da edição de Kushiel's Dart publicada pela Tor Books",
+        "sourceUrl": "https://openlibrary.org/isbn/9780312872380",
+        "credit": "Tor Books via Open Library",
+        "rights": "permission-pending",
+        "width": 310,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Kushiel's Dart — edição verificada",
+          "url": "https://openlibrary.org/isbn/9780312872380"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_daughter_forest_tor",
+      "workId": "read_work_daughter_forest",
+      "title": "Daughter of the Forest",
+      "publisherId": "org_macmillan",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2020-04-21",
+      "isbn13": "9781250238665",
+      "pageCount": 416,
+      "cover": {
+        "src": "/images/reading/fantasy-romance/daughter-forest.jpg",
+        "alt": "Capa da edição de Daughter of the Forest publicada pela Tor Books",
+        "sourceUrl": "https://us.macmillan.com/books/9781250238665/daughteroftheforest/",
+        "credit": "Tor Books",
+        "rights": "permission-pending",
+        "width": 333,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Daughter of the Forest — edição verificada",
+          "url": "https://us.macmillan.com/books/9781250238665/daughteroftheforest/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_tress_emerald_tor",
+      "workId": "read_work_tress_emerald_sea",
+      "title": "Tress of the Emerald Sea",
+      "publisherId": "org_macmillan",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "hardcover",
+      "publicationDate": "2023-04-04",
+      "isbn13": "9781250899651",
+      "pageCount": 384,
+      "cover": {
+        "src": "/images/reading/fantasy-romance/tress-emerald-sea.jpg",
+        "alt": "Capa da edição de Tress of the Emerald Sea publicada pela Tor Books",
+        "sourceUrl": "https://us.macmillan.com/books/9781250899651/tressoftheemeraldsea/",
+        "credit": "Tor Books",
+        "rights": "permission-pending",
+        "width": 330,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Tress of the Emerald Sea — edição verificada",
+          "url": "https://us.macmillan.com/books/9781250899651/tressoftheemeraldsea/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_uprooted_del_rey",
+      "workId": "read_work_uprooted",
+      "title": "Uprooted",
+      "publisherId": "org_penguin_publishing_group",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2016-03-01",
+      "isbn13": "9780804179058",
+      "pageCount": 480,
+      "cover": {
+        "src": "/images/reading/fantasy-romance/uprooted.jpg",
+        "alt": "Capa da edição de Uprooted publicada pela Del Rey",
+        "sourceUrl": "https://www.penguinrandomhouse.com/books/236925/uprooted-by-naomi-novik/9780804179041/",
+        "credit": "Del Rey / Penguin Random House",
+        "rights": "permission-pending",
+        "width": 300,
+        "height": 450
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Uprooted — edição verificada",
+          "url": "https://www.penguinrandomhouse.com/books/236925/uprooted-by-naomi-novik/9780804179041/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_jasmine_throne_orbit",
+      "workId": "read_work_jasmine_throne",
+      "title": "The Jasmine Throne",
+      "publisherId": "org_little_brown",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2021-06-08",
+      "isbn13": "9780316538510",
+      "pageCount": 576,
+      "cover": {
+        "src": "/images/reading/fantasy-romance/jasmine-throne.jpg",
+        "alt": "Capa da edição de The Jasmine Throne publicada pela Orbit",
+        "sourceUrl": "https://www.hachettebookgroup.com/titles/tasha-suri/the-jasmine-throne/9780316538510/",
+        "credit": "Orbit / Hachette Book Group",
+        "rights": "permission-pending",
+        "width": 1680,
+        "height": 2600
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Jasmine Throne — edição verificada",
+          "url": "https://www.hachettebookgroup.com/titles/tasha-suri/the-jasmine-throne/9780316538510/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_night_circus_vintage",
+      "workId": "read_work_night_circus",
+      "title": "The Night Circus",
+      "publisherId": "org_penguin_publishing_group",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2012-07-03",
+      "isbn13": "9780307744432",
+      "pageCount": 528,
+      "cover": {
+        "src": "/images/reading/fantasy-romance/night-circus.jpg",
+        "alt": "Capa da edição de The Night Circus publicada pela Vintage",
+        "sourceUrl": "https://www.penguinrandomhouse.com/books/211964/the-night-circus-by-erin-morgenstern/",
+        "credit": "Vintage / Penguin Random House",
+        "rights": "permission-pending",
+        "width": 292,
+        "height": 450
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Night Circus — edição verificada",
+          "url": "https://www.penguinrandomhouse.com/books/211964/the-night-circus-by-erin-morgenstern/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_fourth_wing_red_tower",
+      "workId": "read_work_fourth_wing",
+      "title": "Fourth Wing",
+      "publisherId": "org_entangled_publishing",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "hardcover",
+      "publicationDate": "2023-05-02",
+      "isbn13": "9781649374042",
+      "pageCount": 512,
+      "cover": {
+        "src": "/images/reading/fantasy-romance/fourth-wing.jpg",
+        "alt": "Capa da primeira edição de Fourth Wing publicada pela Red Tower Books",
+        "sourceUrl": "https://www.entangledpublishing.com/books/fourth-wing",
+        "credit": "Red Tower Books via Open Library",
+        "rights": "permission-pending",
+        "width": 329,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Fourth Wing — edição verificada",
+          "url": "https://www.entangledpublishing.com/books/fourth-wing"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_revelation_space_orbit",
+      "workId": "read_work_revelation_space",
+      "title": "Revelation Space",
+      "publisherId": "org_little_brown",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2020-06-02",
+      "isbn13": "9780316462440",
+      "pageCount": 560,
+      "cover": {
+        "src": "/images/reading/science-fiction/revelation-space.jpg",
+        "alt": "Capa da edição de Revelation Space publicada pela Orbit",
+        "sourceUrl": "https://openlibrary.org/isbn/9780316462440",
+        "credit": "Orbit via Open Library",
+        "rights": "permission-pending",
+        "width": 324,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Revelation Space — edição verificada",
+          "url": "https://www.hachettebookgroup.com/titles/alastair-reynolds/revelation-space/9780316462440/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_leviathan_wakes_orbit",
+      "workId": "read_work_leviathan_wakes",
+      "title": "Leviathan Wakes",
+      "publisherId": "org_little_brown",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2011-06-15",
+      "isbn13": "9780316129084",
+      "pageCount": 592,
+      "cover": {
+        "src": "/images/reading/science-fiction/leviathan-wakes.jpg",
+        "alt": "Capa da edição de Leviathan Wakes publicada pela Orbit",
+        "sourceUrl": "https://openlibrary.org/isbn/9780316129084",
+        "credit": "Orbit via Open Library",
+        "rights": "permission-pending",
+        "width": 333,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Leviathan Wakes — edição verificada",
+          "url": "https://www.hachettebookgroup.com/titles/james-s-a-corey/leviathan-wakes/9780316129084/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_children_time_orbit",
+      "workId": "read_work_children_time",
+      "title": "Children of Time",
+      "publisherId": "org_little_brown",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2018-12-11",
+      "isbn13": "9780316452502",
+      "pageCount": 416,
+      "cover": {
+        "src": "/images/reading/science-fiction/children-of-time.jpg",
+        "alt": "Capa da edição de Children of Time publicada pela Orbit",
+        "sourceUrl": "https://openlibrary.org/isbn/9780316452502",
+        "credit": "Orbit via Open Library",
+        "rights": "permission-pending",
+        "width": 333,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Children of Time — edição verificada",
+          "url": "https://www.hachettebookgroup.com/titles/adrian-tchaikovsky/children-of-time/9780316452502/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_blindsight_tor",
+      "workId": "read_work_blindsight",
+      "title": "Blindsight",
+      "publisherId": "org_macmillan",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2020-03-03",
+      "isbn13": "9781250237484",
+      "pageCount": 384,
+      "cover": {
+        "src": "/images/reading/science-fiction/blindsight.jpg",
+        "alt": "Capa da edição de Blindsight publicada pela Tor Books",
+        "sourceUrl": "https://openlibrary.org/isbn/9781250237484",
+        "credit": "Tor Books via Open Library",
+        "rights": "permission-pending",
+        "width": 333,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Blindsight — edição verificada",
+          "url": "https://us.macmillan.com/books/9781250237484/blindsight/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_mountain_sea_mcd",
+      "workId": "read_work_mountain_sea",
+      "title": "The Mountain in the Sea",
+      "publisherId": "org_macmillan",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "hardcover",
+      "publicationDate": "2022-10-04",
+      "isbn13": "9780374605964",
+      "pageCount": 464,
+      "cover": {
+        "src": "/images/reading/science-fiction/the-mountain-in-the-sea.jpg",
+        "alt": "Capa da edição de The Mountain in the Sea publicada pela MCD",
+        "sourceUrl": "https://openlibrary.org/isbn/9780374605964",
+        "credit": "MCD via Open Library",
+        "rights": "permission-pending",
+        "width": 326,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Mountain in the Sea — edição verificada",
+          "url": "https://us.macmillan.com/books/9780374605964/themountaininthesea/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_ancillary_justice_orbit",
+      "workId": "read_work_ancillary_justice",
+      "title": "Ancillary Justice",
+      "publisherId": "org_little_brown",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2013-10-01",
+      "isbn13": "9780316246637",
+      "pageCount": 432,
+      "cover": {
+        "src": "/images/reading/science-fiction/ancillary-justice.jpg",
+        "alt": "Capa da edição de Ancillary Justice publicada pela Orbit",
+        "sourceUrl": "https://openlibrary.org/isbn/9780316246637",
+        "credit": "Orbit via Open Library",
+        "rights": "permission-pending",
+        "width": 333,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Ancillary Justice — edição verificada",
+          "url": "https://www.hachettebookgroup.com/titles/ann-leckie/ancillary-justice/9780316246637/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_neuromancer_penguin",
+      "workId": "read_work_neuromancer",
+      "title": "Neuromancer — Penguin Galaxy",
+      "publisherId": "org_penguin_publishing_group",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "hardcover",
+      "publicationDate": "2016-10-25",
+      "isbn13": "9780143111603",
+      "pageCount": 304,
+      "cover": {
+        "src": "/images/reading/science-fiction/neuromancer.jpg",
+        "alt": "Capa da edição Penguin Galaxy de Neuromancer",
+        "sourceUrl": "https://openlibrary.org/isbn/9780143111603",
+        "credit": "Penguin Classics via Open Library",
+        "rights": "permission-pending",
+        "width": 314,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Neuromancer — Penguin Galaxy — edição verificada",
+          "url": "https://www.penguinrandomhouse.com/books/538861/neuromancer-by-william-gibson/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_kindred_beacon",
+      "workId": "read_work_kindred",
+      "title": "Kindred",
+      "publisherId": "org_beacon_press",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2004-02-01",
+      "isbn13": "9780807083697",
+      "pageCount": 288,
+      "cover": {
+        "src": "/images/reading/science-fiction/kindred.jpg",
+        "alt": "Capa da edição de Kindred publicada pela Beacon Press",
+        "sourceUrl": "https://openlibrary.org/isbn/9780807083697",
+        "credit": "Beacon Press via Open Library",
+        "rights": "permission-pending",
+        "width": 337,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Kindred — edição verificada",
+          "url": "https://openlibrary.org/isbn/9780807083697"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_three_body_tor",
+      "workId": "read_work_three_body_problem",
+      "title": "The Three-Body Problem",
+      "publisherId": "org_macmillan",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2016-01-12",
+      "isbn13": "9780765382030",
+      "pageCount": 416,
+      "cover": {
+        "src": "/images/reading/science-fiction/the-three-body-problem.jpg",
+        "alt": "Capa da edição de The Three-Body Problem publicada pela Tor Books",
+        "sourceUrl": "https://openlibrary.org/isbn/9780765382030",
+        "credit": "Tor Books via Open Library",
+        "rights": "permission-pending",
+        "width": 331,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Three-Body Problem — edição verificada",
+          "url": "https://us.macmillan.com/books/9780765382030/thethreebodyproblem/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_roadside_picnic_chicago",
+      "workId": "read_work_roadside_picnic",
+      "title": "Roadside Picnic",
+      "publisherId": "org_chicago_review_press",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2012-05-01",
+      "isbn13": "9781613743416",
+      "pageCount": 224,
+      "cover": {
+        "src": "/images/reading/science-fiction/roadside-picnic.jpg",
+        "alt": "Capa da edição de Roadside Picnic publicada pela Chicago Review Press",
+        "sourceUrl": "https://openlibrary.org/isbn/9781613743416",
+        "credit": "Chicago Review Press via Open Library",
+        "rights": "permission-pending",
+        "width": 324,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Roadside Picnic — edição verificada",
+          "url": "https://www.chicagoreviewpress.com/roadside-picnic-products-9781613743416.php"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_blade_itself_orbit",
+      "workId": "read_work_blade_itself",
+      "title": "The Blade Itself",
+      "publisherId": "org_little_brown",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2015-09-08",
+      "isbn13": "9780316387316",
+      "pageCount": 542,
+      "cover": {
+        "src": "/images/reading/dark-fantasy/the-blade-itself.jpg",
+        "alt": "Capa da edição de The Blade Itself publicada pela Orbit",
+        "sourceUrl": "https://openlibrary.org/isbn/9780316387316",
+        "credit": "Orbit via Open Library",
+        "rights": "permission-pending",
+        "width": 321,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Blade Itself — edição verificada",
+          "url": "https://openlibrary.org/isbn/9780316387316"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_before_hanged_orbit",
+      "workId": "read_work_before_hanged",
+      "title": "Before They Are Hanged",
+      "publisherId": "org_little_brown",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2015-09-15",
+      "isbn13": "9780316387354",
+      "pageCount": 560,
+      "cover": {
+        "src": "/images/reading/dark-fantasy/before-they-are-hanged.jpg",
+        "alt": "Capa da edição de Before They Are Hanged publicada pela Orbit",
+        "sourceUrl": "https://openlibrary.org/isbn/9780316387354",
+        "credit": "Orbit via Open Library",
+        "rights": "permission-pending",
+        "width": 311,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Before They Are Hanged — edição verificada",
+          "url": "https://openlibrary.org/isbn/9780316387354"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_last_argument_pyr",
+      "workId": "read_work_last_argument_kings",
+      "title": "Last Argument of Kings",
+      "publisherId": "org_prometheus_books",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2008-09-01",
+      "isbn13": "9781591026907",
+      "pageCount": 639,
+      "cover": {
+        "src": "/images/reading/dark-fantasy/last-argument-of-kings.jpg",
+        "alt": "Capa da edição de Last Argument of Kings publicada pela Pyr Books",
+        "sourceUrl": "https://openlibrary.org/books/OL24981613M",
+        "credit": "Pyr Books via Open Library",
+        "rights": "permission-pending",
+        "width": 329,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Last Argument of Kings — edição verificada",
+          "url": "https://openlibrary.org/books/OL24981613M"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_prince_thorns_ace",
+      "workId": "read_work_prince_thorns",
+      "title": "Prince of Thorns",
+      "publisherId": "org_penguin_publishing_group",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2012-07-31",
+      "isbn13": "9781937007683",
+      "pageCount": 336,
+      "cover": {
+        "src": "/images/reading/dark-fantasy/prince-of-thorns.jpg",
+        "alt": "Capa da edição de Prince of Thorns publicada pela Ace",
+        "sourceUrl": "https://openlibrary.org/isbn/9781937007683",
+        "credit": "Ace via Open Library",
+        "rights": "permission-pending",
+        "width": 248,
+        "height": 400
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Prince of Thorns — edição verificada",
+          "url": "https://www.penguinrandomhouse.com/books/308315/prince-of-thorns-by-mark-lawrence/paperback/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_king_thorns_ace",
+      "workId": "read_work_king_thorns",
+      "title": "King of Thorns",
+      "publisherId": "org_penguin_publishing_group",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2013-07-30",
+      "isbn13": "9780425256237",
+      "pageCount": 432,
+      "cover": {
+        "src": "/images/reading/dark-fantasy/king-of-thorns.jpg",
+        "alt": "Capa da edição de King of Thorns publicada pela Ace",
+        "sourceUrl": "https://openlibrary.org/isbn/9780425256237",
+        "credit": "Ace via Open Library",
+        "rights": "permission-pending",
+        "width": 248,
+        "height": 400
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "King of Thorns — edição verificada",
+          "url": "https://www.penguinrandomhouse.com/books/308316/king-of-thorns-by-mark-lawrence/paperback/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_emperor_thorns_ace",
+      "workId": "read_work_emperor_thorns",
+      "title": "Emperor of Thorns",
+      "publisherId": "org_penguin_publishing_group",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2014-05-27",
+      "isbn13": "9780425256541",
+      "pageCount": 416,
+      "cover": {
+        "src": "/images/reading/dark-fantasy/emperor-of-thorns.jpg",
+        "alt": "Capa da edição de Emperor of Thorns publicada pela Ace",
+        "sourceUrl": "https://openlibrary.org/isbn/9780425256541",
+        "credit": "Ace via Open Library",
+        "rights": "permission-pending",
+        "width": 310,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Emperor of Thorns — edição verificada",
+          "url": "https://www.penguinrandomhouse.com/books/308317/emperor-of-thorns-by-mark-lawrence/paperback/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_black_company_tor",
+      "workId": "read_work_black_company_book",
+      "title": "The Black Company",
+      "publisherId": "org_macmillan",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "1992-03-01",
+      "isbn13": "9780812521399",
+      "pageCount": 320,
+      "cover": {
+        "src": "/images/reading/dark-fantasy/the-black-company.jpg",
+        "alt": "Capa da edição de The Black Company publicada pela Tor Fantasy",
+        "sourceUrl": "https://openlibrary.org/isbn/9780812521399",
+        "credit": "Tor Fantasy via Open Library",
+        "rights": "permission-pending",
+        "width": 290,
+        "height": 475
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Black Company — edição verificada",
+          "url": "https://openlibrary.org/isbn/9780812521399"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_shadows_linger_tor",
+      "workId": "read_work_shadows_linger",
+      "title": "Shadows Linger",
+      "publisherId": "org_macmillan",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "1990-04-01",
+      "isbn13": "9780812508420",
+      "pageCount": 319,
+      "cover": {
+        "src": "/images/reading/dark-fantasy/shadows-linger.jpg",
+        "alt": "Capa da edição de Shadows Linger publicada pela Tor Fantasy",
+        "sourceUrl": "https://openlibrary.org/books/OL24931266M",
+        "credit": "Tor Fantasy via Open Library",
+        "rights": "permission-pending",
+        "width": 301,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Shadows Linger — edição verificada",
+          "url": "https://openlibrary.org/books/OL24931266M"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_white_rose_tor",
+      "workId": "read_work_white_rose",
+      "title": "The White Rose",
+      "publisherId": "org_macmillan",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "1992-08-15",
+      "isbn13": "9780812521412",
+      "pageCount": 304,
+      "cover": {
+        "src": "/images/reading/dark-fantasy/the-white-rose.jpg",
+        "alt": "Capa da edição de The White Rose publicada pela Tor Fantasy",
+        "sourceUrl": "https://openlibrary.org/isbn/9780812521412",
+        "credit": "Tor Fantasy via Open Library",
+        "rights": "permission-pending",
+        "width": 296,
+        "height": 475
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The White Rose — edição verificada",
+          "url": "https://openlibrary.org/isbn/9780812521412"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_between_fires_ace",
+      "workId": "read_work_between_two_fires",
+      "title": "Between Two Fires",
+      "publisherId": "org_penguin_publishing_group",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2013-09-03",
+      "isbn13": "9780425256909",
+      "pageCount": 464,
+      "cover": {
+        "src": "/images/reading/dark-fantasy/between-two-fires.jpg",
+        "alt": "Capa da edição de Between Two Fires publicada pela Ace",
+        "sourceUrl": "https://openlibrary.org/books/OL26788197M",
+        "credit": "Ace via Open Library",
+        "rights": "permission-pending",
+        "width": 333,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Between Two Fires — edição verificada",
+          "url": "https://openlibrary.org/books/OL26788197M"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_perdido_del_rey",
+      "workId": "read_work_perdido_street_station",
+      "title": "Perdido Street Station",
+      "publisherId": "org_penguin_publishing_group",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2001-02-27",
+      "isbn13": "9780345443021",
+      "pageCount": 752,
+      "cover": {
+        "src": "/images/reading/dark-fantasy/perdido-street-station.jpg",
+        "alt": "Capa da edição de Perdido Street Station publicada pela Del Rey",
+        "sourceUrl": "https://openlibrary.org/isbn/9780345443021",
+        "credit": "Del Rey via Open Library",
+        "rights": "permission-pending",
+        "width": 325,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Perdido Street Station — edição verificada",
+          "url": "https://www.penguinrandomhouse.com/books/114262/perdido-street-station-by-china-mieville/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_library_mount_crown",
+      "workId": "read_work_library_mount_char",
+      "title": "The Library at Mount Char",
+      "publisherId": "org_penguin_publishing_group",
+      "country": "Estados Unidos",
+      "language": "Inglês",
+      "medium": "paperback",
+      "publicationDate": "2016-03-15",
+      "isbn13": "9780553418620",
+      "pageCount": 400,
+      "cover": {
+        "src": "/images/reading/dark-fantasy/the-library-at-mount-char.jpg",
+        "alt": "Capa da edição de The Library at Mount Char publicada pela Crown",
+        "sourceUrl": "https://openlibrary.org/isbn/9780553418620",
+        "credit": "Crown via Open Library",
+        "rights": "permission-pending",
+        "width": 322,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "The Library at Mount Char — edição verificada",
+          "url": "https://www.penguinrandomhouse.com/books/240942/the-library-at-mount-char-by-scott-hawkins/"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
     {
       "id": "read_edition_burnout_society_vozes",
       "workId": "read_work_burnout_society",
@@ -9031,12 +14688,12 @@
       "pageCount": 544,
       "cover": {
         "src": "/images/reading/nossa-parte-noite.webp",
-        "alt": "Imagem da edição brasileira de Nossa Parte de Noite publicada pela Intrínseca",
-        "sourceUrl": "https://loja.intrinseca.com.br/nossa-parte-de-noite/",
-        "credit": "Intrínseca",
+        "alt": "Capa de Nossa Parte de Noite publicada pela Intrínseca",
+        "sourceUrl": "https://openlibrary.org/isbn/9786555601800",
+        "credit": "Intrínseca via Open Library",
         "rights": "permission-pending",
-        "width": 265,
-        "height": 265
+        "width": 367,
+        "height": 500
       },
       "translationCredits": [],
       "availabilityStatus": "available",
@@ -9229,12 +14886,12 @@
       "pageCount": 272,
       "cover": {
         "src": "/images/reading/homem-de-giz.webp",
-        "alt": "Imagem da edição brasileira de O Homem de Giz publicada pela Intrínseca",
+        "alt": "Capa de O Homem de Giz publicada pela Intrínseca",
         "sourceUrl": "https://loja.intrinseca.com.br/o-homem-de-giz/",
         "credit": "Intrínseca",
         "rights": "permission-pending",
-        "width": 265,
-        "height": 265
+        "width": 1831,
+        "height": 2717
       },
       "translationCredits": [],
       "availabilityStatus": "available",
@@ -9262,12 +14919,12 @@
       "pageCount": 288,
       "cover": {
         "src": "/images/reading/o-que-aconteceu-annie.webp",
-        "alt": "Imagem da edição brasileira de O Que Aconteceu com Annie publicada pela Intrínseca",
+        "alt": "Capa de O Que Aconteceu com Annie publicada pela Intrínseca",
         "sourceUrl": "https://intrinseca.com.br/livro/o-que-aconteceu-com-annie/",
         "credit": "Intrínseca",
         "rights": "permission-pending",
-        "width": 265,
-        "height": 265
+        "width": 690,
+        "height": 1000
       },
       "translationCredits": [],
       "availabilityStatus": "available",
@@ -9486,12 +15143,12 @@
       "medium": "hardcover",
       "cover": {
         "src": "/images/reading/infiel.webp",
-        "alt": "Imagem da edição brasileira de Infiel publicada pela Pipoca & Nanquim",
+        "alt": "Capa de Infiel publicada pela Pipoca & Nanquim",
         "sourceUrl": "https://pipocaenanquim.com.br/infiel.html",
         "credit": "Pipoca & Nanquim",
         "rights": "permission-pending",
-        "width": 265,
-        "height": 265
+        "width": 700,
+        "height": 1000
       },
       "translationCredits": [],
       "availabilityStatus": "available",
@@ -9540,15 +15197,6 @@
       "medium": "hardcover",
       "isbn13": "9786554482363",
       "pageCount": 116,
-      "cover": {
-        "src": "/images/reading/a-propria-carne.webp",
-        "alt": "Imagem da edição brasileira de A Própria Carne publicada pela Pipoca & Nanquim",
-        "sourceUrl": "https://pipocaenanquim.com.br/a-propria-carne-escrito-com-sangue.html",
-        "credit": "Pipoca & Nanquim",
-        "rights": "permission-pending",
-        "width": 265,
-        "height": 265
-      },
       "translationCredits": [],
       "availabilityStatus": "available",
       "availabilityCheckedAt": "2026-08-13",

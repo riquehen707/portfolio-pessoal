@@ -75,7 +75,9 @@ Preencha os campos úteis aceitos pelo schema e sustentados por fontes:
 
 Não copie sinopses de distribuidores. Prefira fontes oficiais de filmes, estúdios, distribuidoras e instituições cinematográficas; use fontes secundárias confiáveis apenas para complementar o que as primárias não cobrem.
 
-**Lacunas atuais:** idioma, classificação indicativa, franquia, obra de origem e financiamento não existem no `MovieSchema`. Não improvise campos. Registre a necessidade para uma futura evolução de schema, com migração e documentação próprias.
+O campo opcional `franchiseId` relaciona filmes do mesmo universo por um identificador permanente, sem duplicar o nome promocional da franquia em cada registro. Ele não substitui a curadoria: uma lista ainda deve explicar quais capítulos são essenciais, opcionais ou propostas diferentes.
+
+**Lacunas atuais:** idioma, classificação indicativa, obra de origem e financiamento não existem no `MovieSchema`. Não improvise campos. Registre a necessidade para uma futura evolução de schema, com migração e documentação próprias.
 
 ## 4. Relacionar organizações
 

@@ -3,7 +3,10 @@
   "version": "2.3.0",
   "scripts": {
     "sync:movie-posters": "node scripts/fetch-movie-posters.mjs",
+    "normalize:movie-posters": "node scripts/fetch-movie-posters.mjs --normalize-existing",
     "audit:content": "node scripts/audit-content.mjs",
+    "audit:media": "node scripts/audit-media-assets.mjs",
+    "audit:media:remote": "node scripts/audit-media-assets.mjs --check-remote",
     "dev": "next dev",
     "export": "next export",
     "build": "next build",

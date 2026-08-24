@@ -1332,6 +1332,57 @@
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
+      "slug": "crm-o-que-e-como-funciona",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-21",
+      "updatedAt": null,
+      "seo": {
+        "title": "CRM: o que é, como funciona e como organizar seus clientes sem complicar sua operação",
+        "description": "Entenda o que é CRM, como organizar leads, pipeline e follow-ups, quais métricas acompanhar e quando migrar da planilha para um sistema CRM.",
+        "canonical": "/blog/crm-o-que-e-como-funciona"
+      },
+      "relationships": {
+        "related": [
+          "O que é um lead? Entenda o conceito e como gerar oportunidades de negócio",
+          "Guia prático: como trabalhar com automação de marketing e CRM",
+          "Dashboard: o que é, como criar e quais informações realmente deveriam estar nele",
+          "Como fazer uma projeção de vendas: do zero a uma previsão realmente consistente"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/crm-o-que-e-como-funciona.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "dashboard-o-que-e-como-criar",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-21",
+      "updatedAt": null,
+      "seo": {
+        "title": "Dashboard: o que é, como criar e quais informações realmente deveriam estar nele",
+        "description": "Entenda o que é dashboard, como escolher KPIs e gráficos, organizar hierarquia, usar filtros e criar painéis de vendas, marketing e financeiro.",
+        "canonical": "/blog/dashboard-o-que-e-como-criar"
+      },
+      "relationships": {
+        "related": [
+          "Marketing orientado a dados: como tomar decisões melhores sem se perder nas métricas",
+          "Como fazer uma projeção de vendas: do zero a uma previsão realmente consistente",
+          "Como entender receita, margem, custos e volume"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/dashboard-o-que-e-como-criar.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
       "slug": "data-centers-desenvolvimento-brasil",
       "aliases": [],
       "status": "published",
@@ -2129,6 +2180,33 @@
       "migrationReady": false
     },
     {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "landing-page-o-que-e-como-criar",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-21",
+      "updatedAt": null,
+      "seo": {
+        "title": "Landing page: o que é, como criar e o que realmente faz uma página converter",
+        "description": "Entenda o que é landing page e como planejar oferta, público, headline, CTA, formulário, prova, mobile, performance, SEO, analytics e testes A/B.",
+        "canonical": "/blog/landing-page-o-que-e-como-criar"
+      },
+      "relationships": {
+        "related": [
+          "O que é marketing? Muito além de anúncios e redes sociais",
+          "Identidade visual: o que é e como construir uma marca consistente",
+          "Dashboard: o que é, como criar e quais informações realmente deveriam estar nele",
+          "E-commerce e dropshipping: como funciona, o que muda na operação e onde estão os riscos",
+          "Como fazer uma projeção de vendas: do zero a uma previsão realmente consistente"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/landing-page-o-que-e-como-criar.mdx",
+      "migrationReady": false
+    },
+    {
       "id": "article_books_after_welcome_to_derry",
       "contentType": "article",
       "schemaVersion": 1,
@@ -2396,6 +2474,31 @@
       "migrationReady": true
     },
     {
+      "id": "article_melhores_filmes_de_monstros",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-filmes-de-monstros",
+      "aliases": [],
+      "status": "draft",
+      "createdAt": "2026-08-24",
+      "publishedAt": null,
+      "updatedAt": "2026-08-24",
+      "seo": {
+        "title": "Melhores filmes de monstros para assistir",
+        "description": "Conheça alguns dos melhores filmes de monstros, de Alien e Godzilla a criaturas marinhas, gigantes, folclóricas, estranhas e assustadoras.",
+        "canonical": "/blog/melhores-filmes-de-monstros"
+      },
+      "relationships": {
+        "related": [
+          "melhores-filmes-terror-seculo-21",
+          "melhores-filmes-de-tubarao",
+          "melhores-filmes-ficcao-cientifica"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-de-monstros.mdx",
+      "migrationReady": true
+    },
+    {
       "id": "article_melhores_filmes_tubarao",
       "contentType": "article",
       "schemaVersion": 1,
@@ -2441,6 +2544,55 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-de-vampiro.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_melhores_filmes_desastres_naturais",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-filmes-desastres-naturais",
+      "aliases": [],
+      "status": "draft",
+      "createdAt": "2026-08-24",
+      "publishedAt": null,
+      "updatedAt": "2026-08-24",
+      "seo": {
+        "title": "Melhores filmes de desastres naturais para assistir",
+        "description": "Conheça os melhores filmes de desastres naturais, de histórias reais de sobrevivência a terremotos, tsunamis, vulcões e tornados espetaculares.",
+        "canonical": "/blog/melhores-filmes-desastres-naturais"
+      },
+      "relationships": {
+        "related": [
+          "filmes-sobre-o-fim-do-mundo",
+          "melhores-filmes-de-tubarao",
+          "melhores-filmes-ficcao-cientifica"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-desastres-naturais.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_melhores_filmes_ficcao_cientifica",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-filmes-ficcao-cientifica",
+      "aliases": [],
+      "status": "draft",
+      "createdAt": "2026-08-24",
+      "publishedAt": null,
+      "updatedAt": "2026-08-24",
+      "seo": {
+        "title": "Melhores filmes de ficção científica para assistir",
+        "description": "Conheça alguns dos melhores filmes de ficção científica, de Alien e Prometheus a obras espaciais, filosóficas, estranhas e menos óbvias.",
+        "canonical": "/blog/melhores-filmes-ficcao-cientifica"
+      },
+      "relationships": {
+        "related": [
+          "melhores-filmes-terror-seculo-21",
+          "filmes-sobre-o-fim-do-mundo"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-ficcao-cientifica.mdx",
       "migrationReady": true
     },
     {
@@ -2636,6 +2788,79 @@
       "migrationReady": true
     },
     {
+      "id": "article_melhores_livros_fantasia_com_romance",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-livros-fantasia-com-romance",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": null,
+      "seo": {
+        "title": "Melhores livros de fantasia com romance para quem quer mais do que romantasy",
+        "description": "Conheça os melhores livros de fantasia com romance: fantasia épica, sombria, política, aventuras, slow burn e romantasy com mundo próprio.",
+        "canonical": "/blog/melhores-livros-fantasia-com-romance"
+      },
+      "relationships": {
+        "related": [
+          "Como começar a ler",
+          "Melhores livros de terror"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-livros-fantasia-com-romance.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_melhores_livros_fantasia_sombria",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-livros-fantasia-sombria",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": null,
+      "seo": {
+        "title": "Melhores livros de fantasia sombria para ler",
+        "description": "Conheça os melhores livros de fantasia sombria: grimdark, horror fantástico, monstros, política, magia perigosa e personagens moralmente ambíguos.",
+        "canonical": "/blog/melhores-livros-fantasia-sombria"
+      },
+      "relationships": {
+        "related": [
+          "Melhores livros de terror",
+          "Melhores livros de fantasia com romance"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-livros-fantasia-sombria.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_melhores_livros_ficcao_cientifica",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-livros-ficcao-cientifica",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": null,
+      "seo": {
+        "title": "Melhores livros de ficção científica para ler",
+        "description": "Conheça os melhores livros de ficção científica para ler: exploração espacial, alienígenas, IA, cyberpunk, viagens no tempo e histórias parecidas com Alien e Prometheus.",
+        "canonical": "/blog/melhores-livros-ficcao-cientifica"
+      },
+      "relationships": {
+        "related": [
+          "Como começar a ler",
+          "Melhores livros de terror",
+          "Melhores filmes de ficção científica"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-livros-ficcao-cientifica.mdx",
+      "migrationReady": true
+    },
+    {
       "id": "article_romance_manga_entry_for_men",
       "contentType": "article",
       "schemaVersion": 1,
@@ -2658,6 +2883,129 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-mangas-de-romance-para-homens.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_melhores_mangas_harem",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-mangas-harem",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": null,
+      "seo": {
+        "title": "Melhores mangás harém para ler: romance, comédia, fantasia e ação",
+        "description": "Conheça os melhores mangás harem para ler, de romances com desfecho a comédias absurdas, fantasia, ação e ecchi, com critérios claros.",
+        "canonical": "/blog/melhores-mangas-harem"
+      },
+      "relationships": {
+        "related": [
+          "O que é mangá?",
+          "19 melhores mangás de romance para homens que querem começar",
+          "24 melhores quadrinhos e mangás de terror"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-mangas-harem.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_melhores_manhwas_acao_romance",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-manhwas-acao-romance",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": null,
+      "seo": {
+        "title": "Melhores manhwas e manhuas de ação com uma pitada de romance",
+        "description": "Conheça os melhores manhwas de ação com romance e manhuas de cultivo, regressão, academia e fantasia em que a relação amorosa progride.",
+        "canonical": "/blog/melhores-manhwas-acao-romance"
+      },
+      "relationships": {
+        "related": [
+          "O que é mangá?",
+          "19 melhores mangás de romance para homens que querem começar",
+          "Melhores mangás harém para ler"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-manhwas-acao-romance.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_melhores_manhwas_com_sistema",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-manhwas-com-sistema",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": null,
+      "seo": {
+        "title": "Melhores manhwas com sistema de níveis e progressão",
+        "description": "Conheça os melhores manhwas com sistema, níveis, status, skills, classes, quests, dungeons e progressão inspirada em RPG.",
+        "canonical": "/blog/melhores-manhwas-com-sistema"
+      },
+      "relationships": {
+        "related": [
+          "Melhores manhwas de regressão para ler",
+          "Melhores manhwas e manhuas de ação com uma pitada de romance"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-manhwas-com-sistema.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_melhores_manhwas_protagonista_overpower",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-manhwas-protagonista-overpower",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": null,
+      "seo": {
+        "title": "Melhores manhwas com protagonista overpower",
+        "description": "Conheça os melhores manhwas com protagonista overpower: zero-to-hero, regressors, mestres renascidos, força escondida e personagens que quebram sistemas.",
+        "canonical": "/blog/melhores-manhwas-protagonista-overpower"
+      },
+      "relationships": {
+        "related": [
+          "Melhores manhwas com sistema de níveis e progressão",
+          "Melhores manhwas de regressão para ler",
+          "Melhores manhwas e manhuas de ação com uma pitada de romance"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-manhwas-protagonista-overpower.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_melhores_manhwas_regressao",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "melhores-manhwas-regressao",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": null,
+      "seo": {
+        "title": "Melhores manhwas de regressão para ler",
+        "description": "Conheça os melhores manhwas de regressão: fantasia, Murim, academia, vingança, apocalipse e loops temporais em que o futuro realmente importa.",
+        "canonical": "/blog/melhores-manhwas-regressao"
+      },
+      "relationships": {
+        "related": [
+          "O que é mangá?",
+          "Melhores manhwas e manhuas de ação com uma pitada de romance"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-manhwas-regressao.mdx",
       "migrationReady": true
     },
     {
