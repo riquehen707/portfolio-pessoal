@@ -3,6 +3,7 @@ import type { MetadataRoute } from "next";
 import { baseURL, blog, routes as routesConfig } from "@/resources";
 import { getAllArticles } from "@/data/articles";
 import { getPublishedMovies } from "@/data/movies";
+import { getPublishedGames } from "@/data/games";
 import { getPublishedBooks, getPublishedComics } from "@/data/reading";
 import { getPublishedPersonalities } from "@/data/personalities";
 import { getPublishedStudios } from "@/data/organizations";
@@ -25,6 +26,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: movie.updatedAt,
     changeFrequency: "monthly" as const,
     priority: 0.64,
+  }));
+  const gamePages = (await getPublishedGames()).map((game) => ({
+    url: `${baseURL}/jogos/${game.slug}`,
+    lastModified: game.updatedAt,
+    changeFrequency: "monthly" as const,
+    priority: 0.66,
   }));
   const readingPages = (await getPublishedBooks()).map((work) => ({ url:`${baseURL}/livros/${work.slug}`,lastModified:work.updatedAt,changeFrequency:"monthly" as const,priority:0.62 }));
   const comicPages = (await getPublishedComics()).map((work) => ({ url:`${baseURL}/quadrinhos/${work.slug}`,lastModified:work.updatedAt,changeFrequency:"monthly" as const,priority:0.62 }));
@@ -51,6 +58,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     [`${blog.path}/seo/entender-a-busca`]: 0.76,
     [`${blog.path}/cultura`]: 0.78,
     "/filmes": 0.76,
+    "/jogos": 0.78,
     "/series": 0.76,
     "/livros": 0.76,
     "/quadrinhos": 0.76,
@@ -79,6 +87,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.4,
     },
     ...moviePages,
+    ...gamePages,
     ...readingPages,
     ...comicPages,
     ...personalityPages,

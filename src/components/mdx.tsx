@@ -62,6 +62,7 @@ import { SimpleBarChart, SimpleLineChart } from "@/components/mdx/SimpleCharts";
 import { VisualPrinciplesDemo } from "@/components/mdx/VisualPrinciplesDemo";
 import { AccessibleFormDemo } from "@/components/mdx/AccessibleFormDemo";
 import { MovieCard } from "@/components/movies/MovieCard";
+import { GameCard } from "@/components/games/GameCard";
 import { MovieAvailabilityIndex } from "@/components/movies/MovieAvailabilityIndex";
 import { MovieFilmography } from "@/components/movies/MovieFilmography";
 import { MovieRankingJsonLd } from "@/components/seo/MovieRankingJsonLd";
@@ -484,6 +485,7 @@ export const baseMDXComponents: MDXComponents = {
   VisualPrinciplesDemo,
   AccessibleFormDemo,
   MovieCard,
+  GameCard,
   MovieAvailabilityIndex,
   SeriesCard,
   SeriesAvailabilityIndex,

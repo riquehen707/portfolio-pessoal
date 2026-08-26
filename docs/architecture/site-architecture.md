@@ -35,6 +35,8 @@ Em caso de divergência, schemas, componentes e rotas executáveis prevalecem so
 │  └─ /ideias/[slug]                    registro e histórico de uma ideia publicada
 ├─ /filmes
 │  └─ /filmes/[slug]                  somente filmes publicados
+├─ /jogos
+│  └─ /jogos/[slug]                   somente jogos publicados
 ├─ /series
 │  └─ /series/[slug]                  somente séries publicadas
 ├─ /livros                             biblioteca pública de livros e light novels
@@ -75,7 +77,7 @@ O inventário de arquivos não equivale ao sitemap público. A inclusão de rota
 
 ### Índices editoriais
 
-- **Rotas:** `/blog`, `/blog/cultura`, `/blog/seo`, `/blog/seo/entender-a-busca`, `/ideias`, `/acervo`, `/filmes`, `/series`, `/livros`, `/quadrinhos`, `/personalidades`, `/estudios` e, quando reativados, temas, categorias e trilhas.
+- **Rotas:** `/blog`, `/blog/cultura`, `/blog/seo`, `/blog/seo/entender-a-busca`, `/ideias`, `/acervo`, `/jogos`, `/filmes`, `/series`, `/livros`, `/quadrinhos`, `/personalidades`, `/estudios` e, quando reativados, temas, categorias e trilhas.
 - **Finalidade:** organizar coleções, áreas ou sequências de estudo.
 - **Dados:** fachadas em `src/data/articles/`, `src/data/movies/`, `src/data/series/`, `src/data/reading/`, `src/data/personalities/` e `src/data/organizations/`, mais arquivos específicos próximos das rotas.
 - **Estrutura confirmada:** título/apresentação, navegação ou feed, relações e breadcrumbs conforme cada implementação. `/acervo` funciona como entrada transversal: aponta para bibliotecas quando seus registros estão publicados e, enquanto um domínio permanece em revisão, oferece suas curadorias públicas sem abrir índices vazios.
@@ -218,7 +220,7 @@ Todos os acervos usam somente `status: "draft" | "published"` como estado editor
 | Pessoas | `content/creators/creatorSchema.ts` | importação local direta | fachada ainda não existe |
 | Obras editoriais | `content/works/workSchema.ts` | importação local direta | curtas e documentários |
 | Organizações | `content/organizations/organizations.ts` | importação local direta | schema não é exportado |
-| Jogos | `content/games/games.ts` | importação local direta | schema local ao arquivo |
+| Jogos | `content/games/games.ts` | `data/games` | `content/games/gameSchema.ts` |
 | Obras animadas | `content/animationWorks/animationWorks.ts` | importação local direta | schema local e vocabulário próprio |
 | Livros, quadrinhos e obras de leitura | `content/reading/readingSchema.ts` | `data/reading/` | catálogo único; livros/light novels usam `/livros`, obras com `comicTradition` e `comicFormat` usam `/quadrinhos`; série, unidade serializada opcional, volume, edição e oferta permanecem compartilhados |
 | Personalidades | `content/creators/creatorSchema.ts` | `data/personalities/` | entidade única para ocupações diversas; obras são descobertas por relações reversas nos acervos, sem filmografias ou bibliografias copiadas para o perfil |
@@ -234,7 +236,7 @@ Listas de filmes usam `MovieList` em `content/movies/curations.ts` e guardam som
 
 Metadados visuais e editoriais sempre vêm do catálogo central. `MovieLibrary`, `MovieCard`, `MovieFilmography` e `OrganizationWorks` reutilizam esses registros; `MovieOrganizations` apresenta organizações e cria link somente quando `profilePath` existe. A filmografia do Studio Ghibli é gerada por `org_studio_ghibli`; *Nausicaä* permanece fora dessa relação produtiva porque a fonte oficial credita a produção à Topcraft.
 
-**Lacuna arquitetural:** jogos e obras animadas ainda não possuem fachadas em `src/data/` nem o mesmo vocabulário relacional dos filmes. `content/studios/studios.ts` conserva apenas dados institucionais/anúncios da LAIKA; sua futura absorção completa por organizações exige migração.
+**Lacuna arquitetural:** obras animadas ainda não possuem fachada em `src/data/` nem o mesmo vocabulário relacional dos filmes e jogos. Jogos usam relações normalizadas com `content/organizations`, mídia com origem e direitos registrados e publicação condicionada a uma ficha editorial completa. `content/studios/studios.ts` conserva apenas dados institucionais/anúncios da LAIKA; sua futura absorção completa por organizações exige migração.
 
 ## SEO, descoberta e publicação
 

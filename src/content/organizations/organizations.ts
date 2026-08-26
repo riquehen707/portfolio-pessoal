@@ -25,6 +25,25 @@ export const ghostAnimation = OrganizationSchema.parse({
   workIds: ["work_wade_2019"], summary: "Coletivo de animação sediado em Kolkata e produtor de Wade.", createdAt: "2026-08-12", updatedAt: "2026-08-12",
 });
 export const teamCherry = OrganizationSchema.parse({id:"org_team_cherry",slug:"team-cherry",name:"Team Cherry",kind:"studio",founded:2014,location:{city:"Adelaide",region:"Austrália do Sul",country:"Austrália"},specialties:["Jogos independentes","Animação 2D"],status:"published",profilePath:"/estudios/team-cherry",workIds:[],summary:"Estúdio independente de jogos sediado em Adelaide, Austrália do Sul.",sources:[{title:"Team Cherry — site oficial",url:"https://www.teamcherry.com.au/"}],createdAt:"2026-08-12",updatedAt:"2026-08-14"});
+
+const brazilianGameStudio = (input: { id: string; slug: string; name: string; city: string; website?: string; summary: string; sourceUrl: string }) => OrganizationSchema.parse({
+  ...input,
+  kind: "studio",
+  location: { city: input.city, country: "Brasil" },
+  specialties: ["Desenvolvimento de jogos", "Jogos independentes"],
+  status: "draft",
+  workIds: [],
+  sources: [{ title: `${input.name} — fonte institucional`, url: input.sourceUrl }],
+  createdAt: "2026-08-26",
+  updatedAt: "2026-08-26",
+});
+
+export const longHatHouse = brazilianGameStudio({ id:"org_long_hat_house",slug:"long-hat-house",name:"Long Hat House",city:"Belo Horizonte",website:"https://longhathouse.com/",summary:"Estúdio independente de Belo Horizonte responsável por Dandara.",sourceUrl:"https://longhathouse.com/" });
+export const studioPixelPunk = brazilianGameStudio({ id:"org_studio_pixel_punk",slug:"studio-pixel-punk",name:"Studio Pixel Punk",city:"São Paulo",summary:"Estúdio independente brasileiro responsável por UNSIGHTED.",sourceUrl:"https://www.gamedeveloper.com/design/exploring-meaningful-consequences-unsighted" });
+export const glitchFactory = brazilianGameStudio({ id:"org_glitch_factory",slug:"glitch-factory",name:"Glitch Factory",city:"Brasília",website:"https://theglitchfactory.com/",summary:"Estúdio independente de Brasília responsável por No Place for Bravery.",sourceUrl:"https://www.abragames.org/uploads/5/6/8/0/56805537/brazilgames_catalogo_gamescom_digital_20_06_24_r.pdf" });
+export const pixelHive = brazilianGameStudio({ id:"org_pixelhive",slug:"pixelhive",name:"PixelHive",city:"Porto Alegre",summary:"Estúdio de Porto Alegre responsável por Kaze and the Wild Masks.",sourceUrl:"https://www.soedesco.com/news/the-origin-of-90-s-inspired-platformer-kaze-and-the-wild-masks" });
+export const pocketTrap = brazilianGameStudio({ id:"org_pocket_trap",slug:"pocket-trap",name:"Pocket Trap",city:"São Paulo",website:"https://pocket-trap.com/",summary:"Estúdio de São Paulo responsável por Dodgeball Academia.",sourceUrl:"https://pocket-trap.com/jogos/dodgeball-academia/" });
+export const aquiris = brazilianGameStudio({ id:"org_aquiris",slug:"aquiris",name:"Aquiris",city:"Porto Alegre",summary:"Estúdio brasileiro que desenvolveu originalmente Horizon Chase Turbo antes de sua evolução corporativa posterior.",sourceUrl:"https://www.epicgames.com/site/en-US/news/epic-games-brasil" });
 export const cartoonSaloon=OrganizationSchema.parse({
   id:"org_cartoon_saloon",slug:"cartoon-saloon",aliases:["Cartoon Saloon Ltd."],name:"Cartoon Saloon",kind:"studio",
   specialties:["Animação 2D","Longas autorais"],
@@ -220,7 +239,7 @@ const readingPublishers = [
   ["org_prometheus_books","prometheus-books","Prometheus Books","publisher"],
 ].map(([id,slug,name,kind])=>OrganizationSchema.parse({id,slug,name,kind,status:"draft",workIds:[],summary:`Editora ou selo relacionado a edições verificadas do acervo: ${name}.`,createdAt:"2026-08-13",updatedAt:"2026-08-21"}));
 
-export const organizations = [ghostAnimation,teamCherry,cartoonSaloon,aardman,scienceSaru,kyotoAnimation,laika,studioGhibli,nipponTelevision,toho,...movieStudios,...readingPublishers];
+export const organizations = [ghostAnimation,teamCherry,longHatHouse,studioPixelPunk,glitchFactory,pixelHive,pocketTrap,aquiris,cartoonSaloon,aardman,scienceSaru,kyotoAnimation,laika,studioGhibli,nipponTelevision,toho,...movieStudios,...readingPublishers];
 
 export type Organization = z.infer<typeof OrganizationSchema>;
 export const organizationsById = new Map(organizations.map((organization) => [organization.id, organization]));

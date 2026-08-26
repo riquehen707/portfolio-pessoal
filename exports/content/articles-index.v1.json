@@ -457,7 +457,7 @@
       },
       "relationships": {
         "related": [
-          "Augusto Cury nas eleições de 2026",
+          "Augusto Cury como candidato à Presidência em 2026: formação, propostas e os limites entre comunicação e demagogia",
           "Empreendedorismo resolve desemprego e pobreza?"
         ]
       },
@@ -473,10 +473,10 @@
       "status": "published",
       "createdAt": null,
       "publishedAt": "2026-08-09",
-      "updatedAt": "2026-08-09",
+      "updatedAt": "2026-08-26",
       "seo": {
-        "title": "Augusto Cury nas eleições de 2026: pré-candidatura, propostas e críticas",
-        "description": "Augusto Cury nas eleições de 2026: status da pré-candidatura, propostas para saúde mental e educação, experiência, evidências e críticas.",
+        "title": "Augusto Cury como candidato à Presidência em 2026: formação, propostas e os limites entre comunicação e demagogia",
+        "description": "Augusto Cury candidato em 2026: perfil, plano de governo, economia, educação, saúde, segurança, STF, semipresidencialismo e análise sobre demagogia.",
         "canonical": "/blog/augusto-cury-eleicoes-2026"
       },
       "relationships": {
@@ -758,6 +758,32 @@
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
+      "slug": "como-comecar-no-ecommerce",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-26",
+      "updatedAt": null,
+      "seo": {
+        "title": "Vai começar no e-commerce? O que você precisa saber antes de abrir sua loja",
+        "description": "Guia de e-commerce para iniciantes: como validar produto, calcular margem, organizar loja, pagamento, logística, pós-venda e obrigações básicas no Brasil.",
+        "canonical": "/blog/como-comecar-no-ecommerce"
+      },
+      "relationships": {
+        "related": [
+          "Como entender receita, margem e volume antes de colocar mais verba",
+          "Como fazer uma projeção de vendas: do zero a uma previsão realmente consistente",
+          "Como vender na Shopee: guia para começar com planejamento",
+          "Dropshipping para iniciantes: cuidados, riscos e dicas antes de começar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-comecar-no-ecommerce.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
       "slug": "como-conseguir-clientes-como-designer-grafico-freelancer",
       "aliases": [],
       "status": "published",
@@ -974,10 +1000,35 @@
           "Como entender receita, margem e volume antes de colocar mais verba",
           "Marketing orientado a dados: como tomar decisões melhores sem se perder nas métricas",
           "Marketing de aquisição: o que é e quais estratégias podem atrair novos clientes?",
-          "E-commerce com dropshipping: como funciona, custos, riscos e o que saber antes de começar"
+          "Dropshipping para iniciantes: cuidados, riscos e dicas antes de começar"
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-fazer-projecao-de-vendas.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-ganhar-dinheiro-com-canva",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-26",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como ganhar dinheiro com Canva: formas realistas de transformar design em renda",
+        "description": "Entenda como trabalhar com Canva, quais serviços e produtos têm compradores, como cobrar e um plano prático para buscar os primeiros clientes.",
+        "canonical": "/blog/como-ganhar-dinheiro-com-canva"
+      },
+      "relationships": {
+        "related": [
+          "Como conseguir clientes como designer gráfico freelancer",
+          "Princípios do design visual: como criar hierarquia, clareza e consistência",
+          "Como entender receita, margem e volume antes de colocar mais verba"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-ganhar-dinheiro-com-canva.mdx",
       "migrationReady": false
     },
     {
@@ -1258,6 +1309,31 @@
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
+      "slug": "como-ser-desenvolvedor-de-jogos-no-brasil",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-26",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como ser desenvolvedor de jogos no Brasil: carreira, habilidades e mercado",
+        "description": "Entenda como trabalhar com desenvolvimento de jogos no Brasil, quais carreiras existem, o que estudar e como construir um portfólio em 12 meses.",
+        "canonical": "/blog/como-ser-desenvolvedor-de-jogos-no-brasil"
+      },
+      "relationships": {
+        "related": [
+          "Desenvolvimento web: o que é, como funciona e como começar",
+          "Como montar um portfólio de desenvolvimento web sem clientes",
+          "9 Kings: como um jogo indie brasileiro se tornou um sucesso internacional"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-ser-desenvolvedor-de-jogos-no-brasil.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
       "slug": "como-vender-na-shopee",
       "aliases": [],
       "status": "published",
@@ -1352,6 +1428,31 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/crm-o-que-e-como-funciona.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "cuidados-ao-ganhar-dinheiro-na-internet",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-26",
+      "updatedAt": null,
+      "seo": {
+        "title": "Começou a ganhar dinheiro na internet? Cuidados que você precisa ter desde o início",
+        "description": "Começou a ganhar dinheiro na internet? Veja cuidados financeiros, fiscais, contratuais e de segurança para proteger sua renda online.",
+        "canonical": "/blog/cuidados-ao-ganhar-dinheiro-na-internet"
+      },
+      "relationships": {
+        "related": [
+          "Como escolher entre estratégias de curto, médio e longo prazo para ganhar dinheiro na internet",
+          "Como ganhar dinheiro na internet no curto prazo: caminhos honestos e realistas",
+          "Como entender receita, margem e volume antes de colocar mais verba"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/cuidados-ao-ganhar-dinheiro-na-internet.mdx",
       "migrationReady": false
     },
     {
@@ -1478,6 +1579,31 @@
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
+      "slug": "desenvolver-jogos-com-ia",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-26",
+      "updatedAt": null,
+      "seo": {
+        "title": "Desenvolver jogos com IA: o que já dá para fazer e onde estão os limites",
+        "description": "Veja como usar IA para desenvolver jogos em 2026, quais tarefas ela acelera, que conhecimento continua necessário e os riscos técnicos e jurídicos.",
+        "canonical": "/blog/desenvolver-jogos-com-ia"
+      },
+      "relationships": {
+        "related": [
+          "Como ser desenvolvedor de jogos no Brasil: carreira, habilidades e mercado",
+          "Princípios do design visual: como criar hierarquia, clareza e consistência",
+          "API design principles: princípios para criar APIs consistentes e evolutivas"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/desenvolver-jogos-com-ia.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
       "slug": "desenvolvimento-web",
       "aliases": [],
       "status": "published",
@@ -1497,6 +1623,31 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/desenvolvimento-web.mdx",
+      "migrationReady": false
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "design-com-ia-vale-a-pena",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-08-26",
+      "updatedAt": null,
+      "seo": {
+        "title": "Design com IA vale a pena? Onde ela ajuda e onde começa a atrapalhar",
+        "description": "Entenda se vale a pena usar IA para design, quais etapas ela acelera, onde exige revisão e por que gerar mais não significa projetar melhor.",
+        "canonical": "/blog/design-com-ia-vale-a-pena"
+      },
+      "relationships": {
+        "related": [
+          "Princípios do design visual: como criar hierarquia, clareza e consistência",
+          "Identidade visual: o que é e como construir uma marca visualmente consistente",
+          "User interface design: princípios para criar interfaces claras e acessíveis"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/design-com-ia-vale-a-pena.mdx",
       "migrationReady": false
     },
     {
@@ -1576,10 +1727,10 @@
       "status": "published",
       "createdAt": null,
       "publishedAt": "2026-08-21",
-      "updatedAt": null,
+      "updatedAt": "2026-08-26",
       "seo": {
-        "title": "E-commerce com dropshipping: como funciona, custos, riscos e o que saber antes de começar",
-        "description": "Um guia realista sobre e-commerce com dropshipping: operação, margem, fornecedores, logística, aquisição, métricas, riscos e obrigações no Brasil.",
+        "title": "Dropshipping para iniciantes: cuidados, riscos e dicas antes de começar",
+        "description": "Guia de dropshipping para iniciantes: funcionamento, custos, riscos, fornecedor, CAC, chargebacks, importação, direitos do consumidor e teste pequeno.",
         "canonical": "/blog/e-commerce-dropshipping-como-funciona"
       },
       "relationships": {
@@ -1610,7 +1761,7 @@
       },
       "relationships": {
         "related": [
-          "Augusto Cury nas eleições de 2026: pré-candidatura, propostas e críticas",
+          "Augusto Cury como candidato à Presidência em 2026: formação, propostas e os limites entre comunicação e demagogia",
           "As melhores profissões digitais e como iniciar"
         ]
       },

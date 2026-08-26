@@ -92,9 +92,16 @@ export async function getGlobalSearchItems(): Promise<GlobalSearchItem[]> {
       id: "page-collection",
       title: "Acervo cultural",
       description:
-        "Filmes, livros, mangás, quadrinhos e séries organizados em bibliotecas e curadorias editoriais.",
+        "Jogos, filmes, livros, mangás, quadrinhos e séries organizados em bibliotecas e curadorias editoriais.",
       href: "/acervo",
-      keywords: ["acervo", "filmes", "livros", "mangas", "quadrinhos", "series", "curadorias"],
+      keywords: ["acervo", "jogos", "filmes", "livros", "mangas", "quadrinhos", "series", "curadorias"],
+    }),
+    pageItem({
+      id: "page-games",
+      title: "Acervo de jogos brasileiros",
+      description: "Jogos feitos no Brasil organizados por estúdio, gênero, plataforma e escolhas de design.",
+      href: "/jogos",
+      keywords: ["jogos", "games", "brasileiros", "videogame", "estúdios", "desenvolvimento"],
     }),
     pageItem({
       id: "page-movies",

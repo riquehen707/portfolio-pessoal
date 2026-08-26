@@ -15,6 +15,7 @@ const primaryContentLinks = [
 ] as const;
 
 const collectionLinks = [
+  { href: "/jogos", label: "Jogos", collection: true },
   { href: "/filmes", label: "Filmes", collection: true },
   { href: "/series", label: "Séries", collection: true },
   { href: "/livros", label: "Livros", collection: true },

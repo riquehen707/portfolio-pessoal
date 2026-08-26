@@ -139,7 +139,7 @@ try {
       ...work.organizationIds.filter((id) => !organizationIds.has(id)).map((id) => ({ type: "missing_organization", from: work.id, to: id })),
     ]),
     ...organizations.flatMap((organization) => organization.workIds.filter((id) => !workIds.has(id)).map((id) => ({ type: "missing_work", from: organization.id, to: id }))),
-    ...games.flatMap((game) => [...game.organizationIds.filter((id)=>!organizationIds.has(id)).map((id)=>({type:"missing_organization",from:game.id,to:id})),...game.contributors.filter((credit)=>!creatorIds.has(credit.personId)).map((credit)=>({type:"missing_creator",from:game.id,to:credit.personId}))]),
+    ...games.flatMap((game) => [...game.organizationRelationships.filter((relation)=>!organizationIds.has(relation.organizationId)).map((relation)=>({type:"missing_organization",from:game.id,to:relation.organizationId})),...game.contributors.filter((credit)=>!creatorIds.has(credit.personId)).map((credit)=>({type:"missing_creator",from:game.id,to:credit.personId}))]),
     ...animationWorks.flatMap((work)=>work.relationships.filter((relation)=>!organizationIds.has(relation.organizationId)).map((relation)=>({type:"missing_organization",from:work.id,to:relation.organizationId}))),
     ...movies.flatMap((movie)=>[
       ...movie.organizationRelationships.filter((relation)=>!organizationIds.has(relation.organizationId)).map((relation)=>({type:"missing_organization",from:movie.id,to:relation.organizationId})),

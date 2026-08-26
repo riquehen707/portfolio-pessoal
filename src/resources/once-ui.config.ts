@@ -32,6 +32,7 @@ const routes: RoutesConfig = {
   "/blog/cultura": true,
   "/acervo": true,
   "/filmes": true,
+  "/jogos": true,
   "/series": true,
   "/livros": true,
   "/quadrinhos": true,

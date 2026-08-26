@@ -5,6 +5,7 @@ import { HiOutlineArrowRight } from "react-icons/hi2";
 import { getAllBlogPosts } from "@/app/blog/postData";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { getAllMovies, getPublishedMovies } from "@/data/movies";
+import { getAllGames, getPublishedGames } from "@/data/games";
 import { getAllSeries, getPublishedSeries } from "@/data/series";
 import { getPublishedBooks, getPublishedComics } from "@/data/reading";
 import { getPublishedPersonalities } from "@/data/personalities";
@@ -16,7 +17,7 @@ import styles from "./page.module.scss";
 const path = "/acervo";
 const title = "Acervo cultural";
 const description =
-  "Filmes, livros, mangás, quadrinhos e séries organizados em bibliotecas e curadorias editoriais.";
+  "Jogos, filmes, livros, mangás, quadrinhos e séries organizados em bibliotecas e curadorias editoriais.";
 
 export const metadata: Metadata = {
   title,
@@ -27,8 +28,13 @@ export const metadata: Metadata = {
 
 const sections = [
   {
+    id: "jogos", index: "01", title: "Jogos brasileiros",
+    description: "Obras feitas no Brasil organizadas por estúdio, gênero, plataforma e decisões de design.",
+    href: "/jogos", action: "Explorar jogos", slugs: [],
+  },
+  {
     id: "filmes",
-    index: "01",
+    index: "02",
     title: "Filmes",
     description:
       "Uma biblioteca navegável por título, ano, país, gênero, direção e organizações relacionadas.",
@@ -38,7 +44,7 @@ const sections = [
   },
   {
     id: "livros",
-    index: "02",
+    index: "03",
     title: "Livros",
     description:
       "Obras, autores, séries e edições brasileiras separados corretamente em uma biblioteca pública.",
@@ -48,7 +54,7 @@ const sections = [
   },
   {
     id: "quadrinhos",
-    index: "03",
+    index: "04",
     title: "Mangás e quadrinhos",
     description:
       "Mangás, HQs, graphic novels, manhwas e webtoons convivem no mesmo modelo, sem confundir formato, tradição e demografia.",
@@ -58,7 +64,7 @@ const sections = [
   },
   {
     id: "series",
-    index: "04",
+    index: "05",
     title: "Séries",
     description:
       "Uma biblioteca navegável por título, período, país, gênero, formato e disponibilidade por temporada.",
@@ -68,7 +74,7 @@ const sections = [
   },
   {
     id: "personalidades",
-    index: "05",
+    index: "06",
     title: "Personalidades",
     description: "Autores, cineastas, artistas e pensadores conectados automaticamente às obras que integram o acervo.",
     href: "/personalidades",
@@ -77,7 +83,7 @@ const sections = [
   },
   {
     id: "estudios",
-    index: "06",
+    index: "07",
     title: "Estúdios",
     description: "Organizações criativas com identidade, especialidades e obras derivadas dos relacionamentos centrais.",
     href: "/estudios",
@@ -87,7 +93,9 @@ const sections = [
 ] as const;
 
 export default async function CollectionPage() {
-  const [movies, publishedMovies, series, publishedSeries, books, comics] = await Promise.all([
+  const [games, publishedGames, movies, publishedMovies, series, publishedSeries, books, comics] = await Promise.all([
+    getAllGames(),
+    getPublishedGames(),
     getAllMovies(),
     getPublishedMovies(),
     getAllSeries(),
@@ -127,6 +135,7 @@ export default async function CollectionPage() {
             return post ? [post] : [];
           });
           const isMovies = section.id === "filmes";
+          const isGames = section.id === "jogos";
           const isSeries = section.id === "series";
           const isBooks = section.id === "livros";
           const isComics = section.id === "quadrinhos";
@@ -142,7 +151,9 @@ export default async function CollectionPage() {
                   <p>{section.description}</p>
                 </div>
                 <div className={styles.state}>
-                  {isMovies ? (
+                  {isGames ? (
+                    <><strong>{games.length}</strong><span>jogos cadastrados · {publishedGames.length} perfis publicados</span></>
+                  ) : isMovies ? (
                     <><strong>{movies.length}</strong><span>filmes cadastrados · {publishedMovies.length} perfis publicados</span></>
                   ) : isSeries ? (
                     <><strong>{series.length}</strong><span>séries cadastradas · {publishedSeries.length} perfis publicados</span></>
