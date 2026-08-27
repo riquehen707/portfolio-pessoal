@@ -1794,6 +1794,56 @@
       "migrationReady": false
     },
     {
+      "id": "article_filmes_sobre_acidentes_de_aviao",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "filmes-sobre-acidentes-de-aviao",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27",
+      "seo": {
+        "title": "12 filmes sobre acidentes de avião e sobreviventes",
+        "description": "Conheça filmes sobre acidentes de avião, quedas, pousos de emergência e sobreviventes, incluindo histórias reais e ficção.",
+        "canonical": "/blog/filmes-sobre-acidentes-de-aviao"
+      },
+      "relationships": {
+        "related": [
+          "melhores-filmes-desastres-naturais",
+          "filmes-sobre-tornados",
+          "filmes-sobre-o-fim-do-mundo"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/filmes-sobre-acidentes-de-aviao.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_filmes_sobre_meteoros_asteroides",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "filmes-sobre-meteoros-asteroides",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27",
+      "seo": {
+        "title": "10 filmes sobre meteoros, asteroides e cometas",
+        "description": "Conheça filmes sobre meteoros, asteroides e cometas, com blockbusters, dramas, sátiras e histórias de fim do mundo.",
+        "canonical": "/blog/filmes-sobre-meteoros-asteroides"
+      },
+      "relationships": {
+        "related": [
+          "filmes-sobre-o-fim-do-mundo",
+          "melhores-filmes-ficcao-cientifica",
+          "filmes-sobre-tsunami"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/filmes-sobre-meteoros-asteroides.mdx",
+      "migrationReady": true
+    },
+    {
       "id": "article_filmes_fim_do_mundo",
       "contentType": "article",
       "schemaVersion": 1,
@@ -1815,6 +1865,107 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/filmes-sobre-o-fim-do-mundo.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_filmes_sobre_terremotos",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "filmes-sobre-terremotos",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27",
+      "seo": {
+        "title": "12 filmes sobre terremotos e grandes terremotos",
+        "description": "Uma seleção de filmes sobre terremotos, grandes abalos, sobrevivência, resgate e destruição urbana em diferentes países e períodos.",
+        "canonical": "/blog/filmes-sobre-terremotos"
+      },
+      "relationships": {
+        "related": [
+          "filmes-sobre-tsunami",
+          "filmes-sobre-vulcoes",
+          "melhores-filmes-desastres-naturais"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/filmes-sobre-terremotos.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_filmes_sobre_tornados",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "filmes-sobre-tornados",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27",
+      "seo": {
+        "title": "15 filmes sobre tornados e grandes tempestades",
+        "description": "Conheça filmes sobre tornados, furacões e grandes tempestades, de Twister e Twisters a dramas marítimos e thrillers de sobrevivência.",
+        "canonical": "/blog/filmes-sobre-tornados"
+      },
+      "relationships": {
+        "related": [
+          "melhores-filmes-desastres-naturais",
+          "filmes-sobre-tsunami",
+          "filmes-sobre-o-fim-do-mundo"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/filmes-sobre-tornados.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_filmes_sobre_tsunami",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "filmes-sobre-tsunami",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27",
+      "seo": {
+        "title": "10 melhores filmes sobre tsunami para assistir",
+        "description": "Conheça filmes sobre tsunami, maremoto e ondas gigantes, incluindo dramas humanos, produções internacionais e grandes filmes-catástrofe.",
+        "canonical": "/blog/filmes-sobre-tsunami"
+      },
+      "relationships": {
+        "related": [
+          "filmes-sobre-terremotos",
+          "filmes-sobre-vulcoes",
+          "melhores-filmes-desastres-naturais",
+          "filmes-sobre-o-fim-do-mundo"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/filmes-sobre-tsunami.mdx",
+      "migrationReady": true
+    },
+    {
+      "id": "article_filmes_sobre_vulcoes",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "filmes-sobre-vulcoes",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27",
+      "seo": {
+        "title": "10 filmes sobre vulcões e erupções vulcânicas",
+        "description": "Conheça filmes sobre vulcões e erupções vulcânicas, com blockbusters, dramas históricos, produções asiáticas e documentários.",
+        "canonical": "/blog/filmes-sobre-vulcoes"
+      },
+      "relationships": {
+        "related": [
+          "filmes-sobre-terremotos",
+          "filmes-sobre-tsunami",
+          "melhores-filmes-desastres-naturais"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/filmes-sobre-vulcoes.mdx",
       "migrationReady": true
     },
     {
@@ -2703,9 +2854,9 @@
       "schemaVersion": 1,
       "slug": "melhores-filmes-desastres-naturais",
       "aliases": [],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-08-24",
-      "publishedAt": null,
+      "publishedAt": "2026-08-27",
       "updatedAt": "2026-08-24",
       "seo": {
         "title": "Melhores filmes de desastres naturais para assistir",

@@ -38,6 +38,8 @@ O catálogo central é a única fonte de dados permanentes. As entidades não de
 
 Os cinco primeiros contratos e a avaliação editorial opcional existem em `readingSchema.ts`. Comentários permanecem fora do catálogo, em `reading_comments`, e apontam para `work_id`. Qualquer evolução deve procurar consumidores, preservar registros existentes e atualizar schema, auditoria, exportação e documentação.
 
+Na obra, `workType` distingue livro, ensaio, tratado, diálogo, coletânea, aula e memória sem transformar formato intelectual em edição comercial. `concepts`, `readingDifficulty`, `relatedArticlePaths` e `relatedPeople` sustentam descoberta e navegação. `featuredEditionId` apenas escolhe uma edição já cadastrada para cards e apresentação visual; não copia ISBN, editora ou capa para a obra.
+
 ## Português e identidade bibliográfica
 
 - Use `titleBr` somente para um título efetivamente publicado no Brasil e sustente-o com fonte.

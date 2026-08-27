@@ -5558,6 +5558,1992 @@
       "updatedAt": "2026-08-24"
     },
     {
+      "id": "read_work_origins_totalitarianism",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "origens-do-totalitarismo",
+      "aliases": [],
+      "originalTitle": "The Origins of Totalitarianism",
+      "titleBr": "Origens do Totalitarismo",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_hannah_arendt",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1951",
+      "publicationEnd": "1951",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Antissemitismo",
+        "Imperialismo",
+        "Totalitarismo",
+        "Massas"
+      ],
+      "concepts": [
+        "Antissemitismo",
+        "Imperialismo",
+        "Totalitarismo",
+        "Massas"
+      ],
+      "readingDifficulty": "advanced",
+      "featuredEditionId": "read_edition_origins_totalitarianism_companhia",
+      "relatedArticlePaths": [
+        "/blog/hannah-arendt"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Arendt investiga elementos históricos e políticos que convergiram nas formas totalitárias de dominação do século XX.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Origins of Totalitarianism — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=The%20Origins%20of%20Totalitarianism&author=Hannah%20Arendt"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/arendt/"
+        },
+        {
+          "title": "Origens do Totalitarismo — Companhia das Letras",
+          "url": "https://www.companhiadasletras.com.br/livro/9788535922042/origens-do-totalitarismo"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_human_condition",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "a-condicao-humana",
+      "aliases": [],
+      "originalTitle": "The Human Condition",
+      "titleBr": "A Condição Humana",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_hannah_arendt",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1958",
+      "publicationEnd": "1958",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Trabalho",
+        "Obra",
+        "Ação",
+        "Pluralidade",
+        "Mundo comum"
+      ],
+      "concepts": [
+        "Trabalho",
+        "Obra",
+        "Ação",
+        "Pluralidade",
+        "Mundo comum"
+      ],
+      "readingDifficulty": "intermediate",
+      "relatedArticlePaths": [
+        "/blog/hannah-arendt"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "A distinção entre trabalho, obra e ação organiza uma investigação das atividades humanas e das condições da vida política.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Human Condition — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=The%20Human%20Condition&author=Hannah%20Arendt"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/arendt/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_eichmann_jerusalem",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "eichmann-em-jerusalem",
+      "aliases": [],
+      "originalTitle": "Eichmann in Jerusalem: A Report on the Banality of Evil",
+      "titleBr": "Eichmann em Jerusalém",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_hannah_arendt",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1963",
+      "publicationEnd": "1963",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Responsabilidade",
+        "Julgamento",
+        "Banalidade do mal",
+        "Burocracia"
+      ],
+      "concepts": [
+        "Responsabilidade",
+        "Julgamento",
+        "Banalidade do mal",
+        "Burocracia"
+      ],
+      "readingDifficulty": "intermediate",
+      "featuredEditionId": "read_edition_eichmann_companhia",
+      "relatedArticlePaths": [
+        "/blog/hannah-arendt"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "A reportagem sobre o julgamento de Adolf Eichmann examina responsabilidade, linguagem burocrática e incapacidade de julgar.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Eichmann in Jerusalem — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=Eichmann%20in%20Jerusalem&author=Hannah%20Arendt"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/arendt/"
+        },
+        {
+          "title": "Eichmann em Jerusalém — Companhia das Letras",
+          "url": "https://www.companhiadasletras.com.br/livro/9788571649620/eichmann-em-jerusalem"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_between_past_future",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "entre-o-passado-e-o-futuro",
+      "aliases": [],
+      "originalTitle": "Between Past and Future",
+      "titleBr": "Entre o Passado e o Futuro",
+      "workType": "collection",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_hannah_arendt",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1961",
+      "publicationEnd": "1961",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Tradição",
+        "Autoridade",
+        "Liberdade",
+        "Educação",
+        "Cultura"
+      ],
+      "concepts": [
+        "Tradição",
+        "Autoridade",
+        "Liberdade",
+        "Educação",
+        "Cultura"
+      ],
+      "readingDifficulty": "intermediate",
+      "relatedArticlePaths": [
+        "/blog/hannah-arendt"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Ensaios analisam rupturas da tradição e problemas de autoridade, liberdade, educação, cultura e verdade na modernidade.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Between Past and Future — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=Between%20Past%20and%20Future&author=Hannah%20Arendt"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/arendt/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_discipline_punish",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "vigiar-e-punir",
+      "aliases": [],
+      "originalTitle": "Surveiller et punir: Naissance de la prison",
+      "titleBr": "Vigiar e Punir",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "França"
+      ],
+      "originalLanguages": [
+        "Francês"
+      ],
+      "credits": [
+        {
+          "personId": "person_michel_foucault",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1975",
+      "publicationEnd": "1975",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Disciplina",
+        "Panoptismo",
+        "Poder disciplinar",
+        "Prisão",
+        "Corpos dóceis"
+      ],
+      "concepts": [
+        "Disciplina",
+        "Panoptismo",
+        "Poder disciplinar",
+        "Prisão",
+        "Corpos dóceis"
+      ],
+      "readingDifficulty": "intermediate",
+      "relatedArticlePaths": [
+        "/blog/michel-foucault"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Foucault reconstrói transformações das práticas penais e mostra como vigilância, exame e disciplina fabricam corpos úteis e indivíduos documentados.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Surveiller et punir — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=Surveiller%20et%20punir&author=Michel%20Foucault"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/foucault/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_history_sexuality_1",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "historia-da-sexualidade-1-a-vontade-de-saber",
+      "aliases": [],
+      "originalTitle": "Histoire de la sexualité I: La volonté de savoir",
+      "titleBr": "História da Sexualidade I: A Vontade de Saber",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "França"
+      ],
+      "originalLanguages": [
+        "Francês"
+      ],
+      "credits": [
+        {
+          "personId": "person_michel_foucault",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1976",
+      "publicationEnd": "1976",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Sexualidade",
+        "Biopoder",
+        "Dispositivo",
+        "Confissão",
+        "Hipótese repressiva"
+      ],
+      "concepts": [
+        "Sexualidade",
+        "Biopoder",
+        "Dispositivo",
+        "Confissão",
+        "Hipótese repressiva"
+      ],
+      "readingDifficulty": "intermediate",
+      "relatedArticlePaths": [
+        "/blog/michel-foucault"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "O primeiro volume questiona a ideia de simples repressão sexual e investiga como discursos, saberes e técnicas de poder produziram a sexualidade como objeto.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Histoire de la sexualité La volonté de savoir — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=Histoire%20de%20la%20sexualit%C3%A9%20La%20volont%C3%A9%20de%20savoir&author=Michel%20Foucault"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/foucault/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_order_things",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "as-palavras-e-as-coisas",
+      "aliases": [],
+      "originalTitle": "Les Mots et les choses: Une archéologie des sciences humaines",
+      "titleBr": "As Palavras e as Coisas",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "França"
+      ],
+      "originalLanguages": [
+        "Francês"
+      ],
+      "credits": [
+        {
+          "personId": "person_michel_foucault",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1966",
+      "publicationEnd": "1966",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Arqueologia",
+        "Episteme",
+        "Representação",
+        "Ciências humanas",
+        "Historicidade"
+      ],
+      "concepts": [
+        "Arqueologia",
+        "Episteme",
+        "Representação",
+        "Ciências humanas",
+        "Historicidade"
+      ],
+      "readingDifficulty": "advanced",
+      "featuredEditionId": "read_edition_order_things_martins",
+      "relatedArticlePaths": [
+        "/blog/michel-foucault"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Uma arqueologia compara configurações históricas do saber para investigar como linguagem, vida, trabalho e a figura moderna do homem se tornaram pensáveis.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Les Mots et les choses — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=Les%20Mots%20et%20les%20choses&author=Michel%20Foucault"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/foucault/"
+        },
+        {
+          "title": "As Palavras e as Coisas — Martins Fontes Paulista",
+          "url": "https://www.martinsfontespaulista.com.br/as-palavras-e-as-coisas-784690/p"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_history_madness",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "historia-da-loucura",
+      "aliases": [],
+      "originalTitle": "Folie et Déraison: Histoire de la folie à l'âge classique",
+      "titleBr": "História da Loucura",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "França"
+      ],
+      "originalLanguages": [
+        "Francês"
+      ],
+      "credits": [
+        {
+          "personId": "person_michel_foucault",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1961",
+      "publicationEnd": "1961",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Loucura",
+        "Razão",
+        "Internamento",
+        "Psiquiatria",
+        "Exclusão"
+      ],
+      "concepts": [
+        "Loucura",
+        "Razão",
+        "Internamento",
+        "Psiquiatria",
+        "Exclusão"
+      ],
+      "readingDifficulty": "advanced",
+      "relatedArticlePaths": [
+        "/blog/michel-foucault"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Foucault acompanha práticas, instituições e saberes que separaram razão e loucura; versões abreviadas e reedições posteriores não devem ser confundidas com a tese integral de 1961.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Folie et Déraison Histoire de la folie — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=Folie%20et%20D%C3%A9raison%20Histoire%20de%20la%20folie&author=Michel%20Foucault"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/foucault/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_second_sex",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "o-segundo-sexo",
+      "aliases": [],
+      "originalTitle": "Le Deuxième Sexe",
+      "titleBr": "O Segundo Sexo",
+      "workType": "treatise",
+      "format": "book",
+      "originCountries": [
+        "França"
+      ],
+      "originalLanguages": [
+        "Francês"
+      ],
+      "credits": [
+        {
+          "personId": "person_simone_de_beauvoir",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1949",
+      "publicationEnd": "1949",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Alteridade",
+        "Situação",
+        "Corpo",
+        "Opressão",
+        "Liberdade"
+      ],
+      "concepts": [
+        "Alteridade",
+        "Situação",
+        "Corpo",
+        "Opressão",
+        "Liberdade"
+      ],
+      "readingDifficulty": "advanced",
+      "relatedArticlePaths": [
+        "/blog/simone-de-beauvoir"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Em duas partes publicadas como uma única obra intelectual, Beauvoir articula história, filosofia e experiência para analisar como a mulher é produzida como Outro.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Le Deuxième Sexe — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=Le%20Deuxi%C3%A8me%20Sexe&author=Simone%20de%20Beauvoir"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/beauvoir/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_ethics_ambiguity",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "por-uma-moral-da-ambiguidade",
+      "aliases": [],
+      "originalTitle": "Pour une morale de l'ambiguïté",
+      "titleBr": "Por uma Moral da Ambiguidade",
+      "workType": "essay",
+      "format": "book",
+      "originCountries": [
+        "França"
+      ],
+      "originalLanguages": [
+        "Francês"
+      ],
+      "credits": [
+        {
+          "personId": "person_simone_de_beauvoir",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1947",
+      "publicationEnd": "1947",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Ambiguidade",
+        "Liberdade",
+        "Situação",
+        "Responsabilidade",
+        "Opressão"
+      ],
+      "concepts": [
+        "Ambiguidade",
+        "Liberdade",
+        "Situação",
+        "Responsabilidade",
+        "Opressão"
+      ],
+      "readingDifficulty": "intermediate",
+      "relatedArticlePaths": [
+        "/blog/simone-de-beauvoir"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Beauvoir parte da condição simultaneamente situada e aberta da existência para pensar uma ética em que a própria liberdade depende do reconhecimento de outras liberdades.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Pour une morale de l'ambiguïté — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=Pour%20une%20morale%20de%20l'ambigu%C3%AFt%C3%A9&author=Simone%20de%20Beauvoir"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/beauvoir/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_memoirs_dutiful_daughter",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "memorias-de-uma-moca-bem-comportada",
+      "aliases": [],
+      "originalTitle": "Mémoires d'une jeune fille rangée",
+      "titleBr": "Memórias de uma Moça Bem-Comportada",
+      "workType": "memoir",
+      "format": "book",
+      "originCountries": [
+        "França"
+      ],
+      "originalLanguages": [
+        "Francês"
+      ],
+      "credits": [
+        {
+          "personId": "person_simone_de_beauvoir",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1958",
+      "publicationEnd": "1958",
+      "publicationStatus": "completed",
+      "categories": [
+        "biography"
+      ],
+      "genres": [
+        "Memória",
+        "Autobiografia"
+      ],
+      "themes": [
+        "Formação",
+        "Família",
+        "Educação",
+        "Autonomia",
+        "Escrita"
+      ],
+      "concepts": [
+        "Formação",
+        "Família",
+        "Educação",
+        "Autonomia",
+        "Escrita"
+      ],
+      "readingDifficulty": "introductory",
+      "featuredEditionId": "read_edition_memoirs_dutiful_daughter_nova_fronteira",
+      "relatedArticlePaths": [
+        "/blog/simone-de-beauvoir"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "No primeiro volume de suas memórias, Beauvoir reconstrói infância, formação intelectual, ruptura religiosa e escolha da escrita sem converter autobiografia em tratado.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Mémoires d'une jeune fille rangée — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=M%C3%A9moires%20d'une%20jeune%20fille%20rang%C3%A9e&author=Simone%20de%20Beauvoir"
+        },
+        {
+          "title": "Memórias de uma Moça Bem-Comportada — Nova Fronteira",
+          "url": "https://www.novafronteira.com.br/memorias-de-uma-moca-bem-comportada-2025"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_black_skin_white_masks",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "pele-negra-mascaras-brancas",
+      "aliases": [],
+      "originalTitle": "Peau noire, masques blancs",
+      "titleBr": "Pele Negra, Máscaras Brancas",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "França"
+      ],
+      "originalLanguages": [
+        "Francês"
+      ],
+      "credits": [
+        {
+          "personId": "person_frantz_fanon",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1952",
+      "publicationEnd": "1952",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Racialização",
+        "Sociogenia",
+        "Linguagem",
+        "Reconhecimento",
+        "Alienação"
+      ],
+      "concepts": [
+        "Racialização",
+        "Sociogenia",
+        "Linguagem",
+        "Reconhecimento",
+        "Alienação"
+      ],
+      "readingDifficulty": "intermediate",
+      "relatedArticlePaths": [
+        "/blog/frantz-fanon"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Fanon combina clínica, filosofia e crítica cultural para investigar como o colonialismo organiza linguagem, desejo, corpo e sofrimento racializado.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Peau noire masques blancs — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=Peau%20noire%20masques%20blancs&author=Frantz%20Fanon"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/frantz-fanon/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_wretched_earth",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "os-condenados-da-terra",
+      "aliases": [],
+      "originalTitle": "Les Damnés de la Terre",
+      "titleBr": "Os Condenados da Terra",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "França"
+      ],
+      "originalLanguages": [
+        "Francês"
+      ],
+      "credits": [
+        {
+          "personId": "person_frantz_fanon",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1961",
+      "publicationEnd": "1961",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Colonialismo",
+        "Violência",
+        "Descolonização",
+        "Cultura nacional",
+        "Consciência"
+      ],
+      "concepts": [
+        "Colonialismo",
+        "Violência",
+        "Descolonização",
+        "Cultura nacional",
+        "Consciência"
+      ],
+      "readingDifficulty": "advanced",
+      "relatedArticlePaths": [
+        "/blog/frantz-fanon"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Escrito no contexto da luta argelina, o livro analisa violência colonial, descolonização, formação nacional e riscos políticos posteriores à independência.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Les Damnés de la Terre — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=Les%20Damn%C3%A9s%20de%20la%20Terre&author=Frantz%20Fanon"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/frantz-fanon/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_gender_trouble",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "problemas-de-genero",
+      "aliases": [],
+      "originalTitle": "Gender Trouble: Feminism and the Subversion of Identity",
+      "titleBr": "Problemas de Gênero",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_judith_butler",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1990",
+      "publicationEnd": "1990",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Performatividade",
+        "Gênero",
+        "Identidade",
+        "Linguagem",
+        "Subversão"
+      ],
+      "concepts": [
+        "Performatividade",
+        "Gênero",
+        "Identidade",
+        "Linguagem",
+        "Subversão"
+      ],
+      "readingDifficulty": "advanced",
+      "relatedArticlePaths": [
+        "/blog/judith-butler"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Butler questiona identidades tomadas como fundamento estável do feminismo e investiga como normas reiteradas produzem efeitos de gênero.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Gender Trouble — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=Gender%20Trouble&author=Judith%20Butler"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/feminism-gender/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_bodies_matter",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "corpos-que-importam",
+      "aliases": [],
+      "originalTitle": "Bodies That Matter: On the Discursive Limits of Sex",
+      "titleBr": "Corpos que Importam",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_judith_butler",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1993",
+      "publicationEnd": "1993",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Materialização",
+        "Corpo",
+        "Sexo",
+        "Norma",
+        "Performatividade"
+      ],
+      "concepts": [
+        "Materialização",
+        "Corpo",
+        "Sexo",
+        "Norma",
+        "Performatividade"
+      ],
+      "readingDifficulty": "advanced",
+      "relatedArticlePaths": [
+        "/blog/judith-butler"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Butler desenvolve a performatividade para explicar como normas materializam corpos e produzem limites entre vidas reconhecíveis e excluídas.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Bodies That Matter — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=Bodies%20That%20Matter&author=Judith%20Butler"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/feminism-gender/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_precarious_life",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "vida-precaria",
+      "aliases": [],
+      "originalTitle": "Precarious Life: The Powers of Mourning and Violence",
+      "titleBr": "Vida Precária",
+      "workType": "collection",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_judith_butler",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2004",
+      "publicationEnd": "2004",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Precariedade",
+        "Luto",
+        "Violência",
+        "Reconhecimento",
+        "Vulnerabilidade"
+      ],
+      "concepts": [
+        "Precariedade",
+        "Luto",
+        "Violência",
+        "Reconhecimento",
+        "Vulnerabilidade"
+      ],
+      "readingDifficulty": "intermediate",
+      "relatedArticlePaths": [
+        "/blog/judith-butler"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Ensaios escritos após o 11 de Setembro relacionam luto, vulnerabilidade compartilhada, enquadramentos políticos e distribuição desigual do reconhecimento.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Precarious Life — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=Precarious%20Life&author=Judith%20Butler"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/feminism-gender/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_world_will_representation",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "o-mundo-como-vontade-e-representacao",
+      "aliases": [],
+      "originalTitle": "Die Welt als Wille und Vorstellung",
+      "titleBr": "O Mundo como Vontade e Representação",
+      "workType": "treatise",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_arthur_schopenhauer",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1818",
+      "publicationEnd": "1844",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Representação",
+        "Vontade",
+        "Corpo",
+        "Sofrimento",
+        "Arte"
+      ],
+      "concepts": [
+        "Representação",
+        "Vontade",
+        "Corpo",
+        "Sofrimento",
+        "Arte"
+      ],
+      "readingDifficulty": "advanced",
+      "relatedArticlePaths": [
+        "/blog/arthur-schopenhauer"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Schopenhauer organiza seu sistema em torno do mundo conhecido como representação e da vontade que se manifesta no corpo, no desejo e na natureza.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Die Welt als Wille und Vorstellung — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=Die%20Welt%20als%20Wille%20und%20Vorstellung&author=Arthur%20Schopenhauer"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/schopenhauer/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_aphorisms_wisdom",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "aforismos-para-a-sabedoria-de-vida",
+      "aliases": [],
+      "originalTitle": "Aphorismen zur Lebensweisheit",
+      "titleBr": "Aforismos para a Sabedoria de Vida",
+      "workType": "essay",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_arthur_schopenhauer",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1851",
+      "publicationEnd": "1851",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Prudência",
+        "Caráter",
+        "Fortuna",
+        "Sofrimento",
+        "Vida prática"
+      ],
+      "concepts": [
+        "Prudência",
+        "Caráter",
+        "Fortuna",
+        "Sofrimento",
+        "Vida prática"
+      ],
+      "readingDifficulty": "introductory",
+      "relatedArticlePaths": [
+        "/blog/arthur-schopenhauer"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Parte de Parerga e Paralipomena, o ensaio pergunta como conduzir a vida com prudência dentro dos limites de uma filosofia pessimista.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Aphorismen zur Lebensweisheit — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=Aphorismen%20zur%20Lebensweisheit&author=Arthur%20Schopenhauer"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/schopenhauer/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_freedom_will_schopenhauer",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "sobre-a-liberdade-da-vontade",
+      "aliases": [],
+      "originalTitle": "Über die Freiheit des menschlichen Willens",
+      "titleBr": "Sobre a Liberdade da Vontade",
+      "workType": "essay",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_arthur_schopenhauer",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1839",
+      "publicationEnd": "1839",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Vontade",
+        "Liberdade",
+        "Necessidade",
+        "Caráter",
+        "Responsabilidade"
+      ],
+      "concepts": [
+        "Vontade",
+        "Liberdade",
+        "Necessidade",
+        "Caráter",
+        "Responsabilidade"
+      ],
+      "readingDifficulty": "intermediate",
+      "relatedArticlePaths": [
+        "/blog/arthur-schopenhauer"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "O ensaio premiado distingue liberdade física, intelectual e moral para defender que ações seguem motivos e caráter, embora a vontade em si pertença a outro nível do sistema.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Über die Freiheit des menschlichen Willens — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=%C3%9Cber%20die%20Freiheit%20des%20menschlichen%20Willens&author=Arthur%20Schopenhauer"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/schopenhauer/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_republic_plato",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "a-republica-platao",
+      "aliases": [],
+      "originalTitle": "Πολιτεία",
+      "titleBr": "A República",
+      "workType": "dialogue",
+      "format": "book",
+      "originCountries": [
+        "Grécia antiga"
+      ],
+      "originalLanguages": [
+        "Grego antigo"
+      ],
+      "credits": [
+        {
+          "personId": "person_platao",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationDisplay": "c. século IV a.C.",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Justiça",
+        "Educação",
+        "Política",
+        "Alma",
+        "Formas"
+      ],
+      "concepts": [
+        "Justiça",
+        "Educação",
+        "Política",
+        "Alma",
+        "Formas"
+      ],
+      "readingDifficulty": "advanced",
+      "relatedArticlePaths": [
+        "/blog/platao"
+      ],
+      "relatedPeople": [
+        {
+          "personId": "person_socrates",
+          "relationship": "character",
+          "note": "Interlocutor central do diálogo; não é o autor do texto."
+        }
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Sócrates e seus interlocutores investigam por que ser justo, como educar a alma e que cidade torna visível a relação entre conhecimento, desejo e poder.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Politeia Plato — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=Politeia%20Plato&author=Plato"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/plato-ethics-politics/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_symposium_plato",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "o-banquete-platao",
+      "aliases": [],
+      "originalTitle": "Συμπόσιον",
+      "titleBr": "O Banquete",
+      "workType": "dialogue",
+      "format": "book",
+      "originCountries": [
+        "Grécia antiga"
+      ],
+      "originalLanguages": [
+        "Grego antigo"
+      ],
+      "credits": [
+        {
+          "personId": "person_platao",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationDisplay": "c. século IV a.C.",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Amor",
+        "Desejo",
+        "Beleza",
+        "Discurso",
+        "Filosofia"
+      ],
+      "concepts": [
+        "Amor",
+        "Desejo",
+        "Beleza",
+        "Discurso",
+        "Filosofia"
+      ],
+      "readingDifficulty": "intermediate",
+      "relatedArticlePaths": [
+        "/blog/platao"
+      ],
+      "relatedPeople": [
+        {
+          "personId": "person_socrates",
+          "relationship": "character"
+        }
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Discursos pronunciados num banquete oferecem concepções rivais de eros, culminando na narrativa socrática do ensinamento de Diotima.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Symposium Plato — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=Symposium%20Plato&author=Plato"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/plato/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_phaedo_plato",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "fedon-platao",
+      "aliases": [],
+      "originalTitle": "Φαίδων",
+      "titleBr": "Fédon",
+      "workType": "dialogue",
+      "format": "book",
+      "originCountries": [
+        "Grécia antiga"
+      ],
+      "originalLanguages": [
+        "Grego antigo"
+      ],
+      "credits": [
+        {
+          "personId": "person_platao",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationDisplay": "c. século IV a.C.",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Alma",
+        "Morte",
+        "Formas",
+        "Filosofia",
+        "Argumentação"
+      ],
+      "concepts": [
+        "Alma",
+        "Morte",
+        "Formas",
+        "Filosofia",
+        "Argumentação"
+      ],
+      "readingDifficulty": "intermediate",
+      "relatedArticlePaths": [
+        "/blog/platao"
+      ],
+      "relatedPeople": [
+        {
+          "personId": "person_socrates",
+          "relationship": "character"
+        }
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "A cena das últimas horas de Sócrates articula argumentos sobre alma, morte e Formas, acompanhados de objeções e revisões internas.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Phaedo Plato — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=Phaedo%20Plato&author=Plato"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/plato/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_apology_socrates_plato",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "apologia-de-socrates-platao",
+      "aliases": [],
+      "originalTitle": "Ἀπολογία Σωκράτους",
+      "titleBr": "Apologia de Sócrates",
+      "workType": "dialogue",
+      "format": "book",
+      "originCountries": [
+        "Grécia antiga"
+      ],
+      "originalLanguages": [
+        "Grego antigo"
+      ],
+      "credits": [
+        {
+          "personId": "person_platao",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationDisplay": "c. século IV a.C.",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Defesa",
+        "Virtude",
+        "Conhecimento",
+        "Morte",
+        "Vida examinada"
+      ],
+      "concepts": [
+        "Defesa",
+        "Virtude",
+        "Conhecimento",
+        "Morte",
+        "Vida examinada"
+      ],
+      "readingDifficulty": "introductory",
+      "relatedArticlePaths": [
+        "/blog/platao",
+        "/blog/principais-filosofos-da-historia"
+      ],
+      "relatedPeople": [
+        {
+          "personId": "person_socrates",
+          "relationship": "subject",
+          "note": "Figura central e personagem da defesa; Platão é o autor."
+        }
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Platão compõe a defesa de Sócrates diante do tribunal ateniense; o texto é uma fonte filosófica e literária, não uma transcrição judicial nem obra escrita por Sócrates.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Apology Plato — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=Apology%20Plato&author=Plato"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/socrates/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_confessions_augustine",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "confissoes-agostinho",
+      "aliases": [],
+      "originalTitle": "Confessiones",
+      "titleBr": "Confissões",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Norte da África romana"
+      ],
+      "originalLanguages": [
+        "Latim"
+      ],
+      "credits": [
+        {
+          "personId": "person_agostinho_hipona",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "0397",
+      "publicationEnd": "0400",
+      "publicationDisplay": "c. 397–400",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Memória",
+        "Tempo",
+        "Vontade",
+        "Conversão",
+        "Interioridade"
+      ],
+      "concepts": [
+        "Memória",
+        "Tempo",
+        "Vontade",
+        "Conversão",
+        "Interioridade"
+      ],
+      "readingDifficulty": "intermediate",
+      "relatedArticlePaths": [
+        "/blog/agostinho-de-hipona"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Agostinho combina narrativa de formação, oração e investigação filosófica para pensar memória, desejo, linguagem, criação e experiência do tempo.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Confessiones Augustine — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=Confessiones%20Augustine&author=Augustine"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/augustine/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_city_god_augustine",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "a-cidade-de-deus",
+      "aliases": [],
+      "originalTitle": "De civitate Dei contra paganos",
+      "titleBr": "A Cidade de Deus",
+      "workType": "treatise",
+      "format": "book",
+      "originCountries": [
+        "Norte da África romana"
+      ],
+      "originalLanguages": [
+        "Latim"
+      ],
+      "credits": [
+        {
+          "personId": "person_agostinho_hipona",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "0413",
+      "publicationEnd": "0426",
+      "publicationDisplay": "413–426",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "História",
+        "Política",
+        "Providência",
+        "Justiça",
+        "Comunidade"
+      ],
+      "concepts": [
+        "História",
+        "Política",
+        "Providência",
+        "Justiça",
+        "Comunidade"
+      ],
+      "readingDifficulty": "advanced",
+      "relatedArticlePaths": [
+        "/blog/agostinho-de-hipona"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Em resposta às acusações contra o cristianismo após o saque de Roma, Agostinho contrapõe formas de amor, justiça e pertencimento para interpretar história e poder.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "De civitate Dei contra paganos — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=De%20civitate%20Dei%20contra%20paganos&author=Augustine"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/augustine/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_leviathan_hobbes",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "leviata",
+      "aliases": [
+        "leviata-hobbes"
+      ],
+      "originalTitle": "Leviathan, or The Matter, Forme and Power of a Commonwealth Ecclesiasticall and Civil",
+      "titleBr": "Leviatã",
+      "workType": "treatise",
+      "format": "book",
+      "originCountries": [
+        "Inglaterra"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_thomas_hobbes",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1651",
+      "publicationEnd": "1651",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Estado de natureza",
+        "Contrato",
+        "Soberania",
+        "Representação",
+        "Liberdade"
+      ],
+      "concepts": [
+        "Estado de natureza",
+        "Contrato",
+        "Soberania",
+        "Representação",
+        "Liberdade"
+      ],
+      "readingDifficulty": "advanced",
+      "relatedArticlePaths": [
+        "/blog/principais-filosofos-da-historia"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Hobbes parte de uma teoria materialista da pessoa e das paixões para explicar pacto, representação e a autoridade necessária à paz civil.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Leviathan Thomas Hobbes — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=Leviathan%20Thomas%20Hobbes&author=Thomas%20Hobbes"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/hobbes-moral/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
       "id": "read_work_sandman",
       "contentType": "reading-work",
       "schemaVersion": 1,
@@ -14314,6 +16300,149 @@
     }
   ],
   "editions": [
+    {
+      "id": "read_edition_origins_totalitarianism_companhia",
+      "workId": "read_work_origins_totalitarianism",
+      "title": "Origens do Totalitarismo",
+      "publisherId": "org_companhia_de_bolso",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2013-01-10",
+      "isbn13": "9788535922042",
+      "pageCount": 832,
+      "cover": {
+        "src": "/images/reading/philosophy/origens-do-totalitarismo.webp",
+        "alt": "Capa da edição brasileira de Origens do Totalitarismo publicada pela Companhia de Bolso",
+        "sourceUrl": "https://www.companhiadasletras.com.br/livro/9788535922042/origens-do-totalitarismo",
+        "credit": "Companhia das Letras",
+        "rights": "permission-pending",
+        "width": 451,
+        "height": 650
+      },
+      "translationCredits": [
+        {
+          "personId": "person_roberto_raposo",
+          "roles": [
+            "translator"
+          ]
+        }
+      ],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Origens do Totalitarismo — edição brasileira",
+          "url": "https://www.companhiadasletras.com.br/livro/9788535922042/origens-do-totalitarismo"
+        }
+      ],
+      "createdAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_edition_eichmann_companhia",
+      "workId": "read_work_eichmann_jerusalem",
+      "title": "Eichmann em Jerusalém",
+      "publisherId": "org_companhia_das_letras",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "1999-12-16",
+      "isbn13": "9788571649620",
+      "pageCount": 344,
+      "cover": {
+        "src": "/images/reading/philosophy/eichmann-em-jerusalem.webp",
+        "alt": "Capa da edição brasileira de Eichmann em Jerusalém publicada pela Companhia das Letras",
+        "sourceUrl": "https://www.companhiadasletras.com.br/livro/9788571649620/eichmann-em-jerusalem",
+        "credit": "Companhia das Letras",
+        "rights": "permission-pending",
+        "width": 434,
+        "height": 650
+      },
+      "translationCredits": [
+        {
+          "personId": "person_jose_rubens_siqueira",
+          "roles": [
+            "translator"
+          ]
+        }
+      ],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Eichmann em Jerusalém — edição brasileira",
+          "url": "https://www.companhiadasletras.com.br/livro/9788571649620/eichmann-em-jerusalem"
+        }
+      ],
+      "createdAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_edition_order_things_martins",
+      "workId": "read_work_order_things",
+      "title": "As Palavras e as Coisas",
+      "publisherId": "org_martins_fontes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2016-01-01",
+      "isbn13": "9788580632644",
+      "pageCount": 564,
+      "cover": {
+        "src": "/images/reading/philosophy/as-palavras-e-as-coisas.webp",
+        "alt": "Capa da edição brasileira de As Palavras e as Coisas publicada pela Martins Fontes",
+        "sourceUrl": "https://www.martinsfontespaulista.com.br/as-palavras-e-as-coisas-784690/p",
+        "credit": "Martins Fontes",
+        "rights": "permission-pending",
+        "width": 700,
+        "height": 700
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "As Palavras e as Coisas — edição brasileira",
+          "url": "https://www.martinsfontespaulista.com.br/as-palavras-e-as-coisas-784690/p"
+        }
+      ],
+      "createdAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_edition_memoirs_dutiful_daughter_nova_fronteira",
+      "workId": "read_work_memoirs_dutiful_daughter",
+      "title": "Memórias de uma Moça Bem-Comportada",
+      "publisherId": "org_nova_fronteira",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2025-03-01",
+      "isbn10": "6556406282",
+      "isbn13": "9786556406282",
+      "pageCount": 326,
+      "cover": {
+        "src": "/images/reading/philosophy/memorias-de-uma-moca-bem-comportada.webp",
+        "alt": "Imagem promocional oficial da edição brasileira de Memórias de uma Moça Bem-Comportada publicada pela Nova Fronteira",
+        "sourceUrl": "https://www.novafronteira.com.br/memorias-de-uma-moca-bem-comportada-2025",
+        "credit": "Nova Fronteira",
+        "rights": "permission-pending",
+        "width": 700,
+        "height": 700
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Memórias de uma Moça Bem-Comportada — edição brasileira",
+          "url": "https://www.novafronteira.com.br/memorias-de-uma-moca-bem-comportada-2025"
+        }
+      ],
+      "createdAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
     {
       "id": "read_edition_kushiels_dart_tor",
       "workId": "read_work_kushiels_dart",

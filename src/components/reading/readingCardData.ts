@@ -18,7 +18,8 @@ export function getReadingWorkOrThrow(workId: string) {
 export function getReadingCardEdition(work: ReadingWork): ReadingEdition | undefined {
   const volumeIds = new Set(readingVolumes.filter((item) => item.workId === work.id).map((item) => item.id));
   const editions = readingEditions.filter((item) => item.workId === work.id || Boolean(item.volumeId && volumeIds.has(item.volumeId)));
-  return editions.find((item) => item.country === "Brasil" && item.status === "published")
+  return editions.find((item) => item.id === work.featuredEditionId)
+    ?? editions.find((item) => item.country === "Brasil" && item.status === "published")
     ?? editions.find((item) => item.country === "Brasil")
     ?? editions.find((item) => item.status === "published")
     ?? editions[0];

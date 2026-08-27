@@ -6,6 +6,7 @@ export const PostFrontmatterSchema = z.object({
   description: z.string().optional(),
   slug: z.string().min(1, "slug obrigatorio"),
   contentId: z.string().min(1).optional(),
+  aboutPersonId: z.string().regex(/^person_[a-z0-9_]+$/).optional(),
   contentType: z.literal("article").optional(),
   schemaVersion: z.number().int().positive().optional(),
   aliases: z.array(z.string().min(1)).optional(),

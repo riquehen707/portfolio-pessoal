@@ -194,6 +194,8 @@ const readingPublishers = [
   ["org_lpm","l-e-pm","L&PM Editores","publisher"],
   ["org_dc_comics","dc-comics","DC Comics","publisher"],
   ["org_vozes","editora-vozes","Editora Vozes","publisher"],
+  ["org_martins_fontes","martins-fontes","Martins Fontes","publisher"],
+  ["org_nova_fronteira","nova-fronteira","Nova Fronteira","publisher"],
   ["org_woodstock_books","woodstock-books","Woodstock Books","publisher"],
   ["org_alfred_a_knopf","alfred-a-knopf","Alfred A. Knopf","publisher"],
   ["org_living_batch_press","living-batch-press","Living Batch Press","publisher"],

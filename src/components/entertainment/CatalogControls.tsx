@@ -9,7 +9,7 @@ export type CatalogFilter = {
   onChange: (value: string) => void;
 };
 
-export function CatalogControls({ query, onQueryChange, placeholder, filters, sort, sortOptions, onSortChange, resultCount, singular, plural, hasFilters, onClear }: {
+export function CatalogControls({ query, onQueryChange, placeholder, filters, sort, sortOptions, onSortChange, resultCount, singular, plural, hasFilters, onClear, collapsible = false }: {
   query: string;
   onQueryChange: (value: string) => void;
   placeholder: string;
@@ -22,14 +22,16 @@ export function CatalogControls({ query, onQueryChange, placeholder, filters, so
   plural: string;
   hasFilters: boolean;
   onClear: () => void;
+  collapsible?: boolean;
 }) {
+  const facetFields = <div className={styles.facets} data-count={filters.length + 1}>
+    {filters.map((filter) => <label key={filter.id}><span>{filter.label}</span><select value={filter.value} onChange={(event) => filter.onChange(event.target.value)}><option value="all">{filter.allLabel}</option>{filter.options.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}</select></label>)}
+    <label><span>Ordem</span><select value={sort} onChange={(event) => onSortChange(event.target.value)}>{sortOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}</select></label>
+  </div>;
   return <>
-    <div className={styles.panel} aria-label="Filtros do acervo">
+    <div className={styles.panel} aria-label="Filtros do acervo" data-collapsible={collapsible || undefined}>
       <label className={styles.search}><span>Buscar no acervo</span><input type="search" value={query} onChange={(event) => onQueryChange(event.target.value)} placeholder={placeholder}/></label>
-      <div className={styles.facets} data-count={filters.length + 1}>
-        {filters.map((filter) => <label key={filter.id}><span>{filter.label}</span><select value={filter.value} onChange={(event) => filter.onChange(event.target.value)}><option value="all">{filter.allLabel}</option>{filter.options.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}</select></label>)}
-        <label><span>Ordem</span><select value={sort} onChange={(event) => onSortChange(event.target.value)}>{sortOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}</select></label>
-      </div>
+      {collapsible ? <details className={styles.disclosure}><summary>Filtros{hasFilters ? " ativos" : ""}</summary>{facetFields}</details> : facetFields}
     </div>
     <div className={styles.resultBar}><p aria-live="polite">{resultCount} {resultCount === 1 ? singular : plural}</p>{hasFilters ? <button onClick={onClear} type="button">Limpar filtros</button> : null}</div>
   </>;

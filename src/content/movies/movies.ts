@@ -9,6 +9,7 @@ import { brazilianHorrorMovieSeeds } from "./brazilianHorrorMovies";
 import { scienceFictionMovieSeeds } from "./scienceFictionMovies";
 import { monsterMovieSeeds } from "./monsterMovies";
 import { naturalDisasterMovieSeeds } from "./naturalDisasterMovies";
+import { disasterClusterMovieSeeds } from "./disasterClusterMovies";
 
 export type MovieSeed = Pick<
   Movie,
@@ -432,6 +433,7 @@ const seeds: MovieSeed[] = [
   ...scienceFictionMovieSeeds,
   ...monsterMovieSeeds,
   ...naturalDisasterMovieSeeds,
+  ...disasterClusterMovieSeeds,
 ];
 
 const rawMovies = seeds.map((seed) => {

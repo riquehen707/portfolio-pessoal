@@ -4,12 +4,13 @@ import { creators } from "@/content/creators/creators";
 import styles from "./PersonCard.module.scss";
 
 const year = (date?: string) => date?.slice(0, 4);
+const displayYear = (value?: number | string) => value === undefined ? undefined : Number(value) < 0 ? `${Math.abs(Number(value))} a.C.` : String(Number(value));
 
 export function PersonCard({ personId }: { personId: string }) {
   const person = creators.find((item) => item.id === personId);
   if (!person) throw new Error(`PersonCard recebeu um ID inexistente: ${personId}`);
-  const birth = year(person.birthDate) ?? (person.birthYear ? String(person.birthYear) : undefined);
-  const death = year(person.deathDate);
+  const birth = displayYear(year(person.birthDate) ?? person.birthYear);
+  const death = displayYear(year(person.deathDate) ?? person.deathYear);
   const life = birth ? `${birth}–${death ?? "presente"}` : undefined;
   const title = person.status === "published" && person.profilePath
     ? <Link href={person.profilePath}>{person.name}</Link>

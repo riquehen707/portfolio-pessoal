@@ -5,8 +5,9 @@ import type { ReadingWork } from "@/content/reading/readingSchema";
 import type { Series } from "@/content/series/seriesSchema";
 import type { EditorialWork } from "@/content/works/workSchema";
 import { MovieListCard } from "@/components/movies/MovieListCard";
-import { ReadingCard } from "@/components/reading/ReadingCard";
 import { SeriesCard } from "@/components/series/SeriesCard";
+import { CollectionCarousel } from "@/components/collections/CollectionCarousel";
+import { ReadingShelfCard } from "@/components/reading/ReadingShelfCard";
 
 import styles from "./PersonalityWorks.module.scss";
 
@@ -41,7 +42,7 @@ function ReadingBibliography({ reading }: { reading: ReadingWork[] }) {
   const ordered = [...reading].sort((a, b) => (a.publicationStart ?? "").localeCompare(b.publicationStart ?? ""));
   return <div className={styles.group} id="bibliografia">
     <div className={styles.groupHeading}><h3>Livros no acervo</h3><p>Percorra as capas para explorar a bibliografia. Imagens históricas são identificadas no cadastro e não representam uma edição brasileira atual.</p></div>
-    <div className={styles.readingStrip}>{ordered.map((work)=><div className={styles.readingItem} key={work.id}><ReadingCard work={work} variant="editorial" /></div>)}</div>
+    <CollectionCarousel label="Livros no acervo">{ordered.map((work)=><ReadingShelfCard key={work.id} work={work} />)}</CollectionCarousel>
   </div>;
 }
 

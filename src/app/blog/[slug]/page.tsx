@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { HiOutlineBookOpen, HiOutlineClock } from "react-icons/hi2";
 
-import { Column, Heading, Meta, Schema, SmartLink, Text } from "@once-ui-system/core";
+import { Column, Heading, Meta, SmartLink, Text } from "@once-ui-system/core";
 
 import { CustomMDX, ScrollToHash } from "@/components";
 import { ArticleTools } from "@/components/blog/ArticleTools";
@@ -13,6 +13,7 @@ import { baseURL, blog, person, social } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 import { getAllArticles, getArticleBySlug, type BlogFile } from "@/data/articles";
+import { creators } from "@/content/creators/creators";
 
 import styles from "./page.module.scss";
 
@@ -164,26 +165,22 @@ export default async function BlogPost({ params }: PageProps) {
   const instagramUrl =
     social.find((item) => item.name === "Instagram")?.link ??
     "https://www.instagram.com/riquehen/";
+  const aboutPerson = post.metadata.aboutPersonId
+    ? creators.find((item) => item.id === post.metadata.aboutPersonId && item.status === "published")
+    : undefined;
+  const articleJsonLd = {
+    "@context":"https://schema.org", "@type":"BlogPosting", "@id":`${baseURL}${articlePath}#article`,
+    headline:post.metadata.title, description:post.metadata.summary ?? post.metadata.title,
+    url:`${baseURL}${articlePath}`, mainEntityOfPage:{"@id":`${baseURL}${articlePath}`},
+    image:toAbs(post.metadata.image), datePublished:post.metadata.publishedAt,
+    dateModified:post.metadata.reviewedAt ?? post.metadata.updatedAt ?? post.metadata.publishedAt,
+    author:{"@type":"Person",name:person.name,url:`${baseURL}/about`,image:`${baseURL}${person.avatar}`},
+    about:aboutPerson?.profilePath ? {"@id":`${baseURL}${aboutPerson.profilePath}#person`,"@type":"Person",name:aboutPerson.name} : undefined,
+  };
 
   return (
     <Column className={styles.page} paddingTop="24" gap="24">
-      <Schema
-        as="blogPosting"
-        baseURL={baseURL}
-        path={articlePath}
-        title={post.metadata.title}
-        description={post.metadata.summary ?? post.metadata.title}
-        datePublished={post.metadata.publishedAt}
-        dateModified={
-          post.metadata.reviewedAt ?? post.metadata.updatedAt ?? post.metadata.publishedAt
-        }
-        image={toAbs(post.metadata.image)}
-        author={{
-          name: person.name,
-          url: `${baseURL}/about`,
-          image: `${baseURL}${person.avatar}`,
-        }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(articleJsonLd)}} />
       <BreadcrumbJsonLd
         items={[
           { name: "Início", url: baseURL },

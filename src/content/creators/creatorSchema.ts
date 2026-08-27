@@ -20,6 +20,7 @@ export const CreatorSchema = z.object({
   birthDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
   deathDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
   birthYear: z.number().int().optional(),
+  deathYear: z.number().int().optional(),
   birthPlace: z.string().optional(),
   countryOrRegion: z.string().optional(),
   occupations: z.array(z.string().min(1)).default([]),

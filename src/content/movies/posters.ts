@@ -3193,5 +3193,320 @@ export const posterCatalog = {
     "rights": "permission-pending",
     "width": 500,
     "height": 750
+  },
+  "impacto-profundo": {
+    "src": "/images/movies/impacto-profundo.webp",
+    "alt": "Pôster de Impacto Profundo (1998)",
+    "sourceUrl": "https://www.themoviedb.org/movie/8656-deep-impact",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "2012-filme": {
+    "src": "/images/movies/2012-filme.webp",
+    "alt": "Pôster de 2012 (2009)",
+    "sourceUrl": "https://www.themoviedb.org/movie/14161-2012",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "alem-da-vida": {
+    "src": "/images/movies/alem-da-vida.webp",
+    "alt": "Pôster de Além da Vida (2010)",
+    "sourceUrl": "https://www.themoviedb.org/movie/44603-hereafter",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "fukushima-50": {
+    "src": "/images/movies/fukushima-50.webp",
+    "alt": "Pôster de Fukushima 50 (2020)",
+    "sourceUrl": "https://www.themoviedb.org/movie/563067-fukushima-50",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "terremoto-1974": {
+    "src": "/images/movies/terremoto-1974.webp",
+    "alt": "Pôster de Terremoto (1974)",
+    "sourceUrl": "https://www.themoviedb.org/movie/11123-earthquake",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "terremoto-a-furia-da-natureza": {
+    "src": "/images/movies/terremoto-a-furia-da-natureza.webp",
+    "alt": "Pôster de Terremoto: A Fúria da Natureza (2010)",
+    "sourceUrl": "https://www.themoviedb.org/movie/44560",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 742
+  },
+  "aftershock-2012": {
+    "src": "/images/movies/aftershock-2012.webp",
+    "alt": "Pôster de Aftershock (2012)",
+    "sourceUrl": "https://www.themoviedb.org/movie/123103-aftershock",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "volcano-a-furia": {
+    "src": "/images/movies/volcano-a-furia.webp",
+    "alt": "Pôster de Volcano: A Fúria (1997)",
+    "sourceUrl": "https://www.themoviedb.org/movie/10357-volcano",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "pompeia-2014": {
+    "src": "/images/movies/pompeia-2014.webp",
+    "alt": "Pôster de Pompeia (2014)",
+    "sourceUrl": "https://www.themoviedb.org/movie/76649-pompeii",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "skyfire": {
+    "src": "/images/movies/skyfire.webp",
+    "alt": "Pôster de Skyfire (2019)",
+    "sourceUrl": "https://www.themoviedb.org/movie/658239",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 714
+  },
+  "when-time-ran-out": {
+    "src": "/images/movies/when-time-ran-out.webp",
+    "alt": "Pôster de When Time Ran Out (1980)",
+    "sourceUrl": "https://www.themoviedb.org/movie/47942-when-time-ran-out",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "dentro-do-inferno": {
+    "src": "/images/movies/dentro-do-inferno.webp",
+    "alt": "Pôster de Dentro do Inferno (2016)",
+    "sourceUrl": "https://www.themoviedb.org/movie/360029-into-the-inferno",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 717
+  },
+  "o-vulcao-resgate-em-whakaari": {
+    "src": "/images/movies/o-vulcao-resgate-em-whakaari.webp",
+    "alt": "Pôster de O Vulcão: Resgate em Whakaari (2022)",
+    "sourceUrl": "https://www.themoviedb.org/movie/1018645-the-volcano-rescue-from-whakaari",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 710
+  },
+  "no-olho-do-tornado": {
+    "src": "/images/movies/no-olho-do-tornado.webp",
+    "alt": "Pôster de No Olho do Tornado (2014)",
+    "sourceUrl": "https://www.themoviedb.org/movie/216282-into-the-storm",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "furacao-categoria-5": {
+    "src": "/images/movies/furacao-categoria-5.webp",
+    "alt": "Pôster de Furacão: Categoria 5 (2018)",
+    "sourceUrl": "https://www.themoviedb.org/movie/430040-the-hurricane-heist",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "geostorm": {
+    "src": "/images/movies/geostorm.webp",
+    "alt": "Pôster de Tempestade: Planeta em Fúria (2017)",
+    "sourceUrl": "https://www.themoviedb.org/movie/274855-geostorm",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "13-minutos": {
+    "src": "/images/movies/13-minutos.webp",
+    "alt": "Pôster de 13 Minutos (2021)",
+    "sourceUrl": "https://www.themoviedb.org/movie/787723-13-minutes",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "a-noite-dos-tornados": {
+    "src": "/images/movies/a-noite-dos-tornados.webp",
+    "alt": "Pôster de A Noite dos Tornados (1996)",
+    "sourceUrl": "https://www.themoviedb.org/movie/34138-night-of-the-twisters",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "horas-decisivas": {
+    "src": "/images/movies/horas-decisivas.webp",
+    "alt": "Pôster de Horas Decisivas (2016)",
+    "sourceUrl": "https://www.themoviedb.org/movie/300673-the-finest-hours",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "a-deriva-2018": {
+    "src": "/images/movies/a-deriva-2018.webp",
+    "alt": "Pôster de À Deriva (2018)",
+    "sourceUrl": "https://www.themoviedb.org/movie/429300-adrift",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "armageddon": {
+    "src": "/images/movies/armageddon.webp",
+    "alt": "Pôster de Armageddon (1998)",
+    "sourceUrl": "https://www.themoviedb.org/movie/95-armageddon",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "greenland-o-ultimo-refugio": {
+    "src": "/images/movies/greenland-o-ultimo-refugio.webp",
+    "alt": "Pôster de Greenland: O Último Refúgio (2020)",
+    "sourceUrl": "https://www.themoviedb.org/movie/524047-greenland",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "nao-olhe-para-cima": {
+    "src": "/images/movies/nao-olhe-para-cima.webp",
+    "alt": "Pôster de Não Olhe para Cima (2021)",
+    "sourceUrl": "https://www.themoviedb.org/movie/646380-don-t-look-up",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "meteoro-1979": {
+    "src": "/images/movies/meteoro-1979.webp",
+    "alt": "Pôster de Meteoro (1979)",
+    "sourceUrl": "https://www.themoviedb.org/movie/40160-meteor",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "terra-a-deriva": {
+    "src": "/images/movies/terra-a-deriva.webp",
+    "alt": "Pôster de Terra à Deriva (2019)",
+    "sourceUrl": "https://www.themoviedb.org/movie/535167",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "vivos-1993": {
+    "src": "/images/movies/vivos-1993.webp",
+    "alt": "Pôster de Vivos (1993)",
+    "sourceUrl": "https://www.themoviedb.org/movie/7305-alive",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "o-voo": {
+    "src": "/images/movies/o-voo.webp",
+    "alt": "Pôster de O Voo (2012)",
+    "sourceUrl": "https://www.themoviedb.org/movie/87502-flight",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "naufrago": {
+    "src": "/images/movies/naufrago.webp",
+    "alt": "Pôster de Náufrago (2000)",
+    "sourceUrl": "https://www.themoviedb.org/movie/8358-cast-away",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "a-perseguicao": {
+    "src": "/images/movies/a-perseguicao.webp",
+    "alt": "Pôster de A Perseguição (2011)",
+    "sourceUrl": "https://www.themoviedb.org/movie/75174-the-grey",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "sully-o-heroi-do-rio-hudson": {
+    "src": "/images/movies/sully-o-heroi-do-rio-hudson.webp",
+    "alt": "Pôster de Sully: O Herói do Rio Hudson (2016)",
+    "sourceUrl": "https://www.themoviedb.org/movie/363676-sully",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "voo-united-93": {
+    "src": "/images/movies/voo-united-93.webp",
+    "alt": "Pôster de Voo United 93 (2006)",
+    "sourceUrl": "https://www.themoviedb.org/movie/9829-united-93",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "alerta-maximo": {
+    "src": "/images/movies/alerta-maximo.webp",
+    "alt": "Pôster de Alerta Máximo (2023)",
+    "sourceUrl": "https://www.themoviedb.org/movie/646389-plane",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "seis-dias-sete-noites": {
+    "src": "/images/movies/seis-dias-sete-noites.webp",
+    "alt": "Pôster de Seis Dias, Sete Noites (1998)",
+    "sourceUrl": "https://www.themoviedb.org/movie/6068-six-days-seven-nights",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "o-voo-do-fenix-1965": {
+    "src": "/images/movies/o-voo-do-fenix-1965.webp",
+    "alt": "Pôster de O Voo do Fênix (1965)",
+    "sourceUrl": "https://www.themoviedb.org/movie/10243-the-flight-of-the-phoenix",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
+  },
+  "sem-medo-de-viver": {
+    "src": "/images/movies/sem-medo-de-viver.webp",
+    "alt": "Pôster de Sem Medo de Viver (1993)",
+    "sourceUrl": "https://www.themoviedb.org/movie/10443-fearless",
+    "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+    "rights": "permission-pending",
+    "width": 500,
+    "height": 750
   }
 } as const;

@@ -48,11 +48,14 @@ export const ReadingSeriesSchema = z.object({
 export const ReadingWorkSchema = z.object({
   id: z.string().regex(/^read_work_[a-z0-9_]+$/), contentType: z.literal("reading-work"), schemaVersion: z.number().int().positive(),
   slug: z.string().regex(slug), aliases: z.array(z.string().regex(slug)).default([]), originalTitle: z.string().min(1), titleBr: z.string().min(1).optional(), subtitle: z.string().min(1).optional(),
+  workType: z.enum(["book","essay","treatise","dialogue","collection","lecture","memoir","other"]).optional(),
   romanizedTitle: z.string().min(1).optional(), format: ReadingFormatSchema, originCountries: z.array(z.string().min(1)).min(1), originalLanguages: z.array(z.string().min(1)).min(1),
   comicTradition: ComicTraditionSchema.optional(), comicFormat: ComicFormatSchema.optional(), readingDirection: z.enum(["left-to-right", "right-to-left", "vertical", "mixed"]).optional(),
   credits: z.array(ReadingCreditSchema).min(1), organizationRelationships: z.array(ReadingOrganizationRelationshipSchema).default([]),
-  publicationStart: z.string().regex(/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/).optional(), publicationEnd: z.string().regex(/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/).optional(),
-  publicationStatus: ReadingPublicationStatusSchema, categories: z.array(BookCategorySchema).min(1), genres: z.array(z.string().min(1)).default([]), themes: z.array(z.string().min(1)).default([]),
+  publicationStart: z.string().regex(/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/).optional(), publicationEnd: z.string().regex(/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/).optional(), publicationDisplay: z.string().min(1).optional(),
+  publicationStatus: ReadingPublicationStatusSchema, categories: z.array(BookCategorySchema).min(1), genres: z.array(z.string().min(1)).default([]), themes: z.array(z.string().min(1)).default([]), concepts: z.array(z.string().min(1)).optional(),
+  readingDifficulty: z.enum(["introductory","intermediate","advanced"]).optional(), featuredEditionId: z.string().regex(/^read_edition_[a-z0-9_]+$/).optional(),
+  relatedArticlePaths: z.array(z.string().startsWith("/blog/")).optional(), relatedPeople: z.array(z.object({ personId:z.string().regex(/^person_[a-z0-9_]+$/), relationship:z.enum(["subject","character","interlocutor","editorial-context"]), note:z.string().optional() })).optional(),
   confirmedVolumeCount: z.number().int().positive().optional(), volumeCountCheckedAt: z.string().regex(isoDate).optional(), episodeCount: z.number().int().positive().optional(), seasonCount: z.number().int().positive().optional(),
   demographics: z.array(z.enum(["children", "middle-grade", "young-adult", "adult", "shonen", "shojo", "seinen", "josei", "general"])).default([]),
   audienceProfile: z.string().min(10).max(240).optional(), shortDescription: z.string().min(20).max(320), editorialEvaluation: ReadingEditorialEvaluationSchema.optional(), seriesMemberships: z.array(z.object({ seriesId: z.string().regex(/^read_series_[a-z0-9_]+$/), position: z.number().positive().optional(), label: z.string().min(1).optional() })).default([]),
@@ -118,6 +121,7 @@ export const ReadingCatalogSchema = z.object({ works: z.array(ReadingWorkSchema)
   unique(catalog.offers.map((item) => item.id), "offers");
   const editionIds = new Set(catalog.editions.map((item) => item.id));
   catalog.works.forEach((work, index) => {
+    if (work.featuredEditionId && !editionIds.has(work.featuredEditionId)) ctx.addIssue({ code:"custom", path:["works",index,"featuredEditionId"], message:`edição preferencial inexistente: ${work.featuredEditionId}` });
     const editionId = work.editorialEvaluation?.editionId;
     if (editionId && !editionIds.has(editionId)) ctx.addIssue({ code: "custom", path: ["works", index, "editorialEvaluation", "editionId"], message: `avaliação referencia edição inexistente: ${editionId}` });
   });

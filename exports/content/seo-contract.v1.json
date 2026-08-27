@@ -796,6 +796,7 @@
     "title": "Narnia: The Magician's Nephew: ficha e análise do filme",
     "description": "Narnia: The Magician's Nephew (2027): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
+    "image": "/images/movies/narnia-2026.webp",
     "structuredDataType": "Movie"
   },
   {
@@ -3556,6 +3557,356 @@
     "description": "Japão Submerso (1973): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
     "indexable": false,
     "image": "/images/movies/japao-submerso-1973.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_deep_impact_1998",
+    "route": "/filmes/impacto-profundo",
+    "canonical": "https://henrique.dog/filmes/impacto-profundo",
+    "title": "Impacto Profundo: ficha e análise do filme",
+    "description": "Impacto Profundo (1998): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/impacto-profundo.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_2012_2009",
+    "route": "/filmes/2012-filme",
+    "canonical": "https://henrique.dog/filmes/2012-filme",
+    "title": "2012: ficha e análise do filme",
+    "description": "2012 (2009): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/2012-filme.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_hereafter_2010",
+    "route": "/filmes/alem-da-vida",
+    "canonical": "https://henrique.dog/filmes/alem-da-vida",
+    "title": "Além da Vida: ficha e análise do filme",
+    "description": "Além da Vida (2010): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/alem-da-vida.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_fukushima_50_2020",
+    "route": "/filmes/fukushima-50",
+    "canonical": "https://henrique.dog/filmes/fukushima-50",
+    "title": "Fukushima 50: ficha e análise do filme",
+    "description": "Fukushima 50 (2020): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/fukushima-50.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_earthquake_1974",
+    "route": "/filmes/terremoto-1974",
+    "canonical": "https://henrique.dog/filmes/terremoto-1974",
+    "title": "Terremoto: ficha e análise do filme",
+    "description": "Terremoto (1974): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/terremoto-1974.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_aftershock_2010",
+    "route": "/filmes/terremoto-a-furia-da-natureza",
+    "canonical": "https://henrique.dog/filmes/terremoto-a-furia-da-natureza",
+    "title": "Terremoto: A Fúria da Natureza: ficha e análise do filme",
+    "description": "Terremoto: A Fúria da Natureza (2010): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/terremoto-a-furia-da-natureza.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_aftershock_2012",
+    "route": "/filmes/aftershock-2012",
+    "canonical": "https://henrique.dog/filmes/aftershock-2012",
+    "title": "Aftershock: ficha e análise do filme",
+    "description": "Aftershock (2012): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/aftershock-2012.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_volcano_1997",
+    "route": "/filmes/volcano-a-furia",
+    "canonical": "https://henrique.dog/filmes/volcano-a-furia",
+    "title": "Volcano: A Fúria: ficha e análise do filme",
+    "description": "Volcano: A Fúria (1997): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/volcano-a-furia.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_pompeii_2014",
+    "route": "/filmes/pompeia-2014",
+    "canonical": "https://henrique.dog/filmes/pompeia-2014",
+    "title": "Pompeia: ficha e análise do filme",
+    "description": "Pompeia (2014): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/pompeia-2014.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_skyfire_2019",
+    "route": "/filmes/skyfire",
+    "canonical": "https://henrique.dog/filmes/skyfire",
+    "title": "Skyfire: ficha e análise do filme",
+    "description": "Skyfire (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/skyfire.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_when_time_ran_out_1980",
+    "route": "/filmes/when-time-ran-out",
+    "canonical": "https://henrique.dog/filmes/when-time-ran-out",
+    "title": "When Time Ran Out: ficha e análise do filme",
+    "description": "When Time Ran Out (1980): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/when-time-ran-out.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_into_inferno_2016",
+    "route": "/filmes/dentro-do-inferno",
+    "canonical": "https://henrique.dog/filmes/dentro-do-inferno",
+    "title": "Dentro do Inferno: ficha e análise do filme",
+    "description": "Dentro do Inferno (2016): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/dentro-do-inferno.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_whakaari_2022",
+    "route": "/filmes/o-vulcao-resgate-em-whakaari",
+    "canonical": "https://henrique.dog/filmes/o-vulcao-resgate-em-whakaari",
+    "title": "O Vulcão: Resgate em Whakaari: ficha e análise do filme",
+    "description": "O Vulcão: Resgate em Whakaari (2022): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/o-vulcao-resgate-em-whakaari.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_into_storm_2014",
+    "route": "/filmes/no-olho-do-tornado",
+    "canonical": "https://henrique.dog/filmes/no-olho-do-tornado",
+    "title": "No Olho do Tornado: ficha e análise do filme",
+    "description": "No Olho do Tornado (2014): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/no-olho-do-tornado.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_hurricane_heist_2018",
+    "route": "/filmes/furacao-categoria-5",
+    "canonical": "https://henrique.dog/filmes/furacao-categoria-5",
+    "title": "Furacão: Categoria 5: ficha e análise do filme",
+    "description": "Furacão: Categoria 5 (2018): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/furacao-categoria-5.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_geostorm_2017",
+    "route": "/filmes/geostorm",
+    "canonical": "https://henrique.dog/filmes/geostorm",
+    "title": "Tempestade: Planeta em Fúria: ficha e análise do filme",
+    "description": "Tempestade: Planeta em Fúria (2017): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/geostorm.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_13_minutes_2021",
+    "route": "/filmes/13-minutos",
+    "canonical": "https://henrique.dog/filmes/13-minutos",
+    "title": "13 Minutos: ficha e análise do filme",
+    "description": "13 Minutos (2021): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/13-minutos.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_night_twisters_1996",
+    "route": "/filmes/a-noite-dos-tornados",
+    "canonical": "https://henrique.dog/filmes/a-noite-dos-tornados",
+    "title": "A Noite dos Tornados: ficha e análise do filme",
+    "description": "A Noite dos Tornados (1996): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/a-noite-dos-tornados.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_finest_hours_2016",
+    "route": "/filmes/horas-decisivas",
+    "canonical": "https://henrique.dog/filmes/horas-decisivas",
+    "title": "Horas Decisivas: ficha e análise do filme",
+    "description": "Horas Decisivas (2016): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/horas-decisivas.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_adrift_2018",
+    "route": "/filmes/a-deriva-2018",
+    "canonical": "https://henrique.dog/filmes/a-deriva-2018",
+    "title": "À Deriva: ficha e análise do filme",
+    "description": "À Deriva (2018): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/a-deriva-2018.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_armageddon_1998",
+    "route": "/filmes/armageddon",
+    "canonical": "https://henrique.dog/filmes/armageddon",
+    "title": "Armageddon: ficha e análise do filme",
+    "description": "Armageddon (1998): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/armageddon.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_greenland_2020",
+    "route": "/filmes/greenland-o-ultimo-refugio",
+    "canonical": "https://henrique.dog/filmes/greenland-o-ultimo-refugio",
+    "title": "Greenland: O Último Refúgio: ficha e análise do filme",
+    "description": "Greenland: O Último Refúgio (2020): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/greenland-o-ultimo-refugio.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_dont_look_up_2021",
+    "route": "/filmes/nao-olhe-para-cima",
+    "canonical": "https://henrique.dog/filmes/nao-olhe-para-cima",
+    "title": "Não Olhe para Cima: ficha e análise do filme",
+    "description": "Não Olhe para Cima (2021): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/nao-olhe-para-cima.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_meteor_1979",
+    "route": "/filmes/meteoro-1979",
+    "canonical": "https://henrique.dog/filmes/meteoro-1979",
+    "title": "Meteoro: ficha e análise do filme",
+    "description": "Meteoro (1979): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/meteoro-1979.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_wandering_earth_2019",
+    "route": "/filmes/terra-a-deriva",
+    "canonical": "https://henrique.dog/filmes/terra-a-deriva",
+    "title": "Terra à Deriva: ficha e análise do filme",
+    "description": "Terra à Deriva (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/terra-a-deriva.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_alive_1993",
+    "route": "/filmes/vivos-1993",
+    "canonical": "https://henrique.dog/filmes/vivos-1993",
+    "title": "Vivos: ficha e análise do filme",
+    "description": "Vivos (1993): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/vivos-1993.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_flight_2012",
+    "route": "/filmes/o-voo",
+    "canonical": "https://henrique.dog/filmes/o-voo",
+    "title": "O Voo: ficha e análise do filme",
+    "description": "O Voo (2012): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/o-voo.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_cast_away_2000",
+    "route": "/filmes/naufrago",
+    "canonical": "https://henrique.dog/filmes/naufrago",
+    "title": "Náufrago: ficha e análise do filme",
+    "description": "Náufrago (2000): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/naufrago.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_grey_2011",
+    "route": "/filmes/a-perseguicao",
+    "canonical": "https://henrique.dog/filmes/a-perseguicao",
+    "title": "A Perseguição: ficha e análise do filme",
+    "description": "A Perseguição (2011): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/a-perseguicao.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_sully_2016",
+    "route": "/filmes/sully-o-heroi-do-rio-hudson",
+    "canonical": "https://henrique.dog/filmes/sully-o-heroi-do-rio-hudson",
+    "title": "Sully: O Herói do Rio Hudson: ficha e análise do filme",
+    "description": "Sully: O Herói do Rio Hudson (2016): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/sully-o-heroi-do-rio-hudson.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_united_93_2006",
+    "route": "/filmes/voo-united-93",
+    "canonical": "https://henrique.dog/filmes/voo-united-93",
+    "title": "Voo United 93: ficha e análise do filme",
+    "description": "Voo United 93 (2006): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/voo-united-93.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_plane_2023",
+    "route": "/filmes/alerta-maximo",
+    "canonical": "https://henrique.dog/filmes/alerta-maximo",
+    "title": "Alerta Máximo: ficha e análise do filme",
+    "description": "Alerta Máximo (2023): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/alerta-maximo.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_six_days_1998",
+    "route": "/filmes/seis-dias-sete-noites",
+    "canonical": "https://henrique.dog/filmes/seis-dias-sete-noites",
+    "title": "Seis Dias, Sete Noites: ficha e análise do filme",
+    "description": "Seis Dias, Sete Noites (1998): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/seis-dias-sete-noites.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_flight_phoenix_1965",
+    "route": "/filmes/o-voo-do-fenix-1965",
+    "canonical": "https://henrique.dog/filmes/o-voo-do-fenix-1965",
+    "title": "O Voo do Fênix: ficha e análise do filme",
+    "description": "O Voo do Fênix (1965): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/o-voo-do-fenix-1965.webp",
+    "structuredDataType": "Movie"
+  },
+  {
+    "id": "mov_cluster_fearless_1993",
+    "route": "/filmes/sem-medo-de-viver",
+    "canonical": "https://henrique.dog/filmes/sem-medo-de-viver",
+    "title": "Sem Medo de Viver: ficha e análise do filme",
+    "description": "Sem Medo de Viver (1993): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece.",
+    "indexable": false,
+    "image": "/images/movies/sem-medo-de-viver.webp",
     "structuredDataType": "Movie"
   }
 ]

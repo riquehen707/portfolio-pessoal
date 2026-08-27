@@ -14,6 +14,7 @@ type Team = {
 
 export type Metadata = {
   title: string;
+  aboutPersonId?: string;
   publishedAt?: string;
   updatedAt?: string;
   reviewedAt?: string;
@@ -209,6 +210,7 @@ function safeReadFile(filePath: string, collection?: string): BlogFile | null {
 
     const metadata: Metadata = {
       title: parsed.title ?? "",
+      aboutPersonId: parsed.aboutPersonId ?? undefined,
       publishedAt,
       updatedAt,
       reviewedAt,

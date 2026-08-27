@@ -6100,6 +6100,15 @@
       "audienceProfile": "Para famílias e leitores curiosos sobre como uma diretora autoral negociará mito, infância e grande produção.",
       "experience": "Promessa de fantasia literária em grande formato",
       "contentWarnings": [],
+      "poster": {
+        "src": "/images/movies/narnia-2026.webp",
+        "alt": "Pôster de Narnia: The Magician's Nephew (2027)",
+        "sourceUrl": "https://www.themoviedb.org/movie/1147572-narnia-the-magician-s-nephew",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
       "status": "draft",
       "seo": {
         "title": "Narnia: The Magician's Nephew: ficha e análise do filme",
@@ -28313,6 +28322,2349 @@
         {
           "title": "Japan Sinks — British Film Institute",
           "url": "https://www.bfi.org.uk/lists/10-great-disaster-films"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_deep_impact_1998",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "impacto-profundo",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Impacto Profundo",
+      "originalTitle": "Deep Impact",
+      "year": 1998,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 121,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Mimi Leder"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Ficção científica",
+        "Drama"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Cometa",
+        "Tsunami",
+        "Extinção"
+      ],
+      "shortDescription": "A descoberta de um cometa em rota de colisão leva a uma missão espacial, à construção de abrigos e à preparação pública para um impacto global.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/impacto-profundo.webp",
+        "alt": "Pôster de Impacto Profundo (1998)",
+        "sourceUrl": "https://www.themoviedb.org/movie/8656-deep-impact",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Impacto Profundo: ficha e análise do filme",
+        "description": "Impacto Profundo (1998): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Deep Impact — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/Deep_Impact"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_2012_2009",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "2012-filme",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "2012",
+      "originalTitle": "2012",
+      "year": 2009,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 158,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Roland Emmerich"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Ação",
+        "Ficção científica"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Terremoto",
+        "Tsunami",
+        "Erupção vulcânica"
+      ],
+      "shortDescription": "Uma família tenta alcançar embarcações de sobrevivência enquanto uma sucessão fantasiosa de colapsos geológicos transforma o planeta.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/2012-filme.webp",
+        "alt": "Pôster de 2012 (2009)",
+        "sourceUrl": "https://www.themoviedb.org/movie/14161-2012",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "2012: ficha e análise do filme",
+        "description": "2012 (2009): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "2012 — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/2012"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_hereafter_2010",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "alem-da-vida",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Além da Vida",
+      "originalTitle": "Hereafter",
+      "year": 2010,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 129,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Clint Eastwood"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Drama",
+        "Fantasia"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Tsunami",
+        "Luto",
+        "Morte"
+      ],
+      "shortDescription": "Três histórias sobre morte e perda se cruzam depois que uma jornalista sobrevive ao tsunami do oceano Índico.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/alem-da-vida.webp",
+        "alt": "Pôster de Além da Vida (2010)",
+        "sourceUrl": "https://www.themoviedb.org/movie/44603-hereafter",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Além da Vida: ficha e análise do filme",
+        "description": "Além da Vida (2010): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Hereafter — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/Hereafter"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_fukushima_50_2020",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "fukushima-50",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Fukushima 50",
+      "originalTitle": "Fukushima 50",
+      "year": 2020,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 122,
+      "countries": [
+        "Japão"
+      ],
+      "directors": [
+        "Setsurō Wakamatsu"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Drama"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Terremoto",
+        "Tsunami",
+        "Acidente nuclear"
+      ],
+      "shortDescription": "Trabalhadores permanecem na usina de Fukushima Daiichi após o terremoto e o tsunami de 2011 interromperem sistemas essenciais.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/fukushima-50.webp",
+        "alt": "Pôster de Fukushima 50 (2020)",
+        "sourceUrl": "https://www.themoviedb.org/movie/563067-fukushima-50",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Fukushima 50: ficha e análise do filme",
+        "description": "Fukushima 50 (2020): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Fukushima 50 — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/Fukushima_50"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_earthquake_1974",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "terremoto-1974",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Terremoto",
+      "originalTitle": "Earthquake",
+      "year": 1974,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 122,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Mark Robson"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Ação",
+        "Drama"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Terremoto",
+        "Los Angeles",
+        "Resgate"
+      ],
+      "shortDescription": "Um grande terremoto atinge Los Angeles e cruza conflitos pessoais com operações de resgate e destruição urbana.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/terremoto-1974.webp",
+        "alt": "Pôster de Terremoto (1974)",
+        "sourceUrl": "https://www.themoviedb.org/movie/11123-earthquake",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Terremoto: ficha e análise do filme",
+        "description": "Terremoto (1974): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Earthquake — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/Earthquake"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_aftershock_2010",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "terremoto-a-furia-da-natureza",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Terremoto: A Fúria da Natureza",
+      "originalTitle": "唐山大地震",
+      "year": 2010,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 135,
+      "countries": [
+        "China"
+      ],
+      "directors": [
+        "Feng Xiaogang"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Drama"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Terremoto de Tangshan",
+        "Família",
+        "Trauma"
+      ],
+      "shortDescription": "Uma decisão impossível durante o terremoto de Tangshan separa uma família e produz consequências que atravessam décadas.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/terremoto-a-furia-da-natureza.webp",
+        "alt": "Pôster de Terremoto: A Fúria da Natureza (2010)",
+        "sourceUrl": "https://www.themoviedb.org/movie/44560",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 742
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Terremoto: A Fúria da Natureza: ficha e análise do filme",
+        "description": "Terremoto: A Fúria da Natureza (2010): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "唐山大地震 — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/%E5%94%90%E5%B1%B1%E5%A4%A7%E5%9C%B0%E9%9C%87"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_aftershock_2012",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "aftershock-2012",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Aftershock",
+      "originalTitle": "Aftershock",
+      "year": 2012,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 89,
+      "countries": [
+        "Estados Unidos",
+        "Chile"
+      ],
+      "directors": [
+        "Nicolás López"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Terror",
+        "Suspense"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Terremoto",
+        "Colapso social",
+        "Sobrevivência"
+      ],
+      "shortDescription": "Turistas em Valparaíso sobrevivem a um terremoto e encontram uma cidade em que infraestrutura e ordem social entram em colapso.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/aftershock-2012.webp",
+        "alt": "Pôster de Aftershock (2012)",
+        "sourceUrl": "https://www.themoviedb.org/movie/123103-aftershock",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Aftershock: ficha e análise do filme",
+        "description": "Aftershock (2012): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Aftershock — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/Aftershock"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_volcano_1997",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "volcano-a-furia",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Volcano: A Fúria",
+      "originalTitle": "Volcano",
+      "year": 1997,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 104,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Mick Jackson"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Ação",
+        "Drama"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Erupção vulcânica",
+        "Los Angeles",
+        "Lava"
+      ],
+      "shortDescription": "Uma abertura vulcânica surge sob Los Angeles e força equipes municipais a improvisar barreiras contra o fluxo de lava.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/volcano-a-furia.webp",
+        "alt": "Pôster de Volcano: A Fúria (1997)",
+        "sourceUrl": "https://www.themoviedb.org/movie/10357-volcano",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Volcano: A Fúria: ficha e análise do filme",
+        "description": "Volcano: A Fúria (1997): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Volcano — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/Volcano"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_pompeii_2014",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "pompeia-2014",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Pompeia",
+      "originalTitle": "Pompeii",
+      "year": 2014,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 105,
+      "countries": [
+        "Canadá",
+        "Alemanha"
+      ],
+      "directors": [
+        "Paul W. S. Anderson"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Ação",
+        "Drama"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Vesúvio",
+        "Pompeia",
+        "Erupção vulcânica"
+      ],
+      "shortDescription": "Um gladiador tenta alcançar a mulher que ama enquanto a erupção do Vesúvio destrói Pompeia.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/pompeia-2014.webp",
+        "alt": "Pôster de Pompeia (2014)",
+        "sourceUrl": "https://www.themoviedb.org/movie/76649-pompeii",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Pompeia: ficha e análise do filme",
+        "description": "Pompeia (2014): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Pompeii — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/Pompeii"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_skyfire_2019",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "skyfire",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Skyfire",
+      "originalTitle": "天·火",
+      "year": 2019,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 97,
+      "countries": [
+        "China"
+      ],
+      "directors": [
+        "Simon West"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Ação"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Erupção vulcânica",
+        "Ilha",
+        "Resgate"
+      ],
+      "shortDescription": "Cientistas e turistas tentam escapar quando um resort construído numa ilha vulcânica é atingido por uma erupção explosiva.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/skyfire.webp",
+        "alt": "Pôster de Skyfire (2019)",
+        "sourceUrl": "https://www.themoviedb.org/movie/658239",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 714
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Skyfire: ficha e análise do filme",
+        "description": "Skyfire (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "天·火 — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/%E5%A4%A9%C2%B7%E7%81%AB"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_when_time_ran_out_1980",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "when-time-ran-out",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "When Time Ran Out",
+      "originalTitle": "When Time Ran Out...",
+      "year": 1980,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 121,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "James Goldstone"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Ação",
+        "Drama"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Erupção vulcânica",
+        "Resort",
+        "Evacuação"
+      ],
+      "shortDescription": "Hóspedes e trabalhadores de um resort precisam atravessar uma ilha depois que alertas sobre o vulcão são ignorados.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/when-time-ran-out.webp",
+        "alt": "Pôster de When Time Ran Out (1980)",
+        "sourceUrl": "https://www.themoviedb.org/movie/47942-when-time-ran-out",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "When Time Ran Out: ficha e análise do filme",
+        "description": "When Time Ran Out (1980): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "When Time Ran Out... — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/When_Time_Ran_Out..."
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_into_inferno_2016",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "dentro-do-inferno",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Dentro do Inferno",
+      "originalTitle": "Into the Inferno",
+      "year": 2016,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 107,
+      "countries": [
+        "Reino Unido",
+        "Alemanha"
+      ],
+      "directors": [
+        "Werner Herzog"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Documentário"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Vulcões",
+        "Ciência",
+        "Cultura"
+      ],
+      "shortDescription": "Werner Herzog e o vulcanólogo Clive Oppenheimer visitam comunidades que vivem próximas a vulcões ativos.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/dentro-do-inferno.webp",
+        "alt": "Pôster de Dentro do Inferno (2016)",
+        "sourceUrl": "https://www.themoviedb.org/movie/360029-into-the-inferno",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 717
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Dentro do Inferno: ficha e análise do filme",
+        "description": "Dentro do Inferno (2016): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Into the Inferno — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/Into_the_Inferno"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_whakaari_2022",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "o-vulcao-resgate-em-whakaari",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "O Vulcão: Resgate em Whakaari",
+      "originalTitle": "The Volcano: Rescue from Whakaari",
+      "year": 2022,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 98,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Rory Kennedy"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Documentário"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Whakaari",
+        "Erupção vulcânica",
+        "Resgate"
+      ],
+      "shortDescription": "Sobreviventes e socorristas reconstituem a erupção de Whakaari, na Nova Zelândia, em 2019.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/o-vulcao-resgate-em-whakaari.webp",
+        "alt": "Pôster de O Vulcão: Resgate em Whakaari (2022)",
+        "sourceUrl": "https://www.themoviedb.org/movie/1018645-the-volcano-rescue-from-whakaari",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 710
+      },
+      "status": "draft",
+      "seo": {
+        "title": "O Vulcão: Resgate em Whakaari: ficha e análise do filme",
+        "description": "O Vulcão: Resgate em Whakaari (2022): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "The Volcano: Rescue from Whakaari — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/The_Volcano%3A_Rescue_from_Whakaari"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_into_storm_2014",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "no-olho-do-tornado",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "No Olho do Tornado",
+      "originalTitle": "Into the Storm",
+      "year": 2014,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 89,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Steven Quale"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Ação",
+        "Suspense"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Tornado",
+        "Found footage",
+        "Resgate"
+      ],
+      "shortDescription": "Moradores, estudantes e caçadores de tempestades registram uma sequência de tornados que atinge uma pequena cidade.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/no-olho-do-tornado.webp",
+        "alt": "Pôster de No Olho do Tornado (2014)",
+        "sourceUrl": "https://www.themoviedb.org/movie/216282-into-the-storm",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "No Olho do Tornado: ficha e análise do filme",
+        "description": "No Olho do Tornado (2014): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Into the Storm — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/Into_the_Storm"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_hurricane_heist_2018",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "furacao-categoria-5",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Furacão: Categoria 5",
+      "originalTitle": "The Hurricane Heist",
+      "year": 2018,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 103,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Rob Cohen"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Ação"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Furacão",
+        "Roubo",
+        "Evacuação"
+      ],
+      "shortDescription": "Um roubo ao Tesouro acontece durante a evacuação de uma cidade ameaçada por um furacão de categoria máxima.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/furacao-categoria-5.webp",
+        "alt": "Pôster de Furacão: Categoria 5 (2018)",
+        "sourceUrl": "https://www.themoviedb.org/movie/430040-the-hurricane-heist",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Furacão: Categoria 5: ficha e análise do filme",
+        "description": "Furacão: Categoria 5 (2018): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "The Hurricane Heist — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/The_Hurricane_Heist"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_geostorm_2017",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "geostorm",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Tempestade: Planeta em Fúria",
+      "originalTitle": "Geostorm",
+      "year": 2017,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 109,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Dean Devlin"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Ação",
+        "Ficção científica"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Supertempestade",
+        "Satélite",
+        "Conspiração"
+      ],
+      "shortDescription": "Uma rede de satélites criada para controlar o clima começa a produzir desastres enquanto uma conspiração ameaça o planeta.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/geostorm.webp",
+        "alt": "Pôster de Tempestade: Planeta em Fúria (2017)",
+        "sourceUrl": "https://www.themoviedb.org/movie/274855-geostorm",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Tempestade: Planeta em Fúria: ficha e análise do filme",
+        "description": "Tempestade: Planeta em Fúria (2017): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Geostorm — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/Geostorm"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_13_minutes_2021",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "13-minutos",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "13 Minutos",
+      "originalTitle": "13 Minutes",
+      "year": 2021,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 108,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Lindsay Gossling"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Drama",
+        "Suspense"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Tornado",
+        "Comunidade",
+        "Abrigo"
+      ],
+      "shortDescription": "Quatro famílias têm poucos minutos para procurar abrigo antes de um tornado atravessar uma cidade de Oklahoma.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/13-minutos.webp",
+        "alt": "Pôster de 13 Minutos (2021)",
+        "sourceUrl": "https://www.themoviedb.org/movie/787723-13-minutes",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "13 Minutos: ficha e análise do filme",
+        "description": "13 Minutos (2021): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "13 Minutes — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/13_Minutes"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_night_twisters_1996",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "a-noite-dos-tornados",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "A Noite dos Tornados",
+      "originalTitle": "Night of the Twisters",
+      "year": 1996,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 92,
+      "countries": [
+        "Estados Unidos",
+        "Canadá"
+      ],
+      "directors": [
+        "Timothy Bond"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "television",
+      "genres": [
+        "Drama"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Tornado",
+        "Família",
+        "Telefilme"
+      ],
+      "shortDescription": "Uma família tenta se reunir quando uma sequência de tornados atinge a cidade de Grand Island durante a noite.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/a-noite-dos-tornados.webp",
+        "alt": "Pôster de A Noite dos Tornados (1996)",
+        "sourceUrl": "https://www.themoviedb.org/movie/34138-night-of-the-twisters",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "A Noite dos Tornados: ficha e análise do filme",
+        "description": "A Noite dos Tornados (1996): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Night of the Twisters — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/Night_of_the_Twisters"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_finest_hours_2016",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "horas-decisivas",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Horas Decisivas",
+      "originalTitle": "The Finest Hours",
+      "year": 2016,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 117,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Craig Gillespie"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Drama",
+        "Ação"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Tempestade marítima",
+        "Resgate",
+        "Guarda Costeira"
+      ],
+      "shortDescription": "Uma pequena equipe da Guarda Costeira enfrenta uma tempestade para alcançar tripulantes presos num petroleiro partido ao meio.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/horas-decisivas.webp",
+        "alt": "Pôster de Horas Decisivas (2016)",
+        "sourceUrl": "https://www.themoviedb.org/movie/300673-the-finest-hours",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Horas Decisivas: ficha e análise do filme",
+        "description": "Horas Decisivas (2016): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "The Finest Hours — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/The_Finest_Hours"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_adrift_2018",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "a-deriva-2018",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "À Deriva",
+      "originalTitle": "Adrift",
+      "year": 2018,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 96,
+      "countries": [
+        "Estados Unidos",
+        "Islândia"
+      ],
+      "directors": [
+        "Baltasar Kormákur"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Drama",
+        "Aventura"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Furacão",
+        "Sobrevivência marítima",
+        "Relacionamento"
+      ],
+      "shortDescription": "Um casal atravessa o Pacífico e precisa sobreviver depois que um furacão destrói o veleiro.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/a-deriva-2018.webp",
+        "alt": "Pôster de À Deriva (2018)",
+        "sourceUrl": "https://www.themoviedb.org/movie/429300-adrift",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "À Deriva: ficha e análise do filme",
+        "description": "À Deriva (2018): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Adrift — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/Adrift"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_armageddon_1998",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "armageddon",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Armageddon",
+      "originalTitle": "Armageddon",
+      "year": 1998,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 151,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Michael Bay"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Ação",
+        "Ficção científica"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Asteroide",
+        "Missão espacial",
+        "Extinção"
+      ],
+      "shortDescription": "Perfuradores de petróleo são enviados ao espaço para implantar uma bomba num asteroide em rota de colisão com a Terra.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/armageddon.webp",
+        "alt": "Pôster de Armageddon (1998)",
+        "sourceUrl": "https://www.themoviedb.org/movie/95-armageddon",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Armageddon: ficha e análise do filme",
+        "description": "Armageddon (1998): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Armageddon — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/Armageddon"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_greenland_2020",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "greenland-o-ultimo-refugio",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Greenland: O Último Refúgio",
+      "originalTitle": "Greenland",
+      "year": 2020,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 119,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Ric Roman Waugh"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Suspense",
+        "Ação"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Cometa",
+        "Abrigo",
+        "Família"
+      ],
+      "shortDescription": "Uma família tenta alcançar um abrigo governamental enquanto fragmentos de um cometa atingem cidades e desorganizam a sociedade.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/greenland-o-ultimo-refugio.webp",
+        "alt": "Pôster de Greenland: O Último Refúgio (2020)",
+        "sourceUrl": "https://www.themoviedb.org/movie/524047-greenland",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Greenland: O Último Refúgio: ficha e análise do filme",
+        "description": "Greenland: O Último Refúgio (2020): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Greenland — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/Greenland"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_dont_look_up_2021",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "nao-olhe-para-cima",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Não Olhe para Cima",
+      "originalTitle": "Don't Look Up",
+      "year": 2021,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 138,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Adam McKay"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Comédia",
+        "Drama"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Cometa",
+        "Mídia",
+        "Negacionismo"
+      ],
+      "shortDescription": "Dois astrônomos tentam comunicar a descoberta de um cometa destruidor num ambiente político e midiático incapaz de responder.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/nao-olhe-para-cima.webp",
+        "alt": "Pôster de Não Olhe para Cima (2021)",
+        "sourceUrl": "https://www.themoviedb.org/movie/646380-don-t-look-up",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Não Olhe para Cima: ficha e análise do filme",
+        "description": "Não Olhe para Cima (2021): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Don't Look Up — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/Don't_Look_Up"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_meteor_1979",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "meteoro-1979",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Meteoro",
+      "originalTitle": "Meteor",
+      "year": 1979,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 107,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Ronald Neame"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Ficção científica",
+        "Ação"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Asteroide",
+        "Guerra Fria",
+        "Cooperação"
+      ],
+      "shortDescription": "Estados Unidos e União Soviética precisam cooperar para desviar um grande asteroide em direção à Terra.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/meteoro-1979.webp",
+        "alt": "Pôster de Meteoro (1979)",
+        "sourceUrl": "https://www.themoviedb.org/movie/40160-meteor",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Meteoro: ficha e análise do filme",
+        "description": "Meteoro (1979): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Meteor — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/Meteor"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_wandering_earth_2019",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "terra-a-deriva",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Terra à Deriva",
+      "originalTitle": "流浪地球",
+      "year": 2019,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 125,
+      "countries": [
+        "China"
+      ],
+      "directors": [
+        "Frant Gwo"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Ficção científica",
+        "Ação"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Colisão planetária",
+        "Engenharia",
+        "Sobrevivência"
+      ],
+      "shortDescription": "Motores gigantes movem a Terra para longe do Sol, mas a aproximação de Júpiter ameaça destruir o planeta.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/terra-a-deriva.webp",
+        "alt": "Pôster de Terra à Deriva (2019)",
+        "sourceUrl": "https://www.themoviedb.org/movie/535167",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Terra à Deriva: ficha e análise do filme",
+        "description": "Terra à Deriva (2019): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "流浪地球 — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/%E6%B5%81%E6%B5%AA%E5%9C%B0%E7%90%83"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_alive_1993",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "vivos-1993",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Vivos",
+      "originalTitle": "Alive",
+      "year": 1993,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 126,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Frank Marshall"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Drama",
+        "Aventura"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Acidente aéreo",
+        "Andes",
+        "Sobrevivência"
+      ],
+      "shortDescription": "A adaptação de 1993 acompanha sobreviventes do voo 571 e enfatiza decisões práticas diante do isolamento nos Andes.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/vivos-1993.webp",
+        "alt": "Pôster de Vivos (1993)",
+        "sourceUrl": "https://www.themoviedb.org/movie/7305-alive",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Vivos: ficha e análise do filme",
+        "description": "Vivos (1993): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Alive — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/Alive"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_flight_2012",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "o-voo",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "O Voo",
+      "originalTitle": "Flight",
+      "year": 2012,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 138,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Robert Zemeckis"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Drama"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Acidente aéreo",
+        "Investigação",
+        "Dependência química"
+      ],
+      "shortDescription": "Um piloto realiza uma manobra extraordinária durante uma pane, mas a investigação expõe sua dependência de álcool e drogas.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/o-voo.webp",
+        "alt": "Pôster de O Voo (2012)",
+        "sourceUrl": "https://www.themoviedb.org/movie/87502-flight",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "O Voo: ficha e análise do filme",
+        "description": "O Voo (2012): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Flight — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/Flight"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_cast_away_2000",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "naufrago",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Náufrago",
+      "originalTitle": "Cast Away",
+      "year": 2000,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 143,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Robert Zemeckis"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Drama",
+        "Aventura"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Acidente aéreo",
+        "Ilha",
+        "Isolamento"
+      ],
+      "shortDescription": "Um funcionário sobrevive à queda de um avião cargueiro e passa anos sozinho numa ilha do Pacífico.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/naufrago.webp",
+        "alt": "Pôster de Náufrago (2000)",
+        "sourceUrl": "https://www.themoviedb.org/movie/8358-cast-away",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Náufrago: ficha e análise do filme",
+        "description": "Náufrago (2000): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Cast Away — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/Cast_Away"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_grey_2011",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "a-perseguicao",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "A Perseguição",
+      "originalTitle": "The Grey",
+      "year": 2011,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 117,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Joe Carnahan"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Aventura",
+        "Drama"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Acidente aéreo",
+        "Alasca",
+        "Sobrevivência"
+      ],
+      "shortDescription": "Trabalhadores sobrevivem a uma queda no Alasca e atravessam frio, ferimentos e território de lobos.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/a-perseguicao.webp",
+        "alt": "Pôster de A Perseguição (2011)",
+        "sourceUrl": "https://www.themoviedb.org/movie/75174-the-grey",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "A Perseguição: ficha e análise do filme",
+        "description": "A Perseguição (2011): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "The Grey — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/The_Grey"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_sully_2016",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "sully-o-heroi-do-rio-hudson",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Sully: O Herói do Rio Hudson",
+      "originalTitle": "Sully",
+      "year": 2016,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 96,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Clint Eastwood"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Drama",
+        "Biografia"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Pouso de emergência",
+        "Investigação",
+        "Aviação"
+      ],
+      "shortDescription": "O pouso do voo 1549 no rio Hudson é reconstituído junto à investigação que examinou as decisões da tripulação.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/sully-o-heroi-do-rio-hudson.webp",
+        "alt": "Pôster de Sully: O Herói do Rio Hudson (2016)",
+        "sourceUrl": "https://www.themoviedb.org/movie/363676-sully",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Sully: O Herói do Rio Hudson: ficha e análise do filme",
+        "description": "Sully: O Herói do Rio Hudson (2016): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Sully — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/Sully"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_united_93_2006",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "voo-united-93",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Voo United 93",
+      "originalTitle": "United 93",
+      "year": 2006,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 111,
+      "countries": [
+        "Estados Unidos",
+        "Reino Unido"
+      ],
+      "directors": [
+        "Paul Greengrass"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Drama",
+        "História"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Voo 93",
+        "11 de Setembro",
+        "Reconstrução"
+      ],
+      "shortDescription": "O filme reconstrói o voo United 93 e as respostas civis e institucionais durante os ataques de 11 de setembro.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/voo-united-93.webp",
+        "alt": "Pôster de Voo United 93 (2006)",
+        "sourceUrl": "https://www.themoviedb.org/movie/9829-united-93",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Voo United 93: ficha e análise do filme",
+        "description": "Voo United 93 (2006): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "United 93 — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/United_93"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_plane_2023",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "alerta-maximo",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Alerta Máximo",
+      "originalTitle": "Plane",
+      "year": 2023,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 107,
+      "countries": [
+        "Estados Unidos",
+        "Reino Unido"
+      ],
+      "directors": [
+        "Jean-François Richet"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Ação",
+        "Suspense"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Pouso de emergência",
+        "Ilha",
+        "Resgate"
+      ],
+      "shortDescription": "Um piloto pousa numa ilha após uma tempestade e precisa proteger passageiros em uma região controlada por homens armados.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/alerta-maximo.webp",
+        "alt": "Pôster de Alerta Máximo (2023)",
+        "sourceUrl": "https://www.themoviedb.org/movie/646389-plane",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Alerta Máximo: ficha e análise do filme",
+        "description": "Alerta Máximo (2023): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Plane — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/Plane"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_six_days_1998",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "seis-dias-sete-noites",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Seis Dias, Sete Noites",
+      "originalTitle": "Six Days, Seven Nights",
+      "year": 1998,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 102,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Ivan Reitman"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Aventura",
+        "Comédia"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Queda de avião",
+        "Ilha",
+        "Sobrevivência"
+      ],
+      "shortDescription": "Uma editora e um piloto ficam presos numa ilha depois que uma tempestade força a queda do pequeno avião.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/seis-dias-sete-noites.webp",
+        "alt": "Pôster de Seis Dias, Sete Noites (1998)",
+        "sourceUrl": "https://www.themoviedb.org/movie/6068-six-days-seven-nights",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Seis Dias, Sete Noites: ficha e análise do filme",
+        "description": "Seis Dias, Sete Noites (1998): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Six Days, Seven Nights — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/Six_Days%2C_Seven_Nights"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_flight_phoenix_1965",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "o-voo-do-fenix-1965",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "O Voo do Fênix",
+      "originalTitle": "The Flight of the Phoenix",
+      "year": 1965,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 142,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Robert Aldrich"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Aventura",
+        "Drama"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Acidente aéreo",
+        "Deserto",
+        "Engenharia"
+      ],
+      "shortDescription": "Sobreviventes de uma queda no Saara tentam construir uma aeronave menor com os destroços do avião.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/o-voo-do-fenix-1965.webp",
+        "alt": "Pôster de O Voo do Fênix (1965)",
+        "sourceUrl": "https://www.themoviedb.org/movie/10243-the-flight-of-the-phoenix",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "O Voo do Fênix: ficha e análise do filme",
+        "description": "O Voo do Fênix (1965): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "The Flight of the Phoenix — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/The_Flight_of_the_Phoenix"
+        }
+      ],
+      "relationships": []
+    },
+    {
+      "id": "mov_cluster_fearless_1993",
+      "contentType": "movie",
+      "schemaVersion": 1,
+      "slug": "sem-medo-de-viver",
+      "aliases": [],
+      "createdAt": "2026-08-10",
+      "updatedAt": "2026-08-11",
+      "relatedContentIds": [],
+      "organizationRelationships": [],
+      "titleBr": "Sem Medo de Viver",
+      "originalTitle": "Fearless",
+      "year": 1993,
+      "format": "feature",
+      "productionStatus": "released",
+      "durationMinutes": 122,
+      "countries": [
+        "Estados Unidos"
+      ],
+      "directors": [
+        "Peter Weir"
+      ],
+      "screenwriters": [],
+      "credits": [],
+      "personRelationships": [],
+      "releaseType": "theatrical",
+      "genres": [
+        "Drama"
+      ],
+      "subgenres": [
+        "Filme-catástrofe"
+      ],
+      "themes": [
+        "Acidente aéreo",
+        "Trauma",
+        "Sobreviventes"
+      ],
+      "shortDescription": "Depois de sobreviver a uma queda, um arquiteto se sente invulnerável e se afasta da família enquanto outra passageira enfrenta o luto.",
+      "audienceProfile": "Para quem procura uma abordagem diretamente ligada ao desastre e aceita o estilo do período e da produção.",
+      "experience": "Tenso e orientado pela catástrofe",
+      "contentWarnings": [
+        "Desastre",
+        "Mortes"
+      ],
+      "poster": {
+        "src": "/images/movies/sem-medo-de-viver.webp",
+        "alt": "Pôster de Sem Medo de Viver (1993)",
+        "sourceUrl": "https://www.themoviedb.org/movie/10443-fearless",
+        "credit": "Pôster promocional via The Movie Database (TMDB); direitos dos respectivos titulares",
+        "rights": "permission-pending",
+        "width": 500,
+        "height": 750
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Sem Medo de Viver: ficha e análise do filme",
+        "description": "Sem Medo de Viver (1993): informações verificadas, estilo, temas, público provável e artigos em que o filme aparece."
+      },
+      "sources": [
+        {
+          "title": "Fearless — referência cinematográfica",
+          "url": "https://en.wikipedia.org/wiki/Fearless"
         }
       ],
       "relationships": []
