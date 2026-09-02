@@ -25,7 +25,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/juridico/como-advogados-podem-aparecer-no-google.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -50,7 +51,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/juridico/como-atrair-clientes-para-escritorio-de-advocacia.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -75,7 +77,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/juridico/ideias-de-conteudo-para-advogados.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -96,7 +99,8 @@
         "related": []
       },
       "sourceFile": "src/app/blog/posts/juridico/marketing-juridico-o-que-pode-e-o-que-nao-pode.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -121,7 +125,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/imobiliario/como-aparecer-no-google-sendo-corretor-de-imoveis.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -147,7 +152,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/imobiliario/como-atrair-mais-clientes-para-uma-imobiliaria.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -172,7 +178,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/imobiliario/como-corretores-de-imoveis-podem-gerar-mais-leads.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -197,7 +204,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/imobiliario/como-divulgar-imoveis-nas-redes-sociais.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -223,7 +231,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/imobiliario/como-vender-mais-imoveis-usando-marketing-digital.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -248,7 +257,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/imobiliario/ideias-de-conteudo-para-corretores-de-imoveis.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -273,7 +283,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/imobiliario/marketing-imobiliario-estrategias-para-captar-compradores.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -298,7 +309,56 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/imobiliario/o-que-postar-no-instagram-de-uma-imobiliaria.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "15-livros-para-entender-economia-sem-ser-economista",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "seo": {
+        "title": "15 livros para entender economia sem precisar ser economista",
+        "description": "Conheça 15 livros para entender economia, organizados de fundamentos a crises e políticas públicas, com dificuldade, conceitos e limitações de cada obra.",
+        "canonical": "/blog/15-livros-para-entender-economia-sem-ser-economista"
+      },
+      "relationships": {
+        "related": [
+          "O que estudar para ficar mais inteligente?"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/15-livros-para-entender-economia-sem-ser-economista.mdx",
+      "migrationReady": false,
+      "productCards": []
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "15-livros-para-entender-psicologia-e-comportamento-humano",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "seo": {
+        "title": "15 livros para entender psicologia e comportamento humano",
+        "description": "Conheça 15 livros de psicologia e comportamento humano, com dificuldade, tipo de obra, fenômenos estudados e limitações relevantes.",
+        "canonical": "/blog/15-livros-para-entender-psicologia-e-comportamento-humano"
+      },
+      "relationships": {
+        "related": [
+          "O que estudar para ficar mais inteligente?"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/15-livros-para-entender-psicologia-e-comportamento-humano.mdx",
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -319,7 +379,8 @@
         "related": []
       },
       "sourceFile": "src/app/blog/posts/fundamentos/9-kings-jogo-indie-brasileiro-sucesso-internacional.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": "article_absolute_batman_o_que_e",
@@ -342,7 +403,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/absolute-batman-o-que-e.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_agostinho_de_hipona",
@@ -366,7 +428,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/agostinho-de-hipona.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_amor_fati_significado_nietzsche",
@@ -389,7 +452,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/amor-fati-significado-nietzsche.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": null,
@@ -414,7 +478,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/api-design-principles.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -438,7 +503,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/arthur-schopenhauer.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -462,7 +528,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/augusto-cury-clubes-empreendedorismo.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -487,7 +554,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/augusto-cury-eleicoes-2026.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -511,7 +579,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/blockchain-emendas-parlamentares-transparencia.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -535,7 +604,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/brasil-sair-brics-proposta-zema.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -559,7 +629,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/byung-chul-han.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -585,7 +656,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/cad-computer-aided-design.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -610,7 +682,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/caiado-cameras-corporais-policiais-evidencias.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -635,7 +708,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/cameras-ruas-uniformes-policiais-contradicao.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -660,7 +734,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/carl-jung.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -683,7 +758,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/castracao-quimica-violencia-sexual-evidencias.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -706,7 +782,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/clt-opcional-zema-trabalho-por-hora.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -727,7 +804,8 @@
         "related": []
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-comecar-a-ler.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -752,7 +830,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-comecar-a-trabalhar-com-design.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -778,7 +857,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-comecar-no-ecommerce.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -803,7 +883,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-conseguir-clientes-como-designer-grafico-freelancer.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -828,7 +909,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-conseguir-clientes-como-gestor-de-trafego.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -853,7 +935,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-conseguir-clientes-de-seo.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -878,7 +961,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-conseguir-clientes-para-criacao-de-sites.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -903,7 +987,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-conseguir-os-primeiros-clientes-como-social-media.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -928,7 +1013,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-entender-receita-margem-custos-e-volume.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -953,7 +1039,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-escolher-uma-forma-de-ganhar-dinheiro-na-internet.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -978,7 +1065,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-escrever-um-estudo-de-caso-de-ux.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1004,7 +1092,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-fazer-projecao-de-vendas.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1029,7 +1118,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-ganhar-dinheiro-com-canva.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1054,7 +1144,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-ganhar-dinheiro-na-internet-de-forma-honesta-e-comprovada.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1079,7 +1170,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-ganhar-dinheiro-na-internet-no-curto-prazo.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1104,7 +1196,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-ganhar-dinheiro-na-internet-no-longo-prazo.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1132,7 +1225,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-melhorar-o-retorno-com-pequenos-ajustes.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1153,7 +1247,8 @@
         "related": []
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-montar-um-pc.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1178,7 +1273,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-montar-um-portfolio-de-desenvolvimento-web-sem-clientes.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1203,7 +1299,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-montar-um-portfolio-de-identidade-visual-sem-clientes.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1228,7 +1325,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-montar-um-portfolio-de-seo-sem-clientes.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1253,7 +1351,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-montar-um-portfolio-de-social-media-sem-clientes.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1278,7 +1377,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-montar-um-portfolio-de-trafego-pago-sem-clientes.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1303,7 +1403,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-montar-um-portfolio-de-ux-sem-experiencia.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1328,7 +1429,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-ser-desenvolvedor-de-jogos-no-brasil.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1353,7 +1455,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-vender-na-shopee.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1378,7 +1481,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/construir-mais-presidios-faccoes-criminosas.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1402,7 +1506,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/crimes-no-discord-responsabilidade-moderacao.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1428,7 +1533,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/crm-o-que-e-como-funciona.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1453,7 +1559,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/cuidados-ao-ganhar-dinheiro-na-internet.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1478,7 +1585,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/dashboard-o-que-e-como-criar.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1501,7 +1609,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/data-centers-desenvolvimento-brasil.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1525,7 +1634,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/data-warehouse-design.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1549,7 +1659,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/database-design-patterns.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1573,7 +1684,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/decisoes-monocraticas-eleicao-2026.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1598,7 +1710,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/desenvolver-jogos-com-ia.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1623,7 +1736,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/desenvolvimento-web.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1648,7 +1762,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/design-com-ia-vale-a-pena.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1674,7 +1789,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/design-thinking-process.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1695,7 +1811,8 @@
         "related": []
       },
       "sourceFile": "src/app/blog/posts/fundamentos/desvalorizacao-medico-veterinario.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1716,7 +1833,8 @@
         "related": []
       },
       "sourceFile": "src/app/blog/posts/fundamentos/domain-driven-design.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1742,7 +1860,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/e-commerce-dropshipping-como-funciona.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1766,7 +1885,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/empreendedorismo-desemprego-pobreza-evidencias.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -1791,7 +1911,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/estrategias-de-marketing-viral.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": "article_filmes_sobre_acidentes_de_aviao",
@@ -1816,7 +1937,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/filmes-sobre-acidentes-de-aviao.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_filmes_sobre_meteoros_asteroides",
@@ -1841,7 +1963,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/filmes-sobre-meteoros-asteroides.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_filmes_fim_do_mundo",
@@ -1865,7 +1988,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/filmes-sobre-o-fim-do-mundo.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_filmes_sobre_terremotos",
@@ -1890,7 +2014,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/filmes-sobre-terremotos.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_filmes_sobre_tornados",
@@ -1915,7 +2040,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/filmes-sobre-tornados.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_filmes_sobre_tsunami",
@@ -1941,7 +2067,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/filmes-sobre-tsunami.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_filmes_sobre_vulcoes",
@@ -1966,7 +2093,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/filmes-sobre-vulcoes.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": null,
@@ -1990,7 +2118,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/fim-escala-6x1-empregos-evidencias.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -2014,7 +2143,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/flavio-bolsonaro-eleicoes-2026.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -2038,7 +2168,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/flavio-bolsonaro-presidios-treva-faccoes.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -2062,7 +2193,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/flavio-bolsonaro-reducao-maioridade-penal.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -2087,7 +2219,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/frantz-fanon.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -2110,7 +2243,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/friedrich-nietzsche.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -2135,7 +2269,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/fundamentos-do-design.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": "article_funko_pop_demon_slayer",
@@ -2158,7 +2293,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/funko-pop-demon-slayer.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": null,
@@ -2184,7 +2320,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/graphic-design-software.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -2209,7 +2346,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/guia-pratico-como-trabalhar-com-automacao-de-marketing-e-crm.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -2234,7 +2372,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/guia-pratico-como-trabalhar-com-criacao-de-sites.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -2259,7 +2398,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/guia-pratico-como-trabalhar-com-design-grafico-e-identidade-visual.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -2284,7 +2424,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/guia-pratico-como-trabalhar-com-seo.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -2309,7 +2450,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/guia-pratico-como-trabalhar-com-ui-ux-design.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -2334,7 +2476,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/guia-pratico-como-trabalhar-como-gestor-de-trafego-pago.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -2359,7 +2502,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/guia-pratico-como-trabalhar-como-social-media.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -2383,7 +2527,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/hannah-arendt.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -2404,7 +2549,8 @@
         "related": []
       },
       "sourceFile": "src/app/blog/posts/fundamentos/historia-de-warhammer.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -2429,7 +2575,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/identidade-visual.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -2454,7 +2601,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/influencer-marketing.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -2479,7 +2627,55 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/judith-butler.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "kit-para-comecar-a-vender-bolos-e-doces",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "seo": {
+        "title": "Kit completo para começar a vender bolos e doces em casa: o que realmente comprar",
+        "description": "Um guia por prioridade para montar uma confeitaria doméstica sem comprar equipamentos antes de existir demanda.",
+        "canonical": "/blog/kit-para-comecar-a-vender-bolos-e-doces"
+      },
+      "relationships": {
+        "related": [
+          "Melhores batedeiras para quem vende bolos e doces",
+          "Melhores liquidificadores profissionais para quem trabalha com alimentos",
+          "Como fazer projeção de vendas"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/kit-para-comecar-a-vender-bolos-e-doces.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_fischer_premier_48l",
+          "whyIncluded": "É uma opção de bancada atual com dimensões internas publicadas, porta de vidro duplo, aquecimento superior independente e faixa de 50 °C a 300 °C.",
+          "bestFor": "Quem já comprovou que o forno de casa é pequeno ou inconsistente e quer dedicar um aparelho às encomendas sem fazer obra de embutir.",
+          "mainDifference": "A cavidade de 39,2 × 26,7 × 44,5 cm permite conferir as formas antes da compra; os 48 litros isolados não fariam isso.",
+          "tradeOff": "Não possui convecção e acomoda apenas a produção compatível com uma cavidade de bancada. Cada receita ainda precisa de teste e registro.",
+          "sensiblePriceRange": "Boa compra até R$ 950; acima de R$ 1.100, compare fornos com convecção e a capacidade útil das formas que você realmente usa.",
+          "avoidWhen": "Não recomendamos se o forno atual já entrega lotes consistentes, se a instalação elétrica não suporta 1.775 W ou se suas formas não cabem nas dimensões internas.",
+          "closestCompetitor": "Philco PFE52P de 50 litros: costuma custar menos e tem resistências selecionáveis, mas compare construção, porta e temperatura na variante exata."
+        },
+        {
+          "productId": "prod_oster_bowl_inox_iii",
+          "whyIncluded": "É uma planetária doméstica proporcional a poucas encomendas, com tigela inox, três batedores e partida suave por preço muito inferior ao de máquinas comerciais.",
+          "bestFor": "Quem começa com chantilly, buttercream, claras e massas de bolo em pequenos lotes e ainda está validando a demanda.",
+          "mainDifference": "A partida suave reduz farinha e açúcar lançados para fora antes de aumentar a velocidade, um benefício operacional mais útil que apenas anunciar watts.",
+          "tradeOff": "A Oster não publica carga máxima de massa nem regime comercial; 4 litros são volume da tigela, não promessa de quatro quilos.",
+          "sensiblePriceRange": "Boa compra até R$ 750. Acima de R$ 900, compare modelos mais pesados ou preserve o dinheiro para uma futura máquina profissional.",
+          "avoidWhen": "Não recomendamos para muitos ciclos consecutivos, grandes lotes ou massas pesadas sem capacidade oficial confirmada.",
+          "closestCompetitor": "KitchenAid Artisan KEA33 para produção doméstica recorrente; Skymsen BPS-05-N quando a rotina já exige construção profissional."
+        }
+      ]
     },
     {
       "id": null,
@@ -2506,7 +2702,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/landing-page-o-que-e-como-criar.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": "article_books_after_welcome_to_derry",
@@ -2531,7 +2728,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/livros-para-quem-gostou-de-it-bem-vindos-a-derry.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": null,
@@ -2555,7 +2753,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/lula-eleicoes-2026.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -2579,7 +2778,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/lula-rever-emendas-parlamentares-controle-orcamento.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -2603,7 +2803,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/lula-soberania-programa-2026.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -2628,7 +2829,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/marketing-de-afiliados-realmente-funciona.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -2653,7 +2855,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/marketing-de-aquisicao.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -2678,7 +2881,128 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/marketing-orientado-a-dados.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "melhores-batedeiras-para-quem-vende-bolos",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "seo": {
+        "title": "Melhores batedeiras para quem vende bolos e doces",
+        "description": "Compare batedeiras para confeitaria por capacidade real, estabilidade, tipo de massa, frequência de produção, construção e preço.",
+        "canonical": "/blog/melhores-batedeiras-para-quem-vende-bolos"
+      },
+      "relationships": {
+        "related": [
+          "Melhores liquidificadores profissionais para quem trabalha com alimentos"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-batedeiras-para-quem-vende-bolos.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_oster_bowl_inox_iii",
+          "whyIncluded": "É uma planetária doméstica com tigela inox, partida suave e três batedores por um preço que permite começar a vender sem imobilizar milhares de reais antes de validar as encomendas.",
+          "bestFor": "Quem faz cerca de dois bolos por semana, encomendas pontuais ou pequenos lotes de cupcakes, chantilly, buttercream e massas leves ou médias.",
+          "mainDifference": "A partida suave é útil de verdade na confeitaria: incorpora farinha e açúcar gradualmente e reduz respingos antes de aumentar a velocidade.",
+          "tradeOff": "A Oster informa 4 litros, mas não publica carga máxima de massa nem regime comercial. A estrutura de 3,96 kg não é a escolha para ciclos longos e sucessivos.",
+          "sensiblePriceRange": "Muito boa até R$ 650 e boa compra até R$ 750; acima de R$ 900, compare planetárias mais pesadas ou guarde o investimento para uma categoria superior.",
+          "avoidWhen": "Não recomendamos para vinte bolos por semana, massas pesadas em lotes grandes ou uma rotina em que a máquina precise operar repetidamente sem intervalos.",
+          "closestCompetitor": "Mondial BP-03: costuma competir por preço e capacidade anunciada, mas a Oster entrou pela ficha oficial mais clara, tigela inox e partida suave."
+        },
+        {
+          "productId": "prod_kitchenaid_artisan_kea33",
+          "whyIncluded": "É uma das poucas opções domésticas cuja fabricante publica capacidade de farinha e massa, além de combinar corpo metálico, dez velocidades e ampla disponibilidade de acessórios.",
+          "bestFor": "Confeiteiro doméstico com encomendas recorrentes que precisa repetir ponto de buttercream, massas de bolo e pequenos lotes de massa levedada com menos vibração.",
+          "mainDifference": "Os 10 kg de estrutura e o limite oficial de 1,1 kg de farinha ou 1,8 kg de massa de pão permitem planejar lotes com muito mais segurança que apenas olhar os 4,83 litros da tigela.",
+          "tradeOff": "A própria KitchenAid classifica a Artisan como doméstica. Seu preço pode ficar perto demais de uma batedeira comercial, e os acessórios adicionais são caros.",
+          "sensiblePriceRange": "Ótima abaixo de R$ 2.200 e boa compra até R$ 2.500; pelos R$ 3.009 observados, não vale sem uma razão específica para preferir o ecossistema KitchenAid.",
+          "avoidWhen": "Não recomendamos como substituta automática de máquina profissional para jornada longa, nem para ultrapassar 1,8 kg de massa de pão.",
+          "closestCompetitor": "Skymsen BPS-05-N: custa mais, mas troca o ecossistema doméstico por estrutura e finalidade comerciais; é a comparação obrigatória quando a Artisan passa de R$ 2.800."
+        },
+        {
+          "productId": "prod_skymsen_bps_05_n",
+          "whyIncluded": "É a única finalista declaradamente profissional: usa estrutura de alumínio fundido, engrenagens metálicas, pesa 12,5 kg e oferece variação contínua de velocidade.",
+          "bestFor": "Confeitarias e cozinhas que repetem pão de ló, massas leves de bolo, chantilly, glacê, merengue, coberturas, recheios frios e pré-misturas ao longo do turno.",
+          "mainDifference": "O benefício não é a tigela de 5 litros, quase do tamanho da Artisan, mas a construção comercial e o controle fino que favorecem estabilidade e repetibilidade.",
+          "tradeOff": "É cara para quem ainda produz pouco, ocupa bancada permanente e o catálogo atual limita a indicação a massas leves e preparos de confeitaria.",
+          "sensiblePriceRange": "Boa compra até R$ 4.100; acima de R$ 4.500, compare capacidade, assistência e carga publicada de planetárias comerciais maiores antes de decidir.",
+          "avoidWhen": "Não recomendamos para quem faz poucas encomendas, precisa guardar a máquina após cada uso ou pretende sovar massas pesadas apenas porque há um gancho.",
+          "closestCompetitor": "Braesi Eclair BP-500 S: outra profissional de 5 litros e velocidade variável; compare assistência local, garantia e preço da variante exata."
+        }
+      ]
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "melhores-celulares-ate-1500",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "seo": {
+        "title": "Melhores celulares para comprar em 2026 por até R$ 1.500",
+        "description": "Compare os melhores celulares de até R$ 1.500 em 2026 por desempenho, tela, câmera, bateria, resistência e suporte — com preço máximo recomendado para cada modelo.",
+        "canonical": "/blog/melhores-celulares-ate-1500"
+      },
+      "relationships": {
+        "related": [
+          "Marketing de afiliados realmente funciona?"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-celulares-ate-1500.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_motorola_moto_g56_5g",
+          "whyIncluded": "Combina 8 GB de RAM física, 256 GB, 5G, NFC, câmera ultrawide e proteção IP68/IP69 por um preço que permaneceu dentro do teto observado.",
+          "bestFor": "Quem quer um aparelho equilibrado para vários anos, alterna entre muitos aplicativos e valoriza resistência mais que o contraste superior de uma tela AMOLED.",
+          "mainDifference": "A proteção IP68/IP69 e o Gorilla Glass 7i tornam a construção mais convincente que a dos modelos IP54, sem sacrificar memória, armazenamento ou conectividade.",
+          "tradeOff": "A tela LCD de 120 Hz é fluida e tem resolução adequada, mas não reproduz pretos e contraste como os painéis AMOLED do Galaxy A26, A17 e Redmi Note 14.",
+          "sensiblePriceRange": "É uma boa compra até R$ 1.450; entre R$ 1.450 e R$ 1.500, compare diretamente com uma promoção do Galaxy A26.",
+          "avoidWhen": "Não recomendamos se tela AMOLED e suporte de software formalmente longo forem prioridades maiores que resistência, ou se o A26 de 256 GB estiver no mesmo preço.",
+          "closestCompetitor": "Galaxy A26 5G: ganha em tela, vídeo e suporte, mas normalmente custa mais e carrega mais devagar."
+        },
+        {
+          "productId": "prod_samsung_galaxy_a26_5g",
+          "whyIncluded": "É o conjunto tecnicamente mais completo do grupo quando cai para até R$ 1.500: AMOLED de 120 Hz, 8/256 GB, câmera com OIS, ultrawide, IP67 e suporte longo.",
+          "bestFor": "Quem prioriza tela, câmera principal, gravação em 4K e muitos anos de atualização, e pode esperar uma promoção real da variante de 256 GB.",
+          "mainDifference": "A combinação de Super AMOLED de 120 Hz, vídeo em 4K, IP67 e seis atualizações de sistema é a mais forte entre os quatro aparelhos selecionados.",
+          "tradeOff": "O carregamento de 25 W é lento para a categoria e o preço observado de R$ 1.614,05 estava acima do limite do artigo.",
+          "sensiblePriceRange": "Recomendamos até R$ 1.500; perto de R$ 1.400, torna-se a compra mais completa da lista. Por R$ 1.600 ou mais, compare a categoria superior.",
+          "avoidWhen": "Não recomendamos no preço observado de R$ 1.614,05, nem para quem precisa comprar imediatamente sem promoção ou prioriza carregamento rápido.",
+          "closestCompetitor": "Moto G56 5G: oferece resistência superior e costuma caber no orçamento, embora use tela LCD e tenha suporte menos explícito."
+        },
+        {
+          "productId": "prod_samsung_galaxy_a17_5g",
+          "whyIncluded": "Leva tela Super AMOLED, câmera principal com estabilização, 5G, NFC e seis atualizações de sistema a uma faixa mais baixa que a do Galaxy A26.",
+          "bestFor": "Quem prefere a interface e o suporte da Samsung, usa redes sociais, bancos, mensagens, mapas e vídeo, e não mantém muitos aplicativos pesados abertos.",
+          "mainDifference": "A Samsung preservou tela AMOLED, OIS e política longa de atualização mesmo no modelo de entrada, combinação rara perto de R$ 1.250.",
+          "tradeOff": "Os 4 GB de RAM física da variante de 128 GB limitam multitarefa e dão menos folga para os próximos anos que os 8 GB dos outros modelos.",
+          "sensiblePriceRange": "Faz sentido até R$ 1.300; perto de R$ 1.400, o Moto G56 de 8/256 GB entrega muito mais memória e armazenamento.",
+          "avoidWhen": "Não recomendamos para jogos exigentes, multitarefa intensa ou para quem pretende guardar muitos arquivos sem cartão microSD.",
+          "closestCompetitor": "Moto G56 5G: custa um pouco mais, mas dobra RAM e armazenamento e oferece resistência IP68/IP69."
+        },
+        {
+          "productId": "prod_xiaomi_redmi_note_14_4g",
+          "whyIncluded": "Entrega AMOLED de 120 Hz, 8 GB de RAM, 256 GB, bateria de 5.500 mAh e carga de 33 W pelo menor preço observado entre os selecionados.",
+          "bestFor": "Quem quer gastar perto de R$ 1.100, consome muito vídeo, precisa de espaço e autonomia e sabe que continuará bem atendido pelo 4G.",
+          "mainDifference": "Nenhum outro selecionado reuniu tela AMOLED de 120 Hz, 8/256 GB e bateria de 5.500 mAh no mesmo preço observado.",
+          "tradeOff": "Esta é a versão 4G: ela não acessa 5G e também não possui câmera ultrawide, além de ter política de atualização menos clara que a Samsung.",
+          "sensiblePriceRange": "É especialmente competitivo até R$ 1.200 e ainda defensável até R$ 1.250; acima disso, o Galaxy A17 5G começa a fazer mais sentido.",
+          "avoidWhen": "Não recomendamos se você quer manter o aparelho por anos em áreas com bom 5G, precisa de ultrawide ou valoriza uma promessa longa e explícita de atualizações.",
+          "closestCompetitor": "Galaxy A17 5G: tem menos RAM e armazenamento, mas oferece 5G, OIS e suporte de software claramente definido."
+        }
+      ]
     },
     {
       "id": "article_melhores_filmes_animacao_netflix_br",
@@ -2702,7 +3026,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-animacao-netflix.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_melhores_filmes_animados_batman",
@@ -2726,7 +3051,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-animados-do-batman.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_melhores_filmes_2025",
@@ -2749,7 +3075,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-de-2025.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_melhores_filmes_2026",
@@ -2773,7 +3100,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-de-2026.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_melhores_filmes_de_monstros",
@@ -2798,7 +3126,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-de-monstros.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_melhores_filmes_tubarao",
@@ -2822,7 +3151,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-de-tubarao.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_melhores_filmes_vampiro",
@@ -2846,7 +3176,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-de-vampiro.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_melhores_filmes_desastres_naturais",
@@ -2871,7 +3202,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-desastres-naturais.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_melhores_filmes_ficcao_cientifica",
@@ -2895,7 +3227,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-ficcao-cientifica.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_melhores_filmes_leonardo_dicaprio",
@@ -2919,7 +3252,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-leonardo-dicaprio.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_melhores_filmes_netflix_br",
@@ -2943,7 +3277,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-netflix.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_melhores_filmes_prime_video_br",
@@ -2967,7 +3302,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-prime-video.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_best_brazilian_horror_movies",
@@ -2992,7 +3328,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-terror-brasileiros.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_melhores_filmes_terror_netflix_br",
@@ -3016,7 +3353,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-terror-netflix.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_melhores_filmes_terror_seculo_21",
@@ -3037,7 +3375,120 @@
         "related": []
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-filmes-terror-seculo-21.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "melhores-lava-e-seca",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "seo": {
+        "title": "Melhores lava e seca para comprar em 2026",
+        "description": "Compare as melhores lava e seca de 2026 por capacidade real de lavagem e secagem, tamanho, manutenção, garantia e preço.",
+        "canonical": "/blog/melhores-lava-e-seca"
+      },
+      "relationships": {
+        "related": [
+          "Melhores TVs custo-benefício para comprar em 2026",
+          "Melhores notebooks custo-benefício para estudar e trabalhar em 2026"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-lava-e-seca.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_samsung_wd13fg",
+          "whyIncluded": "Entrega 13 kg de lavagem e 8 kg de secagem em gabinete de 60 cm, com centrifugação de 1.400 rpm e uma rede nacional de suporte mais fácil de consultar.",
+          "bestFor": "Famílias de três ou quatro pessoas que secam roupas com frequência e precisam de boa capacidade sem reservar espaço para lavadora e secadora separadas.",
+          "mainDifference": "A tecnologia SpaceMax aumenta o tambor sem ampliar as dimensões externas além das de muitas máquinas de 11 kg; essa é uma vantagem concreta para lavanderias limitadas.",
+          "tradeOff": "Uma carga de lavagem de 13 kg não pode seguir inteira para a secagem de 8 kg, e recursos conectados não reduzem essa diferença física.",
+          "sensiblePriceRange": "Boa compra até R$ 4.500 e especialmente interessante perto de R$ 4.200; acima de R$ 5.000, compare LG, Brastemp e conjuntos separados.",
+          "avoidWhen": "Não recomendamos para quem quer lavar 13 kg e secar tudo automaticamente sem retirar peças, ou para uma instalação sem tomada 220 V compatível com esta variante.",
+          "closestCompetitor": "LG Smart VC4 14 kg: lava um quilo a mais, seca os mesmos 8 kg e oferece motor Direct Drive, mas exige alguns centímetros extras de profundidade."
+        },
+        {
+          "productId": "prod_lg_vc4_14",
+          "whyIncluded": "É a maior capacidade de lavagem da seleção, com 14 kg, mantendo 8 kg de secagem, motor Inverter Direct Drive e sensores que ajustam os movimentos em ciclos compatíveis.",
+          "bestFor": "Famílias que acumulam roupa, lavam peças de cama e aceitam dividir a carga quando precisam usar a secagem completa.",
+          "mainDifference": "O motor Direct Drive aciona o tambor sem correia, enquanto o AI DD usa peso e características da carga para selecionar movimentos nos ciclos compatíveis.",
+          "tradeOff": "A secagem permanece em 8 kg e a profundidade chega a 66 cm até a frente da porta, exigindo mais espaço que o número nominal de 61,5 cm sugere.",
+          "sensiblePriceRange": "Excelente perto de R$ 4.200 e boa compra até R$ 4.500; acima de R$ 5.000, a Samsung WD13FG costuma oferecer valor semelhante por menos.",
+          "avoidWhen": "Não recomendamos para lavanderia rasa, residência sem 220 V ou para quem pretende lavar e secar automaticamente uma carga completa de 14 kg.",
+          "closestCompetitor": "Samsung WD13FG: perde um quilo na lavagem, mas ocupa menos profundidade e conserva os mesmos 8 kg de secagem."
+        },
+        {
+          "productId": "prod_midea_healthguard_slim_11",
+          "whyIncluded": "É a máquina mais rasa e barata da seleção: mede 57,5 cm de profundidade, mas ainda lava 11 kg e seca 7 kg.",
+          "bestFor": "Casais e famílias pequenas em apartamento que realmente dependem de secagem por falta de área externa ou ventilação.",
+          "mainDifference": "O projeto slim economiza de 2,5 a 8,5 cm de profundidade frente aos concorrentes selecionados, diferença capaz de decidir uma instalação.",
+          "tradeOff": "A centrifugação máxima é de 1.200 rpm e a secagem de 7 kg oferece menos margem para toalhas e roupas de uma família maior.",
+          "sensiblePriceRange": "Boa compra até R$ 3.500 e muito competitiva perto de R$ 3.200; pelos R$ 3.699 da loja oficial, vale comparar promoções da Samsung e LG.",
+          "avoidWhen": "Não recomendamos para famílias grandes, secagem diária de cargas volumosas ou antes de confirmar assistência autorizada disponível na sua cidade.",
+          "closestCompetitor": "Samsung WD11T: também lava 11 kg e seca 7 kg, possui 1.400 rpm, mas é mais profunda e costuma custar mais."
+        }
+      ]
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "melhores-liquidificadores-profissionais",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "seo": {
+        "title": "Melhores liquidificadores profissionais para quem trabalha com alimentos",
+        "description": "Compare liquidificadores profissionais para bebidas, molhos, cremes e produção frequente por rotação, construção, copo, manutenção e preço.",
+        "canonical": "/blog/melhores-liquidificadores-profissionais"
+      },
+      "relationships": {
+        "related": [
+          "Melhores lava e seca para comprar em 2026",
+          "Marketing de afiliados realmente funciona?"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-liquidificadores-profissionais.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_skymsen_li2",
+          "whyIncluded": "Entrega construção comercial em inox, 18.000 rpm e catálogo de componentes por preço próximo ao de alguns liquidificadores domésticos potentes.",
+          "bestFor": "Lanchonetes, cafeterias, casas de suco e cozinhas que repetem vitaminas, shakes, coquetéis, polpas e molhos com líquido ao longo de um turno.",
+          "mainDifference": "Copo, lâminas e gabinete de inox, identificação por número de série e desenho de peças oferecem uma base de manutenção mais profissional que potência de marketing.",
+          "tradeOff": "Possui uma única velocidade, não tem pulsar e o copo opaco impede acompanhar visualmente a textura sem interromper o preparo.",
+          "sensiblePriceRange": "Excelente até R$ 750 e boa compra até R$ 900; acima de R$ 1.100, compare o L2 para uso contínuo ou economize para o BM2.",
+          "avoidWhen": "Não recomendamos para massas pesadas, pastas densas sem líquido, grande volume de gelo ou operação contínua sem respeitar pausas e limites do manual.",
+          "closestCompetitor": "Spolu Maestro 2 litros: acrescenta copo transparente, seis lâminas e pulsar, mas costuma custar mais e se aproxima da proposta do BM2."
+        },
+        {
+          "productId": "prod_skymsen_l2",
+          "whyIncluded": "O motor de indução, as 3.500 rpm, o corpo de 9,1 kg e o copo monobloco foram concebidos para operação comercial contínua, baixo ruído e preparos culinários.",
+          "bestFor": "Restaurantes, cozinhas de produção e negócios que repetem molhos, cremes, sopas, recheios fluidos e bases durante o expediente.",
+          "mainDifference": "Em vez de buscar a maior rotação, o L2 prioriza motor de indução, torque, estabilidade e copo sem soldas ou frestas, combinação coerente com ciclos frequentes.",
+          "tradeOff": "É alto, pesado e lento para gelo e bebidas congeladas; também possui somente uma velocidade e não permite observar a mistura pelo copo de inox.",
+          "sensiblePriceRange": "Muito competitivo até R$ 1.000 e ainda recomendado até R$ 1.100; acima de R$ 1.300, compare capacidade maior ou um BM2 em promoção.",
+          "avoidWhen": "Não recomendamos para uma casa de smoothies que precisa triturar gelo e polpas rapidamente, nem para massas cuja densidade não esteja autorizada no manual.",
+          "closestCompetitor": "Skymsen LI2: custa menos e processa bebidas mais rápido, mas não possui o motor de indução nem a construção pesada voltada ao uso contínuo."
+        },
+        {
+          "productId": "prod_skymsen_bm2",
+          "whyIncluded": "Reúne 38.000 rpm, velocidade variável, pulsar, seis lâminas, rolamentos blindados e copo Tritan para lidar com preparos mais variados e controlar a textura.",
+          "bestFor": "Casas de suco, cafeterias e pequenas produções que alternam gelo, polpa congelada, smoothies, sopas, papinhas, grãos e castanhas.",
+          "mainDifference": "O conjunto de seis pontas e a velocidade variável explicam melhor sua consistência e versatilidade que a potência isolada anunciada para o motor.",
+          "tradeOff": "Custa aproximadamente o dobro do LI2, produz mais ruído que o L2 e continua limitado a um copo de 2 litros máximos.",
+          "sensiblePriceRange": "Excelente até R$ 1.800 e justificável até R$ 2.000; acima de R$ 2.300, compare equipamentos com abafador acústico ou programas automáticos.",
+          "avoidWhen": "Não recomendamos se o negócio prepara somente sucos simples, precisa de mais de 2 litros por lote ou quer processar massas pesadas sem líquido.",
+          "closestCompetitor": "Spolu Maestro 2 litros: também traz copo transparente e seis lâminas, mas trabalha a 18.000 rpm e não oferece a mesma amplitude de velocidade."
+        }
+      ]
     },
     {
       "id": "article_best_horror_books_by_reader",
@@ -3062,7 +3513,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-livros-de-terror.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_best_vampire_books",
@@ -3087,7 +3539,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-livros-de-vampiro.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_melhores_livros_fantasia_com_romance",
@@ -3111,7 +3564,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-livros-fantasia-com-romance.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_melhores_livros_fantasia_sombria",
@@ -3135,7 +3589,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-livros-fantasia-sombria.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_melhores_livros_ficcao_cientifica",
@@ -3160,7 +3615,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-livros-ficcao-cientifica.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_romance_manga_entry_for_men",
@@ -3185,7 +3641,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-mangas-de-romance-para-homens.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_melhores_mangas_harem",
@@ -3210,7 +3667,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-mangas-harem.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_melhores_manhwas_acao_romance",
@@ -3235,7 +3693,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-manhwas-acao-romance.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_melhores_manhwas_com_sistema",
@@ -3259,7 +3718,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-manhwas-com-sistema.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_melhores_manhwas_protagonista_overpower",
@@ -3284,7 +3744,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-manhwas-protagonista-overpower.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_melhores_manhwas_regressao",
@@ -3308,7 +3769,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-manhwas-regressao.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": null,
@@ -3332,7 +3794,64 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-maquininhas-de-cartao.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "melhores-notebooks-custo-beneficio",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "seo": {
+        "title": "Melhores notebooks custo-benefício para estudar e trabalhar em 2026",
+        "description": "Compare notebooks custo-benefício para faculdade e trabalho por desempenho, tela, memória, expansão e preço — com a variante exata que vale comprar.",
+        "canonical": "/blog/melhores-notebooks-custo-beneficio"
+      },
+      "relationships": {
+        "related": [
+          "Melhores celulares para comprar em 2026 por até R$ 1.500",
+          "Marketing de afiliados realmente funciona?"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-notebooks-custo-beneficio.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_acer_aspire_15_a15_51m",
+          "whyIncluded": "O Core i5-13420H de série H, os 16 GB de RAM e o SSD NVMe de 512 GB entregam a maior margem de desempenho da seleção pelo preço observado.",
+          "bestFor": "Quem mantém muitas abas e aplicativos abertos, trabalha com planilhas maiores ou faz programação leve e aceita priorizar velocidade em vez de qualidade de tela.",
+          "mainDifference": "O processador tem limite de potência e desempenho multicore superiores aos chips de baixo consumo dos concorrentes, enquanto a porta USB4 amplia as opções de conexão.",
+          "tradeOff": "A tela TN tem ângulos de visão, contraste e cores inferiores aos painéis IPS dos outros dois modelos; os 16 GB de RAM também são soldados.",
+          "sensiblePriceRange": "Excelente até R$ 3.200 e boa compra até R$ 3.400; acima de R$ 3.600, procure uma variante com painel IPS ou um concorrente mais completo.",
+          "avoidWhen": "Não recomendamos para edição de imagem, design, uso frequente ao ar livre ou para quem precisa ampliar a memória além dos 16 GB instalados.",
+          "closestCompetitor": "ASUS Vivobook 15 M1502YA-NJ612: perde em desempenho sustentado, mas oferece uma tela muito mais apropriada para leitura e uso prolongado."
+        },
+        {
+          "productId": "prod_asus_vivobook_15_m1502",
+          "whyIncluded": "Combina tela IPS-level, 16 GB de RAM, SSD de 512 GB e um Ryzen 7 de oito núcleos em um equipamento de 1,7 kg, sem uma deficiência grave para estudo e escritório.",
+          "bestFor": "Estudantes e profissionais que leem, escrevem, fazem reuniões e alternam entre navegador, documentos, planilhas e programação leve durante o dia.",
+          "mainDifference": "A tela preserva melhor a imagem fora do ângulo central que o painel TN do Acer, vantagem cotidiana mais útil que uma pequena diferença de benchmark.",
+          "tradeOff": "O Ryzen 7 5825U usa uma arquitetura antiga, a tela cobre somente 45% NTSC e a configuração já alcança o limite de 16 GB informado pela ASUS.",
+          "sensiblePriceRange": "Ótima compra perto de R$ 3.200 e aceitável até R$ 3.400; pelos R$ 3.599,20 observados, só vale se o Acer estiver caro e a tela IPS for prioridade.",
+          "avoidWhen": "Não recomendamos para trabalho profissional de cor, jogos atuais, renderização pesada ou para quem precisa de mais de 16 GB de RAM no futuro.",
+          "closestCompetitor": "Acer Aspire 15 A15-51M-56KR: é mais rápido e tem USB4, porém economiza justamente no painel que você usará durante todo o dia."
+        },
+        {
+          "productId": "prod_positivo_vision_r15",
+          "whyIncluded": "É um dos poucos modelos de entrada encontrados com 16 GB, SSD de 512 GB e tela IPS na mesma variante, evitando as economias mais prejudiciais ao uso cotidiano.",
+          "bestFor": "Quem precisa de navegador, Office, aulas e reuniões e encontra o SKU 3002878 por preço claramente inferior ao Acer e ao ASUS.",
+          "mainDifference": "A Lumina Bar ajuda a iluminar o rosto em chamadas, enquanto os 16 GB evitam depender de upgrade imediato para multitarefa.",
+          "tradeOff": "O Ryzen 5 5500U é mais antigo e o material oficial consultado não permitiu confirmar a expansão de RAM e armazenamento desta variante específica.",
+          "sensiblePriceRange": "Vale considerar até R$ 2.700 e fica muito forte abaixo de R$ 2.500. Pelos R$ 3.249 observados, não vale: o Acer custa quase o mesmo e entrega mais desempenho.",
+          "avoidWhen": "Não recomendamos perto de R$ 3.000, para cargas pesadas, jogos atuais ou quando expansão futura de memória e SSD for requisito obrigatório.",
+          "closestCompetitor": "ASUS Vivobook 15 M1502YA-NJ612: tem tela IPS-level e processador de oito núcleos, justificando pagar algumas centenas de reais a mais."
+        }
+      ]
     },
     {
       "id": null,
@@ -3357,7 +3876,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-profissoes-digitais.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": "article_best_horror_comics_manga",
@@ -3382,7 +3902,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-quadrinhos-mangas-de-terror.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_best_vampire_comics_manga",
@@ -3407,7 +3928,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-quadrinhos-mangas-de-vampiro.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_series_horror_essentials",
@@ -3432,7 +3954,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-series-de-terror.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_series_vampire_br",
@@ -3456,7 +3979,74 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-series-de-vampiro.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "melhores-tvs-custo-beneficio",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "seo": {
+        "title": "Melhores TVs custo-benefício para comprar em 2026",
+        "description": "Compare as melhores TVs custo-benefício de 2026 por imagem, sistema, jogos e preço — da QLED acessível à OLED para cinema em casa.",
+        "canonical": "/blog/melhores-tvs-custo-beneficio"
+      },
+      "relationships": {
+        "related": [
+          "Melhores celulares para comprar em 2026 por até R$ 1.500",
+          "Marketing de afiliados realmente funciona?"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-tvs-custo-beneficio.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_tcl_c6k",
+          "whyIncluded": "É o salto de imagem mais convincente pelo preço: Mini LED, painel HVA de alto contraste, 144 Hz nativos e recursos completos para consoles e PC.",
+          "bestFor": "Quem quer filmes, esportes e jogos com HDR mais convincente sem alcançar o preço de uma OLED, especialmente em uma sala com alguma luz ambiente.",
+          "mainDifference": "O controle local da retroiluminação Mini LED melhora brilho e contraste de forma que TVs QLED básicas, sem zonas, não conseguem reproduzir.",
+          "tradeOff": "Ainda pode haver halo ao redor de objetos claros em fundo escuro, e o processamento de fontes ruins não é tão consistente quanto o de marcas premium.",
+          "sensiblePriceRange": "Excelente até R$ 3.200 e ainda recomendada até R$ 3.500; acima de R$ 4.000, compare promoções de OLED e Neo QLED.",
+          "avoidWhen": "Não recomendamos se você assiste quase sempre a conteúdo de baixa resolução e prioriza upscaling, ou se uma OLED C5 estiver por diferença inferior a aproximadamente R$ 1.200.",
+          "closestCompetitor": "Samsung QN70F: tem Tizen e processamento mais refinado, mas costuma cobrar bem mais e perde a vantagem de custo-benefício."
+        },
+        {
+          "productId": "prod_tcl_p7k",
+          "whyIncluded": "Entrega QLED, Dolby Vision, HDR10+, Google TV e 50 polegadas por preço próximo ao de televisores LCD básicos, sem cobrar por uma falsa experiência premium.",
+          "bestFor": "Quem quer streaming, TV aberta e jogos casuais em uma sala pequena ou média e prefere investir perto de R$ 2.000.",
+          "mainDifference": "A combinação de pontos quânticos e ampla compatibilidade HDR oferece cores mais interessantes que as TVs LED de entrada na mesma faixa.",
+          "tradeOff": "O painel é nativamente de 60 Hz; o Game Accelerator anunciado não transforma a TV em um painel 4K de 120 Hz real.",
+          "sensiblePriceRange": "Boa compra até R$ 2.200 e especialmente forte perto de R$ 2.000; acima de R$ 2.500, vale economizar para a C6K.",
+          "avoidWhen": "Não recomendamos para quem comprou console ou PC visando 4K a 120 Hz, procura HDR de alto brilho ou assiste filmes escuros em ambiente controlado.",
+          "closestCompetitor": "Samsung U8100F: oferece suporte de sistema mais longo e processamento previsível, mas tem HDR e cores menos ambiciosos."
+        },
+        {
+          "productId": "prod_samsung_u8100f",
+          "whyIncluded": "O Tizen, a promessa de sete anos de atualizações, o Gaming Hub e o processamento consistente formam uma alternativa segura para uso cotidiano.",
+          "bestFor": "Quem assiste TV aberta e streaming, usa SmartThings ou AirPlay e prefere suporte previsível e interface conhecida a buscar o maior contraste da faixa.",
+          "mainDifference": "Sete anos declarados de atualizações do Tizen dão à plataforma uma perspectiva de vida útil mais clara que a oferecida pelas TCL selecionadas.",
+          "tradeOff": "O painel LCD de 60 Hz, sem controle local de iluminação, entrega HDR e preto modestos; também não há Dolby Vision.",
+          "sensiblePriceRange": "Faz sentido até R$ 2.500 e fica forte perto de R$ 2.300; acima de R$ 2.700, a P7K ou uma promoção da C6K oferecem imagem melhor.",
+          "avoidWhen": "Não recomendamos para cinema em sala escura, jogos em 4K a 120 Hz ou para quem precisa conectar muitos aparelhos às apenas três HDMI.",
+          "closestCompetitor": "TCL P7K: oferece QLED e Dolby Vision por preço semelhante, enquanto a Samsung responde com suporte e ecossistema."
+        },
+        {
+          "productId": "prod_lg_oled_c5",
+          "whyIncluded": "É a melhor imagem da seleção: preto por pixel, contraste sem halo, bom ângulo de visão, Dolby Vision e processamento Alpha 9 favorecem filmes e séries.",
+          "bestFor": "Quem quer montar um cinema em casa, assiste em ambiente de luz controlada e aceita pagar mais por qualidade de imagem realmente superior.",
+          "mainDifference": "Cada pixel controla a própria luz; cenas escuras, barras de cinema e legendas não dependem de zonas de retroiluminação como nas Mini LED.",
+          "tradeOff": "Custa muito mais que a C6K e exige cuidado razoável com elementos estáticos prolongados; também não é a compra racional para TV aberta ligada o dia inteiro.",
+          "sensiblePriceRange": "Muito competitiva perto de R$ 4.500 e recomendável até R$ 5.000; por R$ 5.490, vale esperar promoção ou comparar uma OLED B5.",
+          "avoidWhen": "Não recomendamos para orçamento limitado, ambientes extremamente claros o dia inteiro ou uso prolongado como painel de notícias, menu ou monitor com elementos fixos.",
+          "closestCompetitor": "TCL C6K: perde no preto, ângulo e uniformidade, mas oferece brilho forte e custa aproximadamente R$ 2.000 menos."
+        }
+      ]
     },
     {
       "id": null,
@@ -3481,7 +4071,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/michel-foucault.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -3506,7 +4097,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/mito-da-genialidade-sucesso-financeiro-e-merito.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -3530,7 +4122,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/networking-o-que-e.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": "article_o_que_e_angustia",
@@ -3554,7 +4147,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/o-que-e-angustia.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": null,
@@ -3578,7 +4172,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/o-que-e-arquetipo.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -3602,7 +4197,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/o-que-e-curadoria.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -3626,7 +4222,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/o-que-e-design.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": "article_o_que_e_literatura",
@@ -3650,7 +4247,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/o-que-e-literatura.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_o_que_e_manga",
@@ -3675,7 +4273,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/o-que-e-manga.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": null,
@@ -3700,7 +4299,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/o-que-e-marketing.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": "article_o_que_e_niilismo",
@@ -3725,7 +4325,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/o-que-e-niilismo.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": null,
@@ -3750,7 +4351,33 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/o-que-e-um-lead.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "o-que-estudar-para-ficar-mais-inteligente",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "seo": {
+        "title": "O que estudar para ficar mais inteligente? Áreas do conhecimento que realmente desenvolvem seu raciocínio",
+        "description": "Veja o que estudar para desenvolver raciocínio, interpretação, argumentação, conhecimento de mundo, pensamento científico e comunicação sem promessas sobre QI.",
+        "canonical": "/blog/o-que-estudar-para-ficar-mais-inteligente"
+      },
+      "relationships": {
+        "related": [
+          "Por onde começar a aprender filosofia?",
+          "Como começar a ler e sentir prazer na leitura"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/o-que-estudar-para-ficar-mais-inteligente.mdx",
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -3775,7 +4402,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/o-que-publicar-no-instagram-sendo-social-media.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -3800,7 +4428,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/o-que-publicar-sendo-designer-grafico.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -3825,7 +4454,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/o-que-publicar-sendo-gestor-de-trafego.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -3850,7 +4480,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/o-que-publicar-sendo-profissional-de-seo.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -3875,7 +4506,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/o-que-publicar-sendo-ui-ux-designer.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -3900,7 +4532,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/o-que-publicar-sendo-web-designer-ou-desenvolvedor-freelancer.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -3924,7 +4557,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/o-que-sao-soft-skills.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -3948,7 +4582,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/o-que-voce-precisa-aprender-para-ser-um-bom-social-media.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": "article_perpetuos_de_sandman",
@@ -3971,7 +4606,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/perpetuos-de-sandman.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": "article_personagens_negros_marcantes",
@@ -3995,7 +4631,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/personagens-negros-marcantes.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": null,
@@ -4020,7 +4657,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/planos-seguranca-publica-candidatos-2026.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4045,7 +4683,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/platao.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4070,7 +4709,34 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/policia-sul-americana-caiado-viabilidade.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "por-onde-comecar-a-aprender-filosofia",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "seo": {
+        "title": "Por onde começar a aprender filosofia? Melhores autores e livros para iniciantes",
+        "description": "Veja por onde começar a estudar filosofia, quais livros ler primeiro e como avançar de introduções e diálogos acessíveis até autores mais complexos.",
+        "canonical": "/blog/por-onde-comecar-a-aprender-filosofia"
+      },
+      "relationships": {
+        "related": [
+          "Como começar a ler e sentir prazer na leitura",
+          "Os principais filósofos da história",
+          "Platão: vida, diálogos, filosofia e por onde começar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/por-onde-comecar-a-aprender-filosofia.mdx",
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4094,7 +4760,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/por-que-existem-cotas-objetivo-estrutural.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4115,7 +4782,8 @@
         "related": []
       },
       "sourceFile": "src/app/blog/posts/fundamentos/power-rangers-historia-atualidades-curiosidades.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4141,7 +4809,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/principais-filosofos-da-historia.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4162,7 +4831,8 @@
         "related": []
       },
       "sourceFile": "src/app/blog/posts/fundamentos/principal-component-analysis-pca.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4186,7 +4856,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/programa-lula-2026-arcabouco-fiscal.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4211,7 +4882,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/rebranding-o-que-e.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4235,7 +4907,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/reconhecimento-facial-seguranca-publica.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4259,7 +4932,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/regulacao-redes-sociais-liberdade-expressao.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4283,7 +4957,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/renan-santos-acabar-cotas-consequencias.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4307,7 +4982,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/renan-santos-bolsa-familia-frentes-trabalho.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4331,7 +5007,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/renan-santos-desfavelizar-brasil.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4356,7 +5033,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/renan-santos-eleicoes-2026.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4379,7 +5057,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/reserva-nacional-bitcoin-estrategia-especulacao.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4404,7 +5083,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/romeu-zema-eleicoes-2026.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4429,7 +5109,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/ronaldo-caiado-eleicoes-2026.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": "article_series_after_derry",
@@ -4454,7 +5135,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/series-para-quem-gostou-de-it-bem-vindos-a-derry.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": null,
@@ -4478,7 +5160,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/simone-de-beauvoir.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4503,7 +5186,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/social-media-marketing.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": "article_sociedade_do_cansaco_resumo",
@@ -4527,7 +5211,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/sociedade-do-cansaco-resumo.mdx",
-      "migrationReady": true
+      "migrationReady": true,
+      "productCards": []
     },
     {
       "id": null,
@@ -4548,7 +5233,8 @@
         "related": []
       },
       "sourceFile": "src/app/blog/posts/fundamentos/studio-ghibli.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4572,7 +5258,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/termos-de-design.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4599,7 +5286,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/termos-de-marketing.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4625,7 +5313,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/termos-de-publicidade.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4650,7 +5339,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/trade-marketing.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4675,7 +5365,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/user-interface-design.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4699,7 +5390,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/zema-fim-escala-6x1-populismo.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4724,7 +5416,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/zema-privatizar-petrobras-caixa-banco-do-brasil.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4749,7 +5442,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/educacao/como-atrair-mais-alunos-para-uma-escola.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4774,7 +5468,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/educacao/como-captar-alunos-pela-internet.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4799,7 +5494,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/educacao/como-divulgar-uma-escola-de-idiomas.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4824,7 +5520,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/educacao/como-usar-redes-sociais-para-vender-cursos.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4849,7 +5546,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/educacao/como-vender-cursos-online-com-marketing-digital.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4874,7 +5572,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/educacao/ideias-de-conteudo-para-escolas-e-cursos.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4899,7 +5598,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/educacao/marketing-educacional-estrategias-para-aumentar-matriculas.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4923,7 +5623,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/contabilidade/como-atrair-clientes-para-escritorio-de-contabilidade.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4946,7 +5647,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/contabilidade/como-divulgar-servicos-contabeis.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4972,7 +5674,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/clinicas-saude/como-atrair-pacientes-para-uma-clinica.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -4997,7 +5700,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/clinicas-saude/como-aumentar-o-agendamento-de-consultas.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5021,7 +5725,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/clinicas-saude/como-conseguir-mais-pacientes-para-consultorio-odontologico.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5046,7 +5751,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/clinicas-saude/como-conseguir-mais-pacientes-particulares.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5070,7 +5776,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/clinicas-saude/como-conseguir-pacientes-para-psicologo.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5095,7 +5802,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/clinicas-saude/como-divulgar-clinica-odontologica.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5119,7 +5827,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/clinicas-saude/como-divulgar-consultorio-de-psicologia.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5144,7 +5853,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/clinicas-saude/como-divulgar-uma-clinica-medica-sem-ferir-normas-eticas.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5169,7 +5879,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/clinicas-saude/como-melhorar-a-presenca-digital-de-uma-clinica.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5193,7 +5904,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/clinicas-saude/ideias-de-conteudo-para-medicos-nas-redes-sociais.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5217,7 +5929,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/clinicas-saude/landing-page-para-clinicas-odontologicas.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5242,7 +5955,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/clinicas-saude/landing-page-para-medicos.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5267,7 +5981,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/clinicas-saude/landing-page-para-psicologos.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5292,7 +6007,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/clinicas-saude/marketing-medico.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5317,7 +6033,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/clinicas-saude/marketing-para-clinicas-por-onde-comecar.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5342,7 +6059,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/clinicas-saude/o-que-postar-no-instagram-de-uma-clinica-de-saude.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5366,7 +6084,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/clinicas-saude/o-que-publicar-no-instagram-para-dentistas.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5390,7 +6109,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/clinicas-saude/o-que-publicar-no-instagram-para-psicologos.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5414,7 +6134,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/clinicas-saude/redes-sociais-para-dentistas-vale-a-pena.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5438,7 +6159,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/clinicas-saude/redes-sociais-para-medicos-vale-a-pena.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5462,7 +6184,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/clinicas-saude/redes-sociais-para-psicologos-vale-a-pena.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5483,7 +6206,8 @@
         "related": []
       },
       "sourceFile": "src/app/blog/posts/beleza-estetica/como-atrair-clientes-para-salao-de-beleza.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5508,7 +6232,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/beleza-estetica/como-conseguir-mais-clientes-para-design-de-sobrancelhas.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5533,7 +6258,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/beleza-estetica/como-divulgar-procedimentos-esteticos.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5558,7 +6284,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/beleza-estetica/como-divulgar-servicos-de-estetica-no-instagram.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5583,7 +6310,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/beleza-estetica/como-lotar-a-agenda-de-uma-manicure.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5608,7 +6336,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/beleza-estetica/ideias-de-conteudo-para-clinicas-de-estetica.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     },
     {
       "id": null,
@@ -5633,7 +6362,8 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/beleza-estetica/marketing-para-barbearias-estrategias-simples.mdx",
-      "migrationReady": false
+      "migrationReady": false,
+      "productCards": []
     }
   ]
 }

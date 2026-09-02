@@ -9,6 +9,7 @@ Para regras especializadas, consulte também:
 - [fichas permanentes de filmes](../editorial/templates/movie-profile.md), para pesquisa, conteúdo editorial, pôsteres e publicação em `/filmes/[slug]`;
 - [listas de séries](../editorial/templates/series-list.md), para catálogo, curadoria e disponibilidade por temporada;
 - [listas de leitura](../editorial/templates/reading-list.md), para o fluxo entre acervo central, edições, ofertas e artigos;
+- [recomendações de produtos](../editorial/templates/product-recommendation.md), para o fluxo entre modelos, variantes, ofertas e artigos;
 - [fichas permanentes de livros](../editorial/templates/reading-work-profile.md), para pesquisa, normalização, capas, sinopses e avaliações em `/livros/[slug]`;
 - [comentários nas fichas de leitura](reading-comments.md), para persistência, moderação, privacidade, segurança e ativação do Supabase;
 - [decisão de migração para Supabase](supabase-migration-decision.md), para evidências, gate de adoção e preservação do contrato SEO;
@@ -169,6 +170,16 @@ Para estúdios de animação, aplique o [modelo editorial especializado](../edit
 - **Relações:** listas armazenam referências; ISBN, páginas, editora, tradução, capa comercial e disponibilidade pertencem à edição. Ofertas apontam exclusivamente para uma edição.
 - **SEO e publicação:** apenas obras `published` possuem páginas públicas e entram no sitemap. O build pré-renderiza um lote determinístico das 24 fichas mais recentemente atualizadas de cada biblioteca; as demais são renderizadas no primeiro acesso e armazenadas por 24 horas. Índices e fichas possuem metadata, canonical, breadcrumbs e JSON-LD `CollectionPage`/`Book`; registros `draft` permanecem fora das rotas públicas.
 - **Variações:** cards compactos ou editoriais, com fallback quando faltarem capa, edição brasileira ou oferta.
+
+### Acervo e página de produto
+
+- **Rotas preparadas:** `/produtos` e `/produtos/[slug]`. O índice permanece fora da configuração global e recebe `noindex` enquanto não houver produtos publicados.
+- **Dados:** `ProductCatalogSchema`, registros em `src/content/products/` e fachada em `src/data/products/`.
+- **Entidades:** `Product` guarda o modelo editorial estável; `ProductVariant` guarda a versão exata e especificações; `ProductOffer` guarda loja, URL, afiliação, disponibilidade, preço observado e data.
+- **Relações:** fabricante aponta para `Organization`; produtos relacionados usam IDs permanentes; artigos usam slugs e `ProductCard` resolve o produto por ID.
+- **Componentes:** `ProductCard` para MDX, `ProductListCard`, `ProductOffers` e `ProductJsonLd`. O card exige análise específica da recomendação e não permite que o artigo replique a ficha central.
+- **SEO e publicação:** somente produtos `published`, com imagem verificada e data de publicação, geram páginas individuais. A entrada no sitemap, busca e navegação deve ocorrer apenas com o primeiro lote editorial completo.
+- **Imagens e comércio:** imagens locais em `/images/products/` carregam fonte, crédito, direitos e variante quando aplicável. Preço e estoque nunca pertencem ao produto permanente.
 
 ### Páginas institucionais, comerciais, demonstrações e projetos
 

@@ -72,6 +72,7 @@ import { MangaCard } from "@/components/reading/MangaCard";
 import { SeriesCard } from "@/components/series/SeriesCard";
 import { SeriesAvailabilityIndex } from "@/components/series/SeriesAvailabilityIndex";
 import { PersonCard, StudioCard } from "@/components/entities";
+import { ProductCard } from "@/components/products/ProductCard";
 
 import { baseURL } from "@/resources";
 
@@ -496,6 +497,7 @@ export const baseMDXComponents: MDXComponents = {
   MangaCard,
   PersonCard,
   StudioCard,
+  ProductCard,
 
   // shortcodes
   PillarBadge,

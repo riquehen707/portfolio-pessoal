@@ -10,14 +10,15 @@ import { getAllSeries, getPublishedSeries } from "@/data/series";
 import { getPublishedBooks, getPublishedComics } from "@/data/reading";
 import { getPublishedPersonalities } from "@/data/personalities";
 import { getPublishedStudios } from "@/data/organizations";
+import { getPublishedProducts } from "@/data/products";
 import { baseURL } from "@/resources";
 
 import styles from "./page.module.scss";
 
 const path = "/acervo";
-const title = "Acervo cultural";
+const title = "Acervo editorial";
 const description =
-  "Jogos, filmes, livros, mangás, quadrinhos e séries organizados em bibliotecas e curadorias editoriais.";
+  "Jogos, filmes, livros, quadrinhos, séries e produtos organizados em bibliotecas e curadorias editoriais.";
 
 export const metadata: Metadata = {
   title,
@@ -90,10 +91,19 @@ const sections = [
     action: "Explorar estúdios",
     slugs: [],
   },
+  {
+    id: "produtos",
+    index: "08",
+    title: "Produtos",
+    description: "Produtos, variantes e especificações verificadas, com preços e ofertas mantidos fora da ficha permanente.",
+    href: "/produtos",
+    action: "Explorar produtos",
+    slugs: ["melhores-celulares-ate-1500"],
+  },
 ] as const;
 
 export default async function CollectionPage() {
-  const [games, publishedGames, movies, publishedMovies, series, publishedSeries, books, comics] = await Promise.all([
+  const [games, publishedGames, movies, publishedMovies, series, publishedSeries, books, comics, products] = await Promise.all([
     getAllGames(),
     getPublishedGames(),
     getAllMovies(),
@@ -102,6 +112,7 @@ export default async function CollectionPage() {
     getPublishedSeries(),
     getPublishedBooks(),
     getPublishedComics(),
+    getPublishedProducts(),
   ]);
   const postBySlug = new Map(getAllBlogPosts().map((post) => [post.slug, post]));
   const personalities = getPublishedPersonalities();
@@ -141,6 +152,7 @@ export default async function CollectionPage() {
           const isComics = section.id === "quadrinhos";
           const isPersonalities = section.id === "personalidades";
           const isStudios = section.id === "estudios";
+          const isProducts = section.id === "produtos";
 
           return (
             <article className={styles.area} id={section.id} key={section.id}>
@@ -165,6 +177,8 @@ export default async function CollectionPage() {
                     <><strong>{personalities.length}</strong><span>perfis públicos com conteúdo suficiente</span></>
                   ) : isStudios ? (
                     <><strong>{studios.length}</strong><span>perfis institucionais publicados</span></>
+                  ) : isProducts ? (
+                    <><strong>{products.length}</strong><span>produtos com fichas e variantes publicadas</span></>
                   ) : (
                     <><strong>{posts.length}</strong><span>curadorias publicadas · biblioteca em revisão</span></>
                   )}

@@ -22,6 +22,10 @@ Apresenta uma obra do acervo central por `workId`. Aceita `variant="compact"` ou
 <ReadingWorkCard workId="read_work_exemplo" variant="editorial" comment="Por que esta obra pertence à seleção." />
 ```
 
+### `ProductCard`
+
+Resolve um produto pelo ID permanente e reutiliza imagem, variante, ficha e ofertas do acervo. Os campos editoriais são obrigatórios porque pertencem ao argumento daquela lista, não à entidade central: `whyIncluded`, `bestFor`, `mainDifference`, `tradeOff`, `sensiblePriceRange`, `avoidWhen` e `closestCompetitor`. O contrato completo está em [`product-recommendation.md`](../../editorial/templates/product-recommendation.md).
+
 ### `QuickSummary`
 
 Resumo manual das ideias úteis para decidir se e como ler. Use no início; não repetir o `summary` do frontmatter.

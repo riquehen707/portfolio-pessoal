@@ -38,6 +38,7 @@ const routes: RoutesConfig = {
   "/quadrinhos": true,
   "/personalidades": true,
   "/estudios": true,
+  "/produtos": true,
   "/blog/temas": false,
   "/mapa": false,
   "/trilhas": false,

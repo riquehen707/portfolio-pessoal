@@ -21,12 +21,14 @@ const typeLabels: Record<GlobalSearchItemType, string> = {
   article: "Artigo",
   idea: "Ideia",
   page: "Página",
+  product: "Produto",
 };
 
 const typePriority: Record<GlobalSearchItemType, number> = {
   article: 8,
   idea: 7,
   page: 5,
+  product: 7,
 };
 
 const quickQueries = ["SEO", "landing page", "clientes", "conteúdo", "tráfego", "vender online"];

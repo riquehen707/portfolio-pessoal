@@ -1,5 +1,7 @@
 # Sistema editorial
 
+Para artigos de recomendação comercial, consulte também [`docs/editorial/templates/product-recommendation.md`](../editorial/templates/product-recommendation.md). Produtos, variantes e ofertas pertencem ao acervo central; o MDX mantém somente a análise específica da recomendação.
+
 Este guia é a fonte principal para produção de artigos. A visão geral de rotas, tipos de página, modelos, SEO e validações fica em [`docs/architecture/site-architecture.md`](../architecture/site-architecture.md).
 
 Esta pasta explica como transformar texto bruto em artigo publicado sem descaracterizar a voz do autor nem criar variações arbitrárias de estrutura.

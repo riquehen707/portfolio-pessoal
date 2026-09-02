@@ -2,8 +2,9 @@ import { getAllBlogPosts, getBlogPostFormat, getBlogPrimaryCategory } from "@/ap
 import { seoLibraryPath, understandSearchBookPath } from "@/app/blog/seo/seoLibraryData";
 import { blog, home } from "@/resources";
 import { getPublishedIdeas } from "@/data/ideas";
+import { getPublishedProducts } from "@/data/products";
 
-export type GlobalSearchItemType = "article" | "idea" | "page";
+export type GlobalSearchItemType = "article" | "idea" | "page" | "product";
 
 export type GlobalSearchItem = {
   id: string;
@@ -66,6 +67,7 @@ function pageItem({
 
 export async function getGlobalSearchItems(): Promise<GlobalSearchItem[]> {
   const ideas = await getPublishedIdeas();
+  const products = await getPublishedProducts();
   const staticPages: GlobalSearchItem[] = [
     pageItem({
       id: "page-home",
@@ -275,7 +277,18 @@ export async function getGlobalSearchItems(): Promise<GlobalSearchItem[]> {
     keywords: uniq([...idea.categories, ...idea.tags, ideaStatusLabelsForSearch[idea.status]]),
   }));
 
-  return [...staticPages, ...ideaItems, ...articleItems];
+  const productItems: GlobalSearchItem[] = products.map((product) => ({
+    id: `product-${product.id}`,
+    type: "product",
+    title: product.name,
+    description: product.shortDescription,
+    href: `/produtos/${product.slug}`,
+    label: "Produto",
+    date: product.updatedAt,
+    keywords: uniq([product.name, product.line, product.category, ...product.categories, ...product.tags]),
+  }));
+
+  return [...staticPages, ...ideaItems, ...productItems, ...articleItems];
 }
 
 const ideaStatusLabelsForSearch = {

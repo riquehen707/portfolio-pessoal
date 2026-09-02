@@ -1,0 +1,3381 @@
+{
+  "schemaVersion": 1,
+  "contentType": "product-catalog",
+  "products": [
+    {
+      "id": "prod_fischer_premier_48l",
+      "contentType": "product",
+      "schemaVersion": 1,
+      "slug": "fischer-premier-48-litros",
+      "aliases": [
+        "forno-fischer-premier-48l"
+      ],
+      "name": "Forno Fischer Premier 48 litros",
+      "manufacturerId": "org_fischer",
+      "line": "Premier",
+      "category": "Fornos elétricos",
+      "mainImage": {
+        "src": "/images/products/ovens/fischer-premier-48l-v1.png",
+        "alt": "Forno elétrico de bancada Fischer Premier 48 litros preto",
+        "sourceUrl": "https://www.fischer.com.br/forno-eletrico-fischer-premier-bancada-48l/p",
+        "credit": "Fischer",
+        "rights": "official-promotional",
+        "width": 386,
+        "height": 386
+      },
+      "gallery": [],
+      "shortDescription": "Forno elétrico de bancada de 48 litros com resistências superior e inferior, dourador independente, porta de vidro duplo e timer de 120 minutos.",
+      "strengths": [
+        "Faixa de 50 °C a 300 °C e aquecimento superior independente ampliam o controle de acabamento",
+        "Porta de vidro duplo e estrutura de 13,7 kg oferecem retenção e estabilidade melhores que fornos muito leves",
+        "Cavidade de 39,2 × 26,7 × 44,5 cm permite verificar antecipadamente quais formas cabem"
+      ],
+      "limitations": [
+        "Não possui convecção, portanto forma e posição continuam influenciando a uniformidade",
+        "Um único forno de 48 litros ainda limita produção simultânea e não substitui teste de temperatura"
+      ],
+      "suitableFor": [
+        "Quem comprovou que o forno doméstico atual é inconsistente ou pequeno para suas formas",
+        "Produção caseira inicial que precisa de um forno dedicado sem obra de embutir"
+      ],
+      "categories": [
+        "Fornos elétricos",
+        "Equipamentos de confeitaria"
+      ],
+      "tags": [
+        "48 litros",
+        "Bancada",
+        "Vidro duplo",
+        "Dourador"
+      ],
+      "relatedProductIds": [
+        "prod_oster_bowl_inox_iii"
+      ],
+      "relatedArticleSlugs": [
+        "kit-para-comecar-a-vender-bolos-e-doces"
+      ],
+      "editorialSummary": "É uma opção de forno dedicado para quem já testou o forno de casa e encontrou um gargalo real. A recomendação depende das dimensões internas e da instalação elétrica; litros e temperatura no seletor não garantem uniformidade sem testes com a receita.",
+      "seo": {
+        "title": "Fischer Premier 48L: ficha e análise para bolos",
+        "description": "Ficha do forno Fischer Premier 48 litros com dimensões internas, potência, temperatura, tensão, limitações e oferta observada."
+      },
+      "sources": [
+        {
+          "title": "Fischer Premier 48 litros — página oficial",
+          "url": "https://www.fischer.com.br/forno-eletrico-fischer-premier-bancada-48l/p",
+          "accessedAt": "2026-09-02"
+        },
+        {
+          "title": "Manual oficial Fischer Premier 48 litros",
+          "url": "https://www.fischer.com.br/media/amasty/amfile/attach/RKSJxKdm6FPzef8QD8brRZeldwEhBYS1.pdf",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_urano_udc_pop_6_1",
+      "contentType": "product",
+      "schemaVersion": 1,
+      "slug": "urano-udc-pop-6kg-1g",
+      "aliases": [
+        "balanca-urano-udc-pop-6-1"
+      ],
+      "name": "Balança Urano UDC POP 6 kg / 1 g",
+      "manufacturerId": "org_urano",
+      "line": "UDC POP",
+      "category": "Balanças comerciais",
+      "mainImage": {
+        "src": "/images/products/scales/urano-udc-pop-6kg-v1.jpg",
+        "alt": "Balança comercial Urano UDC POP com plataforma de inox",
+        "sourceUrl": "https://b2b.nowak.com.br/balancas/balanca-comercial/balanca-pesadora-6kg-divisao-1g-urano-udc6-1pop-ref-20094",
+        "credit": "Urano, reprodução do varejista Nowak",
+        "rights": "official-promotional",
+        "width": 150,
+        "height": 150
+      },
+      "gallery": [],
+      "shortDescription": "Balança comercial de bancada com capacidade de 6 kg, divisão de 1 g, tara, plataforma inox e fonte bivolt automática.",
+      "strengths": [
+        "Divisão de 1 g em toda a faixa de até 6 kg atende padronização de lotes e porções",
+        "Projeto comercial com plataforma inox, pés reguláveis e bateria interna",
+        "Homologação metrológica e construção apropriada para áreas de produção"
+      ],
+      "limitations": [
+        "É muito mais cara e volumosa que uma balança doméstica simples",
+        "Carga mínima e resolução de 1 g não substituem balança de precisão para aditivos em frações de grama"
+      ],
+      "suitableFor": [
+        "Produção crescente que exige pesagem diária, plataforma maior e equipamento comercial",
+        "Negócio que também precisa conferir porções e recebimento dentro de 6 kg"
+      ],
+      "categories": [
+        "Balanças comerciais",
+        "Equipamentos de confeitaria"
+      ],
+      "tags": [
+        "6 kg",
+        "Divisão de 1 g",
+        "Plataforma inox",
+        "Bivolt"
+      ],
+      "relatedProductIds": [
+        "prod_fischer_premier_48l"
+      ],
+      "relatedArticleSlugs": [
+        "kit-para-comecar-a-vender-bolos-e-doces"
+      ],
+      "editorialSummary": "É a alternativa de crescimento, não a compra inicial padrão. Uma balança doméstica de 5 kg com divisão de 1 g e tara basta para começar; a UDC POP passa a fazer sentido quando frequência, estabilidade, plataforma e uso comercial justificam o custo.",
+      "seo": {
+        "title": "Urano UDC POP 6 kg/1 g: ficha e usos",
+        "description": "Ficha da balança comercial Urano UDC POP de 6 kg com divisão de 1 g, plataforma inox, alimentação, limitações e aplicação em produção."
+      },
+      "sources": [
+        {
+          "title": "Catálogo comercial Urano — UDC POP",
+          "url": "https://www.urano.com.br/wp-content/uploads/2020/06/cat_comercial_rev8_web.pdf",
+          "accessedAt": "2026-09-02"
+        },
+        {
+          "title": "Urano UDC POP 6 kg — ficha do varejista",
+          "url": "https://b2b.nowak.com.br/balancas/balanca-comercial/balanca-pesadora-6kg-divisao-1g-urano-udc6-1pop-ref-20094",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_oster_bowl_inox_iii",
+      "contentType": "product",
+      "schemaVersion": 1,
+      "slug": "oster-bowl-inox-iii",
+      "aliases": [
+        "oster-obat641"
+      ],
+      "name": "Oster Bowl Inox III",
+      "manufacturerId": "org_oster",
+      "line": "Bowl Inox",
+      "category": "Batedeiras planetárias",
+      "mainImage": {
+        "src": "/images/products/stand-mixers/oster-bowl-inox-iii-v1.jpg",
+        "alt": "Batedeira planetária Oster Bowl Inox III preta com tigela de inox",
+        "sourceUrl": "https://www.oster.com.br/batedeira-planetaria-oster-bowl-inox-iii/p",
+        "credit": "Oster",
+        "rights": "official-promotional",
+        "width": 1000,
+        "height": 1000
+      },
+      "gallery": [],
+      "shortDescription": "Batedeira planetária doméstica de 850 W, tigela de inox de 4 litros, 12 velocidades e partida suave.",
+      "strengths": [
+        "Partida suave reduz farinha e açúcar lançados para fora da tigela",
+        "Tigela inox, tampa antirrespingos e três batedores cobrem a confeitaria doméstica básica",
+        "Preço de entrada permite validar a demanda antes de investir em máquina comercial"
+      ],
+      "limitations": [
+        "Fabricante não publica carga máxima de massa; quatro litros são volume da tigela, não capacidade em quilos",
+        "Construção doméstica não foi especificada para turnos comerciais prolongados"
+      ],
+      "suitableFor": [
+        "Confeiteiro iniciante com poucas encomendas semanais e massas leves ou médias",
+        "Quem prepara chantilly, claras, buttercream e massas de bolo em pequenos lotes"
+      ],
+      "categories": [
+        "Batedeiras planetárias",
+        "Equipamentos de confeitaria"
+      ],
+      "tags": [
+        "4 litros",
+        "850 W",
+        "Partida suave",
+        "Uso doméstico"
+      ],
+      "relatedProductIds": [
+        "prod_kitchenaid_artisan_kea33",
+        "prod_skymsen_bps_05_n"
+      ],
+      "relatedArticleSlugs": [
+        "melhores-batedeiras-para-quem-vende-bolos"
+      ],
+      "editorialSummary": "É a porta de entrada racional para produção doméstica recorrente: tem movimento planetário, partida suave e tigela inox sem exigir investimento profissional. Não há base oficial para prometer grandes cargas ou uso contínuo.",
+      "seo": {
+        "title": "Oster Bowl Inox III: ficha, análise e ofertas",
+        "description": "Ficha da Oster Bowl Inox III OBAT641 com tigela de 4 litros, 850 W, partida suave, dimensões, limitações e ofertas observadas."
+      },
+      "sources": [
+        {
+          "title": "Oster Bowl Inox III — página oficial",
+          "url": "https://www.oster.com.br/batedeira-planetaria-oster-bowl-inox-iii/p",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_kitchenaid_artisan_kea33",
+      "contentType": "product",
+      "schemaVersion": 1,
+      "slug": "kitchenaid-artisan-kea33",
+      "aliases": [
+        "kitchenaid-stand-mixer-artisan"
+      ],
+      "name": "KitchenAid Artisan KEA33",
+      "manufacturerId": "org_kitchenaid",
+      "line": "Artisan",
+      "category": "Batedeiras planetárias",
+      "mainImage": {
+        "src": "/images/products/stand-mixers/kitchenaid-artisan-kea33-v1.jpg",
+        "alt": "Batedeira KitchenAid Artisan KEA33 prata com tigela de inox",
+        "sourceUrl": "https://www.kitchenaid.com.br/batedeira-stand-mixer-kitchenaid-contour-silver-kea33ds/p",
+        "credit": "KitchenAid",
+        "rights": "official-promotional",
+        "width": 1628,
+        "height": 1920
+      },
+      "gallery": [],
+      "shortDescription": "Stand mixer doméstica de corpo metálico, tigela de inox de 4,83 litros, dez velocidades e capacidade oficial de até 1,8 kg de massa de pão.",
+      "strengths": [
+        "Corpo metálico de 10 kg dá estabilidade e repetibilidade melhores que planetárias leves",
+        "Fabricante publica limites de 1,1 kg de farinha e 1,8 kg de massa de pão",
+        "Eixo frontal aceita acessórios opcionais e amplia o uso do equipamento"
+      ],
+      "limitations": [
+        "Continua classificada pela fabricante como doméstica, apesar da construção robusta",
+        "Preço se aproxima de batedeiras comerciais de cinco litros"
+      ],
+      "suitableFor": [
+        "Produção doméstica recorrente que precisa repetir massas, cremes e coberturas com estabilidade",
+        "Quem também aproveitará acessórios opcionais e respeitará os limites de carga"
+      ],
+      "categories": [
+        "Batedeiras planetárias",
+        "Equipamentos de confeitaria"
+      ],
+      "tags": [
+        "4,83 litros",
+        "Corpo metálico",
+        "10 velocidades",
+        "Uso doméstico"
+      ],
+      "relatedProductIds": [
+        "prod_oster_bowl_inox_iii",
+        "prod_skymsen_bps_05_n"
+      ],
+      "relatedArticleSlugs": [
+        "melhores-batedeiras-para-quem-vende-bolos"
+      ],
+      "editorialSummary": "É o meio-termo premium para encomendas domésticas: pesada, estável e com capacidade de massa publicada. A indicação não transforma a Artisan em equipamento comercial; perto de R$ 3 mil, a diferença para uma Skymsen profissional precisa ser ponderada.",
+      "seo": {
+        "title": "KitchenAid Artisan KEA33: ficha e análise",
+        "description": "Ficha da KitchenAid Artisan KEA33 com capacidade oficial, tigela de 4,83 litros, potência por tensão, dimensões, limitações e ofertas."
+      },
+      "sources": [
+        {
+          "title": "KitchenAid — guia de compra de batedeiras",
+          "url": "https://www.kitchenaid.com.br/blog/conheca/batedeiras-guia-de-compra/guia-de-compras-batedeiras",
+          "accessedAt": "2026-09-02"
+        },
+        {
+          "title": "KitchenAid Artisan KEA33 — página oficial",
+          "url": "https://www.kitchenaid.com.br/batedeira-stand-mixer-kitchenaid-contour-silver-kea33ds/p",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_skymsen_bps_05_n",
+      "contentType": "product",
+      "schemaVersion": 1,
+      "slug": "skymsen-bps-05-n",
+      "aliases": [
+        "skymsen-batedeira-planetaria-5-litros"
+      ],
+      "name": "Skymsen BPS-05-N",
+      "manufacturerId": "org_skymsen",
+      "line": "BPS",
+      "category": "Batedeiras profissionais",
+      "mainImage": {
+        "src": "/images/products/stand-mixers/skymsen-bps-05-n-v1.jpg",
+        "alt": "Batedeira planetária profissional Skymsen BPS-05-N branca com bojo inox",
+        "sourceUrl": "https://www.panan.com.br/padaria/batedeira-planetaria-5-litros-bps-05n-branca-skymsen",
+        "credit": "Skymsen, reprodução do varejista Panan",
+        "rights": "official-promotional",
+        "width": 1200,
+        "height": 1200
+      },
+      "gallery": [],
+      "shortDescription": "Batedeira planetária profissional bivolt automático com bojo inox de 5 litros, estrutura de alumínio fundido, engrenagens metálicas e velocidade variável.",
+      "strengths": [
+        "Estrutura fundida, 12,5 kg e engrenagens metálicas priorizam estabilidade e rotina comercial",
+        "Velocidade com ajuste contínuo atende do globo à raquete sem saltos fixos",
+        "Bivolt automático simplifica instalação e mudança de bancada"
+      ],
+      "limitations": [
+        "Catálogo atual a destina a massas leves, coberturas e chantilly; o gancho não comprova aptidão para massa pesada",
+        "Bojo de cinco litros limita ganho de lote e não equivale a cinco quilos de massa"
+      ],
+      "suitableFor": [
+        "Confeitarias e cozinhas com produção frequente de bolos, pão de ló, recheios, merengues e coberturas",
+        "Quem já perde tempo ou consistência com planetária doméstica"
+      ],
+      "categories": [
+        "Batedeiras profissionais",
+        "Equipamentos de confeitaria"
+      ],
+      "tags": [
+        "5 litros",
+        "Bivolt automático",
+        "Alumínio fundido",
+        "Engrenagens metálicas"
+      ],
+      "relatedProductIds": [
+        "prod_oster_bowl_inox_iii",
+        "prod_kitchenaid_artisan_kea33"
+      ],
+      "relatedArticleSlugs": [
+        "melhores-batedeiras-para-quem-vende-bolos"
+      ],
+      "editorialSummary": "É a escolha comercial para produção frequente de confeitaria leve. O ganho está na construção de 12,5 kg, engrenagens metálicas e controle contínuo, não em uma tigela apenas 170 ml maior que a Artisan. Para massas pesadas ou lotes grandes, é preciso subir de categoria.",
+      "seo": {
+        "title": "Skymsen BPS-05-N: ficha, usos e ofertas",
+        "description": "Ficha da batedeira profissional Skymsen BPS-05-N de 5 litros com construção, potência, dimensões, usos indicados, limitações e preço."
+      },
+      "sources": [
+        {
+          "title": "Skymsen BPS-05-N — catálogo oficial",
+          "url": "https://www.skymsen.com/uploads/produtos/folders/643700.pdf",
+          "accessedAt": "2026-09-02"
+        },
+        {
+          "title": "Termos de garantia Skymsen",
+          "url": "https://www.skymsen.com/index.php/institucional/termosecondicoes_garantia",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_skymsen_li2",
+      "contentType": "product",
+      "schemaVersion": 1,
+      "slug": "skymsen-li2",
+      "aliases": [
+        "skymsen-li-2-litros"
+      ],
+      "name": "Skymsen LI2",
+      "manufacturerId": "org_skymsen",
+      "line": "Alta rotação",
+      "category": "Liquidificadores profissionais",
+      "mainImage": {
+        "src": "/images/products/blenders/skymsen-li2-v1.jpg",
+        "alt": "Liquidificador profissional Skymsen LI2 com copo de inox",
+        "sourceUrl": "https://www.skymsen.com/index.php/produtos/detalhe/474428",
+        "credit": "Skymsen",
+        "rights": "official-promotional",
+        "width": 350,
+        "height": 350
+      },
+      "gallery": [],
+      "shortDescription": "Liquidificador comercial de alta rotação com copo de inox de 2 litros, 18.000 rpm e versões de 127 ou 220 V.",
+      "strengths": [
+        "Copo, lâminas e gabinete de inox favorecem higienização e resistência no balcão",
+        "Rotação de 18.000 rpm atende sucos, vitaminas, shakes e molhos líquidos com rapidez",
+        "Desenho explodido e catálogo de componentes facilitam identificar peças de reposição"
+      ],
+      "limitations": [
+        "Uma única velocidade oferece menos controle que o BM2",
+        "Copo opaco impede acompanhar visualmente a textura durante o processamento"
+      ],
+      "suitableFor": [
+        "Lanchonetes, cafeterias e pequenos restaurantes focados em bebidas e preparos líquidos",
+        "Quem precisa de equipamento comercial simples sem pagar pelo desempenho do BM2"
+      ],
+      "categories": [
+        "Liquidificadores profissionais",
+        "Equipamentos comerciais"
+      ],
+      "tags": [
+        "2 litros",
+        "Copo inox",
+        "Alta rotação",
+        "18.000 rpm"
+      ],
+      "relatedProductIds": [
+        "prod_skymsen_l2",
+        "prod_skymsen_bm2"
+      ],
+      "relatedArticleSlugs": [
+        "melhores-liquidificadores-profissionais"
+      ],
+      "editorialSummary": "É a escolha de entrada para bebidas e misturas fluidas: 18.000 rpm, conjunto inox e peças catalogadas sustentam o uso comercial melhor que um doméstico potente. Não é a indicação para massas pesadas ou pastas secas.",
+      "seo": {
+        "title": "Skymsen LI2: ficha, usos e ofertas",
+        "description": "Ficha do liquidificador profissional Skymsen LI2 de 2 litros, com potência nominal, rotação, copo inox, tensão, limitações e preço."
+      },
+      "sources": [
+        {
+          "title": "Skymsen LI2 — especificações oficiais",
+          "url": "https://www.skymsen.com/index.php/produtos/detalhe/474428",
+          "accessedAt": "2026-09-02"
+        },
+        {
+          "title": "Termos de garantia Skymsen",
+          "url": "https://www.skymsen.com/index.php/institucional/termosecondicoes_garantia",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_skymsen_l2",
+      "contentType": "product",
+      "schemaVersion": 1,
+      "slug": "skymsen-l2",
+      "aliases": [
+        "skymsen-l2-comercial"
+      ],
+      "name": "Skymsen L2",
+      "manufacturerId": "org_skymsen",
+      "line": "Linha L",
+      "category": "Liquidificadores profissionais",
+      "mainImage": {
+        "src": "/images/products/blenders/skymsen-l2-v1.jpg",
+        "alt": "Liquidificador comercial Skymsen L2 com copo monobloco de inox",
+        "sourceUrl": "https://www.skymsen.com/index.php/produtos/detalhe/709786",
+        "credit": "Skymsen",
+        "rights": "official-promotional",
+        "width": 350,
+        "height": 350
+      },
+      "gallery": [],
+      "shortDescription": "Liquidificador comercial de baixa rotação com motor de indução, copo monobloco de inox de 2 litros e seleção 127/220 V.",
+      "strengths": [
+        "Motor de indução de 3.500 rpm foi projetado para uso contínuo com menor ruído e desgaste",
+        "Copo monobloco sem soldas ou frestas facilita higienização",
+        "Construção de 9,1 kg oferece estabilidade superior aos modelos leves de alta rotação"
+      ],
+      "limitations": [
+        "Baixa rotação não produz bebidas congeladas com a mesma rapidez ou textura do BM2",
+        "Equipamento alto e pesado ocupa mais bancada e é menos fácil de transportar"
+      ],
+      "suitableFor": [
+        "Restaurantes e cozinhas de produção que priorizam ciclos repetidos, cremes, molhos e sopas",
+        "Operações que valorizam baixo ruído e limpeza do copo monobloco"
+      ],
+      "categories": [
+        "Liquidificadores profissionais",
+        "Equipamentos comerciais"
+      ],
+      "tags": [
+        "2 litros",
+        "Baixa rotação",
+        "Motor de indução",
+        "Copo monobloco inox"
+      ],
+      "relatedProductIds": [
+        "prod_skymsen_li2",
+        "prod_skymsen_bm2"
+      ],
+      "relatedArticleSlugs": [
+        "melhores-liquidificadores-profissionais"
+      ],
+      "editorialSummary": "É o modelo para rotina contínua e misturas culinárias, não uma tentativa de vencer pela potência anunciada. O motor de indução, a baixa rotação e o corpo pesado priorizam torque, ruído e vida de serviço; bebidas com muito gelo pedem o BM2.",
+      "seo": {
+        "title": "Skymsen L2: ficha, usos e ofertas",
+        "description": "Ficha do liquidificador comercial Skymsen L2 com motor de indução, copo monobloco inox, baixa rotação, dimensões, garantia e preço."
+      },
+      "sources": [
+        {
+          "title": "Skymsen L2 — especificações oficiais",
+          "url": "https://www.skymsen.com/index.php/produtos/detalhe/709786",
+          "accessedAt": "2026-09-02"
+        },
+        {
+          "title": "Termos de garantia Skymsen",
+          "url": "https://www.skymsen.com/index.php/institucional/termosecondicoes_garantia",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_skymsen_bm2",
+      "contentType": "product",
+      "schemaVersion": 1,
+      "slug": "skymsen-bm2",
+      "aliases": [
+        "skymsen-maxi-blender-bm2"
+      ],
+      "name": "Skymsen BM2 Maxi Blender",
+      "manufacturerId": "org_skymsen",
+      "line": "Maxi Blender",
+      "category": "Liquidificadores profissionais",
+      "mainImage": {
+        "src": "/images/products/blenders/skymsen-bm2-v1.jpg",
+        "alt": "Liquidificador profissional Skymsen BM2 com copo transparente de Tritan",
+        "sourceUrl": "https://www.skymsen.com/index.php/produto/bm2_127v",
+        "credit": "Skymsen",
+        "rights": "official-promotional",
+        "width": 350,
+        "height": 350
+      },
+      "gallery": [],
+      "shortDescription": "Maxi blender comercial de 2 litros com copo Tritan, velocidade variável, pulsar, seis lâminas e rotação máxima de 38.000 rpm.",
+      "strengths": [
+        "Velocidade variável e pulsar permitem controlar textura e iniciar misturas difíceis gradualmente",
+        "Seis lâminas e 38.000 rpm processam gelo, polpas congeladas, grãos, castanhas e receitas fluidas",
+        "Copo Tritan transparente, livre de BPA, facilita acompanhar a consistência"
+      ],
+      "limitations": [
+        "Custa aproximadamente o dobro de um LI2",
+        "Alta rotação e motor mais forte produzem mais ruído que o L2 de indução"
+      ],
+      "suitableFor": [
+        "Casas de suco, cafeterias e cozinhas que alternam gelo, polpas, sopas e moagem",
+        "Negócios em que controle de textura e produtividade justificam o investimento"
+      ],
+      "categories": [
+        "Liquidificadores profissionais",
+        "Equipamentos comerciais"
+      ],
+      "tags": [
+        "2 litros",
+        "Tritan",
+        "38.000 rpm",
+        "Velocidade variável",
+        "Seis lâminas"
+      ],
+      "relatedProductIds": [
+        "prod_skymsen_li2",
+        "prod_skymsen_l2"
+      ],
+      "relatedArticleSlugs": [
+        "melhores-liquidificadores-profissionais"
+      ],
+      "editorialSummary": "É o modelo mais versátil e rápido da seleção. A vantagem não vem apenas dos watts: copo Tritan, seis lâminas, rolamentos blindados, pulsar e velocidade variável ampliam os preparos e o controle. Ainda assim, não substitui equipamento específico para massas pesadas.",
+      "seo": {
+        "title": "Skymsen BM2 Maxi Blender: ficha e ofertas",
+        "description": "Ficha do Skymsen BM2 profissional com copo Tritan de 2 litros, seis lâminas, velocidade variável, potência, rotação, garantia e preço."
+      },
+      "sources": [
+        {
+          "title": "Skymsen BM2 — especificações oficiais",
+          "url": "https://www.skymsen.com/index.php/produto/bm2_127v",
+          "accessedAt": "2026-09-02"
+        },
+        {
+          "title": "Termos de garantia Skymsen",
+          "url": "https://www.skymsen.com/index.php/institucional/termosecondicoes_garantia",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_midea_healthguard_slim_11",
+      "contentType": "product",
+      "schemaVersion": 1,
+      "slug": "midea-healthguard-slim-11kg",
+      "aliases": [],
+      "name": "Midea HealthGuard Slim 11 kg",
+      "manufacturerId": "org_midea",
+      "line": "HealthGuard Slim",
+      "category": "Lava e seca",
+      "releaseYear": 2025,
+      "mainImage": {
+        "src": "/images/products/washer-dryers/midea-healthguard-slim-11kg-v1.jpg",
+        "alt": "Lava e seca Midea HealthGuard Slim 11 kg Titanium vista de frente",
+        "sourceUrl": "https://www.midea.com.br/lava-e-seca-11kg-titanium-slim-healthguard-conectada-midea/p?skuId=511",
+        "credit": "Midea Brasil",
+        "rights": "official-promotional",
+        "width": 1000,
+        "height": 1000
+      },
+      "gallery": [],
+      "shortDescription": "Lava e seca frontal slim com 11 kg para lavar e 7 kg para secar, motor inverter, vapor e conectividade.",
+      "strengths": [
+        "Gabinete de 57,5 cm de profundidade facilita a instalação em lavanderias compactas",
+        "Capacidades de 11 kg para lavagem e 7 kg para secagem atendem casais e famílias pequenas",
+        "Preço observado fica abaixo das opções familiares de 13 e 14 kg"
+      ],
+      "limitations": [
+        "A secagem de 7 kg exige reduzir uma carga completa de lavagem de 11 kg",
+        "A rede de assistência deve ser confirmada no CEP antes da compra"
+      ],
+      "suitableFor": [
+        "Casais e famílias pequenas com pouco espaço para dois aparelhos",
+        "Quem realmente precisa secar e encontra a variante correta por até R$ 3.500"
+      ],
+      "categories": [
+        "Lava e seca",
+        "Eletrodomésticos"
+      ],
+      "tags": [
+        "11 kg lavagem",
+        "7 kg secagem",
+        "Inverter",
+        "Vapor",
+        "Wi-Fi"
+      ],
+      "relatedProductIds": [
+        "prod_samsung_wd13fg",
+        "prod_lg_vc4_14"
+      ],
+      "relatedArticleSlugs": [
+        "melhores-lava-e-seca"
+      ],
+      "editorialSummary": "É a escolha de espaço e preço: preserva 11 kg de lavagem e 7 kg de secagem em 57,5 cm de profundidade. Conectividade é secundária; o argumento concreto é caber onde modelos maiores não cabem.",
+      "seo": {
+        "title": "Midea HealthGuard Slim 11 kg: ficha e ofertas",
+        "description": "Ficha da lava e seca Midea HealthGuard Slim de 11 kg para lavar e 7 kg para secar, com dimensões, variante, vantagens e preço observado."
+      },
+      "sources": [
+        {
+          "title": "Midea HealthGuard Slim 11 kg — página oficial",
+          "url": "https://www.midea.com.br/lava-e-seca-11kg-titanium-slim-healthguard-conectada-midea/p?skuId=511",
+          "accessedAt": "2026-09-02"
+        },
+        {
+          "title": "Manual da Midea HealthGuard Slim 11 kg",
+          "url": "https://conteudo.midea.com.br/manuais/lava-e-seca-11kg-titanium-slim-healthguard-conectada-midea.pdf",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_samsung_wd13fg",
+      "contentType": "product",
+      "schemaVersion": 1,
+      "slug": "samsung-wd13fg",
+      "aliases": [],
+      "name": "Samsung WD13FG",
+      "manufacturerId": "org_samsung_electronics",
+      "line": "WD6000F",
+      "category": "Lava e seca",
+      "releaseYear": 2025,
+      "mainImage": {
+        "src": "/images/products/washer-dryers/samsung-wd13fg-v1.png",
+        "alt": "Lava e seca Samsung WD13FG Inox vista de frente",
+        "sourceUrl": "https://www.samsung.com/br/washers-and-dryers/washer-dryer-combo/wd6000f-front-loading-ai-ecobubble-ai-control-ai-energy-mode-13kg-refined-inox-wd13fg6b34bxaz/",
+        "credit": "Samsung Brasil",
+        "rights": "official-promotional",
+        "width": 1164,
+        "height": 776
+      },
+      "gallery": [],
+      "shortDescription": "Lava e seca frontal com 13 kg para lavagem, 8 kg para secagem, 1.400 rpm, motor Digital Inverter e gabinete de 60 cm.",
+      "strengths": [
+        "Tambor de 13 kg em gabinete com 60 cm de profundidade oferece boa relação entre capacidade e espaço",
+        "Secagem de 8 kg atende melhor famílias que os modelos de 7 kg",
+        "Dez anos de garantia do motor e canais nacionais de suporte reduzem parte do risco da compra"
+      ],
+      "limitations": [
+        "Capacidade de secagem continua 5 kg abaixo da lavagem",
+        "Recursos de IA e Wi-Fi não compensam preço excessivo nem dispensam separar tecidos"
+      ],
+      "suitableFor": [
+        "Famílias de três ou quatro pessoas que usam secagem com frequência",
+        "Quem precisa de maior capacidade sem avançar para um gabinete muito profundo"
+      ],
+      "categories": [
+        "Lava e seca",
+        "Eletrodomésticos"
+      ],
+      "tags": [
+        "13 kg lavagem",
+        "8 kg secagem",
+        "Digital Inverter",
+        "Vapor",
+        "SmartThings"
+      ],
+      "relatedProductIds": [
+        "prod_lg_vc4_14",
+        "prod_midea_healthguard_slim_11"
+      ],
+      "relatedArticleSlugs": [
+        "melhores-lava-e-seca"
+      ],
+      "editorialSummary": "É o melhor equilíbrio geral: 13 kg de lavagem e 8 kg de secagem em dimensões externas próximas às de modelos de 11 kg. AI Control ajuda no acompanhamento, mas capacidade, centrifugação e garantia do motor são os argumentos centrais.",
+      "seo": {
+        "title": "Samsung WD13FG: ficha, capacidades e ofertas",
+        "description": "Ficha da Samsung WD13FG de 13 kg para lavar e 8 kg para secar, com dimensões, tensão, garantia, limitações e preço observado."
+      },
+      "sources": [
+        {
+          "title": "Samsung WD13FG Inox 127 V — página oficial",
+          "url": "https://www.samsung.com/br/washers-and-dryers/washer-dryer-combo/wd6000f-front-loading-ai-ecobubble-ai-control-ai-energy-mode-13kg-refined-inox-wd13fg6b34bxaz/",
+          "accessedAt": "2026-09-02"
+        },
+        {
+          "title": "Samsung WD13FG Inox 220 V — loja oficial",
+          "url": "https://shop.samsung.com/br/lava-seca-smart-samsung-ai-control-wd13fg-inox-13kg/p?skuId=12529",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_lg_vc4_14",
+      "contentType": "product",
+      "schemaVersion": 1,
+      "slug": "lg-vc4-14kg",
+      "aliases": [],
+      "name": "LG Smart VC4 14 kg",
+      "manufacturerId": "org_lg_electronics",
+      "line": "VC4",
+      "category": "Lava e seca",
+      "releaseYear": 2024,
+      "mainImage": {
+        "src": "/images/products/washer-dryers/lg-vc4-14kg-v1.jpg",
+        "alt": "Lava e seca LG Smart VC4 14 kg branca vista de frente",
+        "sourceUrl": "https://www.lg.com/br/lavanderia/lava-e-seca/cv5014wc4a/",
+        "credit": "LG Brasil",
+        "rights": "official-promotional",
+        "width": 450,
+        "height": 450
+      },
+      "gallery": [],
+      "shortDescription": "Lava e seca frontal de 14 kg para lavagem e 8 kg para secagem, com motor Inverter Direct Drive, vapor, sensores e ThinQ.",
+      "strengths": [
+        "Capacidade de lavagem de 14 kg acomoda volumes maiores e peças de cama",
+        "Motor Direct Drive controla movimentos do tambor sem correia e recebe garantia específica",
+        "AI DD ajusta movimentos com base na carga em ciclos compatíveis"
+      ],
+      "limitations": [
+        "Profundidade total até a porta chega a 66 cm e exige medição cuidadosa",
+        "Os 8 kg de secagem não acompanham os 14 kg de lavagem em uma carga completa"
+      ],
+      "suitableFor": [
+        "Famílias que lavam volumes grandes e alternam secagem total e uso de varal",
+        "Quem valoriza cuidado de tecidos e diagnóstico pelo aplicativo"
+      ],
+      "categories": [
+        "Lava e seca",
+        "Eletrodomésticos"
+      ],
+      "tags": [
+        "14 kg lavagem",
+        "8 kg secagem",
+        "Direct Drive",
+        "Steam",
+        "ThinQ"
+      ],
+      "relatedProductIds": [
+        "prod_samsung_wd13fg",
+        "prod_midea_healthguard_slim_11"
+      ],
+      "relatedArticleSlugs": [
+        "melhores-lava-e-seca"
+      ],
+      "editorialSummary": "É a alternativa para maior volume de lavagem e cuidado de tecidos. Os sensores AI DD ajustam o padrão de movimento em ciclos compatíveis; não são prova de durabilidade e não eliminam o limite de 8 kg na secagem.",
+      "seo": {
+        "title": "LG Smart VC4 14 kg: ficha, capacidades e ofertas",
+        "description": "Ficha da LG Smart VC4 de 14 kg para lavar e 8 kg para secar, com dimensões, motor Direct Drive, recursos e preço observado."
+      },
+      "sources": [
+        {
+          "title": "LG Smart VC4 14 kg — especificações oficiais",
+          "url": "https://www.lg.com/br/lavanderia/lava-e-seca/cv5014wc4a/",
+          "accessedAt": "2026-09-02"
+        },
+        {
+          "title": "Guia da linha de lavanderia LG",
+          "url": "https://www.lg.com/br/buying-guides/laundry-lineup-guide/",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_acer_aspire_15_a15_51m",
+      "contentType": "product",
+      "schemaVersion": 1,
+      "slug": "acer-aspire-15-a15-51m",
+      "aliases": [],
+      "name": "Acer Aspire 15 A15-51M",
+      "manufacturerId": "org_acer",
+      "line": "Aspire 15",
+      "category": "Notebooks",
+      "releaseYear": 2024,
+      "mainImage": {
+        "src": "/images/products/notebooks/acer-aspire-15-a15-51m-v1.jpg",
+        "alt": "Notebook Acer Aspire 15 A15-51M cinza visto de frente",
+        "sourceUrl": "https://quenotebookcomprar.com.br/acer-aspire-15-a15-51m-56kr/",
+        "credit": "Qual Notebook Comprar",
+        "rights": "permission-pending",
+        "width": 280,
+        "height": 240
+      },
+      "gallery": [],
+      "shortDescription": "Notebook de 15,6 polegadas cuja variante A15-51M-56KR combina Core i5-13420H, 16 GB de RAM, SSD de 512 GB e Linux.",
+      "strengths": [
+        "Core i5 série H e 16 GB sustentam multitarefa, programação leve e trabalho administrativo com folga",
+        "SSD NVMe PCIe 4.0 de 512 GB e USB4 são diferenciais úteis na faixa",
+        "Bateria de 53 Wh é maior que a de vários rivais de entrada"
+      ],
+      "limitations": [
+        "Tela TN estreita os ângulos de visão e prejudica cores e contraste",
+        "Memória soldada impede ampliar a RAM da variante A15-51M-56KR"
+      ],
+      "suitableFor": [
+        "Quem prioriza desempenho de processador e multitarefa acima da qualidade da tela",
+        "Estudantes e profissionais que aceitam Linux ou pretendem instalar outro sistema"
+      ],
+      "categories": [
+        "Notebooks",
+        "Eletrônicos"
+      ],
+      "tags": [
+        "Core i5",
+        "16 GB RAM",
+        "512 GB SSD",
+        "Linux",
+        "USB4"
+      ],
+      "relatedProductIds": [
+        "prod_asus_vivobook_15_m1502",
+        "prod_positivo_vision_r15"
+      ],
+      "relatedArticleSlugs": [
+        "melhores-notebooks-custo-beneficio"
+      ],
+      "editorialSummary": "É a escolha de desempenho da seleção: o Core i5-13420H e os 16 GB oferecem mais margem para compilar projetos, manter muitas abas e usar aplicativos de escritório em paralelo. A tela TN é a concessão decisiva e impede tratá-lo como recomendação universal.",
+      "seo": {
+        "title": "Acer Aspire 15 A15-51M: ficha, análise e ofertas",
+        "description": "Ficha do Acer Aspire 15 A15-51M-56KR com especificações da variante brasileira, vantagens, limitações, preço observado e ofertas."
+      },
+      "sources": [
+        {
+          "title": "Acer Aspire 15 A15-51M-56KR — especificações oficiais",
+          "url": "https://www.acer.com/br-pt/laptops/aspire/aspire-intel/pdp/NX.J1RAL.004",
+          "accessedAt": "2026-09-02"
+        },
+        {
+          "title": "Acer A15-51M-56KR — variante e imagem",
+          "url": "https://quenotebookcomprar.com.br/acer-aspire-15-a15-51m-56kr/",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_asus_vivobook_15_m1502",
+      "contentType": "product",
+      "schemaVersion": 1,
+      "slug": "asus-vivobook-15-m1502",
+      "aliases": [],
+      "name": "ASUS Vivobook 15 M1502",
+      "manufacturerId": "org_asus",
+      "line": "Vivobook 15",
+      "category": "Notebooks",
+      "releaseYear": 2023,
+      "mainImage": {
+        "src": "/images/products/notebooks/asus-vivobook-15-m1502-v1.jpg",
+        "alt": "Notebook ASUS Vivobook 15 M1502 prateado aberto",
+        "sourceUrl": "https://www.asus.com/br/laptops/for-home/vivobook/vivobook-15-m1502/",
+        "credit": "ASUS Brasil",
+        "rights": "official-promotional",
+        "width": 800,
+        "height": 800
+      },
+      "gallery": [],
+      "shortDescription": "Notebook de 15,6 polegadas cuja variante M1502YA-NJ612 traz Ryzen 7 5825U, 16 GB, SSD de 512 GB, tela IPS-level e KeepOS.",
+      "strengths": [
+        "Tela IPS-level oferece ângulos de visão melhores que o painel TN do Acer",
+        "Ryzen 7 de oito núcleos, 16 GB e SSD de 512 GB formam um conjunto equilibrado para estudo e trabalho",
+        "Webcam com obturador físico e teclado numérico ajudam no uso cotidiano"
+      ],
+      "limitations": [
+        "Processador é eficiente, mas pertence a uma arquitetura anterior às linhas Ryzen atuais",
+        "RAM já está no limite de 16 GB informado para a configuração e Wi-Fi 5 é antigo"
+      ],
+      "suitableFor": [
+        "Quem lê, escreve, participa de reuniões e quer uma tela mais confortável",
+        "Quem precisa de bom equilíbrio entre multitarefa, peso e conectividade"
+      ],
+      "categories": [
+        "Notebooks",
+        "Eletrônicos"
+      ],
+      "tags": [
+        "Ryzen 7",
+        "16 GB RAM",
+        "512 GB SSD",
+        "IPS",
+        "KeepOS"
+      ],
+      "relatedProductIds": [
+        "prod_acer_aspire_15_a15_51m",
+        "prod_positivo_vision_r15"
+      ],
+      "relatedArticleSlugs": [
+        "melhores-notebooks-custo-beneficio"
+      ],
+      "editorialSummary": "É a recomendação mais equilibrada para faculdade e trabalho porque evita a tela TN sem abrir mão de 16 GB e SSD de 512 GB. O Ryzen 7 5825U continua competente, mas sua idade e o teto de memória exigem preço inferior ao de notebooks mais novos.",
+      "seo": {
+        "title": "ASUS Vivobook 15 M1502: ficha, análise e ofertas",
+        "description": "Ficha do ASUS Vivobook 15 M1502YA-NJ612 com variante brasileira, tela, memória, armazenamento, limitações e preço observado."
+      },
+      "sources": [
+        {
+          "title": "ASUS Vivobook 15 M1502 — especificações oficiais",
+          "url": "https://www.asus.com/br/laptops/for-home/vivobook/vivobook-15-m1502/techspec/",
+          "accessedAt": "2026-09-02"
+        },
+        {
+          "title": "Vivobook M1502YA-NJ612 — oferta Magazine Luiza",
+          "url": "https://www.magazineluiza.com.br/notebook-asus-vivobook-15-m1502ya-amd-ryzen-7-5825u-16gb-ram-512gb-ssd-linux-keepos-156-fhd-cool-silver-nj612/p/gkd48kae3c/in/note/",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_positivo_vision_r15",
+      "contentType": "product",
+      "schemaVersion": 1,
+      "slug": "positivo-vision-r15",
+      "aliases": [],
+      "name": "Positivo Vision R15",
+      "manufacturerId": "org_positivo_tecnologia",
+      "line": "Vision R15",
+      "category": "Notebooks",
+      "releaseYear": 2024,
+      "mainImage": {
+        "src": "/images/products/notebooks/positivo-vision-r15-v1.jpg",
+        "alt": "Notebook Positivo Vision R15 Linux aberto visto de frente",
+        "sourceUrl": "https://loja.meupositivo.com.br/notebook-positivo-vision-r15-amd-ryzen-5-5500u-linux-16gb-ram-512gb-ssd-full-hd-15-6-preto-3002878/p",
+        "credit": "Positivo",
+        "rights": "official-promotional",
+        "width": 1000,
+        "height": 1000
+      },
+      "gallery": [],
+      "shortDescription": "Notebook brasileiro com Ryzen 5 5500U, 16 GB de RAM, SSD de 512 GB, tela IPS Full HD de 15,6 polegadas e Linux.",
+      "strengths": [
+        "16 GB, SSD de 512 GB e tela IPS formam uma base adequada sem upgrade imediato",
+        "Ryzen 5 de seis núcleos atende estudo, Office e multitarefa cotidiana",
+        "Lumina Bar pode melhorar a imagem em reuniões realizadas em ambientes escuros"
+      ],
+      "limitations": [
+        "Preço observado o aproxima de rivais com processadores ou construção superiores",
+        "Expansão de RAM e armazenamento não foi confirmada para o SKU 3002878 nas fontes consultadas"
+      ],
+      "suitableFor": [
+        "Quem encontra a variante de 16 GB em promoção substancial",
+        "Quem quer tela IPS e memória suficiente gastando menos que nos modelos intermediários"
+      ],
+      "categories": [
+        "Notebooks",
+        "Eletrônicos"
+      ],
+      "tags": [
+        "Ryzen 5",
+        "16 GB RAM",
+        "512 GB SSD",
+        "IPS",
+        "Linux"
+      ],
+      "relatedProductIds": [
+        "prod_asus_vivobook_15_m1502",
+        "prod_acer_aspire_15_a15_51m"
+      ],
+      "relatedArticleSlugs": [
+        "melhores-notebooks-custo-beneficio"
+      ],
+      "editorialSummary": "É uma opção barata condicional, não a melhor compra no preço cheio. O conjunto de 16 GB, 512 GB e IPS evita economias prejudiciais, mas só vence Acer e ASUS quando a diferença de preço é grande; perto de R$ 3.200, não vale.",
+      "seo": {
+        "title": "Positivo Vision R15: ficha, análise e ofertas",
+        "description": "Ficha do Positivo Vision R15 3002878 com Ryzen 5, 16 GB, SSD de 512 GB, tela IPS, limitações e preço observado."
+      },
+      "sources": [
+        {
+          "title": "Positivo Vision R15 3002878 — página oficial",
+          "url": "https://loja.meupositivo.com.br/notebook-positivo-vision-r15-amd-ryzen-5-5500u-linux-16gb-ram-512gb-ssd-full-hd-15-6-preto-3002878/p",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_motorola_moto_g56_5g",
+      "contentType": "product",
+      "schemaVersion": 1,
+      "slug": "motorola-moto-g56-5g",
+      "aliases": [],
+      "name": "Motorola Moto G56 5G",
+      "manufacturerId": "org_motorola_mobility",
+      "line": "Moto G",
+      "category": "Celulares",
+      "releaseYear": 2025,
+      "mainImage": {
+        "src": "/images/products/smartphones/motorola-moto-g56-5g-green-v1.png",
+        "alt": "Moto G56 5G verde visto pela frente e por trás",
+        "sourceUrl": "https://empresas.motorola.com.br/smartphone-moto-g56-5g/p/",
+        "credit": "Motorola Empresas",
+        "rights": "official-promotional",
+        "width": 1000,
+        "height": 1000
+      },
+      "gallery": [],
+      "shortDescription": "Intermediário 5G com 8 GB de RAM, 256 GB, tela LCD de 120 Hz, bateria de 5.200 mAh e proteção IP68/IP69.",
+      "strengths": [
+        "Conjunto de 8 GB de RAM e 256 GB sem depender da memória virtual anunciada",
+        "Proteção IP68/IP69 e vidro Gorilla Glass 7i acima do comum na faixa",
+        "Câmera principal Sony LYTIA 600 acompanhada de ultrawide"
+      ],
+      "limitations": [
+        "Tela LCD tem contraste inferior aos painéis AMOLED dos concorrentes",
+        "Política brasileira de grandes atualizações não estava detalhada na fonte consultada"
+      ],
+      "suitableFor": [
+        "Quem prioriza desempenho equilibrado, armazenamento e resistência",
+        "Quem quer 5G, NFC e câmera ultrawide sem ultrapassar muito o teto"
+      ],
+      "categories": [
+        "Celulares",
+        "Eletrônicos"
+      ],
+      "tags": [
+        "5G",
+        "NFC",
+        "256 GB",
+        "IP68",
+        "Android"
+      ],
+      "relatedProductIds": [
+        "prod_samsung_galaxy_a26_5g",
+        "prod_samsung_galaxy_a17_5g",
+        "prod_xiaomi_redmi_note_14_4g"
+      ],
+      "relatedArticleSlugs": [
+        "melhores-celulares-ate-1500"
+      ],
+      "editorialSummary": "É a referência geral do recorte porque reúne memória física suficiente, 256 GB, 5G, NFC, câmera ultrawide e proteção forte. A concessão está na tela LCD: quem valoriza contraste e preto profundo encontra AMOLED nos Samsung e no Redmi.",
+      "seo": {
+        "title": "Motorola Moto G56 5G: ficha, análise e ofertas",
+        "description": "Ficha do Moto G56 5G com variante brasileira, especificações verificadas, vantagens, limitações, ofertas e artigos relacionados."
+      },
+      "sources": [
+        {
+          "title": "Moto G56 5G — Motorola Empresas",
+          "url": "https://empresas.motorola.com.br/smartphone-moto-g56-5g/p/",
+          "accessedAt": "2026-09-02"
+        },
+        {
+          "title": "Moto G56 5G — especificações Motorola",
+          "url": "https://en-us.support.motorola.com/app/answers/detail/a_id/186749",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_samsung_galaxy_a26_5g",
+      "contentType": "product",
+      "schemaVersion": 1,
+      "slug": "samsung-galaxy-a26-5g",
+      "aliases": [],
+      "name": "Samsung Galaxy A26 5G",
+      "manufacturerId": "org_samsung_electronics",
+      "line": "Galaxy A",
+      "category": "Celulares",
+      "releaseYear": 2025,
+      "mainImage": {
+        "src": "/images/products/smartphones/samsung-galaxy-a26-5g-white-v1.png",
+        "alt": "Galaxy A26 5G branco visto pela frente e por trás",
+        "sourceUrl": "https://www.samsung.com/br/smartphones/galaxy-a/galaxy-a26-5g-white-256gb-sm-a266mzwhzto/",
+        "credit": "Samsung Brasil",
+        "rights": "official-promotional",
+        "width": 1164,
+        "height": 776
+      },
+      "gallery": [],
+      "shortDescription": "Intermediário Samsung com tela Super AMOLED de 120 Hz, câmera principal estabilizada, 5G, NFC, IP67 e suporte longo.",
+      "strengths": [
+        "Tela Super AMOLED de 120 Hz e câmera principal com estabilização óptica",
+        "Proteção IP67 e seis gerações de sistema e segurança",
+        "Variante de 256 GB oferece 8 GB de RAM e expansão por microSD"
+      ],
+      "limitations": [
+        "Carregamento de 25 W é mais lento que o de rivais diretos",
+        "Preço observado normalmente ultrapassa R$ 1.500 e exige esperar promoção"
+      ],
+      "suitableFor": [
+        "Quem prioriza tela, câmera principal, resistência e suporte de software",
+        "Quem aceita acompanhar promoções para comprar a variante de 256 GB no teto"
+      ],
+      "categories": [
+        "Celulares",
+        "Eletrônicos"
+      ],
+      "tags": [
+        "5G",
+        "NFC",
+        "256 GB",
+        "AMOLED",
+        "IP67",
+        "Android"
+      ],
+      "relatedProductIds": [
+        "prod_motorola_moto_g56_5g",
+        "prod_samsung_galaxy_a17_5g"
+      ],
+      "relatedArticleSlugs": [
+        "melhores-celulares-ate-1500"
+      ],
+      "editorialSummary": "É o aparelho mais completo da seleção quando aparece por até R$ 1.500, especialmente por tela, OIS, IP67 e suporte longo. Fora de promoção, perde o sentido do recorte e deve ser comparado com aparelhos da faixa seguinte.",
+      "seo": {
+        "title": "Samsung Galaxy A26 5G: ficha, análise e ofertas",
+        "description": "Ficha do Galaxy A26 5G com variante de 256 GB, especificações, vantagens, limitações, ofertas verificadas e artigos relacionados."
+      },
+      "sources": [
+        {
+          "title": "Galaxy A26 5G 256 GB — Samsung Brasil",
+          "url": "https://www.samsung.com/br/smartphones/galaxy-a/galaxy-a26-5g-white-256gb-sm-a266mzwhzto/",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_samsung_galaxy_a17_5g",
+      "contentType": "product",
+      "schemaVersion": 1,
+      "slug": "samsung-galaxy-a17-5g",
+      "aliases": [],
+      "name": "Samsung Galaxy A17 5G",
+      "manufacturerId": "org_samsung_electronics",
+      "line": "Galaxy A",
+      "category": "Celulares",
+      "releaseYear": 2025,
+      "mainImage": {
+        "src": "/images/products/smartphones/samsung-galaxy-a17-5g-blue-v1.png",
+        "alt": "Galaxy A17 5G azul visto pela frente e por trás",
+        "sourceUrl": "https://www.samsung.com/br/smartphones/galaxy-a/galaxy-a17-5g-blue-128gb-sm-a176bzbozto/",
+        "credit": "Samsung Brasil",
+        "rights": "official-promotional",
+        "width": 1164,
+        "height": 776
+      },
+      "gallery": [],
+      "shortDescription": "Samsung de entrada com 5G, tela Super AMOLED de 90 Hz, câmera principal com OIS e seis anos de suporte.",
+      "strengths": [
+        "Tela Super AMOLED e estabilização óptica pouco comuns no segmento de entrada",
+        "Seis atualizações de sistema e seis anos de segurança",
+        "5G, NFC e expansão por microSD"
+      ],
+      "limitations": [
+        "A variante de 128 GB possui somente 4 GB de RAM física",
+        "Carregamento de 25 W e ausência de som estéreo reduzem o apelo multimídia"
+      ],
+      "suitableFor": [
+        "Quem quer Samsung barato, suporte longo e uso cotidiano sem jogos pesados",
+        "Quem valoriza tela AMOLED e câmera estabilizada mais que multitarefa intensa"
+      ],
+      "categories": [
+        "Celulares",
+        "Eletrônicos"
+      ],
+      "tags": [
+        "5G",
+        "NFC",
+        "128 GB",
+        "AMOLED",
+        "IP54",
+        "Android"
+      ],
+      "relatedProductIds": [
+        "prod_samsung_galaxy_a26_5g",
+        "prod_motorola_moto_g56_5g"
+      ],
+      "relatedArticleSlugs": [
+        "melhores-celulares-ate-1500"
+      ],
+      "editorialSummary": "É a escolha Samsung econômica, não o aparelho mais rápido. Faz sentido para comunicação, bancos, vídeo e fotografia cotidiana, mas 4 GB de RAM impõem um limite real para multitarefa e longevidade de desempenho.",
+      "seo": {
+        "title": "Samsung Galaxy A17 5G: ficha, análise e ofertas",
+        "description": "Ficha do Galaxy A17 5G de 128 GB com especificações oficiais, vantagens, limites, ofertas verificadas e artigos relacionados."
+      },
+      "sources": [
+        {
+          "title": "Galaxy A17 5G 128 GB — Samsung Brasil",
+          "url": "https://www.samsung.com/br/smartphones/galaxy-a/galaxy-a17-5g-blue-128gb-sm-a176bzbozto/",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_xiaomi_redmi_note_14_4g",
+      "contentType": "product",
+      "schemaVersion": 1,
+      "slug": "xiaomi-redmi-note-14-4g",
+      "aliases": [
+        "redmi-note-14"
+      ],
+      "name": "Xiaomi Redmi Note 14 4G",
+      "manufacturerId": "org_xiaomi",
+      "line": "Redmi Note",
+      "category": "Celulares",
+      "releaseYear": 2025,
+      "mainImage": {
+        "src": "/images/products/smartphones/xiaomi-redmi-note-14-v1.jpg",
+        "alt": "Redmi Note 14 nas cores verde, preta e azul visto por trás",
+        "sourceUrl": "https://www.mi.com/br/product/redmi-note-14/",
+        "credit": "Xiaomi Brasil",
+        "rights": "official-promotional",
+        "width": 2560,
+        "height": 1400
+      },
+      "gallery": [],
+      "shortDescription": "Celular 4G com tela AMOLED de 120 Hz, 8 GB de RAM, 256 GB, bateria de 5.500 mAh e carregamento de 33 W.",
+      "strengths": [
+        "Tela AMOLED de 120 Hz, bateria de 5.500 mAh e 256 GB por preço inferior aos rivais 5G",
+        "Carregador de 33 W, capa e expansão por microSD reduzem gastos adicionais",
+        "Alto-falantes estéreo e entrada de 3,5 mm favorecem mídia"
+      ],
+      "limitations": [
+        "Não possui 5G nem câmera ultrawide na variante 4G",
+        "Política de atualizações é menos clara que a oferecida pela Samsung"
+      ],
+      "suitableFor": [
+        "Quem quer gastar perto de R$ 1.100 e prioriza tela, bateria e armazenamento",
+        "Quem não precisa de 5G durante a vida útil planejada"
+      ],
+      "categories": [
+        "Celulares",
+        "Eletrônicos"
+      ],
+      "tags": [
+        "4G",
+        "NFC",
+        "256 GB",
+        "AMOLED",
+        "bateria",
+        "Android"
+      ],
+      "relatedProductIds": [
+        "prod_motorola_moto_g56_5g",
+        "prod_samsung_galaxy_a17_5g"
+      ],
+      "relatedArticleSlugs": [
+        "melhores-celulares-ate-1500"
+      ],
+      "editorialSummary": "É a opção econômica da lista porque entrega uma experiência visual e autonomia fortes sem cobrar por 5G. A economia só é racional para quem aceita explicitamente permanecer no 4G; acima de aproximadamente R$ 1.250, os modelos 5G ficam mais defensáveis.",
+      "seo": {
+        "title": "Xiaomi Redmi Note 14 4G: ficha, análise e ofertas",
+        "description": "Ficha do Redmi Note 14 4G de 256 GB com especificações oficiais, vantagens, limitações, ofertas e artigos relacionados."
+      },
+      "sources": [
+        {
+          "title": "Redmi Note 14 — especificações Xiaomi Brasil",
+          "url": "https://www.mi.com/br/product/redmi-note-14/specs/",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_tcl_p7k",
+      "contentType": "product",
+      "schemaVersion": 1,
+      "slug": "tcl-p7k",
+      "aliases": [],
+      "name": "TCL P7K",
+      "manufacturerId": "org_tcl_electronics",
+      "line": "P7K",
+      "category": "Televisores",
+      "releaseYear": 2025,
+      "mainImage": {
+        "src": "/images/products/televisions/tcl-p7k-50-v1.jpg",
+        "alt": "TV TCL P7K de 50 polegadas vista de frente",
+        "sourceUrl": "https://www.tcl.com/br/pt/tvs/p7k",
+        "credit": "TCL Brasil",
+        "rights": "official-promotional",
+        "width": 800,
+        "height": 600
+      },
+      "gallery": [],
+      "shortDescription": "TV QLED 4K de entrada com Google TV, Dolby Vision, HDR10+, painel nativo de 60 Hz, ALLM e eARC.",
+      "strengths": [
+        "QLED com Dolby Vision e HDR10+ por preço próximo ao de TVs LCD básicas",
+        "Google TV reúne ampla oferta de aplicativos e Chromecast integrado",
+        "ALLM, eARC e Game Bar atendem jogos casuais"
+      ],
+      "limitations": [
+        "Painel nativo de 60 Hz não entrega 4K a 120 Hz real",
+        "Brilho e controle de contraste ficam abaixo das Mini LED"
+      ],
+      "suitableFor": [
+        "Quem procura uma TV 4K de 50 polegadas acessível para streaming e uso geral",
+        "Quem prefere Google TV e ampla compatibilidade de HDR"
+      ],
+      "categories": [
+        "Televisores",
+        "Eletrônicos"
+      ],
+      "tags": [
+        "QLED",
+        "4K",
+        "Google TV",
+        "Dolby Vision",
+        "50 polegadas"
+      ],
+      "relatedProductIds": [
+        "prod_samsung_u8100f",
+        "prod_tcl_c6k"
+      ],
+      "relatedArticleSlugs": [
+        "melhores-tvs-custo-beneficio"
+      ],
+      "editorialSummary": "É a porta de entrada da seleção: melhora cores e compatibilidade HDR sem fingir ser uma TV gamer de 120 Hz. Faz sentido pelo preço, não como substituta da C6K em contraste, brilho ou movimento.",
+      "seo": {
+        "title": "TCL P7K: ficha, tamanhos, análise e ofertas",
+        "description": "Ficha da TCL P7K com variante brasileira de 50 polegadas, especificações verificadas, vantagens, limites e ofertas comerciais."
+      },
+      "sources": [
+        {
+          "title": "TCL P7K — página oficial",
+          "url": "https://www.tcl.com/br/pt/tvs/p7k",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_samsung_u8100f",
+      "contentType": "product",
+      "schemaVersion": 1,
+      "slug": "samsung-u8100f",
+      "aliases": [
+        "samsung-crystal-uhd-u8100f"
+      ],
+      "name": "Samsung Crystal UHD U8100F",
+      "manufacturerId": "org_samsung_electronics",
+      "line": "Crystal UHD",
+      "category": "Televisores",
+      "releaseYear": 2025,
+      "mainImage": {
+        "src": "/images/products/televisions/samsung-u8100f-55-v1.png",
+        "alt": "TV Samsung Crystal UHD U8100F de 55 polegadas vista de frente",
+        "sourceUrl": "https://www.samsung.com/br/tvs/uhd-4k-tv/u8000f-55-inch-crystal-uhd-4k-smart-tv-un55u8100fgxzd/",
+        "credit": "Samsung Brasil",
+        "rights": "official-promotional",
+        "width": 1164,
+        "height": 776
+      },
+      "gallery": [],
+      "shortDescription": "TV LCD 4K de 60 Hz com Tizen, três HDMI, eARC, ALLM, VRR, Gaming Hub e sete anos de atualizações prometidas.",
+      "strengths": [
+        "Tizen com sete anos declarados de atualizações e boa cobertura de aplicativos",
+        "Gaming Hub, AirPlay e SmartThings ampliam o uso além do streaming",
+        "Processamento e upscaling consistentes para TV aberta e conteúdo comprimido"
+      ],
+      "limitations": [
+        "Painel LCD de 60 Hz sem local dimming tem contraste e HDR modestos",
+        "Não oferece Dolby Vision e possui apenas três HDMI"
+      ],
+      "suitableFor": [
+        "Quem valoriza sistema, suporte e integração com o ecossistema Samsung",
+        "Quem assiste TV aberta e streaming convencional mais que filmes em sala escura"
+      ],
+      "categories": [
+        "Televisores",
+        "Eletrônicos"
+      ],
+      "tags": [
+        "LCD",
+        "4K",
+        "Tizen",
+        "55 polegadas",
+        "Gaming Hub"
+      ],
+      "relatedProductIds": [
+        "prod_tcl_p7k",
+        "prod_tcl_c6k"
+      ],
+      "relatedArticleSlugs": [
+        "melhores-tvs-custo-beneficio"
+      ],
+      "editorialSummary": "É recomendada pelo conjunto de sistema, suporte e processamento, não por entregar a melhor imagem da faixa. Em promoção compete com a P7K; no preço cheio, a TCL oferece cores e HDR mais convincentes.",
+      "seo": {
+        "title": "Samsung U8100F: ficha, tamanhos, análise e ofertas",
+        "description": "Ficha da Samsung Crystal UHD U8100F de 55 polegadas com especificações oficiais, vantagens, limitações e links comerciais."
+      },
+      "sources": [
+        {
+          "title": "Samsung U8100F 55 — página oficial",
+          "url": "https://www.samsung.com/br/tvs/uhd-4k-tv/u8000f-55-inch-crystal-uhd-4k-smart-tv-un55u8100fgxzd/",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_tcl_c6k",
+      "contentType": "product",
+      "schemaVersion": 1,
+      "slug": "tcl-c6k",
+      "aliases": [],
+      "name": "TCL C6K",
+      "manufacturerId": "org_tcl_electronics",
+      "line": "C6K",
+      "category": "Televisores",
+      "releaseYear": 2025,
+      "mainImage": {
+        "src": "/images/products/televisions/tcl-c6k-55-v1.png",
+        "alt": "TV TCL C6K de 55 polegadas vista de frente",
+        "sourceUrl": "https://www.tcl.com/br/pt/tvs/c6k",
+        "credit": "TCL Brasil",
+        "rights": "official-promotional",
+        "width": 2560,
+        "height": 2560
+      },
+      "gallery": [],
+      "shortDescription": "TV QD-Mini LED 4K com painel HVA, 144 Hz nativos, Google TV, VRR, ALLM, eARC e áudio Onkyo 2.1.",
+      "strengths": [
+        "Mini LED e painel HVA entregam contraste e brilho muito acima das TVs de entrada",
+        "144 Hz nativos, VRR e ALLM formam o melhor pacote gamer da seleção pelo preço",
+        "Google TV, Dolby Vision IQ e áudio Onkyo 2.1 tornam o conjunto versátil"
+      ],
+      "limitations": [
+        "Escurecimento por zonas ainda pode produzir halos em cenas extremas",
+        "Upscaling e acabamento de movimento podem exigir ajustes conforme a fonte"
+      ],
+      "suitableFor": [
+        "Quem quer salto real de imagem sem pagar o preço de uma OLED",
+        "Quem joga em PS5, Xbox Series ou PC e também assiste filmes e esportes"
+      ],
+      "categories": [
+        "Televisores",
+        "Eletrônicos"
+      ],
+      "tags": [
+        "Mini LED",
+        "QLED",
+        "4K",
+        "144 Hz",
+        "Google TV",
+        "55 polegadas"
+      ],
+      "relatedProductIds": [
+        "prod_tcl_p7k",
+        "prod_lg_oled_c5",
+        "prod_samsung_u8100f"
+      ],
+      "relatedArticleSlugs": [
+        "melhores-tvs-custo-beneficio"
+      ],
+      "editorialSummary": "É o melhor equilíbrio geral porque traz controle local de iluminação, alto contraste e recursos completos de jogos por preço intermediário. Não alcança o preto por pixel da OLED C5, mas custa bem menos.",
+      "seo": {
+        "title": "TCL C6K: ficha, tamanhos, análise e ofertas",
+        "description": "Ficha da TCL C6K Mini LED com variante de 55 polegadas, especificações verificadas, vantagens, limitações e ofertas."
+      },
+      "sources": [
+        {
+          "title": "TCL C6K — página oficial",
+          "url": "https://www.tcl.com/br/pt/tvs/c6k",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_lg_oled_c5",
+      "contentType": "product",
+      "schemaVersion": 1,
+      "slug": "lg-oled-c5",
+      "aliases": [
+        "lg-c5"
+      ],
+      "name": "LG OLED evo C5",
+      "manufacturerId": "org_lg_electronics",
+      "line": "OLED evo C",
+      "category": "Televisores",
+      "releaseYear": 2025,
+      "mainImage": {
+        "src": "/images/products/televisions/lg-oled-c5-55-v1.jpg",
+        "alt": "TV LG OLED evo C5 de 55 polegadas com controle remoto",
+        "sourceUrl": "https://www.lg.com/br/tvs-e-soundbars/oled-evo/oled55c5psa/",
+        "credit": "LG Brasil",
+        "rights": "official-promotional",
+        "width": 450,
+        "height": 450
+      },
+      "gallery": [],
+      "shortDescription": "TV OLED 4K de 120 Hz com VRR até 144 Hz, quatro HDMI 2.1, Dolby Vision, webOS 25 e áudio de 40 W.",
+      "strengths": [
+        "Pixels autoiluminados entregam preto perfeito e excelente contraste para cinema",
+        "Quatro HDMI 2.1, VRR até 144 Hz e resposta rápida atendem consoles e PC",
+        "Processador Alpha 9, Dolby Vision e Filmmaker Mode formam o pacote mais completo de imagem"
+      ],
+      "limitations": [
+        "Preço é substancialmente superior ao das TVs Mini LED intermediárias",
+        "OLED exige cuidado com conteúdo estático prolongado e não é a escolha mais econômica para uso despreocupado"
+      ],
+      "suitableFor": [
+        "Quem quer montar um cinema em casa e prioriza imagem em ambiente controlado",
+        "Quem quer uma TV premium também preparada para jogos"
+      ],
+      "categories": [
+        "Televisores",
+        "Eletrônicos"
+      ],
+      "tags": [
+        "OLED",
+        "4K",
+        "Dolby Vision",
+        "144 Hz",
+        "webOS",
+        "55 polegadas"
+      ],
+      "relatedProductIds": [
+        "prod_tcl_c6k",
+        "prod_samsung_u8100f"
+      ],
+      "relatedArticleSlugs": [
+        "melhores-tvs-custo-beneficio"
+      ],
+      "editorialSummary": "É a melhor imagem da seleção e a indicação para cinema em casa, desde que o orçamento comporte o salto. Preto por pixel, ângulo de visão e resposta superam as LCD; a C6K conserva melhor custo-benefício absoluto.",
+      "seo": {
+        "title": "LG OLED evo C5: ficha, tamanhos, análise e ofertas",
+        "description": "Ficha da LG OLED evo C5 de 55 polegadas com especificações oficiais, vantagens, limitações, dimensões e ofertas."
+      },
+      "sources": [
+        {
+          "title": "LG OLED evo C5 55 — página oficial",
+          "url": "https://www.lg.com/br/tvs-e-soundbars/oled-evo/oled55c5psa/",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    }
+  ],
+  "variants": [
+    {
+      "id": "prod_variant_fischer_premier_48l_127_br",
+      "productId": "prod_fischer_premier_48l",
+      "name": "Premier 48 L preto 127 V",
+      "market": "BR",
+      "manufacturerModelNumber": "29420-70307",
+      "distinguishingAttributes": {
+        "voltage": "127 V",
+        "color": "Preto"
+      },
+      "specifications": {
+        "type": "generic",
+        "groups": [
+          {
+            "label": "Cocção",
+            "entries": [
+              {
+                "key": "capacity",
+                "label": "Capacidade",
+                "value": "48 litros"
+              },
+              {
+                "key": "temperature",
+                "label": "Temperatura",
+                "value": "50 °C a 300 °C"
+              },
+              {
+                "key": "heating",
+                "label": "Aquecimento",
+                "value": "Resistências superior e inferior; dourador independente"
+              },
+              {
+                "key": "timer",
+                "label": "Timer",
+                "value": "Até 120 minutos com aviso sonoro"
+              }
+            ]
+          },
+          {
+            "label": "Dimensões e instalação",
+            "entries": [
+              {
+                "key": "external",
+                "label": "Dimensões externas",
+                "value": "575 × 370 × 524,5 mm"
+              },
+              {
+                "key": "internal",
+                "label": "Dimensões internas",
+                "value": "392 × 267 × 445 mm"
+              },
+              {
+                "key": "weight",
+                "label": "Peso",
+                "value": "13,7 kg"
+              },
+              {
+                "key": "power",
+                "label": "Potência e tensão",
+                "value": "1.775 W · 127 V · 13,8 A"
+              }
+            ]
+          },
+          {
+            "label": "Construção",
+            "entries": [
+              {
+                "key": "door",
+                "label": "Porta",
+                "value": "Vidro duplo"
+              },
+              {
+                "key": "interior",
+                "label": "Interior",
+                "value": "EasyClean, luz interna e bandeja esmaltada para resíduos"
+              },
+              {
+                "key": "warranty",
+                "label": "Garantia",
+                "value": "12 meses"
+              }
+            ]
+          }
+        ]
+      },
+      "imageIds": [],
+      "sources": [
+        {
+          "title": "Manual oficial Fischer Premier 48 litros",
+          "url": "https://www.fischer.com.br/media/amasty/amfile/attach/RKSJxKdm6FPzef8QD8brRZeldwEhBYS1.pdf",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_variant_urano_udc_pop_6_1_br",
+      "productId": "prod_urano_udc_pop_6_1",
+      "name": "UDC POP 6 kg / 1 g",
+      "market": "BR",
+      "manufacturerModelNumber": "22.31.104.0247",
+      "distinguishingAttributes": {
+        "capacity": "6 kg",
+        "division": "1 g"
+      },
+      "specifications": {
+        "type": "generic",
+        "groups": [
+          {
+            "label": "Pesagem",
+            "entries": [
+              {
+                "key": "capacity",
+                "label": "Capacidade",
+                "value": "6 kg"
+              },
+              {
+                "key": "division",
+                "label": "Divisão",
+                "value": "1 g em toda a faixa"
+              },
+              {
+                "key": "tare",
+                "label": "Tara",
+                "value": "Sim"
+              },
+              {
+                "key": "platform",
+                "label": "Plataforma",
+                "value": "Aço inox, 310 × 270 mm"
+              }
+            ]
+          },
+          {
+            "label": "Construção e alimentação",
+            "entries": [
+              {
+                "key": "dimensions",
+                "label": "Dimensões",
+                "value": "340 × 120 × 420 mm"
+              },
+              {
+                "key": "display",
+                "label": "Visor",
+                "value": "LCD frontal e traseiro com iluminação"
+              },
+              {
+                "key": "power",
+                "label": "Alimentação",
+                "value": "Fonte automática de 90 a 240 V e bateria interna"
+              },
+              {
+                "key": "warranty",
+                "label": "Garantia",
+                "value": "12 meses segundo o varejista consultado"
+              }
+            ]
+          }
+        ]
+      },
+      "imageIds": [],
+      "sources": [
+        {
+          "title": "Catálogo comercial Urano — UDC POP",
+          "url": "https://www.urano.com.br/wp-content/uploads/2020/06/cat_comercial_rev8_web.pdf",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_variant_oster_bowl_inox_iii_127_br",
+      "productId": "prod_oster_bowl_inox_iii",
+      "name": "OBAT641 127 V",
+      "market": "BR",
+      "manufacturerModelNumber": "OBAT641-127",
+      "gtin": "7898700218626",
+      "distinguishingAttributes": {
+        "voltage": "127 V",
+        "color": "Preta"
+      },
+      "specifications": {
+        "type": "stand-mixer",
+        "mixerType": "Planetária doméstica",
+        "powerWatts": 850,
+        "bowlCapacityLiters": 4,
+        "bowlMaterial": "Aço inox",
+        "planetaryMovement": true,
+        "speeds": "12 velocidades",
+        "softStart": true,
+        "includedBeaters": [
+          "Globo para claras e cremes",
+          "Pá para massas leves e médias",
+          "Gancho para massas mais pesadas"
+        ],
+        "practicalCapacity": "Não publicada; o fabricante informa apenas o volume de 4 L da tigela",
+        "recommendedPreparations": [
+          "Claras",
+          "Chantilly",
+          "Buttercream",
+          "Massas de bolo leves e médias"
+        ],
+        "heavyDoughSuitability": "Possui gancho, mas não há carga máxima oficial publicada; evite lotes grandes e ciclos seguidos",
+        "dimensionsMm": {
+          "width": 383,
+          "height": 344,
+          "depth": 238
+        },
+        "weightKg": 3.955,
+        "voltage": "127 V",
+        "warranty": "12 meses",
+        "accessories": [
+          "Tampa antirrespingos",
+          "Acessório medidor"
+        ],
+        "intendedUse": "Doméstico e produção caseira de baixo volume"
+      },
+      "imageIds": [],
+      "sources": [
+        {
+          "title": "Oster Bowl Inox III — página oficial",
+          "url": "https://www.oster.com.br/batedeira-planetaria-oster-bowl-inox-iii/p",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_variant_kitchenaid_artisan_kea33_127_br",
+      "productId": "prod_kitchenaid_artisan_kea33",
+      "name": "Artisan KEA33 127 V",
+      "market": "BR",
+      "manufacturerModelNumber": "KEA33DSANA",
+      "distinguishingAttributes": {
+        "voltage": "127 V",
+        "color": "Contour Silver"
+      },
+      "specifications": {
+        "type": "stand-mixer",
+        "mixerType": "Planetária doméstica de corpo metálico",
+        "powerWatts": 225,
+        "bowlCapacityLiters": 4.83,
+        "bowlMaterial": "Aço inox",
+        "planetaryMovement": true,
+        "speeds": "10 velocidades",
+        "includedBeaters": [
+          "Fouet",
+          "Pá plana",
+          "Gancho para massa"
+        ],
+        "practicalCapacity": "Até 1,1 kg de farinha ou 1,8 kg de massa de pão, conforme guia da fabricante",
+        "recommendedPreparations": [
+          "Claras",
+          "Chantilly",
+          "Buttercream",
+          "Massas de bolo",
+          "Massas levedadas dentro do limite oficial"
+        ],
+        "heavyDoughSuitability": "Adequada dentro da carga oficial; para massas levedadas, a fabricante orienta não ultrapassar a velocidade 2",
+        "dimensionsMm": {
+          "width": 221,
+          "height": 353,
+          "depth": 358
+        },
+        "weightKg": 10,
+        "voltage": "127 V",
+        "warranty": "1 ano",
+        "accessories": [
+          "Protetor de respingos"
+        ],
+        "additionalAccessories": "Compatível com a linha de acessórios KitchenAid vendidos separadamente",
+        "intendedUse": "Doméstico; produção caseira recorrente dentro dos limites do manual"
+      },
+      "imageIds": [],
+      "sources": [
+        {
+          "title": "KitchenAid — guia de compra de batedeiras",
+          "url": "https://www.kitchenaid.com.br/blog/conheca/batedeiras-guia-de-compra/guia-de-compras-batedeiras",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_variant_skymsen_bps_05_n_bivolt_br",
+      "productId": "prod_skymsen_bps_05_n",
+      "name": "BPS-05-N bivolt automática branca",
+      "market": "BR",
+      "manufacturerModelNumber": "BPS-05-N",
+      "gtin": "7895707474895",
+      "distinguishingAttributes": {
+        "voltage": "127–220 V automático",
+        "color": "Branca"
+      },
+      "specifications": {
+        "type": "stand-mixer",
+        "mixerType": "Planetária profissional",
+        "powerWatts": 250,
+        "bowlCapacityLiters": 5,
+        "bowlMaterial": "Aço inox com alça",
+        "planetaryMovement": true,
+        "speeds": "Variação contínua com ajuste fino",
+        "includedBeaters": [
+          "Globo",
+          "Raquete",
+          "Gancho"
+        ],
+        "practicalCapacity": "Não publicada em massa; 5 L é somente o volume do bojo",
+        "recommendedPreparations": [
+          "Massas leves de bolo",
+          "Pão de ló",
+          "Coberturas",
+          "Chantilly",
+          "Glacê",
+          "Merengue",
+          "Pré-misturas"
+        ],
+        "heavyDoughSuitability": "O catálogo atual indica massas leves; não recomendamos comprar para massas pesadas sem capacidade confirmada pela fabricante",
+        "dimensionsMm": {
+          "width": 240,
+          "height": 420,
+          "depth": 380
+        },
+        "weightKg": 12.5,
+        "voltage": "127–220 V automático",
+        "warranty": "6 meses para uso comercial intermitente em um turno, conforme condições da fabricante",
+        "accessories": [],
+        "intendedUse": "Profissional para confeitaria, restaurante e cozinha comercial"
+      },
+      "imageIds": [],
+      "sources": [
+        {
+          "title": "Skymsen BPS-05-N — catálogo oficial",
+          "url": "https://www.skymsen.com/uploads/produtos/folders/643700.pdf",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_variant_skymsen_li2_127v_br",
+      "productId": "prod_skymsen_li2",
+      "name": "LI2 código 47442.8 — 127 V",
+      "market": "BR",
+      "manufacturerModelNumber": "47442.8",
+      "gtin": "7895707474420",
+      "distinguishingAttributes": {
+        "voltage": "127 V",
+        "jar": "Inox",
+        "capacity": "2 L"
+      },
+      "specifications": {
+        "type": "blender",
+        "powerNominalWatts": 350,
+        "motorPower": "900 W",
+        "totalCapacityLiters": 2,
+        "usefulCapacity": "Não informada; 2 L é o volume máximo do copo",
+        "jarMaterial": "Aço inox",
+        "bladeMaterial": "Aço inox",
+        "speeds": "Uma velocidade",
+        "pulse": false,
+        "rotationRpm": 18000,
+        "dimensionsMm": {
+          "width": 200,
+          "height": 420,
+          "depth": 190
+        },
+        "weightKg": 2.05,
+        "voltage": "127 V",
+        "warranty": "6 meses para uso comercial intermitente em um turno, conforme condições da fabricante",
+        "intendedUse": "Uso comercial intermitente em um turno",
+        "recommendedPreparations": [
+          "Sucos",
+          "Vitaminas",
+          "Shakes",
+          "Coquetéis",
+          "Molhos líquidos",
+          "Polpas congeladas com líquido"
+        ],
+        "restrictedPreparations": [
+          "Massas pesadas",
+          "Pastas espessas sem líquido",
+          "Processamento contínuo sem pausas"
+        ],
+        "safetyFeatures": [
+          "Conformidade informada com o Inmetro"
+        ]
+      },
+      "imageIds": [],
+      "sources": [
+        {
+          "title": "Skymsen LI2 127 V — ficha oficial",
+          "url": "https://www.skymsen.com/index.php/produtos/detalhe/474428",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_variant_skymsen_l2_127_220v_br",
+      "productId": "prod_skymsen_l2",
+      "name": "L2 código 70978.6 — seleção 127/220 V",
+      "market": "BR",
+      "manufacturerModelNumber": "70978.6",
+      "gtin": "7895707709782",
+      "distinguishingAttributes": {
+        "voltage": "127/220 V selecionável",
+        "jar": "Inox monobloco",
+        "capacity": "2 L"
+      },
+      "specifications": {
+        "type": "blender",
+        "powerNominalWatts": 665,
+        "motorPower": "0,5 HP-CV",
+        "totalCapacityLiters": 2,
+        "usefulCapacity": "Não informada; 2 L é o volume máximo do copo",
+        "jarMaterial": "Aço inox monobloco",
+        "bladeMaterial": "Aço inox",
+        "speeds": "Uma velocidade",
+        "pulse": false,
+        "rotationRpm": 3500,
+        "dimensionsMm": {
+          "width": 240,
+          "height": 640,
+          "depth": 270
+        },
+        "weightKg": 9.1,
+        "voltage": "127/220 V com seleção correta antes de ligar",
+        "noiseLevel": "Fabricante descreve operação de baixo ruído, sem valor em dB",
+        "warranty": "6 meses para uso comercial intermitente em um turno, conforme condições da fabricante",
+        "intendedUse": "Uso comercial contínuo, respeitando carga e manual",
+        "recommendedPreparations": [
+          "Molhos",
+          "Cremes",
+          "Sopas",
+          "Recheios fluidos",
+          "Preparos culinários com líquido"
+        ],
+        "restrictedPreparations": [
+          "Grandes volumes de gelo",
+          "Bebidas congeladas que exigem emulsão muito fina",
+          "Massas que o manual não autorize"
+        ],
+        "safetyFeatures": [
+          "Copo monobloco sem soldas e frestas",
+          "Base pesada para estabilidade"
+        ]
+      },
+      "imageIds": [],
+      "sources": [
+        {
+          "title": "Skymsen L2 — ficha oficial",
+          "url": "https://www.skymsen.com/index.php/produtos/detalhe/709786",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_variant_skymsen_bm2_127v_br",
+      "productId": "prod_skymsen_bm2",
+      "name": "BM2 código 65335.7 — 127 V",
+      "market": "BR",
+      "manufacturerModelNumber": "65335.7",
+      "gtin": "7895707653351",
+      "distinguishingAttributes": {
+        "voltage": "127 V",
+        "jar": "Tritan",
+        "capacity": "2 L"
+      },
+      "specifications": {
+        "type": "blender",
+        "powerNominalWatts": 1050,
+        "motorPower": "2.238 W / 3 HP informados pelo fabricante",
+        "totalCapacityLiters": 2,
+        "usefulCapacity": "Não informada; 2 L é o volume máximo do copo",
+        "jarMaterial": "Tritan transparente, livre de BPA",
+        "bladeMaterial": "Aço inox",
+        "bladeDescription": "Conjunto de seis pontas com eixo, bucha e rolamentos blindados",
+        "speeds": "Velocidade variável",
+        "pulse": true,
+        "rotationRpm": 38000,
+        "dimensionsMm": {
+          "width": 205,
+          "height": 505,
+          "depth": 230
+        },
+        "weightKg": 4.05,
+        "voltage": "127 V",
+        "warranty": "6 meses para uso comercial intermitente em um turno, conforme condições da fabricante",
+        "intendedUse": "Uso comercial intermitente em um turno",
+        "recommendedPreparations": [
+          "Gelo",
+          "Polpas congeladas",
+          "Sucos",
+          "Smoothies",
+          "Shakes",
+          "Sopas",
+          "Papinhas",
+          "Grãos e castanhas"
+        ],
+        "restrictedPreparations": [
+          "Massas pesadas sem líquido",
+          "Processamento contínuo além do regime do manual"
+        ],
+        "safetyFeatures": [
+          "Tampa com sobretampa",
+          "Controle variável para partida gradual"
+        ]
+      },
+      "imageIds": [],
+      "sources": [
+        {
+          "title": "Skymsen BM2 127 V — ficha oficial",
+          "url": "https://www.skymsen.com/index.php/produto/bm2_127v",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_variant_midea_healthguard_slim_11_127v_br",
+      "productId": "prod_midea_healthguard_slim_11",
+      "name": "MF201D110WB/GK-01 Titanium 127 V",
+      "market": "BR",
+      "manufacturerModelNumber": "MF201D110WB/GK-01",
+      "distinguishingAttributes": {
+        "color": "Titanium",
+        "voltage": "127 V",
+        "washCapacity": "11 kg",
+        "dryCapacity": "7 kg"
+      },
+      "specifications": {
+        "type": "washer-dryer",
+        "washCapacityKg": 11,
+        "dryCapacityKg": 7,
+        "loadingType": "front",
+        "dimensionsMm": {
+          "width": 595,
+          "height": 850,
+          "depth": 575
+        },
+        "weightKg": 63.4,
+        "motor": "Motor inverter",
+        "inverter": true,
+        "spinSpeedRpm": 1200,
+        "programs": [
+          "Algodão",
+          "Rápido",
+          "Lavar e secar",
+          "Esterilizar",
+          "Limpeza do tambor"
+        ],
+        "steam": true,
+        "hotWater": "Aquecimento interno em programas compatíveis",
+        "sensors": [
+          "Detecção de carga",
+          "Função Especialista pelo aplicativo"
+        ],
+        "connectivity": [
+          "Wi-Fi 2,4 GHz",
+          "Aplicativo SmartHome",
+          "Alexa",
+          "Google Assistente"
+        ],
+        "energyEfficiency": "Classe A na lavagem",
+        "voltage": "127 V",
+        "warranty": "24 meses para o produto, conforme condições do fabricante"
+      },
+      "imageIds": [],
+      "sources": [
+        {
+          "title": "Midea HealthGuard Slim 11 kg — página oficial",
+          "url": "https://www.midea.com.br/lava-e-seca-11kg-titanium-slim-healthguard-conectada-midea/p?skuId=511",
+          "accessedAt": "2026-09-02"
+        },
+        {
+          "title": "Manual Midea MF201D110WB",
+          "url": "https://conteudo.midea.com.br/manuais/lava-e-seca-11kg-titanium-slim-healthguard-conectada-midea.pdf",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_variant_samsung_wd13fg_inox_220v_br",
+      "productId": "prod_samsung_wd13fg",
+      "name": "WD13FG6B34BXBZ Inox 220 V",
+      "market": "BR",
+      "manufacturerModelNumber": "WD13FG6B34BXBZ",
+      "distinguishingAttributes": {
+        "color": "Inox",
+        "voltage": "220 V",
+        "washCapacity": "13 kg",
+        "dryCapacity": "8 kg"
+      },
+      "specifications": {
+        "type": "washer-dryer",
+        "washCapacityKg": 13,
+        "dryCapacityKg": 8,
+        "loadingType": "front",
+        "dimensionsMm": {
+          "width": 600,
+          "height": 850,
+          "depth": 600
+        },
+        "weightKg": 74,
+        "motor": "Digital Inverter",
+        "inverter": true,
+        "spinSpeedRpm": 1400,
+        "programs": [
+          "Algodão",
+          "Roupas de bebê",
+          "Super Speed",
+          "Lavar e secar",
+          "Air Wash",
+          "Vapor de higiene",
+          "Lavagem do tambor"
+        ],
+        "steam": true,
+        "hotWater": "Aquecimento interno; entrada de água fria",
+        "sensors": [
+          "Detecção de carga",
+          "AI Ecobubble",
+          "VRT+ para controle de vibração"
+        ],
+        "connectivity": [
+          "Wi-Fi",
+          "SmartThings",
+          "AI Control"
+        ],
+        "energyEfficiency": "Classe A na lavagem",
+        "waterConsumption": "Fabricante declara cerca de 20% menos água que a média Inmetro de modelos de 13 a 14 kg",
+        "voltage": "220 V",
+        "warranty": "12 meses",
+        "motorWarranty": "10 anos para o motor Digital Inverter, conforme condições do fabricante"
+      },
+      "imageIds": [],
+      "sources": [
+        {
+          "title": "Samsung WD13FG Inox 220 V — página oficial",
+          "url": "https://www.samsung.com/br/washers-and-dryers/washer-dryer-combo/wd6000f-front-loading-ai-ecobubble-ai-control-ai-energy-mode-13kg-refined-inox-wd13fg6b34bxbz/",
+          "accessedAt": "2026-09-02"
+        },
+        {
+          "title": "Samsung WD13FG — loja oficial",
+          "url": "https://shop.samsung.com/br/lava-seca-smart-samsung-ai-control-wd13fg-inox-13kg/p?skuId=12529",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_variant_lg_vc4_14_cv5014wc4a_220v_br",
+      "productId": "prod_lg_vc4_14",
+      "name": "CV5014WC4A Branca 220 V",
+      "market": "BR",
+      "manufacturerModelNumber": "CV5014WC4A",
+      "gtin": "8806084445698",
+      "distinguishingAttributes": {
+        "color": "Branca",
+        "voltage": "220 V",
+        "washCapacity": "14 kg",
+        "dryCapacity": "8 kg"
+      },
+      "specifications": {
+        "type": "washer-dryer",
+        "washCapacityKg": 14,
+        "dryCapacityKg": 8,
+        "loadingType": "front",
+        "dimensionsMm": {
+          "width": 600,
+          "height": 850,
+          "depth": 615
+        },
+        "doorOpenDepthMm": 1135,
+        "weightKg": 76,
+        "motor": "Inverter Direct Drive",
+        "inverter": true,
+        "spinSpeedRpm": 1400,
+        "programs": [
+          "Algodão",
+          "Tecidos mistos",
+          "Antialérgico",
+          "Rápido 14",
+          "TurboWash 59",
+          "Lavar e secar",
+          "Limpeza do tambor"
+        ],
+        "steam": true,
+        "hotWater": "Aquecimento interno em programas compatíveis",
+        "sensors": [
+          "AI DD em ciclos compatíveis",
+          "LoadSense",
+          "Detecção de espuma"
+        ],
+        "connectivity": [
+          "Wi-Fi",
+          "LG ThinQ",
+          "Smart Diagnosis",
+          "Monitoramento de energia"
+        ],
+        "energyEfficiency": "Classe A na lavagem",
+        "voltage": "220 V",
+        "warranty": "12 meses",
+        "motorWarranty": "10 anos para o motor Direct Drive, conforme condições do fabricante"
+      },
+      "imageIds": [],
+      "sources": [
+        {
+          "title": "LG Smart VC4 14 kg — especificações oficiais",
+          "url": "https://www.lg.com/br/lavanderia/lava-e-seca/cv5014wc4a/",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_variant_acer_aspire_15_a15_51m_56kr_br",
+      "productId": "prod_acer_aspire_15_a15_51m",
+      "name": "A15-51M-56KR, 16 GB + 512 GB, Linux",
+      "market": "BR",
+      "manufacturerModelNumber": "NX.J1RAL.004",
+      "distinguishingAttributes": {
+        "processor": "Core i5-13420H",
+        "ram": "16 GB",
+        "storage": "512 GB",
+        "operatingSystem": "Linux"
+      },
+      "specifications": {
+        "type": "notebook",
+        "processor": "Intel Core i5-13420H, 8 núcleos e 12 threads",
+        "processorGeneration": "13ª geração",
+        "gpu": "Intel UHD integrada",
+        "ramGb": 16,
+        "ramType": "LPDDR5 soldada",
+        "ramUpgrade": "Sem expansão; memória soldada nesta variante",
+        "storageGb": 512,
+        "storageType": "SSD M.2 NVMe PCIe 4.0",
+        "storageUpgrade": "Um slot M.2 ocupado; substituição do SSD",
+        "display": {
+          "sizeInches": 15.6,
+          "resolution": "1920 × 1080",
+          "panelType": "TN antirreflexo",
+          "refreshRateHz": 60
+        },
+        "batteryWh": 53,
+        "chargerWatts": 90,
+        "ports": [
+          "2 × USB-A",
+          "1 × USB4 Type-C",
+          "1 × HDMI",
+          "Conector de áudio"
+        ],
+        "usbC": "USB4 Type-C",
+        "videoOutput": "HDMI e vídeo por USB4",
+        "wifi": "Wi-Fi 6",
+        "bluetooth": "Bluetooth",
+        "webcam": "Webcam integrada",
+        "weightKg": 1.77,
+        "operatingSystem": "Linux 64 bits",
+        "warranty": "12 meses",
+        "keyboard": "ABNT2 com teclado numérico"
+      },
+      "imageIds": [],
+      "sources": [
+        {
+          "title": "Acer Aspire 15 A15-51M-56KR — especificações oficiais",
+          "url": "https://www.acer.com/br-pt/laptops/aspire/aspire-intel/pdp/NX.J1RAL.004",
+          "accessedAt": "2026-09-02"
+        },
+        {
+          "title": "A15-51M-56KR — memória da variante",
+          "url": "https://quenotebookcomprar.com.br/acer-aspire-15-a15-51m-56kr/",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_variant_asus_vivobook_15_m1502ya_nj612_br",
+      "productId": "prod_asus_vivobook_15_m1502",
+      "name": "M1502YA-NJ612, 16 GB + 512 GB, KeepOS",
+      "market": "BR",
+      "manufacturerModelNumber": "M1502YA-NJ612",
+      "distinguishingAttributes": {
+        "processor": "Ryzen 7 5825U",
+        "ram": "16 GB",
+        "storage": "512 GB",
+        "operatingSystem": "KeepOS"
+      },
+      "specifications": {
+        "type": "notebook",
+        "processor": "AMD Ryzen 7 5825U, 8 núcleos e 16 threads",
+        "processorGeneration": "Ryzen 5000, arquitetura Zen 3",
+        "gpu": "AMD Radeon integrada",
+        "ramGb": 16,
+        "ramType": "DDR4, 8 GB integrados + 8 GB SO-DIMM",
+        "ramUpgrade": "Um módulo SO-DIMM; máximo de 16 GB informado para a configuração",
+        "storageGb": 512,
+        "storageType": "SSD M.2 NVMe PCIe 3.0",
+        "storageUpgrade": "Um slot M.2 ocupado; substituição do SSD",
+        "display": {
+          "sizeInches": 15.6,
+          "resolution": "1920 × 1080",
+          "panelType": "IPS-level antirreflexo, 45% NTSC",
+          "brightnessNits": 250,
+          "refreshRateHz": 60
+        },
+        "chargerWatts": 45,
+        "ports": [
+          "2 × USB 3.2 Gen 1 Type-A",
+          "1 × USB 3.2 Gen 1 Type-C",
+          "1 × USB 2.0 Type-A",
+          "1 × HDMI 1.4",
+          "Conector de áudio"
+        ],
+        "usbC": "USB 3.2 Gen 1 Type-C",
+        "videoOutput": "HDMI 1.4",
+        "wifi": "Wi-Fi 5",
+        "bluetooth": "Bluetooth 4.1",
+        "webcam": "720p com obturador de privacidade",
+        "weightKg": 1.7,
+        "operatingSystem": "KeepOS (Linux)",
+        "warranty": "12 meses",
+        "keyboard": "ABNT2 com teclado numérico"
+      },
+      "imageIds": [],
+      "sources": [
+        {
+          "title": "ASUS Vivobook 15 M1502 — especificações oficiais",
+          "url": "https://www.asus.com/br/laptops/for-home/vivobook/vivobook-15-m1502/techspec/",
+          "accessedAt": "2026-09-02"
+        },
+        {
+          "title": "M1502YA-NJ612 — identificação da variante",
+          "url": "https://www.magazineluiza.com.br/notebook-asus-vivobook-15-m1502ya-amd-ryzen-7-5825u-16gb-ram-512gb-ssd-linux-keepos-156-fhd-cool-silver-nj612/p/gkd48kae3c/in/note/",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_variant_positivo_vision_r15_3002878_br",
+      "productId": "prod_positivo_vision_r15",
+      "name": "3002878, 16 GB + 512 GB, Linux",
+      "market": "BR",
+      "manufacturerModelNumber": "3002878",
+      "distinguishingAttributes": {
+        "processor": "Ryzen 5 5500U",
+        "ram": "16 GB",
+        "storage": "512 GB",
+        "operatingSystem": "Linux"
+      },
+      "specifications": {
+        "type": "notebook",
+        "processor": "AMD Ryzen 5 5500U, 6 núcleos e 12 threads",
+        "processorGeneration": "Ryzen 5000, arquitetura Zen 2",
+        "gpu": "AMD Radeon integrada",
+        "ramGb": 16,
+        "ramType": "DDR4",
+        "ramUpgrade": "Não confirmado para a variante 3002878",
+        "storageGb": 512,
+        "storageType": "SSD M.2 NVMe",
+        "storageUpgrade": "Não confirmado para a variante 3002878",
+        "display": {
+          "sizeInches": 15.6,
+          "resolution": "1920 × 1080",
+          "panelType": "IPS antirreflexo",
+          "refreshRateHz": 60
+        },
+        "ports": [
+          "USB-A",
+          "USB-C",
+          "HDMI",
+          "Conector de áudio"
+        ],
+        "usbC": "USB-C; funções adicionais não informadas na fonte oficial consultada",
+        "videoOutput": "HDMI",
+        "wifi": "Wi-Fi",
+        "bluetooth": "Bluetooth",
+        "webcam": "Webcam HD com Lumina Bar",
+        "weightKg": 1.75,
+        "operatingSystem": "Linux",
+        "warranty": "12 meses",
+        "keyboard": "ABNT2 com teclado numérico"
+      },
+      "imageIds": [],
+      "sources": [
+        {
+          "title": "Positivo Vision R15 3002878 — especificações oficiais",
+          "url": "https://loja.meupositivo.com.br/notebook-positivo-vision-r15-amd-ryzen-5-5500u-linux-16gb-ram-512gb-ssd-full-hd-15-6-preto-3002878/p",
+          "accessedAt": "2026-09-02"
+        },
+        {
+          "title": "Vision R15 3002878 — peso",
+          "url": "https://quenotebookcomprar.com.br/positivo-vision-r15-3002878/",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_variant_motorola_moto_g56_5g_8_256_br",
+      "productId": "prod_motorola_moto_g56_5g",
+      "name": "8 GB + 256 GB (Brasil)",
+      "market": "BR",
+      "manufacturerModelNumber": "XT2529-1",
+      "distinguishingAttributes": {
+        "ram": "8 GB",
+        "storage": "256 GB"
+      },
+      "specifications": {
+        "type": "smartphone",
+        "processor": "MediaTek Dimensity 7060",
+        "ramGb": 8,
+        "storageGb": 256,
+        "display": {
+          "technology": "LCD",
+          "sizeInches": 6.72,
+          "resolution": "2400 × 1080",
+          "refreshRateHz": 120
+        },
+        "batteryMah": 5200,
+        "chargingWatts": 30,
+        "rearCameras": {
+          "main": "50 MP Sony LYTIA 600 com OIS",
+          "ultrawide": "8 MP",
+          "additional": []
+        },
+        "frontCamera": "32 MP",
+        "video": "1080p a 60 fps na câmera traseira",
+        "connectivity": [
+          "5G",
+          "4G",
+          "Wi-Fi 5",
+          "Bluetooth 5.3",
+          "USB-C"
+        ],
+        "nfc": true,
+        "fiveG": true,
+        "waterResistance": "IP68 e IP69",
+        "operatingSystemAtLaunch": "Android 15",
+        "dimensionsMm": {
+          "height": 165.75,
+          "width": 76.26,
+          "depth": 8.35
+        },
+        "weightGrams": 200
+      },
+      "imageIds": [],
+      "sources": [
+        {
+          "title": "Motorola — especificações do Moto G56 5G",
+          "url": "https://en-us.support.motorola.com/app/answers/detail/a_id/186749",
+          "accessedAt": "2026-09-02"
+        },
+        {
+          "title": "Motorola Brasil — guia do Moto G56 5G",
+          "url": "https://pt-br.support.motorola.com/app/answers/detail/a_id/187897/",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_variant_samsung_galaxy_a26_5g_8_256_br",
+      "productId": "prod_samsung_galaxy_a26_5g",
+      "name": "8 GB + 256 GB (Brasil)",
+      "market": "BR",
+      "manufacturerModelNumber": "SM-A266M",
+      "distinguishingAttributes": {
+        "ram": "8 GB",
+        "storage": "256 GB",
+        "color": "Branco"
+      },
+      "specifications": {
+        "type": "smartphone",
+        "processor": "Samsung Exynos 1380, octa-core até 2,4 GHz",
+        "ramGb": 8,
+        "storageGb": 256,
+        "display": {
+          "technology": "Super AMOLED",
+          "sizeInches": 6.7,
+          "resolution": "2340 × 1080",
+          "refreshRateHz": 120
+        },
+        "batteryMah": 5000,
+        "chargingWatts": 25,
+        "rearCameras": {
+          "main": "50 MP com OIS",
+          "ultrawide": "8 MP",
+          "additional": [
+            "Macro de 2 MP"
+          ]
+        },
+        "frontCamera": "13 MP",
+        "video": "4K a 30 fps",
+        "connectivity": [
+          "5G",
+          "4G",
+          "Wi-Fi 5",
+          "Bluetooth 5.3",
+          "USB-C"
+        ],
+        "nfc": true,
+        "fiveG": true,
+        "waterResistance": "IP67",
+        "operatingSystemAtLaunch": "Android 15 com One UI 7",
+        "updatePolicy": "Seis atualizações de sistema e seis anos de segurança",
+        "dimensionsMm": {
+          "height": 164,
+          "width": 77.5,
+          "depth": 7.7
+        },
+        "weightGrams": 200
+      },
+      "imageIds": [],
+      "sources": [
+        {
+          "title": "Samsung Brasil — Galaxy A26 5G 256 GB",
+          "url": "https://www.samsung.com/br/smartphones/galaxy-a/galaxy-a26-5g-white-256gb-sm-a266mzwhzto/",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_variant_samsung_galaxy_a17_5g_4_128_br",
+      "productId": "prod_samsung_galaxy_a17_5g",
+      "name": "4 GB + 128 GB (Brasil)",
+      "market": "BR",
+      "manufacturerModelNumber": "SM-A176B",
+      "distinguishingAttributes": {
+        "ram": "4 GB",
+        "storage": "128 GB",
+        "color": "Azul claro"
+      },
+      "specifications": {
+        "type": "smartphone",
+        "processor": "Samsung Exynos 1330, octa-core até 2,4 GHz",
+        "ramGb": 4,
+        "storageGb": 128,
+        "display": {
+          "technology": "Super AMOLED",
+          "sizeInches": 6.7,
+          "resolution": "2340 × 1080",
+          "refreshRateHz": 90
+        },
+        "batteryMah": 5000,
+        "chargingWatts": 25,
+        "rearCameras": {
+          "main": "50 MP com OIS",
+          "ultrawide": "5 MP",
+          "additional": [
+            "Macro de 2 MP"
+          ]
+        },
+        "frontCamera": "13 MP",
+        "video": "1080p a 30 fps",
+        "connectivity": [
+          "5G",
+          "4G",
+          "Wi-Fi 5",
+          "Bluetooth 5.3",
+          "USB-C"
+        ],
+        "nfc": true,
+        "fiveG": true,
+        "waterResistance": "IP54",
+        "operatingSystemAtLaunch": "Android 15 com One UI 7",
+        "updatePolicy": "Seis atualizações de sistema e seis anos de segurança",
+        "dimensionsMm": {
+          "height": 164.4,
+          "width": 77.9,
+          "depth": 7.5
+        },
+        "weightGrams": 192
+      },
+      "imageIds": [],
+      "sources": [
+        {
+          "title": "Samsung Brasil — Galaxy A17 5G 128 GB",
+          "url": "https://www.samsung.com/br/smartphones/galaxy-a/galaxy-a17-5g-blue-128gb-sm-a176bzbozto/",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_variant_xiaomi_redmi_note_14_4g_8_256_br",
+      "productId": "prod_xiaomi_redmi_note_14_4g",
+      "name": "8 GB + 256 GB (Brasil)",
+      "market": "BR",
+      "manufacturerModelNumber": "24094RAD4G",
+      "distinguishingAttributes": {
+        "ram": "8 GB",
+        "storage": "256 GB"
+      },
+      "specifications": {
+        "type": "smartphone",
+        "processor": "MediaTek Helio G99-Ultra",
+        "ramGb": 8,
+        "storageGb": 256,
+        "display": {
+          "technology": "AMOLED",
+          "sizeInches": 6.67,
+          "resolution": "2400 × 1080",
+          "refreshRateHz": 120
+        },
+        "batteryMah": 5500,
+        "chargingWatts": 33,
+        "rearCameras": {
+          "main": "108 MP",
+          "additional": [
+            "Profundidade de 2 MP",
+            "Macro de 2 MP"
+          ]
+        },
+        "frontCamera": "20 MP",
+        "video": "1080p a 60 fps na câmera traseira",
+        "connectivity": [
+          "4G",
+          "Wi-Fi 5",
+          "Bluetooth 5.3",
+          "USB-C",
+          "Conector de 3,5 mm"
+        ],
+        "nfc": true,
+        "fiveG": false,
+        "waterResistance": "IP54",
+        "operatingSystemAtLaunch": "Xiaomi HyperOS baseado em Android",
+        "dimensionsMm": {
+          "height": 163.25,
+          "width": 76.55,
+          "depth": 8.16
+        },
+        "weightGrams": 196.5
+      },
+      "imageIds": [],
+      "sources": [
+        {
+          "title": "Xiaomi Brasil — especificações do Redmi Note 14",
+          "url": "https://www.mi.com/br/product/redmi-note-14/specs/",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_variant_tcl_p7k_50_br",
+      "productId": "prod_tcl_p7k",
+      "name": "50 polegadas (50P7K)",
+      "market": "BR",
+      "manufacturerModelNumber": "50P7K",
+      "distinguishingAttributes": {
+        "screenSize": "50 polegadas"
+      },
+      "specifications": {
+        "type": "television",
+        "screenSizeInches": 50,
+        "availableSizesInches": [
+          43,
+          50,
+          55,
+          65,
+          75,
+          85
+        ],
+        "panelTechnology": "QLED LCD HVA com iluminação LED",
+        "resolution": "4K (3840 × 2160)",
+        "nativeRefreshRateHz": 60,
+        "hdrFormats": [
+          "Dolby Vision",
+          "HDR10+",
+          "HDR10",
+          "HLG"
+        ],
+        "operatingSystem": "Google TV",
+        "hdmiPorts": 3,
+        "earc": true,
+        "vrr": true,
+        "allm": true,
+        "wifi": "Wi-Fi",
+        "bluetooth": "Bluetooth",
+        "assistants": [
+          "Google Assistente"
+        ],
+        "gamingFeatures": [
+          "Game Master",
+          "Game Bar",
+          "Game Accelerator 120 Hz por software"
+        ],
+        "audio": "Dolby Atmos e DTS Virtual:X"
+      },
+      "imageIds": [],
+      "sources": [
+        {
+          "title": "TCL P7K — página oficial",
+          "url": "https://www.tcl.com/br/pt/tvs/p7k",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_variant_samsung_u8100f_55_br",
+      "productId": "prod_samsung_u8100f",
+      "name": "55 polegadas (UN55U8100FGXZD)",
+      "market": "BR",
+      "manufacturerModelNumber": "UN55U8100FGXZD",
+      "distinguishingAttributes": {
+        "screenSize": "55 polegadas"
+      },
+      "specifications": {
+        "type": "television",
+        "screenSizeInches": 55,
+        "availableSizesInches": [
+          43,
+          50,
+          55,
+          58,
+          65,
+          70,
+          75,
+          85
+        ],
+        "panelTechnology": "LCD LED Crystal UHD",
+        "resolution": "4K (3840 × 2160)",
+        "nativeRefreshRateHz": 60,
+        "hdrFormats": [
+          "HDR10+",
+          "HDR10",
+          "HLG"
+        ],
+        "operatingSystem": "Tizen",
+        "hdmiPorts": 3,
+        "hdmi21Ports": 0,
+        "earc": true,
+        "vrr": true,
+        "allm": true,
+        "wifi": "Wi-Fi 5",
+        "bluetooth": "Bluetooth 5.2",
+        "assistants": [
+          "Bixby",
+          "Alexa por dispositivo separado"
+        ],
+        "gamingFeatures": [
+          "Gaming Hub",
+          "HGiG",
+          "Motion Xcelerator"
+        ],
+        "audio": "20 W, 2 canais, Som Adaptativo e Q-Symphony",
+        "dimensionsMm": {
+          "width": 1234.1,
+          "height": 758,
+          "depth": 237,
+          "includesStand": true
+        },
+        "weightKg": 11.9
+      },
+      "imageIds": [],
+      "sources": [
+        {
+          "title": "Samsung U8100F 55 — especificações oficiais",
+          "url": "https://www.samsung.com/br/tvs/uhd-4k-tv/u8000f-55-inch-crystal-uhd-4k-smart-tv-un55u8100fgxzd/",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_variant_tcl_c6k_55_br",
+      "productId": "prod_tcl_c6k",
+      "name": "55 polegadas (55C6K)",
+      "market": "BR",
+      "manufacturerModelNumber": "55C6K",
+      "distinguishingAttributes": {
+        "screenSize": "55 polegadas",
+        "panel": "HVA"
+      },
+      "specifications": {
+        "type": "television",
+        "screenSizeInches": 55,
+        "availableSizesInches": [
+          55,
+          65,
+          75,
+          85,
+          98
+        ],
+        "panelTechnology": "QD-Mini LED com painel HVA",
+        "resolution": "4K (3840 × 2160)",
+        "nativeRefreshRateHz": 144,
+        "hdrFormats": [
+          "Dolby Vision IQ",
+          "HDR10+",
+          "HDR10",
+          "HLG"
+        ],
+        "operatingSystem": "Google TV",
+        "hdmiPorts": 4,
+        "earc": true,
+        "vrr": true,
+        "allm": true,
+        "wifi": "Wi-Fi",
+        "bluetooth": "Bluetooth",
+        "assistants": [
+          "Google Assistente"
+        ],
+        "gamingFeatures": [
+          "144 Hz VRR",
+          "FreeSync Premium Pro",
+          "Game Master",
+          "Game Bar"
+        ],
+        "audio": "Sistema Onkyo 2.1 com subwoofer integrado"
+      },
+      "imageIds": [],
+      "sources": [
+        {
+          "title": "TCL C6K — página oficial",
+          "url": "https://www.tcl.com/br/pt/tvs/c6k",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_variant_lg_oled_c5_55_br",
+      "productId": "prod_lg_oled_c5",
+      "name": "55 polegadas (OLED55C5PSA)",
+      "market": "BR",
+      "manufacturerModelNumber": "OLED55C5PSA",
+      "gtin": "7893299959677",
+      "distinguishingAttributes": {
+        "screenSize": "55 polegadas"
+      },
+      "specifications": {
+        "type": "television",
+        "screenSizeInches": 55,
+        "availableSizesInches": [
+          42,
+          48,
+          55,
+          65,
+          77,
+          83
+        ],
+        "panelTechnology": "OLED evo com pixels autoiluminados",
+        "resolution": "4K (3840 × 2160)",
+        "nativeRefreshRateHz": 120,
+        "hdrFormats": [
+          "Dolby Vision",
+          "HDR10",
+          "HLG"
+        ],
+        "operatingSystem": "webOS 25",
+        "hdmiPorts": 4,
+        "hdmi21Ports": 4,
+        "earc": true,
+        "vrr": true,
+        "allm": true,
+        "wifi": "Wi-Fi",
+        "bluetooth": "Bluetooth",
+        "assistants": [
+          "LG ThinQ",
+          "Google Home",
+          "Alexa"
+        ],
+        "gamingFeatures": [
+          "VRR até 144 Hz",
+          "G-Sync",
+          "FreeSync",
+          "HGiG",
+          "Dolby Vision Gaming 4K 120 Hz"
+        ],
+        "audio": "40 W, 2.2 canais, Dolby Atmos",
+        "dimensionsMm": {
+          "width": 1222,
+          "height": 757,
+          "depth": 230,
+          "includesStand": true
+        },
+        "weightKg": 16,
+        "warranty": "12 meses"
+      },
+      "imageIds": [],
+      "sources": [
+        {
+          "title": "LG OLED evo C5 55 — especificações oficiais",
+          "url": "https://www.lg.com/br/tvs-e-soundbars/oled-evo/oled55c5psa/",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02",
+      "reviewedAt": "2026-09-02"
+    }
+  ],
+  "offers": [
+    {
+      "id": "prod_offer_fischer_premier_48l_127",
+      "variantId": "prod_variant_fischer_premier_48l_127_br",
+      "retailer": "Fischer",
+      "url": "https://www.fischer.com.br/forno-eletrico-fischer-premier-bancada-48l/p",
+      "region": "BR",
+      "observedPrice": {
+        "amount": 899,
+        "currency": "BRL"
+      },
+      "availability": "available",
+      "checkedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_offer_oster_bowl_inox_iii_127",
+      "variantId": "prod_variant_oster_bowl_inox_iii_127_br",
+      "retailer": "Oster Brasil",
+      "url": "https://www.oster.com.br/batedeira-planetaria-oster-bowl-inox-iii/p",
+      "region": "BR",
+      "observedPrice": {
+        "amount": 649.9,
+        "currency": "BRL"
+      },
+      "availability": "temporarily-unavailable",
+      "checkedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_offer_mercado_livre_kitchenaid_artisan_kea33_127",
+      "variantId": "prod_variant_kitchenaid_artisan_kea33_127_br",
+      "retailer": "Loja oficial KitchenAid no Mercado Livre",
+      "url": "https://www.mercadolivre.com.br/loja/kitchenaid",
+      "region": "BR",
+      "observedPrice": {
+        "amount": 3009,
+        "currency": "BRL"
+      },
+      "availability": "available",
+      "checkedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_offer_skymsen_bps_05_n_bivolt",
+      "variantId": "prod_variant_skymsen_bps_05_n_bivolt_br",
+      "retailer": "Loja Skymsen",
+      "url": "https://loja.skymsen.com/produto/643688/bps-05-n-batedeira-planetaria-preta-5-litros-500w-127-220-v",
+      "region": "BR",
+      "observedPrice": {
+        "amount": 4057,
+        "currency": "BRL"
+      },
+      "availability": "available",
+      "checkedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_offer_skymsen_li2_127v_magalu",
+      "variantId": "prod_variant_skymsen_li2_127v_br",
+      "retailer": "Magazine Luiza — marketplace",
+      "url": "https://www.magazineluiza.com.br/liquidificador-inox-alta-rotacao-li2-2litros-127v-skymsen/p/jh4h373711/pi/liqi/",
+      "region": "BR",
+      "observedPrice": {
+        "amount": 880.53,
+        "currency": "BRL"
+      },
+      "availability": "available",
+      "checkedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_offer_skymsen_l2_leroy",
+      "variantId": "prod_variant_skymsen_l2_127_220v_br",
+      "retailer": "Leroy Merlin — marketplace",
+      "url": "https://www.leroymerlin.com.br/liquidificador-comercial-skymsen-inox-copo-monobloco-2-litros-l2-bivolt_1572658364",
+      "region": "BR",
+      "observedPrice": {
+        "amount": 872.1,
+        "currency": "BRL"
+      },
+      "availability": "available",
+      "checkedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_offer_skymsen_bm2_acimaq",
+      "variantId": "prod_variant_skymsen_bm2_127v_br",
+      "retailer": "Acimaq",
+      "url": "https://www.acimaq.com.br/liquidificador-alta-rotacao-bm2-maxi-blender-3cv-2-litros-127v---skymsen/p",
+      "region": "BR",
+      "observedPrice": {
+        "amount": 1817.99,
+        "currency": "BRL"
+      },
+      "availability": "available",
+      "checkedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_offer_midea_healthguard_slim_11_127v",
+      "variantId": "prod_variant_midea_healthguard_slim_11_127v_br",
+      "retailer": "Midea Brasil",
+      "url": "https://www.midea.com.br/lava-e-seca-11kg-titanium-slim-healthguard-conectada-midea/p?skuId=511",
+      "region": "BR",
+      "observedPrice": {
+        "amount": 3699,
+        "currency": "BRL"
+      },
+      "availability": "available",
+      "checkedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_offer_samsung_wd13fg_inox_220v",
+      "variantId": "prod_variant_samsung_wd13fg_inox_220v_br",
+      "retailer": "Samsung Brasil",
+      "url": "https://shop.samsung.com/br/lava-seca-smart-samsung-ai-control-wd13fg-inox-13kg/p?skuId=12529",
+      "region": "BR",
+      "observedPrice": {
+        "amount": 4389,
+        "currency": "BRL"
+      },
+      "availability": "available",
+      "checkedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_offer_lg_vc4_14_220v",
+      "variantId": "prod_variant_lg_vc4_14_cv5014wc4a_220v_br",
+      "retailer": "LG Brasil",
+      "url": "https://www.lg.com/br/lavanderia/lava-e-seca/cv5014wc4a/",
+      "region": "BR",
+      "observedPrice": {
+        "amount": 4369.05,
+        "currency": "BRL"
+      },
+      "availability": "available",
+      "checkedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_offer_acer_aspire_15_a15_51m_56kr",
+      "variantId": "prod_variant_acer_aspire_15_a15_51m_56kr_br",
+      "retailer": "Mercado Livre",
+      "url": "https://www.mercadolivre.com.br/notebook-acer-aspire-15-a15-51m-56kr-intel-core-i5-13420h-13-geracao-16-gb-512ssd-156-full-hd/p/MLB43513588",
+      "region": "BR",
+      "observedPrice": {
+        "amount": 3347.07,
+        "currency": "BRL"
+      },
+      "availability": "available",
+      "checkedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_offer_magalu_asus_vivobook_15_m1502ya_nj612",
+      "variantId": "prod_variant_asus_vivobook_15_m1502ya_nj612_br",
+      "retailer": "Magazine Luiza",
+      "url": "https://www.magazineluiza.com.br/notebook-asus-vivobook-15-m1502ya-amd-ryzen-7-5825u-16gb-ram-512gb-ssd-linux-keepos-156-fhd-cool-silver-nj612/p/gkd48kae3c/in/note/",
+      "region": "BR",
+      "observedPrice": {
+        "amount": 3599.2,
+        "currency": "BRL"
+      },
+      "availability": "available",
+      "checkedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_offer_positivo_vision_r15_3002878",
+      "variantId": "prod_variant_positivo_vision_r15_3002878_br",
+      "retailer": "Positivo",
+      "url": "https://loja.meupositivo.com.br/notebook-positivo-vision-r15-amd-ryzen-5-5500u-linux-16gb-ram-512gb-ssd-full-hd-15-6-preto-3002878/p",
+      "region": "BR",
+      "observedPrice": {
+        "amount": 3249,
+        "currency": "BRL"
+      },
+      "availability": "available",
+      "checkedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_offer_amazon_motorola_moto_g56_5g_8_256",
+      "variantId": "prod_variant_motorola_moto_g56_5g_8_256_br",
+      "retailer": "Amazon Brasil",
+      "url": "https://www.amazon.com.br/dp/B0F9MT4TTZ",
+      "region": "BR",
+      "observedPrice": {
+        "amount": 1377.4,
+        "currency": "BRL"
+      },
+      "availability": "available",
+      "checkedAt": "2026-08-20"
+    },
+    {
+      "id": "prod_offer_amazon_samsung_galaxy_a26_5g_8_256",
+      "variantId": "prod_variant_samsung_galaxy_a26_5g_8_256_br",
+      "retailer": "Amazon Brasil",
+      "url": "https://www.amazon.com.br/dp/B0F29YZ3MF",
+      "region": "BR",
+      "observedPrice": {
+        "amount": 1614.05,
+        "currency": "BRL"
+      },
+      "availability": "available",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "id": "prod_offer_amazon_samsung_galaxy_a17_5g_4_128",
+      "variantId": "prod_variant_samsung_galaxy_a17_5g_4_128_br",
+      "retailer": "Amazon Brasil",
+      "url": "https://www.amazon.com.br/dp/B0FPPQ5T37",
+      "region": "BR",
+      "observedPrice": {
+        "amount": 1259.1,
+        "currency": "BRL"
+      },
+      "availability": "available",
+      "checkedAt": "2026-08-08"
+    },
+    {
+      "id": "prod_offer_amazon_xiaomi_redmi_note_14_4g_8_256",
+      "variantId": "prod_variant_xiaomi_redmi_note_14_4g_8_256_br",
+      "retailer": "Amazon Brasil",
+      "url": "https://www.amazon.com.br/dp/B0DT5LHPMX",
+      "region": "BR",
+      "observedPrice": {
+        "amount": 1178,
+        "currency": "BRL"
+      },
+      "availability": "available",
+      "checkedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_offer_amazon_tcl_p7k_50",
+      "variantId": "prod_variant_tcl_p7k_50_br",
+      "retailer": "Amazon Brasil",
+      "url": "https://www.amazon.com.br/dp/B0F1H26GFQ",
+      "region": "BR",
+      "observedPrice": {
+        "amount": 2099,
+        "currency": "BRL"
+      },
+      "availability": "available",
+      "checkedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_offer_amazon_samsung_u8100f_55",
+      "variantId": "prod_variant_samsung_u8100f_55_br",
+      "retailer": "Amazon Brasil",
+      "url": "https://www.amazon.com.br/dp/B0FSX4WVCD",
+      "region": "BR",
+      "availability": "unknown",
+      "checkedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_offer_amazon_tcl_c6k_55",
+      "variantId": "prod_variant_tcl_c6k_55_br",
+      "retailer": "Amazon Brasil",
+      "url": "https://www.amazon.com.br/dp/B0F7JZMVKF",
+      "region": "BR",
+      "observedPrice": {
+        "amount": 3499,
+        "currency": "BRL"
+      },
+      "availability": "available",
+      "checkedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_offer_lg_oled_c5_55",
+      "variantId": "prod_variant_lg_oled_c5_55_br",
+      "retailer": "LG Brasil",
+      "url": "https://www.lg.com/br/tvs-e-soundbars/oled-evo/oled55c5psa/",
+      "region": "BR",
+      "observedPrice": {
+        "amount": 5490,
+        "currency": "BRL"
+      },
+      "availability": "unknown",
+      "checkedAt": "2026-08-11"
+    }
+  ]
+}

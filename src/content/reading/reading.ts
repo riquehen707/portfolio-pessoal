@@ -11,6 +11,9 @@ import { scienceFictionEditions, scienceFictionSeries, scienceFictionWorks } fro
 import { darkFantasyEditions, darkFantasySeries, darkFantasyWorks } from "./darkFantasyBooks";
 import { byungChulHanEditions, byungChulHanWorks } from "./byungChulHanBooks";
 import { philosophyEditions, philosophyWorks } from "./philosophyBooks";
+import { intellectualFormationWorks } from "./intellectualFormationBooks";
+import { economicsWorks } from "./economicsBooks";
+import { psychologyWorks } from "./psychologyBooks";
 
 const checked = "2026-08-13";
 const nietzscheCover = (slug:string, alt:string, sourceUrl:string, credit:string):ReadingWork["image"] => ({
@@ -44,6 +47,9 @@ const works:ReadingWork[]=[
  ...haremMangaWorks,
  ...byungChulHanWorks,
  ...philosophyWorks,
+ ...intellectualFormationWorks,
+ ...economicsWorks,
+ ...psychologyWorks,
  comicWork("read_work_sandman","sandman-neil-gaiman","The Sandman","Sandman","1989","1996","Estados Unidos","Inglês",[{personId:"person_neil_gaiman",roles:["writer","original-creator"]}],"western-comics","serialized-series",["Fantasia sombria","Mitologia","Terror"],["Sonhos","Histórias","Mudança","Família"],"Após décadas aprisionado, Sonho reconstrói seu reino e confronta as consequências de antigas escolhas numa saga sobre histórias, responsabilidade e mudança.",{organizationRelationships:[{organizationId:"org_dc_comics",roles:["original-publisher"]},{organizationId:"org_panini_brasil",roles:["publisher"]}],demographics:["adult"],adaptations:[{relationship:"adaptation",kind:"series",title:"The Sandman",status:"released",sourceUrl:"https://www.netflix.com/tudum/articles/sandman-new-episodes"}],sources:[{title:"The Sandman Book One — DC",url:"https://www.dc.com/graphic-novels/the-sandman-book-one"},{title:"Sandman — Edição Definitiva Vol. 1 — Panini",url:"https://panini.com.br/sandman-edicao-definitiva-vol-1-aveas001r3"}],updatedAt:"2026-08-20"}),
  comicWork("read_work_absolute_batman","absolute-batman","Absolute Batman",undefined,"2024",undefined,"Estados Unidos","Inglês",[{personId:"person_scott_snyder",roles:["writer"]},{personId:"person_nick_dragotta",roles:["artist"]}],"western-comics","serialized-series",["Super-heróis","Ação","Crime"],["Desigualdade","Violência urbana","Reinvenção"],"Sem a fortuna e a estrutura tradicional dos Wayne, um jovem Bruce enfrenta a violência de Gotham com conhecimento técnico, força física e recursos improvisados.",{organizationRelationships:[{organizationId:"org_dc_comics",roles:["original-publisher"]}],demographics:["adult"],sources:[{title:"DC All In — iniciativa e Universo Absolute",url:"https://www.dc.com/allin"},{title:"Absolute Batman Vol. 1: The Zoo — DC",url:"https://www.dc.com/graphic-novels/absolute-batman-2024/absolute-batman-vol-1-the-zoo"}]}),
  work("read_work_burnout_society","sociedade-do-cansaco","Müdigkeitsgesellschaft","Sociedade do Cansaço","2010","Alemanha","Alemão","person_byung_chul_han",["Filosofia","Crítica cultural"],["Desempenho","Autoexploração","Cansaço","Atenção"],"Byung-Chul Han interpreta o excesso de desempenho, estímulo e positividade como mecanismos de autoexploração e esgotamento na sociedade contemporânea.",{categories:["philosophy","essay"],organizationRelationships:[{organizationId:"org_vozes",roles:["publisher"]}],sources:[{title:"The Burnout Society — Stanford University Press",url:"https://www.sup.org/books/theory-and-philosophy/burnout-society"},{title:"Byung-Chul Han — Editora Vozes",url:"https://www.vozes.com.br/autor/133/byung-chul-han"}]}),

@@ -6996,6 +6996,150 @@
       "updatedAt": "2026-08-27"
     },
     {
+      "id": "read_work_think_blackburn",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "think-simon-blackburn",
+      "aliases": [],
+      "originalTitle": "Think: A Compelling Introduction to Philosophy",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Reino Unido"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_simon_blackburn",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1999",
+      "publicationEnd": "1999",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Conhecimento",
+        "Mente",
+        "Livre-arbítrio",
+        "Ética",
+        "Raciocínio filosófico"
+      ],
+      "concepts": [
+        "Conhecimento",
+        "Mente",
+        "Livre-arbítrio",
+        "Ética",
+        "Raciocínio filosófico"
+      ],
+      "readingDifficulty": "introductory",
+      "relatedArticlePaths": [],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Blackburn apresenta problemas centrais da filosofia acompanhando argumentos e objeções, em vez de resumir uma sequência de pensadores.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Think A Compelling Introduction to Philosophy — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=Think%20A%20Compelling%20Introduction%20to%20Philosophy&author=Simon%20Blackburn"
+        },
+        {
+          "title": "Think — Oxford University Press",
+          "url": "https://global.oup.com/academic/product/think-9780192854254"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_rulebook_arguments",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "a-construcao-do-argumento",
+      "aliases": [],
+      "originalTitle": "A Rulebook for Arguments",
+      "titleBr": "A Construção do Argumento",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_anthony_weston",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1987",
+      "publicationEnd": "1987",
+      "publicationStatus": "completed",
+      "categories": [
+        "non-fiction"
+      ],
+      "genres": [
+        "Argumentação",
+        "Pensamento crítico"
+      ],
+      "themes": [
+        "Argumentação",
+        "Premissas",
+        "Conclusões",
+        "Exemplos",
+        "Fontes"
+      ],
+      "concepts": [
+        "Argumentação",
+        "Premissas",
+        "Conclusões",
+        "Exemplos",
+        "Fontes"
+      ],
+      "readingDifficulty": "introductory",
+      "relatedArticlePaths": [],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Um manual curto organiza regras práticas para construir, testar e revisar argumentos com premissas identificáveis e razões examináveis.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "A Rulebook for Arguments — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=A%20Rulebook%20for%20Arguments&author=Anthony%20Weston"
+        },
+        {
+          "title": "A Rulebook for Arguments — Hackett Publishing",
+          "url": "https://hackettpublishing.com/philosophy/a-rulebook-for-arguments-group"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
       "id": "read_work_republic_plato",
       "contentType": "reading-work",
       "schemaVersion": 1,
@@ -7315,6 +7459,79 @@
       "updatedAt": "2026-08-27"
     },
     {
+      "id": "read_work_nicomachean_ethics",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "etica-a-nicomaco",
+      "aliases": [],
+      "originalTitle": "Ἠθικὰ Νικομάχεια",
+      "titleBr": "Ética a Nicômaco",
+      "workType": "treatise",
+      "format": "book",
+      "originCountries": [
+        "Grécia antiga"
+      ],
+      "originalLanguages": [
+        "Grego antigo"
+      ],
+      "credits": [
+        {
+          "personId": "person_aristoteles",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationDisplay": "c. século IV a.C.",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Virtude",
+        "Hábito",
+        "Deliberação",
+        "Felicidade",
+        "Amizade"
+      ],
+      "concepts": [
+        "Virtude",
+        "Hábito",
+        "Deliberação",
+        "Felicidade",
+        "Amizade"
+      ],
+      "readingDifficulty": "intermediate",
+      "relatedArticlePaths": [
+        "/blog/principais-filosofos-da-historia"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Aristóteles investiga a vida boa por meio de virtudes formadas pelo hábito, escolhas deliberadas, prazer, amizade e participação na comunidade.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Nicomachean Ethics Aristotle — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=Nicomachean%20Ethics%20Aristotle&author=Aristotle"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/aristotle-ethics/"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
       "id": "read_work_confessions_augustine",
       "contentType": "reading-work",
       "schemaVersion": 1,
@@ -7542,6 +7759,2678 @@
       "createdAt": "2026-08-27",
       "publishedAt": "2026-08-27",
       "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_discourse_method",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "discurso-do-metodo",
+      "aliases": [],
+      "originalTitle": "Discours de la méthode",
+      "titleBr": "Discurso do Método",
+      "workType": "treatise",
+      "format": "book",
+      "originCountries": [
+        "França"
+      ],
+      "originalLanguages": [
+        "Francês"
+      ],
+      "credits": [
+        {
+          "personId": "person_rene_descartes",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1637",
+      "publicationEnd": "1637",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Método",
+        "Dúvida",
+        "Cogito",
+        "Conhecimento",
+        "Ciência"
+      ],
+      "concepts": [
+        "Método",
+        "Dúvida",
+        "Cogito",
+        "Conhecimento",
+        "Ciência"
+      ],
+      "readingDifficulty": "intermediate",
+      "relatedArticlePaths": [
+        "/blog/principais-filosofos-da-historia"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Descartes apresenta um percurso intelectual e regras de método, empregando a dúvida para procurar fundamentos seguros para o conhecimento.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Discours de la méthode — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=Discours%20de%20la%20m%C3%A9thode&author=Ren%C3%A9%20Descartes"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/descartes/"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_enquiry_human_understanding",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "investigacao-sobre-o-entendimento-humano",
+      "aliases": [],
+      "originalTitle": "An Enquiry Concerning Human Understanding",
+      "titleBr": "Investigação sobre o Entendimento Humano",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Escócia"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_david_hume",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1748",
+      "publicationEnd": "1748",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Experiência",
+        "Causalidade",
+        "Indução",
+        "Ceticismo",
+        "Milagres"
+      ],
+      "concepts": [
+        "Experiência",
+        "Causalidade",
+        "Indução",
+        "Ceticismo",
+        "Milagres"
+      ],
+      "readingDifficulty": "intermediate",
+      "relatedArticlePaths": [
+        "/blog/principais-filosofos-da-historia"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Hume examina a origem das ideias, a relação entre causa e efeito e os limites das inferências que projetam a experiência passada sobre o futuro.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "An Enquiry Concerning Human Understanding — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=An%20Enquiry%20Concerning%20Human%20Understanding&author=David%20Hume"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/hume/"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_on_liberty",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "sobre-a-liberdade",
+      "aliases": [],
+      "originalTitle": "On Liberty",
+      "titleBr": "Sobre a Liberdade",
+      "workType": "essay",
+      "format": "book",
+      "originCountries": [
+        "Reino Unido"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_john_stuart_mill",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1859",
+      "publicationEnd": "1859",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Liberdade",
+        "Individualidade",
+        "Dano",
+        "Opinião pública",
+        "Expressão"
+      ],
+      "concepts": [
+        "Liberdade",
+        "Individualidade",
+        "Dano",
+        "Opinião pública",
+        "Expressão"
+      ],
+      "readingDifficulty": "intermediate",
+      "relatedArticlePaths": [],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Mill investiga quando sociedade e governo podem limitar a ação individual e por que opiniões dissidentes importam para corrigir erros coletivos.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "On Liberty — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=On%20Liberty&author=John%20Stuart%20Mill"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/mill/"
+        },
+        {
+          "title": "On Liberty — Penguin Classics",
+          "url": "https://www.penguin.co.uk/books/177230/on-liberty-by-john-stuart-mill/9780141046945"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_how_not_wrong",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "how-not-to-be-wrong",
+      "aliases": [],
+      "originalTitle": "How Not to Be Wrong: The Power of Mathematical Thinking",
+      "titleBr": "O Poder do Pensamento Matemático",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_jordan_ellenberg",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2014",
+      "publicationEnd": "2014",
+      "publicationStatus": "completed",
+      "categories": [
+        "non-fiction"
+      ],
+      "genres": [
+        "Divulgação científica",
+        "Formação intelectual"
+      ],
+      "themes": [
+        "Modelagem",
+        "Proporção",
+        "Probabilidade",
+        "Raciocínio quantitativo"
+      ],
+      "concepts": [
+        "Modelagem",
+        "Proporção",
+        "Probabilidade",
+        "Raciocínio quantitativo"
+      ],
+      "readingDifficulty": "introductory",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores iniciantes que procuram desenvolver uma capacidade intelectual específica com contexto e exercícios de interpretação.",
+      "shortDescription": "Ellenberg mostra como ideias matemáticas ajudam a modelar situações, comparar grandezas e reconhecer conclusões quantitativas enganosas.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "How Not to Be Wrong: The Power of Mathematical Thinking — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=How%20Not%20to%20Be%20Wrong%3A%20The%20Power%20of%20Mathematical%20Thinking&author=jordan%20ellenberg"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_art_statistics",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "a-arte-da-estatistica",
+      "aliases": [],
+      "originalTitle": "The Art of Statistics: Learning from Data",
+      "titleBr": "A Arte da Estatística",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_david_spiegelhalter",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2019",
+      "publicationEnd": "2019",
+      "publicationStatus": "completed",
+      "categories": [
+        "non-fiction"
+      ],
+      "genres": [
+        "Divulgação científica",
+        "Formação intelectual"
+      ],
+      "themes": [
+        "Incerteza",
+        "Distribuições",
+        "Correlação",
+        "Causalidade",
+        "Risco"
+      ],
+      "concepts": [
+        "Incerteza",
+        "Distribuições",
+        "Correlação",
+        "Causalidade",
+        "Risco"
+      ],
+      "readingDifficulty": "introductory",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores iniciantes que procuram desenvolver uma capacidade intelectual específica com contexto e exercícios de interpretação.",
+      "shortDescription": "Spiegelhalter introduz o raciocínio com dados por perguntas concretas, distinguindo descrição, inferência, incerteza e comunicação de risco.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Art of Statistics: Learning from Data — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=The%20Art%20of%20Statistics%3A%20Learning%20from%20Data&author=david%20spiegelhalter"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_demon_haunted_world",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "o-mundo-assombrado-pelos-demonios",
+      "aliases": [],
+      "originalTitle": "The Demon-Haunted World: Science as a Candle in the Dark",
+      "titleBr": "O Mundo Assombrado pelos Demônios",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_carl_sagan",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1995",
+      "publicationEnd": "1995",
+      "publicationStatus": "completed",
+      "categories": [
+        "non-fiction"
+      ],
+      "genres": [
+        "Divulgação científica",
+        "Formação intelectual"
+      ],
+      "themes": [
+        "Método científico",
+        "Evidência",
+        "Ceticismo",
+        "Pseudociência"
+      ],
+      "concepts": [
+        "Método científico",
+        "Evidência",
+        "Ceticismo",
+        "Pseudociência"
+      ],
+      "readingDifficulty": "introductory",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores iniciantes que procuram desenvolver uma capacidade intelectual específica com contexto e exercícios de interpretação.",
+      "shortDescription": "Sagan discute como avaliar alegações extraordinárias, comparar explicações e preservar abertura intelectual sem abandonar padrões de evidência.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Demon-Haunted World: Science as a Candle in the Dark — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=The%20Demon-Haunted%20World%3A%20Science%20as%20a%20Candle%20in%20the%20Dark&author=carl%20sagan"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_landscape_history",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "a-paisagem-da-historia",
+      "aliases": [],
+      "originalTitle": "The Landscape of History: How Historians Map the Past",
+      "titleBr": "Paisagens da História",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_john_lewis_gaddis",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2002",
+      "publicationEnd": "2002",
+      "publicationStatus": "completed",
+      "categories": [
+        "non-fiction"
+      ],
+      "genres": [
+        "Divulgação científica",
+        "Formação intelectual"
+      ],
+      "themes": [
+        "Causalidade histórica",
+        "Escala",
+        "Evidência",
+        "Interpretação"
+      ],
+      "concepts": [
+        "Causalidade histórica",
+        "Escala",
+        "Evidência",
+        "Interpretação"
+      ],
+      "readingDifficulty": "introductory",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores iniciantes que procuram desenvolver uma capacidade intelectual específica com contexto e exercícios de interpretação.",
+      "shortDescription": "Gaddis explica como historiadores relacionam evidências, causalidade, escalas temporais e narrativas sem tratar o passado como experimento repetível.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Landscape of History: How Historians Map the Past — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=The%20Landscape%20of%20History%3A%20How%20Historians%20Map%20the%20Past&author=john%20lewis%20gaddis"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_how_read_literature",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "como-ler-literatura",
+      "aliases": [],
+      "originalTitle": "How to Read Literature",
+      "titleBr": "Como Ler Literatura",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_terry_eagleton",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2013",
+      "publicationEnd": "2013",
+      "publicationStatus": "completed",
+      "categories": [
+        "non-fiction"
+      ],
+      "genres": [
+        "Divulgação científica",
+        "Formação intelectual"
+      ],
+      "themes": [
+        "Forma literária",
+        "Narrador",
+        "Ambiguidade",
+        "Interpretação"
+      ],
+      "concepts": [
+        "Forma literária",
+        "Narrador",
+        "Ambiguidade",
+        "Interpretação"
+      ],
+      "readingDifficulty": "introductory",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores iniciantes que procuram desenvolver uma capacidade intelectual específica com contexto e exercícios de interpretação.",
+      "shortDescription": "Eagleton apresenta ferramentas para observar tom, narrativa, personagem, abertura e valor literário sem reduzir leitura a uma mensagem escondida.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "How to Read Literature — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=How%20to%20Read%20Literature&author=terry%20eagleton"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_style_clarity_grace",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "style-lesson-clarity-grace",
+      "aliases": [],
+      "originalTitle": "Style: Lessons in Clarity and Grace",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_joseph_m_williams",
+          "roles": [
+            "author"
+          ]
+        },
+        {
+          "personId": "person_joseph_bizup",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1981",
+      "publicationEnd": "1981",
+      "publicationStatus": "completed",
+      "categories": [
+        "non-fiction"
+      ],
+      "genres": [
+        "Divulgação científica",
+        "Formação intelectual"
+      ],
+      "themes": [
+        "Clareza",
+        "Coesão",
+        "Ênfase",
+        "Revisão"
+      ],
+      "concepts": [
+        "Clareza",
+        "Coesão",
+        "Ênfase",
+        "Revisão"
+      ],
+      "readingDifficulty": "introductory",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores iniciantes que procuram desenvolver uma capacidade intelectual específica com contexto e exercícios de interpretação.",
+      "shortDescription": "Um guia de revisão que relaciona estrutura das frases, continuidade entre ideias, escolha de sujeitos e ênfase ao efeito produzido no leitor.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Style: Lessons in Clarity and Grace — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=Style%3A%20Lessons%20in%20Clarity%20and%20Grace&author=joseph%20m%20williams"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_economy_core",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "a-economia-core",
+      "aliases": [],
+      "originalTitle": "The Economy: Economics for a Changing World",
+      "titleBr": "A Economia",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_samuel_bowles",
+          "roles": [
+            "author"
+          ]
+        },
+        {
+          "personId": "person_wendy_carlin",
+          "roles": [
+            "author"
+          ]
+        },
+        {
+          "personId": "person_margaret_stevens",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2017",
+      "publicationEnd": "2017",
+      "publicationStatus": "completed",
+      "categories": [
+        "non-fiction"
+      ],
+      "genres": [
+        "Economia"
+      ],
+      "themes": [
+        "Escassez",
+        "Incentivos",
+        "Mercados",
+        "Trabalho",
+        "Políticas públicas"
+      ],
+      "concepts": [
+        "Escassez",
+        "Incentivos",
+        "Mercados",
+        "Trabalho",
+        "Políticas públicas"
+      ],
+      "readingDifficulty": "introductory",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores sem formação em economia que procuram compreender conceitos, evidências e controvérsias sem aderir antecipadamente a uma escola.",
+      "shortDescription": "Manual aberto organiza economia por problemas reais, modelos, dados e instituições, combinando decisões individuais com desigualdade, ambiente e poder.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Economy: Economics for a Changing World — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=The%20Economy%3A%20Economics%20for%20a%20Changing%20World&author=samuel%20bowles"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_economics_user_guide",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "economia-modo-de-usar",
+      "aliases": [],
+      "originalTitle": "Economics: The User's Guide",
+      "titleBr": "Economia: Modo de Usar",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_ha_joon_chang",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2014",
+      "publicationEnd": "2014",
+      "publicationStatus": "completed",
+      "categories": [
+        "non-fiction"
+      ],
+      "genres": [
+        "Economia"
+      ],
+      "themes": [
+        "Escolas econômicas",
+        "Produção",
+        "Trabalho",
+        "Desenvolvimento"
+      ],
+      "concepts": [
+        "Escolas econômicas",
+        "Produção",
+        "Trabalho",
+        "Desenvolvimento"
+      ],
+      "readingDifficulty": "introductory",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores sem formação em economia que procuram compreender conceitos, evidências e controvérsias sem aderir antecipadamente a uma escola.",
+      "shortDescription": "Chang apresenta diferentes tradições econômicas e mostra como cada uma ilumina e omite aspectos distintos da produção e da vida social.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Economics: The User's Guide — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=Economics%3A%20The%20User's%20Guide&author=ha%20joon%20chang"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_undercover_economist",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "o-economista-clandestino",
+      "aliases": [],
+      "originalTitle": "The Undercover Economist",
+      "titleBr": "O Economista Clandestino",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_tim_harford",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2005",
+      "publicationEnd": "2005",
+      "publicationStatus": "completed",
+      "categories": [
+        "non-fiction"
+      ],
+      "genres": [
+        "Economia"
+      ],
+      "themes": [
+        "Preços",
+        "Escassez",
+        "Incentivos",
+        "Informação",
+        "Externalidades"
+      ],
+      "concepts": [
+        "Preços",
+        "Escassez",
+        "Incentivos",
+        "Informação",
+        "Externalidades"
+      ],
+      "readingDifficulty": "introductory",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores sem formação em economia que procuram compreender conceitos, evidências e controvérsias sem aderir antecipadamente a uma escola.",
+      "shortDescription": "Situações cotidianas introduzem preços, poder de mercado, informação imperfeita, externalidades e comércio com linguagem acessível.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Undercover Economist — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=The%20Undercover%20Economist&author=tim%20harford"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_money_goldstein",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "money-true-story-made-up-thing",
+      "aliases": [],
+      "originalTitle": "Money: The True Story of a Made-Up Thing",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_jacob_goldstein",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2020",
+      "publicationEnd": "2020",
+      "publicationStatus": "completed",
+      "categories": [
+        "non-fiction"
+      ],
+      "genres": [
+        "Economia"
+      ],
+      "themes": [
+        "Moeda",
+        "Bancos",
+        "Crédito",
+        "Padrão-ouro",
+        "Criptomoedas"
+      ],
+      "concepts": [
+        "Moeda",
+        "Bancos",
+        "Crédito",
+        "Padrão-ouro",
+        "Criptomoedas"
+      ],
+      "readingDifficulty": "introductory",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores sem formação em economia que procuram compreender conceitos, evidências e controvérsias sem aderir antecipadamente a uma escola.",
+      "shortDescription": "Goldstein acompanha formas históricas de dinheiro para explicar confiança, crédito, bancos e por que moeda é uma instituição, não apenas um objeto.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Money: The True Story of a Made-Up Thing — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=Money%3A%20The%20True%20Story%20of%20a%20Made-Up%20Thing&author=jacob%20goldstein"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_return_depression_economics",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "a-crise-de-2008-e-a-economia-da-depressao",
+      "aliases": [],
+      "originalTitle": "The Return of Depression Economics and the Crisis of 2008",
+      "titleBr": "A Crise de 2008 e a Economia da Depressão",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_paul_krugman",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2008",
+      "publicationEnd": "2008",
+      "publicationStatus": "completed",
+      "categories": [
+        "non-fiction"
+      ],
+      "genres": [
+        "Economia"
+      ],
+      "themes": [
+        "Recessão",
+        "Demanda agregada",
+        "Crises cambiais",
+        "Liquidez"
+      ],
+      "concepts": [
+        "Recessão",
+        "Demanda agregada",
+        "Crises cambiais",
+        "Liquidez"
+      ],
+      "readingDifficulty": "intermediate",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores sem formação em economia que procuram compreender conceitos, evidências e controvérsias sem aderir antecipadamente a uma escola.",
+      "shortDescription": "Krugman conecta crises financeiras, insuficiência de demanda e respostas macroeconômicas, com foco no caminho até 2008.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Return of Depression Economics and the Crisis of 2008 — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=The%20Return%20of%20Depression%20Economics%20and%20the%20Crisis%20of%202008&author=paul%20krugman"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_why_nations_fail",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "por-que-as-nacoes-fracassam",
+      "aliases": [],
+      "originalTitle": "Why Nations Fail",
+      "titleBr": "Por Que as Nações Fracassam",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_daron_acemoglu",
+          "roles": [
+            "author"
+          ]
+        },
+        {
+          "personId": "person_james_a_robinson",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2012",
+      "publicationEnd": "2012",
+      "publicationStatus": "completed",
+      "categories": [
+        "non-fiction"
+      ],
+      "genres": [
+        "Economia"
+      ],
+      "themes": [
+        "Instituições",
+        "Poder",
+        "Desenvolvimento",
+        "Estado"
+      ],
+      "concepts": [
+        "Instituições",
+        "Poder",
+        "Desenvolvimento",
+        "Estado"
+      ],
+      "readingDifficulty": "introductory",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores sem formação em economia que procuram compreender conceitos, evidências e controvérsias sem aderir antecipadamente a uma escola.",
+      "shortDescription": "Acemoglu e Robinson atribuem trajetórias de desenvolvimento à disputa entre instituições inclusivas e extrativas e à distribuição de poder.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Why Nations Fail — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=Why%20Nations%20Fail&author=daron%20acemoglu"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_great_transformation",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "a-grande-transformacao",
+      "aliases": [],
+      "originalTitle": "The Great Transformation",
+      "titleBr": "A Grande Transformação",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_karl_polanyi",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1944",
+      "publicationEnd": "1944",
+      "publicationStatus": "completed",
+      "categories": [
+        "non-fiction"
+      ],
+      "genres": [
+        "Economia"
+      ],
+      "themes": [
+        "Mercados",
+        "Estado",
+        "Trabalho",
+        "Terra",
+        "Proteção social"
+      ],
+      "concepts": [
+        "Mercados",
+        "Estado",
+        "Trabalho",
+        "Terra",
+        "Proteção social"
+      ],
+      "readingDifficulty": "advanced",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores sem formação em economia que procuram compreender conceitos, evidências e controvérsias sem aderir antecipadamente a uma escola.",
+      "shortDescription": "Polanyi interpreta a expansão dos mercados autorregulados e as reações sociais e políticas que tentaram limitar seus efeitos destrutivos.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Great Transformation — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=The%20Great%20Transformation&author=karl%20polanyi"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_formacao_economica_brasil",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "formacao-economica-do-brasil",
+      "aliases": [],
+      "originalTitle": "Formação Econômica do Brasil",
+      "titleBr": "Formação Econômica do Brasil",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Brasil"
+      ],
+      "originalLanguages": [
+        "Português"
+      ],
+      "credits": [
+        {
+          "personId": "person_celso_furtado",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1959",
+      "publicationEnd": "1959",
+      "publicationStatus": "completed",
+      "categories": [
+        "non-fiction"
+      ],
+      "genres": [
+        "Economia"
+      ],
+      "themes": [
+        "Colonização",
+        "Exportação",
+        "Industrialização",
+        "Desigualdade regional"
+      ],
+      "concepts": [
+        "Colonização",
+        "Exportação",
+        "Industrialização",
+        "Desigualdade regional"
+      ],
+      "readingDifficulty": "intermediate",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores sem formação em economia que procuram compreender conceitos, evidências e controvérsias sem aderir antecipadamente a uma escola.",
+      "shortDescription": "Furtado interpreta a formação econômica brasileira por ciclos produtivos, trabalho escravizado, mercado interno, industrialização e desigualdades regionais.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Formação Econômica do Brasil — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=Forma%C3%A7%C3%A3o%20Econ%C3%B4mica%20do%20Brasil&author=celso%20furtado"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_poor_economics",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "a-economia-dos-pobres",
+      "aliases": [],
+      "originalTitle": "Poor Economics",
+      "titleBr": "A Economia dos Pobres",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_abhijit_banerjee",
+          "roles": [
+            "author"
+          ]
+        },
+        {
+          "personId": "person_esther_duflo",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2011",
+      "publicationEnd": "2011",
+      "publicationStatus": "completed",
+      "categories": [
+        "non-fiction"
+      ],
+      "genres": [
+        "Economia"
+      ],
+      "themes": [
+        "Pobreza",
+        "Saúde",
+        "Educação",
+        "Crédito",
+        "Experimentos"
+      ],
+      "concepts": [
+        "Pobreza",
+        "Saúde",
+        "Educação",
+        "Crédito",
+        "Experimentos"
+      ],
+      "readingDifficulty": "introductory",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores sem formação em economia que procuram compreender conceitos, evidências e controvérsias sem aderir antecipadamente a uma escola.",
+      "shortDescription": "Banerjee e Duflo usam estudos de campo para examinar decisões e políticas ligadas a saúde, educação, crédito e pobreza.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Poor Economics — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=Poor%20Economics&author=abhijit%20banerjee"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_capital_21_century",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "o-capital-no-seculo-xxi",
+      "aliases": [],
+      "originalTitle": "Capital in the Twenty-First Century",
+      "titleBr": "O Capital no Século XXI",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_thomas_piketty",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2013",
+      "publicationEnd": "2013",
+      "publicationStatus": "completed",
+      "categories": [
+        "non-fiction"
+      ],
+      "genres": [
+        "Economia"
+      ],
+      "themes": [
+        "Renda",
+        "Patrimônio",
+        "Desigualdade",
+        "Tributação"
+      ],
+      "concepts": [
+        "Renda",
+        "Patrimônio",
+        "Desigualdade",
+        "Tributação"
+      ],
+      "readingDifficulty": "advanced",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores sem formação em economia que procuram compreender conceitos, evidências e controvérsias sem aderir antecipadamente a uma escola.",
+      "shortDescription": "Piketty reúne séries históricas para investigar concentração de renda e patrimônio e discutir mecanismos políticos de redistribuição.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Capital in the Twenty-First Century — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=Capital%20in%20the%20Twenty-First%20Century&author=thomas%20piketty"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_globalization_discontents",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "a-globalizacao-e-seus-maleficios",
+      "aliases": [],
+      "originalTitle": "Globalization and Its Discontents",
+      "titleBr": "A Globalização e Seus Malefícios",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_joseph_stiglitz",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2002",
+      "publicationEnd": "2002",
+      "publicationStatus": "completed",
+      "categories": [
+        "non-fiction"
+      ],
+      "genres": [
+        "Economia"
+      ],
+      "themes": [
+        "Comércio",
+        "FMI",
+        "Crises",
+        "Desenvolvimento"
+      ],
+      "concepts": [
+        "Comércio",
+        "FMI",
+        "Crises",
+        "Desenvolvimento"
+      ],
+      "readingDifficulty": "intermediate",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores sem formação em economia que procuram compreender conceitos, evidências e controvérsias sem aderir antecipadamente a uma escola.",
+      "shortDescription": "Stiglitz critica a condução institucional da globalização e programas padronizados de liberalização aplicados a economias em condições distintas.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Globalization and Its Discontents — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=Globalization%20and%20Its%20Discontents&author=joseph%20stiglitz"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_manias_panics_crashes",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "manias-panicos-e-crises",
+      "aliases": [],
+      "originalTitle": "Manias, Panics, and Crashes",
+      "titleBr": "Manias, Pânicos e Crises",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_charles_kindleberger",
+          "roles": [
+            "author"
+          ]
+        },
+        {
+          "personId": "person_robert_aliber",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1978",
+      "publicationEnd": "1978",
+      "publicationStatus": "completed",
+      "categories": [
+        "non-fiction"
+      ],
+      "genres": [
+        "Economia"
+      ],
+      "themes": [
+        "Bolhas",
+        "Crédito",
+        "Pânico",
+        "Contágio",
+        "Emprestador de última instância"
+      ],
+      "concepts": [
+        "Bolhas",
+        "Crédito",
+        "Pânico",
+        "Contágio",
+        "Emprestador de última instância"
+      ],
+      "readingDifficulty": "intermediate",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores sem formação em economia que procuram compreender conceitos, evidências e controvérsias sem aderir antecipadamente a uma escola.",
+      "shortDescription": "Uma história comparada de euforia, expansão de crédito, reversão de expectativas, pânico e contágio em crises financeiras.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Manias, Panics, and Crashes — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=Manias%2C%20Panics%2C%20and%20Crashes&author=charles%20kindleberger"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_this_time_different",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "desta-vez-e-diferente",
+      "aliases": [],
+      "originalTitle": "This Time Is Different",
+      "titleBr": "Desta Vez É Diferente",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_carmen_reinhart",
+          "roles": [
+            "author"
+          ]
+        },
+        {
+          "personId": "person_kenneth_rogoff",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2009",
+      "publicationEnd": "2009",
+      "publicationStatus": "completed",
+      "categories": [
+        "non-fiction"
+      ],
+      "genres": [
+        "Economia"
+      ],
+      "themes": [
+        "Dívida",
+        "Crises bancárias",
+        "Inflação",
+        "Calotes"
+      ],
+      "concepts": [
+        "Dívida",
+        "Crises bancárias",
+        "Inflação",
+        "Calotes"
+      ],
+      "readingDifficulty": "advanced",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores sem formação em economia que procuram compreender conceitos, evidências e controvérsias sem aderir antecipadamente a uma escola.",
+      "shortDescription": "Reinhart e Rogoff compilam episódios históricos de crises bancárias, dívida soberana, inflação e calotes para identificar recorrências e diferenças.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "This Time Is Different — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=This%20Time%20Is%20Different&author=carmen%20reinhart"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_good_economics_hard_times",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "boa-economia-para-tempos-dificeis",
+      "aliases": [],
+      "originalTitle": "Good Economics for Hard Times",
+      "titleBr": "Boa Economia para Tempos Difíceis",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_abhijit_banerjee",
+          "roles": [
+            "author"
+          ]
+        },
+        {
+          "personId": "person_esther_duflo",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2019",
+      "publicationEnd": "2019",
+      "publicationStatus": "completed",
+      "categories": [
+        "non-fiction"
+      ],
+      "genres": [
+        "Economia"
+      ],
+      "themes": [
+        "Migração",
+        "Comércio",
+        "Crescimento",
+        "Clima",
+        "Políticas públicas"
+      ],
+      "concepts": [
+        "Migração",
+        "Comércio",
+        "Crescimento",
+        "Clima",
+        "Políticas públicas"
+      ],
+      "readingDifficulty": "introductory",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores sem formação em economia que procuram compreender conceitos, evidências e controvérsias sem aderir antecipadamente a uma escola.",
+      "shortDescription": "Os autores revisam evidências sobre debates econômicos contemporâneos e mostram onde resultados são mais incertos do que slogans sugerem.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Good Economics for Hard Times — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=Good%20Economics%20for%20Hard%20Times&author=abhijit%20banerjee"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_deficit_myth",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "o-mito-do-deficit",
+      "aliases": [],
+      "originalTitle": "The Deficit Myth",
+      "titleBr": "O Mito do Déficit",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_stephanie_kelton",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2020",
+      "publicationEnd": "2020",
+      "publicationStatus": "completed",
+      "categories": [
+        "non-fiction"
+      ],
+      "genres": [
+        "Economia"
+      ],
+      "themes": [
+        "Moeda soberana",
+        "Déficit público",
+        "Inflação",
+        "Emprego"
+      ],
+      "concepts": [
+        "Moeda soberana",
+        "Déficit público",
+        "Inflação",
+        "Emprego"
+      ],
+      "readingDifficulty": "intermediate",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores sem formação em economia que procuram compreender conceitos, evidências e controvérsias sem aderir antecipadamente a uma escola.",
+      "shortDescription": "Kelton apresenta a Teoria Monetária Moderna e argumenta que, para emissores soberanos de moeda, inflação e recursos são limites mais relevantes que analogias domésticas.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Deficit Myth — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=The%20Deficit%20Myth&author=stephanie%20kelton"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_psychology_openstax",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "psychology-openstax",
+      "aliases": [],
+      "originalTitle": "Psychology 2e",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_rose_spielman",
+          "roles": [
+            "author"
+          ]
+        },
+        {
+          "personId": "person_william_jenkins",
+          "roles": [
+            "author"
+          ]
+        },
+        {
+          "personId": "person_marilyn_lovett",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2020",
+      "publicationEnd": "2020",
+      "publicationStatus": "completed",
+      "categories": [
+        "science",
+        "non-fiction"
+      ],
+      "genres": [
+        "Psicologia"
+      ],
+      "themes": [
+        "Métodos",
+        "Cognição",
+        "Desenvolvimento",
+        "Psicologia social",
+        "Saúde mental"
+      ],
+      "concepts": [
+        "Métodos",
+        "Cognição",
+        "Desenvolvimento",
+        "Psicologia social",
+        "Saúde mental"
+      ],
+      "readingDifficulty": "introductory",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores que procuram psicologia baseada em pesquisa e aceitam distinguir evidência, interpretação, controvérsia e aplicação.",
+      "shortDescription": "Livro-texto aberto apresenta conceitos, métodos de pesquisa e principais áreas da psicologia com objetivos, exemplos e revisão por capítulo.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Psychology 2e — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=Psychology%202e&author=rose%20spielman"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_cognitive_psychology_goldstein",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "cognitive-psychology-goldstein",
+      "aliases": [],
+      "originalTitle": "Cognitive Psychology: Connecting Mind, Research, and Everyday Experience",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_e_bruce_goldstein",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2005",
+      "publicationEnd": "2005",
+      "publicationStatus": "completed",
+      "categories": [
+        "science",
+        "non-fiction"
+      ],
+      "genres": [
+        "Psicologia"
+      ],
+      "themes": [
+        "Percepção",
+        "Atenção",
+        "Memória",
+        "Linguagem",
+        "Decisão"
+      ],
+      "concepts": [
+        "Percepção",
+        "Atenção",
+        "Memória",
+        "Linguagem",
+        "Decisão"
+      ],
+      "readingDifficulty": "advanced",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores que procuram psicologia baseada em pesquisa e aceitam distinguir evidência, interpretação, controvérsia e aplicação.",
+      "shortDescription": "Manual acadêmico relaciona experimentos e modelos de percepção, atenção, memória, conhecimento, linguagem e decisão a experiências cotidianas.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Cognitive Psychology: Connecting Mind, Research, and Everyday Experience — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=Cognitive%20Psychology%3A%20Connecting%20Mind%2C%20Research%2C%20and%20Everyday%20Experience&author=e%20bruce%20goldstein"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_seven_sins_memory",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "os-sete-pecados-da-memoria",
+      "aliases": [],
+      "originalTitle": "The Seven Sins of Memory",
+      "titleBr": "Os Sete Pecados da Memória",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_daniel_schacter",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2001",
+      "publicationEnd": "2001",
+      "publicationStatus": "completed",
+      "categories": [
+        "science",
+        "non-fiction"
+      ],
+      "genres": [
+        "Psicologia"
+      ],
+      "themes": [
+        "Esquecimento",
+        "Distorção",
+        "Sugestionabilidade",
+        "Persistência"
+      ],
+      "concepts": [
+        "Esquecimento",
+        "Distorção",
+        "Sugestionabilidade",
+        "Persistência"
+      ],
+      "readingDifficulty": "introductory",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores que procuram psicologia baseada em pesquisa e aceitam distinguir evidência, interpretação, controvérsia e aplicação.",
+      "shortDescription": "Schacter organiza falhas de memória por mecanismos que também cumprem funções adaptativas, evitando tratar recordação como gravação literal.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Seven Sins of Memory — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=The%20Seven%20Sins%20of%20Memory&author=daniel%20schacter"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_man_mistook_wife_hat",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "o-homem-que-confundiu-sua-mulher-com-um-chapeu",
+      "aliases": [],
+      "originalTitle": "The Man Who Mistook His Wife for a Hat",
+      "titleBr": "O Homem Que Confundiu Sua Mulher com um Chapéu",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_oliver_sacks",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1985",
+      "publicationEnd": "1985",
+      "publicationStatus": "completed",
+      "categories": [
+        "science",
+        "non-fiction"
+      ],
+      "genres": [
+        "Psicologia"
+      ],
+      "themes": [
+        "Neurologia",
+        "Percepção",
+        "Identidade",
+        "Casos clínicos"
+      ],
+      "concepts": [
+        "Neurologia",
+        "Percepção",
+        "Identidade",
+        "Casos clínicos"
+      ],
+      "readingDifficulty": "introductory",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores que procuram psicologia baseada em pesquisa e aceitam distinguir evidência, interpretação, controvérsia e aplicação.",
+      "shortDescription": "Narrativas clínicas mostram como alterações neurológicas podem reorganizar reconhecimento, memória, corpo e identidade sem reduzir pessoas ao diagnóstico.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Man Who Mistook His Wife for a Hat — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=The%20Man%20Who%20Mistook%20His%20Wife%20for%20a%20Hat&author=oliver%20sacks"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_thinking_fast_slow",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "rapido-e-devagar",
+      "aliases": [],
+      "originalTitle": "Thinking, Fast and Slow",
+      "titleBr": "Rápido e Devagar",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_daniel_kahneman",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2011",
+      "publicationEnd": "2011",
+      "publicationStatus": "completed",
+      "categories": [
+        "science",
+        "non-fiction"
+      ],
+      "genres": [
+        "Psicologia"
+      ],
+      "themes": [
+        "Heurísticas",
+        "Vieses",
+        "Decisão",
+        "Risco"
+      ],
+      "concepts": [
+        "Heurísticas",
+        "Vieses",
+        "Decisão",
+        "Risco"
+      ],
+      "readingDifficulty": "introductory",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores que procuram psicologia baseada em pesquisa e aceitam distinguir evidência, interpretação, controvérsia e aplicação.",
+      "shortDescription": "Kahneman sintetiza décadas de pesquisa sobre julgamento e decisão usando a distinção didática entre processos rápidos e deliberados.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Thinking, Fast and Slow — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=Thinking%2C%20Fast%20and%20Slow&author=daniel%20kahneman"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_influence_cialdini",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "influencia-psicologia-persuasao",
+      "aliases": [],
+      "originalTitle": "Influence: The Psychology of Persuasion",
+      "titleBr": "As Armas da Persuasão",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_robert_cialdini",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1984",
+      "publicationEnd": "1984",
+      "publicationStatus": "completed",
+      "categories": [
+        "science",
+        "non-fiction"
+      ],
+      "genres": [
+        "Psicologia"
+      ],
+      "themes": [
+        "Persuasão",
+        "Reciprocidade",
+        "Autoridade",
+        "Prova social"
+      ],
+      "concepts": [
+        "Persuasão",
+        "Reciprocidade",
+        "Autoridade",
+        "Prova social"
+      ],
+      "readingDifficulty": "introductory",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores que procuram psicologia baseada em pesquisa e aceitam distinguir evidência, interpretação, controvérsia e aplicação.",
+      "shortDescription": "Cialdini organiza princípios de influência social e exemplos de campo, úteis quando lidos como hipóteses contextuais e não como botões universais de comportamento.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Influence: The Psychology of Persuasion — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=Influence%3A%20The%20Psychology%20of%20Persuasion&author=robert%20cialdini"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_person_situation",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "a-pessoa-e-a-situacao",
+      "aliases": [],
+      "originalTitle": "The Person and the Situation",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_lee_ross",
+          "roles": [
+            "author"
+          ]
+        },
+        {
+          "personId": "person_richard_nisbett",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1991",
+      "publicationEnd": "1991",
+      "publicationStatus": "completed",
+      "categories": [
+        "science",
+        "non-fiction"
+      ],
+      "genres": [
+        "Psicologia"
+      ],
+      "themes": [
+        "Situação",
+        "Atribuição",
+        "Psicologia social",
+        "Contexto"
+      ],
+      "concepts": [
+        "Situação",
+        "Atribuição",
+        "Psicologia social",
+        "Contexto"
+      ],
+      "readingDifficulty": "intermediate",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores que procuram psicologia baseada em pesquisa e aceitam distinguir evidência, interpretação, controvérsia e aplicação.",
+      "shortDescription": "Ross e Nisbett defendem que situações, interpretações e sistemas sociais explicam mais comportamento do que observadores costumam reconhecer.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Person and the Situation — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=The%20Person%20and%20the%20Situation&author=lee%20ross"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_personality_puzzle",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "the-personality-puzzle",
+      "aliases": [],
+      "originalTitle": "The Personality Puzzle",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_david_funder",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1997",
+      "publicationEnd": "1997",
+      "publicationStatus": "completed",
+      "categories": [
+        "science",
+        "non-fiction"
+      ],
+      "genres": [
+        "Psicologia"
+      ],
+      "themes": [
+        "Traços",
+        "Pessoa",
+        "Situação",
+        "Avaliação de personalidade"
+      ],
+      "concepts": [
+        "Traços",
+        "Pessoa",
+        "Situação",
+        "Avaliação de personalidade"
+      ],
+      "readingDifficulty": "intermediate",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores que procuram psicologia baseada em pesquisa e aceitam distinguir evidência, interpretação, controvérsia e aplicação.",
+      "shortDescription": "Funder apresenta teorias, métodos e controvérsias da psicologia da personalidade, incluindo estabilidade de traços e variação entre situações.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Personality Puzzle — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=The%20Personality%20Puzzle&author=david%20funder"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_development_lifespan_berk",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "development-through-lifespan",
+      "aliases": [],
+      "originalTitle": "Development Through the Lifespan",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_laura_berk",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1998",
+      "publicationEnd": "1998",
+      "publicationStatus": "completed",
+      "categories": [
+        "science",
+        "non-fiction"
+      ],
+      "genres": [
+        "Psicologia"
+      ],
+      "themes": [
+        "Infância",
+        "Adolescência",
+        "Vida adulta",
+        "Envelhecimento"
+      ],
+      "concepts": [
+        "Infância",
+        "Adolescência",
+        "Vida adulta",
+        "Envelhecimento"
+      ],
+      "readingDifficulty": "advanced",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores que procuram psicologia baseada em pesquisa e aceitam distinguir evidência, interpretação, controvérsia e aplicação.",
+      "shortDescription": "Livro-texto acompanha desenvolvimento físico, cognitivo e socioemocional da infância ao envelhecimento e compara explicações e evidências.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Development Through the Lifespan — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=Development%20Through%20the%20Lifespan&author=laura%20berk"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_emotional_brain",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "o-cerebro-emocional",
+      "aliases": [],
+      "originalTitle": "The Emotional Brain",
+      "titleBr": "O Cérebro Emocional",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_joseph_ledoux",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1996",
+      "publicationEnd": "1996",
+      "publicationStatus": "completed",
+      "categories": [
+        "science",
+        "non-fiction"
+      ],
+      "genres": [
+        "Psicologia"
+      ],
+      "themes": [
+        "Emoção",
+        "Medo",
+        "Amígdala",
+        "Aprendizagem"
+      ],
+      "concepts": [
+        "Emoção",
+        "Medo",
+        "Amígdala",
+        "Aprendizagem"
+      ],
+      "readingDifficulty": "intermediate",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores que procuram psicologia baseada em pesquisa e aceitam distinguir evidência, interpretação, controvérsia e aplicação.",
+      "shortDescription": "LeDoux explica circuitos de defesa e aprendizagem emocional, distinguindo respostas neurais de relatos conscientes de sentimento.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Emotional Brain — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=The%20Emotional%20Brain&author=joseph%20ledoux"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_behave_sapolsky",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "comporte-se",
+      "aliases": [],
+      "originalTitle": "Behave",
+      "titleBr": "Comporte-se",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_robert_sapolsky",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2017",
+      "publicationEnd": "2017",
+      "publicationStatus": "completed",
+      "categories": [
+        "science",
+        "non-fiction"
+      ],
+      "genres": [
+        "Psicologia"
+      ],
+      "themes": [
+        "Neurociência",
+        "Hormônios",
+        "Desenvolvimento",
+        "Cultura",
+        "Agressão"
+      ],
+      "concepts": [
+        "Neurociência",
+        "Hormônios",
+        "Desenvolvimento",
+        "Cultura",
+        "Agressão"
+      ],
+      "readingDifficulty": "intermediate",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores que procuram psicologia baseada em pesquisa e aceitam distinguir evidência, interpretação, controvérsia e aplicação.",
+      "shortDescription": "Sapolsky organiza causas do comportamento por escalas temporais, de segundos anteriores a processos evolutivos e culturais de longa duração.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Behave — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=Behave&author=robert%20sapolsky"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_righteous_mind",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "a-mente-moralista",
+      "aliases": [],
+      "originalTitle": "The Righteous Mind",
+      "titleBr": "A Mente Moralista",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_jonathan_haidt",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2012",
+      "publicationEnd": "2012",
+      "publicationStatus": "completed",
+      "categories": [
+        "science",
+        "non-fiction"
+      ],
+      "genres": [
+        "Psicologia"
+      ],
+      "themes": [
+        "Julgamento moral",
+        "Intuição",
+        "Grupos",
+        "Política"
+      ],
+      "concepts": [
+        "Julgamento moral",
+        "Intuição",
+        "Grupos",
+        "Política"
+      ],
+      "readingDifficulty": "introductory",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores que procuram psicologia baseada em pesquisa e aceitam distinguir evidência, interpretação, controvérsia e aplicação.",
+      "shortDescription": "Haidt propõe que intuições precedem muitas justificativas morais e compara fundamentos morais usados por grupos políticos e culturais.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Righteous Mind — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=The%20Righteous%20Mind&author=jonathan%20haidt"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_weirdest_people",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "os-mais-estranhos-do-mundo",
+      "aliases": [],
+      "originalTitle": "The WEIRDest People in the World",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_joseph_henrich",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2020",
+      "publicationEnd": "2020",
+      "publicationStatus": "completed",
+      "categories": [
+        "science",
+        "non-fiction"
+      ],
+      "genres": [
+        "Psicologia"
+      ],
+      "themes": [
+        "Cultura",
+        "Instituições",
+        "Cognição",
+        "Comparação intercultural"
+      ],
+      "concepts": [
+        "Cultura",
+        "Instituições",
+        "Cognição",
+        "Comparação intercultural"
+      ],
+      "readingDifficulty": "intermediate",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores que procuram psicologia baseada em pesquisa e aceitam distinguir evidência, interpretação, controvérsia e aplicação.",
+      "shortDescription": "Henrich argumenta que instituições históricas moldaram padrões psicológicos incomuns em populações ocidentais, escolarizadas, industrializadas, ricas e democráticas.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The WEIRDest People in the World — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=The%20WEIRDest%20People%20in%20the%20World&author=joseph%20henrich"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_mistakes_were_made",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "erros-foram-cometidos-mas-nao-por-mim",
+      "aliases": [],
+      "originalTitle": "Mistakes Were Made (But Not by Me)",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_carol_tavris",
+          "roles": [
+            "author"
+          ]
+        },
+        {
+          "personId": "person_elliot_aronson",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2007",
+      "publicationEnd": "2007",
+      "publicationStatus": "completed",
+      "categories": [
+        "science",
+        "non-fiction"
+      ],
+      "genres": [
+        "Psicologia"
+      ],
+      "themes": [
+        "Dissonância cognitiva",
+        "Autojustificação",
+        "Memória",
+        "Conflito"
+      ],
+      "concepts": [
+        "Dissonância cognitiva",
+        "Autojustificação",
+        "Memória",
+        "Conflito"
+      ],
+      "readingDifficulty": "introductory",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores que procuram psicologia baseada em pesquisa e aceitam distinguir evidência, interpretação, controvérsia e aplicação.",
+      "shortDescription": "Tavris e Aronson usam dissonância cognitiva para explicar como pessoas protegem decisões, identidades e lembranças diante de evidências contrárias.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Mistakes Were Made (But Not by Me) — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=Mistakes%20Were%20Made%20(But%20Not%20by%20Me)&author=carol%20tavris"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "read_work_social_animal_aronson",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "o-animal-social",
+      "aliases": [],
+      "originalTitle": "The Social Animal",
+      "titleBr": "O Animal Social",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_elliot_aronson",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1972",
+      "publicationEnd": "1972",
+      "publicationStatus": "completed",
+      "categories": [
+        "science",
+        "non-fiction"
+      ],
+      "genres": [
+        "Psicologia"
+      ],
+      "themes": [
+        "Conformidade",
+        "Preconceito",
+        "Atração",
+        "Persuasão",
+        "Grupos"
+      ],
+      "concepts": [
+        "Conformidade",
+        "Preconceito",
+        "Atração",
+        "Persuasão",
+        "Grupos"
+      ],
+      "readingDifficulty": "intermediate",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores que procuram psicologia baseada em pesquisa e aceitam distinguir evidência, interpretação, controvérsia e aplicação.",
+      "shortDescription": "Aronson apresenta problemas clássicos da psicologia social e conecta experimentos, relações entre grupos, persuasão e comportamento coletivo.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Social Animal — registro bibliográfico",
+          "url": "https://openlibrary.org/search?q=The%20Social%20Animal&author=elliot%20aronson"
+        }
+      ],
+      "status": "draft",
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
     },
     {
       "id": "read_work_sandman",

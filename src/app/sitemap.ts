@@ -9,6 +9,7 @@ import { getPublishedPersonalities } from "@/data/personalities";
 import { getPublishedStudios } from "@/data/organizations";
 import { getPublishedSeries } from "@/data/series";
 import { getPublishedIdeas } from "@/data/ideas";
+import { getPublishedProducts } from "@/data/products";
 import { isPausedRoute } from "@/config/routePolicy";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -47,6 +48,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${baseURL}/ideias/${idea.slug}`,
     lastModified: idea.updatedAt,
     changeFrequency: "monthly" as const,
+    priority: 0.68,
+  }));
+  const publishedProducts = await getPublishedProducts();
+  const productPages = publishedProducts.map((product) => ({
+    url: `${baseURL}/produtos/${product.slug}`,
+    lastModified: product.updatedAt,
+    changeFrequency: "weekly" as const,
     priority: 0.68,
   }));
 
@@ -94,6 +102,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...studioPages,
     ...seriesPages,
     ...ideaPages,
+    ...(publishedProducts.length ? [{ url: `${baseURL}/produtos`, lastModified: today, changeFrequency: "weekly" as const, priority: 0.76 }] : []),
+    ...productPages,
     ...blogPosts,
     { url: `${baseURL}/obras/puparia`, lastModified: "2026-08-12", changeFrequency: "monthly" as const, priority: 0.72 },
     { url: `${baseURL}/obras/wade`, lastModified: "2026-08-12", changeFrequency: "monthly" as const, priority: 0.72 },

@@ -157,3 +157,11 @@ Comparações de hierarquia, alinhamento, proximidade e contraste precisam isola
 
 Substituição:
 Usar `VisualPrinciplesDemo` somente nas variantes fechadas documentadas. O componente é estático, utiliza HTML semântico e tokens do site e não deve virar uma API genérica para composições livres dentro do MDX.
+
+## 2026-09-02 — Produtos, variantes e ofertas são entidades separadas
+
+Motivo:
+Um produto precisa ser reutilizado em várias recomendações sem transformar preço, estoque, link afiliado ou especificações de outra variante em características permanentes do modelo.
+
+Substituição:
+O acervo usa `Product` para a entidade editorial, `ProductVariant` para versões e especificações verificadas e `ProductOffer` para observações comerciais datadas. Artigos referenciam o ID permanente por `ProductCard` e mantêm somente a justificativa contextual. A Amazon é um varejista possível, não a identidade do catálogo.
