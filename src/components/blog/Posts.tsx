@@ -1,6 +1,6 @@
 import type { ComponentProps } from "react";
 
-import { type BlogFile, getPosts } from "@/utils/utils";
+import { getAllArticles, type BlogFile } from "@/data/articles";
 import { Column, Grid } from "@once-ui-system/core";
 
 import Post from "./Post";
@@ -57,7 +57,7 @@ export function Posts({
     allBlogs = data;
   } else {
     try {
-      const raw = getPosts(["src", "app", "blog", "posts"]) as BlogFile[];
+      const raw = getAllArticles() as BlogFile[];
       allBlogs = raw.map((post) => ({
         slug: post.slug,
         metadata: post.metadata as PostFrontmatter,

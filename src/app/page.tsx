@@ -1,98 +1,141 @@
-import { Column, Heading, Meta, Schema, Text } from "@once-ui-system/core";
+import { Column, Meta, Schema } from "@once-ui-system/core";
+import Image from "next/image";
 import Link from "next/link";
+import {
+  HiOutlineArrowRight,
+  HiOutlineBookOpen,
+  HiOutlineFilm,
+  HiOutlineLightBulb,
+  HiOutlineRectangleStack,
+} from "react-icons/hi2";
 
 import {
   getAllBlogPosts,
-  getBlogCollectionIndex,
-  getBlogPostFormat,
   getBlogPrimaryCategory,
   getRecentBlogPosts,
 } from "@/app/blog/postData";
-import { EditorialFeed, type EditorialFeedPost } from "@/components/blog/EditorialFeed";
+import { HomeSearchTrigger } from "@/components/home/HomeSearchTrigger";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
-import { baseURL, blog, home, person } from "@/resources";
-import { formatDate } from "@/utils/formatDate";
+import { creators } from "@/content/creators/creators";
+import { readingCatalog } from "@/content/reading/reading";
+import { getReadingWorkPath } from "@/content/reading/readingDomain";
+import { baseURL, home, person } from "@/resources";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
+import styles from "./page.module.scss";
 
-import styles from "./blog/blog.module.scss";
-
-const homePageTitle = "Arquivo editorial";
+const homePageTitle = "Histórias e ideias que valem a pena descobrir";
 const homePageDescription =
-  "Textos sobre marketing, design, produto, repertório visual e prática profissional.";
-
-const referenceCards = [
+  "Explore artigos, filmes, livros, quadrinhos, ideias e personalidades em um acervo editorial aberto.";
+const entryPoints = [
   {
-    label: "Repertório",
-    title: "Interfaces que parecem simples porque escondem boas decisões.",
-    text: "Notas sobre ritmo, densidade, contraste e o tipo de detalhe que faz uma tela cansar menos.",
+    href: "/filmes",
+    label: "Filmes",
+    detail: "Cinema e curadorias",
+    icon: HiOutlineFilm,
   },
   {
-    label: "Criatividade",
-    title: "Referência boa não vira cópia: vira critério.",
-    text: "Como observar linguagem visual, intenção e contexto antes de transformar inspiração em solução.",
+    href: "/livros",
+    label: "Livros",
+    detail: "Obras e edições",
+    icon: HiOutlineBookOpen,
   },
   {
-    label: "Profissional",
-    title: "Projetos pequenos mostram problemas grandes com mais nitidez.",
-    text: "O que sites, páginas e fluxos enxutos revelam sobre oferta, atendimento e decisão.",
+    href: "/quadrinhos",
+    label: "Quadrinhos",
+    detail: "Mangás, HQs e mais",
+    icon: HiOutlineRectangleStack,
+  },
+  {
+    href: "/ideias",
+    label: "Ideias",
+    detail: "Projetos em aberto",
+    icon: HiOutlineLightBulb,
   },
 ] as const;
-
-const projectNotes = [
-  "UI/UX para blogs, sites e páginas de aquisição",
-  "Estrutura editorial para conteúdo encontrável",
-  "Sistemas visuais leves para publicar com consistência",
+const selectedDiscoveries = [
+  { kind: "work", id: "read_work_burnout_society" },
+  { kind: "work", id: "read_work_absolute_batman" },
+  { kind: "person", id: "person_hannah_arendt" },
+  { kind: "person", id: "person_carl_jung" },
 ] as const;
-
-function postHref(slug: string) {
-  return `${blog.path}/${slug}`;
-}
-
-function toFeedPost(post: ReturnType<typeof getAllBlogPosts>[number]): EditorialFeedPost {
-  return {
-    slug: post.slug,
-    title: post.metadata.title,
-    summary: post.metadata.summary,
-    category: getBlogPrimaryCategory(post),
-    format: getBlogPostFormat(post),
-    readingTime: post.metadata.readingTime,
-    publishedAt: post.metadata.updatedAt ?? post.metadata.publishedAt,
-  };
-}
+const selectedPeople = [
+  "person_friedrich_nietzsche",
+  "person_byung_chul_han",
+  "person_agostinho_hipona",
+];
+const getCover = (workId: string) =>
+  readingCatalog.editions.find(
+    (edition) => edition.workId === workId && edition.cover,
+  )?.cover;
 
 export async function generateMetadata() {
-  const image = buildOgImage("Arquivo editorial", "design, marketing e repertório");
-  const generatedMeta = Meta.generate({
+  const image = buildOgImage(homePageTitle, "artigos, acervos e ideias");
+  const metadata = Meta.generate({
     title: homePageTitle,
     description: homePageDescription,
     baseURL,
     image,
     path: home.path,
   });
-
   return {
-    ...generatedMeta,
+    ...metadata,
     openGraph: {
-      ...generatedMeta.openGraph,
+      ...metadata.openGraph,
       images: buildDiscoverImageMetadata(image, homePageTitle),
     },
-    twitter: {
-      ...generatedMeta.twitter,
-      images: [image],
-    },
+    twitter: { ...metadata.twitter, images: [image] },
   };
 }
 
 export default function Home() {
   const posts = getAllBlogPosts();
-  const recentPosts = getRecentBlogPosts(14, posts);
-  const [featuredPost, ...remainingPosts] = recentPosts;
-  const timelinePosts = remainingPosts.slice(0, 5);
-  const feedPosts = remainingPosts.slice(0, 8).map(toFeedPost);
-  const topics = getBlogCollectionIndex(posts).slice(0, 8);
+  const recentPosts = getRecentBlogPosts(4, posts);
+  const featuredWork = readingCatalog.works.find(
+    (work) => work.id === "read_work_burnout_society",
+  );
+  const featuredCover = featuredWork ? getCover(featuredWork.id) : undefined;
+  const discoveries = selectedDiscoveries.flatMap((selection) => {
+    if (selection.kind === "work") {
+      const work = readingCatalog.works.find(
+        (item) => item.id === selection.id,
+      );
+      const cover = work ? getCover(work.id) : undefined;
+      return work
+        ? [
+            {
+              title: work.titleBr ?? work.originalTitle,
+              label: work.comicTradition ? "Quadrinho" : "Livro",
+              href: getReadingWorkPath(work),
+              image: cover?.src,
+              imageAlt: cover?.alt,
+            },
+          ]
+        : [];
+    }
+    const creator = creators.find(
+      (item) => item.id === selection.id && item.status === "published",
+    );
+    return creator?.profilePath
+      ? [
+          {
+            title: creator.name,
+            label: creator.occupations[0] ?? "Personalidade",
+            href: creator.profilePath,
+            image: creator.image?.src,
+            imageAlt: creator.image?.alt,
+          },
+        ]
+      : [];
+  });
+  const people = selectedPeople.flatMap((id) => {
+    const creator = creators.find(
+      (item) => item.id === id && item.status === "published",
+    );
+    return creator?.profilePath ? [creator] : [];
+  });
 
   return (
-    <Column className={styles.page} fillWidth gap="32">
+    <Column className={styles.page} fillWidth>
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -106,198 +149,158 @@ export default function Home() {
         }}
       />
       <BreadcrumbJsonLd items={[{ name: "Início", url: baseURL }]} />
-
-      <section className={styles.heroSection}>
-        <div className={styles.hero}>
-          <div className={styles.heroMeta}>
-            <span>Arquivo vivo</span>
-            <span>UI/UX, conteúdo e presença digital</span>
-          </div>
-          <Heading as="h1" className={styles.heroTitle} variant="display-strong-l">
-            Ideias práticas para interfaces, conteúdo e negócios digitais.
-          </Heading>
-          <Text className={styles.heroLead} onBackground="neutral-weak" variant="heading-default-m">
-            Um blog autoral para registrar observações, decisões de projeto, repertório visual e
-            aprendizados de trabalho.
-          </Text>
-          <nav className={styles.heroNav} aria-label="Atalhos">
-            <a href="#textos">Textos</a>
-            <a href="#linha-do-tempo">Linha do tempo</a>
-            <a href="#editorias">Editorias</a>
-            <a href="#repertorio">Repertório</a>
-          </nav>
-        </div>
+      <section className={styles.intro} aria-labelledby="home-title">
+        <span className={styles.eyebrow}>Biblioteca editorial aberta</span>
+        <h1 id="home-title">
+          Histórias, ideias e coisas que valem a pena descobrir.
+        </h1>
+        <p>
+          Um acervo para encontrar um assunto, entender o contexto e continuar
+          explorando.
+        </p>
+        <HomeSearchTrigger />
       </section>
-
-      {featuredPost ? (
-        <section className={styles.featuredSection} id="textos">
-          <div className={styles.sectionHeader}>
-            <Text
-              className={styles.sectionLabel}
-              variant="label-default-s"
-              onBackground="neutral-weak"
-            >
-              Destaque
-            </Text>
+      {featuredWork ? (
+        <section className={styles.feature} aria-labelledby="feature-title">
+          <div className={styles.featureCopy}>
+            <span className={styles.eyebrow}>Destaque editorial</span>
+            <h2 id="feature-title">
+              {featuredWork.titleBr ?? featuredWork.originalTitle}
+            </h2>
+            <p>
+              Como a exigência de produzir, melhorar e permanecer ativo pode
+              transformar liberdade em autoexploração.
+            </p>
+            <Link href="/blog/sociedade-do-cansaco-resumo">
+              Ler a análise <HiOutlineArrowRight aria-hidden="true" />
+            </Link>
           </div>
-
-          <Link className={styles.featuredCard} href={postHref(featuredPost.slug)}>
-            <span className={styles.featuredType}>{getBlogPrimaryCategory(featuredPost)}</span>
-            <Heading as="h2" className={styles.featuredHeading} variant="display-strong-s">
-              {featuredPost.metadata.title}
-            </Heading>
-            {featuredPost.metadata.summary ? (
-              <Text
-                className={styles.featuredText}
-                onBackground="neutral-weak"
-                variant="body-default-m"
-              >
-                {featuredPost.metadata.summary}
-              </Text>
+          <Link
+            className={styles.featureMedia}
+            href={getReadingWorkPath(featuredWork)}
+            aria-label={`Ver ${featuredWork.titleBr ?? featuredWork.originalTitle} no acervo`}
+          >
+            {featuredCover ? (
+              <Image
+                src={featuredCover.src}
+                alt={featuredCover.alt}
+                fill
+                priority
+                sizes="(max-width:700px) 42vw,320px"
+              />
             ) : null}
-            <span className={styles.featuredMeta}>
-              {featuredPost.metadata.publishedAt
-                ? formatDate(featuredPost.metadata.publishedAt, false)
-                : "Sem data"}
-              {featuredPost.metadata.readingTime
-                ? ` / ${featuredPost.metadata.readingTime} min`
-                : ""}
-            </span>
           </Link>
         </section>
       ) : null}
-
-      <section className={styles.feedSection}>
-        <div className={styles.sectionHeader}>
-          <Text
-            className={styles.sectionLabel}
-            variant="label-default-s"
-            onBackground="neutral-weak"
-          >
-            Recentes
-          </Text>
-          <Text className={styles.sectionLead} onBackground="neutral-weak" variant="body-default-s">
-            Leituras curtas para revisar uma decisão antes de abrir uma campanha, redesenhar uma
-            página ou publicar mais conteúdo.
-          </Text>
-        </div>
-        <EditorialFeed posts={feedPosts} initialCount={4} step={4} />
-      </section>
-
-      <section className={styles.timelineSection} id="linha-do-tempo">
-        <div className={styles.sectionHeader}>
-          <Text
-            className={styles.sectionLabel}
-            variant="label-default-s"
-            onBackground="neutral-weak"
-          >
-            Linha do tempo
-          </Text>
-          <Heading as="h2" className={styles.sectionTitle} variant="heading-strong-xl">
-            O arquivo em ordem de publicação.
-          </Heading>
-        </div>
-        <div className={styles.timelineList}>
-          {timelinePosts.map((post) => (
-            <Link className={styles.timelineItem} href={postHref(post.slug)} key={post.slug}>
-              <span className={styles.timelineDate}>
-                {post.metadata.publishedAt
-                  ? formatDate(post.metadata.publishedAt, false)
-                  : "Sem data"}
-              </span>
-              <span className={styles.timelineTitle}>{post.metadata.title}</span>
-              <span className={styles.timelineCategory}>{getBlogPrimaryCategory(post)}</span>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section className={styles.startSection} id="editorias">
-        <div className={styles.sectionHeader}>
-          <Text
-            className={styles.sectionLabel}
-            variant="label-default-s"
-            onBackground="neutral-weak"
-          >
-            Editorias
-          </Text>
-          <Heading as="h2" className={styles.sectionTitle} variant="heading-strong-xl">
-            Assuntos para entrar pelo problema.
-          </Heading>
-        </div>
-        <div className={styles.startGrid}>
-          {topics.map((topic) => (
-            <Link
-              className={styles.startCard}
-              href={`${blog.path}/temas/${topic.slug}`}
-              key={topic.slug}
-            >
-              <div className={styles.startCopy}>
-                <Heading as="h3" className={styles.startTitle} variant="heading-strong-m">
-                  {topic.label}
-                </Heading>
-                <Text
-                  className={styles.startSummary}
-                  onBackground="neutral-weak"
-                  variant="body-default-s"
-                >
-                  {topic.description || `${topic.count} artigo${topic.count === 1 ? "" : "s"}`}
-                </Text>
-              </div>
-              <span className={styles.topicCount}>
-                {topic.count} artigo{topic.count === 1 ? "" : "s"}
-              </span>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section className={styles.splitSection} id="profissional">
-        <div className={styles.projectCard}>
-          <Text
-            className={styles.sectionLabel}
-            variant="label-default-s"
-            onBackground="neutral-weak"
-          >
-            Profissional
-          </Text>
-          <Heading as="h2" className={styles.sectionTitle} variant="heading-strong-xl">
-            Design, conteúdo e produto como uma mesma conversa.
-          </Heading>
-          <ul className={styles.noteList}>
-            {projectNotes.map((note) => (
-              <li key={note}>{note}</li>
-            ))}
-          </ul>
-        </div>
-
-        <div className={styles.referenceGrid} id="repertorio">
-          {referenceCards.map((card) => (
-            <article className={styles.referenceCard} key={card.title}>
-              <span>{card.label}</span>
-              <h3>{card.title}</h3>
-              <p>{card.text}</p>
+      <nav className={styles.entryPoints} aria-label="Principais áreas do site">
+        {entryPoints.map(({ href, label, detail, icon: Icon }) => (
+          <Link href={href} key={href}>
+            <Icon aria-hidden="true" />
+            <span>
+              <strong>{label}</strong>
+              <small>{detail}</small>
+            </span>
+          </Link>
+        ))}
+      </nav>
+      <section className={styles.section} aria-labelledby="discover-title">
+        <header className={styles.sectionHeader}>
+          <div>
+            <span className={styles.eyebrow}>Acervo</span>
+            <h2 id="discover-title">Vale conhecer</h2>
+          </div>
+          <Link href="/acervo">
+            Ver o acervo <HiOutlineArrowRight aria-hidden="true" />
+          </Link>
+        </header>
+        <div className={styles.discoveryGrid}>
+          {discoveries.map((item) => (
+            <article className={styles.discoveryCard} key={item.href}>
+              <Link href={item.href}>
+                <span className={styles.discoveryMedia}>
+                  {item.image ? (
+                    <Image
+                      src={item.image}
+                      alt={item.imageAlt ?? item.title}
+                      fill
+                      sizes="(max-width:520px) 44vw,240px"
+                    />
+                  ) : (
+                    <span aria-hidden="true" />
+                  )}
+                </span>
+                <span className={styles.cardLabel}>{item.label}</span>
+                <h3>{item.title}</h3>
+              </Link>
             </article>
           ))}
         </div>
       </section>
-
-      <section className={styles.followSection} id="sobre">
-        <div>
-          <Text
-            className={styles.sectionLabel}
-            variant="label-default-s"
-            onBackground="neutral-weak"
-          >
-            Acompanhar
-          </Text>
-          <Heading as="h2" className={styles.followTitle} variant="heading-strong-xl">
-            Salve o arquivo para voltar quando estiver decidindo com calma.
-          </Heading>
+      <section className={styles.section} aria-labelledby="read-title">
+        <header className={styles.sectionHeader}>
+          <div>
+            <span className={styles.eyebrow}>Publicações</span>
+            <h2 id="read-title">Leia agora</h2>
+          </div>
+          <Link href="/blog">
+            Todos os artigos <HiOutlineArrowRight aria-hidden="true" />
+          </Link>
+        </header>
+        <div className={styles.articleGrid}>
+          {recentPosts.map((post, index) => (
+            <article key={post.slug}>
+              <Link href={`/blog/${post.slug}`}>
+                <span className={styles.articleMedia}>
+                  {post.metadata.image ? (
+                    <Image
+                      src={post.metadata.image}
+                      alt={post.metadata.imageAlt ?? post.metadata.title}
+                      fill
+                      priority={index === 0}
+                      unoptimized
+                      sizes="(max-width:700px) 100vw,50vw"
+                    />
+                  ) : null}
+                </span>
+                <span className={styles.cardLabel}>
+                  {getBlogPrimaryCategory(post)}
+                </span>
+                <h3>{post.metadata.title}</h3>
+                <p>{post.metadata.summary}</p>
+              </Link>
+            </article>
+          ))}
         </div>
-        <div className={styles.followActions}>
-          <Link href="/rss.xml">RSS</Link>
-          <Link href="/blog">Todos os textos</Link>
+      </section>
+      <section className={styles.section} aria-labelledby="people-title">
+        <header className={styles.sectionHeader}>
+          <div>
+            <span className={styles.eyebrow}>Pessoas e ideias</span>
+            <h2 id="people-title">Quem ajuda a pensar</h2>
+          </div>
+          <Link href="/personalidades">
+            Ver personalidades <HiOutlineArrowRight aria-hidden="true" />
+          </Link>
+        </header>
+        <div className={styles.peopleGrid}>
+          {people.map((creator) => (
+            <article key={creator.id}>
+              <Link href={creator.profilePath!}>
+                <span className={styles.personPortrait}>
+                  {creator.image ? (
+                    <Image
+                      src={creator.image.src}
+                      alt={creator.image.alt}
+                      fill
+                      sizes="(max-width:600px) 30vw,220px"
+                    />
+                  ) : null}
+                </span>
+                <h3>{creator.name}</h3>
+                <p>{creator.occupations.slice(0, 2).join(" · ")}</p>
+              </Link>
+            </article>
+          ))}
         </div>
       </section>
     </Column>

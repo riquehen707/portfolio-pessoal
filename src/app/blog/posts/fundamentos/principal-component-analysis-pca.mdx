@@ -1,0 +1,446 @@
+---
+title: "Principal Component Analysis: o que é PCA e como interpretar"
+slug: "principal-component-analysis-pca"
+publishedAt: "2026-08-01"
+summary: "Entenda o que é PCA, como funcionam as componentes principais, quando padronizar os dados e como interpretar a variância explicada."
+description: "Entenda o que é PCA, como funcionam as componentes principais, quando padronizar os dados e como interpretar a variância explicada."
+image: "/api/og/generate?title=Principal%20Component%20Analysis&subtitle=O%20que%20%C3%A9%20PCA%20e%20como%20interpretar"
+imageAlt: "Capa editorial com o título Principal Component Analysis"
+format: "Guia"
+category: "Tecnologia"
+categories: ["Tecnologia", "Ciência de dados"]
+tags: ["Principal Component Analysis", "Estatística", "Ciência de dados", "Álgebra linear", "Machine learning"]
+kind: "study"
+featured: false
+featuredHome: false
+readingTime: 31
+toc: true
+tocDepth: 2
+area: "tecnologia"
+module: "estatistica-e-ciencia-de-dados"
+node: "principal-component-analysis"
+level: "intermediário"
+type: "guia"
+knowledgeStatus: "publicado"
+essential: false
+prerequisites: []
+unlocks: []
+related: []
+estimatedReadingTime: 31
+primaryKeyword: "principal component analysis"
+secondaryKeywords: ["análise de componentes principais", "o que é PCA", "PCA estatística", "redução de dimensionalidade", "variância explicada", "autovalores e autovetores", "PCA em Python", "loadings PCA"]
+keywords: ["principal component analysis", "PCA", "análise de componentes principais", "variância explicada", "redução de dimensionalidade", "SVD", "scikit-learn"]
+mapVisibility: "trilha"
+references:
+  - title: "On Lines and Planes of Closest Fit to Systems of Points in Space"
+    author: "Karl Pearson"
+    year: 1901
+    url: "https://doi.org/10.1080/14786440109462720"
+  - title: "Principal component analysis: a review and recent developments"
+    author: "Ian T. Jolliffe e Jorge Cadima"
+    year: 2016
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4792409/"
+  - title: "Properties of Principal Components"
+    author: "NIST/SEMATECH"
+    url: "https://www.itl.nist.gov/div898/handbook/pmc/section5/pmc551.htm"
+  - title: "sklearn.decomposition.PCA"
+    author: "scikit-learn developers"
+    url: "https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html"
+  - title: "StandardScaler"
+    author: "scikit-learn developers"
+    url: "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html"
+  - title: "Pipeline"
+    author: "scikit-learn developers"
+    url: "https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html"
+status: "published"
+language: "pt-BR"
+---
+
+Uma análise reúne visualizações, usuários, tempo de permanência, profundidade de rolagem, cliques, leads, compras e receita. Algumas variáveis medem aspectos próximos e caminham juntas. Outras usam unidades tão diferentes que uma comparação direta engana.
+
+Como enxergar a estrutura compartilhada? É possível representar parte da variação em menos dimensões? O que desaparece nessa redução? E a direção que mais varia é realmente a mais útil para a pergunta da análise?
+
+Principal Component Analysis, ou Análise de Componentes Principais, constrói um novo sistema de coordenadas para os mesmos dados. Esse sistema pode resumir redundâncias e facilitar exploração, mas não descobre sozinho um “significado verdadeiro” escondido nas colunas.
+
+<QuickSummary title="PCA sem atalhos enganosos">
+
+- PCA cria novas variáveis por combinações lineares; não seleciona as colunas “mais importantes”.
+- As componentes são ortogonais e ordenadas pela variância de suas projeções.
+- Escala, valores extremos, variáveis escolhidas e pré-processamento mudam o resultado.
+- Variância explicada não equivale a informação geral, causalidade ou utilidade preditiva.
+
+</QuickSummary>
+
+## O vocabulário mínimo para acompanhar PCA
+
+Uma **observação** é um caso analisado; uma **variável** é uma medida desse caso. Com `n` observações e `p` variáveis, a matriz `X ∈ ℝⁿˣᵖ` possui observações nas linhas e variáveis nas colunas. Cada linha `xᵢ` localiza um caso no espaço original de `p` dimensões.
+
+Um **vetor** representa uma direção ou uma observação. **Média** localiza o centro de uma variável. **Variância** mede sua dispersão em torno da média. **Covariância** indica como duas variáveis variam juntas; **correlação** expressa essa relação depois de ajustar suas escalas.
+
+Uma **combinação linear** soma variáveis multiplicadas por coeficientes. Uma **projeção** mede onde um ponto cai ao ser levado a uma direção. Direções **ortogonais** formam ângulos de 90 graus; no PCA clássico, seus escores não são correlacionados.
+
+Um **autovetor** `vⱼ` é uma direção que uma transformação linear preserva, mudando apenas sua escala. O **autovalor** `λⱼ` informa essa escala e, em PCA, corresponde à variância da projeção naquela direção. Os **escores** `zⱼ` são as novas coordenadas das observações.
+
+<EditorialTable
+  title="Antes e depois da transformação"
+  caption="PCA muda a base usada para descrever as observações; reduzir dimensões é uma decisão posterior."
+  mobileMode="cards"
+>
+
+| Elemento | Espaço original | Espaço das componentes |
+| --- | --- | --- |
+| Linhas | Observações | As mesmas observações |
+| Colunas | Variáveis medidas | Componentes construídas |
+| Coordenadas | Valores das variáveis | Escores nas componentes |
+| Eixos | Unidade de cada variável | Direções lineares ordenadas por variância |
+
+</EditorialTable>
+
+## O que é Principal Component Analysis?
+
+<Definition term="Principal Component Analysis">
+  Principal Component Analysis é uma transformação linear que encontra direções ortogonais ordenadas pela variância das projeções dos dados. Cada componente principal é uma combinação linear das variáveis originais, e as primeiras componentes concentram a maior variância possível segundo esse critério.
+</Definition>
+
+**Principal** indica a ordenação pela variância explicada. **Component** lembra que cada nova variável combina as originais. **Analysis** aponta o uso para examinar estrutura, redundância e aproximações de menor dimensão.
+
+As componentes não são colunas escolhidas. A primeira pode combinar visitas, páginas, tempo e interações; a segunda pode contrastar volume com conversão. Manter duas componentes reduz a representação para duas coordenadas, mas calcular novos escores ainda exige as variáveis usadas no ajuste.
+
+## A intuição geométrica
+
+Imagine duas variáveis correlacionadas formando uma nuvem alongada na diagonal. O eixo horizontal mostra uma variável e o vertical mostra outra. Depois de centralizar os pontos, PCA encontra a direção unitária com maior dispersão projetada: a primeira componente. A segunda é perpendicular e captura a maior variação restante.
+
+Projetar cada ponto sobre a primeira direção cria uma representação unidimensional. As distâncias perpendiculares entre os pontos e a linha são erros de reconstrução. Quanto mais fina e alongada a nuvem, mais fiel tende a ser essa projeção; numa nuvem circular, nenhuma direção domina claramente.
+
+O processo conceitual é: observar os eixos originais, encontrar o centro, procurar a primeira direção, obter uma direção ortogonal, projetar e medir o que ficou de fora. Isso não é apenas “girar o gráfico”. Centralização, eventual padronização e descarte de componentes também fazem parte da transformação.
+
+## Preparar a matriz antes de calcular
+
+PCA costuma começar pela centralização de cada coluna:
+
+```text title=Centralização
+X_c = X - 1μᵀ
+```
+
+`μ` contém as médias das variáveis e `1` replica essas médias nas `n` linhas. Sem centralização, a origem arbitrária pode influenciar as direções de um modo incompatível com a interpretação usual da variância em torno da média.
+
+Centralizar subtrai a média. **Padronizar** costuma subtrair a média e dividir pelo desvio-padrão. Normalizar pelo comprimento divide um vetor por sua norma. Transformar com logaritmo altera a forma e a escala de uma variável. Escalas robustas podem usar mediana e intervalo interquartil. Não são nomes diferentes para o mesmo procedimento.
+
+## Padronizar ou preservar a escala?
+
+Na PCA sobre a **matriz de covariância**, as unidades originais permanecem. Variáveis com maior variância absoluta podem dominar. Isso pode fazer sentido quando compartilham unidade, as diferenças de escala têm significado e a variabilidade absoluta interessa.
+
+Na PCA sobre **dados padronizados**, cada variável passa, em condições usuais, a ter média zero e variância um. Isso equivale a trabalhar com a matriz de correlação. Pode ser apropriado quando unidades são diferentes, escalas são arbitrárias ou uma variável dominaria apenas pela unidade de medida.
+
+Considere receita em reais, conversão em porcentagem, páginas visualizadas e tempo em segundos. Sem padronização, receita pode dominar numericamente. Mas padronizar também é uma decisão substantiva: concede variância unitária até a uma medida ruidosa ou pouco confiável.
+
+Antes do código, pergunte: as escalas têm significado? As unidades são comparáveis? Todas as variáveis merecem o mesmo peso inicial? Uma variância pequena indica estabilidade ou medição ruim? Valores extremos distorcem média e desvio-padrão?
+
+## Da covariância às componentes
+
+Para dados centralizados, a matriz de covariância amostral é:
+
+```text title=Matriz de covariância
+S = (1 / (n - 1)) X_cᵀX_c
+```
+
+A diagonal de `S` contém variâncias; os demais elementos, covariâncias. Como `S` é simétrica, seus autovetores podem formar direções ortogonais:
+
+```text title=Problema de autovalor
+Svⱼ = λⱼvⱼ
+λ₁ ≥ λ₂ ≥ … ≥ λₚ ≥ 0
+```
+
+A primeira componente usa o autovetor do maior autovalor. Organizando os autovetores selecionados nas colunas de `V`, os escores são:
+
+```text title=Escores
+Z = X_cV
+```
+
+### Máxima variância e menor reconstrução
+
+A primeira direção unitária maximiza `Var(X_cv₁)`. As seguintes maximizam a variância restante sob a restrição de serem ortogonais às anteriores.
+
+O mesmo PCA clássico também fornece, ao manter `k` componentes, uma aproximação linear de posto `k` que minimiza o erro quadrático de reconstrução:
+
+```text title=Reconstrução
+X̂_c = Z_kV_kᵀ
+X̂ = Z_kV_kᵀ + μ
+```
+
+Se os dados foram padronizados, é preciso desfazer a padronização para retornar à unidade original. “Preservar o máximo de informação” é uma formulação larga demais: o critério preservado é variância, não relevância semântica, sinal preditivo ou informação em todo sentido possível.
+
+## PCA calculada por SVD
+
+Em vez de decompor explicitamente a covariância, implementações numéricas frequentemente aplicam a decomposição em valores singulares à matriz centralizada:
+
+```text title=Decomposição em valores singulares
+X_c = UΣVᵀ
+λⱼ = σⱼ² / (n - 1)
+```
+
+As colunas de `V` definem as direções principais, `UΣ` fornece os escores e os valores singulares `σⱼ` se relacionam aos autovalores. PCA é o método estatístico; SVD é uma fatoração matricial usada para calculá-lo com estabilidade e eficiência.
+
+## Pesos, escores e loadings não são a mesma coisa
+
+O vetor `vⱼ` contém os **pesos** da combinação linear. O escore `zᵢⱼ = xᵢ,cᵀvⱼ` é a coordenada da observação `i` na componente `j`. O autovalor é a variância dos escores daquela componente.
+
+“Loading” varia entre autores e softwares. Pode significar diretamente os coeficientes do autovetor ou uma versão escalada por `√λⱼ`, relacionada à correlação entre variável e componente. Antes de comparar loadings, verifique a convenção. Coeficiente grande não prova causalidade nem importância universal.
+
+### O sinal pode mudar sem mudar o resultado
+
+Se `v` é autovetor, `-v` também é. Uma biblioteca pode mostrar sinais opostos aos de outra; os escores também se invertem, mas variância explicada, distâncias e geometria permanecem equivalentes. Diferença apenas de sinal não indica erro.
+
+## Variância explicada: o que a porcentagem realmente diz
+
+A proporção individual e a acumulada são:
+
+```text title=Proporções de variância
+rⱼ = λⱼ / Σₗλₗ
+R_k = Σⱼ₌₁ᵏ rⱼ
+```
+
+A primeira componente possui a maior parcela individual. A acumulada nunca diminui ao adicionar componentes. Com todas elas, a transformação linear completa é preservada, salvo efeitos numéricos. Descartar componentes introduz perda de reconstrução.
+
+<SimpleBarChart
+  title="Exemplo hipotético de variância explicada"
+  valueLabel="Percentual"
+  values='[{"label":"PC1","value":61},{"label":"PC2","value":24},{"label":"PC3","value":10},{"label":"PC4","value":5}]'
+  caption="PC1 explica 61%, PC2 24%, PC3 10% e PC4 5% da variância total deste exemplo. As duas primeiras acumulam 85%. Dados didáticos, não observados."
+  source="Exemplo editorial"
+/>
+
+Não diga que duas componentes “mantêm 85% das informações”. Diga que explicam 85% da variância total segundo as variáveis, a escala e o pré-processamento utilizados.
+
+Uma direção de pouca variância ainda pode conter separação entre grupos, evento raro, sinal relacionado ao alvo ou característica importante. PCA não sabe qual pergunta você pretende responder.
+
+## Quantas componentes manter?
+
+Não existe número universal. Combine variância acumulada, scree plot, possível inflexão, erro de reconstrução, interpretabilidade, estabilidade, custo de armazenamento, objetivo de visualização e desempenho em validação.
+
+O “cotovelo” de um scree plot pode ser subjetivo ou inexistente. A regra de Kaiser — manter autovalores maiores que um — está ligada a variáveis padronizadas e continua sendo heurística. Duas componentes não se tornam corretas porque cabem num gráfico. Um limiar de 95% não conhece o custo do erro nem a utilidade da dimensão descartada.
+
+Quando PCA integra um modelo preditivo, `n_components` é uma escolha do pipeline e deve ser comparada em validação, sem consultar o teste final.
+
+## Como interpretar uma componente
+
+Com variáveis padronizadas, imagine:
+
+```text title=Primeira componente hipotética
+PC1 = 0,48(visitas) + 0,51(páginas) + 0,49(tempo) + 0,50(interações)
+```
+
+Coeficientes semelhantes e com o mesmo sinal permitem a hipótese cautelosa de “intensidade de engajamento”. O nome é interpretação contextual, não descoberta automática.
+
+```text title=Segunda componente hipotética
+PC2 = 0,70(visitas) - 0,65(conversões) + 0,20(tempo)
+```
+
+Aqui existe um contraste entre volume e conversão, mas o significado é menos direto. Examine sinais relativos, magnitudes, pré-processamento, variância explicada, distribuição dos escores, observações extremas e estabilidade em outras amostras antes de nomear.
+
+## Visualizações úteis e seus limites
+
+O **scree plot** mostra variância por componente. O **gráfico de escores** posiciona observações em duas ou três componentes, mas as distâncias visíveis pertencem somente às dimensões exibidas. Pontos próximos no desenho podem diferir em componentes omitidas.
+
+O **círculo de correlações** relaciona variáveis e componentes quando os vetores representam correlações sob a convenção adequada. O **biplot** combina observações e variáveis, mas possui vários escalonamentos: comprimentos, ângulos e distâncias só podem ser interpretados conhecendo a construção usada.
+
+Comparar o original com reconstruções de diferentes postos torna a perda concreta. Gráficos tridimensionais, porém, frequentemente acrescentam oclusão e dificuldade no mobile sem melhorar a análise.
+
+## Exemplo prático: métricas das páginas de um site
+
+<PracticalExample title="Da pergunta aos componentes">
+
+A base possui uma linha por página e colunas para visualizações, usuários, tempo médio, rolagem, cliques, leads, conversão e receita atribuída.
+
+Primeiro, a equipe define a pergunta. Se quer visualizar perfis de uso, componentes de volume e interação podem ajudar. Se quer prever leads, a direção de maior variância não é automaticamente a mais útil.
+
+Visualizações e usuários provavelmente medem volume. Tempo e rolagem podem aproximar consumo, mas sofrem com abas abertas e instrumentação. Leads e conversão se relacionam matematicamente; incluir ambos pode reforçar artificialmente esse aspecto. Receita atribuída depende do modelo de atribuição.
+
+O processo examina unidades, qualidade, variáveis derivadas, ausências, assimetrias e extremos. Depois decide logaritmo, escala e exclusões justificadas. Se houver previsão, separa treino e avaliação antes de aprender qualquer média, desvio ou direção.
+
+A equipe compara variância, coeficientes, escores e reconstruções, verifica páginas influentes e repete a análise em outra amostra. Só então propõe nomes provisórios aos componentes e registra todas as decisões de pré-processamento.
+
+</PracticalExample>
+
+Esse exemplo não conclui que PCA é necessária. Se duas métricas diretamente interpretáveis responderem à pergunta, o resumo por componentes apenas adicionaria trabalho.
+
+## PCA em Python com scikit-learn
+
+O pipeline abaixo deixa claro que padronização e PCA são etapas aprendidas no treino:
+
+```python title=pca_pipeline.py
+from sklearn.decomposition import PCA
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+
+pipeline = Pipeline([
+    ("scale", StandardScaler()),
+    ("pca", PCA(n_components=2)),
+])
+
+scores = pipeline.fit_transform(X_train)
+validation_scores = pipeline.transform(X_validation)
+
+pca = pipeline.named_steps["pca"]
+
+print(pca.explained_variance_ratio_)
+print(pca.components_)
+```
+
+`StandardScaler` aprende média e desvio-padrão. `PCA` centraliza sua entrada e aprende as direções por SVD; neste pipeline, recebe dados já escalados. `fit_transform` ajusta e transforma o treino. `transform` reutiliza os mesmos parâmetros.
+
+Na API do scikit-learn, `components_` tem formato `(n_components, n_features)`: cada linha é um eixo principal no espaço das variáveis, ordenado por `explained_variance_`. A documentação informa que `explained_variance_` usa `n_samples - 1` graus de liberdade. `PCA` centraliza, mas não padroniza automaticamente.
+
+Para reconstruir a validação:
+
+```python title=reconstrucao.py
+reduced = pipeline.transform(X_validation)
+
+scaled_reconstruction = pca.inverse_transform(reduced)
+reconstruction = pipeline.named_steps["scale"].inverse_transform(
+    scaled_reconstruction
+)
+```
+
+`pca.inverse_transform` retorna ao espaço padronizado; o `inverse_transform` do scaler devolve as unidades originais. Python foi escolhido porque scikit-learn fornece uma API estatística consolidada e documentação explícita; reimplementar decomposição espectral em TypeScript não melhoraria o aprendizado.
+
+## Vazamento de dados ainda é possível
+
+PCA não usa diretamente a variável-alvo, mas aprende médias, escalas e covariâncias das entradas. Se observar validação ou teste durante o ajuste, há vazamento.
+
+Divida os conjuntos primeiro. Ajuste scaler e PCA somente no treino, inclua ambos dentro de cada dobra de validação cruzada e use `transform` nos demais dados. Não escolha o número de componentes olhando o teste final.
+
+## Ausências e valores extremos mudam a solução
+
+A PCA clássica não aceita automaticamente dados ausentes. Remover linhas ou colunas, imputar pela média, usar imputação multivariada ou métodos para matrizes incompletas são decisões com consequências. Imputação pela média concentra valores no centro, podendo reduzir variância e alterar covariâncias. Faça análise de sensibilidade.
+
+Média, covariância e variância também são sensíveis a extremos. Poucos casos podem girar a primeira direção e deslocar os demais escores. Verifique erros de registro, compare análises com e sem observações influentes e considere transformações ou PCA robusta quando justificadas. Um caso raro legítimo não deve ser apagado só porque piora o gráfico.
+
+## Limitações da PCA
+
+- É linear e prioriza variância, não relevância.
+- Depende de escala, variáveis incluídas e pré-processamento.
+- É sensível a extremos e pode ser instável quando autovalores são próximos.
+- Pode gerar componentes densas e difíceis de explicar.
+- Estruturas não lineares podem desaparecer na projeção.
+- Categorias não devem entrar como números arbitrários; dados mistos exigem outros métodos ou cuidados.
+- Correlação e componentes não identificam mecanismos causais.
+- Uma solução de uma amostra pode não se repetir.
+- Grande variância pode refletir ruído, exposição ou desigualdade de escala.
+- Reduzir dimensões pode prejudicar explicabilidade e intervenção sobre variáveis concretas.
+
+Esses limites não tornam PCA inútil. Eles dizem quais perguntas a técnica não responde e quais verificações precisam acompanhar o resultado.
+
+## PCA em modelos preditivos
+
+PCA é não supervisionada: não usa o alvo para escolher direções. Uma componente de grande variância pode ser irrelevante para previsão; uma de baixa variância pode carregar o sinal útil. A redução ajuda alguns modelos e prejudica outros.
+
+Modelos regularizados podem lidar com correlação sem PCA. Árvores e métodos derivados não recebem necessariamente o mesmo benefício. Compare o pipeline completo fora da amostra.
+
+<EditorialTable
+  title="O papel da PCA depende do objetivo"
+  caption="A técnica oferece uma representação; a utilidade precisa ser avaliada para a tarefa."
+  mobileMode="cards"
+>
+
+| Objetivo | Papel possível da PCA |
+| --- | --- |
+| Visualização | Projetar observações em duas ou três dimensões. |
+| Compressão | Produzir aproximação com menos componentes. |
+| Exploração | Examinar padrões de covariância. |
+| Pré-processamento | Gerar entradas ortogonais para outro método. |
+| Predição | Recurso opcional, validado fora da amostra. |
+| Interpretação causal | PCA isoladamente não identifica causalidade. |
+
+</EditorialTable>
+
+## PCA não seleciona variáveis nem encontra grupos
+
+Seleção de variáveis preserva um subconjunto das colunas originais. PCA faz **extração de características**: cria componentes que geralmente dependem de várias colunas. Pode condensar padrões, mas dificulta interpretação e não elimina o custo de coletar os dados necessários aos novos escores.
+
+PCA também não é agrupamento. Ela pode facilitar uma visualização, reduzir algum ruído ou alimentar um algoritmo de clusterização. Também pode ocultar grupos separados em uma direção de baixa variância. Aglomerações no gráfico não provam categorias reais.
+
+## Técnicas relacionadas resolvem problemas diferentes
+
+<EditorialTable
+  title="PCA e métodos próximos"
+  caption="Não existe substituto geral: objetivos, pressupostos e distorções mudam."
+  mobileMode="cards"
+>
+
+| Técnica | Diferença principal |
+| --- | --- |
+| PCA | Transformação linear orientada pela variância. |
+| Seleção de variáveis | Preserva algumas variáveis originais. |
+| Análise fatorial | Modela fatores latentes sob pressupostos próprios. |
+| ICA | Procura componentes estatisticamente independentes. |
+| Kernel PCA | Usa kernels para uma representação não linear. |
+| t-SNE | Prioriza vizinhanças locais para visualização. |
+| UMAP | Constrói representação baseada em estrutura de vizinhança. |
+| Autoencoder | Aprende codificação e reconstrução por rede neural. |
+
+</EditorialTable>
+
+t-SNE e UMAP não são PCA “melhorada”. Seus mapas dependem de hiperparâmetros e distorcem aspectos diferentes das distâncias. Visualização não linear também não é um mapa exato do espaço original.
+
+## Quando PCA pode fazer sentido
+
+PCA é uma boa candidata quando existem muitas variáveis numéricas correlacionadas, necessidade de visualização exploratória, compressão com perda mensurável, redundância linear, sinais ou imagens de alta dimensão ou desejo de estabelecer uma linha de base linear.
+
+Pode servir para construir um indicador sintético, desde que sua interpretação seja transparente, ou para modelos afetados por colinearidade, desde que a comparação validada mostre benefício.
+
+## Quando outra abordagem pode ser melhor
+
+Poucas variáveis já interpretáveis, necessidade de explicar cada medida, relações principalmente não lineares, dados predominantemente categóricos, inferência causal e objetivo supervisionado desalinhado à variância são sinais contrários.
+
+Também desconfie quando há muitos extremos sem tratamento, amostra pequena diante da dimensionalidade, componentes instáveis, nenhum ganho operacional ou coleta das colunas originais permanece como custo dominante. Duas variáveis bem escolhidas podem responder melhor do que uma PCA feita apenas para sofisticar a análise.
+
+## Erros comuns
+
+- Aplicar PCA sem compreender variáveis, unidades e qualidade.
+- Padronizar ou deixar de padronizar automaticamente.
+- Ajustar pré-processamento antes de separar os dados.
+- Tratar variância explicada como informação geral ou causalidade.
+- Confundir pesos, escores e convenções de loadings.
+- Ignorar a ambiguidade de sinal.
+- Inserir categorias codificadas arbitrariamente.
+- Esconder imputação ou remover extremos para melhorar o desenho.
+- Manter duas componentes porque são visualizáveis ou 95% por regra.
+- Aplicar agrupamento sem validar estabilidade e significado.
+- Interpretar componentes como características naturais e permanentes.
+- Usar PCA quando as variáveis originais já resolvem o problema.
+
+## Variância não é um critério de justiça
+
+Variáveis refletem prioridades humanas. Escalas dão peso a comportamentos. Grupos majoritários podem dominar as direções, enquanto padrões de grupos pequenos aparecem depois e são descartados. Valores raros podem representar pessoas ou situações importantes.
+
+Uma representação matematicamente eficiente pode reproduzir desigualdades, ocultar diferenças e receber nomes que naturalizam julgamentos subjetivos. PCA não corrige dados enviesados. Se componentes influenciarem decisões sobre pessoas, compare efeitos entre grupos, documente a representação e preserve revisão e contestação.
+
+## Um processo que aceita voltar atrás
+
+1. Defina a pergunta e compreenda variáveis e unidades.
+2. Explore qualidade, ausências, distribuições e extremos.
+3. Decida transformações e escala com justificativa.
+4. Separe os dados quando houver avaliação preditiva.
+5. Ajuste PCA no conjunto apropriado.
+6. Examine variância, pesos, escores e observações influentes.
+7. Compare números de componentes, reconstruções e estabilidade.
+8. Avalie utilidade no objetivo real.
+9. Interprete com conhecimento do domínio e registre limitações.
+
+A análise pode exigir retorno às etapas anteriores. Antes de usar PCA, pergunte: qual problema a redução resolve? A variância é o critério adequado? Preciso de interpretação direta? A estrutura parece linear? O resultado se repete em outra amostra? Uma análise simples bastaria?
+
+## O resultado é uma representação, não uma descoberta final
+
+PCA organiza direções lineares pela variância observada. Isso pode revelar redundâncias, facilitar visualização e produzir aproximações compactas. Também pode esconder sinais pequenos, amplificar decisões de escala e criar componentes difíceis de explicar.
+
+Interpretar bem PCA exige dizer quais dados entraram, como foram preparados, qual variância foi preservada e o que a redução perdeu. A técnica começa com álgebra linear, mas a decisão de usá-la termina no contexto.
+
+### Referências
+
+- [Karl Pearson, “On Lines and Planes of Closest Fit to Systems of Points in Space” (1901)](https://doi.org/10.1080/14786440109462720) — registro editorial e DOI do trabalho histórico sobre ajuste de subespaços por distância.
+- [Ian Jolliffe e Jorge Cadima, “Principal component analysis: a review and recent developments” (2016)](https://pmc.ncbi.nlm.nih.gov/articles/PMC4792409/) — revisão acadêmica integral de fundamentos, usos e extensões.
+- [NIST/SEMATECH, “Properties of Principal Components”](https://www.itl.nist.gov/div898/handbook/pmc/section5/pmc551.htm) — relação entre correlação, autovalores, variância e coeficientes.
+- [scikit-learn, `PCA`](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html) — centralização, SVD, orientação de `components_`, variância e reconstrução.
+- [scikit-learn, `StandardScaler`](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html) — definição e parâmetros aprendidos pela padronização.
+- [scikit-learn, `Pipeline`](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html) — encadeamento seguro de transformações e estimadores.

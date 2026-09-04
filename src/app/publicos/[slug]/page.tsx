@@ -38,10 +38,6 @@ export async function generateMetadata({ params }: PageProps) {
   };
 }
 
-export async function generateStaticParams() {
-  return audiencePages.map((audience) => ({ slug: audience.slug }));
-}
-
 export default async function AudiencePage({ params }: PageProps) {
   const { slug } = await params;
   const audience = getAudiencePage(slug);

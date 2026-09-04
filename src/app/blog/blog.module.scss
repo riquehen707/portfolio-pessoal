@@ -7,8 +7,7 @@
 }
 
 .workspace,
-.categorySection,
-.seriesSection,
+.seoGateway,
 .topicSection,
 .feedSection {
   width: 100%;
@@ -30,7 +29,6 @@
 .sectionLabel,
 .cardLabel,
 .topicCount,
-.seriesCount,
 .statCard span {
   color: var(--neutral-on-background-weak);
   font-family: var(--font-label);
@@ -70,7 +68,6 @@
 .heroIntro,
 .focusCard,
 .statCard,
-.seriesCard,
 .topicCard {
   border: 1px solid var(--line-subtle);
   border-radius: 0.95rem;
@@ -121,37 +118,10 @@
   line-height: 1.66;
 }
 
-.heroNav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-}
-
-.heroNav a,
 .focusCard,
-.categoryCard,
-.seriesCard,
 .topicCard {
   color: inherit;
   text-decoration: none;
-}
-
-.heroNav a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  min-height: 2.45rem;
-  padding: 0.55rem 0.85rem;
-  border: 1px solid var(--line-subtle);
-  border-radius: 999px;
-  background: var(--page-background);
-  color: var(--neutral-on-background-medium);
-  font-size: 0.95rem;
-}
-
-.heroNav svg {
-  width: 1rem;
-  height: 1rem;
 }
 
 .focusCard {
@@ -193,7 +163,6 @@
 }
 
 .focusCard strong,
-.seriesCard strong,
 .topicCard strong {
   color: var(--neutral-on-background-strong);
   font-family: var(--font-body);
@@ -257,7 +226,7 @@
 
 .panelRail {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.75rem;
 }
 
@@ -278,8 +247,6 @@
 }
 
 .topicSection,
-.categorySection,
-.seriesSection,
 .feedSection {
   display: grid;
   gap: 1rem;
@@ -290,152 +257,64 @@
   gap: 0.45rem;
 }
 
-.categoryGrid {
+.seoGateway {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.85rem;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: center;
+  padding: clamp(1.1rem, 3vw, 1.6rem);
+  border-block: 1px solid var(--line-subtle);
 }
 
-.categoryCard {
-  position: relative;
-  display: grid;
-  gap: 0.5rem;
-  min-height: 10.25rem;
-  padding: 1rem;
-  overflow: hidden;
-  border: 1px solid var(--line-subtle);
-  border-radius: 0.95rem;
-  background: #fff;
-  box-shadow: 0 1px 0 color-mix(in srgb, var(--neutral-on-background-strong) 4%, transparent);
-  transition:
-    border-color var(--motion-fast),
-    box-shadow var(--motion-fast),
-    transform var(--motion-fast);
-}
-
-.categoryCard::before {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 0.62rem;
-  height: 0.62rem;
-  background: #ffd400;
-  content: "";
-}
-
-.categoryIcon {
+.seoGatewayMark {
   display: grid;
   place-items: center;
-  width: 2rem;
-  height: 2rem;
-  color: var(--neutral-on-background-strong);
+  width: clamp(3.5rem, 8vw, 5.25rem);
+  aspect-ratio: 1;
+  background: #ffd400;
+  color: #171300;
+  font-family: var(--font-technical);
+  font-size: clamp(0.7rem, 1.3vw, 0.88rem);
+  font-weight: 800;
 }
 
-.categoryIcon svg {
-  width: 1.25rem;
-  height: 1.25rem;
+.seoGatewayCopy {
+  display: grid;
+  gap: 0.38rem;
 }
 
-.categoryCard strong {
-  margin-top: 0.35rem;
+.seoGatewayTitle {
+  max-width: 24ch;
+  margin: 0;
   color: var(--neutral-on-background-strong);
   font-family: var(--font-body);
-  font-size: 1.12rem;
-  font-weight: 760;
+  font-size: clamp(1.45rem, 3vw, 2.2rem);
+  font-weight: 780;
   letter-spacing: 0;
-  line-height: 1.12;
+  line-height: 1.05;
 }
 
-.categoryDescription {
-  max-width: 13rem;
-  color: var(--neutral-on-background-medium);
-  font-size: 0.9rem;
-  line-height: 1.45;
+.seoGatewayCopy p {
+  max-width: 46rem;
+  margin: 0;
+  line-height: 1.55;
 }
 
-.categoryAction {
+.seoGatewayLink {
   display: inline-flex;
   align-items: center;
-  align-self: end;
-  width: fit-content;
+  gap: 0.5rem;
   color: var(--neutral-on-background-strong);
+  font-size: 0.92rem;
+  font-weight: 760;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.28rem;
 }
 
-.categoryAction svg {
+.seoGatewayLink svg {
+  flex: 0 0 auto;
   width: 1rem;
   height: 1rem;
-}
-
-.seriesGrid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.85rem;
-}
-
-.seriesCard {
-  display: grid;
-  gap: 0.7rem;
-  min-height: 12rem;
-  padding: 1.05rem;
-  transition:
-    border-color var(--motion-fast),
-    box-shadow var(--motion-fast),
-    transform var(--motion-fast),
-    background var(--motion-fast);
-}
-
-.seriesCard strong {
-  max-width: 18rem;
-  font-size: 1.18rem;
-  font-weight: 760;
-}
-
-.seriesCard > span:not(.seriesProgress) {
-  max-width: 34rem;
-  color: var(--neutral-on-background-medium);
-  font-size: 0.93rem;
-  line-height: 1.52;
-}
-
-.seriesProgress {
-  display: grid;
-  gap: 0.45rem;
-  align-self: end;
-  width: 100%;
-}
-
-.seriesProgressHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  color: var(--neutral-on-background-strong);
-  font-size: 0.86rem;
-  font-weight: 700;
-}
-
-.seriesProgressHeader svg {
-  flex: 0 0 auto;
-  width: 0.95rem;
-  height: 0.95rem;
-}
-
-.seriesProgressBar {
-  display: flex;
-  gap: 0.22rem;
-  width: 100%;
-}
-
-.seriesProgressBar span {
-  flex: 1 1 0;
-  min-width: 0;
-  height: 0.42rem;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--neutral-on-background-strong) 10%, transparent);
-}
-
-.seriesProgressBar .seriesStepActive {
-  background: #ffd400;
 }
 
 .topicGrid {
@@ -469,26 +348,18 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .heroNav a:hover,
   .focusCard:hover,
-  .categoryCard:hover,
-  .seriesCard:hover,
   .topicCard:hover {
     border-color: color-mix(in srgb, #ffd400 56%, var(--line-subtle));
   }
 
   .focusCard:hover,
-  .categoryCard:hover,
-  .seriesCard:hover,
   .topicCard:hover {
     box-shadow: 0 12px 24px color-mix(in srgb, var(--neutral-on-background-strong) 7%, transparent);
     transform: translateY(-2px);
   }
 
-  .heroNav a:hover,
   .focusCard:hover strong,
-  .categoryCard:hover strong,
-  .seriesCard:hover strong,
   .topicCard:hover strong {
     color: var(--neutral-on-background-strong);
   }
@@ -496,19 +367,22 @@
 
 @media (max-width: breakpoints.$m) {
   .heroGrid,
-  .seriesGrid,
   .topicGrid {
     grid-template-columns: 1fr;
-  }
-
-  .categoryGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .heroIntro {
     min-height: 0;
   }
 
+  .seoGateway {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .seoGatewayLink {
+    grid-column: 2;
+    justify-self: start;
+  }
 }
 
 @media (max-width: breakpoints.$s) {
@@ -523,9 +397,7 @@
 
   .heroIntro,
   .focusCard,
-  .categoryCard,
   .statCard,
-  .seriesCard,
   .topicCard {
     border-radius: 0.82rem;
   }
@@ -542,20 +414,19 @@
     grid-template-columns: 1fr;
   }
 
-  .categoryGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .categoryCard {
-    min-height: 0;
-  }
-
   .topicCard {
     min-height: 0;
   }
 
-  .seriesCard {
-    min-height: 0;
+  .seoGateway {
+    grid-template-columns: 1fr;
   }
 
+  .seoGatewayMark {
+    width: 3.5rem;
+  }
+
+  .seoGatewayLink {
+    grid-column: 1;
+  }
 }

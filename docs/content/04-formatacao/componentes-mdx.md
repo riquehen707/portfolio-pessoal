@@ -2,11 +2,29 @@
 
 O catálogo técnico definitivo é [`mdx.tsx`](../../../src/components/mdx.tsx). Componentes removidos do mapeamento não podem ser reintroduzidos por documentação ou exemplo antigo.
 
+## Carregamento técnico
+
+Recursos visuais raros são mantidos fora da hidratação sempre que HTML, CSS e SVG nativos cumprem a mesma função. Somente comparadores e checklists, que precisam guardar estado no navegador, mantêm uma fronteira cliente. Os nomes usados no MDX não mudam e a renderização no servidor permanece ativa.
+
+Essa divisão é uma decisão de entrega, não uma autorização para esconder conteúdo indispensável em componentes interativos. Texto, contexto, fontes e conclusões devem continuar compreensíveis sem interação.
+
 ## Princípio de escolha
 
 Comece com Markdown. Use um componente somente quando ele comunicar uma função editorial distinta. Cada artigo pode usar no máximo quatro tipos de bloco editorial, além de imagens, resumo e próximos passos.
 
 ## Orientação
+
+### `ReadingWorkCard`
+
+Apresenta uma obra do acervo central por `workId`. Aceita `variant="compact"` ou `variant="editorial"` e um comentário opcional. Não passe título, autoria, capa, edição ou oferta manualmente no MDX; um ID inexistente interrompe a validação.
+
+```mdx
+<ReadingWorkCard workId="read_work_exemplo" variant="editorial" comment="Por que esta obra pertence à seleção." />
+```
+
+### `ProductCard`
+
+Resolve um produto pelo ID permanente e reutiliza imagem, variante, ficha e ofertas do acervo. Os campos editoriais são obrigatórios porque pertencem ao argumento daquela lista, não à entidade central: `whyIncluded`, `bestFor`, `mainDifference`, `tradeOff`, `sensiblePriceRange`, `avoidWhen` e `closestCompetitor`. O contrato completo está em [`product-recommendation.md`](../../editorial/templates/product-recommendation.md).
 
 ### `QuickSummary`
 
@@ -51,6 +69,7 @@ Não usar dois componentes para dizer a mesma coisa.
 - `Callout`: aviso contextual; variantes `info`, `warning`, `success`, `danger` e `neutral`.
 - `CommonMistake` ou `CommonMistakes`: erro recorrente e sua consequência.
 - `EditorialChecklist`: verificação executável.
+- `CompatibilityChecklist`: checklist interativo agrupado para conferir compatibilidade ou montagem; os rótulos permanecem legíveis sem interação e cada item pode ser marcado por teclado. No MDX, passe os grupos pelo atributo textual `data` em JSON, pois propriedades estruturadas não sobrevivem à pré-renderização atual.
 - `EditorialComparison`: contraste textual entre duas opções.
 - `EditorialTable`: dados estruturados; no mobile, até três colunas viram cards e tabelas maiores rolam horizontalmente.
 
@@ -84,18 +103,24 @@ Conjunto de imagens. Cada item aceita seus próprios créditos. Não usar quando
 
 Comparador visual por arraste, toque e teclado, com textos alternativos independentes. Preferir para revisão de interface, design, site ou conteúdo visual.
 
+### `VisualPrinciplesDemo`
+
+Demonstração estática em HTML e CSS para isolar variáveis de composição sem depender de imagens externas. Aceita `kind="hierarchy"`, `kind="alignment-proximity"` ou `kind="contrast"`, além de `title` e `caption`. Use somente para explicar um princípio visual; não funciona como construtor genérico de layout.
+
+### `AccessibleFormDemo`
+
+Exemplo estático e reutilizável de formulário semântico, construído com os tokens visuais do site. Demonstra rótulos persistentes, instrução associada, preenchimento automático, ordem de foco nativa e ação específica. Use para explicar fundamentos de formulários e acessibilidade; o botão não envia dados e o bloco não representa uma auditoria completa de conformidade.
+
 ### `SimpleBarChart` e `SimpleLineChart`
 
-Recebem dados no formato `{ label, value }`. Não escrever Recharts diretamente no MDX.
+Recebem dados no formato `{ label, value }`, serializados no atributo textual `values` em JSON. Não escrever Recharts diretamente no MDX.
+Os gráficos não carregam uma biblioteca de visualização e repetem rótulos e valores exatos em uma lista acessível. O HTML renderizado no servidor não depende de tooltip para comunicar os dados; um componente cliente pequeno preserva a passagem dos dados estruturados já usada pelos artigos.
 
 ```mdx
 <SimpleBarChart
   title="Contatos por canal"
   valueLabel="Contatos"
-  data={[
-    { label: "Google", value: 40 },
-    { label: "Instagram", value: 25 },
-  ]}
+  values='[{"label":"Google","value":40},{"label":"Instagram","value":25}]'
   source="Relatório interno"
   accessedAt="16 de julho de 2026"
 />
@@ -103,7 +128,7 @@ Recebem dados no formato `{ label, value }`. Não escrever Recharts diretamente 
 
 ### `MindMap`
 
-Reservado a casos didáticos em que relações espaciais forem essenciais. Evitar em artigos comuns e sempre verificar leitura em tela pequena.
+Reservado a casos didáticos em que relações espaciais forem essenciais. Aceita `title` e `description` para nome e alternativa textual. No MDX, passe nós e arestas pelo atributo textual `data` em JSON, no formato `{"nodes": [...], "edges": [...]}`. Em telas pequenas, preserva o tamanho dos rótulos e oferece rolagem horizontal com foco visível; ainda assim, o texto do artigo deve explicar a relação principal sem depender exclusivamente do diagrama.
 
 ## Continuidade e conversão
 

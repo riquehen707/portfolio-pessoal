@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Quatro caminhos abstratos partindo de uma mesa de jogo</title><desc id="desc">Composição geométrica original que representa miniaturas, livros, dados e jogos digitais sem reproduzir elementos de Warhammer.</desc>
+  <rect width="1600" height="900" fill="#171b1d"/><path d="M0 690 1600 470v430H0Z" fill="#242b2d"/><circle cx="292" cy="244" r="126" fill="#d2a94a"/><path d="M292 118v252M166 244h252" stroke="#171b1d" stroke-width="18"/>
+  <g fill="none" stroke="#e8e3d7" stroke-width="8"><path d="M590 680 720 244l130 436Z"/><rect x="944" y="255" width="205" height="302" rx="12"/><path d="m1264 680 90-308 90 308ZM521 680h997"/></g>
+  <g fill="#b7c9c6"><circle cx="536" cy="711" r="26"/><circle cx="744" cy="682" r="20"/><circle cx="1019" cy="625" r="30"/><circle cx="1355" cy="714" r="24"/></g>
+</svg>

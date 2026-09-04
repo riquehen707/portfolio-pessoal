@@ -1,7 +1,5 @@
 //src/components/mdx/Figure.tsx
 
-"use client";
-
 import { Column, Media, Text } from "@once-ui-system/core";
 
 import { MediaCredit, type MediaCreditProps } from "./MediaCredit";

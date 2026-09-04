@@ -1,6 +1,7 @@
 // src/components/mdx.tsx
 
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
+import dynamic from "next/dynamic";
 import React, { ReactNode } from "react";
 import type { MDXComponents } from "mdx/types";
 import { slugify as transliterate } from "transliteration";
@@ -29,8 +30,6 @@ import {
 import type { Language } from "@once-ui-system/core";
 
 // === seus componentes MDX (custom) ===
-import Figure from "@/components/mdx/Figure";
-import Gallery from "@/components/mdx/Gallery";
 import GlossTerm from "@/components/mdx/GlossTerm";
 import { Callout } from "@/components/mdx/Callout";
 import { Quote } from "@/components/mdx/Quote";
@@ -53,14 +52,36 @@ import {
   QuickSummary,
   RelatedArticles,
 } from "@/components/mdx/EditorialBlocks";
+import { KeyTakeaway } from "@/components/mdx/KeyTakeaway";
+import { NextSection } from "@/components/mdx/NextSection";
+import Figure from "@/components/mdx/Figure";
+import Gallery from "@/components/mdx/Gallery";
 import MindMap from "@/components/mdx/MindMap";
 import Reveal from "@/components/mdx/Reveal";
 import { SimpleBarChart, SimpleLineChart } from "@/components/mdx/SimpleCharts";
-import { BeforeAfter } from "@/components/mdx/BeforeAfter";
-import { KeyTakeaway } from "@/components/mdx/KeyTakeaway";
-import { NextSection } from "@/components/mdx/NextSection";
+import { VisualPrinciplesDemo } from "@/components/mdx/VisualPrinciplesDemo";
+import { AccessibleFormDemo } from "@/components/mdx/AccessibleFormDemo";
+import { MovieCard } from "@/components/movies/MovieCard";
+import { GameCard } from "@/components/games/GameCard";
+import { MovieAvailabilityIndex } from "@/components/movies/MovieAvailabilityIndex";
+import { MovieFilmography } from "@/components/movies/MovieFilmography";
+import { MovieRankingJsonLd } from "@/components/seo/MovieRankingJsonLd";
+import { ReadingWorkCard } from "@/components/reading/ReadingWorkCard";
+import { BookCard } from "@/components/reading/BookCard";
+import { MangaCard } from "@/components/reading/MangaCard";
+import { SeriesCard } from "@/components/series/SeriesCard";
+import { SeriesAvailabilityIndex } from "@/components/series/SeriesAvailabilityIndex";
+import { PersonCard, StudioCard } from "@/components/entities";
+import { ProductCard } from "@/components/products/ProductCard";
 
 import { baseURL } from "@/resources";
+
+// Somente os recursos que precisam guardar estado no navegador mantêm uma
+// fronteira client. O SSR permanece ativo para preservar HTML e acessibilidade.
+const BeforeAfter = dynamic(() =>
+  import("@/components/mdx/BeforeAfter").then((module) => module.BeforeAfter),
+);
+const CompatibilityChecklist = dynamic(() => import("@/components/mdx/CompatibilityChecklist"));
 
 /* ========================== Helpers ========================== */
 
@@ -242,6 +263,7 @@ function createCodeBlock(props: any) {
       <CodeBlock
         marginTop="16"
         marginBottom="24"
+        style={{ width: "100%", maxWidth: "100%", minWidth: 0 }}
         codes={[{ code: children, language: typedLanguage, label }]}
         copyButton
       />
@@ -330,7 +352,11 @@ function TableWrapper({ children }: { children: ReactNode }) {
   return (
     <div
       style={{
+        width: "100%",
+        maxWidth: "100%",
+        minWidth: 0,
         overflowX: "auto",
+        WebkitOverflowScrolling: "touch",
         margin: "20px 0 28px",
         borderTop: "1px solid var(--line-subtle)",
         borderBottom: "1px solid var(--line-subtle)",
@@ -339,7 +365,7 @@ function TableWrapper({ children }: { children: ReactNode }) {
         boxShadow: "none",
       }}
     >
-      <table style={{ width: "100%", borderCollapse: "collapse" }}>
+      <table style={{ width: "100%", minWidth: "max-content", borderCollapse: "collapse" }}>
         {children}
       </table>
     </div>
@@ -456,6 +482,22 @@ export const baseMDXComponents: MDXComponents = {
   BeforeAfter,
   KeyTakeaway,
   NextSection,
+  CompatibilityChecklist,
+  VisualPrinciplesDemo,
+  AccessibleFormDemo,
+  MovieCard,
+  GameCard,
+  MovieAvailabilityIndex,
+  SeriesCard,
+  SeriesAvailabilityIndex,
+  MovieFilmography,
+  MovieRankingJsonLd,
+  ReadingWorkCard,
+  BookCard,
+  MangaCard,
+  PersonCard,
+  StudioCard,
+  ProductCard,
 
   // shortcodes
   PillarBadge,
@@ -536,4 +578,7 @@ export {
   BeforeAfter,
   KeyTakeaway,
   NextSection,
+  CompatibilityChecklist,
+  VisualPrinciplesDemo,
+  AccessibleFormDemo,
 };

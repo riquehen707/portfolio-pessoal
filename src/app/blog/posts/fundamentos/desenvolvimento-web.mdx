@@ -1,0 +1,371 @@
+---
+title: "Desenvolvimento web: o que é, como funciona e como começar"
+slug: "desenvolvimento-web"
+publishedAt: "2026-08-06"
+summary: "Entenda como sites funcionam, as diferenças entre front-end e back-end e um caminho realista para começar no desenvolvimento web."
+description: "Entenda o que é desenvolvimento web, como sites funcionam, front-end, back-end, tecnologias essenciais e um roteiro prático para começar."
+image: "/api/og/generate?title=Desenvolvimento%20web&subtitle=o%20que%20%C3%A9%2C%20como%20funciona%20e%20como%20come%C3%A7ar"
+imageAlt: "Fluxo entre navegador, servidor, aplicação e dados em um projeto de desenvolvimento web"
+format: "Guia"
+category: "Tecnologia"
+categories: ["Tecnologia", "Design"]
+tags: ["Desenvolvimento web", "Front-end", "Back-end", "Programação"]
+kind: "study"
+featured: false
+featuredHome: false
+readingTime: 24
+toc: true
+tocDepth: 3
+area: "tecnologia"
+module: "fundamentos-web"
+node: "desenvolvimento-web"
+level: "iniciante"
+type: "guia"
+knowledgeStatus: "publicado"
+essential: true
+prerequisites: []
+unlocks: ["Guia prático: como trabalhar com criação de sites", "Como montar um portfólio de desenvolvimento web sem clientes"]
+related: ["Guia prático: como trabalhar com criação de sites", "Como montar um portfólio de desenvolvimento web sem clientes", "As melhores profissões digitais e como iniciar"]
+estimatedReadingTime: 24
+primaryKeyword: "desenvolvimento web"
+secondaryKeywords: ["o que é desenvolvimento web", "como funciona o desenvolvimento web", "como começar no desenvolvimento web", "front-end e back-end", "tecnologias para desenvolvimento web", "roadmap desenvolvimento web"]
+mapVisibility: "blog-only"
+status: "published"
+language: "pt-BR"
+faq:
+  - q: "O que é preciso para começar no desenvolvimento web?"
+    a: "Um computador capaz de executar navegador e editor de código, acesso à internet e disposição para praticar HTML, CSS e JavaScript ou uma linguagem de back-end. Comece publicando projetos pequenos."
+  - q: "Preciso saber matemática avançada?"
+    a: "Não para a maior parte dos sites. Lógica, proporção e leitura de dados são mais frequentes. Áreas específicas, como gráficos, jogos ou aprendizado de máquina, podem exigir matemática adicional."
+  - q: "Qual linguagem devo aprender primeiro?"
+    a: "Para interfaces, comece com HTML, CSS e JavaScript. Para back-end, escolha uma linguagem com boa documentação e oportunidades no contexto em que pretende atuar."
+  - q: "Preciso aprender front-end e back-end?"
+    a: "Não. Compreender a relação entre as camadas ajuda, mas você pode começar e se especializar em uma delas. Full-stack não é uma evolução obrigatória."
+  - q: "A inteligência artificial vai substituir desenvolvedores?"
+    a: "IA automatiza partes do trabalho, mas código ainda precisa ser compreendido, integrado, testado, protegido e mantido dentro de objetivos reais. Fundamentos tornam o uso da IA mais seguro e útil."
+  - q: "Quanto tempo leva para aprender desenvolvimento web?"
+    a: "Depende do objetivo, da prática e do conhecimento anterior. Aprender fundamentos, publicar uma página e alcançar autonomia profissional são marcos diferentes, sem prazo universal."
+references:
+  - title: "How the web works"
+    author: "MDN Web Docs"
+    url: "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works"
+  - title: "Learn web development"
+    author: "MDN Web Docs"
+    url: "https://developer.mozilla.org/en-US/docs/Learn_web_development"
+  - title: "Introduction to Web Accessibility"
+    author: "W3C Web Accessibility Initiative"
+    url: "https://www.w3.org/WAI/fundamentals/accessibility-intro/"
+  - title: "Learn web development"
+    author: "web.dev"
+    url: "https://web.dev/learn/"
+  - title: "Password Storage Cheat Sheet"
+    author: "OWASP Foundation"
+    url: "https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html"
+  - title: "Website Development: The Complete Guide"
+    author: "HubSpot"
+    url: "https://blog.hubspot.com/website/website-development"
+---
+
+Uma página institucional e uma rede social podem ser acessadas pelo mesmo navegador, mas são produtos com complexidades muito diferentes. A primeira talvez entregue alguns arquivos e receba um formulário. A segunda precisa coordenar contas, publicações, permissões, bancos de dados, moderação e milhões de interações.
+
+As duas pertencem ao desenvolvimento web. O campo não se resume a escrever código: envolve decidir o que precisa existir, para quem, como será usado, publicado, protegido, medido e mantido. Você não precisa aprender tudo ao mesmo tempo. Precisa entender as camadas e escolher uma primeira direção.
+
+<QuickSummary title="O essencial antes de começar" items={[
+  "Desenvolvimento web reúne planejamento, interface, programação, dados, testes, publicação e manutenção de produtos acessados pela web.",
+  "Front-end cuida da experiência no navegador; back-end processa regras e dados fora da interface; full-stack atravessa mais de uma camada.",
+  "HTML, CSS e JavaScript são os fundamentos do front-end. Frameworks vêm depois e não substituem essas tecnologias.",
+  "Nem todo projeto precisa de uma aplicação back-end própria ou de um banco de dados próprio.",
+  "O primeiro projeto deve ser pequeno, publicado e progressivamente ampliado.",
+  "Acessibilidade, segurança, desempenho e manutenção fazem parte do trabalho desde o início."
+]} />
+
+## O que é desenvolvimento web
+
+Desenvolvimento web é o conjunto de atividades necessárias para criar, publicar, operar e evoluir sites e aplicações acessadas por tecnologias da web. Conforme o projeto, isso inclui requisitos, arquitetura da informação, interface, programação, integração, testes, infraestrutura, segurança e manutenção.
+
+O termo é mais amplo que programação web. Programar é escrever e organizar instruções executáveis. Desenvolver também envolve descobrir o problema, escolher uma abordagem, trabalhar com conteúdo, revisar riscos e manter o resultado depois da publicação.
+
+<EditorialTable
+  columns={["Atividade", "Foco principal", "Onde pode se sobrepor"]}
+  rows={[
+    ["Desenvolvimento web", "Funcionamento completo do site ou aplicação", "Programação, conteúdo, infraestrutura, testes e produto"],
+    ["Programação web", "Implementação de lógica e comportamento em código", "Front-end, back-end, automação e integrações"],
+    ["Web design", "Estrutura visual, interface e experiência de uso", "Arquitetura da informação, conteúdo, acessibilidade e front-end"],
+    ["CMS", "Gestão estruturada de conteúdo por uma interface", "Temas, extensões, desenvolvimento personalizado e operação editorial"],
+    ["Construtor visual", "Composição de páginas com pouca ou nenhuma edição direta de código", "Design, CMS, integrações e publicação"]
+  ]}
+/>
+
+CMS e construtor visual não são sinônimos. Um CMS organiza criação, armazenamento e publicação de conteúdo; um construtor oferece uma interface de composição. Uma plataforma pode reunir as duas funções. Em projetos pequenos, a mesma pessoa também pode projetar, implementar e publicar — os papéis continuam diferentes mesmo quando se sobrepõem.
+
+## Como um site chega ao navegador
+
+Quando alguém abre um endereço, várias partes cooperam em poucos instantes:
+
+1. O navegador recebe um domínio por um link ou pela barra de endereço.
+2. O sistema DNS ajuda a encontrar o serviço associado ao domínio.
+3. O navegador envia uma requisição usando HTTP, normalmente protegida por HTTPS.
+4. Um servidor, uma rede de distribuição ou uma plataforma responde com recursos.
+5. O navegador interpreta HTML, CSS, JavaScript, fontes e imagens para apresentar a página.
+6. Em produtos dinâmicos, novas requisições consultam APIs, aplicações, bancos de dados ou serviços externos.
+
+```text
+Pessoa
+  ↓
+Navegador → DNS → hospedagem ou servidor → aplicação
+                                      ↘ banco de dados
+                                      ↘ serviços externos
+```
+
+Esse é um mapa didático, não uma arquitetura obrigatória. Uma rede de distribuição pode responder antes do servidor; uma aplicação pode ser gerada durante o build, no servidor ou no navegador; funções distribuídas podem substituir um servidor permanente.
+
+### As peças essenciais
+
+- **Navegador ou cliente:** solicita recursos, interpreta padrões da web e recebe interações.
+- **Domínio:** nome legível usado para acessar o produto.
+- **DNS:** sistema que relaciona nomes a serviços e endereços necessários para a conexão.
+- **Hospedagem:** infraestrutura que armazena ou executa o produto e entrega respostas.
+- **HTTP e HTTPS:** protocolos de comunicação; HTTPS adiciona autenticação e criptografia em trânsito.
+- **Arquivo estático:** recurso entregue sem precisar ser montado novamente para cada acesso.
+- **Banco de dados:** sistema para persistir, consultar e atualizar dados estruturados ou não estruturados.
+- **API:** contrato de comunicação entre componentes ou sistemas. Ela pode acessar um banco, outro serviço ou executar lógica, mas não é apenas uma “ponte para banco de dados”.
+
+## Front-end, back-end e full-stack
+
+<EditorialTable
+  columns={["Área", "Responsabilidade", "Atividades e tecnologias", "O que o usuário percebe"]}
+  rows={[
+    ["Front-end", "Interface executada ou apresentada no navegador", "HTML, CSS, JavaScript; responsividade, estados, acessibilidade e desempenho", "Conteúdo, navegação, formulários, feedback e interação"],
+    ["Back-end", "Regras, dados, autenticação e integrações fora da interface", "Node.js, Python, PHP, Java, C#, Go ou Ruby; APIs, filas e bancos", "Resultados, contas, permissões, dados persistidos e confiabilidade"],
+    ["Full-stack", "Trabalho em mais de uma camada", "Combinação delimitada de interface, servidor, dados e implantação", "Fluxos completos, sem implicar domínio de todas as tecnologias"]
+  ]}
+/>
+
+### Front-end
+
+HTML descreve estrutura e significado do conteúdo. CSS controla apresentação e layout. JavaScript adiciona comportamento e comunicação. React, Vue, Angular e Svelte são exemplos de ferramentas construídas sobre esses fundamentos, não requisitos para a primeira página.
+
+Um front-end bom não é somente fiel a uma imagem. Precisa funcionar com teclado e tecnologias assistivas, adaptar-se a diferentes telas, carregar de modo responsável, comunicar estados e permanecer compreensível em navegadores compatíveis.
+
+### Back-end
+
+O back-end recebe requisições, valida dados, aplica regras de negócio, verifica permissões, conversa com bancos e integra serviços. Pode executar num servidor duradouro, numa função sob demanda ou numa infraestrutura distribuída.
+
+JavaScript ou TypeScript com Node.js, Python, PHP, Java, C#, Go e Ruby são caminhos possíveis. A escolha depende de requisitos, ecossistema, equipe, infraestrutura e contexto profissional. Não existe linguagem melhor para todo projeto.
+
+Autenticação responde quem é a pessoa ou serviço; autorização responde o que pode fazer. As duas precisam de validação, sessões ou credenciais bem administradas e tratamento cuidadoso de erros.
+
+### Full-stack e outras especializações
+
+Full-stack significa atravessar camadas dentro de um escopo. Não significa dominar profundamente todas as bibliotecas, bancos, nuvens e práticas. Especializar-se em front-end ou back-end não é uma etapa incompleta.
+
+O campo também inclui CMS, comércio eletrônico, acessibilidade, desempenho, DevOps, qualidade e segurança. Desenvolvimento de jogos, sistemas embarcados e aplicativos nativos são áreas diferentes ou adjacentes; React Native e Flutter, por exemplo, são associados principalmente a aplicações multiplataforma e não substituem os fundamentos do navegador.
+
+## Todo site precisa de back-end?
+
+Todo site depende de alguma infraestrutura para ser entregue, mas nem todo site precisa de uma aplicação back-end própria.
+
+<EditorialTable
+  columns={["Tipo", "Como funciona", "Exemplo"]}
+  rows={[
+    ["Site estático", "Arquivos são gerados antecipadamente e entregues por hospedagem ou CDN", "Portfólio, documentação ou página institucional"],
+    ["Site com CMS", "Conteúdo é administrado num sistema e publicado por páginas geradas ou respostas dinâmicas", "Blog, portal editorial ou catálogo"],
+    ["Aplicação dinâmica", "Servidor processa regras e dados conforme requisições", "Sistema com contas, permissões e área autenticada"],
+    ["Serviços externos", "Formulário, pagamento, busca ou autenticação são fornecidos por terceiros", "Landing page com formulário gerenciado"],
+    ["Funções serverless", "Código de back-end é executado sob demanda pela plataforma", "Webhook, endpoint de formulário ou geração de documento"]
+  ]}
+/>
+
+Uma loja precisa administrar produtos, estoque, pedidos e pagamentos, mas pode fazer isso numa plataforma pronta. Um blog pode usar CMS sem manter banco próprio. Uma aplicação com contas exige persistência e segurança adicionais, mesmo quando autenticação e dados são terceirizados.
+
+<DecisionPoints
+  title="CMS, construtor ou desenvolvimento personalizado?"
+  items={[
+    { title: "CMS", description: "Faz sentido quando conteúdo será atualizado com frequência e precisa de fluxo editorial, usuários ou estrutura reutilizável." },
+    { title: "Construtor visual", description: "Ajuda quando velocidade, autonomia visual e escopo previsível importam mais que controle técnico profundo." },
+    { title: "Desenvolvimento personalizado", description: "Ganha valor quando regras, integrações, desempenho ou experiência não cabem bem nas restrições de uma plataforma." },
+    { title: "Combinação", description: "Um front-end personalizado pode consumir um CMS e serviços externos. A decisão não precisa ser exclusiva." }
+  ]}
+/>
+
+## Como um site é desenvolvido
+
+O processo costuma avançar por estas decisões:
+
+1. **Definir o objetivo:** qual problema o site resolve e como o resultado será observado.
+2. **Entender o público:** quem usará, em qual contexto e o que precisa conseguir fazer.
+3. **Levantar requisitos e limites:** conteúdo, funcionalidades, prazo, orçamento, privacidade e integrações.
+4. **Planejar conteúdo:** mensagens, páginas, responsáveis e rotina de atualização.
+5. **Organizar a informação:** mapa do site, navegação, hierarquia e caminhos principais.
+6. **Criar wireframes e protótipos:** testar estrutura antes de investir no acabamento.
+7. **Escolher abordagem e tecnologias:** usar a solução menos complexa que sustenta os requisitos.
+8. **Implementar interface e funcionalidades:** trabalhar em partes verificáveis.
+9. **Integrar dados e serviços:** apenas quando o produto realmente precisa deles.
+10. **Testar:** comportamento, conteúdo, dispositivos, navegadores e riscos.
+11. **Publicar:** configurar domínio, HTTPS, ambiente e mecanismos de reversão.
+12. **Monitorar e manter:** corrigir falhas, atualizar dependências e melhorar com evidências.
+
+O fluxo não é perfeitamente linear. Um teste de conteúdo pode alterar o mapa; uma restrição técnica pode simplificar uma função; o uso real pode revelar uma necessidade que o protótipo não mostrou.
+
+### O que conferir antes de publicar
+
+- funções e fluxos principais;
+- telas pequenas e grandes;
+- navegadores definidos no suporte;
+- navegação por teclado e semântica;
+- contraste, rótulos e alternativas textuais;
+- velocidade e estabilidade visual;
+- formulários, validações e mensagens de erro;
+- links, títulos, metadados e indexação;
+- consentimento, privacidade e retenção de dados;
+- autenticação, autorização, dependências e tratamento de segredos;
+- observabilidade, backup e plano de correção.
+
+Acessibilidade e segurança não são acabamentos adicionados no final. Decisões de estrutura, dados, autenticação e componentes tomadas no início determinam grande parte do resultado.
+
+## O que aprender primeiro
+
+Antes de uma especialização, construa uma base comum: como requisições funcionam, organização de arquivos, terminal introdutório, Git, leitura de documentação, depuração e noções de acessibilidade e segurança.
+
+### Caminho inicial de front-end
+
+1. HTML semântico.
+2. CSS, modelo de caixa e cascata.
+3. Flexbox, Grid e layouts responsivos.
+4. JavaScript: tipos, funções, condições, coleções e módulos.
+5. DOM, eventos e formulários.
+6. Requisições assíncronas e consumo de APIs.
+7. Git e histórico de alterações.
+8. Publicação de projetos estáticos.
+9. Framework apenas quando o projeto mostrar por que ele ajuda.
+
+### Caminho inicial de back-end
+
+1. Lógica de programação numa linguagem.
+2. Estruturas de dados e organização de código.
+3. HTTP, requisições, respostas e status.
+4. Rotas e APIs.
+5. Bancos relacionais e SQL.
+6. Autenticação e autorização.
+7. Validação de entrada e tratamento de erros.
+8. Testes automatizados.
+9. Segurança de aplicação.
+10. Implantação, logs e monitoramento.
+
+Você não precisa seguir os dois caminhos ao mesmo tempo. Um front-end precisa compreender contratos de APIs; um back-end precisa conhecer as limitações do cliente. Compreensão mútua não exige dupla especialização.
+
+<CommonMistakes title="Atalhos que costumam atrasar o aprendizado" items={[
+  "Começar por um framework sem entender HTML, CSS e JavaScript.",
+  "Copiar projetos inteiros sem conseguir explicar decisões ou corrigir erros.",
+  "Estudar várias linguagens ao mesmo tempo e não publicar nada.",
+  "Tratar acessibilidade e segurança como assuntos para depois.",
+  "Instalar dependências para problemas que a plataforma já resolve.",
+  "Guardar senhas com MD5 ou SHA simples em vez de seguir orientações atuais de armazenamento.",
+  "Confundir conclusão de curso com autonomia para manter um produto real."
+]} />
+
+## Escolha o ponto de partida pelo objetivo
+
+<EditorialTable
+  columns={["Objetivo", "Ponto de partida", "Próximo projeto"]}
+  rows={[
+    ["Criar páginas visuais", "HTML, CSS e JavaScript", "Página responsiva com navegação e formulário"],
+    ["Trabalhar com interfaces", "Front-end e fundamentos de design", "Interface acessível consumindo uma API"],
+    ["Construir sistemas e APIs", "Lógica, linguagem back-end, HTTP e SQL", "API pequena com validação e testes"],
+    ["Criar sites para pequenos negócios", "Fundamentos web, CMS ou stack simples, SEO e manutenção", "Site editável com formulário e métricas essenciais"],
+    ["Trabalhar com lojas", "Plataforma de e-commerce, integrações, pagamentos e segurança", "Catálogo de teste sem processar dados reais"],
+    ["Entender projetos sem programar", "Processo, arquitetura, front-end, back-end e requisitos", "Especificação e protótipo acompanhados de critérios de aceite"]
+  ]}
+/>
+
+CMS, no-code e ferramentas com IA podem ser escolhas adequadas. O critério é compatibilidade com requisitos, manutenção, custo, portabilidade e autonomia — não a quantidade de código escrito.
+
+## Um primeiro projeto que pode crescer
+
+Crie uma página pessoal ou um portfólio responsivo. Ela é pequena o bastante para terminar e ampla o bastante para praticar:
+
+- estrutura semântica e navegação;
+- tipografia e imagens;
+- Flexbox ou Grid;
+- adaptação para telas pequenas;
+- foco visível e uso por teclado;
+- uma interação ou formulário simples;
+- Git e histórico de mudanças;
+- publicação num endereço acessível.
+
+Evolua somente depois de publicar:
+
+1. entregue a versão estática;
+2. acrescente uma interação em JavaScript;
+3. consuma uma API pública adequada;
+4. conecte um formulário a um serviço;
+5. migre para um framework apenas se estados, componentes ou rotas justificarem.
+
+Registre o que funcionou, o que você decidiu e o que faria diferente. Esse material pode depois formar [um portfólio de desenvolvimento web sem clientes](/blog/como-montar-um-portfolio-de-desenvolvimento-web-sem-clientes).
+
+## Ferramentas essenciais sem coleção infinita
+
+Você precisa de categorias, não de marcas obrigatórias:
+
+- **Editor de código:** VS Code ou alternativa com suporte às linguagens escolhidas.
+- **Navegador e DevTools:** inspeção de elementos, rede, acessibilidade e desempenho.
+- **Git:** histórico, comparação e colaboração.
+- **Repositório remoto:** GitHub, GitLab, Codeberg ou serviço equivalente.
+- **Prototipação:** Figma, Penpot ou papel, conforme a fidelidade necessária.
+- **Terminal:** execução de ferramentas e entendimento básico do ambiente.
+- **Cliente de API:** DevTools, linha de comando, Postman, Bruno ou Insomnia.
+- **Publicação:** Vercel, Netlify, Cloudflare Pages, hospedagem tradicional ou nuvem.
+- **Documentação:** fonte oficial da plataforma e dos padrões usados.
+
+A melhor ferramenta é a que resolve a tarefa sem esconder um conhecimento necessário para testar e manter o projeto.
+
+## Onde estudar
+
+A [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn_web_development) oferece uma trilha estruturada sobre fundamentos do navegador. O material é predominantemente em inglês, embora partes possuam tradução. A explicação da MDN sobre [como a web funciona](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works) sustenta o modelo inicial de cliente, DNS, HTTP e servidor.
+
+O [web.dev](https://web.dev/learn/) reúne cursos abertos sobre HTML, CSS, JavaScript, acessibilidade, desempenho e testes. A [W3C Web Accessibility Initiative](https://www.w3.org/WAI/fundamentals/accessibility-intro/) explica acessibilidade como condição para que pessoas com diferentes capacidades percebam, compreendam, naveguem e contribuam na web.
+
+Para prática mais guiada, freeCodeCamp e The Odin Project oferecem currículos abertos, majoritariamente em inglês. Consulte a documentação oficial sempre que uma aula resumir um comportamento. Para segurança, use os guias da OWASP; sua orientação de [armazenamento de senhas](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html), por exemplo, prioriza funções próprias para senhas como Argon2id, scrypt e bcrypt conforme o contexto — não MD5 ou SHA simples.
+
+## Como usar inteligência artificial sem terceirizar a compreensão
+
+IA pode explicar um trecho, sugerir um rascunho, localizar uma hipótese de erro, gerar casos de teste e ajudar a navegar documentação. Isso reduz trabalho repetitivo e pode acelerar experimentos.
+
+Também pode inventar métodos que não existem, misturar versões, gerar vulnerabilidades, instalar dependências dispensáveis e entregar código que parece plausível sem funcionar nos casos importantes.
+
+Use-a dentro de um ciclo verificável:
+
+1. descreva o requisito e as restrições;
+2. peça uma solução pequena;
+3. leia cada mudança;
+4. confronte APIs e comportamentos com a documentação;
+5. execute testes e verifique acessibilidade e segurança;
+6. mantenha somente o que consegue explicar e corrigir.
+
+Fundamentos não competem com IA. Eles permitem avaliar sua saída.
+
+## Desenvolvimento web ainda vale a pena?
+
+Sites e aplicações continuam sustentando conteúdo, comércio, trabalho, serviços públicos e comunicação. O que muda é o tipo de contribuição valorizada. Reproduzir um tutorial ou montar uma página básica tende a ser mais fácil de automatizar e mais difícil de diferenciar profissionalmente.
+
+Fundamentos, resolução de problemas, comunicação, documentação, testes, acessibilidade e manutenção continuam transferíveis entre ferramentas. Projetos reais mostram mais que uma lista de cursos porque revelam decisões, limites e capacidade de terminar.
+
+Isso não promete emprego rápido. Criar uma página simples, alcançar autonomia para um projeto e trabalhar profissionalmente são níveis diferentes. O [guia sobre criação de sites](/blog/guia-pratico-como-trabalhar-com-criacao-de-sites) aprofunda caminhos de atuação, riscos e formatos de trabalho.
+
+## O próximo passo é publicar algo pequeno
+
+Desenvolvimento web é amplo porque produtos combinam objetivos, conteúdo, interface, código, infraestrutura e operação. O início fica administrável quando você transforma amplitude em sequência:
+
+1. entenda a requisição básica da web;
+2. escolha front-end, back-end ou uma abordagem orientada a CMS;
+3. aprenda os fundamentos daquela direção;
+4. crie e publique um projeto pequeno;
+5. adicione complexidade apenas quando o próximo requisito pedir.
+
+Depois do primeiro projeto, você pode preparar [um portfólio técnico honesto](/blog/como-montar-um-portfolio-de-desenvolvimento-web-sem-clientes) ou estudar [como comunicar o trabalho sendo web designer ou desenvolvedor](/blog/o-que-publicar-sendo-web-designer-ou-desenvolvedor-freelancer).
+
+<NextSteps title="Seu primeiro ciclo de prática">
+
+Escreva em uma frase o objetivo da página, desenhe três seções, implemente-as com HTML e CSS, acrescente apenas uma interação em JavaScript e publique. Teste no celular, navegue com teclado e peça para outra pessoa realizar a ação principal. Use os problemas encontrados para escolher o próximo assunto de estudo.
+
+</NextSteps>

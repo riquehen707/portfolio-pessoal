@@ -2,114 +2,84 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-import type { GlobalSearchItem } from "@/lib/globalSearch";
 import { blog, person } from "@/resources";
 
 import { GlobalSearch } from "./GlobalSearch";
 import styles from "./Header.module.scss";
 
-const navItems = [
-  { href: "/blog/categorias/criar", label: "Criar", key: "criar" as const },
-  { href: "/blog/categorias/vender", label: "Vender", key: "vender" as const },
-  { href: "/blog/categorias/estudar", label: "Estudar", key: "estudar" as const },
-  { href: "/blog/categorias/ferramentas", label: "Ferramentas", key: "ferramentas" as const },
-  { href: "/about", label: "Sobre", key: "about" as const },
+const primaryContentLinks = [
+  { href: "/blog", label: "Artigos" },
+  { href: "/ideias", label: "Ideias" },
 ] as const;
 
-type HeaderProps = {
-  searchItems: GlobalSearchItem[];
-};
+const collectionLinks = [
+  { href: "/jogos", label: "Jogos", collection: true },
+  { href: "/filmes", label: "Filmes", collection: true },
+  { href: "/series", label: "Séries", collection: true },
+  { href: "/livros", label: "Livros", collection: true },
+  { href: "/quadrinhos", label: "Quadrinhos e mangás", collection: true },
+  { href: "/personalidades", label: "Personalidades", collection: true },
+  { href: "/estudios", label: "Estúdios", collection: true },
+] as const;
 
-function normalize(value: string) {
-  return value
-    .normalize("NFD")
-    .replace(/\p{Diacritic}/gu, "")
-    .toLowerCase();
+const toolsLink = { href: "/servicos/produtos", label: "Ferramentas" } as const;
+
+const henriqueLinks = [
+  { href: "/work", label: "Portfólio" },
+  { href: "/servicos", label: "Serviços", exact: true },
+  { href: "/about", label: "Sobre mim" },
+] as const;
+
+type MenuLink = (typeof primaryContentLinks)[number] | (typeof collectionLinks)[number] | typeof toolsLink | (typeof henriqueLinks)[number];
+
+function isCurrentPath(pathname: string, item: MenuLink) {
+  if ("exact" in item && item.exact) return pathname === item.href;
+  return pathname === item.href || pathname.startsWith(`${item.href}/`);
 }
 
-export function Header({ searchItems }: HeaderProps) {
+export function Header() {
   const pathname = usePathname() ?? "";
   const [menuOpen, setMenuOpen] = useState(false);
-  const currentSearchItem = searchItems.find((item) => item.href === pathname);
-  const currentKeywords = normalize(currentSearchItem?.keywords.join(" ") ?? "");
-  const currentTitle = normalize(currentSearchItem?.title ?? "");
+  const headerRef = useRef<HTMLElement>(null);
 
-  const getArticleCategory = (): (typeof navItems)[number]["key"] | undefined => {
-    if (!pathname.startsWith(`${blog.path}/`) || pathname.startsWith(`${blog.path}/categorias`)) {
-      return undefined;
-    }
+  useEffect(() => setMenuOpen(false), [pathname]);
 
-    if (
-      currentKeywords.includes("fundamentos") ||
-      currentKeywords.includes("guia") ||
-      currentTitle.includes("termos")
-    ) {
-      return "estudar";
-    }
+  useEffect(() => {
+    if (!menuOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        headerRef.current?.querySelector<HTMLButtonElement>("[aria-controls='main-navigation']")?.focus();
+      }
+    };
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [menuOpen]);
 
-    if (currentKeywords.includes("design") || currentKeywords.includes("conteudo")) {
-      return "criar";
-    }
-
-    if (
-      currentKeywords.includes("tecnologia") ||
-      currentKeywords.includes("operacao") ||
-      currentKeywords.includes("google") ||
-      currentKeywords.includes("instagram") ||
-      currentKeywords.includes("whatsapp")
-    ) {
-      return "ferramentas";
-    }
-
-    if (
-      currentKeywords.includes("marketing") ||
-      currentKeywords.includes("growth") ||
-      currentKeywords.includes("conversao") ||
-      currentKeywords.includes("negocios locais") ||
-      currentKeywords.includes("clientes")
-    ) {
-      return "vender";
-    }
-
-    return undefined;
-  };
-  const articleCategory = getArticleCategory();
-
-  const getIsActive = (item: (typeof navItems)[number]) => {
-    if (item.key === "about") return pathname.startsWith(item.href);
-    return pathname.startsWith(item.href) || articleCategory === item.key;
-  };
+  const renderLink = (item: MenuLink) => (
+    <Link
+      aria-current={isCurrentPath(pathname, item) ? "page" : undefined}
+      className={styles.menuLink}
+      data-active={isCurrentPath(pathname, item)}
+      href={item.href}
+      key={item.href}
+      onClick={() => setMenuOpen(false)}
+    >
+      {item.label}
+    </Link>
+  );
 
   return (
-    <header className={styles.position}>
-      <Link className={styles.brand} href={blog.path}>
+    <header className={styles.position} ref={headerRef}>
+      <Link className={styles.brand} href={blog.path} onClick={() => setMenuOpen(false)}>
         <span className={styles.brandMark} aria-hidden="true" />
         <span className={styles.brandText}>{person.name}</span>
       </Link>
 
-      <nav
-        className={styles.navShell}
-        data-open={menuOpen}
-        id="main-navigation"
-        aria-label="Menu principal"
-      >
-        {navItems.map((item) => (
-          <Link
-            className={styles.navButton}
-            data-active={getIsActive(item)}
-            href={item.href}
-            key={item.href}
-            onClick={() => setMenuOpen(false)}
-          >
-            {item.label}
-          </Link>
-        ))}
-      </nav>
-
       <div className={styles.actions}>
-        <GlobalSearch items={searchItems} />
+        <GlobalSearch />
         <button
           className={styles.menuButton}
           type="button"
@@ -117,9 +87,28 @@ export function Header({ searchItems }: HeaderProps) {
           aria-controls="main-navigation"
           onClick={() => setMenuOpen((current) => !current)}
         >
-          Menu
+          {menuOpen ? "Fechar" : "Menu"}
         </button>
       </div>
+
+      <nav
+        className={styles.navShell}
+        data-open={menuOpen}
+        id="main-navigation"
+        aria-label="Menu principal"
+      >
+        <section className={styles.menuGroup} aria-labelledby="menu-content-title">
+          <h2 id="menu-content-title">Conteúdo</h2>
+          <div className={styles.primaryLinks}>{primaryContentLinks.map(renderLink)}</div>
+          <p className={styles.subgroupLabel}>Acervos</p>
+          <div className={styles.collectionLinks}>{collectionLinks.map(renderLink)}</div>
+          <div className={styles.primaryLinks}>{renderLink(toolsLink)}</div>
+        </section>
+        <section className={styles.menuGroup} aria-labelledby="menu-henrique-title">
+          <h2 id="menu-henrique-title">Henrique</h2>
+          <div className={styles.primaryLinks}>{henriqueLinks.map(renderLink)}</div>
+        </section>
+      </nav>
     </header>
   );
 }

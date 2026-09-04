@@ -14,9 +14,8 @@ export function Footer() {
           © {currentYear} {person.name}
         </span>
         <nav className={styles.links} aria-label="Links do rodapé">
-          <Link href="/#linha-do-tempo">Linha</Link>
+          <Link href="/">Início</Link>
           <Link href="/blog">Textos</Link>
-          <Link href="/blog/temas">Temas</Link>
           <Link href="/#repertorio">Repertório</Link>
           <Link href="/rss.xml">RSS</Link>
         </nav>

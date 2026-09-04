@@ -1,0 +1,37 @@
+@use "../../styles/mixins" as mixins;
+
+.page { width:min(calc(100% - 2rem),1080px); margin:0 auto; padding:clamp(4rem,8vw,7rem) 0 6rem; }
+.hero { display:grid; grid-template-columns:minmax(0,1.45fr) minmax(14rem,.55fr); gap:clamp(2rem,6vw,5rem); align-items:end; padding-bottom:clamp(2.5rem,6vw,5rem); border-bottom:1px solid var(--line-subtle); }
+.kicker { display:block; margin-bottom:1rem; color:var(--neutral-on-background-weak); font-family:var(--font-technical); font-size:.68rem; letter-spacing:.06em; text-transform:uppercase; }
+.hero h1 { max-width:15ch; margin:0; font-size:clamp(2.75rem,7vw,6.4rem); line-height:.9; letter-spacing:-.045em; }
+.hero p { max-width:62ch; margin:1.4rem 0 0; color:var(--neutral-on-background-medium); font-size:clamp(1.05rem,2vw,1.3rem); line-height:1.55; }
+.heroNote { padding:1.15rem 0; border-block:1px solid var(--line-subtle); color:var(--neutral-on-background-medium); }
+.heroNote strong { display:block; margin-bottom:.5rem; color:var(--neutral-on-background-strong); font-family:var(--font-technical); font-size:.72rem; letter-spacing:.04em; text-transform:uppercase; }
+.section { padding-top:clamp(2.75rem,6vw,5rem); }
+.sectionHeader { display:grid; grid-template-columns:minmax(0,.65fr) minmax(0,1fr); gap:2rem; align-items:end; margin-bottom:1.5rem; }
+.sectionHeader h2 { margin:0; font-size:clamp(1.8rem,4vw,3.25rem); line-height:1; }
+.sectionHeader p { margin:0; color:var(--neutral-on-background-medium); line-height:1.6; }
+.detailHero { max-width:880px; padding-bottom:2.4rem; border-bottom:1px solid var(--line-subtle); }
+.back { display:inline-block; margin-bottom:2rem; color:var(--neutral-on-background-medium); text-decoration:none; }
+.detailHero h1 { max-width:13ch; margin:0; font-size:clamp(2.65rem,7vw,5.9rem); line-height:.94; letter-spacing:-.04em; }
+.lead { max-width:68ch; margin:1.25rem 0 0; color:var(--neutral-on-background-medium); font-size:clamp(1.1rem,2vw,1.35rem); line-height:1.6; }
+.metadata { display:flex; flex-wrap:wrap; gap:.55rem 1.2rem; margin-top:1.5rem; color:var(--neutral-on-background-weak); font-family:var(--font-technical); font-size:.66rem; letter-spacing:.035em; text-transform:uppercase; }
+.metadata span { display:inline-flex; align-items:center; gap:.38rem; }
+.metadata .status::before { width:.42rem; height:.42rem; border-radius:50%; background:#ffd400; content:""; }
+.article { display:grid; grid-template-columns:minmax(12rem,.35fr) minmax(0,1fr); gap:clamp(2rem,7vw,6rem); padding-top:3rem; }
+.articleNav { position:sticky; top:6.5rem; align-self:start; display:grid; gap:.55rem; padding-top:.25rem; }
+.articleNav a { color:var(--neutral-on-background-weak); font-size:.88rem; text-decoration:none; }
+.content { min-width:0; }
+.content section { padding:0 0 3rem; scroll-margin-top:7rem; }
+.content h2 { margin:0 0 1rem; font-size:clamp(1.65rem,3vw,2.5rem); }
+.content p,.content li { color:var(--neutral-on-background-medium); font-size:1.06rem; line-height:1.75; }
+.content ul { padding-left:1.2rem; }
+.content .flexibleSection[data-tone="hypothesis"],.content .flexibleSection[data-tone="goal"] { margin-bottom:3rem; padding:clamp(1rem,3vw,1.5rem); border-left:3px solid var(--neutral-on-background-strong); background:color-mix(in srgb,var(--surface-panel-soft) 68%,transparent); }
+.flexibleSection[data-tone="hypothesis"]::before,.flexibleSection[data-tone="goal"]::before { display:block; margin-bottom:.75rem; color:var(--neutral-on-background-weak); font-family:var(--font-technical); font-size:.65rem; letter-spacing:.06em; text-transform:uppercase; }
+.flexibleSection[data-tone="hypothesis"]::before { content:"Hipótese em avaliação"; }
+.flexibleSection[data-tone="goal"]::before { content:"Meta, não projeção"; }
+.relatedLinks { display:grid; gap:.6rem; padding:0; list-style:none; }
+.relatedLinks a { color:var(--neutral-on-background-strong); }
+
+@include mixins.hover-fine { .back:hover,.articleNav a:hover { color:var(--neutral-on-background-strong); text-decoration:underline; text-underline-offset:.22em; } }
+@include mixins.s { .page { width:min(calc(100% - 1.25rem),720px); padding-top:3rem; } .hero,.sectionHeader,.article { grid-template-columns:1fr; } .hero { align-items:start; } .hero h1,.detailHero h1 { max-width:none; } .articleNav { position:static; grid-template-columns:repeat(2,minmax(0,1fr)); padding-bottom:1.5rem; border-bottom:1px solid var(--line-subtle); } }

@@ -2,18 +2,18 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { HiOutlineBookOpen, HiOutlineClock, HiOutlineTag } from "react-icons/hi2";
+import { HiOutlineBookOpen, HiOutlineClock } from "react-icons/hi2";
 
-import { Column, Heading, Meta, Schema, SmartLink, Text } from "@once-ui-system/core";
+import { Column, Heading, Meta, SmartLink, Text } from "@once-ui-system/core";
 
-import { getBlogCollectionLabel, getBlogCollectionSlug } from "@/app/blog/postData";
 import { CustomMDX, ScrollToHash } from "@/components";
 import { ArticleTools } from "@/components/blog/ArticleTools";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
-import { baseURL, blog, person } from "@/resources";
+import { baseURL, blog, person, social } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
-import { type BlogFile, getPosts } from "@/utils/utils";
+import { getAllArticles, getArticleBySlug, type BlogFile } from "@/data/articles";
+import { creators } from "@/content/creators/creators";
 
 import styles from "./page.module.scss";
 
@@ -58,7 +58,8 @@ function getRelatedScore(current: BlogFile, candidate: BlogFile) {
   const candidateCategories = candidate.metadata.categories ?? [];
   const candidateTags = candidate.metadata.tags ?? [];
 
-  const collectionScore = current.collection && candidate.collection === current.collection ? 16 : 0;
+  const collectionScore =
+    current.collection && candidate.collection === current.collection ? 16 : 0;
   const categoryScore =
     candidateCategories.filter((category) => currentCategories.has(category)).length * 5;
   const tagScore = candidateTags.filter((tag) => currentTags.has(tag)).length * 3;
@@ -96,7 +97,7 @@ function uniqueContinuations(cards: Array<ContinuationCard | null>) {
 }
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const posts = getPosts(["src", "app", "blog", "posts"]);
+  const posts = getAllArticles();
   return posts.map((post) => ({
     slug: post.slug,
   }));
@@ -106,8 +107,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const slugPath = normalizeSlug(slug);
 
-  const posts = getPosts(["src", "app", "blog", "posts"]);
-  const post = posts.find((item) => item.slug === slugPath);
+  const post = getArticleBySlug(slugPath);
 
   if (!post) return {};
 
@@ -128,9 +128,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     ...generatedMeta,
+    alternates: {
+      ...generatedMeta.alternates,
+      canonical: post.metadata.canonical ?? `${baseURL}${blog.path}/${post.slug}`,
+    },
     openGraph: {
       ...generatedMeta.openGraph,
-      images: buildDiscoverImageMetadata(absoluteImage, post.metadata.imageAlt ?? post.metadata.title),
+      images: buildDiscoverImageMetadata(
+        absoluteImage,
+        post.metadata.imageAlt ?? post.metadata.title,
+      ),
     },
     twitter: {
       ...generatedMeta.twitter,
@@ -143,13 +150,11 @@ export default async function BlogPost({ params }: PageProps) {
   const { slug } = await params;
   const slugPath = normalizeSlug(slug);
 
-  const posts = getPosts(["src", "app", "blog", "posts"]);
-  const post = posts.find((item) => item.slug === slugPath);
+  const posts = getAllArticles();
+  const post = getArticleBySlug(slugPath);
 
   if (!post) notFound();
 
-  const collectionSlug = getBlogCollectionSlug(post);
-  const collectionLabel = getBlogCollectionLabel(collectionSlug);
   const publishedDate = post.metadata.publishedAt
     ? formatDate(post.metadata.publishedAt, false)
     : undefined;
@@ -157,26 +162,25 @@ export default async function BlogPost({ params }: PageProps) {
   const readingTrail = getReadingTrail(post, posts);
   const continuationCards = uniqueContinuations(readingTrail.map(postToContinuation));
   const visibleTags = (post.metadata.tags ?? post.metadata.categories ?? []).slice(0, 3);
+  const instagramUrl =
+    social.find((item) => item.name === "Instagram")?.link ??
+    "https://www.instagram.com/riquehen/";
+  const aboutPerson = post.metadata.aboutPersonId
+    ? creators.find((item) => item.id === post.metadata.aboutPersonId && item.status === "published")
+    : undefined;
+  const articleJsonLd = {
+    "@context":"https://schema.org", "@type":"BlogPosting", "@id":`${baseURL}${articlePath}#article`,
+    headline:post.metadata.title, description:post.metadata.summary ?? post.metadata.title,
+    url:`${baseURL}${articlePath}`, mainEntityOfPage:{"@id":`${baseURL}${articlePath}`},
+    image:toAbs(post.metadata.image), datePublished:post.metadata.publishedAt,
+    dateModified:post.metadata.reviewedAt ?? post.metadata.updatedAt ?? post.metadata.publishedAt,
+    author:{"@type":"Person",name:person.name,url:`${baseURL}/about`,image:`${baseURL}${person.avatar}`},
+    about:aboutPerson?.profilePath ? {"@id":`${baseURL}${aboutPerson.profilePath}#person`,"@type":"Person",name:aboutPerson.name} : undefined,
+  };
 
   return (
     <Column className={styles.page} paddingTop="24" gap="24">
-      <Schema
-        as="blogPosting"
-        baseURL={baseURL}
-        path={articlePath}
-        title={post.metadata.title}
-        description={post.metadata.summary ?? post.metadata.title}
-        datePublished={post.metadata.publishedAt}
-        dateModified={
-          post.metadata.reviewedAt ?? post.metadata.updatedAt ?? post.metadata.publishedAt
-        }
-        image={toAbs(post.metadata.image)}
-        author={{
-          name: person.name,
-          url: `${baseURL}${blog.path}`,
-          image: `${baseURL}${person.avatar}`,
-        }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(articleJsonLd)}} />
       <BreadcrumbJsonLd
         items={[
           { name: "Início", url: baseURL },
@@ -192,12 +196,6 @@ export default async function BlogPost({ params }: PageProps) {
             <SmartLink href="/blog">Painel editorial</SmartLink>
           </div>
           <div className={styles.metaLine}>
-            {collectionSlug && collectionLabel ? (
-              <Link href={`/blog/temas/${collectionSlug}`}>
-                <HiOutlineTag aria-hidden="true" />
-                {collectionLabel}
-              </Link>
-            ) : null}
             {publishedDate ? <span>{publishedDate}</span> : null}
             {post.metadata.readingTime ? (
               <span>
@@ -209,6 +207,13 @@ export default async function BlogPost({ params }: PageProps) {
           <Heading as="h1" className={styles.heroTitle} variant="display-strong-l" wrap="balance">
             {post.metadata.title}
           </Heading>
+          <p className={styles.byline}>
+            Por <Link href="/about">{person.name}</Link>
+            <span aria-hidden="true">·</span>
+            <a href={instagramUrl} target="_blank" rel="noopener noreferrer">
+              @riquehen
+            </a>
+          </p>
           {post.metadata.summary ? (
             <Text
               className={styles.heroLead}
@@ -254,9 +259,36 @@ export default async function BlogPost({ params }: PageProps) {
       ) : null}
 
       <div className={styles.articleShell}>
-        <Column className={styles.article} id="article-content" as="article">
-          <CustomMDX source={post.content} glossary={post.metadata.glossary ?? {}} />
-        </Column>
+        <div className={styles.articleColumn}>
+          <Column className={styles.article} id="article-content" as="article">
+            <CustomMDX source={post.content} glossary={post.metadata.glossary ?? {}} />
+          </Column>
+          <aside className={styles.authorBox} aria-labelledby="about-author-title">
+            <Image
+              className={styles.authorAvatar}
+              src={person.avatar}
+              alt={person.name}
+              width={56}
+              height={56}
+            />
+            <div>
+              <span>Sobre o autor</span>
+              <div className={styles.authorIdentity}>
+                <Heading id="about-author-title" as="h2">
+                  {person.name}
+                </Heading>
+                <a href={instagramUrl} target="_blank" rel="noopener noreferrer">
+                  @riquehen
+                </a>
+              </div>
+              <p>
+                Henrique é estudante, freelancer e autor deste blog. Escreve sobre o que aprende,
+                desenvolve e gosta.
+              </p>
+              <Link href="/about">Conheça um pouco mais sobre mim</Link>
+            </div>
+          </aside>
+        </div>
         <ArticleTools
           title={post.metadata.title}
           readingTime={post.metadata.readingTime}

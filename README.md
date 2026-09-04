@@ -58,7 +58,9 @@ src/app/work/projects
 
 ## Documentation
 
-Docs available at: [docs.once-ui.com](https://docs.once-ui.com/docs/magic-portfolio/quick-start)
+- Project architecture: [`docs/architecture/site-architecture.md`](docs/architecture/site-architecture.md)
+- Editorial system: [`docs/content/README.md`](docs/content/README.md)
+- Upstream Once UI documentation: [docs.once-ui.com](https://docs.once-ui.com/docs/magic-portfolio/quick-start)
 
 ## License
 

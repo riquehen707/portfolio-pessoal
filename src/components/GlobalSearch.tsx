@@ -2,16 +2,13 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 
+import { trackEvent } from "@/components/analytics/analytics";
 import type { GlobalSearchItem, GlobalSearchItemType } from "@/lib/globalSearch";
 
 import styles from "./GlobalSearch.module.scss";
-
-type GlobalSearchProps = {
-  items: GlobalSearchItem[];
-};
 
 type RankedItem = GlobalSearchItem & {
   score: number;
@@ -22,14 +19,16 @@ const SearchIcon = HiOutlineMagnifyingGlass;
 
 const typeLabels: Record<GlobalSearchItemType, string> = {
   article: "Artigo",
-  topic: "Tema",
+  idea: "Ideia",
   page: "Página",
+  product: "Produto",
 };
 
 const typePriority: Record<GlobalSearchItemType, number> = {
   article: 8,
-  topic: 7,
+  idea: 7,
   page: 5,
+  product: 7,
 };
 
 const quickQueries = ["SEO", "landing page", "clientes", "conteúdo", "tráfego", "vender online"];
@@ -101,17 +100,67 @@ function formatDate(value?: string) {
   }).format(date);
 }
 
-export function GlobalSearch({ items }: GlobalSearchProps) {
+type SearchIndexResponse = {
+  items: GlobalSearchItem[];
+};
+
+type LoadingState = "idle" | "loading" | "ready" | "error";
+
+export function GlobalSearch() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
+  const [items, setItems] = useState<GlobalSearchItem[]>([]);
+  const [loadingState, setLoadingState] = useState<LoadingState>("idle");
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const requestRef = useRef<Promise<void> | null>(null);
+  const searchOpenedAtRef = useRef<number | null>(null);
   const router = useRouter();
+
+  const loadSearchIndex = useCallback(() => {
+    if (loadingState === "ready") return Promise.resolve();
+    if (requestRef.current) return requestRef.current;
+
+    setLoadingState("loading");
+    const startedAt = performance.now();
+    const request = fetch("/api/search-index", {
+      headers: { Accept: "application/json" },
+    })
+      .then(async (response) => {
+        if (!response.ok) throw new Error(`Busca indisponivel (${response.status})`);
+        const payload = (await response.json()) as SearchIndexResponse;
+        if (!Array.isArray(payload.items)) throw new Error("Indice de busca invalido");
+        setItems(payload.items);
+        setLoadingState("ready");
+        trackEvent("search_index_loaded", {
+          duration_ms: Math.round(performance.now() - startedAt),
+          item_count: payload.items.length,
+        });
+      })
+      .catch(() => {
+        setLoadingState("error");
+        trackEvent("search_index_error", {
+          duration_ms: Math.round(performance.now() - startedAt),
+        });
+      })
+      .finally(() => {
+        requestRef.current = null;
+      });
+
+    requestRef.current = request;
+    return request;
+  }, [loadingState]);
+
+  const openSearch = useCallback((source: "button" | "keyboard") => {
+    searchOpenedAtRef.current = performance.now();
+    setOpen(true);
+    trackEvent("search_open", { source });
+    void loadSearchIndex();
+  }, [loadSearchIndex]);
 
   const results = useMemo(() => {
     if (!query.trim()) {
       return [...items]
-        .filter((item) => item.type === "article" || item.type === "topic" || item.type === "page")
         .slice(0, 8)
         .map((item, index) => ({
           ...item,
@@ -135,19 +184,38 @@ export function GlobalSearch({ items }: GlobalSearchProps) {
 
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
         event.preventDefault();
-        setOpen(true);
+        openSearch("keyboard");
         return;
       }
 
       if (!isTyping && event.key === "/" && !open) {
         event.preventDefault();
-        setOpen(true);
+        openSearch("keyboard");
       }
     };
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [open]);
+  }, [open, openSearch]);
+
+  useEffect(() => {
+    const normalizedQuery = query.trim();
+    if (!open || loadingState !== "ready" || normalizedQuery.length < 2) return;
+
+    const timeout = window.setTimeout(() => {
+      trackEvent("search_results", {
+        query_length: normalizedQuery.length,
+        query_token_count: tokenize(normalizedQuery).length,
+        result_count: results.length,
+        has_results: results.length > 0,
+        time_since_open_ms: searchOpenedAtRef.current
+          ? Math.round(performance.now() - searchOpenedAtRef.current)
+          : undefined,
+      });
+    }, 600);
+
+    return () => window.clearTimeout(timeout);
+  }, [loadingState, open, query, results.length]);
 
   useEffect(() => {
     if (!open) return;
@@ -164,8 +232,23 @@ export function GlobalSearch({ items }: GlobalSearchProps) {
   function goToActive() {
     const item = results[activeIndex];
     if (!item) return;
+    trackSearchSelection(item, activeIndex, "keyboard");
     closeSearch();
     router.push(item.href);
+  }
+
+  function trackSearchSelection(
+    item: RankedItem,
+    index: number,
+    source: "click" | "keyboard",
+  ) {
+    trackEvent("search_result_click", {
+      source,
+      result_type: item.type,
+      result_position: index + 1,
+      match_reason: item.reason,
+      had_query: Boolean(query.trim()),
+    });
   }
 
   function handleDialogKeyDown(event: React.KeyboardEvent) {
@@ -195,7 +278,7 @@ export function GlobalSearch({ items }: GlobalSearchProps) {
       <button
         className={styles.trigger}
         type="button"
-        onClick={() => setOpen(true)}
+        onClick={() => openSearch("button")}
         aria-label="Buscar no blog"
         aria-keyshortcuts="Control+K Meta+K"
       >
@@ -251,7 +334,12 @@ export function GlobalSearch({ items }: GlobalSearchProps) {
                   className={styles.quickChip}
                   type="button"
                   key={item}
-                  onClick={() => setQuery(item)}
+                  onClick={() => {
+                    setQuery(item);
+                    trackEvent("search_suggestion_click", {
+                      suggestion_position: quickQueries.indexOf(item) + 1,
+                    });
+                  }}
                 >
                   {item}
                 </button>
@@ -266,7 +354,20 @@ export function GlobalSearch({ items }: GlobalSearchProps) {
             </div>
 
             <div className={styles.results} aria-label="Resultados da busca">
-              {results.length > 0 ? (
+              {loadingState === "loading" || loadingState === "idle" ? (
+                <div className={styles.searchStatus} role="status">
+                  <strong>Preparando a busca...</strong>
+                  <span>Carregando o índice editorial.</span>
+                </div>
+              ) : loadingState === "error" ? (
+                <div className={styles.searchStatus} role="alert">
+                  <strong>Não foi possível carregar a busca.</strong>
+                  <span>Confira sua conexão e tente novamente.</span>
+                  <button type="button" className={styles.retryButton} onClick={() => void loadSearchIndex()}>
+                    Tentar novamente
+                  </button>
+                </div>
+              ) : results.length > 0 ? (
                 results.map((item, index) => (
                   <Link
                     className={styles.result}
@@ -274,7 +375,10 @@ export function GlobalSearch({ items }: GlobalSearchProps) {
                     href={item.href}
                     key={item.id}
                     onMouseEnter={() => setActiveIndex(index)}
-                    onClick={closeSearch}
+                    onClick={() => {
+                      trackSearchSelection(item, index, "click");
+                      closeSearch();
+                    }}
                   >
                     <span className={styles.resultType}>
                       <span className={styles.typeDot} aria-hidden />

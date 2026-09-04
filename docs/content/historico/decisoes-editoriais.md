@@ -1,6 +1,58 @@
 # Decisões editoriais
 
+## 2026-08-19 — Ideias como arquivo público versionado
+
+Motivo:
+Registrar propostas e experimentos com contexto e continuidade, sem transformar a experiência pública em um quadro operacional ou apagar versões anteriores.
+
+Substituição:
+A área `/ideias` usa registros locais validados por Zod, ID permanente independente do slug e uma fachada assíncrona preparada para outra fonte de dados. `status` descreve a evolução da ideia; `publicationStatus` controla sua exposição pública. Mudanças relevantes entram como novos itens em `updates`, preservados em ordem histórica e exibidos do mais recente para o mais antigo.
+
+## 2026-08-20 — Visibilidade não substitui armazenamento privado
+
+Motivo:
+Permitir que o domínio reconheça ideias privadas sem expor vantagem competitiva em um repositório versionado, no bundle ou em superfícies públicas.
+
+Substituição:
+`visibility` passa a distinguir registros `public` e `private`, mas o catálogo local aceita como prática editorial somente conteúdo público. Ideias privadas só serão cadastradas em uma fonte segura futura, consultada no servidor. Rota, busca, sitemap e JSON-LD usam exclusivamente registros que sejam ao mesmo tempo públicos e publicados.
+
+## 2026-08-20 — Tipos e estágios organizam sem virar dashboard
+
+Motivo:
+O arquivo passou a reunir pensamentos, projetos implementados, experimentos, negócios e pesquisas em estágios diferentes.
+
+Substituição:
+`type` usa o vocabulário `idea`, `project`, `experiment`, `business` e `research`; relações continuam normalizadas por IDs permanentes em `relatedIdeaIds`. O índice agrupa registros por estágio editorial — em desenvolvimento, explorando, no papel e outros caminhos — dentro dos filtros existentes, sem métricas operacionais, kanban ou narrativa obrigatória de sucesso.
+
 Registre somente decisões permanentes do sistema, com motivo e substituição. Não registrar preferências temporárias de uma pauta.
+
+## 2026-08-18 — Listas e fichas de filmes têm diretrizes distintas
+
+Motivo:
+Listas guardam seleção, posição e justificativa contextual, enquanto fichas permanentes precisam disciplinar identidade, sinopse, editorial, relações, pôster, fontes, SEO e publicação. Um único guia tornava os dois fluxos ambíguos.
+
+Substituição:
+Manter `movie-list.md` para listas e curadorias e usar `movie-profile.md` para `/filmes/[slug]`. Os dois fluxos compartilham o catálogo central e IDs permanentes, mas não duplicam seus dados nem seus critérios editoriais.
+
+## 2026-08-18 — Comentários de livros mediados pelo servidor
+
+Motivo:
+Comentários precisam permanecer portáveis por ID da obra, moderáveis e independentes de publicidade ou rastreamento de widgets externos, sem expor privilégios do banco no navegador.
+
+Substituição:
+Usar Supabase somente como persistência e `/api/comments` como superfície pública. Envios entram como `pending`; apenas `published` é exibido. A tabela não concede acesso aos papéis cliente, a chave secreta fica no servidor e o sistema só aparece depois da configuração completa. Moderação segue `docs/architecture/reading-comments.md`.
+
+## 2026-08-18 — Fichas permanentes de livros em lotes verificáveis
+
+Motivo:
+As páginas de livros publicadas precisam evoluir de fichas bibliográficas muito curtas para referências úteis, sem preencher contagem de palavras artificialmente nem misturar obra, edição, oferta, avaliação editorial e participação de leitores.
+
+Substituição:
+Revisar até 20 obras por lote conforme `docs/editorial/templates/reading-work-profile.md`, preservando URLs e o catálogo normalizado. Sinopse factual, avaliação editorial e futuros comentários de leitores permanecem conceitos distintos; capas comerciais pertencem à edição que representam. A diretriz será revista depois dos lotes e da auditoria, antes de seus aprendizados experimentais virarem regras permanentes.
+
+## 2026-08-13 — Acervo central de obras de leitura
+
+Livros, mangás, manhwas, manhuas, webtoons, graphic novels, quadrinhos e light novels usam uma base compartilhada, mas preservam o formato próprio. Obra intelectual, série, volume, edição e oferta são entidades separadas; ISBN, páginas, editora, tradução, capa comercial e disponibilidade pertencem à edição. Listas e MDX referenciam obras por ID. A infraestrutura nasceu vazia e sem rotas públicas para que o primeiro lote real valide o contrato antes de qualquer publicação.
 
 ## 2026-07-16 — Índice manual descontinuado
 
@@ -73,3 +125,43 @@ Quando muitos artigos usam `featured`, o campo deixa de comunicar prioridade e a
 
 Substituição:
 Usar `featured` principalmente para hubs e entradas estratégicas, preferindo um por coleção de segmento. `featuredHome` é um subconjunto de `featured`, e a seleção deve ser revista quando ultrapassar 25% do acervo.
+
+## 2026-07-29 — Descoberta pública simplificada antes de Books
+
+Motivo:
+Séries manuais, trilhas, mapa e categorias de entrada heurísticas criavam caminhos concorrentes, contagens sem relação confiável com o acervo e resultados pouco previsíveis.
+
+Substituição:
+A navegação pública prioriza início, blog, artigos e busca. As coleções físicas e as rotas de Temas, trilhas, mapa e categorias de entrada ficam preservadas como infraestrutura interna, mas ocultas da navegação, busca e sitemap para análise ou migração futura, sem definir a arquitetura de Books.
+
+## 2026-07-30 — Biblioteca de SEO como piloto editorial
+
+Motivo:
+Criar uma entrada temática capaz de orientar o estudo de SEO sem reduzir a experiência a uma lista cronológica de artigos nem antecipar uma arquitetura geral de Books ainda não implementada.
+
+Substituição:
+A rota `/blog/seo` apresenta três livros planejados — Entender a busca, Construir relevância e Medir e desenvolver — além das futuras áreas Guia prático, Carreira em SEO e Mais sobre SEO. Enquanto capítulos e rotas próprias não existirem, os livros permanecem identificados como planejamento e não recebem links fictícios. Este piloto não altera schema, frontmatter, pastas MDX ou a taxonomia permanente do acervo.
+
+## 2026-07-30 — Sumário piloto do Livro 1
+
+Motivo:
+Testar a experiência de uma obra progressiva antes de criar um sistema genérico de Books ou alterar os artigos existentes.
+
+Substituição:
+A rota `/blog/seo/entender-a-busca` funciona como apresentação e sumário do Livro 1. Seus sete capítulos fundamentais permanecem explicitamente planejados e sem links. Os dois guias existentes de SEO local aparecem somente como leituras complementares, preservando arquivos e URLs. A estrutura do piloto vive em dados locais da Biblioteca de SEO e ainda não define schema, frontmatter ou modelo obrigatório para futuros Books.
+
+## 2026-08-08 — Demonstrações controladas de princípios visuais
+
+Motivo:
+Comparações de hierarquia, alinhamento, proximidade e contraste precisam isolar variáveis, adaptar-se ao modo escuro e permanecer legíveis sem imagens externas protegidas.
+
+Substituição:
+Usar `VisualPrinciplesDemo` somente nas variantes fechadas documentadas. O componente é estático, utiliza HTML semântico e tokens do site e não deve virar uma API genérica para composições livres dentro do MDX.
+
+## 2026-09-02 — Produtos, variantes e ofertas são entidades separadas
+
+Motivo:
+Um produto precisa ser reutilizado em várias recomendações sem transformar preço, estoque, link afiliado ou especificações de outra variante em características permanentes do modelo.
+
+Substituição:
+O acervo usa `Product` para a entidade editorial, `ProductVariant` para versões e especificações verificadas e `ProductOffer` para observações comerciais datadas. Artigos referenciam o ID permanente por `ProductCard` e mantêm somente a justificativa contextual. A Amazon é um varejista possível, não a identidade do catálogo.

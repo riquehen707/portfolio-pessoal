@@ -27,6 +27,14 @@
 - `article_click`
 - `lead_submit`
 - `schedule_call_click`
+- `search_open`
+- `search_index_loaded`
+- `search_index_error`
+- `search_results`
+- `search_suggestion_click`
+- `search_result_click`
+
+O contrato e os limites de privacidade da busca estão documentados em [`../audits/search-and-web-vitals-measurement.md`](../audits/search-and-web-vitals-measurement.md). O texto pesquisado não integra os payloads.
 
 ## Variáveis de ambiente
 

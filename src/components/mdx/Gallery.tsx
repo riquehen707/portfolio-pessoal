@@ -1,7 +1,5 @@
 //src/components/mdx/Gallery.tsx
 
-"use client";
-
 import { Grid, Media } from "@once-ui-system/core";
 
 import { MediaCredit, type MediaCreditProps } from "./MediaCredit";

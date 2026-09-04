@@ -1,0 +1,247 @@
+import type { Metadata } from "next";
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { creators } from "@/content/creators/creators";
+import { games } from "@/content/games/games";
+import { teamCherry } from "@/content/organizations/organizations";
+import { baseURL } from "@/resources";
+import styles from "./team-cherry.module.scss";
+const path = "/estudios/team-cherry",
+  title = "Team Cherry: processo, jogos e mundos para explorar",
+  description =
+    "Perfil editorial da Team Cherry: formação, processo criativo, Hollow Knight, Silksong, equipe, música e ludografia confirmada.";
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: { canonical: `${baseURL}${path}` },
+  openGraph: { title, description, url: `${baseURL}${path}`, type: "profile" },
+  twitter: { card: "summary", title, description },
+  other: { commentsEnabled: "true" },
+};
+export default function TeamCherryPage() {
+  const teamCherryGames = games.filter((game) => game.organizationRelationships.some((relation) => relation.organizationId === teamCherry.id));
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${baseURL}${path}#organization`,
+    name: teamCherry.name,
+    url: `${baseURL}${path}`,
+    location: { "@type": "Place", name: "Adelaide, South Australia" },
+    foundingDate: "2014",
+    sameAs: "https://www.teamcherry.com.au/",
+    makesOffer: teamCherryGames.map((game) => ({
+      "@type": "VideoGame",
+      name: game.title,
+      datePublished: String(game.year),
+      url: game.officialWebsite,
+    })),
+  };
+  return (
+    <main className={styles.page}>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Início", url: baseURL },
+          { name: "Estúdios", url: `${baseURL}/estudios` },
+          { name: "Team Cherry", url: `${baseURL}${path}` },
+        ]}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <header className={styles.hero}>
+        <div className={styles.depth} aria-hidden="true">
+          <i />
+          <i />
+          <i />
+          <i />
+        </div>
+        <div>
+          <span>Estúdio independente de jogos</span>
+          <h1>
+            TEAM
+            <br />
+            CHERRY
+          </h1>
+          <p>
+            Uma equipe pequena construindo mundos grandes o bastante para que o caminho importe
+            tanto quanto a chegada.
+          </p>
+          <dl>
+            <div>
+              <dt>Base</dt>
+              <dd>Adelaide, Austrália</dd>
+            </div>
+            <div>
+              <dt>Formação</dt>
+              <dd>2014</dd>
+            </div>
+            <div>
+              <dt>Jogos lançados</dt>
+              <dd>{teamCherryGames.length}</dd>
+            </div>
+          </dl>
+          <a href="#jogos">Descer até a ludografia ↓</a>
+        </div>
+        <small>
+          Composição abstrata original. Nenhuma arte, interface ou personagem foi reproduzido.
+        </small>
+      </header>
+      <nav className={styles.trail} aria-label="Nesta página">
+        <a href="#origem">Origem</a>
+        <a href="#identidade">Identidade</a>
+        <a href="#jogos">Jogos</a>
+        <a href="#pessoas">Pessoas</a>
+        <a href="#fontes">Fontes</a>
+      </nav>
+      <section id="origem">
+        <header>
+          <span>De game jam a Hallownest</span>
+          <h2>O protótipo abriu uma direção; o financiamento ampliou a escala.</h2>
+        </header>
+        <div>
+          <p>
+            Ari Gibson e William Pellen começaram colaborando em game jams. <em>Hungry Knight</em>,
+            criado em 2013, forneceu uma figura e algumas ideias, não um projeto pronto. A Team
+            Cherry se formou em Adelaide em 2014 e levou <em>Hollow Knight</em> ao Kickstarter.
+          </p>
+          <p>
+            O financiamento coletivo expandiu o escopo, e o estúdio incorporou outros profissionais.
+            A equipe central pequena não significa que duas pessoas fizeram tudo: programação
+            adicional, testes, ports, publicação e, sobretudo, a música de Christopher Larkin
+            integram a produção documentada.
+          </p>
+        </div>
+      </section>
+      <section className={styles.dark} id="identidade">
+        <header>
+          <span>Identidade criativa</span>
+          <h2>Explorar é aprender a ler espaço, som e risco.</h2>
+        </header>
+        <div>
+          <p>
+            O desenho 2D favorece silhuetas claras e animações legíveis mesmo quando cenário,
+            inimigos e efeitos dividem o quadro. Áreas amplas convidam à orientação; passagens
+            estreitas mudam o ritmo e tornam a ameaça próxima.
+          </p>
+          <p>
+            A narrativa ambiental distribui informação em arquitetura, encontros e fragmentos de
+            texto. Isso é uma leitura editorial do resultado, não uma regra universal declarada pelo
+            estúdio. Música e silêncio ajudam a distinguir descoberta, melancolia e perigo sem
+            substituir a ação do jogador.
+          </p>
+        </div>
+      </section>
+      <section className={styles.games} id="jogos">
+        <header>
+          <span>Ludografia central</span>
+          <h2>Dois jogos completos, ligados por um mundo e separados pelo movimento.</h2>
+          <p>Esta sequência vem dos registros centrais relacionados à Team Cherry.</p>
+        </header>
+        {teamCherryGames.map((game, index) => (
+          <article key={game.id}>
+            <div className={styles.marker}>
+              <b>{String(index + 1).padStart(2, "0")}</b>
+              <i />
+            </div>
+            <div>
+              <span>{game.year} · lançado</span>
+              <h3>{game.title}</h3>
+              <p>{game.editorialSummary}</p>
+              <dl>
+                <div>
+                  <dt>Plataformas</dt>
+                  <dd>{game.platforms.join(" · ")}</dd>
+                </div>
+                <div>
+                  <dt>Pessoas centrais</dt>
+                  <dd>
+                    {game.contributors
+                      .map((c) => creators.find((person) => person.id === c.personId)?.name)
+                      .filter(Boolean)
+                      .join(" · ")}
+                  </dd>
+                </div>
+              </dl>
+              <a href={game.officialWebsite}>Site oficial ↗</a>
+            </div>
+          </article>
+        ))}
+      </section>
+      <section className={styles.compare}>
+        <span>Continuidade sem repetição</span>
+        <h2>
+          Descer em <em>Hollow Knight</em>; ascender em <em>Silksong</em>.
+        </h2>
+        <p>
+          O primeiro jogo organiza descoberta em torno do Cavaleiro e de Hallownest.{" "}
+          <em>Silksong</em>, lançado em 2025, transforma a antiga expansão de Hornet em uma obra
+          completa: outra protagonista, mobilidade mais acrobática, ferramentas próprias e um reino
+          orientado pela ascensão. A relação é de sequência, não de pacote adicional.
+        </p>
+      </section>
+      <section id="pessoas">
+        <header>
+          <span>Pessoas e música</span>
+          <h2>Créditos individuais preservam a escala real da equipe.</h2>
+        </header>
+        <div>
+          <p>
+            <strong>Ari Gibson</strong> atua em design, arte e animação;{" "}
+            <strong>William Pellen</strong>, em design e comportamento do jogo.{" "}
+            <strong>Jasmine Vine</strong> é creditada pela programação de sistemas de{" "}
+            <em>Silksong</em>. Os registros permanecem como rascunhos, sem perfis públicos vazios.
+          </p>
+          <p>
+            <strong>Christopher Larkin</strong> compôs a música dos dois jogos. Sua contribuição não
+            funciona como acabamento: temas, texturas orquestrais e pausas participam da orientação
+            emocional dos espaços.
+          </p>
+        </div>
+      </section>
+      <section className={styles.start}>
+        <span>Por onde começar</span>
+        <h2>Comece pela relação que você quer ter com o movimento.</h2>
+        <p>
+          <em>Hollow Knight</em> é a entrada natural para acompanhar a construção de Hallownest e a
+          origem formal da série. <em>Silksong</em> pode funcionar primeiro para quem prefere
+          deslocamento mais ágil e uma protagonista já inserida nesse universo. Ambos exigem
+          tolerância a se perder, repetir confrontos e aprender pelo espaço; continuidade ajuda, mas
+          não precisa virar dever de casa.
+        </p>
+      </section>
+      <footer id="fontes">
+        <span>Fontes e direitos</span>
+        <h2>Base documental</h2>
+        <ul>
+          <li>
+            <a href="https://www.teamcherry.com.au/">Site e blog oficiais</a> — equipe, localização
+            e estado atual.
+          </li>
+          <li>
+            <a href="https://www.teamcherry.com.au/games">Catálogo oficial</a> — jogos e
+            plataformas.
+          </li>
+          <li>
+            <a href="https://www.teamcherry.com.au/faq">FAQ e política de uso</a> — ferramentas e
+            limites para ativos.
+          </li>
+          <li>
+            <a href="https://hollowknightsilksong.com/">Site oficial de Silksong</a> — equipe, forma
+            e música.
+          </li>
+          <li>
+            <a href="https://www.nintendo.com/au/news-and-articles/the-metamorphosis-of-hollow-knight-with-team-cherry-aussie-developer-interview/">
+              Entrevista da Nintendo Austrália
+            </a>{" "}
+            — origem em game jam.
+          </li>
+        </ul>
+        <p>
+          Nenhuma imagem oficial foi usada. A política permite vídeos e mídia original, mas proíbe
+          reutilizar gráficos do jogo e materiais promocionais; capas, logos e screenshots
+          permanecem pendentes de autorização específica.
+        </p>
+      </footer>
+    </main>
+  );
+}

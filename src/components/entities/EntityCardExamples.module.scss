@@ -1,0 +1,6 @@
+.examples { display: grid; gap: 4rem; width: min(calc(100% - 1.5rem), 76rem); margin: 0 auto; padding: 3rem 0 6rem; }
+.examples section { display: grid; gap: 1.25rem; }
+.examples header span { color: var(--neutral-on-background-weak); font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; }
+.examples h2 { margin: .25rem 0 0; }
+.examples section > div { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; align-items: start; }
+@media (max-width: 800px) { .examples { width: calc(100% - 2rem); } .examples section > div { grid-template-columns: 1fr; } }

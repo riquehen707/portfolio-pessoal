@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Ciclo abstrato do hobby de miniaturas</title><desc id="desc">Peças geométricas percorrem as etapas de montar, pintar, jogar e compartilhar em uma composição circular.</desc>
+  <rect width="1600" height="900" fill="#d9e1dd"/><circle cx="800" cy="450" r="292" fill="none" stroke="#263033" stroke-width="44" stroke-dasharray="360 100"/><circle cx="800" cy="450" r="128" fill="#d6a641"/>
+  <g fill="#263033"><rect x="740" y="65" width="120" height="120" rx="16"/><path d="m1270 395 104 60-104 60Z"/><circle cx="800" cy="815" r="64"/><path d="m226 450 104-60v120Z"/></g><g fill="#f5f1e7"><circle cx="800" cy="125" r="22"/><circle cx="1302" cy="455" r="22"/><circle cx="800" cy="815" r="22"/><circle cx="298" cy="450" r="22"/></g>
+</svg>

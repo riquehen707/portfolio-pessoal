@@ -1,0 +1,7 @@
+.card { display: grid; align-content: start; gap: .65rem; min-width: 0; }
+.coverLink { display: block; border-radius: .75rem; }
+.coverLink > div { aspect-ratio: 2 / 3; }
+.card h4 { margin: 0; font-size: .96rem; line-height: 1.25; }
+.card h4 a { color: inherit; }
+.card p { margin: -.25rem 0 0; color: var(--neutral-on-background-weak); font-size: .74rem; }
+.coverLink:focus-visible, .card h4 a:focus-visible { outline: 2px solid #d6b000; outline-offset: 3px; }

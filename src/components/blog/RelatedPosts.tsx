@@ -1,6 +1,6 @@
 import React from "react";
 import { Column, Grid, Card, Text, Heading, SmartLink, Badge, Row, Media } from "@once-ui-system/core";
-import { getPosts } from "@/utils/utils";
+import { getAllArticles } from "@/data/articles";
 
 type RelatedPostsProps = {
   currentSlug: string;
@@ -41,7 +41,7 @@ export default function RelatedPosts({
   keywords = [],
   limit = 4,
 }: RelatedPostsProps) {
-  const posts = getPosts(["src", "app", "blog", "posts"]);
+  const posts = getAllArticles();
 
   const related = posts
     .filter((p) => p.slug !== currentSlug)

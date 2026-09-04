@@ -1,0 +1,373 @@
+---
+title: "Domain-Driven Design: o que é DDD e quando faz sentido usar"
+slug: "domain-driven-design"
+publishedAt: "2026-08-01"
+summary: "Entenda o que é Domain-Driven Design, seus conceitos estratégicos e táticos, quando aplicar DDD e quando uma solução mais simples é suficiente."
+description: "Entenda o que é Domain-Driven Design, seus conceitos estratégicos e táticos, quando aplicar DDD e quando uma solução mais simples é suficiente."
+image: "/api/og/generate?title=Domain-Driven%20Design&subtitle=O%20que%20%C3%A9%20DDD%20e%20quando%20usar"
+imageAlt: "Capa editorial com o título Domain-Driven Design"
+format: "Guia"
+category: "Tecnologia"
+categories: ["Tecnologia", "Desenvolvimento de software"]
+tags: ["Domain-Driven Design", "Arquitetura de software", "Modelagem", "Bounded Context", "Desenvolvimento de software"]
+kind: "study"
+featured: false
+featuredHome: false
+readingTime: 28
+toc: true
+tocDepth: 2
+area: "tecnologia"
+module: "arquitetura-e-modelagem"
+node: "domain-driven-design"
+level: "intermediário"
+type: "guia"
+knowledgeStatus: "publicado"
+essential: false
+prerequisites: []
+unlocks: []
+related: []
+estimatedReadingTime: 28
+primaryKeyword: "domain driven design"
+secondaryKeywords: ["o que é DDD", "DDD desenvolvimento de software", "bounded context", "linguagem ubíqua", "modelo de domínio", "design estratégico DDD", "padrões táticos DDD"]
+keywords: ["domain driven design", "DDD", "bounded context", "linguagem ubíqua", "modelo de domínio", "agregados", "context mapping"]
+mapVisibility: "trilha"
+references:
+  - title: "DDD Reference"
+    author: "Eric Evans"
+    year: 2015
+    url: "https://www.domainlanguage.com/ddd/reference/"
+  - title: "Domain Driven Design"
+    author: "Martin Fowler"
+    year: 2020
+    url: "https://martinfowler.com/bliki/DomainDrivenDesign.html"
+  - title: "Bounded Context"
+    author: "Martin Fowler"
+    year: 2014
+    url: "https://martinfowler.com/bliki/BoundedContext.html"
+  - title: "Ubiquitous Language"
+    author: "Martin Fowler"
+    year: 2006
+    url: "https://martinfowler.com/bliki/UbiquitousLanguage.html"
+  - title: "Use domain analysis to model microservices"
+    author: "Microsoft Azure Architecture Center"
+    year: 2025
+    url: "https://learn.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis"
+  - title: "Use tactical DDD to design microservices"
+    author: "Microsoft Azure Architecture Center"
+    year: 2025
+    url: "https://learn.microsoft.com/en-us/azure/architecture/microservices/model/tactical-domain-driven-design"
+status: "published"
+language: "pt-BR"
+---
+
+Um sistema começa com uma ideia simples: cadastrar propostas, acompanhar projetos e cobrar clientes. Depois chegam exceções. Uma proposta pode ser revisada, um escopo pode mudar sem alterar o contrato e uma entrega pode ser aceita tecnicamente, mas ainda não estar liberada para cobrança.
+
+Palavras que pareciam óbvias — cliente, projeto, aprovação, pagamento — passam a significar coisas diferentes para vendas, operação e financeiro. O código cria seus próprios nomes, a mesma regra aparece em vários lugares e uma alteração pequena alcança módulos inesperados. Em algum momento, quem conhece o trabalho já não reconhece no sistema o processo que executa.
+
+Domain-Driven Design procura reduzir essa distância. Não elimina ambiguidades nem congela o negócio. Cria condições para que especialistas do domínio e profissionais de software descubram uma linguagem comum, construam modelos adequados a cada contexto e os revisem conforme aprendem.
+
+<QuickSummary title="DDD em quatro pontos">
+
+- DDD orienta o desenvolvimento pelo conhecimento do domínio; não é uma arquitetura pronta nem uma estrutura de pastas.
+- Linguagem ubíqua e contextos delimitados ajudam a tornar explícitos significados que não cabem em um modelo único.
+- Padrões táticos, como entidade e agregado, são ferramentas opcionais para proteger regras relevantes.
+- Quando o problema é simples, estável e predominantemente CRUD, uma solução direta costuma ser melhor.
+
+</QuickSummary>
+
+## O que é Domain-Driven Design?
+
+<Definition term="Domain-Driven Design">
+  Domain-Driven Design é uma abordagem para desenvolver software em domínios complexos por meio da colaboração entre especialistas do domínio e profissionais de tecnologia, da construção de uma linguagem compartilhada e da criação de modelos delimitados que representem regras relevantes do negócio.
+</Definition>
+
+**Domain**, ou domínio, é o campo de atividade ou problema ao qual o software se aplica. **Domain model**, ou modelo de domínio, é uma representação seletiva dos conceitos, relações e regras importantes para um propósito. **Design** reúne as decisões que transformam essa compreensão em software. **Driven** indica que decisões importantes são orientadas pelo domínio, não apenas pela conveniência técnica.
+
+Um modelo não copia toda a realidade. Ele omite detalhes, destaca outros e serve a perguntas específicas. Um mapa do metrô não reproduz a cidade; representa conexões úteis para uma viagem. Da mesma forma, o modelo financeiro de um cliente pode precisar de dados de cobrança, enquanto o modelo comercial precisa do estágio de negociação. Nenhum dos dois é a pessoa inteira.
+
+O trabalho de modelar é contínuo. Conversas, código, testes e uso real revelam termos inadequados e regras ausentes. A referência de Eric Evans e as sínteses de Martin Fowler tratam essa evolução da linguagem e do modelo como parte central de DDD, não como documentação encerrada antes da implementação.
+
+## O que DDD não é
+
+DDD não é necessariamente uma arquitetura, uma organização de diretórios, um padrão de classes ou uma forma de nomear arquivos. Também não obriga orientação a objetos, microsserviços, Clean Architecture, arquitetura hexagonal, CQRS ou Event Sourcing. Não é biblioteca, framework, conjunto de diagramas prévios nem maneira sofisticada de organizar CRUD.
+
+Essas abordagens podem coexistir, mas respondem a perguntas diferentes. As fronteiras abaixo são didáticas: autores e equipes variam na terminologia e na implementação.
+
+<EditorialTable
+  title="DDD e abordagens associadas"
+  caption="A combinação pode ser útil, mas uma escolha não implica automaticamente as demais."
+  mobileMode="cards"
+>
+
+| Abordagem | Questão principal |
+| --- | --- |
+| Domain-Driven Design | Como compreender e modelar um domínio complexo? |
+| Arquitetura hexagonal | Como proteger a lógica central de dependências externas? |
+| Clean Architecture | Como organizar dependências e responsabilidades? |
+| Microsserviços | Como distribuir implantação e operação entre serviços? |
+| CQRS | Quando separar modelos de escrita e leitura? |
+| Event Sourcing | Quando registrar mudanças de estado como sequência de eventos? |
+
+</EditorialTable>
+
+Criar pastas chamadas `domain`, `application` e `infrastructure` pode refletir uma decisão arquitetural. Sozinho, isso não demonstra colaboração com especialistas, linguagem compartilhada, limites coerentes ou um modelo capaz de expressar regras do negócio.
+
+## Três tipos de complexidade
+
+**Complexidade do domínio** vem das regras, exceções, estados, responsabilidades e relações do problema. **Complexidade técnica** envolve banco de dados, redes, frameworks, integrações, implantação e observabilidade. **Complexidade acidental** é criada pela própria solução: abstrações, dependências e processos cujo custo não é proporcional ao problema.
+
+DDD concentra-se principalmente na complexidade do domínio. Uma modelagem cuidadosa pode revelar regras e reduzir contradições, mas uma implementação cheia de camadas, interfaces e eventos desnecessários também aumenta a complexidade acidental. Nem todo software possui um domínio complexo. Muitos sistemas precisam sobretudo armazenar, consultar ou apresentar informações.
+
+## Design estratégico e design tático
+
+Os dois níveis se informam e podem avançar juntos; não são uma sequência obrigatória.
+
+### Design estratégico: decidir onde cada modelo vale
+
+O design estratégico pergunta quais problemas são centrais, como o domínio pode ser dividido, onde uma palavra possui determinado significado, quem responde por cada contexto e como modelos diferentes se relacionam.
+
+Um **subdomínio** é uma parte do problema de negócio. O **core domain** concentra diferenciação relevante; um **supporting subdomain** sustenta essa diferenciação; um **generic subdomain** trata um problema amplamente resolvido. Essa classificação é uma decisão estratégica, não uma propriedade permanente.
+
+A **Ubiquitous Language**, ou linguagem ubíqua, cria vocabulário de trabalho dentro de um contexto. Um **Bounded Context**, ou contexto delimitado, estabelece onde esse vocabulário e modelo permanecem consistentes. O **Context Mapping**, ou mapa de contextos, torna explícitas as relações entre esses limites.
+
+### Design tático: representar regras dentro do modelo
+
+O design tático oferece padrões como entidades, objetos de valor, agregados, repositórios, serviços de domínio, eventos de domínio e fábricas. Eles ajudam quando uma regra precisa de uma representação explícita, mas não formam uma lista de classes obrigatória.
+
+É possível aplicar o pensamento estratégico de DDD sem utilizar todos os padrões táticos. Em muitos projetos, reconhecer linguagens incompatíveis e delimitar responsabilidades produz mais valor do que introduzir uma hierarquia extensa de objetos.
+
+## Linguagem ubíqua não é um glossário congelado
+
+A linguagem ubíqua é desenvolvida por quem conhece o domínio e por quem constrói o software. Quando pertinente, aparece nas conversas, regras, exemplos, histórias, documentação, interfaces, testes e nomes do código. Ela é testada ao ser usada: se um termo exige explicações diferentes, talvez esconda mais de um conceito.
+
+“Cliente” pode ser um contato em vendas, uma parte contratante no jurídico, o responsável pelo pagamento no financeiro ou um usuário autorizado no produto. Forçar todos esses significados em uma única estrutura costuma produzir campos opcionais, regras conflitantes e dependências desnecessárias.
+
+A saída não é escolher uma definição universal no início. É reconhecer onde cada significado vale, nomeá-lo com precisão e revisar a linguagem quando exemplos reais revelarem diferenças. O especialista do domínio deve poder contestar um nome estranho; a equipe técnica deve apontar ambiguidades que tornam o software inconsistente.
+
+## Bounded Context: um limite de significado
+
+Um Bounded Context delimita onde determinado modelo e vocabulário possuem significado consistente. Ele não é automaticamente um módulo, pacote, serviço, banco de dados, equipe ou subdomínio. Pode coincidir com alguns desses limites, mas é definido pela validade do modelo.
+
+Um subdomínio descreve uma parte do problema; um Bounded Context descreve o limite de uma solução e de sua linguagem. Um módulo organiza código. Um serviço define uma unidade técnica ou de implantação. Uma equipe é uma estrutura organizacional. Essas fronteiras influenciam umas às outras, porém não são sinônimas.
+
+<EditorialTable
+  title="A mesma pessoa em três contextos"
+  caption="Os modelos compartilham uma referência quando necessário, mas respondem a perguntas diferentes."
+  mobileMode="cards"
+>
+
+| Contexto | Conceito principal | Significado |
+| --- | --- | --- |
+| Comercial | Cliente potencial | Pessoa ou empresa em negociação. |
+| Execução | Cliente do projeto | Parte que valida o escopo e as entregas. |
+| Financeiro | Pagador | Responsável por cobranças e pagamentos. |
+
+</EditorialTable>
+
+A mesma pessoa real pode ocupar os três papéis. Isso não exige duplicação indiscriminada: os contextos podem compartilhar identificadores e trocar informações por contratos explícitos. O que não precisam compartilhar é um objeto universal que carregue todas as regras.
+
+## Context Mapping: como os modelos se relacionam
+
+Um mapa de contextos registra relações técnicas e organizacionais. Ele mostra quem depende de quem, onde existe negociação e quais traduções protegem um modelo. Os padrões abaixo são um vocabulário para discutir opções, não uma lista a implementar.
+
+<EditorialTable
+  title="Relações frequentes entre contextos"
+  caption="A escolha depende de autonomia, poder de decisão, custo de integração e necessidade de preservar o modelo."
+  mobileMode="cards"
+>
+
+| Relação | Quando pode ajudar | Risco importante |
+| --- | --- | --- |
+| Partnership | Duas equipes coordenam evolução e sucesso de uma integração. | Dependência mútua bloquear entregas. |
+| Shared Kernel | Contextos compartilham deliberadamente uma parte pequena do modelo. | O núcleo crescer e acoplar equipes. |
+| Customer–Supplier | Um contexto fornecedor negocia necessidades com o consumidor. | Prioridades do fornecedor ignorarem o consumidor. |
+| Conformist | O consumidor adota o modelo externo porque traduzi-lo não compensa. | O modelo interno ficar limitado pelo externo. |
+| Anti-Corruption Layer | Uma tradução protege conceitos internos de um modelo externo. | A camada virar uma cópia complexa sem limite claro. |
+| Open Host Service | Um contexto oferece um protocolo estável para vários consumidores. | Uma interface genérica demais perder significado. |
+| Published Language | A integração usa uma linguagem documentada e compartilhável. | Contrato e implementação divergirem. |
+| Separate Ways | Contextos evitam integração quando o custo supera o benefício. | Dados ou comportamentos necessários ficarem inconsistentes. |
+
+</EditorialTable>
+
+Uma **Anti-Corruption Layer** não declara que o outro sistema é ruim. “Corrupção”, nesse nome histórico, significa deixar um modelo externo determinar diretamente os conceitos internos. A camada traduz, por exemplo, o `customer_status` de uma plataforma legada para decisões que façam sentido no contexto Financeiro.
+
+## Subdomínios e investimento
+
+O **core domain** é a parte capaz de produzir diferenciação relevante para a organização. Um **supporting subdomain** é necessário à operação, mas não constitui sua principal diferença. Um **generic subdomain** trata um problema para o qual já existem soluções consolidadas.
+
+<EditorialTable
+  title="Subdomínios em uma plataforma de serviços"
+  caption="A classificação muda conforme a estratégia e deve ser revisada quando o negócio muda."
+  mobileMode="cards"
+>
+
+| Subdomínio | Possível classificação | Decisão |
+| --- | --- | --- |
+| Definição e controle de escopo | Central | Receber maior atenção de modelagem. |
+| Acompanhamento das entregas | Apoio ou central | Avaliar a diferenciação real. |
+| Autenticação | Genérico | Considerar solução consolidada. |
+| Emissão fiscal | Genérico ou apoio | Integrar serviço especializado. |
+| Cobrança | Apoio ou central | Decidir conforme o modelo de negócio. |
+
+</EditorialTable>
+
+Cobrança pode ser genérica para uma consultoria e central para uma empresa que diferencia seu produto por parcelamento e gestão de risco. A classificação orienta onde investir modelagem e desenvolvimento próprio; não mede importância operacional.
+
+## Padrões táticos sem coleção de classes
+
+### Entidade e objeto de valor
+
+Uma **entidade** preserva identidade ao longo do tempo, mesmo quando atributos mudam. Uma solicitação continua sendo a mesma após mudar de “aberta” para “aprovada”. Isso não significa transformar cada tabela em entidade.
+
+Um **objeto de valor** é definido por seus atributos e significado, sem identidade própria relevante naquele contexto. Intervalo de datas, dinheiro com moeda, dimensões, faixa de preço e endereço de cobrança podem ser valores. A classificação depende do contexto: um endereço pode ser valor em uma cobrança e entidade quando seu histórico individual é o objeto acompanhado.
+
+### Agregado
+
+Um **agregado** é um limite de consistência dentro do qual objetos são modificados segundo invariantes. Sua **raiz**, ou aggregate root, controla as alterações. O limite transacional deve incluir apenas o que precisa permanecer consistente imediatamente; outros agregados podem ser referenciados por identidade e coordenados com consistência eventual quando o negócio permitir.
+
+“Uma solicitação de alteração não pode ser aprovada se o orçamento correspondente ainda não tiver sido aceito” é uma invariante. O agregado precisa proteger essa regra. Ele não é apenas um conjunto de entidades relacionadas, nem licença para carregar um grafo inteiro. Agregados grandes ampliam contenção, dependências e custo cognitivo.
+
+### Repositório, serviços e fábrica
+
+Um **repositório** oferece acesso a agregados de maneira coerente com o modelo. Não é automaticamente um DAO, cliente de API, serviço de aplicação ou `GenericRepository<T>` criado para cada tabela.
+
+Um **serviço de domínio** expressa uma operação relevante que não pertence naturalmente a uma entidade ou objeto de valor. Se toda regra migra para serviços e as entidades viram recipientes de dados, o modelo perde capacidade de proteger seu próprio comportamento.
+
+Um **serviço de aplicação** coordena o caso de uso: autorização, transação, dependências e chamada ao domínio. Coordenar “aprovar alteração” é diferente de decidir se a aprovação é válida. Uma **fábrica** encapsula criação complexa e garante estado inicial válido; não é necessária para uma construção que já é simples.
+
+### Eventos, comandos e registros
+
+Um **evento de domínio** registra algo significativo que ocorreu, como `PropostaAceita`. Um comando expressa intenção: `AceitarProposta`. Um evento de integração atravessa fronteiras com contrato próprio. Uma notificação técnica informa uma condição da infraestrutura. Um registro de auditoria preserva rastreabilidade.
+
+Nem toda mudança de campo merece evento. O nome precisa expressar algo reconhecível no domínio e existir porque outro comportamento depende desse fato, não porque a tecnologia oferece um barramento.
+
+## Exemplo: de uma tabela central a modelos delimitados
+
+<PracticalExample title="Modelando uma plataforma de projetos personalizados">
+
+A plataforma possui propostas, escopos, projetos, solicitações de alteração, entregas, aprovações, cobranças, pagamentos, clientes e usuários. No início, uma única tabela `projeto` acumula dezenas de campos e estados usados por todas as áreas.
+
+O trabalho começa com pessoas de vendas, execução e cobrança. A equipe reúne casos reais, exceções e termos ambíguos. Depois separa os contextos Comercial, Execução e Financeiro e define o vocabulário de cada um.
+
+No Comercial, uma proposta aceita é o fato relevante. Na Execução, esse fato origina um projeto com um escopo inicial; ajuste interno não é automaticamente alteração contratual. No Financeiro, a cobrança depende de condições acordadas e eventos que tenham significado para aquele contexto.
+
+O mapa explicita a passagem de `PropostaAceita` para a criação do projeto e a informação necessária para faturar. Identificadores conectam os modelos sem exigir uma classe universal. Invariantes são formuladas com exemplos, inclusive esta: uma solicitação de alteração não pode ser aprovada antes do orçamento correspondente.
+
+```ts title=solicitacao-de-alteracao.ts
+class SolicitacaoDeAlteracao {
+  aprovar(orcamento: Orcamento) {
+    if (!orcamento.estaAceito()) {
+      throw new Error(
+        "A alteração não pode ser aprovada sem um orçamento aceito.",
+      )
+    }
+
+    this.status = "aprovada"
+  }
+}
+```
+
+A regra está próxima do conceito que a protege. Isso não prova que classes ricas sejam a melhor representação para todo sistema. O passo seguinte é implementar somente o necessário ao caso atual, testar com exemplos e revisar nomes, regras e limites após o uso real.
+
+</PracticalExample>
+
+O processo completo não é linear: conversar, identificar ambiguidades, levantar exceções, delimitar contextos, definir linguagens, mapear integrações, implementar e observar produz novas perguntas. `AlteracaoAprovada` e `PagamentoConfirmado` só entram no modelo quando representam acontecimentos relevantes, e não para preencher uma arquitetura de exemplo.
+
+## Modelagem é um trabalho colaborativo
+
+Conversas com especialistas, observação do processo, análise de casos, Example Mapping, EventStorming, diagramas, protótipos, testes baseados em exemplos, registros de decisão e revisão da linguagem no código podem ajudar. Nenhuma dessas técnicas é requisito oficial de DDD.
+
+Especialista do domínio não significa necessariamente executivo. Atendentes, operadores, analistas, suporte, clientes, usuários, prestadores e equipes jurídicas ou financeiras conhecem partes diferentes do processo. Consultar apenas quem possui maior autoridade hierárquica pode apagar exceções operacionais e consequências que não aparecem nos relatórios.
+
+## Quando DDD pode fazer sentido
+
+DDD merece investigação quando regras são complexas e mutáveis; há muitos estados, exceções e dependências; o vocabulário é ambíguo; áreas interpretam conceitos de modo incompatível; a lógica central está espalhada por interfaces e integrações; erros têm alto custo; ou o produto deve evoluir por anos em torno de uma diferenciação específica.
+
+Não existe pontuação universal. A pergunta útil é qual complexidade concreta está cara hoje e se um modelo compartilhado ajudaria a controlá-la.
+
+## Quando provavelmente não compensa
+
+Página institucional, portfólio, blog, formulário simples, protótipo descartável, painel predominantemente CRUD, integração pequena, automação de baixo risco ou sistema com regras triviais raramente justificam uma adoção completa.
+
+Também há risco quando a equipe não acessa quem conhece o domínio ou não consegue sustentar as abstrações introduzidas. Ainda assim, vocabulário claro, exemplos reais e limites de responsabilidade podem ser úteis sem um programa formal de DDD.
+
+## Custos e limitações
+
+Compreender o domínio consome tempo e depende de colaboração entre áreas. A terminologia possui curva de aprendizado. Modelos envelhecem, documentação e código divergem, limites organizacionais são pressionados e especialistas específicos podem virar gargalos.
+
+Abstração prematura cria falsa precisão. Padrões táticos sem uma regra concreta elevam a carga cognitiva. Confundir DDD com microsserviços adiciona rede, observabilidade, consistência distribuída e operação antes de justificar esse custo. Uma modelagem sofisticada não compensa uma compreensão fraca do problema.
+
+## DDD não exige microsserviços
+
+DDD pode ser aplicado em um monólito modular. Um Bounded Context não precisa ser um microsserviço, e um microsserviço pode conter um modelo pobre. Separar serviços antes de compreender os limites aumenta integrações e dependências.
+
+Fronteiras conceituais podem existir antes das fronteiras de implantação. Durante a descoberta, um monólito costuma permitir mudanças mais baratas. “Um microsserviço por entidade” e “um microsserviço por agregado” não são regras válidas.
+
+## O modelo de domínio e o banco de dados
+
+O modelo de domínio e o modelo de persistência podem ter estruturas diferentes. Isso não torna o banco irrelevante nem exige esconder todo detalhe de persistência. Consistência, volume, consultas, operação, migrações e experiência da equipe também influenciam o projeto.
+
+Cada agregado não precisa de um banco separado. Bounded Contexts não precisam sempre compartilhar nem sempre separar bancos. A decisão deve tornar propriedade e integração explícitas, equilibrando as regras do domínio com as restrições técnicas reais.
+
+## Erros comuns ao adotar DDD
+
+- Começar por tabelas e entidades antes de compreender o problema.
+- Copiar uma arquitetura e considerar DDD concluído por causa das pastas.
+- Usar todos os padrões táticos ou transformar cada tabela em agregado.
+- Criar um repositório genérico para cada entidade.
+- Confundir Bounded Context com microsserviço e separar serviços cedo demais.
+- Criar eventos para qualquer alteração de campo.
+- Produzir abstrações sem exemplos reais.
+- Inventar uma linguagem compreendida apenas por desenvolvedores.
+- Tratar o modelo como definitivo, consultar somente gestores ou ignorar exceções.
+- Modelar regras que não pertencem ao produto.
+- Rejeitar CRUD quando CRUD é suficiente.
+
+## Vieses também entram no modelo
+
+Autores, consultores e arquitetos podem oferecer repertório, não autoridade incontestável. Soluções complexas parecem profissionais e termos em inglês podem excluir quem conhece o processo. Experiência técnica não substitui conhecimento operacional.
+
+Modelos também podem reproduzir regras injustas ou discriminatórias, priorizar a visão da liderança, naturalizar decisões históricas e tornar invisíveis usuários marginalizados ou casos menos frequentes. Um processo existente não é automaticamente legítimo.
+
+Modelar bem uma regra não significa que ela seja justa, necessária ou legal. A descoberta precisa permitir duas perguntas: estamos representando a regra corretamente? E essa regra deveria existir dessa forma?
+
+## Como começar sem sobrecarregar o projeto
+
+1. Escolha um fluxo importante e problemático.
+2. Reúna exemplos reais, inclusive exceções.
+3. Identifique termos ambíguos e formule regras em linguagem compreensível.
+4. Mapeie quem usa cada conceito e reconheça possíveis limites.
+5. Implemente o menor modelo capaz de proteger as regras relevantes.
+6. Crie testes baseados nos exemplos.
+7. Observe o uso e revise nomes, regras e limites.
+8. Registre decisões importantes e expanda apenas quando a complexidade justificar.
+
+Não reescreva todo o sistema para “adotar DDD”. Em um sistema existente, comece por um módulo novo, isole uma regra crítica, proteja uma integração com uma camada de tradução ou apenas melhore a linguagem. Mapear contextos pode vir antes de alterar a arquitetura.
+
+O padrão Strangler Fig pode substituir gradualmente partes de um sistema quando há uma fronteira e uma estratégia de migração adequadas. Ele não pertence exclusivamente a DDD e não deve ser aplicado apenas porque existe legado.
+
+## Perguntas antes de escolher DDD
+
+- Qual complexidade concreta precisamos controlar?
+- As regras mudam ou são apenas operações de cadastro?
+- Existem conceitos com significados diferentes?
+- Quais erros produzem maior impacto?
+- Temos acesso às pessoas que conhecem o processo?
+- O software representa uma diferenciação importante?
+- A equipe consegue manter os padrões escolhidos?
+- Um modelo mais simples atenderia?
+- Resolvemos um problema atual ou imaginamos complexidade futura?
+- O benefício compensa a carga cognitiva?
+
+## DDD vale pelo modelo, não pelo número de camadas
+
+O valor do Domain-Driven Design não está em adicionar mais camadas ao código, mas em construir modelos e limites que ajudem o software a representar problemas importantes com clareza. Quando essa complexidade não existe, a solução mais simples pode ser a melhor decisão de design.
+
+### Referências
+
+- [DDD Reference, de Eric Evans](https://www.domainlanguage.com/ddd/reference/) — síntese dos padrões e definições originais, disponibilizada pelo próprio autor.
+- [Domain Driven Design, de Martin Fowler](https://martinfowler.com/bliki/DomainDrivenDesign.html) — visão geral da abordagem e de sua evolução.
+- [Bounded Context, de Martin Fowler](https://martinfowler.com/bliki/BoundedContext.html) — explicação do limite de validade de um modelo.
+- [Ubiquitous Language, de Martin Fowler](https://martinfowler.com/bliki/UbiquitousLanguage.html) — linguagem compartilhada como prática evolutiva.
+- [Domain analysis, do Azure Architecture Center](https://learn.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis) — exemplo oficial de análise estratégica, usado com o cuidado de não confundir DDD com microsserviços.
+- [Tactical DDD, do Azure Architecture Center](https://learn.microsoft.com/en-us/azure/architecture/microservices/model/tactical-domain-driven-design) — definições aplicadas de agregados, serviços e eventos em um contexto específico.

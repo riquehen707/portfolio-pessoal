@@ -1,0 +1,601 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-24T14:52:23.692Z",
+  "environment": {
+    "commit": "ecc769f1301c0b9e66dcc0db7390658a0885e2e6",
+    "node": "v24.11.1",
+    "next": "^15.5.9",
+    "platform": "win32-x64"
+  },
+  "methodology": {
+    "buildRequired": true,
+    "byteValues": "Tamanhos brutos no disco; nao equivalem a transferencia comprimida.",
+    "buildDuration": "Cronometrar externamente `npm run build`; o Next nao grava a duracao no manifesto.",
+    "lighthouse": "Nao coletado por este comando; requer servidor de producao e navegador separado."
+  },
+  "pages": {
+    "prerenderedRoutes": 370,
+    "dynamicRouteDefinitions": 10,
+    "manifestRoutes": 75
+  },
+  "sourceGroups": [
+    {
+      "path": "src/app/blog/posts",
+      "files": 218,
+      "bytes": 3986933
+    },
+    {
+      "path": "src/content",
+      "files": 52,
+      "bytes": 975773
+    },
+    {
+      "path": "src/data",
+      "files": 20,
+      "bytes": 19341
+    },
+    {
+      "path": "public/images",
+      "files": 615,
+      "bytes": 31754980
+    }
+  ],
+  "buildGroups": [
+    {
+      "path": ".next/static",
+      "files": 786,
+      "bytes": 6893675
+    },
+    {
+      "path": ".next/server",
+      "files": 1946,
+      "bytes": 98532703
+    },
+    {
+      "path": ".next/cache",
+      "files": 196,
+      "bytes": 2569548032
+    }
+  ],
+  "clientBundlesByRoute": [
+    {
+      "route": "/layout",
+      "files": 24,
+      "rawClientBytes": 1907901
+    },
+    {
+      "route": "/livros/[slug]/page",
+      "files": 17,
+      "rawClientBytes": 1875270
+    },
+    {
+      "route": "/livros/page",
+      "files": 17,
+      "rawClientBytes": 1871569
+    },
+    {
+      "route": "/quadrinhos/[slug]/page",
+      "files": 17,
+      "rawClientBytes": 1871569
+    },
+    {
+      "route": "/quadrinhos/page",
+      "files": 17,
+      "rawClientBytes": 1871569
+    },
+    {
+      "route": "/blog/[slug]/page",
+      "files": 19,
+      "rawClientBytes": 1705974
+    },
+    {
+      "route": "/work/[slug]/page",
+      "files": 20,
+      "rawClientBytes": 1703624
+    },
+    {
+      "route": "/series/page",
+      "files": 15,
+      "rawClientBytes": 1629843
+    },
+    {
+      "route": "/personalidades/page",
+      "files": 14,
+      "rawClientBytes": 1628129
+    },
+    {
+      "route": "/filmes/page",
+      "files": 16,
+      "rawClientBytes": 1608568
+    },
+    {
+      "route": "/estudios/page",
+      "files": 14,
+      "rawClientBytes": 1577645
+    },
+    {
+      "route": "/simulacao/page",
+      "files": 13,
+      "rawClientBytes": 1554889
+    },
+    {
+      "route": "/ideias/page",
+      "files": 13,
+      "rawClientBytes": 1521335
+    },
+    {
+      "route": "/api/search-index/route",
+      "files": 14,
+      "rawClientBytes": 1521281
+    },
+    {
+      "route": "/rss.xml/route",
+      "files": 14,
+      "rawClientBytes": 1521281
+    },
+    {
+      "route": "/blog/categorias/[slug]/page",
+      "files": 15,
+      "rawClientBytes": 1521173
+    },
+    {
+      "route": "/blog/temas/[slug]/page",
+      "files": 15,
+      "rawClientBytes": 1521173
+    },
+    {
+      "route": "/servicos/[slug]/page",
+      "files": 13,
+      "rawClientBytes": 1519786
+    },
+    {
+      "route": "/blog/page",
+      "files": 13,
+      "rawClientBytes": 1518821
+    },
+    {
+      "route": "/(demos)/modelos/page",
+      "files": 14,
+      "rawClientBytes": 1517239
+    },
+    {
+      "route": "/(demos)/modelos/[segmento]/page",
+      "files": 14,
+      "rawClientBytes": 1517170
+    },
+    {
+      "route": "/aulas-particulares/page",
+      "files": 13,
+      "rawClientBytes": 1516446
+    },
+    {
+      "route": "/obras/wade/page",
+      "files": 14,
+      "rawClientBytes": 1516359
+    },
+    {
+      "route": "/blog/seo/page",
+      "files": 13,
+      "rawClientBytes": 1516280
+    },
+    {
+      "route": "/saiba-mais/page",
+      "files": 13,
+      "rawClientBytes": 1516160
+    },
+    {
+      "route": "/ideias/[slug]/page",
+      "files": 13,
+      "rawClientBytes": 1515992
+    },
+    {
+      "route": "/trilhas/[slug]/page",
+      "files": 13,
+      "rawClientBytes": 1514833
+    },
+    {
+      "route": "/work/gerenciamento/page",
+      "files": 13,
+      "rawClientBytes": 1514759
+    },
+    {
+      "route": "/personalidades/[slug]/page",
+      "files": 13,
+      "rawClientBytes": 1513443
+    },
+    {
+      "route": "/work/page",
+      "files": 13,
+      "rawClientBytes": 1513398
+    },
+    {
+      "route": "/(demos)/modelos/[segmento]/[slug]/page",
+      "files": 13,
+      "rawClientBytes": 1513266
+    },
+    {
+      "route": "/estudios/studio-ghibli/page",
+      "files": 14,
+      "rawClientBytes": 1512993
+    },
+    {
+      "route": "/estudios/laika/page",
+      "files": 14,
+      "rawClientBytes": 1512845
+    },
+    {
+      "route": "/estudios/kyoto-animation/page",
+      "files": 13,
+      "rawClientBytes": 1512784
+    },
+    {
+      "route": "/page",
+      "files": 13,
+      "rawClientBytes": 1512709
+    },
+    {
+      "route": "/mapa/page",
+      "files": 13,
+      "rawClientBytes": 1512074
+    },
+    {
+      "route": "/blog/seo/entender-a-busca/page",
+      "files": 13,
+      "rawClientBytes": 1511927
+    },
+    {
+      "route": "/estudios/science-saru/page",
+      "files": 13,
+      "rawClientBytes": 1511590
+    },
+    {
+      "route": "/obras/puparia/page",
+      "files": 13,
+      "rawClientBytes": 1511528
+    },
+    {
+      "route": "/publicos/[slug]/page",
+      "files": 13,
+      "rawClientBytes": 1511396
+    },
+    {
+      "route": "/estudios/aardman/page",
+      "files": 13,
+      "rawClientBytes": 1511359
+    },
+    {
+      "route": "/about/page",
+      "files": 13,
+      "rawClientBytes": 1511193
+    },
+    {
+      "route": "/estudios/cartoon-saloon/page",
+      "files": 13,
+      "rawClientBytes": 1511012
+    },
+    {
+      "route": "/servicos/produtos/page",
+      "files": 13,
+      "rawClientBytes": 1509644
+    },
+    {
+      "route": "/trilhas/page",
+      "files": 13,
+      "rawClientBytes": 1509569
+    },
+    {
+      "route": "/estudios/team-cherry/page",
+      "files": 13,
+      "rawClientBytes": 1509135
+    },
+    {
+      "route": "/about/abordagem-tecnica/page",
+      "files": 13,
+      "rawClientBytes": 1508952
+    },
+    {
+      "route": "/series/[slug]/page",
+      "files": 13,
+      "rawClientBytes": 1508340
+    },
+    {
+      "route": "/acervo/page",
+      "files": 13,
+      "rawClientBytes": 1508197
+    },
+    {
+      "route": "/blog/cultura/page",
+      "files": 13,
+      "rawClientBytes": 1507859
+    },
+    {
+      "route": "/blog/temas/page",
+      "files": 13,
+      "rawClientBytes": 1507859
+    },
+    {
+      "route": "/estudios/[slug]/page",
+      "files": 13,
+      "rawClientBytes": 1506795
+    },
+    {
+      "route": "/criadores/shingo-tamagawa/page",
+      "files": 13,
+      "rawClientBytes": 1506264
+    },
+    {
+      "route": "/filmes/[slug]/page",
+      "files": 13,
+      "rawClientBytes": 1506264
+    },
+    {
+      "route": "/servicos/page",
+      "files": 12,
+      "rawClientBytes": 1505739
+    },
+    {
+      "route": "/abordagem-tecnica/page",
+      "files": 12,
+      "rawClientBytes": 1504328
+    },
+    {
+      "route": "/contact/page",
+      "files": 12,
+      "rawClientBytes": 1504328
+    },
+    {
+      "route": "/not-found",
+      "files": 12,
+      "rawClientBytes": 1504328
+    },
+    {
+      "route": "/dev/entity-cards/page",
+      "files": 6,
+      "rawClientBytes": 389282
+    },
+    {
+      "route": "/_not-found/page",
+      "files": 5,
+      "rawClientBytes": 367235
+    },
+    {
+      "route": "/(demos)/modelos/layout",
+      "files": 5,
+      "rawClientBytes": 367235
+    },
+    {
+      "route": "/abordagem-tecnica/layout",
+      "files": 5,
+      "rawClientBytes": 367235
+    },
+    {
+      "route": "/api/comments/route",
+      "files": 5,
+      "rawClientBytes": 367235
+    },
+    {
+      "route": "/api/og/generate/route",
+      "files": 5,
+      "rawClientBytes": 367235
+    },
+    {
+      "route": "/aulas-particulares/layout",
+      "files": 5,
+      "rawClientBytes": 367235
+    },
+    {
+      "route": "/blog/categorias/layout",
+      "files": 5,
+      "rawClientBytes": 367235
+    },
+    {
+      "route": "/blog/temas/layout",
+      "files": 5,
+      "rawClientBytes": 367235
+    },
+    {
+      "route": "/contact/layout",
+      "files": 5,
+      "rawClientBytes": 367235
+    },
+    {
+      "route": "/mapa/layout",
+      "files": 5,
+      "rawClientBytes": 367235
+    },
+    {
+      "route": "/publicos/layout",
+      "files": 5,
+      "rawClientBytes": 367235
+    },
+    {
+      "route": "/robots.txt/route",
+      "files": 5,
+      "rawClientBytes": 367235
+    },
+    {
+      "route": "/saiba-mais/layout",
+      "files": 5,
+      "rawClientBytes": 367235
+    },
+    {
+      "route": "/simulacao/layout",
+      "files": 5,
+      "rawClientBytes": 367235
+    },
+    {
+      "route": "/sitemap.xml/route",
+      "files": 5,
+      "rawClientBytes": 367235
+    },
+    {
+      "route": "/trilhas/layout",
+      "files": 5,
+      "rawClientBytes": 367235
+    }
+  ],
+  "largestClientChunks": [
+    {
+      "path": ".next/static/chunks/69729-377fffdafcec7796.js",
+      "bytes": 942069
+    },
+    {
+      "path": ".next/static/chunks/82699-62dcc7a17460131f.js",
+      "bytes": 221794
+    },
+    {
+      "path": ".next/static/chunks/framework-76e98d7b8ad44551.js",
+      "bytes": 189788
+    },
+    {
+      "path": ".next/static/chunks/4bd1b696-bad92808725a934a.js",
+      "bytes": 173026
+    },
+    {
+      "path": ".next/static/chunks/31255-675ea469c8dc0052.js",
+      "bytes": 172820
+    },
+    {
+      "path": ".next/static/chunks/main-a56c28aefe63e290.js",
+      "bytes": 123539
+    },
+    {
+      "path": ".next/static/chunks/polyfills-42372ed130431b0a.js",
+      "bytes": 112594
+    },
+    {
+      "path": ".next/static/chunks/app/series/page-ecb10418c0e94d97.js",
+      "bytes": 107846
+    },
+    {
+      "path": ".next/static/chunks/28092-494ff2b02e5a57d0.js",
+      "bytes": 86777
+    },
+    {
+      "path": ".next/static/chunks/87421-e4cfb4e6c7b871b9.js",
+      "bytes": 84455
+    },
+    {
+      "path": ".next/static/chunks/app/simulacao/page-d94885447211c46a.js",
+      "bytes": 77911
+    },
+    {
+      "path": ".next/static/chunks/32099-14b844a0ec92124d.js",
+      "bytes": 65246
+    },
+    {
+      "path": ".next/static/chunks/10350-577e84bcf99296cc.js",
+      "bytes": 58076
+    },
+    {
+      "path": ".next/static/chunks/app/servicos/[slug]/page-f290b26229d4a2e0.js",
+      "bytes": 55164
+    },
+    {
+      "path": ".next/static/chunks/app/personalidades/page-0a54cf5b0ade9bd3.js",
+      "bytes": 52330
+    },
+    {
+      "path": ".next/static/chunks/app/ideias/page-63de399413fdaf95.js",
+      "bytes": 52103
+    },
+    {
+      "path": ".next/static/chunks/99762-95dd6cc9719d1c7e.js",
+      "bytes": 51746
+    },
+    {
+      "path": ".next/static/chunks/app/blog/page-658c9fda6e980063.js",
+      "bytes": 48891
+    },
+    {
+      "path": ".next/static/chunks/94956-29f66ca4be232937.js",
+      "bytes": 48098
+    },
+    {
+      "path": ".next/static/chunks/app/work/gerenciamento/page-97834014fcdf59b3.js",
+      "bytes": 47817
+    }
+  ],
+  "largestGeneratedHtml": [
+    {
+      "path": ".next/server/app/filmes.html",
+      "bytes": 749381
+    },
+    {
+      "path": ".next/server/app/blog/landing-page-o-que-e-como-criar.html",
+      "bytes": 425089
+    },
+    {
+      "path": ".next/server/app/blog/dashboard-o-que-e-como-criar.html",
+      "bytes": 410628
+    },
+    {
+      "path": ".next/server/app/blog/como-fazer-projecao-de-vendas.html",
+      "bytes": 404172
+    },
+    {
+      "path": ".next/server/app/blog/crm-o-que-e-como-funciona.html",
+      "bytes": 388166
+    },
+    {
+      "path": ".next/server/app/blog/database-design-patterns.html",
+      "bytes": 346247
+    },
+    {
+      "path": ".next/server/app/blog/principal-component-analysis-pca.html",
+      "bytes": 332434
+    },
+    {
+      "path": ".next/server/app/blog/e-commerce-dropshipping-como-funciona.html",
+      "bytes": 331313
+    },
+    {
+      "path": ".next/server/app/blog/data-warehouse-design.html",
+      "bytes": 325551
+    },
+    {
+      "path": ".next/server/app/blog/api-design-principles.html",
+      "bytes": 305072
+    },
+    {
+      "path": ".next/server/app/blog/trade-marketing.html",
+      "bytes": 293104
+    },
+    {
+      "path": ".next/server/app/blog/marketing-medico.html",
+      "bytes": 289881
+    },
+    {
+      "path": ".next/server/app/blog/como-montar-um-pc.html",
+      "bytes": 285980
+    },
+    {
+      "path": ".next/server/app/blog/domain-driven-design.html",
+      "bytes": 284023
+    },
+    {
+      "path": ".next/server/app/blog/marketing-orientado-a-dados.html",
+      "bytes": 282799
+    },
+    {
+      "path": ".next/server/app/blog/influencer-marketing.html",
+      "bytes": 279281
+    },
+    {
+      "path": ".next/server/app/blog/crimes-no-discord-responsabilidade-moderacao.html",
+      "bytes": 278626
+    },
+    {
+      "path": ".next/server/app/blog/melhores-maquininhas-de-cartao.html",
+      "bytes": 274054
+    },
+    {
+      "path": ".next/server/app/blog/como-ganhar-dinheiro-na-internet-no-curto-prazo.html",
+      "bytes": 268801
+    },
+    {
+      "path": ".next/server/app/quadrinhos.html",
+      "bytes": 268396
+    }
+  ]
+}

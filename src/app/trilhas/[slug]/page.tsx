@@ -124,12 +124,6 @@ function ArticleCard({ item, compact = false }: { item: KnowledgeItem; compact?:
   );
 }
 
-export function generateStaticParams() {
-  return publicTrailAreas.map((area) => ({
-    slug: area.slug,
-  }));
-}
-
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const posts = getAllBlogPosts();

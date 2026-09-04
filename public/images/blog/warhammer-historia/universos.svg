@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Quatro universos organizados como sistemas distintos</title><desc id="desc">Quatro campos geométricos abstratos conectados apenas pela marca central, representando continuidades diferentes.</desc>
+  <rect width="1600" height="900" fill="#f1ede2"/><g stroke="#22292b" stroke-width="6" fill="none"><rect x="90" y="90" width="620" height="300"/><rect x="890" y="90" width="620" height="300"/><rect x="90" y="510" width="620" height="300"/><rect x="890" y="510" width="620" height="300"/><circle cx="800" cy="450" r="92" fill="#d3a43e"/></g>
+  <path d="M250 305 400 150l150 155M1040 310l155-160 155 160M250 665h300M400 565v200M1040 680l155-135 155 135-155 70Z" fill="none" stroke="#52686b" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

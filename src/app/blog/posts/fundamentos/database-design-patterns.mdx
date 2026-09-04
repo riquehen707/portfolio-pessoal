@@ -1,0 +1,610 @@
+---
+title: "Database design patterns: padrões para modelar bancos de dados com clareza e escala"
+slug: "database-design-patterns"
+publishedAt: "2026-08-08"
+reviewedAt: "2026-08-08"
+summary: "Um guia para reconhecer padrões de modelagem relacional, avaliar seus custos e evoluir esquemas PostgreSQL conforme requisitos e consultas reais."
+description: "Database design patterns em PostgreSQL: relacionamentos N:N, hierarquias, histórico, dados temporais, multi-tenant, outbox, JSONB e pré-agregação."
+image: "/api/og/generate?title=Database%20design%20patterns&subtitle=Padr%C3%B5es%20para%20modelar%20com%20clareza%20e%20escala"
+imageAlt: "Diagrama de tabelas relacionadas representando padrões de modelagem de banco de dados"
+format: "Guia técnico"
+category: "Tecnologia"
+categories: ["Tecnologia", "Desenvolvimento"]
+tags: ["Database design patterns", "PostgreSQL", "Modelagem de dados", "SQL", "Arquitetura de software"]
+kind: "study"
+featured: false
+featuredHome: false
+readingTime: 28
+toc: true
+tocDepth: 3
+area: "tecnologia"
+module: "dados-e-backend"
+node: "database-design-patterns"
+level: "intermediario"
+type: "guia"
+knowledgeStatus: "publicado"
+essential: true
+prerequisites: ["Desenvolvimento web: o que é, como funciona e como começar"]
+unlocks: ["Índices em bancos relacionais", "Modelagem multi-tenant", "Consistência em sistemas distribuídos"]
+related: ["Desenvolvimento web: o que é, como funciona e como começar", "Marketing orientado a dados: como tomar decisões melhores sem se perder nas métricas"]
+estimatedReadingTime: 28
+primaryKeyword: "database design patterns"
+secondaryKeywords: ["padrões de banco de dados", "modelagem de banco de dados", "padrões de modelagem de dados", "database schema design", "PostgreSQL design patterns"]
+keywords: ["database design patterns", "padrões de banco de dados", "modelagem de banco de dados", "PostgreSQL", "normalização", "multi-tenant", "transactional outbox", "soft delete"]
+mapVisibility: "trilha"
+faq:
+  - q: "Database design patterns são exclusivos de bancos relacionais?"
+    a: "Não, mas este guia delimita os exemplos a bancos relacionais e usa PostgreSQL. Aplicar a mesma estrutura a documentos, grafos ou chave-valor sem considerar seus modelos de consistência e acesso produz comparações enganosas."
+  - q: "Todo relacionamento N:N precisa de uma tabela associativa?"
+    a: "Em um modelo relacional normalizado, a tabela associativa é a forma usual de representar cada vínculo e aplicar integridade. Ela também pode guardar atributos da relação, como papel ou data de entrada."
+  - q: "Soft delete substitui uma tabela de histórico?"
+    a: "Não. Soft delete registra que uma linha deixou de estar ativa, mas normalmente não explica todas as alterações anteriores, quem as fez ou quais valores existiam em cada momento."
+  - q: "Quando vale a pena desnormalizar?"
+    a: "Quando uma consulta relevante foi medida, o custo está identificado e existe uma estratégia explícita para manter as cópias consistentes. Desnormalizar por antecipação apenas troca joins conhecidos por sincronização oculta."
+references:
+  - title: "PostgreSQL 18 — Constraints"
+    author: "PostgreSQL Global Development Group"
+    url: "https://www.postgresql.org/docs/current/ddl-constraints.html"
+  - title: "PostgreSQL 18 — WITH Queries"
+    author: "PostgreSQL Global Development Group"
+    url: "https://www.postgresql.org/docs/current/queries-with.html"
+  - title: "PostgreSQL 18 — JSON Types"
+    author: "PostgreSQL Global Development Group"
+    url: "https://www.postgresql.org/docs/current/datatype-json.html"
+  - title: "PostgreSQL 18 — Range Types"
+    author: "PostgreSQL Global Development Group"
+    url: "https://www.postgresql.org/docs/current/rangetypes.html"
+  - title: "PostgreSQL 18 — Row Security Policies"
+    author: "PostgreSQL Global Development Group"
+    url: "https://www.postgresql.org/docs/current/ddl-rowsecurity.html"
+  - title: "PostgreSQL 18 — Materialized Views"
+    author: "PostgreSQL Global Development Group"
+    url: "https://www.postgresql.org/docs/current/rules-materializedviews.html"
+  - title: "PostgreSQL 18 — Using EXPLAIN"
+    author: "PostgreSQL Global Development Group"
+    url: "https://www.postgresql.org/docs/current/using-explain.html"
+  - title: "Transactional outbox pattern"
+    author: "AWS Prescriptive Guidance"
+    url: "https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html"
+status: "published"
+language: "pt-BR"
+---
+
+Uma coluna `tags text` parece suficiente enquanto cada registro possui uma única etiqueta. Depois surgem filtros, renomeações, permissões e relatórios. A aplicação começa a dividir valores por vírgula, procurar fragmentos de texto e corrigir grafias em centenas de linhas. O problema não nasceu quando o volume cresceu. Ele estava na representação escolhida para uma relação que ainda não havia sido reconhecida.
+
+**Database design patterns** ajudam a nomear problemas recorrentes e comparar estruturas que já foram testadas em muitos sistemas. Eles reduzem improviso, mas não adivinham requisitos. Um padrão adequado à consulta dominante de hoje pode se tornar custo desnecessário em outro produto, volume ou regime de consistência.
+
+Todos os exemplos deste guia usam **PostgreSQL 18**. Eles são pequenos para fins didáticos e precisam ser adaptados a permissões, migrações, observabilidade e recuperação de cada aplicação.
+
+<QuickSummary title="O que orienta uma boa decisão de esquema">
+
+- Modele fatos, relações e regras que o banco precisa preservar; não apenas a forma da tela atual.
+- Use constraints para invariantes que devem continuar verdadeiras em qualquer caminho de escrita.
+- Normalize como ponto de partida e desnormalize somente diante de uma consulta e de uma medição concretas.
+- Índices respondem a predicados, ordenações e junções reais; cada índice também custa escrita e armazenamento.
+- Histórico, soft delete, temporalidade, multi-tenancy e outbox resolvem problemas diferentes.
+- Escala depende do conjunto: dados, carga, consultas, transações, hardware e operação — não do desenho isolado.
+
+</QuickSummary>
+
+## O que são database design patterns?
+
+Padrões de modelagem de banco são estruturas recorrentes para representar determinado tipo de fato ou cumprir uma propriedade: uma relação muitos para muitos, uma hierarquia, versões válidas no tempo ou isolamento entre organizações, por exemplo.
+
+Um padrão útil descreve:
+
+1. o problema que tenta resolver;
+2. a estrutura proposta;
+3. as propriedades que preserva;
+4. os custos que introduz;
+5. os contextos em que deve ser evitado.
+
+Isso é diferente de um padrão de acesso a dados no código. Repository, Unit of Work, Active Record e Data Mapper organizam como a aplicação conversa com a persistência. Podem influenciar transações e consultas, mas não substituem cardinalidade, chaves estrangeiras ou constraints no esquema.
+
+Também é diferente de uma escolha de banco. Este guia discute modelagem relacional. Bancos de documentos, grafos e chave-valor possuem compromissos próprios; misturá-los em uma lista única de “melhores padrões” ocultaria justamente as diferenças que deveriam orientar a decisão.
+
+## Fundamentos antes dos padrões
+
+### Entidades, atributos e relacionamentos
+
+Uma entidade representa algo sobre o qual o sistema registra fatos: cliente, pedido ou produto. Atributos descrevem esses fatos. Relacionamentos registram associações entre entidades.
+
+Nem todo substantivo merece uma tabela e nem toda propriedade merece uma coluna permanente. O critério é o domínio: identidade, ciclo de vida, regras, consultas e necessidade de referência.
+
+### Cardinalidade
+
+Cardinalidade responde quantas ocorrências podem participar de uma relação: uma para uma, uma para muitas ou muitas para muitas. Ela deve considerar obrigatoriedade. Um pedido precisa ter cliente? Uma categoria pode não ter pai? Um usuário pode participar de vários projetos?
+
+### Integridade
+
+`PRIMARY KEY`, `UNIQUE`, `NOT NULL`, `CHECK`, `FOREIGN KEY` e `EXCLUDE` tornam regras verificáveis pelo banco. A [documentação de constraints do PostgreSQL](https://www.postgresql.org/docs/current/ddl-constraints.html) recomenda expressar restrições entre linhas e tabelas com mecanismos próprios como `UNIQUE`, `EXCLUDE` e `FOREIGN KEY`, em vez de depender de um `CHECK` que consulta outras linhas.
+
+Validação na interface melhora a experiência. Validação no serviço traduz regras de negócio. Constraint protege o estado persistido mesmo quando aparece outro importador, script ou consumidor.
+
+### Normalização
+
+Normalização separa fatos para reduzir redundância e anomalias de inserção, atualização e exclusão. As formas normais são ferramentas de análise, não um concurso para produzir o maior número de tabelas.
+
+Uma estrutura normalizada costuma ser um bom ponto de partida porque explicita dependências. Depois, consultas reais podem justificar cópias controladas, agregados ou representações derivadas.
+
+### Índices
+
+Índice é uma estrutura de acesso, não uma medalha de maturidade. Ele pode acelerar filtros, joins e ordenações compatíveis, mas aumenta armazenamento e trabalho em `INSERT`, `UPDATE` e `DELETE`.
+
+O PostgreSQL orienta verificar índices contra a carga real e usar `EXPLAIN` ou `EXPLAIN ANALYZE` para observar planos. [`EXPLAIN ANALYZE` executa a instrução](https://www.postgresql.org/docs/current/using-explain.html); em comandos de escrita, faça isso conscientemente e use uma transação com `ROLLBACK` quando apropriado.
+
+## Mapa rápido dos padrões
+
+<EditorialTable
+  title="Problema, padrão, custo e sinal de alerta"
+  caption="A tabela orienta investigação; não substitui requisitos nem medição."
+  mobileMode="scroll"
+  columns={[
+    { key: "problema", label: "Problema" },
+    { key: "padrao", label: "Padrão provável" },
+    { key: "custo", label: "Custo principal" },
+    { key: "alerta", label: "Sinal de alerta" },
+  ]}
+  rows={[
+    { problema: "Relação N:N", padrao: "Tabela associativa", custo: "Join e chave composta", alerta: "IDs em array ou texto separado" },
+    { problema: "Árvore ou categorias", padrao: "Lista de adjacência", custo: "Consulta recursiva", alerta: "Profundidade e leitura não definidas" },
+    { problema: "Saber o que mudou", padrao: "Histórico ou auditoria", custo: "Mais escrita e retenção", alerta: "Sobrescrever a única linha" },
+    { problema: "Inativação recuperável", padrao: "Soft delete", custo: "Filtros e unicidade parcial", alerta: "Linhas apagadas reaparecem" },
+    { problema: "Validade por intervalo", padrao: "Dados temporais", custo: "Intervalos e regras de sobreposição", alerta: "Misturar validade com data de edição" },
+    { problema: "Atributos variáveis", padrao: "JSONB delimitado", custo: "Contrato e consultas menos explícitos", alerta: "Tudo vira documento" },
+    { problema: "Várias organizações", padrao: "Tenant explícito", custo: "Isolamento em todas as relações", alerta: "Filtro de tenant só na aplicação" },
+    { problema: "Banco + mensagem", padrao: "Transactional outbox", custo: "Relay, reprocessamento e idempotência", alerta: "Dual write sem recuperação" },
+    { problema: "Leitura agregada cara", padrao: "Materialized view ou pré-agregação", custo: "Defasagem e atualização", alerta: "Cache sem dono ou validade" },
+  ]}
+/>
+
+## Padrão 1: tabela associativa para relações N:N
+
+**Problema.** Um usuário participa de vários projetos e um projeto possui vários usuários.
+
+**Estrutura.** Crie uma tabela para a relação. A chave composta impede repetir o mesmo vínculo e as chaves estrangeiras impedem referências órfãs.
+
+```text title="Diagrama ER — participação em projetos"
+users 1 ───< project_members >─── 1 projects
+               │
+               └── role, joined_at
+```
+
+```sql title="PostgreSQL — relação muitos para muitos"
+CREATE TABLE users (
+  id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  email text NOT NULL UNIQUE
+);
+
+CREATE TABLE projects (
+  id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  name text NOT NULL
+);
+
+CREATE TABLE project_members (
+  project_id bigint NOT NULL REFERENCES projects(id) ON DELETE CASCADE,
+  user_id bigint NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  role text NOT NULL CHECK (role IN ('owner', 'editor', 'viewer')),
+  joined_at timestamptz NOT NULL DEFAULT now(),
+  PRIMARY KEY (project_id, user_id)
+);
+```
+
+**Vantagens.** A relação vira um fato consultável e pode receber atributos próprios, como papel e data de entrada.
+
+**Riscos.** `ON DELETE CASCADE` precisa corresponder ao domínio. Excluir um projeto pode apagar vínculos; excluir um usuário talvez precise ser impedido ou anonimizado em outro sistema.
+
+**Evite quando.** A relação não é realmente N:N. Criar tabela associativa para um valor único adiciona complexidade sem representar um fato novo.
+
+## Padrão 2: hierarquias
+
+**Problema.** Categorias podem conter outras categorias.
+
+**Estrutura inicial.** Na lista de adjacência, cada linha aponta para o pai. É simples de escrever e funciona bem quando profundidade e travessias são moderadas.
+
+```sql title="PostgreSQL — lista de adjacência"
+CREATE TABLE categories (
+  id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  parent_id bigint REFERENCES categories(id) ON DELETE RESTRICT,
+  name text NOT NULL,
+  CHECK (parent_id IS NULL OR parent_id <> id)
+);
+
+WITH RECURSIVE category_tree AS (
+  SELECT id, parent_id, name, 0 AS depth
+  FROM categories
+  WHERE parent_id IS NULL
+
+  UNION ALL
+
+  SELECT c.id, c.parent_id, c.name, t.depth + 1
+  FROM categories c
+  JOIN category_tree t ON c.parent_id = t.id
+)
+SELECT * FROM category_tree ORDER BY depth, name;
+```
+
+Consultas `WITH RECURSIVE` são indicadas pela [documentação do PostgreSQL](https://www.postgresql.org/docs/current/queries-with.html) para dados hierárquicos. O `CHECK` acima impede apenas autorreferência direta; não impede um ciclo com várias linhas. Esse requisito exige controle adicional.
+
+**Alternativas.** Closure table acelera consultas de ancestrais e descendentes ao armazenar caminhos, mas encarece mudanças. Materialized path facilita certas leituras, mas exige regras de atualização. Nested sets favorece árvores lidas com frequência e alteradas raramente.
+
+**Evite escolher cedo.** Primeiro descubra quais operações dominam: inserir nós, mover subárvores, recuperar ancestrais, buscar descendentes ou limitar profundidade.
+
+## Padrão 3: histórico e auditoria
+
+**Problema.** O valor atual de um pedido não explica quando o status mudou, quem o alterou ou qual sequência ocorreu.
+
+**Estrutura.** Mantenha o estado atual para leitura operacional e acrescente uma tabela append-only de transições relevantes.
+
+```sql title="PostgreSQL — histórico de status"
+CREATE TABLE order_status_history (
+  id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  order_id bigint NOT NULL REFERENCES orders(id),
+  from_status text,
+  to_status text NOT NULL,
+  changed_at timestamptz NOT NULL DEFAULT now(),
+  changed_by bigint REFERENCES users(id),
+  CHECK (from_status IS DISTINCT FROM to_status)
+);
+
+CREATE INDEX order_status_history_order_time_idx
+  ON order_status_history (order_id, changed_at DESC);
+```
+
+**Vantagens.** Permite reconstruir transições e investigar operações sem transformar todo o modelo em event sourcing.
+
+**Riscos.** Histórico de negócio, trilha de segurança e cópia completa de cada linha não são a mesma necessidade. Retenção, dados pessoais, imutabilidade e acesso precisam ser definidos. Um trigger captura caminhos de escrita diferentes, mas também oculta comportamento que deve ser documentado.
+
+**Evite quando.** Ninguém precisa consultar o passado e a informação não possui obrigação operacional ou regulatória. Registrar tudo para sempre cria custo e risco de dados sem finalidade.
+
+## Padrão 4: soft delete
+
+**Problema.** Uma entidade precisa sair das operações comuns, mas ainda deve ser restaurada ou referenciada.
+
+**Estrutura.** Use uma marca temporal explícita e faça consultas operacionais considerarem apenas linhas ativas.
+
+```sql title="PostgreSQL — exclusão lógica e unicidade"
+ALTER TABLE customers
+  ADD COLUMN deleted_at timestamptz;
+
+CREATE UNIQUE INDEX customers_active_email_uidx
+  ON customers (lower(email))
+  WHERE deleted_at IS NULL;
+
+SELECT id, email
+FROM customers
+WHERE deleted_at IS NULL;
+```
+
+**Vantagens.** Preserva referências e permite restauração dentro de uma política definida.
+
+**Riscos.** Todo caminho de leitura precisa conhecer a semântica; relatórios podem contar registros inativos; chaves estrangeiras continuam apontando para a linha; unicidade pode precisar de índice parcial. Soft delete também não substitui auditoria.
+
+**Evite quando.** A exclusão deve ser definitiva, a retenção não é legítima ou a entidade pode ser representada melhor por um estado de negócio como `cancelled` ou `closed`.
+
+## Padrão 5: dados temporais
+
+**Problema.** Um preço ou contrato vale durante um intervalo, e dois valores ativos não podem se sobrepor para o mesmo item.
+
+**Estrutura.** Modele validade como intervalo. PostgreSQL oferece tipos range e constraints de exclusão capazes de impedir sobreposição.
+
+```sql title="PostgreSQL — validade sem sobreposição"
+CREATE EXTENSION IF NOT EXISTS btree_gist;
+
+CREATE TABLE product_prices (
+  product_id bigint NOT NULL REFERENCES products(id),
+  amount numeric(12, 2) NOT NULL CHECK (amount >= 0),
+  valid_during daterange NOT NULL,
+  EXCLUDE USING gist (
+    product_id WITH =,
+    valid_during WITH &&
+  )
+);
+```
+
+A [documentação de range types](https://www.postgresql.org/docs/current/rangetypes.html) usa constraints de exclusão justamente para regras de não sobreposição. Defina também a convenção dos limites: `[início, fim)` costuma evitar que o fim de um período conflite com o início do próximo.
+
+**Vantagens.** O banco impede estados temporais contraditórios mesmo com escritas concorrentes.
+
+**Riscos.** “Válido no negócio” é diferente de “gravado no banco”. Sistemas que precisam das duas dimensões entram em modelagem bitemporal, consideravelmente mais complexa.
+
+**Evite quando.** Basta saber o valor atual e mudanças passadas não precisam ser consultadas ou corrigidas retroativamente.
+
+## Padrão 6: chave natural versus chave substituta
+
+**Problema.** Toda linha precisa de identidade estável, mas alguns identificadores do domínio podem mudar, ser reutilizados ou depender de terceiros.
+
+**Estrutura.** Use uma chave substituta para identidade interna e preserve a chave natural com `UNIQUE` quando ela representa uma regra real.
+
+```sql title="PostgreSQL — identidade interna e código de domínio"
+CREATE TABLE products (
+  id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  sku text NOT NULL UNIQUE,
+  name text NOT NULL
+);
+```
+
+**Vantagens.** Referências internas não mudam quando o SKU muda, enquanto a constraint ainda impede duplicidade do código vigente.
+
+**Riscos.** Uma chave substituta não elimina a necessidade de identificar duplicatas de negócio. Adicionar `id` e esquecer o `UNIQUE` apenas permite várias linhas representarem o mesmo fato.
+
+**Quando preferir natural.** Códigos pequenos, controlados, estáveis e já usados como identidade podem funcionar como chave primária. A decisão depende de estabilidade, largura, exposição, migração e significado — não de uma regra universal.
+
+## Padrão 7: valores flexíveis com JSONB
+
+**Problema.** Produtos de categorias diferentes possuem atributos opcionais que variam, enquanto identidade, preço e estoque continuam estruturados.
+
+**Estrutura.** Mantenha colunas para fatos centrais e delimite um documento `jsonb` para atributos variáveis.
+
+```sql title="PostgreSQL — núcleo relacional com atributos flexíveis"
+CREATE TABLE catalog_items (
+  id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  sku text NOT NULL UNIQUE,
+  category_id bigint NOT NULL REFERENCES categories(id),
+  name text NOT NULL,
+  attributes jsonb NOT NULL DEFAULT '{}'::jsonb,
+  CHECK (jsonb_typeof(attributes) = 'object')
+);
+
+-- Crie apenas se consultas reais usarem contenção em attributes.
+CREATE INDEX catalog_items_attributes_gin_idx
+  ON catalog_items USING gin (attributes);
+```
+
+O PostgreSQL diferencia `json` e `jsonb`: `jsonb` usa representação decomposta e oferece indexação, com custos próprios de entrada e armazenamento. A [documentação de JSON](https://www.postgresql.org/docs/current/datatype-json.html) também mostra que classes GIN diferentes apoiam operadores distintos.
+
+**Vantagens.** Evita uma migração para cada atributo raro e preserva um núcleo relacional claro.
+
+**Riscos.** Contrato, tipos e obrigatoriedade podem migrar silenciosamente para a aplicação. Campos usados em joins, constraints, ordenação ou filtros centrais geralmente merecem colunas.
+
+**Evite quando.** O JSON vira uma desculpa para não modelar entidades estáveis ou para armazenar todo o registro como documento opaco.
+
+## Padrão 8: multi-tenant com tenant explícito
+
+**Problema.** Várias organizações compartilham uma aplicação, mas dados e relações não podem atravessar tenants.
+
+**Estrutura.** Em um esquema compartilhado, inclua `tenant_id` nas tabelas e nas chaves que validam relações.
+
+```text title="Diagrama ER — isolamento por tenant"
+tenants 1 ───< projects 1 ───< tasks
+   │             │               │
+   └──── tenant_id integra todas as relações
+```
+
+```sql title="PostgreSQL — chaves compostas por tenant"
+CREATE TABLE tenants (
+  id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  name text NOT NULL
+);
+
+CREATE TABLE tenant_projects (
+  tenant_id bigint NOT NULL REFERENCES tenants(id),
+  id bigint GENERATED ALWAYS AS IDENTITY,
+  name text NOT NULL,
+  PRIMARY KEY (tenant_id, id)
+);
+
+CREATE TABLE tenant_tasks (
+  tenant_id bigint NOT NULL,
+  id bigint GENERATED ALWAYS AS IDENTITY,
+  project_id bigint NOT NULL,
+  title text NOT NULL,
+  PRIMARY KEY (tenant_id, id),
+  FOREIGN KEY (tenant_id, project_id)
+    REFERENCES tenant_projects (tenant_id, id)
+);
+```
+
+**Vantagens.** A própria chave estrangeira impede associar uma tarefa de um tenant ao projeto de outro.
+
+**Riscos.** Isolamento também envolve autenticação, permissões, backups, jobs, cache e observabilidade. Row-Level Security pode adicionar defesa no banco, mas a [documentação do PostgreSQL](https://www.postgresql.org/docs/current/ddl-rowsecurity.html) registra exceções para proprietários e funções de bypass, além de cuidados de concorrência em políticas que consultam outras tabelas.
+
+**Evite quando.** Requisitos exigem isolamento físico, chaves de criptografia, residência de dados ou recuperação por cliente incompatíveis com o esquema compartilhado. Banco por tenant e esquema por tenant têm outros custos operacionais.
+
+## Padrão 9: transactional outbox
+
+**Problema.** Uma transação grava um pedido e também precisa publicar um evento. Se o banco confirmar e o broker falhar — ou o contrário — os sistemas divergem.
+
+**Estrutura.** Grave estado e evento pendente na mesma transação local. Um processo separado publica a outbox e registra o progresso.
+
+```sql title="PostgreSQL — escrita atômica na outbox"
+CREATE TABLE outbox_events (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  aggregate_type text NOT NULL,
+  aggregate_id bigint NOT NULL,
+  event_type text NOT NULL,
+  payload jsonb NOT NULL,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  published_at timestamptz
+);
+
+BEGIN;
+
+UPDATE orders
+SET status = 'paid'
+WHERE id = 42 AND status = 'pending';
+
+INSERT INTO outbox_events (
+  aggregate_type, aggregate_id, event_type, payload
+) VALUES (
+  'order', 42, 'order.paid', '{"order_id": 42}'::jsonb
+);
+
+COMMIT;
+```
+
+Na aplicação real, confirme que o `UPDATE` alterou exatamente uma linha antes do `INSERT`. A [orientação da AWS sobre transactional outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html) descreve o padrão como resposta ao problema de *dual write* entre banco e mensageria.
+
+**Vantagens.** Estado e intenção de publicar ficam atômicos no banco.
+
+**Riscos.** O relay pode publicar mais de uma vez. Consumidores precisam de idempotência; eventos precisam de ordem quando o domínio exigir; falhas, retenção e backlog precisam ser observados. Outbox não oferece “exactly once” por mágica.
+
+**Evite quando.** Não existe segundo sistema ou mensagem a sincronizar. Adicionar outbox a um CRUD local cria operação sem resolver um risco real.
+
+## Padrão 10: materialized view e pré-agregação
+
+**Problema.** Um painel recalcula repetidamente a receita diária sobre grande histórico, e alguma defasagem é aceitável.
+
+**Estrutura.** Persista o resultado derivado e defina uma política de atualização.
+
+```sql title="PostgreSQL — agregado materializado"
+CREATE MATERIALIZED VIEW daily_revenue AS
+SELECT
+  date_trunc('day', paid_at)::date AS day,
+  sum(total_amount) AS revenue
+FROM orders
+WHERE status = 'paid'
+GROUP BY 1;
+
+CREATE UNIQUE INDEX daily_revenue_day_uidx
+  ON daily_revenue (day);
+
+REFRESH MATERIALIZED VIEW CONCURRENTLY daily_revenue;
+```
+
+Materialized views no PostgreSQL persistem o resultado e podem ser atualizadas com `REFRESH MATERIALIZED VIEW`. A [documentação oficial](https://www.postgresql.org/docs/current/rules-materializedviews.html) ressalta o compromisso: leitura pode ser mais rápida, mas os dados nem sempre estão atuais.
+
+**Vantagens.** Remove agregação repetitiva do caminho de leitura e mantém uma consulta declarativa como origem.
+
+**Riscos.** É preciso definir frequência, duração, concorrência, falha e tolerância à defasagem. `CONCURRENTLY` exige condições próprias, como índice `UNIQUE` adequado, e ainda tem custo.
+
+**Evite quando.** A consulta já atende o objetivo ou o dado precisa refletir cada transação imediatamente. Pré-agregar cedo duplica estado e cria um job sem benefício medido.
+
+## Antipadrões que escondem o modelo
+
+### EAV indiscriminado
+
+Entity–attribute–value representa cada atributo como linha. É útil em domínios realmente dinâmicos e com infraestrutura específica, mas aplicado a tudo remove tipos claros, torna constraints difíceis e multiplica joins. JSONB delimitado ou tabelas específicas costumam comunicar melhor atributos previsíveis.
+
+### Colunas numeradas
+
+`phone_1`, `phone_2`, `phone_3` codificam um limite arbitrário e repetem estrutura. Uma tabela `customer_phones` representa a coleção, permite quantidade variável e aplica regras por item.
+
+### Listas separadas por vírgula
+
+`tag_ids = '2,7,11'` não é uma relação relacional. Integridade referencial, busca exata e atualização ficam a cargo de manipulação textual. Use tabela associativa.
+
+### Tabela universal
+
+Uma tabela com dezenas de colunas opcionais para clientes, produtos, pagamentos e eventos reduz o número de tabelas ao custo de apagar identidades e regras. Muitos `NULL`, um campo `type` onipotente e constraints condicionais crescentes são sinais.
+
+### Ausência de constraints
+
+“A aplicação já valida” pressupõe um único caminho de escrita para sempre. Constraints protegem invariantes contra concorrência, importações, scripts e novos serviços.
+
+### Índices por intuição
+
+Indexar toda coluna “que pode ser filtrada” aumenta escrita e pode não ajudar o plano. Comece pelas consultas dominantes, observe plano, cardinalidade e frequência, depois meça novamente.
+
+### Duplicação sem estratégia
+
+Copiar nome do cliente para cada pedido pode ser correto se o requisito é preservar o nome exibido na emissão. Pode ser erro se deveria refletir a versão atual. Toda duplicação precisa de semântica, fonte de verdade e método de atualização.
+
+## Normalização versus desnormalização
+
+Normalização e desempenho não são opostos. Joins apoiados por chaves e índices adequados podem ser a solução mais simples. Desnormalização pode ajudar uma leitura específica, mas cobra sincronização.
+
+Antes de duplicar dados:
+
+1. identifique uma consulta relevante e sua meta;
+2. capture plano e tempo com volume representativo;
+3. verifique índices, cardinalidades e consulta;
+4. teste a representação derivada;
+5. defina fonte de verdade e atualização;
+6. meça escrita, leitura, defasagem e recuperação.
+
+Performance não é propriedade do diagrama ER isolado. Ela emerge da combinação entre distribuição dos dados, concorrência, consultas, plano, memória, armazenamento, rede e manutenção.
+
+## Como a carga muda o padrão
+
+### Carga transacional
+
+Muitas escritas pequenas favorecem integridade explícita, transações curtas e poucos índices úteis. Pré-agregações síncronas podem ampliar contenção.
+
+### Carga analítica
+
+Varreduras, agrupamentos e séries históricas podem justificar modelos derivados, particionamento ou uma plataforma analítica separada. Isso não autoriza transformar o banco operacional em um esquema dimensional sem compreender os consumidores.
+
+### Consistência
+
+Reservas, saldos e unicidade exigem propriedades diferentes de contadores aproximados ou feeds. Escolha o ponto de aplicação da regra — constraint, transação, processo assíncrono — a partir do dano causado por atraso ou conflito.
+
+### Volume e consultas dominantes
+
+“Milhões de linhas” isoladamente diz pouco. Uma tabela grande consultada por chave pode ser simples; uma pequena submetida a joins combinatórios ou alta contenção pode ser difícil. Registre frequência, seletividade, ordenação, janela temporal e quantidade retornada.
+
+## Estudo de caso evolutivo: projetos compartilhados
+
+<PracticalExample title="Adicione estrutura quando o requisito aparece">
+
+**Versão 1 — uma pessoa, vários projetos.** Comece com `users` e `projects`, usando `projects.owner_id`. Não crie multi-tenancy, histórico ou outbox porque eles parecem sofisticados.
+
+**Novo requisito — colaboração.** Um projeto agora possui vários membros com papéis diferentes. Substitua a relação única por `project_members`. Migre o proprietário atual para a tabela associativa e preserve a regra de que existe um owner conforme o domínio exigir.
+
+**Novo requisito — organizações.** Clientes empresariais precisam separar projetos e membros. Introduza `tenants` e carregue `tenant_id` pelas chaves e relações. Antes de ativar RLS, teste papéis, jobs e acessos administrativos.
+
+**Novo requisito — explicar mudanças de status.** Acrescente uma tabela de histórico apenas ao status relevante. Não copie todas as colunas do projeto por reflexo.
+
+**Novo requisito — avisar outro serviço.** Se a alteração precisa publicar evento fora do banco, grave uma outbox na mesma transação. Implemente relay observável e consumidor idempotente.
+
+**Revisão.** Cada passo responde a uma capacidade nova e inclui migração, constraint, consulta e operação. O esquema não começou “preparado para qualquer escala”; ele começou simples e preservou caminhos de evolução.
+
+</PracticalExample>
+
+## Processo de decisão e revisão do esquema
+
+1. **Escreva os fatos.** O que existe, o que muda e o que precisa continuar verdadeiro?
+2. **Declare cardinalidade e ciclo de vida.** Quem pode existir sem quem? O que acontece na exclusão?
+3. **Liste operações dominantes.** Leituras, escritas, filtros, joins, ordenações e agregações.
+4. **Escolha a estrutura mínima.** Use o padrão que representa o requisito atual e documente alternativas rejeitadas.
+5. **Expresse integridade.** Defina chaves, nulabilidade, unicidade, referências e constraints.
+6. **Teste exemplos e contraexemplos.** Inclua duplicidade, concorrência, ausência, exclusão e mudança temporal.
+7. **Meça consultas.** Use dados representativos e examine planos antes de criar índices ou cópias.
+8. **Planeje a migração.** Compatibilidade, backfill, bloqueios, rollback e implantação gradual fazem parte do design.
+9. **Revise após uso real.** Compare hipóteses com volume, consultas, incidentes e custos observados.
+
+<EditorialChecklist title="Checklist de revisão de esquema">
+
+- Cada tabela representa um fato ou uma relação identificável.
+- Cardinalidade e opcionalidade estão explícitas.
+- Chaves naturais relevantes possuem `UNIQUE`, mesmo quando existe ID substituto.
+- Chaves estrangeiras e ações de exclusão correspondem ao ciclo de vida real.
+- Constraints protegem invariantes que não podem depender de um único código cliente.
+- Campos JSON possuem fronteira, contrato e consultas conhecidos.
+- Histórico, auditoria, soft delete e validade temporal não foram tratados como sinônimos.
+- Toda duplicação possui fonte de verdade e estratégia de atualização.
+- Índices respondem a consultas observadas e tiveram custo de escrita considerado.
+- Isolamento de tenant foi aplicado também às relações, jobs e acessos privilegiados.
+- Processos assíncronos possuem idempotência, retentativa e observabilidade.
+- Migrações e recuperação foram consideradas junto com o estado final.
+
+</EditorialChecklist>
+
+## Padrões melhoram perguntas, não eliminam decisões
+
+Um bom database design pattern torna uma escolha discutível. Em vez de “vamos colocar tudo em JSON”, a equipe pergunta quais atributos variam, quais precisam de constraints e como serão consultados. Em vez de “adicione índices para escalar”, pergunta quais planos estão caros e quanto cada índice cobra das escritas.
+
+Esse é o uso mais valioso dos padrões: reconhecer a forma do problema, antecipar custos e preservar opções. Requisitos e medições continuam decidindo.
+
+Para situar o banco dentro das demais camadas, leia [desenvolvimento web: o que é, como funciona e como começar](/blog/desenvolvimento-web). Se o interesse está em transformar eventos e métricas em decisões, continue em [marketing orientado a dados](/blog/marketing-orientado-a-dados).
+
+<NextSteps title="Aplique em um esquema real">
+
+1. Escolha uma tabela problemática.
+2. Escreva os fatos e invariantes que ela representa.
+3. Identifique um padrão e uma alternativa.
+4. Teste consultas e contraexemplos.
+5. Registre custo, migração e critério de revisão.
+
+</NextSteps>
+
+## Referências
+
+- [Constraints](https://www.postgresql.org/docs/current/ddl-constraints.html) — PostgreSQL; chaves, unicidade, integridade referencial, checks e exclusão.
+- [WITH Queries](https://www.postgresql.org/docs/current/queries-with.html) — PostgreSQL; consultas recursivas para estruturas hierárquicas.
+- [JSON Types](https://www.postgresql.org/docs/current/datatype-json.html) — PostgreSQL; diferenças entre `json` e `jsonb`, operadores e indexação.
+- [Range Types](https://www.postgresql.org/docs/current/rangetypes.html) — PostgreSQL; intervalos e constraints de exclusão.
+- [Row Security Policies](https://www.postgresql.org/docs/current/ddl-rowsecurity.html) — PostgreSQL; comportamento, exceções e riscos de políticas por linha.
+- [Materialized Views](https://www.postgresql.org/docs/current/rules-materializedviews.html) — PostgreSQL; persistência, atualização e defasagem dos resultados.
+- [Using EXPLAIN](https://www.postgresql.org/docs/current/using-explain.html) — PostgreSQL; leitura de planos e cuidados com `EXPLAIN ANALYZE`.
+- [Transactional outbox pattern](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html) — AWS Prescriptive Guidance; problema de dual write, implementação e trade-offs.

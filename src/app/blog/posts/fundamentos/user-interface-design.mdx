@@ -1,0 +1,274 @@
+---
+title: "User interface design: princípios para criar interfaces claras e acessíveis"
+slug: "user-interface-design"
+publishedAt: "2026-08-08"
+updatedAt: "2026-08-08"
+reviewedAt: "2026-08-08"
+summary: "Entenda como UI design organiza informação, ações, estados e feedback — da hierarquia visual à acessibilidade e à validação com pessoas."
+description: "Guia de user interface design sobre hierarquia, componentes, estados, formulários, responsividade, microcopy, acessibilidade e processo de UI design."
+image: "/api/og/generate?title=User%20interface%20design&subtitle=Interfaces%20claras%20e%20acess%C3%ADveis"
+imageAlt: "Capa editorial com o título User interface design"
+format: "Guia"
+category: "Design"
+categories: ["Design", "Fundamentos"]
+tags: ["User interface design", "UI design", "Design de interface", "Acessibilidade", "Design systems"]
+kind: "study"
+featured: false
+featuredHome: false
+readingTime: 24
+toc: true
+tocDepth: 2
+area: "design"
+module: "fundamentos"
+node: "user-interface-design"
+level: "iniciante"
+type: "guia"
+knowledgeStatus: "publicado"
+essential: true
+prerequisites: ["O que é design? Muito além de deixar algo bonito", "Princípios do design visual: como criar hierarquia, clareza e consistência"]
+unlocks: ["Guia prático: como trabalhar com UI e UX Design", "Como escrever um estudo de caso de UX"]
+related: ["Princípios do design visual: como criar hierarquia, clareza e consistência", "Guia prático: como trabalhar com UI e UX Design", "Como escrever um estudo de caso de UX"]
+estimatedReadingTime: 24
+primaryKeyword: "user interface design"
+secondaryKeywords: ["UI design", "design de interface", "princípios de UI design", "interfaces acessíveis", "design de interfaces"]
+keywords: ["user interface design", "UI design", "design de interface", "princípios de UI", "acessibilidade digital", "design system", "interface responsiva"]
+mapVisibility: "trilha"
+references:
+  - title: "Web Content Accessibility Guidelines (WCAG) 2.2"
+    author: "W3C"
+    url: "https://www.w3.org/TR/WCAG22/"
+  - title: "Understanding Success Criterion 1.4.3: Contrast (Minimum)"
+    author: "W3C Web Accessibility Initiative"
+    url: "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html"
+  - title: "Understanding Success Criterion 1.4.11: Non-text Contrast"
+    author: "W3C Web Accessibility Initiative"
+    url: "https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html"
+  - title: "Understanding Success Criterion 2.1.1: Keyboard"
+    author: "W3C Web Accessibility Initiative"
+    url: "https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html"
+  - title: "Understanding Success Criterion 2.4.11: Focus Not Obscured (Minimum)"
+    author: "W3C Web Accessibility Initiative"
+    url: "https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html"
+  - title: "Understanding Success Criterion 2.5.8: Target Size (Minimum)"
+    author: "W3C Web Accessibility Initiative"
+    url: "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html"
+  - title: "Understanding Success Criterion 3.3.2: Labels or Instructions"
+    author: "W3C Web Accessibility Initiative"
+    url: "https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html"
+  - title: "Understanding Success Criterion 4.1.3: Status Messages"
+    author: "W3C Web Accessibility Initiative"
+    url: "https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html"
+---
+
+# User interface design: princípios para criar interfaces claras e acessíveis
+
+**User interface design**, ou **UI design**, é o trabalho de organizar informação, ações, estados e feedback em uma interface. A aparência importa, mas não encerra o problema. Uma tela elegante pode continuar ruim quando esconde a próxima ação, não explica um erro, quebra com texto ampliado ou impede o uso por teclado.
+
+O objetivo de uma interface não é apenas ser vista: é permitir que alguém compreenda o sistema, tome decisões e conclua tarefas com eficiência, segurança e autonomia. Isso exige composição visual, conteúdo, comportamento, acessibilidade e validação trabalhando juntos.
+
+<QuickSummary title="O que você precisa guardar">
+
+- UI design transforma requisitos e fluxos em controles, conteúdo, estados e respostas compreensíveis.
+- Hierarquia e consistência reduzem esforço, mas não substituem contexto nem tornam todos os produtos iguais.
+- Estado vazio, carregamento, sucesso, erro, indisponibilidade e permissão fazem parte do componente — não são exceções tardias.
+- Acessibilidade começa no desenho e continua no código, no conteúdo e nos testes.
+- Uma crítica útil relaciona a decisão ao objetivo, à evidência e ao efeito observado, em vez de depender de gosto.
+
+</QuickSummary>
+
+## O que é user interface design?
+
+UI design é a disciplina que define como uma pessoa percebe e opera a camada de contato com um produto digital: telas, controles, navegação, mensagens, transições e estados. Ela responde a perguntas concretas: o que esta página representa? O que posso fazer agora? O que aconteceu depois da ação? Como corrijo um problema? O sistema preservou meu trabalho?
+
+O termo não se limita a aplicativos visuais. Uma interface pode incluir voz, gestos, hardware e outras modalidades. Neste guia, o foco está em interfaces gráficas para web e aplicativos, nas quais layout, tipografia e componentes se combinam com interação e conteúdo.
+
+### UI, UX, interaction design, visual design e produto
+
+As fronteiras variam entre equipes; tratá-las como territórios rígidos costuma ser menos útil do que explicitar responsabilidades.
+
+- **UI design** detalha a camada de interação: composição das telas, componentes, estados, feedback e especificações.
+- **UX design** considera a experiência mais ampla, incluindo pesquisa, arquitetura da informação, fluxos e avaliação do uso.
+- **Interaction design** concentra-se no comportamento entre ação, resposta, tempo, transição e recuperação.
+- **Visual design** organiza percepção e expressão por tipografia, cor, escala, composição e linguagem visual.
+- **Design de produto** conecta problemas de usuários, objetivos da organização, restrições técnicas e evolução do serviço.
+
+Essas atividades se sobrepõem. Um rótulo de botão é conteúdo, hierarquia visual e instrução de interação ao mesmo tempo. Uma mensagem de erro envolve regra de negócio, microcopy, estado do componente, tecnologia assistiva e suporte. O título do cargo não elimina a necessidade de colaboração.
+
+## Princípios visuais aplicados à interface
+
+Hierarquia indica o que observar primeiro; layout define relações espaciais; tipografia sustenta leitura e prioridade; cor diferencia funções e estados; espaçamento cria grupos; densidade equilibra volume e legibilidade; consistência permite reconhecer padrões; e *affordance* oferece indícios sobre o que pode ser feito.
+
+Nenhum desses princípios funciona sozinho. Aumentar um título pode melhorar a hierarquia e piorar o reflow em uma tela estreita. Reduzir a densidade pode facilitar a leitura e exigir rolagem excessiva em uma ferramenta operacional. Tornar todos os botões idênticos reforça consistência, mas apaga a diferença entre uma ação principal e uma destrutiva.
+
+O guia de [princípios do design visual](/blog/fundamentos-do-design) aprofunda composição, Gestalt, tipografia e cor. Aqui, o ponto é traduzir esses fundamentos em decisões operáveis.
+
+<VisualPrinciplesDemo
+  kind="hierarchy"
+  title="A ordem de leitura precisa corresponder à ordem da tarefa"
+  caption="O conteúdo e a posição geral permanecem; tamanho, peso e ordem tipográfica mudam. Isolar a variável permite discutir a hierarquia sem atribuir o efeito a uma reformulação inteira."
+/>
+
+### Clareza não significa ausência de densidade
+
+Uma tela de acompanhamento clínico, uma planilha financeira e uma página de apresentação têm necessidades diferentes. Interfaces de uso frequente podem aceitar maior densidade porque pessoas experientes comparam muitos dados. Uma tarefa esporádica e sensível, como cancelar um serviço, pede sequência explícita, consequências claras e espaço para revisão.
+
+O critério não é “quanto mais espaço vazio, melhor”. É descobrir quais relações precisam estar próximas, quais diferenças precisam aparecer e quanto conteúdo cabe sem comprometer leitura, toque ou compreensão.
+
+### Affordance, convenção e pistas perceptíveis
+
+Uma affordance é uma possibilidade de ação; na prática de UI, designers também falam dos indícios que tornam essa possibilidade perceptível. Um campo com borda, rótulo e cursor de texto sugere edição. Um link reconhecível sugere navegação. Um ícone isolado e ambíguo pode esconder uma ação até de quem já conhece o produto.
+
+Convenções reduzem reaprendizado, mas não são leis naturais. Antes de quebrar um padrão de plataforma ou da própria aplicação, verifique se o benefício compensa o custo de descoberta e se a alternativa continua compreensível por teclado, toque e tecnologia assistiva.
+
+## Componentes, padrões e design systems
+
+Um componente reúne estrutura, aparência e comportamento reutilizáveis: botão, campo, alerta, diálogo, cartão ou navegação. Um padrão descreve uma solução recorrente para uma relação ou tarefa. Um design system conecta componentes a tokens, documentação, critérios de uso e governança.
+
+Esse sistema pode acelerar trabalho, reduzir divergências e incorporar decisões de acessibilidade uma vez para muitos produtos. Também pode falhar quando a equipe trata a biblioteca como catálogo de peças prontas, sem considerar conteúdo, sequência, regras e contexto.
+
+Uniformidade não é coerência. Reutilizar um cartão em qualquer situação produz páginas parecidas, mas pode esconder hierarquia. Da mesma forma, um componente tecnicamente acessível não garante um fluxo acessível: ordem de foco, título da página, mensagens, autenticação e decisões de produto ultrapassam sua fronteira.
+
+### O contrato de um componente inclui estados
+
+Desenhar apenas o estado ideal transfere decisões importantes para a implementação. Cada componente deve declarar conteúdo, comportamento, prioridade, acessibilidade e respostas relevantes.
+
+<EditorialTable
+  title="Estados que a especificação precisa prever"
+  caption="Nem todo componente usa todos os estados. A tabela ajuda a descobrir o contrato necessário antes da implementação."
+  mobileMode="cards"
+  columns={[
+    { key: "estado", label: "Estado" },
+    { key: "pergunta", label: "Pergunta de design" },
+    { key: "risco", label: "Risco se for ignorado" },
+  ]}
+  rows={[
+    { estado: "Vazio", pergunta: "Por que ainda não há conteúdo e qual é o próximo passo possível?", risco: "A pessoa interpreta ausência como falha ou beco sem saída." },
+    { estado: "Carregando", pergunta: "O que está em andamento, quanto da interface permanece disponível e há alternativa?", risco: "A ação é repetida ou o sistema parece travado." },
+    { estado: "Sucesso", pergunta: "O que foi concluído, o que mudou e o que pode acontecer agora?", risco: "A pessoa não sabe se a operação foi registrada." },
+    { estado: "Erro", pergunta: "O que ocorreu, onde está o problema e como corrigi-lo sem perder trabalho?", risco: "Mensagem genérica transfere diagnóstico e recuperação ao usuário." },
+    { estado: "Desabilitado", pergunta: "Por que a ação não está disponível e como habilitá-la?", risco: "Um controle inerte vira mistério; às vezes é melhor manter a ação ativa e explicar a condição." },
+    { estado: "Sem permissão", pergunta: "O recurso existe, quem pode acessá-lo e qual caminho legítimo está disponível?", risco: "O sistema expõe informação indevida ou não oferece saída." },
+  ]}
+/>
+
+## Formulários, navegação e feedback
+
+Formulários são conversas estruturadas. Cada pergunta precisa de propósito, rótulo persistente, formato esperado e relação clara com a ação. *Placeholder* pode oferecer um exemplo, mas não substitui o rótulo: ele desaparece durante a digitação e pode ser confundido com resposta preenchida.
+
+Erros devem ser identificados em texto, associados ao campo e acompanhados de orientação quando houver uma correção conhecida. Preservar valores válidos evita retrabalho. Em ações com consequência financeira, jurídica ou de exclusão, revisão, confirmação e possibilidade de correção são parte da prevenção — não ornamentação.
+
+<AccessibleFormDemo />
+
+Na navegação, nomes previsíveis, localização reconhecível e mais de um caminho de descoberta ajudam pessoas com estratégias diferentes. Em aplicativos complexos, isso pode envolver menu, busca, breadcrumbs e links contextuais; não significa inserir todos em qualquer produto.
+
+Feedback fecha o ciclo entre ação e resultado. Mudanças visuais silenciosas podem passar despercebidas. Mensagens de status importantes devem ser programaticamente determináveis sem exigir que o foco seja movido até elas, conforme o [critério 4.1.3 da WCAG 2.2](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html). Isso não obriga a anunciar toda atualização: excesso de avisos também interrompe e confunde.
+
+## Responsividade é adaptação, não encolhimento
+
+Reduzir um layout de desktop até caber no celular preserva pixels, não necessariamente a tarefa. Uma interface responsiva reconsidera ordem, agrupamento, densidade, tamanho dos alvos, entrada de dados, navegação e conteúdo conforme o espaço e o modo de uso.
+
+Uma tabela pode ganhar rolagem horizontal quando comparar colunas é essencial; pode virar cartões quando cada registro é lido isoladamente; ou pode pedir uma visualização resumida antes do detalhe. A escolha depende da pergunta que a pessoa precisa responder, não de uma receita por largura.
+
+Também é preciso testar ampliação, texto maior, orientação, zoom e reflow. Pontos de quebra escolhidos apenas por modelos de aparelho envelhecem rápido; quebras orientadas pelo conteúdo aparecem quando a composição deixa de sustentar sua função.
+
+## Acessibilidade começa antes do código
+
+A WCAG 2.2 organiza critérios testáveis sob quatro princípios: conteúdo perceptível, operável, compreensível e robusto. Ela é uma referência técnica, não uma certificação automática de boa experiência. O próprio W3C observa que mesmo a conformidade no nível mais alto não cobre todas as necessidades.
+
+No desenho, acessibilidade muda decisões fundamentais:
+
+- **Contraste:** no nível AA, texto comum exige em geral relação mínima de **4,5:1**; texto grande, **3:1**, conforme o [critério 1.4.3](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html). Informações visuais necessárias para identificar componentes e estados têm requisito de **3:1** no [critério 1.4.11](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html), com escopo e exceções próprios.
+- **Cor:** não pode ser o único meio de comunicar informação. Estado de erro pode combinar texto, associação semântica e tratamento visual, em vez de depender apenas de uma borda vermelha.
+- **Teclado e foco:** toda funcionalidade aplicável deve operar por teclado, e o foco precisa permanecer visível. Na WCAG 2.2, o [critério 2.4.11](https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html) exige, no nível AA, que o item focado não fique totalmente encoberto por conteúdo criado pelo autor.
+- **Alvos:** o [critério 2.5.8](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html), também nível AA, estabelece área mínima de **24 por 24 CSS pixels** ou espaçamento suficiente, com exceções definidas. O número é piso de conformidade, não tamanho ideal universal.
+- **Semântica:** títulos, listas, rótulos, campos e botões precisam preservar nome, função, valor e relações no código. Aparência não comunica essa estrutura sozinha às tecnologias assistivas.
+- **Texto alternativo:** imagens informativas precisam de alternativa equivalente ao propósito; imagens decorativas devem ser ignoráveis. Descrever cada detalhe indiscriminadamente também cria ruído.
+- **Movimento:** animação deve ter função, respeitar preferências e oferecer controle quando os critérios aplicáveis exigirem. Movimento que apenas demonstra “acabamento” pode gerar distração ou desconforto.
+
+Um arquivo de design não confirma semântica, ordem de leitura, anúncio de status ou comportamento real do foco. Por isso, designers, conteúdo, desenvolvimento e qualidade precisam dividir critérios e testar o produto implementado.
+
+## Microcopy é parte da interação
+
+Conteúdo de interface não preenche espaços depois que o layout termina. Ele nomeia objetos, explica consequências, reduz ambiguidade e ajuda na recuperação. “Continuar” pode funcionar quando o destino é óbvio; “Revisar pedido” é melhor quando a ação precisa revelar a etapa seguinte.
+
+Uma boa mensagem de erro descreve o problema no contexto e oferece uma saída possível. “Não foi possível salvar. Confira sua conexão e tente novamente” é mais acionável do que “Erro 500”, mas só é correta se conexão for uma causa plausível e a nova tentativa for segura. Microcopy clara depende do comportamento real do sistema.
+
+Tom de voz não deve esconder gravidade. A exclusão de dados pede precisão, não humor. Um atraso pode pedir expectativa e alternativa. Segurança e confiança surgem quando mensagem, comportamento e consequência concordam.
+
+## Um processo de UI design que chega à implementação
+
+O processo não é linear, mas algumas perguntas evitam começar pela decoração.
+
+### 1. Entenda requisitos, pessoas e restrições
+
+Defina a tarefa, o resultado esperado, riscos, regras, dispositivos, capacidades de acesso, idiomas, conteúdo e limites técnicos. Diferencie suposição de evidência. Se o problema ainda está mal definido, [design thinking](/blog/design-thinking-process) pode oferecer métodos de investigação e prototipagem — sem substituir pesquisa nem implementação.
+
+### 2. Modele informação e fluxo
+
+Liste objetos, ações, decisões e exceções. Desenhe o caminho principal e os caminhos de erro, abandono, retorno, permissão e ausência de dados. Uma tela isolada raramente revela a experiência inteira.
+
+### 3. Faça wireframes antes de polir
+
+Wireframes ajudam a discutir ordem, agrupamento, conteúdo e interação com baixo custo. Baixa fidelidade não autoriza conteúdo fictício: rótulos irreais e caixas genéricas podem esconder problemas de compreensão e volume.
+
+### 4. Prototipe o risco relevante
+
+Prototipagem deve responder a uma pergunta. Um protótipo estático avalia hierarquia; um fluxo clicável ajuda a observar navegação; código pode ser necessário para teclado, reflow, desempenho e tecnologia assistiva. Fidelidade deve seguir o risco, não uma sequência obrigatória.
+
+### 5. Teste com tarefas e critérios explícitos
+
+Observe pessoas representativas tentando concluir tarefas. Registre onde hesitam, erram, abandonam ou interpretam algo de modo diferente. Combine isso com inspeção de acessibilidade, revisão heurística e dados do produto. Cinco elogios não provam usabilidade, e uma métrica isolada não explica a causa.
+
+### 6. Entregue decisões, não apenas telas
+
+Especifique estados, conteúdo, regras, comportamento responsivo, ordem de foco, anúncios, tokens e critérios de aceite. Acompanhe a implementação, porque decisões relevantes aparecem no navegador, na validação e nas integrações.
+
+### 7. Avalie depois do lançamento
+
+Taxa de conclusão, erros, abandono e tempo podem indicar problemas, mas precisam de contexto. Atendimento, pesquisa qualitativa e testes revelam por que algo acontece. Iterar significa comparar evidências e consequências, não movimentar elementos até a tela parecer nova.
+
+## Como criticar uma interface sem depender de gosto
+
+Uma crítica útil começa pelo objetivo: “a pessoa precisa comparar planos e escolher um”. Depois identifica evidência: em teste, participantes não perceberam que os valores eram mensais; na análise de acessibilidade, a indicação de seleção dependia apenas de cor. Por fim, propõe uma hipótese verificável: tornar período e seleção explícitos pode reduzir o erro.
+
+“Não gostei do azul” é preferência. “O texto deste botão tem contraste abaixo do critério aplicável” é verificação. “A ação destrutiva precisa de vermelho” ainda é uma heurística contextual, não lei. “Pessoas confundiram as duas ações no teste” é evidência observada, embora limitada àquele método e amostra.
+
+Heurísticas são lentes de inspeção. Elas ajudam a encontrar riscos, mas não substituem requisitos, critérios normativos, pesquisa com usuários, dados de uso ou julgamento profissional.
+
+<EditorialChecklist title="Checklist de revisão de uma tela">
+
+- O objetivo da tela e a ação seguinte ficam compreensíveis sem explicação externa?
+- Título, conteúdo e ações seguem uma hierarquia compatível com a tarefa?
+- Elementos equivalentes têm aparência, nome e comportamento consistentes?
+- Estado vazio, carregamento, sucesso, erro, indisponibilidade e permissão foram considerados quando aplicáveis?
+- Rótulos e instruções permanecem disponíveis durante o preenchimento?
+- Erros indicam o campo, explicam o problema e preservam dados válidos?
+- A tela se adapta a largura estreita, zoom e texto ampliado sem perder conteúdo ou função?
+- Contraste de texto, componentes e foco foi medido segundo os critérios aplicáveis?
+- Toda ação pode ser alcançada e operada por teclado, em ordem lógica e sem foco encoberto?
+- Informação não depende apenas de cor, posição, forma, movimento ou som?
+- Nomes, funções, estados e relações semânticas chegam às tecnologias assistivas?
+- Imagens possuem alternativa coerente com seu propósito, ou são corretamente decorativas?
+- Microcopy descreve ações e consequências reais, sem culpar a pessoa?
+- A avaliação combina objetivo, critérios e evidência em vez de preferência pessoal?
+
+</EditorialChecklist>
+
+O checklist revela perguntas; não concede conformidade nem prova qualidade. Testes automáticos encontram parte dos problemas, inspeção humana encontra outros, e o uso por pessoas com diferentes capacidades revela barreiras que nenhuma lista antecipa por completo.
+
+## UI design é uma disciplina de escolhas verificáveis
+
+Uma interface clara não nasce de um estilo específico. Ela resulta de informação bem estruturada, ações reconhecíveis, estados completos, feedback adequado e decisões acessíveis implementadas com fidelidade.
+
+Estética, identidade e prazer de uso importam. Ganham força quando ajudam a tarefa e respeitam as pessoas, não quando encobrem ausência de conteúdo, comportamento ou evidência. É por isso que user interface design conecta composição visual a sistemas reais.
+
+Para aprofundar a base visual, leia [Princípios do design visual](/blog/fundamentos-do-design). Se o interesse é entrar na profissão, siga para o [guia prático de UI e UX Design](/blog/guia-pratico-como-trabalhar-com-ui-ux-design). Para documentar decisões e aprendizados, veja [como escrever um estudo de caso de UX](/blog/como-escrever-um-estudo-de-caso-de-ux).
+
+<NextSteps
+  title="Continue estudando"
+  items={[
+    { title: "Princípios do design visual", description: "Aprofunde hierarquia, contraste, alinhamento, proximidade, tipografia e cor.", href: "/blog/fundamentos-do-design" },
+    { title: "Como trabalhar com UI e UX Design", description: "Entenda competências, prática, portfólio e caminhos profissionais.", href: "/blog/guia-pratico-como-trabalhar-com-ui-ux-design" },
+    { title: "Como escrever um estudo de caso de UX", description: "Transforme processo e evidência em uma narrativa profissional verificável.", href: "/blog/como-escrever-um-estudo-de-caso-de-ux" },
+  ]}
+/>

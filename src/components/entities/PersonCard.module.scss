@@ -1,0 +1,37 @@
+@use "../entertainment/card-tokens" as card;
+
+.card {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 8.6rem minmax(0, 1fr);
+  gap: 1.15rem;
+  width: 100%;
+  max-width: min(38rem, calc(100vw - 1.5rem));
+  padding: .9rem;
+  overflow: hidden;
+  border: 1px solid var(--line-subtle);
+  border-radius: 1.35rem 1.35rem 1.35rem .45rem;
+  background: color-mix(in srgb, var(--page-background) 94%, var(--surface-panel-soft));
+}
+
+.portrait { position: relative; min-width: 0; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 4rem 4rem 1rem 1rem; background: linear-gradient(160deg, var(--brand-alpha-medium), var(--neutral-alpha-weak)); }
+.portrait img { object-fit: cover; }
+.portrait > span { display: grid; place-items: center; height: 100%; color: var(--neutral-on-background-weak); font-size: 2.2rem; font-weight: 780; letter-spacing: -.08em; }
+.content { @include card.content; align-content: center; }
+.eyebrow { color: var(--neutral-on-background-weak); font-size: .65rem; font-weight: 750; text-transform: uppercase; letter-spacing: .1em; }
+.content h3 { @include card.title; font-family: var(--font-heading); font-size: clamp(1.35rem, 3vw, 1.8rem); }
+.content h3 a { color: inherit; }
+.occupations { margin: 0; font-size: .8rem; font-weight: 700; }
+.meta { @include card.meta; }
+.meta span + span::before { margin-right: .6rem; content: "/"; color: var(--line-muted); }
+.summary { margin: .15rem 0 0; color: var(--neutral-on-background-medium); font-size: .84rem; line-height: 1.48; }
+
+@media (max-width: 520px) {
+  .card { grid-template-columns: 6.4rem minmax(0, 1fr); gap: .75rem; max-width: calc(100vw - 3rem); padding: .72rem; border-radius: 1rem 1rem 1rem .35rem; }
+  .portrait { border-radius: 3rem 3rem .75rem .75rem; }
+  .content { gap: .42rem; }
+  .content h3 { font-size: clamp(1.12rem, 5.2vw, 1.35rem); }
+  .summary { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+}
+
+@media (max-width: 360px) { .card { grid-template-columns: 5.85rem minmax(0, 1fr); gap: .62rem; } }

@@ -1,0 +1,67 @@
+$card-radius: 0.9rem;
+$media-radius: 0.62rem;
+$card-gap: 1rem;
+$card-padding: 0.9rem;
+$mobile-gap: 0.75rem;
+$mobile-padding: 0.75rem;
+$title-size: clamp(1.08rem, 2.5vw, 1.4rem);
+$meta-size: 0.75rem;
+$body-size: 0.88rem;
+
+@mixin shell {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  max-width: var(--measure-article);
+  margin-block: 1.5rem 2rem;
+  padding: $card-padding;
+  overflow: hidden;
+  border: 1px solid var(--line-subtle);
+  border-radius: $card-radius;
+  background: color-mix(in srgb, var(--page-background) 96%, var(--surface-panel-soft));
+}
+
+@mixin media-frame {
+  position: relative;
+  min-width: 0;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  border: 1px solid var(--line-subtle);
+  border-radius: $media-radius;
+  background: var(--surface-panel-soft);
+}
+
+@mixin content {
+  display: grid;
+  align-content: start;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+@mixin title {
+  margin: 0;
+  overflow-wrap: anywhere;
+  color: var(--neutral-on-background-strong);
+  font-size: $title-size;
+  line-height: 1.12;
+}
+
+@mixin meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.6rem;
+  color: var(--neutral-on-background-weak);
+  font-size: $meta-size;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+@mixin comment {
+  margin: 0;
+  padding-left: 0.7rem;
+  border-left: 3px solid #ffd400;
+  color: var(--neutral-on-background-strong);
+  font-size: $body-size;
+  font-weight: 620;
+  line-height: 1.5;
+}

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { baseURL } from "@/resources";
+import { pausedRoutePaths } from "@/config/routePolicy";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -8,20 +9,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: [
-          "/about",
-          "/abordagem-tecnica",
-          "/aulas-particulares",
-          "/contact",
-          "/mapa",
-          "/modelos",
-          "/publicos",
-          "/saiba-mais",
-          "/servicos",
-          "/simulacao",
-          "/trilhas",
-          "/work",
-        ],
+        disallow: pausedRoutePaths,
       },
     ],
     host: baseURL,

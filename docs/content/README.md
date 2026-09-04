@@ -1,5 +1,9 @@
 # Sistema editorial
 
+Para artigos de recomendação comercial, consulte também [`docs/editorial/templates/product-recommendation.md`](../editorial/templates/product-recommendation.md). Produtos, variantes e ofertas pertencem ao acervo central; o MDX mantém somente a análise específica da recomendação.
+
+Este guia é a fonte principal para produção de artigos. A visão geral de rotas, tipos de página, modelos, SEO e validações fica em [`docs/architecture/site-architecture.md`](../architecture/site-architecture.md).
+
 Esta pasta explica como transformar texto bruto em artigo publicado sem descaracterizar a voz do autor nem criar variações arbitrárias de estrutura.
 
 ## Autoridade das fontes
@@ -23,6 +27,13 @@ Não documente como disponível algo que o schema ou o mapeamento MDX não aceit
 - Pesquisar e citar: [`pesquisa-e-referencias.md`](03-producao/pesquisa-e-referencias.md).
 - Estruturar e formatar: [`estrutura-dos-artigos.md`](04-formatacao/estrutura-dos-artigos.md) e [`componentes-mdx.md`](04-formatacao/componentes-mdx.md).
 - Aprovar conteúdo: [`checklist-editorial.md`](06-validacao/checklist-editorial.md).
+- Criar listas ou rankings de filmes: [`movie-list.md`](../editorial/templates/movie-list.md).
+- Criar ou revisar fichas permanentes de filmes: [`movie-profile.md`](../editorial/templates/movie-profile.md).
+- Planejar listas e recomendações de leitura: [`reading-list.md`](../editorial/templates/reading-list.md).
+- Criar ou revisar fichas permanentes de livros: [`reading-work-profile.md`](../editorial/templates/reading-work-profile.md).
+- Criar listas de quadrinhos, mangás, manhwas, manhuas e webtoons: [`comic-list.md`](../editorial/templates/comic-list.md).
+- Consultar o índice técnico dos acervos e exportações: [`content-data-sources.md`](../architecture/content-data-sources.md).
+- Criar perfis permanentes de estúdios de animação: [`animation-studio-profile.md`](../editorial/templates/animation-studio-profile.md).
 
 ## Regra de manutenção
 

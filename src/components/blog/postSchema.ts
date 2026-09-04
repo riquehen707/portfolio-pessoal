@@ -5,6 +5,12 @@ export const PostFrontmatterSchema = z.object({
   summary: z.string().min(10, "summary muito curta"),
   description: z.string().optional(),
   slug: z.string().min(1, "slug obrigatorio"),
+  contentId: z.string().min(1).optional(),
+  aboutPersonId: z.string().regex(/^person_[a-z0-9_]+$/).optional(),
+  contentType: z.literal("article").optional(),
+  schemaVersion: z.number().int().positive().optional(),
+  aliases: z.array(z.string().min(1)).optional(),
+  createdAt: z.string().optional(),
 
   publishedAt: z.string().optional(),
   updatedAt: z.string().optional(),

@@ -1,12 +1,10 @@
-import {
-  getAllBlogPosts,
-  getBlogCollectionIndex,
-  getBlogPostFormat,
-  getBlogPrimaryCategory,
-} from "@/app/blog/postData";
+import { getAllBlogPosts, getBlogPostFormat, getBlogPrimaryCategory } from "@/app/blog/postData";
+import { seoLibraryPath, understandSearchBookPath } from "@/app/blog/seo/seoLibraryData";
 import { blog, home } from "@/resources";
+import { getPublishedIdeas } from "@/data/ideas";
+import { getPublishedProducts } from "@/data/products";
 
-export type GlobalSearchItemType = "article" | "topic" | "page";
+export type GlobalSearchItemType = "article" | "idea" | "page" | "product";
 
 export type GlobalSearchItem = {
   id: string;
@@ -67,7 +65,9 @@ function pageItem({
   };
 }
 
-export function getGlobalSearchItems(): GlobalSearchItem[] {
+export async function getGlobalSearchItems(): Promise<GlobalSearchItem[]> {
+  const ideas = await getPublishedIdeas();
+  const products = await getPublishedProducts();
   const staticPages: GlobalSearchItem[] = [
     pageItem({
       id: "page-home",
@@ -84,11 +84,157 @@ export function getGlobalSearchItems(): GlobalSearchItem[] {
       keywords: ["blog", "artigos", "guias", "biblioteca"],
     }),
     pageItem({
-      id: "page-blog-topics",
-      title: "Temas do blog",
-      description: "Artigos agrupados por problema para navegar com mais contexto.",
-      href: `${blog.path}/temas`,
-      keywords: ["temas", "categorias", "guias", "blog"],
+      id: "page-ideas",
+      title: "Ideias",
+      description: "Caderno público de ideias, experimentos, decisões e aprendizados em andamento.",
+      href: "/ideias",
+      keywords: ["ideias", "experimentos", "laboratório", "arquivo público", "aprendizados"],
+    }),
+    pageItem({
+      id: "page-collection",
+      title: "Acervo cultural",
+      description:
+        "Jogos, filmes, livros, mangás, quadrinhos e séries organizados em bibliotecas e curadorias editoriais.",
+      href: "/acervo",
+      keywords: ["acervo", "jogos", "filmes", "livros", "mangas", "quadrinhos", "series", "curadorias"],
+    }),
+    pageItem({
+      id: "page-games",
+      title: "Acervo de jogos brasileiros",
+      description: "Jogos feitos no Brasil organizados por estúdio, gênero, plataforma e escolhas de design.",
+      href: "/jogos",
+      keywords: ["jogos", "games", "brasileiros", "videogame", "estúdios", "desenvolvimento"],
+    }),
+    pageItem({
+      id: "page-movies",
+      title: "Biblioteca de filmes",
+      description: "Filmes pesquisados, relacionados e reutilizados nas curadorias do site.",
+      href: "/filmes",
+      keywords: ["cinema", "filmes", "terror", "animação", "diretores", "estudios"],
+    }),
+    pageItem({
+      id: "page-series",
+      title: "Biblioteca de séries",
+      description: "Séries pesquisadas, relacionadas e reutilizadas nas curadorias do site.",
+      href: "/series",
+      keywords: ["televisão", "séries", "minisséries", "terror", "animação", "streaming"],
+    }),
+    pageItem({
+      id: "page-books",
+      title: "Biblioteca de livros",
+      description: "Livros e light novels organizados por obra, autoria, edição e disponibilidade.",
+      href: "/livros",
+      keywords: ["livros", "light novels", "autores", "leitura", "edições"],
+    }),
+    pageItem({
+      id: "page-comics",
+      title: "Biblioteca de quadrinhos e mangás",
+      description: "Mangás, manhwas, manhuas, HQs e graphic novels no catálogo central de leitura.",
+      href: "/quadrinhos",
+      keywords: ["quadrinhos", "mangas", "manhwas", "manhuas", "hqs", "graphic novels"],
+    }),
+    pageItem({
+      id: "page-personalities",
+      title: "Acervo de personalidades",
+      description: "Escritores, filósofos, cineastas e artistas relacionados às obras do acervo.",
+      href: "/personalidades",
+      keywords: ["personalidades", "autores", "diretores", "filósofos", "mangakás", "roteiristas"],
+    }),
+    pageItem({
+      id: "page-studios",
+      title: "Acervo de estúdios",
+      description: "Estúdios criativos organizados por país, especialidade e período de atividade.",
+      href: "/estudios",
+      keywords: ["estúdios", "animação", "cinema", "produtoras", "organizações"],
+    }),
+    pageItem({
+      id: "page-seo-library",
+      title: "Biblioteca de SEO",
+      description:
+        "Aprenda como a busca funciona, construa estratégias melhores e desenvolva competências profissionais em SEO.",
+      href: seoLibraryPath,
+      keywords: [
+        "seo",
+        "busca",
+        "otimização",
+        "livros",
+        "indexação",
+        "relevância",
+        "search console",
+      ],
+    }),
+    pageItem({
+      id: "page-seo-book-understand-search",
+      title: "Entender a busca",
+      description:
+        "Livro introdutório sobre descoberta, rastreamento, indexação, intenção, classificação e arquitetura de sites.",
+      href: understandSearchBookPath,
+      keywords: [
+        "seo",
+        "livro de seo",
+        "mecanismos de busca",
+        "rastreamento",
+        "indexação",
+        "ranking",
+        "intenção de busca",
+      ],
+    }),
+    pageItem({
+      id: "page-culture",
+      title: "Cultura",
+      description:
+        "Perfis editoriais para entender pensadores, estúdios, obras e movimentos com contexto e fontes.",
+      href: "/blog/cultura",
+      keywords: [
+        "cultura",
+        "filosofia",
+        "cinema",
+        "animação",
+        "Friedrich Nietzsche",
+        "Studio Ghibli",
+      ],
+    }),
+    pageItem({
+      id: "page-studio-ghibli",
+      title: "Studio Ghibli",
+      description: "Perfil permanente do estúdio: identidade, pessoas centrais, filmografia e caminhos para começar.",
+      href: "/estudios/studio-ghibli",
+      keywords: ["Studio Ghibli", "animação japonesa", "Hayao Miyazaki", "Isao Takahata", "filmes do Studio Ghibli"],
+    }),
+    pageItem({
+      id: "page-laika",
+      title: "LAIKA",
+      description: "Perfil permanente do estúdio: stop-motion, processo híbrido, filmografia e caminhos para começar.",
+      href: "/estudios/laika",
+      keywords: ["LAIKA", "stop-motion", "Coraline", "Kubo", "Wildwood", "estúdio de animação"],
+    }),
+    pageItem({
+      id: "page-cartoon-saloon",
+      title: "Cartoon Saloon",
+      description: "Perfil permanente do estúdio: animação 2D, folclore, coproduções, pessoas e obras.",
+      href: "/estudios/cartoon-saloon",
+      keywords: ["Cartoon Saloon", "animação irlandesa", "Tomm Moore", "Nora Twomey", "Song of the Sea", "WolfWalkers"],
+    }),
+    pageItem({
+      id: "page-aardman",
+      title: "Aardman",
+      description: "Perfil permanente do estúdio: stop-motion, comédia visual, produção artesanal, pessoas e obras.",
+      href: "/estudios/aardman",
+      keywords: ["Aardman", "stop-motion", "Wallace e Gromit", "Shaun the Sheep", "Chicken Run", "Nick Park"],
+    }),
+    pageItem({
+      id: "page-science-saru",
+      title: "Science SARU",
+      description: "Perfil permanente do estúdio: desenho expressivo, produção digital, pessoas, fases e obras.",
+      href: "/estudios/science-saru",
+      keywords: ["Science SARU", "anime", "Masaaki Yuasa", "Eunyoung Choi", "DAN DA DAN", "Eizouken", "Inu-Oh"],
+    }),
+    pageItem({
+      id: "page-kyoto-animation",
+      title: "Kyoto Animation",
+      description: "Perfil permanente do estúdio: história, formação, linguagem visual, pessoas e obras essenciais.",
+      href: "/estudios/kyoto-animation",
+      keywords: ["Kyoto Animation", "KyoAni", "anime", "A Silent Voice", "Violet Evergarden", "K-ON!", "Hyōka"],
     }),
   ];
 
@@ -113,20 +259,43 @@ export function getGlobalSearchItems(): GlobalSearchItem[] {
         ...(post.metadata.tags ?? []),
         ...(post.metadata.categories ?? []),
         ...(post.metadata.keywords ?? []),
+        post.metadata.primaryKeyword,
+        ...(post.metadata.secondaryKeywords ?? []),
         excerpt(post.content, 320),
       ]),
     };
   });
 
-  const topicItems: GlobalSearchItem[] = getBlogCollectionIndex().map((topic) => ({
-    id: `topic-${topic.slug}`,
-    type: "topic",
-    title: topic.label,
-    description: topic.description,
-    href: `${blog.path}/temas/${topic.slug}`,
-    label: `${topic.count} artigos`,
-    keywords: uniq(["tema", "blog", topic.slug, topic.label, topic.description]),
+  const ideaItems: GlobalSearchItem[] = ideas.map((idea) => ({
+    id: `idea-${idea.id}`,
+    type: "idea",
+    title: idea.title,
+    description: idea.description,
+    href: `/ideias/${idea.slug}`,
+    label: "Ideia",
+    date: idea.updatedAt,
+    keywords: uniq([...idea.categories, ...idea.tags, ideaStatusLabelsForSearch[idea.status]]),
   }));
 
-  return [...staticPages, ...articleItems, ...topicItems];
+  const productItems: GlobalSearchItem[] = products.map((product) => ({
+    id: `product-${product.id}`,
+    type: "product",
+    title: product.name,
+    description: product.shortDescription,
+    href: `/produtos/${product.slug}`,
+    label: "Produto",
+    date: product.updatedAt,
+    keywords: uniq([product.name, product.line, product.category, ...product.categories, ...product.tags]),
+  }));
+
+  return [...staticPages, ...ideaItems, ...productItems, ...articleItems];
 }
+
+const ideaStatusLabelsForSearch = {
+  rascunho: "rascunho",
+  explorando: "explorando",
+  "em-desenvolvimento": "em desenvolvimento",
+  pausada: "pausada",
+  concluida: "concluída",
+  abandonada: "abandonada",
+} as const;

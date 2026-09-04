@@ -4,7 +4,6 @@ import { Column, Heading, Meta, Schema, Text } from "@once-ui-system/core";
 
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { DemoCard } from "@/features/demos/components/DemoCard";
-import { demoSegments } from "@/features/demos/data/demo-segments";
 import { getDemoSegment, getDemosBySegment } from "@/features/demos/helpers/getDemo";
 import { getSegmentPath, modelsPath, modelsTitle } from "@/features/demos/helpers/seo";
 import { baseURL, person } from "@/resources";
@@ -15,12 +14,6 @@ import styles from "./segmento.module.scss";
 type SegmentPageProps = {
   params: Promise<{ segmento: string }>;
 };
-
-export function generateStaticParams() {
-  return demoSegments.map((segment) => ({
-    segmento: segment.slug,
-  }));
-}
 
 export async function generateMetadata({ params }: SegmentPageProps) {
   const { segmento } = await params;

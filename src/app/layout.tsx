@@ -16,7 +16,6 @@ import {
 
 import { Footer, Header, Providers } from "@/components";
 import { SiteStructuredData } from "@/components/seo/SiteStructuredData";
-import { getGlobalSearchItems } from "@/lib/globalSearch";
 import {
   baseURL as baseFromConfig,
   brandIdentity,
@@ -129,8 +128,6 @@ export async function generateMetadata() {
 }
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const searchItems = getGlobalSearchItems();
-
   return (
     <Flex
       suppressHydrationWarning
@@ -250,7 +247,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
               }}
             />
           </RevealFx>
-          <Header searchItems={searchItems} />
+          <Header />
           <Flex
             as="main"
             className="hr-site-main"

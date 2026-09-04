@@ -1,0 +1,148 @@
+.page {
+  box-sizing: border-box;
+  display: grid;
+  gap: clamp(2.5rem, 7vw, 5rem);
+  width: 100%;
+  max-width: 1120px;
+  min-width: 0;
+  margin-inline: auto;
+  padding: clamp(1rem, 3vw, 2rem);
+}
+
+.hero {
+  display: grid;
+  min-width: 0;
+  max-width: 100%;
+  grid-template-columns: minmax(0, 1.55fr) minmax(14rem, 0.45fr);
+  gap: 1rem;
+  padding: clamp(1.2rem, 4vw, 2.5rem);
+  border: 1px solid var(--line-subtle);
+  border-radius: 1rem;
+  background: var(--surface-panel-soft);
+}
+
+.heroMain,
+.heroAside {
+  display: grid;
+  align-content: start;
+  min-width: 0;
+}
+
+.heroMain {
+  gap: 1rem;
+}
+
+.heroAside {
+  gap: 0.55rem;
+  padding: 1rem;
+  border-left: 1px solid var(--line-subtle);
+}
+
+.heroAside > span {
+  color: var(--neutral-on-background-weak);
+  font-family: var(--font-technical);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.heroAside > strong {
+  color: var(--neutral-on-background-strong);
+  font-family: var(--font-heading);
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  line-height: 0.9;
+}
+
+.heroAside > p {
+  color: var(--neutral-on-background-medium);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.kicker,
+.status,
+.meta,
+.counts {
+  color: var(--neutral-on-background-weak);
+  font-family: var(--font-technical);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.kicker,
+.status {
+  text-transform: uppercase;
+}
+
+.hero h1,
+.sectionHeader h2,
+.card h3,
+.hero p,
+.sectionHeader p,
+.card p {
+  margin: 0;
+}
+
+.hero h1 {
+  max-width: 16ch;
+  overflow-wrap: anywhere;
+  color: var(--neutral-on-background-strong);
+  font-size: clamp(2.2rem, 6vw, 4.4rem);
+  line-height: 0.98;
+}
+
+.heroMain > p {
+  max-width: 44rem;
+  color: var(--neutral-on-background-medium);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
+.sectionHeader {
+  display: grid;
+  gap: 0.35rem;
+  margin-bottom: 1.25rem;
+}
+
+.library {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.sectionHeader h2 {
+  color: var(--neutral-on-background-strong);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.sectionHeader p {
+  color: var(--neutral-on-background-weak);
+}
+
+@media (max-width: 760px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .heroAside {
+    padding: 1rem 0 0;
+    border-top: 1px solid var(--line-subtle);
+    border-left: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .page {
+    padding-inline: 0.75rem;
+  }
+
+  .card {
+    grid-template-columns: 4.25rem minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+}

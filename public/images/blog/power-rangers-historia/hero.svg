@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Composição abstrata inspirada em equipes de heróis coloridos</title>
+  <desc id="desc">Cinco faixas geométricas convergem para um núcleo luminoso sobre um fundo escuro, sugerindo transformação e trabalho em equipe sem reproduzir personagens.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#11131b"/><stop offset="1" stop-color="#242130"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#fff" stop-opacity=".9"/><stop offset=".25" stop-color="#ffd45c" stop-opacity=".45"/><stop offset="1" stop-color="#ffd45c" stop-opacity="0"/></radialGradient>
+    <filter id="grain"><feTurbulence baseFrequency=".8" numOctaves="3" seed="7" type="fractalNoise"/><feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .07 0"/></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <g opacity=".9">
+    <path d="M0 50 710 390 650 470 0 275Z" fill="#e63b45"/>
+    <path d="M1600 40 890 390 950 470 1600 260Z" fill="#2d72d9"/>
+    <path d="M0 850 665 505 735 565 205 900Z" fill="#f2c94c"/>
+    <path d="M1600 850 935 505 865 565 1395 900Z" fill="#e86aa7"/>
+    <path d="M650 0 765 350 835 350 950 0Z" fill="#dedee5" opacity=".9"/>
+  </g>
+  <circle cx="800" cy="455" r="245" fill="url(#glow)"/>
+  <path d="m807 282-95 169h75l-27 176 128-226h-82z" fill="#fff8dc"/>
+  <g fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="3"><circle cx="800" cy="455" r="265"/><circle cx="800" cy="455" r="325"/></g>
+  <rect width="1600" height="900" filter="url(#grain)" opacity=".65"/>
+</svg>

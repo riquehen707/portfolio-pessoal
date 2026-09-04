@@ -2,6 +2,8 @@
 
 .page {
   width: min(100%, 1120px);
+  min-width: 0;
+  max-width: 100%;
   margin-inline: auto;
 }
 
@@ -117,6 +119,22 @@
   line-height: 1.64;
 }
 
+.byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin: -0.2rem 0 0;
+  color: var(--neutral-on-background-weak);
+  font-size: 0.9rem;
+}
+
+.byline a {
+  color: #2477d4;
+  font-weight: 700;
+  text-decoration: none;
+}
+
 .tagRow {
   padding-top: 0.1rem;
 }
@@ -141,6 +159,8 @@
   align-items: start;
   justify-content: center;
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .reviewNotice {
@@ -153,9 +173,98 @@
 
 .article {
   width: min(100%, 720px);
+  min-width: 0;
+  max-width: 100%;
   color: var(--neutral-on-background-medium);
   font-size: clamp(1.04rem, 1.2vw, 1.12rem);
   line-height: 1.84;
+}
+
+.articleColumn {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  width: min(100%, 720px);
+  min-width: 0;
+  max-width: 100%;
+}
+
+.article > :global(*) {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.article :global(pre) {
+  max-width: 100%;
+}
+
+.article :global(img),
+.article :global(video),
+.article :global(iframe),
+.article :global(svg) {
+  max-width: 100%;
+}
+
+.authorBox {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1.15rem;
+  border-top: 1px solid var(--line-subtle);
+  border-bottom: 1px solid var(--line-subtle);
+}
+
+.authorAvatar {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.authorBox > div {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.authorBox span {
+  color: var(--neutral-on-background-weak);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.authorBox h2 {
+  margin: 0;
+  color: var(--neutral-on-background-strong);
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+}
+
+.authorIdentity {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.45rem 0.7rem;
+}
+
+.authorBox .authorIdentity a {
+  margin-top: 0;
+  font-size: 0.82rem;
+}
+
+.authorBox p {
+  max-width: 34rem;
+  margin: 0;
+  color: var(--neutral-on-background-medium);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.authorBox a {
+  width: fit-content;
+  margin-top: 0.25rem;
+  color: #2477d4;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-underline-offset: 0.2em;
 }
 
 .article :global(p),
@@ -364,5 +473,10 @@
 
   .relatedPanel {
     border-radius: 0.85rem;
+  }
+
+  .authorBox {
+    grid-template-columns: 1fr;
+    padding-inline: 0;
   }
 }

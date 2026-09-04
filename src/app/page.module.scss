@@ -1,0 +1,340 @@
+@use "../components/breakpoints.scss" as breakpoints;
+.page {
+  width: min(100%, 1120px);
+  margin-inline: auto;
+  gap: clamp(3.5rem, 7vw, 6.5rem);
+  padding-bottom: 2rem;
+}
+.intro {
+  display: grid;
+  justify-items: center;
+  padding: clamp(3rem, 8vw, 6.5rem) 1rem 0;
+  text-align: center;
+}
+.eyebrow,
+.cardLabel {
+  color: var(--neutral-on-background-weak);
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  font-weight: 760;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.intro h1 {
+  max-width: 15ch;
+  margin: 0.8rem 0 0;
+  color: var(--neutral-on-background-strong);
+  font-size: clamp(2.75rem, 7vw, 5.8rem);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 0.94;
+  text-wrap: balance;
+}
+.intro p {
+  max-width: 40rem;
+  margin: 1rem 0 0;
+  color: var(--neutral-on-background-medium);
+  font-size: clamp(1rem, 1.7vw, 1.15rem);
+  line-height: 1.55;
+}
+.feature {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  min-height: 30rem;
+  overflow: hidden;
+  border-radius: 1.75rem;
+  background: #222326;
+  color: #fff;
+}
+.featureCopy {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  padding: clamp(2rem, 6vw, 5rem);
+}
+.featureCopy .eyebrow {
+  color: #ffd400;
+}
+.feature h2 {
+  max-width: 9ch;
+  margin: 0.8rem 0 0;
+  font-size: clamp(3rem, 7vw, 6rem);
+  letter-spacing: -0.065em;
+  line-height: 0.86;
+}
+.feature p {
+  max-width: 34rem;
+  margin: 1.3rem 0 0;
+  color: rgb(255 255 255 / 68%);
+  line-height: 1.55;
+}
+.featureCopy a,
+.sectionHeader > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.5rem;
+  color: inherit;
+  font-weight: 720;
+  text-decoration: none;
+}
+.featureMedia {
+  position: relative;
+  display: block;
+  min-height: 100%;
+  background: #d8d0c6;
+}
+.featureMedia img {
+  object-fit: contain;
+  padding: 2.5rem;
+  filter: drop-shadow(0 1.2rem 1.4rem rgb(0 0 0 / 28%));
+}
+.entryPoints {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+.entryPoints a {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-height: 5rem;
+  padding: 1rem;
+  border: 1px solid var(--line-subtle);
+  border-radius: 1.1rem;
+  color: inherit;
+  text-decoration: none;
+}
+.entryPoints svg {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+.entryPoints span {
+  display: grid;
+  gap: 0.12rem;
+}
+.entryPoints small {
+  color: var(--neutral-on-background-weak);
+  font-size: 0.72rem;
+}
+.section {
+  display: grid;
+  gap: 1.4rem;
+}
+.sectionHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.sectionHeader h2 {
+  margin: 0.3rem 0 0;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+.sectionHeader > a {
+  margin: 0;
+  color: var(--neutral-on-background-medium);
+  font-size: 0.86rem;
+}
+.discoveryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.discoveryCard a,
+.articleGrid a,
+.peopleGrid a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.discoveryMedia {
+  position: relative;
+  display: block;
+  aspect-ratio: 0.82;
+  overflow: hidden;
+  border-radius: 1.15rem;
+  background: var(--surface-panel-soft);
+}
+.discoveryMedia img {
+  object-fit: cover;
+}
+.discoveryMedia > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, #28292c, #666);
+}
+.cardLabel {
+  display: block;
+  margin-top: 0.8rem;
+}
+.discoveryCard h3,
+.articleGrid h3,
+.peopleGrid h3 {
+  margin: 0.25rem 0 0;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.articleGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem 1rem;
+}
+.articleMedia {
+  position: relative;
+  display: block;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-radius: 1.2rem;
+  background: var(--surface-panel-soft);
+}
+.articleMedia img {
+  object-fit: cover;
+}
+.articleGrid h3 {
+  max-width: 28ch;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+}
+.articleGrid p {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 0.55rem 0 0;
+  color: var(--neutral-on-background-medium);
+  line-height: 1.5;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.peopleGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.personPortrait {
+  position: relative;
+  display: block;
+  aspect-ratio: 1.35;
+  overflow: hidden;
+  border-radius: 1.2rem;
+  background: var(--surface-panel-soft);
+}
+.personPortrait img {
+  object-fit: cover;
+  object-position: center 28%;
+  filter: grayscale(18%);
+}
+.peopleGrid h3 {
+  margin-top: 0.75rem;
+  font-size: 1.15rem;
+}
+.peopleGrid p {
+  margin: 0.25rem 0 0;
+  color: var(--neutral-on-background-weak);
+  font-size: 0.82rem;
+}
+.entryPoints a:focus-visible,
+.feature a:focus-visible,
+.section a:focus-visible {
+  outline: 2px solid var(--neutral-on-background-strong);
+  outline-offset: 4px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .entryPoints a,
+  .discoveryCard,
+  .articleGrid article,
+  .peopleGrid article {
+    transition: transform var(--motion-fast);
+  }
+  .entryPoints a:hover,
+  .discoveryCard:hover,
+  .articleGrid article:hover,
+  .peopleGrid article:hover {
+    transform: translateY(-0.2rem);
+  }
+}
+@media (max-width: breakpoints.$m) {
+  .feature {
+    grid-template-columns: 1fr 0.7fr;
+  }
+  .discoveryGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: breakpoints.$s) {
+  .page {
+    gap: 3.5rem;
+  }
+  .intro {
+    padding-top: 2.5rem;
+  }
+  .intro h1 {
+    font-size: clamp(2.6rem, 13vw, 4rem);
+  }
+  .feature {
+    grid-template-columns: 1.15fr 0.85fr;
+    min-height: 23rem;
+    border-radius: 1.35rem;
+  }
+  .featureCopy {
+    padding: 1.5rem;
+  }
+  .feature h2 {
+    font-size: clamp(2.4rem, 11vw, 3.5rem);
+  }
+  .feature p {
+    font-size: 0.88rem;
+  }
+  .featureMedia img {
+    padding: 1rem;
+  }
+  .entryPoints {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .entryPoints a {
+    min-height: 4.5rem;
+  }
+  .sectionHeader {
+    align-items: start;
+  }
+  .sectionHeader > a {
+    white-space: nowrap;
+  }
+  .articleGrid {
+    grid-template-columns: 1fr;
+  }
+  .peopleGrid {
+    gap: 0.65rem;
+  }
+  .personPortrait {
+    aspect-ratio: 0.8;
+  }
+  .peopleGrid h3 {
+    font-size: 0.9rem;
+  }
+  .peopleGrid p {
+    font-size: 0.7rem;
+  }
+}
+@media (max-width: 360px) {
+  .feature {
+    grid-template-columns: 1fr;
+  }
+  .featureMedia {
+    min-height: 15rem;
+  }
+  .entryPoints {
+    grid-template-columns: 1fr;
+  }
+  .sectionHeader {
+    display: grid;
+  }
+  .peopleGrid {
+    grid-template-columns: 1fr;
+  }
+  .personPortrait {
+    aspect-ratio: 1.5;
+  }
+}
