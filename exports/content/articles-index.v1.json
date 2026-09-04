@@ -4104,6 +4104,41 @@
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
+      "slug": "moto-g86-vale-a-pena",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "Moto G86 vale a pena em 2026? Análise, pontos fortes, problemas e quando comprar",
+        "description": "O Moto G86 vale a pena perto de R$ 1.600, mas deixa de ser uma compra óbvia quando se aproxima de R$ 1.800. Entenda tela, desempenho, câmeras, bateria e concorrentes.",
+        "canonical": "/blog/moto-g86-vale-a-pena"
+      },
+      "relationships": {
+        "related": [
+          "Melhores celulares para comprar em 2026 por até R$ 1.500"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/moto-g86-vale-a-pena.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_motorola_moto_g86_5g",
+          "whyIncluded": "A tela pOLED 1,5K, o conjunto de 8/256 GB, a câmera principal com OIS e a proteção IP68/IP69 formam um pacote especialmente competitivo perto de R$ 1.600.",
+          "bestFor": "Quem quer um intermediário equilibrado para vídeo, redes sociais, fotografia cotidiana, multitarefa e jogos moderados, sem abrir mão de NFC, 5G, eSIM ou microSD.",
+          "mainDifference": "Poucos rivais na faixa reúnem tela pOLED de 2712 × 1220, ultrawide, armazenamento expansível e proteção IP68/IP69 no mesmo aparelho.",
+          "tradeOff": "O carregamento de 33 W não é rápido para os padrões atuais, e a Motorola não detalhava na página brasileira consultada uma política de grandes atualizações comparável à da Samsung.",
+          "sensiblePriceRange": "Recomendamos até R$ 1.600; entre R$ 1.600 e R$ 1.700 depende das prioridades. Acima disso, compare a categoria seguinte.",
+          "avoidWhen": "Não recomendamos para jogos pesados como prioridade, para quem exige recarga muito rápida ou para quem considera suporte de software formalmente longo o critério principal.",
+          "closestCompetitor": "Galaxy A26 5G: oferece AMOLED, OIS e suporte mais longo, mas o Moto G86 tem tela de maior resolução, mais resistência e desempenho superior."
+        }
+      ]
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
       "slug": "networking-o-que-e",
       "aliases": [],
       "status": "published",

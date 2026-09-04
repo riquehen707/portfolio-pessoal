@@ -24,7 +24,7 @@ export const ghostAnimation = OrganizationSchema.parse({
   id: "org_ghost_animation", slug: "ghost-animation", name: "Ghost Animation", kind: "collective", status: "draft",
   workIds: ["work_wade_2019"], summary: "Coletivo de animação sediado em Kolkata e produtor de Wade.", createdAt: "2026-08-12", updatedAt: "2026-08-12",
 });
-export const teamCherry = OrganizationSchema.parse({id:"org_team_cherry",slug:"team-cherry",name:"Team Cherry",kind:"studio",founded:2014,location:{city:"Adelaide",region:"Austrália do Sul",country:"Austrália"},specialties:["Jogos independentes","Animação 2D"],status:"published",profilePath:"/estudios/team-cherry",workIds:[],summary:"Estúdio independente de jogos sediado em Adelaide, Austrália do Sul.",sources:[{title:"Team Cherry — site oficial",url:"https://www.teamcherry.com.au/"}],createdAt:"2026-08-12",updatedAt:"2026-08-14"});
+export const teamCherry = OrganizationSchema.parse({id:"org_team_cherry",slug:"team-cherry",name:"Team Cherry",kind:"studio",founded:2014,location:{city:"Adelaide",region:"Austrália do Sul",country:"Austrália"},specialties:["Jogos independentes","Animação 2D"],image:{src:"/images/studios/team-cherry.webp",alt:"Logotipo oficial da Team Cherry",credit:"Team Cherry via Wikimedia Commons",sourceUrl:"https://commons.wikimedia.org/wiki/File:Team_Cherry_Logo.png",license:"Domínio público"},status:"published",profilePath:"/estudios/team-cherry",workIds:[],summary:"Estúdio independente de jogos sediado em Adelaide, Austrália do Sul.",sources:[{title:"Team Cherry — site oficial",url:"https://www.teamcherry.com.au/"}],createdAt:"2026-08-12",updatedAt:"2026-09-02"});
 
 const brazilianGameStudio = (input: { id: string; slug: string; name: string; city: string; website?: string; summary: string; sourceUrl: string }) => OrganizationSchema.parse({
   ...input,
@@ -64,7 +64,7 @@ export const cartoonSaloon=OrganizationSchema.parse({
   founded:1999,location:{city:"Kilkenny",country:"Irlanda"},
   founderIds:["person_tomm_moore","person_nora_twomey","person_paul_young"],
   keyPeopleIds:["person_tomm_moore","person_nora_twomey","person_paul_young"],
-  website:"https://www.cartoonsaloon.ie/",sources:[
+  website:"https://www.cartoonsaloon.ie/",image:{src:"/images/studios/cartoon-saloon.webp",alt:"Logotipo oficial do Cartoon Saloon",credit:"Cartoon Saloon via Wikimedia Commons",sourceUrl:"https://commons.wikimedia.org/wiki/File:Cartoon_Saloon_2018_logo.png",license:"Domínio público"},sources:[
     {title:"About us — Cartoon Saloon",url:"https://www.cartoonsaloon.ie/irish-animation-studio/about/"},
     {title:"Feature Films — Cartoon Saloon",url:"https://www.cartoonsaloon.ie/irish-animation-studio/feature-films/"},
   ],status:"published",profilePath:"/estudios/cartoon-saloon",workIds:[],
@@ -75,7 +75,7 @@ export const aardman = OrganizationSchema.parse({
   specialties:["Stop-motion","Comédia de personagens"],
   founded:1976,location:{city:"Bristol",country:"Reino Unido"},
   founderIds:["person_peter_lord","person_david_sproxton"],keyPeopleIds:["person_peter_lord","person_david_sproxton","person_nick_park"],
-  website:"https://www.aardman.com/",sources:[
+  website:"https://www.aardman.com/",image:{src:"/images/studios/aardman.webp",alt:"Logotipo oficial da Aardman",credit:"Aardman Animations via Wikimedia Commons",sourceUrl:"https://commons.wikimedia.org/wiki/File:Aardman_Animations_2022.svg",license:"Domínio público"},sources:[
     {title:"About Aardman",url:"https://www.aardman.com/about/"},
     {title:"History of Aardman",url:"https://www.aardman.com/about/history/"},
     {title:"Film, TV & Games",url:"https://www.aardman.com/film-tv-games/"},
@@ -88,7 +88,7 @@ export const scienceSaru = OrganizationSchema.parse({
   specialties:["Animação 2D","Fluxos digitais"],
   founded:2013,location:{city:"Musashino",region:"Tóquio",country:"Japão"},
   founderIds:["person_masaaki_yuasa","person_eunyoung_choi"],keyPeopleIds:["person_masanori_fujita"],
-  website:"https://sciencesaru.com/en",parentOrganizationId:"org_toho",sources:[
+  website:"https://sciencesaru.com/en",image:{src:"/images/studios/science-saru.webp",alt:"Logotipo oficial da Science SARU",credit:"Science SARU via Wikimedia Commons",sourceUrl:"https://commons.wikimedia.org/wiki/File:Science_Saru_Logo.png",license:"Domínio público"},parentOrganizationId:"org_toho",sources:[
     {title:"About — Science SARU",url:"https://sciencesaru.com/en/about"},
     {title:"Works — Science SARU",url:"https://sciencesaru.com/en/works"},
     {title:"History — TOHO",url:"https://www.toho.co.jp/en/company/info/history"},
@@ -101,7 +101,7 @@ export const kyotoAnimation = OrganizationSchema.parse({
   specialties:["Animação 2D","Produção e formação integradas"],
   founded:1981,location:{city:"Uji",region:"Kyoto",country:"Japão"},
   founderIds:["person_yoko_hatta","person_hideaki_hatta"],keyPeopleIds:["person_shinichiro_hatta"],
-  website:"https://www.kyotoanimation.co.jp/en/",sources:[
+  website:"https://www.kyotoanimation.co.jp/en/",image:{src:"/images/studios/kyoto-animation.webp",alt:"Logotipo oficial da Kyoto Animation",credit:"Kyoto Animation; vetorização de Jffner via Wikimedia Commons",sourceUrl:"https://commons.wikimedia.org/wiki/File:Kyoto_Animation_logo.svg",license:"Domínio público"},sources:[
     {title:"Corporate Profile — Kyoto Animation",url:"https://www.kyotoanimation.co.jp/en/company/profile/"},
     {title:"Business — Kyoto Animation",url:"https://www.kyotoanimation.co.jp/en/company/business/"},
     {title:"Our Works — Kyoto Animation",url:"https://www.kyotoanimation.co.jp/en/works/"},
@@ -115,7 +115,7 @@ export const laika = OrganizationSchema.parse({
   id:"org_laika",slug:"laika",aliases:["LAIKA Studios","LAIKA Entertainment"],name:"LAIKA",legalName:"LAIKA, LLC",kind:"studio",
   specialties:["Stop-motion","Impressão 3D"],
   founded:2005,location:{city:"Hillsboro",region:"Oregon",country:"Estados Unidos"},keyPeopleIds:["person_travis_knight"],
-  website:"https://www.laika.com/",sources:[
+  website:"https://www.laika.com/",image:{src:"/images/studios/laika.webp",alt:"Logotipo oficial da LAIKA",credit:"LAIKA via Wikimedia Commons",sourceUrl:"https://commons.wikimedia.org/wiki/File:Laika_logo.svg",license:"Domínio público"},sources:[
     {title:"Site oficial da LAIKA",url:"https://www.laika.com/"},
     {title:"Termos de uso — LAIKA",url:"https://shop.laika.com/pages/terms-of-use"},
     {title:"Filmografia oficial da LAIKA",url:"https://www.laika.com/our-films/"},
@@ -128,7 +128,7 @@ export const studioGhibli = OrganizationSchema.parse({
   name:"Studio Ghibli", legalName:"Studio Ghibli Inc.", kind:"studio", founded:1985,
   location:{city:"Koganei",region:"Tóquio",country:"Japão"},
   founderIds:["person_hayao_miyazaki","person_isao_takahata","person_toshio_suzuki"],
-  website:"https://www.ghibli.jp/", parentOrganizationId:"org_nippon_television",
+  website:"https://www.ghibli.jp/", image:{src:"/images/studios/studio-ghibli.webp",alt:"Logotipo oficial do Studio Ghibli",credit:"Studio Ghibli via Wikimedia Commons",sourceUrl:"https://commons.wikimedia.org/wiki/File:Studio_Ghibli.svg",license:"Domínio público"}, parentOrganizationId:"org_nippon_television",
   sources:[
     {title:"Perfil oficial — Studio Ghibli",url:"https://www.ghibli.jp/profile/"},
     {title:"História oficial — Studio Ghibli",url:"https://www.ghibli.jp/history/"},

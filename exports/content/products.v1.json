@@ -95,8 +95,8 @@
         "sourceUrl": "https://b2b.nowak.com.br/balancas/balanca-comercial/balanca-pesadora-6kg-divisao-1g-urano-udc6-1pop-ref-20094",
         "credit": "Urano, reprodução do varejista Nowak",
         "rights": "official-promotional",
-        "width": 150,
-        "height": 150
+        "width": 800,
+        "height": 800
       },
       "gallery": [],
       "shortDescription": "Balança comercial de bancada com capacidade de 6 kg, divisão de 1 g, tara, plataforma inox e fonte bivolt automática.",
@@ -849,8 +849,8 @@
         "sourceUrl": "https://quenotebookcomprar.com.br/acer-aspire-15-a15-51m-56kr/",
         "credit": "Qual Notebook Comprar",
         "rights": "permission-pending",
-        "width": 280,
-        "height": 240
+        "width": 720,
+        "height": 340
       },
       "gallery": [],
       "shortDescription": "Notebook de 15,6 polegadas cuja variante A15-51M-56KR combina Core i5-13420H, 16 GB de RAM, SSD de 512 GB e Linux.",
@@ -1054,6 +1054,83 @@
       "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02",
       "reviewedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_motorola_moto_g86_5g",
+      "contentType": "product",
+      "schemaVersion": 1,
+      "slug": "motorola-moto-g86-5g",
+      "aliases": [
+        "moto-g86-5g"
+      ],
+      "name": "Motorola Moto G86 5G",
+      "manufacturerId": "org_motorola_mobility",
+      "line": "Moto G",
+      "category": "Celulares",
+      "releaseYear": 2025,
+      "mainImage": {
+        "src": "/images/products/smartphones/motorola-moto-g86-5g-graphite-v1.png",
+        "alt": "Moto G86 5G grafite visto pela frente e por trás",
+        "sourceUrl": "https://www.motorola.com.br/smartphone-moto-g86-5g-256gb/p?idsku=1707",
+        "credit": "Motorola Brasil",
+        "rights": "official-promotional",
+        "width": 1000,
+        "height": 1000
+      },
+      "gallery": [],
+      "shortDescription": "Intermediário 5G com 8 GB de RAM física, 256 GB, tela pOLED 1,5K de 120 Hz, câmera principal com OIS e proteção IP68/IP69.",
+      "strengths": [
+        "Tela pOLED de alta resolução, 120 Hz e brilho de pico elevado",
+        "Conjunto equilibrado com Dimensity 7300, 8 GB de RAM física e armazenamento expansível",
+        "Câmera principal com OIS, ultrawide e proteção IP68/IP69"
+      ],
+      "limitations": [
+        "Carregamento de 33 W é apenas mediano diante de rivais com 45 W ou mais",
+        "Política brasileira de grandes atualizações não estava detalhada na página oficial consultada",
+        "Desempenho atende jogos, mas não substitui um aparelho gamer ou topo de linha"
+      ],
+      "suitableFor": [
+        "Quem valoriza tela, resistência e um conjunto equilibrado para uso cotidiano",
+        "Quem quer 5G, NFC, eSIM, microSD, OIS e ultrawide no mesmo aparelho"
+      ],
+      "categories": [
+        "Celulares",
+        "Eletrônicos"
+      ],
+      "tags": [
+        "5G",
+        "NFC",
+        "256 GB",
+        "pOLED",
+        "IP68",
+        "Android"
+      ],
+      "relatedProductIds": [
+        "prod_samsung_galaxy_a26_5g",
+        "prod_motorola_moto_g56_5g",
+        "prod_xiaomi_redmi_note_14_4g"
+      ],
+      "relatedArticleSlugs": [
+        "moto-g86-vale-a-pena",
+        "melhores-celulares-ate-1500"
+      ],
+      "editorialSummary": "O Moto G86 é forte quando custa perto de R$ 1.600: tela, resistência, memória e câmeras formam um pacote raro nessa faixa. Perto de R$ 1.800, a decisão exige comparar promoções de Galaxy A36 e Edge 60 Fusion.",
+      "seo": {
+        "title": "Motorola Moto G86 5G: ficha, análise e ofertas",
+        "description": "Ficha do Moto G86 5G com variante brasileira, especificações oficiais, vantagens, limitações, preços observados e artigos relacionados."
+      },
+      "sources": [
+        {
+          "title": "Moto G86 5G 256 GB — Motorola Brasil",
+          "url": "https://www.motorola.com.br/smartphone-moto-g86-5g-256gb/p?idsku=1707",
+          "accessedAt": "2026-09-04"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-04",
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "reviewedAt": "2026-09-04"
     },
     {
       "id": "prod_motorola_moto_g56_5g",
@@ -2588,6 +2665,71 @@
       "reviewedAt": "2026-09-02"
     },
     {
+      "id": "prod_variant_motorola_moto_g86_5g_8_256_br",
+      "productId": "prod_motorola_moto_g86_5g",
+      "name": "8 GB + 256 GB (Brasil)",
+      "market": "BR",
+      "distinguishingAttributes": {
+        "ram": "8 GB físicos + 16 GB RAM Boost opcional",
+        "storage": "256 GB; expansível até 1 TB por microSD",
+        "gpu": "ARM Mali-G615 MC2",
+        "displayGlass": "Corning Gorilla Glass 7i",
+        "peakBrightness": "4.500 nits (pico declarado)",
+        "sim": "nano-SIM + eSIM; bandeja alternativa para microSD"
+      },
+      "specifications": {
+        "type": "smartphone",
+        "processor": "MediaTek Dimensity 7300, octa-core até 2,5 GHz",
+        "ramGb": 8,
+        "storageGb": 256,
+        "display": {
+          "technology": "pOLED HDR10+",
+          "sizeInches": 6.7,
+          "resolution": "2712 × 1220",
+          "refreshRateHz": 120
+        },
+        "batteryMah": 5200,
+        "chargingWatts": 33,
+        "rearCameras": {
+          "main": "50 MP Sony LYTIA 600 com OIS, f/1,88",
+          "ultrawide": "8 MP, 118,6°, com macro",
+          "additional": []
+        },
+        "frontCamera": "32 MP, f/2,2",
+        "video": "4K a 30 fps nas câmeras traseira e frontal; Full HD a 60 fps na traseira",
+        "connectivity": [
+          "5G",
+          "4G",
+          "Wi-Fi 6",
+          "Bluetooth 5.4",
+          "USB-C",
+          "eSIM"
+        ],
+        "nfc": true,
+        "fiveG": true,
+        "waterResistance": "IP68 e IP69; resistência testada segundo MIL-STD-810H",
+        "operatingSystemAtLaunch": "Android 15",
+        "dimensionsMm": {
+          "height": 161.21,
+          "width": 74.74,
+          "depth": 7.87
+        },
+        "weightGrams": 185
+      },
+      "imageIds": [],
+      "sources": [
+        {
+          "title": "Motorola Brasil — especificações do Moto G86 5G 256 GB",
+          "url": "https://www.motorola.com.br/smartphone-moto-g86-5g-256gb/p?idsku=1707",
+          "accessedAt": "2026-09-04"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "reviewedAt": "2026-09-04"
+    },
+    {
       "id": "prod_variant_motorola_moto_g56_5g_8_256_br",
       "productId": "prod_motorola_moto_g56_5g",
       "name": "8 GB + 256 GB (Brasil)",
@@ -3276,6 +3418,31 @@
       },
       "availability": "available",
       "checkedAt": "2026-09-02"
+    },
+    {
+      "id": "prod_offer_amazon_motorola_moto_g86_5g_8_256",
+      "variantId": "prod_variant_motorola_moto_g86_5g_8_256_br",
+      "retailer": "Amazon Brasil",
+      "url": "https://www.amazon.com.br/s?k=moto+g86&crid=339BS6XZ5PRN0&sprefix=Moto+%2Caps%2C278&linkCode=ll2&tag=riquehen-20&linkId=51b5bd00e21a5fbbfd0a8994cba6c6d9&ref_=as_li_ss_tl",
+      "region": "BR",
+      "affiliateProgram": "Amazon Associados",
+      "affiliateId": "riquehen-20",
+      "availability": "unknown",
+      "checkedAt": "2026-09-04",
+      "commissionDisclosure": "Este link pode gerar comissão sem custo adicional para quem compra."
+    },
+    {
+      "id": "prod_offer_motorola_moto_g86_5g_8_256",
+      "variantId": "prod_variant_motorola_moto_g86_5g_8_256_br",
+      "retailer": "Motorola Brasil",
+      "url": "https://www.motorola.com.br/smartphone-moto-g86-5g-256gb/p?idsku=1707",
+      "region": "BR",
+      "observedPrice": {
+        "amount": 1599,
+        "currency": "BRL"
+      },
+      "availability": "available",
+      "checkedAt": "2026-09-04"
     },
     {
       "id": "prod_offer_amazon_motorola_moto_g56_5g_8_256",

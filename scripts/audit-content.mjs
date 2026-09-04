@@ -287,6 +287,7 @@ try {
     writeFile(path.join(outputDirectory, "reading.v1.json"), `${JSON.stringify({ schemaVersion: 1, contentType: "reading-catalog", ...readingCatalog, curations: readingCurations }, null, 2)}\n`),
     writeFile(path.join(outputDirectory, "series.v1.json"), `${JSON.stringify({ schemaVersion: 1, contentType: "series-catalog", records: seriesCatalog, offers: seriesOffers, curations: seriesCurations }, null, 2)}\n`),
     writeFile(path.join(outputDirectory, "products.v1.json"), `${JSON.stringify({ schemaVersion: 1, contentType: "product-catalog", ...productCatalog }, null, 2)}\n`),
+    writeFile(path.join(outputDirectory, "entities.v1.json"), `${JSON.stringify({ schemaVersion: 1, contentType: "supporting-entities", games, creators, organizations, editorialWorks, animationWorks }, null, 2)}\n`),
   ]);
   console.log(`Exportados ${movies.length} filmes, ${seriesCatalog.length} séries, ${readingCatalog.works.length} obras de leitura e ${productCatalog.products.length} produtos; ${invalidRelationships.length} relações inválidas; testes de contrato aprovados.`);
 } finally {

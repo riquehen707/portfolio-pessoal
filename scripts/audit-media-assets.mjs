@@ -9,6 +9,8 @@ const readJson = (name) => JSON.parse(readFileSync(join(root, "exports", "conten
 const movies = readJson("movies.v1.json").records;
 const series = readJson("series.v1.json").records;
 const reading = readJson("reading.v1.json");
+const products = readJson("products.v1.json").products;
+const entities = readJson("entities.v1.json");
 const trustedSource = /(themoviedb\.org|tmdb|wikipedia\.org|wikimedia\.org|openlibrary\.org|books\.google\.|google books|penguinrandomhouse\.com|hachettebookgroup\.com|macmillan\.com|darksidebooks\.com|companhiadasletras\.com|intrinseca\.com|editorajbc\.com|panini\.|pipocaenanquim\.com\.br|inkr\.com|entangledpublishing\.com|aleph\.com\.br|fondodeculturaeconomica\.com|tapas\.io|webtoons\.com|kakao|naver|tappytoon|manta\.net|viz\.com|kodansha|yenpress|sevenseasentertainment|dc\.com|marvel\.com)/i;
 
 const volumeByWork = new Map();
@@ -35,13 +37,17 @@ for (const edition of reading.editions) {
 }
 
 const refs = [
-  ...movies.map((item) => ({entityType:"movie",entityId:item.id,title:item.titleBr,image:item.poster})),
-  ...series.map((item) => ({entityType:"series",entityId:item.id,title:item.titleBr,image:item.image})),
+  ...movies.map((item) => ({entityType:"movie",entityId:item.id,title:item.titleBr,image:item.poster,editorialStatus:item.status})),
+  ...series.map((item) => ({entityType:"series",entityId:item.id,title:item.titleBr,image:item.image,editorialStatus:item.status})),
   ...reading.works.map((item) => {
     const editions = editionsByWork.get(item.id) ?? [];
     const edition = editions.find((value) => value.country === "Brasil" && value.status === "published") ?? editions.find((value) => value.status === "published") ?? editions[0];
-    return {entityType:"reading",entityId:item.id,title:item.titleBr ?? item.originalTitle,image:item.image ?? edition?.cover,editionId:item.image ? undefined : edition?.id};
+    return {entityType:"reading",entityId:item.id,title:item.titleBr ?? item.originalTitle,image:item.image ?? edition?.cover,editionId:item.image ? undefined : edition?.id,editorialStatus:item.status};
   }),
+  ...entities.games.map((item) => ({entityType:"game",entityId:item.id,title:item.title,image:item.cover,editorialStatus:item.status})),
+  ...entities.creators.map((item) => ({entityType:"person",entityId:item.id,title:item.name,image:item.image,editorialStatus:item.status})),
+  ...entities.organizations.map((item) => ({entityType:"organization",entityId:item.id,title:item.name,image:item.image,editorialStatus:item.status})),
+  ...products.map((item) => ({entityType:"product",entityId:item.id,title:item.name,image:item.mainImage,editorialStatus:item.status})),
 ];
 
 const audited = [];
@@ -70,11 +76,16 @@ for (const ref of refs) {
   }
   const extension=extname(src ?? "").toLowerCase();
   const declaredDimensions=Boolean(ref.image.width && ref.image.height);
+  const requiresDimensions=!['person','organization'].includes(ref.entityType);
   const sourceRecorded=Boolean(ref.image.sourceUrl && ref.image.credit);
-  const small=Boolean(actualWidth && actualHeight && (actualWidth < 200 || actualHeight < 300));
+  const minimum = ref.entityType === "organization" ? { width: 300, height: 100 }
+    : ref.entityType === "product" ? { width: 300, height: 300 }
+    : ref.entityType === "person" ? { width: 200, height: 200 }
+    : { width: 200, height: 300 };
+  const small=Boolean(actualWidth && actualHeight && (actualWidth < minimum.width || actualHeight < minimum.height));
   const artificialFormat=extension === ".svg";
   const trusted=trustedSource.test(`${ref.image.sourceUrl ?? ""} ${ref.image.credit ?? ""}`);
-  const status=artificialFormat?"review-svg":small?"low-resolution":!declaredDimensions?"missing-dimensions":!sourceRecorded?"missing-source":!trusted?"review-source":"verified-structure";
+  const status=artificialFormat?"review-svg":small?"low-resolution":requiresDimensions&&!declaredDimensions?"missing-dimensions":!sourceRecorded?"missing-source":!trusted?"review-source":"verified-structure";
   audited.push({...ref,src,sourceUrl:ref.image.sourceUrl,credit:ref.image.credit,rights:ref.image.rights ?? ref.image.license,declaredWidth:ref.image.width,declaredHeight:ref.image.height,actualWidth,actualHeight,bytes,hash,status});
 }
 
@@ -93,7 +104,8 @@ if (process.argv.includes("--check-remote")) {
   await Promise.all(Array.from({length:8},worker));
 }
 const counts=Object.fromEntries([...new Set(audited.map((item)=>item.status))].sort().map((status)=>[status,audited.filter((item)=>item.status===status).length]));
-const byType=Object.fromEntries(["movie","series","reading"].map((type)=>[type,{total:audited.filter((item)=>item.entityType===type).length,withImage:audited.filter((item)=>item.entityType===type&&item.status!=="missing").length,missing:audited.filter((item)=>item.entityType===type&&item.status==="missing").length}]));
+const entityTypes=[...new Set(audited.map((item)=>item.entityType))];
+const byType=Object.fromEntries(entityTypes.map((type)=>[type,{total:audited.filter((item)=>item.entityType===type).length,withImage:audited.filter((item)=>item.entityType===type&&item.status!=="missing").length,missing:audited.filter((item)=>item.entityType===type&&item.status==="missing").length,publishedMissing:audited.filter((item)=>item.entityType===type&&item.status==="missing"&&item.editorialStatus==="published").length}]));
 const report={schemaVersion:1,generatedAt:new Date().toISOString(),scope:{totalEntities:audited.length,...byType},counts,duplicateFiles:duplicates,remoteChecks:{total:remoteChecks.length,reachable:remoteChecks.filter((item)=>item.result==="reachable").length,broken:remoteChecks.filter((item)=>item.result==="broken"),blockedOrIndeterminate:remoteChecks.filter((item)=>!["reachable","broken"].includes(item.result))},issues:audited.filter((item)=>item.status!=="verified-structure"),verified:audited.filter((item)=>item.status==="verified-structure")};
 writeFileSync(join(root,"exports","content","media-audit.v1.json"),`${JSON.stringify(report,null,2)}\n`);
 console.log(`Auditadas ${audited.length} entidades: ${audited.length-(counts.missing??0)} com imagem efetiva e ${counts.missing??0} sem imagem.`);
