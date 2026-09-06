@@ -4,6 +4,8 @@ Este documento é a fonte principal para entender **quais páginas existem, como
 
 Para regras especializadas, consulte também:
 
+- [landing pages de serviços](service-landing-pages.md), para ofertas comerciais, componentes, mensuração e adoção gradual;
+
 - [sistema editorial](../content/README.md), para artigos MDX;
 - [listas de filmes](../editorial/templates/movie-list.md), para o fluxo obrigatório entre catálogo, curadoria e artigo;
 - [fichas permanentes de filmes](../editorial/templates/movie-profile.md), para pesquisa, conteúdo editorial, pôsteres e publicação em `/filmes/[slug]`;
@@ -53,6 +55,7 @@ Em caso de divergência, schemas, componentes e rotas executáveis prevalecem so
 ├─ /about
 ├─ /work                                portfólio público
 ├─ /servicos                            apresentação pública de serviços
+│  ├─ /servicos/[slug]                   serviços legados e novas landings publicadas
 │  └─ /servicos/produtos                ferramentas e recursos publicados
 ├─ /rss.xml
 └─ rotas pausadas → redirecionam temporariamente para /blog
@@ -187,7 +190,17 @@ Para estúdios de animação, aplique o [modelo editorial especializado](../edit
 - **Estado:** `/about`, `/work`, `/servicos` e `/servicos/produtos` estão habilitadas em `routes`; as demais famílias permanecem pausadas pelo middleware ou pela configuração atual.
 - **Dados e componentes:** recursos em `src/resources/`, `src/data/segments/`, `src/components/services/`, `src/components/work/` e arquivos próximos às rotas.
 - **SEO:** varia por rota; demonstrações podem declarar `noindex`. Não inferir publicação pela existência do componente.
-- **Pendência:** não há um schema único nem template canônico para esse grupo; documentar cada família quando ela voltar ao escopo público.
+- **Pendência:** as páginas legadas desse grupo não compartilham um schema único; novas landings seguem o contrato específico abaixo. Documentar as demais famílias quando voltarem ao escopo público.
+
+### Landing pages reutilizáveis de serviços
+
+- **Rota:** `/servicos/[slug]`, compartilhada com implementações comerciais legadas. O novo catálogo inclui `/servicos/portfolio-para-fotografos`, `/servicos/site-para-corretores`, `/servicos/portfolio-para-tatuadores`, `/servicos/galeria-virtual-para-artistas`, `/servicos/portfolio-para-designers` e `/servicos/site-para-arquitetos`.
+- **Dados:** `content/service-landings/serviceLandingSchema.ts`, registro em `landings.ts` e fachada `data/service-landings/`; impede colisões com slugs legados e `produtos`.
+- **Objetivo:** conversão de oferta específica; artigos educam e `/servicos` apresenta o catálogo institucional.
+- **Componentes:** `components/services/landing/` fornece hero, seções reordenáveis, preço, prova, FAQ, CTA, mensuração e SEO. `ServiceCTA` conecta artigos a IDs publicados.
+- **Publicação e SEO:** somente `published` acessível; `seo.index` controla indexação separadamente. Canonical natural, OG e JSON-LD `Service`; publicadas/indexáveis entram no sitemap. O fluxo legado permanece independente.
+- **UX:** reutiliza `standaloneLandingRoot`, com cabeçalho mínimo, rodapé próprio e CTA fixo opcional. `/dev/service-landing` é fictícia, `noindex` e 404 em produção.
+- **Guia:** [landing pages de serviços](service-landing-pages.md). Não cria ofertas, integrações de envio ou experimentos ativos automaticamente.
 
 ## Regras globais compartilhadas
 
@@ -225,6 +238,7 @@ Todos os acervos usam somente `status: "draft" | "published"` como estado editor
 | Domínio | Fonte técnica | Acesso recomendado | Observação |
 | --- | --- | --- | --- |
 | Artigos | `components/blog/postSchema.ts` | `data/articles/` | corpo permanece em MDX |
+| Landing pages de serviços | `content/service-landings/serviceLandingSchema.ts` | `data/service-landings/` | estruturas padrão/compacta; serviços legados permanecem em `resources/services.ts` |
 | Ideias | `content/ideas/ideaSchema.ts` | `data/ideas/` | ID permanente independente do slug; `type` organiza ideias, projetos, experimentos, negócios e pesquisas; histórico em `updates`; estado separado da publicação editorial |
 | Filmes | `content/movies/movieSchema.ts` | `data/movies/` | cadastro único; inclui identidade, formato, créditos, relações, imagem/direitos, fontes e estado editorial |
 | Séries | `content/series/seriesSchema.ts` | `data/series/` | catálogo público em `/series`; ofertas temporais são separadas por plataforma, região e intervalo de temporadas |

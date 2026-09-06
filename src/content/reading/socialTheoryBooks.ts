@@ -1,0 +1,85 @@
+import type { ReadingEdition, ReadingWork } from "./readingSchema";
+
+const checked = "2026-09-04";
+
+const work = (
+  id: string,
+  slug: string,
+  originalTitle: string,
+  titleBr: string,
+  year: string,
+  country: string,
+  language: string,
+  personId: string,
+  concepts: string[],
+  description: string,
+  difficulty: ReadingWork["readingDifficulty"],
+  featuredEditionId: string,
+  sourceUrl: string,
+): ReadingWork => ({
+  id: `read_work_${id}`,
+  contentType: "reading-work",
+  schemaVersion: 1,
+  slug,
+  aliases: [],
+  originalTitle,
+  titleBr,
+  workType: "book",
+  format: "book",
+  originCountries: [country],
+  originalLanguages: [language],
+  credits: [{ personId, roles: ["author"] }],
+  organizationRelationships: [],
+  publicationStart: year,
+  publicationEnd: year,
+  publicationStatus: "completed",
+  categories: ["philosophy", "non-fiction"],
+  genres: ["Filosofia", "Teoria social"],
+  themes: concepts,
+  concepts,
+  readingDifficulty: difficulty,
+  demographics: ["adult"],
+  shortDescription: description,
+  seriesMemberships: [],
+  relatedWorks: [],
+  adaptations: [],
+  featuredEditionId,
+  sources: [{ title: `${titleBr} — fonte editorial`, url: sourceUrl }],
+  status: "published",
+  publishedAt: checked,
+  createdAt: checked,
+  updatedAt: checked,
+});
+
+export const socialTheoryWorks: ReadingWork[] = [
+  work("nineteen_eighty_four", "1984-george-orwell", "Nineteen Eighty-Four", "1984", "1949", "Reino Unido", "Inglês", "person_george_orwell", ["Totalitarismo", "Vigilância", "Linguagem", "Memória", "Verdade"], "O romance acompanha Winston Smith numa sociedade em que vigilância, reescrita do passado e controle da linguagem sustentam o poder do Partido.", "introductory", "read_edition_nineteen_eighty_four_companhia", "https://www.companhiadasletras.com.br/livro/9788582851197/1984"),
+  work("groundwork_morals", "fundamentacao-da-metafisica-dos-costumes", "Grundlegung zur Metaphysik der Sitten", "Fundamentação da Metafísica dos Costumes", "1785", "Alemanha", "Alemão", "person_immanuel_kant", ["Dever", "Autonomia", "Boa vontade", "Imperativo categórico", "Dignidade"], "Kant procura o princípio racional da moralidade e distingue agir por dever de apenas agir de acordo com o dever.", "advanced", "read_edition_groundwork_edicoes_70", "https://altabooks.com.br/produto/fundamentacao-da-metafisica-dos-costumes/"),
+  work("utilitarianism_mill", "o-utilitarismo-john-stuart-mill", "Utilitarianism", "O Utilitarismo", "1861", "Reino Unido", "Inglês", "person_john_stuart_mill", ["Utilidade", "Consequências", "Felicidade", "Prazeres", "Justiça"], "Mill defende e qualifica o princípio da maior felicidade, discutindo prazeres, sanções morais e a relação entre utilidade e justiça.", "intermediate", "read_edition_utilitarianism_iluminuras", "https://www.iluminuras.com.br/utilitarismo-o"),
+  work("capitalist_realism", "realismo-capitalista", "Capitalist Realism: Is There No Alternative?", "Realismo Capitalista", "2009", "Reino Unido", "Inglês", "person_mark_fisher", ["Capitalismo", "Ideologia", "Trabalho", "Cultura", "Saúde mental"], "Fisher investiga a sensação de que o capitalismo seria o único horizonte possível e relaciona essa atmosfera a trabalho, educação, cultura e sofrimento psíquico.", "intermediate", "read_edition_capitalist_realism_autonomia", "https://www.autonomialiteraria.com.br/realismo-capitalista"),
+];
+
+const edition = (id: string, workId: string, title: string, publisherId: string, isbn13: string, pageCount: number, sourceUrl: string, cover: NonNullable<ReadingEdition["cover"]>): ReadingEdition => ({
+  id,
+  workId,
+  title,
+  publisherId,
+  country: "Brasil",
+  language: "Português",
+  medium: "paperback",
+  isbn13,
+  pageCount,
+  cover,
+  translationCredits: [],
+  availabilityStatus: "unknown",
+  status: "published",
+  sources: [{ title: `${title} — edição brasileira`, url: sourceUrl }],
+  createdAt: checked,
+  updatedAt: checked,
+});
+
+export const socialTheoryEditions: ReadingEdition[] = [
+  edition("read_edition_nineteen_eighty_four_companhia", "read_work_nineteen_eighty_four", "1984", "org_companhia_das_letras", "9788582851197", 392, "https://www.companhiadasletras.com.br/livro/9788582851197/1984", { src: "/images/reading/social-thought/1984-companhia.jpg", alt: "Capa da edição brasileira de 1984 publicada pela Penguin-Companhia", sourceUrl: "https://covers.openlibrary.org/b/isbn/9788582851197-L.jpg", credit: "Penguin-Companhia; imagem de catálogo via Open Library", rights: "permission-pending", width: 325, height: 500 }),
+  edition("read_edition_groundwork_edicoes_70", "read_work_groundwork_morals", "Fundamentação da Metafísica dos Costumes", "org_edicoes_70", "9789724423838", 128, "https://altabooks.com.br/produto/fundamentacao-da-metafisica-dos-costumes/", { src: "/images/reading/social-thought/fundamentacao-metafisica-costumes-edicoes70.jpg", alt: "Capa de Fundamentação da Metafísica dos Costumes, de Immanuel Kant", sourceUrl: "https://altabooks.com.br/wp-content/uploads/2024/09/9789724423838.jpg", credit: "Edições 70 / Grupo Alta Books", rights: "permission-pending", width: 493, height: 768 }),
+  edition("read_edition_utilitarianism_iluminuras", "read_work_utilitarianism_mill", "O Utilitarismo", "org_iluminuras", "9786555190052", 104, "https://www.iluminuras.com.br/utilitarismo-o", { src: "/images/reading/social-thought/utilitarismo-iluminuras.jpg", alt: "Capa de O Utilitarismo, de John Stuart Mill, publicada pela Iluminuras", sourceUrl: "https://www.iluminuras.com.br/media/catalog/product/cache/1/image/600x600/9df78eab33525d08d6e5fb8d27136e95/9/7/9786555190052.jpg", credit: "Editora Iluminuras", rights: "permission-pending", width: 600, height: 600 }),
+  edition("read_edition_capitalist_realism_autonomia", "read_work_capitalist_realism", "Realismo Capitalista", "org_autonomia_literaria", "9786587233093", 218, "https://www.autonomialiteraria.com.br/realismo-capitalista", { src: "/images/reading/social-thought/realismo-capitalista-autonomia.jpg", alt: "Capa da edição brasileira de Realismo Capitalista, de Mark Fisher", sourceUrl: "https://covers.openlibrary.org/b/isbn/9786587233093-L.jpg", credit: "Autonomia Literária; imagem de catálogo via Open Library", rights: "permission-pending", width: 333, height: 500 }),
+];

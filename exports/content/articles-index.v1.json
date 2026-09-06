@@ -432,6 +432,32 @@
       "productCards": []
     },
     {
+      "id": "article_alem_do_homem_nietzsche",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "alem-do-homem-nietzsche",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-09-04",
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "Além-do-homem em Nietzsche: o que significa Übermensch — e o que ele não significa",
+        "description": "Entenda o além-do-homem em Nietzsche, a tradução de Übermensch, último homem, autossuperação, vontade de poder, nazismo, eterno retorno e críticas.",
+        "canonical": "/blog/alem-do-homem-nietzsche"
+      },
+      "relationships": {
+        "related": [
+          "Nietzsche era niilista? Por que o filósofo tentou superar o niilismo",
+          "Amor fati em Nietzsche: o que significa amar o destino — e por que isso não é resignação",
+          "Friedrich Nietzsche: vida, ideias, obras e por onde começar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/alem-do-homem-nietzsche.mdx",
+      "migrationReady": true,
+      "productCards": []
+    },
+    {
       "id": "article_amor_fati_significado_nietzsche",
       "contentType": "article",
       "schemaVersion": 1,
@@ -440,9 +466,9 @@
       "status": "published",
       "createdAt": "2026-08-20",
       "publishedAt": "2026-08-20",
-      "updatedAt": null,
+      "updatedAt": "2026-09-04",
       "seo": {
-        "title": "Amor fati: o que significa e o que Nietzsche realmente queria dizer",
+        "title": "Amor fati em Nietzsche: o que significa amar o destino — e por que isso não é resignação",
         "description": "Entenda amor fati em Nietzsche, as passagens de A Gaia Ciência e Ecce Homo, a relação com eterno retorno, estoicismo, sofrimento e ação.",
         "canonical": "/blog/amor-fati-significado-nietzsche"
       },
@@ -452,6 +478,31 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/amor-fati-significado-nietzsche.mdx",
+      "migrationReady": true,
+      "productCards": []
+    },
+    {
+      "id": "article_angustia_em_heidegger",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "angustia-em-heidegger",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-09-04",
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "Angústia em Heidegger: por que ela não é apenas medo, ansiedade ou sofrimento",
+        "description": "Entenda a angústia em Heidegger: diferença para medo e ansiedade clínica, Befindlichkeit, estranheza, nada, Dasein, morte e autenticidade.",
+        "canonical": "/blog/angustia-em-heidegger"
+      },
+      "relationships": {
+        "related": [
+          "Dasein em Heidegger: o que significa e por que não é simplesmente ‘ser humano’",
+          "Angústia: o que significa na filosofia e na psicanálise — de Kierkegaard a Freud e Lacan"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/angustia-em-heidegger.mdx",
       "migrationReady": true,
       "productCards": []
     },
@@ -1563,6 +1614,31 @@
       "productCards": []
     },
     {
+      "id": "article_dasein_heidegger",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "dasein-heidegger",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-09-04",
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "Dasein em Heidegger: o que significa e por que não é simplesmente ‘ser humano’",
+        "description": "Entenda Dasein em Heidegger: significado, traduções, ser-no-mundo, martelo, das Man, autenticidade, lançamento, possibilidade e cuidado.",
+        "canonical": "/blog/dasein-heidegger"
+      },
+      "relationships": {
+        "related": [
+          "Martin Heidegger: filosofia, principais conceitos, obras e controvérsias",
+          "Angústia em Heidegger: por que ela não é apenas medo, ansiedade ou sofrimento"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/dasein-heidegger.mdx",
+      "migrationReady": true,
+      "productCards": []
+    },
+    {
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
@@ -1815,6 +1891,32 @@
       "productCards": []
     },
     {
+      "id": "article_deus_esta_morto_nietzsche",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "deus-esta-morto-nietzsche",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-09-04",
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "Deus está morto: o que Nietzsche realmente quis dizer",
+        "description": "Entenda o significado de Deus está morto em Nietzsche, o homem louco de A Gaia Ciência, a relação com ateísmo, moral, ciência, secularização e niilismo.",
+        "canonical": "/blog/deus-esta-morto-nietzsche"
+      },
+      "relationships": {
+        "related": [
+          "Nietzsche era niilista? Por que o filósofo tentou superar o niilismo",
+          "Niilismo: o que é, tipos, Nietzsche, Schopenhauer e o problema da perda de valores",
+          "Friedrich Nietzsche: vida, ideias, obras e por onde começar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/deus-esta-morto-nietzsche.mdx",
+      "migrationReady": true,
+      "productCards": []
+    },
+    {
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
@@ -1886,6 +1988,31 @@
       },
       "sourceFile": "src/app/blog/posts/fundamentos/empreendedorismo-desemprego-pobreza-evidencias.mdx",
       "migrationReady": false,
+      "productCards": []
+    },
+    {
+      "id": "article_estoicismo",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "estoicismo",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-09-04",
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "Estoicismo: o que é, principais conceitos, filósofos e limites da filosofia estoica",
+        "description": "Entenda o estoicismo, seus filósofos e conceitos: natureza, virtude, controle, emoções, destino, política, escravidão, usos modernos e críticas.",
+        "canonical": "/blog/estoicismo"
+      },
+      "relationships": {
+        "related": [
+          "Amor fati em Nietzsche: o que significa amar o destino — e por que isso não é resignação",
+          "Por onde começar a aprender filosofia? Melhores autores e livros para iniciantes"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/estoicismo.mdx",
+      "migrationReady": true,
       "productCards": []
     },
     {
@@ -2553,6 +2680,31 @@
       "productCards": []
     },
     {
+      "id": "article_id_ego_e_superego",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "id-ego-e-superego",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-09-04",
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "Id, ego e superego: o que Freud realmente quis dizer com essas três instâncias da mente",
+        "description": "Entenda id, ego e superego em Freud: significado, diferenças, primeira e segunda tópica, inconsciente, prazer, realidade, defesas e limites científicos.",
+        "canonical": "/blog/id-ego-e-superego"
+      },
+      "relationships": {
+        "related": [
+          "Angústia: o que significa na filosofia e na psicanálise — de Kierkegaard a Freud e Lacan",
+          "Carl Jung: vida, conceitos, obras e críticas"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/id-ego-e-superego.mdx",
+      "migrationReady": true,
+      "productCards": []
+    },
+    {
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
@@ -2576,6 +2728,30 @@
       },
       "sourceFile": "src/app/blog/posts/fundamentos/identidade-visual.mdx",
       "migrationReady": false,
+      "productCards": []
+    },
+    {
+      "id": "article_iluminismo",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "iluminismo",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-09-04",
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "Iluminismo: o que foi, principais ideias, filósofos e críticas ao projeto iluminista",
+        "description": "Entenda o que foi o Iluminismo, suas ideias, filósofos, relação com religião e Revolução Francesa, contradições e críticas posteriores.",
+        "canonical": "/blog/iluminismo"
+      },
+      "relationships": {
+        "related": [
+          "Por onde começar a aprender filosofia? Melhores autores e livros para iniciantes"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/iluminismo.mdx",
+      "migrationReady": true,
       "productCards": []
     },
     {
@@ -2706,6 +2882,57 @@
       "productCards": []
     },
     {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "livros-para-desenvolver-pensamento-critico",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "12 livros para aprender a pensar melhor e desenvolver pensamento crítico",
+        "description": "Veja 12 livros para desenvolver pensamento crítico por meio de lógica prática, estatística, ciência, epistemologia, psicologia e interpretação.",
+        "canonical": "/blog/livros-para-desenvolver-pensamento-critico"
+      },
+      "relationships": {
+        "related": [
+          "O que estudar para ficar mais inteligente?",
+          "Por onde começar a aprender filosofia?"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/livros-para-desenvolver-pensamento-critico.mdx",
+      "migrationReady": false,
+      "productCards": []
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "livros-para-entender-a-sociedade-contemporanea",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "15 livros para entender a sociedade contemporânea",
+        "description": "Conheça 15 livros para entender a sociedade contemporânea, com temas, dificuldades, contribuições e limites de cada diagnóstico.",
+        "canonical": "/blog/livros-para-entender-a-sociedade-contemporanea"
+      },
+      "relationships": {
+        "related": [
+          "Sociedade do Cansaço: resumo, conceitos e críticas",
+          "15 livros sobre poder, política e controle social",
+          "15 livros para entender capitalismo, dinheiro e sociedade"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/livros-para-entender-a-sociedade-contemporanea.mdx",
+      "migrationReady": false,
+      "productCards": []
+    },
+    {
       "id": "article_books_after_welcome_to_derry",
       "contentType": "article",
       "schemaVersion": 1,
@@ -2729,6 +2956,109 @@
       },
       "sourceFile": "src/app/blog/posts/fundamentos/livros-para-quem-gostou-de-it-bem-vindos-a-derry.mdx",
       "migrationReady": true,
+      "productCards": []
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "livros-sobre-capitalismo",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "15 livros para entender capitalismo, dinheiro e sociedade",
+        "description": "Conheça 15 livros sobre capitalismo, dinheiro e sociedade, de introduções econômicas a interpretações históricas, institucionais e críticas.",
+        "canonical": "/blog/livros-sobre-capitalismo"
+      },
+      "relationships": {
+        "related": [
+          "15 livros para entender economia sem precisar ser economista",
+          "O que estudar para ficar mais inteligente?"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/livros-sobre-capitalismo.mdx",
+      "migrationReady": false,
+      "productCards": []
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "livros-sobre-etica-e-moral",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "15 livros sobre ética e moral para entender por que consideramos algo certo ou errado",
+        "description": "Conheça 15 livros sobre ética e moral, com dificuldade, tema, contribuições e limites de diferentes tradições filosóficas.",
+        "canonical": "/blog/livros-sobre-etica-e-moral"
+      },
+      "relationships": {
+        "related": [
+          "Por onde começar a aprender filosofia?",
+          "12 livros sobre liberdade",
+          "Ressentimento em Nietzsche"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/livros-sobre-etica-e-moral.mdx",
+      "migrationReady": false,
+      "productCards": []
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "livros-sobre-liberdade",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "12 livros sobre liberdade: filosofia, política e responsabilidade individual",
+        "description": "Conheça 12 livros sobre liberdade na filosofia e na política, com perguntas, dificuldades e limites de cada abordagem.",
+        "canonical": "/blog/livros-sobre-liberdade"
+      },
+      "relationships": {
+        "related": [
+          "15 livros sobre ética e moral",
+          "15 livros sobre poder, política e controle social",
+          "Simone de Beauvoir"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/livros-sobre-liberdade.mdx",
+      "migrationReady": false,
+      "productCards": []
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "livros-sobre-poder",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "15 livros sobre poder, política e controle social",
+        "description": "Conheça 15 livros sobre poder, política e controle social, com diferentes conceitos, tradições, dificuldades e limites.",
+        "canonical": "/blog/livros-sobre-poder"
+      },
+      "relationships": {
+        "related": [
+          "Michel Foucault: vida, obras, conceitos e críticas",
+          "Hannah Arendt: vida, obras, ideias e controvérsias",
+          "15 livros para entender capitalismo, dinheiro e sociedade"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/livros-sobre-poder.mdx",
+      "migrationReady": false,
       "productCards": []
     },
     {
@@ -2885,6 +3215,238 @@
       "productCards": []
     },
     {
+      "id": "article_martin_heidegger",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "martin-heidegger",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-09-04",
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "Martin Heidegger: filosofia, principais conceitos, obras e controvérsias",
+        "description": "Quem foi Martin Heidegger: Ser e Tempo, Dasein, ser-no-mundo, angústia, morte, técnica, influência, nazismo e Cadernos Negros.",
+        "canonical": "/blog/martin-heidegger"
+      },
+      "relationships": {
+        "related": [
+          "Dasein em Heidegger: o que significa e por que não é simplesmente ‘ser humano’",
+          "Angústia em Heidegger: por que ela não é apenas medo, ansiedade ou sofrimento",
+          "Ser-para-a-morte em Heidegger: o que a morte revela sobre nossa existência"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/martin-heidegger.mdx",
+      "migrationReady": true,
+      "productCards": []
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "melhores-air-fryers-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-05",
+      "updatedAt": "2026-09-05",
+      "seo": {
+        "title": "Melhores air fryers de 2026: 10 modelos para diferentes famílias e orçamentos",
+        "description": "Veja qual é a melhor air fryer de 2026 para uma pessoa, casal, família ou quem procura um modelo oven.",
+        "canonical": "/blog/melhores-air-fryers-2026"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-air-fryers-2026.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_electrolux_eaf71",
+          "whyIncluded": "O cesto familiar e o preço próximo de modelos menores formam o conjunto mais equilibrado da seleção.",
+          "bestFor": "Famílias de três a cinco pessoas que fazem porções em uma camada.",
+          "mainDifference": "Área de preparo mais útil que cubas altas e estreitas.",
+          "tradeOff": "Ocupa mais bancada e usa controles analógicos.",
+          "sensiblePriceRange": "Entre R$ 350 e R$ 450.",
+          "avoidWhen": "Sua bancada é pequena ou você quer receitas programadas.",
+          "closestCompetitor": "Electrolux EAF45, menor e digital."
+        },
+        {
+          "productId": "prod_electrolux_eaf40",
+          "whyIncluded": "Na oferta observada, entrega uma cuba familiar pelo preço típico de modelos compactos.",
+          "bestFor": "Casal ou família pequena que prioriza preço.",
+          "mainDifference": "Relação entre capacidade e custo.",
+          "tradeOff": "Timer e temperatura analógicos; a capacidade útil é menor que os 5,6 L totais.",
+          "sensiblePriceRange": "Até R$ 350.",
+          "avoidWhen": "Você precisa de precisão digital ou prepara grandes porções.",
+          "closestCompetitor": "EAF45, com painel digital."
+        },
+        {
+          "productId": "prod_electrolux_eaf10",
+          "whyIncluded": "É menor sem cobrar por uma capacidade que uma pessoa raramente usaria.",
+          "bestFor": "Uma ou duas pessoas e cozinhas compactas.",
+          "mainDifference": "Dimensões e operação simples.",
+          "tradeOff": "Exige lotes para uma refeição familiar.",
+          "sensiblePriceRange": "Até R$ 400; acima disso, procure a EAF40.",
+          "avoidWhen": "Você cozinha para três pessoas ou mais.",
+          "closestCompetitor": "Electrolux EAF40."
+        },
+        {
+          "productId": "prod_electrolux_eaf45",
+          "whyIncluded": "Acrescenta painel digital e lembrete de virar por uma diferença razoável.",
+          "bestFor": "Quem repete receitas e prefere ajuste digital.",
+          "mainDifference": "Comandos digitais sem entrar no preço dos modelos premium.",
+          "tradeOff": "Não oferece mais espaço útil que a EAF40.",
+          "sensiblePriceRange": "Até R$ 450.",
+          "avoidWhen": "Controles analógicos bastam e a EAF40 custa muito menos.",
+          "closestCompetitor": "Electrolux EAF40."
+        },
+        {
+          "productId": "prod_electrolux_eaf50",
+          "whyIncluded": "É uma alternativa familiar de 1.700 W quando a EAF71 fica cara ou indisponível.",
+          "bestFor": "Família pequena que quer comandos simples.",
+          "mainDifference": "Conjunto convencional equilibrado, sem funções que encarecem.",
+          "tradeOff": "Fica espremida entre a EAF45 digital e a EAF71 maior.",
+          "sensiblePriceRange": "Até R$ 450.",
+          "avoidWhen": "A EAF71 estiver no mesmo preço.",
+          "closestCompetitor": "Electrolux EAF71."
+        },
+        {
+          "productId": "prod_philips_ri9270",
+          "whyIncluded": "A marca informa também carga de até 1,2 kg, referência mais útil que litros isolados.",
+          "bestFor": "Família que quer uma XL digital.",
+          "mainDifference": "Cuba de 6,2 L, painel e função manter aquecido.",
+          "tradeOff": "Perde custo-benefício quando sobe muito acima de R$ 550.",
+          "sensiblePriceRange": "Entre R$ 450 e R$ 550.",
+          "avoidWhen": "Uma EAF71 custa R$ 100 menos.",
+          "closestCompetitor": "Philips HD9206."
+        },
+        {
+          "productId": "prod_philips_hd9206",
+          "whyIncluded": "É uma opção XL convencional com fluxo de ar da linha Série 3000.",
+          "bestFor": "Família que prefere controle analógico e cuba ampla.",
+          "mainDifference": "Formato de cuba e 2.000 W no SKU pesquisado.",
+          "tradeOff": "O final do SKU determina tensão e não há painel digital.",
+          "sensiblePriceRange": "Até R$ 600.",
+          "avoidWhen": "A RI9270 digital estiver mais barata.",
+          "closestCompetitor": "Philips RI9270."
+        },
+        {
+          "productId": "prod_electrolux_eaf90",
+          "whyIncluded": "Grades, espeto e porta transparente atendem preparos que uma cuba não comporta.",
+          "bestFor": "Quem quer forno compacto e air fryer num só aparelho.",
+          "mainDifference": "Duas alturas de grade e acessórios de oven.",
+          "tradeOff": "Mais peças para lavar; 12 L de cavidade não significam cesto de 12 L.",
+          "sensiblePriceRange": "Até R$ 850.",
+          "avoidWhen": "Seu uso principal é batata, carne e porções pequenas.",
+          "closestCompetitor": "Oster OFRT780."
+        },
+        {
+          "productId": "prod_oster_ofrt780",
+          "whyIncluded": "É uma oven 3 em 1 competitiva quando aparece perto de R$ 600.",
+          "bestFor": "Rotisserie, desidratação e preparos em grades.",
+          "mainDifference": "Preço menor que outras ovens de 12 L.",
+          "tradeOff": "Estava esgotada na loja oficial na revisão; estoque e garantia do vendedor merecem atenção.",
+          "sensiblePriceRange": "Até R$ 650 em revendedor confiável.",
+          "avoidWhen": "A oferta ultrapassa a EAF90 ou não informa tensão.",
+          "closestCompetitor": "Electrolux EAF90."
+        },
+        {
+          "productId": "prod_electrolux_eaf180",
+          "whyIncluded": "Vapor é uma diferença concreta para reaquecer e reduzir ressecamento, não só mais um programa.",
+          "bestFor": "Quem usará vapor e limpeza assistida com frequência.",
+          "mainDifference": "Vapor numa air fryer de 7 L.",
+          "tradeOff": "Custa quase o dobro de uma EAF71 e não substitui forno a vapor.",
+          "sensiblePriceRange": "Até R$ 850.",
+          "avoidWhen": "Você fará apenas frituras e assados convencionais.",
+          "closestCompetitor": "EAF71, muito mais barata."
+        }
+      ]
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "melhores-aspiradores-verticais-sem-fio-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-05",
+      "updatedAt": "2026-09-05",
+      "seo": {
+        "title": "Melhores aspiradores verticais sem fio de 2026",
+        "description": "Compare os melhores aspiradores verticais sem fio de 2026 para pisos, tapetes, pelos e casas de diferentes tamanhos.",
+        "canonical": "/blog/melhores-aspiradores-verticais-sem-fio-2026"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-aspiradores-verticais-sem-fio-2026.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_wap_eco_rapido",
+          "whyIncluded": "É leve e suficiente para a manutenção cotidiana de pisos por um custo de entrada.",
+          "bestFor": "Apartamento, piso frio, carro e limpezas rápidas.",
+          "mainDifference": "2,4 kg e reservatório de 0,7 L.",
+          "tradeOff": "Bateria integrada e apenas cerca de 17 minutos declarados no Turbo.",
+          "sensiblePriceRange": "Até R$ 550; por R$ 599,90, compare o ERG019.",
+          "avoidWhen": "Você quer limpar tapetes ou casa grande numa carga.",
+          "closestCompetitor": "Electrolux ERG019."
+        },
+        {
+          "productId": "prod_electrolux_erg019",
+          "whyIncluded": "O corpo que para em pé e a unidade de mão tornam a rotina simples em apartamento.",
+          "bestFor": "Piso, sofá, mesa e carro entre faxinas maiores.",
+          "mainDifference": "Formato 2 em 1 e filtro HEPA.",
+          "tradeOff": "Autonomia declarada de 30 minutos e bateria integrada.",
+          "sensiblePriceRange": "Até R$ 700.",
+          "avoidWhen": "Aspirador sem fio será o único aparelho de uma casa grande.",
+          "closestCompetitor": "WAP Eco Rápido."
+        },
+        {
+          "productId": "prod_electrolux_erg28",
+          "whyIncluded": "A bateria de 18 V e a escova iluminada representam um avanço para casa média.",
+          "bestFor": "Pisos e tapetes baixos, com uso recorrente.",
+          "mainDifference": "Conjunto mais forte que o ERG019 sem chegar aos modulares premium.",
+          "tradeOff": "3,6 kg cansam em escadas e partes altas; bateria integrada.",
+          "sensiblePriceRange": "Até R$ 950; por R$ 999,90, compare o ERG26.",
+          "avoidWhen": "Leveza ou pelos de animais são prioridade.",
+          "closestCompetitor": "Electrolux ERG26."
+        },
+        {
+          "productId": "prod_electrolux_erg26",
+          "whyIncluded": "Bocal para pelos e autonomia declarada maior justificam uma decisão diferente do ERG28.",
+          "bestFor": "Casa com animais e tapetes baixos.",
+          "mainDifference": "Acessório Pet e até 45 minutos declarados.",
+          "tradeOff": "Escova e filtro ainda exigem retirada frequente de pelos.",
+          "sensiblePriceRange": "Até R$ 1.000.",
+          "avoidWhen": "Você precisa trocar bateria no meio da limpeza.",
+          "closestCompetitor": "Electrolux ERG28."
+        },
+        {
+          "productId": "prod_electrolux_emc2500",
+          "whyIncluded": "O formato modular alcança estofado e áreas altas melhor que um 2 em 1 de piso.",
+          "bestFor": "Quem quer um único corpo para várias superfícies.",
+          "mainDifference": "Configuração 3 em 1 e conjunto de acessórios.",
+          "tradeOff": "O salto de preço é grande; confirme peso, bateria e acessórios do SKU ofertado.",
+          "sensiblePriceRange": "Até R$ 2.100.",
+          "avoidWhen": "Seu uso é apenas manutenção de piso.",
+          "closestCompetitor": "Electrolux ERG26."
+        },
+        {
+          "productId": "prod_samsung_bespoke_jet_ai",
+          "whyIncluded": "Bateria removível, escovas e estação de esvaziamento atendem uma limpeza principal, não apenas retoques.",
+          "bestFor": "Casa grande, tapetes, pets e orçamento premium.",
+          "mainDifference": "Bateria substituível e estação que reduz contato com pó.",
+          "tradeOff": "A autonomia de até 100 minutos é medida no mínimo e sem escova motorizada; preço e consumíveis são altos.",
+          "sensiblePriceRange": "Até cerca de R$ 5.700 com garantia oficial.",
+          "avoidWhen": "Pisos simples podem ser atendidos por um modelo de R$ 1.000.",
+          "closestCompetitor": "Electrolux EMC2500."
+        }
+      ]
+    },
+    {
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
@@ -2936,6 +3498,541 @@
           "sensiblePriceRange": "Boa compra até R$ 4.100; acima de R$ 4.500, compare capacidade, assistência e carga publicada de planetárias comerciais maiores antes de decidir.",
           "avoidWhen": "Não recomendamos para quem faz poucas encomendas, precisa guardar a máquina após cada uso ou pretende sovar massas pesadas apenas porque há um gancho.",
           "closestCompetitor": "Braesi Eclair BP-500 S: outra profissional de 5 litros e velocidade variável; compare assistência local, garantia e preço da variante exata."
+        }
+      ]
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "melhores-cadeiras-ergonomicas-home-office-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-05",
+      "updatedAt": "2026-09-05",
+      "seo": {
+        "title": "Melhores cadeiras ergonômicas para home office em 2026",
+        "description": "Compare cadeiras ergonômicas para home office em 2026 sem promessas médicas: ajustes, biotipo, garantia e preço.",
+        "canonical": "/blog/melhores-cadeiras-ergonomicas-home-office-2026"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-cadeiras-ergonomicas-home-office-2026.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_flexform_lite",
+          "whyIncluded": "É a entrada documentada para substituir cadeira fixa em uso parcial.",
+          "bestFor": "Estudo e home office de até cerca de seis horas.",
+          "mainDifference": "Encosto em altura e inclinação, garantia de cinco anos e suporte de 136 kg.",
+          "tradeOff": "Braços fixos e mecanismo simples.",
+          "sensiblePriceRange": "R$ 500 a R$ 600.",
+          "avoidWhen": "A jornada é integral ou a mesa exige braço ajustável.",
+          "closestCompetitor": "Flexform Uni."
+        },
+        {
+          "productId": "prod_flexform_uni",
+          "whyIncluded": "Tela e braços ajustáveis melhoram ventilação e alinhamento com a mesa.",
+          "bestFor": "Jornadas de seis a oito horas em ambiente quente.",
+          "mainDifference": "Encosto em mesh com braço regulável.",
+          "tradeOff": "Sem profundidade de assento e apoio lombar pode incomodar alguns corpos.",
+          "sensiblePriceRange": "Até R$ 1.200.",
+          "avoidWhen": "Suas coxas precisam de assento mais curto ou longo.",
+          "closestCompetitor": "Flexform My Chair."
+        },
+        {
+          "productId": "prod_flexform_my_chair",
+          "whyIncluded": "A profundidade regulável permite adaptar melhor o assento.",
+          "bestFor": "Pessoas que priorizam encaixe das coxas e reclinação.",
+          "mainDifference": "Profundidade e mecanismo relax com três paradas.",
+          "tradeOff": "Braços fixos e encosto plástico nesta versão.",
+          "sensiblePriceRange": "Até R$ 1.300.",
+          "avoidWhen": "Você precisa alinhar braços a uma mesa estreita.",
+          "closestCompetitor": "Flexform Uni, mais ventilada."
+        },
+        {
+          "productId": "prod_flexform_tecton",
+          "whyIncluded": "É a única do recorte com profundidade, lombar e braços 4D juntos.",
+          "bestFor": "Home office diário que demanda maior adaptação.",
+          "mainDifference": "Braços 4D, lombar ajustável e quatro posições de reclinação.",
+          "tradeOff": "Custa bem mais e ainda precisa ser testada no biotipo.",
+          "sensiblePriceRange": "R$ 1.600 a R$ 1.900.",
+          "avoidWhen": "A Lite ou Uni já encaixa corretamente no corpo e na mesa.",
+          "closestCompetitor": "Flexform My Chair."
+        }
+      ]
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "melhores-cafeteiras-espresso-custo-beneficio-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-05",
+      "updatedAt": "2026-09-05",
+      "seo": {
+        "title": "Melhores cafeteiras espresso custo-benefício de 2026",
+        "description": "Descubra a melhor cafeteira espresso de 2026 para começar, preparar bebidas com leite ou controlar moagem e extração.",
+        "canonical": "/blog/melhores-cafeteiras-espresso-custo-beneficio-2026"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-cafeteiras-espresso-custo-beneficio-2026.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_oster_ocaf900",
+          "whyIncluded": "É a entrada mais barata para café moído, porta-filtro e vaporização, sem limitar o usuário a cápsulas.",
+          "bestFor": "Iniciante que quer aprender espresso aos poucos.",
+          "mainDifference": "Aceita diferentes formatos e mantém vaporizador manual.",
+          "tradeOff": "Sem bom moedor, a evolução da bebida fica limitada.",
+          "sensiblePriceRange": "Até R$ 800; reserve orçamento para o moedor.",
+          "avoidWhen": "Você quer apertar um botão e não ajustar moagem ou leite.",
+          "closestCompetitor": "Oster OCAF950."
+        },
+        {
+          "productId": "prod_oster_ocaf950",
+          "whyIncluded": "Atende bancada pequena sem abandonar o processo manual.",
+          "bestFor": "Apartamento e usuário que prefere controlar leite e café.",
+          "mainDifference": "Corpo compacto para bancada pequena.",
+          "tradeOff": "Perto de R$ 1.000, máquina mais moedor já podem superar a PrimaLatte em custo.",
+          "sensiblePriceRange": "Até R$ 950.",
+          "avoidWhen": "A OCAF900 custa muito menos ou bebidas com leite precisam ser automáticas.",
+          "closestCompetitor": "Oster OCAF900."
+        },
+        {
+          "productId": "prod_oster_primalatte_touch",
+          "whyIncluded": "Resolve cappuccino e latte com menos técnica que um vaporizador manual.",
+          "bestFor": "Quem toma bebidas com leite diariamente.",
+          "mainDifference": "Reservatório dosa e espuma leite automaticamente.",
+          "tradeOff": "Menos controle de textura e mais peças que precisam ser limpas logo após o uso.",
+          "sensiblePriceRange": "Entre R$ 1.100 e R$ 1.300.",
+          "avoidWhen": "Espresso puro e controle de extração são prioridade.",
+          "closestCompetitor": "Oster OCAF980."
+        },
+        {
+          "productId": "prod_oster_xpert_perfect_brew",
+          "whyIncluded": "Moedor cônico, reservatório amplo e máquina manual formam o kit de entusiasta mais coerente na faixa.",
+          "bestFor": "Quem quer aprender dose, moagem e vaporização.",
+          "mainDifference": "Moedor de 30 ajustes integrado.",
+          "tradeOff": "Ocupa bancada, exige regulagem e 15 bar declarados não garantem uma extração correta.",
+          "sensiblePriceRange": "Até R$ 2.500.",
+          "avoidWhen": "Conveniência importa mais que o processo.",
+          "closestCompetitor": "Tramontina by Breville Express."
+        },
+        {
+          "productId": "prod_oster_ocaf980",
+          "whyIncluded": "É a escolha prática para transformar grãos em café sem porta-filtro e distribuição manual.",
+          "bestFor": "Casa ou pequeno escritório que prioriza repetibilidade e velocidade.",
+          "mainDifference": "Moedor e preparo automáticos no mesmo corpo.",
+          "tradeOff": "Menos controle, grupo interno mais complexo e manutenção obrigatória.",
+          "sensiblePriceRange": "Até R$ 2.700.",
+          "avoidWhen": "Você gosta de ajustar cada variável ou prepara leite texturizado manualmente.",
+          "closestCompetitor": "PrimaLatte Touch, mais simples e barata."
+        },
+        {
+          "productId": "prod_tramontina_breville_express",
+          "whyIncluded": "É uma plataforma conhecida para quem quer controlar moagem, dose e vapor sem separar os aparelhos.",
+          "bestFor": "Entusiasta que valoriza o ecossistema Breville e assistência oficial.",
+          "mainDifference": "Conjunto maduro de moedor e máquina semiautomática.",
+          "tradeOff": "O preço oficial observado está alto diante da Xpert e de conjuntos separados.",
+          "sensiblePriceRange": "Até R$ 4.500; por R$ 5.034,14, compare alternativas especializadas.",
+          "avoidWhen": "Este é seu primeiro contato e você ainda não sabe se gosta do ritual.",
+          "closestCompetitor": "Oster Xpert Perfect Brew."
+        }
+      ]
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "melhores-cameras-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "Melhores câmeras de 2026: 12 opções para fotografia, vídeo e uso profissional",
+        "description": "Veja as melhores câmeras de 2026 para fotografia e vídeo, com sensor, autofocus, estabilização, mount, bateria e preços verificados no Brasil.",
+        "canonical": "/blog/melhores-cameras-2026"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-cameras-2026.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_canon_eos_r50",
+          "whyIncluded": "É a entrada mais equilibrada porque une tela articulada, visor, autofocus moderno e 4K 30p sobremostrado em um kit disponível no Brasil.",
+          "bestFor": "Primeira câmera para família, viagem, retrato, estudo de fotografia e vídeo curto.",
+          "mainDifference": "Comparada à R100, melhora justamente os pontos que mais atrapalham o aprendizado: tela, toque, foco e vídeo.",
+          "tradeOff": "Não tem IBIS nem saída para fones, e a linha RF-S ainda oferece menos lentes APS-C que Sony E e Fujifilm X.",
+          "sensiblePriceRange": "Boa compra no kit 18–45 mm até R$ 5.500; acima de R$ 6.000, compare R10 e ZV-E10 II.",
+          "avoidWhen": "Não recomendamos se a prioridade for vídeo longo, monitoramento por fones ou estabilização sem tripé.",
+          "closestCompetitor": "Sony ZV-E10: tem saída para fones e mais lentes, mas perde visor e usa 4K 8-bit."
+        },
+        {
+          "productId": "prod_sony_a6700",
+          "whyIncluded": "Entrega AF avançado, IBIS e 4K 10-bit até 120p no mesmo corpo, sem abandonar visor e ergonomia fotográfica.",
+          "bestFor": "Criadores avançados que dividem o trabalho entre fotografia e vídeo.",
+          "mainDifference": "Tem a imagem-base da FX30, mas acrescenta visor e formato mais amigável para foto.",
+          "tradeOff": "Possui um único slot e micro-HDMI; 4K 120p recorta e exige cartões e armazenamento rápidos.",
+          "sensiblePriceRange": "Faz sentido até R$ 12 mil; perto de R$ 14 mil, compare FX30 e full frames.",
+          "avoidWhen": "Evite para eventos que exigem gravação redundante em dois cartões.",
+          "closestCompetitor": "Fujifilm X-S20: oferece open gate e custa menos, enquanto a Sony lidera em AF e 4K 120p."
+        },
+        {
+          "productId": "prod_canon_eos_r7",
+          "whyIncluded": "O APS-C de 32,5 MP, a rajada, o autofocus e o IBIS criam uma combinação especializada para ação e alcance.",
+          "bestFor": "Fotógrafos de aves, natureza e esporte que aproveitarão teleobjetivas RF ou EF adaptadas.",
+          "mainDifference": "Entrega mais densidade de pixels e dois cartões que as APS-C híbridas concorrentes.",
+          "tradeOff": "O obturador eletrônico pode distorcer movimento rápido e o estoque oficial estava esgotado.",
+          "sensiblePriceRange": "Boa compra perto de R$ 11 mil; acima de R$ 12 mil, compare full frame e a6700.",
+          "avoidWhen": "Não recomendamos se retratos em baixa luz e vídeo forem mais importantes que alcance e rajada.",
+          "closestCompetitor": "Sony a6700: é melhor híbrida de vídeo, mas tem menos resolução e só um slot."
+        },
+        {
+          "productId": "prod_canon_eos_r6_mark_ii",
+          "whyIncluded": "Equilibra autofocus, IBIS, baixa luz, 4K 60p e dois cartões em um corpo apto a trabalho pago.",
+          "bestFor": "Eventos, casamento, retrato e produção híbrida profissional.",
+          "mainDifference": "O 4K 60p usa a largura do full frame e é sobremostrado, ao contrário do recorte APS-C da a7 IV nesse modo.",
+          "tradeOff": "Lentes RF luminosas encarecem muito o sistema e a saída micro-HDMI é frágil para rigs.",
+          "sensiblePriceRange": "Muito competitiva perto de R$ 16 mil; acima de R$ 18 mil, reavalie corpos mais novos e o custo das lentes.",
+          "avoidWhen": "Evite se o orçamento total não comporta lente, cartões, bateria reserva e áudio.",
+          "closestCompetitor": "Sony a7 IV: oferece 33 MP e mais opções de lentes, mas recorta o 4K 60p."
+        },
+        {
+          "productId": "prod_sony_fx30",
+          "whyIncluded": "Ventoinha, HDMI completo, pontos de montagem, 4K 120p e workflow de LUT resolvem necessidades que não aparecem na contagem de megapixels.",
+          "bestFor": "Documentário, estúdio, publicidade, streaming e equipes pequenas orientadas a vídeo.",
+          "mainDifference": "Comparada à a6700, troca o visor por refrigeração ativa, conexões e operação de cinema.",
+          "tradeOff": "Não tem visor e a alça XLR custa mais; fotografia é uma função secundária.",
+          "sensiblePriceRange": "Boa compra até cerca de R$ 14 mil sem alça; acima disso, compare promoções de full frame e o kit completo.",
+          "avoidWhen": "Não recomendamos como primeira câmera de fotografia ou para quem precisa de flash e visor.",
+          "closestCompetitor": "Sony a6700: imagem próxima em corpo híbrido, porém sem a mesma estrutura para tomadas longas."
+        },
+        {
+          "productId": "prod_fujifilm_x_s20",
+          "whyIncluded": "Combina IBIS, visor, bateria grande e 6.2K open gate, útil para extrair versões horizontal e vertical da mesma tomada.",
+          "bestFor": "Viagem, fotografia cotidiana e criadores que querem bons JPEGs e vídeo flexível.",
+          "mainDifference": "Simulações de filme e open gate dão um fluxo diferente da a6700, sem exigir pós-produção pesada em toda entrega.",
+          "tradeOff": "O preço oficial de corpo é alto e há apenas um slot UHS-II e micro-HDMI.",
+          "sensiblePriceRange": "Boa até R$ 10.800; acima de R$ 12 mil, a a6700 e full frames promocionais ganham força.",
+          "avoidWhen": "Evite se autofocus esportivo ou redundância de cartões forem essenciais.",
+          "closestCompetitor": "Sony a6700: AF e 4K 120p melhores; a Fuji oferece open gate e operação de cor mais direta."
+        },
+        {
+          "productId": "prod_sony_a7_iv",
+          "whyIncluded": "Os 33 MP, dois cartões e a enorme oferta E-mount mantêm o corpo relevante para fotografia profissional híbrida.",
+          "bestFor": "Quem já possui lentes Sony E ou precisa escolher entre muitas lentes de terceiros.",
+          "mainDifference": "A disponibilidade de lentes e os 33 MP dão mais liberdade de sistema que a R6 II.",
+          "tradeOff": "4K 60p recorta para APS-C e o rolling shutter limita movimentos rápidos.",
+          "sensiblePriceRange": "Excelente perto de R$ 13.400 e ainda boa até R$ 14 mil; acima disso, sucessores entram na conta.",
+          "avoidWhen": "Não recomendamos se 4K 60p full frame ou movimentos rápidos forem prioridade.",
+          "closestCompetitor": "Canon EOS R6 Mark II: menos resolução, mas vídeo 4K 60p full frame e leitura mais favorável."
+        },
+        {
+          "productId": "prod_sony_zv_e10_ii",
+          "whyIncluded": "Traz 4K 60p 10-bit, bateria NP-FZ100 e autofocus atual em um corpo menor e mais barato que a a6700.",
+          "bestFor": "YouTube, Reels e produção solo com tripé, lente estabilizada ou gimbal.",
+          "mainDifference": "É muito mais flexível em cor e frame rate que a ZV-E10 original.",
+          "tradeOff": "Não possui IBIS nem visor, e o rolling shutter ainda exige movimentos cuidadosos.",
+          "sensiblePriceRange": "O kit é forte até R$ 7.700; perto de R$ 9 mil, X-S20 e corpos com IBIS entram na comparação.",
+          "avoidWhen": "Evite para fotografia com teleobjetiva ou vídeo andando sem suporte.",
+          "closestCompetitor": "Fujifilm X-M5: oferece open gate; a Sony tem bateria, AF e ecossistema E-mount mais previsíveis."
+        },
+        {
+          "productId": "prod_fujifilm_x_m5",
+          "whyIncluded": "O 6.2K open gate permite recortar uma tomada para YouTube e Reels com mais liberdade.",
+          "bestFor": "Vlog de viagem e criadores que trabalham em múltiplos formatos.",
+          "mainDifference": "Open gate é uma vantagem concreta diante da ZV-E10 II para reaproveitar enquadramentos.",
+          "tradeOff": "Sem IBIS, sem visor e com bateria pequena; o preço brasileiro observado é alto.",
+          "sensiblePriceRange": "Interessante até R$ 7.500; por R$ 8 mil no corpo, a ZV-E10 II em kit costuma ser mais racional.",
+          "avoidWhen": "Não recomendamos para fotografia frequente com visor ou tomadas longas sem alimentação externa.",
+          "closestCompetitor": "Sony ZV-E10 II: perde open gate, mas oferece AF, bateria e disponibilidade mais fortes."
+        },
+        {
+          "productId": "prod_canon_eos_r10",
+          "whyIncluded": "Controles, visor, rajada e AF fazem dela uma câmera para aprender fotografia, não apenas sair do celular.",
+          "bestFor": "Entusiastas iniciantes interessados em ação leve, viagem e fotografia manual.",
+          "mainDifference": "Tem ergonomia e velocidade superiores à R50, mantendo o mesmo sensor de 24,2 MP.",
+          "tradeOff": "Não possui IBIS e o kit oficial pode custar perto de uma X-S20 estabilizada.",
+          "sensiblePriceRange": "O corpo vale até R$ 7.100; o kit 18–45 perde força acima de R$ 8 mil.",
+          "avoidWhen": "Evite se a diferença para a R50 consumir o dinheiro da segunda lente ou de acessórios.",
+          "closestCompetitor": "Canon EOS R50: entrega imagem semelhante por menos, com menos controles e rajada."
+        },
+        {
+          "productId": "prod_sony_zv_e10",
+          "whyIncluded": "Mantém sensor APS-C, AF competente, áudio monitorável e muitas lentes em uma faixa acessível.",
+          "bestFor": "YouTube em estúdio, aulas, entrevistas e streaming com câmera fixa.",
+          "mainDifference": "Tem saída para fones e mais lentes que a R50, apesar do corpo sem visor.",
+          "tradeOff": "4K 8-bit, rolling shutter e ausência de IBIS limitam correção de cor e movimento.",
+          "sensiblePriceRange": "Kit interessante até R$ 5.500; acima de R$ 6 mil, economize para a ZV-E10 II.",
+          "avoidWhen": "Evite para vlog andando ou fotografia sob sol forte sem visor.",
+          "closestCompetitor": "Canon EOS R50: melhor híbrida para foto, enquanto a Sony favorece áudio e lentes."
+        },
+        {
+          "productId": "prod_canon_eos_r100",
+          "whyIncluded": "É a forma mais barata encontrada de comprar um kit Canon RF novo com garantia local.",
+          "bestFor": "Fotografia básica, família e estudo com orçamento rígido.",
+          "mainDifference": "O preço de R$ 4.299 abre espaço para cartão e bateria sem migrar ao mercado usado.",
+          "tradeOff": "Tela fixa sem toque e 4K recortado com foco inferior são limitações grandes.",
+          "sensiblePriceRange": "Só recomendamos até R$ 4.300 e com diferença de ao menos R$ 900 para a R50.",
+          "avoidWhen": "Não compre para vlog, autorretrato, vídeo frequente ou se a R50 estiver perto do mesmo preço.",
+          "closestCompetitor": "Canon EOS R50: custa mais, mas é uma primeira câmera muito mais completa."
+        }
+      ]
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "melhores-cameras-para-iniciantes-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "Melhores câmeras para iniciantes de 2026: 10 modelos para começar na fotografia",
+        "description": "Conheça a melhor câmera para iniciantes em 2026 e calcule corpo, lente, cartão, bateria e acessórios antes de comprar.",
+        "canonical": "/blog/melhores-cameras-para-iniciantes-2026"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-cameras-para-iniciantes-2026.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_canon_eos_r50",
+          "whyIncluded": "É a primeira câmera mais equilibrada: autofocus moderno, visor, tela articulada sensível ao toque e 4K detalhado sem exigir conhecimento prévio.",
+          "bestFor": "Família, viagem, retrato, fotografia cotidiana e quem também fará vídeos ocasionais.",
+          "mainDifference": "Entrega uma experiência muito menos frustrante que a R100 por uma diferença de preço ainda defensável.",
+          "tradeOff": "Sem IBIS e saída para fones; a lente 18–45 mm é compacta, mas escura e curta para alguns usos.",
+          "sensiblePriceRange": "Kit até R$ 5.500; reserve de R$ 600 a R$ 1.000 para cartão, bolsa, bateria e limpeza.",
+          "avoidWhen": "Evite se você já sabe que vídeo e áudio são prioridade absoluta.",
+          "closestCompetitor": "Sony ZV-E10: mais lentes e saída para fones, mas sem visor."
+        },
+        {
+          "productId": "prod_canon_eos_r100",
+          "whyIncluded": "É a opção nova mais barata da seleção e ainda oferece sensor APS-C, visor e mount RF.",
+          "bestFor": "Aluno de fotografia com orçamento rígido e foco quase exclusivo em fotos.",
+          "mainDifference": "Custa cerca de R$ 1.200 menos que a R50 na consulta.",
+          "tradeOff": "Tela fixa sem toque e 4K recortado com AF inferior envelhecem mal.",
+          "sensiblePriceRange": "Até R$ 4.300 no kit; custo completo perto de R$ 4.900 com acessórios básicos.",
+          "avoidWhen": "Não recomendamos para vídeo, selfies ou se a diferença para a R50 cair abaixo de R$ 900.",
+          "closestCompetitor": "Canon EOS R50: a compra mais segura para crescer."
+        },
+        {
+          "productId": "prod_sony_zv_e10",
+          "whyIncluded": "É uma entrada acessível no amplo sistema Sony E e já inclui conexões de microfone e fone.",
+          "bestFor": "Iniciante que fará mais YouTube e streaming que fotografia.",
+          "mainDifference": "A oferta de lentes APS-C de terceiros facilita evoluir com orçamento variável.",
+          "tradeOff": "Não há visor ou IBIS; 4K é 8-bit e apresenta rolling shutter.",
+          "sensiblePriceRange": "Kit até R$ 5.500; some R$ 500–900 para cartão, bateria, bolsa e tripé.",
+          "avoidWhen": "Evite para fotografia sob sol ou vídeo caminhando sem suporte.",
+          "closestCompetitor": "Canon R50: melhor para foto e uso híbrido geral."
+        },
+        {
+          "productId": "prod_canon_eos_r10",
+          "whyIncluded": "Os controles, o visor e a velocidade ajudam o aluno que quer praticar fotografia manual e ação.",
+          "bestFor": "Quem pretende estudar fotografia seriamente e já prevê uma segunda lente.",
+          "mainDifference": "É mais rápida e configurável que a R50, embora a qualidade-base seja próxima.",
+          "tradeOff": "Sem IBIS e com kit oficial caro.",
+          "sensiblePriceRange": "Corpo até R$ 7.100; reserve ao menos R$ 2.000–3.000 para uma lente útil se não comprar kit.",
+          "avoidWhen": "Não suba da R50 se isso eliminar a verba de lente e acessórios.",
+          "closestCompetitor": "Canon R50: melhor valor para uso comum."
+        },
+        {
+          "productId": "prod_sony_zv_e10_ii",
+          "whyIncluded": "É a primeira opção de vídeo 10-bit realmente flexível da lista, com boa bateria e autofocus.",
+          "bestFor": "Iniciante dedicado a vídeo que aceita aprender edição e correção de cor.",
+          "mainDifference": "4K 60p 10-bit dá margem que R50 e ZV-E10 não oferecem da mesma forma.",
+          "tradeOff": "Não tem visor nem IBIS e exige cartão rápido nos modos pesados.",
+          "sensiblePriceRange": "Kit até R$ 7.700; planeje R$ 800–1.500 para cartão, bateria, suporte e áudio.",
+          "avoidWhen": "Evite se fotografia for metade do uso ou se você não editará 10-bit.",
+          "closestCompetitor": "Fujifilm X-M5: open gate, mas bateria e AF menos previsíveis."
+        },
+        {
+          "productId": "prod_fujifilm_x_m5",
+          "whyIncluded": "É pequena, tem controles amigáveis e grava open gate para aprender foto e criar formatos sociais.",
+          "bestFor": "Viagem e conteúdo que alterna horizontal e vertical.",
+          "mainDifference": "Simulações de filme reduzem a necessidade de editar cada JPEG.",
+          "tradeOff": "Sem visor, sem IBIS e bateria de autonomia modesta.",
+          "sensiblePriceRange": "Corpo até R$ 7.500; por R$ 8.000 sem lente, perde valor.",
+          "avoidWhen": "Não recomendamos para quem quer fotografar com teleobjetiva ou sob sol forte.",
+          "closestCompetitor": "Sony ZV-E10 II: kit mais completo para vídeo tradicional."
+        },
+        {
+          "productId": "prod_fujifilm_x_s20",
+          "whyIncluded": "IBIS, visor, bateria grande e modos automáticos ajudam sem impedir evolução manual.",
+          "bestFor": "Iniciante com orçamento alto que quer manter o mesmo corpo por anos.",
+          "mainDifference": "É a única intermediária da seleção a unir open gate, IBIS e cerca de 750 fotos por carga.",
+          "tradeOff": "O corpo custa mais que kits completos de entrada.",
+          "sensiblePriceRange": "Corpo até R$ 10.800; calcule ao menos R$ 2.000 para lente e acessórios.",
+          "avoidWhen": "Evite se o orçamento total for menor que R$ 12 mil.",
+          "closestCompetitor": "Sony a6700: autofocus superior; Fuji mais direta para cor e open gate."
+        },
+        {
+          "productId": "prod_canon_eos_r7",
+          "whyIncluded": "Atende um iniciante específico: quem começa já comprometido com aves, esporte ou natureza.",
+          "bestFor": "Fotografia de ação com teleobjetiva e necessidade de dois cartões.",
+          "mainDifference": "32,5 MP APS-C e rajada oferecem alcance e velocidade incomuns.",
+          "tradeOff": "É cara, especializada e estava sem estoque oficial.",
+          "sensiblePriceRange": "Até R$ 11 mil no corpo; acima disso, compare a6700 e full frame.",
+          "avoidWhen": "Não recomendamos como câmera geral para família, vlog ou retrato casual.",
+          "closestCompetitor": "Sony a6700: melhor equilíbrio híbrido."
+        },
+        {
+          "productId": "prod_sony_a6700",
+          "whyIncluded": "É um corpo que um iniciante avançado dificilmente supera por falta de recursos: AF, IBIS, visor e 10-bit estão presentes.",
+          "bestFor": "Quem já produz, estuda audiovisual ou pretende crescer rapidamente.",
+          "mainDifference": "Combina fotografia séria e vídeo de alto nível em APS-C compacto.",
+          "tradeOff": "O preço, um único cartão e menus avançados são excessivos para uso casual.",
+          "sensiblePriceRange": "Corpo até R$ 12 mil; kit realista começa perto de R$ 14 mil.",
+          "avoidWhen": "Evite se ainda não sabe por que precisa de 4K 120p, IBIS ou AF de sujeitos.",
+          "closestCompetitor": "Fujifilm X-S20: custa menos e oferece open gate."
+        },
+        {
+          "productId": "prod_sony_a7_iv",
+          "whyIncluded": "Representa a entrada profissional full frame para quem começa já com demanda paga e plano de lentes definido.",
+          "bestFor": "Assistentes, estudantes avançados e profissionais migrando de outro sistema.",
+          "mainDifference": "33 MP, dois cartões e ampla oferta de lentes suportam trabalho comercial.",
+          "tradeOff": "O kit completo é muito mais caro e o 4K 60p tem recorte.",
+          "sensiblePriceRange": "Corpo até R$ 16 mil; com uma lente útil, cartão e bateria, espere R$ 20 mil ou mais.",
+          "avoidWhen": "Não compre apenas porque full frame parece mais profissional.",
+          "closestCompetitor": "Canon R6 II: vídeo full frame mais forte, lentes geralmente mais caras."
+        }
+      ]
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "melhores-cameras-para-video-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "Melhores câmeras para vídeo em 2026: YouTube, Reels, streaming e produção profissional",
+        "description": "Veja a melhor câmera para vídeo em 2026 para YouTube, Reels, streaming e produção, com 4K, AF, IBIS, codecs, áudio e preço.",
+        "canonical": "/blog/melhores-cameras-para-video-2026"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-cameras-para-video-2026.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_sony_zv_e10",
+          "whyIncluded": "É o menor investimento coerente para vídeo 4K com lente intercambiável, AF confiável e monitoramento por fones.",
+          "bestFor": "YouTube em tripé, entrevistas, aulas e streaming.",
+          "mainDifference": "O E-mount oferece muitas lentes e o áudio é mais completo que na R50.",
+          "tradeOff": "4K 8-bit, rolling shutter e falta de IBIS limitam movimento e correção pesada.",
+          "sensiblePriceRange": "Até R$ 5.500 no kit; acima de R$ 6.000, junte para a ZV-E10 II.",
+          "avoidWhen": "Evite para caminhada, esporte ou entregas 10-bit.",
+          "closestCompetitor": "Canon R50: 4K mais detalhado e melhor para foto, sem saída para fones."
+        },
+        {
+          "productId": "prod_sony_zv_e10_ii",
+          "whyIncluded": "É o melhor ponto de entrada em 4K 60p 10-bit com AF atual, boa bateria e lente de kit.",
+          "bestFor": "YouTube recorrente, Reels, entrevistas e produção solo.",
+          "mainDifference": "Dobra a profundidade prática de gradação e melhora bateria e frame rate frente à ZV-E10.",
+          "tradeOff": "Sem IBIS; movimentos de câmera podem revelar rolling shutter e exigem suporte.",
+          "sensiblePriceRange": "Kit até R$ 7.700; lente wide/luminosa acrescenta aproximadamente R$ 2.500–4.000.",
+          "avoidWhen": "Evite se você precisa de visor, dois cartões ou longa gravação sem controlar temperatura.",
+          "closestCompetitor": "Fujifilm X-M5: open gate melhor para múltiplos formatos."
+        },
+        {
+          "productId": "prod_fujifilm_x_m5",
+          "whyIncluded": "6.2K open gate permite gerar cortes 16:9 e 9:16 de uma captura com mais margem.",
+          "bestFor": "Reels, Shorts, vlog e equipes pequenas que reaproveitam material.",
+          "mainDifference": "O open gate é o diferencial real; simulações de filme aceleram entregas.",
+          "tradeOff": "Sem IBIS e visor, bateria menor e preço de corpo alto no Brasil.",
+          "sensiblePriceRange": "Até R$ 7.500 no corpo; some R$ 2.000–4.000 para lente.",
+          "avoidWhen": "Evite para tomadas longas sem energia externa ou caminhada sem estabilização.",
+          "closestCompetitor": "Sony ZV-E10 II: melhor bateria e AF, sem open gate."
+        },
+        {
+          "productId": "prod_sony_a6700",
+          "whyIncluded": "É a melhor híbrida porque reúne visor, IBIS, AF e 4K 120p 10-bit no mesmo corpo.",
+          "bestFor": "Criador que fotografa e grava profissionalmente com uma única câmera.",
+          "mainDifference": "Entrega grande parte da capacidade de imagem da FX30 sem sacrificar fotografia.",
+          "tradeOff": "Um slot, micro-HDMI e menor dissipação térmica que a FX30.",
+          "sensiblePriceRange": "Até R$ 12 mil no corpo; lente adequada acrescenta R$ 2.500–5.000.",
+          "avoidWhen": "Evite para gravação crítica que exija dois cartões e refrigeração ativa.",
+          "closestCompetitor": "Fujifilm X-S20: open gate e preço menor; Sony lidera em AF e 120p."
+        },
+        {
+          "productId": "prod_sony_fx30",
+          "whyIncluded": "Ventoinha, HDMI completo, dois slots híbridos, tally e pontos de montagem sustentam produção longa e rig profissional.",
+          "bestFor": "Documentário, publicidade, estúdio, multicâmera e streaming profissional.",
+          "mainDifference": "A operação e a confiabilidade de gravação justificam escolhê-la sobre a a6700.",
+          "tradeOff": "Sem visor; alça XLR, cartões rápidos e lente elevam muito o custo final.",
+          "sensiblePriceRange": "Corpo até R$ 14 mil; kit funcional com lente começa perto de R$ 17 mil.",
+          "avoidWhen": "Não recomendamos se fotografia é importante ou se o orçamento termina no corpo.",
+          "closestCompetitor": "Sony a6700: mais híbrida e compacta, menos preparada para tomada longa."
+        },
+        {
+          "productId": "prod_fujifilm_x_s20",
+          "whyIncluded": "IBIS, open gate, 10-bit, entrada e saída de áudio e bateria grande formam uma solução portátil completa.",
+          "bestFor": "Vlog, viagem, cursos e criador híbrido que prefere o sistema Fujifilm.",
+          "mainDifference": "É mais estável e autônoma que a X-M5, mantendo open gate.",
+          "tradeOff": "Um slot e micro-HDMI; o preço oficial se aproxima da a6700.",
+          "sensiblePriceRange": "Até R$ 10.800 no corpo; lente custa aproximadamente R$ 2.000–4.500.",
+          "avoidWhen": "Evite se AF esportivo e 4K 120p forem necessários.",
+          "closestCompetitor": "Sony a6700: AF e frame rate maiores, sem 6.2K open gate."
+        },
+        {
+          "productId": "prod_canon_eos_r50",
+          "whyIncluded": "4K 30p sobremostrado, tela articulada e AF simples tornam o kit uma solução acessível para começar.",
+          "bestFor": "Vídeos de família, aulas, streaming e canal iniciante que também fotografa.",
+          "mainDifference": "Tem visor e é melhor câmera fotográfica que a ZV-E10.",
+          "tradeOff": "Sem fones, IBIS ou 10-bit log; 4K 60p é recortado.",
+          "sensiblePriceRange": "Kit até R$ 5.500; lente wide adicional custa cerca de R$ 2.000–3.000.",
+          "avoidWhen": "Evite para color grading intenso ou monitoramento de áudio no corpo.",
+          "closestCompetitor": "Sony ZV-E10: áudio e lentes melhores, sem visor."
+        },
+        {
+          "productId": "prod_canon_eos_r10",
+          "whyIncluded": "Acrescenta controles, velocidade e visor à proposta híbrida da R50.",
+          "bestFor": "Criador que também fotografa ação e quer controles físicos.",
+          "mainDifference": "Ergonomia e rajada superiores à R50, mantendo 4K 30p sobremostrado.",
+          "tradeOff": "4K 60p tem recorte, o corpo não possui IBIS nem saída para fones.",
+          "sensiblePriceRange": "Corpo até R$ 7.100; com lente, o conjunto deve ficar abaixo de uma X-S20.",
+          "avoidWhen": "Evite se vídeo 10-bit, monitoramento por fones e estabilização forem prioridades.",
+          "closestCompetitor": "Sony ZV-E10 II: vídeo mais avançado, sem visor."
+        },
+        {
+          "productId": "prod_canon_eos_r6_mark_ii",
+          "whyIncluded": "4K 60p full frame sobremostrado, AF, IBIS e dois cartões atendem produção híbrida profissional.",
+          "bestFor": "Casamento, evento, entrevista e publicidade que misturam foto e vídeo.",
+          "mainDifference": "Usa a largura full frame no 4K 60p, onde a a7 IV recorta.",
+          "tradeOff": "Micro-HDMI e lentes RF luminosas encarecem e fragilizam o rig.",
+          "sensiblePriceRange": "Corpo até R$ 16 mil; lente apropriada acrescenta R$ 3.500–8.000.",
+          "avoidWhen": "Evite se gravações longas e HDMI robusto importam mais que full frame e fotografia.",
+          "closestCompetitor": "Sony a7 IV: mais lentes e 33 MP, mas 4K 60p recortado."
+        },
+        {
+          "productId": "prod_sony_a7_iv",
+          "whyIncluded": "33 MP, dois cartões, HDMI completo e muitas lentes mantêm a câmera útil para produção híbrida.",
+          "bestFor": "Profissional que já trabalha no E-mount e grava 4K 24/30p.",
+          "mainDifference": "Ecossistema de lentes e HDMI completo facilitam montar o kit.",
+          "tradeOff": "4K 60p recorta e o rolling shutter aparece em pans rápidos.",
+          "sensiblePriceRange": "Corpo até R$ 16 mil; lente adequada acrescenta R$ 3.000–8.000.",
+          "avoidWhen": "Evite se 60p full frame, esporte ou câmera na mão agressiva forem centrais.",
+          "closestCompetitor": "Canon R6 II: leitura e 4K 60p mais favoráveis; Sony oferece mais lentes."
         }
       ]
     },
@@ -3382,6 +4479,79 @@
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
+      "slug": "melhores-fones-bluetooth-ate-300-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-05",
+      "updatedAt": "2026-09-05",
+      "seo": {
+        "title": "Melhores fones Bluetooth até R$300 em 2026",
+        "description": "Compare os melhores fones Bluetooth até R$ 300 em 2026 por som, ANC, bateria, microfone, conforto e proteção.",
+        "canonical": "/blog/melhores-fones-bluetooth-ate-300-2026"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-fones-bluetooth-ate-300-2026.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_redmi_buds_6_lite",
+          "whyIncluded": "ANC, aplicativo e autonomia formam o melhor conjunto para a maioria sem encostar no teto.",
+          "bestFor": "Transporte, estudo, música e uso cotidiano.",
+          "mainDifference": "Cancelamento ativo competente pelo preço e controles no aplicativo.",
+          "tradeOff": "AAC e SBC limitam codecs; o ANC depende de boa vedação.",
+          "sensiblePriceRange": "Até R$ 250.",
+          "avoidWhen": "Você quer multiponto, LDAC ou formato over-ear.",
+          "closestCompetitor": "QCY MeloBuds Pro."
+        },
+        {
+          "productId": "prod_redmi_buds_6_play",
+          "whyIncluded": "É a opção barata sem abrir mão de aplicativo, autonomia razoável e IPX4.",
+          "bestFor": "Academia, caminhada e primeiro TWS.",
+          "mainDifference": "Preço baixo com proteção contra respingos e suor.",
+          "tradeOff": "Sem ANC e com microfone simples em locais ruidosos.",
+          "sensiblePriceRange": "Até R$ 150.",
+          "avoidWhen": "Você usa ônibus, metrô ou faz muitas chamadas na rua.",
+          "closestCompetitor": "Redmi Buds 6 Lite."
+        },
+        {
+          "productId": "prod_samsung_galaxy_buds_core",
+          "whyIncluded": "ANC, IP54 e integração com aparelhos Galaxy tornam a experiência mais previsível.",
+          "bestFor": "Usuário Samsung que alterna música e chamadas.",
+          "mainDifference": "Ecossistema Galaxy e proteção superior aos TWS básicos.",
+          "tradeOff": "Parte dos recursos perde valor fora de celulares Samsung.",
+          "sensiblePriceRange": "Até R$ 300.",
+          "avoidWhen": "Você usa outras marcas e prioriza LDAC ou multiponto.",
+          "closestCompetitor": "Redmi Buds 6 Lite."
+        },
+        {
+          "productId": "prod_qcy_melobuds_pro",
+          "whyIncluded": "LDAC, multiponto e ANC adaptativo entregam a ficha mais completa no teto.",
+          "bestFor": "Android e quem alterna notebook e celular.",
+          "mainDifference": "Codec LDAC e conexão simultânea a dois aparelhos.",
+          "tradeOff": "Garantia e assistência variam bastante entre importadores.",
+          "sensiblePriceRange": "Até R$ 300 com vendedor confiável.",
+          "avoidWhen": "Você prefere suporte nacional simples a mais recursos.",
+          "closestCompetitor": "Galaxy Buds Core."
+        },
+        {
+          "productId": "prod_edifier_w800bt_pro",
+          "whyIncluded": "É a escolha para quem prefere concha ao redor da orelha, bateria longa e uso sentado.",
+          "bestFor": "Trabalho, estudo e música por várias horas.",
+          "mainDifference": "Formato over-ear, LDAC e até 45 horas declaradas sem ANC.",
+          "tradeOff": "É volumoso e quente para academia; o microfone não substitui headset.",
+          "sensiblePriceRange": "Até R$ 300.",
+          "avoidWhen": "Portabilidade ou exercício são prioridades.",
+          "closestCompetitor": "QCY MeloBuds Pro, no formato TWS."
+        }
+      ]
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
       "slug": "melhores-lava-e-seca",
       "aliases": [],
       "status": "published",
@@ -3801,6 +4971,162 @@
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
+      "slug": "melhores-monitores-custo-beneficio-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-05",
+      "updatedAt": "2026-09-05",
+      "seo": {
+        "title": "Melhores monitores custo-benefício de 2026: do básico ao gamer",
+        "description": "Compare monitor custo-benefício em 2026 por resolução, painel, tamanho, Hz, brilho, conexão e ergonomia.",
+        "canonical": "/blog/melhores-monitores-custo-beneficio-2026"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-monitores-custo-beneficio-2026.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_lg_24ms500",
+          "whyIncluded": "Entrega painel IPS e 100 Hz pelo menor preço do recorte.",
+          "bestFor": "Estudo, escritório e segundo monitor.",
+          "mainDifference": "24 polegadas preservam nitidez aceitável em Full HD.",
+          "tradeOff": "Base só inclina e faltam DisplayPort e hub.",
+          "sensiblePriceRange": "R$ 450 a R$ 600.",
+          "avoidWhen": "Você precisa de QHD ou ergonomia pronta.",
+          "closestCompetitor": "Dell P2425H, muito mais ajustável."
+        },
+        {
+          "productId": "prod_lg_24gs60f",
+          "whyIncluded": "É o salto gamer real sem pagar por QHD.",
+          "bestFor": "Jogos competitivos em Full HD.",
+          "mainDifference": "IPS de 180 Hz com FreeSync e G-Sync Compatible.",
+          "tradeOff": "Base simples e HDR apenas nominal.",
+          "sensiblePriceRange": "R$ 750 a R$ 950.",
+          "avoidWhen": "Seu PC não alcança altas taxas ou trabalho é prioridade.",
+          "closestCompetitor": "LG 24MS500, mais barato para uso comum."
+        },
+        {
+          "productId": "prod_dell_p2425h",
+          "whyIncluded": "Base completa, hub e garantia justificam o custo no trabalho.",
+          "bestFor": "Home office e uso prolongado.",
+          "mainDifference": "Altura, pivô, giro e 100 Hz.",
+          "tradeOff": "Continua Full HD e USB-C não carrega notebook.",
+          "sensiblePriceRange": "Até R$ 1.200.",
+          "avoidWhen": "Você quer mais área útil que ergonomia.",
+          "closestCompetitor": "LG 27QN600."
+        },
+        {
+          "productId": "prod_lg_27qn600",
+          "whyIncluded": "QHD em 27 polegadas melhora texto, espaço e jogos sem exigir 4K.",
+          "bestFor": "Uso misto, programação e jogos casuais.",
+          "mainDifference": "Melhor equilíbrio de densidade e área.",
+          "tradeOff": "75 Hz e base apenas inclinável.",
+          "sensiblePriceRange": "R$ 1.100 a R$ 1.400.",
+          "avoidWhen": "Jogos competitivos são prioridade.",
+          "closestCompetitor": "Dell U2724D, superior e muito mais caro."
+        },
+        {
+          "productId": "prod_lg_32ur500",
+          "whyIncluded": "É a entrada racional em 4K e 32 polegadas.",
+          "bestFor": "Planilhas, criação leve, filmes e console.",
+          "mainDifference": "Grande área com contraste VA.",
+          "tradeOff": "60 Hz, 250 nits e base simples.",
+          "sensiblePriceRange": "R$ 1.600 a R$ 1.900.",
+          "avoidWhen": "A mesa é rasa ou movimento rápido importa.",
+          "closestCompetitor": "LG 27QN600."
+        },
+        {
+          "productId": "prod_dell_u2724d",
+          "whyIncluded": "Une qualidade profissional, fluidez e ergonomia.",
+          "bestFor": "Trabalho visual, programação e uso híbrido premium.",
+          "mainDifference": "IPS Black QHD de 120 Hz e cores amplas.",
+          "tradeOff": "Custa muito mais e não é dock USB-C completo.",
+          "sensiblePriceRange": "Até R$ 3.400.",
+          "avoidWhen": "Seu uso não aproveita cor, contraste ou hub.",
+          "closestCompetitor": "LG 27QN600."
+        }
+      ]
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "melhores-monitores-para-trabalhar-e-programar-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-05",
+      "updatedAt": "2026-09-05",
+      "seo": {
+        "title": "Melhores monitores para trabalhar e programar em 2026",
+        "description": "Veja qual monitor comprar para trabalhar e programar em 2026: 24, 27 ou 32 polegadas, Full HD, QHD ou 4K.",
+        "canonical": "/blog/melhores-monitores-para-trabalhar-e-programar-2026"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-monitores-para-trabalhar-e-programar-2026.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_lg_24ms500",
+          "whyIncluded": "É a entrada barata sem painel TN nem 60 Hz.",
+          "bestFor": "Documento, navegador e segundo monitor.",
+          "mainDifference": "IPS de 24 polegadas e 100 Hz.",
+          "tradeOff": "Sem ajuste de altura ou DisplayPort.",
+          "sensiblePriceRange": "Até R$ 600.",
+          "avoidWhen": "Você trabalha com várias janelas lado a lado.",
+          "closestCompetitor": "Dell P2425H."
+        },
+        {
+          "productId": "prod_dell_p2425h",
+          "whyIncluded": "Resolve ergonomia e conexões sem exigir braço VESA.",
+          "bestFor": "Jornada longa em mesa pequena.",
+          "mainDifference": "Base completa, 100 Hz e hub USB.",
+          "tradeOff": "Full HD oferece menos área que QHD.",
+          "sensiblePriceRange": "Até R$ 1.200.",
+          "avoidWhen": "Você precisa exibir IDE e documentação na mesma tela.",
+          "closestCompetitor": "LG 27QN600."
+        },
+        {
+          "productId": "prod_lg_27qn600",
+          "whyIncluded": "QHD em 27 polegadas é o ponto de equilíbrio para código e texto.",
+          "bestFor": "IDE, navegador e terminal em uma tela.",
+          "mainDifference": "Mais área e densidade que 27 Full HD.",
+          "tradeOff": "Base simples e sem USB-C.",
+          "sensiblePriceRange": "Até R$ 1.400.",
+          "avoidWhen": "Você não pode usar braço VESA e precisa de altura.",
+          "closestCompetitor": "Dell U2724D."
+        },
+        {
+          "productId": "prod_lg_32ur500",
+          "whyIncluded": "4K em 32 polegadas acomoda várias janelas com texto nítido.",
+          "bestFor": "Planilhas grandes, análise e programação em mesa profunda.",
+          "mainDifference": "Maior área útil e contraste VA.",
+          "tradeOff": "Base simples, 60 Hz e sem USB-C.",
+          "sensiblePriceRange": "Até R$ 1.900.",
+          "avoidWhen": "A distância de visão é curta.",
+          "closestCompetitor": "LG 27QN600."
+        },
+        {
+          "productId": "prod_dell_u2724d",
+          "whyIncluded": "É o melhor conjunto pesquisado para texto, cor, fluidez e postura.",
+          "bestFor": "Programação e criação profissional diária.",
+          "mainDifference": "QHD, IPS Black, 120 Hz, hub e base completa.",
+          "tradeOff": "Não carrega notebook como um dock e custa R$ 3.399.",
+          "sensiblePriceRange": "Até R$ 3.400.",
+          "avoidWhen": "QHD básico e braço VESA resolvem seu uso.",
+          "closestCompetitor": "LG 27QN600."
+        }
+      ]
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
       "slug": "melhores-notebooks-custo-beneficio",
       "aliases": [],
       "status": "published",
@@ -3880,6 +5206,71 @@
       "productCards": []
     },
     {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "melhores-projetores-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-05",
+      "updatedAt": "2026-09-05",
+      "seo": {
+        "title": "Melhores projetores para quarto e sala em 2026: opções por orçamento",
+        "description": "Compare os melhores projetores de 2026 para quarto, sala, filmes e consoles sem confundir resolução suportada com nativa.",
+        "canonical": "/blog/melhores-projetores-2026"
+      },
+      "relationships": {
+        "related": [
+          "Melhores TVs custo-benefício para comprar em 2026"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-projetores-2026.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_xiaomi_smart_projector_l1",
+          "whyIncluded": "É compacto, Full HD nativo e integra Google TV, foco e correção automática.",
+          "bestFor": "Quarto realmente escuro e projeção ocasional sem instalação fixa.",
+          "mainDifference": "Portabilidade e sistema integrado num corpo pequeno.",
+          "tradeOff": "Os 200 ISO lúmens não são adequados para sala clara ou tela muito grande.",
+          "sensiblePriceRange": "Até R$ 2.600 com vendedor e garantia confiáveis.",
+          "avoidWhen": "Há luz ambiente ou a origem da importação não está clara.",
+          "closestCompetitor": "Epson CO-W01, muito mais brilhante."
+        },
+        {
+          "productId": "prod_epson_co_w01",
+          "whyIncluded": "Os 3.000 lúmens ISO de branco e cores são mais úteis em sala que promessas vagas de projetores baratos.",
+          "bestFor": "Apresentações, esportes e uso misto com algum controle de luz.",
+          "mainDifference": "Brilho 3LCD alto na faixa de entrada de marcas consolidadas.",
+          "tradeOff": "A resolução nativa é 1280 × 800, não Full HD, e streaming exige fonte externa.",
+          "sensiblePriceRange": "Entre R$ 3.100 e R$ 3.600.",
+          "avoidWhen": "Filmes com máxima nitidez são a prioridade.",
+          "closestCompetitor": "Epson CO-FH02 com resolução Full HD."
+        },
+        {
+          "productId": "prod_epson_fh02",
+          "whyIncluded": "Combina Full HD nativo, 3LCD, brilho alto e módulo Android TV.",
+          "bestFor": "Filmes e séries em quarto ou sala com tela grande.",
+          "mainDifference": "Equilíbrio entre nitidez, brilho em cores e streaming.",
+          "tradeOff": "Custa mais e não oferece o atraso de entrada documentado do BenQ.",
+          "sensiblePriceRange": "Até R$ 4.700.",
+          "avoidWhen": "O uso principal é console competitivo ou o ambiente permanece muito claro.",
+          "closestCompetitor": "BenQ TH575 para jogos."
+        },
+        {
+          "productId": "prod_benq_th575",
+          "whyIncluded": "Brilho e atraso declarado de 16,7 ms tornam a escolha mais defensável para consoles.",
+          "bestFor": "Jogos a 1080p/60, esportes e filmes com fonte externa.",
+          "mainDifference": "Baixa latência documentada e 3.800 ANSI lúmens declarados.",
+          "tradeOff": "Não há sistema inteligente completo e algumas pessoas percebem arco-íris em DLP.",
+          "sensiblePriceRange": "Até R$ 5.000 com garantia nacional.",
+          "avoidWhen": "Você é sensível ao efeito arco-íris ou quer tudo integrado.",
+          "closestCompetitor": "Epson CO-FH02."
+        }
+      ]
+    },
+    {
       "id": "article_best_horror_comics_manga",
       "contentType": "article",
       "schemaVersion": 1,
@@ -3932,6 +5323,89 @@
       "productCards": []
     },
     {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "melhores-robos-aspiradores-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-05",
+      "updatedAt": "2026-09-05",
+      "seo": {
+        "title": "Melhores robôs aspiradores de 2026: do barato ao modelo com LiDAR e estação",
+        "description": "Compare os melhores robôs aspiradores de 2026, dos modelos aleatórios aos robôs com LiDAR e estação.",
+        "canonical": "/blog/melhores-robos-aspiradores-2026"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-robos-aspiradores-2026.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_wap_robot_w90",
+          "whyIncluded": "É uma porta de entrada honesta para recolher poeira e cabelo em ambiente pequeno.",
+          "bestFor": "Piso livre, um cômodo e manutenção entre faxinas.",
+          "mainDifference": "Preço e operação por um botão.",
+          "tradeOff": "Não mapeia, não retorna à base e repete áreas.",
+          "sensiblePriceRange": "Até R$ 550.",
+          "avoidWhen": "Há vários cômodos, tapetes ou expectativa de limpeza autônoma completa.",
+          "closestCompetitor": "WAP Robot W310."
+        },
+        {
+          "productId": "prod_wap_robot_w310",
+          "whyIncluded": "Acrescenta base, escova central e reservatório maior sem exigir aplicativo.",
+          "bestFor": "Quem quer retorno automático e controle remoto.",
+          "mainDifference": "Rotina mais conveniente que robôs aleatórios básicos.",
+          "tradeOff": "Sensores não equivalem a mapa; a cobertura continua menos previsível.",
+          "sensiblePriceRange": "Até R$ 1.250.",
+          "avoidWhen": "O Xiaomi S20 estiver menos de R$ 300 acima.",
+          "closestCompetitor": "WAP Robot W1000."
+        },
+        {
+          "productId": "prod_wap_robot_w1000",
+          "whyIncluded": "Traz agenda e mapa por aplicativo com assistência nacional numa faixa intermediária.",
+          "bestFor": "Apartamento dividido em cômodos, sem necessidade de estação.",
+          "mainDifference": "Mapeamento e controle de água abaixo do preço de muitos LiDAR.",
+          "tradeOff": "Giroscópio é menos preciso que LiDAR para recuperar posição.",
+          "sensiblePriceRange": "Até R$ 1.450.",
+          "avoidWhen": "O S20 estiver no mesmo preço.",
+          "closestCompetitor": "Xiaomi Robot Vacuum S20."
+        },
+        {
+          "productId": "prod_xiaomi_robot_vacuum_s20",
+          "whyIncluded": "LiDAR torna rotas, cômodos e zonas muito mais previsíveis por preço ainda intermediário.",
+          "bestFor": "Casa ou apartamento que precisa de mapa e agenda confiáveis.",
+          "mainDifference": "LiDAR LDS e ecossistema de aplicativo.",
+          "tradeOff": "O mop é passivo; garantia e peças dependem do canal de venda.",
+          "sensiblePriceRange": "Entre R$ 1.450 e R$ 1.700.",
+          "avoidWhen": "Você não aceita importador ou precisa de estação.",
+          "closestCompetitor": "WAP Robot W1000."
+        },
+        {
+          "productId": "prod_wap_robot_w4000",
+          "whyIncluded": "Combina LiDAR, discos giratórios e autoesvaziamento do pó em preço menor que estações premium.",
+          "bestFor": "Pets e rotina frequente com menos esvaziamento manual.",
+          "mainDifference": "Estação de pó e mops giratórios com suporte local.",
+          "tradeOff": "A base não deve ser tratada como lavadora automática dos mops; há consumíveis e limpeza manual.",
+          "sensiblePriceRange": "Até R$ 2.600.",
+          "avoidWhen": "Você espera uma estação que lave e seque os panos.",
+          "closestCompetitor": "Samsung Jet Bot Combo AI."
+        },
+        {
+          "productId": "prod_samsung_jet_bot_combo",
+          "whyIncluded": "A estação efetivamente esvazia o robô, lava e seca os mops, reduzindo mais etapas da rotina.",
+          "bestFor": "Casa grande, pets e orçamento alto.",
+          "mainDifference": "Reconhecimento de objetos e estação completa.",
+          "tradeOff": "Preço, espaço da base e custo de manutenção são muito superiores.",
+          "sensiblePriceRange": "Até cerca de R$ 7.000 com garantia oficial.",
+          "avoidWhen": "Seu piso é simples ou você tolera lavar os mops manualmente.",
+          "closestCompetitor": "WAP W4000, bem mais barato."
+        }
+      ]
+    },
+    {
       "id": "article_series_horror_essentials",
       "contentType": "article",
       "schemaVersion": 1,
@@ -3981,6 +5455,186 @@
       "sourceFile": "src/app/blog/posts/fundamentos/melhores-series-de-vampiro.mdx",
       "migrationReady": true,
       "productCards": []
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "melhores-tablets-para-estudar-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-05",
+      "updatedAt": "2026-09-05",
+      "seo": {
+        "title": "Melhores tablets para estudar em 2026: 10 opções por faixa de preço",
+        "description": "Compare os melhores tablets para estudar em 2026 por preço, caneta, tela, desempenho e custo do kit completo.",
+        "canonical": "/blog/melhores-tablets-para-estudar-2026"
+      },
+      "relationships": {
+        "related": [
+          "Melhores notebooks custo-benefício para estudar e trabalhar em 2026"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-tablets-para-estudar-2026.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_galaxy_tab_a9_plus",
+          "whyIncluded": "É a opção básica mais equilibrada para ler PDFs, assistir aulas e navegar sem pagar por caneta que não será usada.",
+          "bestFor": "Quem quer uma segunda tela acadêmica e não pretende escrever à mão.",
+          "mainDifference": "8 GB de RAM, tela de 90 Hz e quatro alto-falantes na faixa de entrada.",
+          "tradeOff": "Não aceita S Pen ativa; para anotações, prefira o Idea Tab.",
+          "sensiblePriceRange": "Entre R$ 1.250 e R$ 1.500.",
+          "avoidWhen": "Escrita à mão ou desenho são requisitos.",
+          "closestCompetitor": "Redmi Pad 2, com tela mais nítida, mas caneta separada."
+        },
+        {
+          "productId": "prod_lenovo_idea_tab",
+          "whyIncluded": "Combina tela 2,5K, 8 GB/256 GB e possibilidade de caneta por preço intermediário.",
+          "bestFor": "Faculdade, PDFs e caderno digital econômico.",
+          "mainDifference": "Mais memória e nitidez que o S6 Lite.",
+          "tradeOff": "O conteúdo do kit varia e o software é menos maduro que o Samsung Notes.",
+          "sensiblePriceRange": "Até aproximadamente R$ 1.900 com caneta.",
+          "avoidWhen": "A oferta não inclui a caneta e se aproxima do S10 FE.",
+          "closestCompetitor": "Galaxy Tab S6 Lite 2024."
+        },
+        {
+          "productId": "prod_galaxy_tab_s6_lite_2024",
+          "whyIncluded": "Ainda pode ser a entrada mais simples na S Pen quando aparece em liquidação.",
+          "bestFor": "Anotações e PDFs com orçamento limitado.",
+          "mainDifference": "S Pen incluída e Samsung Notes.",
+          "tradeOff": "4 GB de RAM, 64 GB e 60 Hz envelheceram mal.",
+          "sensiblePriceRange": "Até R$ 1.700; nos R$ 1.945 observados, não vale.",
+          "avoidWhen": "Você precisa de multitarefa ou pretende ficar muitos anos.",
+          "closestCompetitor": "Lenovo Idea Tab, normalmente mais rápido."
+        },
+        {
+          "productId": "prod_redmi_pad_2",
+          "whyIncluded": "Tela 2,5K, bateria e 256 GB são fortes para leitura e aulas.",
+          "bestFor": "Quem prioriza mídia e arquivos, não escrita.",
+          "mainDifference": "Boa capacidade por real gasto.",
+          "tradeOff": "Caneta oficial separada e suporte menos previsível.",
+          "sensiblePriceRange": "Até R$ 1.700; acima disso o Idea Tab é mais completo.",
+          "avoidWhen": "Rejeição de palma e anotações são centrais.",
+          "closestCompetitor": "Galaxy Tab A9+."
+        },
+        {
+          "productId": "prod_galaxy_tab_s10_fe",
+          "whyIncluded": "É o pacote acadêmico mais completo sem entrar no preço premium.",
+          "bestFor": "Anotações, faculdade e multitarefa diária.",
+          "mainDifference": "S Pen, 8 GB, IP68 e software Samsung no mesmo conjunto.",
+          "tradeOff": "LCD e teclado separado.",
+          "sensiblePriceRange": "De R$ 2.500 a R$ 2.900.",
+          "avoidWhen": "Você só lê e assiste aulas.",
+          "closestCompetitor": "Lenovo Idea Tab Pro, maior e mais rápido."
+        },
+        {
+          "productId": "prod_lenovo_idea_tab_pro",
+          "whyIncluded": "A tela 3K de 12,7 polegadas e o Dimensity 8300 sustentam desenho e várias janelas.",
+          "bestFor": "Mesa, criação e substituição parcial do notebook.",
+          "mainDifference": "Desempenho e tela grande perto de R$ 3 mil.",
+          "tradeOff": "É pesado e o kit precisa ser conferido.",
+          "sensiblePriceRange": "Até R$ 3.000 com caneta.",
+          "avoidWhen": "Portabilidade com uma mão importa.",
+          "closestCompetitor": "Galaxy Tab S10 FE+."
+        },
+        {
+          "productId": "prod_galaxy_tab_s10_fe_plus",
+          "whyIncluded": "Mostra páginas A4 e duas janelas com menos redução.",
+          "bestFor": "Leitura técnica, desenho e trabalho em mesa.",
+          "mainDifference": "13,1 polegadas com S Pen e IP68.",
+          "tradeOff": "664 g e teclado caro.",
+          "sensiblePriceRange": "Até R$ 3.300.",
+          "avoidWhen": "Você se desloca e lê em pé.",
+          "closestCompetitor": "Idea Tab Pro, mais rápido e geralmente mais barato."
+        },
+        {
+          "productId": "prod_ipad_a16",
+          "whyIncluded": "Aplicativos e desempenho justificam a opção Apple de entrada.",
+          "bestFor": "Quem já usa Mac/iPhone e não depende de desenho com pressão.",
+          "mainDifference": "Ecossistema e longevidade de desempenho.",
+          "tradeOff": "Caneta, teclado e tela não laminada elevam o custo real.",
+          "sensiblePriceRange": "Até R$ 3.800; por R$ 4.399 está caro.",
+          "avoidWhen": "Você quer caneta incluída.",
+          "closestCompetitor": "Galaxy Tab S10 FE."
+        },
+        {
+          "productId": "prod_galaxy_tab_s11",
+          "whyIncluded": "É o melhor Android compacto para desenho e multitarefa pesada.",
+          "bestFor": "Criadores que querem AMOLED, S Pen e portabilidade.",
+          "mainDifference": "AMOLED 120 Hz e 12 GB de RAM.",
+          "tradeOff": "Excesso de custo para estudo simples.",
+          "sensiblePriceRange": "Até R$ 4.800.",
+          "avoidWhen": "Seu uso é PDF, navegador e vídeo.",
+          "closestCompetitor": "iPad Air M3."
+        },
+        {
+          "productId": "prod_ipad_air_m3",
+          "whyIncluded": "M3, tela laminada e Pencil Pro atendem criação avançada.",
+          "bestFor": "Ilustração, edição e aplicativos profissionais de iPadOS.",
+          "mainDifference": "Desempenho de notebook em corpo leve.",
+          "tradeOff": "O kit oficial pode custar mais que um bom notebook.",
+          "sensiblePriceRange": "Até R$ 7.000 no corpo; R$ 9.999 é ruim.",
+          "avoidWhen": "Você precisa de IDEs, VMs ou software completo de desktop.",
+          "closestCompetitor": "Galaxy Tab S11."
+        }
+      ]
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "melhores-tvs-55-polegadas-ate-3000-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-05",
+      "updatedAt": "2026-09-05",
+      "seo": {
+        "title": "Melhores TVs de 55 polegadas até R$3.000 em 2026",
+        "description": "Veja qual é a melhor TV 55 polegadas de 2026 até R$ 3.000 e quando vale escolher TCL ou Samsung.",
+        "canonical": "/blog/melhores-tvs-55-polegadas-ate-3000-2026"
+      },
+      "relationships": {
+        "related": [
+          "Melhores TVs custo-benefício para comprar em 2026"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-tvs-55-polegadas-ate-3000-2026.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_tcl_p7k",
+          "whyIncluded": "A versão 55P7K oferece QLED, Google TV e ampla compatibilidade HDR sem ultrapassar o orçamento.",
+          "bestFor": "Streaming, filmes e uso geral em sala com luz controlável.",
+          "mainDifference": "Dolby Vision e HDR10+ numa QLED de entrada.",
+          "tradeOff": "Painel de 60 Hz sem local dimming limita brilho, preto e impacto real do HDR.",
+          "sensiblePriceRange": "Entre R$ 2.300 e R$ 2.600 na versão de 55 polegadas.",
+          "avoidWhen": "Você quer 4K a 120 Hz real ou assiste muitos filmes escuros.",
+          "closestCompetitor": "Samsung U8100F de 55 polegadas."
+        },
+        {
+          "productId": "prod_samsung_u8100f",
+          "whyIncluded": "Tizen, Gaming Hub e sete anos declarados de atualizações tornam o uso cotidiano previsível.",
+          "bestFor": "TV aberta, streaming e integração com o ecossistema Samsung.",
+          "mainDifference": "Suporte de sistema mais longo e processamento consistente.",
+          "tradeOff": "O painel básico de 60 Hz não tem local dimming, Dolby Vision ou HDMI 2.1 de alta frequência.",
+          "sensiblePriceRange": "Até R$ 2.500; acima de R$ 2.700, a P7K costuma ser mais interessante.",
+          "avoidWhen": "Contraste, HDR ou jogos a 120 fps são prioridades.",
+          "closestCompetitor": "TCL P7K de 55 polegadas."
+        },
+        {
+          "productId": "prod_tcl_c6k",
+          "whyIncluded": "É o único salto real de imagem e jogos do recorte quando uma promoção a coloca no teto.",
+          "bestFor": "PS5, Xbox, PC, esportes e HDR com mais brilho e contraste.",
+          "mainDifference": "Mini LED, painel nativo de 144 Hz, VRR e áudio Onkyo 2.1.",
+          "tradeOff": "O preço observado de R$ 3.499 está fora do limite; halos ainda podem aparecer em cenas extremas.",
+          "sensiblePriceRange": "Até R$ 3.000; acima disso, ela deixa de pertencer a este guia.",
+          "avoidWhen": "Seu limite é rígido e não existe promoção confirmada.",
+          "closestCompetitor": "TCL P7K, mais barata e limitada a 60 Hz."
+        }
+      ]
     },
     {
       "id": null,
@@ -4045,6 +5699,81 @@
           "sensiblePriceRange": "Muito competitiva perto de R$ 4.500 e recomendável até R$ 5.000; por R$ 5.490, vale esperar promoção ou comparar uma OLED B5.",
           "avoidWhen": "Não recomendamos para orçamento limitado, ambientes extremamente claros o dia inteiro ou uso prolongado como painel de notícias, menu ou monitor com elementos fixos.",
           "closestCompetitor": "TCL C6K: perde no preto, ângulo e uniformidade, mas oferece brilho forte e custa aproximadamente R$ 2.000 menos."
+        }
+      ]
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "melhores-webcams-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-05",
+      "updatedAt": "2026-09-05",
+      "seo": {
+        "title": "Melhores webcams para reuniões, aulas e streaming em 2026",
+        "description": "Compare as melhores webcams de 2026 para reuniões, aulas e streaming, do modelo HD barato ao 1080p60.",
+        "canonical": "/blog/melhores-webcams-2026"
+      },
+      "relationships": {
+        "related": [
+          "Melhores notebooks custo-benefício para estudar e trabalhar em 2026"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/melhores-webcams-2026.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_logitech_c270",
+          "whyIncluded": "Continua sendo uma solução barata e amplamente disponível para colocar o rosto numa chamada.",
+          "bestFor": "Aulas e reuniões ocasionais em ambiente iluminado.",
+          "mainDifference": "Preço baixo e operação simples por USB.",
+          "tradeOff": "720p30, foco fixo e campo estreito limitam imagem e enquadramento.",
+          "sensiblePriceRange": "Até R$ 180.",
+          "avoidWhen": "Você apresenta objetos, grava conteúdo ou trabalha em pouca luz.",
+          "closestCompetitor": "Logitech Brio 100."
+        },
+        {
+          "productId": "prod_logitech_brio_100",
+          "whyIncluded": "Full HD e obturador físico melhoram o básico por pouca diferença sobre a C270.",
+          "bestFor": "Home office e aulas frequentes com enquadramento individual.",
+          "mainDifference": "1080p30 e tampa de privacidade integrada.",
+          "tradeOff": "Foco fixo e campo de 58° não servem bem para quadro ou grupo.",
+          "sensiblePriceRange": "Até R$ 280.",
+          "avoidWhen": "Você precisa mostrar produtos próximos da lente.",
+          "closestCompetitor": "Logitech C920s com autofocus."
+        },
+        {
+          "productId": "prod_logitech_c920s",
+          "whyIncluded": "Autofocus, campo de 78° e imagem Full HD fazem dela a recomendação mais equilibrada.",
+          "bestFor": "Reuniões frequentes, aulas e streaming inicial.",
+          "mainDifference": "Autofocus e enquadramento mais versátil que webcams básicas.",
+          "tradeOff": "Fica em 30 fps e usa uma plataforma antiga, embora consolidada.",
+          "sensiblePriceRange": "Entre R$ 350 e R$ 450.",
+          "avoidWhen": "Movimento fluido a 60 fps é requisito.",
+          "closestCompetitor": "Logitech Brio 500."
+        },
+        {
+          "productId": "prod_logitech_brio_500",
+          "whyIncluded": "Campo ajustável e 720p60 ajudam apresentações e equipes híbridas.",
+          "bestFor": "Home office avançado, quadro e demonstrações de mesa.",
+          "mainDifference": "Três campos de visão, autofocus e conexão USB-C.",
+          "tradeOff": "A resolução máxima continua em 1080p30, apesar do preço.",
+          "sensiblePriceRange": "Até R$ 650.",
+          "avoidWhen": "Você só aparece parado em chamadas individuais.",
+          "closestCompetitor": "Logitech C920s."
+        },
+        {
+          "productId": "prod_elgato_facecam_neo",
+          "whyIncluded": "1080p60 e controles do Camera Hub são diferenças concretas para criação.",
+          "bestFor": "Streaming e vídeo com microfone separado.",
+          "mainDifference": "Full HD a 60 fps e ajustes persistentes no software.",
+          "tradeOff": "Não possui microfone e o foco fixo limita objetos muito próximos.",
+          "sensiblePriceRange": "Até R$ 750.",
+          "avoidWhen": "Você quer uma solução única para reuniões sem outro microfone.",
+          "closestCompetitor": "Logitech Brio 500."
         }
       ]
     },
@@ -4161,6 +5890,32 @@
       "productCards": []
     },
     {
+      "id": "article_nietzsche_era_niilista",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "nietzsche-era-niilista",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-09-04",
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "Nietzsche era niilista? Por que o filósofo tentou superar o niilismo",
+        "description": "Nietzsche era niilista? Entenda niilismo ativo e passivo, morte de Deus, transvaloração, perspectivismo e as dificuldades da resposta nietzschiana.",
+        "canonical": "/blog/nietzsche-era-niilista"
+      },
+      "relationships": {
+        "related": [
+          "Niilismo: o que é, tipos, Nietzsche, Schopenhauer e o problema da perda de valores",
+          "Amor fati em Nietzsche: o que significa amar o destino — e por que isso não é resignação",
+          "Friedrich Nietzsche: vida, ideias, obras e por onde começar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/nietzsche-era-niilista.mdx",
+      "migrationReady": true,
+      "productCards": []
+    },
+    {
       "id": "article_o_que_e_angustia",
       "contentType": "article",
       "schemaVersion": 1,
@@ -4169,10 +5924,10 @@
       "status": "published",
       "createdAt": "2026-08-20",
       "publishedAt": "2026-08-20",
-      "updatedAt": null,
+      "updatedAt": "2026-09-04",
       "seo": {
-        "title": "O que é angústia? Da experiência cotidiana à filosofia",
-        "description": "Entenda o significado de angústia, a diferença para medo e como Kierkegaard, Heidegger e Sartre transformaram o conceito.",
+        "title": "Angústia: o que significa na filosofia e na psicanálise — de Kierkegaard a Freud e Lacan",
+        "description": "Entenda angústia na filosofia e na psicanálise, a diferença para medo e ansiedade e as teorias de Kierkegaard, Heidegger, Sartre, Freud e Lacan.",
         "canonical": "/blog/o-que-e-angustia"
       },
       "relationships": {
@@ -4194,9 +5949,9 @@
       "status": "published",
       "createdAt": null,
       "publishedAt": "2026-08-20",
-      "updatedAt": null,
+      "updatedAt": "2026-09-04",
       "seo": {
-        "title": "O que é arquétipo? De Carl Jung ao uso popular do conceito",
+        "title": "Arquétipos de Jung: o que realmente são — e o que a internet costuma explicar errado",
         "description": "Entenda o que é arquétipo, como Jung empregou o conceito e como ele mudou na literatura, no cinema, no marketing e na cultura popular.",
         "canonical": "/blog/o-que-e-arquetipo"
       },
@@ -4346,9 +6101,9 @@
       "status": "published",
       "createdAt": "2026-08-20",
       "publishedAt": "2026-08-20",
-      "updatedAt": null,
+      "updatedAt": "2026-09-04",
       "seo": {
-        "title": "O que é niilismo? De Nietzsche ao significado que usamos hoje",
+        "title": "Niilismo: o que é, tipos, Nietzsche, Schopenhauer e o problema da perda de valores",
         "description": "Entenda o que é niilismo, sua origem, a morte de Deus em Nietzsche, niilismo passivo e ativo e os usos contemporâneos do termo.",
         "canonical": "/blog/o-que-e-niilismo"
       },
@@ -4619,6 +6374,276 @@
       "sourceFile": "src/app/blog/posts/fundamentos/o-que-voce-precisa-aprender-para-ser-um-bom-social-media.mdx",
       "migrationReady": false,
       "productCards": []
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "pc-gamer-ate-3000",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "PC gamer até R$3.000 em 2026: o melhor que dá para montar",
+        "description": "Veja a melhor configuração de PC gamer até R$3.000 em 2026, peça por peça, com preços verificados, compatibilidade e expectativas reais de desempenho.",
+        "canonical": "/blog/pc-gamer-ate-3000"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/pc-gamer-ate-3000.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_amd_ryzen_5_5600gt",
+          "whyIncluded": "É o componente que torna o orçamento viável sem recorrer a uma placa dedicada fraca.",
+          "bestFor": "Quem joga títulos competitivos e pretende adicionar uma GPU dedicada mais tarde.",
+          "mainDifference": "Reúne seis núcleos Zen 3 e gráficos integrados Radeon no mesmo componente.",
+          "tradeOff": "A Radeon integrada não foi feita para AAA recente em qualidade alta.",
+          "sensiblePriceRange": "Boa compra até aproximadamente R$ 900; perto de R$ 1.000, espere.",
+          "avoidWhen": "Evite se você já possui uma placa de vídeo, pois o Ryzen 5 5500 fica mais barato.",
+          "closestCompetitor": "Ryzen 5 5500 mais GPU dedicada"
+        },
+        {
+          "productId": "prod_msi_b550m_pro_vdh_wifi",
+          "whyIncluded": "Evita uma placa descartável: oferece quatro slots de RAM, dois M.2, Wi-Fi e recuperação de BIOS.",
+          "bestFor": "Quem quer instalar mais memória, outro SSD ou uma placa de vídeo no futuro.",
+          "mainDifference": "O Flash BIOS Button e a expansão são mais úteis que estética gamer.",
+          "tradeOff": "Custa mais que uma A520 básica e continua presa à plataforma AM4.",
+          "sensiblePriceRange": "Faz sentido até cerca de R$ 750; acima disso, compare outras B550.",
+          "avoidWhen": "Não compre sem confirmar a versão de BIOS compatível com o 5600GT.",
+          "closestCompetitor": "Placa B550M equivalente da Gigabyte ou ASUS"
+        }
+      ]
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "pc-gamer-ate-4000",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "PC gamer até R$4.000 em 2026: melhor configuração peça por peça",
+        "description": "Monte um PC gamer até R$4.000 em 2026 com peças compatíveis, fonte confiável, preços verificados e desempenho realista em Full HD.",
+        "canonical": "/blog/pc-gamer-ate-4000"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/pc-gamer-ate-4000.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_asrock_radeon_rx_6600_challenger",
+          "whyIncluded": "É a placa que transforma esta montagem em um PC para Full HD sem absorver todo o orçamento.",
+          "bestFor": "Quem joga em 1080p e prefere qualidade alta a ray tracing.",
+          "mainDifference": "Os 8 GB e o baixo consumo formam um conjunto equilibrado nesta faixa.",
+          "tradeOff": "Ray tracing é fraco e a arquitetura RDNA 2 já pertence a uma geração anterior.",
+          "sensiblePriceRange": "Boa compra entre R$ 1.400 e R$ 1.600; acima de R$ 1.650, compare a RX 7600.",
+          "avoidWhen": "Evite se a diferença para uma RX 7600 cair abaixo de aproximadamente R$ 300.",
+          "closestCompetitor": "Radeon RX 7600 8 GB"
+        },
+        {
+          "productId": "prod_amd_ryzen_5_5500",
+          "whyIncluded": "Seu preço deixa a RX 6600 caber mantendo seis núcleos, doze threads e cooler incluso.",
+          "bestFor": "Jogos em Full HD, uso geral e produção leve com uma GPU dedicada.",
+          "mainDifference": "Custa menos que o Ryzen 5 5600 e preserva orçamento para a placa de vídeo.",
+          "tradeOff": "Não possui vídeo integrado e trabalha com PCIe 3.0.",
+          "sensiblePriceRange": "Faz sentido até R$ 600; perto do preço do Ryzen 5 5600, escolha o 5600.",
+          "avoidWhen": "Não compre antes da GPU: sem placa dedicada, o computador não exibirá imagem.",
+          "closestCompetitor": "Ryzen 5 5600"
+        },
+        {
+          "productId": "prod_msi_mag_a650bn",
+          "whyIncluded": "Dá potência, conectores e proteções coerentes às duas GPUs recomendadas sem recorrer a fonte genérica.",
+          "bestFor": "Montagens intermediárias com RX 6600 ou RX 7600 e upgrades moderados.",
+          "mainDifference": "É um modelo exato com especificações públicas, não apenas uma promessa de watts.",
+          "tradeOff": "Os cabos são fixos e a organização exige mais cuidado.",
+          "sensiblePriceRange": "Boa compra em torno de R$ 300 a R$ 360.",
+          "avoidWhen": "Evite qualquer anúncio que substitua o modelo por uma fonte genérica equivalente.",
+          "closestCompetitor": "Cooler Master MWE Bronze V2 650 W"
+        }
+      ]
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "pc-gamer-ate-5000",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "PC gamer até R$5.000 em 2026: Full HD e 1440p equilibrados",
+        "description": "Confira um PC gamer até R$5.000 em 2026 para Full HD e 1440p, com peças compatíveis, preços atuais e comparação honesta entre AM4 e AM5.",
+        "canonical": "/blog/pc-gamer-ate-5000"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/pc-gamer-ate-5000.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_asrock_radeon_rx_7600_challenger",
+          "whyIncluded": "Entrega o salto gráfico que diferencia esta montagem da opção de R$ 4 mil.",
+          "bestFor": "Full HD em qualidade alta e 1440p com ajustes conforme o jogo.",
+          "mainDifference": "A arquitetura RDNA 3 acrescenta desempenho e codificação AV1 sobre a RX 6600.",
+          "tradeOff": "Oito gigabytes já exigem cuidado com texturas em alguns jogos e ray tracing continua limitado.",
+          "sensiblePriceRange": "Boa compra até R$ 1.900; acima de R$ 2.100, compare modelos mais fortes em promoção.",
+          "avoidWhen": "Não recomendamos para quem exige 1440p ultra com ray tracing em lançamentos pesados.",
+          "closestCompetitor": "GeForce RTX 4060 8 GB"
+        },
+        {
+          "productId": "prod_kingston_nv3_1tb",
+          "whyIncluded": "Um terabyte é o mínimo confortável para sistema e vários jogos grandes sem começar pelo upgrade.",
+          "bestFor": "Biblioteca de jogos e uso cotidiano em uma montagem intermediária.",
+          "mainDifference": "Oferece capacidade adequada em M.2, sem cabos, por uma fatia controlada do orçamento.",
+          "tradeOff": "É um SSD de entrada; cargas sustentadas não são seu diferencial.",
+          "sensiblePriceRange": "Faz sentido perto de R$ 350 a R$ 420.",
+          "avoidWhen": "Evite se um SSD TLC com garantia e capacidade equivalentes estiver quase no mesmo preço.",
+          "closestCompetitor": "WD Blue SN580 1 TB"
+        }
+      ]
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "pc-gamer-ate-6000",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "PC gamer até R$6.000 em 2026: build forte e preparada para upgrades",
+        "description": "Veja uma build de PC gamer até R$6.000 em 2026 para excelente Full HD e bom 1440p, com preços atuais, compatibilidade e plano de upgrades.",
+        "canonical": "/blog/pc-gamer-ate-6000"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/pc-gamer-ate-6000.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_gigabyte_geforce_rtx_5060_windforce",
+          "whyIncluded": "Foi a GPU atual com preço e disponibilidade capazes de elevar esta faixa sem desmontar o restante do orçamento.",
+          "bestFor": "Excelente Full HD, 1440p com ajustes, streaming e programas que aproveitam CUDA ou encoder AV1.",
+          "mainDifference": "DLSS 4, bom encoder e desempenho competitivo por cerca de R$ 2,6 mil.",
+          "tradeOff": "Os 8 GB são a limitação central em texturas pesadas, ray tracing e alguns jogos em 1440p.",
+          "sensiblePriceRange": "Faz sentido até cerca de R$ 2.600; acima de R$ 2.800, reavalie RX 9060 XT e promoções.",
+          "avoidWhen": "Não compre para 1440p ultra sem concessões ou cargas profissionais que exijam mais VRAM.",
+          "closestCompetitor": "Radeon RX 9060 XT 8 GB"
+        },
+        {
+          "productId": "prod_msi_mag_a650bn",
+          "whyIncluded": "Sustenta a RTX 5060 e upgrades moderados com potência, conectores e proteções declaradas.",
+          "bestFor": "Quem quer preservar a fonte ao trocar CPU, armazenamento ou GPU de consumo semelhante.",
+          "mainDifference": "Modelo exato e verificável, sem depender do rótulo vago de fonte gamer.",
+          "tradeOff": "Cabos fixos e eficiência Bronze, não modular Gold.",
+          "sensiblePriceRange": "Boa compra entre R$ 300 e R$ 360.",
+          "avoidWhen": "Troque por uma fonte superior se o futuro upgrade exigir bem mais potência ou conectores.",
+          "closestCompetitor": "Cooler Master MWE Bronze V2 650 W"
+        }
+      ]
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "pc-gamer-pronto-ou-montar",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "PC gamer pronto ou montar peça por peça? O que vale mais em 2026",
+        "description": "PC gamer pronto ou montar peça por peça? Compare preços reais de 2026, garantia, componentes ocultos, conveniência e possibilidade de upgrade.",
+        "canonical": "/blog/pc-gamer-pronto-ou-montar"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/pc-gamer-pronto-ou-montar.mdx",
+      "migrationReady": false,
+      "productCards": []
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "pc-gamer-sem-placa-de-video",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "PC gamer barato sem placa de vídeo: melhor configuração integrada",
+        "description": "Veja a melhor configuração de PC gamer sem placa de vídeo em 2026, o que o Ryzen 5 5600GT roda e qual upgrade fazer depois.",
+        "canonical": "/blog/pc-gamer-sem-placa-de-video"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/pc-gamer-sem-placa-de-video.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_amd_ryzen_5_5600gt",
+          "whyIncluded": "Entrega CPU competente e vídeo integrado suficiente para começar sem comprar uma GPU dedicada fraca.",
+          "bestFor": "Primeira máquina, estudos, trabalho e esports enquanto o usuário economiza para uma placa de vídeo.",
+          "mainDifference": "O custo completo de AM4 e DDR4 estava muito abaixo da alternativa 8600G com AM5.",
+          "tradeOff": "A Radeon integrada exige qualidade baixa e não atende bem AAA recentes.",
+          "sensiblePriceRange": "Boa compra até R$ 900; acima disso, refaça a comparação com 8600G e kits usados.",
+          "avoidWhen": "Não escolha se você precisa jogar lançamentos pesados agora ou já possui GPU dedicada.",
+          "closestCompetitor": "Ryzen 5 8600G em plataforma AM5"
+        }
+      ]
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "pc-para-estudar-trabalhar-e-jogar",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "PC completo para estudar, trabalhar e jogar: quanto gastar",
+        "description": "Escolha um PC para estudar, trabalhar e jogar: perfis de uso, build equilibrada, versões barata e forte, memória, SSD e monitor.",
+        "canonical": "/blog/pc-para-estudar-trabalhar-e-jogar"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/pc-para-estudar-trabalhar-e-jogar.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_asrock_radeon_rx_7600_challenger",
+          "whyIncluded": "Entrega Full HD forte sem empurrar a torre para uma faixa incompatível com o uso misto.",
+          "bestFor": "Jogos, aceleração gráfica geral e edição que funcione bem com AMD.",
+          "mainDifference": "Custa menos que placas novas mais fortes e preserva 1 TB, fonte e 16 GB.",
+          "tradeOff": "Oito gigabytes e suporte de software podem limitar 3D, IA e alguns fluxos profissionais.",
+          "sensiblePriceRange": "Boa compra até aproximadamente R$ 1.900; acima de R$ 2.100, compare RTX 5060.",
+          "avoidWhen": "Evite se seu programa exige CUDA, mais VRAM ou certificação profissional específica.",
+          "closestCompetitor": "GeForce RTX 5060 8 GB"
+        }
+      ]
     },
     {
       "id": "article_perpetuos_de_sandman",
@@ -4898,6 +6923,28 @@
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
+      "slug": "quanto-custa-montar-um-pc-gamer",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "Quanto custa montar um PC gamer em 2026? De R$2.500 a R$10.000",
+        "description": "Quanto custa montar um PC gamer em 2026? Compare faixas de R$2.500 a R$10.000, resolução, GPU, concessões e custo do setup completo.",
+        "canonical": "/blog/quanto-custa-montar-um-pc-gamer"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/quanto-custa-montar-um-pc-gamer.mdx",
+      "migrationReady": false,
+      "productCards": []
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
       "slug": "rebranding-o-que-e",
       "aliases": [],
       "status": "published",
@@ -5096,6 +7143,32 @@
       "productCards": []
     },
     {
+      "id": "article_ressentimento_em_nietzsche",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "ressentimento-em-nietzsche",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-09-04",
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "Ressentimento em Nietzsche: como a moral transforma impotência em valor",
+        "description": "Entenda o ressentimento em Nietzsche, moral de senhores e escravos, culpa, dívida, má consciência, ideal ascético e os limites da genealogia moral.",
+        "canonical": "/blog/ressentimento-em-nietzsche"
+      },
+      "relationships": {
+        "related": [
+          "Nietzsche era niilista? Por que o filósofo tentou superar o niilismo",
+          "Amor fati em Nietzsche: o que significa amar o destino — e por que isso não é resignação",
+          "Friedrich Nietzsche: vida, ideias, obras e por onde começar"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/ressentimento-em-nietzsche.mdx",
+      "migrationReady": true,
+      "productCards": []
+    },
+    {
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
@@ -5145,6 +7218,32 @@
       },
       "sourceFile": "src/app/blog/posts/fundamentos/ronaldo-caiado-eleicoes-2026.mdx",
       "migrationReady": false,
+      "productCards": []
+    },
+    {
+      "id": "article_ser_para_a_morte_heidegger",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "ser-para-a-morte-heidegger",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-09-04",
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04",
+      "seo": {
+        "title": "Ser-para-a-morte em Heidegger: o que a morte revela sobre nossa existência",
+        "description": "Entenda ser-para-a-morte em Heidegger: possibilidade própria, antecipação, finitude, das Man, angústia, autenticidade e críticas de Levinas.",
+        "canonical": "/blog/ser-para-a-morte-heidegger"
+      },
+      "relationships": {
+        "related": [
+          "Martin Heidegger: filosofia, principais conceitos, obras e controvérsias",
+          "Angústia em Heidegger: por que ela não é apenas medo, ansiedade ou sofrimento",
+          "Estoicismo: o que é, principais conceitos, filósofos e limites da filosofia estoica"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/ser-para-a-morte-heidegger.mdx",
+      "migrationReady": true,
       "productCards": []
     },
     {

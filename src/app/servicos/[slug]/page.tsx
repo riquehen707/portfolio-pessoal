@@ -1,15 +1,14 @@
 import { notFound } from "next/navigation";
-import {
-  Button,
-  Card,
-  Column,
-  Grid,
-  Heading,
-  Row,
-  Schema,
-  Tag,
-  Text,
-} from "@once-ui-system/core";
+import { getPublishedServiceLandings, getServiceLanding } from "@/data/service-landings";
+import { ArchitectLanding } from "@/components/services/architects/ArchitectLanding";
+import { ArtistGalleryLanding } from "@/components/services/artists/ArtistGalleryLanding";
+import { DesignerLanding } from "@/components/services/designers/DesignerLanding";
+import { ServiceLandingPage as ReusableServiceLanding } from "@/components/services/landing/ServiceLandingPage";
+import { ServiceJsonLd, serviceLandingMetadata } from "@/components/services/landing/seo";
+import { PhotographerLanding } from "@/components/services/photographers/PhotographerLanding";
+import { RealEstateLanding } from "@/components/services/real-estate/RealEstateLanding";
+import { TattooLanding } from "@/components/services/tattoo-artists/TattooLanding";
+import { Button, Card, Column, Grid, Heading, Row, Schema, Tag, Text } from "@once-ui-system/core";
 
 import BeautyServiceLanding from "@/components/services/BeautyServiceLanding";
 import CreativeServiceLanding from "@/components/services/CreativeServiceLanding";
@@ -24,8 +23,10 @@ type PageProps = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
+  const landing = getServiceLanding(slug);
+  if (landing) return serviceLandingMetadata(landing);
   const service = services.find((item) => item.slug === slug);
-  if (!service) return {};
+  if (!service) notFound();
 
   const metaTitle = service.seo?.title ?? `${service.title} | ${servicesPage.title}`;
   const metaDescription = service.seo?.description ?? service.summary;
@@ -46,11 +47,33 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 export async function generateStaticParams() {
-  return services.map((service) => ({ slug: service.slug }));
+  return [...services, ...getPublishedServiceLandings()].map((service) => ({ slug: service.slug }));
 }
 
 export default async function ServiceLandingPage({ params }: PageProps) {
   const { slug } = await params;
+  const landing = getServiceLanding(slug);
+  if (landing)
+    return (
+      <>
+        <ServiceJsonLd landing={landing} />
+        {landing.id === "site-arquitetos" ? (
+          <ArchitectLanding landing={landing} />
+        ) : landing.id === "galeria-virtual-artistas" ? (
+          <ArtistGalleryLanding landing={landing} />
+        ) : landing.id === "portfolio-designers" ? (
+          <DesignerLanding landing={landing} />
+        ) : landing.id === "portfolio-fotografos" ? (
+          <PhotographerLanding landing={landing} />
+        ) : landing.id === "site-corretores" ? (
+          <RealEstateLanding landing={landing} />
+        ) : landing.id === "portfolio-tatuadores" ? (
+          <TattooLanding landing={landing} />
+        ) : (
+          <ReusableServiceLanding landing={landing} />
+        )}
+      </>
+    );
   const service = services.find((item) => item.slug === slug);
 
   if (!service) notFound();
@@ -176,13 +199,14 @@ export default async function ServiceLandingPage({ params }: PageProps) {
           <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
             O que esse serviço resolve
           </Tag>
-        <Heading as="h2" variant="display-strong-s">
-          Ganhos práticos
-        </Heading>
-        <Text onBackground="neutral-weak">
-          A ideia aqui é simples: tirar ruído do caminho e fazer a presença digital trabalhar melhor para você.
-        </Text>
-      </Column>
+          <Heading as="h2" variant="display-strong-s">
+            Ganhos práticos
+          </Heading>
+          <Text onBackground="neutral-weak">
+            A ideia aqui é simples: tirar ruído do caminho e fazer a presença digital trabalhar
+            melhor para você.
+          </Text>
+        </Column>
 
         <Grid columns="3" s={{ columns: 1 }} gap="16">
           {service.keyPoints.map((item) => (
@@ -216,13 +240,13 @@ export default async function ServiceLandingPage({ params }: PageProps) {
           <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
             Escopos comuns
           </Tag>
-        <Heading as="h2" variant="display-strong-s">
-          Formatos de entrega
-        </Heading>
-        <Text onBackground="neutral-weak">
-          Cada formato muda profundidade, prazo e investimento. A entrada pode ser menor e crescer
-          conforme a necessidade real do projeto e o momento do negócio.
-        </Text>
+          <Heading as="h2" variant="display-strong-s">
+            Formatos de entrega
+          </Heading>
+          <Text onBackground="neutral-weak">
+            Cada formato muda profundidade, prazo e investimento. A entrada pode ser menor e crescer
+            conforme a necessidade real do projeto e o momento do negócio.
+          </Text>
         </Column>
 
         <Grid columns="3" s={{ columns: 1 }} gap="16">
@@ -243,7 +267,11 @@ export default async function ServiceLandingPage({ params }: PageProps) {
                 {scope.title}
               </Heading>
               <Text onBackground="neutral-weak">{scope.summary}</Text>
-              <Text className={styles.serviceMeta} variant="body-default-s" onBackground="neutral-weak">
+              <Text
+                className={styles.serviceMeta}
+                variant="body-default-s"
+                onBackground="neutral-weak"
+              >
                 {scope.investment} | {scope.timeline}
               </Text>
               <Column as="ul" className={styles.list} gap="8">
@@ -328,7 +356,8 @@ export default async function ServiceLandingPage({ params }: PageProps) {
               Estimativa rápida de escopo
             </Heading>
             <Text onBackground="neutral-weak">
-              O simulador ajuda a comparar tipos de projeto e módulos antes de abrir um briefing completo.
+              O simulador ajuda a comparar tipos de projeto e módulos antes de abrir um briefing
+              completo.
             </Text>
           </Column>
 
@@ -394,7 +423,8 @@ export default async function ServiceLandingPage({ params }: PageProps) {
           Se fizer sentido, eu transformo isso em um escopo claro
         </Heading>
         <Text onBackground="neutral-weak">
-          O melhor ponto de partida não é uma lista grande de funcionalidades. É o problema real do negócio e a forma mais honesta de resolver isso.
+          O melhor ponto de partida não é uma lista grande de funcionalidades. É o problema real do
+          negócio e a forma mais honesta de resolver isso.
         </Text>
         <Row className={styles.heroActions} gap="12" wrap>
           <Button href={service.hero.ctaHref} variant="primary" size="m" arrowIcon>

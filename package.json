@@ -2,6 +2,7 @@
   "name": "@once-ui-system/magic-portfolio",
   "version": "2.3.0",
   "scripts": {
+    "test:service-landings": "node --test scripts/test-service-landings.mjs",
     "sync:movie-posters": "node scripts/fetch-movie-posters.mjs",
     "normalize:movie-posters": "node scripts/fetch-movie-posters.mjs --normalize-existing",
     "fetch:series-posters": "node scripts/fetch-series-posters.mjs",

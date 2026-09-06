@@ -1,5 +1,37 @@
 # Decisões editoriais
 
+## 2026-09-06 — Portfólio para arquitetos separa projeto demonstrativo e autoria real
+
+`/servicos/site-para-arquitetos` apresenta projetos, serviços, perfil profissional e contato como uma base para pedidos de orçamento. A demonstração usa três fotografias licenciadas apenas para representar a interface; fonte, crédito e licença ficam acessíveis, sem atribuir autoria arquitetônica, clientes, localização ou resultados ao executor. A oferta é R$497 de implantação + R$99/mês, enquanto quantidade de projetos e páginas, revisões, atualizações, domínio, hospedagem, manutenção, prazo e cancelamento ficam para a proposta. O artigo `/blog/como-montar-um-portfolio-de-arquitetura-profissional` mantém orientação prática sobre curadoria e documentação, e seu único CTA aponta para `site-arquitetos`.
+
+## 2026-09-06 — Portfólio para designers apresenta processo sem inventar cases
+
+`/servicos/portfolio-para-designers` vende uma apresentação profissional de projetos, currículo e contato, em vez de resumir a oferta a criação de site. A demonstração representa identidade visual, UI/UX e web design com composições fictícias em HTML/CSS, rotuladas como exemplos; não atribui clientes, pesquisa ou resultados inexistentes. A oferta é R$297 de implantação + R$79/mês, enquanto quantidade e profundidade dos cases, revisões, atualizações, domínio, hospedagem, manutenção, prazo e cancelamento ficam para a proposta. O artigo `/blog/como-criar-um-portfolio-de-design-para-conseguir-clientes` diferencia projeto de case e orienta decisões com grau de certeza explícito; seu único CTA aponta para `portfolio-designers`.
+
+## 2026-09-06 — Galeria para artistas separa curadoria editorial e oferta comercial
+
+`/servicos/galeria-virtual-para-artistas` apresenta uma galeria própria para artistas visuais com doze partes: hero, dez seções intermediárias e CTA final. A demonstração usa pintura, ilustração e escultura fotografadas por terceiros apenas como exemplos licenciados de interface; não atribui autoria artística, disponibilidade ou resultados ao executor. A oferta é R$397 de implantação + R$89/mês, enquanto quantidade de obras, coleções, atualizações, domínio, hospedagem, manutenção, prazo e cancelamento ficam para a proposta. O artigo `/blog/como-criar-uma-galeria-virtual-para-divulgar-suas-obras` ensina seleção, organização, documentação visual e contato sem repetir a página comercial; seu único CTA aponta para o ID publicado `galeria-virtual-artistas`.
+
+## 2026-09-06 — Portfólio para tatuadores mantém dez partes sem alongar a oferta
+
+`/servicos/portfolio-para-tatuadores` usa a estrutura compacta com problema, solução, benefícios, entregáveis, demonstração, processo em três etapas, preço e FAQ entre o hero e o CTA final. A copy trata da busca manual no feed e da organização por estilos, sem prometer mais contatos ou atribuir fotografias de banco ao executor. A oferta é R$297 de implantação + R$79/mês; quantidade de trabalhos, revisões, atualizações, domínio, hospedagem, manutenção, prazo e cancelamento ficam registrados na proposta. A landing mede cliques para o WhatsApp como intenção de contato, não como lead confirmado.
+
+## 2026-09-06 — Segunda landing reutiliza o contrato com composição imobiliária própria
+
+`/servicos/site-para-corretores` usa a estrutura compacta com seções adicionais para corresponder às doze partes do briefing. O site é apresentado como um endereço profissional para organizar perfil, imóveis e contato, sem promessa de leads. A demonstração usa fotografias licenciadas e identidade, imóveis e dados explicitamente ilustrativos. A conversão da landing permanece no WhatsApp; o formulário é um recurso do produto demonstrado. Quantidade de imóveis, rotina de atualização, domínio, hospedagem, manutenção, prazo, tratamento dos contatos e cancelamento ficam para a proposta, pois não foram fornecidos.
+
+## 2026-09-06 — Estrutura curta para a primeira landing de fotógrafos
+
+O briefing solicita nove partes. `structure: "compact"` reúne público e solução nos campos obrigatórios do hero e exige problema, benefício, demonstração, recursos, processo, preço e FAQ, além do CTA final. O comportamento padrão permanece compatível. `heroVisual` e CSS escopado permitem demonstrar um portfólio real em HTML sem copiar o modelo visual de artigo. Fotografias de banco são identificadas e creditadas; cliques de orçamento no WhatsApp continuam separados de conversões confirmadas. A oferta é R$397 + R$89/mês; condições não fornecidas são detalhadas na proposta, sem inventar escopo recorrente ou prazo.
+
+## 2026-09-06 — Landing pages têm contrato comercial próprio
+
+Motivo:
+Artigos educam e atraem; landings apresentam uma oferta específica e conduzem a uma conversão; `/servicos` mantém a visão institucional.
+
+Decisão:
+Novas landings usam `content/service-landings`, componentes próprios e a rota existente com compatibilidade para serviços legados. Publicação e indexação são estados separados. Provas precisam de evidência, recorrência deve ser explícita e cliques não equivalem a conversão. `ServiceCTA` liga artigos a IDs publicados e compartilha o limite de um CTA principal com `ArticleCTA`. O guia permanente é `docs/architecture/service-landing-pages.md`; a prévia fictícia permanece restrita ao desenvolvimento, e a primeira oferta publicada é o portfólio para fotógrafos.
+
 ## 2026-08-19 — Ideias como arquivo público versionado
 
 Motivo:

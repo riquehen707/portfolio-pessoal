@@ -1,0 +1,481 @@
+.realEstate {
+  --estate-ink: #12231f;
+  --estate-green: #23483f;
+  --estate-accent: #d76b45;
+  --estate-sand: #f3eee5;
+  --estate-rule: rgba(35, 72, 63, 0.22);
+
+  [id="inicio"] {
+    align-items: center;
+    background: var(--estate-sand);
+    border: 1px solid var(--estate-rule);
+    border-radius: 0.75rem;
+    color: var(--estate-ink);
+    padding: clamp(1.5rem, 4vw, 3rem);
+  }
+
+  [id="inicio"] h1 {
+    color: var(--estate-ink);
+    font-family: Georgia, serif;
+    font-size: clamp(2.65rem, 6vw, 5.5rem);
+    font-weight: 400;
+    letter-spacing: -0.055em;
+    line-height: 0.98;
+  }
+
+  [id="inicio"] p {
+    color: rgba(18, 35, 31, 0.82);
+  }
+
+  [id="inicio"] a {
+    background: var(--estate-green);
+    border-color: var(--estate-green);
+    color: #fff;
+  }
+
+  [data-section-type="problem"],
+  [data-section-type="solution"] {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(2rem, 7vw, 6rem);
+  }
+
+  [data-section-type="problem"] h2,
+  [data-section-type="solution"] h2 {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.035em;
+  }
+
+  [data-section-type="benefits"] ul,
+  [data-section-type="deliverables"] ul {
+    gap: 1rem;
+  }
+
+  [data-section-type="benefits"] li,
+  [data-section-type="deliverables"] li {
+    border-top: 2px solid var(--estate-rule);
+    padding-top: 1.1rem;
+  }
+
+  [data-section-type="process"] ol {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+  }
+
+  [data-section-type="pricing"] {
+    background: var(--estate-green);
+    border-radius: 0.75rem;
+    color: #fff;
+    padding: clamp(1.5rem, 4vw, 3rem);
+  }
+
+  [data-section-type="pricing"] h2,
+  [data-section-type="pricing"] p,
+  [data-section-type="pricing"] dt,
+  [data-section-type="pricing"] dd {
+    color: #fff;
+  }
+
+  [data-section-type="pricing"] dl {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  [data-section-type="pricing"] dl > div {
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
+  [data-section-type="pricing"] dd strong {
+    display: block;
+    font-family: Georgia, serif;
+    font-size: clamp(2.6rem, 5vw, 4rem);
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+  }
+
+  [data-section-type="pricing"] a {
+    background: var(--estate-accent);
+    border-color: var(--estate-accent);
+    color: #fff;
+  }
+}
+
+.demo {
+  margin: 0;
+  min-width: 0;
+}
+
+.browserBar {
+  align-items: center;
+  background: #10221e;
+  border-radius: 0.65rem 0.65rem 0 0;
+  color: rgba(255, 255, 255, 0.68);
+  display: flex;
+  font-size: 0.58rem;
+  justify-content: space-between;
+  letter-spacing: 0.14em;
+  padding: 0.75rem 1rem;
+}
+
+.browserBar > span:first-child {
+  color: #e28a68;
+  font-size: 0.45rem;
+  letter-spacing: 0.2em;
+}
+
+.previewBody {
+  background: #fffdf8;
+  border: 1px solid var(--estate-rule);
+  border-radius: 0 0 0.65rem 0.65rem;
+  border-top: 0;
+  color: var(--estate-ink);
+  padding: clamp(0.85rem, 3vw, 2rem);
+}
+
+.previewNav {
+  align-items: flex-start;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
+
+.previewNav strong {
+  font: 600 0.75rem/1.1 var(--font-body);
+  letter-spacing: 0.12em;
+}
+
+.previewNav strong span {
+  color: rgba(18, 35, 31, 0.65);
+  display: block;
+  font-size: 0.48rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-top: 0.3rem;
+}
+
+.previewNav > span {
+  color: rgba(18, 35, 31, 0.64);
+  font-size: 0.58rem;
+}
+
+.featuredProperty {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(170px, 0.65fr);
+  min-height: 280px;
+}
+
+.featuredProperty > img {
+  display: block;
+  height: 100%;
+  max-height: 460px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.featuredCopy {
+  align-items: flex-start;
+  background: var(--estate-green);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1rem, 3vw, 2.2rem);
+}
+
+.featuredCopy strong {
+  color: #fff;
+  font: 400 clamp(1.45rem, 3vw, 2.5rem)/1.05 Georgia, serif;
+  letter-spacing: -0.035em;
+  margin-top: 1rem;
+}
+
+.featuredCopy p {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.propertyTag {
+  color: #efb69f;
+  font-size: 0.55rem;
+  letter-spacing: 0.13em;
+}
+
+.mockButton,
+.profileAction {
+  background: var(--estate-accent);
+  border-radius: 999px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 0.66rem;
+  font-weight: 700;
+  margin-top: 0.75rem;
+  padding: 0.75rem 0.95rem;
+}
+
+.compact .previewBody {
+  padding: 0.8rem;
+}
+
+.compact .featuredProperty {
+  grid-template-columns: 1.1fr 0.9fr;
+  min-height: 330px;
+}
+
+.compact .featuredProperty > img {
+  max-height: none;
+}
+
+.previewHeading {
+  align-items: flex-end;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  padding: clamp(2rem, 5vw, 4rem) 0 1.2rem;
+}
+
+.previewHeading span,
+.profilePreview div > span,
+.contactPreview div > span {
+  color: var(--estate-accent);
+  display: block;
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  margin-bottom: 0.55rem;
+}
+
+.previewHeading strong,
+.profilePreview div > strong,
+.contactPreview div > strong {
+  color: var(--estate-ink);
+  display: block;
+  font: 400 clamp(1.45rem, 3vw, 2.3rem)/1.1 Georgia, serif;
+  letter-spacing: -0.03em;
+}
+
+.previewHeading p {
+  color: rgba(18, 35, 31, 0.68);
+  font-size: 0.76rem;
+  max-width: 18rem;
+}
+
+.propertyGrid {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.propertyCard {
+  background: #f4efe7;
+  min-width: 0;
+}
+
+.propertyCard img {
+  aspect-ratio: 4 / 3;
+  display: block;
+  object-fit: cover;
+  width: 100%;
+}
+
+.propertyCard > div {
+  padding: 0.9rem;
+}
+
+.propertyCard span {
+  color: var(--estate-accent);
+  display: block;
+  font-size: 0.54rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.propertyCard strong {
+  color: var(--estate-ink);
+  display: block;
+  font: 400 1.05rem/1.15 Georgia, serif;
+  margin-top: 0.5rem;
+}
+
+.propertyCard p,
+.profilePreview p,
+.contactPreview p {
+  color: rgba(18, 35, 31, 0.68);
+  font-size: 0.7rem;
+  line-height: 1.45;
+  margin-bottom: 0;
+}
+
+.profilePreview {
+  align-items: center;
+  border-bottom: 1px solid var(--estate-rule);
+  border-top: 1px solid var(--estate-rule);
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: auto 1fr auto;
+  margin-top: clamp(2rem, 5vw, 4rem);
+  padding: 1.5rem 0;
+}
+
+.avatar {
+  align-items: center;
+  background: var(--estate-sand);
+  border-radius: 50%;
+  color: var(--estate-green);
+  display: flex;
+  font: 400 1.35rem/1 Georgia, serif;
+  height: 4.6rem;
+  justify-content: center;
+  width: 4.6rem;
+}
+
+.profileAction {
+  background: transparent;
+  border: 1px solid var(--estate-green);
+  color: var(--estate-green);
+  margin: 0;
+}
+
+.contactPreview {
+  background: var(--estate-sand);
+  display: grid;
+  gap: clamp(1.5rem, 5vw, 4rem);
+  grid-template-columns: 1fr 1fr;
+  margin-top: 2rem;
+  padding: clamp(1.2rem, 4vw, 3rem);
+}
+
+.mockForm {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.mockForm span {
+  border-bottom: 1px solid var(--estate-rule);
+  color: rgba(18, 35, 31, 0.6) !important;
+  font-size: 0.68rem !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+  padding: 0.7rem 0;
+}
+
+.mockForm strong {
+  background: var(--estate-green);
+  color: #fff;
+  font-size: 0.68rem;
+  margin-top: 0.35rem;
+  padding: 0.85rem;
+  text-align: center;
+}
+
+.demo > figcaption {
+  color: var(--neutral-on-background-medium);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  margin-top: 0.8rem;
+}
+
+.fullDemo {
+  margin-top: 1.7rem;
+}
+
+.credits {
+  color: var(--neutral-on-background-medium);
+  font-size: 0.8rem;
+  margin-top: 1rem;
+}
+
+.credits summary {
+  cursor: pointer;
+  min-height: 44px;
+  padding-block: 0.75rem;
+}
+
+.credits a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.credits li {
+  padding-block: 0.3rem;
+}
+
+@media (max-width: 720px) {
+  .realEstate {
+    [id="inicio"],
+    [data-section-type="problem"],
+    [data-section-type="solution"] {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    [data-section-type="process"] ol {
+      display: block;
+    }
+
+    [data-section-type="pricing"] dl {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+  }
+
+  .previewNav > span {
+    display: none;
+  }
+
+  .compact .featuredProperty,
+  .featuredProperty {
+    grid-template-columns: 1fr;
+  }
+
+  .compact .featuredProperty {
+    min-height: 0;
+  }
+
+  .compact .featuredProperty > img {
+    aspect-ratio: 16 / 10;
+    max-height: 240px;
+  }
+
+  .featuredProperty > img {
+    aspect-ratio: 16 / 10;
+    max-height: 280px;
+  }
+
+  .previewHeading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .propertyGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .propertyCard {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+
+  .propertyCard img {
+    height: 100%;
+  }
+
+  .profilePreview {
+    align-items: flex-start;
+    grid-template-columns: auto 1fr;
+  }
+
+  .profileAction {
+    grid-column: 1 / -1;
+    justify-content: center;
+  }
+
+  .contactPreview {
+    grid-template-columns: 1fr;
+  }
+}

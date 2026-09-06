@@ -4,6 +4,11 @@ import { washerDryerOffers, washerDryerProducts, washerDryerVariants } from "./w
 import { blenderOffers, blenderProducts, blenderVariants } from "./blenders";
 import { standMixerOffers, standMixerProducts, standMixerVariants } from "./standMixers";
 import { confectioneryEssentialOffers, confectioneryEssentialProducts, confectioneryEssentialVariants } from "./confectioneryEssentials";
+import { pcComponentOffers, pcComponentProducts, pcComponentVariants } from "./pcComponents";
+import { cameraOffers, cameraProducts, cameraVariants } from "./cameras";
+import { studyWorkspaceOffers, studyWorkspaceProducts, studyWorkspaceVariants } from "./studyWorkspaceProducts";
+import { homeCleaningOffers, homeCleaningProducts, homeCleaningVariants } from "./homeCleaningProducts";
+import { audiovisualOffers, audiovisualProducts, audiovisualVariants } from "./audiovisualProducts";
 
 const articleSlug = "melhores-celulares-ate-1500";
 const motoG86ArticleSlug = "moto-g86-vale-a-pena";
@@ -15,6 +20,11 @@ const smartphone = (data: Omit<Extract<ProductVariant["specifications"],{type:"s
 const television = (data: Omit<Extract<ProductVariant["specifications"],{type:"television"}>,"type">):ProductVariant["specifications"] => ({type:"television",...data});
 
 const products:Product[]=[
+  ...audiovisualProducts,
+  ...homeCleaningProducts,
+  ...studyWorkspaceProducts,
+  ...cameraProducts,
+  ...pcComponentProducts,
   ...confectioneryEssentialProducts,
   ...standMixerProducts,
   ...blenderProducts,
@@ -32,6 +42,11 @@ const products:Product[]=[
 ];
 
 const variants:ProductVariant[]=[
+  ...audiovisualVariants,
+  ...homeCleaningVariants,
+  ...studyWorkspaceVariants,
+  ...cameraVariants,
+  ...pcComponentVariants,
   ...confectioneryEssentialVariants,
   ...standMixerVariants,
   ...blenderVariants,
@@ -43,12 +58,18 @@ const variants:ProductVariant[]=[
   {id:"prod_variant_samsung_galaxy_a17_5g_4_128_br",productId:"prod_samsung_galaxy_a17_5g",name:"4 GB + 128 GB (Brasil)",market:"BR",manufacturerModelNumber:"SM-A176B",distinguishingAttributes:{ram:"4 GB",storage:"128 GB",color:"Azul claro"},specifications:smartphone({processor:"Samsung Exynos 1330, octa-core até 2,4 GHz",ramGb:4,storageGb:128,display:{technology:"Super AMOLED",sizeInches:6.7,resolution:"2340 × 1080",refreshRateHz:90},batteryMah:5000,chargingWatts:25,rearCameras:{main:"50 MP com OIS",ultrawide:"5 MP",additional:["Macro de 2 MP"]},frontCamera:"13 MP",video:"1080p a 30 fps",connectivity:["5G","4G","Wi-Fi 5","Bluetooth 5.3","USB-C"],nfc:true,fiveG:true,waterResistance:"IP54",operatingSystemAtLaunch:"Android 15 com One UI 7",updatePolicy:"Seis atualizações de sistema e seis anos de segurança",dimensionsMm:{height:164.4,width:77.9,depth:7.5},weightGrams:192}),imageIds:[],sources:[{title:"Samsung Brasil — Galaxy A17 5G 128 GB",url:"https://www.samsung.com/br/smartphones/galaxy-a/galaxy-a17-5g-blue-128gb-sm-a176bzbozto/",accessedAt:reviewedAt}],status:"published",createdAt:reviewedAt,updatedAt:reviewedAt,reviewedAt},
   {id:"prod_variant_xiaomi_redmi_note_14_4g_8_256_br",productId:"prod_xiaomi_redmi_note_14_4g",name:"8 GB + 256 GB (Brasil)",market:"BR",manufacturerModelNumber:"24094RAD4G",distinguishingAttributes:{ram:"8 GB",storage:"256 GB"},specifications:smartphone({processor:"MediaTek Helio G99-Ultra",ramGb:8,storageGb:256,display:{technology:"AMOLED",sizeInches:6.67,resolution:"2400 × 1080",refreshRateHz:120},batteryMah:5500,chargingWatts:33,rearCameras:{main:"108 MP",additional:["Profundidade de 2 MP","Macro de 2 MP"]},frontCamera:"20 MP",video:"1080p a 60 fps na câmera traseira",connectivity:["4G","Wi-Fi 5","Bluetooth 5.3","USB-C","Conector de 3,5 mm"],nfc:true,fiveG:false,waterResistance:"IP54",operatingSystemAtLaunch:"Xiaomi HyperOS baseado em Android",dimensionsMm:{height:163.25,width:76.55,depth:8.16},weightGrams:196.5}),imageIds:[],sources:[{title:"Xiaomi Brasil — especificações do Redmi Note 14",url:"https://www.mi.com/br/product/redmi-note-14/specs/",accessedAt:reviewedAt}],status:"published",createdAt:reviewedAt,updatedAt:reviewedAt,reviewedAt},
   {id:"prod_variant_tcl_p7k_50_br",productId:"prod_tcl_p7k",name:"50 polegadas (50P7K)",market:"BR",manufacturerModelNumber:"50P7K",distinguishingAttributes:{screenSize:"50 polegadas"},specifications:television({screenSizeInches:50,availableSizesInches:[43,50,55,65,75,85],panelTechnology:"QLED LCD HVA com iluminação LED",resolution:"4K (3840 × 2160)",nativeRefreshRateHz:60,hdrFormats:["Dolby Vision","HDR10+","HDR10","HLG"],operatingSystem:"Google TV",hdmiPorts:3,earc:true,vrr:true,allm:true,wifi:"Wi-Fi",bluetooth:"Bluetooth",assistants:["Google Assistente"],gamingFeatures:["Game Master","Game Bar","Game Accelerator 120 Hz por software"],audio:"Dolby Atmos e DTS Virtual:X"}),imageIds:[],sources:[{title:"TCL P7K — página oficial",url:"https://www.tcl.com/br/pt/tvs/p7k",accessedAt:reviewedAt}],status:"published",createdAt:reviewedAt,updatedAt:reviewedAt,reviewedAt},
+  {id:"prod_variant_tcl_p7k_55_br",productId:"prod_tcl_p7k",name:"55 polegadas (55P7K)",market:"BR",manufacturerModelNumber:"55P7K",distinguishingAttributes:{screenSize:"55 polegadas"},specifications:television({screenSizeInches:55,availableSizesInches:[43,50,55,65,75,85],panelTechnology:"QLED LCD HVA com iluminação LED",resolution:"4K (3840 × 2160)",nativeRefreshRateHz:60,hdrFormats:["Dolby Vision","HDR10+","HDR10","HLG"],operatingSystem:"Google TV",hdmiPorts:3,earc:true,vrr:true,allm:true,wifi:"Wi-Fi",bluetooth:"Bluetooth",assistants:["Google Assistente"],gamingFeatures:["Game Master","Game Bar","Game Accelerator por software"],audio:"Dolby Atmos e DTS Virtual:X"}),imageIds:[],sources:[{title:"TCL P7K — página oficial",url:"https://www.tcl.com/br/pt/tvs/p7k",accessedAt:"2026-09-05"}],status:"published",createdAt:"2026-09-05",updatedAt:"2026-09-05",reviewedAt:"2026-09-05"},
   {id:"prod_variant_samsung_u8100f_55_br",productId:"prod_samsung_u8100f",name:"55 polegadas (UN55U8100FGXZD)",market:"BR",manufacturerModelNumber:"UN55U8100FGXZD",distinguishingAttributes:{screenSize:"55 polegadas"},specifications:television({screenSizeInches:55,availableSizesInches:[43,50,55,58,65,70,75,85],panelTechnology:"LCD LED Crystal UHD",resolution:"4K (3840 × 2160)",nativeRefreshRateHz:60,hdrFormats:["HDR10+","HDR10","HLG"],operatingSystem:"Tizen",hdmiPorts:3,hdmi21Ports:0,earc:true,vrr:true,allm:true,wifi:"Wi-Fi 5",bluetooth:"Bluetooth 5.2",assistants:["Bixby","Alexa por dispositivo separado"],gamingFeatures:["Gaming Hub","HGiG","Motion Xcelerator"],audio:"20 W, 2 canais, Som Adaptativo e Q-Symphony",dimensionsMm:{width:1234.1,height:758,depth:237,includesStand:true},weightKg:11.9}),imageIds:[],sources:[{title:"Samsung U8100F 55 — especificações oficiais",url:"https://www.samsung.com/br/tvs/uhd-4k-tv/u8000f-55-inch-crystal-uhd-4k-smart-tv-un55u8100fgxzd/",accessedAt:reviewedAt}],status:"published",createdAt:reviewedAt,updatedAt:reviewedAt,reviewedAt},
   {id:"prod_variant_tcl_c6k_55_br",productId:"prod_tcl_c6k",name:"55 polegadas (55C6K)",market:"BR",manufacturerModelNumber:"55C6K",distinguishingAttributes:{screenSize:"55 polegadas",panel:"HVA"},specifications:television({screenSizeInches:55,availableSizesInches:[55,65,75,85,98],panelTechnology:"QD-Mini LED com painel HVA",resolution:"4K (3840 × 2160)",nativeRefreshRateHz:144,hdrFormats:["Dolby Vision IQ","HDR10+","HDR10","HLG"],operatingSystem:"Google TV",hdmiPorts:4,earc:true,vrr:true,allm:true,wifi:"Wi-Fi",bluetooth:"Bluetooth",assistants:["Google Assistente"],gamingFeatures:["144 Hz VRR","FreeSync Premium Pro","Game Master","Game Bar"],audio:"Sistema Onkyo 2.1 com subwoofer integrado"}),imageIds:[],sources:[{title:"TCL C6K — página oficial",url:"https://www.tcl.com/br/pt/tvs/c6k",accessedAt:reviewedAt}],status:"published",createdAt:reviewedAt,updatedAt:reviewedAt,reviewedAt},
   {id:"prod_variant_lg_oled_c5_55_br",productId:"prod_lg_oled_c5",name:"55 polegadas (OLED55C5PSA)",market:"BR",manufacturerModelNumber:"OLED55C5PSA",gtin:"7893299959677",distinguishingAttributes:{screenSize:"55 polegadas"},specifications:television({screenSizeInches:55,availableSizesInches:[42,48,55,65,77,83],panelTechnology:"OLED evo com pixels autoiluminados",resolution:"4K (3840 × 2160)",nativeRefreshRateHz:120,hdrFormats:["Dolby Vision","HDR10","HLG"],operatingSystem:"webOS 25",hdmiPorts:4,hdmi21Ports:4,earc:true,vrr:true,allm:true,wifi:"Wi-Fi",bluetooth:"Bluetooth",assistants:["LG ThinQ","Google Home","Alexa"],gamingFeatures:["VRR até 144 Hz","G-Sync","FreeSync","HGiG","Dolby Vision Gaming 4K 120 Hz"],audio:"40 W, 2.2 canais, Dolby Atmos",dimensionsMm:{width:1222,height:757,depth:230,includesStand:true},weightKg:16,warranty:"12 meses"}),imageIds:[],sources:[{title:"LG OLED evo C5 55 — especificações oficiais",url:"https://www.lg.com/br/tvs-e-soundbars/oled-evo/oled55c5psa/",accessedAt:reviewedAt}],status:"published",createdAt:reviewedAt,updatedAt:reviewedAt,reviewedAt},
 ];
 
 export const productCatalog=ProductCatalogSchema.parse({products,variants,offers:[
+  ...audiovisualOffers,
+  ...homeCleaningOffers,
+  ...studyWorkspaceOffers,
+  ...cameraOffers,
+  ...pcComponentOffers,
   ...confectioneryEssentialOffers,
   ...standMixerOffers,
   ...blenderOffers,
@@ -61,6 +82,7 @@ export const productCatalog=ProductCatalogSchema.parse({products,variants,offers
   {id:"prod_offer_amazon_samsung_galaxy_a17_5g_4_128",variantId:"prod_variant_samsung_galaxy_a17_5g_4_128_br",retailer:"Amazon Brasil",url:"https://www.amazon.com.br/dp/B0FPPQ5T37",region:"BR",observedPrice:{amount:1259.10,currency:"BRL"},availability:"available",checkedAt:"2026-08-08"},
   {id:"prod_offer_amazon_xiaomi_redmi_note_14_4g_8_256",variantId:"prod_variant_xiaomi_redmi_note_14_4g_8_256_br",retailer:"Amazon Brasil",url:"https://www.amazon.com.br/dp/B0DT5LHPMX",region:"BR",observedPrice:{amount:1178,currency:"BRL"},availability:"available",checkedAt:reviewedAt},
   {id:"prod_offer_amazon_tcl_p7k_50",variantId:"prod_variant_tcl_p7k_50_br",retailer:"Amazon Brasil",url:"https://www.amazon.com.br/dp/B0F1H26GFQ",region:"BR",observedPrice:{amount:2099,currency:"BRL"},availability:"available",checkedAt:reviewedAt},
+  {id:"prod_offer_tcl_p7k_55_reference",variantId:"prod_variant_tcl_p7k_55_br",retailer:"Varejo brasileiro",url:"https://www.tcl.com/br/pt/tvs/p7k",region:"BR",observedPrice:{amount:2499,currency:"BRL"},availability:"available",checkedAt:"2026-09-05"},
   {id:"prod_offer_amazon_samsung_u8100f_55",variantId:"prod_variant_samsung_u8100f_55_br",retailer:"Amazon Brasil",url:"https://www.amazon.com.br/dp/B0FSX4WVCD",region:"BR",availability:"unknown",checkedAt:reviewedAt},
   {id:"prod_offer_amazon_tcl_c6k_55",variantId:"prod_variant_tcl_c6k_55_br",retailer:"Amazon Brasil",url:"https://www.amazon.com.br/dp/B0F7JZMVKF",region:"BR",observedPrice:{amount:3499,currency:"BRL"},availability:"available",checkedAt:reviewedAt},
   {id:"prod_offer_lg_oled_c5_55",variantId:"prod_variant_lg_oled_c5_55_br",retailer:"LG Brasil",url:"https://www.lg.com/br/tvs-e-soundbars/oled-evo/oled55c5psa/",region:"BR",observedPrice:{amount:5490,currency:"BRL"},availability:"unknown",checkedAt:"2026-08-11"},

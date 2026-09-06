@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { getPublishedServiceLandings } from "@/data/service-landings";
 
 import { baseURL, blog, routes as routesConfig } from "@/resources";
 import { getAllArticles } from "@/data/articles";
@@ -87,6 +88,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }));
 
   return [
+    ...getPublishedServiceLandings().filter((landing) => landing.seo.index).map((landing) => ({
+      url: `${baseURL}/servicos/${landing.slug}`,
+      lastModified: landing.updatedAt,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
     ...routes,
     {
       url: `${baseURL}/rss.xml`,

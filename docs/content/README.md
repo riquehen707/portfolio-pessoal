@@ -20,6 +20,7 @@ Não documente como disponível algo que o schema ou o mapeamento MDX não aceit
 ## Leitura por tarefa
 
 - Escrever ou adaptar texto: [`voz-e-estilo.md`](01-fundamentos/voz-e-estilo.md).
+- Conectar artigo a uma oferta com `ServiceCTA`: [`service-landing-pages.md`](../architecture/service-landing-pages.md). Landing pages possuem arquitetura comercial própria.
 - Escolher abordagem: [`linhas-editoriais.md`](02-arquitetura/linhas-editoriais.md).
 - Preencher frontmatter: [`taxonomia.md`](02-arquitetura/taxonomia.md).
 - Receber um texto bruto: [`entrada-artigo-matriz.md`](03-producao/entrada-artigo-matriz.md).

@@ -3664,6 +3664,286 @@
       "updatedAt": "2026-08-24"
     },
     {
+      "id": "read_work_nineteen_eighty_four",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "1984-george-orwell",
+      "aliases": [],
+      "originalTitle": "Nineteen Eighty-Four",
+      "titleBr": "1984",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Reino Unido"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_george_orwell",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1949",
+      "publicationEnd": "1949",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "non-fiction"
+      ],
+      "genres": [
+        "Filosofia",
+        "Teoria social"
+      ],
+      "themes": [
+        "Totalitarismo",
+        "Vigilância",
+        "Linguagem",
+        "Memória",
+        "Verdade"
+      ],
+      "concepts": [
+        "Totalitarismo",
+        "Vigilância",
+        "Linguagem",
+        "Memória",
+        "Verdade"
+      ],
+      "readingDifficulty": "introductory",
+      "featuredEditionId": "read_edition_nineteen_eighty_four_companhia",
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "O romance acompanha Winston Smith numa sociedade em que vigilância, reescrita do passado e controle da linguagem sustentam o poder do Partido.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "1984 — fonte editorial",
+          "url": "https://www.companhiadasletras.com.br/livro/9788582851197/1984"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-04",
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "read_work_groundwork_morals",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "fundamentacao-da-metafisica-dos-costumes",
+      "aliases": [],
+      "originalTitle": "Grundlegung zur Metaphysik der Sitten",
+      "titleBr": "Fundamentação da Metafísica dos Costumes",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_immanuel_kant",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1785",
+      "publicationEnd": "1785",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "non-fiction"
+      ],
+      "genres": [
+        "Filosofia",
+        "Teoria social"
+      ],
+      "themes": [
+        "Dever",
+        "Autonomia",
+        "Boa vontade",
+        "Imperativo categórico",
+        "Dignidade"
+      ],
+      "concepts": [
+        "Dever",
+        "Autonomia",
+        "Boa vontade",
+        "Imperativo categórico",
+        "Dignidade"
+      ],
+      "readingDifficulty": "advanced",
+      "featuredEditionId": "read_edition_groundwork_edicoes_70",
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Kant procura o princípio racional da moralidade e distingue agir por dever de apenas agir de acordo com o dever.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Fundamentação da Metafísica dos Costumes — fonte editorial",
+          "url": "https://altabooks.com.br/produto/fundamentacao-da-metafisica-dos-costumes/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-04",
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "read_work_utilitarianism_mill",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "o-utilitarismo-john-stuart-mill",
+      "aliases": [],
+      "originalTitle": "Utilitarianism",
+      "titleBr": "O Utilitarismo",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Reino Unido"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_john_stuart_mill",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1861",
+      "publicationEnd": "1861",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "non-fiction"
+      ],
+      "genres": [
+        "Filosofia",
+        "Teoria social"
+      ],
+      "themes": [
+        "Utilidade",
+        "Consequências",
+        "Felicidade",
+        "Prazeres",
+        "Justiça"
+      ],
+      "concepts": [
+        "Utilidade",
+        "Consequências",
+        "Felicidade",
+        "Prazeres",
+        "Justiça"
+      ],
+      "readingDifficulty": "intermediate",
+      "featuredEditionId": "read_edition_utilitarianism_iluminuras",
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Mill defende e qualifica o princípio da maior felicidade, discutindo prazeres, sanções morais e a relação entre utilidade e justiça.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "O Utilitarismo — fonte editorial",
+          "url": "https://www.iluminuras.com.br/utilitarismo-o"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-04",
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "read_work_capitalist_realism",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "realismo-capitalista",
+      "aliases": [],
+      "originalTitle": "Capitalist Realism: Is There No Alternative?",
+      "titleBr": "Realismo Capitalista",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Reino Unido"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_mark_fisher",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2009",
+      "publicationEnd": "2009",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "non-fiction"
+      ],
+      "genres": [
+        "Filosofia",
+        "Teoria social"
+      ],
+      "themes": [
+        "Capitalismo",
+        "Ideologia",
+        "Trabalho",
+        "Cultura",
+        "Saúde mental"
+      ],
+      "concepts": [
+        "Capitalismo",
+        "Ideologia",
+        "Trabalho",
+        "Cultura",
+        "Saúde mental"
+      ],
+      "readingDifficulty": "intermediate",
+      "featuredEditionId": "read_edition_capitalist_realism_autonomia",
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Fisher investiga a sensação de que o capitalismo seria o único horizonte possível e relaciona essa atmosfera a trabalho, educação, cultura e sofrimento psíquico.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Realismo Capitalista — fonte editorial",
+          "url": "https://www.autonomialiteraria.com.br/realismo-capitalista"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-04",
+      "publishedAt": "2026-09-04",
+      "updatedAt": "2026-09-04"
+    },
+    {
       "id": "read_work_quintessential_quintuplets",
       "contentType": "reading-work",
       "schemaVersion": 1,
@@ -5558,6 +5838,183 @@
       "updatedAt": "2026-08-24"
     },
     {
+      "id": "read_work_being_and_time",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "ser-e-tempo",
+      "aliases": [],
+      "originalTitle": "Sein und Zeit",
+      "titleBr": "Ser e Tempo",
+      "workType": "treatise",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_martin_heidegger",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1927",
+      "publicationEnd": "1927",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy"
+      ],
+      "genres": [
+        "Filosofia"
+      ],
+      "themes": [
+        "Ser",
+        "Dasein",
+        "Ser-no-mundo",
+        "Temporalidade",
+        "Finitude"
+      ],
+      "concepts": [
+        "Ser",
+        "Dasein",
+        "Ser-no-mundo",
+        "Temporalidade",
+        "Finitude"
+      ],
+      "readingDifficulty": "advanced",
+      "featuredEditionId": "read_edition_being_and_time_vozes",
+      "relatedArticlePaths": [
+        "/blog/martin-heidegger",
+        "/blog/dasein-heidegger",
+        "/blog/angustia-em-heidegger",
+        "/blog/ser-para-a-morte-heidegger"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Heidegger retoma a pergunta pelo sentido do ser por meio de uma analítica do Dasein, articulando mundo, cuidado, angústia, morte e temporalidade em um projeto que permaneceu inacabado.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/heidegger/ser-e-tempo.jpg",
+        "alt": "Capa da edição alemã de 1927 de Ser e Tempo",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Being_and_Time_(German_edition).jpg",
+        "credit": "Max Niemeyer Verlag; reprodução histórica",
+        "rights": "public-domain",
+        "width": 200,
+        "height": 325
+      },
+      "sources": [
+        {
+          "title": "Sein und Zeit — catálogo bibliográfico",
+          "url": "https://openlibrary.org/search?q=Sein%20und%20Zeit&author=Martin%20Heidegger"
+        },
+        {
+          "title": "Contexto filosófico — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/heidegger/"
+        },
+        {
+          "title": "Martin Heidegger — Editora Vozes",
+          "url": "https://www.vozes.com.br/autor/25285/martin-heidegger"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_work_ego_and_id",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "o-eu-e-o-id",
+      "aliases": [],
+      "originalTitle": "Das Ich und das Es",
+      "titleBr": "O Eu e o Id",
+      "workType": "essay",
+      "format": "book",
+      "originCountries": [
+        "Áustria"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_sigmund_freud",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1923",
+      "publicationEnd": "1923",
+      "publicationStatus": "completed",
+      "categories": [
+        "non-fiction"
+      ],
+      "genres": [
+        "Psicanálise"
+      ],
+      "themes": [
+        "Id",
+        "Eu",
+        "Super-eu",
+        "Inconsciente",
+        "Aparelho psíquico"
+      ],
+      "concepts": [
+        "Id",
+        "Eu",
+        "Super-eu",
+        "Inconsciente",
+        "Aparelho psíquico"
+      ],
+      "readingDifficulty": "advanced",
+      "featuredEditionId": "read_edition_ego_and_id_companhia",
+      "relatedArticlePaths": [
+        "/blog/id-ego-e-superego"
+      ],
+      "relatedPeople": [],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Freud reformula o aparelho psíquico ao distinguir id, eu e super-eu sem identificá-los simplesmente ao inconsciente, consciente e consciência moral.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "image": {
+        "src": "/images/reading/freud/o-eu-e-o-id.jpg",
+        "alt": "Capa de O Eu e o Id no volume 16 das Obras Completas de Freud",
+        "sourceUrl": "https://www.companhiadasletras.com.br/livro/9788535918724/freud-1923-1925-obras-completas-volume-16",
+        "credit": "Companhia das Letras",
+        "rights": "licensed",
+        "width": 310,
+        "height": 500
+      },
+      "sources": [
+        {
+          "title": "Freud 1923–1925 — Obras Completas volume 16",
+          "url": "https://www.companhiadasletras.com.br/livro/9788535918724/freud-1923-1925-obras-completas-volume-16"
+        },
+        {
+          "title": "Sigmund Freud",
+          "url": "https://iep.utm.edu/freud/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
       "id": "read_work_origins_totalitarianism",
       "contentType": "reading-work",
       "schemaVersion": 1,
@@ -7206,8 +7663,9 @@
           "url": "https://global.oup.com/academic/product/think-9780192854254"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
       "updatedAt": "2026-08-27"
     },
     {
@@ -7288,8 +7746,9 @@
           "url": "https://hackettpublishing.com/philosophy/a-rulebook-for-arguments-group"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
       "updatedAt": "2026-08-27"
     },
     {
@@ -7725,8 +8184,9 @@
           "url": "https://plato.stanford.edu/entries/aristotle-ethics/"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
       "updatedAt": "2026-08-27"
     },
     {
@@ -8064,8 +8524,9 @@
           "url": "https://plato.stanford.edu/entries/descartes/"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
       "updatedAt": "2026-08-27"
     },
     {
@@ -8147,8 +8608,9 @@
           "url": "https://plato.stanford.edu/entries/hume/"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
       "updatedAt": "2026-08-27"
     },
     {
@@ -8232,8 +8694,9 @@
           "url": "https://www.penguin.co.uk/books/177230/on-liberty-by-john-stuart-mill/9780141046945"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-08-27",
+      "publishedAt": "2026-08-27",
       "updatedAt": "2026-08-27"
     },
     {
@@ -8307,8 +8770,9 @@
           "url": "https://openlibrary.org/search?q=How%20Not%20to%20Be%20Wrong%3A%20The%20Power%20of%20Mathematical%20Thinking&author=jordan%20ellenberg"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -8384,8 +8848,9 @@
           "url": "https://openlibrary.org/search?q=The%20Art%20of%20Statistics%3A%20Learning%20from%20Data&author=david%20spiegelhalter"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -8459,8 +8924,9 @@
           "url": "https://openlibrary.org/search?q=The%20Demon-Haunted%20World%3A%20Science%20as%20a%20Candle%20in%20the%20Dark&author=carl%20sagan"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -8534,8 +9000,9 @@
           "url": "https://openlibrary.org/search?q=The%20Landscape%20of%20History%3A%20How%20Historians%20Map%20the%20Past&author=john%20lewis%20gaddis"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -8609,8 +9076,9 @@
           "url": "https://openlibrary.org/search?q=How%20to%20Read%20Literature&author=terry%20eagleton"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -8689,8 +9157,9 @@
           "url": "https://openlibrary.org/search?q=Style%3A%20Lessons%20in%20Clarity%20and%20Grace&author=joseph%20m%20williams"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -8777,8 +9246,9 @@
           "url": "https://openlibrary.org/search?q=The%20Economy%3A%20Economics%20for%20a%20Changing%20World&author=samuel%20bowles"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -8851,8 +9321,9 @@
           "url": "https://openlibrary.org/search?q=Economics%3A%20The%20User's%20Guide&author=ha%20joon%20chang"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -8927,8 +9398,9 @@
           "url": "https://openlibrary.org/search?q=The%20Undercover%20Economist&author=tim%20harford"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -9002,8 +9474,9 @@
           "url": "https://openlibrary.org/search?q=Money%3A%20The%20True%20Story%20of%20a%20Made-Up%20Thing&author=jacob%20goldstein"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -9076,8 +9549,9 @@
           "url": "https://openlibrary.org/search?q=The%20Return%20of%20Depression%20Economics%20and%20the%20Crisis%20of%202008&author=paul%20krugman"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -9156,8 +9630,9 @@
           "url": "https://openlibrary.org/search?q=Why%20Nations%20Fail&author=daron%20acemoglu"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -9232,8 +9707,9 @@
           "url": "https://openlibrary.org/search?q=The%20Great%20Transformation&author=karl%20polanyi"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -9306,8 +9782,9 @@
           "url": "https://openlibrary.org/search?q=Forma%C3%A7%C3%A3o%20Econ%C3%B4mica%20do%20Brasil&author=celso%20furtado"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -9388,8 +9865,9 @@
           "url": "https://openlibrary.org/search?q=Poor%20Economics&author=abhijit%20banerjee"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -9462,8 +9940,9 @@
           "url": "https://openlibrary.org/search?q=Capital%20in%20the%20Twenty-First%20Century&author=thomas%20piketty"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -9536,8 +10015,9 @@
           "url": "https://openlibrary.org/search?q=Globalization%20and%20Its%20Discontents&author=joseph%20stiglitz"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -9618,8 +10098,9 @@
           "url": "https://openlibrary.org/search?q=Manias%2C%20Panics%2C%20and%20Crashes&author=charles%20kindleberger"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -9698,8 +10179,9 @@
           "url": "https://openlibrary.org/search?q=This%20Time%20Is%20Different&author=carmen%20reinhart"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -9780,8 +10262,9 @@
           "url": "https://openlibrary.org/search?q=Good%20Economics%20for%20Hard%20Times&author=abhijit%20banerjee"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -9854,8 +10337,9 @@
           "url": "https://openlibrary.org/search?q=The%20Deficit%20Myth&author=stephanie%20kelton"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -9942,8 +10426,9 @@
           "url": "https://openlibrary.org/search?q=Psychology%202e&author=rose%20spielman"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -10018,8 +10503,9 @@
           "url": "https://openlibrary.org/search?q=Cognitive%20Psychology%3A%20Connecting%20Mind%2C%20Research%2C%20and%20Everyday%20Experience&author=e%20bruce%20goldstein"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -10093,8 +10579,9 @@
           "url": "https://openlibrary.org/search?q=The%20Seven%20Sins%20of%20Memory&author=daniel%20schacter"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -10168,8 +10655,9 @@
           "url": "https://openlibrary.org/search?q=The%20Man%20Who%20Mistook%20His%20Wife%20for%20a%20Hat&author=oliver%20sacks"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -10243,8 +10731,9 @@
           "url": "https://openlibrary.org/search?q=Thinking%2C%20Fast%20and%20Slow&author=daniel%20kahneman"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -10318,8 +10807,9 @@
           "url": "https://openlibrary.org/search?q=Influence%3A%20The%20Psychology%20of%20Persuasion&author=robert%20cialdini"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -10398,8 +10888,9 @@
           "url": "https://openlibrary.org/search?q=The%20Person%20and%20the%20Situation&author=lee%20ross"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -10472,8 +10963,9 @@
           "url": "https://openlibrary.org/search?q=The%20Personality%20Puzzle&author=david%20funder"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -10546,8 +11038,9 @@
           "url": "https://openlibrary.org/search?q=Development%20Through%20the%20Lifespan&author=laura%20berk"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -10621,8 +11114,9 @@
           "url": "https://openlibrary.org/search?q=The%20Emotional%20Brain&author=joseph%20ledoux"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -10698,8 +11192,9 @@
           "url": "https://openlibrary.org/search?q=Behave&author=robert%20sapolsky"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -10773,8 +11268,9 @@
           "url": "https://openlibrary.org/search?q=The%20Righteous%20Mind&author=jonathan%20haidt"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -10847,8 +11343,9 @@
           "url": "https://openlibrary.org/search?q=The%20WEIRDest%20People%20in%20the%20World&author=joseph%20henrich"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -10927,8 +11424,9 @@
           "url": "https://openlibrary.org/search?q=Mistakes%20Were%20Made%20(But%20Not%20by%20Me)&author=carol%20tavris"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -11004,8 +11502,9 @@
           "url": "https://openlibrary.org/search?q=The%20Social%20Animal&author=elliot%20aronson"
         }
       ],
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-09-02",
+      "publishedAt": "2026-09-02",
       "updatedAt": "2026-09-02"
     },
     {
@@ -19766,6 +20265,49 @@
   ],
   "editions": [
     {
+      "id": "read_edition_being_and_time_vozes",
+      "workId": "read_work_being_and_time",
+      "title": "Ser e Tempo",
+      "publisherId": "org_vozes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Ser e Tempo — edição brasileira",
+          "url": "https://www.vozes.com.br/autor/25285/martin-heidegger"
+        }
+      ],
+      "createdAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
+      "id": "read_edition_ego_and_id_companhia",
+      "workId": "read_work_ego_and_id",
+      "title": "Freud (1923–1925): O Eu e o Id e outros textos",
+      "publisherId": "org_companhia_das_letras",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2011-06-10",
+      "isbn13": "9788535918724",
+      "pageCount": 376,
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Freud (1923–1925): O Eu e o Id e outros textos — edição brasileira",
+          "url": "https://www.companhiadasletras.com.br/livro/9788535918724/freud-1923-1925-obras-completas-volume-16"
+        }
+      ],
+      "createdAt": "2026-08-27",
+      "updatedAt": "2026-08-27"
+    },
+    {
       "id": "read_edition_origins_totalitarianism_companhia",
       "workId": "read_work_origins_totalitarianism",
       "title": "Origens do Totalitarismo",
@@ -21252,6 +21794,130 @@
       ],
       "createdAt": "2026-08-24",
       "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_edition_nineteen_eighty_four_companhia",
+      "workId": "read_work_nineteen_eighty_four",
+      "title": "1984",
+      "publisherId": "org_companhia_das_letras",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "isbn13": "9788582851197",
+      "pageCount": 392,
+      "cover": {
+        "src": "/images/reading/social-thought/1984-companhia.jpg",
+        "alt": "Capa da edição brasileira de 1984 publicada pela Penguin-Companhia",
+        "sourceUrl": "https://covers.openlibrary.org/b/isbn/9788582851197-L.jpg",
+        "credit": "Penguin-Companhia; imagem de catálogo via Open Library",
+        "rights": "permission-pending",
+        "width": 325,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "1984 — edição brasileira",
+          "url": "https://www.companhiadasletras.com.br/livro/9788582851197/1984"
+        }
+      ],
+      "createdAt": "2026-09-04",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "read_edition_groundwork_edicoes_70",
+      "workId": "read_work_groundwork_morals",
+      "title": "Fundamentação da Metafísica dos Costumes",
+      "publisherId": "org_edicoes_70",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "isbn13": "9789724423838",
+      "pageCount": 128,
+      "cover": {
+        "src": "/images/reading/social-thought/fundamentacao-metafisica-costumes-edicoes70.jpg",
+        "alt": "Capa de Fundamentação da Metafísica dos Costumes, de Immanuel Kant",
+        "sourceUrl": "https://altabooks.com.br/wp-content/uploads/2024/09/9789724423838.jpg",
+        "credit": "Edições 70 / Grupo Alta Books",
+        "rights": "permission-pending",
+        "width": 493,
+        "height": 768
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Fundamentação da Metafísica dos Costumes — edição brasileira",
+          "url": "https://altabooks.com.br/produto/fundamentacao-da-metafisica-dos-costumes/"
+        }
+      ],
+      "createdAt": "2026-09-04",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "read_edition_utilitarianism_iluminuras",
+      "workId": "read_work_utilitarianism_mill",
+      "title": "O Utilitarismo",
+      "publisherId": "org_iluminuras",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "isbn13": "9786555190052",
+      "pageCount": 104,
+      "cover": {
+        "src": "/images/reading/social-thought/utilitarismo-iluminuras.jpg",
+        "alt": "Capa de O Utilitarismo, de John Stuart Mill, publicada pela Iluminuras",
+        "sourceUrl": "https://www.iluminuras.com.br/media/catalog/product/cache/1/image/600x600/9df78eab33525d08d6e5fb8d27136e95/9/7/9786555190052.jpg",
+        "credit": "Editora Iluminuras",
+        "rights": "permission-pending",
+        "width": 600,
+        "height": 600
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "O Utilitarismo — edição brasileira",
+          "url": "https://www.iluminuras.com.br/utilitarismo-o"
+        }
+      ],
+      "createdAt": "2026-09-04",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "read_edition_capitalist_realism_autonomia",
+      "workId": "read_work_capitalist_realism",
+      "title": "Realismo Capitalista",
+      "publisherId": "org_autonomia_literaria",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "isbn13": "9786587233093",
+      "pageCount": 218,
+      "cover": {
+        "src": "/images/reading/social-thought/realismo-capitalista-autonomia.jpg",
+        "alt": "Capa da edição brasileira de Realismo Capitalista, de Mark Fisher",
+        "sourceUrl": "https://covers.openlibrary.org/b/isbn/9786587233093-L.jpg",
+        "credit": "Autonomia Literária; imagem de catálogo via Open Library",
+        "rights": "permission-pending",
+        "width": 333,
+        "height": 500
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Realismo Capitalista — edição brasileira",
+          "url": "https://www.autonomialiteraria.com.br/realismo-capitalista"
+        }
+      ],
+      "createdAt": "2026-09-04",
+      "updatedAt": "2026-09-04"
     },
     {
       "id": "read_edition_burnout_society_vozes",

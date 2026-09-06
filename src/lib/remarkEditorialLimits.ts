@@ -29,6 +29,7 @@ const visualBlocks = new Set([
   "QuickSummary",
   "NextSteps",
   "ArticleCTA",
+  "ServiceCTA",
   "Figure",
   "Gallery",
   "BeforeAfter",
@@ -42,7 +43,7 @@ const remarkEditorialLimits: Plugin = () => (tree: any, file: any) => {
 
   visit(tree, ["mdxJsxFlowElement", "mdxJsxTextElement"], (node: any) => {
     if (editorialBlocks.has(node.name)) usedTypes.add(node.name);
-    if (node.name === "ArticleCTA") ctaCount += 1;
+    if (node.name === "ArticleCTA" || node.name === "ServiceCTA") ctaCount += 1;
   });
 
   if (usedTypes.size > 4) {

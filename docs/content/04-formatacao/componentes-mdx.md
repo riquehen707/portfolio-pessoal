@@ -135,6 +135,7 @@ Reservado a casos didáticos em que relações espaciais forem essenciais. Aceit
 - `RelatedArticles`: seleção editorial explícita; o sistema também calcula leituras relacionadas automaticamente.
 - `NextSteps`: sequência final e, opcionalmente, ação principal e secundária.
 - `ArticleCTA`: CTA comercial contextual e inline; no máximo um por artigo.
+- `ServiceCTA`: card contextual para landing publicada do novo catálogo. Recebe `serviceId`, `title`, `description` e `label` opcional; resolve URL pelo ID e rejeita serviço ausente/rascunho. No máximo um CTA principal somando `ServiceCTA` e `ArticleCTA`. Ver [contrato e exemplo](../../architecture/service-landing-pages.md#artigo-para-landing-servicecta).
 - `PillarBadge` e `CategoryBadge`: shortcodes de taxonomia; usar somente quando o texto realmente precisar de navegação contextual.
 
 ## Componentes indisponíveis

@@ -5409,12 +5409,32 @@
           "kind": "article"
         },
         {
-          "label": "O que é niilismo? De Nietzsche ao uso atual",
+          "label": "Niilismo: tipos, Nietzsche, Schopenhauer e perda de valores",
           "href": "/blog/o-que-e-niilismo",
           "kind": "article"
         },
         {
-          "label": "Amor fati: o que Nietzsche queria dizer",
+          "label": "Nietzsche era niilista? Diagnóstico e superação",
+          "href": "/blog/nietzsche-era-niilista",
+          "kind": "article"
+        },
+        {
+          "label": "Deus está morto: o que Nietzsche realmente quis dizer",
+          "href": "/blog/deus-esta-morto-nietzsche",
+          "kind": "article"
+        },
+        {
+          "label": "Ressentimento em Nietzsche e produção de valores",
+          "href": "/blog/ressentimento-em-nietzsche",
+          "kind": "article"
+        },
+        {
+          "label": "Além-do-homem em Nietzsche: significado e limites",
+          "href": "/blog/alem-do-homem-nietzsche",
+          "kind": "article"
+        },
+        {
+          "label": "Amor fati em Nietzsche: significado e por que não é resignação",
           "href": "/blog/amor-fati-significado-nietzsche",
           "kind": "article"
         },
@@ -5571,7 +5591,7 @@
           "kind": "article"
         },
         {
-          "label": "O que é arquétipo? De Carl Jung ao uso popular",
+          "label": "Arquétipos de Jung: teoria, limites e erros comuns",
           "href": "/blog/o-que-e-arquetipo",
           "kind": "article"
         }
@@ -8596,6 +8616,290 @@
       ],
       "createdAt": "2026-09-02",
       "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "person_george_orwell",
+      "slug": "george-orwell",
+      "name": "George Orwell",
+      "kind": "person",
+      "status": "draft",
+      "occupations": [
+        "Romancista",
+        "Ensaísta",
+        "Jornalista"
+      ],
+      "summary": "Escritor britânico cuja ficção e ensaios investigam linguagem política, autoritarismo, desigualdade e responsabilidade intelectual.",
+      "biography": [],
+      "themes": [
+        "Totalitarismo",
+        "Linguagem",
+        "Verdade",
+        "Desigualdade"
+      ],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "George Orwell — The Orwell Foundation",
+          "url": "https://www.orwellfoundation.com/the-orwell-foundation/orwell/",
+          "kind": "primary"
+        }
+      ],
+      "createdAt": "2026-09-04",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "person_immanuel_kant",
+      "slug": "immanuel-kant",
+      "name": "Immanuel Kant",
+      "kind": "person",
+      "status": "draft",
+      "occupations": [
+        "Filósofo",
+        "Professor"
+      ],
+      "summary": "Filósofo prussiano que transformou debates sobre conhecimento, moralidade, autonomia, estética e os limites da razão.",
+      "biography": [],
+      "themes": [
+        "Autonomia",
+        "Dever",
+        "Conhecimento",
+        "Razão"
+      ],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "Immanuel Kant — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/kant/",
+          "kind": "secondary"
+        }
+      ],
+      "createdAt": "2026-09-04",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "person_mark_fisher",
+      "slug": "mark-fisher",
+      "name": "Mark Fisher",
+      "kind": "person",
+      "status": "draft",
+      "occupations": [
+        "Crítico cultural",
+        "Autor",
+        "Professor"
+      ],
+      "summary": "Crítico cultural britânico que relacionou capitalismo, cultura popular, trabalho, educação e sofrimento psíquico.",
+      "biography": [],
+      "themes": [
+        "Realismo capitalista",
+        "Cultura",
+        "Trabalho",
+        "Saúde mental"
+      ],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "Mark Fisher — Goldsmiths, University of London",
+          "url": "https://www.gold.ac.uk/visual-cultures/mark-fisher/",
+          "kind": "primary"
+        }
+      ],
+      "createdAt": "2026-09-04",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "person_martin_heidegger",
+      "slug": "martin-heidegger",
+      "name": "Martin Heidegger",
+      "fullName": "Martin Heidegger",
+      "kind": "person",
+      "status": "published",
+      "profilePath": "/personalidades/martin-heidegger",
+      "birthDate": "1889-09-26",
+      "deathDate": "1976-05-26",
+      "birthPlace": "Messkirch, Alemanha",
+      "countryOrRegion": "Alemanha",
+      "occupations": [
+        "Filósofo",
+        "Professor"
+      ],
+      "summary": "Filósofo alemão que recolocou a questão do ser e transformou a fenomenologia; sua influência permanece inseparável do exame crítico de seu nazismo e antissemitismo.",
+      "biography": [
+        "Formado entre teologia e filosofia, Heidegger trabalhou com Edmund Husserl e publicou Ser e Tempo em 1927. A obra investiga a questão do ser por meio da analítica do Dasein e marcou fenomenologia, hermenêutica e existencialismo, embora o projeto anunciado tenha ficado inacabado.",
+        "Em 1933, filiou-se ao Partido Nazista e assumiu a reitoria da Universidade de Freiburg. Seus discursos, sua atuação e a posterior publicação dos Cadernos Negros documentam compromissos políticos e passagens antissemitas que impedem tratar o episódio como simples erro breve.",
+        "Depois de Ser e Tempo, deslocou o vocabulário para história do ser, verdade, linguagem, arte e técnica. A chamada Kehre pode ser lida como virada ou reorientação, e sua continuidade com a obra inicial permanece debatida."
+      ],
+      "themes": [
+        "Questão do ser",
+        "Fenomenologia",
+        "Dasein",
+        "Temporalidade",
+        "Técnica",
+        "Filosofia e política"
+      ],
+      "ideas": [
+        {
+          "title": "Diferença entre ser e ente",
+          "description": "Entes são aquilo que encontramos; ser diz respeito aos modos pelos quais eles se tornam inteligíveis como entes, não a um objeto oculto atrás das coisas."
+        },
+        {
+          "title": "Dasein",
+          "description": "O ente para o qual seu próprio ser está em questão; normalmente designa nossa existência, sem pressupor de início sujeito, alma ou animal racional."
+        },
+        {
+          "title": "Ser-no-mundo",
+          "description": "Estrutura unitária de envolvimento prático e significativo, não localização de uma mente dentro de um recipiente chamado mundo."
+        },
+        {
+          "title": "Cuidado",
+          "description": "Unidade estrutural de uma existência já lançada, adiante de si em possibilidades e ocupada com entes e outros."
+        }
+      ],
+      "workIds": [],
+      "startingPoints": [
+        {
+          "workId": "read_work_being_and_time",
+          "note": "Obra central e difícil; uma leitura guiada pelos conceitos de mundo, cuidado, angústia e temporalidade é mais produtiva que procurar frases existenciais isoladas."
+        }
+      ],
+      "relatedPersonIds": [
+        "person_friedrich_nietzsche",
+        "person_hannah_arendt",
+        "person_michel_foucault"
+      ],
+      "relatedLinks": [
+        {
+          "label": "Martin Heidegger: filosofia, conceitos, obras e controvérsias",
+          "href": "/blog/martin-heidegger",
+          "kind": "article"
+        },
+        {
+          "label": "Dasein em Heidegger",
+          "href": "/blog/dasein-heidegger",
+          "kind": "article"
+        },
+        {
+          "label": "Angústia em Heidegger",
+          "href": "/blog/angustia-em-heidegger",
+          "kind": "article"
+        },
+        {
+          "label": "Ser-para-a-morte em Heidegger",
+          "href": "/blog/ser-para-a-morte-heidegger",
+          "kind": "article"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Martin Heidegger — Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/heidegger/",
+          "kind": "secondary"
+        },
+        {
+          "title": "Martin Heidegger — Editora Vozes",
+          "url": "https://www.vozes.com.br/autor/25285/martin-heidegger",
+          "kind": "secondary"
+        }
+      ],
+      "createdAt": "2026-09-04",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "person_sigmund_freud",
+      "slug": "sigmund-freud",
+      "name": "Sigmund Freud",
+      "fullName": "Sigismund Schlomo Freud",
+      "kind": "person",
+      "status": "published",
+      "profilePath": "/personalidades/sigmund-freud",
+      "image": {
+        "src": "/images/personalities/sigmund-freud.jpg",
+        "alt": "Sigmund Freud fotografado por Max Halberstadt por volta de 1921",
+        "credit": "Max Halberstadt",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sigmund_Freud_by_Max_Halberstadt.jpg",
+        "license": "Domínio público"
+      },
+      "birthDate": "1856-05-06",
+      "deathDate": "1939-09-23",
+      "birthPlace": "Freiberg, Império Austríaco",
+      "countryOrRegion": "Áustria",
+      "occupations": [
+        "Médico neurologista",
+        "Psicanalista",
+        "Autor"
+      ],
+      "summary": "Médico e fundador da psicanálise, responsável por uma teoria dinâmica do inconsciente cuja influência histórica e clínica convive com fortes disputas epistemológicas.",
+      "biography": [
+        "Freud formou-se em medicina em Viena e construiu a psicanálise a partir da clínica, da interpretação dos sonhos e de uma teoria do conflito psíquico.",
+        "Sua obra mudou ao longo do tempo: a primeira tópica distinguiu consciente, pré-consciente e inconsciente; O Eu e o Id, de 1923, formulou id, eu e super-eu sem transformar essas instâncias em regiões cerebrais."
+      ],
+      "themes": [
+        "Inconsciente",
+        "Conflito psíquico",
+        "Sonhos",
+        "Pulsões",
+        "Cultura"
+      ],
+      "ideas": [
+        {
+          "title": "Inconsciente dinâmico",
+          "description": "Processos não conscientes não são mera ausência de atenção: podem envolver recalque, conflito, desejo e formações de compromisso."
+        },
+        {
+          "title": "Segunda tópica",
+          "description": "Id, eu e super-eu descrevem funções e relações metapsicológicas; eu e super-eu também possuem aspectos inconscientes."
+        }
+      ],
+      "workIds": [],
+      "startingPoints": [
+        {
+          "workId": "read_work_ego_and_id",
+          "note": "Texto central para compreender a segunda tópica, melhor lido depois de uma introdução à primeira tópica e ao conceito de recalque."
+        }
+      ],
+      "relatedPersonIds": [],
+      "relatedLinks": [
+        {
+          "label": "Id, ego e superego em Freud",
+          "href": "/blog/id-ego-e-superego",
+          "kind": "article"
+        },
+        {
+          "label": "Angústia na filosofia e na psicanálise",
+          "href": "/blog/o-que-e-angustia",
+          "kind": "article"
+        },
+        {
+          "label": "Carl Jung: vida, conceitos e críticas",
+          "href": "/blog/carl-jung",
+          "kind": "article"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Sigmund Freud — Internet Encyclopedia of Philosophy",
+          "url": "https://iep.utm.edu/freud/",
+          "kind": "secondary"
+        },
+        {
+          "title": "Sigmund Freud — Companhia das Letras",
+          "url": "https://www.companhiadasletras.com.br/colaborador/02767/sigmund-freud",
+          "kind": "secondary"
+        }
+      ],
+      "createdAt": "2026-09-04",
+      "updatedAt": "2026-09-04"
     },
     {
       "id": "person_negi_haruba",
@@ -11796,6 +12100,231 @@
       "updatedAt": "2026-09-02"
     },
     {
+      "id": "org_apple",
+      "slug": "apple",
+      "name": "Apple",
+      "kind": "company",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "website": "https://www.apple.com/br/",
+      "specialties": [
+        "Tablets",
+        "Computadores"
+      ],
+      "sources": [
+        {
+          "title": "Apple Brasil",
+          "url": "https://www.apple.com/br/"
+        }
+      ],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Fabricante de iPads, computadores e dispositivos eletrônicos.",
+      "createdAt": "2026-09-05",
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "org_lenovo",
+      "slug": "lenovo",
+      "name": "Lenovo",
+      "kind": "company",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "website": "https://www.lenovo.com/br/pt/",
+      "specialties": [
+        "Tablets",
+        "Computadores"
+      ],
+      "sources": [
+        {
+          "title": "Lenovo Brasil",
+          "url": "https://www.lenovo.com/br/pt/"
+        }
+      ],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Fabricante de computadores, monitores e tablets comercializados no Brasil.",
+      "createdAt": "2026-09-05",
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "org_dell",
+      "slug": "dell",
+      "name": "Dell",
+      "kind": "company",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "website": "https://www.dell.com/pt-br",
+      "specialties": [
+        "Monitores",
+        "Computadores"
+      ],
+      "sources": [
+        {
+          "title": "Dell Brasil",
+          "url": "https://www.dell.com/pt-br"
+        }
+      ],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Fabricante de computadores e monitores profissionais.",
+      "createdAt": "2026-09-05",
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "org_flexform",
+      "slug": "flexform",
+      "name": "Flexform",
+      "kind": "company",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "website": "https://www.flexform.com.br/",
+      "specialties": [
+        "Cadeiras de escritório",
+        "Mobiliário corporativo"
+      ],
+      "sources": [
+        {
+          "title": "Flexform",
+          "url": "https://www.flexform.com.br/"
+        }
+      ],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Fabricante brasileira de cadeiras e mobiliário corporativo.",
+      "createdAt": "2026-09-05",
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "org_amd",
+      "slug": "amd",
+      "name": "AMD",
+      "kind": "company",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "website": "https://www.amd.com/",
+      "specialties": [
+        "Hardware",
+        "Componentes para computadores"
+      ],
+      "sources": [
+        {
+          "title": "AMD — site oficial",
+          "url": "https://www.amd.com/"
+        }
+      ],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Fabricante de componentes e hardware para computadores.",
+      "createdAt": "2026-09-04",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "org_asrock",
+      "slug": "asrock",
+      "name": "ASRock",
+      "kind": "company",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "website": "https://www.asrock.com/",
+      "specialties": [
+        "Hardware",
+        "Componentes para computadores"
+      ],
+      "sources": [
+        {
+          "title": "ASRock — site oficial",
+          "url": "https://www.asrock.com/"
+        }
+      ],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Fabricante de componentes e hardware para computadores.",
+      "createdAt": "2026-09-04",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "org_msi",
+      "slug": "msi",
+      "name": "MSI",
+      "kind": "company",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "website": "https://www.msi.com/",
+      "specialties": [
+        "Hardware",
+        "Componentes para computadores"
+      ],
+      "sources": [
+        {
+          "title": "MSI — site oficial",
+          "url": "https://www.msi.com/"
+        }
+      ],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Fabricante de componentes e hardware para computadores.",
+      "createdAt": "2026-09-04",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "org_kingston",
+      "slug": "kingston",
+      "name": "Kingston Technology",
+      "kind": "company",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "website": "https://www.kingston.com/",
+      "specialties": [
+        "Hardware",
+        "Componentes para computadores"
+      ],
+      "sources": [
+        {
+          "title": "Kingston Technology — site oficial",
+          "url": "https://www.kingston.com/"
+        }
+      ],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Fabricante de componentes e hardware para computadores.",
+      "createdAt": "2026-09-04",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "org_gigabyte",
+      "slug": "gigabyte",
+      "name": "Gigabyte Technology",
+      "kind": "company",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "website": "https://www.gigabyte.com/",
+      "specialties": [
+        "Hardware",
+        "Componentes para computadores"
+      ],
+      "sources": [
+        {
+          "title": "Gigabyte Technology — site oficial",
+          "url": "https://www.gigabyte.com/"
+        }
+      ],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Fabricante de componentes e hardware para computadores.",
+      "createdAt": "2026-09-04",
+      "updatedAt": "2026-09-04"
+    },
+    {
       "id": "org_cartoon_saloon",
       "slug": "cartoon-saloon",
       "name": "Cartoon Saloon",
@@ -13413,6 +13942,54 @@
       "updatedAt": "2026-08-21"
     },
     {
+      "id": "org_edicoes_70",
+      "slug": "edicoes-70",
+      "name": "Edições 70",
+      "kind": "publisher",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "specialties": [],
+      "sources": [],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Editora ou selo relacionado a edições verificadas do acervo: Edições 70.",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-21"
+    },
+    {
+      "id": "org_iluminuras",
+      "slug": "iluminuras",
+      "name": "Editora Iluminuras",
+      "kind": "publisher",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "specialties": [],
+      "sources": [],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Editora ou selo relacionado a edições verificadas do acervo: Editora Iluminuras.",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-21"
+    },
+    {
+      "id": "org_autonomia_literaria",
+      "slug": "autonomia-literaria",
+      "name": "Autonomia Literária",
+      "kind": "publisher",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "specialties": [],
+      "sources": [],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Editora ou selo relacionado a edições verificadas do acervo: Autonomia Literária.",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-21"
+    },
+    {
       "id": "org_anchor_books",
       "slug": "anchor-books",
       "name": "Anchor Books",
@@ -13651,6 +14228,334 @@
       "summary": "Editora ou selo relacionado a edições verificadas do acervo: Prometheus Books.",
       "createdAt": "2026-08-13",
       "updatedAt": "2026-08-21"
+    },
+    {
+      "id": "org_canon",
+      "slug": "canon",
+      "name": "Canon",
+      "kind": "company",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "website": "https://www.canon.com.br/",
+      "specialties": [
+        "Câmeras",
+        "Lentes",
+        "Imagem digital"
+      ],
+      "sources": [
+        {
+          "title": "Canon — site oficial",
+          "url": "https://www.canon.com.br/"
+        }
+      ],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Fabricante de câmeras e sistemas de lentes com produtos comercializados no Brasil: Canon.",
+      "createdAt": "2026-09-04",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "org_sony",
+      "slug": "sony",
+      "name": "Sony",
+      "kind": "company",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "website": "https://www.sony.com.br/",
+      "specialties": [
+        "Câmeras",
+        "Lentes",
+        "Imagem digital"
+      ],
+      "sources": [
+        {
+          "title": "Sony — site oficial",
+          "url": "https://www.sony.com.br/"
+        }
+      ],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Fabricante de câmeras e sistemas de lentes com produtos comercializados no Brasil: Sony.",
+      "createdAt": "2026-09-04",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "org_fujifilm",
+      "slug": "fujifilm",
+      "name": "Fujifilm",
+      "kind": "company",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "website": "https://www.fujifilm-x.com/pt-br/",
+      "specialties": [
+        "Câmeras",
+        "Lentes",
+        "Imagem digital"
+      ],
+      "sources": [
+        {
+          "title": "Fujifilm — site oficial",
+          "url": "https://www.fujifilm-x.com/pt-br/"
+        }
+      ],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Fabricante de câmeras e sistemas de lentes com produtos comercializados no Brasil: Fujifilm.",
+      "createdAt": "2026-09-04",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "org_electrolux",
+      "slug": "electrolux",
+      "name": "Electrolux",
+      "kind": "company",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "website": "https://www.electrolux.com.br/",
+      "specialties": [
+        "Eletrodomésticos",
+        "Eletroportáteis"
+      ],
+      "sources": [
+        {
+          "title": "Electrolux — site oficial",
+          "url": "https://www.electrolux.com.br/"
+        }
+      ],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Fabricante com eletrodomésticos e eletroportáteis comercializados no Brasil: Electrolux.",
+      "createdAt": "2026-09-05",
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "org_philips_walita",
+      "slug": "philips-walita",
+      "name": "Philips Walita",
+      "kind": "company",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "website": "https://www.walita.com.br/",
+      "specialties": [
+        "Eletrodomésticos",
+        "Eletroportáteis"
+      ],
+      "sources": [
+        {
+          "title": "Philips Walita — site oficial",
+          "url": "https://www.walita.com.br/"
+        }
+      ],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Fabricante com eletrodomésticos e eletroportáteis comercializados no Brasil: Philips Walita.",
+      "createdAt": "2026-09-05",
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "org_wap",
+      "slug": "wap",
+      "name": "WAP",
+      "kind": "company",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "website": "https://wap.ind.br/",
+      "specialties": [
+        "Eletrodomésticos",
+        "Eletroportáteis"
+      ],
+      "sources": [
+        {
+          "title": "WAP — site oficial",
+          "url": "https://wap.ind.br/"
+        }
+      ],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Fabricante com eletrodomésticos e eletroportáteis comercializados no Brasil: WAP.",
+      "createdAt": "2026-09-05",
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "org_tramontina",
+      "slug": "tramontina",
+      "name": "Tramontina",
+      "kind": "company",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "website": "https://www.tramontina.com.br/",
+      "specialties": [
+        "Eletrodomésticos",
+        "Eletroportáteis"
+      ],
+      "sources": [
+        {
+          "title": "Tramontina — site oficial",
+          "url": "https://www.tramontina.com.br/"
+        }
+      ],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Fabricante com eletrodomésticos e eletroportáteis comercializados no Brasil: Tramontina.",
+      "createdAt": "2026-09-05",
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "org_epson",
+      "slug": "epson",
+      "name": "Epson",
+      "kind": "company",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "website": "https://epson.com.br/",
+      "specialties": [
+        "Eletrônicos",
+        "Áudio e vídeo"
+      ],
+      "sources": [
+        {
+          "title": "Epson — site oficial",
+          "url": "https://epson.com.br/"
+        }
+      ],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Fabricante de produtos de áudio, vídeo ou imagem comercializados no Brasil: Epson.",
+      "createdAt": "2026-09-05",
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "org_benq",
+      "slug": "benq",
+      "name": "BenQ",
+      "kind": "company",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "website": "https://www.benq.com/pt-br/",
+      "specialties": [
+        "Eletrônicos",
+        "Áudio e vídeo"
+      ],
+      "sources": [
+        {
+          "title": "BenQ — site oficial",
+          "url": "https://www.benq.com/pt-br/"
+        }
+      ],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Fabricante de produtos de áudio, vídeo ou imagem comercializados no Brasil: BenQ.",
+      "createdAt": "2026-09-05",
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "org_qcy",
+      "slug": "qcy",
+      "name": "QCY",
+      "kind": "company",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "website": "https://www.qcy.com/",
+      "specialties": [
+        "Eletrônicos",
+        "Áudio e vídeo"
+      ],
+      "sources": [
+        {
+          "title": "QCY — site oficial",
+          "url": "https://www.qcy.com/"
+        }
+      ],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Fabricante de produtos de áudio, vídeo ou imagem comercializados no Brasil: QCY.",
+      "createdAt": "2026-09-05",
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "org_edifier",
+      "slug": "edifier",
+      "name": "Edifier",
+      "kind": "company",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "website": "https://edifier.com.br/",
+      "specialties": [
+        "Eletrônicos",
+        "Áudio e vídeo"
+      ],
+      "sources": [
+        {
+          "title": "Edifier — site oficial",
+          "url": "https://edifier.com.br/"
+        }
+      ],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Fabricante de produtos de áudio, vídeo ou imagem comercializados no Brasil: Edifier.",
+      "createdAt": "2026-09-05",
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "org_logitech",
+      "slug": "logitech",
+      "name": "Logitech",
+      "kind": "company",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "website": "https://www.logitech.com/pt-br/",
+      "specialties": [
+        "Eletrônicos",
+        "Áudio e vídeo"
+      ],
+      "sources": [
+        {
+          "title": "Logitech — site oficial",
+          "url": "https://www.logitech.com/pt-br/"
+        }
+      ],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Fabricante de produtos de áudio, vídeo ou imagem comercializados no Brasil: Logitech.",
+      "createdAt": "2026-09-05",
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "org_elgato",
+      "slug": "elgato",
+      "name": "Elgato",
+      "kind": "company",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "website": "https://www.elgato.com/",
+      "specialties": [
+        "Eletrônicos",
+        "Áudio e vídeo"
+      ],
+      "sources": [
+        {
+          "title": "Elgato — site oficial",
+          "url": "https://www.elgato.com/"
+        }
+      ],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Fabricante de produtos de áudio, vídeo ou imagem comercializados no Brasil: Elgato.",
+      "createdAt": "2026-09-05",
+      "updatedAt": "2026-09-05"
     }
   ],
   "editorialWorks": [

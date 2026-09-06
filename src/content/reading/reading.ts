@@ -14,6 +14,7 @@ import { philosophyEditions, philosophyWorks } from "./philosophyBooks";
 import { intellectualFormationWorks } from "./intellectualFormationBooks";
 import { economicsWorks } from "./economicsBooks";
 import { psychologyWorks } from "./psychologyBooks";
+import { socialTheoryEditions, socialTheoryWorks } from "./socialTheoryBooks";
 
 const checked = "2026-08-13";
 const nietzscheCover = (slug:string, alt:string, sourceUrl:string, credit:string):ReadingWork["image"] => ({
@@ -44,6 +45,7 @@ const works:ReadingWork[]=[
  ...fantasyRomanceWorks,
  ...scienceFictionWorks,
  ...darkFantasyWorks,
+ ...socialTheoryWorks,
  ...haremMangaWorks,
  ...byungChulHanWorks,
  ...philosophyWorks,
@@ -206,6 +208,7 @@ const editions:ReadingEdition[]=[
   ...scienceFictionEditions,
   ...darkFantasyEditions,
   ...byungChulHanEditions,
+ ...socialTheoryEditions,
  edition("read_edition_burnout_society_vozes","read_work_burnout_society","Sociedade do Cansaço","org_vozes","paperback","https://books.google.com/books/about/Sociedade_do_cansa%C3%A7o.html?id=IYWZCgAAQBAJ",{publicationDate:"2015-11-26",isbn10:"853265083X",isbn13:"9788532650832",pageCount:80}),
  edition("read_edition_carmilla_darkside","read_work_carmilla","Carmilla","org_darkside_books","hardcover","https://www.darksidebooks.com.br/carmilla--brinde-exclusivo-43665/p",{publicationDate:"2022-01-01",isbn13:"9788567566665"}),
  edition("read_edition_dracula_darkside","read_work_dracula","Drácula — Dark Edition","org_darkside_books","hardcover","https://www.darksidebooks.com.br/dracula---dark-edition/p"),

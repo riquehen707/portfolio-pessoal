@@ -109,6 +109,21 @@ function specificationEntries(specifications: Awaited<ReturnType<typeof getProdu
     { key:"use",label:"Uso previsto",value:specifications.intendedUse },
     { key:"warranty",label:"Garantia",value:specifications.warranty },
   ]}];
+  if (specifications.type === "camera") return [{ label: "Imagem e foco", entries: [
+    { key:"sensor",label:"Sensor",value:`${specifications.sensorFormat} · ${specifications.sensorTechnology} · ${specifications.resolutionMegapixels} MP` },
+    { key:"autofocus",label:"Autofocus",value:specifications.autofocus },
+    { key:"stabilization",label:"Estabilização",value:specifications.stabilization },
+    { key:"mount",label:"Mount e lentes",value:`${specifications.lensMount} · ${specifications.lensAvailability}` },
+  ]},{ label:"Vídeo e áudio", entries:[
+    { key:"video",label:"Vídeo",value:specifications.video },
+    { key:"recording",label:"Gravação interna",value:specifications.internalRecording },
+    { key:"codecs",label:"Codecs",value:specifications.codecs.join(" · ") },
+    { key:"audio",label:"Áudio",value:`Entrada de microfone: ${specifications.microphoneInput ? "sim" : "não"} · saída para fones: ${specifications.headphoneOutput ? "sim" : "não"}` },
+  ]},{ label:"Energia e conectividade", entries:[
+    { key:"battery",label:"Bateria",value:specifications.battery },
+    { key:"connectivity",label:"Conectividade",value:specifications.connectivity.join(" · ") },
+    { key:"weight",label:"Peso",value:specifications.weightGrams ? `${specifications.weightGrams} g` : "Não informado" },
+  ]}];
   return [{ label: "Hardware e tela", entries: [
     { key: "processor", label: "Processador", value: specifications.processor },
     { key: "memory", label: "Memória e armazenamento", value: `${specifications.ramGb} GB RAM · ${specifications.storageGb} GB` },

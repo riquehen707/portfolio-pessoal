@@ -104,6 +104,26 @@ const StandMixerSpecificationsSchema = z.object({
   weightKg: z.number().positive(), voltage: z.string().min(1), warranty: z.string().min(1), accessories: z.array(z.string().min(1)).default([]), additionalAccessories: z.string().min(1).optional(), intendedUse: z.string().min(1),
 });
 
+const CameraSpecificationsSchema = z.object({
+  type: z.literal("camera"),
+  cameraType: z.enum(["mirrorless", "cinema-mirrorless"]),
+  sensorFormat: z.string().min(1),
+  sensorTechnology: z.string().min(1),
+  resolutionMegapixels: z.number().positive(),
+  autofocus: z.string().min(1),
+  stabilization: z.string().min(1),
+  video: z.string().min(1),
+  lensMount: z.string().min(1),
+  lensAvailability: z.string().min(1),
+  battery: z.string().min(1),
+  microphoneInput: z.boolean(),
+  headphoneOutput: z.boolean(),
+  internalRecording: z.string().min(1),
+  codecs: z.array(z.string().min(1)).min(1),
+  connectivity: z.array(z.string().min(1)).min(1),
+  weightGrams: z.number().positive().optional(),
+});
+
 const GenericSpecificationsSchema = z.object({
   type: z.literal("generic"),
   groups: z.array(z.object({
@@ -119,6 +139,7 @@ export const ProductSpecificationsSchema = z.discriminatedUnion("type", [
   WasherDryerSpecificationsSchema,
   BlenderSpecificationsSchema,
   StandMixerSpecificationsSchema,
+  CameraSpecificationsSchema,
   GenericSpecificationsSchema,
 ]);
 

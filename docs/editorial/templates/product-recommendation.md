@@ -10,6 +10,8 @@ Este guia define o fluxo entre o acervo de produtos, as ofertas comerciais e os 
 
 Preço e estoque nunca pertencem a `Product`. Uma URL da Amazon é uma oferta entre outras possíveis, não a identidade do produto.
 
+Para câmeras, a variante usa o discriminador `camera` e mantém estruturados formato e tecnologia do sensor, resolução, autofocus, estabilização, vídeo, mount, disponibilidade de lentes, bateria, áudio, gravação interna, codecs e conectividade. Corpo e kit não devem virar produtos distintos quando a câmera é a mesma; a oferta deve deixar claro se inclui lente.
+
 ## Identidade e duplicatas
 
 - IDs são permanentes: `prod_*`, `prod_variant_*` e `prod_offer_*`.

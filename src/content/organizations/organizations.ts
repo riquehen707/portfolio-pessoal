@@ -58,6 +58,16 @@ export const tclElectronics = OrganizationSchema.parse({id:"org_tcl_electronics"
 export const acer = OrganizationSchema.parse({id:"org_acer",slug:"acer",name:"Acer",kind:"company",website:"https://www.acer.com/br-pt/",specialties:["Computadores","Notebooks"],sources:[{title:"Acer Brasil",url:"https://www.acer.com/br-pt/"}],status:"draft",workIds:[],summary:"Fabricante de computadores e notebooks comercializados no Brasil.",createdAt:"2026-09-02",updatedAt:"2026-09-02"});
 export const asus = OrganizationSchema.parse({id:"org_asus",slug:"asus",name:"ASUS",kind:"company",website:"https://www.asus.com/br/",specialties:["Computadores","Notebooks"],sources:[{title:"ASUS Brasil",url:"https://www.asus.com/br/"}],status:"draft",workIds:[],summary:"Fabricante de computadores, componentes e notebooks.",createdAt:"2026-09-02",updatedAt:"2026-09-02"});
 export const positivoTecnologia = OrganizationSchema.parse({id:"org_positivo_tecnologia",slug:"positivo-tecnologia",name:"Positivo Tecnologia",kind:"company",website:"https://www.positivo.com.br/",specialties:["Computadores","Notebooks"],sources:[{title:"Positivo Tecnologia",url:"https://www.positivo.com.br/"}],status:"draft",workIds:[],summary:"Fabricante brasileira de computadores e dispositivos eletrônicos.",createdAt:"2026-09-02",updatedAt:"2026-09-02"});
+export const apple=OrganizationSchema.parse({id:"org_apple",slug:"apple",name:"Apple",kind:"company",website:"https://www.apple.com/br/",specialties:["Tablets","Computadores"],sources:[{title:"Apple Brasil",url:"https://www.apple.com/br/"}],status:"draft",workIds:[],summary:"Fabricante de iPads, computadores e dispositivos eletrônicos.",createdAt:"2026-09-05",updatedAt:"2026-09-05"});
+export const lenovo=OrganizationSchema.parse({id:"org_lenovo",slug:"lenovo",name:"Lenovo",kind:"company",website:"https://www.lenovo.com/br/pt/",specialties:["Tablets","Computadores"],sources:[{title:"Lenovo Brasil",url:"https://www.lenovo.com/br/pt/"}],status:"draft",workIds:[],summary:"Fabricante de computadores, monitores e tablets comercializados no Brasil.",createdAt:"2026-09-05",updatedAt:"2026-09-05"});
+export const dell=OrganizationSchema.parse({id:"org_dell",slug:"dell",name:"Dell",kind:"company",website:"https://www.dell.com/pt-br",specialties:["Monitores","Computadores"],sources:[{title:"Dell Brasil",url:"https://www.dell.com/pt-br"}],status:"draft",workIds:[],summary:"Fabricante de computadores e monitores profissionais.",createdAt:"2026-09-05",updatedAt:"2026-09-05"});
+export const flexform=OrganizationSchema.parse({id:"org_flexform",slug:"flexform",name:"Flexform",kind:"company",website:"https://www.flexform.com.br/",specialties:["Cadeiras de escritório","Mobiliário corporativo"],sources:[{title:"Flexform",url:"https://www.flexform.com.br/"}],status:"draft",workIds:[],summary:"Fabricante brasileira de cadeiras e mobiliário corporativo.",createdAt:"2026-09-05",updatedAt:"2026-09-05"});
+const hardwareCompany=(id:string,slug:string,name:string,website:string):z.infer<typeof OrganizationSchema>=>OrganizationSchema.parse({id,slug,name,kind:"company",website,specialties:["Hardware","Componentes para computadores"],sources:[{title:`${name} — site oficial`,url:website}],status:"draft",workIds:[],summary:`Fabricante de componentes e hardware para computadores.`,createdAt:"2026-09-04",updatedAt:"2026-09-04"});
+export const amd=hardwareCompany("org_amd","amd","AMD","https://www.amd.com/");
+export const asrock=hardwareCompany("org_asrock","asrock","ASRock","https://www.asrock.com/");
+export const msi=hardwareCompany("org_msi","msi","MSI","https://www.msi.com/");
+export const kingston=hardwareCompany("org_kingston","kingston","Kingston Technology","https://www.kingston.com/");
+export const gigabyte=hardwareCompany("org_gigabyte","gigabyte","Gigabyte Technology","https://www.gigabyte.com/");
 export const cartoonSaloon=OrganizationSchema.parse({
   id:"org_cartoon_saloon",slug:"cartoon-saloon",aliases:["Cartoon Saloon Ltd."],name:"Cartoon Saloon",kind:"studio",
   specialties:["Animação 2D","Longas autorais"],
@@ -238,6 +248,9 @@ const readingPublishers = [
   ["org_william_morrow","william-morrow","William Morrow","imprint"],
   ["org_titan_books","titan-books","Titan Books","publisher"],
   ["org_knopf_canada","knopf-canada","Knopf Canada","publisher"],
+  ["org_edicoes_70","edicoes-70","Edições 70","publisher"],
+  ["org_iluminuras","iluminuras","Editora Iluminuras","publisher"],
+  ["org_autonomia_literaria","autonomia-literaria","Autonomia Literária","publisher"],
   ["org_anchor_books","anchor-books","Anchor Books","imprint"],
   ["org_harperteen","harperteen","HarperTeen","imprint"],
   ["org_vertigo","vertigo","Vertigo","imprint"],
@@ -255,7 +268,47 @@ const readingPublishers = [
   ["org_prometheus_books","prometheus-books","Prometheus Books","publisher"],
 ].map(([id,slug,name,kind])=>OrganizationSchema.parse({id,slug,name,kind,status:"draft",workIds:[],summary:`Editora ou selo relacionado a edições verificadas do acervo: ${name}.`,createdAt:"2026-08-13",updatedAt:"2026-08-21"}));
 
-export const organizations = [ghostAnimation,teamCherry,longHatHouse,studioPixelPunk,glitchFactory,pixelHive,pocketTrap,aquiris,samsungElectronics,motorolaMobility,xiaomi,lgElectronics,midea,skymsen,oster,kitchenAid,fischer,urano,tclElectronics,acer,asus,positivoTecnologia,cartoonSaloon,aardman,scienceSaru,kyotoAnimation,laika,studioGhibli,nipponTelevision,toho,...movieStudios,...readingPublishers];
+const cameraManufacturers = [
+  ["org_canon", "canon", "Canon", "https://www.canon.com.br/"],
+  ["org_sony", "sony", "Sony", "https://www.sony.com.br/"],
+  ["org_fujifilm", "fujifilm", "Fujifilm", "https://www.fujifilm-x.com/pt-br/"],
+].map(([id, slug, name, website]) => OrganizationSchema.parse({
+  id, slug, name, website, kind: "company", status: "draft", workIds: [],
+  specialties: ["Câmeras", "Lentes", "Imagem digital"],
+  summary: `Fabricante de câmeras e sistemas de lentes com produtos comercializados no Brasil: ${name}.`,
+  sources: [{ title: `${name} — site oficial`, url: website }],
+  createdAt: "2026-09-04", updatedAt: "2026-09-04",
+}));
+
+const homeApplianceManufacturers = [
+  ["org_electrolux", "electrolux", "Electrolux", "https://www.electrolux.com.br/"],
+  ["org_philips_walita", "philips-walita", "Philips Walita", "https://www.walita.com.br/"],
+  ["org_wap", "wap", "WAP", "https://wap.ind.br/"],
+  ["org_tramontina", "tramontina", "Tramontina", "https://www.tramontina.com.br/"],
+].map(([id, slug, name, website]) => OrganizationSchema.parse({
+  id, slug, name, website, kind: "company", status: "draft", workIds: [],
+  specialties: ["Eletrodomésticos", "Eletroportáteis"],
+  summary: `Fabricante com eletrodomésticos e eletroportáteis comercializados no Brasil: ${name}.`,
+  sources: [{ title: `${name} — site oficial`, url: website }],
+  createdAt: "2026-09-05", updatedAt: "2026-09-05",
+}));
+
+const audiovisualManufacturers = [
+  ["org_epson", "epson", "Epson", "https://epson.com.br/"],
+  ["org_benq", "benq", "BenQ", "https://www.benq.com/pt-br/"],
+  ["org_qcy", "qcy", "QCY", "https://www.qcy.com/"],
+  ["org_edifier", "edifier", "Edifier", "https://edifier.com.br/"],
+  ["org_logitech", "logitech", "Logitech", "https://www.logitech.com/pt-br/"],
+  ["org_elgato", "elgato", "Elgato", "https://www.elgato.com/"],
+].map(([id, slug, name, website]) => OrganizationSchema.parse({
+  id, slug, name, website, kind: "company", status: "draft", workIds: [],
+  specialties: ["Eletrônicos", "Áudio e vídeo"],
+  summary: `Fabricante de produtos de áudio, vídeo ou imagem comercializados no Brasil: ${name}.`,
+  sources: [{ title: `${name} — site oficial`, url: website }],
+  createdAt: "2026-09-05", updatedAt: "2026-09-05",
+}));
+
+export const organizations = [ghostAnimation,teamCherry,longHatHouse,studioPixelPunk,glitchFactory,pixelHive,pocketTrap,aquiris,samsungElectronics,motorolaMobility,xiaomi,lgElectronics,midea,skymsen,oster,kitchenAid,fischer,urano,tclElectronics,acer,asus,positivoTecnologia,apple,lenovo,dell,flexform,amd,asrock,msi,kingston,gigabyte,cartoonSaloon,aardman,scienceSaru,kyotoAnimation,laika,studioGhibli,nipponTelevision,toho,...movieStudios,...readingPublishers,...cameraManufacturers,...homeApplianceManufacturers,...audiovisualManufacturers];
 
 export type Organization = z.infer<typeof OrganizationSchema>;
 export const organizationsById = new Map(organizations.map((organization) => [organization.id, organization]));

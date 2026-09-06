@@ -10,6 +10,7 @@ import {
   simulationPage,
   work,
 } from "@/resources";
+import { getPublishedServiceLandings } from "@/data/service-landings";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 
 import styles from "./services.module.scss";
@@ -136,6 +137,8 @@ export async function generateMetadata() {
 }
 
 export default function ServicesPage() {
+  const publishedLandings = getPublishedServiceLandings();
+
   return (
     <Column className={styles.page} maxWidth="l" paddingTop="8" gap="48">
       <Schema
@@ -368,6 +371,37 @@ export default function ServicesPage() {
         </Row>
 
         <div className={styles.serviceList}>
+          {publishedLandings.map((landing) => (
+            <article className={styles.serviceItem} key={landing.slug}>
+              <div className={styles.serviceCopy}>
+                <Text
+                  className={styles.eyebrow}
+                  variant="label-default-s"
+                  onBackground="neutral-weak"
+                >
+                  {landing.hero.eyebrow}
+                </Text>
+                <Heading as="h3" variant="heading-strong-m">
+                  {landing.hero.title}
+                </Heading>
+                <Text variant="body-default-m" onBackground="neutral-weak">
+                  {landing.hero.description}
+                </Text>
+              </div>
+              <div className={styles.serviceMeta}>
+                <div className={styles.serviceTags}>
+                  <span className={styles.serviceTag}>Oferta específica</span>
+                  <span className={styles.serviceTag}>Contato pelo WhatsApp</span>
+                </div>
+                <Text className={styles.meta} variant="body-default-s" onBackground="neutral-weak">
+                  {landing.hero.price ?? "Sob consulta"}
+                </Text>
+                <SmartLink href={`${servicesPage.path}/${landing.slug}`} suffixIcon="arrowRight">
+                  Ver oferta
+                </SmartLink>
+              </div>
+            </article>
+          ))}
           {services.map((service) => (
             <article className={styles.serviceItem} key={service.slug}>
               <div className={styles.serviceCopy}>
