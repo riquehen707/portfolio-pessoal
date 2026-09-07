@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync, existsSync } from "node:fs";
+import { readFileSync, existsSync, statSync } from "node:fs";
 import { createRequire } from "node:module";
 import path from "node:path";
 import test from "node:test";
@@ -13,7 +13,7 @@ function loader(mocks = {}) {
   const cache = new Map();
   function load(file) {
     const filename = [file, `${file}.ts`, `${file}.tsx`, path.join(file, "index.ts")].find(
-      existsSync,
+      (candidate) => existsSync(candidate) && statSync(candidate).isFile(),
     );
     if (!filename) throw new Error(`Módulo ausente: ${file}`);
     if (cache.has(filename)) return cache.get(filename).exports;
@@ -44,6 +44,10 @@ function loader(mocks = {}) {
 
 const load = loader();
 const { serviceLandingSchema } = load("src/content/service-landings/serviceLandingSchema.ts");
+const { serviceHubCardSchema } = load("src/content/service-hub/serviceHubCardSchema.ts");
+const { getServiceHubGroups, unavailableServiceHubIntents } = load(
+  "src/data/service-hub/index.ts",
+);
 const { exampleServiceLanding } = load("src/content/service-landings/example.ts");
 const { architectWebsite } = load("src/content/service-landings/architectWebsite.ts");
 const { artistGallery } = load("src/content/service-landings/artistGallery.ts");
@@ -56,6 +60,23 @@ const published = {
   status: "published",
   conversion: { kind: "whatsapp", label: "Pedir orçamento", href: "https://wa.me/5511999999999" },
 };
+const serviceCard = serviceHubCardSchema.parse({
+  id: "portfolio-tatuadores",
+  slug: "portfolio-para-tatuadores",
+  intent: "present-work",
+  title: "Portfólio para tatuadores",
+  context: "Para tatuadores autônomos",
+  benefit: "Organize trabalhos e estilos em uma página profissional pronta para compartilhar.",
+  price: { label: "Implantação + mensalidade", value: "R$297 + R$79/mês" },
+  preview: {
+    kind: "image",
+    src: "/images/services/portfolio-tatuadores/fine-line.webp",
+    alt: "Prévia de trabalhos em um portfólio para tatuadores.",
+    width: 1000,
+    height: 667,
+    position: "center",
+  },
+});
 
 test("publicação exige conteúdo essencial e impede âncoras duplicadas/reservadas", () => {
   assert.equal(serviceLandingSchema.safeParse(published).success, true);
@@ -239,6 +260,161 @@ test("site para arquitetos mantém a oferta e as nove partes do briefing", () =>
       "duvidas",
     ],
   );
+});
+
+test("card do hub limita copy, mídia e alegações de popularidade", () => {
+  assert.equal(serviceHubCardSchema.safeParse(serviceCard).success, true);
+  assert.equal(
+    serviceHubCardSchema.safeParse({
+      ...serviceCard,
+      preview: { kind: "fallback", label: "Busca sem bloqueios", tone: "forest" },
+    }).success,
+    true,
+  );
+  assert.equal(
+    serviceHubCardSchema.safeParse({ ...serviceCard, benefit: "x".repeat(121) }).success,
+    false,
+  );
+  assert.equal(
+    serviceHubCardSchema.safeParse({
+      ...serviceCard,
+      preview: { ...serviceCard.preview, src: "https://example.com/preview.jpg" },
+    }).success,
+    false,
+  );
+  assert.equal(
+    serviceHubCardSchema.safeParse({
+      ...serviceCard,
+      badge: { label: "Mais procurado", kind: "popular" },
+    }).success,
+    false,
+  );
+  assert.equal(
+    serviceHubCardSchema.safeParse({
+      ...serviceCard,
+      badge: { label: "Mais procurado", kind: "popular", evidence: "Relatório interno 2026-09" },
+    }).success,
+    true,
+  );
+});
+
+test("card do hub mantém hierarquia, um link e CTA visível no HTML", () => {
+  const React = require("react");
+  const { renderToStaticMarkup } = require("react-dom/server");
+  const { load: html } = require("cheerio");
+  const componentLoad = loader({
+    "next/link": ({ children, href, ...props }) =>
+      React.createElement("a", { ...props, href }, children),
+    "next/image": ({ fill, priority, sizes, ...props }) => React.createElement("img", props),
+  });
+  const { ServiceCard } = componentLoad("src/components/services/hub/ServiceCard.tsx");
+  const $ = html(renderToStaticMarkup(React.createElement(ServiceCard, { service: serviceCard })));
+
+  assert.equal($("article").length, 1);
+  assert.equal($("a").length, 1);
+  assert.equal($("a").attr("href"), "/servicos/portfolio-para-tatuadores");
+  assert.equal($("a").attr("aria-label"), "Ver serviço: Portfólio para tatuadores");
+  assert.equal($("h3").text(), serviceCard.title);
+  assert.equal($("img").attr("src"), serviceCard.preview.src);
+  assert.equal($("img").attr("alt"), serviceCard.preview.alt);
+  assert.ok($("a").text().includes(serviceCard.context));
+  assert.ok($("a").text().includes(serviceCard.benefit));
+  assert.ok($("a").text().includes(serviceCard.price.value));
+  assert.ok($("a").text().includes("Ver serviço"));
+  assert.equal($("a").attr("data-analytics-event"), "services_card_click");
+  assert.equal($("a").attr("data-analytics-service-id"), serviceCard.id);
+});
+
+test("hub distribui os doze serviços atuais uma única vez por intenção", () => {
+  const groups = getServiceHubGroups();
+  assert.deepEqual(
+    groups.map((group) => [group.intent, group.navigationLabel, group.cards.length]),
+    [
+      ["present-work", "Portfólios", 5],
+      ["capture-clients", "Captar clientes", 5],
+      ["sell-operate", "Quero vender", 2],
+    ],
+  );
+  const cards = groups.flatMap((group) => group.cards);
+  assert.equal(cards.length, 12);
+  assert.equal(new Set(cards.map((card) => card.slug)).size, cards.length);
+  assert.equal(
+    groups.find((group) => group.intent === "capture-clients")?.cards.some(
+      (card) => card.id === "site-corretores",
+    ),
+    true,
+  );
+  assert.equal(groups.some((group) => group.intent === "validate-idea"), false);
+  assert.equal(unavailableServiceHubIntents[0].intent, "validate-idea");
+  assert.match(unavailableServiceHubIntents[0].reason, /simulacao/);
+});
+
+test("catálogo do hub renderiza navegação e carrosséis sem controles automáticos", () => {
+  const React = require("react");
+  const { renderToStaticMarkup } = require("react-dom/server");
+  const { load: html } = require("cheerio");
+  const componentLoad = loader({
+    "next/link": ({ children, href, ...props }) =>
+      React.createElement("a", { ...props, href }, children),
+    "next/image": ({ fill, priority, sizes, ...props }) => React.createElement("img", props),
+  });
+  const { ServiceHubCatalog } = componentLoad(
+    "src/components/services/hub/ServiceHubCatalog.tsx",
+  );
+  const groups = getServiceHubGroups();
+  const $ = html(
+    renderToStaticMarkup(React.createElement(ServiceHubCatalog, { groups })),
+  );
+
+  assert.equal($("nav").attr("aria-label"), "Navegação por intenção");
+  assert.equal($("nav a").length, groups.length + 1);
+  assert.equal($("section").length, groups.length);
+  assert.equal($("ol[tabindex='0']").length, groups.length);
+  assert.equal($("article").length, 12);
+  assert.equal($("button").length, 0);
+  assert.equal(
+    $("section > header + ol").length,
+    groups.length,
+  );
+  assert.equal(
+    $("nav a")
+      .map((_, element) => $(element).attr("data-analytics-event"))
+      .get()
+      .every((event) => event === "services_intent_select"),
+    true,
+  );
+  assert.equal($("a").filter((_, element) => $(element).text().includes("Ver todos")).length, 0);
+});
+
+test("composição visual do hub mantém hero curto e contato final acessível", () => {
+  const React = require("react");
+  const { renderToStaticMarkup } = require("react-dom/server");
+  const { load: html } = require("cheerio");
+  const componentLoad = loader({
+    "next/link": ({ children, href, ...props }) =>
+      React.createElement("a", { ...props, href }, children),
+    "next/image": ({ fill, priority, sizes, ...props }) => React.createElement("img", props),
+  });
+  const { ServiceHubView } = componentLoad("src/components/services/hub/ServiceHubView.tsx");
+  const $ = html(
+    renderToStaticMarkup(
+      React.createElement(ServiceHubView, {
+        groups: getServiceHubGroups(),
+        contactHref: "mailto:oi@example.com?subject=Ajuda",
+      }),
+    ),
+  );
+
+  assert.equal($("h1").length, 1);
+  assert.equal(
+    $("#service-hub-title").text(),
+    "Serviços para mostrar seu trabalho e facilitar contatos.",
+  );
+  assert.equal($("section[aria-labelledby='service-hub-title'] a").length, 2);
+  assert.equal($("#ajuda-escolher").length, 1);
+  assert.equal($("#ajuda-escolher a[href^='mailto:']").length, 1);
+  assert.equal($("[data-analytics-event='services_help_click']").length, 1);
+  assert.equal($("article").length, 12);
 });
 
 test("destinos são seguros e WhatsApp exige telefone internacional", () => {

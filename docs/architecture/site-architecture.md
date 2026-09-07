@@ -5,6 +5,8 @@ Este documento é a fonte principal para entender **quais páginas existem, como
 Para regras especializadas, consulte também:
 
 - [landing pages de serviços](service-landing-pages.md), para ofertas comerciais, componentes, mensuração e adoção gradual;
+- [home de serviços](services-hub.md), para a organização publicada de `/servicos` por intenção do cliente;
+- [card da home de serviços](service-card.md), para o componente reutilizável, seu contrato de dados e estados responsivos;
 
 - [sistema editorial](../content/README.md), para artigos MDX;
 - [listas de filmes](../editorial/templates/movie-list.md), para o fluxo obrigatório entre catálogo, curadoria e artigo;

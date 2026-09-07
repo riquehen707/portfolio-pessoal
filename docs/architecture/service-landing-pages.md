@@ -12,10 +12,12 @@ Padrão para ofertas específicas com uma única conversão principal. Clareza e
 
 Não usar o modelo de artigo para a landing. Não transformar o catálogo numa campanha para todos os públicos. Não criar páginas trocando somente a profissão: público, problema, demonstração, escopo e objeções devem justificar cada URL.
 
+A organização da página institucional por intenção está documentada em [services-hub.md](services-hub.md).
+
 ## Arquitetura e compatibilidade
 
 - `src/content/service-landings/serviceLandingSchema.ts`: contrato Zod e tipos, independentes do frontmatter e do tipo legado `ServiceLanding` em `src/types`.
-- `src/content/service-landings/landings.ts`: registro de ofertas; inclui os portfólios para fotógrafos, tatuadores e designers, o site profissional para corretores e a galeria virtual para artistas.
+- `src/content/service-landings/landings.ts`: registro de ofertas; inclui os portfólios para fotógrafos, tatuadores e designers, o site profissional para corretores, a galeria virtual para artistas e o site e portfólio para arquitetos.
 - `src/data/service-landings/index.ts`: validação, publicação e resolução por ID/slug; impede IDs repetidos e slugs em conflito com serviços antigos ou `produtos`.
 - `src/components/services/landing/`: composição, seções, estilos, SEO e pequenas fronteiras cliente para eventos.
 - `src/app/servicos/[slug]/page.tsx`: consulta o novo catálogo e mantém o fluxo legado de `src/resources/services.ts`, incluindo beauty e creative.

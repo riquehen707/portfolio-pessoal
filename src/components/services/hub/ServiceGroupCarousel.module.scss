@@ -1,0 +1,121 @@
+.section {
+  display: grid;
+  gap: clamp(1.4rem, 3vw, 2rem);
+  width: 100%;
+  scroll-margin-top: 6rem;
+}
+
+.header {
+  display: flex;
+  gap: clamp(1.25rem, 4vw, 3rem);
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.heading {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.heading h2,
+.heading p {
+  margin: 0;
+}
+
+.heading h2 {
+  max-width: 21ch;
+  font-family: var(--font-heading);
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: var(--type-weight-heading);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+}
+
+.heading p {
+  max-width: 54ch;
+  color: var(--neutral-on-background-medium);
+  font-size: 0.96rem;
+  line-height: 1.6;
+}
+
+.viewAll {
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 0.4rem;
+  align-items: center;
+  min-height: 3rem;
+  color: var(--neutral-on-background-strong);
+  font-family: var(--font-label);
+  font-size: 0.8rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.viewAll span {
+  color: var(--color-accent-gold);
+}
+
+.viewAll:focus-visible {
+  outline: 2px solid var(--service-hub-focus, var(--focus-ring));
+  outline-offset: 4px;
+}
+
+.track {
+  display: grid;
+  grid-auto-columns: min(78vw, 21.5rem);
+  grid-auto-flow: column;
+  gap: clamp(0.9rem, 2vw, 1.35rem);
+  width: 100%;
+  margin: 0;
+  padding: 0.1rem 0.1rem 1rem;
+  overflow-x: auto;
+  list-style: none;
+  scroll-padding-inline: 0.1rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-color: var(--service-hub-border-strong, var(--line-subtle)) transparent;
+  scrollbar-width: thin;
+  overscroll-behavior-inline: contain;
+}
+
+.track:focus-visible {
+  outline: 2px solid var(--service-hub-focus, var(--focus-ring));
+  outline-offset: 4px;
+}
+
+.slide {
+  min-width: 0;
+  height: 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
+@media (min-width: 720px) {
+  .track {
+    grid-auto-columns: calc((100% - 1.35rem) / 2.15);
+    scroll-snap-type: x proximity;
+  }
+}
+
+@media (min-width: 1120px) {
+  .track {
+    grid-auto-columns: calc((100% - 2.7rem) / 3.15);
+  }
+}
+
+@media (max-width: 520px) {
+  .header {
+    align-items: flex-start;
+  }
+
+  .heading p {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .track {
+    grid-auto-columns: min(82vw, 20.5rem);
+    margin-inline: -0.1rem;
+  }
+}

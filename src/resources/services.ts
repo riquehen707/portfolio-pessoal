@@ -2,13 +2,13 @@ import { BasePageConfig, ProductsPage, ProductItem, ServicesPage, ServiceLanding
 
 export const servicesPage: ServicesPage = {
   path: "/servicos",
-  label: "Consultoria",
-  title: "Consultoria para corrigir gargalos antes de aumentar volume",
+  label: "Serviços",
+  title: "Serviços para mostrar seu trabalho e facilitar contatos",
   description:
-    "Serviços para revisar oferta, página, atendimento e rotina quando publicar mais já não resolve.",
+    "Portfólios, páginas para captar clientes e serviços para melhorar sites e atendimento.",
   intro: {
-    headline: "Antes do escopo, vale entender o momento do negócio.",
-    lead: "Nem todo problema pede site novo, campanha nova ou automação. Primeiro eu olho onde a decisão está travando.",
+    headline: "Escolha o serviço pelo que você precisa resolver.",
+    lead: "Compare opções para mostrar seu trabalho, captar clientes ou melhorar seu site e atendimento.",
   },
 };
 
