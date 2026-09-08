@@ -32,6 +32,11 @@ export const PostFrontmatterSchema = z.object({
   kind: z.enum(["client", "personal", "study"]).optional(),
   stack: z.array(z.string()).optional(),
   objective: z.string().optional(),
+  project: z.object({
+    audience: z.string().trim().min(1).max(120),
+    state: z.string().trim().min(1).max(240),
+    serviceSlug: z.string().regex(/^[a-z][a-z0-9-]*$/).optional(),
+  }).optional(),
   featured: z.boolean().optional(),
   featuredHome: z.boolean().optional(),
   featured_home: z.boolean().optional(),

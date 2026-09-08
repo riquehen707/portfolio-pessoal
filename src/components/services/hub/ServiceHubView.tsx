@@ -12,10 +12,9 @@ export function ServiceHubView({ groups, contactHref }: ServiceHubViewProps) {
     <div className={styles.shell}>
       <section className={styles.hero} aria-labelledby="service-hub-title">
         <p className={styles.kicker}>Serviços</p>
-        <h1 id="service-hub-title">Serviços para mostrar seu trabalho e facilitar contatos.</h1>
+        <h1 id="service-hub-title">Sites, portfólios e melhorias.</h1>
         <p className={styles.lead}>
-          Escolha um portfólio, uma página de captação ou ajuda para melhorar seu site e
-          atendimento.
+          Compare serviços e preços.
         </p>
         <div className={styles.heroActions}>
           <a
@@ -27,8 +26,8 @@ export function ServiceHubView({ groups, contactHref }: ServiceHubViewProps) {
           >
             Ver serviços
           </a>
-          <a className={styles.textAction} href="#ajuda-escolher">
-            Falar comigo <span aria-hidden="true">↓</span>
+          <a className={styles.textAction} href={contactHref}>
+            Falar comigo <span aria-hidden="true">↗</span>
           </a>
         </div>
       </section>
@@ -39,7 +38,7 @@ export function ServiceHubView({ groups, contactHref }: ServiceHubViewProps) {
         <div className={styles.contactCopy}>
           <p className={styles.kicker}>Contato</p>
           <h2 id="contact-title">Não sabe qual serviço escolher?</h2>
-          <p>Diga o que você precisa divulgar ou organizar. Eu ajudo a escolher o serviço.</p>
+          <p>Conte o que precisa mostrar, vender ou organizar.</p>
         </div>
         <div className={styles.contactActions}>
           <a

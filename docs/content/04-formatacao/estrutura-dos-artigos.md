@@ -2,6 +2,8 @@
 
 Não existe um molde visual obrigatório para todo texto. Existe uma sequência de decisão que preserva leitura, identidade e consistência.
 
+Escopo: artigos em `/blog/[slug]`, inclusive os que ensinam sobre landing pages. Para a estrutura comercial de `/servicos` e páginas individuais de conversão, usar o [guia de serviços](../../architecture/service-landing-pages.md); os limites de blocos MDX não definem o template dessas páginas.
+
 ## Estrutura padrão
 
 ### Frontmatter
@@ -34,10 +36,10 @@ Recupere a consequência prática da ideia central. Use `NextSteps` quando houve
 
 ## Tamanho e ritmo
 
+Aplicar [densidade e ritmo](../01-fundamentos/voz-e-estilo.md#densidade-e-ritmo) da diretriz global; este guia mantém os critérios de apresentação do artigo.
+
 - Texto-base mobile entre 17 e 18 px.
 - Entrelinha entre 1,6 e 1,75.
-- Parágrafos normalmente entre duas e cinco linhas no celular.
-- Listas para itens paralelos, não para fragmentar toda a argumentação.
 - Evite mais de dois blocos visuais consecutivos sem texto normal.
 
 ## Componentes
@@ -52,6 +54,8 @@ Cada artigo usa no máximo quatro tipos de bloco editorial, além de:
 O limite conta tipos, não ocorrências. Repetir o mesmo bloco várias vezes ainda deve ser justificado pelo ritmo.
 
 ## Estrutura curta
+
+As sequências abaixo são referências de organização, não listas de blocos obrigatórios. Aplicar o [critério global de função](../../architecture/site-architecture.md#critério-de-função) e as condições de uso de cada componente.
 
 1. Problema ou contexto.
 2. Explicação central.

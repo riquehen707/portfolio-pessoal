@@ -1,10 +1,6 @@
 import { services } from "@/resources/services";
 import { getPublishedServiceLandings } from "@/data/service-landings";
-import { architectDemoMedia } from "@/content/service-landings/architectDemoMedia";
-import { artistGalleryDemoMedia } from "@/content/service-landings/artistGalleryDemoMedia";
-import { photographerDemoMedia } from "@/content/service-landings/photographerDemoMedia";
-import { realEstateDemoMedia } from "@/content/service-landings/realEstateDemoMedia";
-import { tattooDemoMedia } from "@/content/service-landings/tattooDemoMedia";
+import type { ServiceLanding } from "@/content/service-landings/serviceLandingSchema";
 import {
   serviceHubCardSchema,
   type ServiceHubCard,
@@ -33,10 +29,11 @@ export type ServiceHubGroup = {
   allHref?: string;
 };
 
-const imagePreview = (
-  media: { src: string; alt: string; width: number; height: number },
-  position: ImagePreview["position"] = "center",
-): ImagePreview => ({ ...media, kind: "image", position });
+// Capturas dos componentes especializados; não são projetos de clientes nem demos funcionais.
+const interfacePreview = (name: string, alt: string): ImagePreview => ({
+  kind: "image", src: `/images/work/${name}-interface.webp`, alt,
+  width: 1120, height: 700, position: "top",
+});
 
 const presentations: CardPresentation[] = [
   {
@@ -44,55 +41,55 @@ const presentations: CardPresentation[] = [
     intent: "present-work",
     title: "Portfólio para arquitetos",
     context: "Arquitetos autônomos e pequenos escritórios",
-    benefit: "Mostre projetos, explique seus serviços e facilite pedidos de orçamento.",
-    preview: imagePreview(architectDemoMedia[0]),
+    benefit: "Reúna projetos e receba pedidos de orçamento.",
+    preview: interfacePreview("arquitetos", "Captura do exemplo de portfólio de arquitetura."),
   },
   {
     source: { kind: "landing", id: "galeria-virtual-artistas" },
     intent: "present-work",
     title: "Galeria virtual para artistas",
     context: "Artistas visuais, ilustradores, pintores e escultores",
-    benefit: "Organize obras por coleção e facilite contatos, encomendas e convites.",
-    preview: imagePreview(artistGalleryDemoMedia[0], "top"),
+    benefit: "Exponha obras e receba consultas por encomendas.",
+    preview: interfacePreview("artistas", "Captura do exemplo de galeria virtual com obras ilustrativas."),
   },
   {
     source: { kind: "landing", id: "portfolio-designers" },
     intent: "present-work",
     title: "Portfólio para designers",
     context: "Designers gráficos, UI/UX, web e freelancers",
-    benefit: "Mostre projetos e cases em um link para enviar a clientes e recrutadores.",
-    preview: { kind: "fallback", label: "Projetos e cases", tone: "slate" },
+    benefit: "Envie projetos e cases em um único link.",
+    preview: interfacePreview("designers", "Captura do exemplo de portfólio de design."),
   },
   {
     source: { kind: "landing", id: "portfolio-fotografos" },
     intent: "present-work",
     title: "Portfólio para fotógrafos",
     context: "Fotógrafos de ensaios, eventos e trabalhos comerciais",
-    benefit: "Separe seus melhores trabalhos por categoria e facilite pedidos de orçamento.",
-    preview: imagePreview(photographerDemoMedia[0], "top"),
+    benefit: "Mostre ensaios e receba pedidos de orçamento.",
+    preview: interfacePreview("fotografos", "Captura do exemplo de portfólio de fotografia."),
   },
   {
     source: { kind: "landing", id: "portfolio-tatuadores" },
     intent: "present-work",
     title: "Portfólio para tatuadores",
     context: "Tatuadores autônomos",
-    benefit: "Organize tatuagens por estilo e facilite o contato de novos clientes.",
-    preview: imagePreview(tattooDemoMedia[1]),
+    benefit: "Mostre seus estilos e receba consultas por tatuagens.",
+    preview: interfacePreview("tatuadores", "Captura do exemplo de portfólio de tatuagens."),
   },
   {
     source: { kind: "landing", id: "site-corretores" },
     intent: "capture-clients",
     title: "Site para corretores de imóveis",
     context: "Corretores de imóveis autônomos",
-    benefit: "Apresente seus imóveis e leve interessados ao WhatsApp ou formulário.",
-    preview: imagePreview(realEstateDemoMedia[0], "top"),
+    benefit: "Mostre imóveis e receba contatos pelo WhatsApp.",
+    preview: interfacePreview("corretores", "Captura do exemplo de site para corretor, com imóvel ilustrativo."),
   },
   {
     source: { kind: "legacy", slug: "landing-page-para-psicologas" },
     intent: "capture-clients",
     title: "Página para psicólogas",
     context: "Psicólogas e consultórios",
-    benefit: "Explique seu atendimento e facilite o primeiro contato de novos pacientes.",
+    benefit: "Explique seu atendimento e receba consultas.",
     preview: { kind: "fallback", label: "Atendimento e contato", tone: "forest" },
   },
   {
@@ -100,7 +97,7 @@ const presentations: CardPresentation[] = [
     intent: "capture-clients",
     title: "Página para estética",
     context: "Clínicas e profissionais de estética",
-    benefit: "Mostre tratamentos e leve dúvidas e agendamentos ao seu canal de atendimento.",
+    benefit: "Mostre tratamentos e receba pedidos de agendamento.",
     preview: { kind: "fallback", label: "Tratamentos e contato", tone: "clay" },
   },
   {
@@ -108,7 +105,7 @@ const presentations: CardPresentation[] = [
     intent: "capture-clients",
     title: "Página para vender seu serviço",
     context: "Social media, designers e freelancers digitais",
-    benefit: "Explique o que você faz e leve interessados para uma conversa comercial.",
+    benefit: "Apresente sua oferta e receba pedidos de orçamento.",
     preview: { kind: "fallback", label: "Serviço e contato", tone: "slate" },
   },
   {
@@ -116,7 +113,7 @@ const presentations: CardPresentation[] = [
     intent: "capture-clients",
     title: "Site ou página sob medida",
     context: "Serviços e negócios com uma necessidade específica",
-    benefit: "Tenha uma página feita para sua oferta, seu conteúdo e sua forma de atendimento.",
+    benefit: "Reúna sua oferta, conteúdo e contato em um site.",
     preview: { kind: "fallback", label: "Projeto sob medida", tone: "gold" },
   },
   {
@@ -124,7 +121,7 @@ const presentations: CardPresentation[] = [
     intent: "sell-operate",
     title: "Auditoria de SEO",
     context: "Sites, lojas e projetos de conteúdo",
-    benefit: "Descubra o que dificulta seu site de aparecer e ser entendido pelo Google.",
+    benefit: "Saiba o que dificulta encontrar seu site na busca.",
     preview: { kind: "fallback", label: "Busca e indexação", tone: "forest" },
   },
   {
@@ -132,7 +129,7 @@ const presentations: CardPresentation[] = [
     intent: "sell-operate",
     title: "Automação para atendimento",
     context: "Negócios com tarefas e contatos espalhados",
-    benefit: "Conecte etapas do atendimento e reduza tarefas manuais repetidas.",
+    benefit: "Conecte ferramentas e reduza tarefas repetidas.",
     preview: { kind: "fallback", label: "Tarefas automatizadas", tone: "gold" },
   },
 ];
@@ -141,8 +138,8 @@ const groupDefinitions: Array<Omit<ServiceHubGroup, "cards">> = [
   {
     id: "apresentar-trabalho",
     intent: "present-work",
-    navigationLabel: "Portfólios",
-    title: "Portfólios para mostrar seu trabalho",
+    navigationLabel: "Mostrar meu trabalho",
+    title: "Para apresentar seu trabalho",
     description: "Organize seus melhores trabalhos e compartilhe tudo em um único link.",
   },
   {
@@ -155,7 +152,7 @@ const groupDefinitions: Array<Omit<ServiceHubGroup, "cards">> = [
   {
     id: "melhorar-vendas-operacao",
     intent: "sell-operate",
-    navigationLabel: "Quero vender",
+    navigationLabel: "Melhorar site e atendimento",
     title: "Para melhorar seu site e atendimento",
     description: "Corrija problemas de busca e reduza tarefas manuais no atendimento.",
   },
@@ -168,14 +165,36 @@ const groupDefinitions: Array<Omit<ServiceHubGroup, "cards">> = [
   },
 ];
 
-function compactPrice(raw: string) {
-  const prefix = "A partir de ";
-  if (raw.startsWith(prefix)) {
-    return { label: "A partir de", value: raw.slice(prefix.length) };
+type LegacyCommercialSource = {
+  hero: { price?: string };
+  commercialModel: {
+    setup: { amount: string };
+    monthly: { amount: string; includes: string[] };
+  };
+};
+
+export function getServiceHubPrice(source: LegacyCommercialSource | ServiceLanding) {
+  if ("sections" in source) {
+    const pricing = source.sections.find((section) => section.type === "pricing");
+    if (pricing?.type === "pricing") {
+      const recurring = pricing.items.filter((item) => item.cadence === "monthly");
+      const setup = pricing.items.filter((item) => item.cadence === "once");
+      if (recurring.length === 1) {
+        return {
+          label: "Mensalidade",
+          value: recurring[0].amount,
+          detail: setup.length ? `+ ${setup.map((item) => item.amount).join(" + ")} de implantação` : undefined,
+          included: recurring[0].details,
+        };
+      }
+    }
+    throw new Error(`Serviço publicado sem mensalidade válida no hub: ${source.slug}`);
   }
   return {
-    label: "Implantação + mensalidade",
-    value: raw.replace(" de implantação", ""),
+    label: "Mensalidade",
+    value: source.commercialModel.monthly.amount,
+    detail: `+ ${source.commercialModel.setup.amount} de implantação`,
+    included: `Inclui ${source.commercialModel.monthly.includes.join(", ").toLocaleLowerCase("pt-BR")}.`,
   };
 }
 
@@ -213,7 +232,7 @@ export function getServiceHubGroups(): ServiceHubGroup[] {
       title: presentation.title,
       context: presentation.context,
       benefit: presentation.benefit,
-      price: compactPrice(source.hero.price ?? "Sob escopo"),
+      price: getServiceHubPrice(source),
       preview: presentation.preview,
     });
   });

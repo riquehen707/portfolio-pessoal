@@ -14,6 +14,13 @@ const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
 
+  async redirects() {
+    return [
+      { source: "/portfolio", destination: "/work", permanent: true },
+      { source: "/about", destination: "/sobre", permanent: true },
+    ];
+  },
+
   images: {
     // Os assets editoriais já são normalizados no repositório. Servi-los
     // diretamente evita que a biblioteca dependa da cota do Image Optimizer.

@@ -1,5 +1,7 @@
 # Etapa 11 - CTA final, conversão e captação de leads
 
+> **Registro histórico.** Esta etapa não orienta novas implementações nem comprova o estado atual. Consulte as [fontes vigentes](../architecture/site-architecture.md#autoridade-e-manutenção-da-documentação).
+
 Objetivo desta etapa: fazer a Home terminar com clareza operacional e abrir o contato sem fricção desnecessária.
 
 ## Estrutura aplicada
@@ -19,7 +21,7 @@ O fechamento da Home agora combina:
 - cada envio carrega `contextLabel` para identificar a origem do lead
 - a Home termina com agenda, WhatsApp e briefing no mesmo lugar
 
-## Conversão real
+## Entradas de contato registradas na etapa
 
 O fluxo final agora cobre três entradas:
 
@@ -27,7 +29,7 @@ O fluxo final agora cobre três entradas:
 - WhatsApp
 - formulário curto
 
-Isso reduz atrito e deixa óbvio como começar.
+Essas entradas representam caminhos de contato; abertura de agenda, WhatsApp ou mailto não confirma um lead. Para páginas atuais de serviços, usar o [contrato de mensuração](../architecture/service-landing-pages.md#analytics) e o checklist comercial.
 
 ## Tagging basico de leads
 

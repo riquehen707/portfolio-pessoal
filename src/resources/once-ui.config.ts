@@ -23,6 +23,7 @@ const routes: RoutesConfig = {
   "/": true,
   "/saiba-mais": false,
   "/about": true,
+  "/sobre": true,
   "/about/abordagem-tecnica": false,
   "/work": true,
   "/blog": true,

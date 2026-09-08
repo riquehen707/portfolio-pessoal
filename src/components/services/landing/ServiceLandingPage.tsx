@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 import type {
   ServiceLanding,
   ServiceSection,
@@ -40,8 +41,8 @@ export function ServiceLandingPage({
         Ir para a oferta
       </a>
       <header className={styles.brand}>
-        <span>henrique.dog</span>
-        <span>{landing.hero.eyebrow}</span>
+        <Link href="/" aria-label="henrique.dog — início">henrique.dog</Link>
+        <Link href="/servicos">Voltar para serviços</Link>
       </header>
       <div className={styles.container}>
         <ServiceHero landing={landing} context={context} visual={heroVisual} />

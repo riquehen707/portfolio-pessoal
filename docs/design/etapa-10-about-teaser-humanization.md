@@ -1,5 +1,7 @@
 # Etapa 10 - About teaser, humanização e conexão de marca
 
+> **Registro histórico.** Esta etapa não orienta novas implementações nem comprova o estado atual. Consulte as [fontes vigentes](../architecture/site-architecture.md#autoridade-e-manutenção-da-documentação).
+
 Objetivo desta etapa: adicionar presença humana na Home sem alongar a leitura nem quebrar a atmosfera premium.
 
 ## Estrutura aplicada
@@ -29,6 +31,8 @@ Foi adotada a linha recomendada para está etapa:
 Sem retrato e sem excesso de informação.
 
 ## O que a seção comunica
+
+Para páginas de serviços, a identificação do executor segue [confiança verificável](../architecture/service-landing-pages.md#confiança-verificável). A composição visual registrada nesta etapa não substitui autoria, participação e escopo explícitos.
 
 - existe critério humano por tras do trabalho
 - a execução não é automática nem genérica

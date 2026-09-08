@@ -29,7 +29,7 @@ const toolsLink = { href: "/servicos/produtos", label: "Ferramentas" } as const;
 const henriqueLinks = [
   { href: "/work", label: "Portfólio" },
   { href: "/servicos", label: "Serviços", exact: true },
-  { href: "/about", label: "Sobre mim" },
+  { href: "/sobre", label: "Sobre" },
 ] as const;
 
 type MenuLink = (typeof primaryContentLinks)[number] | (typeof collectionLinks)[number] | typeof toolsLink | (typeof henriqueLinks)[number];

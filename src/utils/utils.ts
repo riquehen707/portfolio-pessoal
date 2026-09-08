@@ -30,6 +30,7 @@ export type Metadata = {
   kind?: "client" | "personal" | "study";
   stack?: string[];
   objective?: string;
+  project?: { audience: string; state: string; serviceSlug?: string };
   featured?: boolean;
   featuredHome?: boolean;
   score?: number;
@@ -226,6 +227,7 @@ function safeReadFile(filePath: string, collection?: string): BlogFile | null {
       kind: parsed.kind ?? undefined,
       stack,
       objective: parsed.objective ?? undefined,
+      project: parsed.project,
       featured: parsed.featured ?? undefined,
       featuredHome: parsed.featuredHome ?? parsed.featured_home ?? undefined,
       score: parsed.score ?? parsed.relevanceScore ?? parsed.relevancia_score ?? undefined,

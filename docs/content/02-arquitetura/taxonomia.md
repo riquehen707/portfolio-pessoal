@@ -28,6 +28,10 @@ Origem ou contexto do conteúdo:
 
 Não usar `kind` para assunto ou formato.
 
+### Campos dos cases
+
+No portfólio, `kind` distingue cliente, projeto próprio e estudo; `category` identifica o tipo de trabalho. O objeto opcional `project` contém público, estado conhecido e vínculo com serviço. Sua aplicação pertence à [arquitetura do portfólio](../../architecture/site-architecture.md#portfólio-e-cases); não preencher esses campos em artigos apenas por estarem disponíveis no schema compartilhado.
+
 ## Assunto e descoberta
 
 ### `category` e `categories`

@@ -51,6 +51,8 @@ export const serviceHubCardSchema = z.object({
   price: z.object({
     label: requiredText.max(28),
     value: requiredText.max(80),
+    detail: requiredText.max(100).optional(),
+    included: requiredText.max(140),
   }),
   badge: badgeSchema.optional(),
   preview: z.discriminatedUnion("kind", [imagePreviewSchema, fallbackPreviewSchema]),

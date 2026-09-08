@@ -1,6 +1,8 @@
 # Etapa 3 — Sistema Global de Design
 
-Base visual oficial da marca Henrique Reis para garantir consistência, escala e velocidade de execução em novas páginas.
+> **Registro histórico.** Esta etapa não orienta novas implementações nem comprova o estado atual. Consulte as [fontes vigentes](../architecture/site-architecture.md#autoridade-e-manutenção-da-documentação).
+
+Base visual da marca Henrique Reis registrada nesta etapa; os valores abaixo descrevem aquela configuração.
 
 ## Princípio central
 

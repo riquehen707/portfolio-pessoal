@@ -1,18 +1,261 @@
-# Landing pages de serviços
+# Serviços: catálogo e páginas de conversão
 
-Padrão para ofertas específicas com uma única conversão principal. Clareza e redução de atrito são objetivos de projeto; alta conversão é resultado a medir, não promessa do template.
+Fonte das regras de descoberta, cards, navegação comercial e landing pages do projeto. A divisão de responsabilidades e a manutenção da documentação seguem a [arquitetura do site](site-architecture.md#autoridade-e-manutenção-da-documentação); artigos seguem o [sistema editorial](../content/README.md).
+
+Para escrever títulos, descrições, cards e textos de interface, aplicar a [diretriz global de linguagem](../content/01-fundamentos/voz-e-estilo.md). Este guia mantém a arquitetura comercial e os contratos, sem criar outro padrão de copy.
+
+O objetivo é reduzir fricção entre **descoberta → avaliação → conversão**, preservando caminhos de retorno. As regras de experiência abaixo são o padrão a adotar; a seção de [adoção e pendências](#adoção-e-pendências) separa esse padrão do que está implementado. Alta conversão é resultado a medir, não promessa do template.
+
+Leitura por tarefa: [experiência e conteúdo](#responsabilidades), [serviço como produto, modelos e condições](#serviços-apresentados-como-produtos), [catálogo e cards no código](#contrato-técnico-do-catálogo-e-dos-cards), [contrato da landing](#contrato-da-oferta), [CTA no artigo](#artigo-para-landing-servicecta), [validação](#checklist-de-catálogo-e-landing-antes-da-publicação).
 
 ## Responsabilidades
 
 | Página | Objetivo | Estrutura |
 | --- | --- | --- |
 | Artigo `/blog/[slug]` | Aquisição orgânica e educação | MDX, explicação, referências e até um CTA contextual |
-| Landing `/servicos/[slug]` | Converter procura por uma oferta específica | Oferta, escopo, condições, objeções e uma ação principal |
-| Institucional `/servicos` | Apresentar o catálogo geral | Visão geral e navegação entre frentes de serviço |
+| Home/catálogo `/servicos` | Permitir entendimento rápido, descoberta e escolha | Intenções do cliente, cards e acesso às páginas individuais |
+| Landing `/servicos/[slug]` | Avaliar e contratar uma oferta específica | Decisão, avaliação e detalhes, com uma ação principal e navegação de retorno |
 
 Não usar o modelo de artigo para a landing. Não transformar o catálogo numa campanha para todos os públicos. Não criar páginas trocando somente a profissão: público, problema, demonstração, escopo e objeções devem justificar cada URL.
 
-A organização da página institucional por intenção está documentada em [services-hub.md](services-hub.md).
+### Catálogo por intenção
+
+`/servicos` funciona como uma home de serviços. Não deve explicar profundamente cada oferta nem exigir que a pessoa entenda a organização técnica do trabalho antes de escolher.
+
+Organizar preferencialmente pela pergunta **o que você quer resolver?** Exemplos de rótulos:
+
+- Mostrar meu trabalho;
+- Captar clientes;
+- Vender;
+- Melhorar meu site;
+- Validar uma ideia.
+
+São exemplos de intenção, não cinco grupos obrigatórios. Exibir somente grupos com ofertas disponíveis; não inventar um serviço para preencher uma categoria. Evitar `UX`, `Desenvolvimento`, `Web design` e `Soluções digitais` como categorias quando exigirem conhecimento técnico do visitante. Os termos podem aparecer na avaliação ou nos detalhes da oferta, com explicação.
+
+Usar um hero curto, seguido da navegação por intenção e do catálogo. Cada grupo tem título e uma frase de contexto fora da área rolável. Cada serviço aparece uma vez e leva diretamente à sua página individual. Ajuda para escolher e contato geral podem encerrar a página de forma compacta; um processo comum, se necessário, cabe em três etapas breves. FAQ, processos específicos, listas extensas, escopo completo e grandes demonstrações ficam nas landings.
+
+O hero pode usar `Ver serviços` para o catálogo; cada card usa `Ver serviço`, com nome acessível que identifica a oferta. `Falar comigo` é suporte para quem precisa de orientação. Não substituir a descoberta por um pedido de orçamento dominante ou por um CTA persistente de contratação no catálogo. Links para ferramentas, blog e portfólio devem ter função clara, sem repetição em vários blocos. Nunca encaminhar a escolha para uma rota pausada ou com redirecionamento inesperado.
+
+### Cards como pontos de decisão
+
+Hierarquia recomendada, nesta ordem:
+
+1. Preview visual que represente a oferta.
+2. Nome do serviço, curto e compreensível.
+3. Público ou contexto, em uma linha breve.
+4. Benefício principal, em uma frase curta.
+5. Mensalidade e implantação legíveis juntas; quando a mensalidade ainda não tiver valor público, usar `Sob consulta — cobrança mensal`.
+6. CTA para a página individual.
+
+Não incluir processo completo, FAQ, listas extensas, detalhes técnicos ou parágrafos longos. Reescrever o resumo quando não couber; não cortar preço, recorrência ou informação necessária à escolha para manter uma altura artificial.
+
+Usar preview real autorizado ou fallback gráfico honesto, sem inventar projeto ou cliente. Badge é opcional; popularidade exige evidência e não deve simular urgência. O card pode ser um único link HTML com nome acessível claro, como no componente atual; não aninhar links ou controles interativos.
+
+Aplicar o padrão de [previews](#previews-legíveis-e-consistentes). O card do catálogo apresenta o serviço; a comparação de seus modelos acontece na landing, sem multiplicar a mesma oferta em vários cards de `/servicos`.
+
+### Carrosséis e navegação horizontal
+
+No mobile, usar scroll horizontal nativo para grupos com múltiplos serviços, com `overflow-x: auto` e scroll snap. Deixar uma pequena parte do próximo card visível como indicação de continuidade; com um único serviço, não criar rolagem artificial.
+
+- Preservar cards amplos e legíveis, ajustando a largura ao espaço útil; não reduzir o card apenas para caber mais itens.
+- Não usar autoplay, avanço automático ao entrar na viewport ou reposicionamento que tire o controle do visitante.
+- Permitir toque, mouse e teclado. Setas são opcionais e nunca o único meio de navegação.
+- Manter ordem do DOM coerente com a ordem visual, foco visível e item focado acessível no trilho.
+- Não esconder cards ou grupos por posição com `nth-child`; todas as ofertas devem continuar alcançáveis.
+- Conter a rolagem na área intencional: o documento inteiro não pode ganhar overflow horizontal.
+
+Filtros ou links de intenção também podem formar um trilho horizontal. Para o catálogo atual, preferir âncoras HTML com `Todos` e grupos não vazios, mantendo voltar/avançar e uso sem JavaScript. Se a quantidade de ofertas justificar filtros, usar seleção única, estado na URL, contagem e mensagem de resultado vazio com opção de limpar. Não impor um número arbitrário de ofertas como gatilho nem filtrar por tecnologia. `Ver todos` só deve aparecer quando tiver um destino real e útil.
+
+### Landing individual e primeira dobra
+
+Conversão não transforma a landing em beco sem saída. Manter header compacto com logo/identidade ligada à home `/` e acesso claro a `/servicos`. Acrescentar breadcrumb visual ou `Voltar para serviços` quando ajudar a situar a oferta. Esses links devem funcionar mesmo para quem chegou diretamente de um anúncio ou buscador; não depender do histórico do navegador. Breadcrumb em JSON-LD não substitui navegação visível.
+
+A primeira dobra deve apresentar, sempre que possível, nome do serviço, promessa principal concreta, preço ou modelo comercial, resumo do que está incluído, CTA primário e CTA secundário para demonstração quando existir. Em telas menores ou com zoom, preservar essa prioridade perto do início sem comprimir tudo numa altura fixa. Não reduzir fonte nem esconder informação para simular uma dobra completa.
+
+### Hierarquia da informação
+
+| Nível | Conteúdo | Tratamento |
+| --- | --- | --- |
+| 1 — decisão | Produto/serviço, preço, CTA e demonstração | Resumo no início; ação e acesso à demonstração fáceis de encontrar |
+| 2 — avaliação | Modelos, benefícios, entregáveis e processo | Seções curtas para comparar, reconhecer adequação e entender a entrega |
+| 3 — detalhes | Escopo, condições, limitações, FAQ e questões técnicas | Seções secundárias ou conteúdo recolhível acessível, sem dominar a página |
+
+O nível descreve prioridade, não três telas rígidas. A demonstração pode ter acesso no nível 1 e conteúdo ampliado no nível 2. Entregáveis começam por um resumo; quantidades, exclusões e responsabilidades ficam nos detalhes. Custos recorrentes, limitações decisivas e condições que mudam a compra precisam de resumo junto ao preço/CTA, mesmo quando explicados depois. Hierarquia não autoriza esconder condições comerciais.
+
+### CTA primário, secundário e suporte
+
+Cada landing tem **uma única ação primária**, claramente dominante. Ela pode ser repetida no hero, preço, fechamento e rodapé persistente, mantendo destino, intenção e rótulo. Uma ação não significa um único botão na página.
+
+| Papel | Exemplos | Destaque |
+| --- | --- | --- |
+| Primário | `Quero esse site`, `Solicitar projeto`, `Contratar auditoria`, `Pedir orçamento` | Um rótulo escolhido para a oferta e maior destaque visual |
+| Secundário | `Ver demonstração`, `Ver modelos` | Menor destaque, com destino existente e coerente |
+| Suporte | `Tirar uma dúvida`, `Falar comigo` | Link discreto de ajuda, sem competir com a contratação |
+
+Não alternar rótulos para a mesma ação nem apresentar contato, formulário e contratação como três ações dominantes. Se a contratação ocorre pelo WhatsApp, ele já é o destino primário; um link de suporte só se justifica por uma função distinta. Demonstração é opcional quando não existe material útil, mas seu acesso deve ser claro quando houver.
+
+### Mobile como experiência principal
+
+Projetar primeiro para leitura confortável e uso com uma mão. Usar texto legível, entrelinha confortável, contraste e áreas de toque de pelo menos 48 px nos controles de navegação e CTA; campos de formulário devem manter fonte de pelo menos 16 px. Esses valores são critérios do projeto, não uma declaração de conformidade automática.
+
+Garantir CTA acessível cedo, imagens dimensionadas, empilhamento natural e ausência de overflow acidental. Nenhuma ação pode depender de hover, e movimentos devem respeitar a preferência de redução de movimento.
+
+CTA persistente no rodapé é opcional nas landings quando facilitar a ação. Repetir a mesma conversão, reservar espaço no conteúdo e considerar a safe area. Ocultar ou desativar se cobrir texto, foco, consentimento, formulário ou teclado virtual, especialmente em viewport baixa. Validar telas de 320 e 390 px, desktop, zoom de 200%, teclado e uso com teclado virtual; uma barra fixa não deve dificultar leitura ou retorno ao catálogo.
+
+## Serviços apresentados como produtos
+
+Apresentar uma entrega que o visitante consiga ver, comparar e entender, com preço e condições identificáveis. Este é um padrão de conteúdo reutilizável dentro das landings, não um novo catálogo de dados: serviços continuam nos contratos de serviços, sem migração para `Product`, `ProductVariant` ou `ProductOffer` do acervo editorial.
+
+### Modelo comercial mensal obrigatório
+
+Toda proposta de serviço comercial publicada deve possuir **uma mensalidade vinculada a trabalho recorrente real**. A mensalidade aparece cedo no catálogo e na landing e informa, de forma curta, o que sustenta a continuidade: por exemplo, hospedagem, manutenção, suporte, monitoramento, atualizações ou pequenas alterações, somente quando esses itens fizerem parte da entrega.
+
+- Com valor definido, usar `R$ X/mês` ou `A partir de R$ X/mês`.
+- Sem valor definido, usar exatamente `Sob consulta — cobrança mensal`; não substituir por `Sob orçamento` isolado.
+- Quando houver trabalho inicial relevante, separar `R$ X de implantação + R$ Y/mês` ou declarar `R$ Y/mês com implantação incluída`.
+- Um preço de implantação nunca aparece como oferta completa sem a mensalidade associada.
+- Auditoria, consultoria, SEO e automação precisam incluir acompanhamento, monitoramento, manutenção ou outra entrega recorrente compatível. Não renomear uma entrega pontual como mensal sem trabalho continuado.
+- Fidelidade e cancelamento devem aparecer quando definidos. Se dependerem da proposta, declarar essa dependência antes da contratação; não presumir cancelamento livre.
+
+O schema das landings novas exige uma única seção de preço e uma única linha `cadence: "monthly"` em toda oferta publicada. O catálogo legado exige `commercialModel.setup`, `commercialModel.monthly` e `commercialModel.terms`. Os dois contratos impedem que a mensalidade exista apenas na copy.
+
+### Resumo da oferta
+
+Quando aplicável, distribuir estas informações pelos três níveis de decisão já definidos:
+
+| Informação | Apresentação |
+| --- | --- |
+| Nome, preço e modelo de cobrança | Identificação imediata; mostrar a mensalidade e separar a implantação quando existir, sem esconder custo obrigatório |
+| Preview e modelos disponíveis | Mostrar o que será entregue e dar acesso às variações existentes |
+| Entregáveis e prazo | Resumir o que o cliente recebe; informar prazo e o marco que inicia a contagem, quando definidos |
+| Suporte, hospedagem e manutenção | Dizer o que está incluído, o que é separado, quem executa e quais limites se aplicam |
+| Personalização | Explicar o que pode mudar no modelo e o que exige escopo ou preço adicional |
+| CTA | Uma ação primária e acesso secundário a modelos/demonstração quando disponíveis |
+
+Modelo estrutural **fictício**, sem alterar os preços ou as inclusões das ofertas cadastradas:
+
+```text
+Site para corretores
+R$249/mês
+Site + hospedagem + suporte
+[Ver modelos] — ação secundária
+[Quero esse site] — ação primária
+```
+
+O exemplo é apenas o resumo da oferta. Antes de usá-lo numa página real, confirmar implantação, prazo, limites de suporte, manutenção e demais condições pertinentes; a mensalidade do exemplo não comprova que esses itens estejam incluídos. Se uma informação não estiver definida, registrar o que depende da proposta. Não inventar condições para completar a apresentação.
+
+### Modelos e demonstrações
+
+Para serviços visuais em que a escolha de estilo ajude a decidir, oferecer idealmente **3 a 5 modelos distintos**, com previews comparáveis. É uma recomendação de seleção, não uma cota: exibir somente modelos reais disponíveis, mesmo que sejam menos. Três capturas do mesmo site são três vistas de um modelo, não três estilos.
+
+Minimalista, Editorial, Clássico, Comercial e Premium são exemplos de rótulos. Cada um deve explicar uma diferença visível de composição, tipografia, organização ou uso. `Premium` não prova qualidade superior, mais recursos ou preço diferente por si só. Não criar variações mudando apenas o nome.
+
+Cada modelo apresenta nome/estilo, diferença principal, preview e acesso ao material disponível. Deixar claro que é um **ponto de partida personalizável**, indicando quais mudanças estão incluídas — por exemplo, cores, textos, imagens ou organização, se confirmadas — e quais dependem de nova avaliação. Não prometer personalização ilimitada.
+
+| Material | O que permite avaliar | Identificação e ação |
+| --- | --- | --- |
+| Screenshot/captura estática | Aparência de uma tela ou recorte | Identificar a vista, como `Captura da página de contato`; usar `Ampliar imagem` se houver ampliação |
+| Protótipo ou exemplo ilustrativo | Composição e interações limitadas | Explicitar o que funciona e o que está apenas representado; não apresentar como projeto entregue |
+| Demo funcional | Navegação e recursos demonstrados em funcionamento | Permitir abrir com `Ver demonstração`; testar o destino e informar limitações, como formulário sem envio |
+| Projeto real publicado | Entrega realizada em contexto verificável | Identificar autoria, participação e escopo; link para o projeto quando disponível e autorizado |
+
+O visitante não deve depender da imaginação para entender o produto. Sempre que houver uma demo funcional, permitir abri-la; se só existir uma captura, chamá-la de captura. Um preview não vira demo por estar dentro de uma moldura de navegador. Não chamar de funcional um protótipo cujas ações centrais são apenas desenho.
+
+Demos devem manter caminho de volta à oferta, funcionar em mobile e teclado e permitir verificar os recursos anunciados. Usar exemplos fictícios identificados; uma simulação não deve aparentar ter enviado formulário, reservado imóvel ou concluído compra. Abrir uma demo não significa contratar nem confirma conversão. Não usar uma rota pausada, um destino de desenvolvimento ou um link inexistente como demonstração pública.
+
+### Previews legíveis e consistentes
+
+Evitar screenshots verticais completos reduzidos a miniaturas ilegíveis. Mostrar as partes que ajudam a avaliar a entrega: Home, página interna, contato, galeria, formulário, versão mobile ou detalhe de produto/imóvel. Escolher vistas que correspondam ao serviço, sem preencher todas por obrigação.
+
+Na página geral, manter a mesma proporção de preview entre os cards; o componente atual usa 16:10. Na comparação de modelos, usar escala e enquadramento equivalentes para a mesma vista. Um recorte mobile pode ocupar uma moldura própria, identificado como mobile, sem esticar a imagem para parecer desktop.
+
+Preservar tamanho suficiente para ler e reconhecer a interface, com legenda que identifique a tela ou o recorte. Oferecer ampliação ou acesso à demo quando disponíveis. Captura completa pode ser complementar, em tamanho útil. Não esconder limitações do produto pelo recorte nem sugerir que recursos apenas ilustrados estejam incluídos. Origem, licença, créditos e dimensões seguem o contrato de mídia existente.
+
+### Antes de contratar
+
+Usar **Antes de contratar** como bloco reutilizável de condições e redução de risco, com respostas curtas apenas às dúvidas relevantes. Pode ser uma lista de condições ou perguntas recolhíveis, próxima à avaliação da oferta. Não criar uma segunda FAQ com as mesmas respostas.
+
+| Tema pertinente | O que a resposta precisa esclarecer |
+| --- | --- |
+| Cobrança | Mensalidade obrigatória, implantação e custos de terceiros separados quando existirem |
+| Fidelidade | Se existe compromisso mínimo e sua duração |
+| Cancelamento | Como solicitar, quando termina a cobrança e o que acontece com o site e os dados |
+| Domínio | Quem registra, de quem é a titularidade e quem paga a renovação |
+| Hospedagem | Se está incluída, quem mantém e quais limites se aplicam |
+| Suporte | Canal, cobertura e prazo de resposta, quando acordados |
+| Revisões | Quantas rodadas estão incluídas e o que conta como revisão |
+| Prazo | Estimativa de entrega, início da contagem e dependências do material do cliente |
+| Alterações futuras | O que pode mudar após a entrega, se entra em manutenção ou gera nova cobrança |
+
+Reutilizar o formato, não copiar condições de outra oferta. Mostrar somente linhas aplicáveis e confirmadas; quando uma condição relevante estiver pendente, explicar o que será definido na proposta. Não deduzir ausência de fidelidade, cancelamento livre ou manutenção ilimitada a partir de um preço mensal. Informações decisivas continuam resumidas junto ao preço e à ação, com aprofundamento neste bloco.
+
+No contrato atual, uma seção `type: "faq"` com título `Antes de contratar` pode cumprir esse papel usando `ServiceFAQ`, sem novo componente e sem outra FAQ obrigatória. `pricing.items` e `pricing.terms` continuam responsáveis pelo preço e suas condições; organizar textos para que as perguntas acrescentem esclarecimento em vez de repetir parágrafos. Uma futura apresentação em lista deve respeitar o schema ou migrá-lo explicitamente. O padrão não exige um número mínimo de perguntas além do contrato técnico.
+
+### Confiança verificável
+
+Priorizar projetos reais, demos, exemplos publicados, autoria clara, escopo explícito, processo transparente, regras de revisão e condições bem definidas. Distribuir essas evidências onde respondem à dúvida do visitante; não é obrigatório criar um bloco separado para cada uma.
+
+Identificar quem criou, qual foi sua participação e se o material é trabalho entregue, projeto próprio ou demonstração. Demos comprovam apenas os aspectos que permitem observar; não comprovam clientes, vendas ou resultados de uma contratação. Informações do executor e condições reais ajudam a avaliar a oferta mesmo sem depoimentos.
+
+Depoimentos são complementares, específicos e autorizados, com atribuição e evidência. Não depender de elogios genéricos, logos sem contexto, slogans de competência ou números sem origem. Omitir prova indisponível; não substituí-la por uma promessa de resultado ou garantia não definida.
+
+### Serviços relacionados
+
+Uma landing pode mostrar **2–3 alternativas relacionadas, no máximo três**, em um bloco discreto como `Talvez você esteja procurando…`. Se houver somente uma alternativa útil, mostrar uma; se não houver, omitir. Selecionar por intenção próxima e diferença real de escopo, não para preencher a página.
+
+Usar nome, uma frase que explique para qual necessidade a alternativa serve e link para a oferta publicada, sem duplicatas nem link para a própria página. Manter após o conteúdo de avaliação, sem disputar o hero ou o CTA primário. Não acrescentar filtros, vários grupos ou um catálogo completo; o acesso a `/servicos` continua sendo o caminho para explorar todas as ofertas. Modelos visuais da mesma oferta pertencem à seleção de modelos, não a este bloco.
+
+## Contrato técnico do catálogo e dos cards
+
+Esta seção descreve o código consultado em 2026-09-08, sem certificar produção ou aderência visual.
+
+| Responsabilidade | Fonte |
+| --- | --- |
+| Página e metadata | `src/app/servicos/page.tsx` e `servicesPage` nos recursos |
+| Ofertas novas | `getPublishedServiceLandings()` em `src/data/service-landings/` |
+| Ofertas legadas | `src/resources/services.ts` |
+| Intenção, ordem e apresentação | `src/data/service-hub/index.ts` |
+| Contrato do card | `src/content/service-hub/serviceHubCardSchema.ts` |
+| Composição e estilos | `src/components/services/hub/`: `ServiceHubView`, `ServiceHubCatalog`, `ServiceIntentNav`, `ServiceGroupCarousel` e `ServiceCard` |
+| Prévia de estados | `/dev/service-card`, somente em desenvolvimento; 404 em produção |
+
+O adaptador resolve preço, slug e identidade nos catálogos proprietários e acrescenta nome curto, contexto, benefício, intenção e preview. Valida cada card e rejeita slug duplicado ou serviço publicado sem apresentação. Não copiar preços ou criar um terceiro catálogo de ofertas. Rascunhos e rotas indisponíveis ficam fora da descoberta. Uma futura curadoria que omita ofertas publicadas exige ajustar explicitamente a cobertura do adaptador.
+
+| Campo do card | Contrato atual |
+| --- | --- |
+| `id`, `slug` | Obrigatórios, em kebab-case; slug gera `/servicos/[slug]` |
+| `intent` | `present-work`, `capture-clients`, `sell-operate` ou `validate-idea` |
+| `title`, `context`, `benefit` | Obrigatórios; máximos de 56, 80 e 120 caracteres |
+| `price.label`, `price.value` | Obrigatórios; máximos de 28 e 80 caracteres |
+| `price.detail` | Opcional; complemento de até 100 caracteres, usado para implantação sem esconder custo obrigatório |
+| `price.included` | Obrigatório; resumo de até 140 caracteres do trabalho coberto pela mensalidade |
+| `preview` | Imagem ou fallback; obrigatório |
+| `badge` | Opcional; rótulo de até 28 caracteres, tipo `highlight` ou `popular`; este último exige `evidence` de até 240 caracteres |
+
+`preview.kind: image` exige caminho local `/images/`, alt de até 180 caracteres, dimensões positivas e posição `center` ou `top`. Procedência e autorização ficam no catálogo proprietário. `fallback` exige rótulo de até 32 caracteres e tom `gold`, `forest`, `clay` ou `slate`; desenha uma página com CSS, sem fingir um projeto real.
+
+`ServiceCard.module.scss` e `ServiceGroupCarousel.module.scss` são as fontes dos valores visuais e breakpoints. O card ocupa a célula recebida e segue o [padrão de previews](#previews-legíveis-e-consistentes); badge ausente não deixa lacuna e não há estado desabilitado. Título, público e benefício não usam truncamento de linhas. No mobile, trilhos manuais preservam o próximo card visível; no desktop, a grade mostra os serviços sem exigir rolagem lateral.
+
+`getServiceHubPrice` deriva mensalidade, implantação e escopo recorrente dos catálogos proprietários. Nas ofertas legadas, o valor inicial foi preservado como implantação e a mensalidade ainda sem preço público aparece como `Sob consulta — cobrança mensal`; o escopo recorrente está em `commercialModel.monthly.includes`. As seis ofertas visuais usam capturas dos componentes especializados em `public/images/work/`, identificadas como exemplos de interface. Os demais cards usam representação tipográfica do serviço.
+
+## Adoção e pendências
+
+Estado técnico consultado em 2026-09-08. As diferenças abaixo são pendências de implementação, não exceções às regras de experiência. Validações datadas ficam no [histórico](../content/historico/decisoes-editoriais.md#2026-09-06--validações-locais-da-infraestrutura-de-serviços) e não certificam uma revisão ou publicação posterior.
+
+| Ponto | Estado consultado e próximo ajuste |
+| --- | --- |
+| Catálogo | `/servicos` já compõe grupos e cards a partir dos dois catálogos, com links de âncora e trilhos manuais |
+| Intenções | O catálogo apresenta `Mostrar meu trabalho`, `Captar clientes` e `Melhorar site e atendimento`. Não mostra intenções sem ofertas; os identificadores internos existentes foram preservados |
+| Compatibilidade da intenção | Os cinco exemplos públicos não são cinco valores já aceitos pelo enum. Novas intenções exigem procurar consumidores, atualizar schema/adaptador e migrar registros sem mudar IDs, slugs ou canonicals |
+| Header da landing | `ServiceLandingPage.tsx` tem identidade ligada a `/` e `Voltar para serviços`, inclusive no mobile |
+| Primeira dobra | `ServiceHero` mostra oferta, benefício, público, modelo comercial, resumo do escopo mensal e ação principal. Serviços legados mostram mensalidade e implantação no hero e repetem as condições no bloco comercial reutilizável |
+| Modelos e demos | `demonstration` aceita descrição, imagem opcional e `illustrative`; não possui lista de modelos ou URL de demo. As composições especializadas contêm exemplos visuais, mas não constituem um seletor compartilhado de 3–5 estilos |
+| Catálogo antigo de demos | `src/features/demos/data/demo-registry.ts` registra estilos, rotas e maturidade, mas `/modelos` e seus descendentes estão pausados por `routePolicy.ts`. Auditar o que realmente funciona antes de reutilizar; o status do registro não comprova acesso público |
+| Antes de contratar | Landings novas usam `pricing.terms` e FAQ. Serviços legados usam `commercialModel.terms`; fidelidade e cancelamento ainda dependentes da proposta são identificados como tal |
+| Alternativas relacionadas | O schema e `ServiceLandingPage` não têm campo ou bloco próprio de serviços relacionados. Implementação futura deve resolver somente ofertas publicadas por identidade existente e preservar URLs, sem inventar campos no catálogo atual |
+| Legados e mobile | Serviços antigos têm composições próprias. Revisar cada uma, áreas de toque, clamp, overflow e CTA persistente antes de afirmar conformidade |
+
+Preservar URLs, canonicals, IDs e condições reais das ofertas. A adequação futura deve corrigir o componente compartilhado quando a lacuna for comum, sem replicar soluções em seis páginas. Mudanças de schema exigem busca de usos, compatibilidade ou migração e validação proporcional, conforme `AGENTS.md`.
 
 ## Arquitetura e compatibilidade
 
@@ -29,7 +272,7 @@ Os serviços antigos mantêm seus dados, URLs e apresentação; esta entrega nã
 
 O layout reutiliza `standaloneLandingRoot`: o CSS global oculta Header/Footer institucionais e libera largura. A landing oferece cabeçalho mínimo com identidade e rodapé do executor. Tipografia, cores, providers e analytics continuam compartilhados. Isso evita mover todas as rotas; componentes globais ainda pertencem à árvore entregue. Não há isolamento completo de bundle: medir esse custo antes de campanhas de alto volume.
 
-Texto, CTA, preço e FAQ chegam no HTML do servidor. Links funcionam sem JavaScript e o FAQ usa `details/summary`. As ofertas cadastradas são `/servicos/portfolio-para-fotografos`, `/servicos/site-para-corretores`, `/servicos/portfolio-para-tatuadores`, `/servicos/galeria-virtual-para-artistas`, `/servicos/portfolio-para-designers` e `/servicos/site-para-arquitetos`, todas com pedido de orçamento no WhatsApp existente do site. Não há endpoint de coleta, checkout ou experimento ativo; os formulários descritos são recursos dos sites entregues aos clientes, não mecanismos de conversão destas landings. Cadastro disponível na aplicação local não equivale a deploy.
+Texto, CTA, preço e FAQ chegam no HTML do servidor. Links funcionam sem JavaScript e o FAQ usa `details/summary`. As seis ofertas do registro usam pedido de orçamento no WhatsApp existente do site; suas fontes estão nas [referências de implementação](#referências-de-implementação). Não há endpoint de coleta, checkout ou experimento ativo; os formulários descritos são recursos dos sites entregues aos clientes, não mecanismos de conversão destas landings. Cadastro disponível na aplicação local não equivale a deploy.
 
 ## Contrato da oferta
 
@@ -40,13 +283,13 @@ Cada registro define `id` permanente, `slug`, `status`, `updatedAt`, `seo`, `pro
 - `seo.index: false`: campanha pública fora do sitemap; não é controle de acesso.
 - `conversion`: destino único, repetido no hero, oferta, final e mobile. Tipos: `whatsapp`, `quote`, `checkout`, `form`.
 - WhatsApp aceita `https://wa.me/` com telefone internacional; orçamento/checkout aceitam HTTPS; formulário usa `#contato`.
-- `hero.price`: resumo opcional, coerente com o preço detalhado, inclusive recorrência e condições do “a partir de”.
+- `hero.price`: resumo obrigatório para uma oferta publicada, coerente com a mensalidade e a implantação detalhadas.
 - Mídia exige caminho local `/images/`, dimensões, alt, legenda, origem e crédito. Confirmar autorização comercial; não reutilizar automaticamente pôsteres/capas editoriais em anúncios. `source` registra procedência, e o crédito aparece na legenda.
 - Provas exigem `attribution` e `evidence`. Evidência é referência para revisão humana; não é certificação automática. Não colocar documentos privados ou dados de clientes nesse campo. O componente mostra relato e atribuição.
 
 O schema exige textos preenchidos, IDs de seção/título únicos e processo de 3 ou 4 etapas. `inicio`, `service-title`, `contato`, `contato-title`, `acao-final` e `acao-final-title` são reservados. Publicação exige as seções essenciais abaixo. Prova é opcional: omitir sem material real, em vez de inventar. Executor aparece sempre no rodapé.
 
-`structure` aceita `standard` (também quando omitido) ou `compact`. A estrutura padrão mantém seções de solução e público ideal separadas e demonstração opcional. A compacta usa os campos obrigatórios do hero para público/solução e exige sete seções: problema, benefício, demonstração, entregáveis, processo, preço e FAQ. Com hero e CTA final, forma nove partes. A exceção responde a ofertas curtas e não remove informação essencial nem altera os registros anteriores.
+`structure` aceita `standard` (também quando omitido) ou `compact`. A estrutura padrão mantém seções de solução e público ideal separadas e demonstração opcional. A compacta usa os campos obrigatórios do hero para público/solução e exige ao menos os tipos problema, benefício, demonstração, entregáveis, processo, preço e FAQ. Uma seção de cada tipo, com hero e CTA final, forma nove partes; seções adicionais são aceitas. Esse contrato de presença não impõe destaque visual igual nem uma ordem narrativa: aplicar os três níveis de informação sem remover seções exigidas pelo schema.
 
 ## Estrutura e componentes
 
@@ -58,16 +301,16 @@ Hero abre a página e CTA final encerra a oferta. `sections` controla a ordem in
 | Problema | Poucos parágrafos sobre a situação que trouxe o visitante | `ServiceSectionContent` (`problem`) |
 | Solução | Como o serviço atende à situação | `ServiceSectionContent` (`solution`) |
 | Benefícios | Ganhos concretos, sem prometer faturamento ou procura | `ServiceBenefits` |
-| Entregáveis | Quantidades, limites, formatos, revisões e exclusões pertinentes | `ServiceDeliverables` |
-| Demonstração | Captura, exemplo real, antes/depois ou caso de uso; fictícios identificados | `ServiceSectionContent` (`demonstration`), `ServiceImage` |
+| Entregáveis | Resumo da entrega; quantidades, limites, revisões e exclusões com hierarquia secundária | `ServiceDeliverables` |
+| Demonstração | Material identificado conforme o [padrão de modelos e demos](#modelos-e-demonstrações); captura não implica demo funcional | `ServiceSectionContent` (`demonstration`), `ServiceImage`; interações específicas podem usar composição própria |
 | Público ideal | Situações e pré-requisitos específicos | `ServiceBenefits` (`audience`) |
 | Processo | 3 ou 4 etapas compreensíveis | `ServiceProcess` |
 | Oferta/preço | Criação, recorrência, manutenção, domínio e hospedagem separados quando aplicáveis | `ServicePricing` |
-| Confiança | Depoimentos autorizados, projetos, números contextualizados, clientes, garantias reais ou executor | `ServiceProof` |
-| FAQ | Objeções comerciais independentes | `ServiceFAQ` |
+| Confiança | Evidências conforme [confiança verificável](#confiança-verificável); depoimentos são complementares | `ServiceProof` para relatos e atribuições; projetos e demos podem exigir composição própria |
+| FAQ / Antes de contratar | Dúvidas pertinentes e condições, sem repetição ou perguntas de preenchimento | `ServiceFAQ` |
 | CTA final | Proposta e ação principal repetidas | `ServiceAction` em `ServiceLandingPage` |
 
-Em `pricing.items`, cada linha tem `label`, `amount`, `cadence` e `details`. Recorrências: `once`, `monthly`, `yearly`, `included`, `on-request`. `terms` explica pagamento, cancelamento, custos de terceiros e limites. Sem preço definido, usar “Sob consulta” e explicar o que será decidido na proposta. Nunca esconder custos necessários à operação.
+Em `pricing.items`, cada linha tem `label`, `amount`, `cadence` e `details`. Cadências aceitas: `once`, `monthly`, `yearly`, `included`, `on-request`. Toda publicação tem exatamente uma linha `monthly`, cujo `amount` contém `/mês` ou `cobrança mensal` e cujo `details` resume a entrega recorrente. `terms` explica pagamento, cancelamento, fidelidade, custos de terceiros e limites. Sem valor mensal definido, usar `Sob consulta — cobrança mensal`. Nunca esconder custos necessários à operação.
 
 ## Composição e formulários
 
@@ -79,23 +322,25 @@ Para formulário, passar `form={<FormularioDoServico />}`. A composição falha 
 
 ## Copy e UX
 
-Escrever para uma pessoa em uma situação específica. Preferir “Portfólio para tatuadores apresentarem trabalhos e receberem pedidos” a “Transforme sua presença digital”. Explicar resultado e escopo antes de tecnologia. Evitar urgência falsa, promessas de agenda cheia, superlativos vazios e números sem origem.
+Usar as regras de [concretude](../content/01-fundamentos/voz-e-estilo.md#concretude), [função de cada seção](../content/01-fundamentos/voz-e-estilo.md#uma-função-por-seção) e [copy de decisão](../content/01-fundamentos/voz-e-estilo.md#copy-de-decisão). Preço, prazo, inclusões e alterações possíveis devem ser resolvidos nos dados da oferta, não preenchidos por inferência promocional.
 
-Seções curtas, títulos informativos e um assunto por parágrafo. Dizer o que o cliente envia, o que pode alterar e quem paga domínio/hospedagem. Não prometer resultados dependentes de atendimento, mídia ou concorrência.
+Após escrever o catálogo ou a landing, concluir a [auditoria obrigatória de linguagem](../content/01-fundamentos/voz-e-estilo.md#auditoria-obrigatória-de-linguagem), incluindo os cards e a leitura conjunta de hero, seções e CTA. As seções exigidas pelo schema continuam necessárias, com funções distintas; a auditoria não autoriza sua remoção silenciosa.
 
-Mobile primeiro: CTA cedo, alvos de pelo menos 48px, campos de 16px, foco visível, imagens dimensionadas e listas de uma coluna. Priorizar demonstração real a decoração. CTA fixo é opcional: reserva espaço final, considera safe area e some em viewport baixo ou com campo focado. Conferir 320px, 390px, desktop, zoom 200%, teclado e teclado virtual; desativar `stickyCTA` se prejudicar conteúdo, consentimento ou interação. Não instalar popups, chat ou scripts extras por padrão.
+Aplicar a [hierarquia da informação](#hierarquia-da-informação) e os critérios de [mobile](#mobile-como-experiência-principal). Não instalar popups, chat ou scripts extras por padrão.
 
 ## SEO e campanhas
 
-`serviceLandingMetadata` gera title, descrição, canonical natural `/servicos/[slug]`, Open Graph e Twitter. UTMs não entram no canonical. JSON-LD `Service` representa nome, descrição e executor visíveis. Não gerar notas, avaliações agregadas ou `Offer` a partir de preço textual composto. FAQ não implica promessa de resultado enriquecido.
+`serviceLandingMetadata` gera title, descrição, canonical natural `/servicos/[slug]`, Open Graph e Twitter. UTMs não entram no canonical. JSON-LD `Service` representa nome, descrição, executor e o modelo comercial visível por meio de `Offer` e `PriceSpecification`; valores textuais sob consulta permanecem como descrição, sem número inventado. Não gerar notas ou avaliações agregadas. FAQ não implica promessa de resultado enriquecido.
 
-Publicada e indexável entra automaticamente no sitemap; não duplicar no objeto estático `routes`. Busca interna e catálogo institucional são escolhas separadas: acrescentar links úteis quando a oferta real for criada. Campanhas podem chegar diretamente, sem depender de visita anterior ao blog.
+Publicada e indexável entra automaticamente no sitemap; não duplicar no objeto estático `routes`. Busca interna e descoberta no catálogo são configurações separadas; o adaptador atual do hub exige apresentação para cada oferta publicada. Campanhas podem chegar diretamente, sem depender de visita anterior ao blog. No hub, preservar um H1, H2 para intenções, H3 para cards, links renderizados no servidor e canonical próprio. `ItemList` ou `CollectionPage`, quando usados, devem refletir somente serviços exibidos.
 
 Antes de Google Ads/Meta Ads, alinhar anúncio e oferta, testar o destino real, definir evento importado como conversão e validar configuração/consentimento do provedor. Conferir UTMs de entrada; não repassar query strings inteiras a destinos ou formulários. Esta entrega não instala pixels nem configura contas de anúncios.
 
 ## Analytics
 
 Contrato local de eventos; não são automaticamente reconhecidos como conversões nas plataformas.
+
+No catálogo, o `AnalyticsProvider` lê `services_intent_select`, `services_card_click` e `services_help_click`. O card expõe ID, intenção, localização `services_hub_card` e `href` pelo provider. São eventos de descoberta e contato, não leads. Manter payloads sem texto livre ou dados pessoais; a allowlist abaixo é específica das landings e não substitui o contrato do provider global.
 
 | Evento | Disparo |
 | --- | --- |
@@ -142,109 +387,111 @@ O exemplo acima usa uma oferta publicada. Para outro serviço, não colocar o CT
 
 ## Criar uma nova landing
 
-### Referência concreta: portfólio para fotógrafos
+### Referências de implementação
 
-- Dados e oferta: `src/content/service-landings/photographerPortfolio.ts`.
-- Composição: `src/components/services/photographers/PhotographerLanding.tsx`; preserva SEO e analytics compartilhados.
-- Demonstração: `PhotographyDemo.tsx`, com filtros nativos por botões, estado selecionado e anúncio de resultado; todas as três fotos estão no HTML inicial. A apresentação é ilustrativa, sem resultados ou clientes inventados.
-- Mídia: três WebP locais, cerca de 204 KiB no total; fontes, autores e licença em `photographerDemoMedia.ts`. A licença foi verificada nas páginas das fotografias; créditos acessíveis na própria landing.
-- Conversão: `Quero meu portfólio` abre o WhatsApp cadastrado com mensagem sobre este serviço e preço. Cliques emitem `service_cta_click` e `service_whatsapp_click`; não disparam conversão confirmada.
-- Preço: R$397 de implantação + R$89/mês, sem esconder recorrência. Como hospedagem, domínio, alterações, cancelamento e prazo não foram fornecidos no briefing, ficam explicitamente sujeitos à proposta, sem condições inventadas.
-- Descoberta: canonical natural, inclusão automática no sitemap e link no catálogo institucional de serviços. Nenhum artigo ou CTA editorial foi alterado nesta etapa.
+Os seis exemplos abaixo já constam no registro local. Preços, mensagens, condições e quantidade de seções pertencem aos dados de cada oferta; não copiá-los para novos serviços. As decisões dos briefings ficam no [histórico editorial](../content/historico/decisoes-editoriais.md), com data, sem transformar nove, dez ou doze partes em regra universal.
 
-### Referência concreta: site para corretores
+| Oferta | Dados em `src/content/service-landings/` | Composição e demonstração em `src/components/services/` |
+| --- | --- | --- |
+| Fotógrafos | `photographerPortfolio.ts`, `photographerDemoMedia.ts` | `photographers/PhotographerLanding.tsx`, `PhotographyDemo.tsx` |
+| Corretores | `realEstateWebsite.ts`, `realEstateDemoMedia.ts` | `real-estate/RealEstateLanding.tsx`, `RealEstateDemo.tsx` |
+| Tatuadores | `tattooPortfolio.ts`, `tattooDemoMedia.ts` | `tattoo-artists/TattooLanding.tsx`, `TattooPortfolioDemo.tsx` |
+| Artistas | `artistGallery.ts`, `artistGalleryDemoMedia.ts` | `artists/ArtistGalleryLanding.tsx`, `ArtistGalleryDemo.tsx` |
+| Designers | `designerPortfolio.ts` | `designers/DesignerLanding.tsx`, `DesignPortfolioDemo.tsx` |
+| Arquitetos | `architectWebsite.ts`, `architectDemoMedia.ts` | `architects/ArchitectLanding.tsx`, `ArchitectPortfolioDemo.tsx` |
 
-- Dados e oferta: `src/content/service-landings/realEstateWebsite.ts`; mantém separadas implantação de R$497 e mensalidade de R$119.
-- Composição: `src/components/services/real-estate/RealEstateLanding.tsx`; usa os mesmos metadados, JSON-LD, CTAs e eventos do padrão.
-- Estrutura: hero e dez seções intermediárias cobrem problema, como o site ajuda, demonstração, imóveis, perfil, canais de contato, entregáveis, processo, preço e FAQ. O CTA final completa as doze partes do briefing.
-- Demonstração: `RealEstateDemo.tsx` apresenta um imóvel principal, vitrine, perfil e formulário ilustrativos. Identidade, dados e imóveis são explicitamente fictícios; não há cliente, anúncio, avaliação ou resultado inventado.
-- Mídia: três WebP locais com créditos e licença registrados em `realEstateDemoMedia.ts`. As fotografias são exemplos de fachada, interior e condomínio, não imóveis disponíveis.
-- Conversão: `Quero meu site` abre o WhatsApp cadastrado com mensagem específica e preço. O formulário mostrado é parte da demonstração do produto; a landing não simula envio nem conta clique como lead confirmado.
-- Condições: quantidade de imóveis, atualizações, domínio, hospedagem, manutenção, prazo, tratamento dos dados do formulário e cancelamento ficam explicitamente sujeitos à proposta porque não foram definidos no briefing.
-- Descoberta: publicação no registro torna a rota estática, indexável, incluída automaticamente no sitemap e listada no catálogo institucional de serviços.
-
-### Referência concreta: portfólio para tatuadores
-
-- Dados e oferta: `src/content/service-landings/tattooPortfolio.ts`; separa a implantação de R$297 da mensalidade de R$79 e mantém condições não fornecidas sujeitas à proposta.
-- Composição: `src/components/services/tattoo-artists/TattooLanding.tsx`; aplica identidade visual própria sem alterar SEO, JSON-LD, CTAs ou eventos compartilhados.
-- Estrutura: hero e oito seções intermediárias cobrem problema, solução, benefícios, entregáveis, demonstração, processo em três etapas, preço e FAQ. O CTA final completa as dez partes do briefing.
-- Demonstração: `TattooPortfolioDemo.tsx` mostra organização por estilos, galeria, perfil e contato. Identidade, textos de perfil e fotografias são explicitamente ilustrativos, sem trabalho, cliente ou resultado atribuído ao executor.
-- Mídia: três WebP locais com dimensões, créditos, páginas de origem e licença registrados em `tattooDemoMedia.ts`. As fotos servem apenas para demonstrar a interface.
-- Conversão: `Quero meu portfólio` abre o WhatsApp cadastrado com mensagem específica e preço. Os eventos `service_cta_click` e `service_whatsapp_click` registram a intenção de contato, sem contar clique como lead confirmado.
-- Descoberta: publicação no registro torna a rota estática, indexável, incluída automaticamente no sitemap e listada no catálogo institucional de serviços.
-
-### Referência concreta: galeria virtual para artistas
-
-- Dados e oferta: `src/content/service-landings/artistGallery.ts`; separa implantação de R$397 e mensalidade de R$89 e deixa quantidade de obras, coleções e atualizações para a proposta.
-- Composição: `src/components/services/artists/ArtistGalleryLanding.tsx`; aplica uma apresentação editorial própria sem alterar SEO, JSON-LD, CTAs e eventos compartilhados.
-- Estrutura: hero e dez seções intermediárias cobrem problema, galeria demonstrativa, benefícios, organização, página sobre o artista, contato, entregáveis, processo em três etapas, preço e FAQ. O CTA final completa as doze partes do briefing.
-- Demonstração: `ArtistGalleryDemo.tsx` mostra coleções, fichas genéricas, apresentação do artista e contato. Fotografias, identidade e informações são explicitamente ilustrativas, sem autoria artística, disponibilidade, cliente ou resultado inventado.
-- Mídia: três WebP locais com dimensões, autores das fotografias, páginas de origem e licença em `artistGalleryDemoMedia.ts`. Pintura, ilustração e escultura aparecem apenas como exemplos de composição.
-- Conversão: `Quero minha galeria` abre o WhatsApp cadastrado com mensagem específica e preço. Cliques emitem `service_cta_click` e `service_whatsapp_click`, sem confirmação automática de lead.
-- Artigo relacionado: `/blog/como-criar-uma-galeria-virtual-para-divulgar-suas-obras` mantém abordagem editorial e um único `ServiceCTA` ligado ao ID publicado `galeria-virtual-artistas`.
-- Descoberta: a landing entra automaticamente no sitemap e no catálogo institucional; o artigo cria o vínculo contextual sem duplicar a oferta.
-
-### Referência concreta: portfólio para designers
-
-- Dados e oferta: `src/content/service-landings/designerPortfolio.ts`; separa implantação de R$297 e mensalidade de R$79 e deixa quantidade e profundidade dos cases para a proposta.
-- Composição: `src/components/services/designers/DesignerLanding.tsx`; demonstra projetos e cases por formas criadas em HTML/CSS e mantém SEO, JSON-LD, CTAs e eventos compartilhados.
-- Estrutura: hero e oito seções intermediárias cobrem problema, demonstração, benefícios, estrutura do portfólio, entregáveis, processo em três etapas, preço e FAQ. O CTA final completa as dez partes do briefing.
-- Demonstração: `DesignPortfolioDemo.tsx` usa três projetos inteiramente fictícios, identificados como exemplos, para representar identidade visual, UI/UX e web design. Não há cliente, pesquisa, processo ou resultado inventado.
-- Conversão: `Quero meu portfólio` abre o WhatsApp cadastrado com mensagem específica e preço. Cliques registram intenção em `service_cta_click` e `service_whatsapp_click`, sem confirmação automática de lead.
-- Artigo relacionado: `/blog/como-criar-um-portfolio-de-design-para-conseguir-clientes` diferencia projeto e case, orienta seleção e explica decisões sem transformar o texto na oferta. Seu único `ServiceCTA` usa o ID publicado `portfolio-designers`.
-- Descoberta: a landing entra automaticamente no sitemap e no catálogo institucional; o artigo cria o vínculo contextual para propostas e candidaturas.
-
-### Referência concreta: site e portfólio para arquitetos
-
-- Dados e oferta: `src/content/service-landings/architectWebsite.ts`; separa implantação de R$497 e mensalidade de R$99 e deixa quantidade de projetos e páginas, revisões, atualizações, domínio, hospedagem, manutenção, prazo e cancelamento para a proposta.
-- Composição: `src/components/services/architects/ArchitectLanding.tsx`; aplica uma direção visual arquitetônica sem alterar SEO, JSON-LD, CTAs e eventos compartilhados.
-- Estrutura: hero e sete seções intermediárias cobrem problema, projetos demonstrativos, benefícios, entregáveis, processo em três etapas, preço e FAQ. O CTA final completa as nove partes do briefing.
-- Demonstração: `ArchitectPortfolioDemo.tsx` mostra categorias, imagens grandes e uma ficha de projeto. As fotografias de banco têm fonte, crédito, licença e dimensões registradas em `architectDemoMedia.ts`; não representam autoria arquitetônica, cliente, localização ou resultado do executor.
-- Conversão: `Quero meu portfólio` abre o WhatsApp cadastrado com mensagem específica e preço. Cliques emitem `service_cta_click` e `service_whatsapp_click` como intenção de contato, sem confirmar um lead.
-- Artigo relacionado: `/blog/como-montar-um-portfolio-de-arquitetura-profissional` orienta seleção, imagens, plantas, renders, descrição, serviços e formatos; seu único `ServiceCTA` usa o ID publicado `site-arquitetos`.
-- Descoberta: a landing entra automaticamente no sitemap e no catálogo institucional; o artigo cria o vínculo contextual sem repetir toda a oferta.
+As fotografias das demonstrações são exemplos licenciados de interface, com procedência e créditos nos registros de mídia. Não representam trabalhos, imóveis disponíveis ou autoria do executor. Designers usa composições fictícias em HTML/CSS. Formulários ilustrativos não simulam envio. A conversão dessas ofertas abre o WhatsApp e mede intenção de contato, sem confirmação de lead; todas preservam SEO e analytics compartilhados.
 
 ### Passos
 
 1. Consultar arquitetura, este guia e serviços legados. Definir público, problema, escopo, condições e conversão reais.
 2. Criar arquivo em `src/content/service-landings/`, tipado pelo novo `ServiceLanding`, começando em `draft`. `example.ts` é referência de estrutura; reescrever o conteúdo fictício.
 3. Importar em `landings.ts`. Usar ID permanente e slug curto distinto. A fachada valida também os rascunhos.
-4. Preencher hero, seções, executor e SEO. Registrar evidência/autorização e conferir preço do hero contra a oferta completa.
+4. Preencher hero, seções, executor e SEO com a diretriz global de linguagem e o padrão de serviço como produto. Selecionar modelos e vistas reais quando pertinentes, identificar captura/demo, conferir condições e evidências e concluir a auditoria de linguagem da página.
 5. Usar temporariamente o registro na prévia de desenvolvimento. Se necessário, fornecer `form`/`renderSection` e integrar a mesma composição à rota pública.
 6. Definir `seo.index` e descoberta institucional/editorial. `ServiceCTA` aceita somente IDs publicados.
 7. Executar o checklist. Mudar para `published` com oferta aprovada; commit, publicação e deploy exigem solicitação com essa intenção.
 
-## Checklist antes da publicação
+## Prioridade de correção
 
-- [ ] Serviço, público e benefício claros no hero; CTA aparece cedo.
-- [ ] Conteúdo específico, sem clones, experiência inventada ou promessa sem evidência.
-- [ ] Entregáveis, limites, esforço do cliente, prazo e condições conferidos.
-- [ ] Implantação, recorrência, manutenção, domínio e hospedagem explícitos quando aplicáveis.
-- [ ] Demonstrações autorizadas, exemplos fictícios rotulados, provas verificadas ou omitidas.
-- [ ] Mesmo destino no hero, oferta, final e mobile; telefone/URL real testado.
-- [ ] Formulário integrado, com validação, erros e sucesso confirmado; sem falso envio.
-- [ ] Sem overflow em 320/390px ou foco oculto; testar teclado virtual e zoom.
-- [ ] Conteúdo e links úteis sem JS; imagens leves e dimensionadas.
-- [ ] Title, descrição, canonical, OG, h1 único e hierarquia h2/h3; schema fiel.
-- [ ] Draft 404, sitemap/indexação coerentes, exemplo de dev 404 em produção.
-- [ ] Eventos vistos no navegador e provedor; falhas/cliques não contam como lead; sem payload pessoal.
-- [ ] Hipótese/IDs definidos se houver teste, sem variação aleatória não controlada.
-- [ ] `npm run test:service-landings`, `npm run audit:content`, `npx tsc --noEmit`, `npm run lint`, `npm run build` e `git diff --check`.
-- [ ] Revisão humana da oferta e solicitação explícita para publicação.
+Ao encontrar problemas, corrigir nesta ordem:
 
-## Validação inicial — 2026-09-06
+1. Compreensão da oferta.
+2. Navegação.
+3. Produto e demonstração.
+4. Preço e CTA.
+5. Redução de risco.
+6. Copy.
+7. Hierarquia visual.
+8. Refinamentos decorativos.
 
-Infraestrutura validada localmente com nove testes de contrato, renderização e eventos, TypeScript, lint, auditoria de conteúdo, `git diff --check` e build de 570 páginas. Os arquivos de exportação gerados pela auditoria foram preservados no estado anterior à execução.
+A ordem orienta o trabalho, não dispensa os itens do checklist. Refinamento visual não compensa uma oferta incompreensível ou um destino quebrado. Aplicar o [critério global de função](site-architecture.md#critério-de-função) antes de acrescentar qualquer bloco.
 
-HTTP em desenvolvimento: prévia 200, um h1, 12 seções, três perguntas em `details`, `noindex` e destino principal único. HTTP com `next start`: prévia e exemplo público 404; `/servicos`, `/servicos/produtos` e `/servicos/websites-profissionais` 200; sitemap 200 sem prévia/exemplo.
+## Checklist de catálogo e landing antes da publicação
 
-A automação de navegador falhou no ambiente com `missing field sandboxPolicy`. Não houve inspeção visual em viewport mobile, medição de performance da primeira oferta real ou verificação no provedor de analytics. Os testes de eventos verificam as funções e payloads localmente. Esses pontos continuam no checklist de cada oferta. Nenhum commit, deploy ou publicação foi realizado nesta etapa.
+Checklist único da experiência comercial. Registrar rota/versão, evidência e resultado de cada categoria: aprovado, pendente ou não aplicável com motivo. Não marcar como aprovado algo que não foi verificado. Ausência de dados, ferramenta ou acesso deve ficar explícita. O catálogo resume a escolha; itens de oferta completa se verificam na landing correspondente, sem copiá-los para os cards.
 
-## Validação do catálogo — 2026-09-06
+### Navegação
 
-Com as seis ofertas registradas, 15 testes de contrato, renderização e eventos passaram, assim como TypeScript, lint, auditoria de conteúdo, `git diff --check` e o build de 581 páginas. Em `next start`, a landing para arquitetos respondeu 200 com canonical natural, `index, follow`, um h1, nove partes, quatro CTAs com um único destino de WhatsApp e JSON-LD `Service`; apareceu no sitemap e uma vez no catálogo institucional. O artigo relacionado também respondeu 200 com canonical natural, um h1 e um único `ServiceCTA` para a oferta. As três imagens locais responderam 200. Os arquivos de exportação gerados pela auditoria foram restaurados ao estado anterior à execução.
+- [ ] O visitante consegue voltar para `/servicos` a partir da landing e da demo, inclusive após entrada direta por busca ou anúncio.
+- [ ] O logo/identidade é um link funcional para `/`; nenhum fluxo termina sem saída útil.
+- [ ] Cards, modelos e alternativas levam a destinos disponíveis; o catálogo mantém descoberta por intenção e relacionados respeitam o limite definido neste guia.
 
-A conexão de automação visual continuou indisponível no ambiente, portanto não houve inspeção efetiva em 320px, 390px, desktop ou zoom de 200%. As fotografias das demonstrações, inclusive as três usadas pelo site para arquitetos, foram inspecionadas diretamente; responsividade e ausência de overflow ainda precisam da revisão visual prevista no checklist. O provedor de analytics não foi acessado, e cliques no WhatsApp permanecem eventos de intenção, não leads confirmados.
+### Compreensão
+
+- [ ] Em poucos segundos, nome, contexto e entrega permitem identificar o serviço sem depender de um slogan.
+- [ ] Mensalidade, implantação quando houver e resumo do trabalho recorrente estão claros e coerentes entre hero, card, preço, FAQ e dados estruturados.
+- [ ] A próxima ação e o que acontece depois dela são compreensíveis.
+
+### Copy
+
+- [ ] A [auditoria global de linguagem](../content/01-fundamentos/voz-e-estilo.md#auditoria-obrigatória-de-linguagem) foi concluída e registrada: sem frases genéricas ou slogans sem informação concreta imediata.
+- [ ] Redundâncias entre headline, parágrafos, seções e CTA foram removidas; nenhuma seção existe apenas para preencher a página.
+- [ ] Não há parágrafos longos desnecessários; cada seção e cada card cumprem uma função, sem omitir informações decisivas para encurtar o texto.
+
+### Produto
+
+- [ ] Previews mostram a entrega em tamanho legível; capturas, protótipos e demos funcionais estão identificados corretamente.
+- [ ] Demos, quando aplicáveis, abrem e permitem testar os recursos anunciados; há modelos suficientes quando a escolha de estilo é relevante, conforme o padrão deste guia.
+- [ ] A entrega parece concreta por material verificável, autoria e escopo explícitos. Exemplos fictícios estão identificados e não simulam trabalho entregue ou resultados de clientes.
+
+### Conversão
+
+- [ ] Existe uma única ação primária dominante e ela aparece cedo. Suas repetições mantêm rótulo, intenção e destino; não são ações concorrentes.
+- [ ] CTA secundário tem função e destino claros; suporte e alternativas não disputam a contratação.
+- [ ] Mobile mantém o CTA acessível; a versão persistente, se usada, não cobre texto, foco, consentimento ou teclado virtual.
+
+### Risco
+
+- [ ] Prazo e dependências do cliente estão claros, assim como mensalidade, implantação e custos necessários.
+- [ ] Manutenção, hospedagem, domínio, suporte, personalização e revisões têm inclusões e limites explícitos quando pertinentes; nenhuma condição foi inventada a partir do preço.
+- [ ] `Antes de contratar` responde às dúvidas relevantes, incluindo fidelidade, cancelamento e alterações futuras quando aplicáveis, sem criar uma FAQ longa ou repetida. Condições ainda dependentes da proposta estão identificadas.
+
+### Design
+
+- [ ] A hierarquia separa decisão, avaliação e detalhes; nível 3 não domina a página.
+- [ ] Cards e preços são legíveis, previews são consistentes e existe espaço em branco suficiente para distinguir grupos, ações e informações.
+- [ ] Elementos decorativos sem função foram removidos ou têm justificativa concreta; a fonte não foi reduzida para acomodar excesso de conteúdo.
+- [ ] A extensão da página decorre de informação necessária, não da repetição de promessas ou de seções convencionais.
+
+### Técnico
+
+- [ ] Mobile foi revisado em 320 e 390 px, com comparação em desktop, zoom de 200% e teclado virtual quando houver campos.
+- [ ] Acessibilidade básica verificada: teclado, foco visível e não encoberto, rótulos, alternativas textuais, contraste e áreas de toque conforme este guia; nenhum conteúdo depende só de hover.
+- [ ] Links, âncoras e ações foram testados. Formulário de conversão, quando existir, tem envio real, validação, erros e sucesso acessível; exemplos não simulam envio.
+- [ ] Imagens estão otimizadas para o tamanho de exibição, com dimensões/proporção reservadas; conteúdo e links essenciais continuam úteis sem JavaScript.
+- [ ] Não há overflow horizontal acidental no documento. Rolagem intencional fica contida nos trilhos, que preservam snap, teclado e indicação de continuidade, sem autoplay nem dependência de setas.
+- [ ] CLS foi observado/medido sem deslocamentos relevantes que prejudiquem leitura ou ação; performance foi comparada em condições equivalentes, conforme o [protocolo de experiência](../audits/search-and-web-vitals-measurement.md#verificação-de-páginas-antes-da-publicação). Orçamento de build não substitui essa revisão.
+- [ ] SEO e publicação conferidos: metadata, canonical, OG, um H1, hierarquia de títulos, JSON-LD fiel, sitemap e política de rotas; rascunhos e exemplos de desenvolvimento não aparecem como ofertas públicas.
+- [ ] Analytics verificado conforme o contrato deste guia: cliques/falhas não são leads, payloads não contêm dados pessoais e experimentos, se houver, têm hipótese e alocação controladas.
+
+### Evidências e conclusão
+
+Para alterações de implementação, executar os testes de serviços disponíveis em `package.json`, `npm run audit:content`, TypeScript, lint, build e `git diff --check` em proporção ao alcance. Verificar HTTP dos destinos e sitemap; revisão de aparência exige navegador, não apenas leitura de HTML ou build bem-sucedido.
+
+Para revisão somente documental, conferir referências, âncoras, fontes técnicas e `git diff --check`. Isso valida a documentação; os itens de interface, CLS, performance e produção continuam sem certificação por essa revisão.
+
+Registrar problemas pela prioridade acima, correções feitas e verificações pendentes. A oferta precisa de revisão humana das condições; commit, publicação e deploy seguem a intenção já autorizada na solicitação, conforme `AGENTS.md`. Resultados anteriores ficam no [histórico de validações](../content/historico/decisoes-editoriais.md#2026-09-06--validações-locais-da-infraestrutura-de-serviços).
 
 ## Referências técnicas
 

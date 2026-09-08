@@ -43,19 +43,15 @@ Preencha frontmatter conforme [`taxonomia.md`](../02-arquitetura/taxonomia.md). 
 
 Comece com Markdown. Adicione componente apenas quando sua função não for cumprida por título, parágrafo, lista, imagem ou tabela simples.
 
-Limites:
-
-- no máximo quatro tipos de bloco editorial;
-- no máximo dois blocos visuais consecutivos;
-- um CTA principal;
-- `QuickSummary` manual;
-- `NextSteps` no encerramento quando houver ação real.
+Aplicar os limites e as condições de uso definidos em [estrutura dos artigos](../04-formatacao/estrutura-dos-artigos.md) e [componentes MDX](../04-formatacao/componentes-mdx.md), sem manter outra lista de regras neste fluxo.
 
 ## 9. Criar links e continuidade
 
 Adicione links internos quando ajudarem a preparar, aprofundar ou continuar a leitura. Não inserir links apenas por coincidência de palavra-chave.
 
 ## 10. Produzir o relatório de transformação
+
+Depois de escrever o artigo completo, concluir a [auditoria obrigatória de linguagem](../01-fundamentos/voz-e-estilo.md#auditoria-obrigatória-de-linguagem) antes de preparar o relatório. Revisar também título, resumo e CTA em conjunto; ajustar os trechos que falharem nos critérios.
 
 Registre:
 
@@ -67,6 +63,7 @@ Registre:
 - links internos;
 - componentes escolhidos;
 - dúvidas e fragilidades.
+- resultado da auditoria de linguagem, com reescritas, cortes/fusões e repetições mantidas por função.
 
 ## 11. Validar
 

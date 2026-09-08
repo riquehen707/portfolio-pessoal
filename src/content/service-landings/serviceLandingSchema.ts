@@ -151,6 +151,48 @@ export const serviceLandingSchema = z
         });
       }
     }
+
+    if (value.status === "published") {
+      const pricingSections = value.sections.filter((section) => section.type === "pricing");
+      const monthlyItems = pricingSections.flatMap((section) =>
+        section.type === "pricing"
+          ? section.items.filter((item) => item.cadence === "monthly")
+          : [],
+      );
+      if (pricingSections.length !== 1) {
+        context.addIssue({
+          code: "custom",
+          message: "Publicação exige uma única seção de preço.",
+          path: ["sections"],
+        });
+      }
+      if (!value.hero.price) {
+        context.addIssue({
+          code: "custom",
+          message: "Publicação exige o modelo comercial no hero.",
+          path: ["hero", "price"],
+        });
+      }
+      if (monthlyItems.length !== 1) {
+        context.addIssue({
+          code: "custom",
+          message: "Publicação exige uma única mensalidade comercial.",
+          path: ["sections"],
+        });
+      } else if (!/(mês|mensal)/i.test(monthlyItems[0].amount)) {
+        context.addIssue({
+          code: "custom",
+          message: "A mensalidade deve ser apresentada com /mês ou cobrança mensal.",
+          path: ["sections"],
+        });
+      } else if (!/inclui/i.test(monthlyItems[0].details)) {
+        context.addIssue({
+          code: "custom",
+          message: "A mensalidade deve informar o que está incluído.",
+          path: ["sections"],
+        });
+      }
+    }
   });
 
 export type ServiceLanding = z.infer<typeof serviceLandingSchema>;

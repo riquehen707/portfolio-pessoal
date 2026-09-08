@@ -2,6 +2,8 @@
 
 Este guia define o fluxo entre o acervo de produtos, as ofertas comerciais e os artigos. A fonte técnica é `src/content/products/productSchema.ts`.
 
+Apresentar um serviço como produto concreto segue o [padrão de serviços](../../architecture/service-landing-pages.md#serviços-apresentados-como-produtos). Isso não transforma a oferta em uma entidade deste acervo: modelos visuais de um site não são `ProductVariant`, e preços de serviços continuam em seus próprios registros. As regras de imagens e identidade abaixo permanecem específicas dos produtos editoriais.
+
 ## Entidades
 
 - `Product` representa o modelo editorial estável: nome, fabricante, linha, categoria, descrição, análise, pontos fortes, limitações, público, relações e fontes.
@@ -30,7 +32,7 @@ Produto publicado exige imagem real oficial ou licenciada. Produto incompleto pe
 
 ## Artigos
 
-Use `ProductCard` por `productId`. Não copie nome, imagem, ficha técnica ou oferta para o MDX. Todo card editorial exige seis respostas específicas:
+Use `ProductCard` por `productId`. Não copie nome, imagem, ficha técnica ou oferta para o MDX. Todo card editorial exige as sete respostas específicas validadas por `src/components/products/ProductCard.tsx`:
 
 ```mdx
 <ProductCard

@@ -1,5 +1,7 @@
 # ETAPA 14 — Performance Final + SEO Técnico + Analytics + Lançamento Profissional
 
+> **Registro histórico.** Esta etapa não orienta novas implementações nem comprova o estado atual. Consulte as [fontes vigentes](../architecture/site-architecture.md#autoridade-e-manutenção-da-documentação).
+
 ## O que entrou
 
 - `@vercel/analytics` e `@vercel/speed-insights` na base para pageviews, eventos e Core Web Vitals reais.
@@ -44,6 +46,8 @@ O contrato e os limites de privacidade da busca estão documentados em [`../audi
 - `NEXT_PUBLIC_CLARITY_ID`
 
 ## Checklist de lançamento coberto
+
+Os itens abaixo registram a etapa original, sem comprovar uma nova publicação. Para catálogo e landings, executar o [checklist obrigatório de serviços](../architecture/service-landing-pages.md#checklist-de-catálogo-e-landing-antes-da-publicação).
 
 - Canonical, OG e Twitter cards
 - Sitemap e robots

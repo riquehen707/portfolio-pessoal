@@ -1,4 +1,13 @@
-.page {
-  width: min(100%, var(--grid-max-width));
-  margin-inline: auto;
-}
+.page { width: min(100%, 78rem); min-width: 0; margin-inline: auto; }
+.hero { display: grid; gap: 1rem; padding-block: clamp(1rem, 4vw, 3rem); }
+.hero h1 { margin: 0; font-family: var(--font-heading); font-size: clamp(2.3rem, 5.5vw, 4.5rem); line-height: 1.05; letter-spacing: -.04em; }
+.hero p { max-width: 42rem; margin: 0; font-size: 1.1rem; line-height: 1.55; color: var(--neutral-on-background-medium); }
+.hero .eyebrow { font-size: .85rem; }
+.projects { display: grid; gap: 1.5rem; min-width: 0; }
+.sectionHeading { display: grid; gap: .75rem; }
+.sectionHeading h2, .nextStep h2 { margin: 0; font-family: var(--font-heading); font-size: clamp(1.65rem, 3vw, 2.2rem); line-height: 1.15; }
+.sectionHeading p, .nextStep p { margin: .5rem 0 0; line-height: 1.55; color: var(--neutral-on-background-medium); }
+.nextStep { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem; padding-block: 2.5rem; margin-top: 1.5rem; border-top: 1px solid var(--line-subtle); }
+.nextStep a { display: inline-flex; align-items: center; justify-content: center; gap: 1rem; min-height: 48px; padding: .75rem 1.2rem; border-radius: .5rem; background: var(--color-accent-gold); color: #121210; font-weight: 650; text-decoration: none; }
+.nextStep a:focus-visible { outline: 2px solid var(--color-accent-gold-muted); outline-offset: 4px; }
+@media (max-width: 520px) { .nextStep a { width: 100%; } }

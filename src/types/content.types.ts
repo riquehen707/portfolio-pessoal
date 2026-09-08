@@ -262,6 +262,17 @@ export interface ServiceLanding {
     ctaLabel: string;
     ctaHref: string;
   };
+  commercialModel: {
+    setup: {
+      amount: string;
+      description: string;
+    };
+    monthly: {
+      amount: string;
+      includes: string[];
+    };
+    terms: string;
+  };
   audience: string;
   tags: string[];
   keyPoints: string[];

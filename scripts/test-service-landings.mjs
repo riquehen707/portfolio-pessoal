@@ -45,6 +45,7 @@ function loader(mocks = {}) {
 const load = loader();
 const { serviceLandingSchema } = load("src/content/service-landings/serviceLandingSchema.ts");
 const { serviceHubCardSchema } = load("src/content/service-hub/serviceHubCardSchema.ts");
+const { services } = load("src/resources/services.ts");
 const { getServiceHubGroups, unavailableServiceHubIntents } = load(
   "src/data/service-hub/index.ts",
 );
@@ -58,7 +59,24 @@ const { tattooPortfolio } = load("src/content/service-landings/tattooPortfolio.t
 const published = {
   ...exampleServiceLanding,
   status: "published",
+  hero: { ...exampleServiceLanding.hero, price: "Sob consulta — cobrança mensal" },
   conversion: { kind: "whatsapp", label: "Pedir orçamento", href: "https://wa.me/5511999999999" },
+  sections: exampleServiceLanding.sections.map((section) =>
+    section.type === "pricing"
+      ? {
+          ...section,
+          items: [
+            ...section.items,
+            {
+              label: "Mensalidade",
+              amount: "Sob consulta — cobrança mensal",
+              cadence: "monthly",
+              details: "Inclui manutenção técnica e suporte conforme a proposta.",
+            },
+          ],
+        }
+      : section,
+  ),
 };
 const serviceCard = serviceHubCardSchema.parse({
   id: "portfolio-tatuadores",
@@ -67,7 +85,12 @@ const serviceCard = serviceHubCardSchema.parse({
   title: "Portfólio para tatuadores",
   context: "Para tatuadores autônomos",
   benefit: "Organize trabalhos e estilos em uma página profissional pronta para compartilhar.",
-  price: { label: "Implantação + mensalidade", value: "R$297 + R$79/mês" },
+  price: {
+    label: "Mensalidade",
+    value: "R$79/mês",
+    detail: "+ R$297 de implantação",
+    included: "Inclui hospedagem, manutenção técnica e suporte.",
+  },
   preview: {
     kind: "image",
     src: "/images/services/portfolio-tatuadores/fine-line.webp",
@@ -80,6 +103,17 @@ const serviceCard = serviceHubCardSchema.parse({
 
 test("publicação exige conteúdo essencial e impede âncoras duplicadas/reservadas", () => {
   assert.equal(serviceLandingSchema.safeParse(published).success, true);
+  assert.equal(
+    serviceLandingSchema.safeParse({
+      ...published,
+      sections: published.sections.map((section) =>
+        section.type === "pricing"
+          ? { ...section, items: section.items.filter((item) => item.cadence !== "monthly") }
+          : section,
+      ),
+    }).success,
+    false,
+  );
   assert.equal(
     serviceLandingSchema.safeParse({
       ...published,
@@ -330,9 +364,9 @@ test("hub distribui os doze serviços atuais uma única vez por intenção", () 
   assert.deepEqual(
     groups.map((group) => [group.intent, group.navigationLabel, group.cards.length]),
     [
-      ["present-work", "Portfólios", 5],
+      ["present-work", "Mostrar meu trabalho", 5],
       ["capture-clients", "Captar clientes", 5],
-      ["sell-operate", "Quero vender", 2],
+      ["sell-operate", "Melhorar site e atendimento", 2],
     ],
   );
   const cards = groups.flatMap((group) => group.cards);
@@ -386,6 +420,57 @@ test("catálogo do hub renderiza navegação e carrosséis sem controles automá
   assert.equal($("a").filter((_, element) => $(element).text().includes("Ver todos")).length, 0);
 });
 
+test("hub separa mensalidade, implantação e escopo recorrente", () => {
+  const { getServiceHubPrice } = load("src/data/service-hub/index.ts");
+  assert.deepEqual(getServiceHubPrice(architectWebsite), {
+    label: "Mensalidade",
+    value: "R$99/mês",
+    detail: "+ R$497 de implantação",
+    included: "Inclui hospedagem, manutenção técnica, suporte e pequenas atualizações de projetos dentro do limite definido na proposta.",
+  });
+  const changed = structuredClone(architectWebsite);
+  changed.sections.find(section => section.type === "pricing").items.find(item => item.cadence === "monthly").amount = "R$109/mês";
+  assert.equal(getServiceHubPrice(changed).value, "R$109/mês");
+  assert.deepEqual(getServiceHubPrice(services[0]), {
+    label: "Mensalidade",
+    value: "Sob consulta — cobrança mensal",
+    detail: "+ A partir de R$ 1.500 de implantação",
+    included: "Inclui hospedagem, manutenção técnica, pequenas alterações, suporte.",
+  });
+});
+
+test("todo serviço legado possui mensalidade, implantação e continuidade reais", () => {
+  assert.equal(services.length, 6);
+  for (const service of services) {
+    assert.match(service.commercialModel.monthly.amount, /(mês|mensal)/i);
+    assert.ok(service.commercialModel.monthly.includes.length >= 2);
+    assert.ok(service.commercialModel.setup.amount);
+    assert.match(service.commercialModel.terms, /cancelamento/i);
+    assert.match(service.hero.price, /mensal/i);
+    for (const scope of service.scopes) assert.match(scope.investment, /mensal/i);
+  }
+});
+
+test("cases preservam evidência, mídia local e vínculo com oferta publicada", () => {
+  const projectLoad = loader({ "@/resources": { baseURL: "https://henrique.dog", work: { path: "/work" } } });
+  const { getAllWorkProjects, getWorkProjectService, getFeaturedHomeWorkProjects } = projectLoad("src/app/work/projectData.ts");
+  const projects = getAllWorkProjects();
+  assert.equal(projects.length, 3);
+  assert.equal(getFeaturedHomeWorkProjects(1, projects)[0].slug, "henrique-dog");
+  for (const project of projects) {
+    assert.ok(project.metadata.project.audience);
+    assert.ok(project.metadata.project.state);
+    assert.ok(existsSync(path.join(root, "public", project.metadata.image)));
+    assert.match(getWorkProjectService(project).href, /^\/servicos\//);
+    assert.ok(project.metadata.kind === "personal" || project.metadata.kind === "study");
+  }
+  const invalid = structuredClone(projects[0]);
+  invalid.metadata.project.serviceSlug = "oferta-inexistente";
+  assert.throws(() => getWorkProjectService(invalid), /indisponível/);
+  delete invalid.metadata.project.serviceSlug;
+  assert.equal(getWorkProjectService(invalid), undefined);
+});
+
 test("composição visual do hub mantém hero curto e contato final acessível", () => {
   const React = require("react");
   const { renderToStaticMarkup } = require("react-dom/server");
@@ -408,7 +493,7 @@ test("composição visual do hub mantém hero curto e contato final acessível",
   assert.equal($("h1").length, 1);
   assert.equal(
     $("#service-hub-title").text(),
-    "Serviços para mostrar seu trabalho e facilitar contatos.",
+    "Sites, portfólios e melhorias.",
   );
   assert.equal($("section[aria-labelledby='service-hub-title'] a").length, 2);
   assert.equal($("#ajuda-escolher").length, 1);
@@ -545,9 +630,11 @@ test("HTML mantém oferta sem JS, um h1, FAQ nativo e a mesma ação", () => {
   const targets = $("a")
     .map((_, element) => $(element).attr("href"))
     .get()
-    .filter((href) => !href.startsWith("#"));
+    .filter((href) => href === published.conversion.href);
   assert.equal(targets.length, 4);
   assert.deepEqual([...new Set(targets)], [published.conversion.href]);
+  assert.equal($("header a[href='/']").length, 1);
+  assert.equal($("header a[href='/servicos']").length, 1);
   assert.throws(
     () => ServiceLandingPage({ landing: exampleServiceLanding }),
     /exige um formulário/,
@@ -558,7 +645,7 @@ test("SEO distingue publicação de indexação e serializa JSON-LD com seguran�
   const React = require("react");
   const { renderToStaticMarkup } = require("react-dom/server");
   const { load: html } = require("cheerio");
-  const { serviceLandingMetadata, ServiceJsonLd } = loader({
+  const { serviceLandingMetadata, ServiceJsonLd, LegacyServiceJsonLd } = loader({
     "@/resources": { baseURL: "https://henrique.dog" },
   })("src/components/services/landing/seo.tsx");
   const metadata = serviceLandingMetadata({ ...published, seo: { ...published.seo, index: true } });
@@ -578,5 +665,19 @@ test("SEO distingue publicação de indexação e serializa JSON-LD com seguran�
     ),
   );
   assert.equal($("script").length, 1);
-  assert.equal(JSON.parse($("script").html())["@type"], "Service");
+  const serviceData = JSON.parse($("script").html());
+  assert.equal(serviceData["@type"], "Service");
+  assert.equal(
+    serviceData.offers.priceSpecification.some(
+      (item) => item["@type"] === "UnitPriceSpecification" && item.billingDuration === "P1M",
+    ),
+    true,
+  );
+  const legacyMarkup = html(
+    renderToStaticMarkup(React.createElement(LegacyServiceJsonLd, { service: services[0] })),
+  );
+  const legacyData = JSON.parse(legacyMarkup("script").html());
+  assert.equal(legacyData.offers.priceSpecification[0].price, "1500");
+  assert.equal("price" in legacyData.offers.priceSpecification[1], false);
+  assert.match(legacyData.offers.priceSpecification[1].description, /cobrança mensal/i);
 });

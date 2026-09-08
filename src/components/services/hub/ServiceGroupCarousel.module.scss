@@ -67,7 +67,7 @@
   gap: clamp(0.9rem, 2vw, 1.35rem);
   width: 100%;
   margin: 0;
-  padding: 0.1rem 0.1rem 1rem;
+  padding: 0.4rem 0.4rem 1rem;
   overflow-x: auto;
   list-style: none;
   scroll-padding-inline: 0.1rem;
@@ -91,14 +91,15 @@
 
 @media (min-width: 720px) {
   .track {
-    grid-auto-columns: calc((100% - 1.35rem) / 2.15);
-    scroll-snap-type: x proximity;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow: visible;
   }
 }
 
 @media (min-width: 1120px) {
   .track {
-    grid-auto-columns: calc((100% - 2.7rem) / 3.15);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -115,7 +116,6 @@
   }
 
   .track {
-    grid-auto-columns: min(82vw, 20.5rem);
-    margin-inline: -0.1rem;
+    grid-auto-columns: 90%;
   }
 }

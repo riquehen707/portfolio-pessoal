@@ -1,5 +1,7 @@
 # Etapa 9 - Blog principal, autoridade e SEO
 
+> **Registro histórico.** Esta etapa não orienta novas implementações nem comprova o estado atual. Consulte as [fontes vigentes](../architecture/site-architecture.md#autoridade-e-manutenção-da-documentação).
+
 Objetivo desta etapa: fazer o blog deixar de ser apenas arquivo e passar a operar como prova de repertorio, fonte de busca orgânica e reforço de confiança.
 
 ## Estrutura aplicada

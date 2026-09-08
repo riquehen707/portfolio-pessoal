@@ -4,10 +4,8 @@ Este documento é a fonte principal para entender **quais páginas existem, como
 
 Para regras especializadas, consulte também:
 
-- [landing pages de serviços](service-landing-pages.md), para ofertas comerciais, componentes, mensuração e adoção gradual;
-- [home de serviços](services-hub.md), para a organização publicada de `/servicos` por intenção do cliente;
-- [card da home de serviços](service-card.md), para o componente reutilizável, seu contrato de dados e estados responsivos;
-
+- [linguagem global](../content/01-fundamentos/voz-e-estilo.md), para voz, copy, UX writing e auditoria de linguagem em todas as páginas e cards;
+- [serviços: catálogo e páginas de conversão](service-landing-pages.md), fonte única das regras de descoberta, cards, apresentação como produto, modelos/demos, escopo, confiança, navegação comercial e mobile, com contratos e pendências de adoção;
 - [sistema editorial](../content/README.md), para artigos MDX;
 - [listas de filmes](../editorial/templates/movie-list.md), para o fluxo obrigatório entre catálogo, curadoria e artigo;
 - [fichas permanentes de filmes](../editorial/templates/movie-profile.md), para pesquisa, conteúdo editorial, pôsteres e publicação em `/filmes/[slug]`;
@@ -23,6 +21,35 @@ Para regras especializadas, consulte também:
 - [`AGENTS.md`](../../AGENTS.md), para regras de trabalho no repositório.
 
 Em caso de divergência, schemas, componentes e rotas executáveis prevalecem sobre a documentação.
+
+## Autoridade e manutenção da documentação
+
+| Assunto | Fonte das regras |
+| --- | --- |
+| Rotas, fontes técnicas, publicação e função dos elementos | Este documento |
+| Linguagem, concretude e auditoria de copy | [Linguagem global](../content/01-fundamentos/voz-e-estilo.md) |
+| Serviços, cards comerciais, modelos, navegação e conversão | [Guia de serviços](service-landing-pages.md), incluindo seu checklist obrigatório e a prioridade de correção |
+| Artigos, estrutura MDX e aprovação editorial | [Sistema editorial](../content/README.md) e seus guias por tarefa |
+| Medição de experiência e regressões | [Medição de experiência](../audits/search-and-web-vitals-measurement.md) e [protocolo de performance](../audits/performance-baseline-2026-08-24.md#como-repetir) |
+
+Cada regra deve ter uma fonte principal; outros arquivos remetem a ela e mantêm apenas a aplicação específica ao seu contexto. Checklists verificam cumprimento e não criam padrões alternativos. Valores de tokens, breakpoints, limites de schema e orçamentos técnicos pertencem ao código ou à configuração proprietária; não copiar tabelas de valores para vários guias.
+
+Documentos `etapa-*`, relatórios e decisões datadas são registros históricos. Seus slogans, composições, metas e resultados não aprovam implementações futuras nem comprovam o estado atual. Preservar evidências úteis no histórico, sem misturá-las às instruções de uso.
+
+O código define o que está disponível; uma regra de experiência ainda não implementada permanece como objetivo documentado, com a diferença registrada em pendências. Não inventar campos nem tratar o comportamento atual como aprovação automática do padrão. Mudanças técnicas e publicação seguem o escopo autorizado em `AGENTS.md`.
+
+### Critério de função
+
+Não adicionar seções, componentes ou texto apenas para deixar a página “mais completa”. Cada elemento deve cumprir pelo menos uma função:
+
+- explicar;
+- demonstrar;
+- permitir comparar;
+- reduzir dúvida;
+- gerar confiança;
+- conduzir uma ação.
+
+Se não cumprir nenhuma, considerar remover. Preservar conteúdo necessário à compreensão, acessibilidade e condições da oferta; reduzir decoração e repetição antes de cortar informações decisivas. Aplicar este critério a todas as páginas, inclusive artigos e serviços, respeitando os contratos técnicos de cada tipo.
 
 ## Hierarquia publicada e implementada
 
@@ -54,8 +81,10 @@ Em caso de divergência, schemas, componentes e rotas executáveis prevalecem so
 │  └─ /estudios/[slug]                  perfis publicados, especializados ou genéricos
 ├─ /criadores/shingo-tamagawa
 ├─ /obras/{puparia,wade}
-├─ /about
 ├─ /work                                portfólio público
+├─ /portfolio                           redirecionamento permanente para /work
+├─ /sobre                               perfil profissional de Henrique
+├─ /about                               redirecionamento permanente para /sobre
 ├─ /servicos                            apresentação pública de serviços
 │  ├─ /servicos/[slug]                   serviços legados e novas landings publicadas
 │  └─ /servicos/produtos                ferramentas e recursos publicados
@@ -188,21 +217,42 @@ Para estúdios de animação, aplique o [modelo editorial especializado](../edit
 
 ### Páginas institucionais, comerciais, demonstrações e projetos
 
-- **Rotas:** `/about`, `/work`, `/servicos` e `/servicos/produtos`; arquivos também existem sob `/modelos`, `/publicos`, `/contact`, `/simulacao` e rotas auxiliares.
-- **Estado:** `/about`, `/work`, `/servicos` e `/servicos/produtos` estão habilitadas em `routes`; as demais famílias permanecem pausadas pelo middleware ou pela configuração atual.
+- **Rotas:** `/sobre`, `/work`, `/servicos` e `/servicos/produtos`; `/about` e `/portfolio` preservam endereços anteriores por redirecionamento. Arquivos também existem sob `/modelos`, `/publicos`, `/contact`, `/simulacao` e rotas auxiliares.
+- **Estado:** `/sobre`, `/work`, `/servicos` e `/servicos/produtos` estão habilitadas em `routes`; as demais famílias permanecem pausadas pelo middleware ou pela configuração atual.
 - **Dados e componentes:** recursos em `src/resources/`, `src/data/segments/`, `src/components/services/`, `src/components/work/` e arquivos próximos às rotas.
 - **SEO:** varia por rota; demonstrações podem declarar `noindex`. Não inferir publicação pela existência do componente.
 - **Pendência:** as páginas legadas desse grupo não compartilham um schema único; novas landings seguem o contrato específico abaixo. Documentar as demais famílias quando voltarem ao escopo público.
+
+### Sobre
+
+`/sobre` é a rota canônica do perfil profissional; `/about` redireciona permanentemente para ela e fica fora do sitemap. A página responde quem é Henrique, o que faz, como trabalha, quais evidências estão publicadas e como contratar, sem repetir o catálogo de serviços nem manter uma autobiografia extensa.
+
+- `src/app/about/page.tsx` é a implementação compartilhada; `src/app/sobre/page.tsx` expõe a rota canônica enquanto o arquivo antigo preserva imports existentes. `about.path` é a fonte dos links e metadados.
+- Fatos pessoais e profissionais vêm de `person`, do portfólio e das ofertas publicadas. Não inferir clientes, resultados, anos adicionais, formação concluída ou métricas.
+- O retrato atual é uma ilustração em `person.avatar`, identificada como tal no texto alternativo e na legenda. Substituí-la por foto exige um arquivo real autorizado.
+- A página resume áreas de atuação, processo, experiência verificável, perfil e próximos passos. Detalhes de ofertas pertencem a `/servicos`; contexto de projetos pertence ao portfólio.
+
+### Portfólio e cases
+
+`/work` é o endereço canônico do portfólio; `/portfolio` redireciona permanentemente para ele em `next.config.mjs`. Os cases usam `/work/[slug]`, sem alterar URLs existentes.
+
+- Fonte: `src/app/work/projects/*.mdx`, lida por `getAllWorkProjects` em `projectData.ts`, com validação de `PostFrontmatterSchema` e normalização em `utils.ts`. Rascunhos ficam fora da página e do sitemap.
+- `objective` descreve o problema; `summary`, a solução; `category`, o tipo; `kind` distingue cliente, próprio e estudo. O campo opcional `project` reúne `audience`, `state` e `serviceSlug`. Este último resolve apenas serviços publicados; referência inválida falha em vez de gerar um link quebrado.
+- Reutilizar `Projects` e `ProjectCard`. Ordenar evidências mais fortes primeiro, usando destaque e relevância existentes. Cada card apresenta captura, nome, tipo, público, contexto, solução curta, estado conhecido, case e serviço relacionado. Evitar converter tecnologias em alegações automáticas de resultado.
+- Os cases respondem contexto/problema, solução/decisões, interface, resultado ou estado e aprendizado documentado. Autoria, retorno ao portfólio e serviço relacionado ficam visíveis. Não preencher seções com conclusões ou métricas inventadas.
+- Capturas de interfaces implementadas são evidência visual, mas um estudo com dados ilustrativos não é entrega de cliente nem demo funcional. Identificar essa diferença na página. `public/images/work/` contém capturas locais; atualizar a imagem quando a interface mudar.
+- Filtros por tipo só entram quando o volume ajuda a escolha. Com três registros, a página apresenta todos, sem filtros vazios. Não cadastrar trabalhos de clientes sem contexto e autorização de divulgação.
+- Linguagem e função dos elementos seguem as fontes globais deste documento. A ligação com serviços segue o [guia comercial](service-landing-pages.md); não replicar suas regras neste tipo de página.
 
 ### Landing pages reutilizáveis de serviços
 
 - **Rota:** `/servicos/[slug]`, compartilhada com implementações comerciais legadas. O novo catálogo inclui `/servicos/portfolio-para-fotografos`, `/servicos/site-para-corretores`, `/servicos/portfolio-para-tatuadores`, `/servicos/galeria-virtual-para-artistas`, `/servicos/portfolio-para-designers` e `/servicos/site-para-arquitetos`.
 - **Dados:** `content/service-landings/serviceLandingSchema.ts`, registro em `landings.ts` e fachada `data/service-landings/`; impede colisões com slugs legados e `produtos`.
-- **Objetivo:** conversão de oferta específica; artigos educam e `/servicos` apresenta o catálogo institucional.
+- **Objetivo:** conversão de oferta específica; artigos educam e `/servicos` funciona como home/catálogo para descoberta e escolha.
 - **Componentes:** `components/services/landing/` fornece hero, seções reordenáveis, preço, prova, FAQ, CTA, mensuração e SEO. `ServiceCTA` conecta artigos a IDs publicados.
 - **Publicação e SEO:** somente `published` acessível; `seo.index` controla indexação separadamente. Canonical natural, OG e JSON-LD `Service`; publicadas/indexáveis entram no sitemap. O fluxo legado permanece independente.
-- **UX:** reutiliza `standaloneLandingRoot`, com cabeçalho mínimo, rodapé próprio e CTA fixo opcional. `/dev/service-landing` é fictícia, `noindex` e 404 em produção.
-- **Guia:** [landing pages de serviços](service-landing-pages.md). Não cria ofertas, integrações de envio ou experimentos ativos automaticamente.
+- **UX confirmada:** reutiliza `standaloneLandingRoot`, com identidade ligada à home, retorno visível a `/servicos`, rodapé próprio e CTA fixo opcional. `/dev/service-landing` é fictícia, `noindex` e 404 em produção.
+- **Guia:** [serviços: catálogo e páginas de conversão](service-landing-pages.md), incluindo o padrão de navegação e as lacunas da implementação. Não cria ofertas, integrações de envio ou experimentos ativos automaticamente.
 
 ## Regras globais compartilhadas
 

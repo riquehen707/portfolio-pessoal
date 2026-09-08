@@ -49,6 +49,16 @@
 - Características preservadas:
 - Mudanças de tom necessárias:
 
+## Auditoria de linguagem
+
+Aplicar a [auditoria global](../01-fundamentos/voz-e-estilo.md#auditoria-obrigatória-de-linguagem) após a escrita completa, antes de aprovar.
+
+- Frases genéricas ou abstratas reescritas:
+- Cortes e fusões por redundância (ou ausência de cortes), com motivo:
+- Repetições mantidas e sua função:
+- Função das seções e densidade conferidas:
+- Informações ausentes que impedem uma afirmação concreta:
+
 ## Dúvidas e fragilidades restantes
 
 - Questão:

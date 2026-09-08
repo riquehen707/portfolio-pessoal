@@ -4,7 +4,7 @@
   --service-hub-control-radius: 0.5rem;
   --service-hub-card-radius: 0.75rem;
   --service-hub-focus: var(--color-accent-gold-muted);
-  --service-hub-section-gap: clamp(4.5rem, 9vw, 7.5rem);
+  --service-hub-section-gap: clamp(2.75rem, 5vw, 4.5rem);
 
   display: grid;
   gap: var(--service-hub-section-gap);
@@ -50,9 +50,9 @@
 }
 
 .hero h1 {
-  max-width: 15ch;
+  max-width: 22ch;
   font-family: var(--font-heading);
-  font-size: clamp(2.75rem, 7.2vw, 5.75rem);
+  font-size: clamp(2.4rem, 5.5vw, 4.5rem);
   font-weight: var(--type-weight-heading);
   line-height: 0.98;
   letter-spacing: -0.04em;
@@ -175,7 +175,7 @@
 
 @media (max-width: 760px) {
   .shell {
-    --service-hub-section-gap: clamp(3.75rem, 15vw, 5.25rem);
+    --service-hub-section-gap: 2.75rem;
 
     padding-block: 0.75rem 4rem;
   }
@@ -186,7 +186,7 @@
   }
 
   .hero h1 {
-    font-size: clamp(2.55rem, 12.5vw, 4.35rem);
+    font-size: clamp(2.3rem, 9vw, 3.5rem);
     line-height: 1;
   }
 

@@ -1,340 +1,88 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
+import { Column, Meta, Schema } from "@once-ui-system/core";
 import {
-  AvatarGroup,
-  Column,
-  Grid,
-  Heading,
-  Media,
-  Meta,
-  Row,
-  Schema,
-  SmartLink,
-  Tag,
-  Text,
-} from "@once-ui-system/core";
-
-import {
-  getAllWorkProjects,
-  getWorkProjectBySlug,
-  getWorkProjectKindLabel,
-  getWorkProjectPath,
-  getWorkProjectSeoImage,
-  getWorkProjectStack,
-  getWorkProjectStaticParams,
-  normalizeWorkProjectSlug,
-  resolveWorkProjectMediaSrc,
-  toAbsoluteWorkProjectUrl,
+  getAllWorkProjects, getWorkProjectBySlug, getWorkProjectPath,
+  getWorkProjectSeoImage, getWorkProjectService, getWorkProjectStaticParams,
+  normalizeWorkProjectSlug, toAbsoluteWorkProjectUrl,
 } from "@/app/work/projectData";
-import ArticleToc from "@/components/blog/ArticleToc";
 import { CustomMDX, ScrollToHash } from "@/components";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { Projects } from "@/components/work/Projects";
-import { about, baseURL, person, work } from "@/resources";
-import { formatDate } from "@/utils/formatDate";
+import { baseURL, person, work } from "@/resources";
 import { buildDiscoverImageMetadata } from "@/utils/og";
-
 import styles from "./page.module.scss";
 
-type PageProps = {
-  params: Promise<{ slug: string | string[] }>;
-};
+type PageProps = { params: Promise<{ slug: string | string[] }> };
 
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  return getWorkProjectStaticParams();
-}
+export async function generateStaticParams() { return getWorkProjectStaticParams(); }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const slugPath = normalizeWorkProjectSlug(slug);
-  const post = getWorkProjectBySlug(slugPath);
-
+  const post = getWorkProjectBySlug(normalizeWorkProjectSlug((await params).slug));
   if (!post) return {};
-
   const image = toAbsoluteWorkProjectUrl(getWorkProjectSeoImage(post));
-  const generatedMeta = Meta.generate({
-    title: post.metadata.title,
-    description: post.metadata.summary ?? post.metadata.title,
-    baseURL,
-    image,
-    path: getWorkProjectPath(post.slug),
+  const meta = Meta.generate({
+    title: post.metadata.title, description: post.metadata.summary ?? post.metadata.title,
+    baseURL, image, path: getWorkProjectPath(post.slug),
   });
-
   return {
-    ...generatedMeta,
-    openGraph: {
-      ...generatedMeta.openGraph,
-      images: buildDiscoverImageMetadata(image, post.metadata.imageAlt ?? post.metadata.title),
-    },
-    twitter: {
-      ...generatedMeta.twitter,
-      images: image ? [image] : undefined,
-    },
-    keywords: [
-      ...getWorkProjectStack(post),
-      getWorkProjectKindLabel(post),
-      post.metadata.category,
-      person.name,
-    ].filter((value): value is string => Boolean(value)),
+    ...meta,
+    openGraph: { ...meta.openGraph, images: buildDiscoverImageMetadata(image, post.metadata.imageAlt ?? post.metadata.title) },
+    twitter: { ...meta.twitter, images: image ? [image] : undefined },
   };
 }
 
 export default async function ProjectPage({ params }: PageProps) {
-  const { slug } = await params;
-  const slugPath = normalizeWorkProjectSlug(slug);
-
-  const allProjects = getAllWorkProjects();
-  const post = getWorkProjectBySlug(slugPath);
-
+  const slug = normalizeWorkProjectSlug((await params).slug);
+  const post = getWorkProjectBySlug(slug);
   if (!post) notFound();
-
-  const relatedProjects = allProjects.filter((item) => item.slug !== slugPath);
-  const avatars =
-    post.metadata.team?.flatMap((member) =>
-      member.avatar ? [{ src: resolveWorkProjectMediaSrc(member.avatar) as string }] : [],
-    ) || [];
-
-  const cover = post.metadata.image || post.metadata.images?.[0];
-  const metaImage = getWorkProjectSeoImage(post);
-  const stack = getWorkProjectStack(post);
-  const displayKind = getWorkProjectKindLabel(post);
-  const faqItems = post.metadata.faq ?? [];
-  const references = post.metadata.references ?? [];
-  const tocDepth = post.metadata.tocDepth ? Math.min(Math.max(post.metadata.tocDepth, 2), 4) : 3;
-  const shouldRenderToc = post.metadata.toc === true;
-
+  const service = getWorkProjectService(post);
+  const cover = post.metadata.image ?? post.metadata.images?.[0];
+  const related = getAllWorkProjects().filter(project => project.slug !== slug);
+  const example = post.metadata.kind === "study";
   return (
-    <Column className={styles.page} maxWidth="m" paddingTop="24" gap="24">
-      <Schema
-        as="article"
-        baseURL={baseURL}
-        path={getWorkProjectPath(post.slug)}
-        title={post.metadata.title}
-        description={post.metadata.summary ?? post.metadata.title}
-        datePublished={post.metadata.publishedAt}
-        dateModified={post.metadata.updatedAt ?? post.metadata.publishedAt}
-        image={toAbsoluteWorkProjectUrl(metaImage)}
-        author={{
-          name: person.name,
-          url: `${baseURL}${about.path}`,
-          image: `${baseURL}${person.avatar}`,
-        }}
-      />
-      <BreadcrumbJsonLd
-        items={[
-          { name: "Início", url: baseURL },
-          { name: work.label, url: `${baseURL}${work.path}` },
-          { name: post.metadata.title, url: `${baseURL}${getWorkProjectPath(post.slug)}` },
-        ]}
-      />
-
-      <Column className={styles.hero} gap="24" padding="24">
-        <Grid className={styles.heroGrid} columns="2" s={{ columns: 1 }} gap="20">
-          <Column className={styles.heroMain} gap="16">
-            <Row gap="12" wrap>
-              <SmartLink href={work.path}>Voltar ao laboratório</SmartLink>
-            </Row>
-
-            {(displayKind || stack.length > 0) && (
-              <Row className={styles.tagRow} gap="8" wrap>
-                {displayKind && (
-                  <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-                    {displayKind}
-                  </Tag>
-                )}
-                {stack.slice(0, 4).map((item) => (
-                  <Tag key={`${post.slug}-${item}`} size="s" background="neutral-alpha-weak">
-                    {item}
-                  </Tag>
-                ))}
-              </Row>
-            )}
-
-            <Heading variant="display-strong-m" wrap="balance">
-              {post.metadata.title}
-            </Heading>
-            <div className={styles.accentLine} />
-            {post.metadata.summary && (
-              <Text
-                className={styles.heroLead}
-                onBackground="neutral-weak"
-                variant="heading-default-m"
-                wrap="balance"
-              >
-                {post.metadata.summary}
-              </Text>
-            )}
-          </Column>
-
-          <Column className={styles.heroAside} gap="12">
-            <Column className={styles.metaCard} gap="12">
-              <Text
-                className={styles.metaCardLabel}
-                variant="label-default-s"
-                onBackground="neutral-weak"
-              >
-                Publicado
-              </Text>
-              <Text variant="heading-strong-s">
-                {post.metadata.publishedAt
-                  ? formatDate(post.metadata.publishedAt)
-                  : "Sem data definida"}
-              </Text>
-            </Column>
-
-            <Column className={styles.metaCard} gap="12">
-              <Text
-                className={styles.metaCardLabel}
-                variant="label-default-s"
-                onBackground="neutral-weak"
-              >
-                Tipo
-              </Text>
-              <Text variant="heading-strong-s">{displayKind ?? "Projeto"}</Text>
-              {stack.length > 0 && (
-                <Row className={styles.stackRow} gap="8" wrap>
-                  {stack.slice(0, 5).map((item) => (
-                    <Tag key={`${post.slug}-meta-${item}`} size="s" background="neutral-alpha-weak">
-                      {item}
-                    </Tag>
-                  ))}
-                </Row>
-              )}
-            </Column>
-
-            {avatars.length > 0 && (
-              <Column className={styles.metaCard} gap="12">
-                <Text
-                  className={styles.authorLabel}
-                  variant="label-default-s"
-                  onBackground="neutral-weak"
-                >
-                  Equipe
-                </Text>
-                <div className={styles.authorCard}>
-                  <AvatarGroup reverse avatars={avatars} size="s" />
-                  <Text variant="body-default-m" onBackground="neutral-weak">
-                    {post.metadata.team?.map((member) => member.name).join(", ")}
-                  </Text>
-                </div>
-              </Column>
-            )}
-          </Column>
-        </Grid>
-      </Column>
-
-      {cover && (
-        <div className={styles.coverShell}>
-          <Media
-            priority
-            aspectRatio="16 / 9"
-            radius="l"
-            alt={post.metadata.title}
-            src={resolveWorkProjectMediaSrc(cover) ?? cover}
-          />
-        </div>
-      )}
-
-      {shouldRenderToc && (
-        <Column className={styles.supportPanel} gap="16" padding="24">
-          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            Navegação
-          </Tag>
-          <Heading as="h2" variant="heading-strong-l">
-            Mapa do case
-          </Heading>
-          <Text className={styles.supportLead} onBackground="neutral-weak" variant="body-default-m">
-            Uma leitura rápida das seções principais para navegar pelo projeto sem depender de
-            scroll cego.
-          </Text>
-          <ArticleToc containerId="project-article" minLevel={2} maxLevel={tocDepth as 2 | 3 | 4} />
-        </Column>
-      )}
-
-      <Column className={styles.articleShell} horizontal="center">
-        <Column
-          id="project-article"
-          className={styles.article}
-          style={{ margin: "auto" }}
-          as="article"
-          maxWidth="s"
-        >
-          <CustomMDX source={post.content} glossary={post.metadata.glossary ?? {}} />
-        </Column>
-      </Column>
-
-      {faqItems.length > 0 && (
-        <Column className={styles.supportPanel} gap="16" padding="24">
-          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            FAQ
-          </Tag>
-          <Heading as="h2" variant="heading-strong-l">
-            Perguntas sobre o projeto
-          </Heading>
-          <Column className={styles.faqList} gap="12">
-            {faqItems.map((item) => (
-              <details className={styles.faqItem} key={item.q}>
-                <summary className={styles.faqQuestion}>{item.q}</summary>
-                <Text
-                  className={styles.faqAnswer}
-                  onBackground="neutral-weak"
-                  variant="body-default-m"
-                >
-                  {item.a}
-                </Text>
-              </details>
-            ))}
-          </Column>
-        </Column>
-      )}
-
-      {references.length > 0 && (
-        <Column className={styles.supportPanel} gap="16" padding="24">
-          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            Referências
-          </Tag>
-          <Heading as="h2" variant="heading-strong-l">
-            Base usada para este case
-          </Heading>
-          <Column className={styles.referenceList} gap="12">
-            {references.map((reference) => (
-              <div
-                className={styles.referenceItem}
-                key={`${reference.title}-${reference.year ?? "nd"}`}
-              >
-                <Text variant="body-default-m">{reference.title}</Text>
-                <Text onBackground="neutral-weak" variant="body-default-s">
-                  {[reference.author, reference.year ? String(reference.year) : undefined]
-                    .filter(Boolean)
-                    .join(" - ") || "Referência editorial"}
-                </Text>
-                {reference.url && (
-                  <a
-                    className={styles.referenceLink}
-                    href={reference.url}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Abrir referência
-                  </a>
-                )}
-              </div>
-            ))}
-          </Column>
-        </Column>
-      )}
-
-      {relatedProjects.length > 0 && (
-        <Column className={styles.relatedPanel} fillWidth gap="20" padding="24">
-          <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
-            Mais projetos
-          </Tag>
-          <Heading as="h2" variant="heading-strong-xl">
-            Outros projetos
-          </Heading>
-          <Projects projects={relatedProjects} range={[1, 2]} marginBottom="0" paddingX="0" />
-        </Column>
-      )}
+    <Column className={styles.page} fillWidth>
+      <Schema as="article" baseURL={baseURL} path={getWorkProjectPath(slug)}
+        title={post.metadata.title} description={post.metadata.summary ?? post.metadata.title}
+        datePublished={post.metadata.publishedAt} dateModified={post.metadata.updatedAt}
+        image={toAbsoluteWorkProjectUrl(getWorkProjectSeoImage(post))}
+        author={{ name: person.name, url: baseURL + "/about", image: baseURL + person.avatar }} />
+      <BreadcrumbJsonLd items={[
+        { name: "Início", url: baseURL },
+        { name: "Portfólio", url: baseURL + work.path },
+        { name: post.metadata.title, url: baseURL + getWorkProjectPath(slug) },
+      ]} />
+      <nav className={styles.navigation} aria-label="Navegação do case">
+        <Link href={work.path}>← Voltar ao portfólio</Link>
+        <Link href="/servicos">Serviços</Link>
+      </nav>
+      <header className={styles.hero}>
+        <p className={styles.type}>{post.metadata.category} · {example ? "Exemplo ilustrativo" : post.metadata.kind === "client" ? "Projeto de cliente" : "Projeto próprio"}</p>
+        <h1>{post.metadata.title}</h1>
+        {post.metadata.project?.audience && <p>{post.metadata.project.audience}</p>}
+        <p>{post.metadata.summary}</p>
+        <p className={styles.byline}>Criação e implementação: {person.name}</p>
+        {post.metadata.link && <Link className={styles.action} href={post.metadata.link}>
+          {example ? "Ver exemplo de interface" : "Abrir projeto"} <span aria-hidden="true">↗</span>
+        </Link>}
+      </header>
+      {cover && <figure className={styles.cover}>
+        <div><Image src={cover} alt={post.metadata.imageAlt ?? post.metadata.title} fill priority sizes="(max-width: 900px) 100vw, 1000px" /></div>
+        <figcaption>{example ? "Captura do componente implementado, com conteúdo ilustrativo." : "Captura da interface do site."}</figcaption>
+      </figure>}
+      <article className={styles.article}>
+        <CustomMDX source={post.content} glossary={post.metadata.glossary ?? {}} />
+      </article>
+      {service && <section className={styles.service} aria-labelledby="related-service-title">
+        <div><h2 id="related-service-title">Serviço relacionado</h2><p>{service.label}</p></div>
+        <Link className={styles.action} href={service.href}>Ver serviço <span aria-hidden="true">→</span></Link>
+      </section>}
+      {related.length > 0 && <section className={styles.related} aria-labelledby="related-projects-title">
+        <h2 id="related-projects-title">Outros trabalhos</h2>
+        <Projects projects={related} range={[1, 2]} layout="grid" cardVariant="compact" marginBottom="0" paddingX="0" />
+      </section>}
       <ScrollToHash />
     </Column>
   );

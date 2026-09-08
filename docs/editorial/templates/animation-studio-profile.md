@@ -1,6 +1,6 @@
 # Perfil editorial de estúdio de animação
 
-Use este modelo para criar ou revisar páginas permanentes de estúdios de animação. Ele complementa a [arquitetura do site](../../architecture/site-architecture.md) e o [sistema editorial](../../content/README.md); não substitui suas regras gerais. O `global-standards.md` citado em briefings ainda não existe.
+Use este modelo para criar ou revisar páginas permanentes de estúdios de animação. Ele complementa a [arquitetura do site](../../architecture/site-architecture.md), o [sistema editorial](../../content/README.md) e a [diretriz global de linguagem](../../content/01-fundamentos/voz-e-estilo.md); não substitui suas regras gerais. Não há necessidade de criar o `global-standards.md` citado em briefings para orientar a escrita.
 
 A página deve apresentar uma organização criativa com clareza e personalidade, sem parecer wiki, página corporativa, streaming, fandom ou landing page. Preserve o design system e aplique divulgação progressiva: primeiro identidade e obras; aprofundamentos vêm depois, quando sustentados por conteúdo e links reais.
 
@@ -48,7 +48,7 @@ Inclua apenas quando houver material suficiente e benefício editorial: históri
 
 Preserve `Header`, `Footer`, tipografia, containers, grid, tokens, espaçamentos e comportamento responsivo globais. Personalidade pode vir de imagem principal, cor de destaque controlada, formas abstratas originais, seleção de obras, pequenos detalhes e ritmo. Não crie outro design system, copie propriedade intelectual nem gere imagem “no estilo” do estúdio ou de seus artistas.
 
-Use linguagem jovem-adulta, próxima e precisa. Garanta ordem editorial equivalente no mobile, densidade reduzida sem perda essencial, foco visível, teclado, contraste, alvos claros, conteúdo fora do hover, `prefers-reduced-motion` e fallback com/sem capa. O conteúdo principal e a filmografia precisam existir no HTML renderizado pelo servidor.
+Aplicar a diretriz global de linguagem ao público do perfil. Garanta ordem editorial equivalente no mobile, densidade reduzida sem perda essencial, foco visível, teclado, contraste, alvos claros, conteúdo fora do hover, `prefers-reduced-motion` e fallback com/sem capa. O conteúdo principal e a filmografia precisam existir no HTML renderizado pelo servidor.
 
 ## SEO, descoberta e monetização
 

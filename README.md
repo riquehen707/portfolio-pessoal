@@ -1,8 +1,6 @@
 # Magic Portfolio
 
-Magic Portfolio is a simple portfolio built with Next.js, Once UI and MDX. This version is focused on portfolio, services and blog content only.
-
-![Magic Portfolio](public/images/og/home.jpg)
+Magic Portfolio is built with Next.js, Once UI and MDX. This version includes editorial content, catalogs, portfolio and services; see the project architecture for current routes.
 
 ## Getting started
 
@@ -59,7 +57,9 @@ src/app/work/projects
 ## Documentation
 
 - Project architecture: [`docs/architecture/site-architecture.md`](docs/architecture/site-architecture.md)
+- Services catalog, conversion pages and mobile navigation: [`docs/architecture/service-landing-pages.md`](docs/architecture/service-landing-pages.md)
 - Editorial system: [`docs/content/README.md`](docs/content/README.md)
+- Global language, copy and UX writing: [`docs/content/01-fundamentos/voz-e-estilo.md`](docs/content/01-fundamentos/voz-e-estilo.md)
 - Upstream Once UI documentation: [docs.once-ui.com](https://docs.once-ui.com/docs/magic-portfolio/quick-start)
 
 ## License

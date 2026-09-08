@@ -16,7 +16,9 @@
 }
 .container, .brand { width: min(100% - 2.5rem, 1120px); margin-inline: auto; }
 .brand { padding-block: 1.5rem; display: flex; justify-content: space-between; gap: 1rem; border-bottom: 1px solid var(--neutral-border-medium); font-weight: 700; }
-.brand span:last-child { font-size: .85rem; font-weight: 400; }
+.brand a { display: inline-flex; align-items: center; min-height: 44px; color: inherit; text-decoration: none; }
+.brand a:last-child { font-size: .85rem; font-weight: 400; text-decoration: underline; text-underline-offset: .2em; }
+.brand a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 .hero { padding-block: clamp(2.5rem, 6vw, 6rem); }
 .split { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 3rem; }
 .eyebrow { color: var(--brand-on-background-strong); font-weight: 700; font-size: .9rem; }

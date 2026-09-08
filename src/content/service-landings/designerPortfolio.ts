@@ -7,7 +7,7 @@ export const designerPortfolio = serviceLandingSchema.parse({
   structure: "compact",
   updatedAt: "2026-09-06",
   seo: {
-    title: "Portfólio profissional para designers | R$297",
+      title: "Portfólio para designers | R$297 + R$79/mês",
     description:
       "Apresente projetos e cases em um portfólio profissional, com currículo, contato rápido e layout para celular. R$297 de implantação + R$79/mês.",
     index: true,
@@ -157,11 +157,11 @@ export const designerPortfolio = serviceLandingSchema.parse({
           label: "Mensalidade",
           amount: "R$79/mês",
           cadence: "monthly",
-          details: "Cobrança recorrente, além do valor de implantação.",
+          details: "Inclui hospedagem, manutenção técnica, suporte e pequenas atualizações de projetos dentro do limite definido na proposta.",
         },
       ],
       terms:
-        "A proposta registra quantidade de projetos e cases, profundidade de cada case, revisões, atualizações, prazo e responsabilidades por domínio, hospedagem e manutenção. Condições da mensalidade e do cancelamento também ficam explícitas. Nenhum pagamento é feito nesta página.",
+        "A proposta registra quantidade de projetos e cases, profundidade de cada case, revisões, atualizações, prazo e responsabilidades por domínio, hospedagem e manutenção. Condições da mensalidade, da fidelidade e do cancelamento também ficam explícitas. Nenhum pagamento é feito nesta página.",
     },
     {
       type: "faq",
@@ -191,7 +191,7 @@ export const designerPortfolio = serviceLandingSchema.parse({
         {
           question: "O que os R$79 mensais cobrem?",
           answer:
-            "Hospedagem, manutenção, atualizações e condições de cancelamento serão detalhadas na proposta. A mensalidade é separada da implantação de R$297.",
+            "Inclui hospedagem, manutenção técnica, suporte e pequenas atualizações de projetos dentro do limite definido na proposta. A mensalidade é separada da implantação de R$297; cancelamento e fidelidade ficam registrados antes da contratação.",
         },
       ],
     },

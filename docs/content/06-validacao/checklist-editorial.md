@@ -1,5 +1,7 @@
 # Checklist editorial
 
+Aplica-se a artigos MDX. Páginas de serviços usam o [checklist comercial](../../architecture/service-landing-pages.md#checklist-de-catálogo-e-landing-antes-da-publicação); ambos remetem à mesma auditoria de linguagem, sem misturar limite de CTA editorial com repetição de uma ação na landing.
+
 ## Intenção
 
 - [ ] A linha editorial está definida.
@@ -10,9 +12,8 @@
 
 ## Voz
 
+- [ ] [Auditoria global de linguagem](../01-fundamentos/voz-e-estilo.md#auditoria-obrigatória-de-linguagem) concluída após a escrita e registrada no relatório: concretude, genericidade, redundância, função de seção e densidade.
 - [ ] A opinião, experiência e grau de certeza do autor foram preservados.
-- [ ] A revisão não transformou o texto em linguagem de agência.
-- [ ] Abstrações foram substituídas por termos específicos quando possível.
 - [ ] Humor e informalidade mantêm função e contexto.
 - [ ] Nenhuma experiência pessoal foi inventada.
 
@@ -65,4 +66,4 @@
 
 ## Aprovação
 
-O artigo está editorialmente aprovado quando preserva a voz, sustenta sua ideia central, usa estrutura proporcional ao conteúdo e não depende de recursos visuais para parecer completo.
+O artigo está editorialmente aprovado quando conclui a auditoria global de linguagem, preserva a voz, sustenta sua ideia central e usa estrutura proporcional ao conteúdo. Não depende de recursos visuais para parecer completo.

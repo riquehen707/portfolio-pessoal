@@ -3,7 +3,8 @@ import type { ComponentProps } from "react";
 import { Column } from "@once-ui-system/core";
 
 import { getWorkProjectRelevanceScore } from "@/app/work/projectData";
-import { ProjectCard } from "@/components";
+import { getWorkProjectService } from "@/app/work/projectData";
+import { ProjectCard } from "@/components/ProjectCard";
 import { type BlogFile, getPosts } from "@/utils/utils";
 
 import styles from "./Projects.module.scss";
@@ -88,6 +89,11 @@ export function Projects({
         href={`/work/${post.slug}`}
         images={images}
         title={post.metadata.title}
+        imageAlt={post.metadata.imageAlt}
+        category={post.metadata.category}
+        audience={post.metadata.project?.audience}
+        state={post.metadata.project?.state}
+        service={getWorkProjectService(post)}
         objective={post.metadata.objective ?? undefined}
         description={post.metadata.summary ?? post.metadata.title}
         variant={variant}

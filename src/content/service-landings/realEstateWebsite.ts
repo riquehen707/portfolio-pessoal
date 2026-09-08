@@ -7,7 +7,7 @@ export const realEstateWebsite = serviceLandingSchema.parse({
   structure: "compact",
   updatedAt: "2026-09-06",
   seo: {
-    title: "Site profissional para corretores de imóveis | R$497",
+      title: "Site para corretores | R$497 + R$119/mês",
     description:
       "Apresente seu perfil e imóveis em uma página profissional, com formulário, WhatsApp e ótima experiência no celular. R$497 + R$119/mês.",
     index: true,
@@ -181,11 +181,11 @@ export const realEstateWebsite = serviceLandingSchema.parse({
           label: "Mensalidade",
           amount: "R$119/mês",
           cadence: "monthly",
-          details: "Cobrança recorrente, além do valor de implantação.",
+          details: "Inclui hospedagem, manutenção técnica, suporte e pequenas atualizações de imóveis dentro do limite definido na proposta.",
         },
       ],
       terms:
-        "Antes de contratar, você recebe a proposta com prazo, quantidade de imóveis, forma de atualização, condições da mensalidade e responsabilidades por domínio, hospedagem, manutenção e tratamento dos contatos do formulário. Nenhum pagamento é feito nesta página.",
+        "Antes de contratar, você recebe a proposta com prazo, quantidade de imóveis, forma de atualização, condições da mensalidade, fidelidade, cancelamento e responsabilidades por domínio, hospedagem, manutenção e tratamento dos contatos do formulário. Nenhum pagamento é feito nesta página.",
     },
     {
       type: "faq",
@@ -215,7 +215,7 @@ export const realEstateWebsite = serviceLandingSchema.parse({
         {
           question: "O que está incluído nos R$119 por mês?",
           answer:
-            "Os R$119 são uma cobrança mensal separada da implantação de R$497. Hospedagem, manutenção, alterações, atualização de imóveis e cancelamento serão detalhados na proposta antes da contratação.",
+            "Inclui hospedagem, manutenção técnica, suporte e pequenas atualizações de imóveis dentro do limite definido na proposta. A mensalidade é separada da implantação de R$497; cancelamento e fidelidade ficam registrados antes da contratação.",
         },
         {
           question: "Em quanto tempo o site fica pronto?",

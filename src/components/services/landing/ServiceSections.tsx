@@ -36,6 +36,9 @@ export function ServiceHero({
   visual,
 }: { landing: ServiceLanding; context: ServiceTrackingContext; visual?: ReactNode }) {
   const { hero } = landing;
+  const monthly = landing.sections
+    .find((section) => section.type === "pricing")
+    ?.items.find((item) => item.cadence === "monthly");
   return (
     <section
       id="inicio"
@@ -51,6 +54,7 @@ export function ServiceHero({
         </p>
         <p>{hero.audience}</p>
         {hero.price && <p className={styles.price}>{hero.price}</p>}
+        {monthly && <p>{monthly.details}</p>}
         <ServiceAction conversion={landing.conversion} context={context} location="hero" />
       </div>
       {visual ?? (hero.image && <ServiceImage media={hero.image} priority />)}
@@ -89,7 +93,7 @@ export function ServiceProcess({
 }
 
 const cadenceLabels = {
-  once: "Pagamento único",
+  once: "Implantação",
   monthly: "Por mês",
   yearly: "Por ano",
   included: "Incluído",

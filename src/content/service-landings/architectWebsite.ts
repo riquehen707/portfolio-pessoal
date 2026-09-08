@@ -152,11 +152,11 @@ export const architectWebsite = serviceLandingSchema.parse({
           label: "Mensalidade",
           amount: "R$99/mês",
           cadence: "monthly",
-          details: "Cobrança recorrente, além do valor de implantação.",
+          details: "Inclui hospedagem, manutenção técnica, suporte e pequenas atualizações de projetos dentro do limite definido na proposta.",
         },
       ],
       terms:
-        "A proposta registra quantidade de projetos e páginas, revisões, atualizações, prazo e responsabilidades por domínio, hospedagem e manutenção. Condições da mensalidade e do cancelamento também ficam explícitas. Nenhum pagamento é feito nesta página.",
+        "A proposta registra quantidade de projetos e páginas, revisões, atualizações, prazo e responsabilidades por domínio, hospedagem e manutenção. Condições da mensalidade, da fidelidade e do cancelamento também ficam explícitas. Nenhum pagamento é feito nesta página.",
     },
     {
       type: "faq",
@@ -186,7 +186,7 @@ export const architectWebsite = serviceLandingSchema.parse({
         {
           question: "O que os R$99 mensais cobrem?",
           answer:
-            "Hospedagem, manutenção, atualizações e condições de cancelamento serão detalhadas na proposta. A mensalidade é separada da implantação de R$497.",
+            "Inclui hospedagem, manutenção técnica, suporte e pequenas atualizações de projetos dentro do limite definido na proposta. A mensalidade é separada da implantação de R$497; cancelamento e fidelidade ficam registrados antes da contratação.",
         },
       ],
     },

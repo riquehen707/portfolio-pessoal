@@ -1,45 +1,48 @@
 import { Meta, Schema } from "@once-ui-system/core";
 import Image from "next/image";
 import Link from "next/link";
-import { SiAdobephotoshop, SiFigma, SiNextdotjs, SiSupabase } from "react-icons/si";
 
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
-import { about, baseURL, blog, person } from "@/resources";
+import { about, baseURL, person, servicesPage, social, work } from "@/resources";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 
 import styles from "./page.module.scss";
 
-const pageTitle = "Quem sou";
+const pageTitle = "Sobre Henrique Reis";
 const pageDescription =
-  "Um pouco sobre Henrique Reis, seus interesses, estudos, trabalho e os motivos para manter este blog.";
+  "Henrique Reis desenvolve sites, landing pages, portfólios e pequenos sistemas para profissionais e negócios.";
 
-const tools = [
+const services = [
   {
-    name: "Figma",
-    description: "Interfaces e protótipos",
-    icon: SiFigma,
+    title: "Sites e landing pages",
+    description: "Páginas para apresentar uma oferta, responder dúvidas e facilitar o contato.",
   },
   {
-    name: "Next.js",
-    description: "Sites e aplicações",
-    icon: SiNextdotjs,
+    title: "Portfólios",
+    description: "Sites para organizar projetos, obras, imóveis ou trabalhos em um endereço próprio.",
   },
   {
-    name: "Supabase",
-    description: "Dados e autenticação",
-    icon: SiSupabase,
+    title: "Sistemas e automações",
+    description: "Ferramentas pequenas para conectar dados e reduzir tarefas repetidas no atendimento.",
   },
   {
-    name: "Photoshop",
-    description: "Edição de imagens",
-    icon: SiAdobephotoshop,
+    title: "SEO técnico",
+    description: "Auditoria de rastreamento, indexação e estrutura para encontrar problemas do site.",
   },
 ] as const;
 
+const process = [
+  ["Entender", "Defino o problema, o público e a ação que a página precisa facilitar."],
+  ["Delimitar", "Registro entregáveis, prazo, custos, revisões e o material necessário."],
+  ["Construir", "Organizo o conteúdo, desenho a interface e implemento o projeto."],
+  ["Revisar", "Confiro texto, navegação, links, acessibilidade e comportamento no celular."],
+  ["Publicar e manter", "Coloco a página no ar e combino suporte, hospedagem e alterações futuras."],
+] as const;
+
 export async function generateMetadata() {
-  const image = buildOgImage(pageTitle, "Henrique Reis");
+  const image = buildOgImage(pageTitle, "Sites, portfólios e pequenos sistemas");
   const generatedMeta = Meta.generate({
-    title: `${pageTitle} | ${person.name}`,
+    title: `${pageTitle} | henrique.dog`,
     description: pageDescription,
     baseURL,
     image,
@@ -50,22 +53,22 @@ export async function generateMetadata() {
     ...generatedMeta,
     openGraph: {
       ...generatedMeta.openGraph,
-      images: buildDiscoverImageMetadata(image, `${pageTitle} — ${person.name}`),
+      images: buildDiscoverImageMetadata(image, pageTitle),
     },
-    twitter: {
-      ...generatedMeta.twitter,
-      images: [image],
-    },
+    twitter: { ...generatedMeta.twitter, images: [image] },
   };
 }
 
 export default function About() {
+  const contactHref =
+    social.find((item) => item.name === "WhatsApp")?.link ?? `mailto:${person.email}`;
+
   return (
     <main className={styles.page}>
       <Schema
         as="webPage"
         baseURL={baseURL}
-        title={`${pageTitle} | ${person.name}`}
+        title={`${pageTitle} | henrique.dog`}
         description={pageDescription}
         path={about.path}
         image={`/api/og/generate?title=${encodeURIComponent(pageTitle)}`}
@@ -78,170 +81,133 @@ export default function About() {
       <BreadcrumbJsonLd
         items={[
           { name: "Início", url: baseURL },
-          { name: pageTitle, url: `${baseURL}${about.path}` },
+          { name: "Sobre", url: `${baseURL}${about.path}` },
         ]}
       />
 
       <header className={styles.hero}>
         <div className={styles.intro}>
-          <span className={styles.kicker}>Quem escreve por aqui</span>
-          <h1>Oi, meu nome é Henrique.</h1>
+          <p className={styles.kicker}>Henrique Reis</p>
+          <h1>Desenvolvo sites para profissionais e negócios.</h1>
           <p className={styles.lead}>
-            Tenho 23 anos, estudo Física, trabalho como freelancer e mantenho este blog para
-            registrar as coisas que estou aprendendo, desenvolvendo e descobrindo.
+            Crio sites, landing pages, portfólios e pequenos sistemas. Trabalho do escopo à
+            publicação, com conteúdo, interface e implementação no mesmo projeto.
           </p>
+          <div className={styles.heroActions}>
+            <Link className={styles.primaryAction} href={servicesPage.path}>
+              Ver serviços <span aria-hidden="true">→</span>
+            </Link>
+            <Link className={styles.textAction} href={work.path}>
+              Ver portfólio
+            </Link>
+          </div>
         </div>
 
-        <div className={styles.portrait}>
+        <figure className={styles.portrait}>
           <Image
             src={person.avatar}
-            alt="Henrique Reis"
+            alt="Ilustração do rosto de Henrique Reis."
             fill
             priority
-            sizes="(max-width: 720px) 78vw, 340px"
+            sizes="(max-width: 720px) 180px, 260px"
           />
-        </div>
+          <figcaption>Ilustração de perfil</figcaption>
+        </figure>
       </header>
 
-      <article className={styles.story}>
+      <section className={styles.section} aria-labelledby="what-title">
+        <div className={styles.sectionHeading}>
+          <p>O que faço</p>
+          <h2 id="what-title">Projetos com uma função clara.</h2>
+        </div>
+        <div className={styles.serviceGrid}>
+          {services.map((service) => (
+            <article key={service.title}>
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+            </article>
+          ))}
+        </div>
+        <Link className={styles.inlineLink} href={servicesPage.path}>
+          Comparar formatos e preços <span aria-hidden="true">→</span>
+        </Link>
+      </section>
+
+      <section className={styles.section} aria-labelledby="process-title">
+        <div className={styles.sectionHeading}>
+          <p>Como trabalho</p>
+          <h2 id="process-title">Do problema à página publicada.</h2>
+        </div>
+        <ol className={styles.processList}>
+          {process.map(([title, description], index) => (
+            <li key={title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <div>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className={styles.section} aria-labelledby="proof-title">
+        <div className={styles.sectionHeading}>
+          <p>Experiência e projetos</p>
+          <h2 id="proof-title">O que pode ser verificado.</h2>
+        </div>
+        <div className={styles.proofGrid}>
+          <article>
+            <h3>henrique.dog</h3>
+            <p>
+              Projeto próprio com busca, acervo editorial, catálogos, artigos, páginas de serviço e
+              cases publicados.
+            </p>
+            <Link href="/work/henrique-dog">Ver case</Link>
+          </article>
+          <article>
+            <h3>Interfaces para diferentes áreas</h3>
+            <p>
+              Exemplos implementados para arquitetos, artistas, corretores, designers, fotógrafos e
+              tatuadores, identificados como estudos quando não há cliente associado.
+            </p>
+            <Link href={work.path}>Ver portfólio</Link>
+          </article>
+          <article>
+            <h3>Prática independente desde 2023</h3>
+            <p>
+              Trabalho com definição de escopo, escrita, design e desenvolvimento. Uso Next.js,
+              TypeScript, Sass e Figma; Supabase entra quando o projeto precisa de dados ou acesso.
+            </p>
+            <Link href={servicesPage.path}>Ver entregas</Link>
+          </article>
+        </div>
+      </section>
+
+      <section className={styles.profile} aria-labelledby="profile-title">
+        <div>
+          <p className={styles.kicker}>Perfil</p>
+          <h2 id="profile-title">Trabalho, estudo e repertório.</h2>
+        </div>
         <p>
-          Atualmente moro perto da universidade onde estudo. Gosto bastante de mangás, manhuas e
-          graphic novels. Também sou apaixonado por cinema e animações.
+          Além do trabalho independente, estudo Física e mantenho o henrique.dog como um acervo de
+          textos, livros, filmes, jogos e ideias. O projeto também serve para testar navegação,
+          conteúdo e interfaces em uso real.
         </p>
-        <p>
-          Ler livros nunca foi exatamente meu forte, mas estou começando a gostar. Então
-          provavelmente vou acabar escrevendo sobre algumas dessas descobertas por aqui.
-        </p>
-        <p>
-          Estou cursando BCT, o Bacharelado em Ciências Exatas e Tecnológicas, com terminalidade em
-          Física.
-        </p>
-        <p>
-          Para me sustentar — ou pelo menos tentar — trabalho como freelancer. Faço criação de
-          sites, gestão de tráfego e outros serviços relacionados a marketing, mas atualmente minha
-          principal ênfase está no desenvolvimento de sites.
-        </p>
+      </section>
 
-        <section className={styles.toolsSection} aria-labelledby="ferramentas">
-          <div className={styles.toolsHeading}>
-            <span>Parte da rotina</span>
-            <h2 id="ferramentas">Ferramentas que uso</h2>
-          </div>
-          <div className={styles.toolsGrid}>
-            {tools.map((tool) => {
-              const ToolIcon = tool.icon;
-
-              return (
-                <div className={styles.toolItem} key={tool.name}>
-                  <span className={styles.toolIcon} aria-hidden="true">
-                    <ToolIcon />
-                  </span>
-                  <span className={styles.toolText}>
-                    <strong>{tool.name}</strong>
-                    <small>{tool.description}</small>
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        </section>
-
-        <section aria-labelledby="porque-blog">
-          <h2 id="porque-blog">Por que comecei este blog?</h2>
-          <p>No início, criei o blog pensando principalmente em ganhar dinheiro.</p>
-          <p>Só que, sendo bem sincero, não estava funcionando muito bem.</p>
-          <p>
-            Produzir conteúdo com esse objetivo começou a se tornar cansativo e consumia bastante
-            tempo. No fim, eu escrevia, estudava, cuidava do blog e não sobrava energia para
-            prospectar clientes, que é justamente o que poderia me ajudar financeiramente de maneira
-            mais imediata.
-          </p>
-          <p>Por isso, estou tentando encarar este espaço de outra forma.</p>
-          <p>
-            Quero transformar o blog em um hobby e também em uma ferramenta de estudo. Vou escrever
-            sobre o que estou aprendendo, sobre os projetos que estou desenvolvendo e,
-            principalmente, sobre as coisas das quais realmente gosto.
-          </p>
-          <p>
-            Acredito que assim será mais fácil criar uma rotina natural, sem precisar transformar
-            cada publicação em uma obrigação ou em uma estratégia perfeita.
-          </p>
-          <p>
-            Não sei exatamente no que este blog vai se transformar. Por enquanto, quero apenas
-            continuar escrevendo, aprendendo e encontrando pessoas que se interessem pelas mesmas
-            coisas.
-          </p>
-        </section>
-
-        <details className={styles.personalStory}>
-          <summary>
-            <span>
-              <small>Uma camada mais pessoal</small>
-              Minha história
-            </span>
-            <span className={styles.detailsAction} aria-hidden="true">
-              Abrir
-            </span>
-          </summary>
-          <div className={styles.personalStoryContent}>
-            <p>
-              Tenho 23 anos e não considero que exista algo especialmente grandioso para contar
-              sobre mim.
-            </p>
-            <p>
-              Fui criado pela minha mãe. Meu pai faleceu quando eu ainda era criança e,
-              recentemente, também perdi minha mãe.
-            </p>
-            <p>
-              Não tenho uma grande história de superação. Sou apenas um rapaz comum tentando viver
-              de maneira tranquila. Tenho meus defeitos, meus períodos de desmotivação e algumas
-              questões pessoais com as quais ainda estou aprendendo a lidar.
-            </p>
-            <p>
-              Em 2019, aos 17 anos, terminei o ensino médio e também um curso técnico no SENAI.
-              Naquela época, pretendia entrar na faculdade e cursar alguma engenharia, mas a
-              pandemia acabou mudando meus planos.
-            </p>
-            <p>
-              Durante esse período, tentei criar uma loja de dropshipping. Foi assim que comecei a
-              aprender sobre marketing, SEO, criação de sites e vendas pela internet.
-            </p>
-            <p>
-              Durante algum tempo, o projeto funcionou. Inclusive, consegui morar sozinho. Depois, a
-              vida tomou outros rumos e o tempo foi passando. Essa parte da história é mais pessoal
-              e prefiro não entrar em muitos detalhes.
-            </p>
-            <p>
-              Meu aniversário é no dia 15 de agosto. Em 2024, completei 22 anos e, no dia seguinte,
-              minha mãe faleceu ao meu lado no hospital.
-            </p>
-            <p>
-              Depois disso, voltei para minha casa em Alagoinhas. Consegui continuar me mantendo,
-              embora também tenha acumulado algumas dívidas. Aos poucos, estou organizando minha
-              vida e lidando com elas.
-            </p>
-            <p>
-              Em algum momento surgiu a oportunidade de entrar na universidade, e acabei me mudando
-              novamente.
-            </p>
-            <p>
-              Hoje moro em um quarto alugado próximo à faculdade. Estou estudando, trabalhando como
-              freelancer, pagando minhas dívidas e tentando construir uma carreira que permita
-              manter meus interesses, continuar estudando e ter uma vida tranquila.
-            </p>
-            <p>
-              Também estou lidando com a distimia e pretendo voltar a fazer acompanhamento com uma
-              psicóloga. Ainda existem dias difíceis, mas, de maneira geral, estou bem e tentando
-              resolver cada questão no seu tempo.
-            </p>
-          </div>
-        </details>
-
-        <footer className={styles.closing}>
-          <p>Se quiser continuar por aqui, a melhor porta de entrada é o que tenho escrito.</p>
-          <Link href={blog.path}>Conhecer o blog</Link>
-        </footer>
-      </article>
+      <footer className={styles.finalCTA}>
+        <div>
+          <p className={styles.kicker}>Próximo passo</p>
+          <h2>Quer conversar sobre um projeto?</h2>
+          <p>Veja as opções prontas ou explique o que precisa criar.</p>
+        </div>
+        <div className={styles.finalActions}>
+          <Link className={styles.primaryAction} href={servicesPage.path}>Ver serviços</Link>
+          <Link className={styles.secondaryAction} href={work.path}>Ver portfólio</Link>
+          <a className={styles.textAction} href={contactHref}>Falar comigo</a>
+        </div>
+      </footer>
     </main>
   );
 }

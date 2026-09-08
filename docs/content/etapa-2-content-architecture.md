@@ -1,6 +1,6 @@
 # Etapa 2 — Arquitetura de Conteúdo & Copy Strategy
 
-> **Documento histórico.** Este arquivo registra uma etapa inicial do antigo recorte de portfólio e não descreve todas as rotas atuais. A fonte principal da arquitetura do site é [`docs/architecture/site-architecture.md`](../architecture/site-architecture.md); as regras editoriais atuais começam em [`docs/content/README.md`](README.md).
+> **Registro histórico.** Esta etapa não orienta novas implementações nem comprova o estado atual. Consulte as [fontes vigentes](../architecture/site-architecture.md#autoridade-e-manutenção-da-documentação).
 
 Base editorial da marca `Henrique Reis` aplicada ao produto.
 
@@ -14,31 +14,9 @@ A comunicação não vende apenas estética. Ela precisa comunicar:
 - crescimento estruturado
 - soluções reais para negócios reais
 
-## Regras de copy
+## Linguagem atual
 
-A copy deve soar:
-
-- humana
-- segura
-- direta
-- inteligente
-- sem exagero
-- sem linguagem corporativa vazia
-
-Sempre usar:
-
-- frases curtas
-- verbos fortes
-- clareza
-- especificidade
-- benefícios reais
-
-Evitar:
-
-- jargão corporativo
-- excesso de adjetivo
-- promessas vagas
-- texto longo sem função
+As listas de tom e copy desta etapa foram absorvidas pela [diretriz global de linguagem](01-fundamentos/voz-e-estilo.md). Usar essa fonte e sua auditoria para textos novos; o posicionamento e os tons por página registrados abaixo permanecem como histórico, não como instrução para aumentar persuasão.
 
 ## Arquitetura principal
 

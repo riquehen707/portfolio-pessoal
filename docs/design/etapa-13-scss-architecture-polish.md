@@ -1,5 +1,7 @@
 # Etapa 13 - Refatoração visual final, arquitetura SCSS e polish premium
 
+> **Registro histórico.** Esta etapa não orienta novas implementações nem comprova o estado atual. Consulte as [fontes vigentes](../architecture/site-architecture.md#autoridade-e-manutenção-da-documentação).
+
 Objetivo desta etapa: consolidar a identidade visual em uma base de estilos mais limpa, consistente e escalavel.
 
 ## Arquitetura criada

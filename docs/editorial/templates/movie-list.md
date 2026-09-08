@@ -4,7 +4,7 @@ Este é o padrão obrigatório para listas, rankings, favoritos, recomendações
 
 Para criar ou revisar a página permanente de um filme em `/filmes/[slug]`, use [`movie-profile.md`](movie-profile.md). Lista e ficha têm contratos diferentes: a lista guarda o contexto daquela seleção; a ficha reúne os dados e o conteúdo editorial permanentes.
 
-Use-o com as regras gerais do [sistema editorial](../../content/README.md) e com a [arquitetura do site](../../architecture/site-architecture.md). O `global-standards.md` citado no planejamento editorial ainda não existe no repositório; até sua implementação, esses dois documentos exercem essa função. Não replique aqui regras gerais de voz, pesquisa, frontmatter, MDX ou aprovação.
+Use-o com as regras gerais do [sistema editorial](../../content/README.md), a [arquitetura do site](../../architecture/site-architecture.md) e a [diretriz global de linguagem](../../content/01-fundamentos/voz-e-estilo.md). Essas fontes já orientam a produção; não criar o `global-standards.md` citado no planejamento para duplicá-las. Não replique aqui regras gerais de voz, pesquisa, frontmatter, MDX ou aprovação.
 
 Quando a seleção for guiada principalmente por uma tese, atmosfera ou percurso autoral, aplique também o futuro template de curadoria. **Pendência:** esse template ainda não está implementado.
 

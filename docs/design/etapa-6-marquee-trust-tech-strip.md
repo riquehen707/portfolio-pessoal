@@ -1,5 +1,7 @@
 # Etapa 6 - Prova rápida, marquee infinita e banner de competências
 
+> **Registro histórico.** Esta etapa não orienta novas implementações nem comprova o estado atual. Consulte as [fontes vigentes](../architecture/site-architecture.md#autoridade-e-manutenção-da-documentação).
+
 Objetivo desta etapa: reforcar confiança logo depois do hero e manter o ritmo da Home com movimento útil, leve e controlado.
 
 ## Estrutura aplicada
@@ -12,7 +14,7 @@ O bloco pos-hero agora segue está ordem:
 
 ## Prova rápida
 
-A marquee foi desenhada para confirmar capacidade sem virar texto longo.
+A marquee foi desenhada nesta etapa para comunicar capacidade sem virar texto longo. Na apresentação atual de serviços, as mensagens abaixo não constituem evidência por si só; aplicar o padrão de [confiança verificável](../architecture/service-landing-pages.md#confiança-verificável).
 
 Mensagens usadas:
 

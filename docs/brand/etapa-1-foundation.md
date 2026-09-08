@@ -1,6 +1,8 @@
 # Etapa 1 — Rebranding Fundamental
 
-Fonte principal de verdade para a marca `Henrique Reis`.
+> **Registro histórico.** Esta etapa não orienta novas implementações nem comprova o estado atual. Consulte as [fontes vigentes](../architecture/site-architecture.md#autoridade-e-manutenção-da-documentação).
+
+Referência de marca `Henrique Reis` registrada nesta etapa.
 
 ## Núcleo da marca
 
@@ -26,16 +28,9 @@ Fonte principal de verdade para a marca `Henrique Reis`.
 - Estética de template
 - Complexidade desnecessária
 
-## Tom de voz
+## Linguagem e exemplos históricos
 
-- Direto
-- Claro
-- Sem exagero
-- Seguro
-- Maduro
-- Objetivo
-
-Exemplos aprovados:
+A voz e a aprovação de copy seguem a [diretriz global de linguagem](../content/01-fundamentos/voz-e-estilo.md). Os exemplos abaixo registram a etapa original, não são modelos prontos para reutilização:
 
 - Estratégia antes da execução.
 - Sistemas digitais que funcionam.
@@ -84,7 +79,7 @@ Arquivos oficiais:
 
 ## Moodboard
 
-- Referência visual: [precision-editorial-noir-moodboard.svg](../../public/brand/precision-editorial-noir-moodboard.svg)
+- Referência histórica: `precision-editorial-noir-moodboard.svg`; o arquivo não está presente neste checkout e não é uma fonte disponível para novas implementações.
 
 ## Princípios de design
 

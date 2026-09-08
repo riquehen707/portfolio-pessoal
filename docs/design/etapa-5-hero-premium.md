@@ -1,5 +1,7 @@
 # Etapa 5 - Hero premium, primeira impressao e conversão inicial
 
+> **Registro histórico.** Esta etapa não orienta novas implementações nem comprova o estado atual. Consulte as [fontes vigentes](../architecture/site-architecture.md#autoridade-e-manutenção-da-documentação).
+
 Objetivo desta etapa: transformar a primeira dobra em um bloco que explica rápido, transmite critério e convida para o próximo passo.
 
 ## Decisão central

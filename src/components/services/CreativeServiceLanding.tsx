@@ -2,6 +2,7 @@ import { Button, Card, Column, Grid, Heading, Row, Schema, Tag, Text } from "@on
 
 import { baseURL, person, servicesPage, work } from "@/resources";
 import { ServiceLanding } from "@/types";
+import { LegacyCommercialModel } from "./LegacyCommercialModel";
 
 import styles from "./CreativeServiceLanding.module.scss";
 
@@ -185,6 +186,8 @@ export default function CreativeServiceLanding({
           </Column>
         </Grid>
       </Column>
+
+      <LegacyCommercialModel service={service} />
 
       <Column className={styles.sectionPanel} gap="16" padding="24">
         <Column gap="8">

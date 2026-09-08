@@ -12,6 +12,7 @@ import {
 
 import { baseURL, person, servicesPage, work } from "@/resources";
 import { ServiceLanding } from "@/types";
+import { LegacyCommercialModel } from "./LegacyCommercialModel";
 
 import styles from "./BeautyServiceLanding.module.scss";
 
@@ -147,15 +148,17 @@ export default function BeautyServiceLanding({
 
             <Column className={styles.metricCard} gap="8">
               <Text className={styles.metricLabel} variant="label-default-s" onBackground="neutral-weak">
-                Meta
+                Mensalidade
               </Text>
               <Text variant="body-default-m">
-                Mais clientes recorrentes, mais previsibilidade e aumento direto no faturamento da clínica.
+                {service.commercialModel.monthly.amount}. Implantação: {service.commercialModel.setup.amount}.
               </Text>
             </Column>
           </Column>
         </Grid>
       </Column>
+
+      <LegacyCommercialModel service={service} />
 
       <Column className={styles.sectionPanel} gap="16" padding="24">
         <Column gap="8">

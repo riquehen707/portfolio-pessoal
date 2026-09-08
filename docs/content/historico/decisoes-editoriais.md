@@ -1,5 +1,148 @@
 # Decisões editoriais
 
+## 2026-09-08 — Perfil profissional curto em `/sobre`
+
+`/sobre` torna-se a rota canônica do perfil profissional e `/about` passa a redirecionar permanentemente para ela, sem permanecer no sitemap. A página anterior misturava apresentação profissional, ferramentas, história do blog e uma autobiografia longa. A nova composição apresenta função, áreas de atuação, processo, evidências publicadas, perfil breve e três próximos passos: serviços, portfólio e contato.
+
+Foram removidos idade, moradia, luto, saúde, dívidas e a narrativa extensa de origem do blog porque não ajudam a avaliar ou contratar o trabalho neste contexto. Permanecem o estudo de Física, o trabalho independente desde 2023 e o acervo editorial, já registrados nas fontes do projeto. Nenhum cliente, resultado, formação concluída ou número foi inventado. O avatar disponível é uma ilustração e passou a ser identificado assim.
+
+As provas apontam para o case do próprio site, o portfólio e as ofertas publicadas. O resumo de tecnologias explica onde elas entram, sem transformar ferramenta em benefício automático. A arquitetura centraliza o contrato da página; linguagem e conversão continuam subordinadas às fontes globais existentes.
+
+Arquivos alterados: `src/app/about/page.tsx`, `page.module.scss`, `src/app/sobre/page.tsx`, `next.config.mjs`, `src/resources/content.tsx`, `once-ui.config.ts`, `content-strategy.ts`, `ecosystem.ts`, `src/components/Header.tsx`, `docs/architecture/site-architecture.md` e este histórico. A implementação é local e não inclui publicação.
+
+## 2026-09-07 — Implementação do catálogo e do portfólio
+
+`/servicos` passa a apresentar hero curto, navegação por necessidade, cards com benefícios concretos, mensalidade e implantação separadas quando previstas na oferta. Os preços legados permanecem “a partir de”, sem recorrência inventada. No mobile, trilhos nativos com snap mostram parte do próximo card; no desktop, uma grade permite comparar os serviços. As seis ofertas visuais usam capturas dos componentes implementados, identificadas como exemplos. O header compartilhado das landings agora permite voltar à home e ao catálogo.
+
+O portfólio mantém `/work` como canonical e acrescenta `/portfolio` como redirecionamento permanente. A pasta de cases estava vazia; o feed anterior continha registros genéricos de processo. A página passa a mostrar o próprio site e dois estudos implementados — galeria de artistas e site para corretor — com contexto, solução, imagem real da interface, estado e serviço relacionado. A informação fornecida pelo autor foi que cria sites para profissionais de diferentes áreas; não foram fornecidos clientes, URLs de entregas ou resultados comerciais para novos cases. Os estudos não são apresentados como clientes nem demos funcionais. Três registros não justificam filtros.
+
+O campo opcional `project` no frontmatter preserva a compatibilidade dos artigos existentes. `project.serviceSlug` resolve exclusivamente ofertas publicadas; uma referência inexistente falha. A semântica dos cases fica na arquitetura, com remissão na taxonomia, sem uma nova diretriz paralela de linguagem ou conversão.
+
+Auditoria de copy: cortados o slogan longo do hub, benefícios extensos dos cards, as repetições de tecnologias convertidas automaticamente em supostos resultados e o feed de bastidores. O rótulo redundante “Estudo de interface · Estudo” foi reduzido. Permanecem o CTA de contato com rótulo estável e a identificação de exemplos em card e case, necessária para distinguir ilustração de entrega. Não há métricas, depoimentos ou projetos de clientes inventados.
+
+### Arquivos da implementação
+
+- Catálogo: `src/data/service-hub/index.ts`, `src/content/service-hub/serviceHubCardSchema.ts`, `src/components/services/hub/ServiceHubView.tsx`, `ServiceHubView.module.scss`, `ServiceCard.tsx`, `ServiceCard.module.scss` e `ServiceGroupCarousel.module.scss`.
+- Retorno das landings: `src/components/services/landing/ServiceLandingPage.tsx` e `ServiceLanding.module.scss`.
+- Portfólio: `src/app/work/page.tsx`, `work.module.scss`, `projectData.ts`, `[slug]/page.tsx`, `[slug]/page.module.scss`, `src/components/ProjectCard.tsx`, `ProjectCard.module.scss` e `src/components/work/Projects.tsx`.
+- Cases novos: `src/app/work/projects/henrique-dog.mdx`, `galeria-virtual-estudo.mdx` e `site-corretor-estudo.mdx`.
+- Dados, navegação e contrato: `next.config.mjs`, `src/components/blog/postSchema.ts`, `src/utils/utils.ts`, `src/resources/content.tsx`, `content-strategy.ts` e `ecosystem.ts`.
+- Capturas novas: sete WebP em `public/images/work/`, do site e das seis interfaces de serviços; previews padronizados sem apresentar fotos de banco isoladas como o produto.
+- Validação: `scripts/test-service-landings.mjs` também verifica separação de custos, navegação de retorno e vínculo dos cases com ofertas publicadas.
+- Documentação: `docs/architecture/site-architecture.md`, `service-landing-pages.md`, `docs/content/02-arquitetura/taxonomia.md` e este histórico.
+- Removidos: `src/app/work/feedData.ts`, `src/components/work/WorkFeed.tsx` e `WorkFeed.module.scss`, sem consumidores após a substituição pelo portfólio.
+
+As regras permanecem consolidadas nas fontes globais. O catálogo e o retorno do header deixam de ser pendências; seleção funcional de modelos e revisão integral das landings legadas continuam identificadas no guia comercial. Esta implementação é local e não inclui commit ou deploy.
+
+## 2026-09-07 — Revisão final e checklist comercial único
+
+A revisão final preserva as consolidações anteriores e distribui a autoridade entre arquitetura global, linguagem, experiência comercial, estrutura MDX e medição. O [checklist de serviços](../../architecture/service-landing-pages.md#checklist-de-catálogo-e-landing-antes-da-publicação) foi reorganizado nas oito categorias de navegação, compreensão, copy, produto, conversão, risco, design e técnico, com evidências e estados explícitos. O mesmo guia registra a ordem de correção solicitada; ela não dispensa validações técnicas.
+
+O critério de função foi centralizado na arquitetura do site e referenciado pelos guias de linguagem e componentes. Não se acrescenta conteúdo para parecer completo. O checklist verifica as regras proprietárias sem criar outra cópia normativa. Deslocamentos de layout e performance passam a ter protocolo de observação, comparação e registro no documento de medição existente.
+
+Redundâncias removidas: `limites-dos-artigos.md`, cujas orientações já constam em estrutura, componentes, pesquisa e taxonomia; avisos extensos repetidos nas etapas históricas; cópia de medidas visuais/breakpoints no guia comercial; lista repetida das seis URLs; lista paralela de aprovação de copy; relatos de validação misturados às regras atuais. O guia antigo divergia ao sugerir resumos/próximos passos como sequência fixa e ao tratar `KeyTakeaway` como uso estritamente único; prevalecem as regras condicionais dos guias ativos. Nenhum contrato ou artigo foi alterado.
+
+A imagem ausente no README foi removida e o moodboard ausente foi identificado como referência histórica indisponível. A etapa 11 passou a descrever caminhos de contato sem chamá-los de conversões confirmadas. As validações de 2026-09-06 foram transferidas do guia comercial para o registro abaixo, preservando suas evidências e limitações.
+
+O fluxo de criação passou a remeter aos limites de estrutura e componentes. Corrigida a contagem contraditória de respostas de `ProductCard` para sete, conforme o componente; o exemplo de gráfico foi identificado como fictício em vez de sugerir um relatório interno real.
+
+Não foram identificados conflitos normativos pendentes no recorte revisado. Permanecem diferenças entre o padrão desejado e a implementação, registradas em `Adoção e pendências` do guia de serviços: retorno no header, ação secundária, seleção de modelos/demos, relacionados e revisão visual/mobile. Elas não foram resolvidas por esta revisão documental, que não inclui commit, deploy ou certificação de produção.
+
+### Arquivos desta revisão final
+
+27 arquivos atualizados, preservando as alterações das revisões anteriores:
+
+- [AGENTS.md](../../../AGENTS.md)
+- [README.md](../../../README.md)
+- [docs/architecture/service-landing-pages.md](../../architecture/service-landing-pages.md)
+- [docs/architecture/site-architecture.md](../../architecture/site-architecture.md)
+- [docs/audits/search-and-web-vitals-measurement.md](../../audits/search-and-web-vitals-measurement.md)
+- [docs/brand/etapa-1-foundation.md](../../brand/etapa-1-foundation.md)
+- [docs/content/01-fundamentos/voz-e-estilo.md](../01-fundamentos/voz-e-estilo.md)
+- [docs/content/03-producao/fluxo-de-criacao.md](../03-producao/fluxo-de-criacao.md)
+- [docs/content/04-formatacao/componentes-mdx.md](../04-formatacao/componentes-mdx.md)
+- [docs/content/04-formatacao/estrutura-dos-artigos.md](../04-formatacao/estrutura-dos-artigos.md)
+- [docs/content/06-validacao/checklist-editorial.md](../06-validacao/checklist-editorial.md)
+- [docs/content/README.md](../README.md)
+- [docs/content/etapa-2-content-architecture.md](../etapa-2-content-architecture.md)
+- [docs/content/historico/decisoes-editoriais.md](decisoes-editoriais.md)
+- [docs/design/etapa-10-about-teaser-humanization.md](../../design/etapa-10-about-teaser-humanization.md)
+- [docs/design/etapa-11-final-cta-lead-capture.md](../../design/etapa-11-final-cta-lead-capture.md)
+- [docs/design/etapa-12-motion-system-framer.md](../../design/etapa-12-motion-system-framer.md)
+- [docs/design/etapa-13-scss-architecture-polish.md](../../design/etapa-13-scss-architecture-polish.md)
+- [docs/design/etapa-3-design-system.md](../../design/etapa-3-design-system.md)
+- [docs/design/etapa-4-home-refactor.md](../../design/etapa-4-home-refactor.md)
+- [docs/design/etapa-5-hero-premium.md](../../design/etapa-5-hero-premium.md)
+- [docs/design/etapa-6-marquee-trust-tech-strip.md](../../design/etapa-6-marquee-trust-tech-strip.md)
+- [docs/design/etapa-7-markets-horizontal.md](../../design/etapa-7-markets-horizontal.md)
+- [docs/design/etapa-8-works-premium-dynamic.md](../../design/etapa-8-works-premium-dynamic.md)
+- [docs/design/etapa-9-blog-authority-seo.md](../../design/etapa-9-blog-authority-seo.md)
+- [docs/editorial/templates/product-recommendation.md](../../editorial/templates/product-recommendation.md)
+- [docs/launch/etapa-14-performance-seo-analytics-launch.md](../../launch/etapa-14-performance-seo-analytics-launch.md)
+
+Removido por redundância: `docs/content/limites-dos-artigos.md`.
+
+## 2026-09-07 — Serviços visuais apresentados como produtos concretos
+
+O inventário encontrou as regras de preview, demonstração, preço, prova e FAQ no guia de serviços; orientações antigas de confiança e projetos nas etapas 6, 8 e 10 de design; e um contrato separado para produtos editoriais. O padrão foi incorporado ao [guia de serviços](../../architecture/service-landing-pages.md#serviços-apresentados-como-produtos), preservando a fonte global de linguagem e sem criar outro manual ou catálogo.
+
+Foram definidos resumo da oferta, seleção ideal de 3–5 modelos quando pertinente, distinção entre captura/protótipo/demo funcional, previews de vistas relevantes, personalização com limites reais, bloco `Antes de contratar`, confiança verificável e no máximo três alternativas relacionadas. Quantidades e rótulos de estilo são referências de apresentação, não autorização para inventar modelos, qualidade, recursos ou condições. O exemplo de R$249/mês é fictício e não substitui preços cadastrados.
+
+O checklist comercial e os pontos de entrada foram atualizados. A linguagem global remete ao padrão visual, os documentos históricos distinguem aparência de evidência e o guia de produtos esclarece que modelos de serviços não são variantes do acervo editorial.
+
+A consulta ao código confirmou que `demonstration` não tem lista de modelos nem URL de demo, que `/modelos` permanece pausada e que não existe bloco próprio de serviços relacionados no template. `Antes de contratar` pode reutilizar `faq`/`ServiceFAQ` pelo título, sem outro componente. Essas diferenças estão registradas como estado técnico e pendências; a revisão não implementa seletores, demos, campos ou condições comerciais.
+
+Alterações restritas a documentação, preservando as consolidações anteriores, IDs, URLs e ofertas. Não houve commit, deploy ou confirmação de produção nesta revisão.
+
+## 2026-09-07 — Linguagem global com auditoria obrigatória
+
+Inventário: `01-fundamentos/voz-e-estilo.md` e `padrao-editorial-portugues.md` repetiam voz, vocabulário e assinatura; o guia de serviços mantinha copy própria; estrutura, fluxo, checklist e modelo de relatório tratavam a revisão de forma separada. As etapas antigas de marca, copy e Home continham slogans aprovados no contexto original. Templates editoriais foram revisados quanto a regras locais de linguagem, preservando seus contratos de conteúdo e dados.
+
+A [diretriz global de linguagem](../01-fundamentos/voz-e-estilo.md) passa a ser a fonte única para artigos, páginas institucionais, serviços, cards, landing pages e UX writing. `padrao-editorial-portugues.md` foi absorvido e removido; os padrões abstratos daquele arquivo não viraram exemplos recomendados. O caminho de `voz-e-estilo.md` foi preservado para manter as referências existentes.
+
+Foram centralizados concretude, teste de genericidade, headlines identificáveis, função de seção, copy de decisão, densidade e auditoria obrigatória após a escrita. Fluxo de criação, checklists editorial/comercial e relatório passaram a exigir e registrar essa auditoria por referência, sem manter listas paralelas. Estrutura dos artigos remete ao critério de ritmo global, substituindo a contagem orientativa de linhas. A regra de assinatura foi revista: o uso institucional não dispensa concretude.
+
+`AGENTS.md`, os índices, o guia de serviços e as etapas históricas apontam para a mesma fonte. Templates de filmes e estúdios deixam de sugerir outro arquivo futuro como necessário às regras gerais. As instruções de preservação da voz autoral, incerteza, evidência, contratos e informações decisivas permanecem; concisão não autoriza cortar condições ou inventar fatos comerciais.
+
+Esta revisão é documental e preserva a consolidação de serviços feita anteriormente. Não reescreve a copy publicada, não altera schemas ou componentes e não implica commit ou deploy.
+
+## 2026-09-07 — Padrão de serviços consolidado em um guia
+
+O inventário anterior à edição encontrou regras comerciais distribuídas em três guias, referências gerais e etapas antigas da Home. Havia repetição de cards, CTA e responsividade, larguras mobile divergentes, categorias técnicas ou ambíguas e um diagnóstico anterior de produção apresentado junto de um status de implementação.
+
+| Documentos identificados | Tratamento |
+| --- | --- |
+| `docs/architecture/service-landing-pages.md`, `services-hub.md`, `service-card.md` | Regras e contratos reunidos no primeiro; os outros dois removidos e suas referências internas atualizadas |
+| `docs/architecture/site-architecture.md`, `README.md`, `AGENTS.md` | Pontos de entrada para o guia único; arquitetura geral continua responsável por rotas e fontes técnicas |
+| `docs/content/README.md`, `02-arquitetura/linhas-editoriais.md`, `02-arquitetura/taxonomia.md`, `04-formatacao/estrutura-dos-artigos.md`, `04-formatacao/componentes-mdx.md` e fluxos de produção/validação | Revisados como regras de artigos; referências e escopo ajustados onde necessário, sem transferir o molde comercial ao MDX |
+| `docs/brand/etapa-1-foundation.md`, `docs/content/etapa-2-content-architecture.md`, `docs/design/etapa-3` a `etapa-13` e `docs/launch/etapa-14` | Etapas identificadas como históricas e subordinadas às fontes atuais; preservado o registro, sem aplicar à experiência comercial os antigos CTAs, categorias, loops ou composições da Home |
+| `docs/content/relatorios/*.md`, incluindo os três relatórios `landing-page-para-*`, e `docs/audits/*.md` | Relatos de artigos e medições específicas, não instruções gerais de serviços; mantidos com seu contexto |
+| Demais guias de arquitetura e templates editoriais de acervos | Mantêm contratos próprios de entidades, navegação editorial e dados; não recebem as regras de cards comerciais |
+
+O [guia de serviços](../../architecture/service-landing-pages.md) passa a concentrar o padrão e o checklist de descoberta, avaliação e conversão. Os exemplos de intenção não criam categorias vazias nem alteram automaticamente o enum. Os relatos repetidos das seis ofertas foram reduzidos a referências de implementação; condições permanecem nos dados e os briefings datados permanecem neste histórico.
+
+Foram acrescentados os três níveis de informação, o retorno à home e ao catálogo, a prioridade da primeira dobra e os papéis de CTA. Uma ação primária pode ter vários pontos de acesso, com rótulo e destino constantes. A seção de pendências registra as lacunas confirmadas no código, incluindo header sem links e hero sem CTA secundário próprio. Não há inferência de que a interface já atende ao padrão.
+
+Esta decisão atualiza documentação, sem modificar ofertas, schemas, rotas, componentes ou conteúdo dos artigos. Substitui a descrição antiga de `/servicos` como visão apenas institucional; as entradas anteriores continuam sendo registros datados. Não houve commit, deploy ou verificação de produção nesta revisão.
+
+## 2026-09-06 — Validações locais da infraestrutura de serviços
+
+Registro transferido do guia comercial, sem nova execução nem alteração dos resultados.
+
+### Infraestrutura inicial
+
+Infraestrutura validada localmente com nove testes de contrato, renderização e eventos, TypeScript, lint, auditoria de conteúdo, `git diff --check` e build de 570 páginas. Os arquivos de exportação gerados pela auditoria foram preservados no estado anterior à execução.
+
+HTTP em desenvolvimento: prévia 200, um h1, 12 seções, três perguntas em `details`, `noindex` e destino principal único. HTTP com `next start`: prévia e exemplo público 404; `/servicos`, `/servicos/produtos` e `/servicos/websites-profissionais` 200; sitemap 200 sem prévia/exemplo.
+
+A automação de navegador falhou no ambiente com `missing field sandboxPolicy`. Não houve inspeção visual em viewport mobile, medição de performance da primeira oferta real ou verificação no provedor de analytics. Os testes de eventos verificam as funções e payloads localmente. Esses pontos continuam no checklist de cada oferta. Nenhum commit, deploy ou publicação foi realizado nesta etapa.
+
+### Catálogo com seis ofertas
+
+Com as seis ofertas registradas, 15 testes de contrato, renderização e eventos passaram, assim como TypeScript, lint, auditoria de conteúdo, `git diff --check` e o build de 581 páginas. Em `next start`, a landing para arquitetos respondeu 200 com canonical natural, `index, follow`, um h1, nove partes, quatro CTAs com um único destino de WhatsApp e JSON-LD `Service`; apareceu no sitemap e uma vez no catálogo institucional. O artigo relacionado também respondeu 200 com canonical natural, um h1 e um único `ServiceCTA` para a oferta. As três imagens locais responderam 200. Os arquivos de exportação gerados pela auditoria foram restaurados ao estado anterior à execução.
+
+A conexão de automação visual continuou indisponível no ambiente, portanto não houve inspeção efetiva em 320px, 390px, desktop ou zoom de 200%. As fotografias das demonstrações, inclusive as três usadas pelo site para arquitetos, foram inspecionadas diretamente; responsividade e ausência de overflow ainda precisam da revisão visual prevista no checklist. O provedor de analytics não foi acessado, e cliques no WhatsApp permanecem eventos de intenção, não leads confirmados.
+
 ## 2026-09-06 — Portfólio para arquitetos separa projeto demonstrativo e autoria real
 
 `/servicos/site-para-arquitetos` apresenta projetos, serviços, perfil profissional e contato como uma base para pedidos de orçamento. A demonstração usa três fotografias licenciadas apenas para representar a interface; fonte, crédito e licença ficam acessíveis, sem atribuir autoria arquitetônica, clientes, localização ou resultados ao executor. A oferta é R$497 de implantação + R$99/mês, enquanto quantidade de projetos e páginas, revisões, atualizações, domínio, hospedagem, manutenção, prazo e cancelamento ficam para a proposta. O artigo `/blog/como-montar-um-portfolio-de-arquitetura-profissional` mantém orientação prática sobre curadoria e documentação, e seu único CTA aponta para `site-arquitetos`.
@@ -197,3 +340,11 @@ Um produto precisa ser reutilizado em várias recomendações sem transformar pr
 
 Substituição:
 O acervo usa `Product` para a entidade editorial, `ProductVariant` para versões e especificações verificadas e `ProductOffer` para observações comerciais datadas. Artigos referenciam o ID permanente por `ProductCard` e mantêm somente a justificativa contextual. A Amazon é um varejista possível, não a identidade do catálogo.
+
+## 2026-09-08 — Mensalidade obrigatória nas ofertas comerciais
+
+Motivo:
+Preços pontuais nos serviços legados conflitavam com o posicionamento de continuidade e faziam o catálogo omitir manutenção, suporte e demais entregas recorrentes.
+
+Substituição:
+Toda oferta comercial publicada passa a exigir uma mensalidade sustentada por trabalho recorrente real. As landings novas têm uma única linha mensal obrigatória no schema; as ofertas legadas usam `commercialModel` com implantação, mensalidade, itens incluídos e condições. Valores iniciais conhecidos permanecem como implantação. Quando o valor mensal ainda não está definido, a interface usa `Sob consulta — cobrança mensal`, sem inventar preço, fidelidade ou regra de cancelamento.

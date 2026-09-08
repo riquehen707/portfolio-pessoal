@@ -1,5 +1,7 @@
 # Etapa 7 - Seção estrategica horizontal de mercados
 
+> **Registro histórico.** Esta etapa não orienta novas implementações nem comprova o estado atual. Consulte as [fontes vigentes](../architecture/site-architecture.md#autoridade-e-manutenção-da-documentação).
+
 Objetivo desta etapa: transformar a leitura de "ele parece competente" em "ele entende meu contexto".
 
 ## Estrutura aplicada

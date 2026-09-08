@@ -13,6 +13,8 @@ import { getPublishedIdeas } from "@/data/ideas";
 import { getPublishedProducts } from "@/data/products";
 import { isPausedRoute } from "@/config/routePolicy";
 
+const redirectOnlyRoutes = new Set(["/about"]);
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const today = new Date().toISOString().split("T")[0];
 
@@ -78,7 +80,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const routes = Object.keys(routesConfig)
     .filter(
       (route) =>
-        routesConfig[route as keyof typeof routesConfig] && !isPausedRoute(route),
+        routesConfig[route as keyof typeof routesConfig] &&
+        !isPausedRoute(route) &&
+        !redirectOnlyRoutes.has(route),
     )
     .map((route) => ({
       url: `${baseURL}${route !== "/" ? route : ""}`,

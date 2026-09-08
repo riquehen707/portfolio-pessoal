@@ -3,6 +3,8 @@ import { cache } from "react";
 import { baseURL, work } from "@/resources";
 import { buildOgImage } from "@/utils/og";
 import { type BlogFile, getPosts } from "@/utils/utils";
+import { getServiceLanding } from "@/data/service-landings";
+import { services } from "@/resources/services";
 
 const WORK_PROJECTS_PATH = ["src", "app", "work", "projects"] as const;
 
@@ -18,6 +20,14 @@ export function normalizeWorkProjectSlug(slugParam: string | string[] | undefine
 }
 
 export const getAllWorkProjects = cache(() => getPosts([...WORK_PROJECTS_PATH]));
+
+export function getWorkProjectService(project: BlogFile) {
+  const slug = project.metadata.project?.serviceSlug;
+  if (!slug) return undefined;
+  const service = getServiceLanding(slug) ?? services.find((entry) => entry.slug === slug);
+  if (!service) throw new Error(`Serviço relacionado indisponível no case ${project.slug}: ${slug}`);
+  return { href: `/servicos/${slug}`, label: "title" in service ? service.title : service.hero.eyebrow };
+}
 
 export const getWorkProjectBySlug = cache((slug: string) => {
   return getAllWorkProjects().find((project) => project.slug === slug) ?? null;

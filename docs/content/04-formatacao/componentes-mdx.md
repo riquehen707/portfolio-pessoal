@@ -10,7 +10,7 @@ Essa divisão é uma decisão de entrega, não uma autorização para esconder c
 
 ## Princípio de escolha
 
-Comece com Markdown. Use um componente somente quando ele comunicar uma função editorial distinta. Cada artigo pode usar no máximo quatro tipos de bloco editorial, além de imagens, resumo e próximos passos.
+Comece com Markdown. Use um componente somente quando ele comunicar uma função editorial distinta, conforme o [critério global de função](../../architecture/site-architecture.md#critério-de-função). Os limites de tipos de bloco e suas exceções ficam em [estrutura dos artigos](estrutura-dos-artigos.md#componentes).
 
 ## Orientação
 
@@ -116,12 +116,14 @@ Exemplo estático e reutilizável de formulário semântico, construído com os 
 Recebem dados no formato `{ label, value }`, serializados no atributo textual `values` em JSON. Não escrever Recharts diretamente no MDX.
 Os gráficos não carregam uma biblioteca de visualização e repetem rótulos e valores exatos em uma lista acessível. O HTML renderizado no servidor não depende de tooltip para comunicar os dados; um componente cliente pequeno preserva a passagem dos dados estruturados já usada pelos artigos.
 
+Exemplo de sintaxe com dados fictícios; em artigos, substituir por dados verificáveis e sua fonte real.
+
 ```mdx
 <SimpleBarChart
   title="Contatos por canal"
   valueLabel="Contatos"
   values='[{"label":"Google","value":40},{"label":"Instagram","value":25}]'
-  source="Relatório interno"
+  source="Dados fictícios para demonstrar o componente"
   accessedAt="16 de julho de 2026"
 />
 ```

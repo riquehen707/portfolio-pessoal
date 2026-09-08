@@ -2,6 +2,8 @@
 
 Linha editorial define a função do artigo. Não é sinônimo de coleção, categoria ou formato.
 
+Todas as linhas seguem a [diretriz global de linguagem](../01-fundamentos/voz-e-estilo.md). A abordagem e a profundidade podem variar; os testes de linguagem e a preservação da voz não mudam de uma linha para outra.
+
 ## Fundamentos e repertório
 
 - Função estratégica: construir base conceitual e vocabulário.

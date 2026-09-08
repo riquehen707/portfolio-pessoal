@@ -4,9 +4,15 @@
 
 Para criar ou revisar tipos de página, rotas, modelos de dados, SEO, sitemap ou regras globais, consulte primeiro `docs/architecture/site-architecture.md`. Guias especializados continuam subordinados às fontes técnicas indicadas nesse documento.
 
+Para serviços, catálogo, cards, landing pages, modelos, previews, escopo, confiança, navegação comercial, CTA e mobile, consulte `docs/architecture/service-landing-pages.md`, fonte única desse padrão. Documentos de etapas anteriores registram histórico e não substituem esse guia; diferencie regras a adotar de comportamento já implementado.
+
+Antes de publicar catálogo ou landing, concluir o checklist comercial e registrar evidências e pendências; corrigir problemas na ordem definida no mesmo guia. O critério global de função e a autoridade dos documentos ficam em `docs/architecture/site-architecture.md`.
+
 Para criar ou revisar um perfil permanente de estúdio de animação, consulte também `docs/editorial/templates/animation-studio-profile.md` antes de implementar a página.
 
 ## Escopo editorial
+
+Toda escrita ou revisão de linguagem — artigos, páginas institucionais, serviços, cards, landing pages e UX writing — deve seguir `docs/content/01-fundamentos/voz-e-estilo.md`, fonte global de linguagem. Concluir sua auditoria de concretude, genericidade e redundância antes de aprovar a copy; guias especializados não duplicam essas regras.
 
 Ao criar, revisar, classificar ou formatar artigos em `src/app/blog/posts/`, consulte primeiro `docs/content/README.md` e siga o roteiro correspondente à tarefa.
 

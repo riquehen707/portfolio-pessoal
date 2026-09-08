@@ -44,7 +44,19 @@ Não existe meta numérica inicial porque ainda não há série histórica. Apó
 4. `/livros` e `/quadrinhos`;
 5. fichas `/livros/[slug]` e `/quadrinhos/[slug]`.
 
+Ao revisar a experiência comercial, incluir `/servicos` e as landings/demos afetadas, sem tratar o desempenho de um artigo ou da Home como evidência dessas rotas.
+
 Dados de laboratório ajudam a reproduzir problemas, mas não substituem os percentis de usuários reais. Uma regressão de busca deve ser investigada junto com INP e latência do índice para não confundir ranking ruim com interface lenta.
+
+## Verificação de páginas antes da publicação
+
+Este protocolo sustenta a categoria Técnica dos checklists, inclusive o [checklist comercial](../architecture/service-landing-pages.md#checklist-de-catálogo-e-landing-antes-da-publicação). Registrar URL/versão, ferramenta, dispositivo/viewport, rede, estado de cache, resultado e limitações. Comparações precisam de condições equivalentes; não comparar um servidor de desenvolvimento com um build de produção como se fossem a mesma medição.
+
+- **Estabilidade:** reservar espaço de imagens, fontes e conteúdo assíncrono. Observar a carga e as interações relevantes — filtros, previews, FAQ, demo e CTA persistente — e registrar CLS e deslocamentos que atrapalhem leitura, foco ou toque. Se houver deslocamento relevante, identificar sua causa e corrigir; sem observação/medição, registrar pendência.
+- **Performance:** comparar carregamento e interação com a referência da mesma rota, além dos [orçamentos de artefatos](performance-baseline-2026-08-24.md#passo-7--proteção-contra-regressões), cujos limites vigentes pertencem a `config/performance-budget.v1.json`. Uma rota nova precisa de medição inicial. Não aceitar regressão sem explicação nem atrasos que impeçam ler a oferta, usar o CTA ou avaliar a demonstração; se o orçamento não cobre esse comportamento, registrar a lacuna.
+- **Campo e laboratório:** usar diagnóstico de navegador/Lighthouse para revisão antes do release e LCP, INP e CLS de campo quando houver dados suficientes. Separar os resultados; falta de tráfego não autoriza inventar percentis nem declarar conformidade de usuários reais. Orçamento de build ou uma nota isolada não certificam a experiência.
+
+Na conclusão, informar o que foi medido, o que foi corrigido e o que ainda não pôde ser verificado. Revisão somente de documentação verifica a existência e coerência deste procedimento, sem aprovar o comportamento das páginas.
 
 ## Validação
 

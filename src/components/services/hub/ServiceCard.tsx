@@ -44,6 +44,8 @@ export function ServiceCard({ service, headingLevel = "h3", priority = false }: 
             </div>
           )}
 
+          {service.preview.kind === "image" && <span className={styles.previewLabel}>Exemplo de interface</span>}
+
           {service.badge ? (
             <span className={styles.badge} data-kind={service.badge.kind}>
               {service.badge.label}
@@ -63,6 +65,8 @@ export function ServiceCard({ service, headingLevel = "h3", priority = false }: 
             <div className={styles.price}>
               <span>{service.price.label}</span>
               <strong>{service.price.value}</strong>
+              {service.price.detail && <small>{service.price.detail}</small>}
+              <small>{service.price.included}</small>
             </div>
             <span className={styles.cta}>
               Ver serviço <span aria-hidden="true">→</span>

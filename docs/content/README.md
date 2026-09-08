@@ -6,6 +6,8 @@ Este guia é a fonte principal para produção de artigos. A visão geral de rot
 
 Esta pasta explica como transformar texto bruto em artigo publicado sem descaracterizar a voz do autor nem criar variações arbitrárias de estrutura.
 
+A [diretriz de linguagem](01-fundamentos/voz-e-estilo.md) tem alcance global: também orienta páginas institucionais, serviços, cards, landing pages e UX writing. Ela concentra os critérios de escrita e a auditoria obrigatória; os demais documentos definem como aplicá-los a cada tipo de conteúdo.
+
 ## Autoridade das fontes
 
 Em caso de divergência, siga esta ordem:
@@ -19,8 +21,8 @@ Não documente como disponível algo que o schema ou o mapeamento MDX não aceit
 
 ## Leitura por tarefa
 
-- Escrever ou adaptar texto: [`voz-e-estilo.md`](01-fundamentos/voz-e-estilo.md).
-- Conectar artigo a uma oferta com `ServiceCTA`: [`service-landing-pages.md`](../architecture/service-landing-pages.md). Landing pages possuem arquitetura comercial própria.
+- Escrever ou adaptar texto: [linguagem global](01-fundamentos/voz-e-estilo.md); antes de aprovar, concluir a [auditoria de linguagem](01-fundamentos/voz-e-estilo.md#auditoria-obrigatória-de-linguagem).
+- Criar ou revisar catálogo de serviços, landing pages, modelos/demos, escopo e confiança ou conectar artigo a uma oferta com `ServiceCTA`: [guia único de serviços e conversão](../architecture/service-landing-pages.md). Ele define a experiência comercial; as regras desta pasta continuam aplicáveis aos artigos, inclusive quando o assunto é landing page.
 - Escolher abordagem: [`linhas-editoriais.md`](02-arquitetura/linhas-editoriais.md).
 - Preencher frontmatter: [`taxonomia.md`](02-arquitetura/taxonomia.md).
 - Receber um texto bruto: [`entrada-artigo-matriz.md`](03-producao/entrada-artigo-matriz.md).
@@ -28,6 +30,7 @@ Não documente como disponível algo que o schema ou o mapeamento MDX não aceit
 - Pesquisar e citar: [`pesquisa-e-referencias.md`](03-producao/pesquisa-e-referencias.md).
 - Estruturar e formatar: [`estrutura-dos-artigos.md`](04-formatacao/estrutura-dos-artigos.md) e [`componentes-mdx.md`](04-formatacao/componentes-mdx.md).
 - Aprovar conteúdo: [`checklist-editorial.md`](06-validacao/checklist-editorial.md).
+- Aprovar catálogo ou landing: [checklist comercial e prioridade de correção](../architecture/service-landing-pages.md#prioridade-de-correção). Não duplicar esse checklist nos guias de artigos ou etapas históricas.
 - Criar listas ou rankings de filmes: [`movie-list.md`](../editorial/templates/movie-list.md).
 - Criar ou revisar fichas permanentes de filmes: [`movie-profile.md`](../editorial/templates/movie-profile.md).
 - Planejar listas e recomendações de leitura: [`reading-list.md`](../editorial/templates/reading-list.md).

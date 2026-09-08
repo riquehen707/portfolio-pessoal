@@ -1,5 +1,7 @@
 # Etapa 4 - Refatoração estrutural global e nova base da Home
 
+> **Registro histórico.** Esta etapa não orienta novas implementações nem comprova o estado atual. Consulte as [fontes vigentes](../architecture/site-architecture.md#autoridade-e-manutenção-da-documentação).
+
 Objetivo desta etapa: remover a base genérica herdada e reconstruir a Home com hierarquia forte, ritmo premium e estrutura pronta para evoluir.
 
 ## Auditoria da Home anterior

@@ -7,7 +7,7 @@ export const tattooPortfolio = serviceLandingSchema.parse({
   structure: "compact",
   updatedAt: "2026-09-06",
   seo: {
-    title: "Portfólio profissional para tatuadores | R$297",
+      title: "Portfólio para tatuadores | R$297 + R$79/mês",
     description:
       "Organize seus melhores trabalhos por estilo em um portfólio próprio, feito para celular e ligado ao WhatsApp. R$297 de implantação + R$79/mês.",
     index: true,
@@ -157,11 +157,11 @@ export const tattooPortfolio = serviceLandingSchema.parse({
           label: "Mensalidade",
           amount: "R$79/mês",
           cadence: "monthly",
-          details: "Cobrança recorrente, além do valor de implantação.",
+          details: "Inclui hospedagem, manutenção técnica, suporte e pequenas atualizações de trabalhos dentro do limite definido na proposta.",
         },
       ],
       terms:
-        "Antes de contratar, você recebe uma proposta com prazo, quantidade de trabalhos, revisões, atualizações e responsabilidades por domínio, hospedagem e manutenção. As condições da mensalidade e do cancelamento também ficam registradas. Nenhum pagamento é feito nesta página.",
+        "Antes de contratar, você recebe uma proposta com prazo, quantidade de trabalhos, revisões, atualizações e responsabilidades por domínio, hospedagem e manutenção. As condições da mensalidade, da fidelidade e do cancelamento também ficam registradas. Nenhum pagamento é feito nesta página.",
     },
     {
       type: "faq",
@@ -186,7 +186,7 @@ export const tattooPortfolio = serviceLandingSchema.parse({
         {
           question: "O que os R$79 mensais cobrem?",
           answer:
-            "O escopo recorrente, a hospedagem, a manutenção e as condições de cancelamento serão detalhados na proposta. A mensalidade é separada da implantação de R$297.",
+            "Inclui hospedagem, manutenção técnica, suporte e pequenas atualizações de trabalhos dentro do limite definido na proposta. A mensalidade é separada da implantação de R$297; cancelamento e fidelidade ficam registrados antes da contratação.",
         },
         {
           question: "Em quanto tempo fica pronto?",

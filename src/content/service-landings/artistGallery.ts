@@ -185,11 +185,11 @@ export const artistGallery = serviceLandingSchema.parse({
           label: "Mensalidade",
           amount: "R$89/mês",
           cadence: "monthly",
-          details: "Cobrança recorrente, além do valor de implantação.",
+          details: "Inclui hospedagem, manutenção técnica, suporte e pequenas atualizações de obras dentro do limite definido na proposta.",
         },
       ],
       terms:
-        "Antes da contratação, a proposta registra quantidade de obras e coleções, revisões, atualizações, prazo e responsabilidades por domínio, hospedagem e manutenção. Condições da mensalidade e do cancelamento também ficam explícitas. Nenhum pagamento é feito nesta página.",
+        "Antes da contratação, a proposta registra quantidade de obras e coleções, revisões, atualizações, prazo e responsabilidades por domínio, hospedagem e manutenção. Condições da mensalidade, da fidelidade e do cancelamento também ficam explícitas. Nenhum pagamento é feito nesta página.",
     },
     {
       type: "faq",
@@ -219,7 +219,7 @@ export const artistGallery = serviceLandingSchema.parse({
         {
           question: "O que os R$89 mensais cobrem?",
           answer:
-            "Hospedagem, manutenção, atualizações e condições de cancelamento serão detalhadas na proposta. A mensalidade é separada da implantação de R$397.",
+            "Inclui hospedagem, manutenção técnica, suporte e pequenas atualizações de obras dentro do limite definido na proposta. A mensalidade é separada da implantação de R$397; cancelamento e fidelidade ficam registrados antes da contratação.",
         },
       ],
     },

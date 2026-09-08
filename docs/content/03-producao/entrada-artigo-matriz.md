@@ -28,6 +28,8 @@ Uma das linhas definidas em [`linhas-editoriais.md`](../02-arquitetura/linhas-ed
 
 Direção inicial, não compromisso. Pode ser revisado para precisão, leitura ou busca sem mudar a tese.
 
+Aplicar os critérios de [títulos identificáveis](../01-fundamentos/voz-e-estilo.md#headlines-identificáveis); o título provisório não dispensa a auditoria final de linguagem.
+
 ### `objetivo`
 
 O que o leitor deve compreender, decidir ou conseguir fazer ao terminar.

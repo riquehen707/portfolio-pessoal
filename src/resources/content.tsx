@@ -83,7 +83,7 @@ const home: Home = {
 };
 
 const about: About = {
-  path: "/about",
+  path: "/sobre",
   label: "Sobre",
   title: `Sobre | ${person.name}`,
   description: aboutStrategy.hero.subheadline,
@@ -213,8 +213,8 @@ const blog: Blog = {
 
 const work: Work = {
   path: "/work",
-  label: "Laboratório",
-  title: `Laboratório | ${person.name}`,
+  label: "Portfólio",
+  title: `Portfólio | ${person.name}`,
   description: workStrategy.hero.subheadline,
 };
 

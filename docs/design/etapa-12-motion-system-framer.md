@@ -1,5 +1,7 @@
 # Etapa 12 - Motion system, Framer Motion e experiência premium
 
+> **Registro histórico.** Esta etapa não orienta novas implementações nem comprova o estado atual. Consulte as [fontes vigentes](../architecture/site-architecture.md#autoridade-e-manutenção-da-documentação).
+
 Objetivo desta etapa: transformar a interface em uma experiência mais viva, fluida e premium sem perder controle visual.
 
 ## Base aplicada

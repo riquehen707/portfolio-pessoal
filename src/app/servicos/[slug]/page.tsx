@@ -4,7 +4,7 @@ import { ArchitectLanding } from "@/components/services/architects/ArchitectLand
 import { ArtistGalleryLanding } from "@/components/services/artists/ArtistGalleryLanding";
 import { DesignerLanding } from "@/components/services/designers/DesignerLanding";
 import { ServiceLandingPage as ReusableServiceLanding } from "@/components/services/landing/ServiceLandingPage";
-import { ServiceJsonLd, serviceLandingMetadata } from "@/components/services/landing/seo";
+import { LegacyServiceJsonLd, ServiceJsonLd, serviceLandingMetadata } from "@/components/services/landing/seo";
 import { PhotographerLanding } from "@/components/services/photographers/PhotographerLanding";
 import { RealEstateLanding } from "@/components/services/real-estate/RealEstateLanding";
 import { TattooLanding } from "@/components/services/tattoo-artists/TattooLanding";
@@ -12,6 +12,7 @@ import { Button, Card, Column, Grid, Heading, Row, Schema, Tag, Text } from "@on
 
 import BeautyServiceLanding from "@/components/services/BeautyServiceLanding";
 import CreativeServiceLanding from "@/components/services/CreativeServiceLanding";
+import { LegacyCommercialModel } from "@/components/services/LegacyCommercialModel";
 import { WebsiteEstimator } from "@/components/services/WebsiteEstimator";
 import { baseURL, person, services, servicesPage } from "@/resources";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
@@ -83,31 +84,39 @@ export default async function ServiceLandingPage({ params }: PageProps) {
 
   if (service.layout === "beauty") {
     return (
-      <BeautyServiceLanding
-        service={service}
-        metaTitle={metaTitle}
-        metaDescription={metaDescription}
-      />
+      <>
+        <LegacyServiceJsonLd service={service} />
+        <BeautyServiceLanding
+          service={service}
+          metaTitle={metaTitle}
+          metaDescription={metaDescription}
+        />
+      </>
     );
   }
 
   if (service.layout === "creative") {
     return (
-      <CreativeServiceLanding
-        service={service}
-        metaTitle={metaTitle}
-        metaDescription={metaDescription}
-      />
+      <>
+        <LegacyServiceJsonLd service={service} />
+        <CreativeServiceLanding
+          service={service}
+          metaTitle={metaTitle}
+          metaDescription={metaDescription}
+        />
+      </>
     );
   }
 
   const heroStats = [
-    { label: "Investimento inicial", value: service.hero.price },
+    { label: "Mensalidade", value: service.commercialModel.monthly.amount },
+    { label: "Implantação", value: service.commercialModel.setup.amount },
     { label: "Prazo típico", value: service.hero.duration },
-    { label: "Formato", value: service.scopes[0]?.title ?? "Sob medida" },
   ];
 
   return (
+    <>
+    <LegacyServiceJsonLd service={service} />
     <Column className={sectionStyles.page} maxWidth="m" paddingTop="24" gap="24">
       <Schema
         as="webPage"
@@ -186,6 +195,8 @@ export default async function ServiceLandingPage({ params }: PageProps) {
           </Button>
         </Row>
       </Card>
+
+      <LegacyCommercialModel service={service} />
 
       <Column
         className={sectionStyles.sectionPanel}
@@ -436,5 +447,6 @@ export default async function ServiceLandingPage({ params }: PageProps) {
         </Row>
       </Card>
     </Column>
+    </>
   );
 }

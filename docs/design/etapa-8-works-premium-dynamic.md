@@ -1,5 +1,7 @@
 # Etapa 8 - Works principal, colagem premium e sistema dinamico
 
+> **Registro histórico.** Esta etapa não orienta novas implementações nem comprova o estado atual. Consulte as [fontes vigentes](../architecture/site-architecture.md#autoridade-e-manutenção-da-documentação).
+
 Objetivo desta etapa: transformar interesse em prova concreta com uma vitrine de projetos que pareca curada, forte e confiável mesmo com poucos casos.
 
 ## Estrutura aplicada
@@ -30,6 +32,8 @@ A seleção da Home considera:
 - diversidade entre categoria, tag e stack
 
 ## Projetos publicados na vitrine
+
+Esta seleção é um registro da etapa. Para reutilizar materiais como prova de um serviço, conferir autoria, participação e disponibilidade conforme [confiança verificável](../architecture/service-landing-pages.md#confiança-verificável); a classificação histórica não certifica uma demo funcional ou um projeto entregue hoje.
 
 - `Tereza Cristina` como execução real
 - `Atlas Imóveis` como estudo estrategico

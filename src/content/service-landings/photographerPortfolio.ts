@@ -133,11 +133,11 @@ export const photographerPortfolio = serviceLandingSchema.parse({
           label: "Mensalidade",
           amount: "R$89/mês",
           cadence: "monthly",
-          details: "Cobrança recorrente, além do valor de implantação.",
+          details: "Inclui hospedagem, manutenção técnica, suporte e pequenas atualizações de fotos dentro do limite definido na proposta.",
         },
       ],
       terms:
-        "Antes de contratar, você recebe a proposta com o escopo, prazo, condições da mensalidade e responsabilidades por domínio, hospedagem e alterações. Nenhum pagamento é feito nesta página.",
+        "Antes de contratar, você recebe a proposta com o escopo, prazo, condições da mensalidade, fidelidade, cancelamento e responsabilidades por domínio, hospedagem e alterações. Nenhum pagamento é feito nesta página.",
     },
     {
       type: "faq",
@@ -167,7 +167,7 @@ export const photographerPortfolio = serviceLandingSchema.parse({
         {
           question: "O que está incluído nos R$89/mês?",
           answer:
-            "Os R$89 são uma cobrança mensal, separada da implantação de R$397. O escopo recorrente, a hospedagem, a manutenção e as condições de cancelamento serão detalhados na proposta antes de você contratar.",
+            "Inclui hospedagem, manutenção técnica, suporte e pequenas atualizações de fotos dentro do limite definido na proposta. A mensalidade é separada da implantação de R$397; cancelamento e fidelidade ficam registrados antes da contratação.",
         },
         {
           question: "Em quanto tempo fica pronto?",

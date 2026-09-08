@@ -31,10 +31,21 @@ export const services: ServiceLanding[] = [
       highlight: "Next.js, SEO técnico e interface responsiva",
       description:
         "Para quem recebe acesso, indicação ou tráfego, mas ainda precisa explicar melhor a oferta.",
-      price: "A partir de R$ 1.500",
+      price: "A partir de R$ 1.500 de implantação + mensalidade sob consulta",
       duration: "2 a 8 semanas",
       ctaLabel: "Solicitar proposta",
       ctaHref: "mailto:oi@henriquereis.dev?subject=Websites%20Profissionais",
+    },
+    commercialModel: {
+      setup: {
+        amount: "A partir de R$ 1.500",
+        description: "Arquitetura, design, implementação e publicação do escopo inicial.",
+      },
+      monthly: {
+        amount: "Sob consulta — cobrança mensal",
+        includes: ["Hospedagem", "Manutenção técnica", "Pequenas alterações", "Suporte"],
+      },
+      terms: "Fidelidade e regra de cancelamento são definidas na proposta antes da contratação.",
     },
     audience:
       "Profissionais, negócios locais e operações digitais que precisam ser entendidos antes de serem comparados por preço.",
@@ -48,21 +59,21 @@ export const services: ServiceLanding[] = [
       {
         title: "Landing page de captação",
         summary: "Página enxuta para campanha, lançamento ou validação de oferta.",
-        investment: "A partir de R$ 1.500",
+        investment: "A partir de R$ 1.500 de implantação + mensalidade sob consulta",
         timeline: "2 a 3 semanas",
         includes: ["Estrutura de copy", "Formulário ou WhatsApp", "SEO técnico essencial"],
       },
       {
         title: "Site institucional",
         summary: "Presença digital mais completa para negócio, profissional ou estúdio.",
-        investment: "A partir de R$ 3.500",
+        investment: "A partir de R$ 3.500 de implantação + mensalidade sob consulta",
         timeline: "3 a 6 semanas",
         includes: ["Arquitetura de páginas", "Design responsivo", "Base editorial opcional"],
       },
       {
         title: "Loja ou catálogo avançado",
         summary: "Frente digital mais robusta para venda, SEO e operação.",
-        investment: "Sob escopo",
+        investment: "Implantação sob escopo + mensalidade sob consulta",
         timeline: "6 a 8 semanas",
         includes: ["Catálogo ou coleções", "Integrações", "Camada de conversão"],
       },
@@ -90,7 +101,7 @@ export const services: ServiceLanding[] = [
       },
       {
         question: "Você segue com manutenção depois da entrega?",
-        answer: "Sim. Posso continuar com melhorias, SEO, conteúdo e novas páginas.",
+        answer: "Sim. A mensalidade inclui hospedagem, manutenção técnica, pequenas alterações e suporte; limites, fidelidade e cancelamento ficam definidos na proposta.",
       },
     ],
     estimator: true,
@@ -123,11 +134,22 @@ export const services: ServiceLanding[] = [
       highlight: "Agenda cheia, recorrência e retorno financeiro",
       description:
         "Uma página pensada para transformar visita em agendamento, reduzir a dependência do Instagram e gerar mais faturamento com procedimentos e acompanhamento.",
-      price: "A partir de R$ 1.500",
+      price: "A partir de R$ 1.500 de implantação + mensalidade sob consulta",
       duration: "2 a 4 semanas",
       ctaLabel: "Quero mais agendamentos",
       ctaHref:
         "https://wa.me/5575983675164?text=Quero%20uma%20landing%20page%20para%20clinica%20de%20estetica",
+    },
+    commercialModel: {
+      setup: {
+        amount: "A partir de R$ 1.500",
+        description: "Copy, design, implementação e publicação da página inicial.",
+      },
+      monthly: {
+        amount: "Sob consulta — cobrança mensal",
+        includes: ["Hospedagem", "Manutenção técnica", "Pequenas alterações", "Suporte"],
+      },
+      terms: "Fidelidade e regra de cancelamento são definidas na proposta antes da contratação.",
     },
     audience:
       "Clínicas de estética, esteticistas, biomédicas e profissionais de harmonização facial que já têm presença no Instagram, mas precisam converter melhor em agendamento.",
@@ -142,14 +164,14 @@ export const services: ServiceLanding[] = [
         title: "Landing page para agenda cheia",
         summary:
           "Página única para clínica ou profissional que precisa converter melhor em agendamento.",
-        investment: "A partir de R$ 1.500",
+        investment: "A partir de R$ 1.500 de implantação + mensalidade sob consulta",
         timeline: "2 a 3 semanas",
         includes: ["Copy voltada a agendamento", "WhatsApp ou formulário", "SEO técnico essencial"],
       },
       {
         title: "Site enxuto para clínica de estética",
         summary: "Estrutura com páginas principais, procedimentos, prova e contato.",
-        investment: "A partir de R$ 2.800",
+        investment: "A partir de R$ 2.800 de implantação + mensalidade sob consulta",
         timeline: "3 a 5 semanas",
         includes: [
           "Arquitetura de páginas",
@@ -161,7 +183,7 @@ export const services: ServiceLanding[] = [
         title: "Sprint de conversão para página atual",
         summary:
           "Refino de uma página existente para melhorar agendamento, clareza e retorno financeiro.",
-        investment: "A partir de R$ 900",
+        investment: "A partir de R$ 900 de implantação + mensalidade sob consulta",
         timeline: "1 a 2 semanas",
         includes: ["Revisão estrutural", "Ajuste de CTA e layout", "Melhoria de conversão"],
       },
@@ -228,11 +250,22 @@ export const services: ServiceLanding[] = [
       highlight: "Posicionamento claro, autoridade e geração consistente de clientes",
       description:
         "Uma página pensada para tirar o freelancer da dependência de indicação, organizar sua oferta e transformar visita em conversa comercial com mais frequência.",
-      price: "A partir de R$ 1.500",
+      price: "A partir de R$ 1.500 de implantação + mensalidade sob consulta",
       duration: "2 a 4 semanas",
       ctaLabel: "Quero mais clientes",
       ctaHref:
         "https://wa.me/5575983675164?text=Quero%20uma%20landing%20page%20para%20social%20media%20designer%20ou%20freelancer%20digital",
+    },
+    commercialModel: {
+      setup: {
+        amount: "A partir de R$ 1.500",
+        description: "Copy, design, implementação e publicação da página inicial.",
+      },
+      monthly: {
+        amount: "Sob consulta — cobrança mensal",
+        includes: ["Hospedagem", "Manutenção técnica", "Pequenas alterações", "Suporte"],
+      },
+      terms: "Fidelidade e regra de cancelamento são definidas na proposta antes da contratação.",
     },
     audience:
       "Social medias, designers, gestores de tráfego, videomakers, freelancers digitais e pequenos estúdios que querem captar clientes com mais previsibilidade e autoridade.",
@@ -247,7 +280,7 @@ export const services: ServiceLanding[] = [
         title: "Landing page de captação",
         summary:
           "Página única para apresentar serviço, diferenciais, prova e rota direta para contato.",
-        investment: "A partir de R$ 1.500",
+        investment: "A partir de R$ 1.500 de implantação + mensalidade sob consulta",
         timeline: "2 a 3 semanas",
         includes: ["Copy focada em conversão", "WhatsApp ou formulário", "SEO técnico essencial"],
       },
@@ -255,7 +288,7 @@ export const services: ServiceLanding[] = [
         title: "Site profissional enxuto",
         summary:
           "Estrutura com páginas principais para consolidar posicionamento e autoridade digital.",
-        investment: "A partir de R$ 2.800",
+        investment: "A partir de R$ 2.800 de implantação + mensalidade sob consulta",
         timeline: "3 a 5 semanas",
         includes: ["Arquitetura de páginas", "Layout responsivo", "Base para conteúdo e prova"],
       },
@@ -263,7 +296,7 @@ export const services: ServiceLanding[] = [
         title: "Sprint de reposicionamento",
         summary:
           "Refino em uma página atual para melhorar clareza da oferta, CTA e percepção profissional.",
-        investment: "A partir de R$ 900",
+        investment: "A partir de R$ 900 de implantação + mensalidade sob consulta",
         timeline: "1 a 2 semanas",
         includes: ["Revisão estrutural", "Ajuste de mensagem", "Melhoria de conversão"],
       },
@@ -324,10 +357,21 @@ export const services: ServiceLanding[] = [
       highlight: "Mais constância, previsibilidade e presença profissional",
       description:
         "Uma página pensada para explicar sua especialidade, reduzir insegurança e transformar interesse em conversa.",
-      price: "A partir de R$ 1.500",
+      price: "A partir de R$ 1.500 de implantação + mensalidade sob consulta",
       duration: "2 a 4 semanas",
       ctaLabel: "Quero melhorar minha agenda",
       ctaHref: "https://wa.me/5575983675164?text=Quero%20uma%20landing%20page%20para%20psicologa",
+    },
+    commercialModel: {
+      setup: {
+        amount: "A partir de R$ 1.500",
+        description: "Copy, design, implementação e publicação da página inicial.",
+      },
+      monthly: {
+        amount: "Sob consulta — cobrança mensal",
+        includes: ["Hospedagem", "Manutenção técnica", "Pequenas alterações", "Suporte"],
+      },
+      terms: "Fidelidade e regra de cancelamento são definidas na proposta antes da contratação.",
     },
     audience:
       "Psicólogas autônomas, profissionais em reposicionamento e clínicas que querem uma presença digital mais confiável e previsível.",
@@ -341,21 +385,21 @@ export const services: ServiceLanding[] = [
       {
         title: "Landing page para agenda",
         summary: "Página única para apresentar especialidade, abordagem e contato.",
-        investment: "A partir de R$ 1.500",
+        investment: "A partir de R$ 1.500 de implantação + mensalidade sob consulta",
         timeline: "2 a 3 semanas",
         includes: ["Estrutura de copy", "WhatsApp ou formulário", "SEO técnico essencial"],
       },
       {
         title: "Site profissional para psicóloga",
         summary: "Estrutura com páginas principais e base pronta para crescer.",
-        investment: "A partir de R$ 2.800",
+        investment: "A partir de R$ 2.800 de implantação + mensalidade sob consulta",
         timeline: "3 a 5 semanas",
         includes: ["Arquitetura de páginas", "Layout responsivo", "Blog opcional para SEO"],
       },
       {
         title: "Sprint de refino da presença digital",
         summary: "Ajustes em um site ou página existente para melhorar clareza e conversão.",
-        investment: "A partir de R$ 900",
+        investment: "A partir de R$ 900 de implantação + mensalidade sob consulta",
         timeline: "1 a 2 semanas",
         includes: ["Revisão estrutural", "Melhoria de CTA e layout", "Ajustes técnicos e SEO"],
       },
@@ -404,10 +448,21 @@ export const services: ServiceLanding[] = [
       highlight: "E-commerce, blogs e páginas de alta intenção",
       description:
         "Para operações que já têm site no ar, mas sentem que a base técnica está segurando o crescimento.",
-      price: "A partir de R$ 350",
+      price: "A partir de R$ 350 de implantação + mensalidade sob consulta",
       duration: "1 a 4 semanas",
       ctaLabel: "Marcar auditoria",
       ctaHref: "mailto:oi@henriquereis.dev?subject=SEO%20Tecnico",
+    },
+    commercialModel: {
+      setup: {
+        amount: "A partir de R$ 350",
+        description: "Diagnóstico inicial, prioridades e plano técnico para o site.",
+      },
+      monthly: {
+        amount: "Sob consulta — cobrança mensal",
+        includes: ["Monitoramento técnico", "Revisão mensal de prioridades", "Pequenas correções", "Suporte"],
+      },
+      terms: "Fidelidade e regra de cancelamento são definidas na proposta antes da contratação.",
     },
     audience:
       "Lojas virtuais, blogs, sites institucionais e operações de conteúdo que perderam visibilidade ou não conseguem crescer com segurança.",
@@ -421,21 +476,21 @@ export const services: ServiceLanding[] = [
       {
         title: "Diagnóstico rápido",
         summary: "Leitura tática para localizar os bloqueios mais urgentes.",
-        investment: "A partir de R$ 350",
+        investment: "A partir de R$ 350 de implantação + mensalidade sob consulta",
         timeline: "1 semana",
         includes: ["Checklist técnico", "Prioridades iniciais", "Resumo executivo"],
       },
       {
         title: "Auditoria completa",
         summary: "Análise mais profunda para sites com mais páginas ou operação editorial.",
-        investment: "A partir de R$ 1.200",
+        investment: "A partir de R$ 1.200 de implantação + mensalidade sob consulta",
         timeline: "2 a 3 semanas",
         includes: ["Crawl e estrutura", "Performance", "Plano de correções"],
       },
       {
         title: "Sprint de correções",
         summary: "Execução das melhorias técnicas mais críticas.",
-        investment: "Sob escopo",
+        investment: "Implantação sob escopo + mensalidade sob consulta",
         timeline: "2 a 4 semanas",
         includes: ["Implementação", "Validação técnica", "Acompanhamento curto"],
       },
@@ -458,7 +513,7 @@ export const services: ServiceLanding[] = [
       },
       {
         question: "Você também executa as correções?",
-        answer: "Sim. Posso entregar só a auditoria ou seguir para uma sprint de implementação.",
+        answer: "Sim. A implantação cobre o diagnóstico inicial e o plano técnico; a mensalidade mantém monitoramento, revisão de prioridades, pequenas correções e suporte.",
       },
       {
         question: "Preciso trocar de plataforma?",
@@ -477,10 +532,21 @@ export const services: ServiceLanding[] = [
       highlight: "APIs, formulários, WhatsApp e dashboards",
       description:
         "Ideal para quem precisa conectar canais, automatizar etapas do atendimento ou parar de resolver tudo no braço.",
-      price: "A partir de R$ 300",
+      price: "A partir de R$ 300 de implantação + mensalidade sob consulta",
       duration: "1 a 6 semanas",
       ctaLabel: "Mapear automação",
       ctaHref: "mailto:oi@henriquereis.dev?subject=Automação%20e%20Integracoes",
+    },
+    commercialModel: {
+      setup: {
+        amount: "A partir de R$ 300",
+        description: "Mapeamento, configuração, testes e documentação do fluxo inicial.",
+      },
+      monthly: {
+        amount: "Sob consulta — cobrança mensal",
+        includes: ["Monitoramento das integrações", "Manutenção", "Pequenos ajustes de fluxo", "Suporte"],
+      },
+      terms: "Fidelidade e regra de cancelamento são definidas na proposta antes da contratação.",
     },
     audience:
       "Negócios que já captam, atendem ou operam no digital e precisam de mais previsibilidade, velocidade e controle.",
@@ -494,21 +560,21 @@ export const services: ServiceLanding[] = [
       {
         title: "Microautomação",
         summary: "Automação pontual para tirar uma tarefa manual do caminho.",
-        investment: "A partir de R$ 300",
+        investment: "A partir de R$ 300 de implantação + mensalidade sob consulta",
         timeline: "1 semana",
         includes: ["Mapeamento rápido", "Fluxo único", "Teste básico"],
       },
       {
         title: "Fluxo comercial conectado",
         summary: "Ligação entre entrada, resposta e acompanhamento.",
-        investment: "A partir de R$ 900",
+        investment: "A partir de R$ 900 de implantação + mensalidade sob consulta",
         timeline: "2 a 3 semanas",
         includes: ["Formulário", "WhatsApp ou e-mail", "Alertas e organização"],
       },
       {
         title: "Operação integrada",
         summary: "Camada mais completa com dashboards, integrações e rotina assistida.",
-        investment: "Sob escopo",
+        investment: "Implantação sob escopo + mensalidade sob consulta",
         timeline: "3 a 6 semanas",
         includes: ["Integrações múltiplas", "Dashboards", "Playbook operacional"],
       },
