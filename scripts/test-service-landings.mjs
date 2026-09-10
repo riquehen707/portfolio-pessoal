@@ -47,7 +47,7 @@ const { serviceLandingSchema } = load("src/content/service-landings/serviceLandi
 const { services } = load("src/resources/services.ts");
 const { getServiceHubContent } = load("src/data/service-hub/index.ts");
 const { serviceExampleSchema } = load("src/content/service-examples/serviceExampleSchema.ts");
-const { getIndexableServiceExamples, getPublishedServiceExamples, getServiceExamplePath } = load("src/data/service-examples/index.ts");
+const { getAdjacentServiceExamples, getIndexableServiceExamples, getPublishedServiceExamples, getServiceExamplePath } = load("src/data/service-examples/index.ts");
 const { exampleServiceLanding } = load("src/content/service-landings/example.ts");
 const { architectWebsite } = load("src/content/service-landings/architectWebsite.ts");
 const { artistGallery } = load("src/content/service-landings/artistGallery.ts");
@@ -294,14 +294,21 @@ test("exemplos demonstrativos só publicam uma rota quando estão completos", ()
     id: "exemplo-em-preparo",
     slug: "exemplo-em-preparo",
     status: "draft",
+    order: 99,
+    featured: false,
     updatedAt: "2026-09-08",
-    name: "Exemplo em preparo",
-    category: "Site profissional",
+    title: "Exemplo em preparo",
+    segment: "Site profissional",
     solutionType: "institutional",
-    description: "Estrutura ainda em revisão.",
-    highlights: ["Apresentação", "Contato"],
-    visualIdentity: { label: "Identidade editorial", themeKey: "editorial" },
+    shortDescription: "Estrutura ainda em revisão.",
+    tags: ["Apresentação", "Contato"],
+    decisions: [
+      { title: "Decisão um", description: "Explicação objetiva da primeira decisão." },
+      { title: "Decisão dois", description: "Explicação objetiva da segunda decisão." },
+    ],
+    visualStyle: { label: "Identidade editorial", themeKey: "editorial" },
     featureIds: [],
+    images: [{ src: "/images/work/exemplo.webp", alt: "Imagem do exemplo em preparo." }],
     seo: { index: false },
   };
   assert.equal(serviceExampleSchema.safeParse(draft).success, true);
@@ -312,21 +319,26 @@ test("exemplos demonstrativos só publicam uma rota quando estão completos", ()
       status: "published",
       rendererKey: "psychology-studio",
       featureIds: ["about", "form"],
-      highlights: ["Apresentação", "Contato"],
-      preview: { src: "/images/work/exemplo.webp", alt: "Prévia do exemplo demonstrativo." },
+      tags: ["Apresentação", "Contato"],
+      coverImage: { src: "/images/work/exemplo.webp", alt: "Prévia do exemplo demonstrativo." },
     }).success,
     true,
   );
   const examples = getPublishedServiceExamples();
   assert.equal(examples.length, 3);
   assert.deepEqual(examples.map((example) => example.slug), ["psicologia", "arquitetura", "barbearia"]);
+  assert.deepEqual(examples.map((example) => example.order), [1, 2, 3]);
+  assert.equal(examples.every((example) => example.featured), true);
   for (const example of examples) {
     assert.equal(example.seo.index, false);
     assert.ok(example.rendererKey);
-    assert.ok(existsSync(path.join(root, "public", example.preview.src)));
+    assert.ok(existsSync(path.join(root, "public", example.coverImage.src)));
+    assert.equal(example.images.every((image) => existsSync(path.join(root, "public", image.src))), true);
   }
   assert.deepEqual(getIndexableServiceExamples(), []);
   assert.equal(getServiceExamplePath("psicologia"), "/servicos/exemplos/psicologia");
+  assert.equal(getAdjacentServiceExamples("psicologia").previous.slug, "barbearia");
+  assert.equal(getAdjacentServiceExamples("psicologia").next.slug, "arquitetura");
 });
 
 test("demonstração de Psicologia identifica ficção, preserva conteúdo clínico responsável e oferece recursos úteis", () => {
@@ -458,26 +470,30 @@ test("home comercial mantém oferta única e envia profundidade para páginas pr
   assert.equal($("h1").length, 1);
   assert.equal(
     $("#service-hub-title").text(),
-    "Eu crio, publico e mantenho seu site.",
+    "Eu crio, publico e mantenho o seu site.",
   );
-  assert.equal($("section[aria-labelledby='service-hub-title'] a").length, 5);
+  assert.equal($("section[aria-labelledby='service-hub-title'] a").length, 2);
   assert.equal($("[role='tab']").length, 0);
   assert.equal($("#recursos").length, 0);
   assert.equal($("#formatos").length, 0);
-  assert.equal($("#examples-preview-title").text(), "Três sites, três direções visuais.");
-  assert.equal($("#exemplos article").length, 3);
-  assert.equal($("#exemplos a[href='/servicos/exemplos/psicologia']").length, 2);
-  assert.equal($("#exemplos a[href='/servicos/exemplos/arquitetura']").length, 2);
-  assert.equal($("#exemplos a[href='/servicos/exemplos/barbearia']").length, 2);
-  assert.equal($("#recursos-principais article").length, 6);
-  assert.equal($("a[href='/servicos/capacidades']").length, 2);
+  assert.equal($("#examples-preview-title").text(), "Inspire-se em alguns projetos");
+  assert.equal($("#projetos article").length, 3);
+  assert.equal($("#projetos a[href='/servicos/exemplos/psicologia']").length, 2);
+  assert.equal($("#projetos a[href='/servicos/exemplos/arquitetura']").length, 2);
+  assert.equal($("#projetos a[href='/servicos/exemplos/barbearia']").length, 2);
+  assert.equal($("#recursos-principais").length, 0);
+  assert.equal($(".perception").length, 0);
+  assert.deepEqual($("section[aria-labelledby='plan-title'] ul").find("li").map((_, item) => $(item).text().replace(/^\d+/, "")).get(), ["Criação e design", "Domínio", "Hospedagem", "Manutenção técnica", "Suporte", "Pequenas atualizações"]);
+  assert.equal($("a[href='/servicos/capacidades']").length, 1);
   assert.equal($("a[href='/servicos/exemplos']").length, 2);
   assert.equal($("a[href='/work']").length, 1);
-  assert.equal($("#iniciar-projeto a[href^='mailto:']").length, 1);
   assert.equal($("[data-analytics-event='services_help_click']").length, 2);
-  assert.equal($(".heroPricing").text().includes("R$ 200"), true);
-  assert.equal($(".heroPricing").text().includes("R$ 89,90/mês"), true);
-  assert.equal($("#faq-title").parent().next().find("details").length, 4);
+  assert.equal($("[data-analytics-event='services_help_click']").filter((_, item) => $(item).text() === "Quero meu site").length, 2);
+  assert.match($("#personal-proof-title").parent().parent().text(), /não uma promessa de resultado/i);
+  assert.equal($("main").text().includes("R$147/mês"), true);
+  assert.equal($("main").text().includes("R$ 200"), false);
+  assert.equal($("main").text().includes("R$ 89,90"), false);
+  assert.equal($("#faq-title").parent().next().find("details").length, 6);
 });
 
 test("página de capacidades concentra recursos, módulos e wireframes interativos", () => {

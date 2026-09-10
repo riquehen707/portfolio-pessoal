@@ -2,6 +2,8 @@ import "@once-ui-system/core/css/styles.css";
 import "@once-ui-system/core/css/tokens.css";
 import "@/styles/globals.scss";
 
+import type { Metadata, Viewport } from "next";
+import { GoogleTagManager } from "@next/third-parties/google";
 import classNames from "classnames";
 
 import {
@@ -16,6 +18,7 @@ import {
 
 import { Footer, Header, Providers } from "@/components";
 import { SiteStructuredData } from "@/components/seo/SiteStructuredData";
+
 import {
   baseURL as baseFromConfig,
   brandIdentity,
@@ -27,10 +30,33 @@ import {
   home,
   style,
 } from "@/resources";
-import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
+
+import {
+  buildDiscoverImageMetadata,
+  buildOgImage,
+} from "@/utils/og";
+
+/* -------------------------------------------------------------------------- */
+/* Analytics                                                                  */
+/* -------------------------------------------------------------------------- */
+
+const GOOGLE_TAG_MANAGER_ID =
+  process.env.NEXT_PUBLIC_GTM_ID?.trim() || "GTM-KHH39C3Q";
+
+const GOOGLE_SITE_VERIFICATION =
+  "LQzYGuvWyFJ-oWweMatvNPeFAQwOIMT2q8Q1pbX27Zw";
+
+/* -------------------------------------------------------------------------- */
+/* URL helpers                                                                */
+/* -------------------------------------------------------------------------- */
 
 function resolveBaseURL(): URL {
-  const raw = (process.env.NEXT_PUBLIC_SITE_URL ?? baseFromConfig ?? "").trim();
+  const raw = (
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    baseFromConfig ??
+    ""
+  ).trim();
+
   const fallbackDev = "http://localhost:3000";
 
   try {
@@ -43,12 +69,20 @@ function resolveBaseURL(): URL {
 }
 
 function ensureLeadingSlash(path?: string): string | undefined {
-  if (!path) return path;
+  if (!path) {
+    return path;
+  }
+
   return path.startsWith("/") ? path : `/${path}`;
 }
 
-function toAbsoluteOrPath(base: URL, maybePath?: string): string | undefined {
-  if (!maybePath) return undefined;
+function toAbsoluteOrPath(
+  base: URL,
+  maybePath?: string,
+): string | undefined {
+  if (!maybePath) {
+    return undefined;
+  }
 
   try {
     return new URL(maybePath, base).toString();
@@ -57,22 +91,44 @@ function toAbsoluteOrPath(base: URL, maybePath?: string): string | undefined {
   }
 }
 
-const GOOGLE_SITE_VERIFICATION = "LQzYGuvWyFJ-oWweMatvNPeFAQwOIMT2q8Q1pbX27Zw";
+/* -------------------------------------------------------------------------- */
+/* Viewport                                                                   */
+/* -------------------------------------------------------------------------- */
 
-export const viewport = {
+export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: brandPalette.darkBase },
-    { media: "(prefers-color-scheme: light)", color: brandPalette.lightBase },
+    {
+      media: "(prefers-color-scheme: dark)",
+      color: brandPalette.darkBase,
+    },
+    {
+      media: "(prefers-color-scheme: light)",
+      color: brandPalette.lightBase,
+    },
   ],
 };
 
-export async function generateMetadata() {
+/* -------------------------------------------------------------------------- */
+/* Metadata                                                                   */
+/* -------------------------------------------------------------------------- */
+
+export function generateMetadata(): Metadata {
   const metadataBase = resolveBaseURL();
+
   const siteTitle = brandIdentity.name;
   const siteDescription = brandMessaging.siteDescription;
+
   const path = ensureLeadingSlash(home?.path ?? "/");
-  const image = toAbsoluteOrPath(metadataBase, home?.image ?? buildOgImage(siteTitle));
-  const canonicalUrl = new URL(path || "/", metadataBase).toString();
+
+  const image = toAbsoluteOrPath(
+    metadataBase,
+    home?.image ?? buildOgImage(siteTitle),
+  );
+
+  const canonicalUrl = new URL(
+    path || "/",
+    metadataBase,
+  ).toString();
 
   const onceMeta = Meta.generate({
     title: siteTitle,
@@ -84,19 +140,32 @@ export async function generateMetadata() {
 
   return {
     ...onceMeta,
+
+    metadataBase,
+
     applicationName: siteTitle,
+
     title: {
       default: siteTitle,
       template: `%s | ${siteTitle}`,
     },
-    authors: [{ name: siteTitle, url: canonicalUrl }],
+
+    description: siteDescription,
+
+    authors: [
+      {
+        name: siteTitle,
+        url: canonicalUrl,
+      },
+    ],
+
     creator: siteTitle,
     publisher: siteTitle,
-    description: siteDescription,
-    metadataBase,
+
     alternates: {
       canonical: canonicalUrl,
     },
+
     openGraph: {
       type: "website",
       locale: "pt_BR",
@@ -104,30 +173,56 @@ export async function generateMetadata() {
       siteName: siteTitle,
       title: siteTitle,
       description: siteDescription,
-      images: buildDiscoverImageMetadata(image, siteTitle),
+      images: buildDiscoverImageMetadata(
+        image,
+        siteTitle,
+      ),
     },
+
     twitter: {
       card: "summary_large_image",
       title: siteTitle,
       description: siteDescription,
       images: image ? [image] : undefined,
     },
+
     icons: {
-      icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
-      shortcut: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+      icon: [
+        {
+          url: "/favicon.svg",
+          type: "image/svg+xml",
+        },
+      ],
+      shortcut: [
+        {
+          url: "/favicon.svg",
+          type: "image/svg+xml",
+        },
+      ],
     },
+
     robots: {
       index: true,
       follow: true,
     },
+
     referrer: "origin-when-cross-origin",
+
     verification: {
       google: GOOGLE_SITE_VERIFICATION,
     },
   };
 }
 
-export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+/* -------------------------------------------------------------------------- */
+/* Root layout                                                                */
+/* -------------------------------------------------------------------------- */
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <Flex
       suppressHydrationWarning
@@ -145,14 +240,24 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
       )}
     >
       <head>
-        <meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
-        <link rel="preconnect" href="https://api.fontshare.com" />
-        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://api.fontshare.com"
+        />
+
+        <link
+          rel="preconnect"
+          href="https://cdn.fontshare.com"
+          crossOrigin="anonymous"
+        />
+
         <link
           rel="stylesheet"
           href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700,900&display=swap"
         />
+
         <SiteStructuredData />
+
         <script
           id="theme-init"
           dangerouslySetInnerHTML={{
@@ -160,6 +265,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
               (function() {
                 try {
                   const root = document.documentElement;
+
                   const config = ${JSON.stringify({
                     brand: style.brand,
                     accent: style.accent,
@@ -182,11 +288,21 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
 
                   Object.keys(config).forEach((key) => {
                     const value = localStorage.getItem("data-" + key);
-                    if (value) root.setAttribute("data-" + key, value);
+
+                    if (value) {
+                      root.setAttribute("data-" + key, value);
+                    }
                   });
                 } catch (error) {
-                  console.error("Failed to initialize theme:", error);
-                  document.documentElement.setAttribute("data-theme", "light");
+                  console.error(
+                    "Failed to initialize theme:",
+                    error,
+                  );
+
+                  document.documentElement.setAttribute(
+                    "data-theme",
+                    "light",
+                  );
                 }
               })();
             `,
@@ -194,18 +310,30 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
         />
       </head>
 
+      <GoogleTagManager
+        gtmId={GOOGLE_TAG_MANAGER_ID}
+      />
+
       <Providers>
         <Column
           as="body"
           className="hr-site-body"
           background="page"
           fillWidth
-          style={{ minHeight: "100vh" }}
+          horizontal="center"
           margin="0"
           padding="0"
-          horizontal="center"
+          style={{
+            minHeight: "100vh",
+          }}
         >
-          <RevealFx fill position="absolute" style={{ pointerEvents: "none" }}>
+          <RevealFx
+            fill
+            position="absolute"
+            style={{
+              pointerEvents: "none",
+            }}
+          >
             <Background
               mask={{
                 x: effects.mask.x,
@@ -247,7 +375,9 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
               }}
             />
           </RevealFx>
+
           <Header />
+
           <Flex
             as="main"
             className="hr-site-main"
@@ -256,10 +386,16 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
             horizontal="center"
             flex={1}
           >
-            <Flex className="hr-site-content" horizontal="center" fillWidth minHeight="0">
+            <Flex
+              className="hr-site-content"
+              horizontal="center"
+              fillWidth
+              minHeight="0"
+            >
               {children}
             </Flex>
           </Flex>
+
           <Footer />
         </Column>
       </Providers>

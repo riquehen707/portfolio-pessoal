@@ -43,7 +43,7 @@
 .heroCaption { position: relative; z-index: 2; grid-column: 3; grid-row: 1; display: grid; min-width: 0; align-content: end; gap: 0.9rem; padding: clamp(1.5rem, 3vw, 2.5rem); background: rgba(17, 17, 15, 0.74); backdrop-filter: blur(10px); }
 .heroCaption strong { font-family: var(--arch-mono); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; }
 .heroCaption p { max-width: 100%; color: rgba(251, 250, 246, 0.72); font-size: 0.82rem; line-height: 1.5; overflow-wrap: anywhere; }
-.heroCaption a { min-height: 2.8rem; padding-top: 0.9rem; border-top: 1px solid rgba(251, 250, 246, 0.35); color: var(--arch-acid); font-size: 0.78rem; font-weight: 700; text-decoration: none; }
+.heroCaption a { min-height: 3.2rem; padding-top: 0.9rem; border-top: 1px solid rgba(251, 250, 246, 0.35); color: var(--arch-acid); font-size: 0.78rem; font-weight: 700; text-decoration: none; }
 .projectsSection { padding: clamp(5rem, 9vw, 10rem) 2.5vw; background: var(--arch-paper); }
 .projectsHeading { display: grid; grid-template-columns: 0.55fr 1fr auto; gap: 2rem; margin-bottom: clamp(3rem, 7vw, 7rem); align-items: end; }
 .projectsHeading p, .projectsHeading span, .sectionIndex span { font-family: var(--arch-mono); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; }
@@ -107,6 +107,7 @@
 .footer { display: grid; grid-template-columns: 1fr 1fr auto; gap: 1rem; min-height: 6rem; padding: 1.5rem 2.5vw; background: var(--arch-ink); color: var(--arch-white); align-items: center; }
 .footer strong { font-family: var(--arch-display); font-size: 1.3rem; }
 .footer span, .footer a { color: rgba(251, 250, 246, 0.58); font-family: var(--arch-mono); font-size: 0.58rem; text-transform: uppercase; }
+.footer a { display: inline-flex; min-height: 3.2rem; align-items: center; }
 .site a:focus-visible, .site button:focus-visible, .site summary:focus-visible { outline: 3px solid #ff5a36; outline-offset: 4px; }
 .projectPage { background: var(--arch-white); }
 .projectHeader { display: flex; min-height: 5.25rem; padding: 0 2.5vw; background: var(--arch-ink); color: var(--arch-white); align-items: center; justify-content: space-between; }

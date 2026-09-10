@@ -21,8 +21,8 @@ export function PsychologyDemo({ example }: ServiceExampleRendererProps) {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: example.name,
-    description: example.description,
+    name: example.title,
+    description: example.shortDescription,
     about: "Projeto demonstrativo de site institucional para psicologia",
     isPartOf: { "@type": "WebSite", name: "Henrique Reis" },
   };
@@ -31,7 +31,7 @@ export function PsychologyDemo({ example }: ServiceExampleRendererProps) {
     <div className={styles.site} id="inicio">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
       <header className={styles.header}>
-        <a className={styles.brand} href="#inicio" aria-label="Elisa Veral, início">
+        <a className={styles.brand} href="#inicio">
           <strong>Elisa Veral</strong>
           <span>Psicologia · identidade fictícia</span>
         </a>

@@ -7,7 +7,7 @@ import styles from "./BarbershopDemo.module.scss";
 const photos = Object.values(barbershopDemoMedia);
 
 export function BarbershopDemo({ example }: ServiceExampleRendererProps) {
-  const structuredData = { "@context": "https://schema.org", "@type": "WebPage", name: example.name, description: example.description, about: "Projeto demonstrativo de site para barbearia e negócio local", isPartOf: { "@type": "WebSite", name: "Henrique Reis" } };
+  const structuredData = { "@context": "https://schema.org", "@type": "WebPage", name: example.title, description: example.shortDescription, about: "Projeto demonstrativo de site para barbearia e negócio local", isPartOf: { "@type": "WebSite", name: "Henrique Reis" } };
   return (
     <div className={styles.site} id="barber-start">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />

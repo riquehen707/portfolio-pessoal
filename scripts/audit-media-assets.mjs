@@ -68,11 +68,16 @@ for (const ref of refs) {
   let bytes;
   let hash;
   if (path) {
-    const metadata = await sharp(path).metadata();
-    actualWidth=metadata.width;
-    actualHeight=metadata.height;
-    bytes=statSync(path).size;
-    hash=createHash("sha256").update(readFileSync(path)).digest("hex");
+    try {
+      const metadata = await sharp(path).metadata();
+      actualWidth=metadata.width;
+      actualHeight=metadata.height;
+      bytes=statSync(path).size;
+      hash=createHash("sha256").update(readFileSync(path)).digest("hex");
+    } catch (error) {
+      audited.push({...ref,src,status:"unreadable-image",error:error instanceof Error?error.message:"Falha desconhecida ao ler a imagem."});
+      continue;
+    }
   }
   const extension=extname(src ?? "").toLowerCase();
   const declaredDimensions=Boolean(ref.image.width && ref.image.height);

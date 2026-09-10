@@ -1,23 +1,66 @@
 import Link from "next/link";
+
 import styles from "./ServicesAreaNav.module.scss";
 
-type ServicesArea = "services" | "examples" | "capabilities" | "portfolio";
+type ServicesArea =
+  | "services"
+  | "examples"
+  | "capabilities"
+  | "portfolio";
 
-const links: Array<{ id: ServicesArea; label: string; href: string }> = [
-  { id: "services", label: "Oferta", href: "/servicos" },
-  { id: "examples", label: "Exemplos", href: "/servicos/exemplos" },
-  { id: "capabilities", label: "Capacidades", href: "/servicos/capacidades" },
-  { id: "portfolio", label: "Portfólio real", href: "/work" },
+const links: Array<{
+  id: ServicesArea;
+  label: string;
+  href: string;
+}> = [
+  {
+    id: "services",
+    label: "Serviço",
+    href: "/servicos",
+  },
+  {
+    id: "examples",
+    label: "Exemplos",
+    href: "/servicos/exemplos",
+  },
+  {
+    id: "capabilities",
+    label: "Capacidades",
+    href: "/servicos/capacidades",
+  },
+  {
+    id: "portfolio",
+    label: "Portfólio",
+    href: "/work",
+  },
 ];
 
-export function ServicesAreaNav({ active }: { active: ServicesArea }) {
+export function ServicesAreaNav({
+  active,
+}: {
+  active: ServicesArea;
+}) {
   return (
-    <nav className={styles.nav} aria-label="Área de serviços">
-      {links.map((link) => (
-        <Link href={link.href} aria-current={active === link.id ? "page" : undefined} key={link.id}>
-          {link.label}
-        </Link>
-      ))}
+    <nav
+      className={styles.nav}
+      aria-label="Navegação da área de serviços"
+    >
+      <div className={styles.links}>
+        {links.map((link) => {
+          const isActive = active === link.id;
+
+          return (
+            <Link
+              className={styles.link}
+              href={link.href}
+              aria-current={isActive ? "page" : undefined}
+              key={link.id}
+            >
+              <span>{link.label}</span>
+            </Link>
+          );
+        })}
+      </div>
     </nav>
   );
 }

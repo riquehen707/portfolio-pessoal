@@ -1,75 +1,386 @@
 import Image from "next/image";
-import Link from "next/link";
-import type { ReturnTypeOfServiceHubContent } from "@/data/service-hub/types";
+
 import type { ServiceExample } from "@/content/service-examples/serviceExampleSchema";
-import { getServiceExamplePath } from "@/data/service-examples";
 import { ServicesAreaNav } from "@/components/services/ServicesAreaNav";
 import { ServiceExamplesPreview } from "@/components/services/examples/ServiceExamplesPreview";
+
 import styles from "./ServiceHubView.module.scss";
 
-type ServiceHubViewProps = ReturnTypeOfServiceHubContent & { examples: ServiceExample[]; contactHref: string; questionHref: string };
+type ServiceHubViewProps = {
+  examples: ServiceExample[];
+  contactHref: string;
+};
+
+const included = [
+  {
+    title: "Design e desenvolvimento",
+    description: "Estrutura, visual e implementação do site.",
+  },
+  {
+    title: "Domínio",
+    description: "Configuração do endereço usado pelo seu site.",
+  },
+  {
+    title: "Hospedagem",
+    description: "Infraestrutura necessária para manter o site publicado.",
+  },
+  {
+    title: "Manutenção",
+    description: "Cuidados técnicos para o site continuar funcionando.",
+  },
+  {
+    title: "Suporte",
+    description: "Um canal direto para dúvidas e pequenos problemas.",
+  },
+  {
+    title: "Pequenas atualizações",
+    description: "Ajustes recorrentes em textos, imagens e informações.",
+  },
+] as const;
+
+const capabilities = [
+  {
+    number: "01",
+    title: "Apresentar seus serviços",
+    description:
+      "Organize o que você faz de forma clara para quem chega pela primeira vez.",
+  },
+  {
+    number: "02",
+    title: "Receber contatos",
+    description:
+      "WhatsApp, formulário ou outra rota simples para iniciar uma conversa.",
+  },
+  {
+    number: "03",
+    title: "Exibir seus projetos",
+    description:
+      "Portfólio, galeria, cases ou trabalhos selecionados em uma estrutura visual.",
+  },
+  {
+    number: "04",
+    title: "Mostrar serviços e preços",
+    description:
+      "Explique opções, formatos de contratação e valores quando fizer sentido.",
+  },
+  {
+    number: "05",
+    title: "Aparecer nas buscas",
+    description:
+      "Uma base técnica preparada para indexação e evolução de SEO.",
+  },
+  {
+    number: "06",
+    title: "Funcionar bem no celular",
+    description:
+      "Layout adaptado para navegação, leitura e contato em telas menores.",
+  },
+] as const;
 
 const process = [
-  ["01", "Você envia as informações."],
-  ["02", "Eu defino estrutura e visual."],
-  ["03", "O site é criado e revisado."],
-  ["04", "Eu publico e mantenho."],
+  {
+    number: "01",
+    title: "Você me explica o projeto",
+    description:
+      "Entendo seu negócio, o que precisa entrar no site e o objetivo principal.",
+  },
+  {
+    number: "02",
+    title: "Eu organizo e crio",
+    description:
+      "Defino a estrutura, trabalho o visual e desenvolvo as páginas necessárias.",
+  },
+  {
+    number: "03",
+    title: "Revisamos juntos",
+    description:
+      "Você acompanha o resultado e fazemos os ajustes necessários antes da publicação.",
+  },
+  {
+    number: "04",
+    title: "Eu publico e continuo cuidando",
+    description:
+      "O site entra no ar e a manutenção continua incluída no plano.",
+  },
 ] as const;
 
 const faq = [
-  ["Preciso saber mexer no site?", "Não. Você envia as informações e participa da revisão; eu cuido da criação, publicação e manutenção técnica."],
-  ["Posso usar meu domínio?", "Sim, desde que você tenha acesso à conta ou às configurações necessárias para conectá-lo. A compra e a renovação do domínio ainda precisam ser definidas na proposta."],
-  ["Posso pedir alterações?", "A mensalidade cobre pequenas atualizações. O limite será confirmado na proposta; novas páginas e mudanças maiores recebem outro escopo."],
-  ["Quanto tempo demora?", "O prazo depende do formato, dos recursos e do envio dos materiais. Ele é combinado antes do início."],
+  [
+    "Preciso saber mexer no site?",
+    "Não. A proposta é justamente evitar que você precise aprender ferramentas, hospedagem ou manutenção para manter o site funcionando.",
+  ],
+  [
+    "O domínio está incluído?",
+    "Sim. O plano inclui o domínio usado pelo site. A disponibilidade do endereço escolhido é confirmada antes do início.",
+  ],
+  [
+    "Existe taxa inicial?",
+    "Não. A contratação começa pela mensalidade de R$147, sem cobrança de implementação.",
+  ],
+  [
+    "Posso solicitar alterações?",
+    "Sim. Pequenos ajustes recorrentes estão incluídos. Novas páginas, novas funções ou mudanças maiores podem receber um escopo separado.",
+  ],
+  [
+    "Quanto tempo leva para ficar pronto?",
+    "O prazo depende da quantidade de páginas e do material disponível. Antes do início, combinamos o escopo e uma previsão de entrega.",
+  ],
+  [
+    "Posso cancelar?",
+    "As condições de cancelamento e eventual aviso prévio são apresentadas antes da contratação. Nenhuma condição fica escondida depois do início do projeto.",
+  ],
+  [
+    "O site pertence a mim?",
+    "Seu conteúdo, sua identidade e os materiais fornecidos para o projeto continuam sendo seus. As condições sobre domínio e entrega técnica em caso de cancelamento são registradas na contratação.",
+  ],
 ] as const;
 
-export function ServiceHubView({ formats, features, examples, contactHref, questionHref }: ServiceHubViewProps) {
-  const highlightedFeatures = features.filter((feature) => ["whatsapp", "form", "portfolio-gallery", "services-prices", "location-map", "seo"].includes(feature.id));
-  return <div className={styles.shell}>
-    <ServicesAreaNav active="services" />
-    <section className={styles.hero} aria-labelledby="service-hub-title">
-      <div className={styles.heroCopy}>
-        <p className={styles.kicker}>Criação de sites</p>
-        <h1 id="service-hub-title">Eu crio, publico e mantenho seu site.</h1>
-        <p className={styles.lead}>Para profissionais, autônomos, MEIs e pequenas empresas que querem um site pronto sem precisar aprender a montar ou manter um.</p>
-        <dl className={styles.heroPricing}>
-          <div><dt>Criação</dt><dd>R$ 397</dd><small>preço padrão</small></div>
-          <div data-current="true"><dt>Durante setembro</dt><dd>R$ 200</dd><small>trabalho inicial</small></div>
-          <div><dt>Depois</dt><dd>R$ 89,90<em>/mês</em></dd><small>hospedagem e manutenção</small></div>
-        </dl>
-        <div className={styles.heroActions}><a className={styles.primaryAction} href={contactHref} data-analytics-event="services_help_click" data-analytics-location="services_hub_hero">Quero meu site</a><a className={styles.secondaryAction} href="#exemplos">Ver exemplos <span aria-hidden="true">↓</span></a></div>
-      </div>
-      {examples.length ? <div className={styles.heroShowcase} aria-label="Exemplos de sites demonstrativos">{examples.slice(0,3).map((example) => example.preview ? <Link href={getServiceExamplePath(example.slug)} data-example={example.slug} key={example.id}><Image src={example.preview.src} alt={example.preview.alt} fill priority={example.slug === "arquitetura"} sizes="(max-width: 760px) 86vw, 36rem" /><span>{example.name}<small>{example.category}</small></span></Link> : null)}</div> : null}
-    </section>
+export function ServiceHubView({
+  examples,
+  contactHref,
+}: ServiceHubViewProps) {
+  return (
+    <main className={styles.shell}>
+      <ServicesAreaNav active="services" />
 
-    <section className={styles.offerSection} aria-labelledby="offer-title">
-      <div className={styles.offerIntro}><p className={styles.kicker}>Uma oferta</p><h2 id="offer-title">Um site pronto para apresentar e atender.</h2><p>A condição é a mesma para qualquer profissão. O formato muda conforme o conteúdo e a ação que o site precisa oferecer.</p></div>
-      <div className={styles.offerDetails}>
-        <div><span>Incluído na mensalidade</span><ul><li>Hospedagem</li><li>Manutenção técnica</li><li>Suporte</li><li>Pequenas atualizações</li></ul></div>
-        <div><span>Formatos possíveis</span><ul>{formats.map((format) => <li key={format.id}>{format.title}</li>)}</ul><small>Novas páginas, sistemas, integrações e catálogos complexos são projetos personalizados.</small></div>
-      </div>
-    </section>
+      <section
+        className={styles.hero}
+        aria-labelledby="service-hub-title"
+      >
+        <div className={styles.heroCopy}>
+          <p className={styles.kicker}>Criação de sites</p>
 
-    <ServiceExamplesPreview examples={examples} />
+          <h1 id="service-hub-title">
+            Eu crio, publico e mantenho o seu site.
+          </h1>
 
-    <section className={styles.featuresSection} id="recursos-principais" aria-labelledby="main-features-title">
-      <div className={styles.sectionHeading}><p className={styles.kicker}>Recursos principais</p><h2 id="main-features-title">O necessário para explicar e receber contatos.</h2><Link href="/servicos/capacidades">Explorar capacidades técnicas <span aria-hidden="true">→</span></Link></div>
-      <div className={styles.featureList}>{highlightedFeatures.map((feature, index) => <article key={feature.id}><span>{String(index + 1).padStart(2,"0")}</span><h3>{feature.title}</h3><p>{feature.description}</p></article>)}</div>
-    </section>
+          <p className={styles.heroStatement}>
+            Para profissionais e pequenos negócios que precisam apresentar
+            melhor seus serviços e facilitar o contato.
+          </p>
 
-    <section className={styles.processSection} aria-labelledby="process-title">
-      <div className={styles.sectionHeading}><p className={styles.kicker}>Como funciona</p><h2 id="process-title">Quatro passos.</h2></div>
-      <ol className={styles.processList}>{process.map(([number,title]) => <li key={number}><span>{number}</span><h3>{title}</h3></li>)}</ol>
-    </section>
+          <div className={styles.heroOffer}>
+            <div className={styles.heroPrice}>
+              <span className={styles.priceCurrency}>R$</span>
+              <strong>147</strong>
+              <span className={styles.pricePeriod}>/mês</span>
+            </div>
 
-    <section className={styles.faqSection} aria-labelledby="faq-title">
-      <div className={styles.sectionHeading}><p className={styles.kicker}>Dúvidas comerciais</p><h2 id="faq-title">Antes de começar.</h2></div>
-      <div className={styles.faqList}>{faq.map(([question,answer]) => <details key={question}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div>
-    </section>
+            <p>Sem taxa inicial.</p>
+          </div>
 
-    <section className={styles.contact} id="iniciar-projeto" aria-labelledby="contact-title">
-      <div><p className={styles.kicker}>Próximo passo</p><h2 id="contact-title">Conte o que você precisa.</h2><p>Explique seu trabalho e o que gostaria de colocar no site.</p></div>
-      <div className={styles.contactActions}><a className={styles.primaryAction} href={contactHref} data-analytics-event="services_help_click" data-analytics-location="services_hub_contact">Quero meu site</a><a className={styles.secondaryAction} href={questionHref}>Tirar uma dúvida</a></div>
-    </section>
-  </div>;
+          <div className={styles.heroActions}>
+            <a
+              className={styles.primaryAction}
+              href={contactHref}
+              data-analytics-event="services_help_click"
+              data-analytics-location="services_hub_hero"
+            >
+              Quero meu site
+            </a>
+
+            <a
+              className={styles.secondaryAction}
+              href="#projetos"
+            >
+              Ver projetos
+              <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+        </div>
+
+        <div className={styles.heroVisual}>
+          <div className={styles.heroImage}>
+            <Image
+              src="/images/work/henrique-dog-interface.webp"
+              alt="Interface do site henrique.dog, desenvolvido por Henrique Reis."
+              fill
+              priority
+              sizes="(max-width: 760px) 100vw, 54vw"
+            />
+          </div>
+
+          <div className={styles.heroVisualFooter}>
+            <span>Projeto real</span>
+            <p>henrique.dog</p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className={styles.planSection}
+        aria-labelledby="plan-title"
+      >
+        <div className={styles.sectionIntro}>
+          <p className={styles.kicker}>Um único plano</p>
+
+          <h2 id="plan-title">
+            O necessário para colocar seu site no ar e mantê-lo funcionando.
+          </h2>
+
+          <p className={styles.sectionDescription}>
+            Você não precisa contratar desenvolvimento, hospedagem e manutenção
+            separadamente.
+          </p>
+        </div>
+
+        <div className={styles.planContent}>
+          <div className={styles.planSummary}>
+            <p className={styles.planLabel}>Plano mensal</p>
+
+            <div className={styles.planPrice}>
+              <span>R$</span>
+              <strong>147</strong>
+              <small>/mês</small>
+            </div>
+
+            <p>Sem taxa inicial.</p>
+          </div>
+
+          <ul className={styles.includedGrid}>
+            {included.map((item) => (
+              <li key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <ServiceExamplesPreview examples={examples} />
+
+      <section
+        className={styles.capabilitiesSection}
+        aria-labelledby="capabilities-title"
+      >
+        <div className={styles.sectionIntro}>
+          <p className={styles.kicker}>Possibilidades</p>
+
+          <h2 id="capabilities-title">
+            Seu site pode trabalhar de formas diferentes.
+          </h2>
+
+          <p className={styles.sectionDescription}>
+            A estrutura muda de acordo com o que seu negócio precisa comunicar,
+            mostrar ou receber.
+          </p>
+        </div>
+
+        <div className={styles.capabilitiesGrid}>
+          {capabilities.map((item) => (
+            <article
+              className={styles.capabilityCard}
+              key={item.number}
+            >
+              <span>{item.number}</span>
+
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section
+        className={styles.processSection}
+        aria-labelledby="process-title"
+      >
+        <div className={styles.sectionIntro}>
+          <p className={styles.kicker}>Como funciona</p>
+
+          <h2 id="process-title">
+            Do primeiro contato ao site publicado.
+          </h2>
+        </div>
+
+        <ol className={styles.processGrid}>
+          {process.map((item) => (
+            <li key={item.number}>
+              <span>{item.number}</span>
+
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section
+        className={styles.faqSection}
+        aria-labelledby="faq-title"
+      >
+        <div className={styles.sectionIntro}>
+          <p className={styles.kicker}>Antes de contratar</p>
+
+          <h2 id="faq-title">
+            O que você provavelmente quer saber.
+          </h2>
+        </div>
+
+        <div className={styles.faqPanel}>
+          {faq.map(([question, answer], index) => (
+            <details key={question}>
+              <summary>
+                <span className={styles.faqNumber}>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
+                <span className={styles.faqQuestion}>
+                  {question}
+                </span>
+
+                <span
+                  className={styles.faqIcon}
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+              </summary>
+
+              <p>{answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <section
+        className={styles.finalCta}
+        aria-labelledby="contact-title"
+      >
+        <div>
+          <p className={styles.kicker}>Próximo passo</p>
+
+          <h2 id="contact-title">
+            Vamos colocar seu site no ar?
+          </h2>
+
+          <p className={styles.finalCtaDescription}>
+            Me explique o que você precisa. Eu te digo o que faz sentido para o
+            projeto antes de começarmos.
+          </p>
+        </div>
+
+        <div className={styles.finalCtaAction}>
+          <p>
+            <strong>R$147/mês</strong>
+            <span>sem taxa inicial</span>
+          </p>
+
+          <a
+            className={styles.primaryAction}
+            href={contactHref}
+            data-analytics-event="services_help_click"
+            data-analytics-location="services_hub_contact"
+          >
+            Quero conversar
+          </a>
+        </div>
+      </section>
+    </main>
+  );
 }

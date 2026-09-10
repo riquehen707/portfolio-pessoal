@@ -3,12 +3,12 @@ import { BasePageConfig, ProductsPage, ProductItem, ServicesPage, ServiceLanding
 export const servicesPage: ServicesPage = {
   path: "/servicos",
   label: "Serviços",
-  title: "Criação de sites para profissionais e pequenas empresas",
+  title: "Site profissional completo por R$147/mês",
   description:
-    "Criação, publicação e manutenção de sites profissionais, portfólios e landing pages para profissionais, MEIs e pequenas empresas.",
+    "Site profissional com domínio, hospedagem, design, desenvolvimento, publicação, manutenção e suporte por R$147 ao mês, sem taxa inicial.",
   intro: {
-    headline: "Escolha o formato pelo que seu site precisa fazer.",
-    lead: "Profissões aparecem como exemplos de uso, não como produtos ou preços diferentes.",
+    headline: "Eu crio, publico e mantenho o seu site.",
+    lead: "Para profissionais, MEIs e pequenas empresas.",
   },
 };
 

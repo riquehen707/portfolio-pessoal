@@ -20,7 +20,7 @@ const process = [
 ] as const;
 
 export function ArchitectureDemo({ example }: ServiceExampleRendererProps) {
-  const structuredData = { "@context": "https://schema.org", "@type": "WebPage", name: example.name, description: example.description, about: "Projeto demonstrativo de portfólio para arquitetura", isPartOf: { "@type": "WebSite", name: "Henrique Reis" } };
+  const structuredData = { "@context": "https://schema.org", "@type": "WebPage", name: example.title, description: example.shortDescription, about: "Projeto demonstrativo de portfólio para arquitetura", isPartOf: { "@type": "WebSite", name: "Henrique Reis" } };
 
   return (
     <div className={styles.site} id="arch-start">

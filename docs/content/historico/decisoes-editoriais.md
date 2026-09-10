@@ -1,5 +1,13 @@
 # Decisões editoriais
 
+## 2026-09-10 — Oferta mensal única e nova direção visual de `/servicos`
+
+`/servicos` passa a vender uma única oferta: site profissional completo por R$147/mês, sem taxa de implementação. Domínio, hospedagem, manutenção, suporte, design, desenvolvimento, publicação, preparação técnica para SEO e pequenos ajustes recorrentes pertencem ao mesmo plano. A condição anterior de criação por R$397, promoção por R$200 e mensalidade de R$89,90 deixa de orientar a home; páginas, sistemas, integrações e alterações maiores continuam dependendo de escopo próprio.
+
+O hero usa o projeto próprio `henrique.dog` como material real em mockups de desktop e mobile, com somente dois callouts. A página alterna áreas abertas, uma faixa escura de percepção, galeria horizontal de exemplos demonstrativos, respiro editorial, quatro pilares técnicos, relato pessoal atribuído a Henrique Reis, processo em três etapas, FAQ fechado por padrão e CTA final escuro. A auditoria de copy removeu a comparação de formatos, a grade de seis recursos e as repetições da lista do plano.
+
+Permanecem dependentes de definição comercial: prazo de fidelidade, aviso prévio, regra de transferência do domínio e dos arquivos no cancelamento, prazo de entrega e limite exato dos pequenos ajustes. A interface não inventa esses números ou condições. Implementação local, sem commit ou deploy.
+
 ## 2026-09-09 — Separação entre oferta, exemplos, capacidades e portfólio
 
 A área de Serviços passa a ter três superfícies com responsabilidades distintas. `/servicos` permanece como home comercial: apresenta uma oferta comum, valores inicial e recorrente, escopo mensal, três exemplos, seis recursos resumidos, processo, quatro dúvidas e contato. O explorador de recursos, os seletores técnicos e as explicações extensas foram removidos dessa rota para proteger a decisão de contratação.

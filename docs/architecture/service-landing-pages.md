@@ -64,13 +64,15 @@ Aplicar o padrão de [previews](#previews-legíveis-e-consistentes). O formato a
 
 `/work` reúne projetos reais, autorais e estudos com contexto editorial e estado de evidência; `/portfolio` é apenas seu redirecionamento legado. `/servicos/exemplos` reúne a galeria conceitual e a família `/servicos/exemplos/[slug]` permite experimentar uma composição demonstrativa completa antes de contratar. Não apresentar um exemplo como cliente, entrega ou resultado real.
 
-Cada exemplo publicado precisa ter preview local, nome, categoria, descrição curta, identidade visual declarada, recursos relacionados e um renderer próprio. A composição interna pode mudar integralmente entre exemplos; a camada compartilhada deve limitar-se à identificação “Projeto demonstrativo criado por Henrique Reis”, ao retorno para `/servicos` e ao CTA “Quero um site como este”. Não forçar o layout institucional do site dentro do exemplo.
+Cada exemplo publicado precisa registrar em `src/content/service-examples/` ID, slug, estado, ordem, destaque, nome, categoria, descrição curta, capa, imagens, tags, identidade visual, decisões de projeto, recursos relacionados e renderer próprio. Esta é a fonte única consumida pelo hub, pela galeria e pelas páginas individuais; componentes não mantêm títulos, descrições ou listas paralelas dos mesmos projetos.
+
+A composição interna pode mudar integralmente entre exemplos. Depois da demonstração, a camada compartilhada apresenta as prévias desktop/mobile, até três decisões concretas, a oferta comum, autoria e navegação visual calculada a partir de destaque, ordem e estado. Não forçar o layout institucional do site dentro do exemplo nem inserir a oferta antes da prova visual.
 
 Rascunhos não geram rota, card ou entrada de sitemap. Se não houver exemplo completo, a seção central de `/servicos` informa honestamente que os primeiros exemplos estão em preparação; não criar mock genérico ou profissão fictícia para preencher a grade. O catálogo antigo em `/modelos` permanece legado e pausado, sem migração automática para esta família.
 
 ### Carrosséis e navegação horizontal
 
-No mobile, usar scroll horizontal nativo quando uma sequência visual de exemplos publicados justificar esse padrão, com `overflow-x: auto` e scroll snap. Deixar uma pequena parte do próximo card visível como indicação de continuidade; com um único item, não criar rolagem artificial.
+No desktop e no mobile, usar scroll horizontal nativo quando uma sequência visual de exemplos publicados justificar esse padrão, com `overflow-x: auto` e scroll snap. A home deve crescer horizontalmente conforme entram novos exemplos, sem limitar o array a uma quantidade fixa. Deixar uma pequena parte do próximo card visível como indicação de continuidade; com um único item, não criar rolagem artificial.
 
 - Preservar cards amplos e legíveis, ajustando a largura ao espaço útil; não reduzir o card apenas para caber mais itens.
 - Não usar autoplay, avanço automático ao entrar na viewport ou reposicionamento que tire o controle do visitante.
@@ -239,14 +241,14 @@ Esta seção descreve o código consultado em 2026-09-08, sem certificar produç
 | Estilos | módulos próximos de cada composição, com tokens globais existentes |
 | Prévia de estados | `/dev/service-card`, somente em desenvolvimento; 404 em produção |
 
-A fonte de dados valida IDs únicos de formatos e recursos. A home consome apenas um resumo desses dados; os seis recursos prioritários e os recursos secundários são aprofundados em `/servicos/capacidades`, sem carregar páginas ou iframes. O filtro da galeria usa tipo de solução, não profissão. Formatos e exemplos não contêm preço.
+A fonte de dados valida IDs únicos de formatos e recursos para a vitrine de capacidades. A home não usa esses dados como ofertas concorrentes: ela apresenta um único plano mensal e leva os exemplos para a galeria própria. Os recursos prioritários e secundários são aprofundados em `/servicos/capacidades`, sem carregar páginas ou iframes. O filtro da galeria usa tipo de solução, não profissão. Exemplos não contêm preço.
 
 | Entidade | Contrato atual |
 | --- | --- |
 | Necessidade | `id`, rótulo e referências para ao menos um formato e um recurso existentes |
 | Formato | `id`, título, descrição, públicos de exemplo, detalhe e preview local com texto alternativo |
 | Recurso | `id`, título, grupo, descrição, uso, estado `included`, `available` ou `additional`, preview opcional e vínculo opcional com demo funcional |
-| Exemplo demonstrativo | `id`, `slug`, estado, nome, categoria, tipo de solução, descrição curta, 2–4 recursos principais, identidade visual, recursos relacionados, previews desktop/mobile, renderer e política de indexação |
+| Exemplo demonstrativo | `id`, `slug`, `status`, `featured`, `order`, `title`, `segment`, `solutionType`, `shortDescription`, `tags`, `visualStyle`, decisões, recursos relacionados, `coverImage` desktop/mobile, `images`, renderer e política de indexação |
 
 `ServiceCapabilitiesView` mantém os estados do explorador de recursos e `CapabilityWorkbench` controla módulos e wireframes. Os seis previews prioritários renderizam componentes locais e não incorporam demos completas; formulário, WhatsApp, rota e agendamento deixam explícito que não enviam dados nem concluem ações. Recursos secundários usam `details/summary`. A rota demonstrativa usa renderer registrado e falha explicitamente se um exemplo publicado não tiver implementação correspondente.
 
@@ -256,11 +258,11 @@ Estado técnico consultado em 2026-09-09. As diferenças abaixo são pendências
 
 | Ponto | Estado consultado e próximo ajuste |
 | --- | --- |
-| Home comercial | `/servicos` apresenta oferta, condição, escopo, três exemplos, seis recursos resumidos, processo, FAQ curto e contato; o laboratório técnico não é carregado nesta rota |
+| Home comercial | `/servicos` apresenta um plano de R$147/mês sem taxa inicial, hero com projeto próprio real, escopo, faixa horizontal com todos os exemplos publicados, base técnica, relato pessoal atribuído, processo, FAQ e contato; formatos e laboratório técnico não são carregados nesta rota |
 | Galeria | `/servicos/exemplos` concentra previews amplos e filtro por tipo de solução; profissões são somente metadado ou contexto, não ofertas com preço próprio |
 | Capacidades | `/servicos/capacidades` concentra seis previews funcionais, seis recursos secundários, quatro módulos com estados e oito wireframes selecionáveis |
-| Preço comum | A home informa criação/configuração, promoção de setembro e mensalidade juntas no hero; projetos fora da base são personalizados |
-| Exemplos novos | `/servicos/exemplos/psicologia`, `/arquitetura` e `/barbearia` têm renderer, preview e identidade próprios; Arquitetura também usa páginas internas reutilizáveis em `/servicos/exemplos/arquitetura/projetos/[project]`. Todas permanecem `noindex` nesta revisão local |
+| Preço comum | A home informa uma única mensalidade de R$147, com domínio, hospedagem, manutenção, suporte, design, desenvolvimento, publicação e pequenos ajustes recorrentes; não há taxa de implementação |
+| Exemplos novos | `/servicos/exemplos/psicologia`, `/arquitetura` e `/barbearia` têm renderer, preview e identidade próprios, além de vitrine responsiva, decisões, oferta e navegação compartilhadas; Arquitetura também usa páginas internas reutilizáveis em `/servicos/exemplos/arquitetura/projetos/[project]`. Todas permanecem `noindex` nesta revisão local |
 | Header da landing | `ServiceLandingPage.tsx` tem identidade ligada a `/` e `Voltar para serviços`, inclusive no mobile |
 | Primeira dobra | `ServiceHero` mostra oferta, benefício, público, modelo comercial, resumo do escopo mensal e ação principal. Serviços legados mostram mensalidade e implantação no hero e repetem as condições no bloco comercial reutilizável |
 | Modelos e demos | `demonstration` aceita descrição, imagem opcional e `illustrative`; não possui lista de modelos ou URL de demo. As composições especializadas contêm exemplos visuais, mas não constituem um seletor compartilhado de 3–5 estilos |

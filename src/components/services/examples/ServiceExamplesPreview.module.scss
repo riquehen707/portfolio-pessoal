@@ -1,21 +1,604 @@
 @use "../../../styles/mixins" as mixins;
 
-.section { display: grid; gap: 1.5rem; scroll-margin-top: 6rem; }
-.heading { display: flex; gap: 2rem; align-items: flex-end; justify-content: space-between; }
-.heading > div { display: grid; gap: .65rem; }
-.heading p, .heading h2, .grid h3, .grid p { margin: 0; }
-.heading p, .grid p { color: var(--neutral-on-background-medium); font: .62rem/1.3 var(--font-technical); letter-spacing: .08em; text-transform: uppercase; }
-.heading h2 { max-width: 17ch; font-size: clamp(2.2rem,4.5vw,3.8rem); line-height: .98; letter-spacing: -.04em; }
-.heading > a, .grid article > div > a { color: var(--neutral-on-background-strong); font: 700 .82rem/1 var(--font-label); text-decoration: none; white-space: nowrap; }
-.heading a span, .grid a span { color: var(--color-accent-gold-muted); }
-.grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; }
-.grid article { min-width: 0; overflow: hidden; border: 1px solid rgba(18,18,16,.16); border-radius: var(--radius-16); background: var(--surface-flat); }
-.preview { position: relative; display: block; min-height: 19rem; overflow: hidden; background: #171715; }
-.preview img { object-fit: cover; object-position: top; transition: transform var(--motion-base); }
-.preview > span { position: absolute; top: .75rem; left: .75rem; padding: .38rem .5rem; background: rgba(18,18,16,.86); color: white; font: .54rem/1 var(--font-technical); letter-spacing: .06em; text-transform: uppercase; }
-.grid article > div { display: grid; gap: .65rem; padding: 1rem; }
-.grid h3 { font-size: clamp(1.45rem,2.2vw,2rem); line-height: 1; }
-.grid article > div > a { justify-self: start; padding-top: .3rem; }
-.heading a:focus-visible, .grid a:focus-visible { outline: 2px solid var(--color-accent-gold-muted); outline-offset: 3px; }
-@include mixins.hover-fine { .preview:hover img { transform: scale(1.015); } .heading a:hover, .grid article > div > a:hover { color: var(--color-accent-gold-muted); } }
-@media (max-width: 760px) { .heading { display: grid; align-items: start; } .grid { display: flex; margin-inline: -1.25rem; padding-inline: 1.25rem; overflow-x: auto; scroll-snap-type: x mandatory; } .grid article { flex: 0 0 min(84vw,27rem); scroll-snap-align: start; } .preview { min-height: 17rem; } }
+/* -------------------------------------------------------------------------- */
+/* Section                                                                    */
+/* -------------------------------------------------------------------------- */
+
+.section {
+  --examples-text: var(--neutral-on-background-strong);
+  --examples-muted: var(--neutral-on-background-medium);
+  --examples-line: rgba(18, 18, 16, 0.1);
+  --examples-line-strong: rgba(18, 18, 16, 0.16);
+
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 4rem);
+
+  width: 100%;
+
+  scroll-margin-top: 7rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Heading                                                                    */
+/* -------------------------------------------------------------------------- */
+
+.heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 3rem;
+  align-items: end;
+}
+
+.headingCopy {
+  display: grid;
+  gap: 1.15rem;
+
+  max-width: 47rem;
+}
+
+.headingCopy p,
+.headingCopy h2,
+.projectCopy p,
+.projectCopy h3,
+.footer p {
+  margin: 0;
+}
+
+.kicker {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+
+  width: fit-content;
+
+  color: var(--examples-muted);
+
+  font-family: var(--font-technical);
+  font-size: 0.68rem;
+  font-weight: var(--type-weight-technical);
+  line-height: 1;
+  letter-spacing: 0.09em;
+
+  text-transform: uppercase;
+}
+
+.kicker::before {
+  width: 1.5rem;
+  height: 2px;
+
+  background: var(--color-accent-gold);
+
+  content: "";
+}
+
+.heading h2 {
+  max-width: 16ch;
+
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4.8vw, 4.5rem);
+  font-weight: 720;
+  line-height: 0.97;
+  letter-spacing: -0.048em;
+
+  text-wrap: balance;
+}
+
+.description {
+  max-width: 39rem;
+
+  color: var(--examples-muted);
+
+  font-size: clamp(0.98rem, 1.25vw, 1.08rem);
+  line-height: 1.65;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Heading actions                                                            */
+/* -------------------------------------------------------------------------- */
+
+.headingActions {
+  display: flex;
+  gap: 1.1rem;
+  align-items: center;
+}
+
+.arrows {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.arrows button {
+  display: grid;
+  place-items: center;
+
+  width: 3rem;
+  height: 3rem;
+
+  padding: 0;
+
+  border: 1px solid var(--examples-line-strong);
+  border-radius: 50%;
+
+  background: transparent;
+  color: var(--examples-text);
+
+  cursor: pointer;
+
+  font-size: 0.95rem;
+  line-height: 1;
+
+  transition:
+    border-color var(--motion-fast),
+    background var(--motion-fast),
+    color var(--motion-fast),
+    transform var(--motion-fast);
+}
+
+.galleryLink {
+  display: inline-flex;
+  gap: 0.55rem;
+  align-items: center;
+
+  min-height: 3rem;
+
+  color: var(--examples-text);
+
+  font-family: var(--font-label);
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.galleryLink span {
+  color: var(--color-accent-gold-muted);
+
+  transition: transform var(--motion-fast);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Horizontal rail                                                            */
+/* -------------------------------------------------------------------------- */
+
+.track {
+  display: flex;
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+
+  min-width: 0;
+
+  /*
+   * Mantém o primeiro projeto alinhado ao restante da página,
+   * mas permite que os próximos avancem visualmente para a direita.
+   */
+  margin-right: calc(50% - 50vw);
+
+  padding:
+    0.15rem
+    max(
+      1.5rem,
+      calc((100vw - 78rem) / 2)
+    )
+    1.25rem
+    0;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  overscroll-behavior-inline: contain;
+
+  scroll-behavior: smooth;
+  scroll-padding-inline: 0;
+  scroll-snap-type: x mandatory;
+
+  scrollbar-color: rgba(18, 18, 16, 0.22) transparent;
+  scrollbar-width: thin;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Project                                                                    */
+/* -------------------------------------------------------------------------- */
+
+.project {
+  display: grid;
+  gap: 1.4rem;
+
+  flex: 0 0 clamp(25rem, 42vw, 37rem);
+
+  min-width: 0;
+
+  scroll-snap-align: start;
+}
+
+.preview {
+  display: grid;
+
+  overflow: hidden;
+
+  border: 1px solid var(--examples-line);
+  border-radius: 1.5rem;
+
+  background: rgba(18, 18, 16, 0.035);
+  color: var(--examples-text);
+
+  text-decoration: none;
+}
+
+.image {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 16 / 10;
+
+  overflow: hidden;
+
+  background: #ecece7;
+}
+
+.image img {
+  object-fit: cover;
+  object-position: top center;
+
+  transition: transform 500ms ease;
+}
+
+.previewMeta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 3.5rem;
+
+  padding: 0.85rem 1.15rem;
+
+  border-top: 1px solid var(--examples-line);
+}
+
+.previewMeta span:first-child {
+  color: var(--color-accent-gold-muted);
+
+  font-family: var(--font-technical);
+  font-size: 0.63rem;
+  line-height: 1;
+  letter-spacing: 0.06em;
+}
+
+.previewMeta span:last-child {
+  color: var(--examples-muted);
+
+  font-family: var(--font-label);
+  font-size: 0.76rem;
+  font-weight: 650;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Project information                                                        */
+/* -------------------------------------------------------------------------- */
+
+.projectCopy {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 1.5rem 2.5rem;
+  align-items: start;
+}
+
+.projectIdentity {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.projectIdentity > p {
+  color: var(--examples-muted);
+
+  font-family: var(--font-technical);
+  font-size: 0.63rem;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.projectIdentity h3 {
+  max-width: 18ch;
+
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 1.8vw, 1.65rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+.projectDescription {
+  max-width: 28rem;
+
+  color: var(--examples-muted);
+
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.projectLink {
+  display: inline-flex;
+  gap: 0.55rem;
+  align-items: center;
+
+  grid-column: 2;
+
+  justify-self: start;
+
+  color: var(--examples-text);
+
+  font-family: var(--font-label);
+  font-size: 0.82rem;
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.projectLink span {
+  color: var(--color-accent-gold-muted);
+
+  transition: transform var(--motion-fast);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Footer                                                                     */
+/* -------------------------------------------------------------------------- */
+
+.footer {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-top: 0.4rem;
+}
+
+.footer p {
+  max-width: 43rem;
+
+  color: var(--examples-muted);
+
+  font-size: 0.75rem;
+  line-height: 1.55;
+}
+
+.footer > a {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+
+  flex: 0 0 auto;
+
+  color: var(--examples-muted);
+
+  font-family: var(--font-label);
+  font-size: 0.76rem;
+  font-weight: 650;
+
+  text-decoration: none;
+}
+
+.footer > a span {
+  color: var(--color-accent-gold-muted);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Focus                                                                      */
+/* -------------------------------------------------------------------------- */
+
+.arrows button:focus-visible,
+.galleryLink:focus-visible,
+.track:focus-visible,
+.preview:focus-visible,
+.projectLink:focus-visible,
+.footer a:focus-visible {
+  @include mixins.focus-ring;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Hover                                                                      */
+/* -------------------------------------------------------------------------- */
+
+@include mixins.hover-fine {
+  .preview:hover .image img {
+    transform: scale(1.015);
+  }
+
+  .preview:hover .previewMeta span:last-child {
+    color: var(--examples-text);
+  }
+
+  .arrows button:hover {
+    border-color: var(--examples-text);
+
+    background: var(--examples-text);
+    color: var(--page-background);
+
+    transform: translateY(-1px);
+  }
+
+  .galleryLink:hover,
+  .projectLink:hover,
+  .footer > a:hover {
+    color: var(--color-accent-gold-muted);
+  }
+
+  .galleryLink:hover span,
+  .projectLink:hover span {
+    transform: translateX(3px);
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Tablet                                                                     */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 960px) {
+  .heading {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .headingActions {
+    justify-content: space-between;
+  }
+
+  .project {
+    flex-basis: min(68vw, 34rem);
+  }
+
+  .projectCopy {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .projectDescription {
+    max-width: 31rem;
+  }
+
+  .projectLink {
+    grid-column: 1;
+
+    margin-top: 0.25rem;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Mobile                                                                     */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 760px) {
+  .section {
+    gap: 2.25rem;
+  }
+
+  .heading {
+    gap: 1.75rem;
+  }
+
+  .headingCopy {
+    gap: 1rem;
+  }
+
+  .heading h2 {
+    max-width: 17ch;
+
+    font-size: clamp(2.25rem, 9vw, 3.35rem);
+  }
+
+  .description {
+    max-width: 32rem;
+
+    font-size: 0.98rem;
+  }
+
+  .headingActions {
+    gap: 1rem;
+  }
+
+  .arrows {
+    display: none;
+  }
+
+  .galleryLink {
+    min-height: auto;
+  }
+
+  .track {
+    gap: 1rem;
+
+    margin-inline: -1rem;
+
+    padding:
+      0.1rem
+      1rem
+      0.9rem;
+  }
+
+  .project {
+    flex: 0 0 min(86vw, 31rem);
+  }
+
+  .preview {
+    border-radius: 1.25rem;
+  }
+
+  .previewMeta {
+    min-height: 3.25rem;
+
+    padding-inline: 1rem;
+  }
+
+  .projectCopy {
+    gap: 0.75rem;
+
+    padding-inline: 0.1rem;
+  }
+
+  .projectIdentity h3 {
+    font-size: 1.4rem;
+  }
+
+  .projectDescription {
+    font-size: 0.86rem;
+  }
+
+  .footer {
+    display: grid;
+    gap: 0.9rem;
+
+    align-items: start;
+  }
+
+  .footer > a {
+    justify-self: start;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Small mobile                                                               */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 430px) {
+  .track {
+    margin-inline: -1rem;
+  }
+
+  .project {
+    flex-basis: 86vw;
+  }
+
+  .image {
+    aspect-ratio: 4 / 3;
+  }
+
+  .previewMeta span:last-child {
+    font-size: 0.72rem;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Reduced motion                                                             */
+/* -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    scroll-behavior: auto;
+  }
+
+  .image img,
+  .arrows button,
+  .galleryLink span,
+  .projectLink span {
+    transition: none;
+  }
+
+  .preview:hover .image img,
+  .arrows button:hover {
+    transform: none;
+  }
+}

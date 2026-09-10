@@ -50,12 +50,12 @@ export function ServiceCapabilitiesView({ features, examples }: Props) {
           <div className={styles.featureMeta}>
             <span className={styles.status} data-status={selectedFeature.status}>{statusLabels[selectedFeature.status]}</span>
             <h3>{selectedFeature.title}</h3><p>{selectedFeature.description}</p><small><strong>Bom para:</strong> {selectedFeature.useCase}</small>
-            {selectedFeature.exampleHref && example ? <Link href={selectedFeature.exampleHref}>Ver no site {example.name} <span aria-hidden="true">→</span></Link> : null}
+            {selectedFeature.exampleHref && example ? <Link href={selectedFeature.exampleHref}>Ver no site {example.title} <span aria-hidden="true">→</span></Link> : null}
           </div>
           <div className={styles.livePreview} data-preview={selectedFeature.previewKind}><ServiceFeaturePreview kind={selectedFeature.previewKind!} key={selectedFeature.id} /></div>
         </div>
       </div>
-      <div className={styles.secondaryFeatures}><p>Outros recursos</p><div>{secondaryFeatures.map((feature) => <details key={feature.id}><summary><em>{groupLabels[feature.group]}</em><span>{feature.title}</span><small>{statusLabels[feature.status]}</small><b aria-hidden="true">+</b></summary><p>{feature.description}</p>{feature.exampleHref && feature.exampleSlug ? <Link href={feature.exampleHref}>Ver em {examples.find((item) => item.slug === feature.exampleSlug)?.name} →</Link> : null}</details>)}</div></div>
+      <div className={styles.secondaryFeatures}><p>Outros recursos</p><div>{secondaryFeatures.map((feature) => <details key={feature.id}><summary><em>{groupLabels[feature.group]}</em><span>{feature.title}</span><small>{statusLabels[feature.status]}</small><b aria-hidden="true">+</b></summary><p>{feature.description}</p>{feature.exampleHref && feature.exampleSlug ? <Link href={feature.exampleHref}>Ver em {examples.find((item) => item.slug === feature.exampleSlug)?.title} →</Link> : null}</details>)}</div></div>
     </section>
 
     <CapabilityWorkbench />
