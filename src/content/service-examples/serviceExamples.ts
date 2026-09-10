@@ -1,0 +1,73 @@
+import type { ServiceExample } from "./serviceExampleSchema";
+
+export const serviceExamples: ServiceExample[] = [
+  {
+    id: "psychology-elisa-veral",
+    slug: "psicologia",
+    status: "published",
+    updatedAt: "2026-09-09",
+    name: "Elisa Veral",
+    category: "Psicologia",
+    solutionType: "institutional",
+    description: "Atendimento online e presencial, informações profissionais e primeiro contato.",
+    highlights: ["Modalidades", "FAQ", "Formulário"],
+    visualIdentity: {
+      label: "Editorial serena em verde profundo, argila e papel claro",
+      themeKey: "psychology-elisa-veral",
+    },
+    featureIds: ["whatsapp", "form", "faq", "social", "seo"],
+    preview: {
+      src: "/images/services/examples/psicologia-elisa-veral.webp",
+      alt: "Prévia do site demonstrativo de Psicologia de Elisa Veral, identidade fictícia.",
+      mobileSrc: "/images/services/examples/psicologia-elisa-veral-mobile.webp",
+    },
+    rendererKey: "psychology-elisa-veral",
+    seo: { index: false },
+  },
+  {
+    id: "architecture-planobruto-17",
+    slug: "arquitetura",
+    status: "published",
+    updatedAt: "2026-09-09",
+    name: "Plano Bruto 17",
+    category: "Arquitetura",
+    solutionType: "portfolio",
+    description: "Portfólio filtrável, informações técnicas e páginas individuais de projeto.",
+    highlights: ["Filtro de projetos", "Galerias", "Páginas internas"],
+    visualIdentity: {
+      label: "Editorial arquitetônica em preto mineral, branco quente e acento ácido",
+      themeKey: "architecture-planobruto-17",
+    },
+    featureIds: ["portfolio-gallery", "social", "seo"],
+    preview: {
+      src: "/images/services/examples/arquitetura-planobruto-17.webp",
+      alt: "Prévia do portfólio demonstrativo de arquitetura Plano Bruto 17, estúdio fictício.",
+      mobileSrc: "/images/services/examples/arquitetura-planobruto-17-mobile.webp",
+    },
+    rendererKey: "architecture-planobruto-17",
+    seo: { index: false },
+  },
+  {
+    id: "barbershop-traco-84",
+    slug: "barbearia",
+    status: "published",
+    updatedAt: "2026-09-09",
+    name: "Traço 84",
+    category: "Negócio local",
+    solutionType: "local-business",
+    description: "Serviços, preços, localização, horários e agendamento em um fluxo direto.",
+    highlights: ["Preços", "Agendamento", "Localização"],
+    visualIdentity: {
+      label: "Lifestyle urbana em azul elétrico, coral e creme",
+      themeKey: "barbershop-traco-84",
+    },
+    featureIds: ["whatsapp", "portfolio-gallery", "services-prices", "location-map", "hours", "scheduling", "seo"],
+    preview: {
+      src: "/images/services/examples/barbearia-traco-84.webp",
+      alt: "Prévia do site demonstrativo de barbearia Traço 84, negócio fictício.",
+      mobileSrc: "/images/services/examples/barbearia-traco-84-mobile.webp",
+    },
+    rendererKey: "barbershop-traco-84",
+    seo: { index: false },
+  },
+];

@@ -1,0 +1,73 @@
+.whatsapp, .form, .portfolio, .services, .map, .scheduling { min-height: 27rem; }
+.whatsapp > span, .form > span, .services > span, .scheduling > span, .mapCopy > span { font-family: "Courier New", monospace; font-size: .64rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
+.whatsapp { display: grid; align-content: center; justify-items: start; gap: 1.1rem; padding: clamp(2rem, 7vw, 5rem); background: #f4eddf; color: #19171d; }
+.whatsapp h4, .whatsapp p, .map h4, .map p, .scheduleSummary p { margin: 0; }
+.whatsapp h4 { max-width: 12ch; font: 900 clamp(2.4rem, 5vw, 4.8rem)/.88 Impact, "Arial Black", sans-serif; letter-spacing: -.04em; text-transform: uppercase; }
+.whatsapp p { max-width: 30rem; line-height: 1.5; }
+.whatsapp button, .map button, .scheduleSummary button { min-height: 3rem; padding: .8rem 1rem; border: 0; background: #3844ff; color: white; cursor: pointer; font-weight: 800; }
+.whatsapp small, .form small, .map small, .scheduling > small { min-height: 1.2rem; color: rgba(25,23,29,.65); }
+.form { display: grid; align-content: center; gap: 1rem; padding: clamp(1.5rem, 5vw, 3.5rem); background: #f3f0e8; color: #23312c; }
+.form > div { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem; }
+.form label { display: grid; gap: .4rem; font-size: .76rem; font-weight: 700; }
+.form input, .form textarea, .scheduling select { width: 100%; min-height: 3rem; padding: .75rem; border: 1px solid rgba(35,49,44,.28); border-radius: 0; background: #fbfaf6; color: inherit; font: inherit; }
+.form textarea { resize: vertical; }
+.form input:focus-visible, .form textarea:focus-visible, .scheduling select:focus-visible { outline: 2px solid #a25f49; outline-offset: 2px; }
+.form button { justify-self: start; min-height: 3rem; padding: .75rem 1rem; border: 0; background: #29483e; color: white; cursor: pointer; font-weight: 700; }
+.portfolio { display: grid; grid-template-columns: minmax(0,1fr) 13rem; background: #0d0d0c; color: white; }
+.portfolioImage { position: relative; min-height: 27rem; overflow: hidden; }
+.portfolioImage img { object-fit: cover; transition: opacity 180ms ease; }
+.portfolioImage span, .portfolioImage strong { position: absolute; z-index: 1; left: 1.25rem; }
+.portfolioImage span { bottom: 4rem; color: #d9ff2f; font: 700 .62rem/1 "Courier New", monospace; text-transform: uppercase; }
+.portfolioImage strong { right: 1.25rem; bottom: 1.25rem; max-width: 18ch; padding: .4rem .5rem; background: #0d0d0c; font-size: clamp(1.8rem, 4vw, 3.8rem); line-height: .9; text-transform: uppercase; }
+.projectTabs { display: grid; align-content: stretch; }
+.projectTabs button { display: grid; align-content: space-between; padding: 1rem; border: 0; border-bottom: 1px solid rgba(255,255,255,.2); background: transparent; color: rgba(255,255,255,.62); cursor: pointer; text-align: left; }
+.projectTabs button:last-child { border-bottom: 0; }
+.projectTabs button[aria-pressed="true"] { background: #d9ff2f; color: #0d0d0c; }
+.projectTabs button span { font: .58rem "Courier New", monospace; }
+.services { display: grid; align-content: center; padding: clamp(1.5rem, 5vw, 3rem); background: #3844ff; color: #111; }
+.services > span { margin-bottom: 1rem; }
+.services button { display: grid; grid-template-columns: minmax(0,1fr) 5rem 6rem 6rem; gap: 1rem; align-items: center; min-height: 5rem; padding: .75rem 0; border: 0; border-top: 2px solid #111; background: transparent; color: inherit; cursor: pointer; text-align: left; }
+.services button:last-child { border-bottom: 2px solid #111; }
+.services button[aria-pressed="true"] { color: white; }
+.services strong { font: 900 clamp(1.5rem,3vw,2.6rem)/1 Impact,"Arial Black",sans-serif; text-transform: uppercase; }
+.services small, .services b, .services i { font-size: .72rem; font-style: normal; }
+.map { display: grid; grid-template-columns: minmax(0,1.15fr) minmax(16rem,.85fr); background: #f4eddf; color: #19171d; }
+.mapGraphic { position: relative; min-height: 27rem; overflow: hidden; background: #ff6543; }
+.mapGraphic i { position: absolute; width: 150%; height: 2rem; background: #f4eddf; transform: rotate(-18deg); }
+.mapGraphic i:nth-child(1) { top: 18%; left: -20%; }
+.mapGraphic i:nth-child(2) { top: 56%; left: -25%; transform: rotate(24deg); }
+.mapGraphic i:nth-child(3) { top: 76%; left: -20%; height: 1rem; transform: rotate(-6deg); }
+.mapGraphic b { position: absolute; top: 44%; left: 53%; display: grid; width: 3.5rem; height: 3.5rem; background: #3844ff; color: white; place-items: center; transform: rotate(6deg); }
+.mapGraphic span { position: absolute; right: 1rem; bottom: 1rem; font: 900 2.4rem/.85 Impact,"Arial Black",sans-serif; text-align: right; }
+.mapCopy { display: grid; align-content: center; justify-items: start; gap: 1rem; padding: 2rem; }
+.mapCopy h4 { font-size: clamp(1.8rem,3vw,3rem); line-height: .95; }
+.mapCopy p { line-height: 1.5; }
+.scheduling { display: grid; align-content: center; gap: 1.25rem; padding: clamp(1.5rem,5vw,3rem); background: #ff6543; color: #19171d; }
+.scheduleFields { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; }
+.scheduleFields label { display: grid; gap: .4rem; font-size: .7rem; font-weight: 800; text-transform: uppercase; }
+.scheduling select { border: 2px solid #19171d; background: #f4eddf; }
+.scheduleSummary { display: flex; gap: 1rem; align-items: flex-end; justify-content: space-between; padding-top: 1.25rem; border-top: 2px solid #19171d; }
+.scheduleSummary p { display: grid; gap: .3rem; }
+.scheduleSummary strong { font-size: 1.5rem; }
+.scheduleSummary span { font-size: .82rem; }
+
+.whatsapp button:focus-visible, .form button:focus-visible, .projectTabs button:focus-visible, .services button:focus-visible, .map button:focus-visible, .scheduleSummary button:focus-visible { outline: 3px solid #ffd400; outline-offset: 3px; }
+
+@media (max-width: 620px) {
+  .whatsapp, .form, .portfolio, .services, .map, .scheduling { min-height: 30rem; }
+  .form > div, .scheduleFields { grid-template-columns: 1fr; gap: .7rem; }
+  .portfolio { grid-template-columns: 1fr; grid-template-rows: 23rem auto; }
+  .portfolioImage { min-height: 23rem; }
+  .projectTabs { display: flex; overflow-x: auto; }
+  .projectTabs button { flex: 0 0 10rem; min-height: 5rem; border-right: 1px solid rgba(255,255,255,.2); border-bottom: 0; }
+  .services button { grid-template-columns: minmax(0,1fr) auto; gap: .35rem 1rem; }
+  .services small { grid-column: 1; }
+  .services b { grid-column: 2; grid-row: 1; }
+  .services i { grid-column: 2; grid-row: 2; }
+  .map { grid-template-columns: 1fr; }
+  .mapGraphic { min-height: 18rem; }
+  .mapCopy { min-height: 15rem; }
+  .scheduleSummary { align-items: stretch; flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) { .portfolioImage img { transition: none; } }

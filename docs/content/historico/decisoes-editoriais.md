@@ -1,5 +1,61 @@
 # Decisões editoriais
 
+## 2026-09-09 — Separação entre oferta, exemplos, capacidades e portfólio
+
+A área de Serviços passa a ter três superfícies com responsabilidades distintas. `/servicos` permanece como home comercial: apresenta uma oferta comum, valores inicial e recorrente, escopo mensal, três exemplos, seis recursos resumidos, processo, quatro dúvidas e contato. O explorador de recursos, os seletores técnicos e as explicações extensas foram removidos dessa rota para proteger a decisão de contratação.
+
+`/servicos/exemplos` concentra a galeria dos três projetos demonstrativos existentes e o filtro por tipo de solução. Nenhum cliente, case ou resultado foi acrescentado. Os detalhes continuam em `/servicos/exemplos/[slug]`, identificados como ficção. `/work` segue como URL canônica do portfólio real e editorial; `/portfolio` permanece apenas como redirecionamento permanente, preservando a arquitetura e URLs já publicadas.
+
+`/servicos/capacidades` recebe a demonstração técnica: seis recursos funcionais, seis recursos secundários, quatro módulos com estados e oito wireframes selecionáveis. Os previews são componentes locais, sem iframe ou dependência nova; formulário, WhatsApp, mapa e agendamento não enviam dados nem concluem ações. A linguagem visual usa containers, tabs, listas, estados, moldura de produto e preview mobile sem copiar uma interface de aplicativo específica.
+
+A navegação compartilhada `ServicesAreaNav` explicita Oferta, Exemplos, Capacidades e Portfólio real. A auditoria de copy removeu da home a repetição entre hero, preço completo, formatos e laboratório; a condição comercial permanece no hero e as inclusões ficam em um único bloco. Continuam pendentes definição de domínio, prazo fixo, limite exato de pequenas atualizações e regras de cancelamento/fidelidade. Implementação local, sem commit ou deploy.
+
+## 2026-09-09 — Hub visual e explorador de recursos em `/servicos`
+
+`/servicos` passa a priorizar criação de sites como uma oferta única: o hero reúne mensagem, valores inicial e recorrente, CTAs e recortes das três demos publicadas. A sequência agora é oferta, exemplos, recursos, formatos, preço completo, processo, FAQ e contato. O seletor genérico por necessidade e o preview abstrato do hero foram removidos; SEO e automação não aparecem como ofertas paralelas.
+
+Os exemplos são filtrados por tipo de solução — institucional, portfólio ou negócio local — e combinam capturas desktop e mobile da própria demo. A profissão permanece como metadado. Seis recursos recebem previews locais e interativos: WhatsApp, formulário, portfólio/galeria, serviços/preços, localização/mapa e agendamento. Nenhuma interação abre aplicativo, envia dados ou reserva horário. Cada vínculo entre recurso e demo é declarado em `src/data/service-hub/index.ts`; não há iframe nem carregamento das páginas completas.
+
+Formatos usam um único painel com tabs e não recebem preços próprios. Recursos menos visuais — horários, redes sociais, FAQ, SEO básico, blog/conteúdo e catálogo — ficam em uma lista secundária expansível. No mobile, filtros, exemplos, recursos, formatos e processo adotam trilhos nativos somente onde preservam tamanho de toque e legibilidade. Domínio incluído, prazo, limite exato das pequenas atualizações e regras de cancelamento/fidelidade continuam pendentes de definição. A implementação permanece local, sem commit ou deploy.
+
+## 2026-09-09 — Revisão funcional das três demos de Serviços
+
+As demos publicadas foram auditadas como produtos independentes, removendo blocos que funcionavam como apresentação conceitual ou preenchimento. Psicologia passa a priorizar modalidade, duração e primeiro contato; temas de procura usam seleção contextual, o perfil profissional fica separado da explicação do atendimento e o CTA final duplicado foi removido. Arquitetura remove a galeria genérica de “imagens de referência”, mantém projetos como entrada principal e adiciona navegação anterior/próximo nas páginas internas. Barbearia move o agendamento para depois dos preços e liga a seleção de serviço ao resumo de duração e valor; o bloco manifesto foi removido e contato, equipe e localização foram reduzidos a informações operacionais.
+
+O hub passa a apresentar segmento, descrição curta e três capacidades concretas de cada exemplo, sem resumir o card por quantidade abstrata de recursos. O schema exige de duas a quatro capacidades principais. A barra compartilhada usa “Voltar para Serviços”; direção visual, navegação e componentes funcionais permanecem próprios de cada marca fictícia. Nenhuma nova demo foi criada e todas continuam `noindex`.
+
+## 2026-09-09 — Exemplos demonstrativos de Arquitetura e Barbearia
+
+`/servicos/exemplos/arquitetura` publica “Plano Bruto 17”, estúdio fictício com composição editorial assimétrica, tipografia condensada, preto mineral, branco quente e acento ácido. Três estudos fictícios recebem filtros por categoria e páginas internas reutilizáveis em `/servicos/exemplos/arquitetura/projetos/[project]`. Fotografias já licenciadas do acervo são apresentadas como imagens de banco; nenhuma representa obra, cliente, endereço ou autoria do estúdio demonstrativo.
+
+`/servicos/exemplos/barbearia` publica “Traço 84”, negócio fictício com linguagem urbana em azul elétrico, coral e creme. A estrutura combina serviços e preços em lista selecionável, mosaico fotográfico, equipe ilustrativa, mapa desenhado, endereço e horários demonstrativos, contatos e um fluxo curto de agendamento que não envia dados nem reserva horários. Fotografias licenciadas do Unsplash são creditadas e identificadas como banco de imagens, sem relação com clientes, equipe ou trabalhos da marca.
+
+As direções de arte não compartilham grid, tipografia, paleta, navegação ou padrão de CTA com a demo de Psicologia. Apenas o catálogo, a resolução por renderer, a rota dinâmica e a barra final de autoria são comuns. Seis recursos do hub passam a oferecer “Veja este recurso em funcionamento” apontando para trechos da demo de Barbearia. Como o negócio é fictício, foi usado JSON-LD `WebPage`, não `LocalBusiness`: dados estruturados de endereço e funcionamento só devem ser publicados quando verificáveis. As três demos permanecem `noindex`; esta implementação é local, sem commit ou deploy.
+
+## 2026-09-08 — Primeiro exemplo demonstrativo em Psicologia
+
+`/servicos/exemplos/psicologia` inaugura o catálogo demonstrativo com uma composição institucional própria para Psicologia. “Elisa Veral” é uma identidade fictícia e aparece como tal no header, no registro demonstrativo e no rodapé; não há cliente, depoimento, resultado clínico, agenda, endereço ou política comercial atribuídos como reais. A abordagem cognitivo-comportamental e a duração aproximada aparecem explicitamente como conteúdo ilustrativo a substituir pelos dados da profissional.
+
+A direção visual usa Georgia, Arial, verde profundo, argila e papel claro em tokens restritos ao módulo da demo. A composição editorial, assimétrica e sem clichês gráficos de saúde mental não altera tokens globais nem herda a identidade amarela do catálogo de Serviços. A fotografia ambiental já licenciada de Seongjin Park foi reaproveitada com crédito e contexto de imagem de banco; não retrata uma psicóloga fictícia. O preview do card é uma captura da própria rota, não um mock separado.
+
+O exemplo demonstra navegação responsiva, Sobre, áreas de acompanhamento, modalidades, sequência do primeiro contato, FAQ nativo, formulário, botão de WhatsApp simulado, redes sociais identificadas como exemplos, metadata e JSON-LD `WebPage`. O formulário não envia nem armazena dados e orienta a não incluir informações de saúde. A página permanece `noindex`; a camada comum ao final identifica “Projeto demonstrativo”, oferece retorno a Serviços e mantém o CTA comercial fora da experiência principal.
+
+Auditoria de copy: foram evitadas promessas de cura, resultados, slogans motivacionais e regras clínicas ou comerciais não fornecidas. Repetições de contato foram mantidas apenas como navegação funcional no hero, seção de contato e encerramento. Arquivos principais: `src/components/services/examples/psychology/`, `src/content/service-examples/serviceExamples.ts`, `ServiceExampleRenderers.tsx`, `public/images/services/examples/psicologia-elisa-veral.webp` e `scripts/test-service-landings.mjs`. Implementação e validação locais, sem commit ou deploy.
+
+## 2026-09-08 — Serviços organizados por necessidade e formato
+
+`/servicos` deixa de apresentar cada profissão como produto com preço próprio. A página passa a começar pela oferta comum e pelo objetivo do visitante, relacionando seis necessidades a quatro formatos: site profissional/institucional, portfólio, landing page e projeto personalizado. Os doze recursos mostram estados de incluído, disponível ou adicional; profissões aparecem somente como exemplos de público nos formatos ou em demonstrações explicitamente identificadas.
+
+A oferta comum concentra preço em um único bloco: R$ 397 como valor padrão de criação/configuração, R$ 200 durante setembro e R$ 89,90/mês para hospedagem, manutenção técnica, suporte e pequenas atualizações. Novas páginas, funcionalidades especiais, sistemas, catálogos complexos e integrações são identificados como projetos personalizados, sem preço adicional inventado.
+
+O desenho preserva fundo claro, tipografia do site, amarelo de destaque, bordas simples e previews locais nos cards de formato. O hero ganhou uma composição editorial curta em duas colunas; a condição comercial vem logo depois, formatos usam grade larga e recursos usam lista expansível de alto contraste. O seletor usa `aria-pressed`, detalhes usam `details/summary`, foco e estados selecionados são visíveis e nenhuma informação essencial depende da interação.
+
+Auditoria de copy: títulos genéricos e a instrução para comparar serviços/preços foram substituídos pela entrega concreta. Foram removidos os doze cards de ofertas profissionais e seus preços divergentes. A repetição do CTA foi mantida apenas no hero e no encerramento, com o mesmo rótulo e destino. Domínio, prazo fixo, limite exato das pequenas atualizações e regras de cancelamento/fidelidade continuam pendentes de definição e são assumidos como itens da proposta, sem promessa inventada.
+
+A seção “Veja exemplos de sites que posso criar” recebe um catálogo independente e inicialmente vazio. A rota `/servicos/exemplos/[slug]` só é gerada para um registro publicado com preview, recursos e renderer próprios. Cada demonstração pode ter identidade integralmente diferente e recebe apenas uma camada comum, discreta, com a identificação “Projeto demonstrativo criado por Henrique Reis”, retorno ao serviço e CTA “Quero um site como este”. Os conceitos legados de `/modelos`, atualmente pausados, não foram reaproveitados como projetos prontos.
+
+Arquivos principais: `src/app/servicos/page.tsx`, `src/data/service-hub/index.ts`, `src/components/services/hub/ServiceHubView.tsx`, `ServiceHubExperience.tsx` e seus módulos de estilo. A arquitetura futura fica em `src/content/service-examples/`, `src/data/service-examples/`, `src/components/services/examples/` e `src/app/servicos/exemplos/[slug]/`. O contrato e os testes foram atualizados; o schema e os componentes do catálogo anterior foram removidos por ficarem sem consumidores. A implementação é local e não inclui commit, publicação ou deploy.
+
 ## 2026-09-08 — Perfil profissional curto em `/sobre`
 
 `/sobre` torna-se a rota canônica do perfil profissional e `/about` passa a redirecionar permanentemente para ela, sem permanecer no sitemap. A página anterior misturava apresentação profissional, ferramentas, história do blog e uma autobiografia longa. A nova composição apresenta função, áreas de atuação, processo, evidências publicadas, perfil breve e três próximos passos: serviços, portfólio e contato.

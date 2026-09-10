@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getPublishedServiceLandings } from "@/data/service-landings";
+import { getIndexableServiceExamples, getServiceExamplePath } from "@/data/service-examples";
 
 import { baseURL, blog, routes as routesConfig } from "@/resources";
 import { getAllArticles } from "@/data/articles";
@@ -92,6 +93,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }));
 
   return [
+    ...getIndexableServiceExamples().map((example) => ({
+      url: `${baseURL}${getServiceExamplePath(example.slug)}`,
+      lastModified: example.updatedAt,
+      changeFrequency: "monthly" as const,
+      priority: 0.62,
+    })),
     ...getPublishedServiceLandings().filter((landing) => landing.seo.index).map((landing) => ({
       url: `${baseURL}/servicos/${landing.slug}`,
       lastModified: landing.updatedAt,

@@ -47,6 +47,8 @@ const routes: RoutesConfig = {
   "/aulas-particulares": false,
   "/contact": false,
   "/servicos": true,
+  "/servicos/exemplos": true,
+  "/servicos/capacidades": true,
   "/servicos/produtos": true,
   [simulationPage.path]: false,
   [productsPage.path]: false,

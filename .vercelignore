@@ -2,4 +2,5 @@
 .next-build-stale-*
 .codex-*.log
 coverage
+artifacts
 node_modules

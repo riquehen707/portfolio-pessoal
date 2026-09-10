@@ -6,21 +6,25 @@ Para escrever títulos, descrições, cards e textos de interface, aplicar a [di
 
 O objetivo é reduzir fricção entre **descoberta → avaliação → conversão**, preservando caminhos de retorno. As regras de experiência abaixo são o padrão a adotar; a seção de [adoção e pendências](#adoção-e-pendências) separa esse padrão do que está implementado. Alta conversão é resultado a medir, não promessa do template.
 
-Leitura por tarefa: [experiência e conteúdo](#responsabilidades), [serviço como produto, modelos e condições](#serviços-apresentados-como-produtos), [catálogo e cards no código](#contrato-técnico-do-catálogo-e-dos-cards), [contrato da landing](#contrato-da-oferta), [CTA no artigo](#artigo-para-landing-servicecta), [validação](#checklist-de-catálogo-e-landing-antes-da-publicação).
+Leitura por tarefa: [experiência e conteúdo](#responsabilidades), [serviço como produto, modelos e condições](#serviços-apresentados-como-produtos), [catálogo e formatos no código](#contrato-técnico-do-catálogo-e-dos-formatos), [contrato da landing](#contrato-da-oferta), [CTA no artigo](#artigo-para-landing-servicecta), [validação](#checklist-de-catálogo-e-landing-antes-da-publicação).
 
 ## Responsabilidades
 
 | Página | Objetivo | Estrutura |
 | --- | --- | --- |
 | Artigo `/blog/[slug]` | Aquisição orgânica e educação | MDX, explicação, referências e até um CTA contextual |
-| Home/catálogo `/servicos` | Permitir entendimento rápido, descoberta e escolha | Intenções do cliente, cards e acesso às páginas individuais |
+| Home comercial `/servicos` | Permitir entendimento rápido e contato | Oferta comum, condição comercial, escopo, poucos exemplos e recursos principais |
+| Galeria `/servicos/exemplos` | Permitir comparar possibilidades visuais | Previews amplos, filtros por tipo e identificação explícita de demonstração |
+| Capacidades `/servicos/capacidades` | Demonstrar profundidade técnica sem sobrecarregar a oferta | Recursos funcionais, módulos de interface, estados e wireframes navegáveis |
 | Landing `/servicos/[slug]` | Avaliar e contratar uma oferta específica | Decisão, avaliação e detalhes, com uma ação principal e navegação de retorno |
+| Exemplo `/servicos/exemplos/[slug]` | Demonstrar uma possibilidade visual sem alegar cliente ou resultado | Composição própria, identificação discreta de projeto demonstrativo e CTA para a oferta comum |
+| Portfólio `/work` | Reunir trabalhos reais, autorais e estudos com contexto | Evidência, estado do projeto, decisões e resultado conhecido; `/portfolio` redireciona para esta rota |
 
 Não usar o modelo de artigo para a landing. Não transformar o catálogo numa campanha para todos os públicos. Não criar páginas trocando somente a profissão: público, problema, demonstração, escopo e objeções devem justificar cada URL.
 
 ### Catálogo por intenção
 
-`/servicos` funciona como uma home de serviços. Não deve explicar profundamente cada oferta nem exigir que a pessoa entenda a organização técnica do trabalho antes de escolher.
+`/servicos` funciona como a home comercial da criação de sites. Não deve exigir que a pessoa diferencie produtos tecnicamente equivalentes criados apenas pela troca da profissão nem carregar o laboratório técnico completo.
 
 Organizar preferencialmente pela pergunta **o que você quer resolver?** Exemplos de rótulos:
 
@@ -30,32 +34,43 @@ Organizar preferencialmente pela pergunta **o que você quer resolver?** Exemplo
 - Melhorar meu site;
 - Validar uma ideia.
 
-São exemplos de intenção, não cinco grupos obrigatórios. Exibir somente grupos com ofertas disponíveis; não inventar um serviço para preencher uma categoria. Evitar `UX`, `Desenvolvimento`, `Web design` e `Soluções digitais` como categorias quando exigirem conhecimento técnico do visitante. Os termos podem aparecer na avaliação ou nos detalhes da oferta, com explicação.
+São exemplos de intenção, não grupos obrigatórios. Podem orientar a oferta, mas filtros e seletores extensos pertencem à galeria ou à página de capacidades. Evitar `UX`, `Desenvolvimento`, `Web design` e `Soluções digitais` como categorias quando exigirem conhecimento técnico do visitante. Os termos podem aparecer nos detalhes, com explicação.
 
-Usar um hero curto, seguido da navegação por intenção e do catálogo. Cada grupo tem título e uma frase de contexto fora da área rolável. Cada serviço aparece uma vez e leva diretamente à sua página individual. Ajuda para escolher e contato geral podem encerrar a página de forma compacta; um processo comum, se necessário, cabe em três etapas breves. FAQ, processos específicos, listas extensas, escopo completo e grandes demonstrações ficam nas landings.
+Usar um hero curto com a oferta e um resumo inequívoco da condição comercial. A home mostra no máximo três ou quatro exemplos fortes, poucos recursos principais, escopo mensal, processo, FAQ curto e contato. Formatos aparecem como possibilidades da mesma oferta; profissões são metadado dos exemplos ou público possível, nunca planos com preço próprio.
 
-O hero pode usar `Ver serviços` para o catálogo; cada card usa `Ver serviço`, com nome acessível que identifica a oferta. `Falar comigo` é suporte para quem precisa de orientação. Não substituir a descoberta por um pedido de orçamento dominante ou por um CTA persistente de contratação no catálogo. Links para ferramentas, blog e portfólio devem ter função clara, sem repetição em vários blocos. Nunca encaminhar a escolha para uma rota pausada ou com redirecionamento inesperado.
+O explorador funcional, os módulos, filtros, estados e wireframes ficam em `/servicos/capacidades`. A galeria completa e seus filtros ficam em `/servicos/exemplos`. A navegação entre oferta, exemplos, capacidades e `/work` deve explicitar a função de cada superfície sem criar CTAs concorrentes dentro da home.
 
-### Cards como pontos de decisão
+O hero mantém uma ação primária direta para iniciar o projeto e uma ação secundária para os exemplos. A página pode repetir a conversão no encerramento, preservando destino e intenção. Links para capacidades e portfólio têm função exploratória clara, sem competir visualmente com a contratação. Nunca encaminhar a escolha para uma rota pausada ou com redirecionamento inesperado.
+
+### Formatos como pontos de decisão
 
 Hierarquia recomendada, nesta ordem:
 
-1. Preview visual que represente a oferta.
-2. Nome do serviço, curto e compreensível.
-3. Público ou contexto, em uma linha breve.
-4. Benefício principal, em uma frase curta.
-5. Mensalidade e implantação legíveis juntas; quando a mensalidade ainda não tiver valor público, usar `Sob consulta — cobrança mensal`.
-6. CTA para a página individual.
+1. Preview visual que represente o formato.
+2. Nome curto e compreensível.
+3. Descrição do que o formato organiza.
+4. Exemplos de profissionais ou negócios para quem serve.
+5. Detalhe inline, sem exigir navegação para uma página criada apenas pela profissão.
 
-Não incluir processo completo, FAQ, listas extensas, detalhes técnicos ou parágrafos longos. Reescrever o resumo quando não couber; não cortar preço, recorrência ou informação necessária à escolha para manter uma altura artificial.
+Preço não pertence aos cards de formato nem aos exemplos demonstrativos. Quando houver uma condição comum, a explicação completa aparece em uma seção única, com criação/configuração, recorrência e escopo mensal legíveis juntos. O hero pode repetir um resumo curto dos mesmos valores para evitar que a primeira decisão dependa de rolagem. Projetos que saem dessa base são identificados como personalizados, sem preço adicional inventado.
 
-Usar preview real autorizado ou fallback gráfico honesto, sem inventar projeto ou cliente. Badge é opcional; popularidade exige evidência e não deve simular urgência. O card pode ser um único link HTML com nome acessível claro, como no componente atual; não aninhar links ou controles interativos.
+Não incluir processo completo, FAQ, listas extensas, detalhes técnicos ou parágrafos longos dentro dos cards. Reescrever o resumo quando não couber; condições comerciais necessárias ficam na seção única de preço.
 
-Aplicar o padrão de [previews](#previews-legíveis-e-consistentes). O card do catálogo apresenta o serviço; a comparação de seus modelos acontece na landing, sem multiplicar a mesma oferta em vários cards de `/servicos`.
+Usar preview real autorizado ou fallback gráfico honesto, sem inventar projeto ou cliente. Popularidade exige evidência e não deve simular urgência. O card de formato pode conter um único `details/summary` para revelar sua explicação; não aninhar links ou outros controles nesse acionador.
+
+Aplicar o padrão de [previews](#previews-legíveis-e-consistentes). O formato apresenta uma estrutura possível; exemplos demonstrativos mostram aplicações sem multiplicar a oferta.
+
+### Exemplos demonstrativos e portfólio
+
+`/work` reúne projetos reais, autorais e estudos com contexto editorial e estado de evidência; `/portfolio` é apenas seu redirecionamento legado. `/servicos/exemplos` reúne a galeria conceitual e a família `/servicos/exemplos/[slug]` permite experimentar uma composição demonstrativa completa antes de contratar. Não apresentar um exemplo como cliente, entrega ou resultado real.
+
+Cada exemplo publicado precisa ter preview local, nome, categoria, descrição curta, identidade visual declarada, recursos relacionados e um renderer próprio. A composição interna pode mudar integralmente entre exemplos; a camada compartilhada deve limitar-se à identificação “Projeto demonstrativo criado por Henrique Reis”, ao retorno para `/servicos` e ao CTA “Quero um site como este”. Não forçar o layout institucional do site dentro do exemplo.
+
+Rascunhos não geram rota, card ou entrada de sitemap. Se não houver exemplo completo, a seção central de `/servicos` informa honestamente que os primeiros exemplos estão em preparação; não criar mock genérico ou profissão fictícia para preencher a grade. O catálogo antigo em `/modelos` permanece legado e pausado, sem migração automática para esta família.
 
 ### Carrosséis e navegação horizontal
 
-No mobile, usar scroll horizontal nativo para grupos com múltiplos serviços, com `overflow-x: auto` e scroll snap. Deixar uma pequena parte do próximo card visível como indicação de continuidade; com um único serviço, não criar rolagem artificial.
+No mobile, usar scroll horizontal nativo quando uma sequência visual de exemplos publicados justificar esse padrão, com `overflow-x: auto` e scroll snap. Deixar uma pequena parte do próximo card visível como indicação de continuidade; com um único item, não criar rolagem artificial.
 
 - Preservar cards amplos e legíveis, ajustando a largura ao espaço útil; não reduzir o card apenas para caber mais itens.
 - Não usar autoplay, avanço automático ao entrar na viewport ou reposicionamento que tire o controle do visitante.
@@ -64,7 +79,7 @@ No mobile, usar scroll horizontal nativo para grupos com múltiplos serviços, c
 - Não esconder cards ou grupos por posição com `nth-child`; todas as ofertas devem continuar alcançáveis.
 - Conter a rolagem na área intencional: o documento inteiro não pode ganhar overflow horizontal.
 
-Filtros ou links de intenção também podem formar um trilho horizontal. Para o catálogo atual, preferir âncoras HTML com `Todos` e grupos não vazios, mantendo voltar/avançar e uso sem JavaScript. Se a quantidade de ofertas justificar filtros, usar seleção única, estado na URL, contagem e mensagem de resultado vazio com opção de limpar. Não impor um número arbitrário de ofertas como gatilho nem filtrar por tecnologia. `Ver todos` só deve aparecer quando tiver um destino real e útil.
+Filtros de exemplos e seletores de formato ou recurso podem formar trilhos horizontais no mobile. Usar `aria-pressed` em filtros e tabs semânticas com `aria-selected`, roving tabindex e setas de teclado nos painéis que substituem conteúdo. Trilhos usam rolagem nativa e mantêm indicação de continuidade sem comprimir controles.
 
 ### Landing individual e primeira dobra
 
@@ -205,52 +220,51 @@ Uma landing pode mostrar **2–3 alternativas relacionadas, no máximo três**, 
 
 Usar nome, uma frase que explique para qual necessidade a alternativa serve e link para a oferta publicada, sem duplicatas nem link para a própria página. Manter após o conteúdo de avaliação, sem disputar o hero ou o CTA primário. Não acrescentar filtros, vários grupos ou um catálogo completo; o acesso a `/servicos` continua sendo o caminho para explorar todas as ofertas. Modelos visuais da mesma oferta pertencem à seleção de modelos, não a este bloco.
 
-## Contrato técnico do catálogo e dos cards
+## Contrato técnico do catálogo e dos formatos
 
 Esta seção descreve o código consultado em 2026-09-08, sem certificar produção ou aderência visual.
 
 | Responsabilidade | Fonte |
 | --- | --- |
-| Página e metadata | `src/app/servicos/page.tsx` e `servicesPage` nos recursos |
-| Ofertas novas | `getPublishedServiceLandings()` em `src/data/service-landings/` |
-| Ofertas legadas | `src/resources/services.ts` |
-| Intenção, ordem e apresentação | `src/data/service-hub/index.ts` |
-| Contrato do card | `src/content/service-hub/serviceHubCardSchema.ts` |
-| Composição e estilos | `src/components/services/hub/`: `ServiceHubView`, `ServiceHubCatalog`, `ServiceIntentNav`, `ServiceGroupCarousel` e `ServiceCard` |
+| Home comercial e metadata | `src/app/servicos/page.tsx`, `ServiceHubView.tsx` e `servicesPage` nos recursos |
+| Galeria demonstrativa | `src/app/servicos/exemplos/page.tsx`, `ServiceExamplesSection.tsx` e `ServiceExampleCard.tsx` |
+| Vitrine de capacidades | `src/app/servicos/capacidades/page.tsx`, `ServiceCapabilitiesView.tsx` e `CapabilityWorkbench.tsx` |
+| Formatos, recursos, grupos e vínculos com demos | `src/data/service-hub/index.ts` |
+| Navegação compartilhada da área | `src/components/services/ServicesAreaNav.tsx` |
+| Resumo de exemplos na home | `src/components/services/examples/ServiceExamplesPreview.tsx` |
+| Previews funcionais e leves de recursos | `src/components/services/hub/ServiceFeaturePreview.tsx` |
+| Schema e catálogo de exemplos | `src/content/service-examples/` e `src/data/service-examples/` |
+| Cards, renderers e camada comum dos exemplos | `src/components/services/examples/` |
+| Rota demonstrativa | `src/app/servicos/exemplos/[slug]/page.tsx` |
+| Estilos | módulos próximos de cada composição, com tokens globais existentes |
 | Prévia de estados | `/dev/service-card`, somente em desenvolvimento; 404 em produção |
 
-O adaptador resolve preço, slug e identidade nos catálogos proprietários e acrescenta nome curto, contexto, benefício, intenção e preview. Valida cada card e rejeita slug duplicado ou serviço publicado sem apresentação. Não copiar preços ou criar um terceiro catálogo de ofertas. Rascunhos e rotas indisponíveis ficam fora da descoberta. Uma futura curadoria que omita ofertas publicadas exige ajustar explicitamente a cobertura do adaptador.
+A fonte de dados valida IDs únicos de formatos e recursos. A home consome apenas um resumo desses dados; os seis recursos prioritários e os recursos secundários são aprofundados em `/servicos/capacidades`, sem carregar páginas ou iframes. O filtro da galeria usa tipo de solução, não profissão. Formatos e exemplos não contêm preço.
 
-| Campo do card | Contrato atual |
+| Entidade | Contrato atual |
 | --- | --- |
-| `id`, `slug` | Obrigatórios, em kebab-case; slug gera `/servicos/[slug]` |
-| `intent` | `present-work`, `capture-clients`, `sell-operate` ou `validate-idea` |
-| `title`, `context`, `benefit` | Obrigatórios; máximos de 56, 80 e 120 caracteres |
-| `price.label`, `price.value` | Obrigatórios; máximos de 28 e 80 caracteres |
-| `price.detail` | Opcional; complemento de até 100 caracteres, usado para implantação sem esconder custo obrigatório |
-| `price.included` | Obrigatório; resumo de até 140 caracteres do trabalho coberto pela mensalidade |
-| `preview` | Imagem ou fallback; obrigatório |
-| `badge` | Opcional; rótulo de até 28 caracteres, tipo `highlight` ou `popular`; este último exige `evidence` de até 240 caracteres |
+| Necessidade | `id`, rótulo e referências para ao menos um formato e um recurso existentes |
+| Formato | `id`, título, descrição, públicos de exemplo, detalhe e preview local com texto alternativo |
+| Recurso | `id`, título, grupo, descrição, uso, estado `included`, `available` ou `additional`, preview opcional e vínculo opcional com demo funcional |
+| Exemplo demonstrativo | `id`, `slug`, estado, nome, categoria, tipo de solução, descrição curta, 2–4 recursos principais, identidade visual, recursos relacionados, previews desktop/mobile, renderer e política de indexação |
 
-`preview.kind: image` exige caminho local `/images/`, alt de até 180 caracteres, dimensões positivas e posição `center` ou `top`. Procedência e autorização ficam no catálogo proprietário. `fallback` exige rótulo de até 32 caracteres e tom `gold`, `forest`, `clay` ou `slate`; desenha uma página com CSS, sem fingir um projeto real.
-
-`ServiceCard.module.scss` e `ServiceGroupCarousel.module.scss` são as fontes dos valores visuais e breakpoints. O card ocupa a célula recebida e segue o [padrão de previews](#previews-legíveis-e-consistentes); badge ausente não deixa lacuna e não há estado desabilitado. Título, público e benefício não usam truncamento de linhas. No mobile, trilhos manuais preservam o próximo card visível; no desktop, a grade mostra os serviços sem exigir rolagem lateral.
-
-`getServiceHubPrice` deriva mensalidade, implantação e escopo recorrente dos catálogos proprietários. Nas ofertas legadas, o valor inicial foi preservado como implantação e a mensalidade ainda sem preço público aparece como `Sob consulta — cobrança mensal`; o escopo recorrente está em `commercialModel.monthly.includes`. As seis ofertas visuais usam capturas dos componentes especializados em `public/images/work/`, identificadas como exemplos de interface. Os demais cards usam representação tipográfica do serviço.
+`ServiceCapabilitiesView` mantém os estados do explorador de recursos e `CapabilityWorkbench` controla módulos e wireframes. Os seis previews prioritários renderizam componentes locais e não incorporam demos completas; formulário, WhatsApp, rota e agendamento deixam explícito que não enviam dados nem concluem ações. Recursos secundários usam `details/summary`. A rota demonstrativa usa renderer registrado e falha explicitamente se um exemplo publicado não tiver implementação correspondente.
 
 ## Adoção e pendências
 
-Estado técnico consultado em 2026-09-08. As diferenças abaixo são pendências de implementação, não exceções às regras de experiência. Validações datadas ficam no [histórico](../content/historico/decisoes-editoriais.md#2026-09-06--validações-locais-da-infraestrutura-de-serviços) e não certificam uma revisão ou publicação posterior.
+Estado técnico consultado em 2026-09-09. As diferenças abaixo são pendências de implementação, não exceções às regras de experiência. Validações datadas ficam no [histórico](../content/historico/decisoes-editoriais.md#2026-09-06--validações-locais-da-infraestrutura-de-serviços) e não certificam uma revisão ou publicação posterior.
 
 | Ponto | Estado consultado e próximo ajuste |
 | --- | --- |
-| Catálogo | `/servicos` já compõe grupos e cards a partir dos dois catálogos, com links de âncora e trilhos manuais |
-| Intenções | O catálogo apresenta `Mostrar meu trabalho`, `Captar clientes` e `Melhorar site e atendimento`. Não mostra intenções sem ofertas; os identificadores internos existentes foram preservados |
-| Compatibilidade da intenção | Os cinco exemplos públicos não são cinco valores já aceitos pelo enum. Novas intenções exigem procurar consumidores, atualizar schema/adaptador e migrar registros sem mudar IDs, slugs ou canonicals |
+| Home comercial | `/servicos` apresenta oferta, condição, escopo, três exemplos, seis recursos resumidos, processo, FAQ curto e contato; o laboratório técnico não é carregado nesta rota |
+| Galeria | `/servicos/exemplos` concentra previews amplos e filtro por tipo de solução; profissões são somente metadado ou contexto, não ofertas com preço próprio |
+| Capacidades | `/servicos/capacidades` concentra seis previews funcionais, seis recursos secundários, quatro módulos com estados e oito wireframes selecionáveis |
+| Preço comum | A home informa criação/configuração, promoção de setembro e mensalidade juntas no hero; projetos fora da base são personalizados |
+| Exemplos novos | `/servicos/exemplos/psicologia`, `/arquitetura` e `/barbearia` têm renderer, preview e identidade próprios; Arquitetura também usa páginas internas reutilizáveis em `/servicos/exemplos/arquitetura/projetos/[project]`. Todas permanecem `noindex` nesta revisão local |
 | Header da landing | `ServiceLandingPage.tsx` tem identidade ligada a `/` e `Voltar para serviços`, inclusive no mobile |
 | Primeira dobra | `ServiceHero` mostra oferta, benefício, público, modelo comercial, resumo do escopo mensal e ação principal. Serviços legados mostram mensalidade e implantação no hero e repetem as condições no bloco comercial reutilizável |
 | Modelos e demos | `demonstration` aceita descrição, imagem opcional e `illustrative`; não possui lista de modelos ou URL de demo. As composições especializadas contêm exemplos visuais, mas não constituem um seletor compartilhado de 3–5 estilos |
-| Catálogo antigo de demos | `src/features/demos/data/demo-registry.ts` registra estilos, rotas e maturidade, mas `/modelos` e seus descendentes estão pausados por `routePolicy.ts`. Auditar o que realmente funciona antes de reutilizar; o status do registro não comprova acesso público |
+| Catálogo antigo de demos | `src/features/demos/data/demo-registry.ts` registra conceitos genéricos, mas `/modelos` e seus descendentes estão pausados por `routePolicy.ts`. Ele não alimenta o novo catálogo nem comprova acesso público |
 | Antes de contratar | Landings novas usam `pricing.terms` e FAQ. Serviços legados usam `commercialModel.terms`; fidelidade e cancelamento ainda dependentes da proposta são identificados como tal |
 | Alternativas relacionadas | O schema e `ServiceLandingPage` não têm campo ou bloco próprio de serviços relacionados. Implementação futura deve resolver somente ofertas publicadas por identidade existente e preservar URLs, sem inventar campos no catálogo atual |
 | Legados e mobile | Serviços antigos têm composições próprias. Revisar cada uma, áreas de toque, clamp, overflow e CTA persistente antes de afirmar conformidade |
@@ -332,7 +346,7 @@ Aplicar a [hierarquia da informação](#hierarquia-da-informação) e os critér
 
 `serviceLandingMetadata` gera title, descrição, canonical natural `/servicos/[slug]`, Open Graph e Twitter. UTMs não entram no canonical. JSON-LD `Service` representa nome, descrição, executor e o modelo comercial visível por meio de `Offer` e `PriceSpecification`; valores textuais sob consulta permanecem como descrição, sem número inventado. Não gerar notas ou avaliações agregadas. FAQ não implica promessa de resultado enriquecido.
 
-Publicada e indexável entra automaticamente no sitemap; não duplicar no objeto estático `routes`. Busca interna e descoberta no catálogo são configurações separadas; o adaptador atual do hub exige apresentação para cada oferta publicada. Campanhas podem chegar diretamente, sem depender de visita anterior ao blog. No hub, preservar um H1, H2 para intenções, H3 para cards, links renderizados no servidor e canonical próprio. `ItemList` ou `CollectionPage`, quando usados, devem refletir somente serviços exibidos.
+Publicada e indexável entra automaticamente no sitemap; não duplicar no objeto estático `routes`. Busca interna e descoberta no catálogo são configurações separadas. Campanhas podem chegar diretamente, sem depender de visita anterior ao blog. No hub, preservar um H1, H2 para seções, H3 para formatos/exemplos, conteúdo essencial no HTML inicial e canonical próprio. `ItemList` ou `CollectionPage`, quando usados, devem refletir somente serviços exibidos.
 
 Antes de Google Ads/Meta Ads, alinhar anúncio e oferta, testar o destino real, definir evento importado como conversão e validar configuração/consentimento do provedor. Conferir UTMs de entrada; não repassar query strings inteiras a destinos ou formulários. Esta entrega não instala pixels nem configura contas de anúncios.
 
@@ -340,7 +354,7 @@ Antes de Google Ads/Meta Ads, alinhar anúncio e oferta, testar o destino real, 
 
 Contrato local de eventos; não são automaticamente reconhecidos como conversões nas plataformas.
 
-No catálogo, o `AnalyticsProvider` lê `services_intent_select`, `services_card_click` e `services_help_click`. O card expõe ID, intenção, localização `services_hub_card` e `href` pelo provider. São eventos de descoberta e contato, não leads. Manter payloads sem texto livre ou dados pessoais; a allowlist abaixo é específica das landings e não substitui o contrato do provider global.
+No hub, o `AnalyticsProvider` lê `services_help_click` nos CTAs. É um evento de intenção de contato, não confirmação de lead. Interações locais dos previews não enviam dados nem disparam conversão. Manter payloads sem texto livre ou dados pessoais; a allowlist abaixo é específica das landings e não substitui o contrato do provider global.
 
 | Evento | Disparo |
 | --- | --- |
@@ -436,11 +450,12 @@ Checklist único da experiência comercial. Registrar rota/versão, evidência e
 - [ ] O visitante consegue voltar para `/servicos` a partir da landing e da demo, inclusive após entrada direta por busca ou anúncio.
 - [ ] O logo/identidade é um link funcional para `/`; nenhum fluxo termina sem saída útil.
 - [ ] Cards, modelos e alternativas levam a destinos disponíveis; o catálogo mantém descoberta por intenção e relacionados respeitam o limite definido neste guia.
+- [ ] Exemplo demonstrativo publicado tem preview, renderer próprio, identificação visível, retorno a `/servicos`, CTA funcional e recursos relacionados; rascunhos não geram card, rota nem sitemap.
 
 ### Compreensão
 
 - [ ] Em poucos segundos, nome, contexto e entrega permitem identificar o serviço sem depender de um slogan.
-- [ ] Mensalidade, implantação quando houver e resumo do trabalho recorrente estão claros e coerentes entre hero, card, preço, FAQ e dados estruturados.
+- [ ] Mensalidade, implantação quando houver e resumo do trabalho recorrente estão claros e coerentes entre preço, FAQ e dados estruturados; cards de formato e exemplos demonstrativos não criam condições próprias.
 - [ ] A próxima ação e o que acontece depois dela são compreensíveis.
 
 ### Copy
@@ -470,7 +485,7 @@ Checklist único da experiência comercial. Registrar rota/versão, evidência e
 ### Design
 
 - [ ] A hierarquia separa decisão, avaliação e detalhes; nível 3 não domina a página.
-- [ ] Cards e preços são legíveis, previews são consistentes e existe espaço em branco suficiente para distinguir grupos, ações e informações.
+- [ ] Cards e preços são legíveis, previews são consistentes e existe espaço em branco suficiente para distinguir seções, ações e informações.
 - [ ] Elementos decorativos sem função foram removidos ou têm justificativa concreta; a fonte não foi reduzida para acomodar excesso de conteúdo.
 - [ ] A extensão da página decorre de informação necessária, não da repetição de promessas ou de seções convencionais.
 

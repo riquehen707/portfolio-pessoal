@@ -85,9 +85,13 @@ Se não cumprir nenhuma, considerar remover. Preservar conteúdo necessário à 
 ├─ /portfolio                           redirecionamento permanente para /work
 ├─ /sobre                               perfil profissional de Henrique
 ├─ /about                               redirecionamento permanente para /sobre
-├─ /servicos                            apresentação pública de serviços
+├─ /servicos                            home comercial de criação de sites
 │  ├─ /servicos/[slug]                   serviços legados e novas landings publicadas
-│  └─ /servicos/produtos                ferramentas e recursos publicados
+│  ├─ /servicos/exemplos                 galeria de exemplos demonstrativos
+│  ├─ /servicos/exemplos/[slug]          exemplos demonstrativos completos e publicados
+│  │  └─ /servicos/exemplos/arquitetura/projetos/[project] estudos internos da demo de Arquitetura
+│  ├─ /servicos/capacidades              recursos, módulos e wireframes interativos
+│  └─ /servicos/produtos                 ferramentas e recursos publicados
 ├─ /rss.xml
 └─ rotas pausadas → redirecionam temporariamente para /blog
    ├─ /modelos, /publicos e /trilhas
@@ -217,9 +221,9 @@ Para estúdios de animação, aplique o [modelo editorial especializado](../edit
 
 ### Páginas institucionais, comerciais, demonstrações e projetos
 
-- **Rotas:** `/sobre`, `/work`, `/servicos` e `/servicos/produtos`; `/about` e `/portfolio` preservam endereços anteriores por redirecionamento. Arquivos também existem sob `/modelos`, `/publicos`, `/contact`, `/simulacao` e rotas auxiliares.
-- **Estado:** `/sobre`, `/work`, `/servicos` e `/servicos/produtos` estão habilitadas em `routes`; as demais famílias permanecem pausadas pelo middleware ou pela configuração atual.
-- **Dados e componentes:** recursos em `src/resources/`, `src/data/segments/`, `src/components/services/`, `src/components/work/` e arquivos próximos às rotas.
+- **Rotas:** `/sobre`, `/work`, `/servicos`, `/servicos/exemplos`, `/servicos/capacidades`, `/servicos/produtos` e exemplos publicados em `/servicos/exemplos/[slug]`; `/about` e `/portfolio` preservam endereços anteriores por redirecionamento. Arquivos também existem sob `/modelos`, `/publicos`, `/contact`, `/simulacao` e rotas auxiliares.
+- **Estado:** `/sobre`, `/work`, `/servicos`, `/servicos/exemplos`, `/servicos/capacidades` e `/servicos/produtos` estão habilitadas em `routes`; exemplos demonstrativos individuais dependem do catálogo publicado. As demais famílias permanecem pausadas pelo middleware ou pela configuração atual.
+- **Dados e componentes:** recursos em `src/resources/`, catálogos em `src/data/`, componentes em `src/components/services/` e `src/components/work/` e arquivos próximos às rotas.
 - **SEO:** varia por rota; demonstrações podem declarar `noindex`. Não inferir publicação pela existência do componente.
 - **Pendência:** as páginas legadas desse grupo não compartilham um schema único; novas landings seguem o contrato específico abaixo. Documentar as demais famílias quando voltarem ao escopo público.
 
@@ -248,11 +252,18 @@ Para estúdios de animação, aplique o [modelo editorial especializado](../edit
 
 - **Rota:** `/servicos/[slug]`, compartilhada com implementações comerciais legadas. O novo catálogo inclui `/servicos/portfolio-para-fotografos`, `/servicos/site-para-corretores`, `/servicos/portfolio-para-tatuadores`, `/servicos/galeria-virtual-para-artistas`, `/servicos/portfolio-para-designers` e `/servicos/site-para-arquitetos`.
 - **Dados:** `content/service-landings/serviceLandingSchema.ts`, registro em `landings.ts` e fachada `data/service-landings/`; impede colisões com slugs legados e `produtos`.
-- **Objetivo:** conversão de oferta específica; artigos educam e `/servicos` funciona como home/catálogo para descoberta e escolha.
+- **Objetivo:** conversão de oferta específica; artigos educam, `/servicos` concentra a oferta comum, `/servicos/exemplos` concentra a prova visual e `/servicos/capacidades` demonstra recursos e fluxos.
 - **Componentes:** `components/services/landing/` fornece hero, seções reordenáveis, preço, prova, FAQ, CTA, mensuração e SEO. `ServiceCTA` conecta artigos a IDs publicados.
 - **Publicação e SEO:** somente `published` acessível; `seo.index` controla indexação separadamente. Canonical natural, OG e JSON-LD `Service`; publicadas/indexáveis entram no sitemap. O fluxo legado permanece independente.
 - **UX confirmada:** reutiliza `standaloneLandingRoot`, com identidade ligada à home, retorno visível a `/servicos`, rodapé próprio e CTA fixo opcional. `/dev/service-landing` é fictícia, `noindex` e 404 em produção.
 - **Guia:** [serviços: catálogo e páginas de conversão](service-landing-pages.md), incluindo o padrão de navegação e as lacunas da implementação. Não cria ofertas, integrações de envio ou experimentos ativos automaticamente.
+
+### Exemplos demonstrativos e capacidades de serviços
+
+- **Rotas:** `/servicos/exemplos` organiza a galeria; `/servicos/exemplos/[slug]` abre cada demo e a Arquitetura possui estudos internos em `/servicos/exemplos/arquitetura/projetos/[project]`. `/servicos/capacidades` reúne previews funcionais, módulos e wireframes. Essas rotas não substituem `/work`, não herdam os conceitos pausados de `/modelos` e não representam clientes.
+- **Dados:** `content/service-examples/serviceExampleSchema.ts`, registro em `serviceExamples.ts` e fachada `data/service-examples/`. Apenas registros `published` com preview, recursos relacionados e renderer próprio geram parâmetros estáticos.
+- **Componentes:** `components/services/examples/` fornece card, seção do catálogo, registro de renderers e uma camada comum discreta com atribuição, retorno e CTA. A interface interna pertence ao renderer e pode ter identidade visual própria.
+- **Publicação e SEO:** rascunhos não aparecem na home de serviços, não têm rota e ficam fora do sitemap. `seo.index` controla a entrada de cada exemplo publicado no sitemap; a identificação de projeto demonstrativo continua visível mesmo quando indexado.
 
 ## Regras globais compartilhadas
 

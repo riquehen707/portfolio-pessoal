@@ -1,0 +1,10 @@
+.root { min-height: 100vh; padding-bottom: clamp(1rem, 3vw, 2rem); }
+.attribution { display: flex; gap: 1.5rem; align-items: center; justify-content: space-between; max-width: 76rem; margin: clamp(1.5rem, 4vw, 3rem) auto 0; padding: 0.85rem 1rem; border: 1px solid rgba(18,18,16,0.18); border-radius: 0.65rem; background: #f8f6ef; color: #121210; font-family: system-ui, sans-serif; }
+.attribution > div:first-child { display: grid; gap: 0.2rem; }
+.attribution span { font-size: 0.68rem; letter-spacing: 0.07em; text-transform: uppercase; }
+.attribution strong { font-size: 0.92rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.actions a { display: inline-flex; align-items: center; min-height: 2.6rem; padding: 0.6rem 0.8rem; border: 1px solid #35332c; border-radius: 0.4rem; color: #121210; font-size: 0.82rem; font-weight: 700; text-decoration: none; }
+.actions a:last-child { border-color: #80631d; background: #d2a832; }
+.actions a:focus-visible { outline: 2px solid #80631d; outline-offset: 3px; }
+@media (max-width: 680px) { .attribution { align-items: stretch; margin-inline: 1rem; flex-direction: column; } .actions { display: grid; } .actions a { justify-content: center; } }

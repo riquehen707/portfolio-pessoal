@@ -3,12 +3,12 @@ import { BasePageConfig, ProductsPage, ProductItem, ServicesPage, ServiceLanding
 export const servicesPage: ServicesPage = {
   path: "/servicos",
   label: "Serviços",
-  title: "Serviços para mostrar seu trabalho e facilitar contatos",
+  title: "Criação de sites para profissionais e pequenas empresas",
   description:
-    "Portfólios, páginas para captar clientes e serviços para melhorar sites e atendimento.",
+    "Criação, publicação e manutenção de sites profissionais, portfólios e landing pages para profissionais, MEIs e pequenas empresas.",
   intro: {
-    headline: "Escolha o serviço pelo que você precisa resolver.",
-    lead: "Compare opções para mostrar seu trabalho, captar clientes ou melhorar seu site e atendimento.",
+    headline: "Escolha o formato pelo que seu site precisa fazer.",
+    lead: "Profissões aparecem como exemplos de uso, não como produtos ou preços diferentes.",
   },
 };
 

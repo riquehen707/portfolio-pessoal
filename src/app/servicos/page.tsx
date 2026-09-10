@@ -1,7 +1,8 @@
 import { Column, Schema } from "@once-ui-system/core";
 import { ServiceHubView } from "@/components/services/hub/ServiceHubView";
-import { getServiceHubGroups } from "@/data/service-hub";
-import { baseURL, person, servicesPage } from "@/resources";
+import { getServiceHubContent } from "@/data/service-hub";
+import { getPublishedServiceExamples } from "@/data/service-examples";
+import { baseURL, person, servicesPage, social } from "@/resources";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 
 export async function generateMetadata() {
@@ -21,11 +22,16 @@ export async function generateMetadata() {
 }
 
 export default function ServicesPage() {
-  const groups = getServiceHubGroups();
-  const contactHref = `mailto:${person.email}?subject=${encodeURIComponent("Ajuda para escolher um serviço")}`;
+  const content = getServiceHubContent();
+  const examples = getPublishedServiceExamples();
+  const whatsapp = social.find((item) => item.name === "WhatsApp")?.link;
+  const contactHref = whatsapp
+    ? `${whatsapp}?text=${encodeURIComponent("Olá, Henrique. Quero conversar sobre a criação de um site.")}`
+    : `mailto:${person.email}?subject=${encodeURIComponent("Criação de site")}`;
+  const questionHref = `mailto:${person.email}?subject=${encodeURIComponent("Dúvida sobre criação de site")}`;
 
   return (
-    <Column maxWidth="l" fillWidth>
+    <Column fillWidth>
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -39,7 +45,7 @@ export default function ServicesPage() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <ServiceHubView groups={groups} contactHref={contactHref} />
+      <ServiceHubView {...content} examples={examples} contactHref={contactHref} questionHref={questionHref} />
     </Column>
   );
 }

@@ -2,25 +2,27 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Column } from "@once-ui-system/core";
 import { ServiceHubView } from "@/components/services/hub/ServiceHubView";
-import { getServiceHubGroups } from "@/data/service-hub";
+import { getServiceHubContent } from "@/data/service-hub";
+import { getPublishedServiceExamples } from "@/data/service-examples";
 import { person } from "@/resources";
 import styles from "./page.module.scss";
 
 export const metadata: Metadata = {
-  title: "Prévia do card de serviço",
-  description: "Estados do card da home de serviços, disponíveis somente em desenvolvimento.",
+  title: "Prévia da página de serviços",
+  description: "Estrutura da página de serviços, disponível somente em desenvolvimento.",
   robots: { index: false, follow: false },
   alternates: { canonical: "/dev/service-card" },
 };
 
 export default function ServiceCardPreview() {
   if (process.env.NODE_ENV !== "development") notFound();
-  const groups = getServiceHubGroups();
+  const content = getServiceHubContent();
+  const examples = getPublishedServiceExamples();
   const contactHref = `mailto:${person.email}?subject=${encodeURIComponent("Ajuda para escolher um serviço")}`;
 
   return (
     <Column className={styles.page} maxWidth="l">
-      <ServiceHubView groups={groups} contactHref={contactHref} />
+      <ServiceHubView {...content} examples={examples} contactHref={contactHref} questionHref={contactHref} />
     </Column>
   );
 }

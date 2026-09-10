@@ -238,6 +238,32 @@
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
+      "slug": "corretor-de-imoveis-precisa-ter-site-proprio",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-06",
+      "updatedAt": null,
+      "seo": {
+        "title": "Corretor de imóveis precisa ter site próprio?",
+        "description": "Corretor de imóveis precisa ter site próprio? Veja quando vale investir, como o site ajuda e em quais situações ainda é melhor esperar.",
+        "canonical": "/blog/corretor-de-imoveis-precisa-ter-site-proprio"
+      },
+      "relationships": {
+        "related": [
+          "Como corretores de imóveis podem gerar leads sem depender só de portais",
+          "Como aparecer no Google sendo corretor de imóveis com presença local",
+          "Como divulgar imóveis nas redes sociais com contexto e intenção"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/imobiliario/corretor-de-imoveis-precisa-ter-site-proprio.mdx",
+      "migrationReady": false,
+      "productCards": []
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
       "slug": "ideias-de-conteudo-para-corretores-de-imoveis",
       "aliases": [],
       "status": "published",
@@ -1045,6 +1071,50 @@
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
+      "slug": "como-criar-um-portfolio-de-design-para-conseguir-clientes",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-06",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como criar um portfólio de design para conseguir clientes",
+        "description": "Veja quantos projetos mostrar em um portfólio de design, como escrever cases, explicar decisões e organizar contatos profissionais.",
+        "canonical": "/blog/como-criar-um-portfolio-de-design-para-conseguir-clientes"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-criar-um-portfolio-de-design-para-conseguir-clientes.mdx",
+      "migrationReady": false,
+      "productCards": []
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-criar-uma-galeria-virtual-para-divulgar-suas-obras",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-06",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como criar uma galeria virtual para divulgar suas obras",
+        "description": "Veja como criar uma galeria virtual, escolher obras, organizar coleções, preparar boas imagens e apresentar informações para contatos e encomendas.",
+        "canonical": "/blog/como-criar-uma-galeria-virtual-para-divulgar-suas-obras"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-criar-uma-galeria-virtual-para-divulgar-suas-obras.mdx",
+      "migrationReady": false,
+      "productCards": []
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
       "slug": "como-entender-receita-margem-custos-e-volume",
       "aliases": [],
       "status": "published",
@@ -1305,6 +1375,28 @@
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
+      "slug": "como-montar-um-portfolio-de-arquitetura-profissional",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-06",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como montar um portfólio de arquitetura profissional",
+        "description": "Veja quais projetos incluir em um portfólio de arquitetura, como usar fotos, plantas e renders e quando escolher PDF, Instagram ou site próprio.",
+        "canonical": "/blog/como-montar-um-portfolio-de-arquitetura-profissional"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-montar-um-portfolio-de-arquitetura-profissional.mdx",
+      "migrationReady": false,
+      "productCards": []
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
       "slug": "como-montar-um-portfolio-de-desenvolvimento-web-sem-clientes",
       "aliases": [],
       "status": "published",
@@ -1324,6 +1416,28 @@
         ]
       },
       "sourceFile": "src/app/blog/posts/fundamentos/como-montar-um-portfolio-de-desenvolvimento-web-sem-clientes.mdx",
+      "migrationReady": false,
+      "productCards": []
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "como-montar-um-portfolio-de-fotografia-que-ajuda-a-conseguir-clientes",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-06",
+      "updatedAt": null,
+      "seo": {
+        "title": "Como montar um portfólio de fotografia que ajuda a conseguir clientes",
+        "description": "Veja quantas fotos colocar em um portfólio de fotografia, como escolher os melhores trabalhos, organizar categorias e facilitar pedidos de orçamento.",
+        "canonical": "/blog/como-montar-um-portfolio-de-fotografia-que-ajuda-a-conseguir-clientes"
+      },
+      "relationships": {
+        "related": []
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/como-montar-um-portfolio-de-fotografia-que-ajuda-a-conseguir-clientes.mdx",
       "migrationReady": false,
       "productCards": []
     },
@@ -6373,6 +6487,30 @@
       },
       "sourceFile": "src/app/blog/posts/fundamentos/o-que-voce-precisa-aprender-para-ser-um-bom-social-media.mdx",
       "migrationReady": false,
+      "productCards": []
+    },
+    {
+      "id": "article_onde_ler_mangas_online_sem_anuncios",
+      "contentType": "article",
+      "schemaVersion": 1,
+      "slug": "onde-ler-mangas-online-sem-anuncios",
+      "aliases": [],
+      "status": "published",
+      "createdAt": "2026-09-08",
+      "publishedAt": "2026-09-08",
+      "updatedAt": null,
+      "seo": {
+        "title": "Onde ler mangás online sem anúncios?",
+        "description": "Onde ler mangás online sem anúncios: comparação de plataformas oficiais disponíveis no Brasil, planos pagos e alternativas legais gratuitas.",
+        "canonical": "/blog/onde-ler-mangas-online-sem-anuncios"
+      },
+      "relationships": {
+        "related": [
+          "Como começar a ler e sentir prazer na leitura"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/onde-ler-mangas-online-sem-anuncios.mdx",
+      "migrationReady": true,
       "productCards": []
     },
     {

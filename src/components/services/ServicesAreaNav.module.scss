@@ -1,0 +1,9 @@
+@use "../../styles/mixins" as mixins;
+
+.nav { display: flex; gap: .35rem; width: max-content; max-width: 100%; padding: .3rem; overflow-x: auto; border: 1px solid rgba(18,18,16,.16); border-radius: var(--radius-pill); background: var(--surface-flat); scrollbar-width: none; }
+.nav::-webkit-scrollbar { display: none; }
+.nav a { flex: 0 0 auto; padding: .58rem .85rem; border-radius: var(--radius-pill); color: var(--neutral-on-background-medium); font: 700 .72rem/1 var(--font-label); text-decoration: none; }
+.nav a[aria-current="page"] { background: var(--neutral-on-background-strong); color: var(--page-background); }
+.nav a:focus-visible { outline: 2px solid var(--color-accent-gold-muted); outline-offset: 2px; }
+@include mixins.hover-fine { .nav a:hover:not([aria-current="page"]) { background: color-mix(in srgb,var(--color-accent-gold) 12%,transparent); color: var(--neutral-on-background-strong); } }
+@media (max-width: 520px) { .nav { width: 100%; border-radius: var(--radius-12); } }

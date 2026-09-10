@@ -3,6 +3,7 @@ import { Column, Meta, Schema } from "@once-ui-system/core";
 import { getAllWorkProjects } from "@/app/work/projectData";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { Projects } from "@/components/work/Projects";
+import { ServicesAreaNav } from "@/components/services/ServicesAreaNav";
 import Link from "next/link";
 import {
   about,
@@ -66,6 +67,8 @@ export default function Work() {
           { name: work.label, url: `${baseURL}${work.path}` },
         ]}
       />
+
+      <ServicesAreaNav active="portfolio" />
 
       <header className={styles.hero}>
         <p className={styles.eyebrow}>Portfólio</p>

@@ -1,0 +1,31 @@
+import { notFound } from "next/navigation";
+import { ArchitectureProjectPage } from "@/components/services/examples/architecture/ArchitectureProjectPage";
+import { architectureDemoProjects, getArchitectureDemoProject } from "@/components/services/examples/architecture/architectureDemoData";
+import { ServiceExampleChrome } from "@/components/services/examples/ServiceExampleChrome";
+import { getPublishedServiceExample } from "@/data/service-examples";
+import { baseURL, person, social } from "@/resources";
+
+type Props = { params: Promise<{ project: string }> };
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return architectureDemoProjects.map((project) => ({ project: project.slug }));
+}
+
+export async function generateMetadata({ params }: Props) {
+  const project = getArchitectureDemoProject((await params).project);
+  if (!project) return {};
+  const title = `${project.title} | Estudo demonstrativo de arquitetura`;
+  const description = `${project.summary} Conteúdo fictício para demonstração de interface.`;
+  return { title, description, alternates: { canonical: `${baseURL}/servicos/exemplos/arquitetura/projetos/${project.slug}` }, robots: { index: false, follow: false } };
+}
+
+export default async function ArchitectureDemoProjectRoute({ params }: Props) {
+  const project = getArchitectureDemoProject((await params).project);
+  const example = getPublishedServiceExample("arquitetura");
+  if (!project || !example) notFound();
+  const whatsapp = social.find((item) => item.name === "WhatsApp")?.link;
+  const contactHref = whatsapp ? `${whatsapp}?text=${encodeURIComponent(`Olá, Henrique. Quero um site inspirado no exemplo ${example.name}.`)}` : `mailto:${person.email}?subject=${encodeURIComponent(`Site como ${example.name}`)}`;
+  return <ServiceExampleChrome example={example} contactHref={contactHref}><ArchitectureProjectPage project={project} /></ServiceExampleChrome>;
+}

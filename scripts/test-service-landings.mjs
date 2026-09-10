@@ -44,11 +44,10 @@ function loader(mocks = {}) {
 
 const load = loader();
 const { serviceLandingSchema } = load("src/content/service-landings/serviceLandingSchema.ts");
-const { serviceHubCardSchema } = load("src/content/service-hub/serviceHubCardSchema.ts");
 const { services } = load("src/resources/services.ts");
-const { getServiceHubGroups, unavailableServiceHubIntents } = load(
-  "src/data/service-hub/index.ts",
-);
+const { getServiceHubContent } = load("src/data/service-hub/index.ts");
+const { serviceExampleSchema } = load("src/content/service-examples/serviceExampleSchema.ts");
+const { getIndexableServiceExamples, getPublishedServiceExamples, getServiceExamplePath } = load("src/data/service-examples/index.ts");
 const { exampleServiceLanding } = load("src/content/service-landings/example.ts");
 const { architectWebsite } = load("src/content/service-landings/architectWebsite.ts");
 const { artistGallery } = load("src/content/service-landings/artistGallery.ts");
@@ -78,28 +77,6 @@ const published = {
       : section,
   ),
 };
-const serviceCard = serviceHubCardSchema.parse({
-  id: "portfolio-tatuadores",
-  slug: "portfolio-para-tatuadores",
-  intent: "present-work",
-  title: "Portfólio para tatuadores",
-  context: "Para tatuadores autônomos",
-  benefit: "Organize trabalhos e estilos em uma página profissional pronta para compartilhar.",
-  price: {
-    label: "Mensalidade",
-    value: "R$79/mês",
-    detail: "+ R$297 de implantação",
-    included: "Inclui hospedagem, manutenção técnica e suporte.",
-  },
-  preview: {
-    kind: "image",
-    src: "/images/services/portfolio-tatuadores/fine-line.webp",
-    alt: "Prévia de trabalhos em um portfólio para tatuadores.",
-    width: 1000,
-    height: 667,
-    position: "center",
-  },
-});
 
 test("publicação exige conteúdo essencial e impede âncoras duplicadas/reservadas", () => {
   assert.equal(serviceLandingSchema.safeParse(published).success, true);
@@ -296,147 +273,133 @@ test("site para arquitetos mantém a oferta e as nove partes do briefing", () =>
   );
 });
 
-test("card do hub limita copy, mídia e alegações de popularidade", () => {
-  assert.equal(serviceHubCardSchema.safeParse(serviceCard).success, true);
-  assert.equal(
-    serviceHubCardSchema.safeParse({
-      ...serviceCard,
-      preview: { kind: "fallback", label: "Busca sem bloqueios", tone: "forest" },
-    }).success,
-    true,
-  );
-  assert.equal(
-    serviceHubCardSchema.safeParse({ ...serviceCard, benefit: "x".repeat(121) }).success,
-    false,
-  );
-  assert.equal(
-    serviceHubCardSchema.safeParse({
-      ...serviceCard,
-      preview: { ...serviceCard.preview, src: "https://example.com/preview.jpg" },
-    }).success,
-    false,
-  );
-  assert.equal(
-    serviceHubCardSchema.safeParse({
-      ...serviceCard,
-      badge: { label: "Mais procurado", kind: "popular" },
-    }).success,
-    false,
-  );
-  assert.equal(
-    serviceHubCardSchema.safeParse({
-      ...serviceCard,
-      badge: { label: "Mais procurado", kind: "popular", evidence: "Relatório interno 2026-09" },
-    }).success,
-    true,
-  );
+test("hub organiza formatos e recursos demonstráveis sem duplicar produtos", () => {
+  const content = getServiceHubContent();
+  assert.deepEqual(content.formats.map((item) => item.title), [
+    "Site profissional",
+    "Portfólio",
+    "Landing page",
+    "Projeto personalizado",
+  ]);
+  assert.equal(content.features.length, 12);
+  assert.equal(content.features.filter((feature) => feature.previewKind).length, 6);
+  assert.equal(content.formats.some((format) => "price" in format), false);
+  for (const collection of Object.values(content)) {
+    assert.equal(new Set(collection.map((item) => item.id)).size, collection.length);
+  }
 });
 
-test("card do hub mantém hierarquia, um link e CTA visível no HTML", () => {
+test("exemplos demonstrativos só publicam uma rota quando estão completos", () => {
+  const draft = {
+    id: "exemplo-em-preparo",
+    slug: "exemplo-em-preparo",
+    status: "draft",
+    updatedAt: "2026-09-08",
+    name: "Exemplo em preparo",
+    category: "Site profissional",
+    solutionType: "institutional",
+    description: "Estrutura ainda em revisão.",
+    highlights: ["Apresentação", "Contato"],
+    visualIdentity: { label: "Identidade editorial", themeKey: "editorial" },
+    featureIds: [],
+    seo: { index: false },
+  };
+  assert.equal(serviceExampleSchema.safeParse(draft).success, true);
+  assert.equal(serviceExampleSchema.safeParse({ ...draft, status: "published" }).success, false);
+  assert.equal(
+    serviceExampleSchema.safeParse({
+      ...draft,
+      status: "published",
+      rendererKey: "psychology-studio",
+      featureIds: ["about", "form"],
+      highlights: ["Apresentação", "Contato"],
+      preview: { src: "/images/work/exemplo.webp", alt: "Prévia do exemplo demonstrativo." },
+    }).success,
+    true,
+  );
+  const examples = getPublishedServiceExamples();
+  assert.equal(examples.length, 3);
+  assert.deepEqual(examples.map((example) => example.slug), ["psicologia", "arquitetura", "barbearia"]);
+  for (const example of examples) {
+    assert.equal(example.seo.index, false);
+    assert.ok(example.rendererKey);
+    assert.ok(existsSync(path.join(root, "public", example.preview.src)));
+  }
+  assert.deepEqual(getIndexableServiceExamples(), []);
+  assert.equal(getServiceExamplePath("psicologia"), "/servicos/exemplos/psicologia");
+});
+
+test("demonstração de Psicologia identifica ficção, preserva conteúdo clínico responsável e oferece recursos úteis", () => {
   const React = require("react");
   const { renderToStaticMarkup } = require("react-dom/server");
   const { load: html } = require("cheerio");
   const componentLoad = loader({
-    "next/link": ({ children, href, ...props }) =>
-      React.createElement("a", { ...props, href }, children),
     "next/image": ({ fill, priority, sizes, ...props }) => React.createElement("img", props),
   });
-  const { ServiceCard } = componentLoad("src/components/services/hub/ServiceCard.tsx");
-  const $ = html(renderToStaticMarkup(React.createElement(ServiceCard, { service: serviceCard })));
+  const { PsychologyDemo } = componentLoad("src/components/services/examples/psychology/PsychologyDemo.tsx");
+  const example = getPublishedServiceExamples().find((item) => item.slug === "psicologia");
+  const $ = html(renderToStaticMarkup(React.createElement(PsychologyDemo, { example })));
+  const text = $.root().text();
 
-  assert.equal($("article").length, 1);
-  assert.equal($("a").length, 1);
-  assert.equal($("a").attr("href"), "/servicos/portfolio-para-tatuadores");
-  assert.equal($("a").attr("aria-label"), "Ver serviço: Portfólio para tatuadores");
-  assert.equal($("h3").text(), serviceCard.title);
-  assert.equal($("img").attr("src"), serviceCard.preview.src);
-  assert.equal($("img").attr("alt"), serviceCard.preview.alt);
-  assert.ok($("a").text().includes(serviceCard.context));
-  assert.ok($("a").text().includes(serviceCard.benefit));
-  assert.ok($("a").text().includes(serviceCard.price.value));
-  assert.ok($("a").text().includes("Ver serviço"));
-  assert.equal($("a").attr("data-analytics-event"), "services_card_click");
-  assert.equal($("a").attr("data-analytics-service-id"), serviceCard.id);
+  assert.equal($("h1").length, 1);
+  assert.equal($("#duvidas details").length, 5);
+  assert.equal($("#formulario input[required]").length, 2);
+  assert.equal($("script[type='application/ld+json']").length, 1);
+  assert.match(text, /profissional fictícia/i);
+  assert.match(text, /registro demonstrativo/i);
+  assert.equal($("#atuacao button[aria-pressed]").length, 4);
+  assert.match(text, /nenhum dado é enviado ou armazenado/i);
+  assert.doesNotMatch(text, /cure sua ansiedade|resultados garantidos|supere a depressão/i);
 });
 
-test("hub distribui os doze serviços atuais uma única vez por intenção", () => {
-  const groups = getServiceHubGroups();
-  assert.deepEqual(
-    groups.map((group) => [group.intent, group.navigationLabel, group.cards.length]),
-    [
-      ["present-work", "Mostrar meu trabalho", 5],
-      ["capture-clients", "Captar clientes", 5],
-      ["sell-operate", "Melhorar site e atendimento", 2],
-    ],
-  );
-  const cards = groups.flatMap((group) => group.cards);
-  assert.equal(cards.length, 12);
-  assert.equal(new Set(cards.map((card) => card.slug)).size, cards.length);
-  assert.equal(
-    groups.find((group) => group.intent === "capture-clients")?.cards.some(
-      (card) => card.id === "site-corretores",
-    ),
-    true,
-  );
-  assert.equal(groups.some((group) => group.intent === "validate-idea"), false);
-  assert.equal(unavailableServiceHubIntents[0].intent, "validate-idea");
-  assert.match(unavailableServiceHubIntents[0].reason, /simulacao/);
-});
-
-test("catálogo do hub renderiza navegação e carrosséis sem controles automáticos", () => {
+test("demonstração de Arquitetura usa portfólio filtrável, estudos internos e conteúdo identificado como fictício", () => {
   const React = require("react");
   const { renderToStaticMarkup } = require("react-dom/server");
   const { load: html } = require("cheerio");
-  const componentLoad = loader({
-    "next/link": ({ children, href, ...props }) =>
-      React.createElement("a", { ...props, href }, children),
-    "next/image": ({ fill, priority, sizes, ...props }) => React.createElement("img", props),
-  });
-  const { ServiceHubCatalog } = componentLoad(
-    "src/components/services/hub/ServiceHubCatalog.tsx",
-  );
-  const groups = getServiceHubGroups();
-  const $ = html(
-    renderToStaticMarkup(React.createElement(ServiceHubCatalog, { groups })),
-  );
-
-  assert.equal($("nav").attr("aria-label"), "Navegação por intenção");
-  assert.equal($("nav a").length, groups.length + 1);
-  assert.equal($("section").length, groups.length);
-  assert.equal($("ol[tabindex='0']").length, groups.length);
-  assert.equal($("article").length, 12);
-  assert.equal($("button").length, 0);
-  assert.equal(
-    $("section > header + ol").length,
-    groups.length,
-  );
-  assert.equal(
-    $("nav a")
-      .map((_, element) => $(element).attr("data-analytics-event"))
-      .get()
-      .every((event) => event === "services_intent_select"),
-    true,
-  );
-  assert.equal($("a").filter((_, element) => $(element).text().includes("Ver todos")).length, 0);
+  const componentLoad = loader({ "next/image": ({ fill, priority, sizes, ...props }) => React.createElement("img", props) });
+  const { ArchitectureDemo } = componentLoad("src/components/services/examples/architecture/ArchitectureDemo.tsx");
+  const { architectureDemoProjects } = componentLoad("src/components/services/examples/architecture/architectureDemoData.ts");
+  const example = getPublishedServiceExamples().find((item) => item.slug === "arquitetura");
+  const $ = html(renderToStaticMarkup(React.createElement(ArchitectureDemo, { example })));
+  const text = $.root().text();
+  assert.equal($("h1").length, 1);
+  assert.equal($("#projetos [role='group'] button").length, 4);
+  assert.equal($("#servicos-arquitetura details").length, 5);
+  assert.equal(architectureDemoProjects.length, 3);
+  assert.equal(architectureDemoProjects.every((project) => project.illustrative), true);
+  assert.match(text, /estúdio fictício|identidade fictícia/i);
+  assert.doesNotMatch(text, /imagens de referência|arquivo visual/i);
 });
 
-test("hub separa mensalidade, implantação e escopo recorrente", () => {
-  const { getServiceHubPrice } = load("src/data/service-hub/index.ts");
-  assert.deepEqual(getServiceHubPrice(architectWebsite), {
-    label: "Mensalidade",
-    value: "R$99/mês",
-    detail: "+ R$497 de implantação",
-    included: "Inclui hospedagem, manutenção técnica, suporte e pequenas atualizações de projetos dentro do limite definido na proposta.",
-  });
-  const changed = structuredClone(architectWebsite);
-  changed.sections.find(section => section.type === "pricing").items.find(item => item.cadence === "monthly").amount = "R$109/mês";
-  assert.equal(getServiceHubPrice(changed).value, "R$109/mês");
-  assert.deepEqual(getServiceHubPrice(services[0]), {
-    label: "Mensalidade",
-    value: "Sob consulta — cobrança mensal",
-    detail: "+ A partir de R$ 1.500 de implantação",
-    included: "Inclui hospedagem, manutenção técnica, pequenas alterações, suporte.",
-  });
+test("demonstração de Barbearia prioriza preços, localização e agendamento sem alegar negócio real", () => {
+  const React = require("react");
+  const { renderToStaticMarkup } = require("react-dom/server");
+  const { load: html } = require("cheerio");
+  const componentLoad = loader({ "next/image": ({ fill, priority, sizes, ...props }) => React.createElement("img", props) });
+  const { BarbershopDemo } = componentLoad("src/components/services/examples/barbershop/BarbershopDemo.tsx");
+  const example = getPublishedServiceExamples().find((item) => item.slug === "barbearia");
+  const $ = html(renderToStaticMarkup(React.createElement(BarbershopDemo, { example })));
+  const text = $.root().text();
+  assert.equal($("h1").length, 1);
+  assert.equal($("#servicos .serviceRows > button[aria-pressed]").length, 4);
+  assert.equal($("#agendamento [role='group']").length, 2);
+  assert.equal($("#localizacao").length, 1);
+  assert.equal($("script[type='application/ld+json']").length, 1);
+  assert.match(text, /endereço fictício/i);
+  assert.equal($("#agendamento .bookingSummary").length, 1);
+  assert.match(text, /nenhum horário é reservado|não envia dados/i);
+  assert.match(text, /fotografia de banco/i);
+  assert.doesNotMatch(text, /mais que um corte|tradição encontra modernidade|seu estilo começa aqui/i);
+});
+
+test("recursos do hub conectam previews prioritários às demos existentes", () => {
+  const content = getServiceHubContent();
+  const examples = new Set(getPublishedServiceExamples().map((example) => example.slug));
+  const primary = content.features.filter((feature) => feature.previewKind);
+  assert.equal(primary.length, 6);
+  assert.equal(primary.every((feature) => feature.exampleHref && feature.exampleSlug && examples.has(feature.exampleSlug)), true);
+  assert.deepEqual(new Set(content.features.map((item) => item.status)), new Set(["included", "available", "additional"]));
+  assert.equal(content.features.filter((item) => item.exampleHref?.startsWith("/servicos/exemplos/barbearia#")).length, 6);
 });
 
 test("todo serviço legado possui mensalidade, implantação e continuidade reais", () => {
@@ -471,7 +434,7 @@ test("cases preservam evidência, mídia local e vínculo com oferta publicada",
   assert.equal(getWorkProjectService(invalid), undefined);
 });
 
-test("composição visual do hub mantém hero curto e contato final acessível", () => {
+test("home comercial mantém oferta única e envia profundidade para páginas próprias", () => {
   const React = require("react");
   const { renderToStaticMarkup } = require("react-dom/server");
   const { load: html } = require("cheerio");
@@ -484,8 +447,10 @@ test("composição visual do hub mantém hero curto e contato final acessível",
   const $ = html(
     renderToStaticMarkup(
       React.createElement(ServiceHubView, {
-        groups: getServiceHubGroups(),
-        contactHref: "mailto:oi@example.com?subject=Ajuda",
+        ...getServiceHubContent(),
+        examples: getPublishedServiceExamples(),
+        contactHref: "https://wa.me/5511999999999",
+        questionHref: "mailto:oi@example.com?subject=Ajuda",
       }),
     ),
   );
@@ -493,13 +458,47 @@ test("composição visual do hub mantém hero curto e contato final acessível",
   assert.equal($("h1").length, 1);
   assert.equal(
     $("#service-hub-title").text(),
-    "Sites, portfólios e melhorias.",
+    "Eu crio, publico e mantenho seu site.",
   );
-  assert.equal($("section[aria-labelledby='service-hub-title'] a").length, 2);
-  assert.equal($("#ajuda-escolher").length, 1);
-  assert.equal($("#ajuda-escolher a[href^='mailto:']").length, 1);
-  assert.equal($("[data-analytics-event='services_help_click']").length, 1);
-  assert.equal($("article").length, 12);
+  assert.equal($("section[aria-labelledby='service-hub-title'] a").length, 5);
+  assert.equal($("[role='tab']").length, 0);
+  assert.equal($("#recursos").length, 0);
+  assert.equal($("#formatos").length, 0);
+  assert.equal($("#examples-preview-title").text(), "Três sites, três direções visuais.");
+  assert.equal($("#exemplos article").length, 3);
+  assert.equal($("#exemplos a[href='/servicos/exemplos/psicologia']").length, 2);
+  assert.equal($("#exemplos a[href='/servicos/exemplos/arquitetura']").length, 2);
+  assert.equal($("#exemplos a[href='/servicos/exemplos/barbearia']").length, 2);
+  assert.equal($("#recursos-principais article").length, 6);
+  assert.equal($("a[href='/servicos/capacidades']").length, 2);
+  assert.equal($("a[href='/servicos/exemplos']").length, 2);
+  assert.equal($("a[href='/work']").length, 1);
+  assert.equal($("#iniciar-projeto a[href^='mailto:']").length, 1);
+  assert.equal($("[data-analytics-event='services_help_click']").length, 2);
+  assert.equal($(".heroPricing").text().includes("R$ 200"), true);
+  assert.equal($(".heroPricing").text().includes("R$ 89,90/mês"), true);
+  assert.equal($("#faq-title").parent().next().find("details").length, 4);
+});
+
+test("página de capacidades concentra recursos, módulos e wireframes interativos", () => {
+  const React = require("react");
+  const { renderToStaticMarkup } = require("react-dom/server");
+  const { load: html } = require("cheerio");
+  const componentLoad = loader({
+    "next/link": ({ children, href, ...props }) => React.createElement("a", { ...props, href }, children),
+    "next/image": ({ fill, priority, sizes, ...props }) => React.createElement("img", props),
+  });
+  const { ServiceCapabilitiesView } = componentLoad("src/components/services/hub/ServiceCapabilitiesView.tsx");
+  const $ = html(renderToStaticMarkup(React.createElement(ServiceCapabilitiesView, { features: getServiceHubContent().features, examples: getPublishedServiceExamples() })));
+  assert.equal($("h1").text(), "Interfaces além da página estática.");
+  assert.equal($("#recursos [role='tab']").length, 6);
+  assert.equal($("#recursos [role='tabpanel']").length, 1);
+  assert.equal($("#recursos details").length, 6);
+  assert.equal($("#modulos [role='tab']").length, 4);
+  assert.equal($("#modulos [role='tabpanel']").length, 1);
+  assert.equal($("#wireframes button[aria-pressed]").length, 8);
+  assert.equal($("a[href='/servicos/exemplos']").length, 2);
+  assert.equal($("a[href='/servicos']").length, 2);
 });
 
 test("destinos são seguros e WhatsApp exige telefone internacional", () => {
