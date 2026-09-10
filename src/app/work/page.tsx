@@ -31,6 +31,9 @@ export async function generateMetadata() {
 
   return {
     ...generatedMeta,
+    alternates: {
+      canonical: `${baseURL}${work.path}`,
+    },
     openGraph: {
       ...generatedMeta.openGraph,
       images: buildDiscoverImageMetadata(image, work.title),
