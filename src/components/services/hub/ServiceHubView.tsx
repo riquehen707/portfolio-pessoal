@@ -41,39 +41,45 @@ const included = [
 const capabilities = [
   {
     number: "01",
-    title: "Apresentar seus serviços",
+    title: "Receber contatos",
     description:
-      "Organize o que você faz de forma clara para quem chega pela primeira vez.",
+      "WhatsApp, formulário ou outra rota simples para transformar uma visita em conversa.",
+    emphasis: true,
   },
   {
     number: "02",
-    title: "Receber contatos",
+    title: "Aparecer nas buscas",
     description:
-      "WhatsApp, formulário ou outra rota simples para iniciar uma conversa.",
+      "Uma base técnica preparada para indexação, conteúdo e evolução de SEO.",
+    emphasis: true,
   },
   {
     number: "03",
-    title: "Exibir seus projetos",
+    title: "Apresentar seus serviços",
     description:
-      "Portfólio, galeria, cases ou trabalhos selecionados em uma estrutura visual.",
+      "Organize o que você faz de forma clara para quem chega pela primeira vez.",
+    emphasis: false,
   },
   {
     number: "04",
-    title: "Mostrar serviços e preços",
+    title: "Exibir seus projetos",
     description:
-      "Explique opções, formatos de contratação e valores quando fizer sentido.",
+      "Portfólio, galeria, cases ou trabalhos selecionados em uma estrutura visual.",
+    emphasis: false,
   },
   {
     number: "05",
-    title: "Aparecer nas buscas",
+    title: "Mostrar serviços e preços",
     description:
-      "Uma base técnica preparada para indexação e evolução de SEO.",
+      "Explique opções, formatos de contratação e valores quando fizer sentido.",
+    emphasis: false,
   },
   {
     number: "06",
     title: "Funcionar bem no celular",
     description:
       "Layout adaptado para navegação, leitura e contato em telas menores.",
+    emphasis: false,
   },
 ] as const;
 
@@ -82,7 +88,7 @@ const process = [
     number: "01",
     title: "Você me explica o projeto",
     description:
-      "Entendo seu negócio, o que precisa entrar no site e o objetivo principal.",
+      "Entendo seu negócio, o que precisa entrar no site e qual é o objetivo principal.",
   },
   {
     number: "02",
@@ -159,34 +165,41 @@ export function ServiceHubView({
             melhor seus serviços e facilitar o contato.
           </p>
 
-          <div className={styles.heroOffer}>
-            <div className={styles.heroPrice}>
-              <span className={styles.priceCurrency}>R$</span>
-              <strong>147</strong>
-              <span className={styles.pricePeriod}>/mês</span>
+          <div className={styles.heroOfferRow}>
+            <div className={styles.heroOffer}>
+              <div className={styles.heroPrice}>
+                <span className={styles.priceCurrency}>R$</span>
+                <strong>147</strong>
+                <span className={styles.pricePeriod}>/mês</span>
+              </div>
+
+              <p>Sem taxa inicial.</p>
             </div>
 
-            <p>Sem taxa inicial.</p>
+            <div className={styles.heroActions}>
+              <a
+                className={styles.primaryAction}
+                href={contactHref}
+                data-analytics-event="services_help_click"
+                data-analytics-location="services_hub_hero"
+              >
+                Quero meu site
+              </a>
+
+              <a
+                className={styles.secondaryAction}
+                href="#projetos"
+              >
+                Ver projetos
+                <span aria-hidden="true">↓</span>
+              </a>
+            </div>
           </div>
 
-          <div className={styles.heroActions}>
-            <a
-              className={styles.primaryAction}
-              href={contactHref}
-              data-analytics-event="services_help_click"
-              data-analytics-location="services_hub_hero"
-            >
-              Quero meu site
-            </a>
-
-            <a
-              className={styles.secondaryAction}
-              href="#projetos"
-            >
-              Ver projetos
-              <span aria-hidden="true">↓</span>
-            </a>
-          </div>
+          <p className={styles.heroSupport}>
+            Design, desenvolvimento, domínio, hospedagem e manutenção no mesmo
+            plano.
+          </p>
         </div>
 
         <div className={styles.heroVisual}>
@@ -196,7 +209,7 @@ export function ServiceHubView({
               alt="Interface do site henrique.dog, desenvolvido por Henrique Reis."
               fill
               priority
-              sizes="(max-width: 760px) 100vw, 54vw"
+              sizes="(max-width: 760px) 100vw, 58vw"
             />
           </div>
 
@@ -211,20 +224,20 @@ export function ServiceHubView({
         className={styles.planSection}
         aria-labelledby="plan-title"
       >
-        <div className={styles.sectionIntro}>
-          <p className={styles.kicker}>Um único plano</p>
+        <div className={styles.planHeader}>
+          <div className={styles.sectionIntro}>
+            <p className={styles.kicker}>Um único plano</p>
 
-          <h2 id="plan-title">
-            O necessário para colocar seu site no ar e mantê-lo funcionando.
-          </h2>
+            <h2 id="plan-title">
+              O necessário para colocar seu site no ar e mantê-lo funcionando.
+            </h2>
 
-          <p className={styles.sectionDescription}>
-            Você não precisa contratar desenvolvimento, hospedagem e manutenção
-            separadamente.
-          </p>
-        </div>
+            <p className={styles.sectionDescription}>
+              Você não precisa contratar desenvolvimento, hospedagem e
+              manutenção separadamente.
+            </p>
+          </div>
 
-        <div className={styles.planContent}>
           <div className={styles.planSummary}>
             <p className={styles.planLabel}>Plano mensal</p>
 
@@ -236,19 +249,24 @@ export function ServiceHubView({
 
             <p>Sem taxa inicial.</p>
           </div>
+        </div>
 
-          <ul className={styles.includedGrid}>
-            {included.map((item) => (
-              <li key={item.title}>
+        <ul className={styles.includedGrid}>
+          {included.map((item) => (
+            <li key={item.title}>
+              <span className={styles.includedMark} aria-hidden="true" />
+              <div>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
+              </div>
+            </li>
+          ))}
+        </ul>
       </section>
 
-      <ServiceExamplesPreview examples={examples} />
+      <div id="projetos" className={styles.examplesAnchor}>
+        <ServiceExamplesPreview examples={examples} />
+      </div>
 
       <section
         className={styles.capabilitiesSection}
@@ -270,10 +288,14 @@ export function ServiceHubView({
         <div className={styles.capabilitiesGrid}>
           {capabilities.map((item) => (
             <article
-              className={styles.capabilityCard}
+              className={`${styles.capabilityCard} ${
+                item.emphasis ? styles.capabilityCardFeatured : ""
+              }`}
               key={item.number}
             >
-              <span>{item.number}</span>
+              <span className={styles.capabilityNumber}>
+                {item.number}
+              </span>
 
               <div>
                 <h3>{item.title}</h3>
@@ -288,18 +310,27 @@ export function ServiceHubView({
         className={styles.processSection}
         aria-labelledby="process-title"
       >
-        <div className={styles.sectionIntro}>
-          <p className={styles.kicker}>Como funciona</p>
+        <div className={styles.processHeader}>
+          <div className={styles.sectionIntro}>
+            <p className={styles.kicker}>Como funciona</p>
 
-          <h2 id="process-title">
-            Do primeiro contato ao site publicado.
-          </h2>
+            <h2 id="process-title">
+              Do primeiro contato ao site publicado.
+            </h2>
+          </div>
+
+          <p className={styles.processLead}>
+            Um processo curto, com poucas etapas e sem exigir que você aprenda
+            ferramentas para acompanhar o projeto.
+          </p>
         </div>
 
         <ol className={styles.processGrid}>
           {process.map((item) => (
             <li key={item.number}>
-              <span>{item.number}</span>
+              <span className={styles.processNumber}>
+                {item.number}
+              </span>
 
               <div>
                 <h3>{item.title}</h3>
@@ -314,12 +345,18 @@ export function ServiceHubView({
         className={styles.faqSection}
         aria-labelledby="faq-title"
       >
-        <div className={styles.sectionIntro}>
-          <p className={styles.kicker}>Antes de contratar</p>
+        <div className={styles.faqIntro}>
+          <div className={styles.sectionIntro}>
+            <p className={styles.kicker}>Antes de contratar</p>
 
-          <h2 id="faq-title">
-            O que você provavelmente quer saber.
-          </h2>
+            <h2 id="faq-title">
+              O que você provavelmente quer saber.
+            </h2>
+
+            <p className={styles.sectionDescription}>
+              Algumas respostas importantes antes de começarmos.
+            </p>
+          </div>
         </div>
 
         <div className={styles.faqPanel}>
@@ -352,7 +389,7 @@ export function ServiceHubView({
         className={styles.finalCta}
         aria-labelledby="contact-title"
       >
-        <div>
+        <div className={styles.finalCtaCopy}>
           <p className={styles.kicker}>Próximo passo</p>
 
           <h2 id="contact-title">
@@ -366,10 +403,11 @@ export function ServiceHubView({
         </div>
 
         <div className={styles.finalCtaAction}>
-          <p>
+          <div className={styles.finalPrice}>
+            <span>A partir de</span>
             <strong>R$147/mês</strong>
-            <span>sem taxa inicial</span>
-          </p>
+            <small>sem taxa inicial</small>
+          </div>
 
           <a
             className={styles.primaryAction}

@@ -1,45 +1,54 @@
 @use "../../../styles/mixins" as mixins;
 
-/* -------------------------------------------------------------------------- */
-/* Section                                                                    */
-/* -------------------------------------------------------------------------- */
-
 .section {
-  --examples-text: var(--neutral-on-background-strong);
-  --examples-muted: var(--neutral-on-background-medium);
+  --examples-text: var(
+    --neutral-on-background-strong
+  );
+  --examples-muted: var(
+    --neutral-on-background-medium
+  );
   --examples-line: rgba(18, 18, 16, 0.1);
-  --examples-line-strong: rgba(18, 18, 16, 0.16);
+  --examples-line-strong: rgba(
+    18,
+    18,
+    16,
+    0.16
+  );
+
+  position: relative;
 
   display: grid;
-  gap: clamp(2.5rem, 5vw, 4rem);
+  gap: clamp(1.8rem, 4vw, 3rem);
 
   width: 100%;
 
-  scroll-margin-top: 7rem;
+  color: var(--examples-text);
 }
 
-/* -------------------------------------------------------------------------- */
-/* Heading                                                                    */
-/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------- */
+/* Heading                                            */
+/* -------------------------------------------------- */
 
 .heading {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 3rem;
+  display: flex;
+  gap: 2rem;
   align-items: end;
+  justify-content: space-between;
 }
 
 .headingCopy {
   display: grid;
-  gap: 1.15rem;
+  gap: 1rem;
 
   max-width: 47rem;
 }
 
-.headingCopy p,
-.headingCopy h2,
-.projectCopy p,
-.projectCopy h3,
+.kicker,
+.heading h2,
+.description,
+.projectIdentity p,
+.projectIdentity h3,
+.projectDescription,
 .footer p {
   margin: 0;
 }
@@ -72,33 +81,34 @@
 }
 
 .heading h2 {
-  max-width: 16ch;
+  max-width: 15ch;
 
   font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 4.8vw, 4.5rem);
-  font-weight: 720;
-  line-height: 0.97;
-  letter-spacing: -0.048em;
+  font-size: clamp(2.5rem, 4.8vw, 4.6rem);
+  font-weight: 740;
+  line-height: 0.95;
+  letter-spacing: -0.052em;
 
   text-wrap: balance;
 }
 
 .description {
-  max-width: 39rem;
+  max-width: 37rem;
 
   color: var(--examples-muted);
 
-  font-size: clamp(0.98rem, 1.25vw, 1.08rem);
-  line-height: 1.65;
+  font-size: clamp(0.96rem, 1.2vw, 1.08rem);
+  line-height: 1.6;
 }
 
-/* -------------------------------------------------------------------------- */
-/* Heading actions                                                            */
-/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------- */
+/* Header actions                                     */
+/* -------------------------------------------------- */
 
 .headingActions {
   display: flex;
-  gap: 1.1rem;
+  flex: 0 0 auto;
+  gap: 1rem;
   align-items: center;
 }
 
@@ -107,48 +117,19 @@
   gap: 0.45rem;
 }
 
-.arrows button {
-  display: grid;
-  place-items: center;
-
-  width: 3rem;
-  height: 3rem;
-
-  padding: 0;
-
-  border: 1px solid var(--examples-line-strong);
-  border-radius: 50%;
-
-  background: transparent;
-  color: var(--examples-text);
-
-  cursor: pointer;
-
-  font-size: 0.95rem;
-  line-height: 1;
-
-  transition:
-    border-color var(--motion-fast),
-    background var(--motion-fast),
-    color var(--motion-fast),
-    transform var(--motion-fast);
-}
-
 .galleryLink {
   display: inline-flex;
-  gap: 0.55rem;
+  gap: 0.45rem;
   align-items: center;
-
-  min-height: 3rem;
 
   color: var(--examples-text);
 
   font-family: var(--font-label);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 700;
 
-  text-decoration: none;
   white-space: nowrap;
+  text-decoration: none;
 }
 
 .galleryLink span {
@@ -157,53 +138,64 @@
   transition: transform var(--motion-fast);
 }
 
-/* -------------------------------------------------------------------------- */
-/* Horizontal rail                                                            */
-/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------- */
+/* Rail                                               */
+/* -------------------------------------------------- */
 
+.railFrame {
+  position: relative;
+
+  width: 100%;
+}
+
+/*
+ * O espaço à direita é proposital.
+ * Ele permite que o próximo projeto fique visível e
+ * comunique que existe navegação horizontal.
+ */
 .track {
   display: flex;
-  gap: clamp(1.25rem, 2.5vw, 2rem);
+  gap: clamp(1rem, 2vw, 1.5rem);
 
-  min-width: 0;
+  width: calc(
+    100vw - max(
+        1rem,
+        (100vw - 80rem) / 2
+      )
+  );
 
-  /*
-   * Mantém o primeiro projeto alinhado ao restante da página,
-   * mas permite que os próximos avancem visualmente para a direita.
-   */
-  margin-right: calc(50% - 50vw);
-
-  padding:
-    0.15rem
-    max(
-      1.5rem,
-      calc((100vw - 78rem) / 2)
-    )
-    1.25rem
-    0;
+  padding: 0 2rem 0 0;
 
   overflow-x: auto;
   overflow-y: hidden;
-
-  overscroll-behavior-inline: contain;
 
   scroll-behavior: smooth;
   scroll-padding-inline: 0;
   scroll-snap-type: x mandatory;
 
-  scrollbar-color: rgba(18, 18, 16, 0.22) transparent;
-  scrollbar-width: thin;
+  scrollbar-width: none;
+
+  overscroll-behavior-inline: contain;
 }
 
-/* -------------------------------------------------------------------------- */
-/* Project                                                                    */
-/* -------------------------------------------------------------------------- */
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.track:focus-visible {
+  outline: 2px solid
+    var(--neutral-on-background-strong);
+  outline-offset: 0.5rem;
+}
+
+/* -------------------------------------------------- */
+/* Project                                            */
+/* -------------------------------------------------- */
 
 .project {
   display: grid;
-  gap: 1.4rem;
-
-  flex: 0 0 clamp(25rem, 42vw, 37rem);
+  flex: 0 0 clamp(24rem, 52vw, 43rem);
+  gap: 1rem;
 
   min-width: 0;
 
@@ -211,129 +203,152 @@
 }
 
 .preview {
-  display: grid;
+  position: relative;
+
+  display: block;
 
   overflow: hidden;
 
   border: 1px solid var(--examples-line);
-  border-radius: 1.5rem;
+  border-radius: 1.35rem;
 
-  background: rgba(18, 18, 16, 0.035);
-  color: var(--examples-text);
+  background: rgba(18, 18, 16, 0.025);
 
+  color: inherit;
   text-decoration: none;
 }
 
 .image {
   position: relative;
 
-  width: 100%;
-
   aspect-ratio: 16 / 10;
 
   overflow: hidden;
 
-  background: #ecece7;
+  background: rgba(18, 18, 16, 0.035);
 }
 
 .image img {
   object-fit: cover;
   object-position: top center;
 
-  transition: transform 500ms ease;
+  transition: transform 450ms ease;
 }
 
-.previewMeta {
+/* -------------------------------------------------- */
+/* Image overlay                                      */
+/* -------------------------------------------------- */
+
+.previewOverlay {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
   display: flex;
   gap: 1rem;
   align-items: center;
   justify-content: space-between;
 
-  min-height: 3.5rem;
+  padding: 0.9rem 1rem;
 
-  padding: 0.85rem 1.15rem;
+  background:
+    linear-gradient(
+      to top,
+      rgba(12, 12, 11, 0.72),
+      rgba(12, 12, 11, 0)
+    );
 
-  border-top: 1px solid var(--examples-line);
+  color: #fff;
 }
 
-.previewMeta span:first-child {
-  color: var(--color-accent-gold-muted);
-
+.previewNumber {
   font-family: var(--font-technical);
-  font-size: 0.63rem;
+  font-size: 0.65rem;
   line-height: 1;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
+
+  opacity: 0.7;
 }
 
-.previewMeta span:last-child {
-  color: var(--examples-muted);
+.previewAction {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
 
   font-family: var(--font-label);
-  font-size: 0.76rem;
-  font-weight: 650;
+  font-size: 0.75rem;
+  font-weight: 700;
 }
 
-/* -------------------------------------------------------------------------- */
-/* Project information                                                        */
-/* -------------------------------------------------------------------------- */
+.previewAction > span {
+  color: var(--color-accent-gold);
+}
+
+/* -------------------------------------------------- */
+/* Project copy                                       */
+/* -------------------------------------------------- */
 
 .projectCopy {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: 1.5rem 2.5rem;
+  grid-template-columns:
+    minmax(10rem, 0.55fr)
+    minmax(0, 1fr)
+    auto;
+  gap: clamp(1rem, 3vw, 2rem);
   align-items: start;
+
+  padding-inline: 0.15rem;
 }
 
 .projectIdentity {
   display: grid;
-  gap: 0.45rem;
+  gap: 0.3rem;
 }
 
-.projectIdentity > p {
+.projectIdentity p {
   color: var(--examples-muted);
 
   font-family: var(--font-technical);
-  font-size: 0.63rem;
-  line-height: 1.2;
+  font-size: 0.62rem;
+  font-weight: var(--type-weight-technical);
+  line-height: 1;
   letter-spacing: 0.08em;
 
   text-transform: uppercase;
 }
 
 .projectIdentity h3 {
-  max-width: 18ch;
-
   font-family: var(--font-heading);
-  font-size: clamp(1.3rem, 1.8vw, 1.65rem);
+  font-size: clamp(1.1rem, 1.7vw, 1.35rem);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -0.025em;
 }
 
 .projectDescription {
-  max-width: 28rem;
+  max-width: 26rem;
 
   color: var(--examples-muted);
 
-  font-size: 0.88rem;
-  line-height: 1.6;
+  font-size: 0.83rem;
+  line-height: 1.55;
 }
 
 .projectLink {
   display: inline-flex;
-  gap: 0.55rem;
+  gap: 0.4rem;
   align-items: center;
 
-  grid-column: 2;
-
-  justify-self: start;
+  padding-top: 0.1rem;
 
   color: var(--examples-text);
 
   font-family: var(--font-label);
-  font-size: 0.82rem;
+  font-size: 0.76rem;
   font-weight: 700;
 
+  white-space: nowrap;
   text-decoration: none;
 }
 
@@ -343,9 +358,9 @@
   transition: transform var(--motion-fast);
 }
 
-/* -------------------------------------------------------------------------- */
-/* Footer                                                                     */
-/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------- */
+/* Footer                                             */
+/* -------------------------------------------------- */
 
 .footer {
   display: flex;
@@ -353,7 +368,9 @@
   align-items: center;
   justify-content: space-between;
 
-  padding-top: 0.4rem;
+  padding-top: 1.1rem;
+
+  border-top: 1px solid var(--examples-line);
 }
 
 .footer p {
@@ -361,229 +378,170 @@
 
   color: var(--examples-muted);
 
-  font-size: 0.75rem;
-  line-height: 1.55;
+  font-size: 0.72rem;
+  line-height: 1.5;
 }
 
-.footer > a {
+.footer a {
   display: inline-flex;
-  gap: 0.5rem;
+  flex: 0 0 auto;
+  gap: 0.4rem;
   align-items: center;
 
-  flex: 0 0 auto;
-
-  color: var(--examples-muted);
+  color: var(--examples-text);
 
   font-family: var(--font-label);
-  font-size: 0.76rem;
-  font-weight: 650;
+  font-size: 0.74rem;
+  font-weight: 700;
 
   text-decoration: none;
 }
 
-.footer > a span {
+.footer a span {
   color: var(--color-accent-gold-muted);
 }
 
-/* -------------------------------------------------------------------------- */
-/* Focus                                                                      */
-/* -------------------------------------------------------------------------- */
-
-.arrows button:focus-visible,
-.galleryLink:focus-visible,
-.track:focus-visible,
-.preview:focus-visible,
-.projectLink:focus-visible,
-.footer a:focus-visible {
-  @include mixins.focus-ring;
-}
-
-/* -------------------------------------------------------------------------- */
-/* Hover                                                                      */
-/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------- */
+/* Hover                                              */
+/* -------------------------------------------------- */
 
 @include mixins.hover-fine {
   .preview:hover .image img {
-    transform: scale(1.015);
-  }
-
-  .preview:hover .previewMeta span:last-child {
-    color: var(--examples-text);
-  }
-
-  .arrows button:hover {
-    border-color: var(--examples-text);
-
-    background: var(--examples-text);
-    color: var(--page-background);
-
-    transform: translateY(-1px);
-  }
-
-  .galleryLink:hover,
-  .projectLink:hover,
-  .footer > a:hover {
-    color: var(--color-accent-gold-muted);
+    transform: scale(1.018);
   }
 
   .galleryLink:hover span,
   .projectLink:hover span {
-    transform: translateX(3px);
+    transform: translateX(0.15rem);
+  }
+
+  .galleryLink:hover,
+  .projectLink:hover,
+  .footer a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.25rem;
   }
 }
 
-/* -------------------------------------------------------------------------- */
-/* Tablet                                                                     */
-/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------- */
+/* Tablet                                             */
+/* -------------------------------------------------- */
 
-@media (max-width: 960px) {
+@media (max-width: 1000px) {
+  .project {
+    flex-basis: clamp(25rem, 67vw, 39rem);
+  }
+
+  .projectCopy {
+    grid-template-columns:
+      minmax(9rem, 0.55fr)
+      minmax(0, 1fr);
+  }
+
+  .projectLink {
+    grid-column: 1 / -1;
+  }
+}
+
+/* -------------------------------------------------- */
+/* Mobile                                             */
+/* -------------------------------------------------- */
+
+@media (max-width: 760px) {
+  .section {
+    gap: 1.6rem;
+  }
+
   .heading {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    align-items: start;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .heading h2 {
+    max-width: 13ch;
+
+    font-size: clamp(
+      2.5rem,
+      10vw,
+      3.6rem
+    );
   }
 
   .headingActions {
     justify-content: space-between;
   }
 
-  .project {
-    flex-basis: min(68vw, 34rem);
-  }
-
-  .projectCopy {
-    grid-template-columns: 1fr;
-    gap: 0.8rem;
-  }
-
-  .projectDescription {
-    max-width: 31rem;
-  }
-
-  .projectLink {
-    grid-column: 1;
-
-    margin-top: 0.25rem;
-  }
-}
-
-/* -------------------------------------------------------------------------- */
-/* Mobile                                                                     */
-/* -------------------------------------------------------------------------- */
-
-@media (max-width: 760px) {
-  .section {
-    gap: 2.25rem;
-  }
-
-  .heading {
-    gap: 1.75rem;
-  }
-
-  .headingCopy {
-    gap: 1rem;
-  }
-
-  .heading h2 {
-    max-width: 17ch;
-
-    font-size: clamp(2.25rem, 9vw, 3.35rem);
-  }
-
-  .description {
-    max-width: 32rem;
-
-    font-size: 0.98rem;
-  }
-
-  .headingActions {
-    gap: 1rem;
-  }
-
-  .arrows {
-    display: none;
-  }
-
-  .galleryLink {
-    min-height: auto;
-  }
-
   .track {
-    gap: 1rem;
+    width: calc(100% + 1rem);
 
-    margin-inline: -1rem;
+    gap: 0.9rem;
 
-    padding:
-      0.1rem
-      1rem
-      0.9rem;
+    padding-right: 1rem;
   }
 
   .project {
-    flex: 0 0 min(86vw, 31rem);
+    flex-basis: min(88vw, 34rem);
+
+    gap: 0.85rem;
   }
 
   .preview {
-    border-radius: 1.25rem;
-  }
-
-  .previewMeta {
-    min-height: 3.25rem;
-
-    padding-inline: 1rem;
-  }
-
-  .projectCopy {
-    gap: 0.75rem;
-
-    padding-inline: 0.1rem;
-  }
-
-  .projectIdentity h3 {
-    font-size: 1.4rem;
-  }
-
-  .projectDescription {
-    font-size: 0.86rem;
-  }
-
-  .footer {
-    display: grid;
-    gap: 0.9rem;
-
-    align-items: start;
-  }
-
-  .footer > a {
-    justify-self: start;
-  }
-}
-
-/* -------------------------------------------------------------------------- */
-/* Small mobile                                                               */
-/* -------------------------------------------------------------------------- */
-
-@media (max-width: 430px) {
-  .track {
-    margin-inline: -1rem;
-  }
-
-  .project {
-    flex-basis: 86vw;
+    border-radius: 1.1rem;
   }
 
   .image {
     aspect-ratio: 4 / 3;
   }
 
-  .previewMeta span:last-child {
-    font-size: 0.72rem;
+  .projectCopy {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .projectDescription {
+    display: -webkit-box;
+
+    overflow: hidden;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .projectLink {
+    grid-column: auto;
+  }
+
+  .footer {
+    align-items: flex-start;
+  }
+
+  .footer p {
+    max-width: 24rem;
   }
 }
 
-/* -------------------------------------------------------------------------- */
-/* Reduced motion                                                             */
-/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------- */
+/* Small mobile                                       */
+/* -------------------------------------------------- */
+
+@media (max-width: 430px) {
+  .headingActions {
+    width: 100%;
+  }
+
+  .project {
+    flex-basis: calc(100vw - 3rem);
+  }
+
+  .footer {
+    display: grid;
+    gap: 0.8rem;
+  }
+}
+
+/* -------------------------------------------------- */
+/* Reduced motion                                     */
+/* -------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
   .track {
@@ -591,14 +549,12 @@
   }
 
   .image img,
-  .arrows button,
   .galleryLink span,
   .projectLink span {
     transition: none;
   }
 
-  .preview:hover .image img,
-  .arrows button:hover {
+  .preview:hover .image img {
     transform: none;
   }
 }

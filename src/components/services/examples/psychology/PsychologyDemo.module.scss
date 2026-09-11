@@ -1,125 +1,1401 @@
 .site {
-  --psychology-ink: #23312c;
-  --psychology-forest: #29483e;
-  --psychology-cream: #f3f0e8;
+  --psychology-ink: #25312d;
+  --psychology-forest: #29473d;
+  --psychology-forest-dark: #203a32;
   --psychology-paper: #fbfaf6;
-  --psychology-clay: #a25f49;
-  --psychology-line: rgba(35, 49, 44, 0.2);
+  --psychology-cream: #f1eee5;
+  --psychology-cream-light: #f6f3ec;
+  --psychology-clay: #a35f49;
+  --psychology-clay-soft: #d2a08d;
+  --psychology-line: rgba(37, 49, 45, 0.16);
+  --psychology-line-soft: rgba(37, 49, 45, 0.09);
+
   min-height: 100vh;
+
   overflow: clip;
+
   background: var(--psychology-paper);
   color: var(--psychology-ink);
+
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
 }
-.site *, .site *::before, .site *::after { box-sizing: border-box; }
-.site h1, .site h2, .site h3, .site p, .site figure, .site dl, .site dd { margin: 0; }
-.site h1, .site h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; letter-spacing: -0.035em; }
-.site a { color: inherit; }
-.header { position: relative; z-index: 5; display: flex; width: min(100% - 3rem, 82rem); min-height: 6rem; margin: 0 auto; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--psychology-line); }
-.brand { display: grid; gap: 0.2rem; text-decoration: none; }
-.brand strong { font-family: Georgia, "Times New Roman", serif; font-size: 1.2rem; font-weight: 400; }
-.brand span { color: rgba(35, 49, 44, 0.68); font-size: 0.68rem; letter-spacing: 0.04em; text-transform: uppercase; }
-.desktopNav { display: flex; gap: 1.5rem; align-items: center; }
-.desktopNav a { padding-block: 0.8rem; font-size: 0.86rem; text-decoration: none; }
-.navAction { padding-inline: 1rem !important; border: 1px solid var(--psychology-forest); border-radius: 999px; }
-.mobileMenu { display: none; position: relative; }
-.mobileMenu summary { min-width: 3rem; min-height: 3rem; cursor: pointer; list-style: none; align-content: center; text-align: center; }
-.mobileMenu summary::-webkit-details-marker { display: none; }
-.mobileMenu nav { position: absolute; top: calc(100% + 0.5rem); right: 0; display: grid; width: min(18rem, calc(100vw - 2rem)); padding: 0.6rem; border: 1px solid var(--psychology-line); background: var(--psychology-paper); box-shadow: 0 0.8rem 2rem rgba(35, 49, 44, 0.08); }
-.mobileMenu nav a { min-height: 3rem; padding: 0.8rem; border-bottom: 1px solid var(--psychology-line); text-decoration: none; }
-.mobileMenu nav a:last-child { border: 0; }
-.hero { display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(22rem, 0.98fr); width: min(100% - 3rem, 82rem); min-height: min(47rem, calc(100vh - 6rem)); margin: 0 auto; align-items: center; gap: clamp(2rem, 7vw, 7rem); padding-block: clamp(3rem, 7vw, 6.5rem); }
-.heroCopy { display: grid; justify-items: start; }
-.eyebrow { color: var(--psychology-clay); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
-.hero h1 { max-width: 13ch; margin-top: 1.4rem; font-size: clamp(3.2rem, 6vw, 6.1rem); line-height: 0.96; }
-.heroCopy > p:not(.eyebrow, .registration) { max-width: 38rem; margin-top: 1.7rem; color: rgba(35, 49, 44, 0.75); font-size: clamp(1.05rem, 1.7vw, 1.25rem); line-height: 1.6; }
-.heroActions { display: flex; gap: 1rem; align-items: center; margin-top: 2rem; }
-.heroActions > a:last-child { min-height: 3.25rem; padding: 0.9rem 0.5rem; align-content: center; text-underline-offset: 0.25rem; }
-.primaryButton, .form button, .whatsappDemo button { display: inline-flex; min-height: 3.25rem; padding: 0.9rem 1.3rem; border: 1px solid var(--psychology-forest); border-radius: 999px; background: var(--psychology-forest); color: #fff; font: inherit; font-weight: 700; align-items: center; justify-content: center; text-decoration: none; }
-.heroActions .primaryButton { color: #fff; }
-.registration { margin-top: 2rem !important; color: rgba(35, 49, 44, 0.58); font-size: 0.76rem; line-height: 1.45; }
-.heroMedia { position: relative; min-height: clamp(31rem, 58vw, 43rem); }
-.heroMedia::before { position: absolute; inset: 1.5rem -1.5rem -1.5rem 1.5rem; border: 1px solid var(--psychology-clay); border-radius: 12rem 12rem 0 0; content: ""; }
-.heroMedia img { border-radius: 12rem 12rem 0 0; object-fit: cover; }
-.heroMedia figcaption { position: absolute; right: 0; bottom: 0; max-width: 24rem; padding: 0.65rem 0.8rem; background: rgba(251, 250, 246, 0.92); color: rgba(35, 49, 44, 0.7); font-size: 0.66rem; line-height: 1.4; }
-.about, .areas, .attendance, .approach, .faq, .contact, .finalCta, .footer { width: min(100% - 3rem, 82rem); margin-inline: auto; }
-.about { display: grid; grid-template-columns: 0.35fr 1fr 0.85fr; gap: clamp(2rem, 6vw, 6rem); padding-block: clamp(5rem, 9vw, 9rem); border-top: 1px solid var(--psychology-line); }
-.sectionLabel { color: var(--psychology-clay); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
-.aboutCopy { display: grid; gap: 1.5rem; }
-.aboutCopy h2, .sectionHeading h2, .attendance h2, .approach h2, .faq h2, .contact h2, .finalCta h2 { font-size: clamp(2.3rem, 4.4vw, 4.5rem); line-height: 1.02; }
-.aboutCopy p, .sectionHeading > p:last-child, .attendanceIntro > p:last-child, .approach div p, .contactIntro > p { color: rgba(35, 49, 44, 0.72); line-height: 1.65; }
-.credentials { display: grid; align-content: start; }
-.credentials div { display: grid; gap: 0.45rem; padding-block: 1rem; border-top: 1px solid var(--psychology-line); }
-.credentials dt { color: rgba(35, 49, 44, 0.58); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; }
-.credentials dd { line-height: 1.45; }
-.areas { padding-block: clamp(5rem, 9vw, 8rem); }
-.sectionHeading { display: grid; grid-template-columns: 1fr 1.35fr 0.8fr; gap: clamp(1.5rem, 4vw, 4rem); align-items: end; }
-.areaGrid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: clamp(3rem, 6vw, 5rem); border-top: 1px solid var(--psychology-line); border-left: 1px solid var(--psychology-line); }
-.areaGrid article { min-height: 17rem; padding: clamp(1.25rem, 3vw, 2.25rem); border-right: 1px solid var(--psychology-line); border-bottom: 1px solid var(--psychology-line); }
-.areaGrid article span, .steps > li > span { color: var(--psychology-clay); font-size: 0.68rem; }
-.areaGrid h3 { margin-top: 4rem; font-family: Georgia, "Times New Roman", serif; font-size: 1.7rem; font-weight: 400; }
-.areaGrid p { margin-top: 1rem; color: rgba(35, 49, 44, 0.68); line-height: 1.5; }
-.careGuide { display: grid; grid-template-columns: minmax(16rem, 0.72fr) minmax(0, 1.28fr); margin-top: clamp(2.5rem, 5vw, 4.5rem); border-block: 1px solid var(--psychology-line); }
-.careOptions { display: grid; border-right: 1px solid var(--psychology-line); }
-.careOptions button { min-height: 4.4rem; padding: 1rem 1.25rem; border: 0; border-bottom: 1px solid var(--psychology-line); background: transparent; color: var(--psychology-ink); cursor: pointer; font: inherit; font-family: Georgia, "Times New Roman", serif; font-size: 1.15rem; text-align: left; }
-.careOptions button:last-child { border-bottom: 0; }
-.careOptions button[aria-pressed="true"] { background: var(--psychology-forest); color: var(--psychology-paper); }
-.careDetail { display: grid; min-height: 21rem; padding: clamp(2rem, 5vw, 5rem); align-content: center; }
-.careDetail span, .careDetail small { color: var(--psychology-clay); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; }
-.careDetail h3 { margin-top: 1rem; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2rem, 4vw, 3.8rem); font-weight: 400; letter-spacing: -0.035em; }
-.careDetail p { max-width: 34rem; margin-top: 1rem; color: rgba(35, 49, 44, 0.72); line-height: 1.65; }
-.careDetail small { max-width: 34rem; margin-top: 2.5rem; line-height: 1.45; }
-.attendance { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 8vw, 8rem); padding-block: clamp(5rem, 9vw, 8rem); }
-.attendanceIntro { display: grid; align-content: start; gap: 1.5rem; }
-.serviceFacts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; align-self: start; }
-.serviceFacts div { display: grid; gap: 0.6rem; min-height: 12rem; padding: 1.5rem; background: var(--psychology-cream); }
-.serviceFacts span { color: var(--psychology-clay); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; }
-.serviceFacts strong { font-family: Georgia, "Times New Roman", serif; font-size: 1.35rem; font-weight: 400; }
-.serviceFacts p, .steps p { color: rgba(35, 49, 44, 0.68); line-height: 1.45; }
-.steps { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); padding: 0; border-top: 1px solid var(--psychology-line); list-style: none; }
-.steps li { display: grid; grid-template-columns: auto 1fr; gap: 1.2rem; padding: 1.75rem; border-right: 1px solid var(--psychology-line); }
-.steps li:last-child { border: 0; }
-.steps h3 { font-family: Georgia, "Times New Roman", serif; font-size: 1.35rem; font-weight: 400; }
-.steps p { margin-top: 0.65rem; }
-.approach { display: grid; grid-template-columns: 0.55fr 1.45fr; gap: clamp(2rem, 7vw, 7rem); padding: clamp(4rem, 8vw, 7rem); background: var(--psychology-forest); color: #f8f6ef; }
-.approach .eyebrow { color: #d8a894; }
-.approach h2 { color: #f8f6ef; }
-.approach div { display: grid; gap: 1.5rem; }
-.approach div p { color: rgba(248, 246, 239, 0.72); }
-.faq { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(2rem, 8vw, 8rem); padding-block: clamp(5rem, 9vw, 9rem); }
-.faq .sectionHeading { display: grid; grid-template-columns: 1fr; align-content: start; }
-.faq details { border-top: 1px solid var(--psychology-line); }
-.faq details:last-child { border-bottom: 1px solid var(--psychology-line); }
-.faq summary { display: flex; min-height: 4.5rem; padding-block: 1rem; cursor: pointer; align-items: center; justify-content: space-between; gap: 1rem; font-family: Georgia, "Times New Roman", serif; font-size: 1.15rem; list-style: none; }
-.faq summary::-webkit-details-marker { display: none; }
-.faq details[open] summary span { transform: rotate(45deg); }
-.faq details p { max-width: 42rem; padding: 0 2.5rem 1.3rem 0; color: rgba(35, 49, 44, 0.7); line-height: 1.55; }
-.contact { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(2rem, 8vw, 8rem); padding: clamp(3rem, 7vw, 6rem); background: var(--psychology-cream); }
-.contactIntro { display: grid; align-content: start; gap: 1.3rem; }
-.whatsappDemo { display: grid; justify-items: start; gap: 0.6rem; margin-top: 0.5rem; }
-.whatsappDemo span { min-height: 2.4em; color: rgba(35, 49, 44, 0.68); font-size: 0.75rem; line-height: 1.4; }
-.socialLinks { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
-.socialLinks a { font-size: 0.8rem; text-underline-offset: 0.25rem; }
-.socialLinks span { color: rgba(35, 49, 44, 0.58); }
-.form { display: grid; gap: 1rem; }
-.form label { display: grid; gap: 0.45rem; font-size: 0.78rem; font-weight: 700; }
-.fieldPair { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-.form input, .form select, .form textarea { width: 100%; min-height: 3.25rem; padding: 0.8rem 0.9rem; border: 1px solid var(--psychology-line); border-radius: 0; outline: 0; background: var(--psychology-paper); color: var(--psychology-ink); font: inherit; font-size: 1rem; }
-.form textarea { resize: vertical; }
-.form input:focus-visible, .form select:focus-visible, .form textarea:focus-visible { border-color: var(--psychology-clay); box-shadow: 0 0 0 3px rgba(162, 95, 73, 0.16); }
-.form button { justify-self: start; cursor: pointer; }
-.privacyNote, .formStatus { color: rgba(35, 49, 44, 0.66); font-size: 0.76rem; line-height: 1.45; }
-.formStatus { min-height: 2.2em; }
-.finalCta { display: grid; justify-items: center; gap: 1.5rem; padding-block: clamp(6rem, 12vw, 11rem); text-align: center; }
-.finalCta h2 { max-width: 15ch; }
-.footer { display: flex; min-height: 7rem; padding-block: 2rem; border-top: 1px solid var(--psychology-line); align-items: center; justify-content: space-between; }
-.footer > div { display: grid; gap: 0.25rem; }
-.footer strong { font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
-.footer span, .footer a { color: rgba(35, 49, 44, 0.65); font-size: 0.75rem; }
-.footer a { display: inline-flex; min-height: 3.2rem; align-items: center; }
-.site a:focus-visible, .site button:focus-visible, .site summary:focus-visible { outline: 3px solid var(--psychology-clay); outline-offset: 4px; }
-@media (hover: hover) and (pointer: fine) { .desktopNav a:not(.navAction):hover, .heroActions > a:last-child:hover, .footer a:hover, .socialLinks a:hover { color: var(--psychology-clay); } .primaryButton:hover, .form button:hover, .whatsappDemo button:hover, .navAction:hover { background: var(--psychology-clay); border-color: var(--psychology-clay); color: #fff; } }
-@media (max-width: 900px) { .desktopNav { display: none; } .mobileMenu { display: block; } .hero, .about, .attendance, .faq, .contact { grid-template-columns: 1fr; } .hero { min-height: auto; } .heroMedia { min-height: 34rem; } .about { gap: 2rem; } .sectionHeading { grid-template-columns: 1fr; align-items: start; } .areaGrid { grid-template-columns: repeat(2, 1fr); } .careGuide { grid-template-columns: 1fr; } .careOptions { border-right: 0; border-bottom: 1px solid var(--psychology-line); } .careDetail { min-height: 18rem; } .attendance { gap: 2.5rem; } .approach { grid-template-columns: 1fr; } }
-@media (max-width: 620px) { .header, .hero, .about, .areas, .attendance, .faq, .contact, .finalCta, .footer { width: min(100% - 2rem, 82rem); } .header { min-height: 4.75rem; } .brand span { max-width: 20ch; } .hero { gap: 3rem; padding-block: 2.5rem 4.5rem; } .hero h1 { font-size: clamp(2.8rem, 14vw, 4.2rem); } .heroActions { display: grid; width: 100%; } .heroActions a { width: 100%; justify-content: center; } .heroMedia { min-height: 29rem; } .heroMedia::before { inset: 0.75rem -0.5rem -0.75rem 0.75rem; } .about, .areas, .attendance, .faq { padding-block: 4.5rem; } .aboutCopy h2, .sectionHeading h2, .attendance h2, .approach h2, .faq h2, .contact h2, .finalCta h2 { font-size: clamp(2.15rem, 11vw, 3.2rem); } .areaGrid, .serviceFacts, .steps, .fieldPair { grid-template-columns: 1fr; } .areaGrid article { min-height: auto; } .areaGrid h3 { margin-top: 2.5rem; } .steps li { border-right: 0; border-bottom: 1px solid var(--psychology-line); } .approach, .contact { width: 100%; padding: 4rem 1rem; } .footer { align-items: flex-start; flex-direction: column; gap: 1rem; } }
-@media (prefers-reduced-motion: reduce) { .faq summary span { transition: none; } }
+
+.site *,
+.site *::before,
+.site *::after {
+  box-sizing: border-box;
+}
+
+.site h1,
+.site h2,
+.site h3,
+.site p,
+.site figure,
+.site dl,
+.site dd {
+  margin: 0;
+}
+
+.site h1,
+.site h2,
+.site h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.site h1,
+.site h2 {
+  letter-spacing: -0.04em;
+}
+
+.site a {
+  color: inherit;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Header                                                                     */
+/* -------------------------------------------------------------------------- */
+
+.header {
+  position: relative;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: min(calc(100% - 3rem), 82rem);
+  min-height: 5.5rem;
+
+  margin-inline: auto;
+
+  border-bottom: 1px solid var(--psychology-line);
+}
+
+.brand {
+  display: grid;
+  gap: 0.15rem;
+
+  color: inherit;
+
+  text-decoration: none;
+}
+
+.brand strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.brand span {
+  color: rgba(37, 49, 45, 0.58);
+
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+
+  text-transform: uppercase;
+}
+
+.desktopNav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.desktopNav a {
+  padding-block: 0.8rem;
+
+  font-size: 0.82rem;
+
+  text-decoration: none;
+}
+
+.navAction {
+  padding: 0.8rem 1.15rem !important;
+
+  border: 1px solid var(--psychology-forest);
+  border-radius: 999px;
+
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.mobileMenu {
+  position: relative;
+
+  display: none;
+}
+
+.mobileMenu summary {
+  display: grid;
+  min-width: 3rem;
+  min-height: 3rem;
+
+  place-items: center;
+
+  cursor: pointer;
+
+  list-style: none;
+
+  font-size: 0.82rem;
+}
+
+.mobileMenu summary::-webkit-details-marker {
+  display: none;
+}
+
+.mobileMenu nav {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+
+  display: grid;
+
+  width: min(19rem, calc(100vw - 2rem));
+
+  padding: 0.55rem;
+
+  border: 1px solid var(--psychology-line);
+
+  background: var(--psychology-paper);
+
+  box-shadow: 0 1rem 2.5rem rgba(37, 49, 45, 0.1);
+}
+
+.mobileMenu nav a {
+  min-height: 3rem;
+
+  padding: 0.85rem;
+
+  border-bottom: 1px solid var(--psychology-line-soft);
+
+  text-decoration: none;
+}
+
+.mobileMenu nav a:last-child {
+  border-bottom: 0;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Shared                                                                     */
+/* -------------------------------------------------------------------------- */
+
+.eyebrow {
+  color: var(--psychology-clay);
+
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.primaryButton,
+.form button,
+.whatsappDemo button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 3.35rem;
+
+  padding: 0.9rem 1.4rem;
+
+  border: 1px solid var(--psychology-forest);
+  border-radius: 999px;
+
+  background: var(--psychology-forest);
+  color: #fff;
+
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  text-decoration: none;
+
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Hero                                                                       */
+/* -------------------------------------------------------------------------- */
+
+.hero {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 0.95fr)
+    minmax(22rem, 1.05fr);
+  gap: clamp(3rem, 7vw, 7rem);
+  align-items: center;
+
+  width: min(calc(100% - 3rem), 82rem);
+
+  margin-inline: auto;
+  padding-block: clamp(4rem, 7vw, 6.5rem);
+}
+
+.heroCopy {
+  display: grid;
+  justify-items: start;
+}
+
+.hero h1 {
+  max-width: 11ch;
+
+  margin-top: 1.35rem;
+
+  font-size: clamp(3.3rem, 6vw, 6.2rem);
+  line-height: 0.92;
+
+  text-wrap: balance;
+}
+
+.heroLead {
+  max-width: 35rem;
+
+  margin-top: 1.7rem !important;
+
+  color: rgba(37, 49, 45, 0.72);
+
+  font-size: clamp(1.04rem, 1.5vw, 1.2rem);
+  line-height: 1.62;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.35rem;
+  align-items: center;
+
+  margin-top: 2rem;
+}
+
+.textAction {
+  display: inline-flex;
+  gap: 0.6rem;
+  align-items: center;
+
+  min-height: 3.35rem;
+
+  padding-inline: 0.25rem;
+
+  font-size: 0.86rem;
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.textAction span {
+  color: var(--psychology-clay);
+}
+
+.registration {
+  max-width: 31rem;
+
+  margin-top: 1.75rem !important;
+
+  color: rgba(37, 49, 45, 0.5);
+
+  font-size: 0.7rem;
+  line-height: 1.45;
+}
+
+.heroVisual {
+  position: relative;
+
+  padding: 0 1.2rem 1.2rem 0;
+}
+
+.heroMedia {
+  position: relative;
+
+  min-height: clamp(34rem, 56vw, 44rem);
+
+  overflow: hidden;
+
+  border-radius: 11rem 11rem 1rem 1rem;
+}
+
+.heroMedia::after {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(27, 42, 36, 0.18),
+      transparent 30%
+    );
+
+  pointer-events: none;
+
+  content: "";
+}
+
+.heroMedia img {
+  object-fit: cover;
+}
+
+.heroMedia figcaption {
+  position: absolute;
+  z-index: 2;
+  right: 1rem;
+  bottom: 0.8rem;
+
+  max-width: 19rem;
+
+  color: rgba(255, 255, 255, 0.76);
+
+  font-size: 0.6rem;
+  line-height: 1.4;
+
+  text-align: right;
+}
+
+.heroCard {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  display: grid;
+  gap: 0.35rem;
+
+  width: min(16rem, 50%);
+
+  padding: 1.35rem;
+
+  border: 1px solid var(--psychology-line);
+
+  background: var(--psychology-paper);
+
+  box-shadow: 0 1.5rem 3rem rgba(37, 49, 45, 0.1);
+}
+
+.heroCard > span {
+  color: var(--psychology-clay);
+
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+
+  text-transform: uppercase;
+}
+
+.heroCard strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.18rem;
+  font-weight: 400;
+}
+
+.heroCard p {
+  color: rgba(37, 49, 45, 0.65);
+
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Practical information                                                     */
+/* -------------------------------------------------------------------------- */
+
+.practicalStrip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  width: min(calc(100% - 3rem), 82rem);
+
+  margin-inline: auto;
+
+  border-block: 1px solid var(--psychology-line);
+}
+
+.practicalStrip > div {
+  display: grid;
+  gap: 0.35rem;
+
+  padding: 1.35rem 1.5rem;
+}
+
+.practicalStrip > div + div {
+  border-left: 1px solid var(--psychology-line);
+}
+
+.practicalStrip span {
+  color: rgba(37, 49, 45, 0.52);
+
+  font-size: 0.61rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+.practicalStrip strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Attendance                                                                 */
+/* -------------------------------------------------------------------------- */
+
+.attendance,
+.areas,
+.about,
+.faq,
+.contact,
+.footer {
+  width: min(calc(100% - 3rem), 82rem);
+
+  margin-inline: auto;
+}
+
+.attendance {
+  display: grid;
+  grid-template-columns:
+    minmax(17rem, 0.72fr)
+    minmax(0, 1.28fr);
+  gap: clamp(3rem, 8vw, 7rem);
+  align-items: start;
+
+  padding-block: clamp(5rem, 9vw, 8rem);
+}
+
+.sectionIntro {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.sectionIntro h2,
+.sectionHeading h2,
+.about h2,
+.faq h2,
+.contact h2,
+.approach h2 {
+  font-size: clamp(2.4rem, 4.5vw, 4.6rem);
+  line-height: 0.99;
+
+  text-wrap: balance;
+}
+
+.sectionIntro > p:last-child,
+.sectionHeading > p:last-child,
+.aboutStatement,
+.faqHeading > p:last-child,
+.contactIntro > p {
+  color: rgba(37, 49, 45, 0.7);
+
+  line-height: 1.65;
+}
+
+.steps {
+  display: grid;
+
+  margin: 0;
+  padding: 0;
+
+  border-top: 1px solid var(--psychology-line);
+
+  list-style: none;
+}
+
+.steps li {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: 1rem;
+
+  padding-block: 1.4rem;
+
+  border-bottom: 1px solid var(--psychology-line);
+}
+
+.steps > li > span {
+  color: var(--psychology-clay);
+
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.steps li > div {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.steps h3 {
+  font-size: 1.35rem;
+}
+
+.steps p {
+  max-width: 34rem;
+
+  color: rgba(37, 49, 45, 0.68);
+
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Areas                                                                      */
+/* -------------------------------------------------------------------------- */
+
+.areas {
+  padding-block: clamp(5rem, 9vw, 8rem);
+
+  border-top: 1px solid var(--psychology-line);
+}
+
+.sectionHeading {
+  display: grid;
+  grid-template-columns:
+    minmax(8rem, 0.45fr)
+    minmax(0, 1.2fr)
+    minmax(15rem, 0.65fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: end;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Care Guide — classes used by interaction component                        */
+/* -------------------------------------------------------------------------- */
+
+.careGuide {
+  display: grid;
+  grid-template-columns:
+    minmax(16rem, 0.72fr)
+    minmax(0, 1.28fr);
+
+  margin-top: clamp(2.8rem, 5vw, 4.5rem);
+
+  border-block: 1px solid var(--psychology-line);
+}
+
+.careOptions {
+  display: grid;
+
+  border-right: 1px solid var(--psychology-line);
+}
+
+.careOptions button {
+  min-height: 4.5rem;
+
+  padding: 1rem 1.25rem;
+
+  border: 0;
+  border-bottom: 1px solid var(--psychology-line);
+
+  background: transparent;
+  color: var(--psychology-ink);
+
+  cursor: pointer;
+
+  font: inherit;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.08rem;
+
+  text-align: left;
+
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.careOptions button:last-child {
+  border-bottom: 0;
+}
+
+.careOptions button[aria-pressed="true"] {
+  background: var(--psychology-forest);
+  color: var(--psychology-paper);
+}
+
+.careDetail {
+  display: grid;
+  align-content: center;
+
+  min-height: 22rem;
+
+  padding: clamp(2rem, 5vw, 4.5rem);
+}
+
+.careDetail span,
+.careDetail small {
+  color: var(--psychology-clay);
+
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.careDetail h3 {
+  max-width: 12ch;
+
+  margin-top: 1rem;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.1rem, 4vw, 3.8rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.careDetail p {
+  max-width: 34rem;
+
+  margin-top: 1rem;
+
+  color: rgba(37, 49, 45, 0.7);
+
+  line-height: 1.62;
+}
+
+.careDetail small {
+  max-width: 34rem;
+
+  margin-top: 2rem;
+
+  color: rgba(37, 49, 45, 0.5);
+
+  line-height: 1.45;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Approach                                                                   */
+/* -------------------------------------------------------------------------- */
+
+.approach {
+  display: grid;
+  grid-template-columns:
+    minmax(10rem, 0.45fr)
+    minmax(0, 1.55fr);
+  gap: clamp(3rem, 8vw, 8rem);
+
+  width: min(calc(100% - 3rem), 82rem);
+
+  margin-inline: auto;
+  padding: clamp(4rem, 7vw, 6.5rem);
+
+  background: var(--psychology-forest);
+  color: #f8f6ef;
+}
+
+.approachLabel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-height: 13rem;
+}
+
+.approach .eyebrow {
+  color: var(--psychology-clay-soft);
+}
+
+.approachLabel > span {
+  color: rgba(248, 246, 239, 0.18);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(4rem, 8vw, 7rem);
+  line-height: 0.8;
+}
+
+.approachCopy {
+  display: grid;
+  gap: 1.35rem;
+  align-content: center;
+}
+
+.approachCopy h2 {
+  max-width: 12ch;
+
+  color: #f8f6ef;
+}
+
+.approachCopy p {
+  max-width: 42rem;
+
+  color: rgba(248, 246, 239, 0.73);
+
+  line-height: 1.7;
+}
+
+.approachCopy small {
+  max-width: 38rem;
+
+  padding-top: 1rem;
+
+  border-top: 1px solid rgba(248, 246, 239, 0.16);
+
+  color: rgba(248, 246, 239, 0.5);
+
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+/* -------------------------------------------------------------------------- */
+/* About                                                                      */
+/* -------------------------------------------------------------------------- */
+
+.about {
+  display: grid;
+  grid-template-columns:
+    minmax(14rem, 0.55fr)
+    minmax(0, 0.9fr)
+    minmax(18rem, 0.75fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+
+  padding-block: clamp(5rem, 9vw, 8rem);
+}
+
+.aboutHeading {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.aboutStatement {
+  display: grid;
+  gap: 1.25rem;
+
+  font-size: 0.98rem;
+}
+
+.credentials {
+  display: grid;
+  align-content: start;
+}
+
+.credentials div {
+  display: grid;
+  gap: 0.4rem;
+
+  padding-block: 0.95rem;
+
+  border-top: 1px solid var(--psychology-line);
+}
+
+.credentials div:last-child {
+  border-bottom: 1px solid var(--psychology-line);
+}
+
+.credentials dt {
+  color: rgba(37, 49, 45, 0.5);
+
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.credentials dd {
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+/* -------------------------------------------------------------------------- */
+/* FAQ                                                                        */
+/* -------------------------------------------------------------------------- */
+
+.faq {
+  display: grid;
+  grid-template-columns:
+    minmax(17rem, 0.68fr)
+    minmax(0, 1.32fr);
+  gap: clamp(3rem, 8vw, 7rem);
+
+  padding-block: clamp(5rem, 9vw, 8rem);
+
+  border-top: 1px solid var(--psychology-line);
+}
+
+.faqHeading {
+  display: grid;
+  gap: 1.2rem;
+  align-content: start;
+}
+
+.faqHeading > p:last-child {
+  max-width: 26rem;
+}
+
+.faqList {
+  border-top: 1px solid var(--psychology-line);
+}
+
+.faq details {
+  border-bottom: 1px solid var(--psychology-line);
+}
+
+.faq summary {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+
+  min-height: 4.8rem;
+
+  padding-block: 0.9rem;
+
+  cursor: pointer;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.1rem;
+
+  list-style: none;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faqNumber {
+  color: var(--psychology-clay);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62rem;
+}
+
+.faqIcon {
+  color: var(--psychology-clay);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.3rem;
+
+  transition: transform 180ms ease;
+}
+
+.faq details[open] .faqIcon {
+  transform: rotate(45deg);
+}
+
+.faq details > p {
+  max-width: 42rem;
+
+  padding: 0 2.5rem 1.35rem 3.5rem;
+
+  color: rgba(37, 49, 45, 0.7);
+
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Contact                                                                    */
+/* -------------------------------------------------------------------------- */
+
+.contact {
+  display: grid;
+  grid-template-columns:
+    minmax(17rem, 0.72fr)
+    minmax(0, 1.28fr);
+  gap: clamp(3rem, 8vw, 7rem);
+
+  margin-bottom: clamp(5rem, 9vw, 8rem);
+  padding: clamp(3rem, 6vw, 5.5rem);
+
+  background: var(--psychology-cream);
+}
+
+.contactIntro {
+  display: grid;
+  gap: 1.25rem;
+  align-content: start;
+}
+
+.contactIntro h2 {
+  max-width: 11ch;
+}
+
+.whatsappDemo {
+  display: grid;
+  gap: 0.55rem;
+  justify-items: start;
+
+  margin-top: 0.4rem;
+}
+
+.whatsappDemo span {
+  max-width: 22rem;
+  min-height: 2.2em;
+
+  color: rgba(37, 49, 45, 0.6);
+
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.socialLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  margin-top: 0.7rem;
+}
+
+.socialLinks a {
+  font-size: 0.76rem;
+
+  text-underline-offset: 0.25rem;
+}
+
+.socialLinks span {
+  color: rgba(37, 49, 45, 0.5);
+}
+
+.contactForm {
+  display: grid;
+  gap: 1.5rem;
+
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+
+  border: 1px solid var(--psychology-line);
+
+  background: var(--psychology-paper);
+}
+
+.formHeading {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.formHeading span {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.15rem;
+}
+
+.formHeading p {
+  color: rgba(37, 49, 45, 0.58);
+
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Form — classes used by interaction component                              */
+/* -------------------------------------------------------------------------- */
+
+.form {
+  display: grid;
+  gap: 1rem;
+}
+
+.form label {
+  display: grid;
+  gap: 0.45rem;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.fieldPair {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.form input,
+.form select,
+.form textarea {
+  width: 100%;
+  min-height: 3.25rem;
+
+  padding: 0.8rem 0.9rem;
+
+  border: 1px solid var(--psychology-line);
+  border-radius: 0;
+
+  outline: 0;
+
+  background: var(--psychology-paper);
+  color: var(--psychology-ink);
+
+  font: inherit;
+  font-size: 0.95rem;
+}
+
+.form textarea {
+  resize: vertical;
+}
+
+.form input:focus-visible,
+.form select:focus-visible,
+.form textarea:focus-visible {
+  border-color: var(--psychology-clay);
+
+  box-shadow:
+    0 0 0 3px rgba(163, 95, 73, 0.14);
+}
+
+.form button {
+  justify-self: start;
+}
+
+.privacyNote,
+.formStatus {
+  color: rgba(37, 49, 45, 0.58);
+
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.formStatus {
+  min-height: 2em;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Footer                                                                     */
+/* -------------------------------------------------------------------------- */
+
+.footer {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 6.5rem;
+
+  padding-block: 2rem;
+
+  border-top: 1px solid var(--psychology-line);
+}
+
+.footer > div {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.footer strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.footer span,
+.footer a {
+  color: rgba(37, 49, 45, 0.58);
+
+  font-size: 0.72rem;
+}
+
+.footer a {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+
+  min-height: 3rem;
+
+  text-decoration: none;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Accessibility / hover                                                      */
+/* -------------------------------------------------------------------------- */
+
+.site a:focus-visible,
+.site button:focus-visible,
+.site summary:focus-visible {
+  outline: 3px solid var(--psychology-clay);
+  outline-offset: 4px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .desktopNav a:not(.navAction):hover,
+  .textAction:hover,
+  .footer a:hover,
+  .socialLinks a:hover {
+    color: var(--psychology-clay);
+  }
+
+  .primaryButton:hover,
+  .form button:hover,
+  .whatsappDemo button:hover,
+  .navAction:hover {
+    border-color: var(--psychology-clay);
+
+    background: var(--psychology-clay);
+    color: #fff;
+
+    transform: translateY(-1px);
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Tablet                                                                     */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .desktopNav {
+    display: none;
+  }
+
+  .mobileMenu {
+    display: block;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .heroCopy {
+    max-width: 42rem;
+  }
+
+  .heroVisual {
+    width: min(100%, 38rem);
+
+    justify-self: center;
+  }
+
+  .heroMedia {
+    min-height: 36rem;
+  }
+
+  .attendance,
+  .about,
+  .faq,
+  .contact {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionHeading {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .sectionHeading h2 {
+    max-width: 15ch;
+  }
+
+  .sectionHeading > p:last-child {
+    max-width: 36rem;
+  }
+
+  .careGuide {
+    grid-template-columns: 1fr;
+  }
+
+  .careOptions {
+    border-right: 0;
+    border-bottom: 1px solid var(--psychology-line);
+  }
+
+  .careDetail {
+    min-height: 18rem;
+  }
+
+  .approach {
+    grid-template-columns: 1fr;
+  }
+
+  .approachLabel {
+    display: block;
+    min-height: auto;
+  }
+
+  .approachLabel > span {
+    display: none;
+  }
+
+  .aboutStatement {
+    max-width: 42rem;
+  }
+
+  .faqHeading {
+    max-width: 38rem;
+  }
+
+  .contactIntro {
+    max-width: 37rem;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Mobile                                                                     */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 620px) {
+  .header,
+  .hero,
+  .practicalStrip,
+  .attendance,
+  .areas,
+  .about,
+  .faq,
+  .contact,
+  .footer {
+    width: min(calc(100% - 2rem), 82rem);
+  }
+
+  .header {
+    min-height: 4.75rem;
+  }
+
+  .hero {
+    gap: 2.7rem;
+
+    padding-block: 2.8rem 4rem;
+  }
+
+  .hero h1 {
+    max-width: 10ch;
+
+    font-size: clamp(3rem, 14vw, 4.4rem);
+  }
+
+  .heroLead {
+    font-size: 1rem;
+  }
+
+  .heroActions {
+    display: grid;
+
+    width: 100%;
+  }
+
+  .heroActions a {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  .heroVisual {
+    width: 100%;
+
+    padding: 0 0.55rem 0.55rem 0;
+  }
+
+  .heroMedia {
+    min-height: 29rem;
+
+    border-radius: 8rem 8rem 0.75rem 0.75rem;
+  }
+
+  .heroMedia figcaption {
+    right: 0.7rem;
+    bottom: 0.7rem;
+
+    max-width: 14rem;
+
+    font-size: 0.55rem;
+  }
+
+  .heroCard {
+    width: min(14rem, 68%);
+
+    padding: 1rem;
+  }
+
+  .practicalStrip {
+    grid-template-columns: 1fr;
+  }
+
+  .practicalStrip > div {
+    padding: 1rem 0;
+
+    border-bottom: 1px solid var(--psychology-line);
+  }
+
+  .practicalStrip > div + div {
+    border-left: 0;
+  }
+
+  .practicalStrip > div:last-child {
+    border-bottom: 0;
+  }
+
+  .attendance,
+  .areas,
+  .about,
+  .faq {
+    padding-block: 4.5rem;
+  }
+
+  .sectionIntro h2,
+  .sectionHeading h2,
+  .about h2,
+  .faq h2,
+  .contact h2,
+  .approach h2 {
+    font-size: clamp(2.25rem, 11vw, 3.35rem);
+  }
+
+  .steps li {
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+  }
+
+  .careDetail {
+    padding: 2rem 1rem;
+  }
+
+  .approach {
+    width: 100%;
+
+    padding: 4rem 1rem;
+  }
+
+  .contact {
+    width: 100%;
+
+    margin-bottom: 4rem;
+    padding: 4rem 1rem;
+  }
+
+  .contactForm {
+    padding: 1.25rem;
+  }
+
+  .fieldPair {
+    grid-template-columns: 1fr;
+  }
+
+  .faq summary {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .faqNumber {
+    display: none;
+  }
+
+  .faq details > p {
+    padding-left: 0;
+  }
+
+  .footer {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 1rem;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Reduced motion                                                             */
+/* -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryButton,
+  .form button,
+  .whatsappDemo button,
+  .navAction,
+  .faqIcon,
+  .careOptions button {
+    transition: none;
+  }
+
+  .primaryButton:hover,
+  .form button:hover,
+  .whatsappDemo button:hover {
+    transform: none;
+  }
+}

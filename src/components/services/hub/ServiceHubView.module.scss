@@ -7,20 +7,18 @@
 .shell {
   --hub-text: var(--neutral-on-background-strong);
   --hub-muted: var(--neutral-on-background-medium);
-
   --hub-line: rgba(18, 18, 16, 0.1);
   --hub-line-strong: rgba(18, 18, 16, 0.16);
-
   --hub-surface: rgba(18, 18, 16, 0.025);
-  --hub-surface-strong: rgba(18, 18, 16, 0.045);
+  --hub-surface-strong: rgba(18, 18, 16, 0.05);
 
   --hub-radius-sm: 1rem;
   --hub-radius-md: 1.5rem;
   --hub-radius-lg: 2rem;
 
-  width: min(calc(100% - 3rem), 78rem);
+  width: min(calc(100% - 3rem), 80rem);
   margin-inline: auto;
-  padding-bottom: clamp(6rem, 10vw, 10rem);
+  padding-bottom: clamp(5rem, 9vw, 8rem);
 
   color: var(--hub-text);
 }
@@ -37,6 +35,7 @@
 .hero h1,
 .heroStatement,
 .heroOffer p,
+.heroSupport,
 .sectionIntro h2,
 .sectionIntro p,
 .planSummary p,
@@ -47,6 +46,7 @@
 .capabilityCard p,
 .processGrid h3,
 .processGrid p,
+.processLead,
 .faqPanel p,
 .finalCta h2,
 .finalCta p {
@@ -82,30 +82,30 @@
 
 .sectionIntro {
   display: grid;
-  gap: 1.2rem;
+  gap: 1rem;
 
-  max-width: 46rem;
+  max-width: 45rem;
 }
 
 .sectionIntro h2 {
-  max-width: 18ch;
+  max-width: 17ch;
 
   font-family: var(--font-heading);
-  font-size: clamp(2.3rem, 4.2vw, 4rem);
-  font-weight: 720;
+  font-size: clamp(2.3rem, 4vw, 3.8rem);
+  font-weight: 730;
   line-height: 0.98;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.047em;
 
   text-wrap: balance;
 }
 
 .sectionDescription {
-  max-width: 38rem;
+  max-width: 34rem;
 
   color: var(--hub-muted);
 
-  font-size: clamp(1rem, 1.3vw, 1.12rem);
-  line-height: 1.65;
+  font-size: clamp(0.96rem, 1.2vw, 1.08rem);
+  line-height: 1.62;
 }
 
 .primaryAction,
@@ -114,7 +114,7 @@
   align-items: center;
   justify-content: center;
 
-  min-height: 3.2rem;
+  min-height: 3.25rem;
 
   border-radius: 0.85rem;
 
@@ -127,7 +127,7 @@
 }
 
 .primaryAction {
-  padding: 0.95rem 1.35rem;
+  padding: 0.95rem 1.4rem;
 
   border: 1px solid #a7801e;
   background: var(--color-accent-gold);
@@ -141,7 +141,7 @@
 .secondaryAction {
   gap: 0.65rem;
 
-  padding: 0.95rem 0.35rem;
+  padding: 0.95rem 0.3rem;
 
   color: var(--hub-text);
 }
@@ -164,49 +164,56 @@
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
-  gap: clamp(3rem, 7vw, 6.5rem);
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  gap: clamp(2.5rem, 6vw, 5.5rem);
   align-items: center;
 
-  min-height: min(46rem, calc(100svh - 6rem));
+  min-height: min(44rem, calc(100svh - 5rem));
 
-  padding-block: clamp(4rem, 7vw, 7rem);
+  padding-block: clamp(3.4rem, 6vw, 6rem);
 }
 
 .heroCopy {
   display: grid;
-  gap: 1.35rem;
+  gap: 1.25rem;
   align-content: center;
 }
 
 .hero h1 {
-  max-width: 10.5ch;
+  max-width: 9.5ch;
 
   font-family: var(--font-heading);
-  font-size: clamp(3.1rem, 5.7vw, 5.7rem);
-  font-weight: 760;
-  line-height: 0.93;
-  letter-spacing: -0.057em;
+  font-size: clamp(3.2rem, 5.9vw, 5.9rem);
+  font-weight: 770;
+  line-height: 0.91;
+  letter-spacing: -0.06em;
 
   text-wrap: balance;
 }
 
 .heroStatement {
-  max-width: 30rem;
+  max-width: 29rem;
 
   color: var(--hub-muted);
 
-  font-size: clamp(1.08rem, 1.6vw, 1.3rem);
+  font-size: clamp(1.05rem, 1.5vw, 1.23rem);
   line-height: 1.55;
+}
+
+.heroOfferRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem 2rem;
+  align-items: end;
+
+  margin-top: 0.55rem;
 }
 
 .heroOffer {
   display: grid;
-  gap: 0.55rem;
+  gap: 0.45rem;
 
   width: fit-content;
-
-  margin-top: 0.65rem;
 }
 
 .heroPrice {
@@ -219,7 +226,7 @@
 .priceCurrency {
   align-self: flex-start;
 
-  margin-top: 0.45rem;
+  margin-top: 0.42rem;
   margin-right: 0.2rem;
 
   font-size: 1rem;
@@ -227,8 +234,8 @@
 }
 
 .heroPrice strong {
-  font-size: clamp(3.5rem, 5vw, 4.8rem);
-  font-weight: 760;
+  font-size: clamp(3.5rem, 4.8vw, 4.7rem);
+  font-weight: 770;
   line-height: 0.8;
   letter-spacing: -0.06em;
 }
@@ -238,24 +245,35 @@
 
   color: var(--hub-muted);
 
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 650;
 }
 
 .heroOffer > p {
   color: var(--hub-muted);
 
-  font-size: 0.83rem;
+  font-size: 0.8rem;
   line-height: 1.4;
 }
 
 .heroActions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.8rem 1.35rem;
+  gap: 0.65rem 1.2rem;
   align-items: center;
+}
 
-  margin-top: 0.5rem;
+.heroSupport {
+  max-width: 32rem;
+
+  padding-top: 1rem;
+
+  border-top: 1px solid var(--hub-line);
+
+  color: var(--hub-muted);
+
+  font-size: 0.82rem;
+  line-height: 1.5;
 }
 
 .heroVisual {
@@ -264,7 +282,7 @@
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
 
-  min-height: 36rem;
+  min-height: 38rem;
 
   overflow: hidden;
 
@@ -272,12 +290,15 @@
   border-radius: var(--hub-radius-lg);
 
   background: var(--hub-surface);
+
+  box-shadow:
+    0 2rem 5rem rgba(18, 18, 16, 0.06);
 }
 
 .heroImage {
   position: relative;
 
-  min-height: 32rem;
+  min-height: 33.8rem;
 
   overflow: hidden;
 }
@@ -285,6 +306,8 @@
 .heroImage img {
   object-fit: cover;
   object-position: top center;
+
+  transform: scale(1.015);
 
   transition: transform 500ms ease;
 }
@@ -295,20 +318,20 @@
   align-items: center;
   justify-content: space-between;
 
-  min-height: 4.4rem;
+  min-height: 4.2rem;
 
   padding: 0.8rem 1.25rem;
 
   border-top: 1px solid var(--hub-line);
 
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.68);
 }
 
 .heroVisualFooter span {
   color: var(--hub-muted);
 
   font-family: var(--font-technical);
-  font-size: 0.65rem;
+  font-size: 0.63rem;
   line-height: 1;
   letter-spacing: 0.08em;
 
@@ -320,7 +343,7 @@
 
   font-family: var(--font-heading);
   font-size: 0.95rem;
-  font-weight: 670;
+  font-weight: 680;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -329,32 +352,34 @@
 
 .planSection {
   display: grid;
-  gap: clamp(3rem, 6vw, 5rem);
+  gap: clamp(2.5rem, 5vw, 4rem);
 
-  margin-top: clamp(5rem, 9vw, 9rem);
-  padding: clamp(3rem, 6vw, 5.5rem);
+  margin-top: clamp(3.5rem, 6vw, 6rem);
+  padding: clamp(2.7rem, 5vw, 4.5rem);
 
   border-radius: var(--hub-radius-lg);
 
   background: var(--hub-surface);
 }
 
-.planContent {
+.planHeader {
   display: grid;
-  grid-template-columns: minmax(13rem, 0.4fr) minmax(0, 1.6fr);
-  gap: clamp(2.5rem, 6vw, 5rem);
-  align-items: start;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: end;
 }
 
 .planSummary {
   display: grid;
-  gap: 0.85rem;
+  gap: 0.7rem;
+
+  min-width: 11rem;
 }
 
 .planLabel {
   color: var(--hub-muted);
 
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 650;
 }
 
@@ -368,76 +393,104 @@
 .planPrice > span {
   align-self: flex-start;
 
-  margin-top: 0.4rem;
+  margin-top: 0.38rem;
   margin-right: 0.2rem;
 
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 700;
 }
 
 .planPrice strong {
-  font-size: clamp(3.5rem, 5vw, 4.7rem);
+  font-size: clamp(3.4rem, 4.6vw, 4.5rem);
   font-weight: 760;
   line-height: 0.78;
   letter-spacing: -0.06em;
 }
 
 .planPrice small {
-  margin: 0 0 0.18rem 0.4rem;
+  margin: 0 0 0.18rem 0.38rem;
 
   color: var(--hub-muted);
 
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 650;
 }
 
 .planSummary > p:last-child {
   color: var(--hub-muted);
 
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
 .includedGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2rem 2.5rem;
+  gap: 0;
 
   margin: 0;
   padding: 0;
+
+  border-top: 1px solid var(--hub-line);
 
   list-style: none;
 }
 
 .includedGrid li {
   display: grid;
-  gap: 0.55rem;
-  align-content: start;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.75rem;
 
-  min-width: 0;
+  padding: 1.45rem 1.35rem 1.45rem 0;
+
+  border-bottom: 1px solid var(--hub-line);
+}
+
+.includedGrid li:nth-child(3n + 2),
+.includedGrid li:nth-child(3n + 3) {
+  padding-left: 1.35rem;
+
+  border-left: 1px solid var(--hub-line);
+}
+
+.includedMark {
+  width: 0.36rem;
+  height: 0.36rem;
+
+  margin-top: 0.37rem;
+
+  border-radius: 999px;
+
+  background: var(--color-accent-gold);
+}
+
+.includedGrid li > div {
+  display: grid;
+  gap: 0.45rem;
 }
 
 .includedGrid h3 {
   font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 690;
+  font-size: 0.98rem;
+  font-weight: 700;
   line-height: 1.2;
 }
 
 .includedGrid p {
-  max-width: 19rem;
+  max-width: 18rem;
 
   color: var(--hub-muted);
 
-  font-size: 0.86rem;
-  line-height: 1.55;
+  font-size: 0.82rem;
+  line-height: 1.52;
 }
 
-/*
- * ServiceExamplesPreview é um componente externo.
- * Este seletor cria o respiro antes dele sem depender das classes internas.
- */
-.planSection + * {
-  margin-top: clamp(7rem, 11vw, 11rem);
+/* -------------------------------------------------------------------------- */
+/* Examples                                                                   */
+/* -------------------------------------------------------------------------- */
+
+.examplesAnchor {
+  scroll-margin-top: 7rem;
+  margin-top: clamp(5rem, 8vw, 8rem);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -446,64 +499,68 @@
 
 .capabilitiesSection {
   display: grid;
-  grid-template-columns: minmax(18rem, 0.68fr) minmax(0, 1.32fr);
-  gap: clamp(3rem, 8vw, 7rem);
+  grid-template-columns: minmax(18rem, 0.62fr) minmax(0, 1.38fr);
+  gap: clamp(3rem, 7vw, 6rem);
   align-items: start;
 
-  margin-top: clamp(7rem, 11vw, 11rem);
+  margin-top: clamp(5rem, 8vw, 8rem);
 }
 
 .capabilitiesGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-
-  border-top: 1px solid var(--hub-line-strong);
+  gap: 0.85rem;
 }
 
 .capabilityCard {
   display: grid;
   grid-template-columns: 2rem minmax(0, 1fr);
-  gap: 1rem;
+  gap: 0.9rem;
 
-  min-height: 10.5rem;
+  min-height: 9rem;
 
-  padding: 1.5rem 1.4rem 1.5rem 0;
+  padding: 1.35rem;
 
-  border-bottom: 1px solid var(--hub-line);
+  border: 1px solid var(--hub-line);
+  border-radius: 1.25rem;
+
+  background: transparent;
 }
 
-.capabilityCard:nth-child(odd) {
-  padding-right: 2rem;
+.capabilityCardFeatured {
+  min-height: 12rem;
+
+  padding: 1.6rem;
+
+  background: var(--hub-surface);
 }
 
-.capabilityCard:nth-child(even) {
-  padding-left: 2rem;
-
-  border-left: 1px solid var(--hub-line);
-}
-
-.capabilityCard > span {
+.capabilityNumber {
   padding-top: 0.15rem;
 
   color: var(--color-accent-gold-muted);
 
   font-family: var(--font-technical);
-  font-size: 0.65rem;
+  font-size: 0.64rem;
   line-height: 1;
 }
 
 .capabilityCard > div {
   display: grid;
-  gap: 0.6rem;
+  gap: 0.55rem;
   align-content: start;
 }
 
 .capabilityCard h3 {
   font-family: var(--font-heading);
-  font-size: clamp(1.15rem, 1.7vw, 1.4rem);
+  font-size: clamp(1.1rem, 1.55vw, 1.35rem);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.02em;
+}
+
+.capabilityCardFeatured h3 {
+  font-size: clamp(1.35rem, 2vw, 1.7rem);
 }
 
 .capabilityCard p {
@@ -511,8 +568,8 @@
 
   color: var(--hub-muted);
 
-  font-size: 0.88rem;
-  line-height: 1.58;
+  font-size: 0.86rem;
+  line-height: 1.56;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -521,9 +578,25 @@
 
 .processSection {
   display: grid;
-  gap: clamp(3rem, 6vw, 4.5rem);
+  gap: clamp(2.5rem, 5vw, 4rem);
 
-  margin-top: clamp(8rem, 12vw, 12rem);
+  margin-top: clamp(5rem, 8vw, 8rem);
+}
+
+.processHeader {
+  display: flex;
+  gap: 2rem;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.processLead {
+  max-width: 24rem;
+
+  color: var(--hub-muted);
+
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
 
 .processGrid {
@@ -539,39 +612,45 @@
 }
 
 .processGrid li {
+  position: relative;
+
   display: grid;
-  gap: clamp(3rem, 5vw, 5rem);
+  gap: 3.4rem;
   align-content: space-between;
 
-  min-height: 16rem;
+  min-height: 14.5rem;
 
-  padding: 1.4rem 1.5rem 1.5rem 0;
+  padding: 1.35rem 1.4rem 1.4rem 0;
 
   border-bottom: 1px solid var(--hub-line);
 }
 
 .processGrid li + li {
-  padding-left: 1.5rem;
+  padding-left: 1.4rem;
 
   border-left: 1px solid var(--hub-line);
 }
 
-.processGrid > li > span {
+.processNumber {
   color: var(--color-accent-gold-muted);
 
-  font-family: var(--font-technical);
-  font-size: 0.66rem;
-  line-height: 1;
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+
+  opacity: 0.32;
 }
 
 .processGrid li > div {
   display: grid;
-  gap: 0.7rem;
+  gap: 0.65rem;
 }
 
 .processGrid h3 {
   font-family: var(--font-heading);
-  font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+  font-size: clamp(1.12rem, 1.5vw, 1.32rem);
   font-weight: 700;
   line-height: 1.17;
   letter-spacing: -0.02em;
@@ -580,8 +659,8 @@
 .processGrid p {
   color: var(--hub-muted);
 
-  font-size: 0.86rem;
-  line-height: 1.58;
+  font-size: 0.84rem;
+  line-height: 1.56;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -590,11 +669,16 @@
 
 .faqSection {
   display: grid;
-  grid-template-columns: minmax(17rem, 0.58fr) minmax(0, 1.42fr);
-  gap: clamp(3rem, 8vw, 7rem);
+  grid-template-columns: minmax(15rem, 0.52fr) minmax(0, 1.48fr);
+  gap: clamp(2.5rem, 7vw, 6rem);
   align-items: start;
 
-  margin-top: clamp(8rem, 12vw, 12rem);
+  margin-top: clamp(5rem, 8vw, 8rem);
+}
+
+.faqIntro {
+  position: sticky;
+  top: 7rem;
 }
 
 .faqPanel {
@@ -612,13 +696,13 @@
 
 .faqPanel summary {
   display: grid;
-  grid-template-columns: 2.25rem minmax(0, 1fr) auto;
+  grid-template-columns: 2rem minmax(0, 1fr) auto;
   gap: 1rem;
   align-items: center;
 
-  min-height: 5.1rem;
+  min-height: 4.6rem;
 
-  padding: 1rem 1.5rem;
+  padding: 0.9rem 1.35rem;
 
   color: var(--hub-text);
 
@@ -635,13 +719,13 @@
   color: var(--color-accent-gold-muted);
 
   font-family: var(--font-technical);
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   line-height: 1;
 }
 
 .faqQuestion {
   font-family: var(--font-heading);
-  font-size: clamp(1rem, 1.45vw, 1.17rem);
+  font-size: clamp(0.98rem, 1.35vw, 1.12rem);
   font-weight: 680;
   line-height: 1.25;
 }
@@ -649,7 +733,7 @@
 .faqIcon {
   color: var(--color-accent-gold-muted);
 
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 400;
   line-height: 1;
 
@@ -661,14 +745,14 @@
 }
 
 .faqPanel details > p {
-  max-width: 42rem;
+  max-width: 41rem;
 
-  padding: 0 4rem 1.5rem 4.75rem;
+  padding: 0 3.75rem 1.35rem 4.35rem;
 
   color: var(--hub-muted);
 
-  font-size: 0.92rem;
-  line-height: 1.65;
+  font-size: 0.88rem;
+  line-height: 1.62;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -678,72 +762,87 @@
 .finalCta {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: clamp(3rem, 8vw, 7rem);
-  align-items: end;
+  gap: clamp(2.5rem, 7vw, 6rem);
+  align-items: center;
 
-  margin-top: clamp(8rem, 12vw, 12rem);
+  margin-top: clamp(5rem, 8vw, 8rem);
 
-  padding: clamp(3rem, 6vw, 5.5rem);
+  padding: clamp(2.8rem, 5.5vw, 5rem);
 
-  border: 1px solid rgba(161, 127, 36, 0.2);
+  border: 1px solid rgba(161, 127, 36, 0.22);
   border-radius: var(--hub-radius-lg);
 
   background:
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(212, 175, 55, 0.16),
+      transparent 35%
+    ),
     linear-gradient(
       135deg,
-      rgba(212, 175, 55, 0.09),
+      rgba(212, 175, 55, 0.11),
       rgba(212, 175, 55, 0.025)
     );
 }
 
-.finalCta > div:first-child {
+.finalCtaCopy {
   display: grid;
-  gap: 1.2rem;
+  gap: 1.1rem;
 }
 
 .finalCta h2 {
-  max-width: 13ch;
+  max-width: 12ch;
 
   font-family: var(--font-heading);
-  font-size: clamp(2.7rem, 5vw, 4.8rem);
-  font-weight: 740;
-  line-height: 0.96;
-  letter-spacing: -0.05em;
+  font-size: clamp(2.8rem, 5vw, 4.9rem);
+  font-weight: 750;
+  line-height: 0.94;
+  letter-spacing: -0.053em;
 
   text-wrap: balance;
 }
 
 .finalCtaDescription {
-  max-width: 36rem;
+  max-width: 34rem;
 
   color: var(--hub-muted);
 
-  font-size: 1rem;
+  font-size: 0.98rem;
   line-height: 1.6;
 }
 
 .finalCtaAction {
   display: grid;
-  gap: 1.15rem;
+  gap: 1rem;
 
-  min-width: 12rem;
+  min-width: 14rem;
 }
 
-.finalCtaAction > p {
+.finalPrice {
   display: grid;
-  gap: 0.25rem;
+  gap: 0.2rem;
 }
 
-.finalCtaAction strong {
-  font-family: var(--font-heading);
-  font-size: 1.35rem;
-  font-weight: 720;
-}
-
-.finalCtaAction span {
+.finalPrice > span {
   color: var(--hub-muted);
 
-  font-size: 0.78rem;
+  font-size: 0.72rem;
+  font-weight: 650;
+
+  text-transform: uppercase;
+}
+
+.finalPrice strong {
+  font-family: var(--font-heading);
+  font-size: 1.7rem;
+  font-weight: 740;
+  line-height: 1.1;
+}
+
+.finalPrice small {
+  color: var(--hub-muted);
+
+  font-size: 0.76rem;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -762,7 +861,20 @@
   }
 
   .heroVisual:hover .heroImage img {
-    transform: scale(1.012);
+    transform: scale(1.03);
+  }
+
+  .capabilityCard {
+    transition:
+      transform var(--motion-fast),
+      border-color var(--motion-fast),
+      background var(--motion-fast);
+  }
+
+  .capabilityCard:hover {
+    transform: translateY(-2px);
+
+    border-color: var(--hub-line-strong);
   }
 
   .faqPanel summary:hover .faqQuestion {
@@ -777,31 +889,40 @@
 @media (max-width: 1060px) {
   .hero {
     grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    gap: 3rem;
+    gap: 2.5rem;
   }
 
   .heroVisual {
-    min-height: 31rem;
+    min-height: 32rem;
   }
 
   .heroImage {
-    min-height: 27rem;
+    min-height: 27.8rem;
   }
 
-  .planContent {
+  .planHeader {
     grid-template-columns: 1fr;
   }
 
   .includedGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .includedGrid li:nth-child(3n + 2),
+  .includedGrid li:nth-child(3n + 3) {
+    padding-left: 0;
+
+    border-left: 0;
+  }
+
+  .includedGrid li:nth-child(even) {
+    padding-left: 1.25rem;
+
+    border-left: 1px solid var(--hub-line);
   }
 
   .capabilitiesSection {
     grid-template-columns: 1fr;
-  }
-
-  .capabilitiesSection .sectionIntro {
-    max-width: 42rem;
   }
 
   .processGrid {
@@ -813,8 +934,8 @@
   }
 
   .faqSection {
-    grid-template-columns: minmax(15rem, 0.55fr) minmax(0, 1.45fr);
-    gap: 3rem;
+    grid-template-columns: minmax(14rem, 0.5fr) minmax(0, 1.5fr);
+    gap: 2.5rem;
   }
 }
 
@@ -824,33 +945,39 @@
 
 @media (max-width: 760px) {
   .shell {
-    width: min(calc(100% - 2rem), 78rem);
-    padding-bottom: 5rem;
+    width: min(calc(100% - 2rem), 80rem);
+    padding-bottom: 4rem;
   }
 
   .hero {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
 
     min-height: auto;
 
-    padding-block: 3.5rem 1rem;
+    padding-block: 3rem 0.5rem;
   }
 
   .heroCopy {
-    gap: 1.15rem;
+    gap: 1rem;
   }
 
   .hero h1 {
-    max-width: 11ch;
+    max-width: 10ch;
 
     font-size: clamp(3rem, 13vw, 4.5rem);
   }
 
   .heroStatement {
-    max-width: 32rem;
+    max-width: 31rem;
 
-    font-size: 1.05rem;
+    font-size: 1.02rem;
+  }
+
+  .heroOfferRow {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
   }
 
   .heroVisual {
@@ -868,23 +995,29 @@
   }
 
   .planSection {
-    margin-top: 6rem;
+    margin-top: 4.5rem;
     padding: 2rem 1.25rem;
 
     border-radius: 1.5rem;
   }
 
   .includedGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.8rem 1.5rem;
+    grid-template-columns: 1fr;
   }
 
-  .planSection + * {
-    margin-top: 7rem;
+  .includedGrid li,
+  .includedGrid li:nth-child(even) {
+    padding: 1.25rem 0;
+
+    border-left: 0;
+  }
+
+  .examplesAnchor {
+    margin-top: 5rem;
   }
 
   .capabilitiesSection {
-    margin-top: 7rem;
+    margin-top: 5rem;
   }
 
   .capabilitiesGrid {
@@ -892,17 +1025,21 @@
   }
 
   .capabilityCard,
-  .capabilityCard:nth-child(odd),
-  .capabilityCard:nth-child(even) {
+  .capabilityCardFeatured {
     min-height: auto;
-
-    padding: 1.4rem 0;
-
-    border-left: 0;
   }
 
   .processSection {
-    margin-top: 7rem;
+    margin-top: 5rem;
+  }
+
+  .processHeader {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .processLead {
+    max-width: 30rem;
   }
 
   .processGrid {
@@ -911,25 +1048,29 @@
 
   .processGrid li,
   .processGrid li + li {
-    grid-template-columns: 2.5rem minmax(0, 1fr);
+    grid-template-columns: 3rem minmax(0, 1fr);
     gap: 1rem;
 
     min-height: auto;
 
-    padding: 1.6rem 0;
+    padding: 1.4rem 0;
 
     border-left: 0;
   }
 
-  .processGrid li > div {
-    gap: 0.55rem;
+  .processNumber {
+    font-size: 2.4rem;
   }
 
   .faqSection {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2rem;
 
-    margin-top: 7rem;
+    margin-top: 5rem;
+  }
+
+  .faqIntro {
+    position: static;
   }
 
   .faqPanel {
@@ -940,9 +1081,9 @@
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 1rem;
 
-    min-height: 4.6rem;
+    min-height: 4.4rem;
 
-    padding: 1rem 1.15rem;
+    padding: 0.95rem 1.1rem;
   }
 
   .faqNumber {
@@ -950,14 +1091,14 @@
   }
 
   .faqPanel details > p {
-    padding: 0 3rem 1.25rem 1.15rem;
+    padding: 0 3rem 1.2rem 1.1rem;
   }
 
   .finalCta {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2.2rem;
 
-    margin-top: 7rem;
+    margin-top: 5rem;
     padding: 2.2rem 1.25rem;
 
     border-radius: 1.5rem;
@@ -992,22 +1133,6 @@
     padding-inline: 1rem;
   }
 
-  .includedGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .includedGrid li {
-    padding-bottom: 1.25rem;
-
-    border-bottom: 1px solid var(--hub-line);
-  }
-
-  .includedGrid li:last-child {
-    padding-bottom: 0;
-
-    border-bottom: 0;
-  }
-
   .finalCtaAction {
     width: 100%;
   }
@@ -1025,12 +1150,14 @@
   .primaryAction,
   .secondaryAction span,
   .heroImage img,
+  .capabilityCard,
   .faqIcon {
     transition: none;
   }
 
   .primaryAction:hover,
-  .heroVisual:hover .heroImage img {
+  .heroVisual:hover .heroImage img,
+  .capabilityCard:hover {
     transform: none;
   }
 }
