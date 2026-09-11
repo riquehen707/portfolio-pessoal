@@ -390,32 +390,46 @@ export function ServiceHubView({
         aria-labelledby="contact-title"
       >
         <div className={styles.finalCtaCopy}>
-          <p className={styles.kicker}>Próximo passo</p>
+          <p className={styles.kicker}>Projeto demonstrativo</p>
 
           <h2 id="contact-title">
-            Vamos colocar seu site no ar?
+            Quer um site com esse nível de apresentação?
           </h2>
 
           <p className={styles.finalCtaDescription}>
-            Me explique o que você precisa. Eu te digo o que faz sentido para o
-            projeto antes de começarmos.
+            Seu site será criado a partir do seu conteúdo, do seu posicionamento
+            e do que faz sentido para o seu negócio — não a partir de um modelo
+            genérico.
           </p>
+
+          <ul className={styles.finalCtaMeta}>
+            <li>Estrutura pensada para conversão</li>
+            <li>Visual alinhado ao seu segmento</li>
+            <li>Suporte e manutenção no mesmo plano</li>
+          </ul>
         </div>
 
-        <div className={styles.finalCtaAction}>
-          <div className={styles.finalPrice}>
-            <span>A partir de</span>
-            <strong>R$147/mês</strong>
-            <small>sem taxa inicial</small>
+        <div className={styles.finalOfferCard}>
+          <p className={styles.finalOfferLabel}>Plano mensal</p>
+
+          <div className={styles.finalOfferPrice}>
+            <span>R$</span>
+            <strong>147</strong>
+            <small>/mês</small>
           </div>
 
+          <p className={styles.finalOfferNote}>
+            Domínio, hospedagem e manutenção incluídos.
+          </p>
+
           <a
-            className={styles.primaryAction}
+            className={styles.finalOfferAction}
             href={contactHref}
             data-analytics-event="services_help_click"
             data-analytics-location="services_hub_contact"
           >
-            Quero conversar
+            Quero meu site
+            <span aria-hidden="true">→</span>
           </a>
         </div>
       </section>
