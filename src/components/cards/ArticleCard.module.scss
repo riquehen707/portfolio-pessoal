@@ -1,66 +1,246 @@
-@use "../../styles/mixins" as mixins;
-
 .root {
+  --article-radius: 20px;
+  --article-border: var(
+    --neutral-alpha-weak,
+    rgba(20, 20, 20, 0.075)
+  );
+  --article-border-hover: var(
+    --neutral-alpha-medium,
+    rgba(20, 20, 20, 0.13)
+  );
+  --article-surface: var(
+    --page-background,
+    rgba(255, 255, 255, 0.58)
+  );
+
+  position: relative;
+
+  width: 100%;
   height: 100%;
+  min-width: 0;
+
+  border: 1px solid var(--article-border);
+  border-radius: var(--article-radius);
+
+  background: var(--article-surface);
+
+  overflow: hidden;
+
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+.root::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  right: 0;
+  left: 0;
+
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(
+        --neutral-alpha-medium,
+        rgba(20, 20, 20, 0.14)
+      ),
+      transparent
+    );
+
+  opacity: 0;
+
+  transition: opacity 180ms ease;
+}
+
+.root:hover {
+  border-color: var(--article-border-hover);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.035);
+}
+
+.root:hover::before {
+  opacity: 0.7;
 }
 
 .link {
-  position: relative;
   display: flex;
+  flex-direction: column;
+
+  width: 100%;
   height: 100%;
-  min-height: 15rem;
-  padding: 1.25rem 0;
-  border-top: 1px solid var(--line-subtle);
+  min-width: 0;
+
   color: inherit;
   text-decoration: none;
-  transition: border-color var(--motion-base);
+
+  outline: none;
 }
 
-.link::before {
-  content: none;
-}
-
-.link:hover,
 .link:focus-visible {
-  border-color: var(--border-strong);
+  border-radius: inherit;
+
+  box-shadow:
+    inset 0 0 0 2px
+      var(
+        --brand-solid-strong,
+        currentColor
+      );
 }
 
 .content {
-  display: grid;
-  gap: 0.9rem;
-  min-height: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  min-width: 0;
+
+  padding: 22px;
+
+  gap: 18px;
 }
 
 .meta {
-  row-gap: 0.5rem;
+  align-items: center;
+
+  min-height: 24px;
+}
+
+.meta > * {
+  flex-shrink: 0;
+}
+
+.meta > :not(:last-child):not(:first-child)::after {
+  content: "";
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  gap: 9px;
 }
 
 .title {
-  font-family: var(--font-heading);
-  font-weight: var(--type-weight-subtitle);
-  letter-spacing: var(--tracking-tight);
+  margin: 0;
+
+  max-width: 25ch;
+
+  text-wrap: balance;
+
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.root:hover .title {
+  opacity: 0.96;
 }
 
 .summary {
-  max-width: 40ch;
-  font-family: var(--font-body);
-  font-weight: var(--type-weight-body);
-  line-height: 1.72;
+  max-width: 58ch;
+
+  line-height: 1.6;
+
+  display: -webkit-box;
+
+  overflow: hidden;
+
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+
+  opacity: 0.91;
 }
 
 .cta {
+  display: inline-flex;
+  align-items: center;
+
+  width: fit-content;
+
   margin-top: auto;
-  color: var(--neutral-on-background-weak);
-  font-family: var(--font-label);
-  font-size: var(--type-technical-size);
-  font-weight: var(--type-weight-technical);
-  letter-spacing: var(--type-technical-tracking);
-  text-transform: uppercase;
+  padding-top: 2px;
+
+  gap: 7px;
+
+  color: inherit;
+
+  opacity: 0.68;
+
+  transition:
+    gap 180ms ease,
+    opacity 180ms ease;
 }
 
-@include mixins.s {
-  .link {
-    min-height: 0;
-    padding: 1.1rem 0;
+.ctaIcon {
+  transition:
+    transform 180ms ease,
+    opacity 180ms ease;
+}
+
+.root:hover .cta {
+  gap: 10px;
+
+  opacity: 1;
+}
+
+.root:hover .ctaIcon {
+  transform: translateX(2px);
+}
+
+@media (max-width: 720px) {
+  .root {
+    --article-radius: 18px;
+  }
+
+  .content {
+    padding: 18px;
+
+    gap: 15px;
+  }
+
+  .copy {
+    gap: 8px;
+  }
+
+  .title {
+    max-width: 100%;
+  }
+
+  .summary {
+    -webkit-line-clamp: 3;
+  }
+}
+
+@media (max-width: 420px) {
+  .content {
+    padding: 17px;
+  }
+
+  .meta {
+    gap: 6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root,
+  .root::before,
+  .title,
+  .cta,
+  .ctaIcon {
+    transition: none;
+  }
+
+  .root:hover .ctaIcon {
+    transform: none;
   }
 }

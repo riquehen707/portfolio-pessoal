@@ -41,7 +41,7 @@ import {
 /* -------------------------------------------------------------------------- */
 
 const GOOGLE_TAG_MANAGER_ID =
-  process.env.NEXT_PUBLIC_GTM_ID?.trim() || "GTM-KHH39C3Q";
+  process.env.NEXT_PUBLIC_GTM_ID?.trim() || "GTM-ML687D93";
 
 const GOOGLE_SITE_VERIFICATION =
   "LQzYGuvWyFJ-oWweMatvNPeFAQwOIMT2q8Q1pbX27Zw";
