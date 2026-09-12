@@ -14,7 +14,7 @@ import {
   getBlogPrimaryCategory,
   getRecentBlogPosts,
 } from "@/app/blog/postData";
-import { HomeSearchTrigger } from "@/components/home/HomeSearchTrigger";
+import { HeroShowcase } from "@/components/home/HeroShowcase/HeroShowcase";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { creators } from "@/content/creators/creators";
 import { readingCatalog } from "@/content/reading/reading";
@@ -24,7 +24,8 @@ import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 
 import styles from "./page.module.scss";
 
-const homePageTitle = "Histórias, ideias e referências que valem a pena descobrir";
+const homePageTitle =
+  "Histórias, ideias e referências que valem a pena descobrir";
 
 const homePageDescription =
   "Explore artigos, livros, filmes, quadrinhos, pessoas, ferramentas e projetos em um espaço editorial aberto.";
@@ -191,27 +192,7 @@ export default function Home() {
         ]}
       />
 
-      <section
-        className={styles.intro}
-        aria-labelledby="home-title"
-      >
-        <span className={styles.eyebrow}>
-          Henrique.dog
-        </span>
-
-        <h1 id="home-title">
-          Um lugar para descobrir coisas que valem a pena.
-        </h1>
-
-        <p>
-          Artigos, obras, pessoas e projetos organizados para
-          você entrar por um assunto e continuar explorando.
-        </p>
-
-        <div className={styles.search}>
-          <HomeSearchTrigger />
-        </div>
-      </section>
+      <HeroShowcase />
 
       <nav
         className={styles.entryPoints}
