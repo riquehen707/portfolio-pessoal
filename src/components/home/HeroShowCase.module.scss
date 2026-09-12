@@ -1,18 +1,21 @@
 .root {
   width: 100%;
-  padding: clamp(0.75rem, 2vw, 1.5rem);
+  padding:
+    clamp(1rem, 2.4vw, 2rem)
+    clamp(1rem, 4vw, 3rem);
   outline: none;
 }
 
 .shell {
-  --hero-background: #efeee9;
-  --hero-foreground: #181816;
-  --hero-muted: #65645f;
-  --hero-border: rgba(24, 24, 22, 0.11);
-  --hero-soft-border: rgba(24, 24, 22, 0.07);
-  --hero-accent: var(--color-accent-gold, #d5a24e);
+  --hero-background: #f6f5ef;
+  --hero-foreground: #171714;
+  --hero-muted: #57564f;
+  --hero-border: rgba(23, 23, 20, 0.16);
+  --hero-soft-border: rgba(23, 23, 20, 0.08);
+  --hero-accent: var(--color-accent-gold, #9f7014);
 
   position: relative;
+  isolation: isolate;
 
   display: grid;
   grid-template-columns:
@@ -25,24 +28,7 @@
 
   margin: 0 auto;
 
-  overflow: hidden;
-
-  border: 1px solid var(--hero-border);
-  border-radius: clamp(1.6rem, 3vw, 2.5rem);
-
-  background:
-    radial-gradient(
-      circle at 73% 48%,
-      rgba(255, 255, 255, 0.48),
-      transparent 34%
-    ),
-    var(--hero-background);
-
   color: var(--hero-foreground);
-
-  box-shadow:
-    0 2rem 5rem rgba(10, 10, 8, 0.08),
-    0 0.35rem 1rem rgba(10, 10, 8, 0.03);
 }
 
 .rail {
@@ -298,16 +284,20 @@
 }
 
 .secondaryAction {
-  padding: 0.85rem 1rem;
+  min-height: auto;
 
-  border: 1px solid var(--hero-border);
+  padding: 0.5rem 0.15rem;
+
+  border: 0;
+  border-bottom: 1px solid rgba(23, 23, 20, 0.28);
+  border-radius: 0;
 
   color: var(--hero-foreground);
 }
 
 .secondaryAction:hover {
-  border-color: rgba(24, 24, 22, 0.25);
-  background: rgba(255, 255, 255, 0.32);
+  border-bottom-color: var(--hero-accent);
+  background: transparent;
 }
 
 .showcase {
@@ -315,10 +305,34 @@
 
   min-width: 0;
   min-height: 100%;
+
+  overflow: clip;
+}
+
+.showcase::before {
+  content: "";
+
+  position: absolute;
+  z-index: 0;
+  top: 12%;
+  right: 2%;
+  bottom: 10%;
+  left: -10%;
+
+  background:
+    radial-gradient(
+      circle at 46% 50%,
+      rgba(159, 112, 20, 0.14),
+      rgba(159, 112, 20, 0.045) 34%,
+      transparent 68%
+    );
+
+  pointer-events: none;
 }
 
 .stage {
   position: absolute;
+  z-index: 1;
   inset: 0;
 
   overflow: hidden;
@@ -343,8 +357,8 @@
   background: #1f201e;
 
   box-shadow:
-    0 2rem 4rem rgba(19, 19, 16, 0.13),
-    0 0.3rem 1rem rgba(19, 19, 16, 0.06);
+    0 2.2rem 4.8rem rgba(19, 19, 16, 0.16),
+    0 0.35rem 1.2rem rgba(19, 19, 16, 0.08);
 }
 
 .primaryCard {
@@ -807,7 +821,9 @@
 
 @media (max-width: 860px) {
   .root {
-    padding: 0.75rem;
+    padding:
+      0.75rem
+      1rem;
   }
 
   .shell {
@@ -816,8 +832,6 @@
     min-height: auto;
 
     padding: 0;
-
-    border-radius: 1.75rem;
   }
 
   .rail {
@@ -919,8 +933,10 @@
 }
 
 @media (max-width: 560px) {
-  .shell {
-    border-radius: 1.35rem;
+  .root {
+    padding:
+      0.5rem
+      0.9rem;
   }
 
   .copy {
@@ -970,6 +986,8 @@
 
   .showcase {
     min-height: 24rem;
+
+    margin-inline: -0.35rem;
   }
 
   .primaryCard {
