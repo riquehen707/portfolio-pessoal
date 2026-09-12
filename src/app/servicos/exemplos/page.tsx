@@ -15,7 +15,7 @@ const page = {
 
 export function generateMetadata() {
   const image = buildOgImage(page.title);
-  return { title: page.title, description: page.description, alternates: { canonical: `${baseURL}${page.path}` }, openGraph: { title: page.title, description: page.description, url: `${baseURL}${page.path}`, images: buildDiscoverImageMetadata(image, page.title) } };
+  return { title: page.title, description: page.description, alternates: { canonical: `${baseURL}${page.path}` }, openGraph: { title: page.title, description: page.description, url: `${baseURL}${page.path}`, images: buildDiscoverImageMetadata(image, page.title) }, robots: { index: false, follow: true } };
 }
 
 export default function ServiceExamplesPage() {

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getPublishedServiceLandings } from "@/data/service-landings";
 import { getIndexableServiceExamples, getServiceExamplePath } from "@/data/service-examples";
+import { getServiceInspirationPath, serviceInspirations } from "@/data/service-inspirations";
 
 import { baseURL, blog, routes as routesConfig } from "@/resources";
 import { getAllArticles } from "@/data/articles";
@@ -93,6 +94,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }));
 
   return [
+    ...serviceInspirations.map((inspiration) => ({
+      url: `${baseURL}${getServiceInspirationPath(inspiration.slug)}`,
+      lastModified: inspiration.updatedAt,
+      changeFrequency: "monthly" as const,
+      priority: 0.64,
+    })),
     ...getIndexableServiceExamples().map((example) => ({
       url: `${baseURL}${getServiceExamplePath(example.slug)}`,
       lastModified: example.updatedAt,

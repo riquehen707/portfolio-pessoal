@@ -13,8 +13,9 @@ Leitura por tarefa: [experiência e conteúdo](#responsabilidades), [serviço co
 | Página | Objetivo | Estrutura |
 | --- | --- | --- |
 | Artigo `/blog/[slug]` | Aquisição orgânica e educação | MDX, explicação, referências e até um CTA contextual |
-| Home comercial `/servicos` | Permitir entendimento rápido e contato | Oferta comum, condição comercial, escopo, poucos exemplos e recursos principais |
-| Galeria `/servicos/exemplos` | Permitir comparar possibilidades visuais | Previews amplos, filtros por tipo e identificação explícita de demonstração |
+| Home comercial `/servicos` | Permitir entendimento rápido e contato | Oferta comum, condição comercial, escopo, galeria de inspirações e recursos principais |
+| Inspiração `/servicos/inspiracoes/[slug]` | Ampliar uma direção visual e conduzir ao contato | Categoria, título, imagem, descrição curta, tags opcionais e um CTA comercial |
+| Galeria demonstrativa legada `/servicos/exemplos` | Permitir testar composições já implementadas | Previews, filtros por tipo e identificação explícita de demonstração |
 | Capacidades `/servicos/capacidades` | Demonstrar profundidade técnica sem sobrecarregar a oferta | Recursos funcionais, módulos de interface, estados e wireframes navegáveis |
 | Landing `/servicos/[slug]` | Avaliar e contratar uma oferta específica | Decisão, avaliação e detalhes, com uma ação principal e navegação de retorno |
 | Exemplo `/servicos/exemplos/[slug]` | Demonstrar uma possibilidade visual sem alegar cliente ou resultado | Composição própria, identificação discreta de projeto demonstrativo e CTA para a oferta comum |
@@ -36,11 +37,11 @@ Organizar preferencialmente pela pergunta **o que você quer resolver?** Exemplo
 
 São exemplos de intenção, não grupos obrigatórios. Podem orientar a oferta, mas filtros e seletores extensos pertencem à galeria ou à página de capacidades. Evitar `UX`, `Desenvolvimento`, `Web design` e `Soluções digitais` como categorias quando exigirem conhecimento técnico do visitante. Os termos podem aparecer nos detalhes, com explicação.
 
-Usar um hero curto com a oferta e um resumo inequívoco da condição comercial. A home mostra no máximo três ou quatro exemplos fortes, poucos recursos principais, escopo mensal, processo, FAQ curto e contato. Formatos aparecem como possibilidades da mesma oferta; profissões são metadado dos exemplos ou público possível, nunca planos com preço próprio.
+Usar um hero curto com a oferta e um resumo inequívoco da condição comercial. A home mostra uma seleção visual forte, poucos recursos principais, escopo mensal, processo, FAQ curto e contato. Formatos aparecem como possibilidades da mesma oferta; profissões são metadado das inspirações ou público possível, nunca planos com preço próprio.
 
-O explorador funcional, os módulos, filtros, estados e wireframes ficam em `/servicos/capacidades`. A galeria completa e seus filtros ficam em `/servicos/exemplos`. A navegação entre oferta, exemplos, capacidades e `/work` deve explicitar a função de cada superfície sem criar CTAs concorrentes dentro da home.
+O explorador funcional, os módulos, filtros, estados e wireframes ficam em `/servicos/capacidades`. A galeria editorial de inspirações fica na própria home e cada item abre `/servicos/inspiracoes/[slug]`. As demos completas em `/servicos/exemplos` permanecem uma superfície técnica legada e não alimentam a galeria comercial. A navegação entre oferta, inspirações, capacidades e `/work` deve explicitar a função de cada superfície sem criar CTAs concorrentes dentro da home.
 
-O hero mantém uma ação primária direta para iniciar o projeto e uma ação secundária para os exemplos. A página pode repetir a conversão no encerramento, preservando destino e intenção. Links para capacidades e portfólio têm função exploratória clara, sem competir visualmente com a contratação. Nunca encaminhar a escolha para uma rota pausada ou com redirecionamento inesperado.
+O hero mantém uma ação primária direta para iniciar o projeto e uma ação secundária para as inspirações. A página pode repetir a conversão no encerramento, preservando destino e intenção. Links para capacidades e portfólio têm função exploratória clara, sem competir visualmente com a contratação. Nunca encaminhar a escolha para uma rota pausada ou com redirecionamento inesperado.
 
 ### Formatos como pontos de decisão
 
@@ -60,19 +61,19 @@ Usar preview real autorizado ou fallback gráfico honesto, sem inventar projeto 
 
 Aplicar o padrão de [previews](#previews-legíveis-e-consistentes). O formato apresenta uma estrutura possível; exemplos demonstrativos mostram aplicações sem multiplicar a oferta.
 
-### Exemplos demonstrativos e portfólio
+### Inspirações, exemplos demonstrativos e portfólio
 
-`/work` reúne projetos reais, autorais e estudos com contexto editorial e estado de evidência; `/portfolio` é apenas seu redirecionamento legado. `/servicos/exemplos` reúne a galeria conceitual e a família `/servicos/exemplos/[slug]` permite experimentar uma composição demonstrativa completa antes de contratar. Não apresentar um exemplo como cliente, entrega ou resultado real.
+`/work` reúne projetos reais, autorais e estudos com contexto editorial e estado de evidência; `/portfolio` é apenas seu redirecionamento legado. A área `#inspiracoes` de `/servicos` reúne referências visuais, e `/servicos/inspiracoes/[slug]` amplia cada direção antes do contato. Não apresentar uma inspiração como cliente, projeto entregue, template pronto ou resultado real.
 
-Cada exemplo publicado precisa registrar em `src/content/service-examples/` ID, slug, estado, ordem, destaque, nome, categoria, descrição curta, capa, imagens, tags, identidade visual, decisões de projeto, recursos relacionados e renderer próprio. Esta é a fonte única consumida pelo hub, pela galeria e pelas páginas individuais; componentes não mantêm títulos, descrições ou listas paralelas dos mesmos projetos.
+Cada inspiração registra em `src/data/service-inspirations.ts` slug, título, categoria, imagem, texto alternativo, descrição, dimensões, atualização e tags opcionais. Essa é a fonte única consumida pela galeria e pelas páginas individuais; componentes não mantêm títulos, descrições ou listas paralelas. Os assets próprios ficam em `public/images/services/inspirations/`, sem reaproveitar capas das demos antigas. A imagem preserva sua proporção e domina o item; abaixo dela aparecem somente categoria e título.
 
-A composição interna pode mudar integralmente entre exemplos. Depois da demonstração, a camada compartilhada apresenta as prévias desktop/mobile, até três decisões concretas, a oferta comum, autoria e navegação visual calculada a partir de destaque, ordem e estado. Não forçar o layout institucional do site dentro do exemplo nem inserir a oferta antes da prova visual.
+A galeria de inspirações usa masonry em CSS, sem biblioteca de layout, cards pesados ou proporção única. O desktop usa aproximadamente três ou quatro colunas, o tablet duas ou três e o mobile duas sempre que a largura permitir; telas muito estreitas podem cair para uma. Nenhuma ação depende do hover. Cada página individual mantém retorno à galeria, imagem grande, explicação breve e o CTA `Quero um site nessa direção`, com o nome da inspiração na mensagem de contato.
 
-Rascunhos não geram rota, card ou entrada de sitemap. Se não houver exemplo completo, a seção central de `/servicos` informa honestamente que os primeiros exemplos estão em preparação; não criar mock genérico ou profissão fictícia para preencher a grade. O catálogo antigo em `/modelos` permanece legado e pausado, sem migração automática para esta família.
+As demos completas continuam separadas: `/servicos/exemplos` e `/servicos/exemplos/[slug]` permitem testar composições implementadas e usam `src/content/service-examples/` com renderer próprio. Elas não são a fonte da galeria de inspirações. Rascunhos de demo não geram rota, card ou entrada de sitemap. O catálogo antigo em `/modelos` permanece legado e pausado, sem migração automática para estas famílias.
 
 ### Carrosséis e navegação horizontal
 
-No desktop e no mobile, usar scroll horizontal nativo quando uma sequência visual de exemplos publicados justificar esse padrão, com `overflow-x: auto` e scroll snap. A home deve crescer horizontalmente conforme entram novos exemplos, sem limitar o array a uma quantidade fixa. Deixar uma pequena parte do próximo card visível como indicação de continuidade; com um único item, não criar rolagem artificial.
+Não usar carrossel ou rolagem horizontal na galeria de inspirações da home. O masonry deve crescer verticalmente conforme entram novas referências. Scroll horizontal nativo continua disponível somente quando uma sequência funcional fora dessa galeria justificar o padrão, com `overflow-x: auto` e scroll snap.
 
 - Preservar cards amplos e legíveis, ajustando a largura ao espaço útil; não reduzir o card apenas para caber mais itens.
 - Não usar autoplay, avanço automático ao entrar na viewport ou reposicionamento que tire o controle do visitante.
@@ -233,7 +234,9 @@ Esta seção descreve o código consultado em 2026-09-08, sem certificar produç
 | Vitrine de capacidades | `src/app/servicos/capacidades/page.tsx`, `ServiceCapabilitiesView.tsx` e `CapabilityWorkbench.tsx` |
 | Formatos, recursos, grupos e vínculos com demos | `src/data/service-hub/index.ts` |
 | Navegação compartilhada da área | `src/components/services/ServicesAreaNav.tsx` |
-| Resumo de exemplos na home | `src/components/services/examples/ServiceExamplesPreview.tsx` |
+| Dados das inspirações | `src/data/service-inspirations.ts` |
+| Galeria masonry na home | `src/components/services/inspirations/ServiceInspirationsGallery.tsx` |
+| Rota individual de inspiração | `src/app/servicos/inspiracoes/[slug]/page.tsx` |
 | Previews funcionais e leves de recursos | `src/components/services/hub/ServiceFeaturePreview.tsx` |
 | Schema e catálogo de exemplos | `src/content/service-examples/` e `src/data/service-examples/` |
 | Cards, renderers e camada comum dos exemplos | `src/components/services/examples/` |
@@ -241,26 +244,28 @@ Esta seção descreve o código consultado em 2026-09-08, sem certificar produç
 | Estilos | módulos próximos de cada composição, com tokens globais existentes |
 | Prévia de estados | `/dev/service-card`, somente em desenvolvimento; 404 em produção |
 
-A fonte de dados valida IDs únicos de formatos e recursos para a vitrine de capacidades. A home não usa esses dados como ofertas concorrentes: ela apresenta um único plano mensal e leva os exemplos para a galeria própria. Os recursos prioritários e secundários são aprofundados em `/servicos/capacidades`, sem carregar páginas ou iframes. O filtro da galeria usa tipo de solução, não profissão. Exemplos não contêm preço.
+A fonte de dados valida IDs únicos de formatos e recursos para a vitrine de capacidades. A home não usa esses dados como ofertas concorrentes: ela apresenta um único plano mensal e uma galeria de referências visuais sem carregar páginas ou iframes. Os recursos prioritários e secundários são aprofundados em `/servicos/capacidades`. Inspirações e exemplos demonstrativos não contêm preço próprio.
 
 | Entidade | Contrato atual |
 | --- | --- |
 | Necessidade | `id`, rótulo e referências para ao menos um formato e um recurso existentes |
 | Formato | `id`, título, descrição, públicos de exemplo, detalhe e preview local com texto alternativo |
-| Recurso | `id`, título, grupo, descrição, uso, estado `included`, `available` ou `additional`, preview opcional e vínculo opcional com demo funcional |
+| Recurso | `id`, título, grupo, descrição, uso, estado `included`, `available` ou `additional` e preview opcional |
+| Inspiração | `slug`, `title`, `category`, `image`, `alt`, `description`, `tags`, dimensões e `updatedAt` |
 | Exemplo demonstrativo | `id`, `slug`, `status`, `featured`, `order`, `title`, `segment`, `solutionType`, `shortDescription`, `tags`, `visualStyle`, decisões, recursos relacionados, `coverImage` desktop/mobile, `images`, renderer e política de indexação |
 
 `ServiceCapabilitiesView` mantém os estados do explorador de recursos e `CapabilityWorkbench` controla módulos e wireframes. Os seis previews prioritários renderizam componentes locais e não incorporam demos completas; formulário, WhatsApp, rota e agendamento deixam explícito que não enviam dados nem concluem ações. Recursos secundários usam `details/summary`. A rota demonstrativa usa renderer registrado e falha explicitamente se um exemplo publicado não tiver implementação correspondente.
 
 ## Adoção e pendências
 
-Estado técnico consultado em 2026-09-09. As diferenças abaixo são pendências de implementação, não exceções às regras de experiência. Validações datadas ficam no [histórico](../content/historico/decisoes-editoriais.md#2026-09-06--validações-locais-da-infraestrutura-de-serviços) e não certificam uma revisão ou publicação posterior.
+Estado técnico consultado em 2026-09-12. As diferenças abaixo são pendências de implementação, não exceções às regras de experiência. Validações datadas ficam no [histórico](../content/historico/decisoes-editoriais.md#2026-09-06--validações-locais-da-infraestrutura-de-serviços) e não certificam uma revisão ou publicação posterior.
 
 | Ponto | Estado consultado e próximo ajuste |
 | --- | --- |
-| Home comercial | `/servicos` apresenta um plano de R$147/mês sem taxa inicial, hero com projeto próprio real, escopo, faixa horizontal com todos os exemplos publicados, base técnica, relato pessoal atribuído, processo, FAQ e contato; formatos e laboratório técnico não são carregados nesta rota |
-| Galeria | `/servicos/exemplos` concentra previews amplos e filtro por tipo de solução; profissões são somente metadado ou contexto, não ofertas com preço próprio |
-| Capacidades | `/servicos/capacidades` concentra seis previews funcionais, seis recursos secundários, quatro módulos com estados e oito wireframes selecionáveis |
+| Home comercial | `/servicos` apresenta um plano de R$147/mês sem taxa inicial, hero com projeto próprio real, escopo, galeria masonry de inspirações, base técnica, processo, FAQ e contato; formatos e laboratório técnico não são carregados nesta rota |
+| Inspirações | Oito referências em `service-inspirations.ts` alimentam a galeria e páginas em `/servicos/inspiracoes/[slug]`; imagens mantêm proporção original, cada página inclui retorno e CTA contextual |
+| Galeria demonstrativa legada | `/servicos/exemplos` mantém previews e filtro por tipo de solução para acesso direto, mas não alimenta mais a home comercial, saiu da navegação compartilhada e permanece `noindex` e fora do sitemap |
+| Capacidades | `/servicos/capacidades` concentra seis previews funcionais, seis recursos secundários, quatro módulos com estados e oito wireframes selecionáveis; vínculos e CTA para as demos antigas foram ocultados da composição pública |
 | Preço comum | A home informa uma única mensalidade de R$147, com domínio, hospedagem, manutenção, suporte, design, desenvolvimento, publicação e pequenos ajustes recorrentes; não há taxa de implementação |
 | Exemplos novos | `/servicos/exemplos/psicologia`, `/arquitetura` e `/barbearia` têm renderer, preview e identidade próprios, além de vitrine responsiva, decisões, oferta e navegação compartilhadas; Arquitetura também usa páginas internas reutilizáveis em `/servicos/exemplos/arquitetura/projetos/[project]`. Todas permanecem `noindex` nesta revisão local |
 | Header da landing | `ServiceLandingPage.tsx` tem identidade ligada a `/` e `Voltar para serviços`, inclusive no mobile |
@@ -348,7 +353,7 @@ Aplicar a [hierarquia da informação](#hierarquia-da-informação) e os critér
 
 `serviceLandingMetadata` gera title, descrição, canonical natural `/servicos/[slug]`, Open Graph e Twitter. UTMs não entram no canonical. JSON-LD `Service` representa nome, descrição, executor e o modelo comercial visível por meio de `Offer` e `PriceSpecification`; valores textuais sob consulta permanecem como descrição, sem número inventado. Não gerar notas ou avaliações agregadas. FAQ não implica promessa de resultado enriquecido.
 
-Publicada e indexável entra automaticamente no sitemap; não duplicar no objeto estático `routes`. Busca interna e descoberta no catálogo são configurações separadas. Campanhas podem chegar diretamente, sem depender de visita anterior ao blog. No hub, preservar um H1, H2 para seções, H3 para formatos/exemplos, conteúdo essencial no HTML inicial e canonical próprio. `ItemList` ou `CollectionPage`, quando usados, devem refletir somente serviços exibidos.
+Landing publicada e indexável entra automaticamente no sitemap; inspirações também são derivadas de sua fonte única e não são duplicadas no objeto estático `routes`. Busca interna e descoberta no catálogo são configurações separadas. Campanhas podem chegar diretamente, sem depender de visita anterior ao blog. No hub, preservar um H1, H2 para seções, H3 para itens da galeria, conteúdo essencial no HTML inicial e canonical próprio. `ItemList` ou `CollectionPage`, quando usados, devem refletir somente itens exibidos.
 
 Antes de Google Ads/Meta Ads, alinhar anúncio e oferta, testar o destino real, definir evento importado como conversão e validar configuração/consentimento do provedor. Conferir UTMs de entrada; não repassar query strings inteiras a destinos ou formulários. Esta entrega não instala pixels nem configura contas de anúncios.
 
@@ -449,9 +454,9 @@ Checklist único da experiência comercial. Registrar rota/versão, evidência e
 
 ### Navegação
 
-- [ ] O visitante consegue voltar para `/servicos` a partir da landing e da demo, inclusive após entrada direta por busca ou anúncio.
+- [ ] O visitante consegue voltar para `/servicos` a partir da landing, da inspiração e da demo, inclusive após entrada direta por busca ou anúncio.
 - [ ] O logo/identidade é um link funcional para `/`; nenhum fluxo termina sem saída útil.
-- [ ] Cards, modelos e alternativas levam a destinos disponíveis; o catálogo mantém descoberta por intenção e relacionados respeitam o limite definido neste guia.
+- [ ] Cards, inspirações e alternativas levam a destinos disponíveis; o catálogo mantém descoberta por intenção e relacionados respeitam o limite definido neste guia.
 - [ ] Exemplo demonstrativo publicado tem preview, renderer próprio, identificação visível, retorno a `/servicos`, CTA funcional e recursos relacionados; rascunhos não geram card, rota nem sitemap.
 
 ### Compreensão
@@ -469,6 +474,7 @@ Checklist único da experiência comercial. Registrar rota/versão, evidência e
 ### Produto
 
 - [ ] Previews mostram a entrega em tamanho legível; capturas, protótipos e demos funcionais estão identificados corretamente.
+- [ ] A galeria de inspirações preserva a proporção das imagens, usa masonry responsivo sem biblioteca JS e não apresenta referências como projetos realizados ou templates prontos.
 - [ ] Demos, quando aplicáveis, abrem e permitem testar os recursos anunciados; há modelos suficientes quando a escolha de estilo é relevante, conforme o padrão deste guia.
 - [ ] A entrega parece concreta por material verificável, autoria e escopo explícitos. Exemplos fictícios estão identificados e não simulam trabalho entregue ou resultados de clientes.
 
@@ -497,7 +503,7 @@ Checklist único da experiência comercial. Registrar rota/versão, evidência e
 - [ ] Acessibilidade básica verificada: teclado, foco visível e não encoberto, rótulos, alternativas textuais, contraste e áreas de toque conforme este guia; nenhum conteúdo depende só de hover.
 - [ ] Links, âncoras e ações foram testados. Formulário de conversão, quando existir, tem envio real, validação, erros e sucesso acessível; exemplos não simulam envio.
 - [ ] Imagens estão otimizadas para o tamanho de exibição, com dimensões/proporção reservadas; conteúdo e links essenciais continuam úteis sem JavaScript.
-- [ ] Não há overflow horizontal acidental no documento. Rolagem intencional fica contida nos trilhos, que preservam snap, teclado e indicação de continuidade, sem autoplay nem dependência de setas.
+- [ ] Não há overflow horizontal acidental no documento. A galeria de inspirações cresce verticalmente; outras rolagens intencionais ficam contidas nos trilhos, sem autoplay nem dependência de setas.
 - [ ] CLS foi observado/medido sem deslocamentos relevantes que prejudiquem leitura ou ação; performance foi comparada em condições equivalentes, conforme o [protocolo de experiência](../audits/search-and-web-vitals-measurement.md#verificação-de-páginas-antes-da-publicação). Orçamento de build não substitui essa revisão.
 - [ ] SEO e publicação conferidos: metadata, canonical, OG, um H1, hierarquia de títulos, JSON-LD fiel, sitemap e política de rotas; rascunhos e exemplos de desenvolvimento não aparecem como ofertas públicas.
 - [ ] Analytics verificado conforme o contrato deste guia: cliques/falhas não são leads, payloads não contêm dados pessoais e experimentos, se houver, têm hipótese e alocação controladas.

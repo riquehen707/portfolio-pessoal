@@ -1,0 +1,226 @@
+@use "../../../../styles/mixins" as mixins;
+
+:global(.hr-site-content):has(.page) {
+  max-width: var(--grid-max-width-wide);
+}
+
+.page {
+  --inspiration-text: #15352f;
+  --inspiration-muted: #575c54;
+  --inspiration-accent: #9a6b13;
+  --inspiration-warm: #a94f2f;
+  --inspiration-line: rgba(21, 53, 47, 0.16);
+  --inspiration-tint: #edf0e7;
+
+  width: min(calc(100% - 3rem), 80rem);
+  margin-inline: auto;
+  padding: clamp(2rem, 4vw, 3.5rem) 0 clamp(5rem, 9vw, 8rem);
+  color: var(--inspiration-text);
+}
+
+.backLink {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  min-height: 3rem;
+  color: var(--inspiration-muted);
+  font-family: var(--font-label);
+  font-size: 0.86rem;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+
+.header {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(3rem, 7vw, 6.5rem) 0 clamp(2.25rem, 4vw, 3.75rem);
+  border-bottom: 1px solid var(--inspiration-line);
+}
+
+.header p,
+.header h1,
+.details p,
+.details h2 {
+  margin: 0;
+}
+
+.header p,
+.eyebrow {
+  color: var(--inspiration-accent);
+  font-family: var(--font-technical);
+  font-size: 0.66rem;
+  font-weight: var(--type-weight-technical);
+  line-height: 1.3;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.header h1 {
+  max-width: 11ch;
+  color: var(--inspiration-text);
+  font-family: var(--font-heading);
+  font-size: clamp(3.6rem, 8vw, 7.8rem);
+  font-weight: 900;
+  line-height: 0.86;
+  letter-spacing: -0.07em;
+  text-wrap: balance;
+}
+
+.figure {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  margin-top: clamp(1.25rem, 2vw, 2rem);
+  border: 1px solid var(--inspiration-line);
+  border-radius: 0.4rem;
+  background: var(--inspiration-tint);
+  box-shadow: 0 1.5rem 4rem rgba(21, 53, 47, 0.1);
+}
+
+.portraitFigure {
+  max-width: 42rem;
+  margin-inline: auto;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(17rem, 0.65fr);
+  gap: clamp(2.5rem, 8vw, 8rem);
+  align-items: start;
+  padding-top: clamp(3rem, 6vw, 5.5rem);
+}
+
+.description {
+  display: grid;
+  gap: 1rem;
+}
+
+.description h2 {
+  max-width: 16ch;
+  font-family: var(--font-heading);
+  color: var(--inspiration-text);
+  font-size: clamp(2.2rem, 3.8vw, 3.8rem);
+  font-weight: 900;
+  line-height: 0.94;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+
+.description > p:last-of-type {
+  max-width: 38rem;
+  color: var(--inspiration-muted);
+  font-size: clamp(1.04rem, 1.35vw, 1.18rem);
+  line-height: 1.65;
+}
+
+.description ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.4rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.description li {
+  padding: 0.5rem 0.72rem;
+  border: 1px solid rgba(21, 53, 47, 0.12);
+  border-radius: 999px;
+  background: var(--inspiration-tint);
+  color: var(--inspiration-text);
+  font-family: var(--font-label);
+  font-size: 0.74rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.contact {
+  display: grid;
+  gap: 1.2rem;
+  padding: 1.35rem 0 0;
+  border-top: 2px solid var(--inspiration-text);
+}
+
+.contact p {
+  color: var(--inspiration-muted);
+  font-size: 0.94rem;
+  line-height: 1.58;
+}
+
+.contact a {
+  display: inline-flex;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 3.5rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--inspiration-text);
+  border-radius: 0.65rem;
+  background: var(--inspiration-text);
+  color: #fffaf0;
+  font-family: var(--font-label);
+  font-size: 0.9rem;
+  font-weight: 750;
+  line-height: 1.15;
+  text-decoration: none;
+  transition: transform var(--motion-fast), background var(--motion-fast), color var(--motion-fast);
+}
+
+.contact a span {
+  color: #e1b84b;
+}
+
+.backLink:focus-visible,
+.contact a:focus-visible {
+  @include mixins.focus-ring;
+}
+
+@include mixins.hover-fine {
+  .backLink:hover {
+    color: var(--inspiration-text);
+    text-decoration: underline;
+    text-underline-offset: 0.22rem;
+  }
+
+  .contact a:hover {
+    background: #204b43;
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 760px) {
+  .page {
+    width: min(calc(100% - 2rem), 80rem);
+    padding-top: 1rem;
+  }
+
+  .header {
+    padding-top: 2.5rem;
+  }
+
+  .header h1 {
+    font-size: clamp(3.25rem, 16vw, 5.25rem);
+  }
+
+  .details {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .contact a {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact a {
+    transition: none;
+  }
+}

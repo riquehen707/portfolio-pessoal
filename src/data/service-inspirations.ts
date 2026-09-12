@@ -1,0 +1,137 @@
+export type ServiceInspiration = {
+  slug: string;
+  title: string;
+  category: string;
+  image: string;
+  alt: string;
+  description: string;
+  tags?: string[];
+  width: number;
+  height: number;
+  updatedAt: string;
+};
+
+export const serviceInspirations: ServiceInspiration[] = [
+  {
+    slug: "portfolio-minimalista",
+    title: "Portfólio minimalista",
+    category: "Profissional",
+    image: "/images/services/inspirations/portfolio-minimalista.webp",
+    alt: "Referência visual de um portfólio profissional claro, com tipografia ampla e projetos organizados em grade.",
+    description:
+      "Uma direção limpa e objetiva, com bastante espaço em branco, títulos fortes e projetos apresentados com contexto.",
+    tags: ["Minimalista", "Portfólio", "Claro"],
+    width: 1536,
+    height: 1024,
+    updatedAt: "2026-09-12",
+  },
+  {
+    slug: "galeria-autoral",
+    title: "Galeria autoral",
+    category: "Arte e cultura",
+    image: "/images/services/inspirations/galeria-autoral.webp",
+    alt: "Referência visual de uma galeria virtual com obras coloridas em destaque sobre uma interface clara.",
+    description:
+      "Uma possibilidade para reunir trabalhos visuais com poucos elementos ao redor e deixar cor, textura e autoria conduzirem a página.",
+    tags: ["Galeria", "Editorial", "Cores"],
+    width: 1024,
+    height: 1536,
+    updatedAt: "2026-09-12",
+  },
+  {
+    slug: "portfolio-fotografico",
+    title: "Portfólio fotográfico",
+    category: "Fotografia",
+    image: "/images/services/inspirations/portfolio-fotografico.webp",
+    alt: "Referência visual de um portfólio de fotografia com imagens grandes e navegação discreta.",
+    description:
+      "Uma composição sóbria em que as fotografias ocupam o primeiro plano e a navegação ajuda a explorar diferentes tipos de trabalho.",
+    tags: ["Fotografia", "Imagens grandes", "Sóbrio"],
+    width: 1536,
+    height: 1024,
+    updatedAt: "2026-09-12",
+  },
+  {
+    slug: "arquitetura-editorial",
+    title: "Arquitetura editorial",
+    category: "Arquitetura",
+    image: "/images/services/inspirations/arquitetura-editorial.webp",
+    alt: "Referência visual em formato vertical de um portfólio de arquitetura com contraste alto e tipografia expressiva.",
+    description:
+      "Uma direção de alto contraste, com tipografia marcante e imagens de projeto tratadas como parte central da identidade.",
+    tags: ["Editorial", "Alto contraste", "Mobile"],
+    width: 1024,
+    height: 1536,
+    updatedAt: "2026-09-12",
+  },
+  {
+    slug: "imoveis-em-destaque",
+    title: "Imóveis em destaque",
+    category: "Mercado imobiliário",
+    image: "/images/services/inspirations/imoveis-em-destaque.webp",
+    alt: "Referência visual de um site imobiliário com fotografia ampla, informações essenciais e chamada para contato.",
+    description:
+      "Uma possibilidade para apresentar poucos imóveis com destaque, combinar imagem e informação e facilitar uma conversa sobre cada oportunidade.",
+    tags: ["Imóveis", "Contato", "Fotografia"],
+    width: 1448,
+    height: 1086,
+    updatedAt: "2026-09-12",
+  },
+  {
+    slug: "trabalho-autoral",
+    title: "Trabalho autoral",
+    category: "Portfólio",
+    image: "/images/services/inspirations/trabalho-autoral.webp",
+    alt: "Referência visual de um portfólio autoral com título expressivo, filtros e imagens de trabalhos.",
+    description:
+      "Uma direção direta para organizar trabalhos por estilo, manter a personalidade visual e deixar o pedido de orçamento fácil de encontrar.",
+    tags: ["Autoral", "Portfólio", "Tipografia"],
+    width: 1122,
+    height: 1402,
+    updatedAt: "2026-09-12",
+  },
+  {
+    slug: "bem-estar-acolhedor",
+    title: "Bem-estar acolhedor",
+    category: "Saúde e bem-estar",
+    image: "/images/services/inspirations/bem-estar-acolhedor.webp",
+    alt: "Referência visual de um site de bem-estar com tons naturais, margens amplas e chamada discreta para contato.",
+    description:
+      "Uma direção serena, com tons naturais, leitura espaçada e uma hierarquia que apresenta o atendimento antes de convidar ao contato.",
+    tags: ["Acolhedor", "Natural", "Editorial"],
+    width: 1448,
+    height: 1086,
+    updatedAt: "2026-09-12",
+  },
+  {
+    slug: "negocio-local-vibrante",
+    title: "Negócio local vibrante",
+    category: "Negócio local",
+    image: "/images/services/inspirations/negocio-local-vibrante.webp",
+    alt: "Referência visual de um site para negócio local com cores intensas, fotografia e acesso rápido ao agendamento.",
+    description:
+      "Uma possibilidade mais intensa, com cor, fotografia e ações objetivas para apresentar serviços e levar ao agendamento.",
+    tags: ["Vibrante", "Negócio local", "Agendamento"],
+    width: 1536,
+    height: 1024,
+    updatedAt: "2026-09-12",
+  },
+];
+
+const slugs = serviceInspirations.map((inspiration) => inspiration.slug);
+
+if (new Set(slugs).size !== slugs.length) {
+  throw new Error("Inspirações de serviço com slug duplicado.");
+}
+
+export function getServiceInspiration(slug: string) {
+  return serviceInspirations.find((inspiration) => inspiration.slug === slug);
+}
+
+export function getServiceInspirationPath(slug: string) {
+  return `/servicos/inspiracoes/${slug}`;
+}
+
+export function getServiceInspirationStaticParams() {
+  return serviceInspirations.map((inspiration) => ({ slug: inspiration.slug }));
+}

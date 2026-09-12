@@ -1,6 +1,6 @@
 import { Column, Schema } from "@once-ui-system/core";
 import { ServiceHubView } from "@/components/services/hub/ServiceHubView";
-import { getPublishedServiceExamples } from "@/data/service-examples";
+import { serviceInspirations } from "@/data/service-inspirations";
 import { baseURL, person, servicesPage, social } from "@/resources";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 
@@ -21,7 +21,6 @@ export async function generateMetadata() {
 }
 
 export default function ServicesPage() {
-  const examples = getPublishedServiceExamples();
   const whatsapp = social.find((item) => item.name === "WhatsApp")?.link;
   const contactHref = whatsapp
     ? `${whatsapp}?text=${encodeURIComponent("Olá, Henrique. Quero conversar sobre a criação de um site.")}`
@@ -42,7 +41,10 @@ export default function ServicesPage() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <ServiceHubView examples={examples} contactHref={contactHref} />
+      <ServiceHubView
+        inspirations={serviceInspirations}
+        contactHref={contactHref}
+      />
     </Column>
   );
 }

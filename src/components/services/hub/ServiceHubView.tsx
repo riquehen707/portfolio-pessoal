@@ -1,13 +1,13 @@
 import Image from "next/image";
 
-import type { ServiceExample } from "@/content/service-examples/serviceExampleSchema";
 import { ServicesAreaNav } from "@/components/services/ServicesAreaNav";
-import { ServiceExamplesPreview } from "@/components/services/examples/ServiceExamplesPreview";
+import { ServiceInspirationsGallery } from "@/components/services/inspirations/ServiceInspirationsGallery";
+import type { ServiceInspiration } from "@/data/service-inspirations";
 
 import styles from "./ServiceHubView.module.scss";
 
 type ServiceHubViewProps = {
-  examples: ServiceExample[];
+  inspirations: ServiceInspiration[];
   contactHref: string;
 };
 
@@ -142,7 +142,7 @@ const faq = [
 ] as const;
 
 export function ServiceHubView({
-  examples,
+  inspirations,
   contactHref,
 }: ServiceHubViewProps) {
   return (
@@ -188,9 +188,9 @@ export function ServiceHubView({
 
               <a
                 className={styles.secondaryAction}
-                href="#projetos"
+                href="#inspiracoes"
               >
-                Ver projetos
+                Ver inspirações
                 <span aria-hidden="true">↓</span>
               </a>
             </div>
@@ -264,8 +264,8 @@ export function ServiceHubView({
         </ul>
       </section>
 
-      <div id="projetos" className={styles.examplesAnchor}>
-        <ServiceExamplesPreview examples={examples} />
+      <div id="inspiracoes" className={styles.inspirationsAnchor}>
+        <ServiceInspirationsGallery inspirations={inspirations} />
       </div>
 
       <section

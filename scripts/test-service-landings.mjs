@@ -48,6 +48,7 @@ const { services } = load("src/resources/services.ts");
 const { getServiceHubContent } = load("src/data/service-hub/index.ts");
 const { serviceExampleSchema } = load("src/content/service-examples/serviceExampleSchema.ts");
 const { getAdjacentServiceExamples, getIndexableServiceExamples, getPublishedServiceExamples, getServiceExamplePath } = load("src/data/service-examples/index.ts");
+const { getServiceInspiration, getServiceInspirationPath, getServiceInspirationStaticParams, serviceInspirations } = load("src/data/service-inspirations.ts");
 const { exampleServiceLanding } = load("src/content/service-landings/example.ts");
 const { architectWebsite } = load("src/content/service-landings/architectWebsite.ts");
 const { artistGallery } = load("src/content/service-landings/artistGallery.ts");
@@ -341,6 +342,33 @@ test("exemplos demonstrativos só publicam uma rota quando estão completos", ()
   assert.equal(getAdjacentServiceExamples("psicologia").next.slug, "arquitetura");
 });
 
+test("inspirações compartilham dados válidos entre galeria e páginas individuais", () => {
+  assert.equal(serviceInspirations.length, 8);
+  assert.equal(
+    new Set(serviceInspirations.map((inspiration) => inspiration.slug)).size,
+    serviceInspirations.length,
+  );
+  assert.deepEqual(
+    getServiceInspirationStaticParams(),
+    serviceInspirations.map((inspiration) => ({ slug: inspiration.slug })),
+  );
+
+  for (const inspiration of serviceInspirations) {
+    assert.equal(getServiceInspiration(inspiration.slug), inspiration);
+    assert.equal(
+      getServiceInspirationPath(inspiration.slug),
+      `/servicos/inspiracoes/${inspiration.slug}`,
+    );
+    assert.ok(existsSync(path.join(root, "public", inspiration.image)));
+    assert.match(
+      inspiration.image,
+      /^\/images\/services\/inspirations\/[^/]+\.webp$/,
+    );
+    assert.ok(inspiration.width > 0);
+    assert.ok(inspiration.height > 0);
+  }
+});
+
 test("demonstração de Psicologia identifica ficção, preserva conteúdo clínico responsável e oferece recursos úteis", () => {
   const React = require("react");
   const { renderToStaticMarkup } = require("react-dom/server");
@@ -357,8 +385,8 @@ test("demonstração de Psicologia identifica ficção, preserva conteúdo clín
   assert.equal($("#duvidas details").length, 5);
   assert.equal($("#formulario input[required]").length, 2);
   assert.equal($("script[type='application/ld+json']").length, 1);
-  assert.match(text, /profissional fictícia/i);
-  assert.match(text, /registro demonstrativo/i);
+  assert.match(text, /identidade fictícia/i);
+  assert.match(text, /registro fictício/i);
   assert.equal($("#atuacao button[aria-pressed]").length, 4);
   assert.match(text, /nenhum dado é enviado ou armazenado/i);
   assert.doesNotMatch(text, /cure sua ansiedade|resultados garantidos|supere a depressão/i);
@@ -404,14 +432,17 @@ test("demonstração de Barbearia prioriza preços, localização e agendamento 
   assert.doesNotMatch(text, /mais que um corte|tradição encontra modernidade|seu estilo começa aqui/i);
 });
 
-test("recursos do hub conectam previews prioritários às demos existentes", () => {
+test("recursos do hub mantêm previews próprios sem links para demos antigas", () => {
   const content = getServiceHubContent();
-  const examples = new Set(getPublishedServiceExamples().map((example) => example.slug));
   const primary = content.features.filter((feature) => feature.previewKind);
   assert.equal(primary.length, 6);
-  assert.equal(primary.every((feature) => feature.exampleHref && feature.exampleSlug && examples.has(feature.exampleSlug)), true);
+  assert.equal(
+    content.features.some(
+      (feature) => "exampleHref" in feature || "exampleSlug" in feature,
+    ),
+    false,
+  );
   assert.deepEqual(new Set(content.features.map((item) => item.status)), new Set(["included", "available", "additional"]));
-  assert.equal(content.features.filter((item) => item.exampleHref?.startsWith("/servicos/exemplos/barbearia#")).length, 6);
 });
 
 test("todo serviço legado possui mensalidade, implantação e continuidade reais", () => {
@@ -460,7 +491,7 @@ test("home comercial mantém oferta única e envia profundidade para páginas pr
     renderToStaticMarkup(
       React.createElement(ServiceHubView, {
         ...getServiceHubContent(),
-        examples: getPublishedServiceExamples(),
+        inspirations: serviceInspirations,
         contactHref: "https://wa.me/5511999999999",
         questionHref: "mailto:oi@example.com?subject=Ajuda",
       }),
@@ -476,24 +507,28 @@ test("home comercial mantém oferta única e envia profundidade para páginas pr
   assert.equal($("[role='tab']").length, 0);
   assert.equal($("#recursos").length, 0);
   assert.equal($("#formatos").length, 0);
-  assert.equal($("#examples-preview-title").text(), "Inspire-se em alguns projetos");
-  assert.equal($("#projetos article").length, 3);
-  assert.equal($("#projetos a[href='/servicos/exemplos/psicologia']").length, 2);
-  assert.equal($("#projetos a[href='/servicos/exemplos/arquitetura']").length, 2);
-  assert.equal($("#projetos a[href='/servicos/exemplos/barbearia']").length, 2);
+  assert.equal($("#service-inspirations-title").text(), "Como seu site pode ficar?");
+  assert.equal($("#inspiracoes article").length, serviceInspirations.length);
+  for (const inspiration of serviceInspirations) {
+    assert.equal(
+      $(`#inspiracoes a[href='/servicos/inspiracoes/${inspiration.slug}']`).length,
+      2,
+    );
+  }
   assert.equal($("#recursos-principais").length, 0);
   assert.equal($(".perception").length, 0);
-  assert.deepEqual($("section[aria-labelledby='plan-title'] ul").find("li").map((_, item) => $(item).text().replace(/^\d+/, "")).get(), ["Criação e design", "Domínio", "Hospedagem", "Manutenção técnica", "Suporte", "Pequenas atualizações"]);
+  assert.deepEqual($("section[aria-labelledby='plan-title'] ul h3").map((_, item) => $(item).text()).get(), ["Design e desenvolvimento", "Domínio", "Hospedagem", "Manutenção", "Suporte", "Pequenas atualizações"]);
   assert.equal($("a[href='/servicos/capacidades']").length, 1);
-  assert.equal($("a[href='/servicos/exemplos']").length, 2);
+  assert.equal($("a[href='/servicos#inspiracoes']").length, 1);
   assert.equal($("a[href='/work']").length, 1);
   assert.equal($("[data-analytics-event='services_help_click']").length, 2);
-  assert.equal($("[data-analytics-event='services_help_click']").filter((_, item) => $(item).text() === "Quero meu site").length, 2);
-  assert.match($("#personal-proof-title").parent().parent().text(), /não uma promessa de resultado/i);
+  assert.equal($("[data-analytics-event='services_help_click']").filter((_, item) => $(item).text() === "Quero meu site").length, 1);
+  assert.doesNotMatch($("#inspiracoes").text(), /projeto realizado|template pronto/i);
+  assert.equal($("a[href^='/servicos/exemplos']").length, 0);
   assert.equal($("main").text().includes("R$147/mês"), true);
   assert.equal($("main").text().includes("R$ 200"), false);
   assert.equal($("main").text().includes("R$ 89,90"), false);
-  assert.equal($("#faq-title").parent().next().find("details").length, 6);
+  assert.equal($("section[aria-labelledby='faq-title'] details").length, 7);
 });
 
 test("página de capacidades concentra recursos, módulos e wireframes interativos", () => {
@@ -505,7 +540,7 @@ test("página de capacidades concentra recursos, módulos e wireframes interativ
     "next/image": ({ fill, priority, sizes, ...props }) => React.createElement("img", props),
   });
   const { ServiceCapabilitiesView } = componentLoad("src/components/services/hub/ServiceCapabilitiesView.tsx");
-  const $ = html(renderToStaticMarkup(React.createElement(ServiceCapabilitiesView, { features: getServiceHubContent().features, examples: getPublishedServiceExamples() })));
+  const $ = html(renderToStaticMarkup(React.createElement(ServiceCapabilitiesView, { features: getServiceHubContent().features })));
   assert.equal($("h1").text(), "Interfaces além da página estática.");
   assert.equal($("#recursos [role='tab']").length, 6);
   assert.equal($("#recursos [role='tabpanel']").length, 1);
@@ -513,7 +548,8 @@ test("página de capacidades concentra recursos, módulos e wireframes interativ
   assert.equal($("#modulos [role='tab']").length, 4);
   assert.equal($("#modulos [role='tabpanel']").length, 1);
   assert.equal($("#wireframes button[aria-pressed]").length, 8);
-  assert.equal($("a[href='/servicos/exemplos']").length, 2);
+  assert.equal($("a[href='/servicos/exemplos']").length, 0);
+  assert.equal($("a[href='/servicos#inspiracoes']").length, 2);
   assert.equal($("a[href='/servicos']").length, 2);
 });
 

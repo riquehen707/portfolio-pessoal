@@ -20,8 +20,6 @@ export type ServiceFeature = {
   status: ServiceFeatureStatus;
   description: string;
   useCase: string;
-  exampleHref?: string;
-  exampleSlug?: string;
   previewKind?: ServiceFeaturePreviewKind;
 };
 
@@ -61,15 +59,15 @@ export const serviceFormats: ServiceFormat[] = [
 ];
 
 export const serviceFeatures: ServiceFeature[] = [
-  { id: "whatsapp", title: "WhatsApp", group: "contact", status: "available", description: "Abra uma conversa com uma mensagem inicial ligada ao atendimento.", useCase: "Profissionais, negócios locais e serviços.", exampleHref: "/servicos/exemplos/barbearia#contato", exampleSlug: "barbearia", previewKind: "whatsapp" },
-  { id: "form", title: "Formulário de contato", group: "contact", status: "available", description: "Peça as informações necessárias antes da primeira resposta.", useCase: "Pedidos, dúvidas e triagem inicial.", exampleHref: "/servicos/exemplos/psicologia#contato", exampleSlug: "psicologia", previewKind: "form" },
-  { id: "scheduling", title: "Agendamento", group: "contact", status: "additional", description: "Mostre um fluxo de escolha antes de conectar a agenda definitiva.", useCase: "Consultórios, salões e serviços com horário marcado.", exampleHref: "/servicos/exemplos/barbearia#agendamento", exampleSlug: "barbearia", previewKind: "scheduling" },
-  { id: "portfolio-gallery", title: "Portfólio / galeria", group: "presentation", status: "available", description: "Organize projetos e imagens para navegação visual.", useCase: "Arquitetura, fotografia, design e trabalhos visuais.", exampleHref: "/servicos/exemplos/arquitetura#projetos", exampleSlug: "arquitetura", previewKind: "portfolio" },
-  { id: "services-prices", title: "Serviços / preços", group: "presentation", status: "available", description: "Apresente opções, duração e valores quando eles puderem ser públicos.", useCase: "Negócios com uma lista objetiva de serviços.", exampleHref: "/servicos/exemplos/barbearia#servicos", exampleSlug: "barbearia", previewKind: "services" },
-  { id: "location-map", title: "Localização / mapa", group: "local-business", status: "available", description: "Mostre endereço, região atendida e uma ação de rota.", useCase: "Lojas, consultórios e atendimento presencial.", exampleHref: "/servicos/exemplos/barbearia#localizacao", exampleSlug: "barbearia", previewKind: "map" },
-  { id: "hours", title: "Horários", group: "local-business", status: "available", description: "Informe dias e faixas de atendimento em uma área fácil de encontrar.", useCase: "Negócios locais e serviços com agenda definida.", exampleHref: "/servicos/exemplos/barbearia#localizacao", exampleSlug: "barbearia" },
-  { id: "social", title: "Redes sociais", group: "contact", status: "available", description: "Reúna links para os canais que você realmente mantém.", useCase: "Marcas que publicam ou atendem em outros canais.", exampleHref: "/servicos/exemplos/barbearia#contato", exampleSlug: "barbearia" },
-  { id: "faq", title: "FAQ", group: "presentation", status: "available", description: "Responda dúvidas recorrentes sem alongar a página principal.", useCase: "Serviços que exigem orientação antes do contato.", exampleHref: "/servicos/exemplos/psicologia#duvidas", exampleSlug: "psicologia" },
+  { id: "whatsapp", title: "WhatsApp", group: "contact", status: "available", description: "Abra uma conversa com uma mensagem inicial ligada ao atendimento.", useCase: "Profissionais, negócios locais e serviços.", previewKind: "whatsapp" },
+  { id: "form", title: "Formulário de contato", group: "contact", status: "available", description: "Peça as informações necessárias antes da primeira resposta.", useCase: "Pedidos, dúvidas e triagem inicial.", previewKind: "form" },
+  { id: "scheduling", title: "Agendamento", group: "contact", status: "additional", description: "Mostre um fluxo de escolha antes de conectar a agenda definitiva.", useCase: "Consultórios, salões e serviços com horário marcado.", previewKind: "scheduling" },
+  { id: "portfolio-gallery", title: "Portfólio / galeria", group: "presentation", status: "available", description: "Organize projetos e imagens para navegação visual.", useCase: "Arquitetura, fotografia, design e trabalhos visuais.", previewKind: "portfolio" },
+  { id: "services-prices", title: "Serviços / preços", group: "presentation", status: "available", description: "Apresente opções, duração e valores quando eles puderem ser públicos.", useCase: "Negócios com uma lista objetiva de serviços.", previewKind: "services" },
+  { id: "location-map", title: "Localização / mapa", group: "local-business", status: "available", description: "Mostre endereço, região atendida e uma ação de rota.", useCase: "Lojas, consultórios e atendimento presencial.", previewKind: "map" },
+  { id: "hours", title: "Horários", group: "local-business", status: "available", description: "Informe dias e faixas de atendimento em uma área fácil de encontrar.", useCase: "Negócios locais e serviços com agenda definida." },
+  { id: "social", title: "Redes sociais", group: "contact", status: "available", description: "Reúna links para os canais que você realmente mantém.", useCase: "Marcas que publicam ou atendem em outros canais." },
+  { id: "faq", title: "FAQ", group: "presentation", status: "available", description: "Responda dúvidas recorrentes sem alongar a página principal.", useCase: "Serviços que exigem orientação antes do contato." },
   { id: "seo", title: "SEO básico", group: "content", status: "included", description: "Estruture títulos, descrições e conteúdo para compreensão pelos buscadores.", useCase: "Preparação técnica das páginas publicadas." },
   { id: "blog", title: "Blog / conteúdo", group: "content", status: "additional", description: "Crie uma área para publicar conteúdos recorrentes.", useCase: "Projetos com plano e material para publicação contínua." },
   { id: "catalog", title: "Catálogo", group: "content", status: "additional", description: "Organize itens por categorias e páginas de detalhe.", useCase: "Coleções maiores que não precisam ser uma loja virtual." },

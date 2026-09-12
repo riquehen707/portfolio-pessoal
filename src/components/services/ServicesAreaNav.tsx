@@ -5,6 +5,7 @@ import styles from "./ServicesAreaNav.module.scss";
 type ServicesArea =
   | "services"
   | "examples"
+  | "inspirations"
   | "capabilities"
   | "portfolio";
 
@@ -19,9 +20,9 @@ const links: Array<{
     href: "/servicos",
   },
   {
-    id: "examples",
-    label: "Exemplos",
-    href: "/servicos/exemplos",
+    id: "inspirations",
+    label: "Inspirações",
+    href: "/servicos#inspiracoes",
   },
   {
     id: "capabilities",

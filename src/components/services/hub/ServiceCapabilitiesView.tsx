@@ -2,14 +2,13 @@
 
 import Link from "next/link";
 import { KeyboardEvent, useState } from "react";
-import type { ServiceExample } from "@/content/service-examples/serviceExampleSchema";
 import { ServicesAreaNav } from "@/components/services/ServicesAreaNav";
 import { CapabilityWorkbench } from "@/components/services/capabilities/CapabilityWorkbench";
 import type { ServiceFeature, ServiceFeatureStatus } from "@/data/service-hub";
 import { ServiceFeaturePreview } from "./ServiceFeaturePreview";
 import styles from "./ServiceHubExperience.module.scss";
 
-type Props = { features: ServiceFeature[]; examples: ServiceExample[] };
+type Props = { features: ServiceFeature[] };
 
 const statusLabels: Record<ServiceFeatureStatus, string> = { included: "Incluído", available: "Disponível", additional: "Projeto personalizado" };
 const groupLabels = { contact: "Contato", presentation: "Apresentação", "local-business": "Negócio local", content: "Conteúdo" } as const;
@@ -22,12 +21,11 @@ function moveTab(event: KeyboardEvent<HTMLButtonElement>, index: number, count: 
   select(next);
 }
 
-export function ServiceCapabilitiesView({ features, examples }: Props) {
+export function ServiceCapabilitiesView({ features }: Props) {
   const primaryFeatures = features.filter((feature) => feature.previewKind);
   const secondaryFeatures = features.filter((feature) => !feature.previewKind);
   const [featureId, setFeatureId] = useState(primaryFeatures[0].id);
   const selectedFeature = primaryFeatures.find((feature) => feature.id === featureId) ?? primaryFeatures[0];
-  const example = selectedFeature.exampleSlug ? examples.find((item) => item.slug === selectedFeature.exampleSlug) : undefined;
 
   return <main className={styles.capabilityPage}>
     <ServicesAreaNav active="capabilities" />
@@ -50,16 +48,15 @@ export function ServiceCapabilitiesView({ features, examples }: Props) {
           <div className={styles.featureMeta}>
             <span className={styles.status} data-status={selectedFeature.status}>{statusLabels[selectedFeature.status]}</span>
             <h3>{selectedFeature.title}</h3><p>{selectedFeature.description}</p><small><strong>Bom para:</strong> {selectedFeature.useCase}</small>
-            {selectedFeature.exampleHref && example ? <Link href={selectedFeature.exampleHref}>Ver no site {example.title} <span aria-hidden="true">→</span></Link> : null}
           </div>
           <div className={styles.livePreview} data-preview={selectedFeature.previewKind}><ServiceFeaturePreview kind={selectedFeature.previewKind!} key={selectedFeature.id} /></div>
         </div>
       </div>
-      <div className={styles.secondaryFeatures}><p>Outros recursos</p><div>{secondaryFeatures.map((feature) => <details key={feature.id}><summary><em>{groupLabels[feature.group]}</em><span>{feature.title}</span><small>{statusLabels[feature.status]}</small><b aria-hidden="true">+</b></summary><p>{feature.description}</p>{feature.exampleHref && feature.exampleSlug ? <Link href={feature.exampleHref}>Ver em {examples.find((item) => item.slug === feature.exampleSlug)?.title} →</Link> : null}</details>)}</div></div>
+      <div className={styles.secondaryFeatures}><p>Outros recursos</p><div>{secondaryFeatures.map((feature) => <details key={feature.id}><summary><em>{groupLabels[feature.group]}</em><span>{feature.title}</span><small>{statusLabels[feature.status]}</small><b aria-hidden="true">+</b></summary><p>{feature.description}</p></details>)}</div></div>
     </section>
 
     <CapabilityWorkbench />
 
-    <footer className={styles.capabilityNext}><div><p>Quer ver identidades completas?</p><h2>Abra os sites demonstrativos.</h2></div><Link href="/servicos/exemplos">Ver exemplos <span aria-hidden="true">→</span></Link><Link href="/servicos">Voltar para a oferta</Link></footer>
+    <footer className={styles.capabilityNext}><div><p>Quer explorar direções visuais?</p><h2>Veja como seu site pode ficar.</h2></div><Link href="/servicos#inspiracoes">Ver inspirações <span aria-hidden="true">→</span></Link><Link href="/servicos">Voltar para a oferta</Link></footer>
   </main>;
 }

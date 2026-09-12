@@ -1,7 +1,6 @@
 import { Column, Schema } from "@once-ui-system/core";
 import { ServiceCapabilitiesView } from "@/components/services/hub/ServiceCapabilitiesView";
 import { getServiceHubContent } from "@/data/service-hub";
-import { getPublishedServiceExamples } from "@/data/service-examples";
 import { baseURL, person } from "@/resources";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 
@@ -14,5 +13,5 @@ export function generateMetadata() {
 
 export default function ServiceCapabilitiesPage() {
   const { features } = getServiceHubContent();
-  return <Column fillWidth><Schema as="webPage" baseURL={baseURL} title={page.title} description={page.description} path={page.path} image={`/api/og/generate?title=${encodeURIComponent(page.title)}`} author={{ name: person.name, url: `${baseURL}/work`, image: `${baseURL}${person.avatar}` }} /><ServiceCapabilitiesView features={features} examples={getPublishedServiceExamples()} /></Column>;
+  return <Column fillWidth><Schema as="webPage" baseURL={baseURL} title={page.title} description={page.description} path={page.path} image={`/api/og/generate?title=${encodeURIComponent(page.title)}`} author={{ name: person.name, url: `${baseURL}/work`, image: `${baseURL}${person.avatar}` }} /><ServiceCapabilitiesView features={features} /></Column>;
 }
