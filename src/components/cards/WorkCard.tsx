@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import { Heading, Media, Row, Tag, Text } from "@once-ui-system/core";
+import { Heading, Icon, Media, Row, Tag, Text } from "@once-ui-system/core";
 import { m, useReducedMotion } from "framer-motion";
 
 import {
@@ -12,6 +12,7 @@ import {
   motionViewport,
   revealTransition,
 } from "@/components/motion/motionTokens";
+
 import styles from "./WorkCard.module.scss";
 
 type WorkCardProps = {
@@ -35,25 +36,39 @@ export function WorkCard({
 }: WorkCardProps) {
   const reducedMotion = useReducedMotion();
 
+  const visibleStack = stack.slice(0, featured ? 3 : 2);
+  const hiddenStackCount = Math.max(stack.length - visibleStack.length, 0);
+
   return (
     <m.article
       className={styles.root}
       initial="hidden"
       whileInView="visible"
       viewport={motionViewport}
-      variants={createRevealVariants(reducedMotion, featured ? 24 : 18, 0.992)}
+      variants={createRevealVariants(
+        reducedMotion,
+        featured ? 24 : 18,
+        0.992,
+      )}
       transition={reducedMotion ? { duration: 0.01 } : revealTransition}
-      whileHover={getHoverLift(reducedMotion, -4, featured ? 1.006 : 1.005)}
+      whileHover={getHoverLift(
+        reducedMotion,
+        -4,
+        featured ? 1.006 : 1.004,
+      )}
       whileTap={getTapPress(reducedMotion)}
+      data-featured={featured ? "true" : "false"}
     >
       <Link
         className={styles.link}
         href={href}
-        data-featured={featured ? "true" : "false"}
+        aria-label={`Ver projeto: ${title}`}
         data-analytics-event="project_click"
         data-analytics-label={title}
         data-analytics-category={kind}
-        data-analytics-location={featured ? "featured_project_card" : "project_card"}
+        data-analytics-location={
+          featured ? "featured_project_card" : "project_card"
+        }
       >
         {image ? (
           <div className={styles.mediaWrap}>
@@ -61,9 +76,13 @@ export function WorkCard({
               border="transparent"
               radius="l"
               src={image}
-              alt={`Preview de ${title}`}
+              alt={`Preview do projeto ${title}`}
               aspectRatio="16 / 10"
-              sizes={featured ? "(max-width: 768px) 100vw, 720px" : "(max-width: 768px) 100vw, 520px"}
+              sizes={
+                featured
+                  ? "(max-width: 768px) 100vw, 720px"
+                  : "(max-width: 768px) 100vw, 520px"
+              }
             />
           </div>
         ) : (
@@ -71,33 +90,74 @@ export function WorkCard({
         )}
 
         <div className={styles.content}>
-          {(kind || stack.length > 0) && (
+          {(kind || visibleStack.length > 0) && (
             <Row className={styles.meta} gap="8" wrap>
               {kind && (
-                <Tag size="s" background="brand-alpha-weak" onBackground="brand-strong">
+                <Text
+                  className={styles.kind}
+                  variant="label-default-xs"
+                  onBackground="neutral-weak"
+                >
                   {kind}
-                </Tag>
+                </Text>
               )}
-              {stack.slice(0, featured ? 4 : 3).map((item) => (
-                <Tag key={`${title}-${item}`} size="s" background="neutral-alpha-weak">
+
+              {visibleStack.map((item) => (
+                <Tag
+                  key={`${title}-${item}`}
+                  size="s"
+                  background="neutral-alpha-weak"
+                >
                   {item}
                 </Tag>
               ))}
+
+              {hiddenStackCount > 0 && (
+                <Text
+                  className={styles.more}
+                  variant="label-default-xs"
+                  onBackground="neutral-weak"
+                >
+                  +{hiddenStackCount}
+                </Text>
+              )}
             </Row>
           )}
 
           <div className={styles.copy}>
-            <Heading as="h3" className={styles.title} variant={featured ? "display-strong-s" : "heading-strong-xl"} wrap="balance">
+            <Heading
+              as="h3"
+              className={styles.title}
+              variant={
+                featured
+                  ? "display-strong-s"
+                  : "heading-strong-xl"
+              }
+              wrap="balance"
+            >
               {title}
             </Heading>
-            <Text className={styles.summary} onBackground="neutral-weak" variant="body-default-m">
+
+            <Text
+              className={styles.summary}
+              onBackground="neutral-weak"
+              variant="body-default-m"
+            >
               {summary}
             </Text>
           </div>
 
-          <Text className={styles.cta} variant="label-default-s" onBackground="neutral-weak">
-            Abrir case
-          </Text>
+          <div className={styles.cta}>
+            <Text variant="label-default-s">
+              Ver projeto
+            </Text>
+
+            <Icon
+              className={styles.ctaIcon}
+              name="arrowRight"
+              size="xs"
+            />
+          </div>
         </div>
       </Link>
     </m.article>

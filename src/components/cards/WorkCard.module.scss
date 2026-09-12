@@ -1,81 +1,344 @@
-@use "../../styles/mixins" as mixins;
-
 .root {
+  --card-radius: 24px;
+  --card-border: var(
+    --neutral-alpha-weak,
+    rgba(20, 20, 20, 0.08)
+  );
+  --card-border-hover: var(
+    --neutral-alpha-medium,
+    rgba(20, 20, 20, 0.14)
+  );
+  --card-surface: var(
+    --page-background,
+    rgba(255, 255, 255, 0.78)
+  );
+  --card-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.025),
+    0 10px 28px rgba(0, 0, 0, 0.035);
+
+  position: relative;
+  width: 100%;
   height: 100%;
+  min-width: 0;
+
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.025),
+      rgba(255, 255, 255, 0)
+    ),
+    var(--card-surface);
+
+  box-shadow: var(--card-shadow);
+
+  overflow: hidden;
+
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.root:hover {
+  border-color: var(--card-border-hover);
+
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.03),
+    0 16px 40px rgba(0, 0, 0, 0.055);
+}
+
+.root[data-featured="true"] {
+  --card-radius: 28px;
 }
 
 .link {
   position: relative;
-  display: grid;
-  gap: 1rem;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
   height: 100%;
-  padding: 1.25rem;
-  @include mixins.interactive-card(
-    var(--radius-24),
-    var(--surface-overlay-soft),
-    var(--surface-panel)
-  );
-  @include mixins.interactive-card-hover;
+  min-width: 0;
+
+  color: inherit;
+  text-decoration: none;
+
+  outline: none;
 }
 
-.link[data-featured="true"] {
-  padding: clamp(1.25rem, 3vw, 1.75rem);
+.link:focus-visible {
+  border-radius: inherit;
+
+  box-shadow:
+    inset 0 0 0 2px
+      var(--brand-solid-strong, currentColor);
 }
 
 .mediaWrap {
+  position: relative;
+
+  width: 100%;
   overflow: hidden;
-  border-radius: calc(var(--radius-24) - 0.25rem);
+
+  background:
+    linear-gradient(
+      135deg,
+      var(
+        --neutral-alpha-weak,
+        rgba(20, 20, 20, 0.04)
+      ),
+      transparent
+    );
+}
+
+.mediaWrap::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 60%,
+      rgba(0, 0, 0, 0.035)
+    );
+
+  opacity: 0.8;
+}
+
+.mediaWrap > * {
+  display: block;
+
+  width: 100%;
+
+  transition:
+    transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 300ms ease;
+}
+
+.root:hover .mediaWrap > * {
+  transform: scale(1.012);
 }
 
 .accentLine {
-  @include mixins.accent-line(4.5rem, 2px);
+  width: 100%;
+  height: 5px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(
+        --brand-solid-strong,
+        currentColor
+      ),
+      var(
+        --brand-alpha-medium,
+        rgba(255, 200, 0, 0.35)
+      )
+    );
 }
 
 .content {
-  display: grid;
-  gap: 1rem;
-  align-content: start;
-  min-height: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  min-width: 0;
+
+  padding: 24px;
+  gap: 20px;
+}
+
+.root[data-featured="true"] .content {
+  padding: 28px;
+  gap: 22px;
 }
 
 .meta {
-  row-gap: 0.5rem;
+  min-height: 24px;
+
+  align-items: center;
+}
+
+.kind {
+  position: relative;
+
+  padding-right: 2px;
+
+  font-weight: 600;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+
+  opacity: 0.9;
+}
+
+.kind::after {
+  content: "";
+
+  display: inline-block;
+
+  width: 3px;
+  height: 3px;
+
+  margin-left: 10px;
+  margin-bottom: 2px;
+
+  border-radius: 999px;
+
+  background: currentColor;
+
+  opacity: 0.3;
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 24px;
+
+  opacity: 0.75;
 }
 
 .copy {
-  display: grid;
-  gap: 0.75rem;
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  gap: 10px;
 }
 
 .title {
-  font-family: var(--font-heading);
-  font-weight: var(--type-weight-subtitle);
-  letter-spacing: var(--tracking-tight);
+  margin: 0;
+
+  max-width: 18ch;
+
+  color: inherit;
+
+  text-wrap: balance;
+
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.root[data-featured="true"] .title {
+  max-width: 16ch;
 }
 
 .summary {
-  max-width: 48ch;
-  font-family: var(--font-body);
-  font-weight: var(--type-weight-body);
+  max-width: 62ch;
+
+  line-height: 1.62;
+
+  display: -webkit-box;
+
+  overflow: hidden;
+
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+
+  opacity: 0.92;
+}
+
+.root[data-featured="true"] .summary {
+  max-width: 68ch;
+
+  -webkit-line-clamp: 4;
 }
 
 .cta {
+  display: inline-flex;
+  align-items: center;
+
+  width: fit-content;
+
   margin-top: auto;
-  color: var(--neutral-on-background-weak);
-  font-family: var(--font-label);
-  font-size: var(--type-technical-size);
-  font-weight: var(--type-weight-technical);
-  letter-spacing: var(--type-technical-tracking);
-  text-transform: uppercase;
+  padding-top: 4px;
+
+  gap: 8px;
+
+  color: inherit;
+
+  opacity: 0.76;
+
+  transition:
+    opacity 180ms ease,
+    gap 180ms ease,
+    transform 180ms ease;
 }
 
-@include mixins.s {
-  .link {
-    padding: 1.1rem;
-    border-radius: calc(var(--radius-24) - 0.15rem);
+.ctaIcon {
+  transition:
+    transform 180ms ease,
+    opacity 180ms ease;
+}
+
+.root:hover .cta {
+  gap: 11px;
+
+  opacity: 1;
+}
+
+.root:hover .ctaIcon {
+  transform: translateX(2px);
+}
+
+@media (max-width: 960px) {
+  .content,
+  .root[data-featured="true"] .content {
+    padding: 22px;
   }
 
-  .mediaWrap {
-    border-radius: calc(var(--radius-16) + 0.2rem);
+  .root[data-featured="true"] .title,
+  .title {
+    max-width: 22ch;
+  }
+}
+
+@media (max-width: 640px) {
+  .root,
+  .root[data-featured="true"] {
+    --card-radius: 20px;
+  }
+
+  .content,
+  .root[data-featured="true"] .content {
+    padding: 18px;
+    gap: 16px;
+  }
+
+  .copy {
+    gap: 8px;
+  }
+
+  .summary,
+  .root[data-featured="true"] .summary {
+    -webkit-line-clamp: 3;
+  }
+
+  .cta {
+    padding-top: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root,
+  .mediaWrap > *,
+  .title,
+  .cta,
+  .ctaIcon {
+    transition: none;
+  }
+
+  .root:hover .mediaWrap > *,
+  .root:hover .ctaIcon {
+    transform: none;
   }
 }
