@@ -14,7 +14,7 @@ import {
   getBlogPrimaryCategory,
   getRecentBlogPosts,
 } from "@/app/blog/postData";
-import { HeroShowcase } from "@/components/home/HeroShowcase/HeroShowcase";
+import { HeroShowcase } from "@/components/home/HeroShowcase";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { creators } from "@/content/creators/creators";
 import { readingCatalog } from "@/content/reading/reading";
