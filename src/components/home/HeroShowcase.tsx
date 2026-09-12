@@ -6,7 +6,7 @@ import type { KeyboardEvent } from "react";
 import { AnimatePresence, m, type PanInfo, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 
-import styles from "./HeroShowcase.module.scss";
+import styles from "./HeroShowCase.module.scss";
 
 type HeroSlide = {
   id: string;
