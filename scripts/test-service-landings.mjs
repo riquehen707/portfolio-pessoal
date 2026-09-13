@@ -49,6 +49,7 @@ const { getServiceHubContent } = load("src/data/service-hub/index.ts");
 const { serviceExampleSchema } = load("src/content/service-examples/serviceExampleSchema.ts");
 const { getAdjacentServiceExamples, getIndexableServiceExamples, getPublishedServiceExamples, getServiceExamplePath } = load("src/data/service-examples/index.ts");
 const { getFeaturedServiceInspirations, getServiceInspiration, getServiceInspirationPath, getServiceInspirationStaticParams, serviceInspirations } = load("src/data/service-inspirations.ts");
+const { realEstateDemoProperties, realEstateGeneratedMedia } = load("src/components/services/inspirations/real-estate/realEstateInspirationData.ts");
 const { exampleServiceLanding } = load("src/content/service-landings/example.ts");
 const { architectWebsite } = load("src/content/service-landings/architectWebsite.ts");
 const { artistGallery } = load("src/content/service-landings/artistGallery.ts");
@@ -373,6 +374,21 @@ test("inspirações compartilham dados válidos entre galeria e páginas individ
     assert.ok(inspiration.width > 0);
     assert.ok(inspiration.height > 0);
   }
+
+  const realEstatePublication = getServiceInspiration("imoveis-em-destaque");
+  assert.equal(realEstatePublication.publication, "real-estate-editorial");
+  assert.equal(realEstateDemoProperties.length, 4);
+  assert.equal(realEstateGeneratedMedia.length, 4);
+  assert.equal(new Set(realEstateDemoProperties.map((property) => property.id)).size, 4);
+  for (const media of realEstateGeneratedMedia) {
+    assert.match(
+      media.src,
+      /^\/images\/services\/inspirations\/imoveis-em-destaque\/[^/]+\.webp$/,
+    );
+    assert.ok(existsSync(path.join(root, "public", media.src)));
+    assert.ok(media.width > 0);
+    assert.ok(media.height > 0);
+  }
 });
 
 test("demonstração de Psicologia identifica ficção, preserva conteúdo clínico responsável e oferece recursos úteis", () => {
@@ -524,11 +540,13 @@ test("home comercial mantém oferta única e envia profundidade para páginas pr
   assert.equal($("#recursos-principais").length, 0);
   assert.equal($(".perception").length, 0);
   assert.deepEqual($("section[aria-labelledby='plan-title'] ul h3").map((_, item) => $(item).text()).get(), ["Design e desenvolvimento", "Domínio", "Hospedagem", "Manutenção", "Suporte", "Pequenas atualizações"]);
-  assert.equal($("a[href='/servicos/capacidades']").length, 1);
+  assert.equal($("a[href='/servicos/capacidades']").length, 2);
   assert.equal($("a[href='/servicos/inspiracoes']").length, 2);
   assert.equal($("a[href='/work']").length, 1);
-  assert.equal($("[data-analytics-event='services_help_click']").length, 2);
-  assert.equal($("[data-analytics-event='services_help_click']").filter((_, item) => $(item).text() === "Quero meu site").length, 1);
+  assert.equal($("[data-analytics-event='services_help_click']").length, 3);
+  assert.equal($("[data-analytics-event='services_help_click']").filter((_, item) => $(item).text().trim().startsWith("Quero meu site")).length, 3);
+  assert.equal($("#inspiracoes a[href='/servicos/inspiracoes']").text().trim().startsWith("Ver todas as inspirações"), true);
+  assert.equal($("a[href='/servicos/capacidades']").filter((_, item) => $(item).text().trim().startsWith("Explorar capacidades")).length, 1);
   assert.doesNotMatch($("#inspiracoes").text(), /projeto realizado|template pronto/i);
   assert.equal($("a[href^='/servicos/exemplos']").length, 0);
   assert.equal($("main").text().includes("R$147/mês"), true);

@@ -6,7 +6,7 @@ Para escrever títulos, descrições, cards e textos de interface, aplicar a [di
 
 O objetivo é reduzir fricção entre **descoberta → avaliação → conversão**, preservando caminhos de retorno. As regras de experiência abaixo são o padrão a adotar; a seção de [adoção e pendências](#adoção-e-pendências) separa esse padrão do que está implementado. Alta conversão é resultado a medir, não promessa do template.
 
-Leitura por tarefa: [experiência e conteúdo](#responsabilidades), [serviço como produto, modelos e condições](#serviços-apresentados-como-produtos), [catálogo e formatos no código](#contrato-técnico-do-catálogo-e-dos-formatos), [contrato da landing](#contrato-da-oferta), [CTA no artigo](#artigo-para-landing-servicecta), [validação](#checklist-de-catálogo-e-landing-antes-da-publicação).
+Leitura por tarefa: [experiência e conteúdo](#responsabilidades), [demonstrações orientadas por referência visual](#publicações-demonstrativas-orientadas-por-referência-visual), [serviço como produto, modelos e condições](#serviços-apresentados-como-produtos), [catálogo e formatos no código](#contrato-técnico-do-catálogo-e-dos-formatos), [contrato da landing](#contrato-da-oferta), [CTA no artigo](#artigo-para-landing-servicecta), [validação](#checklist-de-catálogo-e-landing-antes-da-publicação).
 
 ## Responsabilidades
 
@@ -38,7 +38,7 @@ Organizar preferencialmente pela pergunta **o que você quer resolver?** Exemplo
 
 São exemplos de intenção, não grupos obrigatórios. Podem orientar a oferta, mas filtros e seletores extensos pertencem à galeria ou à página de capacidades. Evitar `UX`, `Desenvolvimento`, `Web design` e `Soluções digitais` como categorias quando exigirem conhecimento técnico do visitante. Os termos podem aparecer nos detalhes, com explicação.
 
-Usar um hero curto com a oferta e um resumo inequívoco da condição comercial. A home mostra uma seleção visual forte, poucos recursos principais, escopo mensal, processo, FAQ curto e contato. Formatos aparecem como possibilidades da mesma oferta; profissões são metadado das inspirações ou público possível, nunca planos com preço próprio.
+Usar um hero curto com a oferta e um resumo inequívoco da condição comercial. A home mostra uma seleção visual forte, poucos recursos principais, escopo mensal, processo, FAQ curto e contato. A jornada segue decisão, exploração visual, avaliação e redução de risco; a mesma ação primária pode reaparecer depois das inspirações e no fechamento, mantendo destino e rótulo. Formatos aparecem como possibilidades da mesma oferta; profissões são metadado das inspirações ou público possível, nunca planos com preço próprio.
 
 A explicação de recursos, os exemplos de módulos e o raciocínio de estrutura ficam em `/servicos/capacidades`. A página preserva interação apenas quando ela reduz o esforço para entender a capacidade; os demais conceitos usam texto e interface estática. A home mostra de quatro a seis inspirações e encaminha para a galeria completa em `/servicos/inspiracoes`; cada item abre `/servicos/inspiracoes/[slug]`. As demos completas em `/servicos/exemplos` permanecem uma superfície técnica legada e não alimentam a galeria comercial. A navegação entre oferta, inspirações, capacidades e `/work` deve explicitar a função de cada superfície sem criar CTAs concorrentes dentro da home.
 
@@ -71,6 +71,136 @@ Cada inspiração registra em `src/data/service-inspirations.ts` slug, título, 
 A galeria de inspirações usa masonry em CSS, sem biblioteca de layout, cards pesados ou proporção única. A galeria dedicada pode chegar a cinco colunas em telas muito largas; o desktop usa quatro, o tablet três e o mobile duas sempre que a largura permitir. Telas muito estreitas podem cair para uma. Nenhuma ação depende do hover. Cada página individual mantém retorno à galeria, imagem grande, explicação breve e o CTA `Quero um site nessa direção`, com o nome da inspiração na mensagem de contato.
 
 As demos completas continuam separadas: `/servicos/exemplos` e `/servicos/exemplos/[slug]` permitem testar composições implementadas e usam `src/content/service-examples/` com renderer próprio. Elas não são a fonte da galeria de inspirações. Rascunhos de demo não geram rota, card ou entrada de sitemap. O catálogo antigo em `/modelos` permanece legado e pausado, sem migração automática para estas famílias.
+
+### Publicações demonstrativas orientadas por referência visual
+
+Este padrão rege páginas que apresentam um site fictício ou ilustrativo em funcionamento a partir de uma imagem de referência, inclusive demonstrações para psicólogos, arquitetos, corretores, imobiliárias, barbearias, freelancers e outros segmentos. Ele complementa as regras de [modelos e demonstrações](#modelos-e-demonstrações), [previews](#previews-legíveis-e-consistentes), [confiança verificável](#confiança-verificável) e linguagem; não cria outra família de rota nem autoriza publicação automaticamente.
+
+A demonstração deve permitir que um potencial cliente reconheça:
+
+- como o próprio site poderia ficar;
+- como um visitante entraria, exploraria e encontraria a informação necessária;
+- como conteúdo, design e componentes organizam essa progressão;
+- qual ação comercial encerra ou avança a jornada.
+
+Ela deve parecer um produto real sendo usado, e não uma prancha de mockups abstratos. Essa aparência não autoriza inventar cliente, depoimento, resultado, disponibilidade, endereço, agenda ou transação. Identificação de ficção, limitações das interações e separação entre demonstração e trabalho entregue continuam obrigatórias.
+
+#### Imagem de referência e fidelidade
+
+Cada tarefa deve fornecer pelo menos uma imagem de referência visual. Antes de editar código, tratá-la como fonte principal para composição, proporções, hierarquia, tamanho relativo das seções, ritmo vertical, espaço negativo, relação entre texto e imagem, escala dos mockups, alternância, densidade, direção tipográfica, cards, bordas, sombras, cores e contraste.
+
+Não substituir uma decisão intencional da referência apenas porque outro arranjo é mais comum no projeto ou mais simples de implementar. Quando houver conflito, aplicar esta ordem:
+
+1. preservar veracidade, identificação da ficção, acessibilidade, legibilidade e funcionamento;
+2. preservar a intenção visual e estrutural reconhecível da referência;
+3. aproximar a solução dos componentes e tokens do projeto sem descaracterizar os dois itens anteriores.
+
+Pequenas melhorias são permitidas quando corrigem legibilidade, acessibilidade, consistência, responsividade, qualidade visual ou integração técnica. Não alterar arbitrariamente grid, sequência, escala ou densidade sob o rótulo de melhoria. Artefatos de geração — texto incorreto, ícone inconsistente, alinhamento acidental, detalhe impossível ou fonte ilegível — não são decisões a copiar: reconstruir a intenção corretamente.
+
+Fidelidade significa preservar sobretudo proporção, hierarquia, equilíbrio, alinhamentos principais, respiro, relação entre blocos, impacto visual e sequência narrativa. A primeira versão deve buscar essa correspondência antes de acrescentar interpretação autoral.
+
+#### Reconstrução da interface
+
+Nunca usar a imagem completa como background da página nem inserir uma captura única para fingir que toda a interface existe. Decompor e reconstruir a referência em HTML, CSS e React. Hero, navegação, cards, filtros, galerias, preços, características, formulários, depoimentos, FAQ, CTAs e contato devem ser componentes reais sempre que forem reconhecíveis e viáveis.
+
+Uma captura pode representar fotografia, obra, mapa ilustrativo ou outra mídia interna quando essa for sua função. Não pode substituir toda a experiência. Elementos construídos dentro de uma moldura de navegador ou telefone continuam devendo manter texto nítido, estrutura semântica e adaptação responsiva; a moldura não transforma screenshot em demo funcional.
+
+Recursos interativos precisam demonstrar seu estado com honestidade. Filtros podem filtrar, navegação pode navegar e seletores podem atualizar um resumo. Formulários, reservas, compras, WhatsApp e agendas ilustrativos não podem alegar envio ou conclusão inexistente. A ação comercial real do Henrique deve permanecer fora ou claramente distinta da interface fictícia, usando a camada comum da demonstração quando essa rota a fornecer.
+
+#### Jornada e estrutura narrativa
+
+Definir a jornada pelo comportamento esperado no segmento, sem impor um template fixo. Exemplos:
+
+- imobiliário: primeira impressão → exploração → decisão → contato;
+- psicologia: apresentação → abordagem ou especialidades → confiança → agendamento;
+- arquitetura: apresentação → projetos → estudo de caso → orçamento;
+- barbearia: apresentação → serviços → escolha → agendamento.
+
+Cada tela ou seção deve cumprir uma função perceptível nessa progressão. A publicação pode combinar introdução curta, demonstração inicial ampla, sequência da jornada, componentes complementares, possibilidades de adaptação e CTA final, mas só inclui as partes sustentadas pela referência e pela necessidade do visitante. Não preencher uma composição com seções convencionais apenas para torná-la longa.
+
+O fluxo comercial interno da marca fictícia e o fluxo de contratação do serviço de Henrique são camadas diferentes. O primeiro demonstra como o futuro site poderia conduzir seu público; o segundo oferece retorno, identificação do projeto demonstrativo e contato para contratar. Os dois não devem competir visualmente nem fazer a demonstração parecer um negócio real em operação.
+
+#### Conteúdo e imagens da demonstração
+
+Usar conteúdo curto, específico e plausível o bastante para explicar a interface apenas pela observação. Não usar `lorem ipsum`, barras que simulam texto, cards genéricos, placeholders visuais ou copy criada somente para ocupar espaço. Aplicar a [diretriz global de linguagem](../content/01-fundamentos/voz-e-estilo.md) e identificar dados ilustrativos quando puderem ser confundidos com fatos.
+
+O conteúdo necessário varia por segmento. Uma demonstração imobiliária, por exemplo, pode exigir nome do imóvel, localização ilustrativa, preço, quartos, área, fotografias, filtros, CTA e forma de contato. Incluir apenas dados que ajudem a entender a jornada; não preencher todas as categorias possíveis. Segmentos regulados exigem cuidado adicional para não inventar credenciais, resultados clínicos, garantias, disponibilidade ou condições comerciais.
+
+Quando houver fotografias, priorizar assets fornecidos na tarefa e depois imagens locais autorizadas, coerentes com o segmento, a proporção e a direção visual. Evitar repetição sem função, baixa resolução, recortes incompatíveis e imagens que contradigam o conteúdo. Registrar origem, licença, crédito, texto alternativo e dimensões conforme o contrato de mídia aplicável; fotografia de banco não representa trabalho, equipe, cliente ou imóvel real.
+
+#### Relação com o design system
+
+A página externa deve continuar reconhecível como parte do `henrique.dog`: navegação e retornos consistentes, linguagem editorial limpa, tipografia legível, contraste, respiro, grids compreensíveis e baixa poluição visual. A demonstração interna pode ter tipografia, paleta, composição e componentes próprios do segmento.
+
+Deve permanecer clara a diferença entre:
+
+1. a publicação de Henrique, que contextualiza, identifica e oferece o serviço;
+2. o site fictício demonstrado, que encena a jornada do cliente daquele segmento.
+
+Escopar tokens e estilos da identidade fictícia ao renderer correspondente. Não substituir tokens globais nem criar uma segunda infraestrutura de layout, SEO, analytics ou navegação quando a existente resolver a necessidade. Código-fonte e screenshots de código não são prova comercial principal; capacidade técnica aparece no próprio produto por responsividade, navegação, estados, filtros, formulários, consistência e acessibilidade observáveis.
+
+#### Arquitetura e processo obrigatório
+
+Antes de implementar:
+
+1. inspecionar a rota, os componentes equivalentes, os dados e os assets existentes;
+2. confirmar se o resultado é inspiração, landing, case real ou exemplo demonstrativo; não misturar essas funções;
+3. analisar a imagem e registrar estrutura macro, grid, largura máxima, proporções, ritmo, escala tipográfica, padrões de repetição, cores, componentes e etapas da jornada;
+4. identificar tokens e componentes reutilizáveis sem assumir que devem substituir a direção da referência;
+5. definir o que será interface real, mídia, interação funcional e estado meramente ilustrativo;
+6. só então alterar o código.
+
+Na infraestrutura atual, exemplos completos usam `src/content/service-examples/serviceExamples.ts`, o contrato em `serviceExampleSchema.ts`, a fachada `src/data/service-examples/`, o registro de renderers em `ServiceExampleRenderers.tsx` e componentes específicos sob `src/components/services/examples/`. Cada demo publicada exige registro validado, capa, recursos relacionados e renderer próprio; não existe renderer genérico de preenchimento. Reutilizar a camada comum `ServiceExampleChrome` para identificação, retorno e CTA quando a rota continuar nessa família.
+
+Uma nova demonstração começa como `draft`. Existência de arquivo, renderer ou URL local não equivale a publicação, indexação ou destaque em `/servicos`. Conferir política de rotas, `getPublishedServiceExamples`, metadata, `seo.index`, sitemap e descoberta interna antes de mudar seu estado. As demos antigas podem permanecer acessíveis diretamente sem voltar a alimentar a galeria de inspirações ou a home comercial.
+
+Quando a solicitação aprofunda uma inspiração já publicada, a composição pode permanecer em `/servicos/inspiracoes/[slug]` para não duplicar a mesma direção em `/servicos/exemplos`. O campo opcional `publication` de `ServiceInspiration` escolhe um renderer editorial específico; a fonte de dados, o slug, o retorno à galeria e o CTA contextual continuam compartilhados. Esse aprofundamento não transforma a referência em case, template pronto ou imóvel, produto e negócio reais. `imoveis-em-destaque` usa atualmente `publication: "real-estate-editorial"`, com a composição em `src/components/services/inspirations/real-estate/`.
+
+Componentes específicos do segmento podem ser divididos por tela ou função — por exemplo, home, listagem, detalhe e contato — quando isso melhora organização e legibilidade. Os nomes não são contrato. Evitar uma arquitetura paralela se composição local, dados existentes e renderer próprio forem suficientes.
+
+#### Responsividade e comparação visual
+
+A imagem de referência normalmente define a direção desktop; o mobile deve adaptar a mesma hierarquia, não apenas reduzir a página proporcionalmente. Reorganizar colunas em sequência, preservar a leitura e o espaço negativo, manter CTAs alcançáveis e detalhes importantes reconhecíveis, reduzir complexidade quando necessário e impedir overflow horizontal. Se um mockup interno ficar ilegível no celular, redesenhar sua apresentação sem trocar o conceito visual.
+
+Depois da primeira implementação:
+
+1. executar o projeto e abrir a rota renderizada;
+2. comparar lado a lado com a referência em desktop;
+3. revisar pelo menos 390 px e 320 px ou os viewports exigidos pela tarefa;
+4. verificar conteúdo, interações, foco, console, carregamento de imagens e overflow;
+5. corrigir discrepâncias significativas antes de considerar a tarefa pronta.
+
+Priorizar correções nesta ordem específica da comparação visual:
+
+1. estrutura e proporção;
+2. espaçamento e ritmo;
+3. escala dos elementos;
+4. tipografia;
+5. alinhamento;
+6. contraste e cores;
+7. detalhes decorativos.
+
+Essa ordem complementa a [prioridade comercial](#prioridade-de-correção): navegação, veracidade, produto e conversão quebrados continuam tendo precedência sobre refinamento visual.
+
+#### Critério de conclusão e frase de ativação
+
+Uma demonstração orientada por referência só está pronta quando:
+
+- é imediatamente reconhecível como derivada da referência, sem copiar seus defeitos;
+- preserva composição, proporções, hierarquia e sequência narrativa;
+- funciona em desktop e possui adaptação mobile coerente;
+- mantém textos importantes legíveis e ações acessíveis;
+- reconstrói os mockups como interfaces reais sempre que viável;
+- permite compreender visualmente a jornada e a ação comercial;
+- não contém placeholders óbvios nem alega ações ou resultados inexistentes;
+- distingue a publicação de Henrique do site fictício;
+- está integrada à arquitetura, linguagem e infraestrutura existentes;
+- não apresenta erros evidentes no console ou no layout;
+- passou por comparação visual final com a referência e pelo checklist deste guia.
+
+Em futuras tarefas, a frase abaixo ativa integralmente este processo, desde que a solicitação também identifique a página ou o segmento:
+
+> Use a imagem anexada como referência visual e siga integralmente a documentação de páginas demonstrativas.
 
 ### Carrosséis e navegação horizontal
 
@@ -237,7 +367,7 @@ Esta seção descreve o código consultado em 2026-09-08, sem certificar produç
 | Navegação compartilhada da área | `src/components/services/ServicesAreaNav.tsx` |
 | Dados das inspirações | `src/data/service-inspirations.ts` |
 | Galeria masonry na home | `src/components/services/inspirations/ServiceInspirationsGallery.tsx` |
-| Rota individual de inspiração | `src/app/servicos/inspiracoes/[slug]/page.tsx` |
+| Rota individual de inspiração | `src/app/servicos/inspiracoes/[slug]/page.tsx`; publicações editoriais específicas ficam em `src/components/services/inspirations/` |
 | Demonstração funcional principal | `src/components/services/hub/ServiceFeaturePreview.tsx` |
 | Schema e catálogo de exemplos | `src/content/service-examples/` e `src/data/service-examples/` |
 | Cards, renderers e camada comum dos exemplos | `src/components/services/examples/` |
@@ -252,19 +382,19 @@ A fonte de dados valida IDs únicos de formatos e recursos para a vitrine de cap
 | Necessidade | `id`, rótulo e referências para ao menos um formato e um recurso existentes |
 | Formato | `id`, título, descrição, públicos de exemplo, detalhe e preview local com texto alternativo |
 | Recurso | `id`, título, grupo, descrição, uso, estado `included`, `available` ou `additional` e preview opcional |
-| Inspiração | `slug`, `title`, `category`, `image`, `alt`, `description`, `tags`, `featured`, dimensões e `updatedAt` |
+| Inspiração | `slug`, `title`, `category`, `image`, `alt`, `description`, `tags`, `featured`, dimensões, `updatedAt` e `publication` opcional para renderer editorial específico |
 | Exemplo demonstrativo | `id`, `slug`, `status`, `featured`, `order`, `title`, `segment`, `solutionType`, `shortDescription`, `tags`, `visualStyle`, decisões, recursos relacionados, `coverImage` desktop/mobile, `images`, renderer e política de indexação |
 
 `ServiceCapabilitiesView` apresenta todos os recursos do catálogo como lista editorial e mantém somente a demonstração de contato por WhatsApp, que deixa explícito que não envia dados. `CapabilityWorkbench` mostra dois exemplos estáticos de módulos e a sequência `estrutura → interface → resultado`, sem tabs, seletores ou aparência de ferramenta de edição. A rota demonstrativa legada usa renderer registrado e falha explicitamente se um exemplo publicado não tiver implementação correspondente.
 
 ## Adoção e pendências
 
-Estado técnico consultado em 2026-09-12. As diferenças abaixo são pendências de implementação, não exceções às regras de experiência. Validações datadas ficam no [histórico](../content/historico/decisoes-editoriais.md#2026-09-06--validações-locais-da-infraestrutura-de-serviços) e não certificam uma revisão ou publicação posterior.
+Estado técnico consultado em 2026-09-13. As diferenças abaixo são pendências de implementação, não exceções às regras de experiência. Validações datadas ficam no [histórico](../content/historico/decisoes-editoriais.md#2026-09-06--validações-locais-da-infraestrutura-de-serviços) e não certificam uma revisão ou publicação posterior.
 
 | Ponto | Estado consultado e próximo ajuste |
 | --- | --- |
-| Home comercial | `/servicos` apresenta um plano de R$147/mês sem taxa inicial, hero com projeto próprio real, escopo, prévia de seis inspirações, base técnica, processo, FAQ e contato; formatos e laboratório técnico não são carregados nesta rota |
-| Inspirações | Doze referências em `service-inspirations.ts` alimentam `/servicos/inspiracoes` e as páginas `/servicos/inspiracoes/[slug]`; imagens mantêm proporção original, cada página inclui retorno e CTA contextual |
+| Home comercial | `/servicos` apresenta um plano de R$147/mês sem taxa inicial, hero com projeto próprio real, escopo, prévia de seis inspirações, base técnica, processo, FAQ e contato; `Quero meu site` é a conversão dominante no hero, após a exploração visual e no fechamento, enquanto inspirações e capacidades usam ações secundárias claras |
+| Inspirações | Doze referências em `service-inspirations.ts` alimentam `/servicos/inspiracoes` e as páginas `/servicos/inspiracoes/[slug]`; imagens mantêm proporção original, cada página inclui retorno e CTA contextual. `imoveis-em-destaque` seleciona uma publicação editorial própria com home, listagem, filtros, detalhe, galeria e contato demonstrativos, sem reativar o catálogo legado |
 | Galeria demonstrativa legada | `/servicos/exemplos` mantém previews e filtro por tipo de solução para acesso direto, mas não alimenta mais a home comercial, saiu da navegação compartilhada e permanece `noindex` e fora do sitemap |
 | Capacidades | `/servicos/capacidades` apresenta doze recursos em leitura direta, uma demonstração funcional de contato, dois módulos estáticos e uma explicação em três etapas; vínculos e CTA para as demos antigas permanecem ocultos da composição pública |
 | Preço comum | A home informa uma única mensalidade de R$147, com domínio, hospedagem, manutenção, suporte, design, desenvolvimento, publicação e pequenos ajustes recorrentes; não há taxa de implementação |

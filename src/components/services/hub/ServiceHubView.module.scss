@@ -5,12 +5,14 @@
 }
 
 .shell {
-  --hub-text: var(--neutral-on-background-strong);
-  --hub-muted: var(--neutral-on-background-medium);
-  --hub-line: rgba(18, 18, 16, 0.1);
-  --hub-line-strong: rgba(18, 18, 16, 0.16);
-  --hub-surface: rgba(18, 18, 16, 0.025);
-  --hub-surface-strong: rgba(18, 18, 16, 0.05);
+  --hub-text: #171714;
+  --hub-body: #484841;
+  --hub-muted: #625f56;
+  --hub-accent: #8a5d08;
+  --hub-line: rgba(23, 23, 20, 0.16);
+  --hub-line-strong: rgba(23, 23, 20, 0.26);
+  --hub-surface: rgba(23, 23, 20, 0.04);
+  --hub-surface-strong: rgba(23, 23, 20, 0.065);
 
   --hub-radius-sm: 1rem;
   --hub-radius-md: 1.5rem;
@@ -60,7 +62,7 @@
 
   width: fit-content;
 
-  color: var(--hub-muted);
+  color: var(--hub-accent);
 
   font-family: var(--font-technical);
   font-size: 0.68rem;
@@ -116,7 +118,7 @@
 
   min-height: 3.25rem;
 
-  border-radius: 0.85rem;
+  border-radius: 0.7rem;
 
   font-family: var(--font-label);
   font-size: 0.9rem;
@@ -129,9 +131,9 @@
 .primaryAction {
   padding: 0.95rem 1.4rem;
 
-  border: 1px solid #a7801e;
-  background: var(--color-accent-gold);
-  color: #121210;
+  border: 1px solid var(--hub-text);
+  background: var(--hub-text);
+  color: #fffaf0;
 
   transition:
     transform var(--motion-fast),
@@ -141,13 +143,14 @@
 .secondaryAction {
   gap: 0.65rem;
 
-  padding: 0.95rem 0.3rem;
+  padding: 0.95rem 1rem;
 
+  border: 1px solid var(--hub-line-strong);
   color: var(--hub-text);
 }
 
 .secondaryAction span {
-  color: var(--color-accent-gold-muted);
+  color: var(--hub-accent);
 
   transition: transform var(--motion-fast);
 }
@@ -164,13 +167,13 @@
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: clamp(2.5rem, 6vw, 5.5rem);
   align-items: center;
 
-  min-height: min(44rem, calc(100svh - 5rem));
+  min-height: min(40rem, calc(100svh - 5rem));
 
-  padding-block: clamp(3.4rem, 6vw, 6rem);
+  padding-block: clamp(3rem, 5vw, 4.75rem);
 }
 
 .heroCopy {
@@ -282,7 +285,7 @@
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
 
-  min-height: 38rem;
+  min-height: 34rem;
 
   overflow: hidden;
 
@@ -298,7 +301,7 @@
 .heroImage {
   position: relative;
 
-  min-height: 33.8rem;
+  min-height: 29.8rem;
 
   overflow: hidden;
 }
@@ -354,7 +357,7 @@
   display: grid;
   gap: clamp(2.5rem, 5vw, 4rem);
 
-  margin-top: clamp(3.5rem, 6vw, 6rem);
+  margin-top: clamp(1.5rem, 3vw, 3rem);
   padding: clamp(2.7rem, 5vw, 4.5rem);
 
   border-radius: var(--hub-radius-lg);
@@ -470,7 +473,7 @@
 
 .includedGrid h3 {
   font-family: var(--font-heading);
-  font-size: 0.98rem;
+  font-size: 1.05rem;
   font-weight: 700;
   line-height: 1.2;
 }
@@ -480,7 +483,7 @@
 
   color: var(--hub-muted);
 
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   line-height: 1.52;
 }
 
@@ -490,7 +493,7 @@
 
 .inspirationsAnchor {
   scroll-margin-top: 7rem;
-  margin-top: clamp(5rem, 8vw, 8rem);
+  margin-top: clamp(4rem, 6vw, 6rem);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -499,17 +502,21 @@
 
 .capabilitiesSection {
   display: grid;
-  grid-template-columns: minmax(18rem, 0.62fr) minmax(0, 1.38fr);
-  gap: clamp(3rem, 7vw, 6rem);
+  gap: clamp(2rem, 4vw, 3.25rem);
   align-items: start;
 
-  margin-top: clamp(5rem, 8vw, 8rem);
+  margin-top: clamp(4rem, 6vw, 6rem);
+}
+
+.capabilitiesSection .sectionIntro {
+  max-width: 58rem;
 }
 
 .capabilitiesGrid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.85rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 clamp(1.5rem, 4vw, 3rem);
+  border-bottom: 1px solid var(--hub-line);
 }
 
 .capabilityCard {
@@ -517,31 +524,22 @@
   grid-template-columns: 2rem minmax(0, 1fr);
   gap: 0.9rem;
 
-  min-height: 9rem;
+  min-height: 10rem;
 
-  padding: 1.35rem;
+  padding: 1.35rem 0 1.5rem;
 
-  border: 1px solid var(--hub-line);
-  border-radius: 1.25rem;
+  border-top: 1px solid var(--hub-line);
 
   background: transparent;
-}
-
-.capabilityCardFeatured {
-  min-height: 12rem;
-
-  padding: 1.6rem;
-
-  background: var(--hub-surface);
 }
 
 .capabilityNumber {
   padding-top: 0.15rem;
 
-  color: var(--color-accent-gold-muted);
+  color: var(--hub-accent);
 
   font-family: var(--font-technical);
-  font-size: 0.64rem;
+  font-size: 0.7rem;
   line-height: 1;
 }
 
@@ -553,23 +551,43 @@
 
 .capabilityCard h3 {
   font-family: var(--font-heading);
-  font-size: clamp(1.1rem, 1.55vw, 1.35rem);
+  font-size: clamp(1.2rem, 1.65vw, 1.5rem);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.02em;
 }
 
-.capabilityCardFeatured h3 {
-  font-size: clamp(1.35rem, 2vw, 1.7rem);
-}
-
 .capabilityCard p {
   max-width: 24rem;
 
-  color: var(--hub-muted);
+  color: var(--hub-body);
 
-  font-size: 0.86rem;
+  font-size: 0.92rem;
   line-height: 1.56;
+}
+
+.capabilitiesLink {
+  display: inline-flex;
+  gap: 1.25rem;
+  align-items: center;
+  justify-self: end;
+  min-height: 3.15rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--hub-text);
+  border-radius: 0.7rem;
+  color: var(--hub-text);
+  font-family: var(--font-label);
+  font-size: 0.86rem;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.capabilitiesLink span {
+  color: var(--hub-accent);
+}
+
+.capabilitiesLink:focus-visible {
+  @include mixins.focus-ring;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -580,7 +598,7 @@
   display: grid;
   gap: clamp(2.5rem, 5vw, 4rem);
 
-  margin-top: clamp(5rem, 8vw, 8rem);
+  margin-top: clamp(4rem, 6vw, 6rem);
 }
 
 .processHeader {
@@ -632,7 +650,7 @@
 }
 
 .processNumber {
-  color: var(--color-accent-gold-muted);
+  color: var(--hub-accent);
 
   font-family: var(--font-heading);
   font-size: clamp(2.5rem, 4vw, 4rem);
@@ -640,7 +658,7 @@
   line-height: 0.9;
   letter-spacing: -0.05em;
 
-  opacity: 0.32;
+  opacity: 0.72;
 }
 
 .processGrid li > div {
@@ -657,9 +675,9 @@
 }
 
 .processGrid p {
-  color: var(--hub-muted);
+  color: var(--hub-body);
 
-  font-size: 0.84rem;
+  font-size: 0.9rem;
   line-height: 1.56;
 }
 
@@ -673,7 +691,7 @@
   gap: clamp(2.5rem, 7vw, 6rem);
   align-items: start;
 
-  margin-top: clamp(5rem, 8vw, 8rem);
+  margin-top: clamp(4rem, 6vw, 6rem);
 }
 
 .faqIntro {
@@ -716,10 +734,10 @@
 }
 
 .faqNumber {
-  color: var(--color-accent-gold-muted);
+  color: var(--hub-accent);
 
   font-family: var(--font-technical);
-  font-size: 0.6rem;
+  font-size: 0.68rem;
   line-height: 1;
 }
 
@@ -731,7 +749,7 @@
 }
 
 .faqIcon {
-  color: var(--color-accent-gold-muted);
+  color: var(--hub-accent);
 
   font-size: 1.25rem;
   font-weight: 400;
@@ -749,9 +767,9 @@
 
   padding: 0 3.75rem 1.35rem 4.35rem;
 
-  color: var(--hub-muted);
+  color: var(--hub-body);
 
-  font-size: 0.88rem;
+  font-size: 0.94rem;
   line-height: 1.62;
 }
 
@@ -765,7 +783,7 @@
   gap: clamp(2.5rem, 7vw, 6rem);
   align-items: center;
 
-  margin-top: clamp(5rem, 8vw, 8rem);
+  margin-top: clamp(4rem, 6vw, 6rem);
 
   padding: clamp(2.8rem, 5.5vw, 5rem);
 
@@ -851,13 +869,19 @@
 
 @include mixins.hover-fine {
   .primaryAction:hover {
-    background: #e4c144;
+    background: #30302b;
 
     transform: translateY(-1px);
   }
 
   .secondaryAction:hover span {
     transform: translateY(2px);
+  }
+
+  .secondaryAction:hover,
+  .capabilitiesLink:hover {
+    border-color: var(--hub-accent);
+    color: var(--hub-accent);
   }
 
   .heroVisual:hover .heroImage img {
@@ -878,7 +902,7 @@
   }
 
   .faqPanel summary:hover .faqQuestion {
-    color: var(--color-accent-gold-muted);
+    color: var(--hub-accent);
   }
 }
 
@@ -923,6 +947,10 @@
 
   .capabilitiesSection {
     grid-template-columns: 1fr;
+  }
+
+  .capabilitiesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .processGrid {
@@ -1024,9 +1052,14 @@
     grid-template-columns: 1fr;
   }
 
-  .capabilityCard,
-  .capabilityCardFeatured {
+  .capabilityCard {
     min-height: auto;
+  }
+
+  .capabilitiesLink {
+    justify-self: stretch;
+    justify-content: space-between;
+    width: 100%;
   }
 
   .processSection {

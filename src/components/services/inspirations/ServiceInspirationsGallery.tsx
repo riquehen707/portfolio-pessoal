@@ -11,9 +11,11 @@ import styles from "./ServiceInspirationsGallery.module.scss";
 export function ServiceInspirationsGallery({
   inspirations,
   variant = "catalog",
+  contactHref,
 }: {
   inspirations: ServiceInspiration[];
   variant?: "preview" | "catalog";
+  contactHref?: string;
 }) {
   if (!inspirations.length) return null;
 
@@ -74,9 +76,22 @@ export function ServiceInspirationsGallery({
       </div>
 
       {isPreview ? (
-        <Link className={styles.moreLink} href="/servicos/inspiracoes">
-          Ver mais ideias <span aria-hidden="true">→</span>
-        </Link>
+        <div className={styles.previewActions}>
+          {contactHref ? (
+            <a
+              className={styles.conversionLink}
+              href={contactHref}
+              data-analytics-event="services_help_click"
+              data-analytics-location="services_inspirations_preview"
+            >
+              Quero meu site
+              <span aria-hidden="true">→</span>
+            </a>
+          ) : null}
+          <Link className={styles.moreLink} href="/servicos/inspiracoes">
+            Ver todas as inspirações <span aria-hidden="true">→</span>
+          </Link>
+        </div>
       ) : null}
     </section>
   );

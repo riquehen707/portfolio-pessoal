@@ -10,6 +10,7 @@ export type ServiceInspiration = {
   width: number;
   height: number;
   updatedAt: string;
+  publication?: "real-estate-editorial";
 };
 
 export const serviceInspirations: ServiceInspiration[] = [
@@ -76,12 +77,13 @@ export const serviceInspirations: ServiceInspiration[] = [
     image: "/images/services/inspirations/imoveis-em-destaque.webp",
     alt: "Referência visual de um site imobiliário com fotografia ampla, informações essenciais e chamada para contato.",
     description:
-      "Uma possibilidade para apresentar poucos imóveis com destaque, combinar imagem e informação e facilitar uma conversa sobre cada oportunidade.",
-    tags: ["Imóveis", "Contato", "Fotografia"],
+      "Uma publicação demonstrativa que percorre a descoberta, a comparação e o contato em um site imobiliário de linguagem editorial.",
+    tags: ["Imóveis", "Jornada", "Contato"],
     featured: true,
     width: 1448,
     height: 1086,
-    updatedAt: "2026-09-12",
+    updatedAt: "2026-09-13",
+    publication: "real-estate-editorial",
   },
   {
     slug: "trabalho-autoral",

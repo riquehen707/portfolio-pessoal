@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { ServicesAreaNav } from "@/components/services/ServicesAreaNav";
 import { ServiceInspirationsGallery } from "@/components/services/inspirations/ServiceInspirationsGallery";
@@ -44,42 +45,36 @@ const capabilities = [
     title: "Receber contatos",
     description:
       "WhatsApp, formulário ou outra rota simples para transformar uma visita em conversa.",
-    emphasis: true,
   },
   {
     number: "02",
     title: "Aparecer nas buscas",
     description:
       "Uma base técnica preparada para indexação, conteúdo e evolução de SEO.",
-    emphasis: true,
   },
   {
     number: "03",
     title: "Apresentar seus serviços",
     description:
       "Organize o que você faz de forma clara para quem chega pela primeira vez.",
-    emphasis: false,
   },
   {
     number: "04",
     title: "Exibir seus projetos",
     description:
       "Portfólio, galeria, cases ou trabalhos selecionados em uma estrutura visual.",
-    emphasis: false,
   },
   {
     number: "05",
     title: "Mostrar serviços e preços",
     description:
       "Explique opções, formatos de contratação e valores quando fizer sentido.",
-    emphasis: false,
   },
   {
     number: "06",
     title: "Funcionar bem no celular",
     description:
       "Layout adaptado para navegação, leitura e contato em telas menores.",
-    emphasis: false,
   },
 ] as const;
 
@@ -268,6 +263,7 @@ export function ServiceHubView({
         <ServiceInspirationsGallery
           inspirations={inspirations}
           variant="preview"
+          contactHref={contactHref}
         />
       </div>
 
@@ -290,12 +286,7 @@ export function ServiceHubView({
 
         <div className={styles.capabilitiesGrid}>
           {capabilities.map((item) => (
-            <article
-              className={`${styles.capabilityCard} ${
-                item.emphasis ? styles.capabilityCardFeatured : ""
-              }`}
-              key={item.number}
-            >
+            <article className={styles.capabilityCard} key={item.number}>
               <span className={styles.capabilityNumber}>
                 {item.number}
               </span>
@@ -307,6 +298,11 @@ export function ServiceHubView({
             </article>
           ))}
         </div>
+
+        <Link className={styles.capabilitiesLink} href="/servicos/capacidades">
+          Explorar capacidades
+          <span aria-hidden="true">→</span>
+        </Link>
       </section>
 
       <section
@@ -418,7 +414,7 @@ export function ServiceHubView({
             data-analytics-event="services_help_click"
             data-analytics-location="services_hub_contact"
           >
-            Quero conversar
+            Quero meu site
           </a>
         </div>
       </section>

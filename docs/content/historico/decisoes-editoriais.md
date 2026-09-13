@@ -1,5 +1,21 @@
 # Decisões editoriais
 
+## 2026-09-13 — Publicação demonstrativa “Imóveis em destaque”
+
+`/servicos/inspiracoes/imoveis-em-destaque` passa a aprofundar a referência imobiliária como uma publicação editorial própria, preservando o slug, a fonte única `service-inspirations.ts` e o CTA contextual. O campo opcional `publication` seleciona essa composição sem reintroduzir `ServiceExamplesPreview`, `getPublishedServiceExamples` ou o catálogo legado na experiência de `/servicos`.
+
+A sequência reconstrói em componentes reais a jornada `primeira impressão → exploração → decisão → contato`: home e destaques, busca, filtros funcionais, cards com favoritos locais, detalhe com galeria selecionável, preço, características e formulário demonstrativo. As ações internas de agendamento e WhatsApp levam ao contato simulado, que declara não enviar nem armazenar dados; somente o CTA final abre o contato comercial real do Henrique. Imóveis, preços, localização e marca são fictícios e as quatro fotografias foram geradas para esta demonstração, com origem, texto alternativo e dimensões registrados no módulo de dados local.
+
+A composição desktop segue a alternância, as proporções, o espaço negativo e o acabamento da referência anexada. No mobile, cada etapa antecede seu mockup, filtros e cards passam a uma coluna e o documento não possui overflow horizontal. A revisão foi executada localmente, sem commit ou deploy.
+
+## 2026-09-13 — Padrão permanente para demonstrações guiadas por imagem
+
+O guia autoritativo `docs/architecture/service-landing-pages.md` passa a concentrar também o processo de criação de publicações demonstrativas a partir de uma imagem de referência. Não foi criado outro manual: modelos, previews, ficção, confiança, rotas e publicação já pertenciam ao guia de serviços, e a nova seção complementa essas regras sem duplicar a diretriz global de linguagem.
+
+A referência visual orienta composição, proporções, hierarquia, ritmo, tipografia, densidade e tratamento dos componentes. A implementação deve decompor a imagem e reconstruir a interface em HTML, CSS e React, preservando a intenção em desktop e adaptando a mesma hierarquia ao mobile. Artefatos da imagem não são copiados; melhorias só se justificam por legibilidade, acessibilidade, responsividade, consistência ou funcionamento.
+
+Cada demonstração representa uma jornada adequada ao segmento, usa conteúdo plausível e identificado, distingue a publicação de Henrique do negócio fictício e comprova capacidade pelo produto funcionando, sem inventar cliente, resultado ou conclusão de formulário, reserva ou compra. O processo exige análise anterior ao código, comparação visual renderizada e correção por estrutura, espaçamento, escala, tipografia, alinhamento, contraste e acabamento. A frase de ativação para tarefas futuras foi registrada no próprio guia. Revisão somente documental, sem mudança de rota, schema, componente, estado de publicação, commit ou deploy.
+
 ## 2026-09-10 — Oferta mensal única e nova direção visual de `/servicos`
 
 `/servicos` passa a vender uma única oferta: site profissional completo por R$147/mês, sem taxa de implementação. Domínio, hospedagem, manutenção, suporte, design, desenvolvimento, publicação, preparação técnica para SEO e pequenos ajustes recorrentes pertencem ao mesmo plano. A condição anterior de criação por R$397, promoção por R$200 e mensalidade de R$89,90 deixa de orientar a home; páginas, sistemas, integrações e alterações maiores continuam dependendo de escopo próprio.

@@ -162,7 +162,7 @@
 .caption > span {
   color: var(--inspirations-accent);
   font-family: var(--font-technical);
-  font-size: 0.61rem;
+  font-size: 0.68rem;
   font-weight: var(--type-weight-technical);
   line-height: 1.3;
   letter-spacing: 0.12em;
@@ -178,29 +178,56 @@
   letter-spacing: -0.02em;
 }
 
+.previewActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.conversionLink,
 .moreLink {
   display: inline-flex;
   gap: 1rem;
   align-items: center;
-  justify-self: end;
+  justify-content: space-between;
   min-height: 3.25rem;
-  padding: 0.85rem 1rem;
-  border: 1px solid rgba(248, 243, 232, 0.28);
-  border-radius: 999px;
-  color: var(--inspirations-paper);
+  padding: 0.85rem 1.05rem;
+  border-radius: 0.7rem;
   font-family: var(--font-label);
   font-size: 0.86rem;
-  font-weight: 700;
+  font-weight: 750;
   text-decoration: none;
-  transition: border-color var(--motion-fast), color var(--motion-fast), transform var(--motion-fast);
+  transition: background var(--motion-fast), border-color var(--motion-fast), color var(--motion-fast), transform var(--motion-fast);
 }
 
+.conversionLink {
+  border: 1px solid var(--inspirations-accent);
+  background: var(--inspirations-accent);
+  color: var(--inspirations-ink);
+}
+
+.moreLink {
+  border: 1px solid var(--inspirations-paper);
+  background: var(--inspirations-paper);
+  color: var(--inspirations-ink);
+}
+
+.conversionLink span,
 .moreLink span {
-  color: var(--inspirations-accent);
   font-size: 1.1rem;
 }
 
+.conversionLink span {
+  color: #624300;
+}
+
+.moreLink span {
+  color: #8a5d08;
+}
+
 .itemLink:focus-visible,
+.conversionLink:focus-visible,
 .moreLink:focus-visible {
   @include mixins.focus-ring;
 }
@@ -221,10 +248,19 @@
     color: var(--inspirations-accent);
   }
 
+  .conversionLink:hover,
   .moreLink:hover {
-    border-color: var(--inspirations-accent);
-    color: var(--inspirations-accent);
-    transform: translateX(0.2rem);
+    transform: translateY(-2px);
+  }
+
+  .conversionLink:hover {
+    border-color: #f1ca60;
+    background: #f1ca60;
+  }
+
+  .moreLink:hover {
+    border-color: #ffffff;
+    background: #ffffff;
   }
 }
 
@@ -295,9 +331,12 @@
     font-size: clamp(1rem, 4.5vw, 1.18rem);
   }
 
+  .previewActions {
+    display: grid;
+  }
+
+  .conversionLink,
   .moreLink {
-    justify-self: stretch;
-    justify-content: space-between;
     width: 100%;
   }
 }
@@ -311,6 +350,7 @@
 @media (prefers-reduced-motion: reduce) {
   .image,
   .imageAction,
+  .conversionLink,
   .moreLink {
     transition: none;
   }

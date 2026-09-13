@@ -3,10 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { RealEstateInspirationPublication } from "@/components/services/inspirations/real-estate/RealEstateInspirationPublication";
 import {
   getServiceInspiration,
   getServiceInspirationPath,
   getServiceInspirationStaticParams,
+  serviceInspirations,
 } from "@/data/service-inspirations";
 import { baseURL, person, social } from "@/resources";
 
@@ -68,6 +70,15 @@ export default async function ServiceInspirationPage({ params }: Props) {
     ? `${whatsapp}?text=${encodeURIComponent(message)}`
     : `mailto:${person.email}?subject=${encodeURIComponent(`Site na direção ${inspiration.title}`)}`;
   const isPortrait = inspiration.height > inspiration.width;
+  const relatedInspirations = [
+    "bem-estar-acolhedor",
+    "arquitetura-editorial",
+    "portfolio-fotografico",
+    "negocio-local-vibrante",
+  ].flatMap((slug) => {
+    const related = serviceInspirations.find((item) => item.slug === slug);
+    return related ? [related] : [];
+  });
 
   return (
     <Column fillWidth>
@@ -85,65 +96,75 @@ export default async function ServiceInspirationPage({ params }: Props) {
         }}
       />
 
-      <main className={styles.page}>
-        <Link className={styles.backLink} href="/servicos/inspiracoes">
-          <span aria-hidden="true">←</span> Voltar para inspirações
-        </Link>
+      {inspiration.publication === "real-estate-editorial" ? (
+        <RealEstateInspirationPublication
+          inspiration={inspiration}
+          contactHref={contactHref}
+          relatedInspirations={relatedInspirations}
+        />
+      ) : (
+        <main className={styles.page}>
+          <Link className={styles.backLink} href="/servicos/inspiracoes">
+            <span aria-hidden="true">←</span> Voltar para inspirações
+          </Link>
 
-        <header className={styles.header}>
-          <p>{inspiration.category}</p>
-          <h1>{inspiration.title}</h1>
-        </header>
+          <header className={styles.header}>
+            <p>{inspiration.category}</p>
+            <h1>{inspiration.title}</h1>
+          </header>
 
-        <figure
-          className={`${styles.figure} ${isPortrait ? styles.portraitFigure : ""}`}
-        >
-          <Image
-            className={styles.image}
-            src={inspiration.image}
-            alt={inspiration.alt}
-            width={inspiration.width}
-            height={inspiration.height}
-            priority
-            sizes={isPortrait ? "(max-width: 760px) 100vw, 42rem" : "(max-width: 1320px) 100vw, 80rem"}
-          />
-        </figure>
+          <figure
+            className={`${styles.figure} ${isPortrait ? styles.portraitFigure : ""}`}
+          >
+            <Image
+              className={styles.image}
+              src={inspiration.image}
+              alt={inspiration.alt}
+              width={inspiration.width}
+              height={inspiration.height}
+              priority
+              sizes={
+                isPortrait
+                  ? "(max-width: 760px) 100vw, 42rem"
+                  : "(max-width: 1320px) 100vw, 80rem"
+              }
+            />
+          </figure>
 
-        <section
-          className={styles.details}
-          aria-labelledby="inspiration-direction-title"
-        >
-          <div className={styles.description}>
-            <p className={styles.eyebrow}>Direção visual</p>
-            <h2 id="inspiration-direction-title">
-              Um ponto de partida, não um modelo fechado.
-            </h2>
-            <p>{inspiration.description}</p>
+          <section
+            className={styles.details}
+            aria-labelledby="inspiration-direction-title"
+          >
+            <div className={styles.description}>
+              <p className={styles.eyebrow}>Direção visual</p>
+              <h2 id="inspiration-direction-title">
+                Um ponto de partida, não um modelo fechado.
+              </h2>
+              <p>{inspiration.description}</p>
 
-            {inspiration.tags?.length ? (
-              <ul aria-label="Características desta direção visual">
-                {inspiration.tags.map((tag) => (
-                  <li key={tag}>{tag}</li>
-                ))}
-              </ul>
-            ) : null}
-          </div>
+              {inspiration.tags?.length ? (
+                <ul aria-label="Características desta direção visual">
+                  {inspiration.tags.map((tag) => (
+                    <li key={tag}>{tag}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
 
-          <aside className={styles.contact} aria-label="Contato sobre esta inspiração">
-            <p>
-              Cores, textos, imagens e organização são ajustados ao seu negócio.
-            </p>
-            <a
-              href={contactHref}
-              data-analytics-event="services_help_click"
-              data-analytics-location={`service_inspiration_${inspiration.slug}`}
-            >
-              Quero um site nessa direção
-              <span aria-hidden="true">→</span>
-            </a>
-          </aside>
-        </section>
-      </main>
+            <aside className={styles.contact} aria-label="Contato sobre esta inspiração">
+              <p>Cores, textos, imagens e organização são ajustados ao seu negócio.</p>
+              <a
+                href={contactHref}
+                data-analytics-event="services_help_click"
+                data-analytics-location={`service_inspiration_${inspiration.slug}`}
+              >
+                Quero um site nessa direção
+                <span aria-hidden="true">→</span>
+              </a>
+            </aside>
+          </section>
+        </main>
+      )}
     </Column>
   );
 }
