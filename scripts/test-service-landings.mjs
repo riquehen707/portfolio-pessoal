@@ -48,7 +48,7 @@ const { services } = load("src/resources/services.ts");
 const { getServiceHubContent } = load("src/data/service-hub/index.ts");
 const { serviceExampleSchema } = load("src/content/service-examples/serviceExampleSchema.ts");
 const { getAdjacentServiceExamples, getIndexableServiceExamples, getPublishedServiceExamples, getServiceExamplePath } = load("src/data/service-examples/index.ts");
-const { getServiceInspiration, getServiceInspirationPath, getServiceInspirationStaticParams, serviceInspirations } = load("src/data/service-inspirations.ts");
+const { getFeaturedServiceInspirations, getServiceInspiration, getServiceInspirationPath, getServiceInspirationStaticParams, serviceInspirations } = load("src/data/service-inspirations.ts");
 const { exampleServiceLanding } = load("src/content/service-landings/example.ts");
 const { architectWebsite } = load("src/content/service-landings/architectWebsite.ts");
 const { artistGallery } = load("src/content/service-landings/artistGallery.ts");
@@ -343,7 +343,13 @@ test("exemplos demonstrativos só publicam uma rota quando estão completos", ()
 });
 
 test("inspirações compartilham dados válidos entre galeria e páginas individuais", () => {
-  assert.equal(serviceInspirations.length, 8);
+  assert.equal(serviceInspirations.length, 12);
+  assert.equal(getFeaturedServiceInspirations().length, 6);
+  assert.ok(getFeaturedServiceInspirations().every((inspiration) => inspiration.featured));
+  assert.deepEqual(
+    getFeaturedServiceInspirations(),
+    serviceInspirations.filter((inspiration) => inspiration.featured).slice(0, 6),
+  );
   assert.equal(
     new Set(serviceInspirations.map((inspiration) => inspiration.slug)).size,
     serviceInspirations.length,
@@ -491,7 +497,7 @@ test("home comercial mantém oferta única e envia profundidade para páginas pr
     renderToStaticMarkup(
       React.createElement(ServiceHubView, {
         ...getServiceHubContent(),
-        inspirations: serviceInspirations,
+        inspirations: getFeaturedServiceInspirations(),
         contactHref: "https://wa.me/5511999999999",
         questionHref: "mailto:oi@example.com?subject=Ajuda",
       }),
@@ -508,18 +514,18 @@ test("home comercial mantém oferta única e envia profundidade para páginas pr
   assert.equal($("#recursos").length, 0);
   assert.equal($("#formatos").length, 0);
   assert.equal($("#service-inspirations-title").text(), "Como seu site pode ficar?");
-  assert.equal($("#inspiracoes article").length, serviceInspirations.length);
-  for (const inspiration of serviceInspirations) {
+  assert.equal($("#inspiracoes article").length, 6);
+  for (const inspiration of getFeaturedServiceInspirations()) {
     assert.equal(
       $(`#inspiracoes a[href='/servicos/inspiracoes/${inspiration.slug}']`).length,
-      2,
+      1,
     );
   }
   assert.equal($("#recursos-principais").length, 0);
   assert.equal($(".perception").length, 0);
   assert.deepEqual($("section[aria-labelledby='plan-title'] ul h3").map((_, item) => $(item).text()).get(), ["Design e desenvolvimento", "Domínio", "Hospedagem", "Manutenção", "Suporte", "Pequenas atualizações"]);
   assert.equal($("a[href='/servicos/capacidades']").length, 1);
-  assert.equal($("a[href='/servicos#inspiracoes']").length, 1);
+  assert.equal($("a[href='/servicos/inspiracoes']").length, 2);
   assert.equal($("a[href='/work']").length, 1);
   assert.equal($("[data-analytics-event='services_help_click']").length, 2);
   assert.equal($("[data-analytics-event='services_help_click']").filter((_, item) => $(item).text() === "Quero meu site").length, 1);
@@ -531,7 +537,7 @@ test("home comercial mantém oferta única e envia profundidade para páginas pr
   assert.equal($("section[aria-labelledby='faq-title'] details").length, 7);
 });
 
-test("página de capacidades concentra recursos, módulos e wireframes interativos", () => {
+test("página de capacidades explica recursos com uma única demonstração", () => {
   const React = require("react");
   const { renderToStaticMarkup } = require("react-dom/server");
   const { load: html } = require("cheerio");
@@ -542,14 +548,17 @@ test("página de capacidades concentra recursos, módulos e wireframes interativ
   const { ServiceCapabilitiesView } = componentLoad("src/components/services/hub/ServiceCapabilitiesView.tsx");
   const $ = html(renderToStaticMarkup(React.createElement(ServiceCapabilitiesView, { features: getServiceHubContent().features })));
   assert.equal($("h1").text(), "Interfaces além da página estática.");
-  assert.equal($("#recursos [role='tab']").length, 6);
-  assert.equal($("#recursos [role='tabpanel']").length, 1);
-  assert.equal($("#recursos details").length, 6);
-  assert.equal($("#modulos [role='tab']").length, 4);
-  assert.equal($("#modulos [role='tabpanel']").length, 1);
-  assert.equal($("#wireframes button[aria-pressed]").length, 8);
+  assert.equal($("#recursos > ol > li").length, getServiceHubContent().features.length);
+  assert.equal($("main [role='tab']").length, 0);
+  assert.equal($("main [role='tabpanel']").length, 0);
+  assert.equal($("main details").length, 0);
+  assert.equal($("#demonstracao button").length, 1);
+  assert.equal($("#modulos article").length, 2);
+  assert.equal($("#modulos button").length, 0);
+  assert.equal($("#estrutura ol > li").length, 3);
+  assert.match($("main").text(), /Formulários.*Agendamento.*Galerias.*Filtros.*Integrações/);
   assert.equal($("a[href='/servicos/exemplos']").length, 0);
-  assert.equal($("a[href='/servicos#inspiracoes']").length, 2);
+  assert.equal($("a[href='/servicos/inspiracoes']").length, 2);
   assert.equal($("a[href='/servicos']").length, 2);
 });
 

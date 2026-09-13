@@ -13,10 +13,11 @@ Leitura por tarefa: [experiência e conteúdo](#responsabilidades), [serviço co
 | Página | Objetivo | Estrutura |
 | --- | --- | --- |
 | Artigo `/blog/[slug]` | Aquisição orgânica e educação | MDX, explicação, referências e até um CTA contextual |
-| Home comercial `/servicos` | Permitir entendimento rápido e contato | Oferta comum, condição comercial, escopo, galeria de inspirações e recursos principais |
+| Home comercial `/servicos` | Permitir entendimento rápido e contato | Oferta comum, condição comercial, escopo, prévia de até seis inspirações e recursos principais |
+| Galeria `/servicos/inspiracoes` | Permitir exploração visual ampla | Masonry editorial com todas as referências publicadas |
 | Inspiração `/servicos/inspiracoes/[slug]` | Ampliar uma direção visual e conduzir ao contato | Categoria, título, imagem, descrição curta, tags opcionais e um CTA comercial |
 | Galeria demonstrativa legada `/servicos/exemplos` | Permitir testar composições já implementadas | Previews, filtros por tipo e identificação explícita de demonstração |
-| Capacidades `/servicos/capacidades` | Demonstrar profundidade técnica sem sobrecarregar a oferta | Recursos funcionais, módulos de interface, estados e wireframes navegáveis |
+| Capacidades `/servicos/capacidades` | Demonstrar profundidade técnica sem sobrecarregar a oferta | Lista editorial de recursos, uma interação útil, exemplos estáticos de interface e explicação de estrutura |
 | Landing `/servicos/[slug]` | Avaliar e contratar uma oferta específica | Decisão, avaliação e detalhes, com uma ação principal e navegação de retorno |
 | Exemplo `/servicos/exemplos/[slug]` | Demonstrar uma possibilidade visual sem alegar cliente ou resultado | Composição própria, identificação discreta de projeto demonstrativo e CTA para a oferta comum |
 | Portfólio `/work` | Reunir trabalhos reais, autorais e estudos com contexto | Evidência, estado do projeto, decisões e resultado conhecido; `/portfolio` redireciona para esta rota |
@@ -39,7 +40,7 @@ São exemplos de intenção, não grupos obrigatórios. Podem orientar a oferta,
 
 Usar um hero curto com a oferta e um resumo inequívoco da condição comercial. A home mostra uma seleção visual forte, poucos recursos principais, escopo mensal, processo, FAQ curto e contato. Formatos aparecem como possibilidades da mesma oferta; profissões são metadado das inspirações ou público possível, nunca planos com preço próprio.
 
-O explorador funcional, os módulos, filtros, estados e wireframes ficam em `/servicos/capacidades`. A galeria editorial de inspirações fica na própria home e cada item abre `/servicos/inspiracoes/[slug]`. As demos completas em `/servicos/exemplos` permanecem uma superfície técnica legada e não alimentam a galeria comercial. A navegação entre oferta, inspirações, capacidades e `/work` deve explicitar a função de cada superfície sem criar CTAs concorrentes dentro da home.
+A explicação de recursos, os exemplos de módulos e o raciocínio de estrutura ficam em `/servicos/capacidades`. A página preserva interação apenas quando ela reduz o esforço para entender a capacidade; os demais conceitos usam texto e interface estática. A home mostra de quatro a seis inspirações e encaminha para a galeria completa em `/servicos/inspiracoes`; cada item abre `/servicos/inspiracoes/[slug]`. As demos completas em `/servicos/exemplos` permanecem uma superfície técnica legada e não alimentam a galeria comercial. A navegação entre oferta, inspirações, capacidades e `/work` deve explicitar a função de cada superfície sem criar CTAs concorrentes dentro da home.
 
 O hero mantém uma ação primária direta para iniciar o projeto e uma ação secundária para as inspirações. A página pode repetir a conversão no encerramento, preservando destino e intenção. Links para capacidades e portfólio têm função exploratória clara, sem competir visualmente com a contratação. Nunca encaminhar a escolha para uma rota pausada ou com redirecionamento inesperado.
 
@@ -63,11 +64,11 @@ Aplicar o padrão de [previews](#previews-legíveis-e-consistentes). O formato a
 
 ### Inspirações, exemplos demonstrativos e portfólio
 
-`/work` reúne projetos reais, autorais e estudos com contexto editorial e estado de evidência; `/portfolio` é apenas seu redirecionamento legado. A área `#inspiracoes` de `/servicos` reúne referências visuais, e `/servicos/inspiracoes/[slug]` amplia cada direção antes do contato. Não apresentar uma inspiração como cliente, projeto entregue, template pronto ou resultado real.
+`/work` reúne projetos reais, autorais e estudos com contexto editorial e estado de evidência; `/portfolio` é apenas seu redirecionamento legado. A área `#inspiracoes` de `/servicos` oferece uma prévia curta, `/servicos/inspiracoes` reúne a exploração visual completa e `/servicos/inspiracoes/[slug]` amplia cada direção antes do contato. Não apresentar uma inspiração como cliente, projeto entregue, template pronto ou resultado real.
 
-Cada inspiração registra em `src/data/service-inspirations.ts` slug, título, categoria, imagem, texto alternativo, descrição, dimensões, atualização e tags opcionais. Essa é a fonte única consumida pela galeria e pelas páginas individuais; componentes não mantêm títulos, descrições ou listas paralelas. Os assets próprios ficam em `public/images/services/inspirations/`, sem reaproveitar capas das demos antigas. A imagem preserva sua proporção e domina o item; abaixo dela aparecem somente categoria e título.
+Cada inspiração registra em `src/data/service-inspirations.ts` slug, título, categoria, imagem, texto alternativo, descrição, dimensões, atualização, tags opcionais e `featured` opcional. Essa é a fonte única consumida pela galeria e pelas páginas individuais; `featured` controla a seleção curta da home, e componentes não mantêm títulos, descrições ou listas paralelas. Os assets próprios ficam em `public/images/services/inspirations/`, sem reaproveitar capas das demos antigas. A imagem preserva sua proporção e domina o item; abaixo dela aparecem somente categoria e título.
 
-A galeria de inspirações usa masonry em CSS, sem biblioteca de layout, cards pesados ou proporção única. O desktop usa aproximadamente três ou quatro colunas, o tablet duas ou três e o mobile duas sempre que a largura permitir; telas muito estreitas podem cair para uma. Nenhuma ação depende do hover. Cada página individual mantém retorno à galeria, imagem grande, explicação breve e o CTA `Quero um site nessa direção`, com o nome da inspiração na mensagem de contato.
+A galeria de inspirações usa masonry em CSS, sem biblioteca de layout, cards pesados ou proporção única. A galeria dedicada pode chegar a cinco colunas em telas muito largas; o desktop usa quatro, o tablet três e o mobile duas sempre que a largura permitir. Telas muito estreitas podem cair para uma. Nenhuma ação depende do hover. Cada página individual mantém retorno à galeria, imagem grande, explicação breve e o CTA `Quero um site nessa direção`, com o nome da inspiração na mensagem de contato.
 
 As demos completas continuam separadas: `/servicos/exemplos` e `/servicos/exemplos/[slug]` permitem testar composições implementadas e usam `src/content/service-examples/` com renderer próprio. Elas não são a fonte da galeria de inspirações. Rascunhos de demo não geram rota, card ou entrada de sitemap. O catálogo antigo em `/modelos` permanece legado e pausado, sem migração automática para estas famílias.
 
@@ -237,7 +238,7 @@ Esta seção descreve o código consultado em 2026-09-08, sem certificar produç
 | Dados das inspirações | `src/data/service-inspirations.ts` |
 | Galeria masonry na home | `src/components/services/inspirations/ServiceInspirationsGallery.tsx` |
 | Rota individual de inspiração | `src/app/servicos/inspiracoes/[slug]/page.tsx` |
-| Previews funcionais e leves de recursos | `src/components/services/hub/ServiceFeaturePreview.tsx` |
+| Demonstração funcional principal | `src/components/services/hub/ServiceFeaturePreview.tsx` |
 | Schema e catálogo de exemplos | `src/content/service-examples/` e `src/data/service-examples/` |
 | Cards, renderers e camada comum dos exemplos | `src/components/services/examples/` |
 | Rota demonstrativa | `src/app/servicos/exemplos/[slug]/page.tsx` |
@@ -251,10 +252,10 @@ A fonte de dados valida IDs únicos de formatos e recursos para a vitrine de cap
 | Necessidade | `id`, rótulo e referências para ao menos um formato e um recurso existentes |
 | Formato | `id`, título, descrição, públicos de exemplo, detalhe e preview local com texto alternativo |
 | Recurso | `id`, título, grupo, descrição, uso, estado `included`, `available` ou `additional` e preview opcional |
-| Inspiração | `slug`, `title`, `category`, `image`, `alt`, `description`, `tags`, dimensões e `updatedAt` |
+| Inspiração | `slug`, `title`, `category`, `image`, `alt`, `description`, `tags`, `featured`, dimensões e `updatedAt` |
 | Exemplo demonstrativo | `id`, `slug`, `status`, `featured`, `order`, `title`, `segment`, `solutionType`, `shortDescription`, `tags`, `visualStyle`, decisões, recursos relacionados, `coverImage` desktop/mobile, `images`, renderer e política de indexação |
 
-`ServiceCapabilitiesView` mantém os estados do explorador de recursos e `CapabilityWorkbench` controla módulos e wireframes. Os seis previews prioritários renderizam componentes locais e não incorporam demos completas; formulário, WhatsApp, rota e agendamento deixam explícito que não enviam dados nem concluem ações. Recursos secundários usam `details/summary`. A rota demonstrativa usa renderer registrado e falha explicitamente se um exemplo publicado não tiver implementação correspondente.
+`ServiceCapabilitiesView` apresenta todos os recursos do catálogo como lista editorial e mantém somente a demonstração de contato por WhatsApp, que deixa explícito que não envia dados. `CapabilityWorkbench` mostra dois exemplos estáticos de módulos e a sequência `estrutura → interface → resultado`, sem tabs, seletores ou aparência de ferramenta de edição. A rota demonstrativa legada usa renderer registrado e falha explicitamente se um exemplo publicado não tiver implementação correspondente.
 
 ## Adoção e pendências
 
@@ -262,10 +263,10 @@ Estado técnico consultado em 2026-09-12. As diferenças abaixo são pendências
 
 | Ponto | Estado consultado e próximo ajuste |
 | --- | --- |
-| Home comercial | `/servicos` apresenta um plano de R$147/mês sem taxa inicial, hero com projeto próprio real, escopo, galeria masonry de inspirações, base técnica, processo, FAQ e contato; formatos e laboratório técnico não são carregados nesta rota |
-| Inspirações | Oito referências em `service-inspirations.ts` alimentam a galeria e páginas em `/servicos/inspiracoes/[slug]`; imagens mantêm proporção original, cada página inclui retorno e CTA contextual |
+| Home comercial | `/servicos` apresenta um plano de R$147/mês sem taxa inicial, hero com projeto próprio real, escopo, prévia de seis inspirações, base técnica, processo, FAQ e contato; formatos e laboratório técnico não são carregados nesta rota |
+| Inspirações | Doze referências em `service-inspirations.ts` alimentam `/servicos/inspiracoes` e as páginas `/servicos/inspiracoes/[slug]`; imagens mantêm proporção original, cada página inclui retorno e CTA contextual |
 | Galeria demonstrativa legada | `/servicos/exemplos` mantém previews e filtro por tipo de solução para acesso direto, mas não alimenta mais a home comercial, saiu da navegação compartilhada e permanece `noindex` e fora do sitemap |
-| Capacidades | `/servicos/capacidades` concentra seis previews funcionais, seis recursos secundários, quatro módulos com estados e oito wireframes selecionáveis; vínculos e CTA para as demos antigas foram ocultados da composição pública |
+| Capacidades | `/servicos/capacidades` apresenta doze recursos em leitura direta, uma demonstração funcional de contato, dois módulos estáticos e uma explicação em três etapas; vínculos e CTA para as demos antigas permanecem ocultos da composição pública |
 | Preço comum | A home informa uma única mensalidade de R$147, com domínio, hospedagem, manutenção, suporte, design, desenvolvimento, publicação e pequenos ajustes recorrentes; não há taxa de implementação |
 | Exemplos novos | `/servicos/exemplos/psicologia`, `/arquitetura` e `/barbearia` têm renderer, preview e identidade próprios, além de vitrine responsiva, decisões, oferta e navegação compartilhadas; Arquitetura também usa páginas internas reutilizáveis em `/servicos/exemplos/arquitetura/projetos/[project]`. Todas permanecem `noindex` nesta revisão local |
 | Header da landing | `ServiceLandingPage.tsx` tem identidade ligada a `/` e `Voltar para serviços`, inclusive no mobile |

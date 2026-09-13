@@ -22,7 +22,7 @@ const links: Array<{
   {
     id: "inspirations",
     label: "Inspirações",
-    href: "/servicos#inspiracoes",
+    href: "/servicos/inspiracoes",
   },
   {
     id: "capabilities",

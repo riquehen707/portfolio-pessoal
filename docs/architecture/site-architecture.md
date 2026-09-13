@@ -87,6 +87,7 @@ Se não cumprir nenhuma, considerar remover. Preservar conteúdo necessário à 
 ├─ /about                               redirecionamento permanente para /sobre
 ├─ /servicos                            home comercial de criação de sites
 │  ├─ /servicos/[slug]                   serviços legados e novas landings publicadas
+│  ├─ /servicos/inspiracoes               galeria completa de referências visuais
 │  ├─ /servicos/inspiracoes/[slug]        referências visuais com CTA contextual
 │  ├─ /servicos/exemplos                 galeria de exemplos demonstrativos
 │  ├─ /servicos/exemplos/[slug]          exemplos demonstrativos completos e publicados
@@ -222,8 +223,8 @@ Para estúdios de animação, aplique o [modelo editorial especializado](../edit
 
 ### Páginas institucionais, comerciais, demonstrações e projetos
 
-- **Rotas:** `/sobre`, `/work`, `/servicos`, inspirações em `/servicos/inspiracoes/[slug]`, `/servicos/exemplos`, `/servicos/capacidades`, `/servicos/produtos` e exemplos publicados em `/servicos/exemplos/[slug]`; `/about` e `/portfolio` preservam endereços anteriores por redirecionamento. Arquivos também existem sob `/modelos`, `/publicos`, `/contact`, `/simulacao` e rotas auxiliares.
-- **Estado:** `/sobre`, `/work`, `/servicos`, `/servicos/capacidades` e `/servicos/produtos` estão habilitadas em `routes`. `/servicos/exemplos` permanece acessível por URL direta, mas foi retirado do sitemap e marcado como `noindex`; exemplos demonstrativos individuais dependem do catálogo publicado e também permanecem fora do índice no catálogo atual. As demais famílias permanecem pausadas pelo middleware ou pela configuração atual.
+- **Rotas:** `/sobre`, `/work`, `/servicos`, `/servicos/inspiracoes`, inspirações em `/servicos/inspiracoes/[slug]`, `/servicos/exemplos`, `/servicos/capacidades`, `/servicos/produtos` e exemplos publicados em `/servicos/exemplos/[slug]`; `/about` e `/portfolio` preservam endereços anteriores por redirecionamento. Arquivos também existem sob `/modelos`, `/publicos`, `/contact`, `/simulacao` e rotas auxiliares.
+- **Estado:** `/sobre`, `/work`, `/servicos`, `/servicos/inspiracoes`, `/servicos/capacidades` e `/servicos/produtos` estão habilitadas em `routes`. `/servicos/exemplos` permanece acessível por URL direta, mas foi retirado do sitemap e marcado como `noindex`; exemplos demonstrativos individuais dependem do catálogo publicado e também permanecem fora do índice no catálogo atual. As demais famílias permanecem pausadas pelo middleware ou pela configuração atual.
 - **Dados e componentes:** recursos em `src/resources/`, catálogos em `src/data/`, componentes em `src/components/services/` e `src/components/work/` e arquivos próximos às rotas.
 - **SEO:** varia por rota; demonstrações podem declarar `noindex`. Não inferir publicação pela existência do componente.
 - **Pendência:** as páginas legadas desse grupo não compartilham um schema único; novas landings seguem o contrato específico abaixo. Documentar as demais famílias quando voltarem ao escopo público.
@@ -261,9 +262,9 @@ Para estúdios de animação, aplique o [modelo editorial especializado](../edit
 
 ### Inspirações, exemplos demonstrativos e capacidades de serviços
 
-- **Inspirações:** a área masonry de `/servicos` e as páginas `/servicos/inspiracoes/[slug]` compartilham `src/data/service-inspirations.ts`. São referências e possibilidades visuais, não clientes, projetos entregues ou templates prontos. As imagens preservam sua proporção; a página individual mantém retorno à galeria e contato contextual.
+- **Inspirações:** a prévia de `/servicos`, a galeria completa `/servicos/inspiracoes` e as páginas `/servicos/inspiracoes/[slug]` compartilham `src/data/service-inspirations.ts`; o campo `featured` seleciona a prévia curta da home. São referências e possibilidades visuais, não clientes, projetos entregues ou templates prontos. As imagens preservam sua proporção; a página individual mantém retorno à galeria e contato contextual.
 
-- **Rotas:** `/servicos/exemplos` organiza a galeria; `/servicos/exemplos/[slug]` abre cada demo e a Arquitetura possui estudos internos em `/servicos/exemplos/arquitetura/projetos/[project]`. `/servicos/capacidades` reúne previews funcionais, módulos e wireframes. Essas rotas não substituem `/work`, não herdam os conceitos pausados de `/modelos` e não representam clientes.
+- **Rotas:** `/servicos/exemplos` organiza a galeria; `/servicos/exemplos/[slug]` abre cada demo e a Arquitetura possui estudos internos em `/servicos/exemplos/arquitetura/projetos/[project]`. `/servicos/capacidades` reúne uma lista editorial de recursos, uma demonstração funcional, exemplos estáticos de módulos e a explicação de estrutura. Essas rotas não substituem `/work`, não herdam os conceitos pausados de `/modelos` e não representam clientes.
 - **Dados:** `content/service-examples/serviceExampleSchema.ts`, registro em `serviceExamples.ts` e fachada `data/service-examples/`. Apenas registros `published` com preview, recursos relacionados e renderer próprio geram parâmetros estáticos.
 - **Componentes:** `components/services/examples/` fornece card, seção do catálogo, registro de renderers e uma camada comum discreta com atribuição, retorno e CTA. A interface interna pertence ao renderer e pode ter identidade visual própria.
 - **Publicação e SEO:** rascunhos não aparecem na home de serviços, não têm rota e ficam fora do sitemap. `seo.index` controla a entrada de cada exemplo publicado no sitemap; a identificação de projeto demonstrativo continua visível mesmo quando indexado.

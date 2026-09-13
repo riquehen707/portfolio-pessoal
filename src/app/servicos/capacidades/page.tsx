@@ -4,7 +4,7 @@ import { getServiceHubContent } from "@/data/service-hub";
 import { baseURL, person } from "@/resources";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
 
-const page = { path: "/servicos/capacidades", title: "Capacidades para sites e interfaces", description: "Demonstrações leves de recursos, módulos, estados e wireframes para sites e experiências digitais." };
+const page = { path: "/servicos/capacidades", title: "Capacidades para sites e interfaces", description: "Recursos, interfaces e estruturas que podem transformar um site em uma experiência funcional e adaptada ao projeto." };
 
 export function generateMetadata() {
   const image = buildOgImage(page.title);

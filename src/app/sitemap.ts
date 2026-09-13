@@ -77,6 +77,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/quadrinhos": 0.76,
     "/personalidades": 0.74,
     "/estudios": 0.74,
+    "/servicos/inspiracoes": 0.72,
   };
 
   const routes = Object.keys(routesConfig)

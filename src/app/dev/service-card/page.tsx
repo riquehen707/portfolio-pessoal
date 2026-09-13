@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Column } from "@once-ui-system/core";
 import { ServiceHubView } from "@/components/services/hub/ServiceHubView";
-import { serviceInspirations } from "@/data/service-inspirations";
+import { getFeaturedServiceInspirations } from "@/data/service-inspirations";
 import { person } from "@/resources";
 import styles from "./page.module.scss";
 
@@ -16,10 +16,11 @@ export const metadata: Metadata = {
 export default function ServiceCardPreview() {
   if (process.env.NODE_ENV !== "development") notFound();
   const contactHref = `mailto:${person.email}?subject=${encodeURIComponent("Ajuda para escolher um serviço")}`;
+  const inspirations = getFeaturedServiceInspirations();
 
   return (
     <Column className={styles.page} maxWidth="l">
-      <ServiceHubView inspirations={serviceInspirations} contactHref={contactHref} />
+      <ServiceHubView inspirations={inspirations} contactHref={contactHref} />
     </Column>
   );
 }

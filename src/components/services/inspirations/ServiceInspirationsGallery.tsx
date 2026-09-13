@@ -10,23 +10,34 @@ import styles from "./ServiceInspirationsGallery.module.scss";
 
 export function ServiceInspirationsGallery({
   inspirations,
+  variant = "catalog",
 }: {
   inspirations: ServiceInspiration[];
+  variant?: "preview" | "catalog";
 }) {
   if (!inspirations.length) return null;
 
+  const isPreview = variant === "preview";
+  const Heading = isPreview ? "h2" : "h1";
+
   return (
     <section
-      className={styles.section}
+      className={`${styles.section} ${isPreview ? styles.preview : styles.catalog}`}
       aria-labelledby="service-inspirations-title"
     >
       <header className={styles.heading}>
-        <p className={styles.kicker}>Inspirações</p>
-        <h2 id="service-inspirations-title">Como seu site pode ficar?</h2>
+        <p className={styles.kicker}>
+          Inspirações
+        </p>
+        <Heading id="service-inspirations-title">
+          {isPreview
+            ? "Como seu site pode ficar?"
+            : "Encontre uma direção para o seu site."}
+        </Heading>
         <p className={styles.description}>
-          Explore direções visuais e encontre estilos que combinam com o seu
-          negócio. Cada site é adaptado ao seu conteúdo, à sua identidade e aos
-          seus objetivos.
+          {isPreview
+            ? "Explore algumas possibilidades visuais. Cada site é adaptado ao seu conteúdo, à sua identidade e aos seus objetivos."
+            : "Navegue por referências de ritmos, cores e composições. Elas servem como ponto de partida: o projeto final é criado para o seu negócio."}
         </p>
       </header>
 
@@ -34,35 +45,39 @@ export function ServiceInspirationsGallery({
         {inspirations.map((inspiration, index) => (
           <article className={styles.item} key={inspiration.slug}>
             <Link
-              className={styles.imageLink}
+              className={styles.itemLink}
               href={getServiceInspirationPath(inspiration.slug)}
               aria-label={`Ver inspiração ${inspiration.title}`}
             >
-              <Image
-                className={styles.image}
-                src={inspiration.image}
-                alt={inspiration.alt}
-                width={inspiration.width}
-                height={inspiration.height}
-                priority={index < 2}
-                sizes="(max-width: 360px) 100vw, (max-width: 760px) 46vw, (max-width: 1120px) 31vw, 24vw"
-              />
-              <span className={styles.imageAction} aria-hidden="true">
-                Ver inspiração <span>↗</span>
+              <span className={styles.imageLink}>
+                <Image
+                  className={styles.image}
+                  src={inspiration.image}
+                  alt={inspiration.alt}
+                  width={inspiration.width}
+                  height={inspiration.height}
+                  priority={index < 2}
+                  sizes="(max-width: 360px) 100vw, (max-width: 760px) 46vw, (max-width: 1120px) 31vw, (min-width: 1500px) 18vw, 24vw"
+                />
+                <span className={styles.imageAction} aria-hidden="true">
+                  Ver inspiração <span>↗</span>
+                </span>
               </span>
-            </Link>
 
-            <div className={styles.caption}>
-              <p>{inspiration.category}</p>
-              <h3>
-                <Link href={getServiceInspirationPath(inspiration.slug)}>
-                  {inspiration.title}
-                </Link>
-              </h3>
-            </div>
+              <div className={styles.caption}>
+                <span>{inspiration.category}</span>
+                <h3>{inspiration.title}</h3>
+              </div>
+            </Link>
           </article>
         ))}
       </div>
+
+      {isPreview ? (
+        <Link className={styles.moreLink} href="/servicos/inspiracoes">
+          Ver mais ideias <span aria-hidden="true">→</span>
+        </Link>
+      ) : null}
     </section>
   );
 }

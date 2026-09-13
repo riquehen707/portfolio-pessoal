@@ -42,9 +42,10 @@
 }
 
 .kicker,
+.heading h1,
 .heading h2,
 .description,
-.caption p,
+.caption > span,
 .caption h3 {
   margin: 0;
 }
@@ -71,6 +72,7 @@
   content: "";
 }
 
+.heading h1,
 .heading h2 {
   max-width: 11ch;
   color: var(--inspirations-paper);
@@ -101,6 +103,12 @@
   width: 100%;
   margin: 0 0 clamp(1.5rem, 2.8vw, 2.2rem);
   break-inside: avoid;
+}
+
+.itemLink {
+  display: block;
+  color: inherit;
+  text-decoration: none;
 }
 
 .imageLink {
@@ -151,7 +159,7 @@
   padding-top: 0.9rem;
 }
 
-.caption p {
+.caption > span {
   color: var(--inspirations-accent);
   font-family: var(--font-technical);
   font-size: 0.61rem;
@@ -170,30 +178,68 @@
   letter-spacing: -0.02em;
 }
 
-.caption a {
+.moreLink {
+  display: inline-flex;
+  gap: 1rem;
+  align-items: center;
+  justify-self: end;
+  min-height: 3.25rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(248, 243, 232, 0.28);
+  border-radius: 999px;
   color: var(--inspirations-paper);
+  font-family: var(--font-label);
+  font-size: 0.86rem;
+  font-weight: 700;
   text-decoration: none;
+  transition: border-color var(--motion-fast), color var(--motion-fast), transform var(--motion-fast);
 }
 
-.imageLink:focus-visible,
-.caption a:focus-visible {
+.moreLink span {
+  color: var(--inspirations-accent);
+  font-size: 1.1rem;
+}
+
+.itemLink:focus-visible,
+.moreLink:focus-visible {
   @include mixins.focus-ring;
 }
 
 @include mixins.hover-fine {
-  .imageLink:hover .image {
+  .itemLink:hover .image {
     filter: saturate(1.04) contrast(1.02);
     transform: scale(1.018);
   }
 
-  .imageLink:hover .imageAction,
-  .imageLink:focus-visible .imageAction {
+  .itemLink:hover .imageAction,
+  .itemLink:focus-visible .imageAction {
     opacity: 1;
     transform: translateY(0);
   }
 
-  .caption a:hover {
+  .itemLink:hover .caption h3 {
     color: var(--inspirations-accent);
+  }
+
+  .moreLink:hover {
+    border-color: var(--inspirations-accent);
+    color: var(--inspirations-accent);
+    transform: translateX(0.2rem);
+  }
+}
+
+.catalog {
+  min-height: 70vh;
+  gap: clamp(2rem, 3.5vw, 3.25rem);
+}
+
+.catalog .heading h1 {
+  font-size: clamp(2.8rem, 4.8vw, 4.75rem);
+}
+
+@media (min-width: 1500px) {
+  .catalog .gallery {
+    column-count: 5;
   }
 }
 
@@ -221,6 +267,7 @@
     grid-column: auto;
   }
 
+  .heading h1,
   .heading h2 {
     font-size: clamp(2.7rem, 12.5vw, 4rem);
     line-height: 0.9;
@@ -247,6 +294,12 @@
   .caption h3 {
     font-size: clamp(1rem, 4.5vw, 1.18rem);
   }
+
+  .moreLink {
+    justify-self: stretch;
+    justify-content: space-between;
+    width: 100%;
+  }
 }
 
 @media (max-width: 360px) {
@@ -257,11 +310,12 @@
 
 @media (prefers-reduced-motion: reduce) {
   .image,
-  .imageAction {
+  .imageAction,
+  .moreLink {
     transition: none;
   }
 
-  .imageLink:hover .image {
+  .itemLink:hover .image {
     transform: none;
   }
 }

@@ -9,7 +9,6 @@ import {
   getServiceInspirationStaticParams,
 } from "@/data/service-inspirations";
 import { baseURL, person, social } from "@/resources";
-import { buildDiscoverImageMetadata } from "@/utils/og";
 
 import styles from "./page.module.scss";
 
@@ -39,10 +38,14 @@ export async function generateMetadata({ params }: Props) {
       title,
       description: inspiration.description,
       url,
-      images: buildDiscoverImageMetadata(
-        inspiration.image,
-        inspiration.title,
-      ),
+      images: [
+        {
+          url: inspiration.image,
+          width: inspiration.width,
+          height: inspiration.height,
+          alt: inspiration.alt,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
@@ -83,7 +86,7 @@ export default async function ServiceInspirationPage({ params }: Props) {
       />
 
       <main className={styles.page}>
-        <Link className={styles.backLink} href="/servicos#inspiracoes">
+        <Link className={styles.backLink} href="/servicos/inspiracoes">
           <span aria-hidden="true">←</span> Voltar para inspirações
         </Link>
 

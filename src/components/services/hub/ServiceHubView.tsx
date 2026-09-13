@@ -265,7 +265,10 @@ export function ServiceHubView({
       </section>
 
       <div id="inspiracoes" className={styles.inspirationsAnchor}>
-        <ServiceInspirationsGallery inspirations={inspirations} />
+        <ServiceInspirationsGallery
+          inspirations={inspirations}
+          variant="preview"
+        />
       </div>
 
       <section
