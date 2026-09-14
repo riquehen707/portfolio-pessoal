@@ -3,9 +3,8 @@ import Link from "next/link";
 import styles from "./ServicesAreaNav.module.scss";
 
 type ServicesArea =
-  | "services"
+  | "overview"
   | "examples"
-  | "inspirations"
   | "capabilities"
   | "portfolio";
 
@@ -15,18 +14,18 @@ const links: Array<{
   href: string;
 }> = [
   {
-    id: "services",
-    label: "Serviço",
+    id: "overview",
+    label: "Visão geral",
     href: "/servicos",
   },
   {
-    id: "inspirations",
-    label: "Inspirações",
+    id: "examples",
+    label: "Exemplos",
     href: "/servicos/inspiracoes",
   },
   {
     id: "capabilities",
-    label: "Capacidades",
+    label: "O que está incluso",
     href: "/servicos/capacidades",
   },
   {
@@ -57,7 +56,7 @@ export function ServicesAreaNav({
               aria-current={isActive ? "page" : undefined}
               key={link.id}
             >
-              <span>{link.label}</span>
+              {link.label}
             </Link>
           );
         })}

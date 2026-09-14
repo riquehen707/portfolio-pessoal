@@ -5,15 +5,18 @@ import { ServicesAreaNav } from "@/components/services/ServicesAreaNav";
 import { ServiceInspirationsGallery } from "@/components/services/inspirations/ServiceInspirationsGallery";
 import { serviceInspirations } from "@/data/service-inspirations";
 import { baseURL, person } from "@/resources";
-import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
+import {
+  buildDiscoverImageMetadata,
+  buildOgImage,
+} from "@/utils/og";
 
 import styles from "./page.module.scss";
 
 const page = {
   path: "/servicos/inspiracoes",
-  title: "Inspirações para sites",
+  title: "Exemplos de sites",
   description:
-    "Explore referências visuais para encontrar cores, ritmos e composições que combinam com o seu negócio.",
+    "Veja diferentes exemplos de sites e encontre uma direção visual adequada ao seu negócio.",
 };
 
 export function generateMetadata(): Metadata {
@@ -22,12 +25,19 @@ export function generateMetadata(): Metadata {
   return {
     title: page.title,
     description: page.description,
-    alternates: { canonical: `${baseURL}${page.path}` },
+
+    alternates: {
+      canonical: `${baseURL}${page.path}`,
+    },
+
     openGraph: {
       title: page.title,
       description: page.description,
       url: `${baseURL}${page.path}`,
-      images: buildDiscoverImageMetadata(image, page.title),
+      images: buildDiscoverImageMetadata(
+        image,
+        page.title,
+      ),
     },
   };
 }
@@ -41,7 +51,9 @@ export default function ServiceInspirationsPage() {
         title={page.title}
         description={page.description}
         path={page.path}
-        image={`/api/og/generate?title=${encodeURIComponent(page.title)}`}
+        image={`/api/og/generate?title=${encodeURIComponent(
+          page.title,
+        )}`}
         author={{
           name: person.name,
           url: `${baseURL}/sobre`,
@@ -50,8 +62,11 @@ export default function ServiceInspirationsPage() {
       />
 
       <main className={styles.page}>
-        <ServicesAreaNav active="inspirations" />
-        <ServiceInspirationsGallery inspirations={serviceInspirations} />
+        <ServicesAreaNav active="examples" />
+
+        <ServiceInspirationsGallery
+          inspirations={serviceInspirations}
+        />
       </main>
     </Column>
   );

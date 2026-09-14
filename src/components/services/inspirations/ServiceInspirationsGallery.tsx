@@ -24,51 +24,67 @@ export function ServiceInspirationsGallery({
 
   return (
     <section
-      className={`${styles.section} ${isPreview ? styles.preview : styles.catalog}`}
-      aria-labelledby="service-inspirations-title"
+      className={`${styles.section} ${
+        isPreview ? styles.preview : styles.catalog
+      }`}
+      aria-labelledby="service-examples-title"
     >
       <header className={styles.heading}>
-        <p className={styles.kicker}>
-          Inspirações
-        </p>
-        <Heading id="service-inspirations-title">
-          {isPreview
-            ? "Como seu site pode ficar?"
-            : "Encontre uma direção para o seu site."}
+        <p className={styles.kicker}>Exemplos de sites</p>
+
+        <Heading id="service-examples-title">
+          Veja como seu site pode ficar.
         </Heading>
+
         <p className={styles.description}>
           {isPreview
-            ? "Explore algumas possibilidades visuais. Cada site é adaptado ao seu conteúdo, à sua identidade e aos seus objetivos."
-            : "Navegue por referências de ritmos, cores e composições. Elas servem como ponto de partida: o projeto final é criado para o seu negócio."}
+            ? "Veja algumas direções visuais que podemos usar como ponto de partida. O projeto final é adaptado ao seu negócio, conteúdo e objetivos."
+            : "Explore diferentes estilos, estruturas e formas de apresentar um negócio. Você pode abrir qualquer exemplo para ver melhor como aquela direção funciona."}
         </p>
       </header>
 
       <div className={styles.gallery}>
         {inspirations.map((inspiration, index) => (
-          <article className={styles.item} key={inspiration.slug}>
+          <article
+            className={styles.item}
+            key={inspiration.slug}
+          >
             <Link
               className={styles.itemLink}
               href={getServiceInspirationPath(inspiration.slug)}
-              aria-label={`Ver inspiração ${inspiration.title}`}
+              aria-label={`Ver exemplo ${inspiration.title}`}
             >
-              <span className={styles.imageLink}>
+              <span className={styles.imageFrame}>
                 <Image
                   className={styles.image}
                   src={inspiration.image}
                   alt={inspiration.alt}
                   width={inspiration.width}
                   height={inspiration.height}
-                  priority={index < 2}
-                  sizes="(max-width: 360px) 100vw, (max-width: 760px) 46vw, (max-width: 1120px) 31vw, (min-width: 1500px) 18vw, 24vw"
+                  priority={index < 3}
+                  sizes="
+                    (max-width: 760px) 92vw,
+                    (max-width: 1120px) 46vw,
+                    31vw
+                  "
                 />
-                <span className={styles.imageAction} aria-hidden="true">
-                  Ver inspiração <span>↗</span>
-                </span>
               </span>
 
               <div className={styles.caption}>
-                <span>{inspiration.category}</span>
-                <h3>{inspiration.title}</h3>
+                <span className={styles.category}>
+                  {inspiration.category}
+                </span>
+
+                <div className={styles.captionMain}>
+                  <h3>{inspiration.title}</h3>
+
+                  <span
+                    className={styles.arrow}
+                    aria-hidden="true"
+                  >
+                    ↗
+                  </span>
+                </div>
               </div>
             </Link>
           </article>
@@ -82,14 +98,19 @@ export function ServiceInspirationsGallery({
               className={styles.conversionLink}
               href={contactHref}
               data-analytics-event="services_help_click"
-              data-analytics-location="services_inspirations_preview"
+              data-analytics-location="services_examples_preview"
             >
-              Quero meu site
+              Quero um site assim
               <span aria-hidden="true">→</span>
             </a>
           ) : null}
-          <Link className={styles.moreLink} href="/servicos/inspiracoes">
-            Ver todas as inspirações <span aria-hidden="true">→</span>
+
+          <Link
+            className={styles.moreLink}
+            href="/servicos/inspiracoes"
+          >
+            Ver todos os exemplos
+            <span aria-hidden="true">→</span>
           </Link>
         </div>
       ) : null}
