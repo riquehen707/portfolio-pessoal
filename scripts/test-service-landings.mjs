@@ -499,7 +499,7 @@ test("cases preservam evidência, mídia local e vínculo com oferta publicada",
   assert.equal(getWorkProjectService(invalid), undefined);
 });
 
-test("home comercial mantém oferta única e envia profundidade para páginas próprias", () => {
+test("home comercial apresenta oferta, exemplos, escopo e contato sem sobrecarga", () => {
   const React = require("react");
   const { renderToStaticMarkup } = require("react-dom/server");
   const { load: html } = require("cheerio");
@@ -513,9 +513,8 @@ test("home comercial mantém oferta única e envia profundidade para páginas pr
     renderToStaticMarkup(
       React.createElement(ServiceHubView, {
         ...getServiceHubContent(),
-        inspirations: getFeaturedServiceInspirations(),
+        inspirations: getFeaturedServiceInspirations(4),
         contactHref: "https://wa.me/5511999999999",
-        questionHref: "mailto:oi@example.com?subject=Ajuda",
       }),
     ),
   );
@@ -523,36 +522,37 @@ test("home comercial mantém oferta única e envia profundidade para páginas pr
   assert.equal($("h1").length, 1);
   assert.equal(
     $("#service-hub-title").text(),
-    "Eu crio, publico e mantenho o seu site.",
+    "Meu site ajuda pessoas a encontrar meu trabalho. O seu pode fazer o mesmo.",
   );
   assert.equal($("section[aria-labelledby='service-hub-title'] a").length, 2);
   assert.equal($("[role='tab']").length, 0);
   assert.equal($("#recursos").length, 0);
   assert.equal($("#formatos").length, 0);
-  assert.equal($("#service-inspirations-title").text(), "Como seu site pode ficar?");
-  assert.equal($("#inspiracoes article").length, 6);
-  for (const inspiration of getFeaturedServiceInspirations()) {
+  assert.equal($("#examples-title").text(), "Veja como seu site pode ficar.");
+  assert.equal($("#exemplos article").length, 4);
+  for (const inspiration of getFeaturedServiceInspirations(4)) {
     assert.equal(
-      $(`#inspiracoes a[href='/servicos/inspiracoes/${inspiration.slug}']`).length,
-      1,
+      $(`#exemplos a[href='/servicos/inspiracoes/${inspiration.slug}']`).length,
+      2,
     );
   }
   assert.equal($("#recursos-principais").length, 0);
   assert.equal($(".perception").length, 0);
-  assert.deepEqual($("section[aria-labelledby='plan-title'] ul h3").map((_, item) => $(item).text()).get(), ["Design e desenvolvimento", "Domínio", "Hospedagem", "Manutenção", "Suporte", "Pequenas atualizações"]);
-  assert.equal($("a[href='/servicos/capacidades']").length, 2);
+  assert.deepEqual($("#incluso ul h3").map((_, item) => $(item).text()).get(), ["Criação e design", "Domínio e hospedagem", "SEO técnico", "Manutenção e suporte"]);
+  assert.equal($("a[href='/servicos/capacidades']").length, 1);
   assert.equal($("a[href='/servicos/inspiracoes']").length, 2);
   assert.equal($("a[href='/work']").length, 1);
-  assert.equal($("[data-analytics-event='services_help_click']").length, 3);
-  assert.equal($("[data-analytics-event='services_help_click']").filter((_, item) => $(item).text().trim().startsWith("Quero meu site")).length, 3);
-  assert.equal($("#inspiracoes a[href='/servicos/inspiracoes']").text().trim().startsWith("Ver todas as inspirações"), true);
-  assert.equal($("a[href='/servicos/capacidades']").filter((_, item) => $(item).text().trim().startsWith("Explorar capacidades")).length, 1);
-  assert.doesNotMatch($("#inspiracoes").text(), /projeto realizado|template pronto/i);
+  assert.equal($("[data-analytics-event='services_help_click']").length, 2);
+  assert.equal($("[data-analytics-event='services_help_click']").filter((_, item) => $(item).text().trim().startsWith("Quero meu site")).length, 1);
+  assert.equal($("[data-analytics-event='services_help_click']").filter((_, item) => $(item).text().trim().startsWith("Falar no WhatsApp")).length, 1);
+  assert.equal($("#exemplos a[href='/servicos/inspiracoes']").text().trim().startsWith("Ver todos os exemplos"), true);
+  assert.doesNotMatch($("#exemplos").text(), /projeto realizado|template pronto/i);
   assert.equal($("a[href^='/servicos/exemplos']").length, 0);
   assert.equal($("main").text().includes("R$147/mês"), true);
   assert.equal($("main").text().includes("R$ 200"), false);
   assert.equal($("main").text().includes("R$ 89,90"), false);
-  assert.equal($("section[aria-labelledby='faq-title'] details").length, 7);
+  assert.equal($("section[aria-labelledby='faq-title']").length, 0);
+  assert.equal($("section[aria-labelledby='process-title']").length, 0);
 });
 
 test("página de capacidades explica recursos com uma única demonstração", () => {

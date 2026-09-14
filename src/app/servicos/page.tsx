@@ -21,7 +21,7 @@ export async function generateMetadata() {
 }
 
 export default function ServicesPage() {
-  const inspirations = getFeaturedServiceInspirations();
+  const inspirations = getFeaturedServiceInspirations(4);
   const whatsapp = social.find((item) => item.name === "WhatsApp")?.link;
   const contactHref = whatsapp
     ? `${whatsapp}?text=${encodeURIComponent("Olá, Henrique. Quero conversar sobre a criação de um site.")}`

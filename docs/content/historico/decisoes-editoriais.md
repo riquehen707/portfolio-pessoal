@@ -1,5 +1,13 @@
 # Decisões editoriais
 
+## 2026-09-14 — Home comercial de serviços com menor densidade
+
+`/servicos` passa a organizar a oferta mensal em cinco momentos com amplo espaço negativo: hero alinhado à esquerda, argumento de custo de oportunidade, quatro referências visuais, quatro grupos de inclusões com preço e CTA final. A oferta permanece site profissional completo por R$147/mês, sem taxa inicial, com domínio, hospedagem, manutenção, suporte, design, desenvolvimento, publicação, preparação técnica para SEO e pequenos ajustes recorrentes; páginas, sistemas, integrações e alterações maiores continuam dependendo de escopo próprio.
+
+A home continua usando `service-inspirations.ts` como fonte única de referências. Quatro itens aparecem em previews 16:10 somente nessa composição e levam às páginas individuais; `/servicos/inspiracoes` preserva seu masonry e suas proporções originais, `/work` não foi redesenhado e as demos legadas não voltaram a alimentar a home. A navegação compartilhada usa `Visão geral`, `Exemplos`, `O que está incluso` e `Portfólio`.
+
+A auditoria de copy removeu o mockup do hero, a repetição do plano, seis capacidades, processo de quatro etapas, FAQ de sete perguntas, gradientes e o card promocional de encerramento. Permanecem duas explicações necessárias: a diferença entre receber uma ferramenta e receber o site pronto, e a ressalva de que trabalhos maiores recebem escopo próprio. A implementação e a validação são locais; não incluem commit nem deploy.
+
 ## 2026-09-13 — Publicação demonstrativa “Imóveis em destaque”
 
 `/servicos/inspiracoes/imoveis-em-destaque` passa a aprofundar a referência imobiliária como uma publicação editorial própria, preservando o slug, a fonte única `service-inspirations.ts` e o CTA contextual. O campo opcional `publication` seleciona essa composição sem reintroduzir `ServiceExamplesPreview`, `getPublishedServiceExamples` ou o catálogo legado na experiência de `/servicos`.
