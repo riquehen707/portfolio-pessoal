@@ -10,9 +10,14 @@ export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.shell}>
-        <span>
-          © {currentYear} {person.name}
-        </span>
+        <div className={styles.identity}>
+          <span>
+            © {currentYear} {person.name}
+          </span>
+          <small>
+            Como participante do Programa de Associados da Amazon, sou remunerado pelas compras qualificadas efetuadas.
+          </small>
+        </div>
         <nav className={styles.links} aria-label="Links do rodapé">
           <Link href="/">Início</Link>
           <Link href="/blog">Textos</Link>

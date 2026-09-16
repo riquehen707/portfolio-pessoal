@@ -14556,6 +14556,32 @@
       "summary": "Fabricante de produtos de áudio, vídeo ou imagem comercializados no Brasil: Elgato.",
       "createdAt": "2026-09-05",
       "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "org_bosch",
+      "slug": "bosch",
+      "name": "Bosch",
+      "kind": "company",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "website": "https://www.bosch-professional.com/br/pt/",
+      "specialties": [
+        "Ferramentas elétricas",
+        "Ferramentas a bateria",
+        "Acessórios"
+      ],
+      "sources": [
+        {
+          "title": "Bosch Professional — site oficial no Brasil",
+          "url": "https://www.bosch-professional.com/br/pt/"
+        }
+      ],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Fabricante de ferramentas elétricas e acessórios com produtos comercializados no Brasil: Bosch.",
+      "createdAt": "2026-09-15",
+      "updatedAt": "2026-09-15"
     }
   ],
   "editorialWorks": [

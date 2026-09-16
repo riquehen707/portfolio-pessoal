@@ -1,5 +1,13 @@
 # Decisões editoriais
 
+## 2026-09-15 — Ofertas da Amazon usam ASIN confirmado e tag oficial
+
+Motivo:
+Links de busca, parâmetros temporários e ASINs não confrontados com a variante criam ofertas instáveis ou levam o leitor ao item errado. A disponibilidade de monetização também não pode determinar quais produtos entram em uma recomendação.
+
+Substituição:
+O guia `docs/editorial/templates/product-recommendation.md` passa a ser a fonte única para ofertas da Amazon Brasil em artigos, listas, guias e páginas de produto. Toda nova URL direta usa o ASIN da variante confirmada no formato `https://www.amazon.com.br/dp/{ASIN}?tag=riquehen-20`; se não houver confirmação, a recomendação permanece sem link. Links oficiais encurtados já cadastrados podem continuar, enquanto URLs legadas de busca, ofertas sem a tag oficial e a identificação global do Programa de Associados ficam pendentes de auditoria ou implementação. A recomendação editorial continua independente da comissão.
+
 ## 2026-09-14 — Home comercial de serviços com menor densidade
 
 `/servicos` passa a organizar a oferta mensal em cinco momentos com amplo espaço negativo: hero alinhado à esquerda, argumento de custo de oportunidade, quatro referências visuais, quatro grupos de inclusões com preço e CTA final. A oferta permanece site profissional completo por R$147/mês, sem taxa inicial, com domínio, hospedagem, manutenção, suporte, design, desenvolvimento, publicação, preparação técnica para SEO e pequenos ajustes recorrentes; páginas, sistemas, integrações e alterações maiores continuam dependendo de escopo próprio.

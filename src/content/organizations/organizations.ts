@@ -308,7 +308,17 @@ const audiovisualManufacturers = [
   createdAt: "2026-09-05", updatedAt: "2026-09-05",
 }));
 
-export const organizations = [ghostAnimation,teamCherry,longHatHouse,studioPixelPunk,glitchFactory,pixelHive,pocketTrap,aquiris,samsungElectronics,motorolaMobility,xiaomi,lgElectronics,midea,skymsen,oster,kitchenAid,fischer,urano,tclElectronics,acer,asus,positivoTecnologia,apple,lenovo,dell,flexform,amd,asrock,msi,kingston,gigabyte,cartoonSaloon,aardman,scienceSaru,kyotoAnimation,laika,studioGhibli,nipponTelevision,toho,...movieStudios,...readingPublishers,...cameraManufacturers,...homeApplianceManufacturers,...audiovisualManufacturers];
+const toolManufacturers = [
+  ["org_bosch", "bosch", "Bosch", "https://www.bosch-professional.com/br/pt/"],
+].map(([id, slug, name, website]) => OrganizationSchema.parse({
+  id, slug, name, website, kind: "company", status: "draft", workIds: [],
+  specialties: ["Ferramentas elétricas", "Ferramentas a bateria", "Acessórios"],
+  summary: `Fabricante de ferramentas elétricas e acessórios com produtos comercializados no Brasil: ${name}.`,
+  sources: [{ title: `${name} Professional — site oficial no Brasil`, url: website }],
+  createdAt: "2026-09-15", updatedAt: "2026-09-15",
+}));
+
+export const organizations = [ghostAnimation,teamCherry,longHatHouse,studioPixelPunk,glitchFactory,pixelHive,pocketTrap,aquiris,samsungElectronics,motorolaMobility,xiaomi,lgElectronics,midea,skymsen,oster,kitchenAid,fischer,urano,tclElectronics,acer,asus,positivoTecnologia,apple,lenovo,dell,flexform,amd,asrock,msi,kingston,gigabyte,cartoonSaloon,aardman,scienceSaru,kyotoAnimation,laika,studioGhibli,nipponTelevision,toho,...movieStudios,...readingPublishers,...cameraManufacturers,...homeApplianceManufacturers,...audiovisualManufacturers,...toolManufacturers];
 
 export type Organization = z.infer<typeof OrganizationSchema>;
 export const organizationsById = new Map(organizations.map((organization) => [organization.id, organization]));

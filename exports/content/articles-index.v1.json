@@ -2924,6 +2924,53 @@
       "id": null,
       "contentType": "article",
       "schemaVersion": null,
+      "slug": "kit-de-ferramentas-para-casa",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-15",
+      "updatedAt": "2026-09-15",
+      "seo": {
+        "title": "Kit de ferramentas para casa: o que comprar para reparos e pequenas reformas",
+        "description": "Veja quais ferramentas ter em casa, o que comprar primeiro e como montar um kit básico, completo ou para pequenas reformas.",
+        "canonical": "/blog/kit-de-ferramentas-para-casa"
+      },
+      "relationships": {
+        "related": [
+          "Melhores furadeiras para ter em casa",
+          "Melhores aspiradores verticais sem fio de 2026",
+          "Melhores cadeiras ergonômicas para home office em 2026"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/fundamentos/kit-de-ferramentas-para-casa.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_bosch_gsb_120_li",
+          "whyIncluded": "Combina tamanho compacto para móveis com duas velocidades, ajuste de torque e impacto para furos pequenos ocasionais em alvenaria.",
+          "bestFor": "Quem mora sozinho, monta móveis e instala prateleiras ou quadros sem executar reforma pesada.",
+          "mainDifference": "O corpo de 12 V e 0,9 kg sem bateria favorece controle em armários, enquanto a versão com duas baterias reduz interrupções.",
+          "tradeOff": "O mandril aceita até 10 mm e a capacidade oficial em alvenaria chega a 8 mm; concreto duro e muitos furos pedem outra categoria.",
+          "sensiblePriceRange": "Entre R$ 650 e R$ 900 no conjunto com bateria, carregador e maleta; perto de R$ 1.000, compare opções 18 V em promoção.",
+          "avoidWhen": "Não recomendamos se o uso principal for perfuração repetida em concreto, brocas acima de 10 mm ou expansão para ferramentas 18 V.",
+          "closestCompetitor": "Bosch GSB 185-LI para mais potência e uso frequente; GSR 120-LI quando impacto em alvenaria não é necessário."
+        },
+        {
+          "productId": "prod_bosch_gsb_185_li",
+          "whyIncluded": "Representa o salto justificável para uso frequente: motor sem escovas, mandril metálico de 13 mm, duas velocidades e plataforma 18 V.",
+          "bestFor": "Quem monta móveis, instala suportes e executa pequenas reformas várias vezes ao ano, aproveitando duas baterias e acessórios compatíveis.",
+          "mainDifference": "Entrega torque duro de 50 Nm e perfuração de até 35 mm em madeira, mantendo corpo compacto de 177 mm.",
+          "tradeOff": "Custa mais que uma 12 V e continua limitada a 10 mm em alvenaria; muitos furos em concreto favorecem um martelete alugado ou dedicado.",
+          "sensiblePriceRange": "Entre R$ 900 e R$ 1.150 no conjunto com duas baterias; acima disso, compare kits 18 V, assistência e ferramentas da mesma plataforma.",
+          "avoidWhen": "Evite se a ferramenta ficará meses sem uso ou se o projeto atual exige demolição e perfuração pesada em concreto.",
+          "closestCompetitor": "Bosch GSB 120-LI para uso doméstico leve; GSB 18V-50 quando preço e configuração do kit forem próximos."
+        }
+      ]
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
       "slug": "kit-para-comecar-a-vender-bolos-e-doces",
       "aliases": [],
       "status": "published",

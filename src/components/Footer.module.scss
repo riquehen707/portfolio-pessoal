@@ -20,6 +20,16 @@
   font-size: 0.9rem;
 }
 
+.identity {
+  display: grid;
+  gap: 0.5rem;
+  max-width: 31rem;
+}
+
+.identity small {
+  line-height: 1.5;
+}
+
 .links {
   display: flex;
   flex-wrap: wrap;

@@ -2,6 +2,8 @@
 
 Este guia define o fluxo entre o acervo de produtos, as ofertas comerciais e os artigos. A fonte técnica é `src/content/products/productSchema.ts`.
 
+As regras deste documento valem para toda recomendação de produto do site, inclusive listas, guias de compra, páginas temáticas e artigos apoiados por acervos especializados, como leituras. Quando houver oferta da Amazon Brasil, este é o documento autoritativo para pesquisa, ASIN, construção do link e transparência de afiliação.
+
 Apresentar um serviço como produto concreto segue o [padrão de serviços](../../architecture/service-landing-pages.md#serviços-apresentados-como-produtos). Isso não transforma a oferta em uma entidade deste acervo: modelos visuais de um site não são `ProductVariant`, e preços de serviços continuam em seus próprios registros. As regras de imagens e identidade abaixo permanecem específicas dos produtos editoriais.
 
 ## Entidades
@@ -18,13 +20,15 @@ Para câmeras, a variante usa o discriminador `camera` e mantém estruturados fo
 
 - IDs são permanentes: `prod_*`, `prod_variant_*` e `prod_offer_*`.
 - O slug canônico não muda por conveniência editorial. Slugs antigos entram em `aliases`.
-- Antes de cadastrar, pesquise nome, slug, aliases, código de modelo e GTIN.
+- Antes de cadastrar, pesquise nome, slug, aliases, código de modelo, GTIN, ASIN e URLs de ofertas já registradas.
 - Cor só vira variante separada quando altera identificação, imagem ou oferta que precise ser distinguida. Memória, armazenamento, conectividade e mercado devem ser variantes quando as especificações divergem.
 - Um produto relacionado aponta por ID; um artigo relacionado aponta por slug publicado.
 
 ## Pesquisa e imagens
 
-Use fabricante e documentação oficial como fontes principais. Material de imprensa oficial vem em seguida; varejista confiável serve para oferta e, somente quando juridicamente adequado, para mídia.
+Use fabricante e documentação oficial como fontes principais. Material de imprensa oficial vem em seguida; varejista confiável serve para confirmar oferta, disponibilidade, variante e faixa de preço e, somente quando juridicamente adequado, para mídia.
+
+Antes de recomendar, confirme que o produto ainda é atual ou explique o contexto de uma geração anterior; verifique nome, fabricante, código de modelo, especificações relevantes, variantes, disponibilidade razoável no Brasil e faixa de preço observada. A seleção editorial acontece antes da busca por monetização. A existência de comissão não torna um produto recomendável nem define sua posição na lista.
 
 Imagens ficam em `public/images/products/` com fonte, crédito, direitos, dimensões e, quando necessário, `variantId`. Não gere aparelhos, mockups ou placeholders imitativos. Uma imagem não pode representar outra cor, mercado ou versão sem indicação.
 
@@ -49,14 +53,54 @@ Use `ProductCard` por `productId`. Não copie nome, imagem, ficha técnica ou of
 
 O auditor rejeita ID inexistente ou qualquer uma das sete respostas ausente. Expressões como “bom custo-benefício” precisam ser explicadas por comparação concreta.
 
-## Ofertas e transparência
+## Amazon Brasil e links de afiliado
+
+O identificador oficial do site no Programa de Associados Amazon Brasil é `riquehen-20`.
+
+Uma oferta afiliada da Amazon só pode ser publicada depois de confirmar, na Amazon Brasil, a disponibilidade do item e o ASIN da versão exata recomendada. Confira modelo, geração, capacidade, cor, voltagem, tamanho, edição, quantidade e composição do kit sempre que esses atributos distinguirem a compra. Um ASIN correto para outra variante continua sendo um link incorreto.
+
+Para cada nova oferta:
+
+1. pesquise primeiro o produto, a variante e a oferta no acervo e reutilize os IDs existentes;
+2. confirme as especificações na fonte oficial e use a Amazon Brasil para verificar a oferta comercial;
+3. extraia o ASIN da página exata e confronte título, fabricante, código de modelo e atributos da variante;
+4. gere a URL canônica no formato abaixo;
+5. registre varejista, programa, identificador, disponibilidade e data da consulta no `ProductOffer` ou na estrutura equivalente do domínio;
+6. registre preço somente como observação datada e aproximada, nunca como característica permanente.
+
+```text
+https://www.amazon.com.br/dp/{ASIN}?tag=riquehen-20
+```
+
+Não invente, deduza por semelhança nem associe um ASIN sem confirmação. Se a pesquisa não permitir confirmar o item exato, mantenha a recomendação sem oferta afiliada e registre a pendência; não transfira ao autor a busca rotineira por um link que pode ser verificado pelas fontes disponíveis.
+
+Links oficiais `link.amazon/...` já cadastrados podem ser preservados. Novos links diretos devem usar o formato canônico acima, sem parâmetros de busca, sessão, campanha ou navegação como `crid`, `keywords`, `qid`, `sr`, `dib`, `ref` e `linkId`. Não use uma URL de resultados da Amazon para representar um produto específico.
+
+No modelo atual, o ASIN é confirmado pelo segmento `/dp/` da URL e pela correspondência com `ProductVariant`; não existe um campo `asin` no schema. Essa limitação não reduz a obrigação de verificação manual e não autoriza acrescentar um campo avulso fora do schema.
+
+## Ofertas, preços e independência editorial
 
 - Uma recomendação continua válida sem oferta ativa.
 - Oferta indisponível não apaga o produto nem o artigo.
-- `observedPrice` é opcional e sempre acompanhado de `checkedAt`.
+- `observedPrice` é opcional, aproximado e sempre acompanhado de `checkedAt`; preço, desconto e estoque podem mudar depois da consulta.
 - `affiliateId` exige `affiliateProgram`.
-- Links remunerados usam `rel="sponsored nofollow"` e declaração de comissão próxima ao link.
+- Para a Amazon Brasil, use `affiliateProgram` com identificação inequívoca do Programa de Associados, `affiliateId: "riquehen-20"` e `commissionDisclosure` clara.
+- Links remunerados usam `rel="sponsored nofollow noreferrer"` e declaração de comissão próxima ao link.
 - Não mantenha um produto editorialmente inadequado para preservar monetização.
+- Não ordene, inclua ou exclua produtos por comissão, disponibilidade de link ou conveniência do varejista.
+- Promoções com prazo só podem aparecer enquanto estiverem vigentes; revise ou remova a menção quando o prazo terminar.
+
+## Divulgação do Programa de Associados
+
+Cada link remunerado precisa ser reconhecível como publicidade ou link de afiliado antes ou junto da ação de compra. O componente de oferta já pode exibir `commissionDisclosure`; use texto direto, como “Link de afiliado: posso receber uma comissão sem custo adicional para você.” Não esconda a informação em tooltip, rodapé distante ou página que o leitor precise procurar.
+
+Além da divulgação por oferta, o site deve manter em local claro e facilmente acessível a identificação exigida pelo programa:
+
+> Como participante do Programa de Associados da Amazon, sou remunerado pelas compras qualificadas efetuadas.
+
+Essa declaração global não substitui o aviso próximo ao link. Antes de publicar ou alterar o padrão, confira o [Contrato Operacional](https://associados.amazon.com.br/help/operating/agreement/), as [Políticas do Programa](https://associados.amazon.com.br/help/operating/policies) e a [orientação de divulgação](https://associados.amazon.com.br/help/node/topic/GHQNZAU6669EZS98), pois texto e requisitos podem mudar.
+
+O componente `ProductOffers` já aplica os atributos de relação e renderiza a divulgação registrada na oferta. O projeto ainda não valida automaticamente o formato do ASIN ou da URL e a existência da declaração global deve ser verificada na publicação. Até haver automação, esses pontos são uma etapa editorial manual e bloqueiam a aprovação de uma nova oferta afiliada.
 
 ## Publicação
 
@@ -64,9 +108,10 @@ O auditor rejeita ID inexistente ou qualquer uma das sete respostas ausente. Exp
 2. Cadastre ou reutilize o fabricante em organizações.
 3. Cadastre variantes exatas e fontes das especificações.
 4. Baixe somente imagens permitidas e registre metadados.
-5. Registre ofertas separadamente, com data e disponibilidade.
+5. Registre ofertas separadamente, com data e disponibilidade; para Amazon Brasil, confirme variante, ASIN, tag e divulgação.
 6. Escreva a análise permanente do produto.
 7. Use o ID nos artigos e escreva a justificativa específica de cada lista.
-8. Rode `npm run audit:content`, TypeScript, lint e build.
+8. Confira a declaração global do Programa de Associados e a divulgação próxima de cada link remunerado.
+9. Rode `npm run audit:content`, TypeScript, lint e build conforme o impacto da mudança.
 
 O índice `/produtos` permanece fora da navegação e com `noindex` enquanto não houver ficha publicada. Ao lançar o primeiro lote, habilite a rota global, inclua produtos publicados no sitemap e na busca, e valide os dados estruturados.
