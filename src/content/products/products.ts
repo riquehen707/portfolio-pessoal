@@ -1,4 +1,5 @@
 import { ProductCatalogSchema, type Product, type ProductVariant } from "./productSchema";
+import { amazonBrazilOffer } from "./amazonBrazil";
 import { notebookOffers, notebookProducts, notebookVariants } from "./notebooks";
 import { washerDryerOffers, washerDryerProducts, washerDryerVariants } from "./washerDryers";
 import { blenderOffers, blenderProducts, blenderVariants } from "./blenders";
@@ -79,16 +80,15 @@ export const productCatalog=ProductCatalogSchema.parse({products,variants,offers
   ...blenderOffers,
   ...washerDryerOffers,
   ...notebookOffers,
-  {id:"prod_offer_amazon_motorola_moto_g86_5g_8_256",variantId:"prod_variant_motorola_moto_g86_5g_8_256_br",retailer:"Amazon Brasil",url:"https://www.amazon.com.br/s?k=moto+g86&crid=339BS6XZ5PRN0&sprefix=Moto+%2Caps%2C278&linkCode=ll2&tag=riquehen-20&linkId=51b5bd00e21a5fbbfd0a8994cba6c6d9&ref_=as_li_ss_tl",region:"BR",availability:"unknown",affiliateProgram:"Amazon Associados",affiliateId:"riquehen-20",commissionDisclosure:"Este link pode gerar comissão sem custo adicional para quem compra.",checkedAt:motoG86ReviewedAt},
   {id:"prod_offer_motorola_moto_g86_5g_8_256",variantId:"prod_variant_motorola_moto_g86_5g_8_256_br",retailer:"Motorola Brasil",url:"https://www.motorola.com.br/smartphone-moto-g86-5g-256gb/p?idsku=1707",region:"BR",observedPrice:{amount:1599,currency:"BRL"},availability:"available",checkedAt:motoG86ReviewedAt},
-  {id:"prod_offer_amazon_motorola_moto_g56_5g_8_256",variantId:"prod_variant_motorola_moto_g56_5g_8_256_br",retailer:"Amazon Brasil",url:"https://www.amazon.com.br/dp/B0F9MT4TTZ",region:"BR",observedPrice:{amount:1377.40,currency:"BRL"},availability:"available",checkedAt:"2026-08-20"},
-  {id:"prod_offer_amazon_samsung_galaxy_a26_5g_8_256",variantId:"prod_variant_samsung_galaxy_a26_5g_8_256_br",retailer:"Amazon Brasil",url:"https://www.amazon.com.br/dp/B0F29YZ3MF",region:"BR",observedPrice:{amount:1614.05,currency:"BRL"},availability:"available",checkedAt:"2026-09-01"},
-  {id:"prod_offer_amazon_samsung_galaxy_a17_5g_4_128",variantId:"prod_variant_samsung_galaxy_a17_5g_4_128_br",retailer:"Amazon Brasil",url:"https://www.amazon.com.br/dp/B0FPPQ5T37",region:"BR",observedPrice:{amount:1259.10,currency:"BRL"},availability:"available",checkedAt:"2026-08-08"},
-  {id:"prod_offer_amazon_xiaomi_redmi_note_14_4g_8_256",variantId:"prod_variant_xiaomi_redmi_note_14_4g_8_256_br",retailer:"Amazon Brasil",url:"https://www.amazon.com.br/dp/B0DT5LHPMX",region:"BR",observedPrice:{amount:1178,currency:"BRL"},availability:"available",checkedAt:reviewedAt},
-  {id:"prod_offer_amazon_tcl_p7k_50",variantId:"prod_variant_tcl_p7k_50_br",retailer:"Amazon Brasil",url:"https://www.amazon.com.br/dp/B0F1H26GFQ",region:"BR",observedPrice:{amount:2099,currency:"BRL"},availability:"available",checkedAt:reviewedAt},
+  amazonBrazilOffer({id:"prod_offer_amazon_motorola_moto_g56_5g_8_256",variantId:"prod_variant_motorola_moto_g56_5g_8_256_br",asin:"B0F9MT4TTZ",observedPrice:{amount:1377.40,currency:"BRL"},availability:"available",checkedAt:"2026-08-20"}),
+  amazonBrazilOffer({id:"prod_offer_amazon_samsung_galaxy_a26_5g_8_256",variantId:"prod_variant_samsung_galaxy_a26_5g_8_256_br",asin:"B0F29YZ3MF",observedPrice:{amount:1614.05,currency:"BRL"},availability:"available",checkedAt:"2026-09-01"}),
+  amazonBrazilOffer({id:"prod_offer_amazon_samsung_galaxy_a17_5g_4_128",variantId:"prod_variant_samsung_galaxy_a17_5g_4_128_br",asin:"B0FPPQ5T37",observedPrice:{amount:1259.10,currency:"BRL"},availability:"available",checkedAt:"2026-08-08"}),
+  amazonBrazilOffer({id:"prod_offer_amazon_xiaomi_redmi_note_14_4g_8_256",variantId:"prod_variant_xiaomi_redmi_note_14_4g_8_256_br",asin:"B0DT5LHPMX",observedPrice:{amount:1178,currency:"BRL"},availability:"available",checkedAt:reviewedAt}),
+  amazonBrazilOffer({id:"prod_offer_amazon_tcl_p7k_50",variantId:"prod_variant_tcl_p7k_50_br",asin:"B0F1H26GFQ",observedPrice:{amount:2099,currency:"BRL"},availability:"available",checkedAt:reviewedAt}),
   {id:"prod_offer_tcl_p7k_55_reference",variantId:"prod_variant_tcl_p7k_55_br",retailer:"Varejo brasileiro",url:"https://www.tcl.com/br/pt/tvs/p7k",region:"BR",observedPrice:{amount:2499,currency:"BRL"},availability:"available",checkedAt:"2026-09-05"},
-  {id:"prod_offer_amazon_samsung_u8100f_55",variantId:"prod_variant_samsung_u8100f_55_br",retailer:"Amazon Brasil",url:"https://www.amazon.com.br/dp/B0FSX4WVCD",region:"BR",availability:"unknown",checkedAt:reviewedAt},
-  {id:"prod_offer_amazon_tcl_c6k_55",variantId:"prod_variant_tcl_c6k_55_br",retailer:"Amazon Brasil",url:"https://www.amazon.com.br/dp/B0F7JZMVKF",region:"BR",observedPrice:{amount:3499,currency:"BRL"},availability:"available",checkedAt:reviewedAt},
+  amazonBrazilOffer({id:"prod_offer_amazon_samsung_u8100f_55",variantId:"prod_variant_samsung_u8100f_55_br",asin:"B0FSX4WVCD",availability:"unknown",checkedAt:reviewedAt}),
+  amazonBrazilOffer({id:"prod_offer_amazon_tcl_c6k_55",variantId:"prod_variant_tcl_c6k_55_br",asin:"B0F7JZMVKF",observedPrice:{amount:3499,currency:"BRL"},availability:"available",checkedAt:reviewedAt}),
   {id:"prod_offer_lg_oled_c5_55",variantId:"prod_variant_lg_oled_c5_55_br",retailer:"LG Brasil",url:"https://www.lg.com/br/tvs-e-soundbars/oled-evo/oled55c5psa/",region:"BR",observedPrice:{amount:5490,currency:"BRL"},availability:"unknown",checkedAt:"2026-08-11"},
 ]});
 

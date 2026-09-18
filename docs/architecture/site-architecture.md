@@ -215,11 +215,11 @@ Para estúdios de animação, aplique o [modelo editorial especializado](../edit
 
 - **Rotas preparadas:** `/produtos` e `/produtos/[slug]`. O índice permanece fora da configuração global e recebe `noindex` enquanto não houver produtos publicados.
 - **Dados:** `ProductCatalogSchema`, registros em `src/content/products/` e fachada em `src/data/products/`.
-- **Entidades:** `Product` guarda o modelo editorial estável; `ProductVariant` guarda a versão exata e especificações; `ProductOffer` guarda loja, URL, afiliação, disponibilidade, preço observado e data.
+- **Entidades:** `Product` guarda o modelo editorial estável; `ProductVariant` guarda a versão exata e especificações; `ProductOffer` guarda loja, URL, ASIN quando a oferta é da Amazon Brasil, afiliação, disponibilidade, preço observado e data.
 - **Relações:** fabricante aponta para `Organization`; produtos relacionados usam IDs permanentes; artigos usam slugs e `ProductCard` resolve o produto por ID.
 - **Componentes:** `ProductCard` para MDX, `ProductListCard`, `ProductOffers` e `ProductJsonLd`. O card exige análise específica da recomendação e não permite que o artigo replique a ficha central.
 - **SEO e publicação:** somente produtos `published`, com imagem verificada e data de publicação, geram páginas individuais. A entrada no sitemap, busca e navegação deve ocorrer apenas com o primeiro lote editorial completo.
-- **Imagens e comércio:** imagens locais em `/images/products/` carregam fonte, crédito, direitos e variante quando aplicável. Preço e estoque nunca pertencem ao produto permanente.
+- **Imagens e comércio:** imagens locais em `/images/products/` carregam fonte, crédito, direitos e variante quando aplicável. Preço e estoque nunca pertencem ao produto permanente. Ofertas da Amazon Brasil usam `amazonBrazilOffer`, que gera a URL canônica com `riquehen-20`; o ASIN continua sujeito a confirmação editorial da variante exata.
 
 ### Páginas institucionais, comerciais, demonstrações e projetos
 
@@ -262,7 +262,7 @@ Para estúdios de animação, aplique o [modelo editorial especializado](../edit
 
 ### Inspirações, exemplos demonstrativos e capacidades de serviços
 
-- **Inspirações:** a prévia de `/servicos`, a galeria completa `/servicos/inspiracoes` e as páginas `/servicos/inspiracoes/[slug]` compartilham `src/data/service-inspirations.ts`; o campo `featured` seleciona a prévia curta da home. São referências e possibilidades visuais, não clientes, projetos entregues ou templates prontos. As imagens preservam sua proporção; a página individual mantém retorno à galeria e contato contextual. O campo opcional `publication` pode selecionar uma composição editorial específica sob `src/components/services/inspirations/` sem criar um registro concorrente em `service-examples`; cinco inspirações adotam esse caminho para demonstrar jornadas adaptadas a seus contextos dentro dos mesmos slugs.
+- **Inspirações:** a prévia de `/servicos`, a galeria completa `/servicos/inspiracoes` e as páginas `/servicos/inspiracoes/[slug]` compartilham `src/data/service-inspirations.ts`; o campo `featured` seleciona a prévia curta da home. São referências e possibilidades visuais, não clientes, projetos entregues ou templates prontos. As imagens preservam sua proporção; a página individual mantém retorno à galeria e contato contextual. O campo opcional `publication` seleciona composições editoriais específicas sob `src/components/services/inspirations/`; seis inspirações adotam esse caminho. As outras seis registram uma jornada contextual e usam a publicação editorial compartilhada, sem criar registros concorrentes em `service-examples`.
 
 - **Rotas:** `/servicos/exemplos` organiza a galeria; `/servicos/exemplos/[slug]` abre cada demo e a Arquitetura possui estudos internos em `/servicos/exemplos/arquitetura/projetos/[project]`. `/servicos/capacidades` reúne uma lista editorial de recursos, uma demonstração funcional, exemplos estáticos de módulos e a explicação de estrutura. Essas rotas não substituem `/work`, não herdam os conceitos pausados de `/modelos` e não representam clientes.
 - **Dados:** `content/service-examples/serviceExampleSchema.ts`, registro em `serviceExamples.ts` e fachada `data/service-examples/`. Apenas registros `published` com preview, recursos relacionados e renderer próprio geram parâmetros estáticos.
@@ -305,6 +305,7 @@ Todos os acervos usam somente `status: "draft" | "published"` como estado editor
 | Domínio | Fonte técnica | Acesso recomendado | Observação |
 | --- | --- | --- | --- |
 | Artigos | `components/blog/postSchema.ts` | `data/articles/` | corpo permanece em MDX |
+| Produtos | `content/products/productSchema.ts` | `data/products/` | modelo, variante e oferta são separados; artigos reutilizam IDs por `ProductCard` |
 | Landing pages de serviços | `content/service-landings/serviceLandingSchema.ts` | `data/service-landings/` | estruturas padrão/compacta; serviços legados permanecem em `resources/services.ts` |
 | Ideias | `content/ideas/ideaSchema.ts` | `data/ideas/` | ID permanente independente do slug; `type` organiza ideias, projetos, experimentos, negócios e pesquisas; histórico em `updates`; estado separado da publicação editorial |
 | Filmes | `content/movies/movieSchema.ts` | `data/movies/` | cadastro único; inclui identidade, formato, créditos, relações, imagem/direitos, fontes e estado editorial |

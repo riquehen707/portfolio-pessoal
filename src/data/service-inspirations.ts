@@ -10,23 +10,29 @@ export type ServiceInspiration = {
   width: number;
   height: number;
   updatedAt: string;
-  publication?: "real-estate-editorial" | "photography-editorial" | "architecture-editorial" | "wellness-editorial" | "local-business-editorial";
+  publication?: "real-estate-editorial" | "photography-editorial" | "architecture-editorial" | "wellness-editorial" | "local-business-editorial" | "designer-editorial";
+  journey?: {
+    label: string;
+    title: string;
+    description: string;
+  }[];
 };
 
 export const serviceInspirations: ServiceInspiration[] = [
   {
     slug: "portfolio-minimalista",
-    title: "Portfólio minimalista",
-    category: "Profissional",
+    title: "Portfólio para designers",
+    category: "Design",
     image: "/images/services/inspirations/portfolio-minimalista.webp",
     alt: "Referência visual de um portfólio profissional claro, com tipografia ampla e projetos organizados em grade.",
     description:
-      "Uma direção limpa e objetiva, com bastante espaço em branco, títulos fortes e projetos apresentados com contexto.",
-    tags: ["Minimalista", "Portfólio", "Claro"],
+      "Uma publicação demonstrativa para posicionar uma designer, selecionar projetos, explicar decisões em um case e facilitar o primeiro contato.",
+    tags: ["Design", "Cases", "Portfólio"],
     featured: true,
     width: 1536,
     height: 1024,
-    updatedAt: "2026-09-12",
+    updatedAt: "2026-09-18",
+    publication: "designer-editorial",
   },
   {
     slug: "galeria-autoral",
@@ -41,6 +47,12 @@ export const serviceInspirations: ServiceInspiration[] = [
     width: 1024,
     height: 1536,
     updatedAt: "2026-09-12",
+    journey: [
+      { label: "01", title: "Curadoria", description: "Uma abertura curta apresenta a artista e define o recorte da obra." },
+      { label: "02", title: "Exploração", description: "Séries e trabalhos aparecem em ritmos diferentes, sem uma grade rígida." },
+      { label: "03", title: "Obra", description: "A página individual reúne imagem, técnica, contexto e disponibilidade." },
+      { label: "04", title: "Contato", description: "Interesse em exposição, aquisição ou parceria encontra um caminho direto." },
+    ],
   },
   {
     slug: "portfolio-fotografico",
@@ -100,6 +112,12 @@ export const serviceInspirations: ServiceInspiration[] = [
     width: 1122,
     height: 1402,
     updatedAt: "2026-09-12",
+    journey: [
+      { label: "01", title: "Identidade", description: "A primeira tela deixa linguagem, especialidade e autoria reconhecíveis." },
+      { label: "02", title: "Séries", description: "Trabalhos podem ser agrupados por técnica, tema ou período." },
+      { label: "03", title: "Processo", description: "Materiais e decisões ajudam a compreender como cada trabalho foi construído." },
+      { label: "04", title: "Encomenda", description: "O contato explica disponibilidade e o que precisa ser combinado." },
+    ],
   },
   {
     slug: "bem-estar-acolhedor",
@@ -141,6 +159,12 @@ export const serviceInspirations: ServiceInspiration[] = [
     width: 1024,
     height: 1536,
     updatedAt: "2026-09-12",
+    journey: [
+      { label: "01", title: "Atmosfera", description: "Fotografia e texto apresentam a proposta antes do cardápio." },
+      { label: "02", title: "Escolha", description: "Pratos, ingredientes e restrições aparecem com leitura simples." },
+      { label: "03", title: "Origem", description: "Equipe, produtores e modo de preparo dão contexto à experiência." },
+      { label: "04", title: "Reserva", description: "Horários, endereço e contato reduzem dúvidas antes da visita." },
+    ],
   },
   {
     slug: "consultoria-editorial",
@@ -154,6 +178,12 @@ export const serviceInspirations: ServiceInspiration[] = [
     width: 1536,
     height: 1024,
     updatedAt: "2026-09-12",
+    journey: [
+      { label: "01", title: "Problema", description: "A abertura ajuda o visitante a reconhecer quando a consultoria faz sentido." },
+      { label: "02", title: "Método", description: "Etapas e limites tornam a forma de trabalho compreensível." },
+      { label: "03", title: "Aplicação", description: "Cenários demonstrativos mostram o tipo de decisão que pode ser apoiada." },
+      { label: "04", title: "Conversa", description: "O contato recolhe contexto suficiente para avaliar o próximo passo." },
+    ],
   },
   {
     slug: "moda-independente",
@@ -167,6 +197,12 @@ export const serviceInspirations: ServiceInspiration[] = [
     width: 1122,
     height: 1402,
     updatedAt: "2026-09-12",
+    journey: [
+      { label: "01", title: "Conceito", description: "A coleção começa por uma ideia visual clara, não por uma grade de produtos." },
+      { label: "02", title: "Lookbook", description: "Silhuetas e combinações aparecem em uma sequência editorial." },
+      { label: "03", title: "Detalhe", description: "Materiais, acabamento e medidas aproximam a peça de quem avalia." },
+      { label: "04", title: "Contato", description: "Lojas, imprensa e clientes encontram canais adequados à intenção." },
+    ],
   },
   {
     slug: "tecnologia-humana",
@@ -180,6 +216,12 @@ export const serviceInspirations: ServiceInspiration[] = [
     width: 1448,
     height: 1086,
     updatedAt: "2026-09-12",
+    journey: [
+      { label: "01", title: "Contexto", description: "A primeira tela explica para quem o produto existe e qual tarefa resolve." },
+      { label: "02", title: "Funcionamento", description: "Uma demonstração curta torna o fluxo menos abstrato." },
+      { label: "03", title: "Confiança", description: "Limites, segurança e suporte aparecem antes da decisão." },
+      { label: "04", title: "Próximo passo", description: "Teste, conversa ou contratação recebem ações diferentes e explícitas." },
+    ],
   },
 ];
 

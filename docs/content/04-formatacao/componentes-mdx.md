@@ -26,6 +26,12 @@ Apresenta uma obra do acervo central por `workId`. Aceita `variant="compact"` ou
 
 Resolve um produto pelo ID permanente e reutiliza imagem, variante, ficha e ofertas do acervo. Os campos editoriais são obrigatórios porque pertencem ao argumento daquela lista, não à entidade central: `whyIncluded`, `bestFor`, `mainDifference`, `tradeOff`, `sensiblePriceRange`, `avoidWhen` e `closestCompetitor`. O contrato completo está em [`product-recommendation.md`](../../editorial/templates/product-recommendation.md).
 
+### `PcBuild`
+
+Resume uma configuração completa de computador com hierarquia de decisão: perfil, componentes, preços observados, total e prioridades de uso. Produtos devem ser referenciados por `productId`; o componente resolve nome, imagem, ficha e oferta no acervo. Itens definidos apenas por critério, como gabinete sem modelo fechado, podem usar `name` e `price` no JSON. Passe a estrutura pelo atributo textual `data`, como nos demais blocos com dados estruturados.
+
+Use somente em guias de montagem nos quais a configuração completa é parte central da resposta. O bloco substitui o resumo e a tabela de peças; não repita as mesmas informações em `QuickSummary` ou tabela Markdown logo depois.
+
 ### `QuickSummary`
 
 Resumo manual das ideias úteis para decidir se e como ler. Use no início; não repetir o `summary` do frontmatter.

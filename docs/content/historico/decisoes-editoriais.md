@@ -1,5 +1,11 @@
 # Decisões editoriais
 
+## 2026-09-18 — Portfólio para designers e aprofundamento das inspirações restantes
+
+`/servicos/inspiracoes/portfolio-minimalista` preserva o slug público e passa a se apresentar como “Portfólio para designers”. A publicação demonstra a jornada `direção → seleção → case → contato` com filtros de projetos, seleção sincronizada, narrativa de case e formulário demonstrativo que não envia nem armazena informações. “Lia Prado” e os três projetos são fictícios; o conteúdo não representa clientes, trabalhos ou resultados de Henrique Reis.
+
+As seis inspirações que ainda não possuem interface exclusiva deixam de usar a página individual mínima. `galeria-autoral`, `trabalho-autoral`, `gastronomia-contemporanea`, `consultoria-editorial`, `moda-independente` e `tecnologia-humana` passam a compartilhar uma publicação editorial mais completa, alimentada pela mesma fonte de dados e por uma jornada de quatro momentos própria de cada contexto. A solução melhora exploração, adaptação e conversão sem simular recursos que ainda não foram implementados para esses segmentos.
+
 ## 2026-09-17 — Publicação demonstrativa “Negócio local vibrante”
 
 `/servicos/inspiracoes/negocio-local-vibrante` passa a demonstrar a jornada `descoberta → escolha → agendamento → visita` para uma barbearia fictícia. A interface apresenta atmosfera e informações práticas, permite escolher entre quatro serviços com preço e duração, simula dia e horário sem criar reserva e mostra localização, funcionamento e contato antes da ação final.
@@ -25,6 +31,14 @@ A identidade “Norte / Sul”, os projetos, locais, áreas e datas são fictíc
 A jornada `apresentação → exploração → avaliação → contato` foi reconstruída em componentes reais: abertura de portfólio, seleção de trabalhos, filtros funcionais, página de ensaio com galeria selecionável e formulário demonstrativo que não envia nem armazena dados. A identidade fictícia “Clara Norte” e os trabalhos apresentados não representam clientes, projetos ou resultados de Henrique Reis; somente o CTA final abre o contato comercial real.
 
 A demonstração usa três imagens geradas especificamente para a interface e três fotografias locais licenciadas pelo Unsplash, com origem, autoria, texto alternativo e dimensões registrados no módulo de dados. A composição reaproveita a lógica editorial da referência imobiliária, mas adapta conteúdo, ritmo e decisões à fotografia. Validação local concluída antes da publicação.
+
+## 2026-09-16 — Amazon Brasil usa oferta estruturada e gerador central
+
+Motivo:
+Uma regra apenas documental ainda permitia cadastrar URL sem tag, repetir metadados de afiliação ou representar um item específico por busca. Artigos de PC também mostraram que modelos e preços podem acabar repetidos no MDX apesar de as peças já existirem no acervo.
+
+Substituição:
+`ProductOffer` passa a aceitar `asin` e a exigir, em toda oferta identificada como Amazon Brasil, ASIN com dez caracteres, URL canônica, Programa de Associados, tag `riquehen-20` e aviso de comissão. `amazonBrazilOffer`, em `src/content/products/amazonBrazil.ts`, é a entrada obrigatória para novas ofertas do catálogo e gera a URL a partir do ASIN confirmado. A validação técnica não substitui a conferência humana entre anúncio e variante. A antiga oferta do Moto G86 baseada em busca foi retirada até existir ASIN confirmado. Peças de PC continuam separadas em produto, variante e oferta; builds e orçamentos permanecem contexto dos artigos e reutilizam IDs permanentes.
 
 ## 2026-09-15 — Ofertas da Amazon usam ASIN confirmado e tag oficial
 

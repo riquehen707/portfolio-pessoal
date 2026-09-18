@@ -204,12 +204,20 @@ export const ProductOfferSchema = z.object({
   region: z.string().min(2),
   affiliateProgram: z.string().min(1).optional(),
   affiliateId: z.string().min(1).optional(),
+  asin: z.string().regex(/^[A-Z0-9]{10}$/).optional(),
   observedPrice: z.object({ amount: z.number().nonnegative(), currency: z.string().length(3) }).optional(),
   availability: z.enum(["available", "preorder", "temporarily-unavailable", "unavailable", "unknown"]),
   checkedAt: z.string().regex(isoDate),
   commissionDisclosure: z.string().min(1).optional(),
 }).superRefine((offer, ctx) => {
   if (offer.affiliateId && !offer.affiliateProgram) ctx.addIssue({ code: "custom", path: ["affiliateProgram"], message: "identificador de afiliado exige programa" });
+  if (offer.retailer === "Amazon Brasil") {
+    if (!offer.asin) ctx.addIssue({ code: "custom", path: ["asin"], message: "oferta da Amazon Brasil exige ASIN confirmado" });
+    if (offer.affiliateProgram !== "Amazon Associados") ctx.addIssue({ code: "custom", path: ["affiliateProgram"], message: "oferta da Amazon Brasil exige o Programa de Associados" });
+    if (offer.affiliateId !== "riquehen-20") ctx.addIssue({ code: "custom", path: ["affiliateId"], message: "oferta da Amazon Brasil exige a tag oficial do projeto" });
+    if (offer.asin && offer.url !== `https://www.amazon.com.br/dp/${offer.asin}?tag=riquehen-20`) ctx.addIssue({ code: "custom", path: ["url"], message: "URL da Amazon Brasil deve ser canônica e gerada pelo ASIN" });
+    if (!offer.commissionDisclosure) ctx.addIssue({ code: "custom", path: ["commissionDisclosure"], message: "oferta afiliada exige aviso de comissão" });
+  }
 });
 
 export const ProductCatalogSchema = z.object({
@@ -226,6 +234,7 @@ export const ProductCatalogSchema = z.object({
   unique(catalog.variants.map((item) => item.id), "variants");
   unique(catalog.variants.flatMap((item) => item.gtin ? [item.gtin] : []), "variants");
   unique(catalog.offers.map((item) => item.id), "offers");
+  unique(catalog.offers.flatMap((item) => item.asin ? [item.asin] : []), "offers");
 
   const productIds = new Set(catalog.products.map((item) => item.id));
   const variantIds = new Set(catalog.variants.map((item) => item.id));

@@ -73,6 +73,7 @@ import { SeriesCard } from "@/components/series/SeriesCard";
 import { SeriesAvailabilityIndex } from "@/components/series/SeriesAvailabilityIndex";
 import { PersonCard, StudioCard } from "@/components/entities";
 import { ProductCard } from "@/components/products/ProductCard";
+import { PcBuild } from "@/components/pc/PcBuild";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 
 import { baseURL } from "@/resources";
@@ -500,6 +501,7 @@ export const baseMDXComponents: MDXComponents = {
   PersonCard,
   StudioCard,
   ProductCard,
+  PcBuild,
 
   // shortcodes
   PillarBadge,

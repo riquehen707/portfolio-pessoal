@@ -54,6 +54,7 @@ const { photographyPortfolioItems, photographyGeneratedMedia } = load("src/compo
 const { architectureInspirationProjects } = load("src/components/services/inspirations/architecture/architectureInspirationData.ts");
 const { wellnessInspirationMedia, wellnessGeneratedMedia, wellnessConcerns } = load("src/components/services/inspirations/wellness/wellnessInspirationData.ts");
 const { localBusinessMedia, localBusinessServices } = load("src/components/services/inspirations/local-business/localBusinessInspirationData.ts");
+const { designerProjects, designerCaseSteps } = load("src/components/services/inspirations/designer/designerInspirationData.ts");
 const { exampleServiceLanding } = load("src/content/service-landings/example.ts");
 const { architectWebsite } = load("src/content/service-landings/architectWebsite.ts");
 const { artistGallery } = load("src/content/service-landings/artistGallery.ts");
@@ -436,6 +437,20 @@ test("inspirações compartilham dados válidos entre galeria e páginas individ
     assert.ok(existsSync(path.join(root, "public", media.image)));
     assert.ok(media.width > 0);
     assert.ok(media.height > 0);
+  }
+
+  const designerPublication = getServiceInspiration("portfolio-minimalista");
+  assert.equal(designerPublication.title, "Portfólio para designers");
+  assert.equal(designerPublication.publication, "designer-editorial");
+  assert.equal(designerProjects.length, 3);
+  assert.equal(designerCaseSteps.length, 3);
+  assert.equal(new Set(designerProjects.map((project) => project.id)).size, 3);
+
+  const standardInspirations = serviceInspirations.filter((inspiration) => !inspiration.publication);
+  assert.equal(standardInspirations.length, 6);
+  for (const inspiration of standardInspirations) {
+    assert.equal(inspiration.journey?.length, 4);
+    assert.equal(new Set(inspiration.journey.map((step) => step.label)).size, 4);
   }
 });
 

@@ -14,7 +14,30 @@ Apresentar um serviço como produto concreto segue o [padrão de serviços](../.
 
 Preço e estoque nunca pertencem a `Product`. Uma URL da Amazon é uma oferta entre outras possíveis, não a identidade do produto.
 
+### Onde registrar cada informação
+
+| Informação editorial | Entidade e campo |
+| --- | --- |
+| Nome, slug, categoria, marca, imagem e observações permanentes | `Product`; a marca é referenciada por `manufacturerId` e a imagem usa `mainImage`/`gallery` |
+| Modelo comercial exato | `ProductVariant.manufacturerModelNumber` e `name` |
+| Especificações principais | `ProductVariant.specifications`; use grupos genéricos enquanto não houver schema especializado |
+| ASIN e link de afiliado | `ProductOffer.asin` e `ProductOffer.url` |
+| Faixa de preço observada | `ProductOffer.observedPrice` com `checkedAt`; faixas editoriais contextuais podem aparecer em `ProductCard.sensiblePriceRange` |
+| Observações da recomendação naquele artigo | propriedades contextuais do `ProductCard`, sem alterar a ficha central |
+
+Não crie um objeto paralelo contendo todos esses campos. A separação preserva o modelo quando a variante, a loja, o preço ou a disponibilidade mudarem.
+
 Para câmeras, a variante usa o discriminador `camera` e mantém estruturados formato e tecnologia do sensor, resolução, autofocus, estabilização, vídeo, mount, disponibilidade de lentes, bateria, áudio, gravação interna, codecs e conectividade. Corpo e kit não devem virar produtos distintos quando a câmera é a mesma; a oferta deve deixar claro se inclui lente.
+
+### Peças de PC
+
+Processador, placa-mãe, memória RAM, SSD, fonte, gabinete, placa de vídeo, cooler, monitor e periférico são produtos reutilizáveis do mesmo acervo. Registre cada modelo uma vez em `src/content/products/pcComponents.ts` ou no módulo de domínio correspondente. A configuração completa e o teto de orçamento pertencem ao artigo, não a um novo produto composto.
+
+Nas variantes, priorize os atributos que impedem uma compra incompatível: código de modelo, soquete, geração e padrão de memória, capacidade e quantidade de módulos, interface e formato, potência e conectores, dimensões, revisão, voltagem e conteúdo do kit. Use fontes oficiais para especificações e uma oferta datada somente para preço e disponibilidade.
+
+Os artigos de orçamento podem resumir a montagem em tabela, mas os modelos recomendados devem apontar para os mesmos IDs usados pelos `ProductCard`. Não replique ficha técnica, imagem ou URL comercial no MDX. Componentes genéricos sem modelo fechado, como um gabinete definido apenas por dimensões e ventilação, permanecem critérios de compra no artigo até haver uma recomendação verificável.
+
+Quando a configuração completa for a resposta central do artigo, `PcBuild` pode substituir a tabela e o resumo introdutório. O bloco recebe os IDs permanentes dos produtos, resolve os dados do acervo e calcula o total a partir das ofertas observadas. Use nome e preço manuais apenas para itens ainda descritos como critério de compra ou modelo ainda não normalizado; isso deve continuar visível como pendência editorial, não virar uma ficha paralela.
 
 ## Identidade e duplicatas
 
@@ -64,7 +87,7 @@ Para cada nova oferta:
 1. pesquise primeiro o produto, a variante e a oferta no acervo e reutilize os IDs existentes;
 2. confirme as especificações na fonte oficial e use a Amazon Brasil para verificar a oferta comercial;
 3. extraia o ASIN da página exata e confronte título, fabricante, código de modelo e atributos da variante;
-4. gere a URL canônica no formato abaixo;
+4. registre o ASIN no gerador central; não escreva a URL manualmente;
 5. registre varejista, programa, identificador, disponibilidade e data da consulta no `ProductOffer` ou na estrutura equivalente do domínio;
 6. registre preço somente como observação datada e aproximada, nunca como característica permanente.
 
@@ -72,11 +95,25 @@ Para cada nova oferta:
 https://www.amazon.com.br/dp/{ASIN}?tag=riquehen-20
 ```
 
+No catálogo geral, use `amazonBrazilOffer` de `src/content/products/amazonBrazil.ts`. O helper normaliza e valida o ASIN, gera a URL com a tag oficial e preenche varejista, região, programa, identificador e aviso de comissão:
+
+```ts
+amazonBrazilOffer({
+  id: "prod_offer_amazon_exemplo",
+  variantId: "prod_variant_exemplo_br",
+  asin: "B012345678",
+  availability: "available",
+  checkedAt: "2026-09-16",
+});
+```
+
+O código acima demonstra o contrato, não um ASIN real. Nunca o copie para uma oferta. Estruturas especializadas de outros domínios devem chamar o mesmo gerador de URL ou manter uma equivalência validada que não duplique a tag em arquivos editoriais.
+
 Não invente, deduza por semelhança nem associe um ASIN sem confirmação. Se a pesquisa não permitir confirmar o item exato, mantenha a recomendação sem oferta afiliada e registre a pendência; não transfira ao autor a busca rotineira por um link que pode ser verificado pelas fontes disponíveis.
 
-Links oficiais `link.amazon/...` já cadastrados podem ser preservados. Novos links diretos devem usar o formato canônico acima, sem parâmetros de busca, sessão, campanha ou navegação como `crid`, `keywords`, `qid`, `sr`, `dib`, `ref` e `linkId`. Não use uma URL de resultados da Amazon para representar um produto específico.
+Novos links diretos devem usar o formato canônico acima, sem parâmetros de busca, sessão, campanha ou navegação como `crid`, `keywords`, `qid`, `sr`, `dib`, `ref` e `linkId`. Não use uma URL de resultados da Amazon para representar um produto específico.
 
-No modelo atual, o ASIN é confirmado pelo segmento `/dp/` da URL e pela correspondência com `ProductVariant`; não existe um campo `asin` no schema. Essa limitação não reduz a obrigação de verificação manual e não autoriza acrescentar um campo avulso fora do schema.
+O schema exige `asin` para `retailer: "Amazon Brasil"` e confere URL canônica, programa, tag e aviso. Essa automação só valida formato e consistência interna: ela não descobre o ASIN nem prova que a página corresponde à variante. A confrontação do anúncio continua sendo etapa humana obrigatória.
 
 ## Ofertas, preços e independência editorial
 
@@ -100,7 +137,7 @@ Além da divulgação por oferta, o site deve manter em local claro e facilmente
 
 Essa declaração global não substitui o aviso próximo ao link. Antes de publicar ou alterar o padrão, confira o [Contrato Operacional](https://associados.amazon.com.br/help/operating/agreement/), as [Políticas do Programa](https://associados.amazon.com.br/help/operating/policies) e a [orientação de divulgação](https://associados.amazon.com.br/help/node/topic/GHQNZAU6669EZS98), pois texto e requisitos podem mudar.
 
-O componente `ProductOffers` já aplica os atributos de relação e renderiza a divulgação registrada na oferta. O projeto ainda não valida automaticamente o formato do ASIN ou da URL e a existência da declaração global deve ser verificada na publicação. Até haver automação, esses pontos são uma etapa editorial manual e bloqueiam a aprovação de uma nova oferta afiliada.
+O componente `ProductOffers` aplica os atributos de relação e renderiza a divulgação registrada na oferta. O schema e `amazonBrazilOffer` validam o formato do ASIN e a composição da URL; a correspondência real entre ASIN e variante e a existência da declaração global continuam sendo verificações editoriais de publicação.
 
 ## Publicação
 

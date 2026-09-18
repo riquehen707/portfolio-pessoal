@@ -14019,13 +14019,14 @@
       "region": "BR",
       "affiliateProgram": "Amazon Associados",
       "affiliateId": "riquehen-20",
+      "asin": "B084D9V1TY",
       "observedPrice": {
         "amount": 709,
         "currency": "BRL"
       },
       "availability": "available",
       "checkedAt": "2026-09-15",
-      "commissionDisclosure": "Este link pode gerar comissão sem custo adicional para quem compra."
+      "commissionDisclosure": "Link de afiliado: posso receber uma comissão sem custo adicional para você."
     },
     {
       "id": "prod_offer_amazon_bosch_gsb_185_li",
@@ -14035,9 +14036,10 @@
       "region": "BR",
       "affiliateProgram": "Amazon Associados",
       "affiliateId": "riquehen-20",
+      "asin": "B0BZB2L32L",
       "availability": "available",
       "checkedAt": "2026-09-15",
-      "commissionDisclosure": "Este link pode gerar comissão sem custo adicional para quem compra."
+      "commissionDisclosure": "Link de afiliado: posso receber uma comissão sem custo adicional para você."
     },
     {
       "id": "prod_offer_electrolux_eaf10_reference",
@@ -15132,18 +15134,6 @@
       "checkedAt": "2026-09-02"
     },
     {
-      "id": "prod_offer_amazon_motorola_moto_g86_5g_8_256",
-      "variantId": "prod_variant_motorola_moto_g86_5g_8_256_br",
-      "retailer": "Amazon Brasil",
-      "url": "https://www.amazon.com.br/s?k=moto+g86&crid=339BS6XZ5PRN0&sprefix=Moto+%2Caps%2C278&linkCode=ll2&tag=riquehen-20&linkId=51b5bd00e21a5fbbfd0a8994cba6c6d9&ref_=as_li_ss_tl",
-      "region": "BR",
-      "affiliateProgram": "Amazon Associados",
-      "affiliateId": "riquehen-20",
-      "availability": "unknown",
-      "checkedAt": "2026-09-04",
-      "commissionDisclosure": "Este link pode gerar comissão sem custo adicional para quem compra."
-    },
-    {
       "id": "prod_offer_motorola_moto_g86_5g_8_256",
       "variantId": "prod_variant_motorola_moto_g86_5g_8_256_br",
       "retailer": "Motorola Brasil",
@@ -15160,66 +15150,86 @@
       "id": "prod_offer_amazon_motorola_moto_g56_5g_8_256",
       "variantId": "prod_variant_motorola_moto_g56_5g_8_256_br",
       "retailer": "Amazon Brasil",
-      "url": "https://www.amazon.com.br/dp/B0F9MT4TTZ",
+      "url": "https://www.amazon.com.br/dp/B0F9MT4TTZ?tag=riquehen-20",
       "region": "BR",
+      "affiliateProgram": "Amazon Associados",
+      "affiliateId": "riquehen-20",
+      "asin": "B0F9MT4TTZ",
       "observedPrice": {
         "amount": 1377.4,
         "currency": "BRL"
       },
       "availability": "available",
-      "checkedAt": "2026-08-20"
+      "checkedAt": "2026-08-20",
+      "commissionDisclosure": "Link de afiliado: posso receber uma comissão sem custo adicional para você."
     },
     {
       "id": "prod_offer_amazon_samsung_galaxy_a26_5g_8_256",
       "variantId": "prod_variant_samsung_galaxy_a26_5g_8_256_br",
       "retailer": "Amazon Brasil",
-      "url": "https://www.amazon.com.br/dp/B0F29YZ3MF",
+      "url": "https://www.amazon.com.br/dp/B0F29YZ3MF?tag=riquehen-20",
       "region": "BR",
+      "affiliateProgram": "Amazon Associados",
+      "affiliateId": "riquehen-20",
+      "asin": "B0F29YZ3MF",
       "observedPrice": {
         "amount": 1614.05,
         "currency": "BRL"
       },
       "availability": "available",
-      "checkedAt": "2026-09-01"
+      "checkedAt": "2026-09-01",
+      "commissionDisclosure": "Link de afiliado: posso receber uma comissão sem custo adicional para você."
     },
     {
       "id": "prod_offer_amazon_samsung_galaxy_a17_5g_4_128",
       "variantId": "prod_variant_samsung_galaxy_a17_5g_4_128_br",
       "retailer": "Amazon Brasil",
-      "url": "https://www.amazon.com.br/dp/B0FPPQ5T37",
+      "url": "https://www.amazon.com.br/dp/B0FPPQ5T37?tag=riquehen-20",
       "region": "BR",
+      "affiliateProgram": "Amazon Associados",
+      "affiliateId": "riquehen-20",
+      "asin": "B0FPPQ5T37",
       "observedPrice": {
         "amount": 1259.1,
         "currency": "BRL"
       },
       "availability": "available",
-      "checkedAt": "2026-08-08"
+      "checkedAt": "2026-08-08",
+      "commissionDisclosure": "Link de afiliado: posso receber uma comissão sem custo adicional para você."
     },
     {
       "id": "prod_offer_amazon_xiaomi_redmi_note_14_4g_8_256",
       "variantId": "prod_variant_xiaomi_redmi_note_14_4g_8_256_br",
       "retailer": "Amazon Brasil",
-      "url": "https://www.amazon.com.br/dp/B0DT5LHPMX",
+      "url": "https://www.amazon.com.br/dp/B0DT5LHPMX?tag=riquehen-20",
       "region": "BR",
+      "affiliateProgram": "Amazon Associados",
+      "affiliateId": "riquehen-20",
+      "asin": "B0DT5LHPMX",
       "observedPrice": {
         "amount": 1178,
         "currency": "BRL"
       },
       "availability": "available",
-      "checkedAt": "2026-09-02"
+      "checkedAt": "2026-09-02",
+      "commissionDisclosure": "Link de afiliado: posso receber uma comissão sem custo adicional para você."
     },
     {
       "id": "prod_offer_amazon_tcl_p7k_50",
       "variantId": "prod_variant_tcl_p7k_50_br",
       "retailer": "Amazon Brasil",
-      "url": "https://www.amazon.com.br/dp/B0F1H26GFQ",
+      "url": "https://www.amazon.com.br/dp/B0F1H26GFQ?tag=riquehen-20",
       "region": "BR",
+      "affiliateProgram": "Amazon Associados",
+      "affiliateId": "riquehen-20",
+      "asin": "B0F1H26GFQ",
       "observedPrice": {
         "amount": 2099,
         "currency": "BRL"
       },
       "availability": "available",
-      "checkedAt": "2026-09-02"
+      "checkedAt": "2026-09-02",
+      "commissionDisclosure": "Link de afiliado: posso receber uma comissão sem custo adicional para você."
     },
     {
       "id": "prod_offer_tcl_p7k_55_reference",
@@ -15238,23 +15248,31 @@
       "id": "prod_offer_amazon_samsung_u8100f_55",
       "variantId": "prod_variant_samsung_u8100f_55_br",
       "retailer": "Amazon Brasil",
-      "url": "https://www.amazon.com.br/dp/B0FSX4WVCD",
+      "url": "https://www.amazon.com.br/dp/B0FSX4WVCD?tag=riquehen-20",
       "region": "BR",
+      "affiliateProgram": "Amazon Associados",
+      "affiliateId": "riquehen-20",
+      "asin": "B0FSX4WVCD",
       "availability": "unknown",
-      "checkedAt": "2026-09-02"
+      "checkedAt": "2026-09-02",
+      "commissionDisclosure": "Link de afiliado: posso receber uma comissão sem custo adicional para você."
     },
     {
       "id": "prod_offer_amazon_tcl_c6k_55",
       "variantId": "prod_variant_tcl_c6k_55_br",
       "retailer": "Amazon Brasil",
-      "url": "https://www.amazon.com.br/dp/B0F7JZMVKF",
+      "url": "https://www.amazon.com.br/dp/B0F7JZMVKF?tag=riquehen-20",
       "region": "BR",
+      "affiliateProgram": "Amazon Associados",
+      "affiliateId": "riquehen-20",
+      "asin": "B0F7JZMVKF",
       "observedPrice": {
         "amount": 3499,
         "currency": "BRL"
       },
       "availability": "available",
-      "checkedAt": "2026-09-02"
+      "checkedAt": "2026-09-02",
+      "commissionDisclosure": "Link de afiliado: posso receber uma comissão sem custo adicional para você."
     },
     {
       "id": "prod_offer_lg_oled_c5_55",

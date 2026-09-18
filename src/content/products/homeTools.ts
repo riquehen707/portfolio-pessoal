@@ -1,4 +1,5 @@
 import type { Product, ProductOffer, ProductVariant } from "./productSchema";
+import { amazonBrazilOffer } from "./amazonBrazil";
 
 const reviewedAt = "2026-09-15";
 const articleSlug = "kit-de-ferramentas-para-casa";
@@ -210,29 +211,19 @@ export const homeToolVariants: ProductVariant[] = [
 ];
 
 export const homeToolOffers: ProductOffer[] = [
-  {
+  amazonBrazilOffer({
     id: "prod_offer_amazon_bosch_gsb_120_li",
     variantId: "prod_variant_bosch_gsb_120_li_2b_br",
-    retailer: "Amazon Brasil",
-    url: "https://www.amazon.com.br/dp/B084D9V1TY?tag=riquehen-20",
-    region: "BR",
-    affiliateProgram: "Amazon Associados",
-    affiliateId: "riquehen-20",
+    asin: "B084D9V1TY",
     observedPrice: { amount: 709, currency: "BRL" },
     availability: "available",
     checkedAt: reviewedAt,
-    commissionDisclosure: "Este link pode gerar comissão sem custo adicional para quem compra.",
-  },
-  {
+  }),
+  amazonBrazilOffer({
     id: "prod_offer_amazon_bosch_gsb_185_li",
     variantId: "prod_variant_bosch_gsb_185_li_2b_br",
-    retailer: "Amazon Brasil",
-    url: "https://www.amazon.com.br/dp/B0BZB2L32L?tag=riquehen-20",
-    region: "BR",
-    affiliateProgram: "Amazon Associados",
-    affiliateId: "riquehen-20",
+    asin: "B0BZB2L32L",
     availability: "available",
     checkedAt: reviewedAt,
-    commissionDisclosure: "Este link pode gerar comissão sem custo adicional para quem compra.",
-  },
+  }),
 ];
