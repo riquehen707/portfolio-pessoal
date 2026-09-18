@@ -10,7 +10,7 @@ export type ServiceInspiration = {
   width: number;
   height: number;
   updatedAt: string;
-  publication?: "real-estate-editorial";
+  publication?: "real-estate-editorial" | "photography-editorial" | "architecture-editorial" | "wellness-editorial" | "local-business-editorial";
 };
 
 export const serviceInspirations: ServiceInspiration[] = [
@@ -49,12 +49,13 @@ export const serviceInspirations: ServiceInspiration[] = [
     image: "/images/services/inspirations/portfolio-fotografico.webp",
     alt: "Referência visual de um portfólio de fotografia com imagens grandes e navegação discreta.",
     description:
-      "Uma composição sóbria em que as fotografias ocupam o primeiro plano e a navegação ajuda a explorar diferentes tipos de trabalho.",
-    tags: ["Fotografia", "Imagens grandes", "Sóbrio"],
+      "Uma publicação demonstrativa que mostra como apresentar repertório, organizar especialidades, aprofundar um ensaio e abrir caminho para o orçamento.",
+    tags: ["Fotografia", "Portfólio", "Contato"],
     featured: true,
     width: 1536,
     height: 1024,
-    updatedAt: "2026-09-12",
+    updatedAt: "2026-09-17",
+    publication: "photography-editorial",
   },
   {
     slug: "arquitetura-editorial",
@@ -63,12 +64,13 @@ export const serviceInspirations: ServiceInspiration[] = [
     image: "/images/services/inspirations/arquitetura-editorial.webp",
     alt: "Referência visual em formato vertical de um portfólio de arquitetura com contraste alto e tipografia expressiva.",
     description:
-      "Uma direção de alto contraste, com tipografia marcante e imagens de projeto tratadas como parte central da identidade.",
-    tags: ["Editorial", "Alto contraste", "Mobile"],
+      "Uma publicação demonstrativa que mostra como posicionar um escritório, explorar projetos, explicar decisões e iniciar um briefing.",
+    tags: ["Arquitetura", "Projetos", "Briefing"],
     featured: true,
     width: 1024,
     height: 1536,
-    updatedAt: "2026-09-12",
+    updatedAt: "2026-09-17",
+    publication: "architecture-editorial",
   },
   {
     slug: "imoveis-em-destaque",
@@ -106,11 +108,12 @@ export const serviceInspirations: ServiceInspiration[] = [
     image: "/images/services/inspirations/bem-estar-acolhedor.webp",
     alt: "Referência visual de um site de bem-estar com tons naturais, margens amplas e chamada discreta para contato.",
     description:
-      "Uma direção serena, com tons naturais, leitura espaçada e uma hierarquia que apresenta o atendimento antes de convidar ao contato.",
-    tags: ["Acolhedor", "Natural", "Editorial"],
+      "Uma publicação demonstrativa que explica o atendimento, apresenta a profissional, acolhe dúvidas e conduz ao primeiro contato.",
+    tags: ["Acolhimento", "Confiança", "Contato"],
     width: 1448,
     height: 1086,
-    updatedAt: "2026-09-12",
+    updatedAt: "2026-09-17",
+    publication: "wellness-editorial",
   },
   {
     slug: "negocio-local-vibrante",
@@ -119,11 +122,12 @@ export const serviceInspirations: ServiceInspiration[] = [
     image: "/images/services/inspirations/negocio-local-vibrante.webp",
     alt: "Referência visual de um site para negócio local com cores intensas, fotografia e acesso rápido ao agendamento.",
     description:
-      "Uma possibilidade mais intensa, com cor, fotografia e ações objetivas para apresentar serviços e levar ao agendamento.",
-    tags: ["Vibrante", "Negócio local", "Agendamento"],
+      "Uma publicação demonstrativa que apresenta atmosfera, serviços e preços, simula o agendamento e facilita a visita.",
+    tags: ["Negócio local", "Serviços", "Agendamento"],
     width: 1536,
     height: 1024,
-    updatedAt: "2026-09-12",
+    updatedAt: "2026-09-17",
+    publication: "local-business-editorial",
   },
   {
     slug: "gastronomia-contemporanea",

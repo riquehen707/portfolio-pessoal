@@ -50,6 +50,10 @@ const { serviceExampleSchema } = load("src/content/service-examples/serviceExamp
 const { getAdjacentServiceExamples, getIndexableServiceExamples, getPublishedServiceExamples, getServiceExamplePath } = load("src/data/service-examples/index.ts");
 const { getFeaturedServiceInspirations, getServiceInspiration, getServiceInspirationPath, getServiceInspirationStaticParams, serviceInspirations } = load("src/data/service-inspirations.ts");
 const { realEstateDemoProperties, realEstateGeneratedMedia } = load("src/components/services/inspirations/real-estate/realEstateInspirationData.ts");
+const { photographyPortfolioItems, photographyGeneratedMedia } = load("src/components/services/inspirations/photography/photographyInspirationData.ts");
+const { architectureInspirationProjects } = load("src/components/services/inspirations/architecture/architectureInspirationData.ts");
+const { wellnessInspirationMedia, wellnessGeneratedMedia, wellnessConcerns } = load("src/components/services/inspirations/wellness/wellnessInspirationData.ts");
+const { localBusinessMedia, localBusinessServices } = load("src/components/services/inspirations/local-business/localBusinessInspirationData.ts");
 const { exampleServiceLanding } = load("src/content/service-landings/example.ts");
 const { architectWebsite } = load("src/content/service-landings/architectWebsite.ts");
 const { artistGallery } = load("src/content/service-landings/artistGallery.ts");
@@ -386,6 +390,50 @@ test("inspirações compartilham dados válidos entre galeria e páginas individ
       /^\/images\/services\/inspirations\/imoveis-em-destaque\/[^/]+\.webp$/,
     );
     assert.ok(existsSync(path.join(root, "public", media.src)));
+    assert.ok(media.width > 0);
+    assert.ok(media.height > 0);
+  }
+
+  const photographyPublication = getServiceInspiration("portfolio-fotografico");
+  assert.equal(photographyPublication.publication, "photography-editorial");
+  assert.equal(photographyPortfolioItems.length, 6);
+  assert.equal(photographyGeneratedMedia.length, 3);
+  assert.equal(new Set(photographyPortfolioItems.map((item) => item.id)).size, 6);
+  for (const media of photographyPortfolioItems) {
+    assert.ok(existsSync(path.join(root, "public", media.image)));
+    assert.ok(media.width > 0);
+    assert.ok(media.height > 0);
+  }
+
+  const architecturePublication = getServiceInspiration("arquitetura-editorial");
+  assert.equal(architecturePublication.publication, "architecture-editorial");
+  assert.equal(architectureInspirationProjects.length, 3);
+  assert.equal(new Set(architectureInspirationProjects.map((project) => project.id)).size, 3);
+  for (const project of architectureInspirationProjects) {
+    assert.ok(existsSync(path.join(root, "public", project.image)));
+    assert.ok(project.width > 0);
+    assert.ok(project.height > 0);
+  }
+
+  const wellnessPublication = getServiceInspiration("bem-estar-acolhedor");
+  assert.equal(wellnessPublication.publication, "wellness-editorial");
+  assert.equal(wellnessInspirationMedia.length, 3);
+  assert.equal(wellnessGeneratedMedia.length, 2);
+  assert.equal(wellnessConcerns.length, 4);
+  assert.equal(new Set(wellnessInspirationMedia.map((item) => item.id)).size, 3);
+  for (const media of wellnessInspirationMedia) {
+    assert.ok(existsSync(path.join(root, "public", media.image)));
+    assert.ok(media.width > 0);
+    assert.ok(media.height > 0);
+  }
+
+  const localBusinessPublication = getServiceInspiration("negocio-local-vibrante");
+  assert.equal(localBusinessPublication.publication, "local-business-editorial");
+  assert.equal(localBusinessMedia.length, 4);
+  assert.equal(localBusinessServices.length, 4);
+  assert.equal(new Set(localBusinessServices.map((service) => service.id)).size, 4);
+  for (const media of localBusinessMedia) {
+    assert.ok(existsSync(path.join(root, "public", media.image)));
     assert.ok(media.width > 0);
     assert.ok(media.height > 0);
   }

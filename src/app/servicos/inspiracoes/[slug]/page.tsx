@@ -4,6 +4,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { RealEstateInspirationPublication } from "@/components/services/inspirations/real-estate/RealEstateInspirationPublication";
+import { PhotographyInspirationPublication } from "@/components/services/inspirations/photography/PhotographyInspirationPublication";
+import { ArchitectureInspirationPublication } from "@/components/services/inspirations/architecture/ArchitectureInspirationPublication";
+import { WellnessInspirationPublication } from "@/components/services/inspirations/wellness/WellnessInspirationPublication";
+import { LocalBusinessInspirationPublication } from "@/components/services/inspirations/local-business/LocalBusinessInspirationPublication";
 import {
   getServiceInspiration,
   getServiceInspirationPath,
@@ -75,10 +79,12 @@ export default async function ServiceInspirationPage({ params }: Props) {
     "arquitetura-editorial",
     "portfolio-fotografico",
     "negocio-local-vibrante",
+    "galeria-autoral",
+    "trabalho-autoral",
   ].flatMap((slug) => {
     const related = serviceInspirations.find((item) => item.slug === slug);
-    return related ? [related] : [];
-  });
+    return related && related.slug !== inspiration.slug ? [related] : [];
+  }).slice(0, 4);
 
   return (
     <Column fillWidth>
@@ -98,6 +104,30 @@ export default async function ServiceInspirationPage({ params }: Props) {
 
       {inspiration.publication === "real-estate-editorial" ? (
         <RealEstateInspirationPublication
+          inspiration={inspiration}
+          contactHref={contactHref}
+          relatedInspirations={relatedInspirations}
+        />
+      ) : inspiration.publication === "photography-editorial" ? (
+        <PhotographyInspirationPublication
+          inspiration={inspiration}
+          contactHref={contactHref}
+          relatedInspirations={relatedInspirations}
+        />
+      ) : inspiration.publication === "architecture-editorial" ? (
+        <ArchitectureInspirationPublication
+          inspiration={inspiration}
+          contactHref={contactHref}
+          relatedInspirations={relatedInspirations}
+        />
+      ) : inspiration.publication === "wellness-editorial" ? (
+        <WellnessInspirationPublication
+          inspiration={inspiration}
+          contactHref={contactHref}
+          relatedInspirations={relatedInspirations}
+        />
+      ) : inspiration.publication === "local-business-editorial" ? (
+        <LocalBusinessInspirationPublication
           inspiration={inspiration}
           contactHref={contactHref}
           relatedInspirations={relatedInspirations}

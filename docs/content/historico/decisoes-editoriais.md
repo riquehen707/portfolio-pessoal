@@ -1,5 +1,31 @@
 # Decisões editoriais
 
+## 2026-09-17 — Publicação demonstrativa “Negócio local vibrante”
+
+`/servicos/inspiracoes/negocio-local-vibrante` passa a demonstrar a jornada `descoberta → escolha → agendamento → visita` para uma barbearia fictícia. A interface apresenta atmosfera e informações práticas, permite escolher entre quatro serviços com preço e duração, simula dia e horário sem criar reserva e mostra localização, funcionamento e contato antes da ação final.
+
+“Linha 27”, equipe, endereço, valores e agenda são fictícios. As quatro fotografias licenciadas foram copiadas para o diretório próprio da inspiração, com autoria e origem visíveis; dados e componentes não importam a demonstração legada `/servicos/exemplos/barbearia`. A rota antiga permanece acessível diretamente e não volta à navegação pública. Validação local concluída antes da publicação.
+
+## 2026-09-17 — Publicação demonstrativa “Bem-estar acolhedor”
+
+`/servicos/inspiracoes/bem-estar-acolhedor` passa a demonstrar a jornada `acolhimento → entendimento → confiança → contato` para serviços de psicologia e cuidado. A interface explica público e modalidades, apresenta motivos de procura sem diagnóstico, registra formação e limites profissionais e oferece um formulário demonstrativo que não envia nem armazena dados. Somente o CTA final abre o contato comercial real.
+
+“Marina Vale”, o registro e as informações profissionais são fictícios. A publicação usa duas imagens geradas especificamente para a interface e uma fotografia licenciada do acervo comum, com origem e autoria visíveis. Seus dados e componentes não dependem da demonstração legada `/servicos/exemplos/psicologia`, que permanece acessível diretamente sem voltar à navegação pública. Validação local concluída antes da publicação.
+
+## 2026-09-17 — Publicação demonstrativa “Arquitetura editorial”
+
+`/servicos/inspiracoes/arquitetura-editorial` passa a aprofundar a referência para escritórios de arquitetura por meio da jornada `direção → exploração → avaliação → briefing`. A composição inclui abertura de escritório, arquivo com filtros funcionais, página de projeto com galeria selecionável e formulário demonstrativo que não envia nem armazena dados; somente o CTA final abre o contato comercial real.
+
+A identidade “Norte / Sul”, os projetos, locais, áreas e datas são fictícios. As três fotografias licenciadas já pertenciam ao acervo comum de serviços e têm autoria e origem visíveis. A nova fonte de dados não importa projetos, nomes ou componentes da demonstração legada `/servicos/exemplos/arquitetura`, que permanece acessível diretamente sem voltar à navegação pública. Validação local concluída antes da publicação.
+
+## 2026-09-17 — Publicação demonstrativa “Portfólio fotográfico”
+
+`/servicos/inspiracoes/portfolio-fotografico` passa a aprofundar a referência de fotografia como publicação editorial própria, preservando o slug, a fonte única `service-inspirations.ts` e o CTA contextual. `publication: "photography-editorial"` seleciona a composição sem reintroduzir o catálogo de exemplos antigos na landing de serviços.
+
+A jornada `apresentação → exploração → avaliação → contato` foi reconstruída em componentes reais: abertura de portfólio, seleção de trabalhos, filtros funcionais, página de ensaio com galeria selecionável e formulário demonstrativo que não envia nem armazena dados. A identidade fictícia “Clara Norte” e os trabalhos apresentados não representam clientes, projetos ou resultados de Henrique Reis; somente o CTA final abre o contato comercial real.
+
+A demonstração usa três imagens geradas especificamente para a interface e três fotografias locais licenciadas pelo Unsplash, com origem, autoria, texto alternativo e dimensões registrados no módulo de dados. A composição reaproveita a lógica editorial da referência imobiliária, mas adapta conteúdo, ritmo e decisões à fotografia. Validação local concluída antes da publicação.
+
 ## 2026-09-15 — Ofertas da Amazon usam ASIN confirmado e tag oficial
 
 Motivo:
