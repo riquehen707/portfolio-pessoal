@@ -25,6 +25,7 @@ Não documente como disponível algo que o schema ou o mapeamento MDX não aceit
 - Criar ou revisar catálogo de serviços, landing pages, modelos/demos, escopo e confiança ou conectar artigo a uma oferta com `ServiceCTA`: [guia único de serviços e conversão](../architecture/service-landing-pages.md). Ele define a experiência comercial; as regras desta pasta continuam aplicáveis aos artigos, inclusive quando o assunto é landing page.
 - Escolher abordagem: [`linhas-editoriais.md`](02-arquitetura/linhas-editoriais.md).
 - Preencher frontmatter: [`taxonomia.md`](02-arquitetura/taxonomia.md).
+- Organizar fisicamente os arquivos MDX: [`organizacao-da-pasta-de-posts.md`](02-arquitetura/organizacao-da-pasta-de-posts.md).
 - Receber um texto bruto: [`entrada-artigo-matriz.md`](03-producao/entrada-artigo-matriz.md).
 - Executar a transformação: [`fluxo-de-criacao.md`](03-producao/fluxo-de-criacao.md).
 - Pesquisar e citar: [`pesquisa-e-referencias.md`](03-producao/pesquisa-e-referencias.md).

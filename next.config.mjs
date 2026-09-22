@@ -18,6 +18,11 @@ const nextConfig = {
     return [
       { source: "/portfolio", destination: "/work", permanent: true },
       { source: "/about", destination: "/sobre", permanent: true },
+      {
+        source: "/criadores/shingo-tamagawa",
+        destination: "/personalidades/shingo-tamagawa",
+        permanent: true,
+      },
     ];
   },
 

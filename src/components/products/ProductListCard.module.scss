@@ -388,6 +388,7 @@
   margin-top: 1.2rem;
   padding: 0.75rem 0.85rem;
 
+  border: 1px solid #111827;
   border-radius: 0.7rem;
 
   text-decoration: none;
@@ -395,15 +396,29 @@
   font-size: 0.82rem;
   font-weight: 750;
 
-  color: var(--brand-on-solid-strong, #fff);
-  background: var(--brand-solid-strong, #111);
+  color: #fff;
+  background: #111827;
+
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
 }
 
 .offerButton:hover {
-  opacity: 0.88;
+  color: #fff;
+  background: #030712;
+  border-color: #030712;
+  transform: translateY(-1px);
+}
+
+.offerButton:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 3px;
 }
 
 .offerButton span {
+  color: inherit;
   font-size: 1rem;
   font-weight: 400;
 }

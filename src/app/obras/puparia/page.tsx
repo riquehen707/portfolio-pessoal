@@ -13,12 +13,12 @@ const description = "Um ensaio editorial sobre Puparia, curta independente de Sh
 export const metadata: Metadata = { title, description, alternates: { canonical: `${baseURL}${path}` }, openGraph: { title, description, url: `${baseURL}${path}`, type: "video.movie" }, twitter: { card: "summary", title, description } };
 
 export default function PupariaPage() {
-  const personUrl = `${baseURL}/criadores/${shingoTamagawa.slug}`;
+  const personUrl = `${baseURL}${shingoTamagawa.profilePath}`;
   const jsonLd = { "@context": "https://schema.org", "@type": "Movie", "@id": `${baseURL}${path}#work`, name: puparia.title, description: puparia.summary, dateCreated: "2020", duration: "PT2M59S", countryOfOrigin: { "@type": "Country", name: "Japan" }, director: { "@type": "Person", "@id": `${personUrl}#person`, name: shingoTamagawa.name }, sameAs: puparia.officialUrl, url: `${baseURL}${path}` };
   return <main className={styles.page}>
     <BreadcrumbJsonLd items={[{ name: "Início", url: baseURL }, { name: "Obras", url: `${baseURL}/obras` }, { name: "Puparia", url: `${baseURL}${path}` }]} />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-    <header className={styles.hero} data-hero-mode="abstract"><div className={styles.field} aria-hidden="true"><i /><i /><i /></div><div className={styles.heroCopy}><span>Curta de animação independente · 2020</span><h1>Puparia</h1><p>Três minutos que recusam a pressa de se explicar.</p><Link href={`/criadores/${shingoTamagawa.slug}`}>Uma obra de Shingo Tamagawa</Link></div><small>Composição abstrata original em CSS; nenhum frame do filme foi utilizado.</small></header>
+    <header className={styles.hero} data-hero-mode="abstract"><div className={styles.field} aria-hidden="true"><i /><i /><i /></div><div className={styles.heroCopy}><span>Curta de animação independente · 2020</span><h1>Puparia</h1><p>Três minutos que recusam a pressa de se explicar.</p><Link href={shingoTamagawa.profilePath ?? `/personalidades/${shingoTamagawa.slug}`}>Uma obra de Shingo Tamagawa</Link></div><small>Composição abstrata original em CSS; nenhum frame do filme foi utilizado.</small></header>
 
     <section className={styles.opening}><p><em>Puparia</em> não pede que o espectador decifre uma trama. Corpos, olhares e ambientes surgem como partes de uma transformação cuja lógica permanece aberta — uma experiência curta, densa e melhor quando vista antes de qualquer explicação.</p></section>
     <section className={styles.facts}><span>Ficha essencial</span><dl><div><dt>Criação, direção e animação</dt><dd>Shingo Tamagawa</dd></div><div><dt>País e ano</dt><dd>Japão, 2020</dd></div><div><dt>Duração</dt><dd>2 min 59 s</dd></div><div><dt>Formato</dt><dd>Curta de animação independente</dd></div></dl></section>

@@ -3,33 +3,41 @@ import { cache } from "react";
 import { getAllArticles, type BlogFile } from "@/data/articles";
 
 export const blogCollections = {
-  fundamentos: {
-    label: "Fundamentos",
-    description: "Conceitos de marketing, design e leitura de negócio antes da ação.",
+  entretenimento: {
+    label: "Entretenimento",
+    description: "Filmes, séries, livros, quadrinhos, mangás, jogos e cultura pop.",
   },
-  imobiliario: {
-    label: "Imobiliário",
-    description: "Captação, páginas, Google e conteúdo para corretores e imobiliárias.",
+  filosofia: {
+    label: "Filosofia",
+    description: "Conceitos, filósofos e guias de leitura para situar ideias e argumentos.",
   },
-  "clinicas-saude": {
-    label: "Clínicas e saúde",
-    description: "Presença digital, agendamento e captação para clínicas e operações de atendimento.",
+  tecnologia: {
+    label: "Tecnologia",
+    description: "Desenvolvimento, fundamentos técnicos e criação de jogos.",
+  },
+  produtos: {
+    label: "Produtos",
+    description: "Guias de compra para casa, cozinha, eletrodomésticos, eletrônicos e computadores.",
+  },
+  design: {
+    label: "Design",
+    description: "Fundamentos, ferramentas, UX e caminhos profissionais em design.",
+  },
+  negocios: {
+    label: "Negócios",
+    description: "Marketing, comércio eletrônico, vendas e verticais de serviços.",
+  },
+  sociedade: {
+    label: "Sociedade",
+    description: "Política, economia, trabalho, psicologia e segurança pública.",
+  },
+  carreira: {
+    label: "Carreira",
+    description: "Profissões digitais, rede profissional e renda digital.",
   },
   educacao: {
     label: "Educação",
-    description: "Matrículas, cursos, escolas e operações educacionais com melhor recorte comercial.",
-  },
-  juridico: {
-    label: "Jurídico",
-    description: "Conteúdo, presença e busca para escritórios e profissionais da advocacia.",
-  },
-  contabilidade: {
-    label: "Contabilidade",
-    description: "Comunicação e captação para serviços contábeis e escritórios.",
-  },
-  "beleza-estetica": {
-    label: "Beleza e estética",
-    description: "Agenda, recorrência e divulgação para salões, estética e serviços de beleza.",
+    description: "Aprendizagem, matrículas, cursos, escolas e operações educacionais.",
   },
 } as const;
 
@@ -68,7 +76,7 @@ export const blogEntryCategories = {
     description: "Conceitos, critérios e repertório.",
     longDescription:
       "Guias de base para revisar termos, critérios e fundamentos antes de executar.",
-    collections: ["fundamentos"],
+    collections: ["filosofia", "tecnologia", "design", "educacao"],
     keywords: ["termos", "conceitos", "fundamentos", "guia"],
   },
   ferramentas: {

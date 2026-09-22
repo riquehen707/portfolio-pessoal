@@ -65,11 +65,13 @@ Como regra de manutenção, prefira um destaque por coleção de segmento. Exce�
 
 A coleção é inferida pela primeira pasta abaixo de `src/app/blog/posts/`. Não existe campo `collection` no frontmatter.
 
-Exemplo: um arquivo em `posts/beleza-estetica/` pertence à coleção `beleza-estetica`.
+Exemplo: um arquivo em `posts/entretenimento/filmes/` pertence à coleção `entretenimento`.
 
 Coleção representa contexto de público ou acervo. Categoria representa assunto estratégico.
 
 As coleções continuam sendo inferidas internamente para leitura do acervo, mas não geram navegação pública nesta etapa.
+
+Para decidir os diretórios atuais e preservar o contrato de `slug`, siga a [organização da pasta de posts](organizacao-da-pasta-de-posts.md).
 
 ## Mapa de conhecimento
 

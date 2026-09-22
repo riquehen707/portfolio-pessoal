@@ -98,7 +98,7 @@ export function ProductOffers({
           }
           target="_blank"
         >
-          Ver oferta
+          Ver na {primaryOffer.retailer}
           <span aria-hidden="true">↗</span>
         </a>
 

@@ -15,18 +15,36 @@ export const shingoTamagawa: Creator = CreatorSchema.parse({
   name: "Shingo Tamagawa",
   kind: "person",
   status: "published",
-  profilePath: "/criadores/shingo-tamagawa",
-  image: {
-    src: "/images/personalities/shingo-tamagawa.webp",
-    alt: "Shingo Tamagawa em retrato produzido para o projeto Creators Zone de 2022",
-    credit: "Mitsui Fudosan 80th Anniversary Future Special Zone Project",
-    sourceUrl: "https://www.mindcreators.jp/creatorzone2022/shingotamagawa.html",
-    license: "Uso editorial; permissão para reutilização independente pendente",
-  },
+  profilePath: "/personalidades/shingo-tamagawa",
   birthYear: 1987,
   birthPlace: "Nara, Japão",
+  countryOrRegion: "Japão",
+  occupations: ["Animador", "Diretor"],
   summary: "Animador e realizador japonês, autor do curta independente Puparia.",
+  biography: [
+    "Shingo Tamagawa é um animador e realizador japonês. A biografia submetida por ele ao FilmFreeway registra seu nascimento em Nara, em 1987. O documentário da Archipel situa sua experiência na indústria de animação como contexto para a decisão de dedicar três anos a Puparia.",
+    "O acervo não transforma créditos dispersos em uma filmografia extensa. Sem documentação primária suficiente para distinguir participação profissional, colaboração e autoria, eles permanecem fora do cadastro.",
+  ],
+  themes: ["Animação independente", "Processo de criação", "Autoria", "Trabalho na animação"],
+  ideas: [
+    {
+      title: "Concentrar autoria muda a escala do trabalho",
+      description:
+        "A preparação de Puparia tomou aproximadamente um ano e a produção, dois. O projeto reúne inquietações de Tamagawa sobre criação e trabalho comercial, sem autorizar uma leitura autobiográfica fechada do filme.",
+    },
+    {
+      title: "A interpretação permanece com quem assiste",
+      description:
+        "Na declaração publicada com Puparia, Tamagawa evita fixar uma história única: as cenas têm sentido, mas a leitura fica aberta ao público.",
+    },
+  ],
   workIds: ["work_puparia_2020", "work_archipel_making_puparia_2021"],
+  startingPoints: [
+    {
+      workId: "work_puparia_2020",
+      note: "O curta é a entrada adequada: veja a obra antes de buscar uma interpretação ou um relato do processo.",
+    },
+  ],
   sources: [
     { title: "PUPARIA", url: "https://www.youtube.com/watch?v=CWnqX41JHuM", kind: "primary" },
     { title: "Three Minutes, Three Years: Making Puparia", url: "https://www.youtube.com/watch?v=VKsG3E7TLl4", kind: "primary" },

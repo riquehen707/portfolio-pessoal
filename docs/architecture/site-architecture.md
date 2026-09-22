@@ -79,7 +79,6 @@ Se não cumprir nenhuma, considerar remover. Preservar conteúdo necessário à 
 │  └─ /personalidades/[slug]            perfis publicados; rotas históricas preservadas
 ├─ /estudios                            índice público de estúdios
 │  └─ /estudios/[slug]                  perfis publicados, especializados ou genéricos
-├─ /criadores/shingo-tamagawa
 ├─ /obras/{puparia,wade}
 ├─ /work                                portfólio público
 ├─ /portfolio                           redirecionamento permanente para /work
@@ -103,7 +102,7 @@ Se não cumprir nenhuma, considerar remover. Preservar conteúdo necessário à 
 
 O inventário de arquivos não equivale ao sitemap público. A inclusão de rotas estáticas é controlada por `routes` em `src/resources/once-ui.config.ts`; artigos, filmes e séries publicados são acrescentados por `src/app/sitemap.ts`. `src/config/routePolicy.ts` é a fonte central das famílias pausadas e alimenta middleware, robots e a exclusão defensiva do sitemap. Como o Next.js exige matchers literais no middleware, `npm run audit:route-policy` verifica essa única duplicação inevitável. Layouts dinâmicos nas famílias pausadas evitam gerar suas páginas durante o build.
 
-**Pendência:** não existem índices públicos `/criadores` ou `/obras`. O perfil histórico de Shingo Tamagawa permanece em `/criadores/shingo-tamagawa` e é descoberto pelo índice de personalidades sem criar URL duplicada.
+**Pendência:** não existem índices públicos `/criadores` ou `/obras`. O perfil de Shingo Tamagawa pertence a `/personalidades/shingo-tamagawa`; a URL histórica em `/criadores/shingo-tamagawa` redireciona permanentemente para essa rota.
 
 ## Tipos de página
 
@@ -183,7 +182,7 @@ Para estúdios de animação, aplique o [modelo editorial especializado](../edit
 
 ### Biblioteca e perfil de pessoa
 
-- **Rotas:** `/personalidades` e `/personalidades/[slug]`; `/criadores/shingo-tamagawa` é uma rota histórica canônica preservada e apontada pelo registro.
+- **Rotas:** `/personalidades` e `/personalidades/[slug]`; URLs históricas podem redirecionar para o perfil canônico correspondente.
 - **Dados:** `CreatorSchema` e `src/content/creators/creators.ts`.
 - **Seções confirmadas:** introdução, trajetória verificável, processo/ideias, trabalhos relacionados e fontes.
 - **Biblioteca:** busca por nome; filtros por ocupação, país/região e século de nascimento; ordem alfabética, contador, estado vazio e carregamento progressivo. Usa `PersonCard`, com fallback biográfico quando não há retrato licenciado.
