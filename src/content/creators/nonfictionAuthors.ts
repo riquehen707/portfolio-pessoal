@@ -25,7 +25,7 @@ const authors: Array<[string, string]> = [
   ["laura_berk", "Laura E. Berk"], ["joseph_ledoux", "Joseph LeDoux"],
   ["robert_sapolsky", "Robert M. Sapolsky"], ["jonathan_haidt", "Jonathan Haidt"],
   ["joseph_henrich", "Joseph Henrich"], ["carol_tavris", "Carol Tavris"],
-  ["elliot_aronson", "Elliot Aronson"],
+  ["elliot_aronson", "Elliot Aronson"], ["clarice_lispector", "Clarice Lispector"], ["graciliano_ramos", "Graciliano Ramos"],
 ];
 
 export const nonfictionAuthors: Creator[] = authors.map(([id, name]) => CreatorSchema.parse({
@@ -35,7 +35,7 @@ export const nonfictionAuthors: Creator[] = authors.map(([id, name]) => CreatorS
   kind: "person",
   status: "draft",
   occupations: ["Autor"],
-  summary: `Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.`,
+  summary: `Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.`,
   biography: [], themes: [], ideas: [], workIds: [], startingPoints: [], relatedPersonIds: [], relatedLinks: [],
   sources: [{ title: `${name} — busca bibliográfica`, url: `https://openlibrary.org/search/authors?q=${encodeURIComponent(name)}`, kind: "secondary" }],
   createdAt: checked,

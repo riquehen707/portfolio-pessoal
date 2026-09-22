@@ -37,11 +37,16 @@ export function ProductOffers({
 }: {
   offers: readonly ProductOffer[];
 }) {
-  const activeOffers = offers.filter(
-    (offer) =>
-      offer.availability === "available" ||
-      offer.availability === "preorder",
-  );
+  const activeOffers = offers
+    .filter(
+      (offer) =>
+        offer.availability === "available" ||
+        offer.availability === "preorder",
+    )
+    .filter((offer) => Boolean(offer.affiliateProgram))
+    .sort((left, right) => {
+      return right.checkedAt.localeCompare(left.checkedAt);
+    });
 
   if (!activeOffers.length) {
     return null;

@@ -36,6 +36,44 @@ $l: 1440px;
   outline-offset: 3px;
 }
 
+@mixin dark-cta {
+  min-height: 2.75rem;
+  border: 1px solid #121216;
+  color: #f7f7f4;
+  background: #121216;
+  text-decoration: none;
+  transition:
+    background-color var(--motion-fast),
+    border-color var(--motion-fast),
+    color var(--motion-fast),
+    transform var(--motion-fast);
+
+  &:visited {
+    color: #f7f7f4;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #f7f7f4;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 5px #20534c;
+  }
+
+  &:active {
+    border-color: #050506;
+    background: #050506;
+    transform: translateY(0);
+  }
+
+  @include hover-fine {
+    &:hover {
+      border-color: #232329;
+      color: #f7f7f4;
+      background: #232329;
+      transform: translateY(-1px);
+    }
+  }
+}
+
 @mixin panel-surface(
   $radius: var(--radius-panel),
   $border: var(--border-subtle),

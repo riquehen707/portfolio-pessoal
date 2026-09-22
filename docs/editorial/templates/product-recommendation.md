@@ -25,6 +25,8 @@ Preço e estoque nunca pertencem a `Product`. Uma URL da Amazon é uma oferta en
 | Faixa de preço observada | `ProductOffer.observedPrice` com `checkedAt`; faixas editoriais contextuais podem aparecer em `ProductCard.sensiblePriceRange` |
 | Observações da recomendação naquele artigo | propriedades contextuais do `ProductCard`, sem alterar a ficha central |
 
+Para curadorias reutilizáveis, `Product` também pode registrar `subcategory`, `audiences` e `giftOccasions`. Esses campos descrevem classificação e adequação, não uma campanha, e permitem que um mesmo produto apareça em mais de uma seleção sem duplicar o cadastro. `suitableFor` continua reservado à explicação editorial curta; preço, disponibilidade e link permanecem na oferta.
+
 Não crie um objeto paralelo contendo todos esses campos. A separação preserva o modelo quando a variante, a loja, o preço ou a disponibilidade mudarem.
 
 Para câmeras, a variante usa o discriminador `camera` e mantém estruturados formato e tecnologia do sensor, resolução, autofocus, estabilização, vídeo, mount, disponibilidade de lentes, bateria, áudio, gravação interna, codecs e conectividade. Corpo e kit não devem virar produtos distintos quando a câmera é a mesma; a oferta deve deixar claro se inclui lente.
@@ -108,6 +110,8 @@ amazonBrazilOffer({
 ```
 
 O código acima demonstra o contrato, não um ASIN real. Nunca o copie para uma oferta. Estruturas especializadas de outros domínios devem chamar o mesmo gerador de URL ou manter uma equivalência validada que não duplique a tag em arquivos editoriais.
+
+Para uma edição de livro, mangá ou quadrinho já confirmada, use `amazonBrazilReadingOffer` de `src/content/reading/amazonBrazil.ts`. Ele aplica o mesmo ASIN, URL canônica, tag, programa e aviso à `ReadingOffer`; a oferta continua apontando somente para uma edição concreta, nunca para a obra intelectual genérica.
 
 Não invente, deduza por semelhança nem associe um ASIN sem confirmação. Se a pesquisa não permitir confirmar o item exato, mantenha a recomendação sem oferta afiliada e registre a pendência; não transfira ao autor a busca rotineira por um link que pode ser verificado pelas fontes disponíveis.
 

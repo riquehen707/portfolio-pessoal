@@ -2923,6 +2923,891 @@
       "updatedAt": "2026-08-24"
     },
     {
+      "id": "read_work_time_machine",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "a-maquina-do-tempo",
+      "aliases": [],
+      "originalTitle": "The Time Machine",
+      "titleBr": "A Máquina do Tempo",
+      "format": "book",
+      "originCountries": [
+        "Reino Unido"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_h_g_wells",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1895",
+      "publicationEnd": "1895",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Ficção científica",
+        "Viagem no tempo",
+        "Distopia"
+      ],
+      "themes": [
+        "Evolução",
+        "Classe social",
+        "Futuro distante",
+        "Progresso"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Um cientista atravessa centenas de milhares de anos e encontra uma humanidade dividida em castas cuja aparente harmonia expõe uma história de desigualdade.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Time Machine — editora",
+          "url": "https://www.britannica.com/topic/The-Time-Machine"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_foundation",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "fundacao",
+      "aliases": [],
+      "originalTitle": "Foundation",
+      "titleBr": "Fundação",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_isaac_asimov",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1951",
+      "publicationEnd": "1951",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Ficção científica",
+        "Space opera",
+        "Ficção científica social"
+      ],
+      "themes": [
+        "Psico-história",
+        "Império",
+        "Conhecimento",
+        "Planejamento"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Diante da queda prevista de um império galáctico, uma comunidade tenta preservar conhecimento e reduzir um longo período de colapso civilizacional.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Foundation — editora",
+          "url": "https://aleph.com.br/products/fundacao"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_childhoods_end",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "o-fim-da-infancia",
+      "aliases": [],
+      "originalTitle": "Childhood's End",
+      "titleBr": "O Fim da Infância",
+      "format": "book",
+      "originCountries": [
+        "Reino Unido"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_arthur_c_clarke",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1953",
+      "publicationEnd": "1953",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Ficção científica",
+        "Primeiro contato",
+        "Ficção científica filosófica"
+      ],
+      "themes": [
+        "Evolução humana",
+        "Utopia",
+        "Infância",
+        "Transcendência"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "A chegada de visitantes aparentemente benevolentes encerra guerras e escassez, mas cobra da humanidade uma transformação que também significa fim.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Childhood's End — editora",
+          "url": "https://www.britannica.com/topic/Childhoods-End"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_androids_electric_sheep",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "androides-sonham-com-ovelhas-eletricas",
+      "aliases": [],
+      "originalTitle": "Do Androids Dream of Electric Sheep?",
+      "titleBr": "Androides Sonham com Ovelhas Elétricas?",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_philip_k_dick",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1968",
+      "publicationEnd": "1968",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Ficção científica",
+        "Cyberpunk",
+        "Distopia"
+      ],
+      "themes": [
+        "Empatia",
+        "Androides",
+        "Realidade artificial",
+        "Colapso ambiental"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Num mundo devastado, um caçador de recompensas persegue androides quase indistinguíveis de humanos e passa a duvidar do critério que separa os dois.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Do Androids Dream of Electric Sheep? — editora",
+          "url": "https://www.penguinrandomhouse.com/books/34262/do-androids-dream-of-electric-sheep-by-philip-k-dick/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_solaris",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "solaris",
+      "aliases": [],
+      "originalTitle": "Solaris",
+      "titleBr": "Solaris",
+      "format": "book",
+      "originCountries": [
+        "Polônia"
+      ],
+      "originalLanguages": [
+        "Polonês"
+      ],
+      "credits": [
+        {
+          "personId": "person_stanislaw_lem",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1961",
+      "publicationEnd": "1961",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Ficção científica",
+        "Primeiro contato",
+        "Ficção científica filosófica"
+      ],
+      "themes": [
+        "Consciência",
+        "Oceano vivo",
+        "Memória",
+        "Limites do conhecimento"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Em uma estação sobre um planeta coberto por oceano possivelmente consciente, pesquisadores enfrentam manifestações de memórias que a ciência não consegue enquadrar.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Solaris — editora",
+          "url": "https://aleph.com.br/products/solaris"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_left_hand_darkness",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "a-mao-esquerda-da-escuridao",
+      "aliases": [],
+      "originalTitle": "The Left Hand of Darkness",
+      "titleBr": "A Mão Esquerda da Escuridão",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_ursula_k_le_guin",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1969",
+      "publicationEnd": "1969",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Ficção científica",
+        "Ficção científica social",
+        "Ficção científica filosófica"
+      ],
+      "themes": [
+        "Gênero",
+        "Diplomacia",
+        "Alteridade",
+        "Política"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Um emissário tenta aproximar um planeta de pessoas ambissexuais de uma comunidade interestelar e descobre que seus próprios pressupostos impedem a negociação.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Left Hand of Darkness — editora",
+          "url": "https://aleph.com.br/products/a-mao-esquerda-da-escuridao"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_dune",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "duna",
+      "aliases": [],
+      "originalTitle": "Dune",
+      "titleBr": "Duna",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_frank_herbert",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1965",
+      "publicationEnd": "1965",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Ficção científica",
+        "Space opera",
+        "Ecologia"
+      ],
+      "themes": [
+        "Deserto",
+        "Colonialismo",
+        "Religião",
+        "Poder",
+        "Recursos naturais"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Em Arrakis, uma família aristocrática é lançada a uma disputa pelo recurso que sustenta o império, enquanto ecologia, religião e messianismo reorganizam a política do planeta.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Dune — editora",
+          "url": "https://aleph.com.br/products/duna-1"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_parable_sower",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "parabola-do-semeador",
+      "aliases": [],
+      "originalTitle": "Parable of the Sower",
+      "titleBr": "Parábola do Semeador",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_octavia_e_butler",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1993",
+      "publicationEnd": "1993",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Ficção científica",
+        "Distopia",
+        "Afrofuturismo"
+      ],
+      "themes": [
+        "Colapso climático",
+        "Comunidade",
+        "Violência",
+        "Religião"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Em uma Califórnia desagregada por crise climática e desigualdade, uma jovem hipersensível formula uma crença orientada por mudança e procura construir comunidade.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Parable of the Sower — editora",
+          "url": "https://www.hachettebookgroup.com/titles/octavia-e-butler/parable-of-the-sower/9781538732182/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_handmaids_tale",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "o-conto-da-aia",
+      "aliases": [],
+      "originalTitle": "The Handmaid's Tale",
+      "titleBr": "O Conto da Aia",
+      "format": "book",
+      "originCountries": [
+        "Canadá"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_margaret_atwood",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1985",
+      "publicationEnd": "1985",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Ficção científica",
+        "Distopia",
+        "Ficção científica social"
+      ],
+      "themes": [
+        "Corpo",
+        "Teocracia",
+        "Reprodução",
+        "Memória"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Sob um regime teocrático que transforma fertilidade em propriedade de Estado, uma mulher registra os limites e as brechas de uma vida submetida à vigilância.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Handmaid's Tale — editora",
+          "url": "https://www.penguinrandomhouse.com/books/61256/the-handmaids-tale-by-margaret-atwood/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_never_let_me_go",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "nao-me-abandone-jamais",
+      "aliases": [],
+      "originalTitle": "Never Let Me Go",
+      "titleBr": "Não Me Abandone Jamais",
+      "format": "book",
+      "originCountries": [
+        "Reino Unido"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_kazuo_ishiguro",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2005",
+      "publicationEnd": "2005",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Ficção científica",
+        "Distopia",
+        "Biotecnologia"
+      ],
+      "themes": [
+        "Clonagem",
+        "Cuidado",
+        "Memória",
+        "Ética médica"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Três ex-alunos revisitam uma infância protegida demais e compreendem gradualmente o sistema que definiu seus corpos, expectativas e futuro.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Never Let Me Go — editora",
+          "url": "https://www.faber.co.uk/product/9780571258093-never-let-me-go/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_stories_your_life",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "historia-da-sua-vida-e-outros-contos",
+      "aliases": [],
+      "originalTitle": "Stories of Your Life and Others",
+      "titleBr": "História da Sua Vida e Outros Contos",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_ted_chiang",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2002",
+      "publicationEnd": "2002",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Ficção científica",
+        "Contos",
+        "Ficção científica filosófica"
+      ],
+      "themes": [
+        "Linguagem",
+        "Tempo",
+        "Livre-arbítrio",
+        "Matemática"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "O volume reúne narrativas que tratam descoberta científica e especulação filosófica como problemas humanos de linguagem, escolha e responsabilidade.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Stories of Your Life and Others — editora",
+          "url": "https://www.penguinrandomhouse.com/books/549738/stories-of-your-life-and-others-by-ted-chiang/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_nova_delany",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "nova",
+      "aliases": [],
+      "originalTitle": "Nova",
+      "titleBr": "Nova",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_samuel_r_delany",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1968",
+      "publicationEnd": "1968",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Ficção científica",
+        "Space opera",
+        "Ficção científica social"
+      ],
+      "themes": [
+        "Classe",
+        "Trabalho",
+        "Mito",
+        "Energia"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Uma disputa por uma fonte de energia estelar aproxima tripulações, aristocracias e trabalhadores em uma space opera atravessada por linguagem, desejo e desigualdade.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Nova — editora",
+          "url": "https://aleph.com.br/products/nova"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_native_tongue",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "lingua-nativa",
+      "aliases": [],
+      "originalTitle": "Native Tongue",
+      "titleBr": "Língua Nativa",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_suzette_haden_elgin",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1984",
+      "publicationEnd": "1984",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Ficção científica",
+        "Distopia",
+        "Ficção científica feminista"
+      ],
+      "themes": [
+        "Linguagem",
+        "Patriarcado",
+        "Resistência",
+        "Tradução"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Em um futuro que retirou direitos civis das mulheres, linguistas constroem clandestinamente uma linguagem capaz de sustentar outra forma de pensar e resistir.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Native Tongue — editora",
+          "url": "https://aleph.com.br/products/lingua-nativa"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_metropolis_harbou",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "metropolis",
+      "aliases": [],
+      "originalTitle": "Metropolis",
+      "titleBr": "Metrópolis",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_thea_von_harbou",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1925",
+      "publicationEnd": "1925",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Ficção científica",
+        "Distopia",
+        "Ficção científica social"
+      ],
+      "themes": [
+        "Cidade",
+        "Classe social",
+        "Trabalho",
+        "Tecnologia"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Uma cidade vertical organiza riqueza e trabalho em espaços radicalmente separados, enquanto a promessa de conciliação revela tensões entre ordem industrial e vida humana.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Metropolis — editora",
+          "url": "https://aleph.com.br/products/metropolis"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "read_work_female_man",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "a-mulher-homem",
+      "aliases": [],
+      "originalTitle": "The Female Man",
+      "format": "book",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "credits": [
+        {
+          "personId": "person_joanna_russ",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1975",
+      "publicationEnd": "1975",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Ficção científica",
+        "Ficção científica feminista",
+        "Ficção científica social"
+      ],
+      "themes": [
+        "Gênero",
+        "Mundos paralelos",
+        "Patriarcado",
+        "Identidade"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "shortDescription": "Quatro versões de mulheres atravessam mundos alternativos para confrontar as estruturas sociais que fazem parecer natural a desigualdade de gênero.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "The Female Man — editora",
+          "url": "https://www.penguinrandomhouse.com/books/65717/the-female-man-by-joanna-russ/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-08-24",
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
       "id": "read_work_blade_itself",
       "contentType": "reading-work",
       "schemaVersion": 1,
@@ -4760,6 +5645,78 @@
       "updatedAt": "2026-08-24"
     },
     {
+      "id": "read_work_burnout_society",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "sociedade-do-cansaco",
+      "aliases": [],
+      "originalTitle": "Müdigkeitsgesellschaft",
+      "titleBr": "Sociedade do Cansaço",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2010",
+      "publicationEnd": "2010",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Desempenho",
+        "Autoexploração",
+        "Cansaço",
+        "Atenção"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Entrada curta para leitores que querem discutir desempenho, autoexploração e cansaço sem tratar o ensaio como diagnóstico clínico.",
+      "shortDescription": "Han interpreta o excesso de desempenho, estímulo e positividade como mecanismos de autoexploração e esgotamento na sociedade contemporânea.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Sociedade do Cansaço — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Müdigkeitsgesellschaft — edição original",
+          "url": "https://www.sup.org/books/theory-and-philosophy/burnout-society"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
       "id": "read_work_psychopolitics",
       "contentType": "reading-work",
       "schemaVersion": 1,
@@ -4832,9 +5789,9 @@
         }
       ],
       "status": "published",
-      "createdAt": "2026-08-24",
-      "publishedAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_work_transparency_society",
@@ -4909,9 +5866,9 @@
         }
       ],
       "status": "published",
-      "createdAt": "2026-08-24",
-      "publishedAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_work_in_the_swarm",
@@ -4986,9 +5943,9 @@
         }
       ],
       "status": "published",
-      "createdAt": "2026-08-24",
-      "publishedAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_work_agony_of_eros",
@@ -5063,9 +6020,9 @@
         }
       ],
       "status": "published",
-      "createdAt": "2026-08-24",
-      "publishedAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_work_topology_violence",
@@ -5140,9 +6097,9 @@
         }
       ],
       "status": "published",
-      "createdAt": "2026-08-24",
-      "publishedAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_work_scent_time",
@@ -5217,9 +6174,9 @@
         }
       ],
       "status": "published",
-      "createdAt": "2026-08-24",
-      "publishedAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_work_expulsion_other",
@@ -5294,9 +6251,9 @@
         }
       ],
       "status": "published",
-      "createdAt": "2026-08-24",
-      "publishedAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_work_vita_contemplativa",
@@ -5371,9 +6328,9 @@
         }
       ],
       "status": "published",
-      "createdAt": "2026-08-24",
-      "publishedAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_work_non_things",
@@ -5448,9 +6405,9 @@
         }
       ],
       "status": "published",
-      "createdAt": "2026-08-24",
-      "publishedAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_work_infocracy",
@@ -5525,9 +6482,9 @@
         }
       ],
       "status": "published",
-      "createdAt": "2026-08-24",
-      "publishedAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_work_capitalism_death_drive",
@@ -5602,9 +6559,9 @@
         }
       ],
       "status": "published",
-      "createdAt": "2026-08-24",
-      "publishedAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_work_crisis_narration",
@@ -5679,9 +6636,9 @@
         }
       ],
       "status": "published",
-      "createdAt": "2026-08-24",
-      "publishedAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_work_close_eyes",
@@ -5756,9 +6713,9 @@
         }
       ],
       "status": "published",
-      "createdAt": "2026-08-24",
-      "publishedAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_work_disappearance_rituals",
@@ -5833,9 +6790,1235 @@
         }
       ],
       "status": "published",
-      "createdAt": "2026-08-24",
-      "publishedAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_work_palliative_society",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "sociedade-paliativa",
+      "aliases": [],
+      "originalTitle": "Palliativgesellschaft: Schmerz heute",
+      "titleBr": "Sociedade Paliativa: a dor hoje",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2020",
+      "publicationEnd": "2020",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Dor",
+        "Positividade",
+        "Cultura digital",
+        "Sofrimento"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Para leitores interessados em como Han relaciona dor, positividade e cultura do desempenho; é uma continuação direta de seus diagnósticos sociais breves.",
+      "shortDescription": "O ensaio examina uma cultura que procura neutralizar dor, conflito e negatividade, relacionando essa recusa a consumo, desempenho e comunicação digital.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Sociedade Paliativa: a dor hoje — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Palliativgesellschaft: Schmerz heute — edição original",
+          "url": "https://www.matthes-seitz-berlin.de/buch/palliativgesellschaft.html"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_work_what_is_power",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "o-que-e-poder",
+      "aliases": [],
+      "originalTitle": "Was ist Macht?",
+      "titleBr": "O que é Poder?",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2005",
+      "publicationEnd": "2005",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Poder",
+        "Liberdade",
+        "Violência",
+        "Comunicação"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Para quem busca um livro mais conceitual sobre poder e suas diferenças em relação a violência, direito, liberdade e comunicação.",
+      "shortDescription": "Han investiga o poder para além da identificação imediata com coerção, examinando suas formas de relação, mediação e transformação.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "O que é Poder? — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Was ist Macht? — edição original",
+          "url": "https://www.matthes-seitz-berlin.de/autor/byung-chul-han.html"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_work_hyperculturality",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "hiperculturalidade",
+      "aliases": [],
+      "originalTitle": "Hyperkulturalität: Kultur und Globalisierung",
+      "titleBr": "Hiperculturalidade: cultura e globalização",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2005",
+      "publicationEnd": "2005",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Globalização",
+        "Cultura",
+        "Diferença",
+        "Hibridização"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Para leitores interessados em globalização, circulação cultural e crítica a ideias fixas de identidade e autenticidade.",
+      "shortDescription": "O livro discute circulação cultural e globalização sem reduzi-las à simples homogeneização, examinando diferença, tradução e formas híbridas de vida cultural.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Hiperculturalidade: cultura e globalização — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Hyperkulturalität: Kultur und Globalisierung — edição original",
+          "url": "https://www.vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_work_death_otherness",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "morte-e-alteridade",
+      "aliases": [],
+      "originalTitle": "Tod und Alterität",
+      "titleBr": "Morte e Alteridade",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2002",
+      "publicationEnd": "2002",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Morte",
+        "Alteridade",
+        "Finitude",
+        "Fenomenologia"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores dispostos a uma obra mais extensa e acadêmica, voltada a finitude, identidade e alteridade em diálogo com a tradição filosófica.",
+      "shortDescription": "A partir de interlocutores da filosofia e da literatura, Han relaciona finitude, identidade e encontro com o outro em uma investigação sobre modos de encarar a morte.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Morte e Alteridade — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Tod und Alterität — edição original",
+          "url": "https://www.vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_work_saving_beautiful",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "a-salvacao-do-belo",
+      "aliases": [],
+      "originalTitle": "Die Rettung des Schönen",
+      "titleBr": "A Salvação do Belo",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2015",
+      "publicationEnd": "2015",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Beleza",
+        "Estética",
+        "Consumo",
+        "Alteridade"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Para leitores que querem aproximar estética, consumo e alteridade, sem esperar uma introdução geral à história da arte.",
+      "shortDescription": "Han contrapõe uma experiência do belo ligada a distância e negatividade a formas de estetização orientadas por transparência, polimento e consumo.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "A Salvação do Belo — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Die Rettung des Schönen — edição original",
+          "url": "https://www.vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_work_zen_buddhism_philosophy",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "filosofia-do-zen-budismo",
+      "aliases": [],
+      "originalTitle": "Philosophie des Zen-Buddhismus",
+      "titleBr": "Filosofia do Zen-Budismo",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2002",
+      "publicationEnd": "2002",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Zen-budismo",
+        "Meditação",
+        "Filosofia comparada",
+        "Vazio"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Para quem já tem interesse em filosofia comparada e zen-budismo; não funciona como manual introdutório de prática meditativa.",
+      "shortDescription": "Um estudo comparativo coloca formulações do zen-budismo em diálogo com filósofos europeus para investigar linguagem, negatividade, vazio e experiência.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Filosofia do Zen-Budismo — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Philosophie des Zen-Buddhismus — edição original",
+          "url": "https://www.vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_work_good_entertainment",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "bom-entretenimento",
+      "aliases": [],
+      "originalTitle": "Gute Unterhaltung: Eine Dekonstruktion der abendländischen Passionsgeschichte",
+      "titleBr": "Bom Entretenimento",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2017",
+      "publicationEnd": "2017",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Entretenimento",
+        "Paixão",
+        "Mídia",
+        "Cultura"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Para leitores interessados em mídia e cultura que querem um ensaio filosófico, não uma história industrial do entretenimento.",
+      "shortDescription": "O ensaio investiga como o entretenimento passa a organizar a experiência social e cultural, aproximando mídia, paixão, realidade e formas de percepção.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Bom Entretenimento — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Gute Unterhaltung: Eine Dekonstruktion der abendländischen Passionsgeschichte — edição original",
+          "url": "https://www.matthes-seitz-berlin.de/buch/gute-unterhaltung.html"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_work_praise_earth",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "louvor-a-terra",
+      "aliases": [],
+      "originalTitle": "Lob der Erde: Eine Reise in den Garten",
+      "titleBr": "Louvor à Terra: uma viagem ao jardim",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2018",
+      "publicationEnd": "2018",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Jardim",
+        "Natureza",
+        "Tempo",
+        "Contemplação"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Para leitores interessados na dimensão contemplativa e ecológica de Han, em um livro mais próximo de uma meditação ensaística do que de teoria política.",
+      "shortDescription": "A experiência de cultivar um jardim orienta uma reflexão sobre terra, tempo, atenção e uma relação menos instrumental com a natureza.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Louvor à Terra: uma viagem ao jardim — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Lob der Erde: Eine Reise in den Garten — edição original",
+          "url": "https://www.vozes.com.br/blog/lancamentos-26-01"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_work_hegel_power",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "hegel-e-o-poder",
+      "aliases": [],
+      "originalTitle": "Hegel und die Macht: Ein Versuch über die Freundlichkeit",
+      "titleBr": "Hegel e o Poder: um ensaio sobre a amabilidade",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2005",
+      "publicationEnd": "2005",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Hegel",
+        "Poder",
+        "Amabilidade",
+        "Filosofia alemã"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Para leitores com alguma familiaridade com Hegel ou com disposição para uma leitura filosófica mais especializada sobre poder.",
+      "shortDescription": "Han lê a filosofia de Hegel pelo problema do poder, tratando-o como dimensão interna do sistema e examinando seus alcances e limites.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Hegel e o Poder: um ensaio sobre a amabilidade — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Hegel und die Macht: Ein Versuch über die Freundlichkeit — edição original",
+          "url": "https://www.vozes.com.br/blog/hegel-e-o-poder"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_work_shanzhai",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "shanzhai",
+      "aliases": [],
+      "originalTitle": "Shanzhai: Dekonstruktion auf Chinesisch",
+      "titleBr": "Shanzhai",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2011",
+      "publicationEnd": "2011",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Originalidade",
+        "Cópia",
+        "Criação",
+        "China"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Para leitores interessados em originalidade, cópia, criação e diferenças culturais sem reduzir o conceito a falsificação comercial.",
+      "shortDescription": "Partindo do termo chinês shanzhai, Han questiona noções ocidentais de original, cópia e criação e propõe outra leitura de transformação e continuidade.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Shanzhai — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Shanzhai: Dekonstruktion auf Chinesisch — edição original",
+          "url": "https://www.vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_work_heidegger_heart",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "heideggers-herz",
+      "aliases": [],
+      "originalTitle": "Heideggers Herz: Zum Begriff der Stimmung bei Martin Heidegger",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "1996",
+      "publicationEnd": "1996",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Heidegger",
+        "Stimmung",
+        "Fenomenologia",
+        "Afetividade"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Para leitores com interesse acadêmico em Heidegger e fenomenologia; não há tradução brasileira confirmada neste cadastro.",
+      "shortDescription": "Estudo acadêmico sobre o conceito de Stimmung em Martin Heidegger e suas implicações para a compreensão filosófica da disposição afetiva.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "undefined — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Heideggers Herz: Zum Begriff der Stimmung bei Martin Heidegger — edição original",
+          "url": "https://www.matthes-seitz-berlin.de/autor/byung-chul-han.html"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_work_types_of_death",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "todesarten",
+      "aliases": [],
+      "originalTitle": "Todesarten: Philosophische Untersuchungen zum Tod",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "1998",
+      "publicationEnd": "1998",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Morte",
+        "Finitude",
+        "Filosofia",
+        "Fenomenologia"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Para pesquisa acadêmica sobre os primeiros trabalhos de Han; não há tradução brasileira confirmada neste cadastro.",
+      "shortDescription": "Investigação filosófica anterior de Han sobre formas de compreender a morte e a finitude, em diálogo com a tradição continental.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "undefined — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Todesarten: Philosophische Untersuchungen zum Tod — edição original",
+          "url": "https://www.matthes-seitz-berlin.de/autor/byung-chul-han.html"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_work_digital_rationality",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "digitale-rationalitat",
+      "aliases": [],
+      "originalTitle": "Digitale Rationalität und das Ende des kommunikativen Handelns",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2013",
+      "publicationEnd": "2013",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Racionalidade digital",
+        "Comunicação",
+        "Tecnologia",
+        "Esfera pública"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Para leitores que já conhecem No Enxame e desejam uma formulação mais especializada sobre comunicação e digitalização.",
+      "shortDescription": "O livro examina efeitos da racionalidade digital sobre comunicação e ação, situando a discussão ao lado dos diagnósticos de Han sobre mídia e sociedade.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "undefined — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Digitale Rationalität und das Ende des kommunikativen Handelns — edição original",
+          "url": "https://www.matthes-seitz-berlin.de/autor/byung-chul-han.html"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_work_drone_war_ethics",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "die-ethik-des-drohnenkriegs",
+      "aliases": [],
+      "originalTitle": "Die Ethik des Drohnenkriegs",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2013",
+      "publicationEnd": "2013",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Guerra",
+        "Tecnologia",
+        "Ética",
+        "Violência"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Para leitores interessados em ética da tecnologia e violência contemporânea; não há tradução brasileira confirmada neste cadastro.",
+      "shortDescription": "Ensaio sobre as consequências éticas e políticas da guerra por drones, abordando distância, técnica e transformação das formas de violência.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "undefined — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Die Ethik des Drohnenkriegs — edição original",
+          "url": "https://www.matthes-seitz-berlin.de/autor/byung-chul-han.html"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_work_speaking_about_god",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "sprechen-uber-gott",
+      "aliases": [],
+      "originalTitle": "Sprechen über Gott: Ein Dialog mit Simone Weil",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2025",
+      "publicationEnd": "2025",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Deus",
+        "Simone Weil",
+        "Diálogo",
+        "Filosofia da religião"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Para leitores interessados na relação entre Han, Simone Weil e filosofia da religião; não há tradução brasileira confirmada neste cadastro.",
+      "shortDescription": "Han aproxima Simone Weil para refletir sobre Deus, revelação e a crise de experiências que escapam à lógica da disponibilidade e da informação.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "undefined — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Sprechen über Gott: Ein Dialog mit Simone Weil — edição original",
+          "url": "https://www.matthes-seitz-berlin.de/autor/byung-chul-han.html"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_work_without_respect",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "ohne-respekt",
+      "aliases": [],
+      "originalTitle": "Ohne Respekt: Eine soziale Krise",
+      "format": "book",
+      "originCountries": [
+        "Alemanha"
+      ],
+      "originalLanguages": [
+        "Alemão"
+      ],
+      "credits": [
+        {
+          "personId": "person_byung_chul_han",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_vozes",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2026",
+      "publicationEnd": "2026",
+      "publicationStatus": "completed",
+      "categories": [
+        "philosophy",
+        "essay"
+      ],
+      "genres": [
+        "Filosofia",
+        "Ensaio",
+        "Crítica cultural"
+      ],
+      "themes": [
+        "Respeito",
+        "Civilidade",
+        "Crise social",
+        "Convivência"
+      ],
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Para acompanhar a bibliografia recente do autor em alemão; não há tradução brasileira confirmada neste cadastro.",
+      "shortDescription": "Ensaio recente sobre respeito e formas de convivência social, apresentado pelo editor alemão como uma reflexão sobre uma crise de relação pública.",
+      "seriesMemberships": [],
+      "relatedWorks": [
+        {
+          "workId": "read_work_burnout_society",
+          "relationship": "companion"
+        }
+      ],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "undefined — Editora Vozes",
+          "url": "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han"
+        },
+        {
+          "title": "Ohne Respekt: Eine soziale Krise — edição original",
+          "url": "https://www.matthes-seitz-berlin.de/autor/byung-chul-han.html"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_work_being_and_time",
@@ -11508,6 +13691,158 @@
       "updatedAt": "2026-09-02"
     },
     {
+      "id": "read_work_a_hora_da_estrela",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "a-hora-da-estrela",
+      "aliases": [],
+      "originalTitle": "A Hora da Estrela",
+      "titleBr": "A Hora da Estrela",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Brasil"
+      ],
+      "originalLanguages": [
+        "Português"
+      ],
+      "credits": [
+        {
+          "personId": "person_clarice_lispector",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_rocco",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "1977",
+      "publicationEnd": "1977",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Romance",
+        "Literatura brasileira"
+      ],
+      "themes": [
+        "Desamparo",
+        "Migração",
+        "Classe social",
+        "Linguagem",
+        "Identidade"
+      ],
+      "concepts": [
+        "Narrador",
+        "Desigualdade",
+        "Interioridade"
+      ],
+      "readingDifficulty": "intermediate",
+      "featuredEditionId": "read_edition_a_hora_da_estrela_rocco_2025",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores que procuram um romance breve, formalmente consciente e atento à precariedade social sem prometer uma leitura leve.",
+      "shortDescription": "Um narrador hesitante acompanha Macabéa, jovem alagoana que vive no Rio de Janeiro, enquanto a própria narrativa interroga quem pode contar sua história.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "A hora da estrela — Editora Rocco",
+          "url": "https://rocco.com.br/produto/a-hora-da-estrela-2/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_work_vidas_secas",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "vidas-secas",
+      "aliases": [],
+      "originalTitle": "Vidas Secas",
+      "titleBr": "Vidas Secas",
+      "workType": "book",
+      "format": "book",
+      "originCountries": [
+        "Brasil"
+      ],
+      "originalLanguages": [
+        "Português"
+      ],
+      "credits": [
+        {
+          "personId": "person_graciliano_ramos",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_companhia_das_letras",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "1938",
+      "publicationEnd": "1938",
+      "publicationStatus": "completed",
+      "categories": [
+        "fiction"
+      ],
+      "genres": [
+        "Romance",
+        "Literatura brasileira",
+        "Modernismo"
+      ],
+      "themes": [
+        "Seca",
+        "Migração",
+        "Pobreza",
+        "Trabalho",
+        "Violência institucional"
+      ],
+      "concepts": [
+        "Regionalismo",
+        "Sobrevivência",
+        "Desigualdade"
+      ],
+      "readingDifficulty": "introductory",
+      "featuredEditionId": "read_edition_vidas_secas_zahar_2025",
+      "demographics": [
+        "young-adult",
+        "adult"
+      ],
+      "audienceProfile": "Leitores que buscam um clássico brasileiro conciso, de linguagem econômica, para discutir desigualdade, deslocamento e sobrevivência.",
+      "shortDescription": "Uma família de retirantes atravessa o sertão em busca de sobrevivência, enfrentando fome, seca e instituições que reduzem sua margem de escolha.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Vidas secas: edição bolso de luxo — Grupo Companhia das Letras",
+          "url": "https://www.companhiadasletras.com.br/livro/9786584952256/"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-22",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
       "id": "read_work_sandman",
       "contentType": "reading-work",
       "schemaVersion": 1,
@@ -11664,76 +13999,6 @@
         {
           "title": "Absolute Batman Vol. 1: The Zoo — DC",
           "url": "https://www.dc.com/graphic-novels/absolute-batman-2024/absolute-batman-vol-1-the-zoo"
-        }
-      ],
-      "status": "published",
-      "createdAt": "2026-08-13",
-      "publishedAt": "2026-08-13",
-      "updatedAt": "2026-08-13"
-    },
-    {
-      "id": "read_work_burnout_society",
-      "contentType": "reading-work",
-      "schemaVersion": 1,
-      "slug": "sociedade-do-cansaco",
-      "aliases": [],
-      "originalTitle": "Müdigkeitsgesellschaft",
-      "titleBr": "Sociedade do Cansaço",
-      "format": "book",
-      "originCountries": [
-        "Alemanha"
-      ],
-      "originalLanguages": [
-        "Alemão"
-      ],
-      "credits": [
-        {
-          "personId": "person_byung_chul_han",
-          "roles": [
-            "author"
-          ]
-        }
-      ],
-      "organizationRelationships": [
-        {
-          "organizationId": "org_vozes",
-          "roles": [
-            "publisher"
-          ]
-        }
-      ],
-      "publicationStart": "2010",
-      "publicationEnd": "2010",
-      "publicationStatus": "completed",
-      "categories": [
-        "philosophy",
-        "essay"
-      ],
-      "genres": [
-        "Filosofia",
-        "Crítica cultural"
-      ],
-      "themes": [
-        "Desempenho",
-        "Autoexploração",
-        "Cansaço",
-        "Atenção"
-      ],
-      "demographics": [
-        "adult"
-      ],
-      "shortDescription": "Byung-Chul Han interpreta o excesso de desempenho, estímulo e positividade como mecanismos de autoexploração e esgotamento na sociedade contemporânea.",
-      "seriesMemberships": [],
-      "relatedWorks": [],
-      "adaptations": [],
-      "sources": [
-        {
-          "title": "The Burnout Society — Stanford University Press",
-          "url": "https://www.sup.org/books/theory-and-philosophy/burnout-society"
-        },
-        {
-          "title": "Byung-Chul Han — Editora Vozes",
-          "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
         }
       ],
       "status": "published",
@@ -20995,6 +23260,174 @@
       "updatedAt": "2026-08-24"
     },
     {
+      "id": "read_edition_foundation_aleph",
+      "workId": "read_work_foundation",
+      "title": "Fundação",
+      "publisherId": "org_editora_aleph",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2020-09-04",
+      "isbn13": "9788576574835",
+      "pageCount": 320,
+      "translationCredits": [],
+      "availabilityStatus": "available",
+      "availabilityCheckedAt": "2026-09-22",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Fundação — Editora Aleph",
+          "url": "https://aleph.com.br/products/fundacao"
+        }
+      ],
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_edition_solaris_aleph",
+      "workId": "read_work_solaris",
+      "title": "Solaris",
+      "publisherId": "org_editora_aleph",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2021-01-25",
+      "isbn13": "9786586064360",
+      "pageCount": 320,
+      "translationCredits": [],
+      "availabilityStatus": "available",
+      "availabilityCheckedAt": "2026-09-22",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Solaris — Editora Aleph",
+          "url": "https://aleph.com.br/products/solaris"
+        }
+      ],
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_edition_left_hand_darkness_aleph",
+      "workId": "read_work_left_hand_darkness",
+      "title": "A Mão Esquerda da Escuridão",
+      "publisherId": "org_editora_aleph",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "hardcover",
+      "publicationDate": "2019-08-10",
+      "isbn13": "9788576574484",
+      "pageCount": 304,
+      "translationCredits": [],
+      "availabilityStatus": "available",
+      "availabilityCheckedAt": "2026-09-22",
+      "status": "published",
+      "sources": [
+        {
+          "title": "A Mão Esquerda da Escuridão — Editora Aleph",
+          "url": "https://aleph.com.br/products/a-mao-esquerda-da-escuridao"
+        }
+      ],
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_edition_dune_aleph",
+      "workId": "read_work_dune",
+      "title": "Duna",
+      "publisherId": "org_editora_aleph",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "hardcover",
+      "publicationDate": "2017-04-28",
+      "isbn13": "9788576573135",
+      "pageCount": 680,
+      "translationCredits": [],
+      "availabilityStatus": "available",
+      "availabilityCheckedAt": "2026-09-22",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Duna — Editora Aleph",
+          "url": "https://aleph.com.br/products/duna-1"
+        }
+      ],
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_edition_nova_aleph",
+      "workId": "read_work_nova_delany",
+      "title": "Nova",
+      "publisherId": "org_editora_aleph",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "hardcover",
+      "publicationDate": "2023-06-15",
+      "isbn13": "9788576575504",
+      "pageCount": 296,
+      "translationCredits": [],
+      "availabilityStatus": "available",
+      "availabilityCheckedAt": "2026-09-22",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Nova — Editora Aleph",
+          "url": "https://aleph.com.br/products/nova"
+        }
+      ],
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_edition_native_tongue_aleph",
+      "workId": "read_work_native_tongue",
+      "title": "Língua Nativa",
+      "publisherId": "org_editora_aleph",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "hardcover",
+      "publicationDate": "2023-05-10",
+      "isbn13": "9788576575603",
+      "pageCount": 440,
+      "translationCredits": [],
+      "availabilityStatus": "available",
+      "availabilityCheckedAt": "2026-09-22",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Língua Nativa — Editora Aleph",
+          "url": "https://aleph.com.br/products/lingua-nativa"
+        }
+      ],
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_edition_metropolis_aleph",
+      "workId": "read_work_metropolis_harbou",
+      "title": "Metrópolis",
+      "publisherId": "org_editora_aleph",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "hardcover",
+      "publicationDate": "2019-10-30",
+      "isbn13": "9788576574552",
+      "pageCount": 416,
+      "translationCredits": [],
+      "availabilityStatus": "available",
+      "availabilityCheckedAt": "2026-09-22",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Metrópolis — Editora Aleph",
+          "url": "https://aleph.com.br/products/metropolis"
+        }
+      ],
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
       "id": "read_edition_blade_itself_orbit",
       "workId": "read_work_blade_itself",
       "title": "The Blade Itself",
@@ -21379,6 +23812,39 @@
       "updatedAt": "2026-08-24"
     },
     {
+      "id": "read_edition_burnout_society_vozes",
+      "workId": "read_work_burnout_society",
+      "title": "Sociedade do Cansaço",
+      "publisherId": "org_vozes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2015-11-26",
+      "isbn10": "853265083X",
+      "isbn13": "9788532650832",
+      "pageCount": 80,
+      "cover": {
+        "src": "/images/reading/sociedade-do-cansaco-vozes.png",
+        "alt": "Capa da edição brasileira de Sociedade do Cansaço publicada pela Editora Vozes",
+        "sourceUrl": "https://books.google.com/books/about/Sociedade_do_cansa%C3%A7o.html?id=IYWZCgAAQBAJ",
+        "credit": "Editora Vozes via Google Books",
+        "rights": "permission-pending",
+        "width": 300,
+        "height": 513
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Sociedade do Cansaço — Google Books",
+          "url": "https://books.google.com/books/about/Sociedade_do_cansa%C3%A7o.html?id=IYWZCgAAQBAJ"
+        }
+      ],
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
       "id": "read_edition_psychopolitics_vozes",
       "workId": "read_work_psychopolitics",
       "title": "Psicopolítica",
@@ -21407,8 +23873,8 @@
           "url": "https://www.ayine.com.br/products/psicopolitica"
         }
       ],
-      "createdAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_edition_transparency_society_vozes",
@@ -21437,8 +23903,8 @@
           "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
         }
       ],
-      "createdAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_edition_in_the_swarm_vozes",
@@ -21466,8 +23932,8 @@
           "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
         }
       ],
-      "createdAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_edition_agony_eros_vozes",
@@ -21495,8 +23961,8 @@
           "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
         }
       ],
-      "createdAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_edition_topology_violence_vozes",
@@ -21524,8 +23990,8 @@
           "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
         }
       ],
-      "createdAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_edition_scent_time_vozes",
@@ -21556,8 +24022,8 @@
           "url": "https://www.relogiodagua.pt/produto/o-aroma-do-tempo/"
         }
       ],
-      "createdAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_edition_expulsion_other_vozes",
@@ -21586,8 +24052,8 @@
           "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
         }
       ],
-      "createdAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_edition_vita_contemplativa_vozes",
@@ -21615,8 +24081,8 @@
           "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
         }
       ],
-      "createdAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_edition_non_things_vozes",
@@ -21644,8 +24110,8 @@
           "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
         }
       ],
-      "createdAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_edition_infocracy_vozes",
@@ -21673,8 +24139,8 @@
           "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
         }
       ],
-      "createdAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_edition_capitalism_death_drive_vozes",
@@ -21702,8 +24168,8 @@
           "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
         }
       ],
-      "createdAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_edition_crisis_narration_vozes",
@@ -21734,8 +24200,8 @@
           "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
         }
       ],
-      "createdAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_edition_close_eyes_vozes",
@@ -21763,8 +24229,8 @@
           "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
         }
       ],
-      "createdAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_edition_disappearance_rituals_vozes",
@@ -21792,8 +24258,216 @@
           "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
         }
       ],
-      "createdAt": "2026-08-24",
-      "updatedAt": "2026-08-24"
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_edition_palliative_society_vozes",
+      "workId": "read_work_palliative_society",
+      "title": "Sociedade Paliativa: a dor hoje",
+      "publisherId": "org_vozes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2021-01-01",
+      "isbn13": "9786557130025",
+      "pageCount": 120,
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Sociedade paliativa: a dor hoje — Biblioteca Nacional",
+          "url": "https://acervo.bn.gov.br/Sophia_web/acervo/detalhe/1787631"
+        }
+      ],
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_edition_what_is_power_vozes",
+      "workId": "read_work_what_is_power",
+      "title": "O que é Poder?",
+      "publisherId": "org_vozes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "isbn13": "9788532660039",
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "O que é Poder? — catálogo da Editora Vozes",
+          "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
+        }
+      ],
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_edition_hyperculturality_vozes",
+      "workId": "read_work_hyperculturality",
+      "title": "Hiperculturalidade: cultura e globalização",
+      "publisherId": "org_vozes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "isbn13": "9788532661081",
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Hiperculturalidade: cultura e globalização — catálogo da Editora Vozes",
+          "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
+        }
+      ],
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_edition_death_otherness_vozes",
+      "workId": "read_work_death_otherness",
+      "title": "Morte e Alteridade",
+      "publisherId": "org_vozes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2020-07-01",
+      "isbn13": "9788532664365",
+      "pageCount": 416,
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Morte e alteridade — Travessa",
+          "url": "https://www.travessa.com.br/ProdutoAmp.aspx?CodArtigo=7f0c3996-e756-4ca3-85a5-50deccfe32a8"
+        }
+      ],
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_edition_saving_beautiful_vozes",
+      "workId": "read_work_saving_beautiful",
+      "title": "A Salvação do Belo",
+      "publisherId": "org_vozes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "A Salvação do Belo — catálogo da Editora Vozes",
+          "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
+        }
+      ],
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_edition_zen_buddhism_vozes",
+      "workId": "read_work_zen_buddhism_philosophy",
+      "title": "Filosofia do Zen-Budismo",
+      "publisherId": "org_vozes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Filosofia do Zen-Budismo — catálogo da Editora Vozes",
+          "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
+        }
+      ],
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_edition_good_entertainment_vozes",
+      "workId": "read_work_good_entertainment",
+      "title": "Bom Entretenimento",
+      "publisherId": "org_vozes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Bom Entretenimento — catálogo da Editora Vozes",
+          "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
+        }
+      ],
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_edition_praise_earth_vozes",
+      "workId": "read_work_praise_earth",
+      "title": "Louvor à Terra: uma viagem ao jardim",
+      "publisherId": "org_vozes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Louvor à Terra: uma viagem ao jardim — catálogo da Editora Vozes",
+          "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
+        }
+      ],
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_edition_hegel_power_vozes",
+      "workId": "read_work_hegel_power",
+      "title": "Hegel e o Poder: um ensaio sobre a amabilidade",
+      "publisherId": "org_vozes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Hegel e o Poder: um ensaio sobre a amabilidade — catálogo da Editora Vozes",
+          "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
+        }
+      ],
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_edition_shanzhai_vozes",
+      "workId": "read_work_shanzhai",
+      "title": "Shanzhai",
+      "publisherId": "org_vozes",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Shanzhai — catálogo da Editora Vozes",
+          "url": "https://www.vozes.com.br/autor/133/byung-chul-han"
+        }
+      ],
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_edition_nineteen_eighty_four_companhia",
@@ -21920,38 +24594,52 @@
       "updatedAt": "2026-09-04"
     },
     {
-      "id": "read_edition_burnout_society_vozes",
-      "workId": "read_work_burnout_society",
-      "title": "Sociedade do Cansaço",
-      "publisherId": "org_vozes",
+      "id": "read_edition_a_hora_da_estrela_rocco_2025",
+      "workId": "read_work_a_hora_da_estrela",
+      "title": "A hora da estrela",
+      "publisherId": "org_rocco",
       "country": "Brasil",
       "language": "Português",
       "medium": "paperback",
-      "publicationDate": "2015-11-26",
-      "isbn10": "853265083X",
-      "isbn13": "9788532650832",
-      "pageCount": 80,
-      "cover": {
-        "src": "/images/reading/sociedade-do-cansaco-vozes.png",
-        "alt": "Capa da edição brasileira de Sociedade do Cansaço publicada pela Editora Vozes",
-        "sourceUrl": "https://books.google.com/books/about/Sociedade_do_cansa%C3%A7o.html?id=IYWZCgAAQBAJ",
-        "credit": "Editora Vozes via Google Books",
-        "rights": "permission-pending",
-        "width": 300,
-        "height": 513
-      },
+      "publicationDate": "2025-01-01",
+      "isbn10": "6555326743",
+      "isbn13": "9786555326741",
       "translationCredits": [],
       "availabilityStatus": "available",
-      "availabilityCheckedAt": "2026-08-13",
+      "availabilityCheckedAt": "2026-09-22",
       "status": "published",
       "sources": [
         {
-          "title": "Sociedade do Cansaço — edição brasileira",
-          "url": "https://books.google.com/books/about/Sociedade_do_cansa%C3%A7o.html?id=IYWZCgAAQBAJ"
+          "title": "A hora da estrela — Editora Rocco",
+          "url": "https://rocco.com.br/produto/a-hora-da-estrela-2/"
         }
       ],
-      "createdAt": "2026-08-13",
-      "updatedAt": "2026-08-13"
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "read_edition_vidas_secas_zahar_2025",
+      "workId": "read_work_vidas_secas",
+      "title": "Vidas secas: edição bolso de luxo",
+      "publisherId": "org_companhia_das_letras",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "hardcover",
+      "publicationDate": "2025-02-18",
+      "isbn13": "9786584952256",
+      "pageCount": 152,
+      "translationCredits": [],
+      "availabilityStatus": "available",
+      "availabilityCheckedAt": "2026-09-22",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Vidas secas: edição bolso de luxo — Grupo Companhia das Letras",
+          "url": "https://www.companhiadasletras.com.br/livro/9786584952256/"
+        }
+      ],
+      "createdAt": "2026-09-22",
+      "updatedAt": "2026-09-22"
     },
     {
       "id": "read_edition_carmilla_darkside",
@@ -24831,7 +27519,60 @@
       "updatedAt": "2026-08-13"
     }
   ],
-  "offers": [],
+  "offers": [
+    {
+      "id": "read_offer_amazon_a_hora_da_estrela_rocco_2025",
+      "editionId": "read_edition_a_hora_da_estrela_rocco_2025",
+      "store": "Amazon Brasil",
+      "url": "https://www.amazon.com.br/dp/6555326743?tag=riquehen-20",
+      "region": "BR",
+      "affiliateProgram": "Amazon Associados",
+      "affiliateId": "riquehen-20",
+      "asin": "6555326743",
+      "availability": "available",
+      "checkedAt": "2026-09-22",
+      "commissionDisclosure": "Link de afiliado: posso receber uma comissão sem custo adicional para você."
+    },
+    {
+      "id": "read_offer_amazon_hellsing_jbc_1",
+      "editionId": "read_edition_hellsing_jbc_1",
+      "store": "Amazon Brasil",
+      "url": "https://www.amazon.com.br/dp/6555949074?tag=riquehen-20",
+      "region": "BR",
+      "affiliateProgram": "Amazon Associados",
+      "affiliateId": "riquehen-20",
+      "asin": "6555949074",
+      "availability": "available",
+      "checkedAt": "2026-09-22",
+      "commissionDisclosure": "Link de afiliado: posso receber uma comissão sem custo adicional para você."
+    },
+    {
+      "id": "read_offer_amazon_blue_box_jbc_1",
+      "editionId": "read_edition_blue_box_jbc_1",
+      "store": "Amazon Brasil",
+      "url": "https://www.amazon.com.br/dp/6555946806?tag=riquehen-20",
+      "region": "BR",
+      "affiliateProgram": "Amazon Associados",
+      "affiliateId": "riquehen-20",
+      "asin": "6555946806",
+      "availability": "available",
+      "checkedAt": "2026-09-22",
+      "commissionDisclosure": "Link de afiliado: posso receber uma comissão sem custo adicional para você."
+    },
+    {
+      "id": "read_offer_amazon_parasyte_jbc_1",
+      "editionId": "read_edition_parasyte_jbc_1",
+      "store": "Amazon Brasil",
+      "url": "https://www.amazon.com.br/dp/8545700725?tag=riquehen-20",
+      "region": "BR",
+      "affiliateProgram": "Amazon Associados",
+      "affiliateId": "riquehen-20",
+      "asin": "8545700725",
+      "availability": "available",
+      "checkedAt": "2026-09-22",
+      "commissionDisclosure": "Link de afiliado: posso receber uma comissão sem custo adicional para você."
+    }
+  ],
   "curations": [
     {
       "id": "reading_list_vampire_books",
@@ -25450,6 +28191,176 @@
         {
           "workId": "read_work_vampeerz",
           "justification": "Romance sáfico com vampiros que combina humor, desejo e aventura sem esconder sua proposta afetiva."
+        }
+      ]
+    },
+    {
+      "id": "reading_list_best_science_fiction_books",
+      "slug": "melhores-livros-de-ficcao-cientifica",
+      "title": "Melhores livros de ficção científica",
+      "href": "/blog/melhores-livros-de-ficcao-cientifica",
+      "items": [
+        {
+          "workId": "read_work_frankenstein",
+          "position": 1,
+          "justification": "A ambição de criar vida importa menos que a responsabilidade recusada depois do experimento: Shelley dá ao gênero uma pergunta ética que continua produtiva.",
+          "recommendedFor": "Quem quer começar por um clássico curto, gótico e moralmente complexo.",
+          "note": "A moldura epistolar e o vocabulário do início do século XIX pedem alguma paciência."
+        },
+        {
+          "workId": "read_work_left_hand_darkness",
+          "position": 2,
+          "justification": "Le Guin faz antropologia imaginária sem reduzir Gethen a uma alegoria simples: gênero, diplomacia e lealdade mudam junto com o ponto de vista do emissário.",
+          "recommendedFor": "Leitores interessados em sociedades imaginadas, política e alteridade.",
+          "startingPointEditionId": "read_edition_left_hand_darkness_aleph",
+          "note": "O ritmo deliberado e os relatórios internos fazem parte do projeto, mas não funcionam para quem procura ação contínua."
+        },
+        {
+          "workId": "read_work_solaris",
+          "position": 3,
+          "justification": "Em vez de domesticar o alienígena, Lem transforma o encontro em limite do conhecimento humano e confronta ciência, memória e linguagem.",
+          "recommendedFor": "Quem procura primeiro contato filosófico e atmosfera de estranhamento.",
+          "startingPointEditionId": "read_edition_solaris_aleph",
+          "note": "Não é uma aventura espacial: a investigação é introspectiva e deliberadamente inconclusiva."
+        },
+        {
+          "workId": "read_work_dune",
+          "position": 4,
+          "justification": "Ecologia planetária, religião, extração e disputa imperial se influenciam numa construção de mundo cuja escala nunca apaga o custo humano do messianismo.",
+          "recommendedFor": "Quem quer uma epopeia política e ecológica de grande fôlego.",
+          "startingPointEditionId": "read_edition_dune_aleph",
+          "note": "O vocabulário denso e a extensão exigem atenção; o primeiro romance se sustenta sem obrigação de continuar a série."
+        },
+        {
+          "workId": "read_work_kindred",
+          "position": 5,
+          "justification": "A viagem no tempo não é mecanismo decorativo: Butler força uma mulher negra contemporânea a negociar sobrevivência e parentesco dentro da escravidão.",
+          "recommendedFor": "Leitores que preferem ficção científica social, histórica e direta.",
+          "note": "A violência racial não é atenuada e é central à experiência de leitura."
+        },
+        {
+          "workId": "read_work_roadside_picnic",
+          "position": 6,
+          "justification": "Os Strugatsky deslocam o primeiro contato para suas consequências opacas: a Zona é um lugar de desejo, trabalho precário e artefatos que recusam sentido humano.",
+          "recommendedFor": "Quem gosta de ficção científica filosófica e de mundos que não explicam tudo.",
+          "note": "A tradução e a recepção variam entre edições; vale verificar a edição disponível."
+        },
+        {
+          "workId": "read_work_neuromancer",
+          "position": 7,
+          "justification": "Gibson não apenas antecipou imagens do ciberespaço: construiu uma prosa fragmentada em que corpo, capital e inteligência artificial já são inseparáveis.",
+          "recommendedFor": "Quem quer entender a matriz literária do cyberpunk.",
+          "startingPointEditionId": "read_edition_neuromancer_penguin",
+          "note": "A gíria e a entrada abrupta no mundo podem afastar quem espera explicações graduais."
+        },
+        {
+          "workId": "read_work_foundation",
+          "position": 8,
+          "justification": "A série desloca o heroísmo individual para instituições, conhecimento e previsões históricas, tornando a escala imperial uma questão de método e poder.",
+          "recommendedFor": "Leitores atraídos por história em longa duração e space opera clássica.",
+          "startingPointEditionId": "read_edition_foundation_aleph",
+          "note": "Os personagens funcionam mais como agentes de ideias e crises do que como retratos psicológicos profundos."
+        },
+        {
+          "workId": "read_work_parable_sower",
+          "position": 9,
+          "justification": "Butler imagina colapso climático e privatização sem confundir desespero com destino; a invenção de comunidade é tão importante quanto a violência do cenário.",
+          "recommendedFor": "Quem busca distopia social com perspectiva negra e foco em sobrevivência coletiva.",
+          "note": "A proximidade com crises contemporâneas pode tornar a leitura especialmente dura."
+        },
+        {
+          "workId": "read_work_androids_electric_sheep",
+          "position": 10,
+          "justification": "Dick usa androides, animais artificiais e uma cidade exaurida para tornar empatia um critério instável, não uma virtude fácil.",
+          "recommendedFor": "Leitores interessados em identidade, realidade mediada e ficção científica curta.",
+          "note": "Não deve ser lido como simples versão literária de Blade Runner; as perguntas e o tom são outros."
+        },
+        {
+          "workId": "read_work_handmaids_tale",
+          "position": 11,
+          "justification": "Atwood torna autoritarismo legível por suas rotinas, documentos e controle reprodutivo, evitando reduzir a distopia a uma sucessão de choques.",
+          "recommendedFor": "Quem procura uma distopia centrada em corpo, linguagem e poder.",
+          "note": "A leitura pode ser angustiante; a posição narrativa limitada é uma escolha formal, não uma visão total do regime."
+        },
+        {
+          "workId": "read_work_three_body_problem",
+          "position": 12,
+          "justification": "Liu Cixin amplia um trauma político local até escalas cosmológicas e trata contato extraterrestre como problema histórico, científico e estratégico.",
+          "recommendedFor": "Quem gosta de ideias de grande escala e especulação científica.",
+          "note": "O romance privilegia conceitos e dilemas coletivos mais do que intimidade psicológica."
+        },
+        {
+          "workId": "read_work_stories_your_life",
+          "position": 13,
+          "justification": "Ted Chiang mostra que rigor conceitual pode produzir emoção: linguagem, matemática e causalidade reorganizam decisões íntimas sem virar ilustração de tese.",
+          "recommendedFor": "Quem prefere contos densos e especulativos a uma única narrativa longa.",
+          "note": "Nem todos os contos têm o mesmo tom; a concentração conceitual recompensa leitura pausada."
+        },
+        {
+          "workId": "read_work_nova_delany",
+          "position": 14,
+          "justification": "Delany reinventa a space opera pela fricção entre trabalho, classe, desejo e mito, sem tratar o futuro como cenário neutro para aventura.",
+          "recommendedFor": "Leitores abertos a prosa estilizada e space opera menos convencional.",
+          "startingPointEditionId": "read_edition_nova_aleph",
+          "note": "A estrutura fragmentada e as referências literárias pedem mais do leitor do que uma narrativa linear."
+        },
+        {
+          "workId": "read_work_native_tongue",
+          "position": 15,
+          "justification": "Elgin faz da linguagem uma infraestrutura de resistência, não um enfeite de mundo, articulando tradução, patriarcado e imaginação política.",
+          "recommendedFor": "Quem quer ficção científica feminista centrada em linguagem e construção social.",
+          "startingPointEditionId": "read_edition_native_tongue_aleph",
+          "note": "O futuro socialmente opressivo é deliberadamente incômodo e algumas formulações datam sua década."
+        },
+        {
+          "workId": "read_work_mountain_sea",
+          "position": 16,
+          "justification": "Nayler usa pesquisa com polvos e automação para perguntar que tipo de reconhecimento devemos a inteligências que não compartilham nossa forma de vida.",
+          "recommendedFor": "Leitores interessados em ecologia, IA e primeiro contato contemporâneo.",
+          "note": "A trama de thriller convive com discussões conceituais e não resolve todas as implicações éticas."
+        },
+        {
+          "workId": "read_work_children_time",
+          "position": 17,
+          "justification": "Tchaikovsky dá peso narrativo à evolução não humana e faz da diferença cognitiva um problema de encontro entre civilizações, não apenas de decoração biológica.",
+          "recommendedFor": "Quem quer space opera contemporânea com biotecnologia e ecologia.",
+          "note": "O uso de aranhas como centro civilizacional pode ser uma barreira para alguns leitores."
+        },
+        {
+          "workId": "read_work_ancillary_justice",
+          "position": 18,
+          "justification": "A voz de uma consciência antes distribuída em nave e corpos permite que Leckie examine império, gênero e vingança sem simplificar identidade em indivíduo isolado.",
+          "recommendedFor": "Quem busca espaço, inteligência artificial e política imperial contemporâneos.",
+          "note": "A convenção de gênero da narração exige adaptação inicial e a trama continua em outros volumes."
+        },
+        {
+          "workId": "read_work_blindsight",
+          "position": 19,
+          "justification": "Watts leva o primeiro contato a uma hipótese desconfortável: inteligência pode ser mais eficiente sem consciência, e o humano talvez não seja a medida do universo.",
+          "recommendedFor": "Leitores experientes que gostam de hard science fiction e filosofia da mente.",
+          "note": "A densidade científica e o tom frio são parte da proposta, mas afastam quem procura entrada leve."
+        },
+        {
+          "workId": "read_work_never_let_me_go",
+          "position": 20,
+          "justification": "Ishiguro evita espetáculo biotecnológico para mostrar como instituições produzem consentimento, cuidado e resignação na escala de uma vida comum.",
+          "recommendedFor": "Quem prefere ficção científica íntima, melancólica e eticamente inquietante.",
+          "note": "O ritmo é contido e a revelação opera por sugestão; saber pouco antes de ler costuma funcionar melhor."
+        },
+        {
+          "workId": "read_work_metropolis_harbou",
+          "position": 21,
+          "justification": "A cidade vertical de von Harbou tornou visível uma imaginação industrial de classe e tecnologia que atravessou a ficção científica do século XX.",
+          "recommendedFor": "Quem quer uma peça histórica de distopia alemã e contexto para o imaginário de Metrópolis.",
+          "startingPointEditionId": "read_edition_metropolis_aleph",
+          "note": "O romance carrega melodrama e posições políticas que exigem contextualização histórica, inclusive a trajetória posterior da autora."
+        },
+        {
+          "workId": "read_work_annihilation",
+          "position": 22,
+          "justification": "VanderMeer faz investigação científica significar transformação do observador: ecologia, linguagem e corpo deixam de ser categorias estáveis dentro da Área X.",
+          "recommendedFor": "Quem procura ficção científica ecológica e estranha, próxima do horror cósmico.",
+          "note": "A recusa de explicações fechadas é constitutiva da obra e pode frustrar leitores que esperam resolução."
         }
       ]
     }

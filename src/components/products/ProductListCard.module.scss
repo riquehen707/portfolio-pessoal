@@ -1,3 +1,5 @@
+@use "../../styles/mixins" as mixins;
+
 .card {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 14rem;
@@ -110,10 +112,24 @@
   text-decoration: none;
 }
 
-.title a:hover {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.15em;
+.title a:visited {
+  color: inherit;
+}
+
+.title a:focus-visible {
+  @include mixins.focus-ring;
+}
+
+@include mixins.hover-fine {
+  .title a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
+  }
+}
+
+.title a:active {
+  color: var(--neutral-on-background-medium);
 }
 
 .description {
@@ -388,33 +404,12 @@
   margin-top: 1.2rem;
   padding: 0.75rem 0.85rem;
 
-  border: 1px solid #111827;
   border-radius: 0.7rem;
-
-  text-decoration: none;
 
   font-size: 0.82rem;
   font-weight: 750;
 
-  color: #fff;
-  background: #111827;
-
-  transition:
-    background-color 160ms ease,
-    border-color 160ms ease,
-    transform 160ms ease;
-}
-
-.offerButton:hover {
-  color: #fff;
-  background: #030712;
-  border-color: #030712;
-  transform: translateY(-1px);
-}
-
-.offerButton:focus-visible {
-  outline: 3px solid #f59e0b;
-  outline-offset: 3px;
+  @include mixins.dark-cta;
 }
 
 .offerButton span {
@@ -467,6 +462,26 @@
   font-size: 0.73rem;
 
   color: var(--neutral-on-background-medium);
+}
+
+.secondaryOffer:visited {
+  color: var(--neutral-on-background-medium);
+}
+
+.secondaryOffer:focus-visible {
+  @include mixins.focus-ring;
+}
+
+@include mixins.hover-fine {
+  .secondaryOffer:hover {
+    color: var(--neutral-on-background-strong);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+}
+
+.secondaryOffer:active {
+  color: var(--neutral-on-background-strong);
 }
 
 .secondaryOffer + .secondaryOffer {

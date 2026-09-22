@@ -1,6 +1,6 @@
-import type { ReadingEdition, ReadingWork } from "./readingSchema";
+import type { ReadingEdition, ReadingOffer, ReadingWork } from "./readingSchema";
 
-const checked = "2026-08-24";
+const checked = "2026-09-22";
 const authorId = "person_byung_chul_han";
 const vozesCatalog = "https://www.vozes.com.br/autor/133/byung-chul-han";
 const vozesOverview = "https://vozes.com.br/blog/conheca-as-obras-de-byung-chul-han";
@@ -9,7 +9,7 @@ type WorkInput = {
   id: string;
   slug: string;
   originalTitle: string;
-  titleBr: string;
+  titleBr?: string;
   year: string;
   themes: string[];
   description: string;
@@ -62,7 +62,23 @@ const philosophyWork = ({
   updatedAt: checked,
 });
 
+const burnoutSociety: ReadingWork = {
+  ...philosophyWork({
+    id: "read_work_burnout_society",
+    slug: "sociedade-do-cansaco",
+    originalTitle: "Müdigkeitsgesellschaft",
+    titleBr: "Sociedade do Cansaço",
+    year: "2010",
+    themes: ["Desempenho", "Autoexploração", "Cansaço", "Atenção"],
+    description: "Han interpreta o excesso de desempenho, estímulo e positividade como mecanismos de autoexploração e esgotamento na sociedade contemporânea.",
+    audience: "Entrada curta para leitores que querem discutir desempenho, autoexploração e cansaço sem tratar o ensaio como diagnóstico clínico.",
+    sourceUrl: "https://www.sup.org/books/theory-and-philosophy/burnout-society",
+  }),
+  relatedWorks: [],
+};
+
 export const byungChulHanWorks: ReadingWork[] = [
+  burnoutSociety,
   philosophyWork({
     id: "read_work_psychopolitics",
     slug: "psicopolitica",
@@ -217,6 +233,176 @@ export const byungChulHanWorks: ReadingWork[] = [
     audience: "Para quem quer estudar repetição, comunidade e tempo sem tomar o diagnóstico do livro como simples nostalgia.",
     sourceUrl: "https://www.ullstein.de/werke/vom-verschwinden-der-rituale/hardcover/9783550050718",
   }),
+  philosophyWork({
+    id: "read_work_palliative_society",
+    slug: "sociedade-paliativa",
+    originalTitle: "Palliativgesellschaft: Schmerz heute",
+    titleBr: "Sociedade Paliativa: a dor hoje",
+    year: "2020",
+    themes: ["Dor", "Positividade", "Cultura digital", "Sofrimento"],
+    description: "O ensaio examina uma cultura que procura neutralizar dor, conflito e negatividade, relacionando essa recusa a consumo, desempenho e comunicação digital.",
+    audience: "Para leitores interessados em como Han relaciona dor, positividade e cultura do desempenho; é uma continuação direta de seus diagnósticos sociais breves.",
+    sourceUrl: "https://www.matthes-seitz-berlin.de/buch/palliativgesellschaft.html",
+  }),
+  philosophyWork({
+    id: "read_work_what_is_power",
+    slug: "o-que-e-poder",
+    originalTitle: "Was ist Macht?",
+    titleBr: "O que é Poder?",
+    year: "2005",
+    themes: ["Poder", "Liberdade", "Violência", "Comunicação"],
+    description: "Han investiga o poder para além da identificação imediata com coerção, examinando suas formas de relação, mediação e transformação.",
+    audience: "Para quem busca um livro mais conceitual sobre poder e suas diferenças em relação a violência, direito, liberdade e comunicação.",
+    sourceUrl: "https://www.matthes-seitz-berlin.de/autor/byung-chul-han.html",
+  }),
+  philosophyWork({
+    id: "read_work_hyperculturality",
+    slug: "hiperculturalidade",
+    originalTitle: "Hyperkulturalität: Kultur und Globalisierung",
+    titleBr: "Hiperculturalidade: cultura e globalização",
+    year: "2005",
+    themes: ["Globalização", "Cultura", "Diferença", "Hibridização"],
+    description: "O livro discute circulação cultural e globalização sem reduzi-las à simples homogeneização, examinando diferença, tradução e formas híbridas de vida cultural.",
+    audience: "Para leitores interessados em globalização, circulação cultural e crítica a ideias fixas de identidade e autenticidade.",
+    sourceUrl: "https://www.vozes.com.br/blog/conheca-as-obras-de-byung-chul-han",
+  }),
+  philosophyWork({
+    id: "read_work_death_otherness",
+    slug: "morte-e-alteridade",
+    originalTitle: "Tod und Alterität",
+    titleBr: "Morte e Alteridade",
+    year: "2002",
+    themes: ["Morte", "Alteridade", "Finitude", "Fenomenologia"],
+    description: "A partir de interlocutores da filosofia e da literatura, Han relaciona finitude, identidade e encontro com o outro em uma investigação sobre modos de encarar a morte.",
+    audience: "Leitores dispostos a uma obra mais extensa e acadêmica, voltada a finitude, identidade e alteridade em diálogo com a tradição filosófica.",
+    sourceUrl: "https://www.vozes.com.br/blog/conheca-as-obras-de-byung-chul-han",
+  }),
+  philosophyWork({
+    id: "read_work_saving_beautiful",
+    slug: "a-salvacao-do-belo",
+    originalTitle: "Die Rettung des Schönen",
+    titleBr: "A Salvação do Belo",
+    year: "2015",
+    themes: ["Beleza", "Estética", "Consumo", "Alteridade"],
+    description: "Han contrapõe uma experiência do belo ligada a distância e negatividade a formas de estetização orientadas por transparência, polimento e consumo.",
+    audience: "Para leitores que querem aproximar estética, consumo e alteridade, sem esperar uma introdução geral à história da arte.",
+    sourceUrl: "https://www.vozes.com.br/blog/conheca-as-obras-de-byung-chul-han",
+  }),
+  philosophyWork({
+    id: "read_work_zen_buddhism_philosophy",
+    slug: "filosofia-do-zen-budismo",
+    originalTitle: "Philosophie des Zen-Buddhismus",
+    titleBr: "Filosofia do Zen-Budismo",
+    year: "2002",
+    themes: ["Zen-budismo", "Meditação", "Filosofia comparada", "Vazio"],
+    description: "Um estudo comparativo coloca formulações do zen-budismo em diálogo com filósofos europeus para investigar linguagem, negatividade, vazio e experiência.",
+    audience: "Para quem já tem interesse em filosofia comparada e zen-budismo; não funciona como manual introdutório de prática meditativa.",
+    sourceUrl: "https://www.vozes.com.br/blog/conheca-as-obras-de-byung-chul-han",
+  }),
+  philosophyWork({
+    id: "read_work_good_entertainment",
+    slug: "bom-entretenimento",
+    originalTitle: "Gute Unterhaltung: Eine Dekonstruktion der abendländischen Passionsgeschichte",
+    titleBr: "Bom Entretenimento",
+    year: "2017",
+    themes: ["Entretenimento", "Paixão", "Mídia", "Cultura"],
+    description: "O ensaio investiga como o entretenimento passa a organizar a experiência social e cultural, aproximando mídia, paixão, realidade e formas de percepção.",
+    audience: "Para leitores interessados em mídia e cultura que querem um ensaio filosófico, não uma história industrial do entretenimento.",
+    sourceUrl: "https://www.matthes-seitz-berlin.de/buch/gute-unterhaltung.html",
+  }),
+  philosophyWork({
+    id: "read_work_praise_earth",
+    slug: "louvor-a-terra",
+    originalTitle: "Lob der Erde: Eine Reise in den Garten",
+    titleBr: "Louvor à Terra: uma viagem ao jardim",
+    year: "2018",
+    themes: ["Jardim", "Natureza", "Tempo", "Contemplação"],
+    description: "A experiência de cultivar um jardim orienta uma reflexão sobre terra, tempo, atenção e uma relação menos instrumental com a natureza.",
+    audience: "Para leitores interessados na dimensão contemplativa e ecológica de Han, em um livro mais próximo de uma meditação ensaística do que de teoria política.",
+    sourceUrl: "https://www.vozes.com.br/blog/lancamentos-26-01",
+  }),
+  philosophyWork({
+    id: "read_work_hegel_power",
+    slug: "hegel-e-o-poder",
+    originalTitle: "Hegel und die Macht: Ein Versuch über die Freundlichkeit",
+    titleBr: "Hegel e o Poder: um ensaio sobre a amabilidade",
+    year: "2005",
+    themes: ["Hegel", "Poder", "Amabilidade", "Filosofia alemã"],
+    description: "Han lê a filosofia de Hegel pelo problema do poder, tratando-o como dimensão interna do sistema e examinando seus alcances e limites.",
+    audience: "Para leitores com alguma familiaridade com Hegel ou com disposição para uma leitura filosófica mais especializada sobre poder.",
+    sourceUrl: "https://www.vozes.com.br/blog/hegel-e-o-poder",
+  }),
+  philosophyWork({
+    id: "read_work_shanzhai",
+    slug: "shanzhai",
+    originalTitle: "Shanzhai: Dekonstruktion auf Chinesisch",
+    titleBr: "Shanzhai",
+    year: "2011",
+    themes: ["Originalidade", "Cópia", "Criação", "China"],
+    description: "Partindo do termo chinês shanzhai, Han questiona noções ocidentais de original, cópia e criação e propõe outra leitura de transformação e continuidade.",
+    audience: "Para leitores interessados em originalidade, cópia, criação e diferenças culturais sem reduzir o conceito a falsificação comercial.",
+    sourceUrl: "https://www.vozes.com.br/blog/conheca-as-obras-de-byung-chul-han",
+  }),
+  philosophyWork({
+    id: "read_work_heidegger_heart",
+    slug: "heideggers-herz",
+    originalTitle: "Heideggers Herz: Zum Begriff der Stimmung bei Martin Heidegger",
+    year: "1996",
+    themes: ["Heidegger", "Stimmung", "Fenomenologia", "Afetividade"],
+    description: "Estudo acadêmico sobre o conceito de Stimmung em Martin Heidegger e suas implicações para a compreensão filosófica da disposição afetiva.",
+    audience: "Para leitores com interesse acadêmico em Heidegger e fenomenologia; não há tradução brasileira confirmada neste cadastro.",
+    sourceUrl: "https://www.matthes-seitz-berlin.de/autor/byung-chul-han.html",
+  }),
+  philosophyWork({
+    id: "read_work_types_of_death",
+    slug: "todesarten",
+    originalTitle: "Todesarten: Philosophische Untersuchungen zum Tod",
+    year: "1998",
+    themes: ["Morte", "Finitude", "Filosofia", "Fenomenologia"],
+    description: "Investigação filosófica anterior de Han sobre formas de compreender a morte e a finitude, em diálogo com a tradição continental.",
+    audience: "Para pesquisa acadêmica sobre os primeiros trabalhos de Han; não há tradução brasileira confirmada neste cadastro.",
+    sourceUrl: "https://www.matthes-seitz-berlin.de/autor/byung-chul-han.html",
+  }),
+  philosophyWork({
+    id: "read_work_digital_rationality",
+    slug: "digitale-rationalitat",
+    originalTitle: "Digitale Rationalität und das Ende des kommunikativen Handelns",
+    year: "2013",
+    themes: ["Racionalidade digital", "Comunicação", "Tecnologia", "Esfera pública"],
+    description: "O livro examina efeitos da racionalidade digital sobre comunicação e ação, situando a discussão ao lado dos diagnósticos de Han sobre mídia e sociedade.",
+    audience: "Para leitores que já conhecem No Enxame e desejam uma formulação mais especializada sobre comunicação e digitalização.",
+    sourceUrl: "https://www.matthes-seitz-berlin.de/autor/byung-chul-han.html",
+  }),
+  philosophyWork({
+    id: "read_work_drone_war_ethics",
+    slug: "die-ethik-des-drohnenkriegs",
+    originalTitle: "Die Ethik des Drohnenkriegs",
+    year: "2013",
+    themes: ["Guerra", "Tecnologia", "Ética", "Violência"],
+    description: "Ensaio sobre as consequências éticas e políticas da guerra por drones, abordando distância, técnica e transformação das formas de violência.",
+    audience: "Para leitores interessados em ética da tecnologia e violência contemporânea; não há tradução brasileira confirmada neste cadastro.",
+    sourceUrl: "https://www.matthes-seitz-berlin.de/autor/byung-chul-han.html",
+  }),
+  philosophyWork({
+    id: "read_work_speaking_about_god",
+    slug: "sprechen-uber-gott",
+    originalTitle: "Sprechen über Gott: Ein Dialog mit Simone Weil",
+    year: "2025",
+    themes: ["Deus", "Simone Weil", "Diálogo", "Filosofia da religião"],
+    description: "Han aproxima Simone Weil para refletir sobre Deus, revelação e a crise de experiências que escapam à lógica da disponibilidade e da informação.",
+    audience: "Para leitores interessados na relação entre Han, Simone Weil e filosofia da religião; não há tradução brasileira confirmada neste cadastro.",
+    sourceUrl: "https://www.matthes-seitz-berlin.de/autor/byung-chul-han.html",
+  }),
+  philosophyWork({
+    id: "read_work_without_respect",
+    slug: "ohne-respekt",
+    originalTitle: "Ohne Respekt: Eine soziale Krise",
+    year: "2026",
+    themes: ["Respeito", "Civilidade", "Crise social", "Convivência"],
+    description: "Ensaio recente sobre respeito e formas de convivência social, apresentado pelo editor alemão como uma reflexão sobre uma crise de relação pública.",
+    audience: "Para acompanhar a bibliografia recente do autor em alemão; não há tradução brasileira confirmada neste cadastro.",
+    sourceUrl: "https://www.matthes-seitz-berlin.de/autor/byung-chul-han.html",
+  }),
 ];
 
 const edition = (
@@ -242,6 +428,11 @@ const edition = (
 });
 
 export const byungChulHanEditions: ReadingEdition[] = [
+  {
+    ...edition("read_edition_burnout_society_vozes", "read_work_burnout_society", "Sociedade do Cansaço", { isbn13: "9788532650832" }),
+    isbn10: "853265083X", publicationDate: "2015-11-26", pageCount: 80,
+    sources: [{ title: "Sociedade do Cansaço — Google Books", url: "https://books.google.com/books/about/Sociedade_do_cansa%C3%A7o.html?id=IYWZCgAAQBAJ" }],
+  },
   {
     ...edition("read_edition_psychopolitics_vozes", "read_work_psychopolitics", "Psicopolítica"),
     publisherId: "org_ayine",
@@ -280,4 +471,26 @@ export const byungChulHanEditions: ReadingEdition[] = [
   },
   edition("read_edition_close_eyes_vozes", "read_work_close_eyes", "Favor Fechar os Olhos"),
   edition("read_edition_disappearance_rituals_vozes", "read_work_disappearance_rituals", "O Desaparecimento dos Rituais"),
+  {
+    ...edition("read_edition_palliative_society_vozes", "read_work_palliative_society", "Sociedade Paliativa: a dor hoje", { isbn13: "9786557130025" }),
+    publicationDate: "2021-01-01", pageCount: 120,
+    sources: [{ title: "Sociedade paliativa: a dor hoje — Biblioteca Nacional", url: "https://acervo.bn.gov.br/Sophia_web/acervo/detalhe/1787631" }],
+  },
+  edition("read_edition_what_is_power_vozes", "read_work_what_is_power", "O que é Poder?", { isbn13: "9788532660039" }),
+  edition("read_edition_hyperculturality_vozes", "read_work_hyperculturality", "Hiperculturalidade: cultura e globalização", { isbn13: "9788532661081" }),
+  {
+    ...edition("read_edition_death_otherness_vozes", "read_work_death_otherness", "Morte e Alteridade", { isbn13: "9788532664365" }),
+    publicationDate: "2020-07-01", pageCount: 416,
+    sources: [{ title: "Morte e alteridade — Travessa", url: "https://www.travessa.com.br/ProdutoAmp.aspx?CodArtigo=7f0c3996-e756-4ca3-85a5-50deccfe32a8" }],
+  },
+  edition("read_edition_saving_beautiful_vozes", "read_work_saving_beautiful", "A Salvação do Belo"),
+  edition("read_edition_zen_buddhism_vozes", "read_work_zen_buddhism_philosophy", "Filosofia do Zen-Budismo"),
+  edition("read_edition_good_entertainment_vozes", "read_work_good_entertainment", "Bom Entretenimento"),
+  edition("read_edition_praise_earth_vozes", "read_work_praise_earth", "Louvor à Terra: uma viagem ao jardim"),
+  edition("read_edition_hegel_power_vozes", "read_work_hegel_power", "Hegel e o Poder: um ensaio sobre a amabilidade"),
+  edition("read_edition_shanzhai_vozes", "read_work_shanzhai", "Shanzhai"),
 ];
+
+// Nenhum ASIN foi inferido: as ofertas aguardam confirmação direta de que a
+// página Amazon Brasil corresponde à edição cadastrada.
+export const byungChulHanOffers: ReadingOffer[] = [];

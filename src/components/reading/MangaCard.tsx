@@ -28,7 +28,7 @@ export function MangaCard({ workId, comment, variant = "editorial" }: { workId: 
       {authors.length ? <p className={styles.authors}>{authors.join(" · ")}</p> : null}
       <div className={styles.meta}>{publication ? <span>{publication}</span> : null}{work.genres.slice(0, 2).map((genre) => <span key={genre}>{genre}</span>)}</div>
       {comment ? <p className={styles.comment}>{comment}</p> : null}
-      {offers.length ? <div className={styles.offers} aria-label="Opções desta edição"><strong>Ler ou comprar</strong>{offers.map((offer) => <a key={offer.id} href={offer.url} rel="sponsored nofollow">{offer.store}</a>)}</div> : null}
+      {offers.length ? <div className={styles.offers} aria-label="Opções desta edição"><strong>Edição disponível</strong>{offers.map((offer) => <a key={offer.id} href={offer.url} target="_blank" rel={offer.affiliateProgram ? "sponsored nofollow noreferrer" : "nofollow noreferrer"}>Ver na {offer.store}</a>)}</div> : null}
     </div>
   </article>;
 }

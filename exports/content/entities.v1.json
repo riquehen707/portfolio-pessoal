@@ -926,26 +926,45 @@
       "name": "Shingo Tamagawa",
       "kind": "person",
       "status": "published",
-      "profilePath": "/criadores/shingo-tamagawa",
-      "image": {
-        "src": "/images/personalities/shingo-tamagawa.webp",
-        "alt": "Shingo Tamagawa em retrato produzido para o projeto Creators Zone de 2022",
-        "credit": "Mitsui Fudosan 80th Anniversary Future Special Zone Project",
-        "sourceUrl": "https://www.mindcreators.jp/creatorzone2022/shingotamagawa.html",
-        "license": "Uso editorial; permissão para reutilização independente pendente"
-      },
+      "profilePath": "/personalidades/shingo-tamagawa",
       "birthYear": 1987,
       "birthPlace": "Nara, Japão",
-      "occupations": [],
+      "countryOrRegion": "Japão",
+      "occupations": [
+        "Animador",
+        "Diretor"
+      ],
       "summary": "Animador e realizador japonês, autor do curta independente Puparia.",
-      "biography": [],
-      "themes": [],
-      "ideas": [],
+      "biography": [
+        "Shingo Tamagawa é um animador e realizador japonês. A biografia submetida por ele ao FilmFreeway registra seu nascimento em Nara, em 1987. O documentário da Archipel situa sua experiência na indústria de animação como contexto para a decisão de dedicar três anos a Puparia.",
+        "O acervo não transforma créditos dispersos em uma filmografia extensa. Sem documentação primária suficiente para distinguir participação profissional, colaboração e autoria, eles permanecem fora do cadastro."
+      ],
+      "themes": [
+        "Animação independente",
+        "Processo de criação",
+        "Autoria",
+        "Trabalho na animação"
+      ],
+      "ideas": [
+        {
+          "title": "Concentrar autoria muda a escala do trabalho",
+          "description": "A preparação de Puparia tomou aproximadamente um ano e a produção, dois. O projeto reúne inquietações de Tamagawa sobre criação e trabalho comercial, sem autorizar uma leitura autobiográfica fechada do filme."
+        },
+        {
+          "title": "A interpretação permanece com quem assiste",
+          "description": "Na declaração publicada com Puparia, Tamagawa evita fixar uma história única: as cenas têm sentido, mas a leitura fica aberta ao público."
+        }
+      ],
       "workIds": [
         "work_puparia_2020",
         "work_archipel_making_puparia_2021"
       ],
-      "startingPoints": [],
+      "startingPoints": [
+        {
+          "workId": "work_puparia_2020",
+          "note": "O curta é a entrada adequada: veja a obra antes de buscar uma interpretação ou um relato do processo."
+        }
+      ],
       "relatedPersonIds": [],
       "relatedLinks": [],
       "sources": [
@@ -7411,7 +7430,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -7438,7 +7457,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -7465,7 +7484,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -7492,7 +7511,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -7519,7 +7538,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -7546,7 +7565,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -7573,7 +7592,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -7600,7 +7619,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -7627,7 +7646,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -7654,7 +7673,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -7681,7 +7700,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -7708,7 +7727,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -7735,7 +7754,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -7762,7 +7781,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -7789,7 +7808,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -7816,7 +7835,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -7843,7 +7862,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -7870,7 +7889,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -7897,7 +7916,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -7924,7 +7943,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -7951,7 +7970,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -7978,7 +7997,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -8005,7 +8024,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -8032,7 +8051,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -8059,7 +8078,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -8086,7 +8105,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -8113,7 +8132,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -8140,7 +8159,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -8167,7 +8186,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -8194,7 +8213,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -8221,7 +8240,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -8248,7 +8267,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -8275,7 +8294,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -8302,7 +8321,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -8329,7 +8348,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -8356,7 +8375,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -8383,7 +8402,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -8410,7 +8429,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -8437,7 +8456,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -8464,7 +8483,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -8491,7 +8510,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -8518,7 +8537,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -8545,7 +8564,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -8572,7 +8591,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -8599,7 +8618,7 @@
       "occupations": [
         "Autor"
       ],
-      "summary": "Autor relacionado ao acervo introdutório de formação intelectual, economia ou psicologia.",
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
       "biography": [],
       "themes": [],
       "ideas": [],
@@ -8611,6 +8630,60 @@
         {
           "title": "Elliot Aronson — busca bibliográfica",
           "url": "https://openlibrary.org/search/authors?q=Elliot%20Aronson",
+          "kind": "secondary"
+        }
+      ],
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "person_clarice_lispector",
+      "slug": "clarice-lispector",
+      "name": "Clarice Lispector",
+      "kind": "person",
+      "status": "draft",
+      "occupations": [
+        "Autor"
+      ],
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
+      "biography": [],
+      "themes": [],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "Clarice Lispector — busca bibliográfica",
+          "url": "https://openlibrary.org/search/authors?q=Clarice%20Lispector",
+          "kind": "secondary"
+        }
+      ],
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "id": "person_graciliano_ramos",
+      "slug": "graciliano-ramos",
+      "name": "Graciliano Ramos",
+      "kind": "person",
+      "status": "draft",
+      "occupations": [
+        "Autor"
+      ],
+      "summary": "Autor relacionado ao acervo de livros, formação intelectual, economia ou psicologia.",
+      "biography": [],
+      "themes": [],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "Graciliano Ramos — busca bibliográfica",
+          "url": "https://openlibrary.org/search/authors?q=Graciliano%20Ramos",
           "kind": "secondary"
         }
       ],
@@ -11030,6 +11103,398 @@
         {
           "title": "Rebecca Yarros — página oficial da obra",
           "url": "https://www.entangledpublishing.com/books/fourth-wing",
+          "kind": "primary"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "person_h_g_wells",
+      "slug": "h-g-wells",
+      "name": "H. G. Wells",
+      "kind": "person",
+      "status": "published",
+      "countryOrRegion": "Reino Unido",
+      "occupations": [
+        "Autoria de ficção científica"
+      ],
+      "summary": "Escritor inglês cuja ficção científica antecipou formas modernas de especulação social, tecnológica e temporal.",
+      "biography": [],
+      "themes": [],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "H. G. Wells — fonte editorial",
+          "url": "https://www.britannica.com/biography/H-G-Wells",
+          "kind": "primary"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "person_isaac_asimov",
+      "slug": "isaac-asimov",
+      "name": "Isaac Asimov",
+      "kind": "person",
+      "status": "published",
+      "countryOrRegion": "Rússia / Estados Unidos",
+      "occupations": [
+        "Autoria de ficção científica"
+      ],
+      "summary": "Escritor e divulgador científico cuja obra articulou robôs, impérios galácticos e modelos de previsão histórica.",
+      "biography": [],
+      "themes": [],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "Isaac Asimov — fonte editorial",
+          "url": "https://aleph.com.br/products/fundacao",
+          "kind": "primary"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "person_arthur_c_clarke",
+      "slug": "arthur-c-clarke",
+      "name": "Arthur C. Clarke",
+      "kind": "person",
+      "status": "published",
+      "countryOrRegion": "Reino Unido / Sri Lanka",
+      "occupations": [
+        "Autoria de ficção científica"
+      ],
+      "summary": "Escritor britânico de ficção científica interessado em exploração espacial, tecnologia e escalas cósmicas.",
+      "biography": [],
+      "themes": [],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "Arthur C. Clarke — fonte editorial",
+          "url": "https://www.britannica.com/biography/Arthur-C-Clarke",
+          "kind": "primary"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "person_philip_k_dick",
+      "slug": "philip-k-dick",
+      "name": "Philip K. Dick",
+      "kind": "person",
+      "status": "published",
+      "countryOrRegion": "Estados Unidos",
+      "occupations": [
+        "Autoria de ficção científica"
+      ],
+      "summary": "Escritor norte-americano que investigou identidade, realidade mediada e poder corporativo em futuros instáveis.",
+      "biography": [],
+      "themes": [],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "Philip K. Dick — fonte editorial",
+          "url": "https://www.britannica.com/biography/Philip-K-Dick",
+          "kind": "primary"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "person_stanislaw_lem",
+      "slug": "stanislaw-lem",
+      "name": "Stanisław Lem",
+      "kind": "person",
+      "status": "published",
+      "countryOrRegion": "Polônia",
+      "occupations": [
+        "Autoria de ficção científica"
+      ],
+      "summary": "Escritor polonês de ficção científica conhecido por confrontar ciência humana, linguagem e formas de inteligência incomensuráveis.",
+      "biography": [],
+      "themes": [],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "Stanisław Lem — fonte editorial",
+          "url": "https://aleph.com.br/products/solaris",
+          "kind": "primary"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "person_ursula_k_le_guin",
+      "slug": "ursula-k-le-guin",
+      "name": "Ursula K. Le Guin",
+      "kind": "person",
+      "status": "published",
+      "countryOrRegion": "Estados Unidos",
+      "occupations": [
+        "Autoria de ficção científica"
+      ],
+      "summary": "Escritora norte-americana cuja ficção especulativa aproximou antropologia, política, gênero e imaginação social.",
+      "biography": [],
+      "themes": [],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "Ursula K. Le Guin — fonte editorial",
+          "url": "https://aleph.com.br/products/a-mao-esquerda-da-escuridao",
+          "kind": "primary"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "person_frank_herbert",
+      "slug": "frank-herbert",
+      "name": "Frank Herbert",
+      "kind": "person",
+      "status": "published",
+      "countryOrRegion": "Estados Unidos",
+      "occupations": [
+        "Autoria de ficção científica"
+      ],
+      "summary": "Escritor norte-americano cuja obra combinou ecologia, religião, poder e escala planetária.",
+      "biography": [],
+      "themes": [],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "Frank Herbert — fonte editorial",
+          "url": "https://aleph.com.br/products/duna-1",
+          "kind": "primary"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "person_margaret_atwood",
+      "slug": "margaret-atwood",
+      "name": "Margaret Atwood",
+      "kind": "person",
+      "status": "published",
+      "countryOrRegion": "Canadá",
+      "occupations": [
+        "Autoria de ficção científica"
+      ],
+      "summary": "Escritora canadense que usa futuros próximos e regimes autoritários para examinar corpo, linguagem e poder.",
+      "biography": [],
+      "themes": [],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "Margaret Atwood — fonte editorial",
+          "url": "https://www.penguinrandomhouse.com/books/61256/the-handmaids-tale-by-margaret-atwood/",
+          "kind": "primary"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "person_kazuo_ishiguro",
+      "slug": "kazuo-ishiguro",
+      "name": "Kazuo Ishiguro",
+      "kind": "person",
+      "status": "published",
+      "countryOrRegion": "Reino Unido",
+      "occupations": [
+        "Autoria de ficção científica"
+      ],
+      "summary": "Escritor britânico cuja ficção explora memória, cuidado e as consequências íntimas da biotecnologia.",
+      "biography": [],
+      "themes": [],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "Kazuo Ishiguro — fonte editorial",
+          "url": "https://www.faber.co.uk/product/9780571258093-never-let-me-go/",
+          "kind": "primary"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "person_ted_chiang",
+      "slug": "ted-chiang",
+      "name": "Ted Chiang",
+      "kind": "person",
+      "status": "published",
+      "countryOrRegion": "Estados Unidos",
+      "occupations": [
+        "Autoria de ficção científica"
+      ],
+      "summary": "Contista norte-americano conhecido por narrativas rigorosas sobre linguagem, tempo, inteligência e responsabilidade técnica.",
+      "biography": [],
+      "themes": [],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "Ted Chiang — fonte editorial",
+          "url": "https://www.penguinrandomhouse.com/books/549738/stories-of-your-life-and-others-by-ted-chiang/",
+          "kind": "primary"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "person_samuel_r_delany",
+      "slug": "samuel-r-delany",
+      "name": "Samuel R. Delany",
+      "kind": "person",
+      "status": "published",
+      "countryOrRegion": "Estados Unidos",
+      "occupations": [
+        "Autoria de ficção científica"
+      ],
+      "summary": "Escritor e crítico norte-americano cuja obra renovou a space opera por meio de linguagem, sexualidade e classe.",
+      "biography": [],
+      "themes": [],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "Samuel R. Delany — fonte editorial",
+          "url": "https://aleph.com.br/products/nova",
+          "kind": "primary"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "person_suzette_haden_elgin",
+      "slug": "suzette-haden-elgin",
+      "name": "Suzette Haden Elgin",
+      "kind": "person",
+      "status": "published",
+      "countryOrRegion": "Estados Unidos",
+      "occupations": [
+        "Autoria de ficção científica"
+      ],
+      "summary": "Linguista e escritora norte-americana que fez da linguagem uma ferramenta central de ficção científica feminista.",
+      "biography": [],
+      "themes": [],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "Suzette Haden Elgin — fonte editorial",
+          "url": "https://aleph.com.br/products/lingua-nativa",
+          "kind": "primary"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "person_thea_von_harbou",
+      "slug": "thea-von-harbou",
+      "name": "Thea von Harbou",
+      "kind": "person",
+      "status": "published",
+      "countryOrRegion": "Alemanha",
+      "occupations": [
+        "Autoria de ficção científica"
+      ],
+      "summary": "Escritora e roteirista alemã, autora do romance que acompanha e amplia o universo de Metrópolis.",
+      "biography": [],
+      "themes": [],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "Thea von Harbou — fonte editorial",
+          "url": "https://aleph.com.br/products/metropolis",
+          "kind": "primary"
+        }
+      ],
+      "createdAt": "2026-08-24",
+      "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "person_joanna_russ",
+      "slug": "joanna-russ",
+      "name": "Joanna Russ",
+      "kind": "person",
+      "status": "published",
+      "countryOrRegion": "Estados Unidos",
+      "occupations": [
+        "Autoria de ficção científica"
+      ],
+      "summary": "Escritora e crítica norte-americana de ficção científica feminista.",
+      "biography": [],
+      "themes": [],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "Joanna Russ — fonte editorial",
+          "url": "https://www.penguinrandomhouse.com/books/65717/the-female-man-by-joanna-russ/",
           "kind": "primary"
         }
       ],

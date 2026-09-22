@@ -210,15 +210,15 @@ Para estúdios de animação, aplique o [modelo editorial especializado](../edit
 - **SEO e publicação:** apenas obras `published` possuem páginas públicas e entram no sitemap. O build pré-renderiza um lote determinístico das 24 fichas mais recentemente atualizadas de cada biblioteca; as demais são renderizadas no primeiro acesso e armazenadas por 24 horas. Índices e fichas possuem metadata, canonical, breadcrumbs e JSON-LD `CollectionPage`/`Book`; registros `draft` permanecem fora das rotas públicas.
 - **Variações:** cards compactos ou editoriais, com fallback quando faltarem capa, edição brasileira ou oferta.
 
-### Acervo e página de produto
+### Loja curada e página de produto
 
-- **Rotas preparadas:** `/produtos` e `/produtos/[slug]`. O índice permanece fora da configuração global e recebe `noindex` enquanto não houver produtos publicados.
+- **Rotas:** `/produtos` e `/produtos/[slug]`. `/produtos` é a vitrine pública do acervo: reúne todos os produtos publicados, busca textual, filtro pela categoria editorial registrada e filtro por oferta afiliada disponível. Ela preserva a ficha individual como local de comparação aprofundada.
 - **Dados:** `ProductCatalogSchema`, registros em `src/content/products/` e fachada em `src/data/products/`.
 - **Entidades:** `Product` guarda o modelo editorial estável; `ProductVariant` guarda a versão exata e especificações; `ProductOffer` guarda loja, URL, ASIN quando a oferta é da Amazon Brasil, afiliação, disponibilidade, preço observado e data.
 - **Relações:** fabricante aponta para `Organization`; produtos relacionados usam IDs permanentes; artigos usam slugs e `ProductCard` resolve o produto por ID.
-- **Componentes:** `ProductCard` para MDX, `ProductListCard`, `ProductOffers` e `ProductJsonLd`. O card exige análise específica da recomendação e não permite que o artigo replique a ficha central.
+- **Componentes:** `ProductStore` compõe a vitrine; `ProductCard` e `ProductListCard` atendem artigos e comparações; `ProductOffers` e `ProductJsonLd` atendem a ficha. O card editorial exige análise específica da recomendação e não permite que o artigo replique a ficha central.
 - **SEO e publicação:** somente produtos `published`, com imagem verificada e data de publicação, geram páginas individuais. A entrada no sitemap, busca e navegação deve ocorrer apenas com o primeiro lote editorial completo.
-- **Imagens e comércio:** imagens locais em `/images/products/` carregam fonte, crédito, direitos e variante quando aplicável. Preço e estoque nunca pertencem ao produto permanente. Ofertas da Amazon Brasil usam `amazonBrazilOffer`, que gera a URL canônica com `riquehen-20`; o ASIN continua sujeito a confirmação editorial da variante exata.
+- **Imagens e comércio:** imagens locais em `/images/products/` carregam fonte, crédito, direitos e variante quando aplicável. Preço e estoque nunca pertencem ao produto permanente. A vitrine só expõe CTA de compra quando há oferta afiliada ativa e confirmada; ofertas afiliadas têm prioridade na ficha. Ofertas da Amazon Brasil usam `amazonBrazilOffer`, que gera a URL canônica com `riquehen-20`; o ASIN continua sujeito a confirmação editorial da variante exata. Leituras usam o mesmo contrato por `amazonBrazilReadingOffer`.
 
 ### Páginas institucionais, comerciais, demonstrações e projetos
 

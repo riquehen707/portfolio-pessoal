@@ -97,7 +97,16 @@ export const ReadingEditionSchema = z.object({
 
 export const ReadingOfferSchema = z.object({
   id: z.string().regex(/^read_offer_[a-z0-9_]+$/), editionId: z.string().regex(/^read_edition_[a-z0-9_]+$/), store: z.string().min(1), url: z.string().url(), region: z.string().min(2),
-  affiliateId: z.string().optional(), availability: z.enum(["available", "preorder", "unavailable", "unknown"]), checkedAt: z.string().regex(isoDate), commissionDisclosure: z.string().min(1).optional(),
+  affiliateProgram: z.string().min(1).optional(), affiliateId: z.string().optional(), asin: z.string().regex(/^[A-Z0-9]{10}$/).optional(), availability: z.enum(["available", "preorder", "unavailable", "unknown"]), checkedAt: z.string().regex(isoDate), commissionDisclosure: z.string().min(1).optional(),
+}).superRefine((offer, ctx) => {
+  if (offer.affiliateId && !offer.affiliateProgram) ctx.addIssue({ code: "custom", path: ["affiliateProgram"], message: "identificador de afiliado exige programa" });
+  if (offer.store === "Amazon Brasil") {
+    if (!offer.asin) ctx.addIssue({ code: "custom", path: ["asin"], message: "oferta da Amazon Brasil exige ASIN confirmado" });
+    if (offer.affiliateProgram !== "Amazon Associados") ctx.addIssue({ code: "custom", path: ["affiliateProgram"], message: "oferta da Amazon Brasil exige o Programa de Associados" });
+    if (offer.affiliateId !== "riquehen-20") ctx.addIssue({ code: "custom", path: ["affiliateId"], message: "oferta da Amazon Brasil exige a tag oficial do projeto" });
+    if (offer.asin && offer.url !== `https://www.amazon.com.br/dp/${offer.asin}?tag=riquehen-20`) ctx.addIssue({ code: "custom", path: ["url"], message: "URL da Amazon Brasil deve ser canônica e gerada pelo ASIN" });
+    if (!offer.commissionDisclosure) ctx.addIssue({ code: "custom", path: ["commissionDisclosure"], message: "oferta afiliada exige aviso de comissão" });
+  }
 });
 
 export type ReadingWork = z.infer<typeof ReadingWorkSchema>;

@@ -22,6 +22,10 @@ const typeLabels: Record<GlobalSearchItemType, string> = {
   idea: "Ideia",
   page: "Página",
   product: "Produto",
+  reading: "Obra",
+  person: "Personalidade",
+  organization: "Estúdio",
+  service: "Serviço",
 };
 
 const typePriority: Record<GlobalSearchItemType, number> = {
@@ -29,6 +33,10 @@ const typePriority: Record<GlobalSearchItemType, number> = {
   idea: 7,
   page: 5,
   product: 7,
+  reading: 9,
+  person: 10,
+  organization: 7,
+  service: 6,
 };
 
 const quickQueries = ["SEO", "landing page", "clientes", "conteúdo", "tráfego", "vender online"];
@@ -60,9 +68,10 @@ function scoreItem(item: GlobalSearchItem, query: string): RankedItem | null {
   const title = normalize(item.title);
   const description = normalize(item.description);
   const label = normalize(item.label);
+  const aliases = normalize(item.aliases.join(" "));
   const keywords = normalize(item.keywords.join(" "));
   const href = normalize(item.href);
-  const haystack = `${title} ${description} ${label} ${keywords} ${href}`;
+  const haystack = `${title} ${description} ${label} ${aliases} ${keywords} ${href}`;
   const matchedTerms = uniqStrings(tokens.filter((token) => haystack.includes(token)));
 
   if (!matchedTerms.length) return null;
@@ -74,6 +83,9 @@ function scoreItem(item: GlobalSearchItem, query: string): RankedItem | null {
   if (title === normalizedQuery) {
     score += 80;
     reason = "Título exato";
+  } else if (aliases.split(" ").includes(normalizedQuery)) {
+    score += 68;
+    reason = "Nome alternativo";
   } else if (title.includes(normalizedQuery)) {
     score += 48;
     reason = "Título";
