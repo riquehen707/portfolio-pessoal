@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
 import { ProductStore } from "@/components/products/ProductStore";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
@@ -46,7 +47,9 @@ export default async function ProductsPage() {
       <section aria-labelledby="catalog-title">
         <h2 id="catalog-title">Todos os itens com oferta</h2>
         {items.length ? (
-          <ProductStore items={items} />
+          <Suspense fallback={<p>Carregando filtros da loja...</p>}>
+            <ProductStore items={items} />
+          </Suspense>
         ) : (
           <p>
             O acervo está estruturado, mas ainda não possui fichas publicadas.
