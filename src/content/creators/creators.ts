@@ -6,6 +6,7 @@ import { systemManhwaCreators } from "./systemManhwaCreators";
 import { overpowerManhwaCreators } from "./overpowerManhwaCreators";
 import { fantasyRomanceAuthors } from "./fantasyRomanceAuthors";
 import { scienceFictionAuthors } from "./scienceFictionAuthors";
+import { readingExpansionCreators } from "./readingExpansionCreators";
 import { darkFantasyAuthors } from "./darkFantasyAuthors";
 import { nonfictionAuthors } from "./nonfictionAuthors";
 
@@ -822,5 +823,5 @@ const humanSciencesAuthors = [
   ["person_martin_seligman","martin-seligman","Martin Seligman",["Psicólogo","Pesquisador"],"Psicólogo associado à psicologia positiva e à pesquisa sobre desamparo aprendido, forças e bem-estar.","https://ppc.sas.upenn.edu/people/martin-ep-seligman"],
 ].map((row)=>({id:row[0] as string,slug:row[1] as string,name:row[2] as string,kind:"person" as const,status:"draft" as const,occupations:row[3] as string[],summary:row[4] as string,biography:[],themes:[],ideas:[],workIds:[],startingPoints:[],relatedPersonIds:[],relatedLinks:[],sources:[{title:`${row[2] as string} — fonte biográfica`,url:row[5] as string,kind:"secondary" as const}],createdAt:"2026-09-04",updatedAt:"2026-09-04"}));
 
-export const creators = [shingoTamagawa, upamanyuBhattacharyya, kalpSanghvi,...teamCherryPeople,...cartoonSaloonPeople,...ghibliPeople,...laikaPeople,...aardmanPeople,...scienceSaruPeople,...kyotoAnimationPeople,...vampireBookAuthors,...nietzschePeople,...jungPeople,...philosophyPeople,...philosophyTranslators,...introductoryPhilosophyAuthors,...nonfictionAuthors,...socialThoughtAuthors,...heideggerFreudPeople,...haremMangaCreators,...actionRomanceComicCreators,...regressionManhwaCreators,...systemManhwaCreators,...overpowerManhwaCreators,...fantasyRomanceAuthors,...scienceFictionAuthors,...darkFantasyAuthors]
+export const creators = [shingoTamagawa, upamanyuBhattacharyya, kalpSanghvi,...teamCherryPeople,...cartoonSaloonPeople,...ghibliPeople,...laikaPeople,...aardmanPeople,...scienceSaruPeople,...kyotoAnimationPeople,...vampireBookAuthors,...nietzschePeople,...jungPeople,...philosophyPeople,...philosophyTranslators,...introductoryPhilosophyAuthors,...nonfictionAuthors,...socialThoughtAuthors,...heideggerFreudPeople,...haremMangaCreators,...actionRomanceComicCreators,...regressionManhwaCreators,...systemManhwaCreators,...overpowerManhwaCreators,...fantasyRomanceAuthors,...scienceFictionAuthors,...darkFantasyAuthors,...readingExpansionCreators]
   .map((creator)=>CreatorSchema.parse({...creator,...(["person_martin_heidegger","person_sigmund_freud"].includes(creator.id)?{workIds:[]}:{}),...creatorVisuals[creator.id]}));

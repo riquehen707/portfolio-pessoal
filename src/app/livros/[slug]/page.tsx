@@ -74,7 +74,7 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
         {curations.length ? <section className={styles.editorialSection}><span className={styles.kicker}>Continue explorando</span><h2>Artigos relacionados</h2><ul className={styles.linkList}>{curations.map(({ curation }) => <li key={curation.id}><Link href={curation.href}>{curation.title}</Link></li>)}</ul></section> : null}
       </div>
       <aside className={styles.sideColumn} aria-label="Informações complementares">
-        {offers.length ? <section><h2>Ler ou comprar</h2><ReadingOffers offers={offers} /></section> : null}
+        {offers.length ? <section><h2>Ler ou comprar</h2><ReadingOffers offers={offers} editions={publishedEditions} /></section> : null}
         {organizations.length ? <section><h2>Editoras e organizações</h2><ul>{organizations.map((organization) => <li key={organization.id}>{organization.status === "published" && organization.profilePath ? <Link href={organization.profilePath}>{organization.name}</Link> : organization.name}</li>)}</ul></section> : null}
         <section><h2>Fontes e créditos</h2><ul>{work.sources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a></li>)}</ul>{displayImage ? <p>Imagem: {displayImage.credit} · direitos: {displayImage.rights}</p> : null}<p>Ficha revisada em {updatedAt}.</p></section>
       </aside>

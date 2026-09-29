@@ -17,6 +17,7 @@ import { psychologyWorks } from "./psychologyBooks";
 import { socialTheoryEditions, socialTheoryWorks } from "./socialTheoryBooks";
 import { brazilianLiteratureEditions, brazilianLiteratureOffers, brazilianLiteratureWorks } from "./brazilianLiteratureBooks";
 import { animeMangaOffers } from "./animeMangaOffers";
+import { curatedReadingExpansionEditions, curatedReadingExpansionWorks } from "./curatedReadingExpansion2026";
 
 const checked = "2026-08-13";
 const nietzscheCover = (slug:string, alt:string, sourceUrl:string, credit:string):ReadingWork["image"] => ({
@@ -40,6 +41,7 @@ const series:ReadingSeries[]=[
 ];
 
 const works:ReadingWork[]=[
+ ...curatedReadingExpansionWorks,
  ...actionRomanceComicWorks,
  ...regressionManhwaWorks,
  ...systemManhwaWorks,
@@ -205,6 +207,7 @@ const internationalEdition = (id:string,volumeId:string,title:string,publisherId
   sources:[{title:`${title} — edição verificada`,url:sourceUrl}],createdAt:checked,updatedAt:checked,...extra,translationCredits:extra.translationCredits??[],
 });
 const editions:ReadingEdition[]=[
+ ...curatedReadingExpansionEditions,
   ...philosophyEditions,
   ...fantasyRomanceEditions,
   ...scienceFictionEditions,

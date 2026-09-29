@@ -588,18 +588,18 @@ test("home comercial apresenta oferta, exemplos, escopo e contato sem sobrecarga
 
   assert.equal($("h1").length, 1);
   assert.equal(
-    $("#service-hub-title").text(),
+    $("#services-hero-title").text(),
     "Seu negócio merece um site à altura.",
   );
-  assert.equal($("section[aria-labelledby='service-hub-title'] a[href='https://wa.me/5511999999999']").length, 1);
-  assert.equal($("section[aria-labelledby='service-hub-title'] a[href='#exemplos']").length, 1);
-  assert.equal($("section[aria-labelledby='service-hub-title'] img").length, 2);
-  assert.equal($("section[aria-labelledby='service-hub-title'] figcaption").text().includes("Direção visual demonstrativa"), true);
-  assert.equal($("section[aria-labelledby='service-hub-title']").text().includes("01 / 07"), true);
+  assert.equal($("section[aria-labelledby='services-hero-title'] a[href='https://wa.me/5511999999999']").length, 1);
+  assert.equal($("section[aria-labelledby='services-hero-title'] a[href='#exemplos']").length, 1);
+  assert.equal($("section[aria-labelledby='services-hero-title'] img").length, 2);
+  assert.equal($("section[aria-labelledby='services-hero-title'] figcaption").text().includes("Exemplo demonstrativo"), true);
+  assert.equal($("section[aria-labelledby='services-hero-title']").text().includes("01 / 07"), true);
   assert.equal($("[role='tab']").length, 0);
   assert.equal($("#recursos").length, 0);
   assert.equal($("#formatos").length, 0);
-  assert.equal($("#examples-title").text(), "Veja como seu site pode ficar.");
+  assert.equal($("#examples-title").text(), "Um site diferente para cada negócio.");
   assert.equal($("#exemplos").text().includes("02 / 07"), true);
   assert.equal($("#exemplos button").length, 6);
   assert.equal($("#exemplos article").length, 4);
@@ -609,18 +609,18 @@ test("home comercial apresenta oferta, exemplos, escopo e contato sem sobrecarga
   assert.equal($(".perception").length, 0);
   assert.equal($("#incluso").text().includes("03 / 07"), true);
   assert.deepEqual($("#incluso ul h3").map((_, item) => $(item).text()).get(), ["Criação e design", "Domínio e hospedagem", "Versão mobile", "SEO técnico", "Manutenção", "Contato integrado"]);
-  assert.equal($("#incluso").text().includes("Tudo isso a partir de R$300/mês."), true);
+  assert.equal($("#incluso").text().includes("A partir de R$300/mês"), true);
   assert.equal($("#incluso a[href='/servicos/capacidades']").length, 1);
   assert.equal($("a[href='/servicos/capacidades']").length, 2);
   assert.equal($("#processo").text().includes("04 / 07"), true);
   assert.deepEqual($("#processo ol h3").map((_, item) => $(item).text()).get(), ["Briefing", "Estrutura", "Criação", "Publicação"]);
-  assert.equal($("#processo a[href='https://wa.me/5511999999999']").text().trim().startsWith("Quero começar"), true);
+  assert.equal($("#processo a[href='https://wa.me/5511999999999']").text().trim().startsWith("Conversar sobre meu site"), true);
   assert.equal($("a[href='/servicos/inspiracoes']").length, 1);
   assert.equal($("a[href='/work']").length, 1);
-  assert.equal($("[data-analytics-event='services_help_click']").length, 6);
-  assert.equal($("[data-analytics-event='services_help_click']").filter((_, item) => $(item).text().trim().startsWith("Quero meu site")).length, 1);
+  assert.equal($("[data-analytics-event='service_contact']").length, 5);
+  assert.equal($("[data-analytics-event='service_contact']").filter((_, item) => $(item).text().trim().startsWith("Quero meu site")).length, 1);
   assert.equal($("[data-analytics-event='services_help_click']").filter((_, item) => $(item).text().trim().startsWith("Falar pelo WhatsApp")).length, 1);
-  assert.equal($("#processo [data-analytics-event='services_help_click']").filter((_, item) => $(item).text().trim().startsWith("Quero começar")).length, 1);
+  assert.equal($("#processo [data-analytics-event='service_contact']").filter((_, item) => $(item).text().trim().startsWith("Conversar sobre meu site")).length, 1);
   assert.equal($("#exemplos a[href='/servicos/exemplos']").text().trim().startsWith("Ver todos os exemplos"), true);
   assert.doesNotMatch($("#exemplos").text(), /projeto realizado|template pronto/i);
   assert.equal($("#exemplos a[href^='/servicos/exemplos/']").length > 0, true);
@@ -632,7 +632,8 @@ test("home comercial apresenta oferta, exemplos, escopo e contato sem sobrecarga
   assert.equal($("#planos article[data-featured='true']").length, 1);
   assert.equal($("section[aria-labelledby='faq-title']").length, 1);
   assert.equal($("#duvidas").text().includes("06 / 07"), true);
-  assert.equal($("#duvidas button[aria-expanded='false']").length, 6);
+  assert.equal($("#duvidas button[aria-expanded='false']").length, 5);
+  assert.equal($("#duvidas button[aria-expanded='true']").length, 1);
   assert.equal($("#contato").text().includes("07 / 07"), true);
   assert.equal($("section[aria-labelledby='process-title']").length, 1);
 });

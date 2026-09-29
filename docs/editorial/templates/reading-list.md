@@ -151,7 +151,7 @@ Não repita “melhores mangás” em todos os itens, não crie FAQs artificiais
 
 ## Monetização
 
-Ofertas devem ser entidades separadas e apontar para a edição ou volume correto. Quando confirmadas, registre produto/edição, loja, URL, afiliado, região, disponibilidade, preço e moeda quando úteis, data de verificação e aviso de comissão. Preço e disponibilidade são instantâneos, não atributos permanentes da edição.
+Ofertas devem ser entidades separadas e apontar para a edição ou volume correto. Quando confirmadas, registre produto/edição, loja, URL, afiliado, região, disponibilidade, `observedPrice` com valor e moeda quando útil, data de verificação e aviso de comissão. Preço e disponibilidade são instantâneos, não atributos permanentes da edição.
 
 Links de loja devem identificar a edição correta. Para ofertas da Amazon Brasil, confirmação de ASIN, tag oficial, formato da URL e divulgação seguem o guia de [recomendações e fichas de produtos](product-recommendation.md#amazon-brasil-e-links-de-afiliado). Não associe capa, ISBN ou preço de um volume à série inteira. A recomendação editorial deve funcionar integralmente sem produto afiliado.
 

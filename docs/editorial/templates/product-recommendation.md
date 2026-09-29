@@ -155,4 +155,4 @@ O componente `ProductOffers` aplica os atributos de relação e renderiza a divu
 8. Confira a declaração global do Programa de Associados e a divulgação próxima de cada link remunerado.
 9. Rode `npm run audit:content`, TypeScript, lint e build conforme o impacto da mudança.
 
-O índice `/produtos` permanece fora da navegação e com `noindex` enquanto não houver ficha publicada. Ao lançar o primeiro lote, habilite a rota global, inclua produtos publicados no sitemap e na busca, e valide os dados estruturados.
+Com fichas de produtos publicadas, `/produtos` pode entrar na navegação editorial, no sitemap e na busca. A página deve se apresentar como curadoria, não como loja própria. Livros, mangás e quadrinhos com oferta continuam canonicamente nas bibliotecas de leitura; o índice de produtos apenas aponta para esses acervos, sem duplicar obras como produtos.

@@ -128,7 +128,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...studioPages,
     ...seriesPages,
     ...ideaPages,
-    ...(publishedProducts.length ? [{ url: `${baseURL}/produtos`, lastModified: today, changeFrequency: "weekly" as const, priority: 0.76 }] : []),
+    ...(publishedProducts.length ? [{ url: `${baseURL}/produtos`, lastModified: today, changeFrequency: "weekly" as const, priority: 0.8 }] : []),
     ...productPages,
     ...blogPosts,
     { url: `${baseURL}/obras/puparia`, lastModified: "2026-08-12", changeFrequency: "monthly" as const, priority: 0.72 },

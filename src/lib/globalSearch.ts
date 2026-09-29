@@ -23,7 +23,7 @@ export async function getGlobalSearchItems(): Promise<GlobalSearchItem[]> {
   const staticPages = [
     pageItem("page-home", home.title, home.description, home.path, ["início", "biblioteca", "blog", "artigos"]),
     pageItem("page-blog", blog.title, blog.description, blog.path, ["blog", "artigos", "guias", "biblioteca"]),
-    pageItem("page-products", "Produtos", "Loja curada com produtos e edições que possuem oferta comercial verificada.", "/produtos", ["loja", "ofertas", "amazon", "comprar"]),
+    pageItem("page-products", "Produtos", "Curadorias de tecnologia, casa e cozinha com contexto editorial e ofertas verificadas.", "/produtos", ["achadinhos", "tecnologia", "casa", "cozinha", "ofertas", "amazon", "comprar"]),
     pageItem("page-collection", "Acervo cultural", "Jogos, filmes, livros, mangás, quadrinhos e séries organizados em bibliotecas e curadorias editoriais.", "/acervo", ["jogos", "filmes", "livros", "mangás", "quadrinhos", "séries"]),
     pageItem("page-books", "Biblioteca de livros", "Livros e light novels organizados por obra, autoria, edição e disponibilidade.", "/livros", ["autores", "leitura", "edições"]),
     pageItem("page-comics", "Biblioteca de quadrinhos e mangás", "Mangás, manhwas, manhuas, HQs e graphic novels no catálogo central de leitura.", "/quadrinhos", ["mangá", "manhwa", "manhua", "hqs", "graphic novels"]),

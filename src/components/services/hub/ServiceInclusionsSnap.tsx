@@ -2,20 +2,20 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Reveal } from "@/components/motion/Reveal";
-import type { ServiceInclusion } from "@/data/service-hub";
+import type { serviceInclusions } from "@/data/service-hub";
 import type { ServiceInspiration } from "@/data/service-inspirations";
 
 import styles from "./ServiceHubView.module.scss";
 import { StoryProgress } from "./StoryProgress";
 
 type ServiceInclusionsSnapProps = {
-  inclusions: ServiceInclusion[];
-  inspiration?: ServiceInspiration;
+  inclusions: typeof serviceInclusions;
+  visual?: ServiceInspiration;
 };
 
 export function ServiceInclusionsSnap({
   inclusions,
-  inspiration,
+  visual,
 }: ServiceInclusionsSnapProps) {
   return (
     <section
@@ -27,6 +27,7 @@ export function ServiceInclusionsSnap({
         <Reveal
           className={styles.inclusionsIntro}
           distance={14}
+          trigger="mount"
         >
           <p className={styles.kicker}>O essencial já está incluso</p>
 
@@ -56,10 +57,11 @@ export function ServiceInclusionsSnap({
           </ul>
         </Reveal>
 
-        {inspiration ? (
+        {visual ? (
           <Reveal
             className={styles.inclusionsVisual}
             distance={18}
+            trigger="mount"
           >
             <div
               className={styles.technicalBackdrop}
@@ -84,8 +86,8 @@ export function ServiceInclusionsSnap({
 
               <div className={styles.technicalBrowserImage}>
                 <Image
-                  src={inspiration.image}
-                  alt={inspiration.alt}
+                  src={visual.image}
+                  alt={visual.alt}
                   fill
                   sizes="(max-width: 900px) 90vw, 48vw"
                 />
@@ -151,7 +153,7 @@ export function ServiceInclusionsSnap({
 
               <div>
                 <Image
-                  src={inspiration.image}
+                  src={visual.image}
                   alt=""
                   fill
                   sizes="10rem"

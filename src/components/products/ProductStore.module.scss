@@ -1,6 +1,10 @@
 @use "../../styles/mixins" as mixins;
 
 .store { display: grid; gap: 1.25rem; }
+.topicLinks { display: flex; flex-wrap: wrap; gap: .5rem; }
+.topicLinks button { min-height: 2.5rem; padding: .5rem .8rem; border: 1px solid var(--line-subtle); border-radius: 999px; background: transparent; color: var(--neutral-on-background-medium); cursor: pointer; font: inherit; }
+.topicLinks button[aria-pressed="true"] { border-color: var(--neutral-on-background-strong); background: var(--neutral-on-background-strong); color: var(--page-background); }
+.topicLinks button:focus-visible { outline: 2px solid var(--neutral-on-background-weak); outline-offset: 3px; }
 .filters { display: grid; grid-template-columns: minmax(16rem, 2fr) minmax(13rem, 1fr) auto; gap: .75rem; align-items: end; padding: 1rem; border: 1px solid var(--line-subtle); border-radius: 1rem; background: var(--surface-panel-soft, var(--page-background)); }
 .filters label { display: grid; gap: .35rem; color: var(--neutral-on-background-medium); font-size: .74rem; font-weight: 700; }
 .filters input[type="search"], .filters select { box-sizing: border-box; width: 100%; min-height: 2.8rem; padding: .7rem .8rem; border: 1px solid var(--line-subtle); border-radius: .65rem; background: var(--page-background); color: var(--neutral-on-background-strong); font: inherit; }

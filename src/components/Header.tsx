@@ -12,6 +12,13 @@ import styles from "./Header.module.scss";
 const primaryContentLinks = [
   { href: "/blog", label: "Artigos" },
   { href: "/ideias", label: "Ideias" },
+  { href: "/produtos", label: "Produtos" },
+] as const;
+
+const productLinks = [
+  { href: "/produtos?tema=tecnologia", label: "Tecnologia" },
+  { href: "/produtos?tema=casa", label: "Casa" },
+  { href: "/produtos?tema=cozinha", label: "Cozinha" },
 ] as const;
 
 const collectionLinks = [
@@ -32,9 +39,10 @@ const henriqueLinks = [
   { href: "/sobre", label: "Sobre" },
 ] as const;
 
-type MenuLink = (typeof primaryContentLinks)[number] | (typeof collectionLinks)[number] | typeof toolsLink | (typeof henriqueLinks)[number];
+type MenuLink = (typeof primaryContentLinks)[number] | (typeof productLinks)[number] | (typeof collectionLinks)[number] | typeof toolsLink | (typeof henriqueLinks)[number];
 
 function isCurrentPath(pathname: string, item: MenuLink) {
+  if (item.href.includes("?")) return false;
   if ("exact" in item && item.exact) return pathname === item.href;
   return pathname === item.href || pathname.startsWith(`${item.href}/`);
 }
@@ -100,6 +108,8 @@ export function Header() {
         <section className={styles.menuGroup} aria-labelledby="menu-content-title">
           <h2 id="menu-content-title">Conteúdo</h2>
           <div className={styles.primaryLinks}>{primaryContentLinks.map(renderLink)}</div>
+          <p className={styles.subgroupLabel}>Produtos</p>
+          <div className={styles.collectionLinks}>{productLinks.map(renderLink)}</div>
           <p className={styles.subgroupLabel}>Acervos</p>
           <div className={styles.collectionLinks}>{collectionLinks.map(renderLink)}</div>
           <div className={styles.primaryLinks}>{renderLink(toolsLink)}</div>

@@ -43,7 +43,7 @@ export const homeToolProducts: Product[] = [
     categories: ["Furadeiras e parafusadeiras", "Ferramentas elétricas", "Casa"],
     tags: ["12 V", "Impacto", "Duas velocidades", "Bateria"],
     relatedProductIds: ["prod_bosch_gsb_185_li"],
-    relatedArticleSlugs: [articleSlug],
+    relatedArticleSlugs: [articleSlug, "melhores-presentes-para-aproveitar-a-black-friday"],
     editorialSummary: "É uma opção proporcional para a maior parte dos reparos domésticos: compacta para parafusar móveis, mas ainda capaz de fazer furos pequenos em alvenaria. A compra perde sentido se o uso principal envolver concreto duro, brocas acima de 10 mm ou jornadas repetidas de reforma.",
     seo: {
       title: "Bosch GSB 120-LI: ficha, limites e ofertas",

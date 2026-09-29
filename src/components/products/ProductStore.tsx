@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 
-import type { CommercialStoreItem } from "@/data/products/commercialDiscovery";
+import { productDiscoveryTopics, type CommercialStoreItem } from "@/data/products/commercialDiscovery";
 import styles from "./ProductStore.module.scss";
 
 const normalize = (value: string) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("pt-BR");
@@ -13,13 +13,17 @@ const price = (item: CommercialStoreItem) => item.offer.observedPrice ? new Intl
 
 export function ProductStore({ items }: { items: readonly CommercialStoreItem[] }) {
   const pathname = usePathname(); const router = useRouter(); const params = useSearchParams();
-  const query = params.get("q") ?? ""; const category = params.get("categoria") ?? "";
+  const query = params.get("q") ?? ""; const category = params.get("categoria") ?? ""; const topic = params.get("tema") ?? "";
   const categories = useMemo(() => [...new Set(items.map((item) => item.category))].sort((a, b) => a.localeCompare(b, "pt-BR")), [items]);
-  const update = (key: string, value: string) => { const next = new URLSearchParams(params.toString()); value ? next.set(key, value) : next.delete(key); router.replace(`${pathname}${next.size ? `?${next.toString()}` : ""}`, { scroll: false }); };
-  const results = useMemo(() => { const term = normalize(query.trim()); return items.filter((item) => (!term || normalize([item.title, item.subtitle, item.description, ...item.searchTerms].filter(Boolean).join(" ")).includes(term)) && (!category || item.category === category)); }, [category, items, query]);
+  const update = (key: string, value: string) => { const next = new URLSearchParams(params.toString()); value ? next.set(key, value) : next.delete(key); if (key === "tema") next.delete("categoria"); if (key === "categoria") next.delete("tema"); router.replace(`${pathname}${next.size ? `?${next.toString()}` : ""}`, { scroll: false }); };
+  const results = useMemo(() => { const term = normalize(query.trim()); const topicCategories: readonly string[] | undefined = productDiscoveryTopics.find((item) => item.id === topic)?.categories; return items.filter((item) => (!term || normalize([item.title, item.subtitle, item.description, ...item.searchTerms].filter(Boolean).join(" ")).includes(term)) && (!category || item.category === category) && (!topicCategories || item.searchTerms.some((searchTerm) => topicCategories.includes(searchTerm)))); }, [category, items, query, topic]);
   return <div className={styles.store}>
+    <nav className={styles.topicLinks} aria-label="Curadorias de produtos">
+      <button type="button" aria-pressed={!topic && !category} onClick={() => update("tema", "")}>Todos</button>
+      {productDiscoveryTopics.map((item) => <button key={item.id} type="button" aria-pressed={topic === item.id} onClick={() => update("tema", item.id)}>{item.label}</button>)}
+    </nav>
     <div className={styles.filters}>
-      <label className={styles.search}><span>Buscar na loja</span><input type="search" value={query} onChange={(event) => update("q", event.target.value)} placeholder="Produto, livro, autor ou característica" /></label>
+      <label className={styles.search}><span>Buscar produtos</span><input type="search" value={query} onChange={(event) => update("q", event.target.value)} placeholder="Produto, marca ou característica" /></label>
       <label><span>Categoria</span><select value={category} onChange={(event) => update("categoria", event.target.value)}><option value="">Todas as categorias</option>{categories.map((item) => <option key={item} value={item}>{item}</option>)}</select></label>
     </div>
     <p className={styles.resultCount} aria-live="polite">{results.length} {results.length === 1 ? "item encontrado" : "itens encontrados"}</p>

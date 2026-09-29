@@ -3,13 +3,13 @@
 import { AnimatePresence, m, useReducedMotion } from "framer-motion";
 import { useState } from "react";
 
-import type { ServiceFaqItem } from "@/data/service-hub";
+import type { serviceFaq } from "@/data/service-hub";
 
 import styles from "./ServiceHubView.module.scss";
 import { StoryProgress } from "./StoryProgress";
 
 type ServiceFaqSnapProps = {
-  faq: ServiceFaqItem[];
+  faq: typeof serviceFaq;
 };
 
 export function ServiceFaqSnap({ faq }: ServiceFaqSnapProps) {

@@ -17,6 +17,7 @@ type RevealProps = {
   distance?: number;
   amount?: number;
   once?: boolean;
+  trigger?: "viewport" | "mount";
 };
 
 export function Reveal({
@@ -26,15 +27,17 @@ export function Reveal({
   distance = 28,
   amount = motionViewport.amount,
   once = motionViewport.once,
+  trigger = "viewport",
 }: RevealProps) {
   const reducedMotion = useReducedMotion();
 
   return (
     <m.div
       className={className}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once, amount }}
+      initial={trigger === "viewport" ? "hidden" : false}
+      animate={trigger === "mount" ? "visible" : undefined}
+      whileInView={trigger === "viewport" ? "visible" : undefined}
+      viewport={trigger === "viewport" ? { once, amount } : undefined}
       variants={createRevealVariants(reducedMotion, distance)}
       transition={
         reducedMotion

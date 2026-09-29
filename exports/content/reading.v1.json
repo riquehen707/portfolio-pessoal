@@ -3,6 +3,359 @@
   "contentType": "reading-catalog",
   "works": [
     {
+      "id": "read_work_maus",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "maus",
+      "aliases": [],
+      "originalTitle": "Maus",
+      "titleBr": "Maus",
+      "format": "graphic-novel",
+      "originCountries": [
+        "Estados Unidos"
+      ],
+      "originalLanguages": [
+        "Inglês"
+      ],
+      "comicTradition": "western-comics",
+      "comicFormat": "graphic-novel",
+      "readingDirection": "left-to-right",
+      "credits": [
+        {
+          "personId": "person_art_spiegelman",
+          "roles": [
+            "writer",
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "1991",
+      "publicationEnd": "1991",
+      "publicationStatus": "completed",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Memória",
+        "História",
+        "Autobiografia"
+      ],
+      "themes": [
+        "Holocausto",
+        "Memória familiar",
+        "Trauma",
+        "Representação"
+      ],
+      "readingDifficulty": "intermediate",
+      "featuredEditionId": "read_edition_maus_quadrinhos_na_cia_2005",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores interessados em memória, testemunho histórico e no uso formal dos quadrinhos para narrar experiências familiares complexas.",
+      "shortDescription": "Art Spiegelman reconstrói a sobrevivência de seus pais ao Holocausto e a relação difícil com o pai, combinando relato familiar e reflexão sobre como representar a catástrofe.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Maus — Companhia das Letras",
+          "url": "https://www.companhiadasletras.com.br/9788535906288-maus-4064/p"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-29",
+      "publishedAt": "2026-09-29",
+      "updatedAt": "2026-09-29"
+    },
+    {
+      "id": "read_work_persepolis",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "persepolis",
+      "aliases": [
+        "persepolis-completo"
+      ],
+      "originalTitle": "Persepolis",
+      "titleBr": "Persépolis completo",
+      "format": "graphic-novel",
+      "originCountries": [
+        "Irã",
+        "França"
+      ],
+      "originalLanguages": [
+        "Francês"
+      ],
+      "comicTradition": "western-comics",
+      "comicFormat": "graphic-novel",
+      "readingDirection": "left-to-right",
+      "credits": [
+        {
+          "personId": "person_marjane_satrapi",
+          "roles": [
+            "writer",
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [],
+      "publicationStart": "2000",
+      "publicationEnd": "2003",
+      "publicationStatus": "completed",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "Autobiografia",
+        "História",
+        "Memória"
+      ],
+      "themes": [
+        "Revolução Iraniana",
+        "Exílio",
+        "Família",
+        "Formação"
+      ],
+      "readingDifficulty": "introductory",
+      "featuredEditionId": "read_edition_persepolis_quadrinhos_na_cia_2007",
+      "demographics": [
+        "young-adult",
+        "adult"
+      ],
+      "audienceProfile": "Leitores que procuram uma autobiografia gráfica direta, acessível e politicamente situada, centrada em crescimento e deslocamento.",
+      "shortDescription": "Marjane Satrapi narra a infância no Irã durante a Revolução Islâmica e a adolescência marcada por exílio, família e mudanças políticas.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Persépolis completo — Companhia das Letras",
+          "url": "https://www.companhiadasletras.com.br/livro/9788535911626/persepolis-completo"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-29",
+      "publishedAt": "2026-09-29",
+      "updatedAt": "2026-09-29"
+    },
+    {
+      "id": "read_work_angola_janga",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "angola-janga",
+      "aliases": [],
+      "originalTitle": "Angola janga",
+      "titleBr": "Angola janga",
+      "format": "graphic-novel",
+      "originCountries": [
+        "Brasil"
+      ],
+      "originalLanguages": [
+        "Português"
+      ],
+      "comicTradition": "brazilian-comics",
+      "comicFormat": "graphic-novel",
+      "readingDirection": "left-to-right",
+      "credits": [
+        {
+          "personId": "person_marcelo_dsalete",
+          "roles": [
+            "writer",
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_veneta",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2017",
+      "publicationEnd": "2017",
+      "publicationStatus": "completed",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "História",
+        "Romance histórico",
+        "Quadrinhos brasileiros"
+      ],
+      "themes": [
+        "Palmares",
+        "Escravidão",
+        "Resistência",
+        "Colonialismo"
+      ],
+      "readingDifficulty": "intermediate",
+      "featuredEditionId": "read_edition_angola_janga_veneta_2017",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores que buscam uma narrativa histórica em quadrinhos sobre Palmares, escravidão e resistência negra no Brasil colonial.",
+      "shortDescription": "Marcelo D'Salete acompanha diferentes figuras ligadas a Palmares e à resistência contra a escravidão no Brasil colonial.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Angola janga — Editora Veneta",
+          "url": "https://veneta.com.br/products/angola-janga"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-29",
+      "publishedAt": "2026-09-29",
+      "updatedAt": "2026-09-29"
+    },
+    {
+      "id": "read_work_cumbe",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "cumbe",
+      "aliases": [],
+      "originalTitle": "Cumbe",
+      "titleBr": "Cumbe",
+      "format": "graphic-novel",
+      "originCountries": [
+        "Brasil"
+      ],
+      "originalLanguages": [
+        "Português"
+      ],
+      "comicTradition": "brazilian-comics",
+      "comicFormat": "graphic-novel",
+      "readingDirection": "left-to-right",
+      "credits": [
+        {
+          "personId": "person_marcelo_dsalete",
+          "roles": [
+            "writer",
+            "artist"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_veneta",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "2014",
+      "publicationEnd": "2014",
+      "publicationStatus": "completed",
+      "categories": [
+        "comics"
+      ],
+      "genres": [
+        "História",
+        "Quadrinhos brasileiros",
+        "Antologia"
+      ],
+      "themes": [
+        "Escravidão",
+        "Resistência",
+        "Brasil colonial",
+        "Violência"
+      ],
+      "readingDifficulty": "intermediate",
+      "featuredEditionId": "read_edition_cumbe_veneta_2014",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores interessados em histórias curtas de forte contraste visual sobre a experiência de pessoas escravizadas e seus gestos de resistência.",
+      "shortDescription": "Em histórias curtas ambientadas no Brasil colonial, Marcelo D'Salete focaliza personagens escravizados que enfrentam violência, fuga e resistência.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "Cumbe — Editora Veneta",
+          "url": "https://veneta.com.br/products/cumbe"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-29",
+      "publishedAt": "2026-09-29",
+      "updatedAt": "2026-09-29"
+    },
+    {
+      "id": "read_work_a_guerra_nao_tem_rosto_de_mulher",
+      "contentType": "reading-work",
+      "schemaVersion": 1,
+      "slug": "a-guerra-nao-tem-rosto-de-mulher",
+      "aliases": [],
+      "originalTitle": "У войны не женское лицо",
+      "titleBr": "A guerra não tem rosto de mulher",
+      "workType": "memoir",
+      "romanizedTitle": "U voyny ne zhenskoe litso",
+      "format": "book",
+      "originCountries": [
+        "Belarus"
+      ],
+      "originalLanguages": [
+        "Russo"
+      ],
+      "credits": [
+        {
+          "personId": "person_svetlana_aleksievitch",
+          "roles": [
+            "author"
+          ]
+        }
+      ],
+      "organizationRelationships": [
+        {
+          "organizationId": "org_companhia_das_letras",
+          "roles": [
+            "publisher"
+          ]
+        }
+      ],
+      "publicationStart": "1985",
+      "publicationEnd": "1985",
+      "publicationStatus": "completed",
+      "categories": [
+        "non-fiction"
+      ],
+      "genres": [
+        "História oral",
+        "Memória",
+        "História"
+      ],
+      "themes": [
+        "Segunda Guerra Mundial",
+        "Mulheres",
+        "Testemunho",
+        "Violência"
+      ],
+      "readingDifficulty": "intermediate",
+      "featuredEditionId": "read_edition_a_guerra_companhia_2016",
+      "demographics": [
+        "adult"
+      ],
+      "audienceProfile": "Leitores dispostos a uma leitura de testemunhos sobre guerra, memória e a experiência das mulheres no Exército Vermelho.",
+      "shortDescription": "Svetlana Aleksiévitch reúne testemunhos de mulheres soviéticas que combateram ou serviram na Segunda Guerra Mundial, deslocando o foco das narrativas militares tradicionais.",
+      "seriesMemberships": [],
+      "relatedWorks": [],
+      "adaptations": [],
+      "sources": [
+        {
+          "title": "A guerra não tem rosto de mulher — Companhia das Letras",
+          "url": "https://www.companhiadasletras.com.br/9788535927436-a-guerra-nao-tem-rosto-de-mulher/p"
+        }
+      ],
+      "status": "published",
+      "createdAt": "2026-09-29",
+      "publishedAt": "2026-09-29",
+      "updatedAt": "2026-09-29"
+    },
+    {
       "id": "read_work_doom_breaker",
       "contentType": "reading-work",
       "schemaVersion": 1,
@@ -22529,6 +22882,189 @@
     }
   ],
   "editions": [
+    {
+      "id": "read_edition_maus_quadrinhos_na_cia_2005",
+      "workId": "read_work_maus",
+      "title": "Maus",
+      "publisherId": "org_companhia_das_letras",
+      "imprintId": "org_quadrinhos_na_cia",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2005-06-24",
+      "isbn13": "9788535906288",
+      "pageCount": 296,
+      "cover": {
+        "src": "/images/reading/curated-2026/maus.jpg",
+        "alt": "Capa da edição brasileira de Maus publicada pela Quadrinhos na Cia",
+        "sourceUrl": "https://www.companhiadasletras.com.br/9788535906288-maus-4064/p",
+        "credit": "Quadrinhos na Cia / Companhia das Letras",
+        "rights": "permission-pending",
+        "width": 1024,
+        "height": 1024
+      },
+      "translationCredits": [
+        {
+          "personId": "person_antonio_macedo_soares",
+          "roles": [
+            "translator"
+          ]
+        }
+      ],
+      "availabilityStatus": "available",
+      "availabilityCheckedAt": "2026-09-29",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Maus — Companhia das Letras",
+          "url": "https://www.companhiadasletras.com.br/9788535906288-maus-4064/p"
+        }
+      ],
+      "createdAt": "2026-09-29",
+      "updatedAt": "2026-09-29"
+    },
+    {
+      "id": "read_edition_persepolis_quadrinhos_na_cia_2007",
+      "workId": "read_work_persepolis",
+      "title": "Persépolis completo",
+      "publisherId": "org_companhia_das_letras",
+      "imprintId": "org_quadrinhos_na_cia",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2007-12-10",
+      "isbn13": "9788535911626",
+      "pageCount": 352,
+      "cover": {
+        "src": "/images/reading/curated-2026/persepolis-completo.jpg",
+        "alt": "Capa da edição brasileira de Persépolis completo publicada pela Quadrinhos na Cia",
+        "sourceUrl": "https://www.companhiadasletras.com.br/livro/9788535911626/persepolis-completo",
+        "credit": "Quadrinhos na Cia / Companhia das Letras",
+        "rights": "permission-pending",
+        "width": 1024,
+        "height": 1024
+      },
+      "translationCredits": [
+        {
+          "personId": "person_paulo_werneck",
+          "roles": [
+            "translator"
+          ]
+        }
+      ],
+      "availabilityStatus": "available",
+      "availabilityCheckedAt": "2026-09-29",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Persépolis completo — Companhia das Letras",
+          "url": "https://www.companhiadasletras.com.br/livro/9788535911626/persepolis-completo"
+        }
+      ],
+      "createdAt": "2026-09-29",
+      "updatedAt": "2026-09-29"
+    },
+    {
+      "id": "read_edition_angola_janga_veneta_2017",
+      "workId": "read_work_angola_janga",
+      "title": "Angola janga",
+      "publisherId": "org_veneta",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "hardcover",
+      "isbn13": "9788595710139",
+      "pageCount": 432,
+      "cover": {
+        "src": "/images/reading/curated-2026/angola-janga.webp",
+        "alt": "Capa da edição brasileira de Angola janga publicada pela Editora Veneta",
+        "sourceUrl": "https://veneta.com.br/products/angola-janga",
+        "credit": "Editora Veneta",
+        "rights": "permission-pending",
+        "width": 750,
+        "height": 750
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Angola janga — Editora Veneta",
+          "url": "https://veneta.com.br/products/angola-janga"
+        }
+      ],
+      "createdAt": "2026-09-29",
+      "updatedAt": "2026-09-29"
+    },
+    {
+      "id": "read_edition_cumbe_veneta_2014",
+      "workId": "read_work_cumbe",
+      "title": "Cumbe",
+      "publisherId": "org_veneta",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "isbn13": "9788595710207",
+      "pageCount": 192,
+      "cover": {
+        "src": "/images/reading/curated-2026/cumbe.webp",
+        "alt": "Capa da edição brasileira de Cumbe publicada pela Editora Veneta",
+        "sourceUrl": "https://veneta.com.br/products/cumbe",
+        "credit": "Editora Veneta",
+        "rights": "permission-pending",
+        "width": 750,
+        "height": 750
+      },
+      "translationCredits": [],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Cumbe — Editora Veneta",
+          "url": "https://veneta.com.br/products/cumbe"
+        }
+      ],
+      "createdAt": "2026-09-29",
+      "updatedAt": "2026-09-29"
+    },
+    {
+      "id": "read_edition_a_guerra_companhia_2016",
+      "workId": "read_work_a_guerra_nao_tem_rosto_de_mulher",
+      "title": "A guerra não tem rosto de mulher",
+      "publisherId": "org_companhia_das_letras",
+      "country": "Brasil",
+      "language": "Português",
+      "medium": "paperback",
+      "publicationDate": "2016-01-01",
+      "isbn13": "9788535927436",
+      "pageCount": 392,
+      "cover": {
+        "src": "/images/reading/curated-2026/a-guerra-nao-tem-rosto-de-mulher.jpg",
+        "alt": "Capa da edição brasileira de A guerra não tem rosto de mulher publicada pela Companhia das Letras",
+        "sourceUrl": "https://www.companhiadasletras.com.br/9788535927436-a-guerra-nao-tem-rosto-de-mulher/p",
+        "credit": "Companhia das Letras",
+        "rights": "permission-pending",
+        "width": 1024,
+        "height": 1024
+      },
+      "translationCredits": [
+        {
+          "personId": "person_cecilia_rosas",
+          "roles": [
+            "translator"
+          ]
+        }
+      ],
+      "availabilityStatus": "unknown",
+      "status": "published",
+      "sources": [
+        {
+          "title": "A guerra não tem rosto de mulher — Companhia das Letras",
+          "url": "https://www.companhiadasletras.com.br/9788535927436-a-guerra-nao-tem-rosto-de-mulher/p"
+        }
+      ],
+      "createdAt": "2026-09-29",
+      "updatedAt": "2026-09-29"
+    },
     {
       "id": "read_edition_being_and_time_vozes",
       "workId": "read_work_being_and_time",

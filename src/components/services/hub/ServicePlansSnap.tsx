@@ -1,11 +1,11 @@
 import { Reveal } from "@/components/motion/Reveal";
-import type { ServicePlan } from "@/data/service-hub";
+import type { servicePlans } from "@/data/service-hub";
 
 import styles from "./ServiceHubView.module.scss";
 import { StoryProgress } from "./StoryProgress";
 
 type ServicePlansSnapProps = {
-  plans: ServicePlan[];
+  plans: typeof servicePlans;
   contactHref: string;
 };
 
@@ -27,6 +27,7 @@ export function ServicePlansSnap({
         <Reveal
           className={styles.plansIntro}
           distance={14}
+          trigger="mount"
         >
           <p className={styles.kicker}>Planos</p>
 
@@ -61,6 +62,7 @@ export function ServicePlansSnap({
                 className={styles.planReveal}
                 delay={index * 0.06}
                 distance={16}
+                trigger="mount"
                 key={plan.id}
               >
                 <article
@@ -101,9 +103,9 @@ export function ServicePlansSnap({
                     {plan.description}
                   </p>
 
-                  {plan.inheritance ? (
+                  {plan.inherits ? (
                     <p className={styles.planInheritance}>
-                      {plan.inheritance}
+                      {plan.inherits}
                     </p>
                   ) : null}
 

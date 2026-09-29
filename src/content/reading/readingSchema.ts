@@ -97,7 +97,7 @@ export const ReadingEditionSchema = z.object({
 
 export const ReadingOfferSchema = z.object({
   id: z.string().regex(/^read_offer_[a-z0-9_]+$/), editionId: z.string().regex(/^read_edition_[a-z0-9_]+$/), store: z.string().min(1), url: z.string().url(), region: z.string().min(2),
-  affiliateProgram: z.string().min(1).optional(), affiliateId: z.string().optional(), asin: z.string().regex(/^[A-Z0-9]{10}$/).optional(), availability: z.enum(["available", "preorder", "unavailable", "unknown"]), checkedAt: z.string().regex(isoDate), commissionDisclosure: z.string().min(1).optional(),
+  affiliateProgram: z.string().min(1).optional(), affiliateId: z.string().optional(), asin: z.string().regex(/^[A-Z0-9]{10}$/).optional(), observedPrice: z.object({ amount: z.number().nonnegative(), currency: z.string().length(3) }).optional(), availability: z.enum(["available", "preorder", "unavailable", "unknown"]), checkedAt: z.string().regex(isoDate), commissionDisclosure: z.string().min(1).optional(),
 }).superRefine((offer, ctx) => {
   if (offer.affiliateId && !offer.affiliateProgram) ctx.addIssue({ code: "custom", path: ["affiliateProgram"], message: "identificador de afiliado exige programa" });
   if (offer.store === "Amazon Brasil") {

@@ -11984,6 +11984,208 @@
       ],
       "createdAt": "2026-08-24",
       "updatedAt": "2026-08-24"
+    },
+    {
+      "id": "person_art_spiegelman",
+      "slug": "art-spiegelman",
+      "name": "Art Spiegelman",
+      "kind": "person",
+      "status": "published",
+      "countryOrRegion": "Estados Unidos",
+      "occupations": [
+        "Quadrinista",
+        "Roteirista"
+      ],
+      "summary": "Quadrinista norte-americano responsável por Maus, obra que articula memória familiar, testemunho e linguagem dos quadrinhos.",
+      "biography": [],
+      "themes": [],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "Art Spiegelman — fonte editorial",
+          "url": "https://www.companhiadasletras.com.br/9788535906288-maus-4064/p",
+          "kind": "primary"
+        }
+      ],
+      "createdAt": "2026-09-29",
+      "updatedAt": "2026-09-29"
+    },
+    {
+      "id": "person_marjane_satrapi",
+      "slug": "marjane-satrapi",
+      "name": "Marjane Satrapi",
+      "kind": "person",
+      "status": "published",
+      "countryOrRegion": "Irã / França",
+      "occupations": [
+        "Quadrinista",
+        "Autora",
+        "Cineasta"
+      ],
+      "summary": "Autora iraniana-francesa cuja obra autobiográfica aborda revolução, exílio, família e formação política.",
+      "biography": [],
+      "themes": [],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "Marjane Satrapi — fonte editorial",
+          "url": "https://www.companhiadasletras.com.br/livro/9788535911626/persepolis-completo",
+          "kind": "primary"
+        }
+      ],
+      "createdAt": "2026-09-29",
+      "updatedAt": "2026-09-29"
+    },
+    {
+      "id": "person_marcelo_dsalete",
+      "slug": "marcelo-dsalete",
+      "name": "Marcelo D'Salete",
+      "kind": "person",
+      "status": "published",
+      "countryOrRegion": "Brasil",
+      "occupations": [
+        "Quadrinista",
+        "Ilustrador",
+        "Professor"
+      ],
+      "summary": "Quadrinista brasileiro que pesquisa histórias negras e a experiência da escravidão e da resistência no Brasil.",
+      "biography": [],
+      "themes": [],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "Marcelo D'Salete — fonte editorial",
+          "url": "https://veneta.com.br/collections/marcelo-dsalete",
+          "kind": "primary"
+        }
+      ],
+      "createdAt": "2026-09-29",
+      "updatedAt": "2026-09-29"
+    },
+    {
+      "id": "person_svetlana_aleksievitch",
+      "slug": "svetlana-aleksievitch",
+      "name": "Svetlana Aleksiévitch",
+      "kind": "person",
+      "status": "published",
+      "countryOrRegion": "Belarus",
+      "occupations": [
+        "Escritora",
+        "Jornalista"
+      ],
+      "summary": "Escritora bielorrussa conhecida por livros de não ficção construídos a partir de vozes e testemunhos.",
+      "biography": [],
+      "themes": [],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "Svetlana Aleksiévitch — fonte editorial",
+          "url": "https://www.companhiadasletras.com.br/9788535927436-a-guerra-nao-tem-rosto-de-mulher/p",
+          "kind": "primary"
+        }
+      ],
+      "createdAt": "2026-09-29",
+      "updatedAt": "2026-09-29"
+    },
+    {
+      "id": "person_antonio_macedo_soares",
+      "slug": "antonio-macedo-soares",
+      "name": "Antonio de Macedo Soares",
+      "kind": "person",
+      "status": "published",
+      "countryOrRegion": "Brasil",
+      "occupations": [
+        "Tradutor"
+      ],
+      "summary": "Tradutor creditado na edição brasileira de Maus publicada pela Quadrinhos na Cia.",
+      "biography": [],
+      "themes": [],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "Antonio de Macedo Soares — fonte editorial",
+          "url": "https://www.companhiadasletras.com.br/9788535906288-maus-4064/p",
+          "kind": "primary"
+        }
+      ],
+      "createdAt": "2026-09-29",
+      "updatedAt": "2026-09-29"
+    },
+    {
+      "id": "person_paulo_werneck",
+      "slug": "paulo-werneck",
+      "name": "Paulo Werneck",
+      "kind": "person",
+      "status": "published",
+      "countryOrRegion": "Brasil",
+      "occupations": [
+        "Tradutor"
+      ],
+      "summary": "Tradutor creditado na edição brasileira de Persépolis completo publicada pela Quadrinhos na Cia.",
+      "biography": [],
+      "themes": [],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "Paulo Werneck — fonte editorial",
+          "url": "https://www.companhiadasletras.com.br/livro/9788535911626/persepolis-completo",
+          "kind": "primary"
+        }
+      ],
+      "createdAt": "2026-09-29",
+      "updatedAt": "2026-09-29"
+    },
+    {
+      "id": "person_cecilia_rosas",
+      "slug": "cecilia-rosas",
+      "name": "Cecília Rosas",
+      "kind": "person",
+      "status": "published",
+      "countryOrRegion": "Brasil",
+      "occupations": [
+        "Tradutora"
+      ],
+      "summary": "Tradutora do russo creditada na edição brasileira de A guerra não tem rosto de mulher.",
+      "biography": [],
+      "themes": [],
+      "ideas": [],
+      "workIds": [],
+      "startingPoints": [],
+      "relatedPersonIds": [],
+      "relatedLinks": [],
+      "sources": [
+        {
+          "title": "Cecília Rosas — fonte editorial",
+          "url": "https://www.companhiadasletras.com.br/9788535927436-a-guerra-nao-tem-rosto-de-mulher/p",
+          "kind": "primary"
+        }
+      ],
+      "createdAt": "2026-09-29",
+      "updatedAt": "2026-09-29"
     }
   ],
   "organizations": [
@@ -13735,6 +13937,22 @@
       "updatedAt": "2026-08-21"
     },
     {
+      "id": "org_quadrinhos_na_cia",
+      "slug": "quadrinhos-na-cia",
+      "name": "Quadrinhos na Cia",
+      "kind": "imprint",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "specialties": [],
+      "sources": [],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Editora ou selo relacionado a edições verificadas do acervo: Quadrinhos na Cia.",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-21"
+    },
+    {
       "id": "org_companhia_de_bolso",
       "slug": "companhia-de-bolso",
       "name": "Companhia de Bolso",
@@ -14691,6 +14909,22 @@
       "status": "draft",
       "workIds": [],
       "summary": "Editora ou selo relacionado a edições verificadas do acervo: Prometheus Books.",
+      "createdAt": "2026-08-13",
+      "updatedAt": "2026-08-21"
+    },
+    {
+      "id": "org_veneta",
+      "slug": "veneta",
+      "name": "Editora Veneta",
+      "kind": "publisher",
+      "aliases": [],
+      "founderIds": [],
+      "keyPeopleIds": [],
+      "specialties": [],
+      "sources": [],
+      "status": "draft",
+      "workIds": [],
+      "summary": "Editora ou selo relacionado a edições verificadas do acervo: Editora Veneta.",
       "createdAt": "2026-08-13",
       "updatedAt": "2026-08-21"
     },

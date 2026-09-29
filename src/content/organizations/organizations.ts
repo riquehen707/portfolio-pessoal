@@ -206,6 +206,7 @@ const readingPublishers = [
   ["org_intrinseca","intrinseca","Intrínseca","publisher"],
   ["org_rocco","rocco","Rocco","publisher"],
   ["org_companhia_das_letras","companhia-das-letras","Companhia das Letras","publisher"],
+  ["org_quadrinhos_na_cia","quadrinhos-na-cia","Quadrinhos na Cia","imprint"],
   ["org_companhia_de_bolso","companhia-de-bolso","Companhia de Bolso","imprint"],
   ["org_alfaguara","alfaguara","Alfaguara","imprint"],
   ["org_record","record","Editora Record","publisher"],
@@ -266,6 +267,7 @@ const readingPublishers = [
   ["org_beacon_press","beacon-press","Beacon Press","publisher"],
   ["org_chicago_review_press","chicago-review-press","Chicago Review Press","publisher"],
   ["org_prometheus_books","prometheus-books","Prometheus Books","publisher"],
+  ["org_veneta","veneta","Editora Veneta","publisher"],
 ].map(([id,slug,name,kind])=>OrganizationSchema.parse({id,slug,name,kind,status:"draft",workIds:[],summary:`Editora ou selo relacionado a edições verificadas do acervo: ${name}.`,createdAt:"2026-08-13",updatedAt:"2026-08-21"}));
 
 const cameraManufacturers = [

@@ -1,20 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
-
 import {
-  BarChart3,
-  LifeBuoy,
-  MonitorSmartphone,
-  ShieldCheck,
-} from "lucide-react";
+  HiOutlineChartBar,
+  HiOutlineComputerDesktop,
+  HiOutlineLifebuoy,
+  HiOutlineShieldCheck,
+} from "react-icons/hi2";
 
 import { Reveal } from "@/components/motion/Reveal";
+import { ServicesAreaNav } from "@/components/services/ServicesAreaNav";
 import type { ServiceExample } from "@/content/service-examples/serviceExampleSchema";
 import type {
-  ServiceFaqItem,
-  ServiceInclusion,
-  ServicePlan,
-  ServiceProcessStep,
+  serviceFaq,
+  serviceInclusions,
+  servicePlans,
+  serviceProcess,
 } from "@/data/service-hub";
 import type { ServiceInspiration } from "@/data/service-inspirations";
 
@@ -24,17 +24,16 @@ import { ServiceFinalSnap } from "./ServiceFinalSnap";
 import { ServiceInclusionsSnap } from "./ServiceInclusionsSnap";
 import { ServicePlansSnap } from "./ServicePlansSnap";
 import { ServiceProcessSnap } from "./ServiceProcessSnap";
-import { ServicesAreaNav } from "./ServicesAreaNav";
 import { StoryProgress } from "./StoryProgress";
 
 import styles from "./ServiceHubView.module.scss";
 
 type ServiceHubViewProps = {
   examples: ServiceExample[];
-  inclusions: ServiceInclusion[];
-  process: ServiceProcessStep[];
-  plans: ServicePlan[];
-  faq: ServiceFaqItem[];
+  inclusions: typeof serviceInclusions;
+  process: typeof serviceProcess;
+  plans: typeof servicePlans;
+  faq: typeof serviceFaq;
   inspirations: ServiceInspiration[];
   localBusinessInspiration?: ServiceInspiration;
   contactHref: string;
@@ -43,19 +42,19 @@ type ServiceHubViewProps = {
 const heroBenefits = [
   {
     label: "Design personalizado",
-    icon: MonitorSmartphone,
+    icon: HiOutlineComputerDesktop,
   },
   {
     label: "Pronto para crescer",
-    icon: BarChart3,
+    icon: HiOutlineChartBar,
   },
   {
     label: "Infraestrutura inclusa",
-    icon: ShieldCheck,
+    icon: HiOutlineShieldCheck,
   },
   {
     label: "Suporte contínuo",
-    icon: LifeBuoy,
+    icon: HiOutlineLifebuoy,
   },
 ] as const;
 
@@ -105,7 +104,7 @@ export function ServiceHubView({
 
   return (
     <main className={styles.shell}>
-      <ServicesAreaNav activeArea="overview" />
+      <ServicesAreaNav active="overview" />
 
       <section
         className={styles.hero}
@@ -262,7 +261,7 @@ export function ServiceHubView({
 
       <ServiceInclusionsSnap
         inclusions={inclusions}
-        inspiration={architectureInspiration}
+        visual={architectureInspiration}
       />
 
       <ServiceProcessSnap
@@ -279,7 +278,7 @@ export function ServiceHubView({
 
       <ServiceFinalSnap
         contactHref={contactHref}
-        inspiration={finalInspiration}
+        visual={finalInspiration}
       />
     </main>
   );

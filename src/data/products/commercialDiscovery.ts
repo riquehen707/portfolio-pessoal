@@ -18,6 +18,12 @@ export type CommercialStoreItem = {
   searchTerms: string[];
 };
 
+export const productDiscoveryTopics = [
+  { id: "tecnologia", label: "Tecnologia", description: "Eletrônicos e hardware para uso pessoal, trabalho e setup.", categories: ["Eletrônicos", "Hardware"] },
+  { id: "casa", label: "Casa", description: "Equipamentos e ferramentas para rotina, limpeza e manutenção.", categories: ["Casa", "Ferramentas elétricas"] },
+  { id: "cozinha", label: "Cozinha", description: "Eletrodomésticos e equipamentos para preparar, vender ou servir alimentos.", categories: ["Eletrodomésticos", "Equipamentos de confeitaria"] },
+] as const;
+
 const active = <T extends { availability: string }>(offers: readonly T[]) => offers.filter((offer) => offer.availability === "available" || offer.availability === "preorder");
 const selectOffer = <T extends { affiliateProgram?: string }>(offers: readonly T[]) => offers.find((offer) => Boolean(offer.affiliateProgram)) ?? offers[0];
 

@@ -1,11 +1,11 @@
 import { Reveal } from "@/components/motion/Reveal";
-import type { ServiceProcessStep } from "@/data/service-hub";
+import type { serviceProcess } from "@/data/service-hub";
 
 import styles from "./ServiceHubView.module.scss";
 import { StoryProgress } from "./StoryProgress";
 
 type ServiceProcessSnapProps = {
-  process: ServiceProcessStep[];
+  process: typeof serviceProcess;
   contactHref: string;
 };
 
@@ -22,6 +22,7 @@ export function ServiceProcessSnap({
       <Reveal
         className={styles.processIntro}
         distance={14}
+        trigger="mount"
       >
         <p className={styles.kicker}>Como funciona</p>
 
@@ -53,6 +54,7 @@ export function ServiceProcessSnap({
       <Reveal
         className={styles.processSteps}
         distance={18}
+        trigger="mount"
       >
         <ol>
           {process.map((step, index) => (
