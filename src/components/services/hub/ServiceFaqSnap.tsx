@@ -1,52 +1,144 @@
 "use client";
 
-import { useId, useState } from "react";
+import { AnimatePresence, m, useReducedMotion } from "framer-motion";
+import { useState } from "react";
 
-import { Reveal } from "@/components/motion/Reveal";
-import type { serviceFaq } from "@/data/service-hub";
+import type { ServiceFaqItem } from "@/data/service-hub";
 
 import styles from "./ServiceHubView.module.scss";
 import { StoryProgress } from "./StoryProgress";
 
-type ServiceFaqItem = (typeof serviceFaq)[number];
+type ServiceFaqSnapProps = {
+  faq: ServiceFaqItem[];
+};
 
-export function ServiceFaqSnap({ faq }: { faq: readonly ServiceFaqItem[] }) {
-  const prefix = useId();
-  const [openId, setOpenId] = useState<string | null>(null);
+export function ServiceFaqSnap({ faq }: ServiceFaqSnapProps) {
+  const [openId, setOpenId] = useState<string | null>(
+    faq[0]?.id ?? null,
+  );
+
+  const reducedMotion = useReducedMotion();
 
   return (
-    <section className={styles.faqSection} id="duvidas" aria-labelledby="faq-title">
+    <section
+      className={styles.faqSection}
+      id="duvidas"
+      aria-labelledby="faq-title"
+    >
       <header className={styles.faqIntro}>
         <p className={styles.kicker}>Dúvidas frequentes</p>
-        <h2 id="faq-title">Antes de começar, vale esclarecer algumas coisas.</h2>
+
+        <h2 id="faq-title">
+          Antes de começar.
+        </h2>
+
+        <p>
+          Respostas diretas sobre contratação, manutenção e
+          funcionamento do serviço.
+        </p>
+
+        <div className={styles.faqAside}>
+          <span>Não encontrou sua dúvida?</span>
+
+          <a href="#contato">
+            Falar sobre meu projeto
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
       </header>
 
-      <Reveal className={styles.faqList} distance={16}>
-        {faq.map((item) => {
+      <div className={styles.faqList}>
+        {faq.map((item, index) => {
           const isOpen = openId === item.id;
-          const contentId = `${prefix}-${item.id}`;
+          const panelId = `faq-panel-${item.id}`;
+          const buttonId = `faq-button-${item.id}`;
+
           return (
-            <div className={styles.faqItem} key={item.id}>
+            <article
+              className={styles.faqItem}
+              data-open={isOpen}
+              key={item.id}
+            >
               <h3>
                 <button
+                  id={buttonId}
                   type="button"
                   aria-expanded={isOpen}
-                  aria-controls={contentId}
-                  onClick={() => setOpenId(isOpen ? null : item.id)}
+                  aria-controls={panelId}
+                  onClick={() =>
+                    setOpenId((current) =>
+                      current === item.id ? null : item.id,
+                    )
+                  }
                 >
-                  <span>{item.question}</span>
-                  <i aria-hidden="true" data-open={isOpen ? "true" : "false"} />
+                  <span className={styles.faqQuestion}>
+                    <small>
+                      {String(index + 1).padStart(2, "0")}
+                    </small>
+
+                    <span>{item.question}</span>
+                  </span>
+
+                  <i
+                    data-open={isOpen}
+                    aria-hidden="true"
+                  />
                 </button>
               </h3>
-              <div id={contentId} hidden={!isOpen} role="region" aria-label={item.question}>
-                <p>{item.answer}</p>
-              </div>
-            </div>
+
+              <AnimatePresence initial={false}>
+                {isOpen ? (
+                  <m.div
+                    id={panelId}
+                    role="region"
+                    aria-labelledby={buttonId}
+                    className={styles.faqAnswer}
+                    initial={
+                      reducedMotion
+                        ? { opacity: 1 }
+                        : {
+                            height: 0,
+                            opacity: 0,
+                          }
+                    }
+                    animate={
+                      reducedMotion
+                        ? { opacity: 1 }
+                        : {
+                            height: "auto",
+                            opacity: 1,
+                          }
+                    }
+                    exit={
+                      reducedMotion
+                        ? { opacity: 0 }
+                        : {
+                            height: 0,
+                            opacity: 0,
+                          }
+                    }
+                    transition={{
+                      duration: reducedMotion ? 0.01 : 0.24,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                  >
+                    <div>
+                      <p>{item.answer}</p>
+                    </div>
+                  </m.div>
+                ) : null}
+              </AnimatePresence>
+            </article>
           );
         })}
-      </Reveal>
+      </div>
 
-      <StoryProgress chapter={6} label="Continue explorando" />
+      <div className={styles.faqProgress}>
+        <StoryProgress
+          chapter={6}
+          label="Tire suas dúvidas"
+        />
+      </div>
     </section>
   );
 }
