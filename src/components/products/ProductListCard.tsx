@@ -19,12 +19,38 @@ type ProductListCardProps = {
   recommendation?: ProductCardProps;
 };
 
+function essentialSpecifications(variants: readonly ProductVariant[]) {
+  const specification = variants[0]?.specifications;
+  if (!specification) return [] as Array<[string, string]>;
+
+  switch (specification.type) {
+    case "washer-dryer":
+      return [["Lavagem", `${specification.washCapacityKg} kg`], ["Secagem", `${specification.dryCapacityKg} kg`], ["Motor", specification.motor], ["Tensão", specification.voltage]];
+    case "notebook":
+      return [["Processador", specification.processor], ["Memória", `${specification.ramGb} GB`], ["Armazenamento", `${specification.storageGb} GB`], ["Tela", `${specification.display.sizeInches}\"`]];
+    case "smartphone":
+      return [["Processador", specification.processor], ["Memória", `${specification.ramGb} GB / ${specification.storageGb} GB`], ["Tela", `${specification.display.sizeInches}\"`], ["Bateria", `${specification.batteryMah} mAh`]];
+    case "television":
+      return [["Tela", `${specification.screenSizeInches}\"`], ["Painel", specification.panelTechnology], ["Sistema", specification.operatingSystem], ["HDMI", `${specification.hdmiPorts} entradas`]];
+    case "blender":
+      return [["Potência", `${specification.powerNominalWatts} W`], ["Capacidade", `${specification.totalCapacityLiters} L`], ["Copo", specification.jarMaterial], ["Tensão", specification.voltage]];
+    case "stand-mixer":
+      return [["Potência", `${specification.powerWatts} W`], ["Tigela", `${specification.bowlCapacityLiters} L`], ["Movimento", specification.planetaryMovement ? "Planetário" : "Convencional"], ["Tensão", specification.voltage]];
+    case "camera":
+      return [["Sensor", specification.sensorFormat], ["Resolução", `${specification.resolutionMegapixels} MP`], ["Vídeo", specification.video], ["Mount", specification.lensMount]];
+    case "generic":
+      return specification.groups.flatMap((group) => group.entries.map((entry) => [entry.label, entry.value] as [string, string])).slice(0, 4);
+  }
+}
+
 export function ProductListCard({
   product,
   variants,
   offers,
   recommendation,
 }: ProductListCardProps) {
+  const specs = essentialSpecifications(variants);
+
   return (
     <article className={styles.card}>
       <div className={styles.productArea}>
@@ -138,6 +164,17 @@ export function ProductListCard({
                 </div>
               </details>
             </div>
+          ) : null}
+
+          {specs.length ? (
+            <dl className={styles.specifications} aria-label="Informações essenciais">
+              {specs.map(([label, value]) => (
+                <div key={label}>
+                  <dt>{label}</dt>
+                  <dd>{value}</dd>
+                </div>
+              ))}
+            </dl>
           ) : null}
         </div>
       </div>

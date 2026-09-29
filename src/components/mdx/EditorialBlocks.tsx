@@ -429,7 +429,7 @@ export function EditorialTable({
           highlightFirstColumn && styles.highlightFirstColumn,
         )}
       >
-        <div className={styles.tableViewport}>
+        <div className={styles.tableViewport} role="region" aria-label={title ?? "Tabela de comparação"} tabIndex={0}>
           <table className={styles.table}>
             {caption ? <caption className={styles.tableCaption}>{caption}</caption> : null}
             <colgroup>
@@ -463,6 +463,7 @@ export function EditorialTable({
           </table>
         </div>
       </div>
+      {!useCards ? <p className={styles.tableScrollHint}>Deslize horizontalmente para comparar todos os dados.</p> : null}
       {useCards ? (
         <div className={styles.tableCards} role="list" aria-label={title}>
           {tableData.rows.map((row, rowIndex) => {

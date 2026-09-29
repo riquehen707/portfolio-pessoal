@@ -8,6 +8,7 @@ import { Column, Heading, Meta, SmartLink, Text } from "@once-ui-system/core";
 
 import { CustomMDX, ScrollToHash } from "@/components";
 import { ArticleTools } from "@/components/blog/ArticleTools";
+import { RelatedArticleCards } from "@/components/blog/RelatedArticleCards";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { baseURL, blog, person, social } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
@@ -27,6 +28,7 @@ type ContinuationCard = {
   summary?: string;
   image?: string;
   imageAlt?: string;
+  category?: string;
 };
 
 function normalizeSlug(slugParam: string | string[] | undefined): string {
@@ -83,6 +85,7 @@ function postToContinuation(post: BlogFile | undefined): ContinuationCard | null
     summary: post.metadata.summary,
     image: post.metadata.image,
     imageAlt: post.metadata.imageAlt,
+    category: post.metadata.category ?? post.collection,
   };
 }
 
@@ -304,27 +307,7 @@ export default async function BlogPost({ params }: PageProps) {
               Continue por assuntos próximos.
             </Heading>
           </div>
-          <div className={styles.secondaryReadings}>
-            {continuationCards.map((item) => (
-              <Link className={styles.secondaryReading} href={item.href} key={item.href}>
-                <span className={styles.secondaryMedia}>
-                  {item.image ? (
-                    <Image
-                      src={item.image}
-                      alt={item.imageAlt ?? item.title}
-                      fill
-                      unoptimized
-                      sizes="(max-width: 768px) 100vw, 320px"
-                    />
-                  ) : null}
-                </span>
-                <span className={styles.secondaryContent}>
-                  <strong>{item.title}</strong>
-                  {item.summary ? <span>{item.summary}</span> : null}
-                </span>
-              </Link>
-            ))}
-          </div>
+          <RelatedArticleCards items={continuationCards} />
         </section>
       ) : null}
       <ScrollToHash />

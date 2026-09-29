@@ -2485,7 +2485,7 @@
       "status": "published",
       "createdAt": null,
       "publishedAt": "2026-09-02",
-      "updatedAt": "2026-09-02",
+      "updatedAt": "2026-09-22",
       "seo": {
         "title": "Kit completo para começar a vender bolos e doces em casa: o que realmente comprar",
         "description": "Um guia por prioridade para montar uma confeitaria doméstica sem comprar equipamentos antes de existir demanda.",
@@ -2501,6 +2501,16 @@
       "sourceFile": "src/app/blog/posts/produtos/cozinha/kit-para-comecar-a-vender-bolos-e-doces.mdx",
       "migrationReady": false,
       "productCards": [
+        {
+          "productId": "prod_urano_udc_pop_6_1",
+          "whyIncluded": "Representa a mudança de categoria que faz sentido quando a pesagem diária pede plataforma inox, construção comercial e tara; não é uma forma de começar melhor por si só.",
+          "bestFor": "Quem já produz com frequência, precisa pesar lotes e porções de até 6 kg ou encontrou instabilidade na balança doméstica.",
+          "mainDifference": "Mantém divisão de 1 g em uma plataforma comercial de 6 kg, em vez de apenas aumentar a aparência de robustez de uma balança doméstica.",
+          "tradeOff": "Ocupa mais bancada e custa bem mais; a resolução de 1 g também não serve para ingredientes medidos em frações de grama.",
+          "sensiblePriceRange": "Compare o preço observado e a assistência antes da compra; o ganho só compensa quando volume e estabilidade já são gargalos medidos na rotina.",
+          "avoidWhen": "Não recomendamos para poucas receitas por semana, nem para venda por peso sem confirmar as exigências metrológicas aplicáveis ao seu caso.",
+          "closestCompetitor": "Uma balança doméstica de 5 ou 6 kg, divisão de 1 g e tara: é a referência de início, embora não ofereça a mesma construção comercial."
+        },
         {
           "productId": "prod_fischer_premier_48l",
           "whyIncluded": "É uma opção de bancada atual com dimensões internas publicadas, porta de vidro duplo, aquecimento superior independente e faixa de 50 °C a 300 °C.",
@@ -2520,6 +2530,16 @@
           "sensiblePriceRange": "Boa compra até R$ 750. Acima de R$ 900, compare modelos mais pesados ou preserve o dinheiro para uma futura máquina profissional.",
           "avoidWhen": "Não recomendamos para muitos ciclos consecutivos, grandes lotes ou massas pesadas sem capacidade oficial confirmada.",
           "closestCompetitor": "KitchenAid Artisan KEA33 para produção doméstica recorrente; Skymsen BPS-05-N quando a rotina já exige construção profissional."
+        },
+        {
+          "productId": "prod_skymsen_bps_05_n",
+          "whyIncluded": "É uma referência de subida para produção recorrente de massas leves, pão de ló, chantilly e coberturas quando a máquina doméstica já se tornou gargalo mensurável.",
+          "bestFor": "Quem mantém ciclos frequentes de confeitaria leve e precisa de construção mais estável, sem transformar uma tigela de 5 litros em promessa de grandes lotes.",
+          "mainDifference": "A estrutura fundida, as engrenagens metálicas e o ajuste contínuo de velocidade respondem a uma rotina comercial; o volume do bojo, sozinho, não explica a diferença.",
+          "tradeOff": "É cara, pesada e o catálogo a limita a massas leves; não há base para escolhê-la para massas pesadas ou crescimento ainda hipotético.",
+          "sensiblePriceRange": "Compare a oferta datada, garantia para uso comercial e assistência local; o investimento deve ser sustentado por horas poupadas e redução de paradas.",
+          "avoidWhen": "Não recomendamos para início de atividade, poucos lotes semanais, massas pesadas ou falta de espaço e manutenção planejados.",
+          "closestCompetitor": "KitchenAid Artisan KEA33 para produção doméstica recorrente dentro dos limites oficiais; ela é mais barata em alguns momentos, mas continua doméstica."
         }
       ]
     },
@@ -2861,6 +2881,64 @@
       "sourceFile": "src/app/blog/posts/produtos/computadores/como-montar-um-pc.mdx",
       "migrationReady": false,
       "productCards": []
+    },
+    {
+      "id": null,
+      "contentType": "article",
+      "schemaVersion": null,
+      "slug": "kit-para-comecar-design-grafico-em-casa-2026",
+      "aliases": [],
+      "status": "published",
+      "createdAt": null,
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22",
+      "seo": {
+        "title": "Kit para começar a trabalhar com design gráfico em casa em 2026",
+        "description": "Monte um kit para trabalhar com design gráfico em casa em 2026 sem comprar equipamento premium antes de ele fazer falta.",
+        "canonical": "/blog/kit-para-comecar-design-grafico-em-casa-2026"
+      },
+      "relationships": {
+        "related": [
+          "Guia prático: como trabalhar com design gráfico e identidade visual",
+          "Graphic design software: como escolher o programa de design gráfico adequado",
+          "Melhores monitores para trabalhar e programar em 2026",
+          "Melhores notebooks custo-benefício para estudar e trabalhar em 2026"
+        ]
+      },
+      "sourceFile": "src/app/blog/posts/produtos/computadores/kit-para-comecar-design-grafico-em-casa-2026.mdx",
+      "migrationReady": false,
+      "productCards": [
+        {
+          "productId": "prod_asus_vivobook_15_m1502",
+          "whyIncluded": "Reúne 16 GB de RAM, SSD de 512 GB e tela IPS-level em uma configuração que permite abrir editor, referências e navegador sem começar com uma limitação óbvia de memória.",
+          "bestFor": "Design gráfico geral, social media, apresentações e identidade visual para quem precisa de mobilidade e ainda não trabalha com renderização, 3D ou edição longa de vídeo.",
+          "mainDifference": "A tela IPS-level é menos restritiva para leitura e organização visual do que o painel TN do concorrente direto, diferença cotidiana para quem ainda não usa monitor externo.",
+          "tradeOff": "A cobertura de cor é limitada, o Ryzen 7 pertence a uma geração mais antiga e 16 GB já representam o limite informado para esta configuração.",
+          "sensiblePriceRange": "Faz sentido perto de R$ 3.200 e até R$ 3.400; acima disso, compare notebooks mais atuais ou reserve parte do orçamento para um monitor externo melhor.",
+          "avoidWhen": "Evite se você já sabe que trabalhará com After Effects, 3D, edição de vídeo longa ou arquivos muito grandes todos os dias; nesses casos, procure desktop ou notebook com GPU dedicada e mais RAM.",
+          "closestCompetitor": "Acer Aspire 15 A15-51M-56KR: oferece mais desempenho sustentado, mas economiza justamente na tela TN, inadequada como única referência visual para design."
+        },
+        {
+          "productId": "prod_lg_27qn600",
+          "whyIncluded": "QHD em 27 polegadas cria espaço real para manter arquivo, painel de ferramentas e referência visíveis, sem tratar resolução 4K como requisito para quem está começando.",
+          "bestFor": "Design gráfico digital, identidade visual, layouts e trabalho de texto feito principalmente numa mesa, com orçamento intermediário e sem exigência de USB-C.",
+          "mainDifference": "Combina painel IPS, resolução de 2560 × 1440 e cobertura sRGB ampla em uma faixa mais acessível que monitores voltados a cor profissional.",
+          "tradeOff": "A base só inclina, o modelo é antigo e não há USB-C; ergonomia pode exigir um braço VESA ou ajuste da própria mesa.",
+          "sensiblePriceRange": "É uma compra coerente até R$ 1.400. Se a diferença para um Dell U2724D for pequena, os ajustes de base e a cobertura de cor mais ampla podem justificar a comparação.",
+          "avoidWhen": "Evite se sua mesa for muito rasa, se não houver como ajustar a altura da tela ou se o trabalho depender de cor crítica calibrada para impressão.",
+          "closestCompetitor": "Dell UltraSharp U2724D: traz base completa, hub e cobertura de cor maior, mas custa muito mais e não é necessário para todo iniciante."
+        },
+        {
+          "productId": "prod_dell_p2425h",
+          "whyIncluded": "Entrega painel IPS, 100 Hz, hub USB e ajustes de altura, giro, pivô e inclinação em um único conjunto, sem exigir braço VESA logo no início.",
+          "bestFor": "Quem trabalha diariamente em mesa curta, usa notebook como computador principal e prioriza postura e conexões mais que grande área de trabalho.",
+          "mainDifference": "A base completa evita comprar suporte externo apenas para obter altura e rotação, uma vantagem concreta em home office pequeno.",
+          "tradeOff": "A resolução Full HD em 23,8 polegadas limita a área para layouts complexos e não substitui QHD quando várias janelas precisam ficar abertas.",
+          "sensiblePriceRange": "Até R$ 1.200 é a faixa em que ergonomia e hub justificam o custo; acima disso, compare com um QHD e considere o espaço disponível na mesa.",
+          "avoidWhen": "Evite se sua prioridade é visualizar muitos painéis, artboards ou referências lado a lado; nesse caso, QHD em 27 polegadas costuma render mais espaço útil.",
+          "closestCompetitor": "LG 27QN600-B: oferece mais resolução e área, mas exige resolver ergonomia por fora por ter base simples."
+        }
+      ]
     },
     {
       "id": null,

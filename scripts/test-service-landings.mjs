@@ -290,6 +290,8 @@ test("hub organiza formatos e recursos demonstráveis sem duplicar produtos", ()
   ]);
   assert.equal(content.features.length, 12);
   assert.equal(content.features.filter((feature) => feature.previewKind).length, 6);
+  assert.deepEqual(content.plans.map((plan) => plan.price), ["R$300/mês", "R$500/mês", "R$800/mês"]);
+  assert.equal(content.faq.length, 6);
   assert.equal(content.formats.some((format) => "price" in format), false);
   for (const collection of Object.values(content)) {
     assert.equal(new Set(collection.map((item) => item.id)).size, collection.length);
@@ -576,7 +578,9 @@ test("home comercial apresenta oferta, exemplos, escopo e contato sem sobrecarga
     renderToStaticMarkup(
       React.createElement(ServiceHubView, {
         ...getServiceHubContent(),
+        examples: getPublishedServiceExamples(),
         inspirations: getFeaturedServiceInspirations(4),
+        localBusinessInspiration: getServiceInspiration("negocio-local-vibrante"),
         contactHref: "https://wa.me/5511999999999",
       }),
     ),
@@ -585,37 +589,52 @@ test("home comercial apresenta oferta, exemplos, escopo e contato sem sobrecarga
   assert.equal($("h1").length, 1);
   assert.equal(
     $("#service-hub-title").text(),
-    "Meu site ajuda pessoas a encontrar meu trabalho. O seu pode fazer o mesmo.",
+    "Seu negócio merece um site à altura.",
   );
-  assert.equal($("section[aria-labelledby='service-hub-title'] a").length, 2);
+  assert.equal($("section[aria-labelledby='service-hub-title'] a[href='https://wa.me/5511999999999']").length, 1);
+  assert.equal($("section[aria-labelledby='service-hub-title'] a[href='#exemplos']").length, 1);
+  assert.equal($("section[aria-labelledby='service-hub-title'] img").length, 2);
+  assert.equal($("section[aria-labelledby='service-hub-title'] figcaption").text().includes("Direção visual demonstrativa"), true);
+  assert.equal($("section[aria-labelledby='service-hub-title']").text().includes("01 / 07"), true);
   assert.equal($("[role='tab']").length, 0);
   assert.equal($("#recursos").length, 0);
   assert.equal($("#formatos").length, 0);
   assert.equal($("#examples-title").text(), "Veja como seu site pode ficar.");
+  assert.equal($("#exemplos").text().includes("02 / 07"), true);
+  assert.equal($("#exemplos button").length, 6);
   assert.equal($("#exemplos article").length, 4);
-  for (const inspiration of getFeaturedServiceInspirations(4)) {
-    assert.equal(
-      $(`#exemplos a[href='/servicos/inspiracoes/${inspiration.slug}']`).length,
-      2,
-    );
-  }
+  assert.equal($("#exemplos a[href='/servicos/exemplos/arquitetura']").length >= 2, true);
+  assert.equal($("#exemplos a[href='/servicos/exemplos']").length, 1);
   assert.equal($("#recursos-principais").length, 0);
   assert.equal($(".perception").length, 0);
-  assert.deepEqual($("#incluso ul h3").map((_, item) => $(item).text()).get(), ["Criação e design", "Domínio e hospedagem", "SEO técnico", "Manutenção e suporte"]);
-  assert.equal($("a[href='/servicos/capacidades']").length, 1);
-  assert.equal($("a[href='/servicos/inspiracoes']").length, 2);
+  assert.equal($("#incluso").text().includes("03 / 07"), true);
+  assert.deepEqual($("#incluso ul h3").map((_, item) => $(item).text()).get(), ["Criação e design", "Domínio e hospedagem", "Versão mobile", "SEO técnico", "Manutenção", "Contato integrado"]);
+  assert.equal($("#incluso").text().includes("Tudo isso a partir de R$300/mês."), true);
+  assert.equal($("#incluso a[href='/servicos/capacidades']").length, 1);
+  assert.equal($("a[href='/servicos/capacidades']").length, 2);
+  assert.equal($("#processo").text().includes("04 / 07"), true);
+  assert.deepEqual($("#processo ol h3").map((_, item) => $(item).text()).get(), ["Briefing", "Estrutura", "Criação", "Publicação"]);
+  assert.equal($("#processo a[href='https://wa.me/5511999999999']").text().trim().startsWith("Quero começar"), true);
+  assert.equal($("a[href='/servicos/inspiracoes']").length, 1);
   assert.equal($("a[href='/work']").length, 1);
-  assert.equal($("[data-analytics-event='services_help_click']").length, 2);
+  assert.equal($("[data-analytics-event='services_help_click']").length, 6);
   assert.equal($("[data-analytics-event='services_help_click']").filter((_, item) => $(item).text().trim().startsWith("Quero meu site")).length, 1);
-  assert.equal($("[data-analytics-event='services_help_click']").filter((_, item) => $(item).text().trim().startsWith("Falar no WhatsApp")).length, 1);
-  assert.equal($("#exemplos a[href='/servicos/inspiracoes']").text().trim().startsWith("Ver todos os exemplos"), true);
+  assert.equal($("[data-analytics-event='services_help_click']").filter((_, item) => $(item).text().trim().startsWith("Falar pelo WhatsApp")).length, 1);
+  assert.equal($("#processo [data-analytics-event='services_help_click']").filter((_, item) => $(item).text().trim().startsWith("Quero começar")).length, 1);
+  assert.equal($("#exemplos a[href='/servicos/exemplos']").text().trim().startsWith("Ver todos os exemplos"), true);
   assert.doesNotMatch($("#exemplos").text(), /projeto realizado|template pronto/i);
-  assert.equal($("a[href^='/servicos/exemplos']").length, 0);
-  assert.equal($("main").text().includes("R$147/mês"), true);
+  assert.equal($("#exemplos a[href^='/servicos/exemplos/']").length > 0, true);
+  assert.equal($("main").text().includes("R$300/mês"), true);
   assert.equal($("main").text().includes("R$ 200"), false);
   assert.equal($("main").text().includes("R$ 89,90"), false);
-  assert.equal($("section[aria-labelledby='faq-title']").length, 0);
-  assert.equal($("section[aria-labelledby='process-title']").length, 0);
+  assert.equal($("#planos").text().includes("05 / 07"), true);
+  assert.deepEqual($("#planos article strong").map((_, item) => $(item).text()).get(), ["R$300/mês", "R$500/mês", "R$800/mês"]);
+  assert.equal($("#planos article[data-featured='true']").length, 1);
+  assert.equal($("section[aria-labelledby='faq-title']").length, 1);
+  assert.equal($("#duvidas").text().includes("06 / 07"), true);
+  assert.equal($("#duvidas button[aria-expanded='false']").length, 6);
+  assert.equal($("#contato").text().includes("07 / 07"), true);
+  assert.equal($("section[aria-labelledby='process-title']").length, 1);
 });
 
 test("página de capacidades explica recursos com uma única demonstração", () => {

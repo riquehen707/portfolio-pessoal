@@ -1,0 +1,55 @@
+@use "../../styles/mixins" as mixins;
+
+.root {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.9rem;
+  min-height: 2.75rem;
+  padding: 0.7rem 0.82rem;
+  border: 1px solid #121216;
+  border-radius: 0.65rem;
+  background: #121216;
+  color: #f7f7f4;
+  font-size: 0.82rem;
+  font-weight: 750;
+  line-height: 1.2;
+  text-decoration: none;
+  transition:
+    background-color var(--motion-fast),
+    border-color var(--motion-fast),
+    transform var(--motion-fast);
+}
+
+.action:visited { color: #f7f7f4; }
+
+.action:focus-visible {
+  outline: 2px solid #f7f7f4;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px #20534c;
+}
+
+@include mixins.hover-fine {
+  .action:hover {
+    border-color: #232329;
+    background: #232329;
+    color: #f7f7f4;
+    transform: translateY(-1px);
+  }
+}
+
+.action:active {
+  background: #050506;
+  transform: translateY(0);
+}
+
+.disclosure {
+  color: var(--neutral-on-background-weak);
+  font-size: 0.7rem;
+  line-height: 1.42;
+}

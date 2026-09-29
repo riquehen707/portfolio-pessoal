@@ -1,11 +1,12 @@
 import Link from "next/link";
+
+import { OfferAction } from "@/components/offers/OfferAction";
+
 import { ReadingCardMedia } from "./ReadingCardMedia";
 import { getReadingCardEdition, getReadingCardOffers, getReadingCreditNames, getReadingWorkOrThrow, isGraphicReadingWork, readingPublisher, readingTitle, readingYear } from "./readingCardData";
 import styles from "./BookCard.module.scss";
 
-const categoryLabels: Record<string, string> = {
-  fiction: "Ficção", "non-fiction": "Não ficção", philosophy: "Filosofia", science: "Ciência", business: "Negócios", marketing: "Marketing", biography: "Biografia", essay: "Ensaio", poetry: "Poesia", "short-stories": "Contos", "light-novel": "Light novel", comics: "Quadrinhos",
-};
+const categoryLabels: Record<string, string> = { fiction: "Ficção", "non-fiction": "Não ficção", philosophy: "Filosofia", science: "Ciência", business: "Negócios", marketing: "Marketing", biography: "Biografia", essay: "Ensaio", poetry: "Poesia", "short-stories": "Contos", "light-novel": "Light novel", comics: "Quadrinhos" };
 
 export function BookCard({ workId, comment, variant = "editorial", priority = false }: { workId: string; comment?: string; variant?: "compact" | "editorial" | "library"; priority?: boolean }) {
   const work = getReadingWorkOrThrow(workId);
@@ -28,7 +29,7 @@ export function BookCard({ workId, comment, variant = "editorial", priority = fa
       {variant === "library" ? <p className={styles.description}>{work.shortDescription}</p> : null}
       {variant === "library" ? <p className={styles.editionState}>{edition ? `Edição cadastrada: ${edition.title}` : "Edição brasileira ainda não confirmada"}</p> : null}
       {comment ? <p className={styles.comment}>{comment}</p> : null}
-      {offers.length ? <div className={styles.offers} aria-label="Opções desta edição"><strong>Edição disponível</strong>{offers.map((offer) => <a key={offer.id} href={offer.url} target="_blank" rel={offer.affiliateProgram ? "sponsored nofollow noreferrer" : "nofollow noreferrer"}>Ver na {offer.store}</a>)}</div> : null}
+      {offers.length ? <div className={styles.offers} aria-label="Opções desta edição"><strong>Edição disponível</strong>{offers.map((offer) => <OfferAction key={offer.id} offer={offer} kind="reading" />)}</div> : null}
     </div>
   </article>;
 }

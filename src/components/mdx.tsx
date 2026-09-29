@@ -35,6 +35,7 @@ import { Callout } from "@/components/mdx/Callout";
 import { Quote } from "@/components/mdx/Quote";
 import { Highlight } from "@/components/mdx/Highlight";
 import { ArticleNativeCTA } from "@/components/blog/ArticleNativeCTA";
+import { MdxTable } from "@/components/mdx/MdxTable";
 import {
   CommonMistake,
   CommonMistakes,
@@ -349,55 +350,6 @@ function BlockQuote({ children }: { children: ReactNode }) {
   );
 }
 
-// Tabela responsiva (HTML nativo com wrapper)
-function TableWrapper({ children }: { children: ReactNode }) {
-  return (
-    <div
-      style={{
-        width: "100%",
-        maxWidth: "100%",
-        minWidth: 0,
-        overflowX: "auto",
-        WebkitOverflowScrolling: "touch",
-        margin: "20px 0 28px",
-        borderTop: "1px solid var(--line-subtle)",
-        borderBottom: "1px solid var(--line-subtle)",
-        borderRadius: 0,
-        background: "transparent",
-        boxShadow: "none",
-      }}
-    >
-      <table style={{ width: "100%", minWidth: "max-content", borderCollapse: "collapse" }}>
-        {children}
-      </table>
-    </div>
-  );
-}
-function Th(props: React.HTMLAttributes<HTMLTableCellElement>) {
-  return (
-    <th
-      style={{
-        textAlign: "left",
-        padding: "12px 14px",
-        borderBottom: "1px solid var(--neutral-alpha-medium)",
-        color: "var(--neutral-on-background-strong)",
-      }}
-      {...props}
-    />
-  );
-}
-function Td(props: React.HTMLAttributes<HTMLTableCellElement>) {
-  return (
-    <td
-      style={{
-        padding: "12px 14px",
-        borderBottom: "1px solid var(--border-subtle)",
-      }}
-      {...props}
-    />
-  );
-}
-
 /* ===== Shortcodes para usar dentro do MDX ===== */
 function PillarBadge({ slug, label }: { slug: string; label?: string }) {
   return (
@@ -450,9 +402,7 @@ export const baseMDXComponents: MDXComponents = {
   li: createListItem as any,
   hr: createHR as any,
   blockquote: BlockQuote as any,
-  table: TableWrapper as any,
-  th: Th as any,
-  td: Td as any,
+  table: MdxTable as any,
 
   // === componentes custom mapeados no MDX ===
   Figure,

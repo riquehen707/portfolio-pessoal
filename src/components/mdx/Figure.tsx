@@ -1,6 +1,6 @@
 //src/components/mdx/Figure.tsx
 
-import { Column, Media, Text } from "@once-ui-system/core";
+import { Column, Media } from "@once-ui-system/core";
 
 import { MediaCredit, type MediaCreditProps } from "./MediaCredit";
 
@@ -40,12 +40,7 @@ export default function Figure({
           sizes="(min-width: 1024px) 960px, 100vw"
           aspectRatio={aspectRatio}
         />
-        {caption && (
-          <Text variant="body-default-xs" onBackground="neutral-weak" align="center" marginTop="8">
-            {caption}
-          </Text>
-        )}
-        <MediaCredit source={source} accessedAt={accessedAt} sourceHref={sourceHref} />
+        <MediaCredit caption={caption} source={source} accessedAt={accessedAt} sourceHref={sourceHref} />
       </figure>
     </Column>
   );

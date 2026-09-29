@@ -73,6 +73,163 @@ export const serviceFeatures: ServiceFeature[] = [
   { id: "catalog", title: "Catálogo", group: "content", status: "additional", description: "Organize itens por categorias e páginas de detalhe.", useCase: "Coleções maiores que não precisam ser uma loja virtual." },
 ];
 
+export const serviceInclusions = [
+  {
+    id: "creation-design",
+    title: "Criação e design",
+    description: "Estrutura, conteúdo e interface organizados para o seu negócio.",
+  },
+  {
+    id: "domain-hosting",
+    title: "Domínio e hospedagem",
+    description: "Configuração e infraestrutura necessárias para manter o site publicado.",
+  },
+  {
+    id: "responsive-version",
+    title: "Versão mobile",
+    description: "Experiência adaptada para celular, tablet e computador.",
+  },
+  {
+    id: "technical-seo",
+    title: "SEO técnico",
+    description: "Estrutura preparada para indexação e melhor leitura pelos buscadores.",
+  },
+  {
+    id: "maintenance",
+    title: "Manutenção",
+    description: "Correções, atualizações e pequenos ajustes contínuos.",
+  },
+  {
+    id: "integrated-contact",
+    title: "Contato integrado",
+    description: "WhatsApp, formulário ou outra forma de contato adequada ao projeto.",
+  },
+] as const;
+
+export const serviceProcess = [
+  {
+    id: "briefing",
+    title: "Briefing",
+    description: "Entendo seu negócio, objetivo, público e o que o site precisa resolver.",
+  },
+  {
+    id: "structure",
+    title: "Estrutura",
+    description: "Organizo páginas, conteúdo, navegação e prioridades.",
+  },
+  {
+    id: "creation",
+    title: "Criação",
+    description: "Desenvolvo a interface, adapto para mobile e preparo a parte técnica.",
+  },
+  {
+    id: "publication",
+    title: "Publicação",
+    description: "Publico o site e continuo cuidando da manutenção.",
+  },
+] as const;
+
+export const essentialPlanIncludes = [
+  "Criação completa do site",
+  "Design personalizado",
+  "Responsividade desktop e mobile",
+  "Domínio e hospedagem",
+  "SEO técnico inicial",
+  "WhatsApp ou formulário",
+  "Manutenção técnica",
+  "1 pequena alteração de conteúdo por mês",
+] as const;
+
+export type ServiceHubPlan = {
+  id: "essential" | "growth" | "performance";
+  name: string;
+  price: string;
+  badge?: string;
+  description: string;
+  inherits?: string;
+  includes: readonly string[];
+  cta: string;
+};
+
+export const servicePlans: readonly ServiceHubPlan[] = [
+  {
+    id: "essential",
+    name: "Essencial",
+    price: "R$300/mês",
+    description: "Para colocar seu negócio no ar com um site profissional.",
+    includes: essentialPlanIncludes,
+    cta: "Quero começar",
+  },
+  {
+    id: "growth",
+    name: "Crescimento",
+    price: "R$500/mês",
+    badge: "Mais escolhido",
+    description: "Para acompanhar resultados e continuar evoluindo o site.",
+    inherits: "Inclui tudo do Essencial, mais:",
+    includes: [
+      "Google Analytics",
+      "Google Tag Manager",
+      "Acompanhamento de conversões",
+      "Relatório mensal de acessos e comportamento",
+      "Análise das principais fontes de tráfego",
+      "Até 3 pequenas alterações por mês",
+      "Melhorias contínuas orientadas pelos dados",
+    ],
+    cta: "Escolher Crescimento",
+  },
+  {
+    id: "performance",
+    name: "Performance",
+    price: "R$800/mês",
+    description: "Para negócios que usam o site de forma mais ativa para gerar oportunidades.",
+    inherits: "Inclui tudo do Crescimento, mais:",
+    includes: [
+      "Landing pages adicionais conforme necessidade",
+      "Melhorias de UX e conversão",
+      "Evolução de seções e funcionalidades",
+      "Até 5 alterações por mês",
+      "Suporte prioritário",
+      "Preparação técnica para campanhas",
+      "Acompanhamento mais próximo da performance",
+    ],
+    cta: "Falar sobre meu projeto",
+  },
+] as const;
+
+export const serviceFaq = [
+  {
+    id: "domain",
+    question: "O domínio está incluso?",
+    answer: "Sim. O domínio faz parte da mensalidade; os detalhes ficam registrados na proposta antes da contratação.",
+  },
+  {
+    id: "hosting",
+    question: "A hospedagem está inclusa?",
+    answer: "Sim. A hospedagem e a manutenção técnica fazem parte da mensalidade.",
+  },
+  {
+    id: "changes",
+    question: "Posso pedir alterações?",
+    answer: "Sim. O Essencial inclui 1 pequena alteração por mês, o Crescimento até 3 e o Performance até 5.",
+  },
+  {
+    id: "timeline",
+    question: "Quanto tempo leva para o site ficar pronto?",
+    answer: "O prazo depende do escopo e do envio de textos, imagens e informações. A data fica combinada na proposta.",
+  },
+  {
+    id: "after-publication",
+    question: "O que acontece depois que o site é publicado?",
+    answer: "O site segue hospedado e recebe manutenção técnica. Os planos Crescimento e Performance também acompanham a evolução definida em cada plano.",
+  },
+  {
+    id: "commitment",
+    question: "Existe permanência mínima?",
+    answer: "As condições de fidelidade e cancelamento ficam definidas na proposta antes da contratação.",
+  },
+] as const;
+
 function assertUnique(items: readonly { id: string }[], label: string) {
   const ids = items.map((item) => item.id);
   if (new Set(ids).size !== ids.length) throw new Error(`${label} possui identificadores duplicados.`);
@@ -81,5 +238,16 @@ function assertUnique(items: readonly { id: string }[], label: string) {
 export function getServiceHubContent() {
   assertUnique(serviceFormats, "A lista de formatos");
   assertUnique(serviceFeatures, "A lista de recursos");
-  return { formats: serviceFormats, features: serviceFeatures };
+  assertUnique(serviceInclusions, "A lista de inclusões");
+  assertUnique(serviceProcess, "A lista de etapas");
+  assertUnique(servicePlans, "A lista de planos");
+  assertUnique(serviceFaq, "A lista de dúvidas");
+  return {
+    formats: serviceFormats,
+    features: serviceFeatures,
+    inclusions: serviceInclusions,
+    process: serviceProcess,
+    plans: servicePlans,
+    faq: serviceFaq,
+  };
 }

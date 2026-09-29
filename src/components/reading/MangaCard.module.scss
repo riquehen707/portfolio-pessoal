@@ -27,9 +27,8 @@
 .meta { @include card.meta; }
 .meta span + span::before { margin-right: .6rem; content: "/"; color: var(--line-muted); }
 .comment { @include card.comment; }
-.offers { display: flex; flex-wrap: wrap; align-items: baseline; gap: .35rem .65rem; padding-top: .52rem; border-top: 1px solid var(--line-subtle); font-size: .76rem; }
-.offers strong { flex-basis: 100%; font-size: .68rem; text-transform: uppercase; letter-spacing: .07em; }
-.offers a { font-weight: 700; }
+.offers { display: grid; gap: .5rem; padding-top: .68rem; border-top: 1px solid var(--line-subtle); }
+.offers > strong { color: var(--neutral-on-background-weak); font-family: var(--font-technical); font-size: .68rem; font-weight: var(--type-weight-technical); letter-spacing: var(--type-technical-tracking); text-transform: uppercase; }
 
 .card[data-variant="compact"] { grid-template-columns: 4.75rem minmax(0, 1fr); margin-block: 0; }
 .card[data-variant="compact"] .comment { display: none; }

@@ -1,226 +1,286 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { ServicesAreaNav } from "@/components/services/ServicesAreaNav";
 import {
-  getServiceInspirationPath,
-  type ServiceInspiration,
-} from "@/data/service-inspirations";
+  BarChart3,
+  LifeBuoy,
+  MonitorSmartphone,
+  ShieldCheck,
+} from "lucide-react";
+
+import { Reveal } from "@/components/motion/Reveal";
+import type { ServiceExample } from "@/content/service-examples/serviceExampleSchema";
+import type {
+  ServiceFaqItem,
+  ServiceInclusion,
+  ServicePlan,
+  ServiceProcessStep,
+} from "@/data/service-hub";
+import type { ServiceInspiration } from "@/data/service-inspirations";
+
+import { ServiceExamplesSnap } from "./ServiceExamplesSnap";
+import { ServiceFaqSnap } from "./ServiceFaqSnap";
+import { ServiceFinalSnap } from "./ServiceFinalSnap";
+import { ServiceInclusionsSnap } from "./ServiceInclusionsSnap";
+import { ServicePlansSnap } from "./ServicePlansSnap";
+import { ServiceProcessSnap } from "./ServiceProcessSnap";
+import { ServicesAreaNav } from "./ServicesAreaNav";
+import { StoryProgress } from "./StoryProgress";
 
 import styles from "./ServiceHubView.module.scss";
 
 type ServiceHubViewProps = {
+  examples: ServiceExample[];
+  inclusions: ServiceInclusion[];
+  process: ServiceProcessStep[];
+  plans: ServicePlan[];
+  faq: ServiceFaqItem[];
   inspirations: ServiceInspiration[];
+  localBusinessInspiration?: ServiceInspiration;
   contactHref: string;
 };
 
-const included = [
+const heroBenefits = [
   {
-    title: "Criação e design",
-    description: "Eu organizo o conteúdo, desenho a interface e desenvolvo o site.",
+    label: "Design personalizado",
+    icon: MonitorSmartphone,
   },
   {
-    title: "Domínio e hospedagem",
-    description: "Configuro o endereço e a infraestrutura necessária para publicar.",
+    label: "Pronto para crescer",
+    icon: BarChart3,
   },
   {
-    title: "SEO técnico",
-    description: "Entrego uma base preparada para indexação, desempenho e evolução.",
+    label: "Infraestrutura inclusa",
+    icon: ShieldCheck,
   },
   {
-    title: "Manutenção e suporte",
-    description: "Continuo cuidando da parte técnica e de pequenos ajustes recorrentes.",
+    label: "Suporte contínuo",
+    icon: LifeBuoy,
   },
 ] as const;
 
 export function ServiceHubView({
+  examples,
+  inclusions,
+  process,
+  plans,
+  faq,
   inspirations,
+  localBusinessInspiration,
   contactHref,
 }: ServiceHubViewProps) {
+  const architectureExample =
+    examples.find(
+      (example) =>
+        example.slug === "arquitetura" ||
+        example.segment.toLowerCase().includes("arquitetura"),
+    ) ?? examples[0];
+
+  const architectureInspiration =
+    inspirations.find(
+      (inspiration) =>
+        inspiration.slug === "arquitetura-editorial" ||
+        inspiration.category.toLowerCase().includes("arquitetura"),
+    ) ?? inspirations[0];
+
+  const heroDesktopImage =
+    architectureExample?.coverImage?.src ??
+    architectureInspiration?.image;
+
+  const heroMobileImage =
+    architectureExample?.coverImage?.mobileSrc ??
+    architectureExample?.coverImage?.src ??
+    architectureInspiration?.image;
+
+  const heroImageAlt =
+    architectureExample?.coverImage?.alt ??
+    architectureInspiration?.alt ??
+    "Exemplo de site profissional.";
+
+  const finalInspiration =
+    inspirations.find(
+      (inspiration) =>
+        inspiration.slug !== architectureInspiration?.slug,
+    ) ?? architectureInspiration;
+
   return (
     <main className={styles.shell}>
-      <ServicesAreaNav active="overview" />
+      <ServicesAreaNav activeArea="overview" />
 
       <section
         className={styles.hero}
-        id="visao-geral"
-        aria-labelledby="service-hub-title"
+        aria-labelledby="services-hero-title"
       >
-        <div className={styles.heroCopy}>
-          <p className={styles.kicker}>Site profissional completo</p>
+        <div className={styles.heroGrid}>
+          <Reveal
+            className={styles.heroCopy}
+            distance={14}
+          >
+            <p className={styles.kicker}>
+              Sites profissionais
+            </p>
 
-          <h1 id="service-hub-title">
-            Meu site ajuda pessoas a encontrar meu trabalho. O seu pode fazer o
-            mesmo.
-          </h1>
+            <h1 id="services-hero-title">
+              Seu negócio merece um site à altura.
+            </h1>
 
-          <p className={styles.heroStatement}>
-            Eu crio, publico e mantenho um site para apresentar seu trabalho,
-            transmitir confiança e facilitar o contato com seu negócio.
-          </p>
+            <p className={styles.heroStatement}>
+              Design, desenvolvimento e manutenção em um único
+              serviço. Um site pensado para apresentar seu
+              trabalho com clareza e transformar visitas em
+              oportunidades.
+            </p>
 
-          <div className={styles.heroActions}>
-            <a
-              className={styles.primaryAction}
-              href={contactHref}
-              data-analytics-event="services_help_click"
-              data-analytics-location="services_hub_hero"
+            <ul
+              className={styles.heroBenefits}
+              aria-label="Benefícios do serviço"
             >
-              Quero meu site <span aria-hidden="true">→</span>
-            </a>
+              {heroBenefits.map(({ label, icon: Icon }) => (
+                <li key={label}>
+                  <span
+                    className={styles.benefitIcon}
+                    aria-hidden="true"
+                  >
+                    <Icon />
+                  </span>
 
-            <a className={styles.secondaryAction} href="#exemplos">
-              Ver como seu site pode ficar
-            </a>
-          </div>
+                  <span>{label}</span>
+                </li>
+              ))}
+            </ul>
 
-          <p className={styles.heroOffer}>
-            <strong>A partir de R$147/mês</strong>
-            <span aria-hidden="true">·</span>
-            Domínio, hospedagem, manutenção e suporte incluídos.
-          </p>
-        </div>
-      </section>
-
-      <section className={styles.readySection} aria-labelledby="ready-title">
-        <p className={styles.kicker}>Do começo ao site publicado</p>
-
-        <div className={styles.readyLayout}>
-          <h2 id="ready-title">
-            Um criador de sites entrega uma ferramenta. Eu entrego o site
-            pronto.
-          </h2>
-
-          <div className={styles.readyCopy}>
-            <p>
-              Fazer sozinho também é possível, mas exige aprender a ferramenta,
-              organizar o conteúdo, montar o design e resolver domínio,
-              hospedagem, celular, SEO e manutenção.
-            </p>
-            <p>
-              No meu serviço, essa parte fica comigo. Você participa das decisões
-              e recebe uma estrutura publicada, sem precisar assumir outra função
-              no seu negócio.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section
-        className={styles.examplesSection}
-        id="exemplos"
-        aria-labelledby="examples-title"
-      >
-        <header className={styles.sectionHeader}>
-          <div>
-            <p className={styles.kicker}>Exemplos</p>
-            <h2 id="examples-title">Veja como seu site pode ficar.</h2>
-            <p className={styles.sectionDescription}>
-              E o que ele pode ajudar seu negócio a organizar, apresentar e
-              receber.
-            </p>
-          </div>
-
-          <Link className={styles.textLink} href="/servicos/inspiracoes">
-            Ver todos os exemplos <span aria-hidden="true">→</span>
-          </Link>
-        </header>
-
-        <div className={styles.examplesGrid}>
-          {inspirations.map((inspiration, index) => (
-            <article className={styles.example} key={inspiration.slug}>
-              <Link
-                className={styles.exampleImage}
-                href={getServiceInspirationPath(inspiration.slug)}
-                aria-label={`Ver exemplo ${inspiration.title}`}
+            <div className={styles.heroActions}>
+              <a
+                className={styles.primaryAction}
+                href={contactHref}
+                data-analytics-event="service_contact"
+                data-analytics-location="services_hero"
               >
-                <Image
-                  src={inspiration.image}
-                  alt={inspiration.alt}
-                  fill
-                  priority={index < 2}
-                  sizes="(max-width: 760px) 100vw, 50vw"
-                />
-              </Link>
-
-              <div className={styles.exampleCaption}>
-                <div>
-                  <p>{inspiration.category}</p>
-                  <h3>
-                    <Link href={getServiceInspirationPath(inspiration.slug)}>
-                      {inspiration.title}
-                    </Link>
-                  </h3>
-                </div>
+                Quero meu site
                 <span aria-hidden="true">→</span>
-              </div>
+              </a>
 
-              <p className={styles.exampleDescription}>
-                {inspiration.description}
-              </p>
-            </article>
-          ))}
-        </div>
-      </section>
+              <Link
+                className={styles.secondaryAction}
+                href="#exemplos"
+              >
+                Ver exemplos
+              </Link>
+            </div>
 
-      <section
-        className={styles.includedSection}
-        id="incluso"
-        aria-labelledby="included-title"
-      >
-        <header className={styles.includedIntro}>
-          <p className={styles.kicker}>O que está incluso</p>
-          <h2 id="included-title">
-            Não é apenas o espaço onde o site fica hospedado.
-          </h2>
-          <p>
-            A mensalidade reúne a criação, a infraestrutura e o cuidado contínuo
-            necessários para o site permanecer útil e publicado.
-          </p>
-        </header>
-
-        <div className={styles.includedContent}>
-          <ul className={styles.includedList}>
-            {included.map((item) => (
-              <li key={item.title}>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </li>
-            ))}
-          </ul>
-
-          <aside className={styles.price} aria-label="Preço do serviço">
-            <p>Site profissional completo</p>
-            <strong>
-              R$147<small>/mês</small>
-            </strong>
-            <span>Sem taxa inicial.</span>
-            <p>
-              Páginas, sistemas, integrações e alterações maiores recebem um
-              escopo próprio antes do início.
+            <p className={styles.heroOffer}>
+              <strong>A partir de R$300/mês</strong>
+              <span>
+                domínio, hospedagem e manutenção inclusos.
+              </span>
             </p>
-          </aside>
+          </Reveal>
+
+          {heroDesktopImage ? (
+            <Reveal
+              className={styles.heroVisual}
+              distance={18}
+            >
+              <figure className={styles.heroFigure}>
+                <div className={styles.desktopPreview}>
+                  <div
+                    className={styles.browserChrome}
+                    aria-hidden="true"
+                  >
+                    <i />
+                    <i />
+                    <i />
+
+                    <small>seunegocio.com.br</small>
+                  </div>
+
+                  <Image
+                    src={heroDesktopImage}
+                    alt={heroImageAlt}
+                    fill
+                    priority
+                    sizes="(max-width: 900px) 92vw, 55vw"
+                  />
+                </div>
+
+                <div
+                  className={styles.mobilePreview}
+                  aria-hidden="true"
+                >
+                  <span />
+
+                  <Image
+                    src={heroMobileImage}
+                    alt=""
+                    fill
+                    priority
+                    sizes="14rem"
+                  />
+                </div>
+
+                <div
+                  className={styles.performanceNote}
+                  aria-hidden="true"
+                >
+                  <strong>Performance</strong>
+                  <span>
+                    Estrutura rápida e preparada para SEO.
+                  </span>
+                </div>
+
+                <div
+                  className={styles.responsiveNote}
+                  aria-hidden="true"
+                >
+                  <span>
+                    <i />
+                    <i />
+                    <i />
+                  </span>
+
+                  <strong>100% responsivo</strong>
+                </div>
+
+                <figcaption>
+                  Exemplo demonstrativo de projeto responsivo.
+                </figcaption>
+              </figure>
+            </Reveal>
+          ) : null}
         </div>
+
+        <StoryProgress
+          chapter={1}
+          label="Conheça o serviço"
+        />
       </section>
 
-      <section className={styles.finalCta} aria-labelledby="contact-title">
-        <p className={styles.kicker}>Vamos conversar?</p>
-        <h2 id="contact-title">
-          Seu site pode começar a trabalhar pelo seu negócio.
-        </h2>
-        <p>
-          Você me explica o projeto e eu te ajudo a entender qual estrutura faz
-          sentido antes de começarmos.
-        </p>
-        <a
-          className={styles.primaryAction}
-          href={contactHref}
-          data-analytics-event="services_help_click"
-          data-analytics-location="services_hub_contact"
-        >
-          Falar no WhatsApp <span aria-hidden="true">→</span>
-        </a>
-      </section>
+      <ServiceExamplesSnap
+        examples={examples}
+        localBusinessInspiration={localBusinessInspiration}
+      />
+
+      <ServiceInclusionsSnap
+        inclusions={inclusions}
+        inspiration={architectureInspiration}
+      />
+
+      <ServiceProcessSnap
+        process={process}
+        contactHref={contactHref}
+      />
+
+      <ServicePlansSnap
+        plans={plans}
+        contactHref={contactHref}
+      />
+
+      <ServiceFaqSnap faq={faq} />
+
+      <ServiceFinalSnap
+        contactHref={contactHref}
+        inspiration={finalInspiration}
+      />
     </main>
   );
 }
