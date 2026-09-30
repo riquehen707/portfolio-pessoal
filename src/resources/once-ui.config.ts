@@ -17,7 +17,7 @@ import { brandIdentity, brandMessaging } from "./brand";
 import { home } from "./content";
 import { productsPage, simulationPage } from "./services";
 
-const baseURL: string = process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://henrique.dog";
+const baseURL: string = process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://henriquereis.app";
 
 const routes: RoutesConfig = {
   "/": true,
@@ -117,7 +117,7 @@ const style: StyleConfig = {
   neutral: "custom",
   brand: "custom",
   accent: "custom",
-  solid: "contrast",
+  solid: "inverse",
   solidStyle: "flat",
   border: "rounded",
   surface: "translucent",

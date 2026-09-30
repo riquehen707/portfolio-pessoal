@@ -43,8 +43,10 @@ import {
 const GOOGLE_TAG_MANAGER_ID =
   process.env.NEXT_PUBLIC_GTM_ID?.trim() || "GTM-KHH39C3Q";
 
-const GOOGLE_SITE_VERIFICATION =
-  "LQzYGuvWyFJ-oWweMatvNPeFAQwOIMT2q8Q1pbX27Zw";
+const GOOGLE_SITE_VERIFICATIONS = [
+  "LQzYGuvWyFJ-oWweMatvNPeFAQwOIMT2q8Q1pbX27Zw",
+  "FNAYS1jvSooc5E_9ydZHe8tQ26HnEIoL_D6akzSnurE",
+];
 
 /* -------------------------------------------------------------------------- */
 /* URL helpers                                                                */
@@ -209,7 +211,7 @@ export function generateMetadata(): Metadata {
     referrer: "origin-when-cross-origin",
 
     verification: {
-      google: GOOGLE_SITE_VERIFICATION,
+      google: GOOGLE_SITE_VERIFICATIONS,
     },
   };
 }

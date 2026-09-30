@@ -1,4 +1,5 @@
 import type { Product, ProductOffer, ProductVariant } from "./productSchema";
+import { amazonBrazilOffer } from "./amazonBrazil";
 
 const checked="2026-09-05";
 type Seed={key:string;name:string;maker:string;line:string;category:"Tablets"|"Monitores"|"Cadeiras";year:number;image:string;imageUrl:string;credit:string;width:number;height:number;description:string;strengths:string[];limits:string[];best:string[];specs:Record<string,string>;source:string;price:number;retailer:string};
@@ -32,4 +33,10 @@ const seeds:Seed[]=[
 const image=(s:Seed)=>({src:`/images/products/${s.image}`,alt:`${s.name} visto em fotografia de catálogo`,sourceUrl:s.imageUrl,credit:s.credit,rights:"permission-pending" as const,width:s.width,height:s.height});
 export const studyWorkspaceProducts:Product[]=seeds.map(s=>({id:`prod_${s.key}`,contentType:"product",schemaVersion:1,slug:s.key.replaceAll("_","-"),aliases:[],name:s.name,manufacturerId:`org_${s.maker}`,line:s.line,category:s.category,releaseYear:s.year,mainImage:image(s),gallery:[],shortDescription:s.description,strengths:s.strengths,limitations:s.limits,suitableFor:s.best,categories:[s.category,s.category==="Cadeiras"?"Casa":"Eletrônicos"],tags:Object.values(s.specs).slice(0,3),relatedProductIds:[],relatedArticleSlugs:relatedArticles[s.category],editorialSummary:`${s.description} ${s.strengths[0]} A principal limitação é: ${s.limits[0]}`,seo:{title:`${s.name}: ficha, análise e ofertas`,description:`Ficha de ${s.name} com especificações verificadas, pontos fortes, limitações, preço observado e artigos relacionados.`},sources:[{title:`${s.name} — especificações`,url:s.source,accessedAt:checked}],status:"published",createdAt:checked,publishedAt:checked,updatedAt:checked,reviewedAt:checked}));
 export const studyWorkspaceVariants:ProductVariant[]=seeds.map(s=>({id:`prod_variant_${s.key}_br`,productId:`prod_${s.key}`,name:"Versão pesquisada no Brasil",market:"BR",distinguishingAttributes:{configuration:Object.values(s.specs).join("; ")},specifications:{type:"generic",groups:[{label:"Especificações relevantes",entries:Object.entries(s.specs).map(([key,value])=>({key:key.toLowerCase().replaceAll(/[^a-z0-9]+/g,"-"),label:key,value}))}]},imageIds:[],sources:[{title:`${s.name} — especificações`,url:s.source,accessedAt:checked}],status:"published",createdAt:checked,updatedAt:checked,reviewedAt:checked}));
-export const studyWorkspaceOffers:ProductOffer[]=seeds.map(s=>({id:`prod_offer_${s.key}_reference`,variantId:`prod_variant_${s.key}_br`,retailer:s.retailer,url:s.source,region:"BR",observedPrice:{amount:s.price,currency:"BRL"},availability:"available",checkedAt:checked}));
+export const studyWorkspaceOffers:ProductOffer[]=seeds.flatMap((s)=>{
+  if(s.category==="Monitores"){
+    if(s.key==="lg_24ms500") return [amazonBrazilOffer({id:"prod_offer_amazon_lg_24ms500_br",variantId:"prod_variant_lg_24ms500_br",asin:"B0DF2WSGF6",availability:"available",checkedAt:"2026-09-30"})];
+    return [];
+  }
+  return [{id:`prod_offer_${s.key}_reference`,variantId:`prod_variant_${s.key}_br`,retailer:s.retailer,url:s.source,region:"BR",observedPrice:{amount:s.price,currency:"BRL"},availability:"available",checkedAt:checked}];
+});

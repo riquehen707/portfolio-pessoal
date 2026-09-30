@@ -68,7 +68,7 @@ function getRoleCode(role: string) {
 
 async function resolveItem(item: BuildItem) {
   if (!item.productId) {
-    return { ...item, product: undefined, price: item.price };
+    return { ...item, product: undefined, price: item.price, amazonOffer: undefined };
   }
 
   const [product, offers] = await Promise.all([
@@ -87,11 +87,18 @@ async function resolveItem(item: BuildItem) {
         (left.observedPrice?.amount ?? Number.POSITIVE_INFINITY) -
         (right.observedPrice?.amount ?? Number.POSITIVE_INFINITY),
     );
+  const amazonOffer = offers.find(
+    (offer) =>
+      (offer.availability === "available" || offer.availability === "preorder") &&
+      offer.retailer === "Amazon Brasil" &&
+      Boolean(offer.affiliateProgram),
+  );
 
   return {
     ...item,
     product,
     price: item.price ?? availableOffers[0]?.observedPrice?.amount,
+    amazonOffer,
   };
 }
 
@@ -101,6 +108,7 @@ export async function PcBuild({ data }: { data: string }) {
   const pricedItems = items.filter((item) => typeof item.price === "number");
   const total = pricedItems.reduce((sum, item) => sum + (item.price ?? 0), 0);
   const hasCompletePrice = pricedItems.length === items.length;
+  const affiliateDisclosure = items.find((item) => item.amazonOffer?.commissionDisclosure)?.amazonOffer?.commissionDisclosure;
 
   return (
     <section className={styles.build} aria-labelledby="pc-build-title">
@@ -132,29 +140,31 @@ export async function PcBuild({ data }: { data: string }) {
             <div><span>Configuração</span><h3>Peças da build</h3></div>
             <small>Preços observados em {build.updatedAt}</small>
           </div>
+          {affiliateDisclosure ? <p className={styles.affiliateDisclosure}>{affiliateDisclosure}</p> : null}
           <div className={styles.partList}>
             {items.map((item) => {
               const name = item.product?.name ?? item.name ?? item.role;
-              const content = (
-                <>
-                  <span className={styles.roleCode}>{getRoleCode(item.role)}</span>
-                  <span className={styles.productImage}>
-                    {item.product?.mainImage ? (
-                      <Image src={item.product.mainImage.src} alt="" fill sizes="56px" />
-                    ) : <span aria-hidden="true">{getRoleCode(item.role).slice(0, 1)}</span>}
-                  </span>
-                  <span className={styles.partCopy}>
-                    <small>{item.role}</small><strong>{name}</strong><span>{item.note}</span>
-                  </span>
-                  <strong className={styles.price}>
-                    {typeof item.price === "number" ? formatPrice(item.price) : "Sem preço"}
-                  </strong>
-                </>
-              );
-
-              return item.product ? (
-                <Link className={styles.part} href={`/produtos/${item.product.slug}`} key={item.role}>{content}</Link>
-              ) : <div className={styles.part} key={item.role}>{content}</div>;
+              return <div className={styles.part} key={item.role}>
+                <span className={styles.roleCode}>{getRoleCode(item.role)}</span>
+                <span className={styles.productImage}>
+                  {item.product?.mainImage ? (
+                    <Image src={item.product.mainImage.src} alt="" fill sizes="56px" />
+                  ) : <span aria-hidden="true">{getRoleCode(item.role).slice(0, 1)}</span>}
+                </span>
+                <span className={styles.partCopy}>
+                  <small>{item.role}</small>
+                  {item.product ? <Link className={styles.productLink} href={`/produtos/${item.product.slug}`}>{name}</Link> : <strong>{name}</strong>}
+                  <span>{item.note}</span>
+                </span>
+                {item.amazonOffer ? (
+                  <a className={styles.amazonAction} href={item.amazonOffer.url} target="_blank" rel="sponsored nofollow noreferrer">
+                    Ver na Amazon <span aria-hidden="true">↗</span>
+                  </a>
+                ) : null}
+                <strong className={styles.price}>
+                  {typeof item.price === "number" ? formatPrice(item.price) : "Sem preço"}
+                </strong>
+              </div>;
             })}
           </div>
           {hasCompletePrice ? (

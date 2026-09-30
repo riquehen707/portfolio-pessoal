@@ -39,35 +39,14 @@ body {
     color var(--motion-fast);
 }
 
-.hr-site-main {
-  background: var(--page-background);
-}
-
-.hr-font-system.hr-font-system {
-  --font-heading: "Satoshi", "Source Sans 3", system-ui, sans-serif;
-  --font-body: "Satoshi", "Source Sans 3", system-ui, sans-serif;
-  --font-label: "Satoshi", "Source Sans 3", system-ui, sans-serif;
-  --font-technical: "Satoshi", "Source Sans 3", system-ui, sans-serif;
-  --font-accent: "Satoshi", "Source Sans 3", system-ui, sans-serif;
-}
-
-img,
-svg,
-video,
-canvas {
-  display: block;
-  max-width: 100%;
-}
-
-button,
-input,
-textarea,
-select {
-  font: inherit;
-}
+/* -------------------------------------------------------------------------- */
+/* SITE STRUCTURE                                                             */
+/* -------------------------------------------------------------------------- */
 
 .hr-site-body {
   position: relative;
+  width: 100%;
+  min-width: 0;
   overflow-x: hidden;
   overflow-x: clip;
 }
@@ -76,10 +55,13 @@ select {
   box-sizing: border-box;
   width: 100%;
   min-width: 0;
+
   padding:
     clamp(2.5rem, 6vw, 4rem)
     clamp(1rem, 3vw, 2rem)
     clamp(3rem, 7vw, 5rem);
+
+  background: var(--page-background);
 }
 
 .hr-site-content {
@@ -92,6 +74,37 @@ select {
   min-width: 0;
   max-width: 100%;
 }
+
+/* -------------------------------------------------------------------------- */
+/* WIDE SERVICE PAGES                                                         */
+/* -------------------------------------------------------------------------- */
+
+/*
+ * Páginas como /servicos possuem seus próprios containers, gutters e
+ * composição editorial. Elas não devem ficar presas ao container global
+ * de 1040px.
+ *
+ * O Header e o Footer continuam presentes.
+ */
+
+.hr-site-body:has(.servicesWideRoot) .hr-site-main {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.hr-site-body:has(.servicesWideRoot) .hr-site-content {
+  width: 100%;
+  max-width: none;
+}
+
+.hr-site-body:has(.servicesWideRoot) .hr-site-content > * {
+  width: 100%;
+  max-width: none;
+}
+
+/* -------------------------------------------------------------------------- */
+/* DEMO CANVAS                                                                */
+/* -------------------------------------------------------------------------- */
 
 .hr-site-body:has(.demoCanvasRoot) > header,
 .hr-site-body:has(.demoCanvasRoot) > footer {
@@ -108,6 +121,10 @@ select {
   max-width: none;
 }
 
+/* -------------------------------------------------------------------------- */
+/* STANDALONE LANDING PAGES                                                   */
+/* -------------------------------------------------------------------------- */
+
 .hr-site-body:has(.standaloneLandingRoot) > header,
 .hr-site-body:has(.standaloneLandingRoot) > footer {
   display: none;
@@ -122,6 +139,56 @@ select {
   width: 100%;
   max-width: none;
 }
+
+/* -------------------------------------------------------------------------- */
+/* FONT SYSTEM                                                                */
+/* -------------------------------------------------------------------------- */
+
+.hr-font-system.hr-font-system {
+  --font-heading: "Satoshi", "Source Sans 3", system-ui, sans-serif;
+  --font-body: "Satoshi", "Source Sans 3", system-ui, sans-serif;
+  --font-label: "Satoshi", "Source Sans 3", system-ui, sans-serif;
+  --font-technical: "Satoshi", "Source Sans 3", system-ui, sans-serif;
+  --font-accent: "Satoshi", "Source Sans 3", system-ui, sans-serif;
+}
+
+/* -------------------------------------------------------------------------- */
+/* MEDIA                                                                      */
+/* -------------------------------------------------------------------------- */
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+/* -------------------------------------------------------------------------- */
+/* FORM CONTROLS                                                              */
+/* -------------------------------------------------------------------------- */
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
+  @include mixins.input-surface;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--neutral-on-background-weak);
+}
+
+/* -------------------------------------------------------------------------- */
+/* TYPOGRAPHY                                                                 */
+/* -------------------------------------------------------------------------- */
 
 h1,
 h2,
@@ -163,6 +230,10 @@ p {
   color: var(--neutral-on-background-weak);
 }
 
+/* -------------------------------------------------------------------------- */
+/* LINKS                                                                      */
+/* -------------------------------------------------------------------------- */
+
 a {
   color: inherit;
   transition:
@@ -171,6 +242,10 @@ a {
     border-color var(--motion-fast),
     transform var(--motion-fast);
 }
+
+/* -------------------------------------------------------------------------- */
+/* BUTTONS                                                                    */
+/* -------------------------------------------------------------------------- */
 
 .button,
 button,
@@ -182,6 +257,7 @@ button,
     filter var(--motion-fast),
     border-color var(--motion-fast),
     background var(--motion-fast);
+
   transform-origin: center;
 }
 
@@ -191,19 +267,13 @@ button {
     transform var(--motion-fast),
     box-shadow var(--motion-fast),
     filter var(--motion-fast);
+
   transform-origin: center;
 }
 
-input:not([type="checkbox"]):not([type="radio"]),
-textarea,
-select {
-  @include mixins.input-surface;
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: var(--neutral-on-background-weak);
-}
+/* -------------------------------------------------------------------------- */
+/* FOCUS                                                                      */
+/* -------------------------------------------------------------------------- */
 
 input:focus-visible,
 textarea:focus-visible,
@@ -215,10 +285,18 @@ button:focus-visible,
   @include mixins.focus-ring;
 }
 
+/* -------------------------------------------------------------------------- */
+/* SELECTION                                                                  */
+/* -------------------------------------------------------------------------- */
+
 ::selection {
   background: rgba(230, 201, 74, 0.22);
   color: var(--neutral-on-background-strong);
 }
+
+/* -------------------------------------------------------------------------- */
+/* HOVER                                                                      */
+/* -------------------------------------------------------------------------- */
 
 @include mixins.hover-fine {
   .button:hover,
@@ -245,6 +323,10 @@ button:active {
   filter: saturate(1.02) brightness(0.99);
 }
 
+/* -------------------------------------------------------------------------- */
+/* MOBILE                                                                     */
+/* -------------------------------------------------------------------------- */
+
 @include mixins.s {
   html {
     scroll-padding-top: var(--scroll-offset-mobile);
@@ -253,5 +335,14 @@ button:active {
   .hr-site-main {
     padding-top: 2rem;
     padding-bottom: 3rem;
+  }
+
+  /*
+   * A página de serviços continua responsável pelos próprios gutters
+   * também em telas pequenas.
+   */
+  .hr-site-body:has(.servicesWideRoot) .hr-site-main {
+    padding-left: 0;
+    padding-right: 0;
   }
 }

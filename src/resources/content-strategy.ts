@@ -259,7 +259,7 @@ const contentStrategy = {
           title: "O que pode ser verificado",
           description: "Projeto próprio, interfaces publicadas, escopo e tecnologias usadas.",
           bullets: [
-            "henrique.dog",
+            "henriquereis.app",
             "Portfólio",
             "Serviços publicados",
             "Interfaces demonstrativas identificadas",

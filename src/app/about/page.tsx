@@ -42,7 +42,7 @@ const process = [
 export async function generateMetadata() {
   const image = buildOgImage(pageTitle, "Sites, portfólios e pequenos sistemas");
   const generatedMeta = Meta.generate({
-    title: `${pageTitle} | henrique.dog`,
+    title: `${pageTitle} | henriquereis.app`,
     description: pageDescription,
     baseURL,
     image,
@@ -68,7 +68,7 @@ export default function About() {
       <Schema
         as="webPage"
         baseURL={baseURL}
-        title={`${pageTitle} | henrique.dog`}
+        title={`${pageTitle} | henriquereis.app`}
         description={pageDescription}
         path={about.path}
         image={`/api/og/generate?title=${encodeURIComponent(pageTitle)}`}
@@ -158,7 +158,7 @@ export default function About() {
         </div>
         <div className={styles.proofGrid}>
           <article>
-            <h3>henrique.dog</h3>
+            <h3>henriquereis.app</h3>
             <p>
               Projeto próprio com busca, acervo editorial, catálogos, artigos, páginas de serviço e
               cases publicados.
@@ -190,7 +190,7 @@ export default function About() {
           <h2 id="profile-title">Trabalho, estudo e repertório.</h2>
         </div>
         <p>
-          Além do trabalho independente, estudo Física e mantenho o henrique.dog como um acervo de
+          Além do trabalho independente, estudo Física e mantenho o henriquereis.app como um acervo de
           textos, livros, filmes, jogos e ideias. O projeto também serve para testar navegação,
           conteúdo e interfaces em uso real.
         </p>

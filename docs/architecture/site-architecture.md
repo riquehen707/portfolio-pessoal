@@ -100,7 +100,7 @@ Se não cumprir nenhuma, considerar remover. Preservar conteúdo necessário à 
    └─ /abordagem-tecnica e /aulas-particulares
 ```
 
-O inventário de arquivos não equivale ao sitemap público. A inclusão de rotas estáticas é controlada por `routes` em `src/resources/once-ui.config.ts`; artigos, filmes e séries publicados são acrescentados por `src/app/sitemap.ts`. `src/config/routePolicy.ts` é a fonte central das famílias pausadas e alimenta middleware, robots e a exclusão defensiva do sitemap. Como o Next.js exige matchers literais no middleware, `npm run audit:route-policy` verifica essa única duplicação inevitável. Layouts dinâmicos nas famílias pausadas evitam gerar suas páginas durante o build.
+O inventário de arquivos não equivale ao sitemap público. A inclusão de rotas estáticas é controlada por `routes` em `src/resources/once-ui.config.ts`; artigos, filmes e séries publicados são acrescentados por `src/app/sitemap.ts`. `src/config/routePolicy.ts` é a fonte central das famílias pausadas e alimenta middleware, robots e a exclusão defensiva do sitemap. `npm run audit:route-policy` verifica que seus matchers literais continuam no middleware. Um matcher global adicional preserva caminho e query string ao redirecionar os hosts legados `henrique.dog`, `www.henrique.dog` e `www.henriquereis.app` para o host canônico `henriquereis.app` com HTTP 308. Layouts dinâmicos nas famílias pausadas evitam gerar suas páginas durante o build.
 
 **Pendência:** não existem índices públicos `/criadores` ou `/obras`. O perfil de Shingo Tamagawa pertence a `/personalidades/shingo-tamagawa`; a URL histórica em `/criadores/shingo-tamagawa` redireciona permanentemente para essa rota.
 

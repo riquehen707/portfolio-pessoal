@@ -86,7 +86,7 @@ export async function GET(req: Request) {
         }}
       >
         <div>{OG_FOOTER}</div>
-        <div style={{ color: OG_COLORS.accentBlue }}>henrique.dog</div>
+        <div style={{ color: OG_COLORS.accentBlue }}>henriquereis.app</div>
       </div>
     </div>,
     {

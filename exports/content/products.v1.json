@@ -292,7 +292,8 @@
       ],
       "relatedProductIds": [],
       "relatedArticleSlugs": [
-        "melhores-fones-bluetooth-ate-300-2026"
+        "melhores-fones-bluetooth-ate-300-2026",
+        "melhores-presentes-de-natal-para-quem-gosta-de-tecnologia"
       ],
       "editorialSummary": "Aplicativo, autonomia e IPX4 formam uma entrada barata coerente. Limitação: Não possui cancelamento ativo de ruído.",
       "seo": {
@@ -354,7 +355,8 @@
       ],
       "relatedProductIds": [],
       "relatedArticleSlugs": [
-        "melhores-fones-bluetooth-ate-300-2026"
+        "melhores-fones-bluetooth-ate-300-2026",
+        "melhores-presentes-de-natal-para-quem-gosta-de-tecnologia"
       ],
       "editorialSummary": "ANC e aplicativo criam o pacote mais equilibrado abaixo de R$ 250. Limitação: O ANC depende da vedação e não há codec de alta resolução.",
       "seo": {
@@ -416,7 +418,8 @@
       ],
       "relatedProductIds": [],
       "relatedArticleSlugs": [
-        "melhores-fones-bluetooth-ate-300-2026"
+        "melhores-fones-bluetooth-ate-300-2026",
+        "melhores-presentes-de-natal-para-quem-gosta-de-tecnologia"
       ],
       "editorialSummary": "LDAC, multiponto e ANC adaptativo são raros no teto de R$ 300. Limitação: Assistência e garantia dependem do importador ou revendedor.",
       "seo": {
@@ -478,7 +481,8 @@
       ],
       "relatedProductIds": [],
       "relatedArticleSlugs": [
-        "melhores-fones-bluetooth-ate-300-2026"
+        "melhores-fones-bluetooth-ate-300-2026",
+        "melhores-presentes-de-natal-para-quem-gosta-de-tecnologia"
       ],
       "editorialSummary": "Conforto over-ear, bateria e LDAC atendem longas sessões. Limitação: É volumoso para academia e o microfone não substitui headset dedicado.",
       "seo": {
@@ -540,7 +544,8 @@
       ],
       "relatedProductIds": [],
       "relatedArticleSlugs": [
-        "melhores-fones-bluetooth-ate-300-2026"
+        "melhores-fones-bluetooth-ate-300-2026",
+        "melhores-presentes-de-natal-para-quem-gosta-de-tecnologia"
       ],
       "editorialSummary": "Integração Galaxy, ANC e IP54 formam uma escolha segura em promoção. Limitação: Recursos e codecs favorecem aparelhos Samsung.",
       "seo": {
@@ -919,7 +924,8 @@
         "prod_bosch_gsb_185_li"
       ],
       "relatedArticleSlugs": [
-        "kit-de-ferramentas-para-casa"
+        "kit-de-ferramentas-para-casa",
+        "melhores-presentes-para-aproveitar-a-black-friday"
       ],
       "editorialSummary": "É uma opção proporcional para a maior parte dos reparos domésticos: compacta para parafusar móveis, mas ainda capaz de fazer furos pequenos em alvenaria. A compra perde sentido se o uso principal envolver concreto duro, brocas acima de 10 mm ou jornadas repetidas de reforma.",
       "seo": {
@@ -14536,82 +14542,17 @@
       "checkedAt": "2026-09-05"
     },
     {
-      "id": "prod_offer_lg_24ms500_reference",
+      "id": "prod_offer_amazon_lg_24ms500_br",
       "variantId": "prod_variant_lg_24ms500_br",
-      "retailer": "Varejo brasileiro",
-      "url": "https://www.lg.com/ca_en/monitors/fhd-qhd/24ms500-b/",
+      "retailer": "Amazon Brasil",
+      "url": "https://www.amazon.com.br/dp/B0DF2WSGF6?tag=riquehen-20",
       "region": "BR",
-      "observedPrice": {
-        "amount": 529,
-        "currency": "BRL"
-      },
+      "affiliateProgram": "Amazon Associados",
+      "affiliateId": "riquehen-20",
+      "asin": "B0DF2WSGF6",
       "availability": "available",
-      "checkedAt": "2026-09-05"
-    },
-    {
-      "id": "prod_offer_lg_24gs60f_reference",
-      "variantId": "prod_variant_lg_24gs60f_br",
-      "retailer": "LG Brasil",
-      "url": "https://www.lg.com/br/monitores/monitores-ultragear/24gs60f-b/",
-      "region": "BR",
-      "observedPrice": {
-        "amount": 899,
-        "currency": "BRL"
-      },
-      "availability": "available",
-      "checkedAt": "2026-09-05"
-    },
-    {
-      "id": "prod_offer_lg_27qn600_reference",
-      "variantId": "prod_variant_lg_27qn600_br",
-      "retailer": "Varejo brasileiro",
-      "url": "https://www.lg.com/es/monitores/monitores-ips-led/27qn600-b/",
-      "region": "BR",
-      "observedPrice": {
-        "amount": 1299,
-        "currency": "BRL"
-      },
-      "availability": "available",
-      "checkedAt": "2026-09-05"
-    },
-    {
-      "id": "prod_offer_lg_32ur500_reference",
-      "variantId": "prod_variant_lg_32ur500_br",
-      "retailer": "LG Brasil",
-      "url": "https://www.lg.com/br/monitores/monitores-uhd-4k/32ur500-b/",
-      "region": "BR",
-      "observedPrice": {
-        "amount": 1799,
-        "currency": "BRL"
-      },
-      "availability": "available",
-      "checkedAt": "2026-09-05"
-    },
-    {
-      "id": "prod_offer_dell_p2425h_reference",
-      "variantId": "prod_variant_dell_p2425h_br",
-      "retailer": "Dell Brasil",
-      "url": "https://www.dell.com/pt-br/shop/cty/pdp/spd/p2425h-monitor/m_p2425h_bcc",
-      "region": "BR",
-      "observedPrice": {
-        "amount": 1199,
-        "currency": "BRL"
-      },
-      "availability": "available",
-      "checkedAt": "2026-09-05"
-    },
-    {
-      "id": "prod_offer_dell_u2724d_reference",
-      "variantId": "prod_variant_dell_u2724d_br",
-      "retailer": "Dell Brasil",
-      "url": "https://www.dell.com/pt-br/shop/cty/pdp/spd/u2724d-monitor/m_u2724d_us",
-      "region": "BR",
-      "observedPrice": {
-        "amount": 3399,
-        "currency": "BRL"
-      },
-      "availability": "available",
-      "checkedAt": "2026-09-05"
+      "checkedAt": "2026-09-30",
+      "commissionDisclosure": "Link de afiliado: posso receber uma comissão sem custo adicional para você."
     },
     {
       "id": "prod_offer_flexform_lite_reference",
@@ -14822,147 +14763,95 @@
       "checkedAt": "2026-09-04"
     },
     {
-      "id": "prod_offer_kabum_ryzen_7600",
+      "id": "prod_offer_amazon_amd_ryzen_5_7600_box_br",
       "variantId": "prod_variant_amd_ryzen_5_7600_box_br",
-      "retailer": "KaBuM!",
-      "url": "https://www.kabum.com.br/produto/405799",
+      "retailer": "Amazon Brasil",
+      "url": "https://www.amazon.com.br/dp/B0BMQJWBDM?tag=riquehen-20",
       "region": "BR",
-      "observedPrice": {
-        "amount": 999.99,
-        "currency": "BRL"
-      },
+      "affiliateProgram": "Amazon Associados",
+      "affiliateId": "riquehen-20",
+      "asin": "B0BMQJWBDM",
       "availability": "available",
-      "checkedAt": "2026-09-04"
+      "checkedAt": "2026-09-30",
+      "commissionDisclosure": "Link de afiliado: posso receber uma comissão sem custo adicional para você."
     },
     {
-      "id": "prod_offer_kabum_gigabyte_b650m_gaming_wifi",
-      "variantId": "prod_variant_gigabyte_b650m_gaming_wifi_rev1_br",
-      "retailer": "KaBuM!",
-      "url": "https://www.kabum.com.br/produto/513870",
-      "region": "BR",
-      "observedPrice": {
-        "amount": 859.99,
-        "currency": "BRL"
-      },
-      "availability": "available",
-      "checkedAt": "2026-09-04"
-    },
-    {
-      "id": "prod_offer_pichau_gigabyte_rtx_5060_windforce",
+      "id": "prod_offer_amazon_gigabyte_rtx_5060_windforce_8gb_br",
       "variantId": "prod_variant_gigabyte_rtx_5060_windforce_8gb_br",
-      "retailer": "KaBuM!",
-      "url": "https://www.pichau.com.br/placa-de-video-gigabyte-geforce-rtx-5060-windforce-oc-8gb-gddr7-128-bit-gv-n5060wf2oc-8gd",
+      "retailer": "Amazon Brasil",
+      "url": "https://www.amazon.com.br/dp/B0F6NLT7M4?tag=riquehen-20",
       "region": "BR",
-      "observedPrice": {
-        "amount": 2599.99,
-        "currency": "BRL"
-      },
+      "affiliateProgram": "Amazon Associados",
+      "affiliateId": "riquehen-20",
+      "asin": "B0F6NLT7M4",
       "availability": "available",
-      "checkedAt": "2026-09-04"
+      "checkedAt": "2026-09-30",
+      "commissionDisclosure": "Link de afiliado: posso receber uma comissão sem custo adicional para você."
     },
     {
-      "id": "prod_offer_kabum_ryzen_5600gt",
-      "variantId": "prod_variant_amd_ryzen_5_5600gt_box_br",
-      "retailer": "KaBuM!",
-      "url": "https://www.kabum.com.br/produto/520368",
-      "region": "BR",
-      "observedPrice": {
-        "amount": 879.99,
-        "currency": "BRL"
-      },
-      "availability": "available",
-      "checkedAt": "2026-09-04"
-    },
-    {
-      "id": "prod_offer_kabum_ryzen_5500",
+      "id": "prod_offer_amazon_amd_ryzen_5_5500_box_br",
       "variantId": "prod_variant_amd_ryzen_5_5500_box_br",
-      "retailer": "KaBuM!",
-      "url": "https://www.kabum.com.br/produto/356695",
+      "retailer": "Amazon Brasil",
+      "url": "https://www.amazon.com.br/dp/B09VCJ171S?tag=riquehen-20",
       "region": "BR",
-      "observedPrice": {
-        "amount": 539,
-        "currency": "BRL"
-      },
+      "affiliateProgram": "Amazon Associados",
+      "affiliateId": "riquehen-20",
+      "asin": "B09VCJ171S",
       "availability": "available",
-      "checkedAt": "2026-09-04"
+      "checkedAt": "2026-09-30",
+      "commissionDisclosure": "Link de afiliado: posso receber uma comissão sem custo adicional para você."
     },
     {
-      "id": "prod_offer_kabum_rx_6600",
+      "id": "prod_offer_amazon_asrock_rx_6600_challenger_8gb_br",
       "variantId": "prod_variant_asrock_rx_6600_challenger_8gb_br",
-      "retailer": "KaBuM!",
-      "url": "https://www.kabum.com.br/produto/695107",
+      "retailer": "Amazon Brasil",
+      "url": "https://www.amazon.com.br/dp/B0CL5ZCH1J?tag=riquehen-20",
       "region": "BR",
-      "observedPrice": {
-        "amount": 1499.99,
-        "currency": "BRL"
-      },
+      "affiliateProgram": "Amazon Associados",
+      "affiliateId": "riquehen-20",
+      "asin": "B0CL5ZCH1J",
       "availability": "available",
-      "checkedAt": "2026-09-04"
+      "checkedAt": "2026-09-30",
+      "commissionDisclosure": "Link de afiliado: posso receber uma comissão sem custo adicional para você."
     },
     {
-      "id": "prod_offer_kabum_rx_7600",
-      "variantId": "prod_variant_asrock_rx_7600_challenger_8gb_br",
-      "retailer": "KaBuM!",
-      "url": "https://www.kabum.com.br/produto/459144",
-      "region": "BR",
-      "observedPrice": {
-        "amount": 1879.99,
-        "currency": "BRL"
-      },
-      "availability": "available",
-      "checkedAt": "2026-09-04"
-    },
-    {
-      "id": "prod_offer_kabum_b550m_pro_vdh_wifi",
+      "id": "prod_offer_amazon_msi_b550m_pro_vdh_wifi_br",
       "variantId": "prod_variant_msi_b550m_pro_vdh_wifi_br",
-      "retailer": "KaBuM!",
-      "url": "https://www.kabum.com.br/produto/114338",
+      "retailer": "Amazon Brasil",
+      "url": "https://www.amazon.com.br/dp/B089D1YG11?tag=riquehen-20",
       "region": "BR",
-      "observedPrice": {
-        "amount": 749.99,
-        "currency": "BRL"
-      },
+      "affiliateProgram": "Amazon Associados",
+      "affiliateId": "riquehen-20",
+      "asin": "B089D1YG11",
       "availability": "available",
-      "checkedAt": "2026-09-04"
+      "checkedAt": "2026-09-30",
+      "commissionDisclosure": "Link de afiliado: posso receber uma comissão sem custo adicional para você."
     },
     {
-      "id": "prod_offer_kabum_fury_beast_16gb",
+      "id": "prod_offer_amazon_kingston_fury_beast_2x8_3200_br",
       "variantId": "prod_variant_kingston_fury_beast_2x8_3200_br",
-      "retailer": "KaBuM!",
-      "url": "https://www.kabum.com.br/produto/172366",
+      "retailer": "Amazon Brasil",
+      "url": "https://www.amazon.com.br/dp/B097K2WBL3?tag=riquehen-20",
       "region": "BR",
-      "observedPrice": {
-        "amount": 319.99,
-        "currency": "BRL"
-      },
+      "affiliateProgram": "Amazon Associados",
+      "affiliateId": "riquehen-20",
+      "asin": "B097K2WBL3",
       "availability": "available",
-      "checkedAt": "2026-09-04"
+      "checkedAt": "2026-09-30",
+      "commissionDisclosure": "Link de afiliado: posso receber uma comissão sem custo adicional para você."
     },
     {
-      "id": "prod_offer_kabum_kingston_nv3_1tb",
+      "id": "prod_offer_amazon_kingston_nv3_1tb_br",
       "variantId": "prod_variant_kingston_nv3_1tb_br",
-      "retailer": "KaBuM!",
-      "url": "https://www.kabum.com.br/produto/621162",
+      "retailer": "Amazon Brasil",
+      "url": "https://www.amazon.com.br/dp/B0DBR3DZWG?tag=riquehen-20",
       "region": "BR",
-      "observedPrice": {
-        "amount": 399.99,
-        "currency": "BRL"
-      },
+      "affiliateProgram": "Amazon Associados",
+      "affiliateId": "riquehen-20",
+      "asin": "B0DBR3DZWG",
       "availability": "available",
-      "checkedAt": "2026-09-04"
-    },
-    {
-      "id": "prod_offer_kabum_msi_a650bn",
-      "variantId": "prod_variant_msi_mag_a650bn_br",
-      "retailer": "KaBuM!",
-      "url": "https://www.kabum.com.br/produto/369658",
-      "region": "BR",
-      "observedPrice": {
-        "amount": 319.99,
-        "currency": "BRL"
-      },
-      "availability": "available",
-      "checkedAt": "2026-09-04"
+      "checkedAt": "2026-09-30",
+      "commissionDisclosure": "Link de afiliado: posso receber uma comissão sem custo adicional para você."
     },
     {
       "id": "prod_offer_fischer_premier_48l_127",

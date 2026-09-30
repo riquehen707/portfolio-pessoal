@@ -11,7 +11,7 @@
 
   width: 100%;
   margin: 0;
-  overflow: clip;
+  overflow-x: clip;
 
   background: var(--paper);
   color: var(--ink);
@@ -20,9 +20,9 @@
 .shell section {
   position: relative;
 
-  width: min(100% - 3rem, 94rem);
+  width: min(100% - 4rem, 100rem);
   margin-inline: auto;
-  padding: clamp(5rem, 8vw, 8rem) 0;
+  padding: clamp(5.5rem, 7vw, 7.5rem) 0;
 
   border-top: 1px solid var(--line);
 
@@ -43,9 +43,9 @@
 }
 
 .shell h1 {
-  max-width: 8.5ch;
+  max-width: 10.5ch;
 
-  font-size: clamp(4rem, 6.1vw, 7rem);
+  font-size: clamp(4.25rem, 5.7vw, 6.75rem);
   line-height: 0.91;
 }
 
@@ -237,7 +237,7 @@
   margin: 0 !important;
   padding:
     clamp(4rem, 7vw, 7rem)
-    max(1.5rem, calc((100vw - 94rem) / 2))
+    max(2rem, calc((100vw - 100rem) / 2))
     clamp(3rem, 5vw, 5rem) !important;
 
   border-top: 0 !important;
@@ -254,15 +254,15 @@
 .heroGrid {
   display: grid;
   grid-template-columns:
-    minmax(24rem, 0.86fr)
-    minmax(35rem, 1.14fr);
+    minmax(29rem, 0.92fr)
+    minmax(38rem, 1.08fr);
 
   align-items: center;
-  gap: clamp(3rem, 6vw, 7rem);
+  gap: clamp(3rem, 4.5vw, 5.5rem);
 
   width: 100%;
-  max-width: 94rem;
-  min-height: clamp(39rem, 72vh, 49rem);
+  max-width: 100rem;
+  min-height: clamp(41rem, 74vh, 50rem);
 
   margin-inline: auto;
 }
@@ -271,7 +271,7 @@
   position: relative;
   z-index: 5;
 
-  max-width: 42rem;
+  max-width: 47rem;
   padding: 1rem 0 2rem;
 }
 
@@ -280,8 +280,8 @@
 }
 
 .heroStatement {
-  max-width: 35rem;
-  margin-top: 1.75rem !important;
+  max-width: 38rem;
+  margin-top: 1.6rem !important;
 
   color: var(--muted);
 
@@ -376,16 +376,16 @@
   position: relative;
   z-index: 1;
 
-  width: calc(100% + clamp(1rem, 3vw, 3rem));
+  width: 100%;
   min-width: 0;
 
-  margin-right: clamp(-3rem, -2vw, -1rem);
+  margin-right: 0;
 }
 
 .heroFigure {
   position: relative;
 
-  min-height: clamp(35rem, 46vw, 44rem);
+  min-height: clamp(38rem, 43vw, 46rem);
   margin: 0;
 
   isolation: isolate;
@@ -433,10 +433,10 @@
   position: absolute;
   z-index: 1;
 
-  top: 8%;
-  right: 7%;
-  bottom: 12%;
-  left: 0;
+  top: 9%;
+  right: 4%;
+  bottom: 10%;
+  left: 1%;
 
   display: block;
   overflow: hidden;
@@ -536,12 +536,12 @@
   position: absolute;
   z-index: 5;
 
-  right: 0;
-  bottom: 3%;
+  right: 1%;
+  bottom: 2%;
 
   display: block;
 
-  width: clamp(9.5rem, 13vw, 12.5rem);
+  width: clamp(10rem, 12vw, 12rem);
   aspect-ratio: 0.515;
 
   overflow: hidden;
@@ -705,11 +705,11 @@
 .examplesChapter {
   display: grid;
   grid-template-columns:
-    minmax(20rem, 0.82fr)
-    minmax(28rem, 1.18fr);
+    minmax(24rem, 0.88fr)
+    minmax(32rem, 1.12fr);
 
   align-items: end;
-  gap: clamp(3rem, 7vw, 8rem);
+  gap: clamp(3rem, 5vw, 6rem);
 
   margin-bottom: clamp(2.5rem, 4vw, 4rem);
 }
@@ -798,8 +798,8 @@
 .examplesShowcase {
   display: grid;
   grid-template-columns:
-    minmax(0, 1.48fr)
-    minmax(20rem, 0.52fr);
+    minmax(0, 1.62fr)
+    minmax(22rem, 0.58fr);
 
   gap: clamp(1rem, 2vw, 1.8rem);
   align-items: stretch;
@@ -808,7 +808,7 @@
 .showcasePrimary {
   position: relative;
 
-  min-height: clamp(34rem, 49vw, 47rem);
+  min-height: clamp(36rem, 44vw, 46rem);
 
   overflow: hidden;
 
@@ -1135,11 +1135,11 @@
 .inclusionsContent {
   display: grid;
   grid-template-columns:
-    minmax(21rem, 0.84fr)
-    minmax(31rem, 1.16fr);
+    minmax(25rem, 0.9fr)
+    minmax(38rem, 1.1fr);
 
   align-items: center;
-  gap: clamp(4rem, 8vw, 9rem);
+  gap: clamp(4rem, 6vw, 7rem);
 }
 
 .inclusionsIntro {
@@ -1214,7 +1214,7 @@
   position: relative;
 
   min-width: 0;
-  min-height: clamp(37rem, 48vw, 46rem);
+  min-height: clamp(39rem, 43vw, 46rem);
 
   isolation: isolate;
 }
@@ -1785,10 +1785,10 @@
 .processSection {
   display: grid;
   grid-template-columns:
-    minmax(19rem, 0.78fr)
-    minmax(32rem, 1.22fr);
+    minmax(24rem, 0.82fr)
+    minmax(38rem, 1.18fr);
 
-  column-gap: clamp(4rem, 10vw, 11rem);
+  column-gap: clamp(4rem, 7vw, 8rem);
   align-items: start;
 
   padding-top: clamp(7rem, 10vw, 10rem) !important;
@@ -2042,10 +2042,10 @@
 .plansLayout {
   display: grid;
   grid-template-columns:
-    minmax(18rem, 0.62fr)
-    minmax(44rem, 1.38fr);
+    minmax(25rem, 0.72fr)
+    minmax(50rem, 1.28fr);
 
-  gap: clamp(3rem, 6vw, 6.5rem);
+  gap: clamp(3rem, 5vw, 5.5rem);
   align-items: start;
 }
 
@@ -2120,7 +2120,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 
-  gap: 0.75rem;
+  gap: 1rem;
   align-items: stretch;
 }
 
@@ -2134,7 +2134,7 @@
 
   display: flex;
   height: 100%;
-  min-height: 37rem;
+  min-height: 39rem;
 
   flex-direction: column;
 
@@ -2430,10 +2430,10 @@
 .faqSection {
   display: grid;
   grid-template-columns:
-    minmax(19rem, 0.65fr)
-    minmax(32rem, 1.35fr);
+    minmax(24rem, 0.72fr)
+    minmax(40rem, 1.28fr);
 
-  column-gap: clamp(4rem, 9vw, 10rem);
+  column-gap: clamp(4rem, 7vw, 8rem);
   align-items: start;
 
   padding-top: clamp(7rem, 10vw, 10rem) !important;
@@ -2657,7 +2657,7 @@
   margin: 0 !important;
   padding:
     clamp(6rem, 9vw, 9rem)
-    max(1.5rem, calc((100vw - 94rem) / 2))
+    max(2rem, calc((100vw - 100rem) / 2))
     clamp(4rem, 6vw, 6rem) !important;
 
   overflow: hidden;
@@ -2678,14 +2678,14 @@
 .closingInner {
   display: grid;
   grid-template-columns:
-    minmax(21rem, 0.78fr)
-    minmax(35rem, 1.22fr);
+    minmax(27rem, 0.82fr)
+    minmax(40rem, 1.18fr);
 
   align-items: center;
-  gap: clamp(4rem, 8vw, 9rem);
+  gap: clamp(4rem, 6vw, 7rem);
 
   width: 100%;
-  max-width: 94rem;
+  max-width: 100rem;
 
   margin-inline: auto;
 }
@@ -2757,7 +2757,7 @@
   position: relative;
 
   min-width: 0;
-  min-height: clamp(34rem, 43vw, 43rem);
+  min-height: clamp(37rem, 41vw, 44rem);
 
   isolation: isolate;
 }
@@ -2998,7 +2998,7 @@
 
 .closingSection > .storyProgress {
   width: 100%;
-  max-width: 94rem;
+  max-width: 100rem;
 
   margin: clamp(4rem, 6vw, 6rem) auto 0;
 

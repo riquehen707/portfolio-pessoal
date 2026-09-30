@@ -41,7 +41,7 @@ export function ServiceLandingPage({
         Ir para a oferta
       </a>
       <header className={styles.brand}>
-        <Link href="/" aria-label="henrique.dog — início">henrique.dog</Link>
+        <Link href="/" aria-label="henriquereis.app — início">henriquereis.app</Link>
         <Link href="/servicos">Voltar para serviços</Link>
       </header>
       <div className={styles.container}>

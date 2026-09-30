@@ -79,7 +79,7 @@ export function ServiceInclusionsSnap({
                   <i />
                 </span>
 
-                <div>henrique.dog</div>
+                <div>henriquereis.app</div>
 
                 <small>•••</small>
               </div>
@@ -100,7 +100,7 @@ export function ServiceInclusionsSnap({
             >
               <span>Domínio</span>
 
-              <strong>henrique.dog</strong>
+              <strong>henriquereis.app</strong>
 
               <small>
                 <i />

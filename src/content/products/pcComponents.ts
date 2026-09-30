@@ -1,4 +1,5 @@
 import type { Product, ProductOffer, ProductVariant } from "./productSchema";
+import { amazonBrazilOffer } from "./amazonBrazil";
 
 const reviewedAt = "2026-09-04";
 const slugs = ["pc-gamer-ate-3000", "pc-gamer-ate-4000", "pc-gamer-ate-5000", "pc-gamer-ate-6000", "pc-gamer-sem-placa-de-video", "pc-gamer-pronto-ou-montar", "quanto-custa-montar-um-pc-gamer", "pc-para-estudar-trabalhar-e-jogar"];
@@ -41,15 +42,11 @@ export const pcComponentVariants:ProductVariant[] = [
 ].map(([id,productId,model,specifications]) => ({id:id as string,productId:productId as string,name:`${model} (Brasil)`,market:"BR",manufacturerModelNumber:model as string,distinguishingAttributes:{model:model as string},specifications:specifications as ProductVariant["specifications"],imageIds:[],sources:[source("Especificações do fabricante",pcComponentProducts.find(p=>p.id===productId)?.sources[0].url ?? "https://www.amd.com/")],status:"published",createdAt:reviewedAt,updatedAt:reviewedAt,reviewedAt}));
 
 export const pcComponentOffers:ProductOffer[] = [
-  ["prod_offer_kabum_ryzen_7600","prod_variant_amd_ryzen_5_7600_box_br","https://www.kabum.com.br/produto/405799",999.99],
-  ["prod_offer_kabum_gigabyte_b650m_gaming_wifi","prod_variant_gigabyte_b650m_gaming_wifi_rev1_br","https://www.kabum.com.br/produto/513870",859.99],
-  ["prod_offer_pichau_gigabyte_rtx_5060_windforce","prod_variant_gigabyte_rtx_5060_windforce_8gb_br","https://www.pichau.com.br/placa-de-video-gigabyte-geforce-rtx-5060-windforce-oc-8gb-gddr7-128-bit-gv-n5060wf2oc-8gd",2599.99],
-  ["prod_offer_kabum_ryzen_5600gt","prod_variant_amd_ryzen_5_5600gt_box_br","https://www.kabum.com.br/produto/520368",879.99],
-  ["prod_offer_kabum_ryzen_5500","prod_variant_amd_ryzen_5_5500_box_br","https://www.kabum.com.br/produto/356695",539],
-  ["prod_offer_kabum_rx_6600","prod_variant_asrock_rx_6600_challenger_8gb_br","https://www.kabum.com.br/produto/695107",1499.99],
-  ["prod_offer_kabum_rx_7600","prod_variant_asrock_rx_7600_challenger_8gb_br","https://www.kabum.com.br/produto/459144",1879.99],
-  ["prod_offer_kabum_b550m_pro_vdh_wifi","prod_variant_msi_b550m_pro_vdh_wifi_br","https://www.kabum.com.br/produto/114338",749.99],
-  ["prod_offer_kabum_fury_beast_16gb","prod_variant_kingston_fury_beast_2x8_3200_br","https://www.kabum.com.br/produto/172366",319.99],
-  ["prod_offer_kabum_kingston_nv3_1tb","prod_variant_kingston_nv3_1tb_br","https://www.kabum.com.br/produto/621162",399.99],
-  ["prod_offer_kabum_msi_a650bn","prod_variant_msi_mag_a650bn_br","https://www.kabum.com.br/produto/369658",319.99],
-].map(([id,variantId,url,amount]) => ({id:id as string,variantId:variantId as string,retailer:"KaBuM!",url:url as string,region:"BR",observedPrice:{amount:amount as number,currency:"BRL"},availability:"available",checkedAt:reviewedAt}));
+  amazonBrazilOffer({ id:"prod_offer_amazon_amd_ryzen_5_7600_box_br", variantId:"prod_variant_amd_ryzen_5_7600_box_br", asin:"B0BMQJWBDM", availability:"available", checkedAt:"2026-09-30" }),
+  amazonBrazilOffer({ id:"prod_offer_amazon_gigabyte_rtx_5060_windforce_8gb_br", variantId:"prod_variant_gigabyte_rtx_5060_windforce_8gb_br", asin:"B0F6NLT7M4", availability:"available", checkedAt:"2026-09-30" }),
+  amazonBrazilOffer({ id:"prod_offer_amazon_amd_ryzen_5_5500_box_br", variantId:"prod_variant_amd_ryzen_5_5500_box_br", asin:"B09VCJ171S", availability:"available", checkedAt:"2026-09-30" }),
+  amazonBrazilOffer({ id:"prod_offer_amazon_asrock_rx_6600_challenger_8gb_br", variantId:"prod_variant_asrock_rx_6600_challenger_8gb_br", asin:"B0CL5ZCH1J", availability:"available", checkedAt:"2026-09-30" }),
+  amazonBrazilOffer({ id:"prod_offer_amazon_msi_b550m_pro_vdh_wifi_br", variantId:"prod_variant_msi_b550m_pro_vdh_wifi_br", asin:"B089D1YG11", availability:"available", checkedAt:"2026-09-30" }),
+  amazonBrazilOffer({ id:"prod_offer_amazon_kingston_fury_beast_2x8_3200_br", variantId:"prod_variant_kingston_fury_beast_2x8_3200_br", asin:"B097K2WBL3", availability:"available", checkedAt:"2026-09-30" }),
+  amazonBrazilOffer({ id:"prod_offer_amazon_kingston_nv3_1tb_br", variantId:"prod_variant_kingston_nv3_1tb_br", asin:"B0DBR3DZWG", availability:"available", checkedAt:"2026-09-30" }),
+];

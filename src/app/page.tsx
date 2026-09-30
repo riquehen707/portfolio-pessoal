@@ -196,7 +196,7 @@ export default function Home() {
         aria-labelledby="home-title"
       >
         <span className={styles.eyebrow}>
-          Henrique.dog
+          HenriqueReis.app
         </span>
 
         <h1 id="home-title">
