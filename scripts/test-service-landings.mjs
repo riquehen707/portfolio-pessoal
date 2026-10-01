@@ -335,7 +335,7 @@ test("exemplos demonstrativos só publicam uma rota quando estão completos", ()
   );
   const examples = getPublishedServiceExamples();
   assert.equal(examples.length, 3);
-  assert.deepEqual(examples.map((example) => example.slug), ["psicologia", "arquitetura", "barbearia"]);
+  assert.deepEqual(examples.map((example) => example.slug), ["psicologia", "estudio-unhas", "barbearia"]);
   assert.deepEqual(examples.map((example) => example.order), [1, 2, 3]);
   assert.equal(examples.every((example) => example.featured), true);
   for (const example of examples) {
@@ -347,7 +347,7 @@ test("exemplos demonstrativos só publicam uma rota quando estão completos", ()
   assert.deepEqual(getIndexableServiceExamples(), []);
   assert.equal(getServiceExamplePath("psicologia"), "/servicos/exemplos/psicologia");
   assert.equal(getAdjacentServiceExamples("psicologia").previous.slug, "barbearia");
-  assert.equal(getAdjacentServiceExamples("psicologia").next.slug, "arquitetura");
+  assert.equal(getAdjacentServiceExamples("psicologia").next.slug, "estudio-unhas");
 });
 
 test("inspirações compartilham dados válidos entre galeria e páginas individuais", () => {
@@ -479,23 +479,23 @@ test("demonstração de Psicologia identifica ficção, preserva conteúdo clín
   assert.doesNotMatch(text, /cure sua ansiedade|resultados garantidos|supere a depressão/i);
 });
 
-test("demonstração de Arquitetura usa portfólio filtrável, estudos internos e conteúdo identificado como fictício", () => {
+test("demonstração do estúdio de unhas combina marca, serviços, trabalhos e agendamento fictício", () => {
   const React = require("react");
   const { renderToStaticMarkup } = require("react-dom/server");
   const { load: html } = require("cheerio");
   const componentLoad = loader({ "next/image": ({ fill, priority, sizes, ...props }) => React.createElement("img", props) });
-  const { ArchitectureDemo } = componentLoad("src/components/services/examples/architecture/ArchitectureDemo.tsx");
-  const { architectureDemoProjects } = componentLoad("src/components/services/examples/architecture/architectureDemoData.ts");
-  const example = getPublishedServiceExamples().find((item) => item.slug === "arquitetura");
-  const $ = html(renderToStaticMarkup(React.createElement(ArchitectureDemo, { example })));
+  const { NailStudioDemo } = componentLoad("src/components/services/examples/nail-studio/NailStudioDemo.tsx");
+  const example = getPublishedServiceExamples().find((item) => item.slug === "estudio-unhas");
+  const $ = html(renderToStaticMarkup(React.createElement(NailStudioDemo, { example })));
   const text = $.root().text();
   assert.equal($("h1").length, 1);
-  assert.equal($("#projetos [role='group'] button").length, 4);
-  assert.equal($("#servicos-arquitetura details").length, 5);
-  assert.equal(architectureDemoProjects.length, 3);
-  assert.equal(architectureDemoProjects.every((project) => project.illustrative), true);
-  assert.match(text, /estúdio fictício|identidade fictícia/i);
-  assert.doesNotMatch(text, /imagens de referência|arquivo visual/i);
+  assert.equal($("#tinta-servicos article").length, 3);
+  assert.equal($("#tinta-trabalhos figure").length, 3);
+  assert.equal($("#tinta-agenda button").length, 1);
+  assert.equal($("script[type='application/ld+json']").length, 1);
+  assert.match(text, /valores fictícios|valores ilustrativos/i);
+  assert.match(text, /endereço fictício/i);
+  assert.doesNotMatch(text, /beleza que transforma|experiência única|melhor versão/i);
 });
 
 test("demonstração de Barbearia prioriza preços, localização e agendamento sem alegar negócio real", () => {
@@ -580,7 +580,6 @@ test("home comercial apresenta oferta, exemplos, escopo e contato sem sobrecarga
         ...getServiceHubContent(),
         examples: getPublishedServiceExamples(),
         inspirations: getFeaturedServiceInspirations(4),
-        localBusinessInspiration: getServiceInspiration("negocio-local-vibrante"),
         contactHref: "https://wa.me/5511999999999",
       }),
     ),
@@ -589,52 +588,46 @@ test("home comercial apresenta oferta, exemplos, escopo e contato sem sobrecarga
   assert.equal($("h1").length, 1);
   assert.equal(
     $("#services-hero-title").text(),
-    "Seu negócio merece um site à altura.",
+    "Sites para mostrar seu trabalho e receber contatos.",
   );
   assert.equal($("section[aria-labelledby='services-hero-title'] a[href='https://wa.me/5511999999999']").length, 1);
   assert.equal($("section[aria-labelledby='services-hero-title'] a[href='#exemplos']").length, 1);
   assert.equal($("section[aria-labelledby='services-hero-title'] img").length, 2);
   assert.equal($("section[aria-labelledby='services-hero-title'] figcaption").text().includes("Exemplo demonstrativo"), true);
-  assert.equal($("section[aria-labelledby='services-hero-title']").text().includes("01 / 07"), true);
+  assert.equal($("section[aria-labelledby='services-hero-title']").text().includes("R$300/mês"), true);
   assert.equal($("[role='tab']").length, 0);
   assert.equal($("#recursos").length, 0);
   assert.equal($("#formatos").length, 0);
-  assert.equal($("#examples-title").text(), "Um site diferente para cada negócio.");
-  assert.equal($("#exemplos").text().includes("02 / 07"), true);
-  assert.equal($("#exemplos button").length, 6);
-  assert.equal($("#exemplos article").length, 4);
-  assert.equal($("#exemplos a[href='/servicos/exemplos/arquitetura']").length >= 2, true);
-  assert.equal($("#exemplos a[href='/servicos/exemplos']").length, 1);
+  assert.equal($("#examples-title").text(), "Veja a interface em uso.");
+  assert.equal($("#exemplos button").length, 0);
+  assert.equal($("#exemplos article").length, getPublishedServiceExamples().filter((example) => example.coverImage).length);
+  assert.equal($("#exemplos a[href='/servicos/exemplos/estudio-unhas']").length >= 2, true);
+  assert.equal($("#exemplos a[href='/servicos/inspiracoes']").length, 1);
   assert.equal($("#recursos-principais").length, 0);
   assert.equal($(".perception").length, 0);
-  assert.equal($("#incluso").text().includes("03 / 07"), true);
   assert.deepEqual($("#incluso ul h3").map((_, item) => $(item).text()).get(), ["Criação e design", "Domínio e hospedagem", "Versão mobile", "SEO técnico", "Manutenção", "Contato integrado"]);
   assert.equal($("#incluso").text().includes("A partir de R$300/mês"), true);
   assert.equal($("#incluso a[href='/servicos/capacidades']").length, 1);
   assert.equal($("a[href='/servicos/capacidades']").length, 2);
-  assert.equal($("#processo").text().includes("04 / 07"), true);
   assert.deepEqual($("#processo ol h3").map((_, item) => $(item).text()).get(), ["Briefing", "Estrutura", "Criação", "Publicação"]);
   assert.equal($("#processo a[href='https://wa.me/5511999999999']").text().trim().startsWith("Conversar sobre meu site"), true);
-  assert.equal($("a[href='/servicos/inspiracoes']").length, 1);
+  assert.equal($("a[href='/servicos/inspiracoes']").length, 2);
   assert.equal($("a[href='/work']").length, 1);
   assert.equal($("[data-analytics-event='service_contact']").length, 5);
   assert.equal($("[data-analytics-event='service_contact']").filter((_, item) => $(item).text().trim().startsWith("Quero meu site")).length, 1);
   assert.equal($("[data-analytics-event='services_help_click']").filter((_, item) => $(item).text().trim().startsWith("Falar pelo WhatsApp")).length, 1);
   assert.equal($("#processo [data-analytics-event='service_contact']").filter((_, item) => $(item).text().trim().startsWith("Conversar sobre meu site")).length, 1);
-  assert.equal($("#exemplos a[href='/servicos/exemplos']").text().trim().startsWith("Ver todos os exemplos"), true);
+  assert.equal($("#exemplos a[href='/servicos/inspiracoes']").text().trim().startsWith("Explorar direções visuais"), true);
   assert.doesNotMatch($("#exemplos").text(), /projeto realizado|template pronto/i);
   assert.equal($("#exemplos a[href^='/servicos/exemplos/']").length > 0, true);
   assert.equal($("main").text().includes("R$300/mês"), true);
   assert.equal($("main").text().includes("R$ 200"), false);
   assert.equal($("main").text().includes("R$ 89,90"), false);
-  assert.equal($("#planos").text().includes("05 / 07"), true);
-  assert.deepEqual($("#planos article strong").map((_, item) => $(item).text()).get(), ["R$300/mês", "R$500/mês", "R$800/mês"]);
+  assert.deepEqual($("#planos article strong").map((_, item) => $(item).text()).get(), ["R$300", "R$500", "R$800"]);
   assert.equal($("#planos article[data-featured='true']").length, 1);
   assert.equal($("section[aria-labelledby='faq-title']").length, 1);
-  assert.equal($("#duvidas").text().includes("06 / 07"), true);
   assert.equal($("#duvidas button[aria-expanded='false']").length, 5);
   assert.equal($("#duvidas button[aria-expanded='true']").length, 1);
-  assert.equal($("#contato").text().includes("07 / 07"), true);
   assert.equal($("section[aria-labelledby='process-title']").length, 1);
 });
 
@@ -648,8 +641,9 @@ test("página de capacidades explica recursos com uma única demonstração", ()
   });
   const { ServiceCapabilitiesView } = componentLoad("src/components/services/hub/ServiceCapabilitiesView.tsx");
   const $ = html(renderToStaticMarkup(React.createElement(ServiceCapabilitiesView, { features: getServiceHubContent().features })));
-  assert.equal($("h1").text(), "Interfaces além da página estática.");
-  assert.equal($("#recursos > ol > li").length, getServiceHubContent().features.length);
+  assert.equal($("h1").text(), "O que seu site pode fazer.");
+  assert.equal($("#recursos section[aria-labelledby^='group-']").length, 4);
+  assert.equal($("#recursos li").length, getServiceHubContent().features.length);
   assert.equal($("main [role='tab']").length, 0);
   assert.equal($("main [role='tabpanel']").length, 0);
   assert.equal($("main details").length, 0);
@@ -657,10 +651,11 @@ test("página de capacidades explica recursos com uma única demonstração", ()
   assert.equal($("#modulos article").length, 2);
   assert.equal($("#modulos button").length, 0);
   assert.equal($("#estrutura ol > li").length, 3);
-  assert.match($("main").text(), /Formulários.*Agendamento.*Galerias.*Filtros.*Integrações/);
+  assert.match($("#recursos").text(), /Formulário de contato.*Agendamento.*Portfólio \/ galeria.*Blog \/ conteúdo/);
   assert.equal($("a[href='/servicos/exemplos']").length, 0);
-  assert.equal($("a[href='/servicos/inspiracoes']").length, 2);
-  assert.equal($("a[href='/servicos']").length, 2);
+  assert.equal($("a[href='/servicos/inspiracoes']").length, 1);
+  assert.equal($("a[href='/servicos']").length, 1);
+  assert.equal($("a[href='/work']").length, 2);
 });
 
 test("destinos são seguros e WhatsApp exige telefone internacional", () => {

@@ -3,6 +3,13 @@ import type { Product, ProductOffer, ProductVariant } from "./productSchema";
 const checked="2026-09-05";
 type Category="Air fryers"|"Robôs aspiradores"|"Cafeteiras espresso"|"Aspiradores verticais";
 type Seed={key:string;name:string;maker:string;line:string;category:Category;image:string;imageUrl:string;source:string;price:number;retailer:string;voltage:string;specs:Record<string,string>;strength:string;limit:string;profile:string;availability?:"available"|"unavailable"};
+const categoryLabel: Record<Category, string> = {
+  "Air fryers": "Air fryer",
+  "Robôs aspiradores": "Robô aspirador",
+  "Cafeteiras espresso": "Cafeteira espresso",
+  "Aspiradores verticais": "Aspirador vertical",
+};
+const lowerFirst = (value: string) => value.charAt(0).toLocaleLowerCase("pt-BR") + value.slice(1);
 const articleByCategory:Record<Category,string[]>={
   "Air fryers":["melhores-air-fryers-2026"],
   "Robôs aspiradores":["melhores-robos-aspiradores-2026"],
@@ -44,6 +51,6 @@ const seeds:Seed[]=[
 ];
 
 const image=(s:Seed)=>({src:`/images/products/${s.image}`,alt:`${s.name} visto em fotografia oficial de catálogo`,sourceUrl:s.imageUrl,credit:s.maker.replaceAll("_"," "),rights:"official-promotional" as const,width:1000,height:1000});
-export const homeCleaningProducts:Product[]=seeds.map(s=>({id:`prod_${s.key}`,contentType:"product",schemaVersion:1,slug:s.key.replaceAll("_","-"),aliases:[],name:s.name,manufacturerId:`org_${s.maker}`,line:s.line,category:s.category,mainImage:image(s),gallery:[],shortDescription:`${s.name} para ${s.profile.toLowerCase()} Versão pesquisada: ${s.voltage}.`,strengths:[s.strength],limitations:[s.limit],suitableFor:[s.profile],categories:[s.category,"Casa"],tags:Object.values(s.specs).slice(0,4),relatedProductIds:[],relatedArticleSlugs:articleByCategory[s.category],editorialSummary:`${s.strength} Limitação principal: ${s.limit}`,seo:{title:`${s.name}: ficha, análise e ofertas`,description:`Ficha de ${s.name} com especificações, tensão, limitações e preço observado.`},sources:[{title:`${s.name} — fonte oficial`,url:s.source,accessedAt:checked}],status:"published",createdAt:checked,publishedAt:checked,updatedAt:checked,reviewedAt:checked}));
+export const homeCleaningProducts:Product[]=seeds.map(s=>({id:`prod_${s.key}`,contentType:"product",schemaVersion:1,slug:s.key.replaceAll("_","-"),aliases:[],name:s.name,manufacturerId:`org_${s.maker}`,line:s.line,category:s.category,mainImage:image(s),gallery:[],shortDescription:`${categoryLabel[s.category]} para ${lowerFirst(s.profile)}`,strengths:[s.strength],limitations:[s.limit],suitableFor:[s.profile],categories:[s.category,"Casa"],tags:Object.values(s.specs).slice(0,4),relatedProductIds:[],relatedArticleSlugs:articleByCategory[s.category],editorialSummary:`${s.strength} Limitação principal: ${s.limit}`,seo:{title:`${s.name}: ficha, análise e ofertas`,description:`Ficha de ${s.name} com especificações, tensão, limitações e preço observado.`},sources:[{title:`${s.name} — fonte oficial`,url:s.source,accessedAt:checked}],status:"published",createdAt:checked,publishedAt:checked,updatedAt:checked,reviewedAt:checked}));
 export const homeCleaningVariants:ProductVariant[]=seeds.map(s=>({id:`prod_variant_${s.key}_br`,productId:`prod_${s.key}`,name:`Versão brasileira — ${s.voltage}`,market:"BR",distinguishingAttributes:{voltage:s.voltage},specifications:{type:"generic",groups:[{label:"Especificações verificadas",entries:[...Object.entries(s.specs),["Voltagem",s.voltage]].map(([label,value])=>({key:label.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replaceAll(/[^a-z0-9]+/g,"-"),label,value}))}]},imageIds:[],sources:[{title:`${s.name} — fonte oficial`,url:s.source,accessedAt:checked}],status:"published",createdAt:checked,updatedAt:checked,reviewedAt:checked}));
 export const homeCleaningOffers:ProductOffer[]=seeds.map(s=>({id:`prod_offer_${s.key}_reference`,variantId:`prod_variant_${s.key}_br`,retailer:s.retailer,url:s.source,region:"BR",observedPrice:{amount:s.price,currency:"BRL"},availability:s.availability ?? "available",checkedAt:checked}));

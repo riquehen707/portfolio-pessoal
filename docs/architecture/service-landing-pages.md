@@ -13,7 +13,7 @@ Leitura por tarefa: [experiência e conteúdo](#responsabilidades), [demonstraç
 | Página | Objetivo | Estrutura |
 | --- | --- | --- |
 | Artigo `/blog/[slug]` | Aquisição orgânica e educação | MDX, explicação, referências e até um CTA contextual |
-| Home comercial `/servicos` | Permitir entendimento rápido e contato | Oferta comum, condição comercial, escopo, prévia de até seis inspirações e recursos principais |
+| Home comercial `/servicos` | Permitir entendimento rápido e contato | Oferta comum, condição comercial, demonstrações publicadas, escopo e contato |
 | Galeria `/servicos/inspiracoes` | Permitir exploração visual ampla | Masonry editorial com todas as referências publicadas |
 | Inspiração `/servicos/inspiracoes/[slug]` | Ampliar uma direção visual e conduzir ao contato | Categoria, título, imagem, descrição curta, tags opcionais e um CTA comercial |
 | Galeria demonstrativa legada `/servicos/exemplos` | Permitir testar composições já implementadas | Previews, filtros por tipo e identificação explícita de demonstração |
@@ -40,9 +40,9 @@ São exemplos de intenção, não grupos obrigatórios. Podem orientar a oferta,
 
 Usar um hero curto com a oferta e um resumo inequívoco da condição comercial. A home mostra uma seleção visual forte, o argumento para contratar a entrega pronta, poucos recursos principais, escopo mensal e contato. Processo ou FAQ só entram quando acrescentarem uma condição necessária à decisão; não são blocos obrigatórios da home. A jornada segue decisão, exploração visual, avaliação e redução de risco; a ação primária aparece cedo e pode reaparecer no fechamento. Formatos aparecem como possibilidades da mesma oferta; profissões são metadado das inspirações ou público possível, nunca planos com preço próprio.
 
-A explicação de recursos, os exemplos de módulos e o raciocínio de estrutura ficam em `/servicos/capacidades`. A página preserva interação apenas quando ela reduz o esforço para entender a capacidade; os demais conceitos usam texto e interface estática. A home mostra de quatro a seis inspirações em uma grade curta de proporção consistente e encaminha para a galeria completa em `/servicos/inspiracoes`; cada item abre `/servicos/inspiracoes/[slug]`. As demos completas em `/servicos/exemplos` permanecem uma superfície técnica legada e não alimentam a galeria comercial. A navegação entre visão geral, exemplos, inclusões e `/work` deve explicitar a função de cada superfície sem criar CTAs concorrentes dentro da home.
+A explicação de recursos, os exemplos de módulos e o raciocínio de estrutura ficam em `/servicos/capacidades`. A página preserva interação apenas quando ela reduz o esforço para entender a capacidade; os demais conceitos usam texto e interface estática. A home apresenta uma seleção curta de demonstrações publicadas, com acesso às páginas funcionais em `/servicos/exemplos/[slug]`, e encaminha a exploração de direções visuais para `/servicos/inspiracoes`. A galeria de inspirações continua separada dos projetos demonstrativos: uma direção visual não é um site entregue ou uma demonstração funcional. A navegação local entre serviços, inspirações, capacidades e trabalhos deve explicitar a função de cada superfície sem criar CTAs concorrentes dentro da home.
 
-O hero mantém uma ação primária direta para iniciar o projeto e uma ação secundária para as inspirações. A página pode repetir a conversão no encerramento, preservando destino e intenção; o rótulo pode explicitar o WhatsApp no fechamento quando isso tornar o próximo passo mais claro. Links para inclusões, capacidades e portfólio têm função exploratória clara, sem competir visualmente com a contratação. Nunca encaminhar a escolha para uma rota pausada ou com redirecionamento inesperado.
+O hero mantém uma ação primária direta para iniciar o projeto e uma ação secundária para as demonstrações. A página pode repetir a conversão no encerramento, preservando destino e intenção; o rótulo pode explicitar o WhatsApp no fechamento quando isso tornar o próximo passo mais claro. Links para inspirações, capacidades e portfólio têm função exploratória clara, sem competir visualmente com a contratação. Nunca encaminhar a escolha para uma rota pausada ou com redirecionamento inesperado.
 
 ### Formatos como pontos de decisão
 
@@ -64,9 +64,9 @@ Aplicar o padrão de [previews](#previews-legíveis-e-consistentes). O formato a
 
 ### Inspirações, exemplos demonstrativos e portfólio
 
-`/work` reúne projetos reais, autorais e estudos com contexto editorial e estado de evidência; `/portfolio` é apenas seu redirecionamento legado. A área `#inspiracoes` de `/servicos` oferece uma prévia curta, `/servicos/inspiracoes` reúne a exploração visual completa e `/servicos/inspiracoes/[slug]` amplia cada direção antes do contato. Não apresentar uma inspiração como cliente, projeto entregue, template pronto ou resultado real.
+`/work` reúne projetos reais, autorais e estudos com contexto editorial e estado de evidência; `/portfolio` é apenas seu redirecionamento legado. A área `#exemplos` de `/servicos` mostra demonstrações funcionais publicadas; `/servicos/inspiracoes` reúne a exploração visual e `/servicos/inspiracoes/[slug]` amplia cada direção antes do contato. Não apresentar uma inspiração como cliente, projeto entregue, template pronto ou resultado real.
 
-Cada inspiração registra em `src/data/service-inspirations.ts` slug, título, categoria, imagem, texto alternativo, descrição, dimensões, atualização, tags opcionais e `featured` opcional. Essa é a fonte única consumida pela galeria e pelas páginas individuais; `featured` controla a seleção curta da home, e componentes não mantêm títulos, descrições ou listas paralelas. Os assets próprios ficam em `public/images/services/inspirations/`, sem reaproveitar capas das demos antigas. A imagem preserva sua proporção e domina o item; abaixo dela aparecem somente categoria e título.
+Cada inspiração registra em `src/data/service-inspirations.ts` slug, título, categoria, imagem, texto alternativo, descrição, dimensões, atualização, tags opcionais e `featured` opcional. Essa é a fonte única consumida pela galeria e pelas páginas individuais; a seleção da home, quando existir, também deve sair dessa fonte, sem títulos, descrições ou listas paralelas. Os assets próprios ficam em `public/images/services/inspirations/`, sem reaproveitar capas das demos antigas. A imagem preserva sua proporção e domina o item; abaixo dela aparecem somente categoria e título.
 
 A galeria de inspirações usa masonry em CSS, sem biblioteca de layout, cards pesados ou proporção única. A galeria dedicada pode chegar a cinco colunas em telas muito largas; o desktop usa quatro, o tablet três e o mobile duas sempre que a largura permitir. Telas muito estreitas podem cair para uma. Nenhuma ação depende do hover. Cada página individual mantém retorno à galeria, imagem grande, explicação breve e o CTA `Quero um site nessa direção`, com o nome da inspiração na mensagem de contato.
 
@@ -377,7 +377,7 @@ Esta seção descreve o código consultado em 2026-09-08, sem certificar produç
 | Estilos | módulos próximos de cada composição, com tokens globais existentes |
 | Prévia de estados | `/dev/service-card`, somente em desenvolvimento; 404 em produção |
 
-A fonte de dados valida IDs únicos de formatos e recursos para a vitrine de capacidades. A home não usa esses dados como ofertas concorrentes: ela apresenta um único plano mensal e uma galeria de referências visuais sem carregar páginas ou iframes. Os recursos prioritários e secundários são aprofundados em `/servicos/capacidades`. Inspirações e exemplos demonstrativos não contêm preço próprio.
+A fonte de dados valida IDs únicos de formatos e recursos para a vitrine de capacidades. A home não usa esses dados como ofertas concorrentes: apresenta três planos da mesma oferta e uma seleção curta de demonstrações funcionais, sem carregar páginas ou iframes. Os recursos são aprofundados em `/servicos/capacidades`; as direções visuais ficam em `/servicos/inspiracoes`. Inspirações e exemplos demonstrativos não contêm preço próprio.
 
 | Entidade | Contrato atual |
 | --- | --- |
@@ -391,16 +391,16 @@ A fonte de dados valida IDs únicos de formatos e recursos para a vitrine de cap
 
 ## Adoção e pendências
 
-Estado técnico consultado em 2026-09-13. As diferenças abaixo são pendências de implementação, não exceções às regras de experiência. Validações datadas ficam no [histórico](../content/historico/decisoes-editoriais.md#2026-09-06--validações-locais-da-infraestrutura-de-serviços) e não certificam uma revisão ou publicação posterior.
+Estado técnico dos pontos revisados em 2026-10-01; os demais registros preservam o diagnóstico anterior e não certificam publicação. As diferenças abaixo são pendências de implementação, não exceções às regras de experiência. Validações datadas ficam no [histórico](../content/historico/decisoes-editoriais.md#2026-09-06--validações-locais-da-infraestrutura-de-serviços).
 
 | Ponto | Estado consultado e próximo ajuste |
 | --- | --- |
-| Home comercial | `/servicos` apresenta um plano de R$147/mês sem taxa inicial em cinco momentos: hero, argumento da entrega pronta, quatro inspirações, quatro grupos de inclusões com preço e contato final. O mockup no hero, processo, FAQ, grades extensas e fundos promocionais foram removidos; `Quero meu site` abre a conversão e `Falar no WhatsApp` explicita o mesmo destino no fechamento |
+| Home comercial | `/servicos` apresenta a mensalidade base de R$300 no hero, demonstrações funcionais publicadas, inclusões, processo, planos, FAQ e contato final. O hero mantém um preview demonstrativo responsivo; a navegação local conecta serviços, inspirações, capacidades e trabalhos. A repetição de conversão e a densidade das seções finais ainda merecem avaliação editorial |
 | Inspirações | Doze referências em `service-inspirations.ts` alimentam `/servicos/inspiracoes` e as páginas `/servicos/inspiracoes/[slug]`; imagens mantêm proporção original, cada página inclui retorno e CTA contextual. Seis inspirações selecionam publicações próprias com jornadas e interfaces adaptadas; as outras seis usam uma publicação editorial compartilhada com jornada contextual, sem reativar o catálogo legado |
-| Galeria demonstrativa legada | `/servicos/exemplos` mantém previews e filtro por tipo de solução para acesso direto, mas não alimenta mais a home comercial, saiu da navegação compartilhada e permanece `noindex` e fora do sitemap |
-| Capacidades | `/servicos/capacidades` apresenta doze recursos em leitura direta, uma demonstração funcional de contato, dois módulos estáticos e uma explicação em três etapas; vínculos e CTA para as demos antigas permanecem ocultos da composição pública |
-| Preço comum | A home informa uma única mensalidade de R$147, com domínio, hospedagem, manutenção, suporte, design, desenvolvimento, publicação e pequenos ajustes recorrentes; não há taxa de implementação |
-| Exemplos novos | `/servicos/exemplos/psicologia`, `/arquitetura` e `/barbearia` têm renderer, preview e identidade próprios, além de vitrine responsiva, decisões, oferta e navegação compartilhadas; Arquitetura também usa páginas internas reutilizáveis em `/servicos/exemplos/arquitetura/projetos/[project]`. Todas permanecem `noindex` nesta revisão local |
+| Galeria demonstrativa legada | `/servicos/exemplos` mantém previews e filtro por tipo de solução para acesso direto; as demonstrações publicadas também alimentam a seleção curta da home comercial. A rota da galeria permanece fora da navegação local |
+| Capacidades | `/servicos/capacidades` agrupa doze recursos por tarefa, mantém uma demonstração funcional de contato, dois módulos estáticos e uma explicação em três etapas; recursos de escopo adicional continuam identificados |
+| Preço comum | A home apresenta três planos mensais de R$300, R$500 e R$800; domínio, hospedagem e manutenção constam da oferta base. Condições contratuais dependem da proposta |
+| Exemplos novos | `/servicos/exemplos/psicologia`, `/estudio-unhas` e `/barbearia` têm renderer, preview e identidade próprios, além de vitrine responsiva, decisões, oferta e navegação compartilhadas. Todas permanecem `noindex` nesta revisão local |
 | Header da landing | `ServiceLandingPage.tsx` tem identidade ligada a `/` e `Voltar para serviços`, inclusive no mobile |
 | Primeira dobra | `ServiceHero` mostra oferta, benefício, público, modelo comercial, resumo do escopo mensal e ação principal. Serviços legados mostram mensalidade e implantação no hero e repetem as condições no bloco comercial reutilizável |
 | Modelos e demos | `demonstration` aceita descrição, imagem opcional e `illustrative`; não possui lista de modelos ou URL de demo. As composições especializadas contêm exemplos visuais, mas não constituem um seletor compartilhado de 3–5 estilos |

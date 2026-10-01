@@ -2,7 +2,6 @@ import { Reveal } from "@/components/motion/Reveal";
 import type { serviceProcess } from "@/data/service-hub";
 
 import styles from "./ServiceHubView.module.scss";
-import { StoryProgress } from "./StoryProgress";
 
 type ServiceProcessSnapProps = {
   process: typeof serviceProcess;
@@ -31,9 +30,8 @@ export function ServiceProcessSnap({
         </h2>
 
         <p>
-          Um processo direto, com decisões organizadas e sem
-          transformar a criação do site em mais uma tarefa para
-          você administrar.
+          Cada etapa organiza conteúdo, interface e revisão antes
+          da publicação.
         </p>
 
         <a
@@ -93,12 +91,6 @@ export function ServiceProcessSnap({
         </div>
       </Reveal>
 
-      <div className={styles.processProgress}>
-        <StoryProgress
-          chapter={4}
-          label="Da ideia à publicação"
-        />
-      </div>
     </section>
   );
 }

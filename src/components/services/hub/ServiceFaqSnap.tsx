@@ -6,7 +6,6 @@ import { useState } from "react";
 import type { serviceFaq } from "@/data/service-hub";
 
 import styles from "./ServiceHubView.module.scss";
-import { StoryProgress } from "./StoryProgress";
 
 type ServiceFaqSnapProps = {
   faq: typeof serviceFaq;
@@ -133,12 +132,6 @@ export function ServiceFaqSnap({ faq }: ServiceFaqSnapProps) {
         })}
       </div>
 
-      <div className={styles.faqProgress}>
-        <StoryProgress
-          chapter={6}
-          label="Tire suas dúvidas"
-        />
-      </div>
     </section>
   );
 }

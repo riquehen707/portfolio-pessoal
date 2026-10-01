@@ -2,7 +2,6 @@ import { Reveal } from "@/components/motion/Reveal";
 import type { servicePlans } from "@/data/service-hub";
 
 import styles from "./ServiceHubView.module.scss";
-import { StoryProgress } from "./StoryProgress";
 
 type ServicePlansSnapProps = {
   plans: typeof servicePlans;
@@ -11,6 +10,20 @@ type ServicePlansSnapProps = {
 
 function formatPlanIndex(index: number) {
   return String(index + 1).padStart(2, "0");
+}
+
+function formatPlanPrice(price: string) {
+  const cadence = "/mês";
+
+  return price.endsWith(cadence)
+    ? {
+        amount: price.slice(0, -cadence.length),
+        cadence,
+      }
+    : {
+        amount: price,
+        cadence: null,
+      };
 }
 
 export function ServicePlansSnap({
@@ -56,6 +69,7 @@ export function ServicePlansSnap({
         <div className={styles.plansGrid}>
           {plans.map((plan, index) => {
             const featured = plan.id === "growth";
+            const price = formatPlanPrice(plan.price);
 
             return (
               <Reveal
@@ -95,8 +109,8 @@ export function ServicePlansSnap({
                   </header>
 
                   <div className={styles.planPrice}>
-                    <strong>{plan.price}</strong>
-                    <span>/mês</span>
+                    <strong>{price.amount}</strong>
+                    {price.cadence ? <span>{price.cadence}</span> : null}
                   </div>
 
                   <p className={styles.planDescription}>
@@ -130,11 +144,7 @@ export function ServicePlansSnap({
                     data-analytics-event="service_contact"
                     data-analytics-location={`services_plan_${plan.id}`}
                   >
-                    <span>
-                      {featured
-                        ? "Quero este plano"
-                        : "Escolher plano"}
-                    </span>
+                    <span>{plan.cta}</span>
 
                     <span aria-hidden="true">→</span>
                   </a>
@@ -145,12 +155,6 @@ export function ServicePlansSnap({
         </div>
       </div>
 
-      <div className={styles.plansProgress}>
-        <StoryProgress
-          chapter={5}
-          label="Escolha seu plano"
-        />
-      </div>
     </section>
   );
 }

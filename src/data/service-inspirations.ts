@@ -26,7 +26,7 @@ export const serviceInspirations: ServiceInspiration[] = [
     image: "/images/services/inspirations/portfolio-minimalista.webp",
     alt: "Referência visual de um portfólio profissional claro, com tipografia ampla e projetos organizados em grade.",
     description:
-      "Uma publicação demonstrativa para posicionar uma designer, selecionar projetos, explicar decisões em um case e facilitar o primeiro contato.",
+      "Portfólio para designer, com seleção de projetos, estudo de caso e contato.",
     tags: ["Design", "Cases", "Portfólio"],
     featured: true,
     width: 1536,
@@ -41,7 +41,7 @@ export const serviceInspirations: ServiceInspiration[] = [
     image: "/images/services/inspirations/galeria-autoral.webp",
     alt: "Referência visual de uma galeria virtual com obras coloridas em destaque sobre uma interface clara.",
     description:
-      "Uma possibilidade para reunir trabalhos visuais com poucos elementos ao redor e deixar cor, textura e autoria conduzirem a página.",
+      "Galeria para artista visual, com séries, fichas das obras e contato profissional.",
     tags: ["Galeria", "Editorial", "Cores"],
     featured: true,
     width: 1024,
@@ -61,7 +61,7 @@ export const serviceInspirations: ServiceInspiration[] = [
     image: "/images/services/inspirations/portfolio-fotografico.webp",
     alt: "Referência visual de um portfólio de fotografia com imagens grandes e navegação discreta.",
     description:
-      "Uma publicação demonstrativa que mostra como apresentar repertório, organizar especialidades, aprofundar um ensaio e abrir caminho para o orçamento.",
+      "Portfólio para fotógrafo, com especialidades, ensaios detalhados e pedido de orçamento.",
     tags: ["Fotografia", "Portfólio", "Contato"],
     featured: true,
     width: 1536,
@@ -76,7 +76,7 @@ export const serviceInspirations: ServiceInspiration[] = [
     image: "/images/services/inspirations/arquitetura-editorial.webp",
     alt: "Referência visual em formato vertical de um portfólio de arquitetura com contraste alto e tipografia expressiva.",
     description:
-      "Uma publicação demonstrativa que mostra como posicionar um escritório, explorar projetos, explicar decisões e iniciar um briefing.",
+      "Site para escritório de arquitetura, com projetos, decisões de projeto e briefing.",
     tags: ["Arquitetura", "Projetos", "Briefing"],
     featured: true,
     width: 1024,
@@ -91,7 +91,7 @@ export const serviceInspirations: ServiceInspiration[] = [
     image: "/images/services/inspirations/imoveis-em-destaque.webp",
     alt: "Referência visual de um site imobiliário com fotografia ampla, informações essenciais e chamada para contato.",
     description:
-      "Uma publicação demonstrativa que percorre a descoberta, a comparação e o contato em um site imobiliário de linguagem editorial.",
+      "Site imobiliário, com descoberta e comparação de imóveis antes do contato.",
     tags: ["Imóveis", "Jornada", "Contato"],
     featured: true,
     width: 1448,
@@ -106,7 +106,7 @@ export const serviceInspirations: ServiceInspiration[] = [
     image: "/images/services/inspirations/trabalho-autoral.webp",
     alt: "Referência visual de um portfólio autoral com título expressivo, filtros e imagens de trabalhos.",
     description:
-      "Uma direção direta para organizar trabalhos por estilo, manter a personalidade visual e deixar o pedido de orçamento fácil de encontrar.",
+      "Portfólio autoral, com trabalhos por estilo, processo e pedido de orçamento.",
     tags: ["Autoral", "Portfólio", "Tipografia"],
     featured: true,
     width: 1122,
@@ -126,7 +126,7 @@ export const serviceInspirations: ServiceInspiration[] = [
     image: "/images/services/inspirations/bem-estar-acolhedor.webp",
     alt: "Referência visual de um site de bem-estar com tons naturais, margens amplas e chamada discreta para contato.",
     description:
-      "Uma publicação demonstrativa que explica o atendimento, apresenta a profissional, acolhe dúvidas e conduz ao primeiro contato.",
+      "Site de bem-estar, com apresentação profissional, atendimento, dúvidas e contato.",
     tags: ["Acolhimento", "Confiança", "Contato"],
     width: 1448,
     height: 1086,
@@ -140,7 +140,7 @@ export const serviceInspirations: ServiceInspiration[] = [
     image: "/images/services/inspirations/negocio-local-vibrante.webp",
     alt: "Referência visual de um site para negócio local com cores intensas, fotografia e acesso rápido ao agendamento.",
     description:
-      "Uma publicação demonstrativa que apresenta atmosfera, serviços e preços, simula o agendamento e facilita a visita.",
+      "Site para negócio local, com serviços, preços, visita e agendamento demonstrativo.",
     tags: ["Negócio local", "Serviços", "Agendamento"],
     width: 1536,
     height: 1024,
@@ -154,7 +154,7 @@ export const serviceInspirations: ServiceInspiration[] = [
     image: "/images/services/inspirations/gastronomia-contemporanea.webp",
     alt: "Referência visual para gastronomia com fotografia de ingredientes, cores profundas e composição editorial.",
     description:
-      "Uma direção quente e tátil, com fotografias que valorizam ingredientes, preparo e atmosfera sem transformar a página em um cardápio genérico.",
+      "Site de gastronomia, com proposta, cardápio, origem dos ingredientes e reserva.",
     tags: ["Gastronomia", "Fotografia", "Editorial"],
     width: 1024,
     height: 1536,
@@ -173,7 +173,7 @@ export const serviceInspirations: ServiceInspiration[] = [
     image: "/images/services/inspirations/consultoria-editorial.webp",
     alt: "Referência visual para consultoria com tons azul-marinho, diagramas abstratos e amplo espaço em branco.",
     description:
-      "Uma possibilidade sóbria para organizar método, áreas de atuação e conteúdo com clareza, sem recorrer à aparência corporativa genérica.",
+      "Site de consultoria, com problemas atendidos, método, aplicações e contato.",
     tags: ["Consultoria", "Sóbrio", "Conteúdo"],
     width: 1536,
     height: 1024,
@@ -192,7 +192,7 @@ export const serviceInspirations: ServiceInspiration[] = [
     image: "/images/services/inspirations/moda-independente.webp",
     alt: "Referência visual de um lookbook independente com formas escultóricas, tecidos e cores intensas.",
     description:
-      "Uma direção expressiva para apresentar coleção, processo e identidade por meio de imagens amplas e ritmo de revista.",
+      "Site de moda independente, com conceito, lookbook, detalhes das peças e contato.",
     tags: ["Lookbook", "Autoral", "Contraste"],
     width: 1122,
     height: 1402,
@@ -211,7 +211,7 @@ export const serviceInspirations: ServiceInspiration[] = [
     image: "/images/services/inspirations/tecnologia-humana.webp",
     alt: "Referência visual para tecnologia com formas translúcidas, cores vivas e organização amigável.",
     description:
-      "Uma possibilidade clara e próxima para explicar um produto digital ou serviço técnico sem cair na estética fria de dashboards.",
+      "Site para produto digital, com contexto, demonstração, limites, suporte e próximo passo.",
     tags: ["Tecnologia", "Acessível", "Colorido"],
     width: 1448,
     height: 1086,

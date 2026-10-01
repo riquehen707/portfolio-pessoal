@@ -5,6 +5,7 @@ import {
   getProductOffers,
   getProductVariants,
 } from "@/data/products";
+import { defaultMarketForLocale, type ContentLocale, type Market } from "@/lib/contentLocale";
 
 import { ProductListCard } from "./ProductListCard";
 
@@ -19,13 +20,10 @@ const RecommendationSchema = z.object({
   closestCompetitor: z.string().min(10),
 });
 
-export type ProductCardProps = z.infer<
-  typeof RecommendationSchema
->;
+export type ProductCardProps = z.infer<typeof RecommendationSchema>;
+type ProductCardContext = { locale?: ContentLocale; market?: Market };
 
-export async function ProductCard(
-  props: ProductCardProps,
-) {
+export async function ProductCard(props: ProductCardProps & ProductCardContext) {
   const recommendation =
     RecommendationSchema.parse(props);
 
@@ -40,8 +38,8 @@ export async function ProductCard(
   }
 
   const [variants, offers] = await Promise.all([
-    getProductVariants(product.id),
-    getProductOffers(product.id),
+    getProductVariants(product.id, props.market ?? defaultMarketForLocale(props.locale ?? "pt-BR")),
+    getProductOffers(product.id, props.market ?? defaultMarketForLocale(props.locale ?? "pt-BR")),
   ]);
 
   return (
@@ -50,6 +48,7 @@ export async function ProductCard(
       variants={variants}
       offers={offers}
       recommendation={recommendation}
+      locale={props.locale}
     />
   );
 }

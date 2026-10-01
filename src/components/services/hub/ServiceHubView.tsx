@@ -1,11 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  HiOutlineChartBar,
-  HiOutlineComputerDesktop,
-  HiOutlineLifebuoy,
-  HiOutlineShieldCheck,
-} from "react-icons/hi2";
 
 import { Reveal } from "@/components/motion/Reveal";
 import { ServicesAreaNav } from "@/components/services/ServicesAreaNav";
@@ -24,7 +18,6 @@ import { ServiceFinalSnap } from "./ServiceFinalSnap";
 import { ServiceInclusionsSnap } from "./ServiceInclusionsSnap";
 import { ServicePlansSnap } from "./ServicePlansSnap";
 import { ServiceProcessSnap } from "./ServiceProcessSnap";
-import { StoryProgress } from "./StoryProgress";
 
 import styles from "./ServiceHubView.module.scss";
 
@@ -35,28 +28,8 @@ type ServiceHubViewProps = {
   plans: typeof servicePlans;
   faq: typeof serviceFaq;
   inspirations: ServiceInspiration[];
-  localBusinessInspiration?: ServiceInspiration;
   contactHref: string;
 };
-
-const heroBenefits = [
-  {
-    label: "Design personalizado",
-    icon: HiOutlineComputerDesktop,
-  },
-  {
-    label: "Pronto para crescer",
-    icon: HiOutlineChartBar,
-  },
-  {
-    label: "Infraestrutura inclusa",
-    icon: HiOutlineShieldCheck,
-  },
-  {
-    label: "Suporte contínuo",
-    icon: HiOutlineLifebuoy,
-  },
-] as const;
 
 export function ServiceHubView({
   examples,
@@ -65,14 +38,13 @@ export function ServiceHubView({
   plans,
   faq,
   inspirations,
-  localBusinessInspiration,
   contactHref,
 }: ServiceHubViewProps) {
-  const architectureExample =
+  const showcaseExample =
     examples.find(
       (example) =>
-        example.slug === "arquitetura" ||
-        example.segment.toLowerCase().includes("arquitetura"),
+        example.slug === "estudio-unhas" ||
+        example.segment.toLowerCase().includes("unhas"),
     ) ?? examples[0];
 
   const architectureInspiration =
@@ -83,16 +55,16 @@ export function ServiceHubView({
     ) ?? inspirations[0];
 
   const heroDesktopImage =
-    architectureExample?.coverImage?.src ??
+    showcaseExample?.coverImage?.src ??
     architectureInspiration?.image;
 
   const heroMobileImage =
-    architectureExample?.coverImage?.mobileSrc ??
-    architectureExample?.coverImage?.src ??
+    showcaseExample?.coverImage?.mobileSrc ??
+    showcaseExample?.coverImage?.src ??
     architectureInspiration?.image;
 
   const heroImageAlt =
-    architectureExample?.coverImage?.alt ??
+    showcaseExample?.coverImage?.alt ??
     architectureInspiration?.alt ??
     "Exemplo de site profissional.";
 
@@ -103,7 +75,7 @@ export function ServiceHubView({
     ) ?? architectureInspiration;
 
   return (
-    <main className={styles.shell}>
+    <main className={`${styles.shell} servicesWideRoot`}>
       <ServicesAreaNav active="overview" />
 
       <section
@@ -115,38 +87,22 @@ export function ServiceHubView({
             className={styles.heroCopy}
             distance={14}
           >
-            <p className={styles.kicker}>
-              Sites profissionais
-            </p>
+            <p className={styles.kicker}>Criação e manutenção de sites</p>
 
             <h1 id="services-hero-title">
-              Seu negócio merece um site à altura.
+              Sites para mostrar seu trabalho e receber contatos.
             </h1>
 
             <p className={styles.heroStatement}>
-              Design, desenvolvimento e manutenção em um único
-              serviço. Um site pensado para apresentar seu
-              trabalho com clareza e transformar visitas em
-              oportunidades.
+              Para profissionais e pequenos negócios, crio o site, organizo o conteúdo
+              e cuido da publicação e manutenção. Trabalho, serviços e contato ficam
+              acessíveis no celular e no desktop.
             </p>
 
-            <ul
-              className={styles.heroBenefits}
-              aria-label="Benefícios do serviço"
-            >
-              {heroBenefits.map(({ label, icon: Icon }) => (
-                <li key={label}>
-                  <span
-                    className={styles.benefitIcon}
-                    aria-hidden="true"
-                  >
-                    <Icon />
-                  </span>
-
-                  <span>{label}</span>
-                </li>
-              ))}
-            </ul>
+            <p className={styles.heroOffer}>
+              <strong>A partir de R$300/mês</strong>
+              <span>domínio, hospedagem e manutenção inclusos.</span>
+            </p>
 
             <div className={styles.heroActions}>
               <a
@@ -167,12 +123,6 @@ export function ServiceHubView({
               </Link>
             </div>
 
-            <p className={styles.heroOffer}>
-              <strong>A partir de R$300/mês</strong>
-              <span>
-                domínio, hospedagem e manutenção inclusos.
-              </span>
-            </p>
           </Reveal>
 
           {heroDesktopImage ? (
@@ -217,29 +167,6 @@ export function ServiceHubView({
                   />
                 </div>
 
-                <div
-                  className={styles.performanceNote}
-                  aria-hidden="true"
-                >
-                  <strong>Performance</strong>
-                  <span>
-                    Estrutura rápida e preparada para SEO.
-                  </span>
-                </div>
-
-                <div
-                  className={styles.responsiveNote}
-                  aria-hidden="true"
-                >
-                  <span>
-                    <i />
-                    <i />
-                    <i />
-                  </span>
-
-                  <strong>100% responsivo</strong>
-                </div>
-
                 <figcaption>
                   Exemplo demonstrativo de projeto responsivo.
                 </figcaption>
@@ -248,15 +175,10 @@ export function ServiceHubView({
           ) : null}
         </div>
 
-        <StoryProgress
-          chapter={1}
-          label="Conheça o serviço"
-        />
       </section>
 
       <ServiceExamplesSnap
         examples={examples}
-        localBusinessInspiration={localBusinessInspiration}
       />
 
       <ServiceInclusionsSnap

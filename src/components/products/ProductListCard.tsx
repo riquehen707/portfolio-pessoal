@@ -9,6 +9,7 @@ import type {
 
 import type { ProductCardProps } from "./ProductCard";
 import { ProductOffers } from "./ProductOffers";
+import type { ContentLocale } from "@/lib/contentLocale";
 
 import styles from "./ProductListCard.module.scss";
 
@@ -17,6 +18,7 @@ type ProductListCardProps = {
   variants: readonly ProductVariant[];
   offers: readonly ProductOffer[];
   recommendation?: ProductCardProps;
+  locale?: ContentLocale;
 };
 
 function essentialSpecifications(variants: readonly ProductVariant[]) {
@@ -48,8 +50,15 @@ export function ProductListCard({
   variants,
   offers,
   recommendation,
+  locale = "pt-BR",
 }: ProductListCardProps) {
   const specs = essentialSpecifications(variants);
+  const localized = product.localizedContent?.[locale];
+  const productName = localized?.name ?? product.name;
+  const description = localized?.shortDescription ?? product.shortDescription;
+  const labels = locale === "en"
+    ? { why: "Why we recommend it", best: "Best for", strength: "Main advantage", tradeOff: "Watch out for", analysis: "Read full analysis", price: "A sensible price", avoid: "When to avoid", alternative: "Closest alternative", specifications: "Key specifications" }
+    : { why: "Por que recomendamos", best: "Melhor para", strength: "Principal vantagem", tradeOff: "Ponto de atenção", analysis: "Ver análise completa", price: "Preço que faz sentido", avoid: "Quando evitar", alternative: "Alternativa mais próxima", specifications: "Informações essenciais" };
 
   return (
     <article className={styles.card}>
@@ -64,7 +73,7 @@ export function ProductListCard({
             />
           ) : (
             <span className={styles.imageFallback} aria-hidden="true">
-              {product.name.slice(0, 1)}
+              {productName.slice(0, 1)}
             </span>
           )}
         </div>
@@ -85,15 +94,15 @@ export function ProductListCard({
             <h3 className={styles.title}>
               {product.status === "published" ? (
                 <Link href={`/produtos/${product.slug}`}>
-                  {product.name}
+                  {productName}
                 </Link>
               ) : (
-                product.name
+                productName
               )}
             </h3>
 
             <p className={styles.description}>
-              {product.shortDescription}
+              {description}
             </p>
 
             {variants.length ? (
@@ -109,7 +118,7 @@ export function ProductListCard({
             <div className={styles.recommendation}>
               <div className={styles.verdict}>
                 <span className={styles.sectionLabel}>
-                  Por que recomendamos
+                  {labels.why}
                 </span>
 
                 <p>{recommendation.whyIncluded}</p>
@@ -118,7 +127,7 @@ export function ProductListCard({
               <div className={styles.decisionGrid}>
                 <div className={styles.decisionItem}>
                   <span className={styles.decisionLabel}>
-                    Melhor para
+                    {labels.best}
                   </span>
 
                   <p>{recommendation.bestFor}</p>
@@ -126,7 +135,7 @@ export function ProductListCard({
 
                 <div className={styles.decisionItem}>
                   <span className={styles.decisionLabel}>
-                    Principal vantagem
+                    {labels.strength}
                   </span>
 
                   <p>{recommendation.mainDifference}</p>
@@ -134,7 +143,7 @@ export function ProductListCard({
 
                 <div className={styles.decisionItem}>
                   <span className={styles.decisionLabel}>
-                    Ponto de atenção
+                    {labels.tradeOff}
                   </span>
 
                   <p>{recommendation.tradeOff}</p>
@@ -143,22 +152,22 @@ export function ProductListCard({
 
               <details className={styles.details}>
                 <summary>
-                  <span>Ver análise completa</span>
+                  <span>{labels.analysis}</span>
                 </summary>
 
                 <div className={styles.detailsGrid}>
                   <div>
-                    <span>Preço que faz sentido</span>
+                    <span>{labels.price}</span>
                     <p>{recommendation.sensiblePriceRange}</p>
                   </div>
 
                   <div>
-                    <span>Quando evitar</span>
+                    <span>{labels.avoid}</span>
                     <p>{recommendation.avoidWhen}</p>
                   </div>
 
                   <div>
-                    <span>Alternativa mais próxima</span>
+                    <span>{labels.alternative}</span>
                     <p>{recommendation.closestCompetitor}</p>
                   </div>
                 </div>
@@ -167,7 +176,7 @@ export function ProductListCard({
           ) : null}
 
           {specs.length ? (
-            <dl className={styles.specifications} aria-label="Informações essenciais">
+            <dl className={styles.specifications} aria-label={labels.specifications}>
               {specs.map(([label, value]) => (
                 <div key={label}>
                   <dt>{label}</dt>
@@ -179,7 +188,7 @@ export function ProductListCard({
         </div>
       </div>
 
-      <ProductOffers offers={offers} />
+      <ProductOffers offers={offers} locale={locale} />
     </article>
   );
 }

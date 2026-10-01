@@ -5,13 +5,13 @@
 }
 
 .capabilityPage {
-  --capability-ink: #171714;
-  --capability-body: #484841;
-  --capability-muted: #66645b;
-  --capability-gold: #9a6b13;
+  --capability-ink: var(--neutral-on-background-strong);
+  --capability-body: var(--neutral-on-background-medium);
+  --capability-muted: var(--neutral-on-background-weak);
+  --capability-gold: #75520c;
   --capability-line: rgba(23, 23, 20, 0.22);
   display: grid;
-  gap: clamp(3.75rem, 7vw, 6rem);
+  gap: clamp(3.5rem, 6vw, 5.5rem);
   width: 100%;
   max-width: 82rem;
   margin-inline: auto;
@@ -22,7 +22,7 @@
 .capabilityHero {
   display: grid;
   gap: 1.15rem;
-  padding: clamp(1.75rem, 4vw, 3.25rem) 0 clamp(2.25rem, 5vw, 4rem);
+  padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3.25rem);
   border-bottom: 1px solid var(--capability-line);
 }
 
@@ -43,12 +43,13 @@
 
 .heroContent {
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(20rem, 0.72fr);
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, .75fr);
   gap: clamp(2rem, 7vw, 6rem);
   align-items: end;
 }
 
 .heroContent h1,
+.heroContent > p,
 .heroIntroduction p,
 .sectionHeading h2,
 .sectionHeading > p,
@@ -62,13 +63,20 @@
 }
 
 .heroContent h1 {
-  max-width: 12ch;
+  max-width: 14ch;
   font-family: var(--font-heading);
-  font-size: clamp(3.2rem, 6.4vw, 6rem);
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
   font-weight: 900;
-  line-height: 0.9;
+  line-height: .98;
   letter-spacing: -0.06em;
   text-wrap: balance;
+}
+
+.heroContent > p {
+  max-width: 35rem;
+  color: var(--capability-body);
+  font-size: clamp(1.03rem, 1.4vw, 1.18rem);
+  line-height: 1.58;
 }
 
 .heroIntroduction {
@@ -155,6 +163,28 @@
   border-bottom: 1px solid var(--capability-line);
   list-style: none;
 }
+
+.capabilityGroups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 4vw, 3.5rem);
+}
+
+.capabilityGroup {
+  min-width: 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--capability-line);
+}
+
+.capabilityGroup h3,
+.capabilityGroup p { margin: 0; }
+.capabilityGroup h3 { font-family: var(--font-heading); font-size: clamp(1.6rem, 2.3vw, 2.2rem); line-height: 1.08; letter-spacing: -.035em; }
+.capabilityGroup > p { max-width: 34rem; margin-top: .55rem; color: var(--capability-body); line-height: 1.5; }
+.capabilityGroup ul { display: grid; gap: 0; margin: 1.25rem 0 0; padding: 0; list-style: none; }
+.capabilityGroup li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .15rem .75rem; padding-block: .8rem; border-top: 1px solid var(--line-subtle); }
+.capabilityGroup li strong { font-size: .95rem; }
+.capabilityGroup li small { color: var(--capability-muted); font-size: .7rem; }
+.capabilityGroup li span { grid-column: 1 / -1; color: var(--capability-body); font-size: .86rem; line-height: 1.45; }
 
 .resourceList li {
   display: grid;
@@ -353,9 +383,11 @@
   }
 
   .heroContent h1 {
-    font-size: clamp(3rem, 14vw, 4.2rem);
-    line-height: 0.91;
+    font-size: clamp(2.65rem, 11vw, 3.8rem);
+    line-height: .98;
   }
+
+  .capabilityGroups { grid-template-columns: 1fr; }
 
   .heroIntroduction ul {
     gap: 0.7rem 0.85rem;

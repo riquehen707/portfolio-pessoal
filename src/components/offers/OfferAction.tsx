@@ -12,18 +12,21 @@ type OfferActionProps = {
   offer: OfferActionOffer;
   kind?: "product" | "reading";
   className?: string;
+  label?: string;
+  locale?: "pt-BR" | "en";
 };
 
-export function OfferAction({ offer, kind = "product", className }: OfferActionProps) {
+export function OfferAction({ offer, kind = "product", className, label: customLabel, locale = "pt-BR" }: OfferActionProps) {
   const retailer = offer.retailer ?? offer.store ?? "loja";
-  const isAmazon = retailer === "Amazon Brasil";
-  const label = isAmazon
-    ? kind === "reading"
-      ? "Ver edição na Amazon"
-      : "Ver na Amazon"
+  const isAmazon = retailer === "Amazon Brasil" || retailer === "Amazon.com";
+  const defaultLabel = isAmazon
+    ? locale === "en"
+      ? kind === "reading" ? "View edition on Amazon" : "View price on Amazon"
+      : kind === "reading" ? "Ver edição na Amazon" : "Ver na Amazon"
     : kind === "reading"
       ? `Ver edição em ${retailer}`
       : `Ver em ${retailer}`;
+  const label = customLabel ?? defaultLabel;
 
   return (
     <div className={[styles.root, className].filter(Boolean).join(" ")}>

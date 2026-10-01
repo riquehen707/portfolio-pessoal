@@ -1,5 +1,8 @@
 import { z } from "zod";
 
+const ContentLocaleSchema = z.enum(["pt-BR", "en"]);
+const MarketSchema = z.enum(["BR", "US"]);
+
 const isoDate = /^\d{4}-\d{2}-\d{2}$/;
 const slug = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
@@ -158,6 +161,22 @@ export const ProductSchema = z.object({
   mainImage: ProductImageSchema.optional(),
   gallery: z.array(ProductImageSchema).default([]),
   shortDescription: z.string().min(30).max(360),
+  localizedContent: z
+    .record(
+      ContentLocaleSchema,
+      z.object({
+        name: z.string().min(1).optional(),
+        shortDescription: z.string().min(30).max(360).optional(),
+        editorialSummary: z.string().min(80).max(1200).optional(),
+        seo: z
+          .object({
+            title: z.string().min(3).max(80),
+            description: z.string().min(50).max(170),
+          })
+          .optional(),
+      }),
+    )
+    .optional(),
   strengths: z.array(z.string().min(10)).min(1),
   limitations: z.array(z.string().min(10)).min(1),
   suitableFor: z.array(z.string().min(10)).min(1),
@@ -186,7 +205,7 @@ export const ProductVariantSchema = z.object({
   id: z.string().regex(/^prod_variant_[a-z0-9_]+$/),
   productId: z.string().regex(/^prod_[a-z0-9_]+$/),
   name: z.string().min(1),
-  market: z.string().min(2),
+  market: MarketSchema,
   manufacturerModelNumber: z.string().min(1).optional(),
   gtin: z.string().regex(/^\d{8,14}$/).optional(),
   distinguishingAttributes: z.record(z.string(), z.string().min(1)).default({}),
@@ -204,7 +223,7 @@ export const ProductOfferSchema = z.object({
   variantId: z.string().regex(/^prod_variant_[a-z0-9_]+$/),
   retailer: z.string().min(1),
   url: z.string().url(),
-  region: z.string().min(2),
+  region: MarketSchema,
   affiliateProgram: z.string().min(1).optional(),
   affiliateId: z.string().min(1).optional(),
   asin: z.string().regex(/^[A-Z0-9]{10}$/).optional(),
@@ -219,6 +238,14 @@ export const ProductOfferSchema = z.object({
     if (offer.affiliateProgram !== "Amazon Associados") ctx.addIssue({ code: "custom", path: ["affiliateProgram"], message: "oferta da Amazon Brasil exige o Programa de Associados" });
     if (offer.affiliateId !== "riquehen-20") ctx.addIssue({ code: "custom", path: ["affiliateId"], message: "oferta da Amazon Brasil exige a tag oficial do projeto" });
     if (offer.asin && offer.url !== `https://www.amazon.com.br/dp/${offer.asin}?tag=riquehen-20`) ctx.addIssue({ code: "custom", path: ["url"], message: "URL da Amazon Brasil deve ser canônica e gerada pelo ASIN" });
+    if (!offer.commissionDisclosure) ctx.addIssue({ code: "custom", path: ["commissionDisclosure"], message: "oferta afiliada exige aviso de comissão" });
+  }
+  if (offer.retailer === "Amazon.com") {
+    if (!offer.asin) ctx.addIssue({ code: "custom", path: ["asin"], message: "oferta da Amazon.com exige ASIN confirmado" });
+    if (offer.region !== "US") ctx.addIssue({ code: "custom", path: ["region"], message: "oferta da Amazon.com exige mercado US" });
+    if (offer.affiliateProgram !== "Amazon Associates") ctx.addIssue({ code: "custom", path: ["affiliateProgram"], message: "oferta da Amazon.com exige Amazon Associates" });
+    if (!offer.affiliateId) ctx.addIssue({ code: "custom", path: ["affiliateId"], message: "oferta da Amazon.com exige tag configurada" });
+    if (offer.asin && offer.affiliateId && offer.url !== `https://www.amazon.com/dp/${offer.asin}?tag=${offer.affiliateId}`) ctx.addIssue({ code: "custom", path: ["url"], message: "URL da Amazon.com deve ser canônica e gerada pelo ASIN" });
     if (!offer.commissionDisclosure) ctx.addIssue({ code: "custom", path: ["commissionDisclosure"], message: "oferta afiliada exige aviso de comissão" });
   }
 });

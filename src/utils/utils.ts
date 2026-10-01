@@ -4,6 +4,7 @@ import path from "node:path";
 import matter from "gray-matter";
 
 import { PostFrontmatterSchema } from "@/components/blog/postSchema";
+import { normalizeContentLocale, type ContentLocale, type Market } from "@/lib/contentLocale";
 
 type Team = {
   name?: string;
@@ -37,6 +38,9 @@ export type Metadata = {
   pillar?: string;
   keywords?: string[];
   canonical?: string;
+  locale: ContentLocale;
+  market?: Market;
+  translationKey?: string;
   language?: string;
   status?: "draft" | "published";
   toc?: boolean;
@@ -234,6 +238,9 @@ function safeReadFile(filePath: string, collection?: string): BlogFile | null {
       pillar: parsed.pillar ?? undefined,
       keywords,
       canonical: parsed.canonical ?? undefined,
+      locale: normalizeContentLocale(parsed.locale ?? parsed.language),
+      market: parsed.market ?? undefined,
+      translationKey: parsed.translationKey ?? undefined,
       language: parsed.language ?? undefined,
       status: parsed.status ?? undefined,
       toc: parsed.toc ?? undefined,

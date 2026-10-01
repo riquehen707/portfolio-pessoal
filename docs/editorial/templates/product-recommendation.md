@@ -82,6 +82,12 @@ O auditor rejeita ID inexistente ou qualquer uma das sete respostas ausente. Exp
 
 O identificador oficial do site no Programa de Associados Amazon Brasil é `riquehen-20`.
 
+## Mercados e conteúdo internacional
+
+Idioma editorial e mercado comercial são campos distintos. Um artigo em inglês pode declarar `market: US`, mas isso não autoriza reutilizar uma oferta brasileira, preço em BRL ou a tag `riquehen-20`. Produtos continuam centralizados: a variante exata e cada oferta informam o mercado (`BR` ou `US`), enquanto `localizedContent` só recebe texto editorial realmente revisado para o idioma.
+
+Amazon.com usa o helper `amazonUnitedStatesOffer` e exige a variável de ambiente de build `AMAZON_US_ASSOCIATE_TAG`. Sem esse identificador, não crie oferta, URL, CTA ou fallback de busca. O helper gera apenas `https://www.amazon.com/dp/{ASIN}?tag={TAG_US}` depois da confirmação da variante e ASIN no mercado US. Não há conversão automática de preço BRL/USD nem equivalência automática entre ASINs brasileiros e americanos.
+
 Uma oferta afiliada da Amazon só pode ser publicada depois de confirmar, na Amazon Brasil, a disponibilidade do item e o ASIN da versão exata recomendada. Confira modelo, geração, capacidade, cor, voltagem, tamanho, edição, quantidade e composição do kit sempre que esses atributos distinguirem a compra. Um ASIN correto para outra variante continua sendo um link incorreto.
 
 Para cada nova oferta:

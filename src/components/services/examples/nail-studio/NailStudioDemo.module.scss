@@ -1,0 +1,959 @@
+.site {
+  --tinta-paper: #f4f0e7;
+  --tinta-paper-soft: #fbf8f1;
+  --tinta-ink: #241b18;
+  --tinta-muted: #6d5e57;
+  --tinta-plum: #3b171f;
+  --tinta-plum-hover: #52212c;
+  --tinta-rust: #a64d35;
+  --tinta-line: rgb(36 27 24 / 0.2);
+  --tinta-focus: #a64d35;
+
+  min-width: 0;
+  min-height: 100vh;
+  overflow: clip;
+
+  background: var(--tinta-paper);
+  color: var(--tinta-ink);
+
+  font-family: var(--font-body), Arial, sans-serif;
+}
+
+.site *,
+.site *::before,
+.site *::after {
+  box-sizing: border-box;
+}
+
+.site h1,
+.site h2,
+.site h3,
+.site p,
+.site dl,
+.site dd,
+.site figure {
+  margin: 0;
+}
+
+.site a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site a:focus-visible,
+.site button:focus-visible,
+.site summary:focus-visible {
+  outline: 2px solid var(--tinta-focus);
+  outline-offset: 4px;
+}
+
+.header {
+  position: relative;
+  z-index: 20;
+
+  display: flex;
+  width: min(calc(100% - 3rem), 92rem);
+  min-height: 5.5rem;
+  margin-inline: auto;
+
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+
+  border-bottom: 1px solid var(--tinta-line);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  width: fit-content;
+}
+
+.brand strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.85rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.065em;
+}
+
+.brand span {
+  color: var(--tinta-muted);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 2.2rem);
+}
+
+.desktopNav a {
+  padding-block: 0.8rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.desktopNav a:not(.navAction):hover {
+  color: var(--tinta-rust);
+}
+
+.navAction {
+  padding: 0.78rem 1.05rem !important;
+  border: 1px solid var(--tinta-plum);
+  background: var(--tinta-plum);
+  color: #fff !important;
+}
+
+.navAction:hover {
+  border-color: var(--tinta-plum-hover);
+  background: var(--tinta-plum-hover);
+}
+
+.mobileMenu {
+  position: relative;
+  display: none;
+}
+
+.mobileMenu summary {
+  padding: 0.7rem 0;
+  cursor: pointer;
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  list-style: none;
+  text-transform: uppercase;
+}
+
+.mobileMenu summary::-webkit-details-marker {
+  display: none;
+}
+
+.mobileMenu nav {
+  position: absolute;
+  top: calc(100% + 0.7rem);
+  right: 0;
+  display: grid;
+  min-width: 12rem;
+  padding: 0.65rem;
+  border: 1px solid var(--tinta-line);
+  background: var(--tinta-paper-soft);
+  box-shadow: 0 1.2rem 2.4rem rgb(36 27 24 / 0.12);
+}
+
+.mobileMenu nav a {
+  padding: 0.8rem;
+  border-bottom: 1px solid var(--tinta-line);
+  font-size: 0.75rem;
+}
+
+.mobileMenu nav a:last-child {
+  border-bottom: 0;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(20rem, 0.82fr) minmax(0, 1.18fr);
+  width: min(calc(100% - 3rem), 92rem);
+  min-height: clamp(42rem, 82vh, 55rem);
+  margin-inline: auto;
+  border-bottom: 1px solid var(--tinta-line);
+}
+
+.heroCopy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-width: 0;
+  padding: clamp(5rem, 8vw, 8rem) clamp(2rem, 5vw, 5.5rem) clamp(3rem, 6vw, 5rem) 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.eyebrow,
+.sectionHeading > p,
+.worksHeading p,
+.studioCopy > p:first-child,
+.experience header > p,
+.booking > div:first-child > p {
+  color: var(--tinta-rust);
+  font-size: 0.63rem;
+  font-weight: 760;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.heroCopy h1 {
+  max-width: 10ch;
+  margin-top: 1.35rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.9rem, 6.2vw, 7rem);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.065em;
+  text-wrap: balance;
+}
+
+.heroCopy h1 em {
+  color: var(--tinta-rust);
+  font-weight: 400;
+}
+
+.heroCopy > p:not(.eyebrow) {
+  max-width: 29rem;
+  margin-top: 1.8rem;
+  color: var(--tinta-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.primaryAction {
+  display: inline-flex;
+  min-height: 3.1rem;
+  margin-top: 2.2rem;
+  padding: 0 1.3rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+  border: 1px solid var(--tinta-plum);
+  background: var(--tinta-plum);
+  color: #fff !important;
+  font-size: 0.72rem;
+  font-weight: 760;
+}
+
+.primaryAction:hover {
+  border-color: var(--tinta-plum-hover);
+  background: var(--tinta-plum-hover);
+  transform: translateY(-2px);
+}
+
+.heroMedia {
+  position: relative;
+  min-width: 0;
+  min-height: 100%;
+  overflow: hidden;
+  background: #c8ad9a;
+}
+
+.heroMedia::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 65%, rgb(36 23 23 / 0.34));
+  content: "";
+  pointer-events: none;
+}
+
+.heroMedia img {
+  object-fit: cover;
+  object-position: 52% center;
+}
+
+.heroMedia figcaption {
+  position: absolute;
+  z-index: 2;
+  right: 1.3rem;
+  bottom: 1.2rem;
+  left: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.heroMedia figcaption span:first-child {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 0.7);
+  border-radius: 50%;
+}
+
+.demoNotice {
+  position: absolute;
+  z-index: 3;
+  bottom: 1.15rem;
+  left: 0;
+  max-width: 18rem;
+  color: var(--tinta-muted);
+  font-size: 0.58rem;
+  line-height: 1.35;
+}
+
+.services,
+.works,
+.studio,
+.experience,
+.booking {
+  width: min(calc(100% - 3rem), 84rem);
+  margin-inline: auto;
+}
+
+.services {
+  padding-block: clamp(6rem, 10vw, 10rem);
+}
+
+.sectionHeading {
+  display: grid;
+  grid-template-columns: 0.55fr 1.45fr auto;
+  align-items: flex-end;
+  gap: clamp(2rem, 5vw, 5rem);
+  margin-bottom: 3.5rem;
+}
+
+.sectionHeading h2,
+.worksHeading h2,
+.studioCopy h2,
+.experience h2,
+.booking h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.5rem, 4.5vw, 5rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+
+.sectionHeading h2 {
+  max-width: 12ch;
+}
+
+.sectionHeading > span,
+.worksHeading > span {
+  color: var(--tinta-muted);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.serviceList {
+  border-top: 1px solid var(--tinta-line);
+}
+
+.serviceList article {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr) minmax(14rem, 0.55fr);
+  min-width: 0;
+  padding: 1.8rem 0;
+  align-items: start;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--tinta-line);
+}
+
+.serviceList article > span {
+  color: var(--tinta-rust);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.25rem;
+}
+
+.serviceList h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 3vw, 3.1rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+}
+
+.serviceList article > div > p {
+  max-width: 30rem;
+  margin-top: 0.55rem;
+  color: var(--tinta-muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.serviceList dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.serviceList dt {
+  color: var(--tinta-muted);
+  font-size: 0.56rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.serviceList dd {
+  margin-top: 0.3rem;
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
+.statement {
+  display: grid;
+  grid-template-columns: minmax(5rem, 0.35fr) minmax(0, 1.65fr) auto;
+  width: 100%;
+  padding: clamp(5rem, 10vw, 9rem) max(1.5rem, calc((100vw - 84rem) / 2));
+  align-items: flex-end;
+  gap: 2rem;
+  background: var(--tinta-plum);
+  color: #fff;
+}
+
+.statement > span,
+.statement small {
+  color: #ddc8c5;
+  font-size: 0.61rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.statement p {
+  max-width: 14ch;
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 7vw, 7.2rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.065em;
+}
+
+.works {
+  padding-block: clamp(6rem, 11vw, 11rem);
+}
+
+.worksHeading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.worksHeading h2 {
+  max-width: 11ch;
+  margin-top: 0.85rem;
+}
+
+.workGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  grid-template-areas:
+    "first second"
+    "first third";
+  gap: clamp(1rem, 2.5vw, 2rem);
+}
+
+.workGrid figure {
+  min-width: 0;
+}
+
+.workGrid figure[data-position="1"] {
+  grid-area: first;
+}
+
+.workGrid figure[data-position="2"] {
+  grid-area: second;
+}
+
+.workGrid figure[data-position="3"] {
+  grid-area: third;
+}
+
+.workGrid figure > div {
+  position: relative;
+  min-height: 20rem;
+  overflow: hidden;
+  background: #d1c4b6;
+}
+
+.workGrid figure[data-position="1"] > div {
+  min-height: 48rem;
+}
+
+.workGrid figure img {
+  object-fit: cover;
+  transition: transform 500ms cubic-bezier(0.2, 0.75, 0.2, 1);
+}
+
+.workGrid figure[data-position="1"] img {
+  object-position: center 22%;
+}
+
+.workGrid figure:hover img {
+  transform: scale(1.018);
+}
+
+.workGrid figcaption {
+  display: flex;
+  padding-top: 0.8rem;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid var(--tinta-ink);
+}
+
+.workGrid figcaption strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+.workGrid figcaption span {
+  color: var(--tinta-muted);
+  font-size: 0.58rem;
+  text-transform: uppercase;
+}
+
+.studio {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(20rem, 0.9fr);
+  padding-bottom: clamp(6rem, 11vw, 11rem);
+  align-items: stretch;
+}
+
+.studio > figure {
+  position: relative;
+  min-height: 43rem;
+  background: #b79b82;
+}
+
+.studio > figure img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.studioCopy {
+  display: flex;
+  padding: clamp(2.5rem, 5vw, 5rem);
+  flex-direction: column;
+  justify-content: center;
+  background: #d7b49d;
+}
+
+.studioCopy h2 {
+  max-width: 11ch;
+  margin-top: 1.2rem;
+  color: var(--tinta-plum);
+}
+
+.studioCopy > p:nth-of-type(2) {
+  max-width: 28rem;
+  margin-top: 1.5rem;
+  color: #584139;
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.studioCopy dl {
+  display: grid;
+  margin-top: 2.5rem;
+  border-top: 1px solid rgb(59 23 31 / 0.28);
+}
+
+.studioCopy dl > div {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgb(59 23 31 / 0.28);
+}
+
+.studioCopy dt {
+  color: #77584c;
+  font-size: 0.58rem;
+  text-transform: uppercase;
+}
+
+.studioCopy dd {
+  font-size: 0.72rem;
+  font-weight: 680;
+}
+
+.experience {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.7fr) minmax(0, 1.3fr);
+  padding-block: clamp(6rem, 10vw, 9rem);
+  gap: clamp(3rem, 8vw, 8rem);
+  border-top: 1px solid var(--tinta-line);
+}
+
+.experience header {
+  align-self: start;
+}
+
+.experience h2 {
+  max-width: 9ch;
+  margin-top: 1rem;
+}
+
+.experience ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  border-top: 1px solid var(--tinta-line);
+}
+
+.experience li {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--tinta-line);
+}
+
+.experience li > span {
+  color: var(--tinta-rust);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.1rem;
+}
+
+.experience h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.65rem;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+
+.experience li p {
+  max-width: 32rem;
+  margin-top: 0.45rem;
+  color: var(--tinta-muted);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+.booking {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+  padding: clamp(3rem, 7vw, 6rem);
+  gap: clamp(3rem, 8vw, 8rem);
+  background: var(--tinta-plum);
+  color: #fff;
+}
+
+.booking h2 {
+  max-width: 11ch;
+  margin-top: 1rem;
+  color: #fff;
+}
+
+.bookingDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.bookingDetails > p {
+  max-width: 28rem;
+  color: #ddc8c5;
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.bookingDemo {
+  display: grid;
+  justify-items: start;
+  gap: 0.8rem;
+  margin-top: 1.8rem;
+}
+
+.bookingDemo button {
+  display: inline-flex;
+  min-height: 3.15rem;
+  padding: 0 1.25rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  border: 1px solid #f4f0e7;
+  background: #f4f0e7;
+  color: var(--tinta-plum);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 760;
+}
+
+.bookingDemo button:hover {
+  border-color: #d7b49d;
+  background: #d7b49d;
+}
+
+.bookingDemo > span {
+  min-height: 1.2rem;
+  color: #ddc8c5;
+  font-size: 0.63rem;
+  line-height: 1.45;
+}
+
+.footer {
+  display: flex;
+  width: min(calc(100% - 3rem), 84rem);
+  min-height: 8rem;
+  margin-inline: auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.footer p,
+.footer > a:last-child {
+  color: var(--tinta-muted);
+  font-size: 0.61rem;
+  line-height: 1.45;
+}
+
+.footer p {
+  max-width: 25rem;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  }
+
+  .heroCopy h1 {
+    font-size: clamp(3.4rem, 7.5vw, 5rem);
+  }
+
+  .sectionHeading {
+    grid-template-columns: 0.45fr 1.55fr;
+  }
+
+  .sectionHeading > span {
+    grid-column: 2;
+  }
+
+  .serviceList article {
+    grid-template-columns: 3rem minmax(0, 1fr);
+  }
+
+  .serviceList dl {
+    grid-column: 2;
+    max-width: 18rem;
+  }
+
+  .workGrid figure[data-position="1"] > div {
+    min-height: 40rem;
+  }
+
+  .studio {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .studio > figure {
+    min-height: 35rem;
+  }
+
+  .studioCopy {
+    min-height: 32rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .header {
+    width: calc(100% - 1.5rem);
+    min-height: 4.6rem;
+  }
+
+  .desktopNav {
+    display: none;
+  }
+
+  .mobileMenu {
+    display: block;
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    min-height: 0;
+  }
+
+  .heroCopy {
+    padding: 4rem 1.25rem 3.5rem;
+  }
+
+  .heroCopy h1 {
+    max-width: 10.5ch;
+    font-size: clamp(3.3rem, 14.5vw, 5rem);
+  }
+
+  .heroMedia {
+    min-height: min(125vw, 42rem);
+  }
+
+  .heroMedia img {
+    object-position: 57% center;
+  }
+
+  .demoNotice {
+    position: static;
+    padding: 0.9rem 1.25rem;
+    background: var(--tinta-paper-soft);
+  }
+
+  .services,
+  .works,
+  .studio,
+  .experience,
+  .booking {
+    width: calc(100% - 1.5rem);
+  }
+
+  .services,
+  .works {
+    padding-block: 5rem;
+  }
+
+  .sectionHeading,
+  .experience,
+  .booking {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sectionHeading {
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .sectionHeading > span {
+    grid-column: auto;
+  }
+
+  .sectionHeading h2,
+  .worksHeading h2,
+  .studioCopy h2,
+  .experience h2,
+  .booking h2 {
+    font-size: clamp(2.7rem, 12vw, 4rem);
+  }
+
+  .serviceList article {
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1.5rem 0;
+  }
+
+  .serviceList h3 {
+    font-size: 2rem;
+  }
+
+  .statement {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 5rem 1.25rem;
+    align-items: start;
+    gap: 1.3rem;
+  }
+
+  .statement p {
+    font-size: clamp(3.4rem, 16vw, 5.4rem);
+  }
+
+  .worksHeading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .workGrid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "first" "second" "third";
+    gap: 2.5rem;
+  }
+
+  .workGrid figure > div,
+  .workGrid figure[data-position="1"] > div {
+    min-height: min(118vw, 37rem);
+  }
+
+  .workGrid figure[data-position="2"] > div {
+    min-height: min(74vw, 25rem);
+  }
+
+  .studio {
+    width: 100%;
+    padding-bottom: 0;
+  }
+
+  .studio > figure {
+    min-height: min(88vw, 33rem);
+  }
+
+  .studioCopy {
+    min-height: 0;
+    padding: 4rem 1.25rem;
+  }
+
+  .experience {
+    padding-block: 5rem;
+    gap: 2.5rem;
+  }
+
+  .booking {
+    width: 100%;
+    padding: 4rem 1.25rem;
+    gap: 2.5rem;
+  }
+
+  .bookingDemo button {
+    width: 100%;
+  }
+
+  .footer {
+    width: calc(100% - 1.5rem);
+    padding-block: 2rem;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .footer p {
+    text-align: left;
+  }
+}
+
+@media (max-width: 390px) {
+  .brand span {
+    display: none;
+  }
+
+  .heroCopy {
+    padding-inline: 0.9rem;
+  }
+
+  .heroCopy h1 {
+    font-size: clamp(3rem, 15vw, 3.8rem);
+  }
+
+  .services,
+  .works,
+  .experience,
+  .footer {
+    width: calc(100% - 1.2rem);
+  }
+
+  .serviceList dl {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .workGrid figcaption {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site *,
+  .site *::before,
+  .site *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

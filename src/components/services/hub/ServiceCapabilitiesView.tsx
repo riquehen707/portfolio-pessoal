@@ -1,21 +1,19 @@
-import Link from "next/link";
-
 import { CapabilityWorkbench } from "@/components/services/capabilities/CapabilityWorkbench";
 import { ServicesAreaNav } from "@/components/services/ServicesAreaNav";
-import type { ServiceFeature } from "@/data/service-hub";
+import { ServicesNextStep } from "@/components/services/ServicesNextStep";
+import type { ServiceFeature, ServiceFeatureGroup } from "@/data/service-hub";
 
 import { ServiceFeaturePreview } from "./ServiceFeaturePreview";
 import styles from "./ServiceHubExperience.module.scss";
 
 type Props = { features: ServiceFeature[] };
 
-const capabilitySummary = [
-  "Formulários",
-  "Agendamento",
-  "Galerias",
-  "Filtros",
-  "Integrações",
-] as const;
+const groups: { id: ServiceFeatureGroup; title: string; description: string }[] = [
+  { id: "contact", title: "Receber contatos", description: "Caminhos para dúvidas, pedidos e agendamentos." },
+  { id: "presentation", title: "Apresentar o trabalho", description: "Projetos, serviços, preços e respostas antes da conversa." },
+  { id: "local-business", title: "Orientar a visita", description: "Endereço e horários acessíveis para quem vai ao local." },
+  { id: "content", title: "Organizar conteúdo", description: "Páginas encontráveis e espaço para publicar quando fizer sentido." },
+];
 
 export function ServiceCapabilitiesView({ features }: Props) {
   const whatsapp = features.find((feature) => feature.id === "whatsapp");
@@ -25,91 +23,54 @@ export function ServiceCapabilitiesView({ features }: Props) {
       <ServicesAreaNav active="capabilities" />
 
       <header className={styles.capabilityHero}>
-        <p className={styles.eyebrow}>Capacidades técnicas</p>
-
+        <p className={styles.eyebrow}>Capacidades</p>
         <div className={styles.heroContent}>
-          <h1>Interfaces além da página estática.</h1>
-          <div className={styles.heroIntroduction}>
-            <p>
-              Além de páginas bem apresentadas, desenvolvo recursos e fluxos
-              que ajudam seu site a informar, organizar e receber ações.
-            </p>
-            <ul aria-label="Exemplos de capacidades">
-              {capabilitySummary.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
+          <h1>O que seu site pode fazer.</h1>
+          <p>Além de apresentar seu trabalho, o site pode organizar conteúdo, responder dúvidas e criar caminhos para contato. A escolha dos recursos depende do projeto.</p>
         </div>
       </header>
 
-      <section
-        className={styles.resourcesSection}
-        id="recursos"
-        aria-labelledby="resources-title"
-      >
+      <section className={styles.resourcesSection} id="recursos" aria-labelledby="resources-title">
         <header className={styles.sectionHeading}>
-          <div>
-            <p className={styles.eyebrow}>Recursos possíveis</p>
-            <h2 id="resources-title">
-              Recursos que podem fazer parte do seu site.
-            </h2>
-          </div>
-          <p>
-            A combinação depende do objetivo do projeto. Nem todo site precisa
-            de tudo — a escolha começa pelo que facilita a vida de quem visita.
-          </p>
+          <div><p className={styles.eyebrow}>Por função</p><h2 id="resources-title">Recursos para cada tarefa.</h2></div>
+          <p>Agendamento, blog e catálogo exigem escopo adicional. Os outros recursos são definidos conforme a estrutura do site.</p>
         </header>
 
-        <ol className={styles.resourceList}>
-          {features.map((feature, index) => (
-            <li key={feature.id}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <div>
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
+        <div className={styles.capabilityGroups}>
+          {groups.map((group) => {
+            const groupFeatures = features.filter((feature) => feature.group === group.id);
+            if (!groupFeatures.length) return null;
+            return <section className={styles.capabilityGroup} key={group.id} aria-labelledby={`group-${group.id}`}>
+              <h3 id={`group-${group.id}`}>{group.title}</h3>
+              <p>{group.description}</p>
+              <ul>{groupFeatures.map((feature) => <li key={feature.id}>
+                <strong>{feature.title}</strong>
+                {feature.status === "additional" ? <small>Escopo adicional</small> : null}
+                <span>{feature.description}</span>
+              </li>)}</ul>
+            </section>;
+          })}
+        </div>
       </section>
 
-      {whatsapp ? (
-        <section
-          className={styles.demoSection}
-          id="demonstracao"
-          aria-labelledby="demo-title"
-        >
-          <div className={styles.demoCopy}>
-            <p className={styles.darkEyebrow}>Uma interação, sem distrações</p>
-            <h2 id="demo-title">Do interesse à conversa.</h2>
-            <p>
-              Um botão de contato pode abrir uma mensagem já contextualizada e
-              encurtar o caminho até o atendimento. Teste o estado abaixo: esta
-              demonstração é local e não envia nenhuma mensagem.
-            </p>
-          </div>
-
-          <div className={styles.demoPreview}>
-            <ServiceFeaturePreview />
-          </div>
-        </section>
-      ) : null}
+      {whatsapp ? <section className={styles.demoSection} id="demonstracao" aria-labelledby="demo-title">
+        <div className={styles.demoCopy}>
+          <p className={styles.darkEyebrow}>Demonstração</p>
+          <h2 id="demo-title">Do interesse à conversa.</h2>
+          <p>Teste uma ação de contato com mensagem contextualizada. A demonstração funciona nesta página e não envia mensagens.</p>
+        </div>
+        <div className={styles.demoPreview}><ServiceFeaturePreview /></div>
+      </section> : null}
 
       <CapabilityWorkbench />
 
-      <footer className={styles.capabilityNext}>
-        <div>
-          <p>Quer explorar direções visuais?</p>
-          <h2>Veja como seu site pode ficar.</h2>
-        </div>
-        <Link className={styles.primaryNext} href="/servicos/inspiracoes">
-          Ver inspirações <span aria-hidden="true">→</span>
-        </Link>
-        <Link className={styles.secondaryNext} href="/servicos">
-          Voltar para serviços
-        </Link>
-      </footer>
+      <ServicesNextStep
+        eyebrow="Aplicação"
+        title="Veja as decisões em um projeto."
+        description="O portfólio mostra o site publicado e os estudos de interface, com contexto e estado de cada trabalho."
+        href="/work"
+        label="Ver trabalhos"
+      />
     </main>
   );
 }

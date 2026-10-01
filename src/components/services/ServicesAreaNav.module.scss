@@ -1,9 +1,13 @@
 @use "../../styles/mixins" as mixins;
 
 .nav {
-  width: 100%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  width: min(100vw - 4rem, 82rem);
   overflow-x: auto;
-  border-bottom: 1px solid rgba(20, 20, 20, 0.1);
+  border-bottom: 1px solid var(--line-subtle);
   scrollbar-width: none;
   overscroll-behavior-inline: contain;
 }
@@ -26,12 +30,12 @@
   display: inline-flex;
   align-items: center;
 
-  min-height: 3.4rem;
+  min-height: 3.5rem;
 
-  color: rgba(20, 20, 20, 0.52);
+  color: var(--neutral-on-background-medium);
 
   font-family: var(--font-label);
-  font-size: 0.82rem;
+  font-size: 0.875rem;
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.01em;
@@ -67,7 +71,7 @@
 }
 
 .nav .link[aria-current="page"] {
-  color: rgba(20, 20, 20, 0.96);
+  color: var(--neutral-on-background-strong);
   font-weight: 700;
 }
 
@@ -86,19 +90,23 @@
   }
 }
 
+@media (max-width: 900px) {
+  .nav {
+    width: min(100vw - 2rem, 46rem);
+  }
+}
+
 @media (max-width: 760px) {
   .nav {
-    margin-inline: -0.5rem;
-    width: calc(100% + 1rem);
-    padding-inline: 0.5rem;
+    width: calc(100vw - 1.5rem);
   }
 
   .links {
-    gap: 1.45rem;
+    gap: .8rem;
   }
 
   .link {
-    min-height: 3.25rem;
-    font-size: 0.78rem;
+    min-height: 3rem;
+    font-size: 0.82rem;
   }
 }

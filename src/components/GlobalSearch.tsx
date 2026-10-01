@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 
@@ -128,6 +128,8 @@ export function GlobalSearch() {
   const requestRef = useRef<Promise<void> | null>(null);
   const searchOpenedAtRef = useRef<number | null>(null);
   const router = useRouter();
+  const pathname = usePathname();
+  const locale = pathname.startsWith("/en/") || pathname === "/en" ? "en" : "pt-BR";
 
   const loadSearchIndex = useCallback(() => {
     if (loadingState === "ready") return Promise.resolve();
@@ -135,7 +137,7 @@ export function GlobalSearch() {
 
     setLoadingState("loading");
     const startedAt = performance.now();
-    const request = fetch("/api/search-index", {
+    const request = fetch(`/api/search-index?locale=${locale}`, {
       headers: { Accept: "application/json" },
     })
       .then(async (response) => {
@@ -161,7 +163,7 @@ export function GlobalSearch() {
 
     requestRef.current = request;
     return request;
-  }, [loadingState]);
+  }, [loadingState, locale]);
 
   const openSearch = useCallback((source: "button" | "keyboard") => {
     searchOpenedAtRef.current = performance.now();

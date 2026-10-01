@@ -46,6 +46,10 @@ export const PostFrontmatterSchema = z.object({
 
   keywords: z.array(z.string()).optional(),
   canonical: z.string().url().optional(),
+  // Ausente em conteúdo legado significa português brasileiro.
+  locale: z.enum(["pt-BR", "en"]).optional(),
+  market: z.enum(["BR", "US"]).optional(),
+  translationKey: z.string().min(1).max(120).optional(),
   language: z.string().default("pt-BR"),
   status: z.enum(["draft", "published"]).default("published"),
 

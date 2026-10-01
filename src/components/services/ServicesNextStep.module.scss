@@ -1,0 +1,20 @@
+@use "../../styles/mixins" as mixins;
+
+.nextStep {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.5rem 3rem;
+  align-items: end;
+  width: 100%;
+  padding-block: clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid var(--line-subtle);
+}
+.nextStep > div { display: grid; gap: .65rem; min-width: 0; }
+.nextStep p, .nextStep h2 { margin: 0; }
+.eyebrow { color: var(--neutral-on-background-medium); font-size: .75rem; font-weight: 750; letter-spacing: .07em; text-transform: uppercase; }
+.nextStep h2 { max-width: 24ch; font-family: var(--font-heading); font-size: clamp(1.75rem, 3vw, 2.6rem); line-height: 1.08; letter-spacing: -.04em; }
+.description { max-width: 42rem; color: var(--neutral-on-background-medium); line-height: 1.55; }
+.nextStep a { display: inline-flex; min-height: 3rem; align-items: center; gap: 1.1rem; color: var(--neutral-on-background-strong); font-weight: 750; text-decoration-thickness: 1px; text-underline-offset: .25em; white-space: nowrap; }
+.nextStep a:hover { text-decoration: underline; }
+.nextStep a:focus-visible { @include mixins.focus-ring; }
+@media (max-width: 680px) { .nextStep { grid-template-columns: 1fr; } .nextStep a { width: fit-content; } }

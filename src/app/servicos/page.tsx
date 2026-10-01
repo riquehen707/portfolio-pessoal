@@ -4,7 +4,6 @@ import { getPublishedServiceExamples } from "@/data/service-examples";
 import { getServiceHubContent } from "@/data/service-hub";
 import {
   getFeaturedServiceInspirations,
-  getServiceInspiration,
 } from "@/data/service-inspirations";
 import { baseURL, person, servicesPage, social } from "@/resources";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
@@ -29,7 +28,6 @@ export default function ServicesPage() {
   const inspirations = getFeaturedServiceInspirations(4);
   const examples = getPublishedServiceExamples();
   const { inclusions, process, plans, faq } = getServiceHubContent();
-  const localBusinessInspiration = getServiceInspiration("negocio-local-vibrante");
   const whatsapp = social.find((item) => item.name === "WhatsApp")?.link;
   const contactHref = whatsapp
     ? `${whatsapp}?text=${encodeURIComponent("Olá, Henrique. Quero conversar sobre a criação de um site.")}`
@@ -57,7 +55,6 @@ export default function ServicesPage() {
         plans={plans}
         faq={faq}
         inspirations={inspirations}
-        localBusinessInspiration={localBusinessInspiration}
         contactHref={contactHref}
       />
     </Column>

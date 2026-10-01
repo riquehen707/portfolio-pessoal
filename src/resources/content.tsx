@@ -214,8 +214,8 @@ const blog: Blog = {
 const work: Work = {
   path: "/work",
   label: "Portfólio",
-  title: `Portfólio | ${person.name}`,
-  description: workStrategy.hero.subheadline,
+  title: "Portfólio",
+  description: "Um site publicado e dois estudos demonstrativos, com contexto, decisões de interface e estado de cada projeto.",
 };
 
 const contact: BasePageConfig = {

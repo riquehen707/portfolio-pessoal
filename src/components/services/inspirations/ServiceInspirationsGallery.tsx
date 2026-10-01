@@ -30,16 +30,16 @@ export function ServiceInspirationsGallery({
       aria-labelledby="service-examples-title"
     >
       <header className={styles.heading}>
-        <p className={styles.kicker}>Exemplos de sites</p>
+        <p className={styles.kicker}>Inspirações</p>
 
         <Heading id="service-examples-title">
-          Veja como seu site pode ficar.
+          Direções visuais para seu site.
         </Heading>
 
         <p className={styles.description}>
           {isPreview
-            ? "Veja algumas direções visuais que podemos usar como ponto de partida. O projeto final é adaptado ao seu negócio, conteúdo e objetivos."
-            : "Explore diferentes estilos, estruturas e formas de apresentar um negócio. Você pode abrir qualquer exemplo para ver melhor como aquela direção funciona."}
+            ? "Referências de composição e linguagem visual para começar a conversa. O projeto final parte do seu conteúdo."
+            : "Explore composição, imagem e tipografia. Cada referência abre uma página com mais contexto sobre aquela direção."}
         </p>
       </header>
 
@@ -52,7 +52,7 @@ export function ServiceInspirationsGallery({
             <Link
               className={styles.itemLink}
               href={getServiceInspirationPath(inspiration.slug)}
-              aria-label={`Ver exemplo ${inspiration.title}`}
+              aria-label={`Explorar direção visual ${inspiration.title}`}
             >
               <span className={styles.imageFrame}>
                 <Image
@@ -62,11 +62,9 @@ export function ServiceInspirationsGallery({
                   width={inspiration.width}
                   height={inspiration.height}
                   priority={index < 3}
-                  sizes="
-                    (max-width: 760px) 92vw,
-                    (max-width: 1120px) 46vw,
-                    31vw
-                  "
+                  sizes={isPreview
+                    ? "(max-width: 760px) 82vw, (max-width: 1120px) 46vw, 31vw"
+                    : "(max-width: 420px) 92vw, (max-width: 760px) 46vw, (max-width: 1120px) 31vw, 23vw"}
                 />
               </span>
 

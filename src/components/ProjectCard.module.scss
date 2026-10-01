@@ -1,31 +1,21 @@
-.card {
-  display: grid;
-  min-width: 0;
-  height: 100%;
-  border: 1px solid var(--line-subtle);
-  border-radius: .75rem;
-  background: var(--surface-flat);
-}
-.preview {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  aspect-ratio: 16 / 10;
-  border-radius: .75rem .75rem 0 0;
-  background: var(--surface-panel-soft);
-}
-.preview img { object-fit: cover; object-position: top; }
-.content { display: flex; flex-direction: column; align-items: flex-start; gap: .85rem; min-width: 0; padding: clamp(1.2rem, 3vw, 2rem); }
-.content h3 { margin: 0; font-family: var(--font-heading); font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.12; letter-spacing: -.025em; }
-.content p { margin: 0; font-size: 1rem; line-height: 1.55; color: var(--neutral-on-background-medium); }
-.content .type { font-size: .8rem; }
-.content .audience { font-size: .9rem; }
-.content .state { border-left: 2px solid var(--color-accent-gold); padding-left: .75rem; font-size: .875rem; }
-.actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1.25rem; width: 100%; margin-top: auto; padding-top: .5rem; }
-.actions a { display: inline-flex; align-items: center; gap: .75rem; min-height: 44px; color: var(--neutral-on-background-strong); font-weight: 650; text-decoration: underline; text-underline-offset: .25em; }
-.actions .service { font-size: .875rem; font-weight: 400; }
-.actions a:focus-visible { outline: 2px solid var(--color-accent-gold-muted); outline-offset: 4px; }
-@media (min-width: 900px) {
-  .card[data-variant="feature"] { grid-template-columns: 1.1fr 1fr; align-items: center; }
-  .card[data-variant="feature"] .preview { margin: 1.5rem 0 1.5rem 1.5rem; border: 1px solid var(--line-subtle); border-radius: .5rem; }
-}
+@use "../styles/mixins" as mixins;
+
+.card { display: grid; min-width: 0; height: 100%; border-top: 1px solid var(--neutral-on-background-strong); background: var(--surface-panel-soft); }
+.preview { position: relative; display: block; min-width: 0; overflow: hidden; aspect-ratio: 16 / 10; background: var(--neutral-alpha-weak); }
+.preview img { object-fit: cover; object-position: top; transition: transform 240ms ease; }
+.preview:hover img { transform: scale(1.015); }
+.preview:focus-visible, .actions a:focus-visible { @include mixins.focus-ring; }
+.content { display: flex; flex-direction: column; align-items: flex-start; gap: .75rem; min-width: 0; padding: clamp(1.2rem, 2.5vw, 2rem); }
+.content h3 { margin: 0; font-family: var(--font-heading); font-size: clamp(1.4rem, 2.4vw, 2.35rem); line-height: 1.08; letter-spacing: -.035em; }
+.content p { max-width: 52ch; margin: 0; color: var(--neutral-on-background-medium); font-size: .94rem; line-height: 1.5; }
+.content .type { color: var(--neutral-on-background-weak); font-size: .75rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.content .state { color: var(--neutral-on-background-medium); font-size: .82rem; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.5rem; width: 100%; margin-top: auto; padding-top: .4rem; }
+.actions a { display: inline-flex; align-items: center; gap: .7rem; min-height: 3rem; color: var(--neutral-on-background-strong); font-size: .88rem; font-weight: 750; text-decoration-thickness: 1px; text-underline-offset: .25em; }
+.actions .service { color: var(--neutral-on-background-medium); font-size: .8rem; font-weight: 500; }
+.card[data-variant="compact"] .content { padding: 1.25rem 0; }
+.card[data-variant="compact"] { background: transparent; }
+.card[data-variant="compact"] .content h3 { font-size: clamp(1.35rem, 2vw, 1.7rem); }
+.card[data-variant="compact"] .content .state { font-size: .78rem; }
+@media (min-width: 900px) { .card[data-variant="feature"] { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); } .card[data-variant="feature"] .preview { height: 100%; min-height: 26rem; aspect-ratio: auto; } }
+@media (prefers-reduced-motion: reduce) { .preview img { transition: none; } .preview:hover img { transform: none; } }

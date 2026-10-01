@@ -4,7 +4,6 @@ import { Reveal } from "@/components/motion/Reveal";
 import type { ServiceInspiration } from "@/data/service-inspirations";
 
 import styles from "./ServiceHubView.module.scss";
-import { StoryProgress } from "./StoryProgress";
 
 export function ServiceFinalSnap({
   contactHref,
@@ -18,8 +17,8 @@ export function ServiceFinalSnap({
       <div className={styles.closingInner}>
         <Reveal className={styles.closingCopy} distance={20} trigger="mount">
           <p className={styles.kicker}>Vamos conversar?</p>
-          <h2 id="contact-title">Seu site pode começar a trabalhar pelo seu negócio.</h2>
-          <p>Me conte brevemente o que você precisa e eu vejo qual estrutura faz mais sentido para o seu projeto.</p>
+          <h2 id="contact-title">Vamos definir o que seu site precisa apresentar.</h2>
+          <p>Envie o contexto do projeto, as páginas necessárias e a forma de contato que deseja oferecer.</p>
           <a
             className={styles.closingAction}
             href={contactHref}
@@ -55,7 +54,6 @@ export function ServiceFinalSnap({
         ) : null}
       </div>
 
-      <StoryProgress chapter={7} label="Fim da página" />
     </section>
   );
 }

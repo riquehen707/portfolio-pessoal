@@ -68,4 +68,18 @@ html[data-theme="light"] {
   --neutral-on-surface-strong: var(--color-text-primary);
   --neutral-on-surface-medium: #2d2c28;
   --neutral-on-surface-weak: var(--color-text-secondary);
+
+  /* Shared control roles for locally composed links and buttons. */
+  --action-primary-background: #071d15;
+  --action-primary-background-hover: #0d2a1e;
+  --action-primary-background-active: #05150f;
+  --action-primary-foreground: #ffffff;
+  --action-secondary-background: transparent;
+  --action-secondary-background-hover: rgba(255, 255, 255, 0.45);
+  --action-secondary-background-active: rgba(18, 18, 16, 0.06);
+  --action-secondary-border: #737a70;
+  --action-secondary-border-hover: var(--color-text-primary);
+  --action-secondary-foreground: #30352f;
+  --action-disabled-background: #ecebe3;
+  --action-disabled-foreground: var(--color-text-secondary);
 }

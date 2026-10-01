@@ -1,5 +1,11 @@
 # Decisões editoriais
 
+## 2026-09-30 — “Tinta” substitui o exemplo Plano Bruto 17
+
+`/servicos/exemplos/estudio-unhas` passa a publicar “Tinta”, um estúdio de unhas fictício com identidade editorial em osso, ameixa, ferrugem e tons naturais de pele. A jornada organiza apresentação, serviços com duração e valores ilustrativos, trabalhos, informações do estúdio, preparação para o atendimento e agendamento demonstrativo. A marca, a agenda, o endereço e as condições não representam um negócio em operação.
+
+O renderer, os dados e as capas do antigo “Plano Bruto 17” deixam de alimentar `/servicos`. As URLs `/servicos/exemplos/arquitetura` e seus antigos estudos internos redirecionam para o novo exemplo para evitar destinos quebrados. A nova interface usa cinco imagens geradas especificamente para o case, registradas em `public/images/services/nail-studio-demo/`; nenhuma deriva da fotografia ou da identidade proprietária usada apenas como direção de qualidade.
+
 ## 2026-09-18 — Portfólio para designers e aprofundamento das inspirações restantes
 
 `/servicos/inspiracoes/portfolio-minimalista` preserva o slug público e passa a se apresentar como “Portfólio para designers”. A publicação demonstra a jornada `direção → seleção → case → contato` com filtros de projetos, seleção sincronizada, narrativa de case e formulário demonstrativo que não envia nem armazena informações. “Lia Prado” e os três projetos são fictícios; o conteúdo não representa clientes, trabalhos ou resultados de Henrique Reis.

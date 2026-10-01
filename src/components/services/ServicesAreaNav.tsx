@@ -15,22 +15,22 @@ const links: Array<{
 }> = [
   {
     id: "overview",
-    label: "Visão geral",
+    label: "Serviços",
     href: "/servicos",
   },
   {
     id: "examples",
-    label: "Exemplos",
+    label: "Inspirações",
     href: "/servicos/inspiracoes",
   },
   {
     id: "capabilities",
-    label: "O que está incluso",
+    label: "Capacidades",
     href: "/servicos/capacidades",
   },
   {
     id: "portfolio",
-    label: "Portfólio",
+    label: "Trabalhos",
     href: "/work",
   },
 ];

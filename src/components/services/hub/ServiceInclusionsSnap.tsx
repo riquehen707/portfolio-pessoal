@@ -6,7 +6,6 @@ import type { serviceInclusions } from "@/data/service-hub";
 import type { ServiceInspiration } from "@/data/service-inspirations";
 
 import styles from "./ServiceHubView.module.scss";
-import { StoryProgress } from "./StoryProgress";
 
 type ServiceInclusionsSnapProps = {
   inclusions: typeof serviceInclusions;
@@ -36,9 +35,8 @@ export function ServiceInclusionsSnap({
           </h2>
 
           <p>
-            Design, infraestrutura e manutenção fazem parte do
-            serviço. Você não precisa montar uma equipe técnica
-            para manter o site funcionando.
+            Estrutura, interface, domínio, hospedagem e
+            manutenção ficam no mesmo serviço.
           </p>
 
           <ul className={styles.inclusionsGrid}>
@@ -181,11 +179,6 @@ export function ServiceInclusionsSnap({
       </div>
 
       <footer className={styles.inclusionsFooter}>
-        <StoryProgress
-          chapter={3}
-          label="O que você recebe"
-        />
-
         <div className={styles.inclusionsFooterActions}>
           <div className={styles.priceReassurance}>
             <strong>A partir de R$300/mês</strong>

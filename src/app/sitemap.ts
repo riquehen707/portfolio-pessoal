@@ -4,7 +4,8 @@ import { getIndexableServiceExamples, getServiceExamplePath } from "@/data/servi
 import { getServiceInspirationPath, serviceInspirations } from "@/data/service-inspirations";
 
 import { baseURL, blog, routes as routesConfig } from "@/resources";
-import { getAllArticles } from "@/data/articles";
+import { getAllContentArticles, getArticlesByTranslationKey } from "@/data/articles";
+import { getArticlePath } from "@/lib/contentLocale";
 import { getPublishedMovies } from "@/data/movies";
 import { getPublishedGames } from "@/data/games";
 import { getPublishedBooks, getPublishedComics } from "@/data/reading";
@@ -20,12 +21,27 @@ const redirectOnlyRoutes = new Set(["/about"]);
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const today = new Date().toISOString().split("T")[0];
 
-  const blogPosts = getAllArticles().map((post) => ({
-    url: `${baseURL}${blog.path}/${post.slug}`,
+  const blogPosts = getAllContentArticles().map((post) => {
+    const translations = post.metadata.translationKey
+      ? getArticlesByTranslationKey(post.metadata.translationKey)
+      : [];
+    const pt = translations.find((item) => item.metadata.locale === "pt-BR");
+    const en = translations.find((item) => item.metadata.locale === "en");
+    const languages = pt && en
+      ? {
+          "pt-BR": `${baseURL}${getArticlePath(pt.slug, "pt-BR")}`,
+          en: `${baseURL}${getArticlePath(en.slug, "en")}`,
+          "x-default": `${baseURL}${getArticlePath(pt.slug, "pt-BR")}`,
+        }
+      : undefined;
+    return {
+    url: `${baseURL}${getArticlePath(post.slug, post.metadata.locale)}`,
     lastModified: post.metadata.updatedAt || post.metadata.publishedAt || today,
     changeFrequency: "monthly" as const,
     priority: 0.72,
-  }));
+    alternates: languages ? { languages } : undefined,
+  };
+  });
 
   const moviePages = (await getPublishedMovies()).map((movie) => ({
     url: `${baseURL}/filmes/${movie.slug}`,

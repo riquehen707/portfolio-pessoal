@@ -29,12 +29,15 @@ const entries: CameraInput[] = [
 ];
 
 const makerId = { canon: "org_canon", sony: "org_sony", fujifilm: "org_fujifilm" } as const;
+const lowerFirst = (value: string) => /^(Reels|YouTube)\b/.test(value)
+  ? value
+  : value.charAt(0).toLocaleLowerCase("pt-BR") + value.slice(1);
 
 export const cameraProducts: Product[] = entries.map((item) => ({
   id: `prod_${item.key}`, contentType:"product", schemaVersion:1, slug:item.key.replaceAll("_", "-"), aliases:[], name:item.name,
   manufacturerId:makerId[item.maker], line:item.line, category:"Câmeras", releaseYear:item.year,
   mainImage:{src:`/images/products/cameras/${item.image.file}`,alt:`${item.name}, câmera mirrorless vista em fotografia de produto`,sourceUrl:item.image.url,credit:item.image.credit,rights:"official-promotional",width:item.image.width,height:item.image.height}, gallery:[],
-  shortDescription:`Câmera ${item.sensor} de ${item.mp} MP com mount ${item.mount}, ${item.af.toLowerCase()} e ${item.video}.`,
+  shortDescription:`Câmera ${item.sensor} de ${item.mp} MP para ${lowerFirst(item.bestFor[0])}.`,
   strengths:item.strengths, limitations:item.limits, suitableFor:item.bestFor, categories:["Câmeras","Eletrônicos"],
   tags:[item.sensor,item.mount,"Mirrorless",item.video.split(";")[0]], relatedProductIds:[], relatedArticleSlugs:articleSlugs,
   editorialSummary:item.summary, seo:{title:`${item.name}: ficha, análise e preço`,description:`Ficha da ${item.name} com sensor, autofocus, estabilização, vídeo, mount, bateria, limitações e preço observado no Brasil.`},

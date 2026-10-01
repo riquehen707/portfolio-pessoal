@@ -3,9 +3,9 @@ import { BasePageConfig, ProductsPage, ProductItem, ServicesPage, ServiceLanding
 export const servicesPage: ServicesPage = {
   path: "/servicos",
   label: "Serviços",
-  title: "Site profissional completo por R$147/mês",
+  title: "Criação e manutenção de sites a partir de R$300/mês",
   description:
-    "Site profissional com domínio, hospedagem, design, desenvolvimento, publicação, manutenção e suporte por R$147 ao mês, sem taxa inicial.",
+    "Criação, publicação e manutenção de sites para apresentar seu trabalho e receber contatos. Planos a partir de R$300/mês, com domínio e hospedagem inclusos.",
   intro: {
     headline: "Eu crio, publico e mantenho o seu site.",
     lead: "Para profissionais, MEIs e pequenas empresas.",

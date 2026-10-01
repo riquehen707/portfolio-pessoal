@@ -1,3 +1,63 @@
-.page{display:grid;gap:clamp(2rem,6vw,5rem);width:min(1120px,calc(100% - 2rem));margin:0 auto;padding:clamp(3rem,8vw,7rem) 0}.hero{display:grid;gap:1rem;max-width:52rem}.hero h1,.hero p,.productHero h1,.productHero p,.page h2,.page h3{margin:0}.hero h1,.productHero h1{font-size:clamp(2.5rem,7vw,5rem);line-height:.98}.hero p,.productHero p,.page li,.page dd{color:var(--neutral-on-background-medium);line-height:1.65}.breadcrumb{display:flex;flex-wrap:wrap;gap:.45rem;color:var(--neutral-on-background-weak);font-size:.78rem}.breadcrumb a{color:inherit}.discovery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.discovery a,.readingBridge{display:grid;gap:.4rem;padding:1rem;border:1px solid var(--line-subtle);border-radius:.8rem;color:inherit;text-decoration:none}.discovery span,.readingBridge p{margin:0;color:var(--neutral-on-background-medium);line-height:1.5}.readingBridge{max-width:52rem}.readingBridge a{text-underline-offset:.2em}
-.productHero{display:grid;grid-template-columns:minmax(17rem,25rem) minmax(0,1fr);gap:clamp(1.5rem,5vw,4rem);align-items:center}.productImage{position:relative;min-height:26rem;background:var(--neutral-alpha-weak);border-radius:1rem;overflow:hidden}.productImage img{object-fit:contain}.productHero>div:last-child{display:grid;gap:1rem}.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(15rem,20rem);gap:clamp(2rem,6vw,4rem)}.layout article{display:grid;gap:3rem}.layout section,.layout aside{display:grid;align-content:start;gap:1rem}.layout aside{padding-left:1.25rem;border-left:1px solid var(--line-subtle)}.specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}.specs div{padding:.8rem;border:1px solid var(--line-subtle);border-radius:.65rem}.specs dt{font-size:.75rem;font-weight:750}.specs dd{margin:.25rem 0 0}
-@media(max-width:800px){.productHero,.layout,.discovery{grid-template-columns:1fr}.layout aside{padding:1rem 0 0;border-left:0;border-top:1px solid var(--line-subtle)}.specs{grid-template-columns:1fr}}
+@use "../../styles/mixins" as mixins;
+
+.page { display: grid; gap: clamp(3.5rem, 8vw, 7rem); width: min(1180px, calc(100% - 2rem)); margin: 0 auto; padding: clamp(3rem, 8vw, 7rem) 0; }
+.hero { display: grid; gap: 1rem; max-width: 48rem; }
+.hero h1, .hero p, .productHero h1, .productHero p, .page h2, .page h3 { margin: 0; }
+.hero h1, .productHero h1 { max-width: 11ch; font-size: clamp(3rem, 7vw, 5.7rem); line-height: .94; letter-spacing: -.055em; }
+.lead { max-width: 42rem; color: var(--neutral-on-background-medium); font-size: clamp(1rem, 1.8vw, 1.18rem); line-height: 1.65; }
+.eyebrow { color: var(--brand-on-background-strong, var(--neutral-on-background-strong)); font-size: .7rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.breadcrumb { display: flex; flex-wrap: wrap; gap: .45rem; color: var(--neutral-on-background-weak); font-size: .78rem; }
+.breadcrumb a { color: inherit; }
+.categoryNav { display: flex; flex-wrap: wrap; gap: .55rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line-subtle); }
+.categoryNav a { padding: .45rem 0; color: var(--neutral-on-background-medium); font-size: .88rem; font-weight: 700; text-decoration: none; }
+.categoryNav a + a::before { margin-right: .55rem; color: var(--line-subtle); content: "/"; }
+.categoryNav a:hover { color: var(--neutral-on-background-strong); text-decoration: underline; text-underline-offset: .2em; }
+.categoryNav a:focus-visible, .textLink:focus-visible, .curationImage:focus-visible, .readingImage:focus-visible { @include mixins.focus-ring; }
+
+.curations, .models, .readingSection { display: grid; gap: 1.5rem; }
+.sectionHeader { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(15rem, .9fr); gap: 1.5rem; align-items: end; }
+.sectionHeader > div { display: grid; gap: .65rem; }
+.sectionHeader h2 { font-size: clamp(2rem, 4vw, 3.35rem); line-height: .98; letter-spacing: -.04em; }
+.sectionHeader > p { max-width: 35rem; margin: 0; color: var(--neutral-on-background-medium); line-height: 1.55; }
+
+.curationGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.curationCard { display: grid; grid-template-rows: auto 1fr; min-width: 0; border-top: 1px solid var(--neutral-on-background-strong); background: var(--surface-panel-soft, var(--page-background)); }
+.curationImage { position: relative; display: block; aspect-ratio: 16 / 10; overflow: hidden; background: var(--neutral-alpha-weak); }
+.curationImage img { object-fit: cover; transition: transform 200ms ease; }
+@include mixins.hover-fine { .curationImage:hover img { transform: scale(1.025); } }
+.curationImage > span, .readingImage > span { display: grid; width: 100%; height: 100%; place-items: center; color: var(--neutral-on-background-weak); font-size: 2rem; }
+.curationContent { display: flex; min-width: 0; flex-direction: column; align-items: flex-start; padding: 1.15rem 0 0; }
+.curationContent > span, .readingCard > div > span { color: var(--neutral-on-background-weak); font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.curationContent h3, .readingCard h3 { margin: .55rem 0; font-size: 1.35rem; line-height: 1.05; letter-spacing: -.025em; }
+.curationContent h3 a, .readingCard h3 a { color: inherit; text-decoration: none; }
+.curationContent h3 a:hover, .readingCard h3 a:hover { text-decoration: underline; text-underline-offset: .18em; }
+.curationContent p, .readingCard p { margin: 0; color: var(--neutral-on-background-medium); font-size: .9rem; line-height: 1.5; }
+.textLink { margin-top: 1rem; color: var(--neutral-on-background-strong); font-size: .85rem; font-weight: 800; text-underline-offset: .2em; }
+
+.models { padding-top: clamp(1rem, 3vw, 2rem); border-top: 1px solid var(--line-subtle); }
+.readingSection { padding: clamp(2rem, 5vw, 4rem); background: var(--neutral-alpha-weak); }
+.readingGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.readingCard { display: grid; grid-template-columns: minmax(7rem, 9rem) minmax(0, 1fr); gap: 1rem; min-width: 0; padding: 1rem; background: var(--page-background); }
+.readingImage { position: relative; display: block; min-height: 12rem; overflow: hidden; background: var(--neutral-alpha-weak); }
+.readingImage img { object-fit: cover; }
+.readingCard > div { display: flex; min-width: 0; flex-direction: column; align-items: flex-start; }
+.readingAction { width: 100%; margin-top: auto; padding-top: 1rem; }
+.readingLinks { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0; color: var(--neutral-on-background-medium); font-size: .9rem; }
+.readingLinks a { color: var(--neutral-on-background-strong); font-weight: 750; text-underline-offset: .2em; }
+
+.productHero { display: grid; grid-template-columns: minmax(17rem, 25rem) minmax(0, 1fr); gap: clamp(1.5rem, 5vw, 4rem); align-items: center; }
+.productImage { position: relative; min-height: 26rem; overflow: hidden; border-radius: 1rem; background: var(--neutral-alpha-weak); }
+.productImage img { object-fit: contain; }
+.productHero > div:last-child { display: grid; gap: 1rem; }
+.layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(15rem, 20rem); gap: clamp(2rem, 6vw, 4rem); }
+.layout article { display: grid; gap: 3rem; }
+.layout section, .layout aside { display: grid; align-content: start; gap: 1rem; }
+.layout aside { padding-left: 1.25rem; border-left: 1px solid var(--line-subtle); }
+.specs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+.specs div { padding: .8rem; border: 1px solid var(--line-subtle); border-radius: .65rem; }
+.specs dt { font-size: .75rem; font-weight: 750; }
+.specs dd { margin: .25rem 0 0; color: var(--neutral-on-background-medium); line-height: 1.65; }
+
+@media (max-width: 980px) { .curationGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .sectionHeader { grid-template-columns: 1fr; } }
+@media (max-width: 800px) { .productHero, .layout { grid-template-columns: 1fr; } .layout aside { padding: 1rem 0 0; border-top: 1px solid var(--line-subtle); border-left: 0; } .specs { grid-template-columns: 1fr; } }
+@media (max-width: 680px) { .page { width: min(100% - 1.25rem, 1180px); gap: 3.5rem; } .hero h1 { font-size: clamp(2.8rem, 15vw, 4.35rem); } .categoryNav { flex-wrap: nowrap; overflow-x: auto; padding-bottom: .75rem; } .categoryNav a { flex: 0 0 auto; } .curationGrid, .readingGrid { grid-template-columns: 1fr; } .readingSection { margin-inline: -.625rem; padding: 1.25rem .625rem; } }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Column, Schema } from "@once-ui-system/core";
 
 import { ServicesAreaNav } from "@/components/services/ServicesAreaNav";
+import { ServicesNextStep } from "@/components/services/ServicesNextStep";
 import { ServiceInspirationsGallery } from "@/components/services/inspirations/ServiceInspirationsGallery";
 import { serviceInspirations } from "@/data/service-inspirations";
 import { baseURL, person } from "@/resources";
@@ -14,9 +15,9 @@ import styles from "./page.module.scss";
 
 const page = {
   path: "/servicos/inspiracoes",
-  title: "Exemplos de sites",
+  title: "Inspirações de sites",
   description:
-    "Veja diferentes exemplos de sites e encontre uma direção visual adequada ao seu negócio.",
+    "Explore direções visuais para sites. Cada referência reúne imagem, contexto e detalhes para orientar a conversa sobre seu projeto.",
 };
 
 export function generateMetadata(): Metadata {
@@ -66,6 +67,13 @@ export default function ServiceInspirationsPage() {
 
         <ServiceInspirationsGallery
           inspirations={serviceInspirations}
+        />
+        <ServicesNextStep
+          eyebrow="Depois da direção visual"
+          title="O que o site precisa fazer?"
+          description="Veja recursos de contato, apresentação e conteúdo que podem fazer parte do projeto."
+          href="/servicos/capacidades"
+          label="Explorar capacidades"
         />
       </main>
     </Column>

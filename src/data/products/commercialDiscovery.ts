@@ -19,9 +19,11 @@ export type CommercialStoreItem = {
 };
 
 export const productDiscoveryTopics = [
-  { id: "tecnologia", label: "Tecnologia", description: "Eletrônicos e hardware para uso pessoal, trabalho e setup.", categories: ["Eletrônicos", "Hardware"] },
-  { id: "casa", label: "Casa", description: "Equipamentos e ferramentas para rotina, limpeza e manutenção.", categories: ["Casa", "Ferramentas elétricas"] },
-  { id: "cozinha", label: "Cozinha", description: "Eletrodomésticos e equipamentos para preparar, vender ou servir alimentos.", categories: ["Eletrodomésticos", "Equipamentos de confeitaria"] },
+  { id: "tecnologia", label: "Tecnologia", description: "Celulares, TVs, notebooks e eletrônicos de uso diário.", categories: ["Celulares", "Televisores", "Notebooks", "Câmeras", "Áudio", "Webcams"] },
+  { id: "pc-hardware", label: "PC e hardware", description: "Componentes e periféricos para montar, atualizar ou comparar um PC.", categories: ["Processadores", "Placas de vídeo", "Placas-mãe", "Memória RAM", "Armazenamento", "Fontes", "Gabinetes", "Coolers", "Monitores"] },
+  { id: "setup", label: "Setup", description: "Monitores e equipamentos para trabalhar e estudar com mais conforto.", categories: ["Monitores", "Notebooks"] },
+  { id: "casa", label: "Casa", description: "Itens para manutenção, limpeza e rotina doméstica.", categories: ["Lavadoras e secadoras", "Ferramentas elétricas", "Aspiradores"] },
+  { id: "cozinha", label: "Cozinha", description: "Eletrodomésticos e equipamentos para preparar alimentos.", categories: ["Eletrodomésticos", "Equipamentos de confeitaria"] },
 ] as const;
 
 const active = <T extends { availability: string }>(offers: readonly T[]) => offers.filter((offer) => offer.availability === "available" || offer.availability === "preorder");

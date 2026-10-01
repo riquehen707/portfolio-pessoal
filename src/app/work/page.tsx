@@ -4,13 +4,12 @@ import { getAllWorkProjects } from "@/app/work/projectData";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { Projects } from "@/components/work/Projects";
 import { ServicesAreaNav } from "@/components/services/ServicesAreaNav";
-import Link from "next/link";
+import { ServicesNextStep } from "@/components/services/ServicesNextStep";
 import {
   about,
   baseURL,
   contentStrategy,
   person,
-  servicesPage,
   work,
 } from "@/resources";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
@@ -75,20 +74,20 @@ export default function Work() {
 
       <header className={styles.hero}>
         <p className={styles.eyebrow}>Portfólio</p>
-        <h1>{workStrategy.hero.headline}</h1>
-        <p>{workStrategy.hero.subheadline}</p>
+        <h1>Trabalhos e estudos de interface.</h1>
+        <p>Um site próprio publicado e dois estudos demonstrativos. Os cases explicam objetivos, decisões e o estado de cada projeto.</p>
       </header>
-      <section aria-labelledby="projects-title" className={styles.projects}>
-        <div className={styles.sectionHeading}>
-          <h2 id="projects-title">Trabalhos em destaque</h2>
-          <p>Um projeto próprio e estudos de interface. Os exemplos usam conteúdo ilustrativo.</p>
-        </div>
+      <section aria-labelledby="work-projects-title" className={styles.projects}>
+        <h2 className={styles.visuallyHidden} id="work-projects-title">Trabalhos selecionados</h2>
         <Projects projects={projects} layout="editorial" marginBottom="0" paddingX="0" />
       </section>
-      <footer className={styles.nextStep}>
-        <div><h2>Precisa de um site ou portfólio?</h2><p>Veja formatos, preços e o que está incluído.</p></div>
-        <Link href={servicesPage.path}>Ver serviços <span aria-hidden="true">→</span></Link>
-      </footer>
+      <ServicesNextStep
+        eyebrow="Seu projeto"
+        title="Precisa de um site ou portfólio?"
+        description="Veja o escopo, as mensalidades e como iniciar uma conversa."
+        href="/servicos"
+        label="Ver serviços"
+      />
     </Column>
   );
 }

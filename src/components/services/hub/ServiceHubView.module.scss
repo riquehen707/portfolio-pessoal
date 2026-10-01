@@ -7,11 +7,26 @@
   --surface: #ffffff;
   --accent: #a58b34;
   --accent-bright: #d8ad18;
-  --deep: #071d15;
+  --deep: var(--action-primary-background);
+  --service-action-primary-background: var(--action-primary-background);
+  --service-action-primary-background-hover: var(--action-primary-background-hover);
+  --service-action-primary-background-active: var(--action-primary-background-active);
+  --service-action-primary-foreground: var(--action-primary-foreground);
+  --service-action-secondary-background: var(--surface);
+  --service-action-secondary-background-hover: var(--color-surface);
+  --service-action-secondary-background-active: var(--color-border);
+  --service-action-secondary-border: var(--action-secondary-border);
+  --service-action-secondary-border-hover: var(--action-primary-background);
+  --service-action-secondary-foreground: var(--action-primary-background);
+  --service-action-accent-background: var(--accent-bright);
+  --service-action-accent-background-active: var(--color-accent-gold);
+  --service-action-accent-foreground: var(--action-primary-background);
+  --service-action-focus-ring: var(--focus-ring);
+  --service-action-focus-ring-on-dark: var(--accent-bright);
 
   width: 100%;
+  min-width: 0;
   margin: 0;
-  overflow-x: clip;
 
   background: var(--paper);
   color: var(--ink);
@@ -20,9 +35,10 @@
 .shell section {
   position: relative;
 
-  width: min(100% - 4rem, 100rem);
+  width: min(100% - 4rem, 82rem);
+  min-width: 0;
   margin-inline: auto;
-  padding: clamp(5.5rem, 7vw, 7.5rem) 0;
+  padding: clamp(4.5rem, 6vw, 6rem) 0;
 
   border-top: 1px solid var(--line);
 
@@ -43,10 +59,10 @@
 }
 
 .shell h1 {
-  max-width: 10.5ch;
+  max-width: 14ch;
 
-  font-size: clamp(4.25rem, 5.7vw, 6.75rem);
-  line-height: 0.91;
+  font-size: clamp(3.1rem, 4.8vw, 5.5rem);
+  line-height: .96;
 }
 
 .shell h2 {
@@ -59,6 +75,25 @@
   text-decoration: none;
 }
 
+.heroCopy,
+.heroVisual,
+.examplesIntro,
+.examplesControls,
+.showcasePrimary,
+.showcaseSecondaryList,
+.inclusionsIntro,
+.inclusionsVisual,
+.processIntro,
+.processSteps,
+.plansIntro,
+.plansGrid,
+.faqIntro,
+.faqList,
+.closingCopy,
+.closingVisual {
+  min-width: 0;
+}
+
 /* -------------------------------------------------------------------------- */
 /* SHARED                                                                     */
 /* -------------------------------------------------------------------------- */
@@ -68,7 +103,7 @@
   align-items: center;
   gap: 0.5rem;
 
-  color: #887126;
+  color: #765d12;
 
   font-size: 0.7rem;
   font-weight: 760;
@@ -101,7 +136,7 @@
 
   padding: 0 1.4rem;
 
-  border: 1px solid var(--deep);
+  border: 1px solid var(--service-action-primary-background);
   border-radius: 999px;
 
   font-size: 0.86rem;
@@ -114,29 +149,62 @@
     color 180ms ease;
 }
 
-.primaryAction,
-.processAction {
-  background: var(--deep);
-  color: #fff;
+.shell a.primaryAction,
+.shell a.processAction {
+  background: var(--service-action-primary-background);
+  color: var(--service-action-primary-foreground);
 }
 
-.primaryAction:hover,
-.processAction:hover {
+.shell a.primaryAction:hover,
+.shell a.processAction:hover {
   transform: translateY(-2px);
 
-  background: #0d2a1e;
+  border-color: var(--service-action-primary-background-hover);
+  background: var(--service-action-primary-background-hover);
 }
 
-.secondaryAction {
-  border-color: #c9cbc1;
-
-  background: transparent;
+.shell a.primaryAction:active,
+.shell a.processAction:active {
+  transform: translateY(0);
+  border-color: var(--service-action-primary-background-active);
+  background: var(--service-action-primary-background-active);
 }
 
-.secondaryAction:hover {
-  border-color: var(--ink);
+.shell a.secondaryAction {
+  border-color: var(--service-action-secondary-border);
 
-  background: rgb(255 255 255 / 0.45);
+  background: var(--service-action-secondary-background);
+  color: var(--service-action-secondary-foreground);
+}
+
+.shell a.secondaryAction:hover {
+  border-color: var(--service-action-secondary-border-hover);
+
+  background: var(--service-action-secondary-background-hover);
+}
+
+.shell a.secondaryAction:active {
+  transform: translateY(0);
+  border-color: var(--service-action-secondary-border-hover);
+  background: var(--service-action-secondary-background-active);
+}
+
+.primaryAction > span,
+.secondaryAction > span,
+.processAction > span,
+.planAction > span,
+.closingAction > span {
+  color: currentColor;
+}
+
+.primaryAction:focus-visible,
+.secondaryAction:focus-visible,
+.processAction:focus-visible,
+.planAction:focus-visible,
+.closingAction:focus-visible,
+.exampleFilters button:focus-visible {
+  outline: 2px solid var(--service-action-focus-ring);
+  outline-offset: 3px;
 }
 
 .textLink {
@@ -232,37 +300,31 @@
 .hero {
   width: 100% !important;
   max-width: none !important;
-  min-height: min(56rem, calc(100svh - 4rem));
+  min-height: 0;
 
   margin: 0 !important;
   padding:
-    clamp(4rem, 7vw, 7rem)
-    max(2rem, calc((100vw - 100rem) / 2))
-    clamp(3rem, 5vw, 5rem) !important;
+    clamp(3rem, 5vw, 5rem)
+    max(2rem, calc((100vw - 82rem) / 2))
+    clamp(3rem, 5vw, 4rem) !important;
 
   border-top: 0 !important;
 
-  background:
-    radial-gradient(
-      circle at 82% 42%,
-      rgb(165 139 52 / 0.08),
-      transparent 28rem
-    ),
-    var(--paper);
+  background: var(--paper);
 }
 
 .heroGrid {
   display: grid;
   grid-template-columns:
-    minmax(29rem, 0.92fr)
-    minmax(38rem, 1.08fr);
+    minmax(0, 0.92fr)
+    minmax(0, 1.08fr);
 
   align-items: center;
   gap: clamp(3rem, 4.5vw, 5.5rem);
 
   width: 100%;
-  max-width: 100rem;
-  min-height: clamp(41rem, 74vh, 50rem);
+  max-width: 82rem;
+  min-height: 0;
 
   margin-inline: auto;
 }
@@ -271,8 +333,8 @@
   position: relative;
   z-index: 5;
 
-  max-width: 47rem;
-  padding: 1rem 0 2rem;
+  max-width: 41rem;
+  padding: 0;
 }
 
 .heroCopy .kicker {
@@ -281,7 +343,7 @@
 
 .heroStatement {
   max-width: 38rem;
-  margin-top: 1.6rem !important;
+  margin-top: 1.2rem !important;
 
   color: var(--muted);
 
@@ -344,7 +406,7 @@
   align-items: center;
   gap: 0.7rem;
 
-  margin-top: 2.4rem;
+  margin-top: 1.4rem;
 }
 
 .heroOffer {
@@ -354,7 +416,7 @@
   gap: 0.55rem;
 
   max-width: 36rem;
-  margin-top: 1.35rem !important;
+  margin-top: 1.25rem !important;
 
   color: var(--muted);
 
@@ -385,7 +447,7 @@
 .heroFigure {
   position: relative;
 
-  min-height: clamp(38rem, 43vw, 46rem);
+  min-height: clamp(27rem, 34vw, 35rem);
   margin: 0;
 
   isolation: isolate;
@@ -655,7 +717,7 @@
   display: flex;
   height: 1.05rem;
 
-  align-items: end;
+  align-items: flex-end;
   gap: 0.14rem;
 }
 
@@ -698,17 +760,17 @@
 /* -------------------------------------------------------------------------- */
 
 .examplesSection {
-  padding-top: clamp(6rem, 9vw, 9rem) !important;
-  padding-bottom: clamp(6rem, 9vw, 9rem) !important;
+  padding-top: clamp(4.5rem, 6vw, 6rem) !important;
+  padding-bottom: clamp(4.5rem, 6vw, 6rem) !important;
 }
 
 .examplesChapter {
   display: grid;
   grid-template-columns:
-    minmax(24rem, 0.88fr)
-    minmax(32rem, 1.12fr);
+    minmax(0, 0.88fr)
+    minmax(0, 1.12fr);
 
-  align-items: end;
+  align-items: flex-end;
   gap: clamp(3rem, 5vw, 6rem);
 
   margin-bottom: clamp(2.5rem, 4vw, 4rem);
@@ -763,11 +825,11 @@
   min-height: 2.35rem;
   padding: 0 0.9rem;
 
-  border: 1px solid #d4d5cb;
+  border: 1px solid var(--service-action-secondary-border);
   border-radius: 999px;
 
-  background: transparent;
-  color: #555850;
+  background: var(--service-action-secondary-background);
+  color: var(--service-action-secondary-foreground);
 
   cursor: pointer;
 
@@ -785,14 +847,23 @@
 .exampleFilters button:hover {
   transform: translateY(-1px);
 
-  border-color: #9da198;
+  border-color: var(--service-action-secondary-border-hover);
+
+  background: var(--service-action-secondary-background-hover);
+}
+
+.exampleFilters button:active {
+  transform: translateY(0);
+
+  border-color: var(--service-action-secondary-border-hover);
+  background: var(--service-action-secondary-background-active);
 }
 
 .exampleFilters button[aria-pressed="true"] {
-  border-color: var(--deep);
+  border-color: var(--service-action-primary-background);
 
-  background: var(--deep);
-  color: #fff;
+  background: var(--service-action-primary-background);
+  color: var(--service-action-primary-foreground);
 }
 
 .examplesShowcase {
@@ -808,7 +879,7 @@
 .showcasePrimary {
   position: relative;
 
-  min-height: clamp(36rem, 44vw, 46rem);
+  min-height: clamp(31rem, 36vw, 38rem);
 
   overflow: hidden;
 
@@ -1100,7 +1171,7 @@
 
 .examplesFooter {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   justify-content: space-between;
   gap: 1rem;
 }
@@ -1135,8 +1206,8 @@
 .inclusionsContent {
   display: grid;
   grid-template-columns:
-    minmax(25rem, 0.9fr)
-    minmax(38rem, 1.1fr);
+    minmax(0, 0.9fr)
+    minmax(0, 1.1fr);
 
   align-items: center;
   gap: clamp(4rem, 6vw, 7rem);
@@ -1224,7 +1295,7 @@
   z-index: -3;
 
   top: 6%;
-  right: -5%;
+  right: 0;
   bottom: 5%;
   left: 5%;
 
@@ -1516,7 +1587,7 @@
   display: flex;
   height: 1.2rem;
 
-  align-items: end;
+  align-items: flex-end;
   gap: 0.18rem;
 
   margin-top: 0.55rem;
@@ -1561,7 +1632,7 @@
   position: absolute;
   z-index: 6;
 
-  right: -1%;
+  right: 0;
   bottom: 9%;
 
   width: 10.5rem;
@@ -1696,7 +1767,7 @@
   display: flex;
   height: 1.1rem;
 
-  align-items: end;
+  align-items: flex-end;
   gap: 0.15rem;
 }
 
@@ -1740,7 +1811,7 @@
 
 .inclusionsFooter {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   justify-content: space-between;
   gap: 2rem;
 
@@ -1785,8 +1856,8 @@
 .processSection {
   display: grid;
   grid-template-columns:
-    minmax(24rem, 0.82fr)
-    minmax(38rem, 1.18fr);
+    minmax(0, 0.82fr)
+    minmax(0, 1.18fr);
 
   column-gap: clamp(4rem, 7vw, 8rem);
   align-items: start;
@@ -2042,10 +2113,10 @@
 .plansLayout {
   display: grid;
   grid-template-columns:
-    minmax(25rem, 0.72fr)
-    minmax(50rem, 1.28fr);
+    minmax(0, 0.56fr)
+    minmax(0, 1.44fr);
 
-  gap: clamp(3rem, 5vw, 5.5rem);
+  gap: clamp(3rem, 4vw, 4.5rem);
   align-items: start;
 }
 
@@ -2248,7 +2319,7 @@
   border-radius: 999px;
 
   background: #b09842;
-  color: #fff;
+  color: var(--neutral-on-background-strong);
 
   font-size: 0.51rem;
   font-weight: 780;
@@ -2371,9 +2442,9 @@
   color: #d0b85f;
 }
 
-.planAction {
+.shell a.planAction {
   display: flex;
-  min-height: 2.85rem;
+  min-height: 3rem;
 
   align-items: center;
   justify-content: space-between;
@@ -2382,12 +2453,13 @@
   margin-top: auto;
   padding: 0 0.9rem;
 
-  border: 1px solid #c7c9bf;
+  border: 1px solid var(--service-action-secondary-border);
   border-radius: 999px;
 
-  color: #30352f;
+  background: var(--service-action-secondary-background);
+  color: var(--service-action-secondary-foreground);
 
-  font-size: 0.63rem;
+  font-size: 0.8rem;
   font-weight: 760;
 
   transition:
@@ -2397,26 +2469,44 @@
     transform 180ms ease;
 }
 
-.planAction:hover {
+.shell a.planAction:hover {
   transform: translateY(-1px);
 
-  border-color: var(--deep);
+  border-color: var(--service-action-primary-background);
 
-  background: var(--deep);
-  color: #fff;
+  background: var(--service-action-primary-background);
+  color: var(--service-action-primary-foreground);
 }
 
-.plan[data-featured="true"] .planAction {
-  border-color: #fff;
-
-  background: #fff;
-  color: var(--deep);
+.shell a.planAction:active {
+  transform: translateY(0);
+  border-color: var(--service-action-primary-background-active);
+  background: var(--service-action-primary-background-active);
+  color: var(--service-action-primary-foreground);
 }
 
-.plan[data-featured="true"] .planAction:hover {
-  border-color: #e4d18e;
+.shell .plan[data-featured="true"] a.planAction {
+  border-color: var(--service-action-secondary-background);
 
-  background: #e4d18e;
+  background: var(--service-action-secondary-background);
+  color: var(--service-action-secondary-foreground);
+}
+
+.shell .plan[data-featured="true"] a.planAction:hover {
+  border-color: var(--service-action-accent-background);
+
+  background: var(--service-action-accent-background);
+  color: var(--service-action-accent-foreground);
+}
+
+.shell .plan[data-featured="true"] a.planAction:active {
+  border-color: var(--service-action-accent-background-active);
+  background: var(--service-action-accent-background-active);
+  color: var(--service-action-accent-foreground);
+}
+
+.plan[data-featured="true"] .planAction:focus-visible {
+  outline-color: var(--service-action-focus-ring-on-dark);
 }
 
 .plansProgress .storyProgress {
@@ -2430,8 +2520,8 @@
 .faqSection {
   display: grid;
   grid-template-columns:
-    minmax(24rem, 0.72fr)
-    minmax(40rem, 1.28fr);
+    minmax(0, 0.72fr)
+    minmax(0, 1.28fr);
 
   column-gap: clamp(4rem, 7vw, 8rem);
   align-items: start;
@@ -2678,8 +2768,8 @@
 .closingInner {
   display: grid;
   grid-template-columns:
-    minmax(27rem, 0.82fr)
-    minmax(40rem, 1.18fr);
+    minmax(0, 0.82fr)
+    minmax(0, 1.18fr);
 
   align-items: center;
   gap: clamp(4rem, 6vw, 7rem);
@@ -2723,22 +2813,34 @@
   line-height: 1.55;
 }
 
-.closingAction {
+.shell a.closingAction {
   width: fit-content;
   margin-top: 2rem;
 
-  border-color: #fff;
+  border-color: var(--service-action-secondary-background);
 
-  background: #fff;
-  color: var(--deep);
+  background: var(--service-action-secondary-background);
+  color: var(--service-action-secondary-foreground);
 }
 
-.closingAction:hover {
+.shell a.closingAction:hover {
   transform: translateY(-2px);
 
-  border-color: #ddca84;
+  border-color: var(--service-action-accent-background);
 
-  background: #ddca84;
+  background: var(--service-action-accent-background);
+  color: var(--service-action-accent-foreground);
+}
+
+.shell a.closingAction:active {
+  transform: translateY(0);
+  border-color: var(--service-action-accent-background-active);
+  background: var(--service-action-accent-background-active);
+  color: var(--service-action-accent-foreground);
+}
+
+.closingAction:focus-visible {
+  outline-color: var(--service-action-focus-ring-on-dark);
 }
 
 .closingCopy small {
@@ -2900,7 +3002,7 @@
   position: absolute;
   z-index: 5;
 
-  right: -1%;
+  right: 0;
   bottom: 0;
 
   width: clamp(8.5rem, 13vw, 11rem);
@@ -3014,14 +3116,312 @@
 }
 
 /* -------------------------------------------------------------------------- */
+/* DESKTOP REFINEMENT                                                         */
+/* -------------------------------------------------------------------------- */
+
+@media (min-width: 1181px) {
+  .examplesSection,
+  .inclusionsSection {
+    padding-top: clamp(5rem, 6vw, 6rem) !important;
+    padding-bottom: clamp(5rem, 6vw, 6rem) !important;
+  }
+
+  .processSection,
+  .plansSection,
+  .faqSection {
+    padding-top: clamp(5rem, 6.5vw, 6.5rem) !important;
+    padding-bottom: clamp(5rem, 6.5vw, 6.5rem) !important;
+  }
+
+  .storyProgress {
+    color: #666a62;
+    font-size: 0.67rem;
+  }
+
+  .examplesIntro > p:last-child,
+  .inclusionsIntro > p:last-of-type,
+  .processIntro > p:not(.kicker),
+  .plansIntro > p:not(.kicker),
+  .faqIntro > p:not(.kicker) {
+    color: #51544e;
+    font-size: 0.94rem;
+  }
+
+  .examplesChapter {
+    grid-template-columns:
+      minmax(0, 0.78fr)
+      minmax(0, 1.22fr);
+    margin-bottom: clamp(3rem, 4vw, 4.25rem);
+  }
+
+  .examplesControls > p {
+    color: #6f726b;
+    font-size: 0.67rem;
+  }
+
+  .exampleFilters button {
+    font-size: 0.72rem;
+  }
+
+  .examplesShowcase {
+    grid-template-columns:
+      minmax(0, 1.7fr)
+      minmax(21rem, 0.54fr);
+    gap: clamp(1.5rem, 2vw, 2rem);
+  }
+
+  .showcasePrimary {
+    min-height: clamp(31rem, 36vw, 38rem);
+  }
+
+  .secondaryHeading {
+    color: #666a62;
+    font-size: 0.65rem;
+  }
+
+  .showcaseSecondaryCopy > span {
+    color: #555951;
+    font-size: 0.72rem;
+  }
+
+  .inclusionsContent {
+    grid-template-columns:
+      minmax(0, 0.84fr)
+      minmax(0, 1.16fr);
+    gap: clamp(4.5rem, 6vw, 6.5rem);
+  }
+
+  .inclusionsGrid li {
+    padding: 1.1rem 0 1.2rem;
+  }
+
+  .inclusionNumber {
+    color: #777b73;
+    font-size: 0.63rem;
+  }
+
+  .inclusionsGrid h3 {
+    font-size: 0.94rem;
+  }
+
+  .inclusionsGrid p {
+    color: #555951;
+    font-size: 0.74rem;
+  }
+
+  .inclusionsVisual {
+    min-height: clamp(42rem, 45vw, 48rem);
+  }
+
+  .processSection {
+    grid-template-columns:
+      minmax(0, 0.76fr)
+      minmax(0, 1.24fr);
+    column-gap: clamp(4.5rem, 6vw, 7rem);
+  }
+
+  .processStepLabel {
+    color: #747970;
+    font-size: 0.62rem;
+  }
+
+  .processSteps h3 {
+    font-weight: 700;
+  }
+
+  .processSteps p {
+    color: #51554e;
+    font-size: 0.86rem;
+  }
+
+  .processMarker > span {
+    border-color: #9fa49a;
+    color: #5f655d;
+  }
+
+  .processSupport,
+  .processEnd small {
+    color: #6f746c;
+    font-size: 0.68rem;
+  }
+
+  .plansLayout {
+    grid-template-columns:
+      minmax(0, 0.56fr)
+      minmax(0, 1.44fr);
+    gap: clamp(2.5rem, 3vw, 3.25rem);
+  }
+
+  .plansIntro h2 {
+    max-width: none;
+    font-size: clamp(2.9rem, 3.35vw, 3.55rem);
+  }
+
+  .plansAssurance strong {
+    font-size: 0.74rem;
+  }
+
+  .plansAssurance small {
+    color: #696d66;
+    font-size: 0.65rem;
+  }
+
+  .plansGrid {
+    gap: clamp(0.75rem, 1vw, 1rem);
+  }
+
+  .plan {
+    min-height: 0;
+    padding: clamp(1.55rem, 1.65vw, 1.75rem);
+  }
+
+  .planHeading p {
+    font-size: 0.86rem;
+  }
+
+  .planIndex {
+    color: #747970;
+    font-size: 0.6rem;
+  }
+
+  .planBadge {
+    font-size: 0.56rem;
+  }
+
+  .planPrice {
+    margin-top: clamp(2.25rem, 3vw, 3rem);
+  }
+
+  .planPrice strong {
+    font-size: clamp(2.55rem, 2.8vw, 3.2rem);
+    font-weight: 700;
+  }
+
+  .planPrice span {
+    color: #666b63;
+    font-size: 0.72rem;
+    font-weight: 650;
+  }
+
+  .planDescription {
+    min-height: 5.25rem;
+    color: #4f534c;
+    font-size: 0.77rem;
+    line-height: 1.52;
+  }
+
+  .planInheritance {
+    min-height: 2.8rem;
+    color: #62675f;
+    font-size: 0.68rem;
+    line-height: 1.45;
+  }
+
+  .planIncludesLabel {
+    color: #686d65;
+    font-size: 0.62rem;
+  }
+
+  .plan ul {
+    flex: 1;
+    align-content: start;
+    gap: 0.72rem;
+    margin: 1rem 0 1.8rem;
+  }
+
+  .plan li {
+    grid-template-columns: 0.95rem minmax(0, 1fr);
+    gap: 0.48rem;
+    color: #3f443e;
+    font-size: 0.71rem;
+    line-height: 1.4;
+  }
+
+  .planAction {
+    min-height: 3.05rem;
+    padding-inline: 1rem;
+    font-size: 0.68rem;
+  }
+
+  .plan[data-featured="true"] {
+    box-shadow: 0 1.25rem 2.8rem rgb(8 27 19 / 0.12);
+  }
+
+  .plan[data-featured="true"] .planPrice span,
+  .plan[data-featured="true"] .planInheritance,
+  .plan[data-featured="true"] .planIncludesLabel {
+    color: #bcc9be;
+  }
+
+  .plan[data-featured="true"] .planDescription {
+    color: #d2dbd3;
+  }
+
+  .faqSection {
+    grid-template-columns:
+      minmax(0, 0.64fr)
+      minmax(0, 1.36fr);
+    column-gap: clamp(4.5rem, 6vw, 7rem);
+  }
+
+  .faqAside > span,
+  .faqQuestion small {
+    color: #747970;
+  }
+
+  .faqQuestion small {
+    font-size: 0.6rem;
+  }
+
+  .faqQuestion > span {
+    font-size: clamp(1.1rem, 1.35vw, 1.3rem);
+    font-weight: 700;
+  }
+
+  .faqItem button {
+    padding: 1.8rem 0;
+  }
+
+  .faqItem button > i {
+    border-color: #aeb2a8;
+  }
+
+  .faqAnswer p {
+    color: #51554e;
+    font-size: 0.86rem;
+  }
+
+  .closingInner {
+    grid-template-columns:
+      minmax(0, 0.72fr)
+      minmax(0, 1.28fr);
+    gap: clamp(4rem, 5vw, 6rem);
+  }
+
+  .closingCopy > p:not(.kicker) {
+    color: #d0d9d1;
+    font-size: 0.94rem;
+  }
+
+  .closingCopy small {
+    color: #aebdb1;
+    font-size: 0.68rem;
+  }
+
+  .closingVisual {
+    min-height: clamp(40rem, 43vw, 46rem);
+  }
+}
+
+/* -------------------------------------------------------------------------- */
 /* INTERMEDIATE                                                               */
 /* -------------------------------------------------------------------------- */
 
 @media (max-width: 1180px) {
   .heroGrid {
     grid-template-columns:
-      minmax(21rem, 0.9fr)
-      minmax(28rem, 1.1fr);
+      minmax(0, 0.9fr)
+      minmax(0, 1.1fr);
 
     gap: 3rem;
   }
@@ -3043,6 +3443,105 @@
     position: static;
 
     max-width: 38rem;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* COMPACT DESKTOP                                                            */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 1100px) {
+  .heroGrid,
+  .examplesChapter,
+  .inclusionsContent,
+  .processSection,
+  .faqSection,
+  .closingInner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .heroGrid {
+    min-height: 0;
+    gap: 3.5rem;
+  }
+
+  .heroCopy,
+  .closingCopy {
+    max-width: 40rem;
+  }
+
+  .heroVisual,
+  .inclusionsVisual,
+  .closingVisual {
+    width: 100%;
+    max-width: 52rem;
+    margin-inline: auto;
+  }
+
+  .heroFigure,
+  .closingVisual {
+    min-height: 42rem;
+  }
+
+  .examplesChapter {
+    gap: 2rem;
+  }
+
+  .examplesIntro,
+  .faqIntro {
+    max-width: 37rem;
+  }
+
+  .examplesControls {
+    justify-items: start;
+  }
+
+  .exampleFilters {
+    justify-content: flex-start;
+  }
+
+  .inclusionsContent,
+  .closingInner {
+    gap: 4rem;
+  }
+
+  .inclusionsIntro {
+    max-width: 39rem;
+  }
+
+  .inclusionsVisual {
+    min-height: 44rem;
+  }
+
+  .processSection,
+  .faqSection {
+    row-gap: 3.75rem;
+  }
+
+  .processIntro,
+  .faqIntro {
+    position: static;
+  }
+
+  .processIntro {
+    max-width: 38rem;
+  }
+
+  .processSteps,
+  .processProgress,
+  .faqList,
+  .faqProgress {
+    grid-column: auto;
+  }
+
+  .processSteps {
+    width: 100%;
+    max-width: 48rem;
+  }
+
+  .processSteps li {
+    min-height: auto;
+    padding-bottom: 2.75rem;
   }
 }
 
@@ -3382,7 +3881,7 @@
   }
 
   .heroVisual {
-    width: calc(100% + 0.25rem);
+    width: 100%;
   }
 
   .heroFigure {

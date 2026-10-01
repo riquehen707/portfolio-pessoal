@@ -38,7 +38,7 @@ export const serviceFormats: ServiceFormat[] = [
     description: "Organiza trabalhos, projetos ou imagens em um endereço próprio.",
     audiences: "Designers, fotógrafos, arquitetos, artistas e outros criativos.",
     detail: "Prioriza a visualização dos trabalhos e deixa contexto, perfil e contato em segundo plano.",
-    preview: { src: "/images/services/examples/arquitetura-planobruto-17.webp", alt: "Portfólio demonstrativo de Arquitetura.", position: "top" },
+    preview: { src: "/images/services/examples/estudio-unhas-tinta.webp", alt: "Galeria demonstrativa do estúdio de unhas Tinta.", position: "top" },
   },
   {
     id: "landing-page",
@@ -156,16 +156,16 @@ export const servicePlans: readonly ServiceHubPlan[] = [
     id: "essential",
     name: "Essencial",
     price: "R$300/mês",
-    description: "Para colocar seu negócio no ar com um site profissional.",
+    description: "Para manter uma presença institucional com uma pequena alteração de conteúdo por mês.",
     includes: essentialPlanIncludes,
-    cta: "Quero começar",
+    cta: "Escolher Essencial",
   },
   {
     id: "growth",
     name: "Crescimento",
     price: "R$500/mês",
     badge: "Mais escolhido",
-    description: "Para acompanhar resultados e continuar evoluindo o site.",
+    description: "Para medir tráfego e conversões antes de priorizar melhorias no site.",
     inherits: "Inclui tudo do Essencial, mais:",
     includes: [
       "Google Analytics",
@@ -182,7 +182,7 @@ export const servicePlans: readonly ServiceHubPlan[] = [
     id: "performance",
     name: "Performance",
     price: "R$800/mês",
-    description: "Para negócios que usam o site de forma mais ativa para gerar oportunidades.",
+    description: "Para operações com campanhas, novas páginas e evolução mais frequente do site.",
     inherits: "Inclui tudo do Crescimento, mais:",
     includes: [
       "Landing pages adicionais conforme necessidade",
@@ -193,7 +193,7 @@ export const servicePlans: readonly ServiceHubPlan[] = [
       "Preparação técnica para campanhas",
       "Acompanhamento mais próximo da performance",
     ],
-    cta: "Falar sobre meu projeto",
+    cta: "Conversar sobre Performance",
   },
 ] as const;
 

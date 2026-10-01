@@ -13,7 +13,8 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { baseURL, blog, person, social } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
 import { buildDiscoverImageMetadata, buildOgImage } from "@/utils/og";
-import { getAllArticles, getArticleBySlug, type BlogFile } from "@/data/articles";
+import { getAllArticles, getArticleBySlug, getArticlesByTranslationKey, type BlogFile } from "@/data/articles";
+import { getArticlePath, openGraphLocale } from "@/lib/contentLocale";
 import { creators } from "@/content/creators/creators";
 
 import styles from "./page.module.scss";
@@ -99,6 +100,15 @@ function uniqueContinuations(cards: Array<ContinuationCard | null>) {
   });
 }
 
+function translationAlternates(translationKey?: string) {
+  if (!translationKey) return undefined;
+  const translations = getArticlesByTranslationKey(translationKey);
+  const pt = translations.find((item) => item.metadata.locale === "pt-BR");
+  const en = translations.find((item) => item.metadata.locale === "en");
+  if (!pt || !en) return undefined;
+  return { languages: { "pt-BR": `${baseURL}${getArticlePath(pt.slug, "pt-BR")}`, en: `${baseURL}${getArticlePath(en.slug, "en")}`, "x-default": `${baseURL}${getArticlePath(pt.slug, "pt-BR")}` } };
+}
+
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getAllArticles();
   return posts.map((post) => ({
@@ -134,9 +144,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       ...generatedMeta.alternates,
       canonical: post.metadata.canonical ?? `${baseURL}${blog.path}/${post.slug}`,
+      ...translationAlternates(post.metadata.translationKey),
     },
     openGraph: {
       ...generatedMeta.openGraph,
+      locale: openGraphLocale("pt-BR"),
       images: buildDiscoverImageMetadata(
         absoluteImage,
         post.metadata.imageAlt ?? post.metadata.title,
@@ -264,7 +276,7 @@ export default async function BlogPost({ params }: PageProps) {
       <div className={styles.articleShell}>
         <div className={styles.articleColumn}>
           <Column className={styles.article} id="article-content" as="article">
-            <CustomMDX source={post.content} glossary={post.metadata.glossary ?? {}} />
+            <CustomMDX source={post.content} glossary={post.metadata.glossary ?? {}} locale="pt-BR" market={post.metadata.market ?? "BR"} />
           </Column>
           <aside className={styles.authorBox} aria-labelledby="about-author-title">
             <Image

@@ -10,7 +10,7 @@
   p { max-width: 68ch; margin: 0 0 1rem; }
   section { scroll-margin-top: 1.5rem; }
   a:focus-visible, summary:focus-visible, input:focus-visible, textarea:focus-visible, button:focus-visible {
-    outline: 3px solid var(--brand-on-background-strong); outline-offset: 4px;
+    outline: 3px solid var(--focus-ring); outline-offset: 4px;
   }
   input, textarea, select { font-size: 1rem; max-width: 100%; }
 }
@@ -24,8 +24,9 @@
 .eyebrow { color: var(--brand-on-background-strong); font-weight: 700; font-size: .9rem; }
 .lead { font-size: clamp(1.1rem, 2vw, 1.35rem); }
 .price { font-size: 1.25rem; font-weight: 700; }
-.action { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; padding: .9rem 1.4rem; border-radius: .5rem; background: var(--brand-solid-strong); color: var(--brand-on-solid-strong); font-weight: 700; text-decoration: none; line-height: 1.35; text-align: center; }
-.action:hover { filter: brightness(.94); }
+.action { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; padding: .9rem 1.4rem; border: var(--solid-border-width) solid var(--solid-border-color-brand); border-radius: .5rem; background: var(--brand-solid-medium); color: var(--brand-on-solid-strong); font-weight: 700; text-decoration: none; line-height: 1.35; text-align: center; }
+.action:hover { background: var(--brand-solid-strong); }
+.action:active { background: var(--brand-solid-weak); }
 .section { border-top: 1px solid var(--neutral-border-medium); padding-block: clamp(2.5rem, 5vw, 4.5rem); }
 .items { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 3rem; }
 .items li { padding-left: 1rem; border-left: 2px solid var(--brand-border-medium); }

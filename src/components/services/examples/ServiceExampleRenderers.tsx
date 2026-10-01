@@ -1,8 +1,8 @@
 import type { ComponentType } from "react";
 import type { ServiceExample } from "@/content/service-examples/serviceExampleSchema";
 import { PsychologyDemo } from "./psychology/PsychologyDemo";
-import { ArchitectureDemo } from "./architecture/ArchitectureDemo";
 import { BarbershopDemo } from "./barbershop/BarbershopDemo";
+import { NailStudioDemo } from "./nail-studio/NailStudioDemo";
 
 export type ServiceExampleRendererProps = { example: ServiceExample };
 export type ServiceExampleRenderer = ComponentType<ServiceExampleRendererProps>;
@@ -11,7 +11,7 @@ export type ServiceExampleRenderer = ComponentType<ServiceExampleRendererProps>;
 // tipografia, paleta e composição. Não existe renderer genérico de preenchimento.
 const renderers: Record<string, ServiceExampleRenderer> = {
   "psychology-elisa-veral": PsychologyDemo,
-  "architecture-planobruto-17": ArchitectureDemo,
+  "nail-studio-tinta": NailStudioDemo,
   "barbershop-traco-84": BarbershopDemo,
 };
 

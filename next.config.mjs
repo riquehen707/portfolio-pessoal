@@ -23,6 +23,16 @@ const nextConfig = {
         destination: "/personalidades/shingo-tamagawa",
         permanent: true,
       },
+      {
+        source: "/servicos/exemplos/arquitetura",
+        destination: "/servicos/exemplos/estudio-unhas",
+        permanent: true,
+      },
+      {
+        source: "/servicos/exemplos/arquitetura/projetos/:path*",
+        destination: "/servicos/exemplos/estudio-unhas",
+        permanent: true,
+      },
     ];
   },
 

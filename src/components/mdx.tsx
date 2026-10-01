@@ -78,6 +78,7 @@ import { PcBuild } from "@/components/pc/PcBuild";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 
 import { baseURL } from "@/resources";
+import type { ContentLocale, Market } from "@/lib/contentLocale";
 
 // Somente os recursos que precisam guardar estado no navegador mantêm uma
 // fronteira client. O SSR permanece ativo para preservar HTML e acessibilidade.
@@ -470,10 +471,15 @@ type CustomMDXProps = MDXRemoteProps & {
 
   // ✅ NOVO: glossário do post atual
   glossary?: Record<string, string>;
+  locale?: ContentLocale;
+  market?: Market;
 };
 
 export function CustomMDX(props: CustomMDXProps) {
   const glossary = props.glossary ?? {};
+  const localizedComponents: MDXComponents = {
+    ProductCard: (cardProps: any) => <ProductCard {...cardProps} locale={props.locale} market={props.market} />,
+  };
 
   return (
     <MDXRemote
@@ -495,7 +501,7 @@ export function CustomMDX(props: CustomMDXProps) {
           ],
         },
       }}
-      components={createMDXComponents(props.components ?? {})}
+      components={createMDXComponents({ ...localizedComponents, ...(props.components ?? {}) })}
     />
   );
 }

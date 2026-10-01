@@ -90,7 +90,6 @@ Se não cumprir nenhuma, considerar remover. Preservar conteúdo necessário à 
 │  ├─ /servicos/inspiracoes/[slug]        referências visuais com CTA contextual
 │  ├─ /servicos/exemplos                 galeria de exemplos demonstrativos
 │  ├─ /servicos/exemplos/[slug]          exemplos demonstrativos completos e publicados
-│  │  └─ /servicos/exemplos/arquitetura/projetos/[project] estudos internos da demo de Arquitetura
 │  ├─ /servicos/capacidades              recursos, módulos e wireframes interativos
 │  └─ /servicos/produtos                 ferramentas e recursos publicados
 ├─ /rss.xml
@@ -135,6 +134,15 @@ O inventário de arquivos não equivale ao sitemap público. A inclusão de rota
 - **Relações:** taxonomia, pré-requisitos, desbloqueios, relacionados e curadorias de filmes quando preenchidos.
 - **SEO:** metadata, canonical natural ou explícito, Open Graph, breadcrumbs e dados estruturados produzidos pela rota. Artigos entram no sitemap pela fachada de dados.
 - **Variações:** controladas pelo frontmatter e pelas linhas editoriais. O schema aceita campos legados; isso não os torna recomendados.
+
+### Conteúdo internacional progressivo
+
+- **Português permanece padrão:** URLs e conteúdo existentes continuam em PT-BR, sem prefixo `/pt` e sem redirecionamento por localização.
+- **Namespace inglês:** somente artigos reais em inglês usam `/en/articles/[slug]`; não existem páginas espelho, listas vazias ou uma home internacional automática.
+- **Modelo:** `locale` é opcional no frontmatter; sua ausência mantém o comportamento legado `pt-BR`. `market` (`BR` ou `US`) é independente do idioma. `translationKey` relaciona versões editoriais apenas quando a equivalência for declarada.
+- **SEO:** cada versão possui canonical próprio. `hreflang` e alternates só são gerados quando há ao menos um par PT-BR/EN com a mesma `translationKey`; não há alternate presumido por slug, tema ou semelhança de título.
+- **Descoberta:** a experiência PT continua usando apenas itens PT. A busca no namespace `/en` consulta artigos EN e não mistura automaticamente o catálogo ou serviços brasileiros.
+- **Comércio:** `Product` permanece uma entidade conceitual. Variante e oferta declaram mercado; descrições localizadas são editoriais e opcionais. BR continua usando Amazon Brasil e `riquehen-20`; uma oferta Amazon.com exige configuração separada e nunca herda essa tag.
 
 ### Caderno e registro de ideia
 
@@ -212,7 +220,7 @@ Para estúdios de animação, aplique o [modelo editorial especializado](../edit
 
 ### Loja curada e página de produto
 
-- **Rotas:** `/produtos` e `/produtos/[slug]`. `/produtos` é a vitrine pública do acervo: reúne todos os produtos publicados, busca textual, filtro pela categoria editorial registrada e filtro por oferta afiliada disponível. Ela preserva a ficha individual como local de comparação aprofundada.
+- **Rotas:** `/produtos` e `/produtos/[slug]`. `/produtos` é um hub de curadoria editorial: dá precedência a guias reais ligados aos modelos recomendados e apresenta uma seleção inicial de produtos, com busca e filtros para explorar o restante do catálogo. Leituras continuam vinculadas a obras, edições e bibliotecas próprias. A ficha individual preserva a comparação aprofundada.
 - **Dados:** `ProductCatalogSchema`, registros em `src/content/products/` e fachada em `src/data/products/`.
 - **Entidades:** `Product` guarda o modelo editorial estável; `ProductVariant` guarda a versão exata e especificações; `ProductOffer` guarda loja, URL, ASIN quando a oferta é da Amazon Brasil, afiliação, disponibilidade, preço observado e data.
 - **Relações:** fabricante aponta para `Organization`; produtos relacionados usam IDs permanentes; artigos usam slugs e `ProductCard` resolve o produto por ID.
@@ -263,7 +271,7 @@ Para estúdios de animação, aplique o [modelo editorial especializado](../edit
 
 - **Inspirações:** a prévia de `/servicos`, a galeria completa `/servicos/inspiracoes` e as páginas `/servicos/inspiracoes/[slug]` compartilham `src/data/service-inspirations.ts`; o campo `featured` seleciona a prévia curta da home. São referências e possibilidades visuais, não clientes, projetos entregues ou templates prontos. As imagens preservam sua proporção; a página individual mantém retorno à galeria e contato contextual. O campo opcional `publication` seleciona composições editoriais específicas sob `src/components/services/inspirations/`; seis inspirações adotam esse caminho. As outras seis registram uma jornada contextual e usam a publicação editorial compartilhada, sem criar registros concorrentes em `service-examples`.
 
-- **Rotas:** `/servicos/exemplos` organiza a galeria; `/servicos/exemplos/[slug]` abre cada demo e a Arquitetura possui estudos internos em `/servicos/exemplos/arquitetura/projetos/[project]`. `/servicos/capacidades` reúne uma lista editorial de recursos, uma demonstração funcional, exemplos estáticos de módulos e a explicação de estrutura. Essas rotas não substituem `/work`, não herdam os conceitos pausados de `/modelos` e não representam clientes.
+- **Rotas:** `/servicos/exemplos` organiza a galeria e `/servicos/exemplos/[slug]` abre cada demo. As URLs antigas do exemplo de Arquitetura redirecionam para o case substituto em `/servicos/exemplos/estudio-unhas`. `/servicos/capacidades` reúne uma lista editorial de recursos, uma demonstração funcional, exemplos estáticos de módulos e a explicação de estrutura. Essas rotas não substituem `/work`, não herdam os conceitos pausados de `/modelos` e não representam clientes.
 - **Dados:** `content/service-examples/serviceExampleSchema.ts`, registro em `serviceExamples.ts` e fachada `data/service-examples/`. Apenas registros `published` com preview, recursos relacionados e renderer próprio geram parâmetros estáticos.
 - **Componentes:** `components/services/examples/` fornece card, seção do catálogo, registro de renderers e uma camada comum discreta com atribuição, retorno e CTA. A interface interna pertence ao renderer e pode ter identidade visual própria.
 - **Publicação e SEO:** rascunhos não aparecem na home de serviços, não têm rota e ficam fora do sitemap. `seo.index` controla a entrada de cada exemplo publicado no sitemap; a identificação de projeto demonstrativo continua visível mesmo quando indexado.
