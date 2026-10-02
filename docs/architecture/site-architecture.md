@@ -220,7 +220,7 @@ Para estúdios de animação, aplique o [modelo editorial especializado](../edit
 
 ### Loja curada e página de produto
 
-- **Rotas:** `/produtos` e `/produtos/[slug]`. `/produtos` é um hub de curadoria editorial: dá precedência a guias reais ligados aos modelos recomendados e apresenta uma seleção inicial de produtos, com busca e filtros para explorar o restante do catálogo. Leituras continuam vinculadas a obras, edições e bibliotecas próprias. A ficha individual preserva a comparação aprofundada.
+- **Rotas:** `/produtos` e `/produtos/[slug]`. `/produtos` é um hub de curadoria editorial: apresenta até quatro entradas para guias reais, uma seleção inicial de produtos e busca por nome, marca ou categoria. Temas ficam na navegação horizontal; categorias específicas, em um filtro secundário. A listagem permite revelar mais modelos sem transformar a página em feed de artigos. Livros e quadrinhos continuam vinculados a obras, edições e bibliotecas próprias, acessíveis pela navegação. A ficha individual preserva a comparação aprofundada.
 - **Dados:** `ProductCatalogSchema`, registros em `src/content/products/` e fachada em `src/data/products/`.
 - **Entidades:** `Product` guarda o modelo editorial estável; `ProductVariant` guarda a versão exata e especificações; `ProductOffer` guarda loja, URL, ASIN quando a oferta é da Amazon Brasil, afiliação, disponibilidade, preço observado e data.
 - **Relações:** fabricante aponta para `Organization`; produtos relacionados usam IDs permanentes; artigos usam slugs e `ProductCard` resolve o produto por ID.
