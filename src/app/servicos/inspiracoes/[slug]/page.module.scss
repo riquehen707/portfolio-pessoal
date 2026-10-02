@@ -12,7 +12,7 @@
   --inspiration-line: rgba(21, 53, 47, 0.16);
   --inspiration-tint: #edf0e7;
 
-  width: min(calc(100% - 3rem), 80rem);
+  width: min(calc(100% - 3rem), 75rem);
   margin-inline: auto;
   padding: clamp(2rem, 4vw, 3.5rem) 0 clamp(5rem, 9vw, 8rem);
   color: var(--inspiration-text);
@@ -73,9 +73,9 @@
   overflow: hidden;
   margin-top: clamp(1.25rem, 2vw, 2rem);
   border: 1px solid var(--inspiration-line);
-  border-radius: 0.4rem;
+  border-radius: 0.75rem;
   background: var(--inspiration-tint);
-  box-shadow: 0 1.5rem 4rem rgba(21, 53, 47, 0.1);
+  box-shadow: 0 1.5rem 3.5rem rgba(21, 53, 47, 0.1);
 }
 
 .portraitFigure {

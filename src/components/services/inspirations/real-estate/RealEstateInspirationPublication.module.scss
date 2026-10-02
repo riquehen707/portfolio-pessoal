@@ -16,7 +16,7 @@
   --estate-line: rgba(18, 59, 52, 0.17);
   --estate-line-strong: rgba(18, 59, 52, 0.29);
 
-  width: min(calc(100% - 3rem), 68rem);
+  width: min(calc(100% - 3rem), 75rem);
   margin-inline: auto;
   padding: clamp(1.25rem, 2.5vw, 2.5rem) 0 clamp(4rem, 8vw, 7rem);
   color: var(--estate-ink);
@@ -190,9 +190,9 @@
   min-width: 0;
   overflow: hidden;
   border: 1px solid var(--estate-line);
-  border-radius: 0.8rem;
+  border-radius: 0.75rem;
   background: #fff;
-  box-shadow: 0 1.7rem 4.5rem rgba(18, 59, 52, 0.1);
+  box-shadow: 0 1.5rem 3.5rem rgba(18, 59, 52, 0.1);
 }
 
 .demoBrandBar {

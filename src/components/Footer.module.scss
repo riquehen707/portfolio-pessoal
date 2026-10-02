@@ -5,6 +5,20 @@
   padding: 2.75rem clamp(1rem, 3vw, 1.5rem);
 }
 
+:global(body:has(.servicesWideRoot)) .footer {
+  padding-block: clamp(4rem, 6vw, 5.5rem);
+}
+
+:global(body:has(.servicesWideRoot)) .shell {
+  width: min(100%, 82rem);
+  align-items: start;
+  gap: 2rem;
+  padding: 1.5rem 0 0;
+  border: 0;
+  border-top: 1px solid var(--line-subtle);
+  border-radius: 0;
+}
+
 .shell {
   display: flex;
   justify-content: space-between;

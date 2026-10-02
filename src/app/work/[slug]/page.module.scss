@@ -1,4 +1,4 @@
-.page { width: min(100%, 68rem); margin-inline: auto; gap: 2rem; min-width: 0; padding-block: 1.5rem 4rem; }
+.page { width: min(100%, 75rem); margin-inline: auto; gap: 2rem; min-width: 0; padding-block: 1.5rem 4rem; }
 .navigation { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 .navigation a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; text-underline-offset: .25em; }
 .hero { display: grid; justify-items: start; gap: 1rem; max-width: 48rem; }
@@ -8,7 +8,7 @@
 .action { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; gap: 1rem; padding: .8rem 1.15rem; border: 1px solid var(--line-subtle); border-radius: .5rem; font-weight: 650; text-decoration: none; }
 .page a:focus-visible { outline: 2px solid var(--color-accent-gold-muted); outline-offset: 4px; }
 .cover { margin: 0; }
-.cover > div { position: relative; overflow: hidden; aspect-ratio: 16 / 10; border: 1px solid var(--line-subtle); border-radius: .75rem; background: var(--surface-flat); }
+.cover > div { position: relative; overflow: hidden; aspect-ratio: 16 / 10; border: 1px solid var(--line-subtle); border-radius: .75rem; background: var(--surface-flat); box-shadow: 0 1.5rem 3.5rem rgb(23 23 21 / .1); }
 .cover img { object-fit: cover; object-position: top; }
 .cover figcaption { margin-top: .65rem; font-size: .875rem; line-height: 1.5; color: var(--neutral-on-background-medium); }
 .article { width: min(100%, 45rem); margin-inline: auto; font-size: 1.05rem; line-height: 1.7; overflow-wrap: anywhere; }

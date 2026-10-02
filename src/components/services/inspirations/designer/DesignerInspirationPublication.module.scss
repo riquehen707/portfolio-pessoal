@@ -42,7 +42,7 @@
 .stageLead { max-width: 15ch; font-size: clamp(1.1rem, 1.8vw, 1.5rem); line-height: 1.14; }
 .stageDescription { max-width: 25rem; color: var(--muted); font-size: .91rem; line-height: 1.65; }
 
-.mockup { overflow: hidden; border: 1px solid var(--line); border-radius: .65rem; background: var(--white); box-shadow: 0 1.7rem 4.5rem rgba(23,23,23,.11); }
+.mockup { overflow: hidden; border: 1px solid var(--line); border-radius: .75rem; background: var(--white); box-shadow: 0 1.5rem 3.5rem rgba(23,23,23,.11); }
 .demoBar { display: flex; gap: 1.2rem; align-items: center; min-height: 2.6rem; padding: 0 .9rem; border-bottom: 1px solid var(--line); background: var(--white); font: 700 .52rem/1 var(--font-label); }
 .demoBar strong { display: flex; gap: .35rem; align-items: center; margin-right: auto; text-transform: uppercase; }
 .demoBar strong i { width: .45rem; height: .45rem; background: var(--blue); border-radius: 50%; }

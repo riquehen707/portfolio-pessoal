@@ -15,7 +15,7 @@
 .intro aside p { margin-top:.7rem; color:var(--muted); font-size:.78rem; line-height:1.5; }
 .tags { display:flex; flex-wrap:wrap; gap:.4rem; }
 .tags span { padding:.4rem .55rem; border:1px solid var(--line); font:700 .62rem/1 var(--font-label); }
-.figure { width:100%; overflow:hidden; border:1px solid var(--line); background:var(--tint); box-shadow:0 1.5rem 4rem rgba(23,51,46,.1); }
+.figure { width:100%; overflow:hidden; border:1px solid var(--line); border-radius:.75rem; background:var(--tint); box-shadow:0 1.5rem 3.5rem rgba(23,51,46,.1); }
 .figure.portrait { max-width:48rem; margin-inline:auto; }
 .figure img { display:block; width:100%; height:auto; }
 .figure figcaption { padding:.7rem 1rem; color:var(--muted); font-size:.65rem; line-height:1.4; }

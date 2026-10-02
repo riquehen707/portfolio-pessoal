@@ -16,7 +16,7 @@
   --photo-line: rgba(32, 53, 47, 0.17);
   --photo-line-strong: rgba(32, 53, 47, 0.3);
 
-  width: min(calc(100% - 3rem), 68rem);
+  width: min(calc(100% - 3rem), 75rem);
   margin-inline: auto;
   padding: clamp(1.25rem, 2.5vw, 2.5rem) 0 clamp(4rem, 8vw, 7rem);
   color: var(--photo-ink);
@@ -189,9 +189,9 @@
   min-width: 0;
   overflow: hidden;
   border: 1px solid var(--photo-line);
-  border-radius: 0.8rem;
+  border-radius: 0.75rem;
   background: #fff;
-  box-shadow: 0 1.7rem 4.5rem rgba(32, 53, 47, 0.1);
+  box-shadow: 0 1.5rem 3.5rem rgba(32, 53, 47, 0.1);
 }
 
 .demoBrandBar {

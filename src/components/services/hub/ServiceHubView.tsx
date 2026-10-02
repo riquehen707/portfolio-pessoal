@@ -86,6 +86,7 @@ export function ServiceHubView({
           <Reveal
             className={styles.heroCopy}
             distance={14}
+            trigger="mount"
           >
             <p className={styles.kicker}>Criação e manutenção de sites</p>
 
@@ -129,6 +130,7 @@ export function ServiceHubView({
             <Reveal
               className={styles.heroVisual}
               distance={18}
+              trigger="mount"
             >
               <figure className={styles.heroFigure}>
                 <div className={styles.desktopPreview}>

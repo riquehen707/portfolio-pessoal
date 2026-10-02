@@ -496,7 +496,7 @@
   z-index: 1;
 
   top: 9%;
-  right: 4%;
+  right: 7%;
   bottom: 10%;
   left: 1%;
 
@@ -598,12 +598,12 @@
   position: absolute;
   z-index: 5;
 
-  right: 1%;
-  bottom: 2%;
+  right: 4%;
+  bottom: 5%;
 
   display: block;
 
-  width: clamp(10rem, 12vw, 12rem);
+  width: clamp(8rem, 9vw, 9.5rem);
   aspect-ratio: 0.515;
 
   overflow: hidden;
@@ -614,10 +614,10 @@
   background: #111;
 
   box-shadow:
-    0 2rem 3.4rem rgb(12 15 12 / 0.26),
-    0 0.35rem 0.8rem rgb(12 15 12 / 0.2);
+    0 1.3rem 2.4rem rgb(12 15 12 / 0.2),
+    0 0.25rem 0.65rem rgb(12 15 12 / 0.14);
 
-  transform: rotate(1.4deg);
+  transform: rotate(0.5deg);
   transform-origin: center bottom;
 
   transition: transform 260ms ease;
@@ -869,8 +869,8 @@
 .examplesShowcase {
   display: grid;
   grid-template-columns:
-    minmax(0, 1.62fr)
-    minmax(22rem, 0.58fr);
+    minmax(0, 1.42fr)
+    minmax(23rem, 0.68fr);
 
   gap: clamp(1rem, 2vw, 1.8rem);
   align-items: stretch;
@@ -1058,15 +1058,14 @@
 
 .showcaseSecondary {
   display: grid;
-  grid-template-columns:
-    minmax(8rem, 0.82fr)
-    minmax(10rem, 1.18fr);
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
 
   gap: clamp(0.8rem, 1.5vw, 1.25rem);
 
   flex: 1;
 
   padding: 1rem 0;
+  align-items: center;
 
   border-bottom: 1px solid var(--line);
 
@@ -1076,7 +1075,8 @@
 .showcaseSecondaryImage {
   position: relative;
 
-  min-height: 8.5rem;
+  min-height: 0;
+  aspect-ratio: 16 / 10;
 
   overflow: hidden;
 
@@ -1475,10 +1475,11 @@
 .performanceCard,
 .responsiveCard {
   border: 1px solid #d9d9cf;
+  border-radius: 0.65rem;
 
   background: rgb(251 250 245 / 0.97);
 
-  box-shadow: 0 1rem 2rem rgb(18 26 19 / 0.1);
+  box-shadow: 0 0.65rem 1.4rem rgb(18 26 19 / 0.09);
 
   backdrop-filter: blur(10px);
 }
@@ -1487,14 +1488,15 @@
   position: absolute;
   z-index: 5;
 
-  top: 1%;
-  left: 0;
+  top: 3%;
+  left: 2%;
 
   display: grid;
   gap: 0.2rem;
 
-  min-width: 10.5rem;
-  padding: 0.85rem 1rem;
+  width: 9rem;
+  min-width: 0;
+  padding: 0.7rem 0.8rem;
 
   border-radius: 0.7rem;
 }
@@ -1542,11 +1544,11 @@
   position: absolute;
   z-index: 6;
 
-  top: 4%;
-  right: 0;
+  top: 3%;
+  right: 2%;
 
-  width: 9.5rem;
-  padding: 0.9rem;
+  width: 9rem;
+  padding: 0.7rem 0.8rem;
 
   border-radius: 0.7rem;
 }
@@ -1632,11 +1634,11 @@
   position: absolute;
   z-index: 6;
 
-  right: 0;
-  bottom: 9%;
+  right: 2%;
+  bottom: 7%;
 
-  width: 10.5rem;
-  padding: 0.9rem 1rem;
+  width: 9rem;
+  padding: 0.7rem 0.8rem;
 
   border-radius: 0.7rem;
 }
@@ -1751,7 +1753,7 @@
   position: absolute;
   z-index: 8;
 
-  bottom: 1%;
+  bottom: 3%;
   left: clamp(7rem, 12vw, 10rem);
 
   display: flex;
@@ -2112,19 +2114,16 @@
 
 .plansLayout {
   display: grid;
-  grid-template-columns:
-    minmax(0, 0.56fr)
-    minmax(0, 1.44fr);
+  grid-template-columns: minmax(0, 1fr);
 
-  gap: clamp(3rem, 4vw, 4.5rem);
+  gap: clamp(3rem, 5vw, 5rem);
   align-items: start;
 }
 
 .plansIntro {
-  position: sticky;
-  top: clamp(2rem, 8vh, 6rem);
+  position: static;
 
-  max-width: 29rem;
+  max-width: 52rem;
 }
 
 .plansIntro .kicker {
@@ -2132,11 +2131,11 @@
 }
 
 .plansIntro h2 {
-  max-width: 9ch;
+  max-width: 20ch;
 }
 
 .plansIntro > p:not(.kicker) {
-  max-width: 26rem;
+  max-width: 40rem;
   margin-top: 1.35rem;
 
   color: var(--muted);
@@ -3165,8 +3164,8 @@
 
   .examplesShowcase {
     grid-template-columns:
-      minmax(0, 1.7fr)
-      minmax(21rem, 0.54fr);
+      minmax(0, 1.42fr)
+      minmax(23rem, 0.68fr);
     gap: clamp(1.5rem, 2vw, 2rem);
   }
 
@@ -3246,15 +3245,13 @@
   }
 
   .plansLayout {
-    grid-template-columns:
-      minmax(0, 0.56fr)
-      minmax(0, 1.44fr);
-    gap: clamp(2.5rem, 3vw, 3.25rem);
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(3.5rem, 5vw, 5rem);
   }
 
   .plansIntro h2 {
-    max-width: none;
-    font-size: clamp(2.9rem, 3.35vw, 3.55rem);
+    max-width: 20ch;
+    font-size: clamp(3rem, 4vw, 4rem);
   }
 
   .plansAssurance strong {
@@ -3393,8 +3390,8 @@
 
   .closingInner {
     grid-template-columns:
-      minmax(0, 0.72fr)
-      minmax(0, 1.28fr);
+      minmax(0, 0.9fr)
+      minmax(0, 1.1fr);
     gap: clamp(4rem, 5vw, 6rem);
   }
 
@@ -3409,7 +3406,7 @@
   }
 
   .closingVisual {
-    min-height: clamp(40rem, 43vw, 46rem);
+    min-height: clamp(35rem, 39vw, 42rem);
   }
 }
 
@@ -3418,6 +3415,21 @@
 /* -------------------------------------------------------------------------- */
 
 @media (max-width: 1180px) {
+  .examplesShowcase {
+    grid-template-columns: 1fr;
+  }
+
+  .showcaseSecondaryList {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 1.2rem;
+    border-top: 0;
+  }
+
+  .showcaseSecondary {
+    grid-template-columns: 1fr;
+  }
+
   .heroGrid {
     grid-template-columns:
       minmax(0, 0.9fr)
@@ -4233,7 +4245,9 @@
   }
 
   .plansIntro h2 {
-    max-width: 9ch;
+    max-width: none;
+    font-size: clamp(1.9rem, 7.8vw, 2.65rem);
+    line-height: 1.05;
   }
 
   .plansAssurance {

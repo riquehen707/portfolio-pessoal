@@ -60,7 +60,7 @@ export function ServiceExampleChrome({ example, contactHref, previous, next, chi
 
         <section className={styles.offer} aria-labelledby="example-offer-title">
           <div><p>Projeto demonstrativo · seu site será criado a partir do seu conteúdo</p><h2 id="example-offer-title">Quer um site com esse nível de apresentação?</h2></div>
-          <div className={styles.price}><span>R$</span><strong>147</strong><small>/mês</small><p>Domínio, hospedagem e manutenção incluídos.</p></div>
+          <div className={styles.price}><span>R$</span><strong>300</strong><small>/mês</small><p>Domínio, hospedagem e manutenção incluídos.</p></div>
           <a className={styles.offerAction} href={contactHref} data-analytics-event="services_help_click" data-analytics-location={`service_example_${example.slug}`}>Quero meu site <span aria-hidden="true">→</span></a>
         </section>
 

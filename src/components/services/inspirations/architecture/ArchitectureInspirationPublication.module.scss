@@ -11,7 +11,7 @@
   --arch-paper: #f7f6ef;
   --arch-soft: #ebeae0;
   --arch-line: rgba(25, 25, 20, 0.16);
-  width: min(calc(100% - 3rem), 68rem);
+  width: min(calc(100% - 3rem), 75rem);
   margin-inline: auto;
   padding: clamp(1.25rem, 2.5vw, 2.5rem) 0 clamp(4rem, 8vw, 7rem);
   color: var(--arch-ink);
@@ -37,7 +37,7 @@
 .stageLead { max-width: 18ch; margin-top: .85rem !important; color: var(--arch-ink); font-size: clamp(1.18rem, 1.85vw, 1.55rem); line-height: 1.25; }
 .stageDescription { max-width: 24rem; margin-top: 1rem !important; color: var(--arch-muted); font-size: .95rem; line-height: 1.6; }
 
-.browserMockup { grid-area: demo; min-width: 0; overflow: hidden; border: 1px solid var(--arch-line); border-radius: .35rem; background: #fff; box-shadow: 0 1.7rem 4.5rem rgba(25, 25, 20, .1); }
+.browserMockup { grid-area: demo; min-width: 0; overflow: hidden; border: 1px solid var(--arch-line); border-radius: .75rem; background: #fff; box-shadow: 0 1.5rem 3.5rem rgba(25, 25, 20, .1); }
 .demoBrandBar { display: grid; grid-template-columns: minmax(max-content, 1fr) auto minmax(max-content, 1fr); gap: 1.25rem; align-items: center; min-height: 3.1rem; padding: .65rem 1rem; border-bottom: 1px solid var(--arch-line); background: rgba(255,255,255,.97); }
 .demoBrand { display: inline-flex; gap: .45rem; align-items: center; font-family: var(--font-label); font-size: .74rem; font-weight: 850; letter-spacing: .05em; text-transform: uppercase; }
 .demoBrand i { width: .55rem; height: .55rem; background: var(--arch-lime); }
