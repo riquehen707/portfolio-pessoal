@@ -47,6 +47,7 @@ const nextConfig = {
       { protocol: "https", hostname: "images.unsplash.com", pathname: "**" },
       { protocol: "https", hostname: "avatars.githubusercontent.com", pathname: "**" },
       { protocol: "https", hostname: "backend.intelbras.com", pathname: "**" },
+      { protocol: "https", hostname: "static.tp-link.com", pathname: "**" },
     ],
   },
 
