@@ -301,6 +301,7 @@ const audiovisualManufacturers = [
   ["org_qcy", "qcy", "QCY", "https://www.qcy.com/"],
   ["org_edifier", "edifier", "Edifier", "https://edifier.com.br/"],
   ["org_logitech", "logitech", "Logitech", "https://www.logitech.com/pt-br/"],
+  ["org_intelbras", "intelbras", "Intelbras", "https://www.intelbras.com/pt-br/"],
   ["org_elgato", "elgato", "Elgato", "https://www.elgato.com/"],
 ].map(([id, slug, name, website]) => OrganizationSchema.parse({
   id, slug, name, website, kind: "company", status: "draft", workIds: [],
