@@ -11,6 +11,7 @@ import { studyWorkspaceOffers, studyWorkspaceProducts, studyWorkspaceVariants } 
 import { homeCleaningOffers, homeCleaningProducts, homeCleaningVariants } from "./homeCleaningProducts";
 import { audiovisualOffers, audiovisualProducts, audiovisualVariants } from "./audiovisualProducts";
 import { homeToolOffers, homeToolProducts, homeToolVariants } from "./homeTools";
+import { energyOffers, energyProducts, energyVariants } from "./energyProducts";
 
 const articleSlug = "melhores-celulares-ate-1500";
 const motoG86ArticleSlug = "moto-g86-vale-a-pena";
@@ -22,6 +23,7 @@ const smartphone = (data: Omit<Extract<ProductVariant["specifications"],{type:"s
 const television = (data: Omit<Extract<ProductVariant["specifications"],{type:"television"}>,"type">):ProductVariant["specifications"] => ({type:"television",...data});
 
 const products:Product[]=[
+  ...energyProducts,
   ...audiovisualProducts,
   ...homeToolProducts,
   ...homeCleaningProducts,
@@ -45,6 +47,7 @@ const products:Product[]=[
 ];
 
 const variants:ProductVariant[]=[
+  ...energyVariants,
   ...audiovisualVariants,
   ...homeToolVariants,
   ...homeCleaningVariants,
@@ -69,6 +72,7 @@ const variants:ProductVariant[]=[
 ];
 
 export const productCatalog=ProductCatalogSchema.parse({products,variants,offers:[
+  ...energyOffers,
   ...audiovisualOffers,
   ...homeToolOffers,
   ...homeCleaningOffers,
