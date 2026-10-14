@@ -8,6 +8,9 @@ import { confectioneryEssentialOffers, confectioneryEssentialProducts, confectio
 import { pcComponentOffers, pcComponentProducts, pcComponentVariants } from "./pcComponents";
 import { gamingPeripheralOffers, gamingPeripheralProducts, gamingPeripheralVariants } from "./gamingPeripherals";
 import { mechanicalKeyboardOffers, mechanicalKeyboardProducts, mechanicalKeyboardVariants } from "./mechanicalKeyboards";
+import { creatorMicrophoneOffers, creatorMicrophoneProducts, creatorMicrophoneVariants } from "./creatorMicrophones";
+import { homeNetworkOffers, homeNetworkProducts, homeNetworkVariants } from "./homeNetworkProducts";
+import { energyOffers, energyProducts, energyVariants } from "./energyProducts";
 import { cameraOffers, cameraProducts, cameraVariants } from "./cameras";
 import { studyWorkspaceOffers, studyWorkspaceProducts, studyWorkspaceVariants } from "./studyWorkspaceProducts";
 import { homeCleaningOffers, homeCleaningProducts, homeCleaningVariants } from "./homeCleaningProducts";
@@ -30,6 +33,9 @@ const products:Product[]=[
   ...studyWorkspaceProducts,
   ...cameraProducts,
   ...mechanicalKeyboardProducts,
+  ...creatorMicrophoneProducts,
+  ...homeNetworkProducts,
+  ...energyProducts,
   ...gamingPeripheralProducts,
   ...pcComponentProducts,
   ...confectioneryEssentialProducts,
@@ -55,6 +61,9 @@ const variants:ProductVariant[]=[
   ...studyWorkspaceVariants,
   ...cameraVariants,
   ...mechanicalKeyboardVariants,
+  ...creatorMicrophoneVariants,
+  ...homeNetworkVariants,
+  ...energyVariants,
   ...gamingPeripheralVariants,
   ...pcComponentVariants,
   ...confectioneryEssentialVariants,
@@ -81,6 +90,9 @@ export const productCatalog=ProductCatalogSchema.parse({products,variants,offers
   ...studyWorkspaceOffers,
   ...cameraOffers,
   ...mechanicalKeyboardOffers,
+  ...creatorMicrophoneOffers,
+  ...homeNetworkOffers,
+  ...energyOffers,
   ...gamingPeripheralOffers,
   ...pcComponentOffers,
   ...confectioneryEssentialOffers,
