@@ -49,7 +49,7 @@ const nextConfig = {
       { protocol: "https", hostname: "backend.intelbras.com", pathname: "**" },
       { protocol: "https", hostname: "static.tp-link.com", pathname: "**" },
       { protocol: "https", hostname: "row.hyperx.com", pathname: "**" },
-      { protocol: "https", hostname: "cntronic.com", pathname: "**" },
+      { protocol: "https", hostname: "fifinemicrophone.com", pathname: "**" },
     ],
   },
 
