@@ -7,6 +7,7 @@ import { standMixerOffers, standMixerProducts, standMixerVariants } from "./stan
 import { confectioneryEssentialOffers, confectioneryEssentialProducts, confectioneryEssentialVariants } from "./confectioneryEssentials";
 import { pcComponentOffers, pcComponentProducts, pcComponentVariants } from "./pcComponents";
 import { gamingPeripheralOffers, gamingPeripheralProducts, gamingPeripheralVariants } from "./gamingPeripherals";
+import { mangaBoxProducts, mangaBoxVariants } from "./mangaBoxes";
 import { mechanicalKeyboardOffers, mechanicalKeyboardProducts, mechanicalKeyboardVariants } from "./mechanicalKeyboards";
 import { creatorMicrophoneOffers, creatorMicrophoneProducts, creatorMicrophoneVariants } from "./creatorMicrophones";
 import { homeNetworkOffers, homeNetworkProducts, homeNetworkVariants } from "./homeNetworkProducts";
@@ -36,6 +37,7 @@ const products:Product[]=[
   ...creatorMicrophoneProducts,
   ...homeNetworkProducts,
   ...energyProducts,
+  ...mangaBoxProducts,
   ...gamingPeripheralProducts,
   ...pcComponentProducts,
   ...confectioneryEssentialProducts,
@@ -64,6 +66,7 @@ const variants:ProductVariant[]=[
   ...creatorMicrophoneVariants,
   ...homeNetworkVariants,
   ...energyVariants,
+  ...mangaBoxVariants,
   ...gamingPeripheralVariants,
   ...pcComponentVariants,
   ...confectioneryEssentialVariants,
