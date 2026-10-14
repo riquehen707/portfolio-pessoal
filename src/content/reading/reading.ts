@@ -11,6 +11,7 @@ import { scienceFictionEditions, scienceFictionSeries, scienceFictionWorks } fro
 import { darkFantasyEditions, darkFantasySeries, darkFantasyWorks } from "./darkFantasyBooks";
 import { byungChulHanEditions, byungChulHanOffers, byungChulHanWorks } from "./byungChulHanBooks";
 import { philosophyEditions, philosophyWorks } from "./philosophyBooks";
+import { philosophyBuyingWorks, philosophyBuyingEditions } from "./philosophyBuying2026";
 import { intellectualFormationWorks } from "./intellectualFormationBooks";
 import { economicsWorks } from "./economicsBooks";
 import { psychologyWorks } from "./psychologyBooks";
@@ -53,6 +54,7 @@ const works:ReadingWork[]=[
  ...haremMangaWorks,
  ...byungChulHanWorks,
  ...philosophyWorks,
+ ...philosophyBuyingWorks,
  ...intellectualFormationWorks,
  ...economicsWorks,
   ...psychologyWorks,
@@ -209,6 +211,7 @@ const internationalEdition = (id:string,volumeId:string,title:string,publisherId
 const editions:ReadingEdition[]=[
  ...curatedReadingExpansionEditions,
   ...philosophyEditions,
+ ...philosophyBuyingEditions,
   ...fantasyRomanceEditions,
   ...scienceFictionEditions,
   ...darkFantasyEditions,
