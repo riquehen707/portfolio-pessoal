@@ -46,6 +46,7 @@ export const pcComponentOffers:ProductOffer[] = [
   amazonBrazilOffer({ id:"prod_offer_amazon_gigabyte_rtx_5060_windforce_8gb_br", variantId:"prod_variant_gigabyte_rtx_5060_windforce_8gb_br", asin:"B0F6NLT7M4", availability:"available", checkedAt:"2026-09-30" }),
   amazonBrazilOffer({ id:"prod_offer_amazon_amd_ryzen_5_5500_box_br", variantId:"prod_variant_amd_ryzen_5_5500_box_br", asin:"B09VCJ171S", availability:"available", checkedAt:"2026-09-30" }),
   amazonBrazilOffer({ id:"prod_offer_amazon_asrock_rx_6600_challenger_8gb_br", variantId:"prod_variant_asrock_rx_6600_challenger_8gb_br", asin:"B0CL5ZCH1J", availability:"unknown", checkedAt:"2026-10-13" }),
+  amazonBrazilOffer({ id:"prod_offer_amazon_asrock_rx_7600_challenger_8gb_br", variantId:"prod_variant_asrock_rx_7600_challenger_8gb_br", asin:"B0C626FFG2", availability:"unknown", checkedAt:"2026-10-13" }),
   amazonBrazilOffer({ id:"prod_offer_amazon_msi_b550m_pro_vdh_wifi_br", variantId:"prod_variant_msi_b550m_pro_vdh_wifi_br", asin:"B089D1YG11", availability:"available", checkedAt:"2026-09-30" }),
   amazonBrazilOffer({ id:"prod_offer_amazon_kingston_fury_beast_2x8_3200_br", variantId:"prod_variant_kingston_fury_beast_2x8_3200_br", asin:"B097K2WBL3", availability:"available", checkedAt:"2026-09-30" }),
   amazonBrazilOffer({ id:"prod_offer_amazon_kingston_nv3_1tb_br", variantId:"prod_variant_kingston_nv3_1tb_br", asin:"B0DBR3DZWG", availability:"available", checkedAt:"2026-09-30" }),
