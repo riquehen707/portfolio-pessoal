@@ -6,6 +6,8 @@ import { blenderOffers, blenderProducts, blenderVariants } from "./blenders";
 import { standMixerOffers, standMixerProducts, standMixerVariants } from "./standMixers";
 import { confectioneryEssentialOffers, confectioneryEssentialProducts, confectioneryEssentialVariants } from "./confectioneryEssentials";
 import { pcComponentOffers, pcComponentProducts, pcComponentVariants } from "./pcComponents";
+import { gamingPeripheralOffers, gamingPeripheralProducts, gamingPeripheralVariants } from "./gamingPeripherals";
+import { mechanicalKeyboardOffers, mechanicalKeyboardProducts, mechanicalKeyboardVariants } from "./mechanicalKeyboards";
 import { cameraOffers, cameraProducts, cameraVariants } from "./cameras";
 import { studyWorkspaceOffers, studyWorkspaceProducts, studyWorkspaceVariants } from "./studyWorkspaceProducts";
 import { homeCleaningOffers, homeCleaningProducts, homeCleaningVariants } from "./homeCleaningProducts";
@@ -27,6 +29,8 @@ const products:Product[]=[
   ...homeCleaningProducts,
   ...studyWorkspaceProducts,
   ...cameraProducts,
+  ...mechanicalKeyboardProducts,
+  ...gamingPeripheralProducts,
   ...pcComponentProducts,
   ...confectioneryEssentialProducts,
   ...standMixerProducts,
@@ -50,6 +54,8 @@ const variants:ProductVariant[]=[
   ...homeCleaningVariants,
   ...studyWorkspaceVariants,
   ...cameraVariants,
+  ...mechanicalKeyboardVariants,
+  ...gamingPeripheralVariants,
   ...pcComponentVariants,
   ...confectioneryEssentialVariants,
   ...standMixerVariants,
@@ -74,6 +80,8 @@ export const productCatalog=ProductCatalogSchema.parse({products,variants,offers
   ...homeCleaningOffers,
   ...studyWorkspaceOffers,
   ...cameraOffers,
+  ...mechanicalKeyboardOffers,
+  ...gamingPeripheralOffers,
   ...pcComponentOffers,
   ...confectioneryEssentialOffers,
   ...standMixerOffers,
