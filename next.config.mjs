@@ -49,6 +49,10 @@ const nextConfig = {
       { protocol: "https", hostname: "resource.logitechg.com", pathname: "**" },
       { protocol: "https", hostname: "resource.logitech.com", pathname: "**" },
       { protocol: "https", hostname: "static.wixstatic.com", pathname: "**" },
+      { protocol: "https", hostname: "backend.intelbras.com", pathname: "**" },
+      { protocol: "https", hostname: "static.tp-link.com", pathname: "**" },
+      { protocol: "https", hostname: "row.hyperx.com", pathname: "**" },
+      { protocol: "https", hostname: "fifinemicrophone.com", pathname: "**" },
     ],
   },
 
