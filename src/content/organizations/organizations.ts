@@ -221,6 +221,8 @@ const readingPublishers = [
   ["org_edipro","edipro","Edipro","publisher"],
   ["org_editora_unesp","editora-unesp","Editora Unesp","publisher"],
   ["org_penguin_companhia","penguin-companhia","Penguin-Companhia","imprint"],
+  ["org_objetiva","objetiva","Objetiva","imprint"],
+  ["org_zahar","zahar","Zahar","imprint"],
   ["org_dc_comics","dc-comics","DC Comics","publisher"],
   ["org_vozes","editora-vozes","Editora Vozes","publisher"],
   ["org_martins_fontes","martins-fontes","Martins Fontes","publisher"],
