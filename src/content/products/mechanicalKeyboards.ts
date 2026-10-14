@@ -21,7 +21,7 @@ const models=[
     key:"logitech_g413_tkl_se_br",slug:"logitech-g413-tkl-se-abnt2",name:"Logitech G413 TKL SE ABNT2",
     brand:"org_logitech",asin:"B0BXM4Q67V",part:"920-010562",
     page:"https://www.logitechstore.com.br/teclado-gamer-com-fio-usb-logitech-g-g413-tkl-se-preto-com-layout-brasileiro-abnt2/",
-    photo:"https://resource.logitech.com/content/dam/gaming/en/products/g413-se-tkl/2025/gallery/g413-tkl-se-mechanical-keyboard-top-angle-gallery-1-nlb.png",
+    photo:"https://resource.logitechg.com/w_544%2Ch_466%2Car_7%3A6%2Cc_pad%2Cq_auto%2Cf_auto%2Cdpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g413-se-tkl/2025/gallery/g413-tkl-se-mechanical-keyboard-top-angle-gallery-1.png",
     credit:"Logitech G — imagem internacional ilustrativa; confirme padrão ABNT2 do anúncio",rights:"official-promotional" as const,
     description:"Teclado mecânico com fio e formato TKL, switches táteis, teclas PBT e iluminação branca, com variante brasileira ABNT2.",
     strengths:["Keycaps PBT e chassi superior de alumínio escovado","Marca com suporte local e formato TKL com teclas dedicadas"],
