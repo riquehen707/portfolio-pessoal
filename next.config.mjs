@@ -53,6 +53,11 @@ const nextConfig = {
       { protocol: "https", hostname: "static.tp-link.com", pathname: "**" },
       { protocol: "https", hostname: "row.hyperx.com", pathname: "**" },
       { protocol: "https", hostname: "fifinemicrophone.com", pathname: "**" },
+      { protocol: "https", hostname: "martinsfontespaulista.vteximg.com.br", pathname: "**" },
+      { protocol: "https", hostname: "livrarialoyola.fbitsstatic.net", pathname: "**" },
+      { protocol: "https", hostname: "images.tcdn.com.br", pathname: "**" },
+      { protocol: "https", hostname: "http2.mlstatic.com", pathname: "**" },
+      { protocol: "https", hostname: "plenitudedistribuidora.com.br", pathname: "**" },
     ],
   },
 
