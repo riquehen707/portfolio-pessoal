@@ -13,7 +13,7 @@ const SourceSchema = z.object({
 });
 
 export const ProductImageSchema = z.object({
-  src: z.string().startsWith("/images/products/"),
+  src: z.string().refine((value) => value.startsWith("/images/products/") || /^https:\/\/backend\.intelbras\.com\//.test(value) || /^https:\/\/static\.tp-link\.com\//.test(value) || /^https:\/\/(?:row\.hyperx\.com|fifinemicrophone\.com)\//.test(value), { message: "Imagem local ou em CDN oficial Intelbras" }),
   alt: z.string().min(1),
   sourceUrl: z.string().url(),
   credit: z.string().min(1),
