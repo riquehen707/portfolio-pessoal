@@ -85,7 +85,7 @@ const editions: EditionSeed[] = [
     id: "read_edition_meditacoes_penguin_dinucci", workId: "read_work_meditations_marcus_aurelius",
     title: "Meditações — Penguin-Companhia, tradução de Aldo Dinucci", publisherId: "org_penguin_companhia",
     publisherUrl: "https://www.companhiadasletras.com.br/livro/9788582851777/meditacoes",
-    isbn13: "9788582851777", pages: 256, published: "2024-01-01",
+    isbn13: "9788582851777", pages: 208, published: "2024-01-10",
     imageUrl: "https://http2.mlstatic.com/D_Q_NP_778591-MLU77444138565_072024-O.webp",
     imageCredit: "Penguin-Companhia / catálogo Mercado Livre",
   },
