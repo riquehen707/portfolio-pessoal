@@ -58,6 +58,11 @@ const nextConfig = {
       { protocol: "https", hostname: "images.tcdn.com.br", pathname: "**" },
       { protocol: "https", hostname: "http2.mlstatic.com", pathname: "**" },
       { protocol: "https", hostname: "plenitudedistribuidora.com.br", pathname: "**" },
+      { protocol: "https", hostname: "is1-ssl.mzstatic.com", pathname: "**" },
+      { protocol: "https", hostname: "amancheia.com.br", pathname: "**" },
+      { protocol: "https", hostname: "loja.healing.com.br", pathname: "**" },
+      { protocol: "https", hostname: "livrariascuritiba.vteximg.com.br", pathname: "**" },
+      { protocol: "https", hostname: "americanas.vtexassets.com", pathname: "**" },
     ],
   },
 
