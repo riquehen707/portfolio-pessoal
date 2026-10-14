@@ -63,6 +63,9 @@ const nextConfig = {
       { protocol: "https", hostname: "loja.healing.com.br", pathname: "**" },
       { protocol: "https", hostname: "livrariascuritiba.vteximg.com.br", pathname: "**" },
       { protocol: "https", hostname: "americanas.vtexassets.com", pathname: "**" },
+      { protocol: "https", hostname: "d14d9vp3wdof84.cloudfront.net", pathname: "**" },
+      { protocol: "https", hostname: "down-br.img.susercontent.com", pathname: "**" },
+      { protocol: "https", hostname: "images-na.ssl-images-amazon.com", pathname: "**" },
     ],
   },
 
