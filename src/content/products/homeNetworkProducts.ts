@@ -8,7 +8,7 @@ const routers=[
   {
     key:"tp_link_archer_ax12",slug:"tp-link-archer-ax12",name:"TP-Link Archer AX12 (AX1500)",
     asin:"B0C4SN9V5K",model:"Archer AX12",page:"https://www.tp-link.com/br/home-networking/wifi-router/archer-ax12/",
-    photo:"https://static.tp-link.com/upload/image-line/Archer_AX12_1_normal_20230704125456u.jpg",
+    photo:"https://static.tp-link.com/upload/image-line/Frente_normal_20230616135953s.png",
     description:"Roteador dual band Wi-Fi 6 AX1500 com uma porta WAN Gigabit, três LAN Gigabit e quatro antenas; boa entrada para atualizar uma rede doméstica.",
     strengths:["Portas Gigabit e WPA3 para rede residencial","Wi-Fi 6 com OFDMA e recursos modernos em preço de entrada"],
     limitations:["Velocidade máxima teórica de 1.201 Mb/s em 5 GHz não equivale a velocidade real de internet","Somente três portas LAN e sem canal de 160 MHz"],
