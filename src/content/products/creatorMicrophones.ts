@@ -19,8 +19,8 @@ const mics=[
   {
     key:"fifine_am8_black",slug:"fifine-am8-preto",name:"FIFINE AmpliGame AM8 Preto",
     brand:"org_fifine",asin:"B0BMFQP2ZZ",part:"AM8",page:"https://fifinemicrophone.com/products/fifine-ampligame-am8-microphone",
-    photo:"https://cntronic.com/data/product/lg/ila-116788-1.webp",
-    credit:"FIFINE, fotografia promocional reproduzida por revendedor",rights:"permission-pending" as const,
+    photo:"https://fifinemicrophone.com/cdn/shop/files/FIFINE-ampligame-AM8-microphone-2023-red-dot-winner-black-01.png?v=1765333133&width=1206",
+    credit:"FIFINE — imagem oficial do fabricante",rights:"official-promotional" as const,
     description:"Microfone dinâmico cardioide para voz próxima, com conexões USB e XLR, monitoramento por fone e controles físicos no modo USB.",
     strengths:["Entrada USB e saída XLR oferecem flexibilidade para atualizar o setup","Mute, ganho e monitoramento são práticos no modo USB"],
     limitations:["Em modo XLR, controles USB e iluminação RGB ficam inativos","Não elimina ruído do ambiente automaticamente e precisa de boa posição"],
