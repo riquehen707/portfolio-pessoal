@@ -15,7 +15,7 @@ function formatDate(date: string, locale: ContentLocale) {
 
 export function ProductOffers({ offers, locale = "pt-BR" }: { offers: readonly ProductOffer[]; locale?: ContentLocale }) {
   const activeOffers = offers
-    .filter((offer) => offer.availability === "available" || offer.availability === "preorder")
+    .filter((offer) => offer.availability === "available" || offer.availability === "preorder" || offer.availability === "unknown")
     .filter((offer) => Boolean(offer.affiliateProgram))
     .sort((left, right) => right.checkedAt.localeCompare(left.checkedAt));
 
@@ -23,12 +23,12 @@ export function ProductOffers({ offers, locale = "pt-BR" }: { offers: readonly P
 
   const [primaryOffer, ...secondaryOffers] = activeOffers;
   const primaryPrice = formatPrice(primaryOffer, locale);
-  const labels = locale === "en" ? { verified: "Verified offer", observed: "Observed price", available: "Available when last checked", others: "Other stores", price: "View price" } : { verified: "Oferta verificada", observed: "Preço observado", available: "Disponível na última verificação", others: "Outras lojas", price: "Ver preço" };
+  const labels = locale === "en" ? { verified: "Verified offer", observed: "Observed price", available: "Check the current price and availability at the retailer", others: "Other stores", price: "View price" } : { verified: "Oferta verificada", observed: "Preço observado", available: "Confirme preço e estoque no site da loja", others: "Outras lojas", price: "Ver preço" };
 
   return (
-    <aside className={styles.offers} aria-label={labels.verified}>
+    <aside className={styles.offers} aria-label={primaryOffer.availability === "unknown" ? (locale === "en" ? "Product listing" : "Anúncio identificado") : labels.verified}>
       <div className={styles.offerHeader}>
-        <span className={styles.offerStatus}><span aria-hidden="true" />{labels.verified}</span>
+        <span className={styles.offerStatus}><span aria-hidden="true" />{primaryOffer.availability === "unknown" ? (locale === "en" ? "Product listing" : "Anúncio identificado") : labels.verified}</span>
         <span className={styles.offerDate}>{formatDate(primaryOffer.checkedAt, locale)}</span>
       </div>
       <div className={styles.primaryOffer}>

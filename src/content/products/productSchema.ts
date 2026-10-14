@@ -13,7 +13,7 @@ const SourceSchema = z.object({
 });
 
 export const ProductImageSchema = z.object({
-  src: z.string().startsWith("/images/products/"),
+  src: z.string().refine((value) => value.startsWith("/images/products/") || /^https:\/\/(?:resource\.logitechg\.com|resource\.logitech\.com|static\.wixstatic\.com|backend\.intelbras\.com|static\.tp-link\.com|row\.hyperx\.com|fifinemicrophone\.com)\//.test(value), { message: "Use imagem local ou domínio promocional oficial autorizado" }),
   alt: z.string().min(1),
   sourceUrl: z.string().url(),
   credit: z.string().min(1),

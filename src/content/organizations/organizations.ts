@@ -301,6 +301,11 @@ const audiovisualManufacturers = [
   ["org_qcy", "qcy", "QCY", "https://www.qcy.com/"],
   ["org_edifier", "edifier", "Edifier", "https://edifier.com.br/"],
   ["org_logitech", "logitech", "Logitech", "https://www.logitech.com/pt-br/"],
+  ["org_redragon", "redragon", "Redragon", "https://www.redragon.com.br/"],
+  ["org_intelbras", "intelbras", "Intelbras", "https://www.intelbras.com/pt-br/"],
+  ["org_tp_link", "tp-link", "TP-Link", "https://www.tp-link.com/br/"],
+  ["org_fifine", "fifine", "FIFINE", "https://fifinemicrophone.com/"],
+  ["org_hyperx", "hyperx", "HyperX", "https://row.hyperx.com/"],
   ["org_elgato", "elgato", "Elgato", "https://www.elgato.com/"],
 ].map(([id, slug, name, website]) => OrganizationSchema.parse({
   id, slug, name, website, kind: "company", status: "draft", workIds: [],
