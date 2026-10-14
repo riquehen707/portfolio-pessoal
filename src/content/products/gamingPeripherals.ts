@@ -42,7 +42,7 @@ export const gamingPeripheralProducts: Product[] = definitions.map(d => ({
 export const gamingPeripheralVariants: ProductVariant[] = definitions.map(d => ({
   id:`prod_variant_${d.key}_br`,productId:`prod_${d.key}`,name:`${d.name} — Brasil`,
   market:"BR",manufacturerModelNumber:d.part,distinguishingAttributes:{cor:"Preto",partNumber:d.part},
-  specifications:spec(d.features.map(item=>[...item])),imageIds:[],sources:[source(`${d.name} — ficha técnica`,d.page)],
+  specifications:spec(d.features.map(item=>[item[0],item[1],item[2]] as [string,string,string])),imageIds:[],sources:[source(`${d.name} — ficha técnica`,d.page)],
   status:"published",createdAt:checkedAt,updatedAt:checkedAt,reviewedAt:checkedAt
 }));
 export const gamingPeripheralOffers: ProductOffer[] = definitions.map(d => amazonBrazilOffer({
