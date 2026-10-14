@@ -13,7 +13,7 @@ const SourceSchema = z.object({
 });
 
 export const ProductImageSchema = z.object({
-  src: z.string().startsWith("/images/products/"),
+  src: z.string().refine((value) => value.startsWith("/images/products/") || /^https:\/\/resource\.logitechg\.com\//.test(value), { message: "Imagem deve ser local ou hospedada no CDN oficial Logitech G" }),
   alt: z.string().min(1),
   sourceUrl: z.string().url(),
   credit: z.string().min(1),
