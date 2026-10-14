@@ -11,7 +11,7 @@ const spec = (items: [string, string, string][]): ProductVariant["specifications
 const definitions = [
   {
     key:"logitech_g203_lightsync",slug:"mouse-logitech-g203-lightsync",name:"Logitech G203 LIGHTSYNC Preto",
-    image:"https://resource.logitechg.com/c_fill%2Cq_auto%2Cf_auto%2Cdpr_1.0/d_transparent.gif/content/dam/gaming/en/products/refreshed-g203/2025-update/g203-mouse-3qtr-high-back-angle-black-gallery-7.png",page:"https://www.logitechg.com/pt-br/shop/p/g203-lightsync-rgb-gaming-mouse",asin:"B087CT8PWY",part:"910-005793",
+    image:"https://resource.logitechg.com/w_544%2Ch_466%2Car_7%3A6%2Cc_pad%2Cq_auto%2Cf_auto%2Cdpr_1.0/d_transparent.gif/content/dam/gaming/en/products/refreshed-g203/2025-update/g203-mouse-top-angle-black-gallery-1.png",page:"https://www.logitechg.com/pt-br/shop/p/g203-lightsync-rgb-gaming-mouse",asin:"B087CT8PWY",part:"910-005793",
     description:"Mouse gamer com fio, seis botões programáveis, sensor de até 8.000 DPI e iluminação RGB LIGHTSYNC; uma escolha econômica para jogos e trabalho.",
     positives:["Sensor ajustável e seis botões programáveis","Conexão USB sem necessidade de pilhas"],
     negatives:["Formato pode não acomodar todas as pegadas","Cabo pode atrapalhar movimentos em mesas pequenas"],
